@@ -10,12 +10,12 @@ import "@furo/input";
 import "@furo/util/furo-navigation-pad.js";
 
 /**
- * `demo-furo-data-table`
+ * `demo-furo-data-table-row-selection-row-selection`
  *
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroDataTable extends FBP(LitElement) {
+class DemoFuroDataTableRowSelection extends FBP(LitElement) {
 
     /**
      * Themable Styles
@@ -24,7 +24,7 @@ class DemoFuroDataTable extends FBP(LitElement) {
      */
     static get styles() {
         // language=CSS
-        return Theme.getThemeForComponent('DemoFuroDataTable') || [css`
+        return Theme.getThemeForComponent('DemoFuroDataTableRowSelection') || [css`
             :host {
                 display: block;
                 height: 100%;
@@ -56,17 +56,16 @@ class DemoFuroDataTable extends FBP(LitElement) {
         return html`
             <furo-vertical-flex>
                 <div>
-                    <h2>furo-data-table playground</h2>
+                    <h2>furo-data-table</h2>
 
                 </div>
                 <furo-navigation-pad @-navigated="--navpad"></furo-navigation-pad>
                 
-                <furo-card header-text="Project Overview - Data Table Standard" secondary-text="All your project data" class="flex">
+                <furo-card header-text="Project Overview - Data Table with Row Selection" secondary-text="All your project data" class="flex">
 
-                    <furo-data-table type="project.Project" 
-                                     fields="display_name, members, start,end,cost_limit" 
-                                     sortable-fields="cost_limit,start" 
-                                     single-selection
+                    <furo-data-table type="project.Project"
+                                     fields="display_name, members, start, end, cost_limit"
+                                     sortable-fields="cost_limit,start,end"
                                      ƒ-bind-data="--data"
                                      ƒ-trigger-navigation="--navpad"
                                      ƒ-first="--collectionResponse"
@@ -79,8 +78,9 @@ class DemoFuroDataTable extends FBP(LitElement) {
                         <furo-button label="List data" primary @-click="--btnListClicked"></furo-button>
                     </furo-horizontal-flex>
                     
+                    
                 </furo-card>
-
+               
                 <furo-pretty-json ƒ-inject-data="--rowSelected"></furo-pretty-json>
             </furo-vertical-flex>
 
@@ -102,4 +102,4 @@ class DemoFuroDataTable extends FBP(LitElement) {
     }
 }
 
-window.customElements.define('demo-furo-data-table', DemoFuroDataTable);
+window.customElements.define('demo-furo-data-table-row-selection', DemoFuroDataTableRowSelection);

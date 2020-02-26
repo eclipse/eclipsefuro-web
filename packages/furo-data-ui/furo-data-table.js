@@ -44,7 +44,8 @@ const tdWRepeat = (fields) => html`
  * Tags: data-ui
  *
  * @summary datatable
- * @demo demo-furo-data-table Simple data table demo
+ * @demo demo-furo-data-table Data Table Standard
+ * @demo demo-furo-data-table-row-selection Data Table with Row Selection
  * @customElement
  * @mixes FBP
  */
@@ -73,7 +74,7 @@ class FuroDataTable extends FBP(LitElement) {
         this.type = '';
         this.fields = '';
         this.sortableFields = '';
-        this.singleSelection = false;
+
         /**
          * Column meta information
          * used to render all the column stuff
@@ -254,7 +255,7 @@ class FuroDataTable extends FBP(LitElement) {
             .cell-checkbox {
                 padding-left: var(--spacing-x, 12px);
             }
-
+            
             .table-row {
                 border-top-width: 1px;
                 border-top-style: solid;
@@ -311,6 +312,9 @@ class FuroDataTable extends FBP(LitElement) {
                 left: 0px;
                 width: 40px;
                 height: 40px;
+            }
+            :host([single-selection]) .col-checkbox {
+                display: none;
             }
         `
     }
@@ -479,8 +483,8 @@ class FuroDataTable extends FBP(LitElement) {
         <div class="data-table">
             <table @-input="--rowCheckChanged(*)">
                 <thead>
-                <tr class=header-row">
-                    <th class="header-cell" role="columnheader" scope="col">
+                <tr class="header-row">
+                    <th class="header-cell col-checkbox" role="columnheader" scope="col">
                         <div class="cell-checkbox">
                             <input type="checkbox" tabindex="-1">
                         </div>
@@ -492,7 +496,7 @@ class FuroDataTable extends FBP(LitElement) {
                 <tbody class="">
                 <template is="flow-repeat" ƒ-inject-items="--collectionData" internal-wire="--internal">
                         <tr class="table-row" aria-selected="false">
-                            <td class="table-cell cell--checkbox">
+                            <td class="table-cell cell--checkbox col-checkbox">
                                 <div class="cell-checkbox">
                                     <input type="checkbox" tabindex="-1">
                                 </div>
@@ -510,7 +514,7 @@ class FuroDataTable extends FBP(LitElement) {
      * Integration of furo-navigation-pad keys
      * @param key
      */
-    triggerNavigation(key){
+    triggerNavigation(key) {
         switch (key) {
             case "ArrowDown":
                 this.next();
@@ -530,6 +534,7 @@ class FuroDataTable extends FBP(LitElement) {
         }
 
     }
+
     /**
      * Triggers wire name --focus for internal use
      */

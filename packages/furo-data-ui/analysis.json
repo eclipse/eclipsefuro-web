@@ -13,11 +13,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 95,
+              "line": 82,
               "column": 8
             },
             "end": {
-              "line": 95,
+              "line": 82,
               "column": 17
             }
           },
@@ -35,11 +35,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 265,
+              "line": 321,
               "column": 4
             },
             "end": {
-              "line": 270,
+              "line": 326,
               "column": 5
             }
           },
@@ -54,11 +54,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 137,
+              "line": 143,
               "column": 12
             },
             "end": {
-              "line": 141,
+              "line": 147,
               "column": 13
             }
           },
@@ -75,11 +75,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 146,
+              "line": 152,
               "column": 12
             },
             "end": {
-              "line": 151,
+              "line": 157,
               "column": 13
             }
           },
@@ -96,11 +96,32 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 156,
+              "line": 162,
               "column": 12
             },
             "end": {
-              "line": 158,
+              "line": 164,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "singleSelection",
+          "type": "boolean | null | undefined",
+          "description": "if True the single row selection mode is activated",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 168,
+              "column": 12
+            },
+            "end": {
+              "line": 170,
               "column": 13
             }
           },
@@ -144,11 +165,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 401,
+              "line": 442,
               "column": 4
             },
             "end": {
-              "line": 428,
+              "line": 452,
               "column": 5
             }
           },
@@ -332,11 +353,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 119,
+              "line": 124,
               "column": 4
             },
             "end": {
-              "line": 121,
+              "line": 127,
               "column": 5
             }
           },
@@ -528,11 +549,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 272,
+              "line": 328,
               "column": 4
             },
             "end": {
-              "line": 286,
+              "line": 342,
               "column": 5
             }
           },
@@ -558,11 +579,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 294,
+              "line": 350,
               "column": 4
             },
             "end": {
-              "line": 312,
+              "line": 368,
               "column": 5
             }
           },
@@ -582,11 +603,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 319,
+              "line": 375,
               "column": 4
             },
             "end": {
-              "line": 329,
+              "line": 385,
               "column": 5
             }
           },
@@ -606,11 +627,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 337,
+              "line": 393,
               "column": 4
             },
             "end": {
-              "line": 347,
+              "line": 403,
               "column": 5
             }
           },
@@ -630,11 +651,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 352,
+              "line": 408,
               "column": 4
             },
             "end": {
-              "line": 375,
+              "line": 435,
               "column": 5
             }
           },
@@ -649,84 +670,16 @@
           }
         },
         {
-          "name": "addColumn",
-          "description": "add new column",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 380,
-              "column": 4
-            },
-            "end": {
-              "line": 383,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "field"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "removeColumn",
-          "description": "remove column by name\ne.g. removeColumn('id');",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 390,
-              "column": 4
-            },
-            "end": {
-              "line": 394,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "field"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "focus",
-          "description": "Triggers wire name --focus for internal use",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 433,
-              "column": 4
-            },
-            "end": {
-              "line": 436,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
           "name": "bindData",
           "description": "Binds data-object to data-table",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 442,
+              "line": 458,
               "column": 4
             },
             "end": {
-              "line": 456,
+              "line": 472,
               "column": 5
             }
           },
@@ -747,11 +700,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 463,
+              "line": 479,
               "column": 4
             },
             "end": {
-              "line": 486,
+              "line": 510,
               "column": 5
             }
           },
@@ -762,25 +715,145 @@
           }
         },
         {
-          "name": "_navigate",
-          "description": "Handles key navigation",
-          "privacy": "private",
+          "name": "triggerNavigation",
+          "description": "Integration of furo-navigation-pad keys",
+          "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 493,
+              "line": 516,
               "column": 4
             },
             "end": {
-              "line": 515,
+              "line": 535,
               "column": 5
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "e"
+              "name": "key"
             }
           ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "focus",
+          "description": "Triggers wire name --focus for internal use",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 540,
+              "column": 4
+            },
+            "end": {
+              "line": 543,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "first",
+          "description": "Focuses the first table row element",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 548,
+              "column": 4
+            },
+            "end": {
+              "line": 550,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "select",
+          "description": "Focuses the first table row element",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 555,
+              "column": 4
+            },
+            "end": {
+              "line": 570,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "last",
+          "description": "Focuses the last table row element",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 575,
+              "column": 4
+            },
+            "end": {
+              "line": 577,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "prev",
+          "description": "Focuses previous table row element",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 582,
+              "column": 4
+            },
+            "end": {
+              "line": 586,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "next",
+          "description": "Focuses next table row element",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 591,
+              "column": 4
+            },
+            "end": {
+              "line": 596,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
           "return": {
             "type": "void"
           }
@@ -791,11 +864,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 522,
+              "line": 603,
               "column": 4
             },
             "end": {
-              "line": 542,
+              "line": 626,
               "column": 5
             }
           },
@@ -810,16 +883,16 @@
           }
         },
         {
-          "name": "_selectRowByIndex",
-          "description": "Comfort function to select a specific table row\nby index",
+          "name": "_focusRowByIndex",
+          "description": "Comfort function to focus a specific table row\nby index",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 550,
+              "line": 634,
               "column": 4
             },
             "end": {
-              "line": 562,
+              "line": 647,
               "column": 5
             }
           },
@@ -838,17 +911,21 @@
       "demos": [
         {
           "url": "demo-furo-data-table",
-          "description": "Simple data table demo"
+          "description": "Data Table Standard"
+        },
+        {
+          "url": "demo-furo-data-table-row-selection",
+          "description": "Data Table with Row Selection"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 53,
+          "line": 51,
           "column": 0
         },
         "end": {
-          "line": 564,
+          "line": 649,
           "column": 1
         }
       },
@@ -861,11 +938,11 @@
           "description": "Typedefinition of row items\nREST SPEC Type\ne.g. task.Task.[type]",
           "sourceRange": {
             "start": {
-              "line": 265,
+              "line": 321,
               "column": 4
             },
             "end": {
-              "line": 270,
+              "line": 326,
               "column": 5
             }
           },
@@ -877,11 +954,11 @@
           "description": "list of fields which columns should be displayed\ncomma separated field list",
           "sourceRange": {
             "start": {
-              "line": 137,
+              "line": 143,
               "column": 12
             },
             "end": {
-              "line": 141,
+              "line": 147,
               "column": 13
             }
           },
@@ -893,11 +970,11 @@
           "description": "list of sortable fields\ncomma separated field list",
           "sourceRange": {
             "start": {
-              "line": 146,
+              "line": 152,
               "column": 12
             },
             "end": {
-              "line": 151,
+              "line": 157,
               "column": 13
             }
           },
@@ -909,11 +986,27 @@
           "description": "Flag to show table header information\nTRUE => shows header",
           "sourceRange": {
             "start": {
-              "line": 156,
+              "line": 162,
               "column": 12
             },
             "end": {
-              "line": 158,
+              "line": 164,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "single-selection",
+          "description": "if True the single row selection mode is activated",
+          "sourceRange": {
+            "start": {
+              "line": 168,
+              "column": 12
+            },
+            "end": {
+              "line": 170,
               "column": 13
             }
           },
@@ -930,20 +1023,8 @@
         },
         {
           "type": "CustomEvent",
-          "name": "contextmenu-requested",
-          "description": "Fired when context menu is requested\nPayload: entity",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
           "name": "data-loaded",
           "description": "Fired when inject data has successfully finished.\nPayload: this",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "key-pressed",
-          "description": "Fired when a key was pressed\nPayload: KeyboardEvent",
           "metadata": {}
         },
         {

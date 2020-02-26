@@ -1268,7 +1268,7 @@
           }
         },
         {
-          "name": "hovered",
+          "name": "focused",
           "type": "boolean | null | undefined",
           "description": "",
           "privacy": "public",
@@ -1642,7 +1642,7 @@
               "column": 2
             },
             "end": {
-              "line": 245,
+              "line": 244,
               "column": 3
             }
           },
@@ -1902,11 +1902,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 466,
+              "line": 464,
               "column": 2
             },
             "end": {
-              "line": 476,
+              "line": 474,
               "column": 3
             }
           },
@@ -1931,7 +1931,7 @@
           "column": 7
         },
         "end": {
-          "line": 477,
+          "line": 475,
           "column": 1
         }
       },
@@ -1956,7 +1956,7 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "hovered",
+          "name": "focused",
           "description": "",
           "sourceRange": {
             "start": {
@@ -2107,17 +2107,57 @@
           "defaultValue": "[]"
         },
         {
+          "name": "tabindex",
+          "type": "number",
+          "description": "Sets the tabindex",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 32,
+              "column": 4
+            },
+            "end": {
+              "line": 32,
+              "column": 17
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "0"
+        },
+        {
+          "name": "expandDepth",
+          "type": "number",
+          "description": "Sets the maximal expand level relative from the current node.\n\nExpanding is a expensive operation.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 38,
+              "column": 4
+            },
+            "end": {
+              "line": 38,
+              "column": 20
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "2"
+        },
+        {
           "name": "treeItemComponent",
           "type": "(* | string | string)",
           "description": "If you want to use a custom component for the tree-item, set this attribute.\nThe default item component is **furo-tree-item**.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 37,
+              "line": 46,
               "column": 4
             },
             "end": {
-              "line": 37,
+              "line": 46,
               "column": 26
             }
           },
@@ -2135,11 +2175,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 356,
+              "line": 391,
               "column": 6
             },
             "end": {
-              "line": 356,
+              "line": 391,
               "column": 27
             }
           },
@@ -2156,11 +2196,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 361,
+              "line": 402,
               "column": 6
             },
             "end": {
-              "line": 361,
+              "line": 402,
               "column": 24
             }
           },
@@ -2171,38 +2211,17 @@
           }
         },
         {
-          "name": "tabindex",
-          "type": "number | null | undefined",
-          "description": "Sets the tabindex",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 365,
-              "column": 6
-            },
-            "end": {
-              "line": 365,
-              "column": 45
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
           "name": "rootAsHeader",
           "type": "boolean | null | undefined",
           "description": "Set this flag if you do not want a header-text section.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 369,
+              "line": 410,
               "column": 6
             },
             "end": {
-              "line": 369,
+              "line": 410,
               "column": 64
             }
           },
@@ -2219,11 +2238,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 373,
+              "line": 414,
               "column": 6
             },
             "end": {
-              "line": 373,
+              "line": 414,
               "column": 64
             }
           },
@@ -2240,11 +2259,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 377,
+              "line": 418,
               "column": 6
             },
             "end": {
-              "line": 377,
+              "line": 418,
               "column": 58
             }
           },
@@ -2261,11 +2280,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 381,
+              "line": 422,
               "column": 6
             },
             "end": {
-              "line": 381,
+              "line": 422,
               "column": 64
             }
           },
@@ -2282,11 +2301,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 385,
+              "line": 426,
               "column": 6
             },
             "end": {
-              "line": 385,
+              "line": 426,
               "column": 77
             }
           },
@@ -2299,15 +2318,15 @@
         {
           "name": "nobgonhead",
           "type": "boolean | null | undefined",
-          "description": "disables the background color on hover, selected, ... on header node\n\nWorks only with `root-as-header` enabled",
+          "description": "disables the background color on focus, selected, ... on header node\n\nWorks only with `root-as-header` enabled",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 391,
+              "line": 432,
               "column": 6
             },
             "end": {
-              "line": 391,
+              "line": 432,
               "column": 63
             }
           },
@@ -2324,11 +2343,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 393,
+              "line": 434,
               "column": 6
             },
             "end": {
-              "line": 393,
+              "line": 434,
               "column": 73
             }
           },
@@ -2562,11 +2581,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 407,
+              "line": 448,
               "column": 2
             },
             "end": {
-              "line": 418,
+              "line": 459,
               "column": 3
             }
           },
@@ -2753,16 +2772,16 @@
           "inheritedFrom": "FBP"
         },
         {
-          "name": "_removeLastSymbofFromSearch",
-          "description": "",
-          "privacy": "protected",
+          "name": "collapseFocused",
+          "description": "collapses the focused element. If it is closed the parent will be focused.",
+          "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 133,
+              "line": 54,
               "column": 2
             },
             "end": {
-              "line": 141,
+              "line": 61,
               "column": 3
             }
           },
@@ -2773,27 +2792,107 @@
           }
         },
         {
-          "name": "_addSymbolToSearch",
-          "description": "",
-          "privacy": "protected",
+          "name": "expandFocused",
+          "description": "expands the focused node, if it is opened the first child will be focused",
+          "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 143,
+              "line": 66,
               "column": 2
             },
             "end": {
-              "line": 146,
+              "line": 73,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "expandFocusedRecursive",
+          "description": "expands the focused node recursive",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 78,
+              "column": 2
+            },
+            "end": {
+              "line": 80,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "collapseFocusedRecursive",
+          "description": "collapses the focused node recursive",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 85,
+              "column": 2
+            },
+            "end": {
+              "line": 87,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "selectFocused",
+          "description": "selects the focused element.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 92,
+              "column": 2
+            },
+            "end": {
+              "line": 94,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "search",
+          "description": "Search in the visible nodes",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 101,
+              "column": 2
+            },
+            "end": {
+              "line": 110,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "key"
+              "name": "term"
             }
           ],
           "return": {
-            "type": "void"
+            "type": "[]"
           }
         },
         {
@@ -2802,11 +2901,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 148,
+              "line": 112,
               "column": 2
             },
             "end": {
-              "line": 160,
+              "line": 124,
               "column": 3
             }
           },
@@ -2822,11 +2921,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 162,
+              "line": 126,
               "column": 2
             },
             "end": {
-              "line": 167,
+              "line": 131,
               "column": 3
             }
           },
@@ -2842,11 +2941,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 169,
+              "line": 133,
               "column": 2
             },
             "end": {
-              "line": 174,
+              "line": 138,
               "column": 3
             }
           },
@@ -2857,16 +2956,16 @@
           }
         },
         {
-          "name": "_hoverHome",
+          "name": "_focusHome",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 176,
+              "line": 140,
               "column": 2
             },
             "end": {
-              "line": 181,
+              "line": 145,
               "column": 3
             }
           },
@@ -2877,16 +2976,16 @@
           }
         },
         {
-          "name": "_hoverPrevious",
-          "description": "hovers the previous item",
-          "privacy": "protected",
+          "name": "focusPrevious",
+          "description": "focus the previous item",
+          "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 186,
+              "line": 150,
               "column": 2
             },
             "end": {
-              "line": 207,
+              "line": 171,
               "column": 3
             }
           },
@@ -2902,11 +3001,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 209,
+              "line": 173,
               "column": 2
             },
             "end": {
-              "line": 213,
+              "line": 177,
               "column": 3
             }
           },
@@ -2926,11 +3025,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 220,
+              "line": 184,
               "column": 2
             },
             "end": {
-              "line": 229,
+              "line": 193,
               "column": 3
             }
           },
@@ -2950,11 +3049,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 195,
               "column": 2
             },
             "end": {
-              "line": 251,
+              "line": 215,
               "column": 3
             }
           },
@@ -2971,11 +3070,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 220,
               "column": 2
             },
             "end": {
-              "line": 261,
+              "line": 225,
               "column": 3
             }
           },
@@ -2991,11 +3090,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 266,
+              "line": 230,
               "column": 2
             },
             "end": {
-              "line": 268,
+              "line": 232,
               "column": 3
             }
           },
@@ -3011,11 +3110,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 270,
+              "line": 234,
               "column": 2
             },
             "end": {
-              "line": 272,
+              "line": 236,
               "column": 3
             }
           },
@@ -3031,11 +3130,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 274,
+              "line": 238,
               "column": 2
             },
             "end": {
-              "line": 276,
+              "line": 240,
               "column": 3
             }
           },
@@ -3051,11 +3150,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 281,
+              "line": 245,
               "column": 2
             },
             "end": {
-              "line": 283,
+              "line": 247,
               "column": 3
             }
           },
@@ -3071,11 +3170,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 288,
+              "line": 252,
               "column": 2
             },
             "end": {
-              "line": 290,
+              "line": 254,
               "column": 3
             }
           },
@@ -3091,11 +3190,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 292,
+              "line": 256,
               "column": 2
             },
             "end": {
-              "line": 300,
+              "line": 264,
               "column": 3
             }
           },
@@ -3115,11 +3214,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 302,
+              "line": 267,
               "column": 2
             },
             "end": {
-              "line": 307,
+              "line": 272,
               "column": 3
             }
           },
@@ -3135,11 +3234,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 312,
+              "line": 277,
               "column": 2
             },
             "end": {
-              "line": 317,
+              "line": 282,
               "column": 3
             }
           },
@@ -3150,16 +3249,80 @@
           }
         },
         {
-          "name": "_hoverNext",
-          "description": "hovers the next item",
-          "privacy": "protected",
+          "name": "triggerNavigation",
+          "description": "",
+          "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 322,
+              "line": 284,
               "column": 2
             },
             "end": {
-              "line": 345,
+              "line": 336,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "key"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "focusFirst",
+          "description": "Focuses the first element",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 341,
+              "column": 2
+            },
+            "end": {
+              "line": 343,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "focusLast",
+          "description": "Focuses the last element",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 348,
+              "column": 2
+            },
+            "end": {
+              "line": 353,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "focusNext",
+          "description": "focuss the next item",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 359,
+              "column": 2
+            },
+            "end": {
+              "line": 380,
               "column": 3
             }
           },
@@ -3175,11 +3338,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 400,
+              "line": 441,
               "column": 2
             },
             "end": {
-              "line": 402,
+              "line": 443,
               "column": 3
             }
           },
@@ -3195,11 +3358,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 559,
+              "line": 597,
               "column": 2
             },
             "end": {
-              "line": 577,
+              "line": 614,
               "column": 3
             }
           },
@@ -3215,11 +3378,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 580,
+              "line": 617,
               "column": 2
             },
             "end": {
-              "line": 596,
+              "line": 633,
               "column": 3
             }
           },
@@ -3239,11 +3402,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 598,
+              "line": 635,
               "column": 2
             },
             "end": {
-              "line": 607,
+              "line": 644,
               "column": 3
             }
           },
@@ -3263,11 +3426,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 609,
+              "line": 646,
               "column": 2
             },
             "end": {
-              "line": 638,
+              "line": 675,
               "column": 3
             }
           },
@@ -3278,16 +3441,16 @@
           }
         },
         {
-          "name": "_initHoverAndSelectEvents",
+          "name": "_initFocusAndSelectEvents",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 640,
+              "line": 677,
               "column": 2
             },
             "end": {
-              "line": 737,
+              "line": 774,
               "column": 3
             }
           },
@@ -3303,11 +3466,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 739,
+              "line": 776,
               "column": 2
             },
             "end": {
-              "line": 898,
+              "line": 936,
               "column": 3
             }
           },
@@ -3327,11 +3490,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 901,
+              "line": 939,
               "column": 2
             },
             "end": {
-              "line": 920,
+              "line": 958,
               "column": 3
             }
           },
@@ -3370,7 +3533,7 @@
           "column": 0
         },
         "end": {
-          "line": 921,
+          "line": 959,
           "column": 1
         }
       },
@@ -3379,15 +3542,47 @@
       "name": "FuroTree",
       "attributes": [
         {
+          "name": "tabindex",
+          "description": "Sets the tabindex",
+          "sourceRange": {
+            "start": {
+              "line": 32,
+              "column": 4
+            },
+            "end": {
+              "line": 32,
+              "column": 17
+            }
+          },
+          "metadata": {},
+          "type": "number"
+        },
+        {
+          "name": "expand-depth",
+          "description": "Sets the maximal expand level relative from the current node.\n\nExpanding is a expensive operation.",
+          "sourceRange": {
+            "start": {
+              "line": 38,
+              "column": 4
+            },
+            "end": {
+              "line": 38,
+              "column": 20
+            }
+          },
+          "metadata": {},
+          "type": "number"
+        },
+        {
           "name": "depth",
           "description": "Maximal depth for the tree. Default is infinite.",
           "sourceRange": {
             "start": {
-              "line": 356,
+              "line": 391,
               "column": 6
             },
             "end": {
-              "line": 356,
+              "line": 391,
               "column": 27
             }
           },
@@ -3399,11 +3594,11 @@
           "description": "Query param to watch. If you set this attribute, the node-selected event will only be fired on `ƒ-qp-in` or `ƒ-select-by-id`.\nIf you select an item the `qp-change-request` will be fired.",
           "sourceRange": {
             "start": {
-              "line": 361,
+              "line": 402,
               "column": 6
             },
             "end": {
-              "line": 361,
+              "line": 402,
               "column": 24
             }
           },
@@ -3411,31 +3606,15 @@
           "type": "string | null | undefined"
         },
         {
-          "name": "tabindex",
-          "description": "Sets the tabindex",
-          "sourceRange": {
-            "start": {
-              "line": 365,
-              "column": 6
-            },
-            "end": {
-              "line": 365,
-              "column": 45
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
           "name": "root-as-header",
           "description": "Set this flag if you do not want a header-text section.",
           "sourceRange": {
             "start": {
-              "line": 369,
+              "line": 410,
               "column": 6
             },
             "end": {
-              "line": 369,
+              "line": 410,
               "column": 64
             }
           },
@@ -3447,11 +3626,11 @@
           "description": "Set this flag if you do not want to see the root node",
           "sourceRange": {
             "start": {
-              "line": 373,
+              "line": 414,
               "column": 6
             },
             "end": {
-              "line": 373,
+              "line": 414,
               "column": 64
             }
           },
@@ -3463,11 +3642,11 @@
           "description": "Override display name from root object",
           "sourceRange": {
             "start": {
-              "line": 377,
+              "line": 418,
               "column": 6
             },
             "end": {
-              "line": 377,
+              "line": 418,
               "column": 58
             }
           },
@@ -3479,11 +3658,11 @@
           "description": "Override description from root object.",
           "sourceRange": {
             "start": {
-              "line": 381,
+              "line": 422,
               "column": 6
             },
             "end": {
-              "line": 381,
+              "line": 422,
               "column": 64
             }
           },
@@ -3492,14 +3671,14 @@
         },
         {
           "name": "nobgonhead",
-          "description": "disables the background color on hover, selected, ... on header node\n\nWorks only with `root-as-header` enabled",
+          "description": "disables the background color on focus, selected, ... on header node\n\nWorks only with `root-as-header` enabled",
           "sourceRange": {
             "start": {
-              "line": 391,
+              "line": 432,
               "column": 6
             },
             "end": {
-              "line": 391,
+              "line": 432,
               "column": 63
             }
           },
@@ -3511,11 +3690,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 393,
+              "line": 434,
               "column": 6
             },
             "end": {
-              "line": 393,
+              "line": 434,
               "column": 73
             }
           },
@@ -3526,8 +3705,8 @@
       "events": [
         {
           "type": "CustomEvent",
-          "name": "branch-hovered",
-          "description": "branch-hovered\nFired when\ndetail payload:",
+          "name": "branch-focused",
+          "description": "branch-focused\nFired when\ndetail payload:",
           "metadata": {}
         },
         {
@@ -3538,8 +3717,8 @@
         },
         {
           "type": "CustomEvent",
-          "name": "leaf-hovered",
-          "description": "leaf-hovered\nFired when\ndetail payload:",
+          "name": "leaf-focused",
+          "description": "leaf-focused\nFired when\ndetail payload:",
           "metadata": {}
         },
         {
@@ -3556,8 +3735,8 @@
         },
         {
           "type": "CustomEvent",
-          "name": "node-hovered",
-          "description": "node-hovered\nFired when\ndetail payload:",
+          "name": "node-focused",
+          "description": "node-focused\nFired when\ndetail payload:",
           "metadata": {}
         },
         {

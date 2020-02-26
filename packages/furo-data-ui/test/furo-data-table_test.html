@@ -44,6 +44,7 @@
 
     import "@furo/fbp/testhelper/test-bind"; // for testing
     import "@furo/testhelper/initEnv.js";
+    import "@furo/data";
     import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
     import '../furo-data-table';
 
@@ -108,6 +109,104 @@
             linker.trigger();
         });
 
+        it('should focus last row', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
+                    dataTable.focus();
+                    dataTable.last();
+                    assert.equal(dataTable._selectedIndex, 3);
+
+                    done();
+                });
+            });
+            linker.trigger();
+        });
+
+        it('should focus prev row', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
+                    dataTable.focus();
+                    dataTable.last();
+                    dataTable.prev();
+                    assert.equal(dataTable._selectedIndex, 2);
+
+                    done();
+                });
+            });
+            linker.trigger();
+        });
+
+        it('should focus first row with first()', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
+                    dataTable.focus();
+                    dataTable.last();
+                    dataTable.first();
+                    assert.equal(dataTable._selectedIndex, 0);
+
+                    done();
+                });
+            });
+            linker.trigger();
+        });
+
+        it('should navigate if triggerNavigation is sent (ArrowDown)', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
+                    dataTable.focus();
+                    dataTable.triggerNavigation('ArrowDown');
+                    assert.equal(dataTable._selectedIndex, 1);
+                    done();
+                });
+            });
+            linker.trigger();
+        });
+
+        it('should navigate if triggerNavigation is sent (ArrowUp)', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
+                    dataTable.focus();
+                    dataTable.triggerNavigation('ArrowDown');
+                    dataTable.triggerNavigation('ArrowUp');
+                    assert.equal(dataTable._selectedIndex, 0);
+                    done();
+                });
+            });
+            linker.trigger();
+        });
+
+        it('should navigate if triggerNavigation is sent (End)', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
+                    dataTable.focus();
+                    dataTable.triggerNavigation('End');
+                    assert.equal(dataTable._selectedIndex, 3);
+                    done();
+                });
+            });
+            linker.trigger();
+        });
+
+        it('should navigate if triggerNavigation is sent (Home)', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
+                    dataTable.focus();
+                    dataTable.triggerNavigation('End');
+                    dataTable.triggerNavigation('Home');
+                    assert.equal(dataTable._selectedIndex, 0);
+                    done();
+                });
+            });
+            linker.trigger();
+        });
+
         it('should select a specific row', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
@@ -119,6 +218,41 @@
                     done();
                 });
             });
+            linker.trigger();
+        });
+
+        it('should select all table rows', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
+                    dataTable.focus();
+                    let cb = dataTable.shadowRoot.querySelector('th').querySelector('input');
+                    cb.click();
+                });
+            });
+            dataTable.addEventListener('checkstate-changed', (r) =>{
+                assert.equal(r.detail.length, 4);
+                done();
+            });
+            linker.trigger();
+        });
+
+        it('should deselect all table rows', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
+                    dataTable.focus();
+                    let cb = dataTable.shadowRoot.querySelector('th').querySelector('input');
+                    cb.click();
+
+                    dataTable.addEventListener('checkstate-changed', (r) =>{
+                        assert.equal(r.detail.length, 0);
+                        done();
+                    });
+                    cb.click();
+                });
+            });
+
             linker.trigger();
         });
 
