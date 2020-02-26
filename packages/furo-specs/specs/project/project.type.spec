@@ -113,6 +113,10 @@
           "message":"max 25000"
         }
       },
+      "__ui": {
+        "component": "",
+        "flags": ["align-right"]
+      },
       "__proto": {
         "number": 7
       }

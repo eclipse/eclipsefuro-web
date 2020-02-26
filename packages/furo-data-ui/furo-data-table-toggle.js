@@ -102,8 +102,8 @@ class FuroDataTableToggle extends FBP(LitElement) {
         return html`
          <div @-click="--Pressed">
         ${this.on
-            ? html`<span>&bigtriangledown;</span>`
-            : html`<span>&bigtriangleup;</span>`
+            ? html`<span>&downarrow;</span>`
+            : html`<span>&uparrow;</span>`
         }
         </div>
     `;

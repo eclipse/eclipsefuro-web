@@ -255,10 +255,12 @@ class FuroCheckbox extends FBP(LitElement) {
                 border: solid 2px;
                 border-color: var(--input-checkbox-unselected-border-color, var(--on-background, #212121));
                 box-sizing: border-box;
+                border-color: var(--on-surface, #808080);
             }
             
             .wrapper:hover input ~ .checkbox-background {
                 background-color: rgba( var(--input-checkbox-unselected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
+              
             }
 
             /* unselected checkbox when pressing */

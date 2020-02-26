@@ -31,7 +31,11 @@ message Optionitem {
 }
 
 // Metas for a field
-message Fieldoption {            
+message Fieldoption {                
+    // Add flags for your field. This can be something like &#34;searchable&#34;=true
+
+    map<string,bool> flags = 2;
+    
     // a list with options, use furo.optionitem or your own
     repeated google.protobuf.Any list = 1;
 

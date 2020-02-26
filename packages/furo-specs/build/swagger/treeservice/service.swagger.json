@@ -246,6 +246,13 @@
     "furoFieldoption": {
       "type": "object",
       "properties": {
+        "flags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "boolean",
+            "format": "boolean"
+          }
+        },
         "list": {
           "type": "array",
           "items": {

@@ -20166,12 +20166,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 101,
-              "column": 4
+              "line": 102,
+              "column": 2
             },
             "end": {
-              "line": 103,
-              "column": 5
+              "line": 104,
+              "column": 3
             }
           },
           "metadata": {
@@ -20185,12 +20185,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 105,
-              "column": 4
+              "line": 106,
+              "column": 2
             },
             "end": {
-              "line": 107,
-              "column": 5
+              "line": 108,
+              "column": 3
             }
           },
           "metadata": {
@@ -20204,12 +20204,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 109,
-              "column": 4
+              "line": 110,
+              "column": 2
             },
             "end": {
-              "line": 111,
-              "column": 5
+              "line": 112,
+              "column": 3
             }
           },
           "metadata": {
@@ -20223,12 +20223,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 36,
-              "column": 12
+              "line": 37,
+              "column": 6
             },
             "end": {
-              "line": 38,
-              "column": 13
+              "line": 39,
+              "column": 7
             }
           },
           "metadata": {
@@ -20461,12 +20461,12 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 25,
-              "column": 4
+              "line": 26,
+              "column": 2
             },
             "end": {
-              "line": 28,
-              "column": 5
+              "line": 29,
+              "column": 3
             }
           },
           "metadata": {},
@@ -20657,12 +20657,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 116,
-              "column": 4
+              "line": 117,
+              "column": 2
             },
             "end": {
-              "line": 118,
-              "column": 5
+              "line": 119,
+              "column": 3
             }
           },
           "metadata": {},
@@ -20677,12 +20677,12 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 124,
-              "column": 4
+              "line": 125,
+              "column": 2
             },
             "end": {
-              "line": 136,
-              "column": 5
+              "line": 138,
+              "column": 3
             }
           },
           "metadata": {},
@@ -20706,7 +20706,7 @@
           "column": 0
         },
         "end": {
-          "line": 138,
+          "line": 140,
           "column": 1
         }
       },
@@ -20719,12 +20719,12 @@
           "description": "Hint for expected file type in file upload controls\nhttps://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers\ne.g. .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",
           "sourceRange": {
             "start": {
-              "line": 101,
-              "column": 4
+              "line": 102,
+              "column": 2
             },
             "end": {
-              "line": 103,
-              "column": 5
+              "line": 104,
+              "column": 3
             }
           },
           "metadata": {},
@@ -20735,12 +20735,12 @@
           "description": "Whether to allow multiple values",
           "sourceRange": {
             "start": {
-              "line": 105,
-              "column": 4
+              "line": 106,
+              "column": 2
             },
             "end": {
-              "line": 107,
-              "column": 5
+              "line": 108,
+              "column": 3
             }
           },
           "metadata": {},
@@ -20751,12 +20751,12 @@
           "description": "What source to use for capturing image or video data\nThe capture attribute value is a string that specifies which camera to use for capture of\nimage or video data, if the accept attribute indicates that the input should be of one of those types.\nA value of user indicates that the user-facing camera and/or microphone should be used. A value of environment\nspecifies that the outward-facing camera and/or microphone should be used. If this attribute is missing,\nthe user agent is free to decide on its own what to do. If the requested facing mode isn't available,\nthe user agent may fall back to its preferred default mode.",
           "sourceRange": {
             "start": {
-              "line": 109,
-              "column": 4
+              "line": 110,
+              "column": 2
             },
             "end": {
-              "line": 111,
-              "column": 5
+              "line": 112,
+              "column": 3
             }
           },
           "metadata": {},
@@ -20767,12 +20767,12 @@
           "description": "A FileList listing the chosen files\nreadonly",
           "sourceRange": {
             "start": {
-              "line": 36,
-              "column": 12
+              "line": 37,
+              "column": 6
             },
             "end": {
-              "line": 38,
-              "column": 13
+              "line": 39,
+              "column": 7
             }
           },
           "metadata": {},

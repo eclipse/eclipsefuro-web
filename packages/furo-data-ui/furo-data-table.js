@@ -4,21 +4,18 @@ import {Env, i18n} from "@furo/framework"
 import {Theme} from "@furo/framework/theme"
 
 import '@furo/fbp/flow-repeat.js';
-import '@furo/data';
-import '@furo/data-input';
 import '@furo/data-ui/furo-data-table-toggle';
 
-
-const tableHeaders = (fields) => html`${fields.map(f => html`<th class="head"><div class="cell">${f.meta.label}<furo-data-table-toggle sortable="${f.sortable}" field="${f.id}"></furo-data-table-toggle></div></th>`)}`;
+const tableHeaders = (fields) => html`${fields.map(f => html`<th class="header-cell" numeric="${f.ui.flags.includes('align-right')}" role="columnheader" scope="col">${f.meta.label}<furo-data-table-toggle sortable="${f.sortable}" field="${f.id}"></furo-data-table-toggle></th>`)}`;
 const tdWRepeat = (fields) => html`
   ${fields.map(f => html`
     ${f.meta.repeated
-    ? html`<td><div class="cell">
+    ? html`<td class="table-cell" numeric="${f.ui.flags.includes('align-right')}">
         <template is="flow-repeat" ƒ-inject-items="${f.wire}" internal-wire="--internal">
         <div ƒ-.inner-text="--internal(*.item.display_name)"></div>
         </template>
 `
-    : html`<td><div class="cell" ƒ-.inner-text="${f.wire}"></div></td>`
+    : html`<td class="table-cell" numeric="${f.ui.flags.includes('align-right')}" ƒ-.inner-text="${f.wire}"></td>`
 }
   `)}
   
@@ -47,7 +44,8 @@ const tdWRepeat = (fields) => html`
  * Tags: data-ui
  *
  * @summary datatable
- * @demo demo-furo-data-table Simple data table demo
+ * @demo demo-furo-data-table Data Table Standard
+ * @demo demo-furo-data-table-row-selection Data Table with Row Selection
  * @customElement
  * @mixes FBP
  */
@@ -66,18 +64,6 @@ class FuroDataTable extends FBP(LitElement) {
      */
 
     /**
-     * Fired when context menu is requested
-     * Payload: entity
-     * @event contextmenu-requested
-     */
-
-    /**
-     * Fired when a key was pressed
-     * Payload: KeyboardEvent
-     * @event key-pressed
-     */
-
-    /**
      * Fired when a row is checked or unchecked
      * Payload: Array of raw Entities
      * @event checkstate-changed
@@ -88,6 +74,7 @@ class FuroDataTable extends FBP(LitElement) {
         this.type = '';
         this.fields = '';
         this.sortableFields = '';
+
         /**
          * Column meta information
          * used to render all the column stuff
@@ -100,11 +87,29 @@ class FuroDataTable extends FBP(LitElement) {
         this._collection = [];
 
         this._FBPAddWireHook("--rowCheckChanged", (r) => {
-            if (r.composedPath()[0].nodeName === 'INPUT') {
-                if (r.composedPath()[0].checked) {
-                    this._checkedRows.push(this._collection.rawEntity.entities[this._selectedIndex]);
+            if (r.target.type === 'checkbox') {
+                if (r.target.checked) {
+                    if (r.target.parentElement.parentElement.nodeName === 'TH') {
+                        // bulk update, check all rows
+                        let rows = this.shadowRoot.querySelectorAll('tbody tr');
+                        rows.forEach((elem) => {
+                            elem.querySelector('input').checked = true;
+                            this._checkedRows = this._collection.rawEntity.entities;
+                        });
+                    } else {
+                        this._checkedRows.push(this._collection.rawEntity.entities[this._selectedIndex]);
+                    }
                 } else {
-                    this._checkedRows.pop(this._collection.rawEntity.entities[this._selectedIndex]);
+                    if (r.target.parentElement.parentElement.nodeName === 'TH') {
+                        // bulk update, uncheck all rows
+                        let rows = this.shadowRoot.querySelectorAll('tbody tr');
+                        rows.forEach((elem) => {
+                            elem.querySelector('input').checked = false;
+                            this._checkedRows = [];
+                        });
+                    } else {
+                        this._checkedRows.pop(this._collection.rawEntity.entities[this._selectedIndex]);
+                    }
                 }
             }
             this.dispatchEvent(new CustomEvent('checkstate-changed', {
@@ -119,6 +124,7 @@ class FuroDataTable extends FBP(LitElement) {
      */
     _FBPReady() {
         super._FBPReady();
+        this._FBPTraceWires();
     }
 
     static get properties() {
@@ -156,6 +162,12 @@ class FuroDataTable extends FBP(LitElement) {
              */
             hideHeader: {
                 type: Boolean, attribute: "hide-header"
+            },
+            /**
+             * if True the single row selection mode is activated
+             */
+            singleSelection: {
+                type: Boolean, attribute: "single-selection"
             }
         };
     }
@@ -179,87 +191,131 @@ class FuroDataTable extends FBP(LitElement) {
                 display: none;
             }
 
-            :host([hide-header]) thead {
-                display: none;
-            }
-
-            table {
-                table-layout: fixed;
+            div.data-table {
+                background-color: var(--surface, #fff);
+                border-radius: 4px;
+                border-width: 1px;
+                border-style: solid;
+                border-color: var(--separator, rgba(0, 0, 0, .12));
+                -webkit-overflow-scrolling: touch;
                 display: block;
-                width: 0;
-                border-spacing: 0;
-                padding: 0;
-                margin-bottom: var(--spacing, 8px);
-            }
-
-            th {
-                color: var(--primary, #035CA1);
-                white-space: nowrap;
-                font-weight: 500;
-                padding-left: 0;
-                -webkit-font-smoothing: antialiased;
-                text-align: left;
-                letter-spacing: 1.5px;
-                text-transform: uppercase;
-            }
-
-            tr {
-                outline: none;
-                line-height: 40px;
-                position: relative;
-            }
-
-            tr:nth-child(even) {
-                /** add here zebra style */
-            }
-
-            tbody tr:hover {
-                box-shadow: inset 1px 0 0 var(--furo-data-table-select-background, var(--primary, lightgrey)), inset -1px 0 0 var(--furo-data-table-select-background, var(--primary, lightgrey)), 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
-                z-index: 1;
-                background-color: rgba(var(--primary-rgb), var(--state-selected-hover));
-            }
-
-            td {
-                vertical-align: baseline;
-            }
-
-            .head:hover {
-                cursor: pointer;
-            }
-
-            .cell {
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                font-size: 14px;
-                padding-right: var(--spacing, 12px);
-            }
-
-            .fx {
-                display: block;
-                width: var(--spacing, 12px);
-                padding-right: var(--spacing, 12px);
-                padding-left: var(--spacing, 12px);
-                outline: none;
-            }
-
-            tbody tr[selected=true] {
-                background-color: rgba(var(--primary-rgb), var(--state-selected));
-                color: var(--primary);
-            }
-            
-            input[type=checkbox] {
-                opacity: .48;
-            }
-
-            *[hidden] {
-                display: none;
-            }
-
-            .table-container {
+                box-sizing: border-box;
                 overflow-x: auto;
             }
 
+            table {
+                display: table;
+                color: var(--on-surface);
+                border-spacing: 2px;
+                min-width: 100%;
+                border: 0;
+                white-space: nowrap;
+                border-collapse: collapse;
+                table-layout: fixed;
+            }
+
+            thead {
+            }
+
+            furo-data-table-toggle:hover {
+                cursor: pointer;
+            }
+
+            tbody {
+                -webkit-font-smoothing: antialiased;
+                font-size: .875rem;
+                line-height: 1.25rem;
+                font-weight: 400;
+                letter-spacing: .0178571429em;
+                text-decoration: inherit;
+                text-transform: inherit;
+            }
+
+            .header-row {
+                background-color: inherit;
+            }
+
+            .header-cell {
+                -webkit-font-smoothing: antialiased;
+                font-size: .875rem;
+                line-height: 1.375rem;
+                font-weight: 500;
+                letter-spacing: .0071428571em;
+                text-decoration: inherit;
+                text-transform: inherit;
+                box-sizing: border-box;
+                text-align: left;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                padding-right: 16px;
+                padding-left: 16px;
+                height: 56px;
+            }
+
+            .cell-checkbox {
+                padding-left: var(--spacing-x, 12px);
+            }
+            
+            .table-row {
+                border-top-width: 1px;
+                border-top-style: solid;
+                border-top-color: rgba(0, 0, 0, .12);
+            }
+
+            .table-cell {
+                -webkit-font-smoothing: antialiased;
+                font-size: .875rem;
+                line-height: 1.25rem;
+                font-weight: 400;
+                letter-spacing: .0178571429em;
+                text-decoration: inherit;
+                text-transform: inherit;
+                box-sizing: border-box;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                padding-right: 16px;
+                padding-left: 16px;
+                height: 52px;
+            }
+
+            th[numeric=true], td[numeric=true] {
+                text-align: right;
+            }
+
+            .table-row:hover {
+                background-color: rgba(var(--primary-rgb), var(--state-hover));
+            }
+
+            .table-row[focused=true] {
+                background-color: rgba(var(--primary-rgb), var(--state-focus));
+            }
+
+            .table-row[focused=true]:hover {
+                background-color: rgba(var(--primary-rgb), var(--state-focused-hover));
+            }
+
+            .table-row[selected=true] {
+                background-color: rgba(var(--primary-rgb), var(--state-selected));
+            }
+
+            .table-row[selected=true][focused=true] {
+                background-color: rgba(var(--primary-rgb), var(--state-selected-focus));
+            }
+
+            .table-row[selected=true]:hover {
+                background-color: rgba(var(--primary-rgb), var(--state-selected-hover));
+            }
+
+            input[type=checkbox] {
+                top: 0px;
+                right: 0px;
+                left: 0px;
+                width: 40px;
+                height: 40px;
+            }
+            :host([single-selection]) .col-checkbox {
+                display: none;
+            }
         `
     }
 
@@ -338,7 +394,7 @@ class FuroDataTable extends FBP(LitElement) {
     _applySortableFields(fields) {
         if (fields && fields.length) {
             let sortableCols = fields.replace(/ /g, "").split(',');
-            sortableCols.forEach((f)=>{
+            sortableCols.forEach((f) => {
                 let column = this.cols.filter(obj => {
                     return obj.id === f;
                 });
@@ -365,33 +421,18 @@ class FuroDataTable extends FBP(LitElement) {
                 field.wire = '--internal(*.item.data.' + c + '.repeats)';
             }
             field.sortable = false;
+            field.ui = {flags: []};
             field.meta = this._specs[this._type].fields[c].meta || {};
             field.contraints = this._specs[this._type].fields[c].contraints || {};
+            if (this._specs[this._type].fields[c].__ui && this._specs[this._type].fields[c].__ui.flags) {
+                field.ui.flags = this._specs[this._type].fields[c].__ui.flags;
+            }
             field.id = c;
 
             this.cols.push(field);
         }
         this.requestUpdate();
 
-    }
-
-    /**
-     * add new column
-     */
-    addColumn(field) {
-        this.fields = this.fields.concat(',' + field);
-        this._init(this.fields);
-    }
-
-    /**
-     * remove column by name
-     * e.g. removeColumn('id');
-     * @param field
-     */
-    removeColumn(field) {
-        this.fields = this.fields.replace(',' + field, '');
-        this.cols = [];
-        this._init(this.fields);
     }
 
     /**
@@ -409,31 +450,6 @@ class FuroDataTable extends FBP(LitElement) {
         this.shadowRoot.querySelector('tbody').onclick = (e) => {
             this._selectRow(e);
         };
-        this.shadowRoot.querySelector('tbody').onkeydown = (e) => {
-            this._navigate(e);
-        };
-        this.shadowRoot.querySelector('tbody').onkeypress = (e) => {
-            this.dispatchEvent(new CustomEvent('key-pressed', {
-                detail: e, bubbles: false, composed: true
-            }));
-        };
-        this.shadowRoot.querySelector('tbody').oncontextmenu = (e) => {
-            e.preventDefault();
-            this.dispatchEvent(new CustomEvent('contextmenu-requested', {
-                detail: this._collection.rawEntity.entities[e.target.parentElement.rowIndex],
-                bubbles: false,
-                composed: true
-            }));
-        };
-
-    }
-
-    /**
-     * Triggers wire name --focus for internal use
-     */
-    focus() {
-        this._selectRowByIndex(0);
-        this._FBPTriggerWire('--focus');
     }
 
     /**
@@ -464,55 +480,120 @@ class FuroDataTable extends FBP(LitElement) {
     render() {
         //language=HTML
         return html`
-        <div class="table-container">
+        <div class="data-table">
             <table @-input="--rowCheckChanged(*)">
                 <thead>
-                    <tr>
-                        <th class="fx"></th>
-                        ${tableHeaders(this.cols)}
-                    </tr>
+                <tr class="header-row">
+                    <th class="header-cell col-checkbox" role="columnheader" scope="col">
+                        <div class="cell-checkbox">
+                            <input type="checkbox" tabindex="-1">
+                        </div>
+                    </th>
+                    ${tableHeaders(this.cols)}
+                </tr>
+
                 </thead>
-                <tbody>
-                    <template is="flow-repeat" ƒ-inject-items="--collectionData" internal-wire="--internal">
-                        <tr tabindex="0" draggable="true">
-                            <td class="fx">
-                                <div><input type="checkbox"></div>
+                <tbody class="">
+                <template is="flow-repeat" ƒ-inject-items="--collectionData" internal-wire="--internal">
+                        <tr class="table-row" aria-selected="false">
+                            <td class="table-cell cell--checkbox col-checkbox">
+                                <div class="cell-checkbox">
+                                    <input type="checkbox" tabindex="-1">
+                                </div>
                             </td>
                             ${tdWRepeat(this.cols)}                     
                         </tr>
                     </template>
+                
                 </tbody>
             </table>
         </div>`;
     }
 
     /**
-     * Handles key navigation
-     * @param e
-     * @private
+     * Integration of furo-navigation-pad keys
+     * @param key
      */
-    _navigate(e) {
-
-        let allTr = this.shadowRoot.querySelector('tbody').querySelectorAll('tr');
-
-        switch (e.key) {
-            case 'ArrowUp':
-                if (this._selectedIndex >= 0) {
-                    this._selectRowByIndex(this._selectedIndex - 1);
-                }
+    triggerNavigation(key) {
+        switch (key) {
+            case "ArrowDown":
+                this.next();
                 break;
-            case 'ArrowDown':
-                if (allTr.length > this._selectedIndex) {
-                    this._selectRowByIndex(this._selectedIndex + 1);
-                }
+            case "ArrowUp":
+                this.prev();
                 break;
-            case 'Enter':
-                this.dispatchEvent(new CustomEvent('tablerow-selected', {
-                    detail: this._collection.rawEntity.entities[this._selectedIndex], bubbles: true, composed: true
-                }));
+            case "Enter":
+                this.select();
+                break;
+            case "Home":
+                this.first();
+                break;
+            case "End":
+                this.last();
                 break;
         }
 
+    }
+
+    /**
+     * Triggers wire name --focus for internal use
+     */
+    focus() {
+        this._focusRowByIndex(0);
+        this._FBPTriggerWire('--focus');
+    }
+
+    /**
+     * Focuses the first table row element
+     */
+    first() {
+        this._focusRowByIndex(0);
+    }
+
+    /**
+     * Focuses the first table row element
+     */
+    select() {
+        let allTr = this.shadowRoot.querySelector('tbody').querySelectorAll('tr');
+        let len = allTr.length;
+        while (len--) {
+            allTr[len].setAttribute('selected', false);
+            allTr[len].setAttribute('focused', false);
+            allTr[len].setAttribute('aria-selected', false);
+        }
+
+        allTr[this._selectedIndex].setAttribute("selected", true);
+        allTr[this._selectedIndex].setAttribute("aria-selected", true);
+        this.dispatchEvent(new CustomEvent('tablerow-selected', {
+            detail: this._collection.rawEntity.entities[this._selectedIndex], bubbles: true, composed: true
+        }));
+
+    }
+
+    /**
+     * Focuses the last table row element
+     */
+    last() {
+        this._focusRowByIndex(this._collection.rawEntity.entities.length - 1);
+    }
+
+    /**
+     * Focuses previous table row element
+     */
+    prev() {
+        if (this._selectedIndex >= 0) {
+            this._focusRowByIndex(this._selectedIndex - 1);
+        }
+    }
+
+    /**
+     * Focuses next table row element
+     */
+    next() {
+        let allTr = this.shadowRoot.querySelector('tbody').querySelectorAll('tr');
+        if (allTr.length > this._selectedIndex) {
+            this._focusRowByIndex(this._selectedIndex + 1);
+        }
     }
 
     /**
@@ -525,11 +606,14 @@ class FuroDataTable extends FBP(LitElement) {
         let len = allTr.length;
         while (len--) {
             allTr[len].setAttribute('selected', false);
+            allTr[len].setAttribute('focused', false);
+            allTr[len].setAttribute('aria-selected', false);
         }
 
-        if (e.target.parentElement.parentNode.rowIndex >= 0) {
-            e.target.parentElement.parentNode.setAttribute('selected', true);
-            this._selectedIndex = e.target.parentElement.parentNode.rowIndex - 1;
+        if (e.target.parentElement.rowIndex >= 0) {
+            e.target.parentElement.setAttribute('selected', true);
+            e.target.parentElement.setAttribute('aria-selected', true);
+            this._selectedIndex = e.target.parentElement.rowIndex - 1;
 
             if (e.type === 'click') {
                 this.dispatchEvent(new CustomEvent('tablerow-selected', {
@@ -543,21 +627,22 @@ class FuroDataTable extends FBP(LitElement) {
     }
 
     /**
-     * Comfort function to select a specific table row
+     * Comfort function to focus a specific table row
      * by index
      * @param idx
      * @private
      */
-    _selectRowByIndex(idx) {
+    _focusRowByIndex(idx) {
         let allTr = this.shadowRoot.querySelector('tbody').querySelectorAll('tr');
 
         if (idx >= 0 && allTr.length > 1 && idx < allTr.length) {
 
             let len = allTr.length;
             while (len--) {
-                allTr[len].setAttribute('selected', false);
+                allTr[len].setAttribute('focused', false);
             }
-            allTr[idx].setAttribute('selected', true);
+            allTr[idx].setAttribute('focused', true);
+            allTr[idx].querySelector('input').focus();
             this._selectedIndex = idx;
         }
     }
