@@ -42,75 +42,130 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
   }
 
   /**
-   * connect your navigation pad
+   * Connect your navigation pad.
+   *
+   * Default mappings are:
+   * - Enter => selectFocused
+   * - ArroLeft => focusPrevious
+   * - ArroRight => focusNext
+   * - Home => focusFirst
+   * - End => focusLast
+   * - Escape => closeFocused
+   *
+   * To disable a function, just add the `ignored-keys` to furo-navigation-tabs.
+   *
    * @param key
    */
   triggerNavigation(key) {
     switch (key) {
       case "Enter":
-        // open the hovered field
-        this._tabs[this._focusIndex].selectItem();
+
+        this.selectFocused();
 
         break;
 
 
       case "ArrowLeft":
-
-        if (this._focusIndex === 0) {
-          // hover last item
-          this._focusIndex = this._tabs.length - 1;
-        } else {
-          this._focusIndex--;
-        }
-        this._tabs[this._focusIndex].triggerFocus();
+        this.focusPrevious();
 
         break;
 
       case "End":
-        // hover last item
-        this._focusIndex = this._tabs.length - 1;
-        this._tabs[this._focusIndex].triggerFocus();
+        this.focusLast();
 
         break;
 
 
       case "Home":
-        // hover last item
-        this._focusIndex = 0;
-        this._tabs[this._focusIndex].triggerFocus();
+        this.focusFirst();
 
         break;
 
 
       case "ArrowRight":
-        if (this._focusIndex === this._tabs.length - 1) {
-          // hover first item
-          this._focusIndex = 0;
-        } else {
-          this._focusIndex++;
-        }
-
-        this._tabs[this._focusIndex].triggerFocus();
+        this.focusNext();
 
         break;
 
 
         // close the focused tab
       case "Escape":
-        this._focusIndex = 0;
-
-        this._tabs[this._focusIndex]._isSelected = false;
-        this._tabs[this._focusIndex].dispatchNodeEvent(new NodeEvent('close-requested', this, false));
-
-        if (this._tabs.length === 0) {
-          this.setAttribute("hidden", "");
-        }
+        this.closeFocused();
 
         break;
     }
   }
 
 
+  /**
+   * Closes the focused tab.
+   *
+   */
+  closeFocused() {
+    this._focusIndex = 0;
+
+    this._tabs[this._focusIndex]._isSelected = false;
+    this._tabs[this._focusIndex].dispatchNodeEvent(new NodeEvent('close-requested', this, false));
+
+    if (this._tabs.length === 0) {
+      this.setAttribute("hidden", "");
+    }
+  }
+
+  /**
+   * Focuses the next tab. If you are on the last tab, the frist tab will be selected
+   */
+  focusNext() {
+    if (this._focusIndex === this._tabs.length - 1) {
+      // hover first item
+      this._focusIndex = 0;
+    } else {
+      this._focusIndex++;
+    }
+
+    this._tabs[this._focusIndex].triggerFocus();
+  }
+
+  /**
+   * Focuses the first tab.
+   */
+  focusFirst() {
+    this._focusIndex = 0;
+    this._tabs[this._focusIndex].triggerFocus();
+  }
+
+  /**
+   * Focuses the last tab.
+   */
+  focusLast() {
+    this._focusIndex = this._tabs.length - 1;
+    this._tabs[this._focusIndex].triggerFocus();
+  }
+
+  /**
+   * Select the focused tab.
+   */
+  selectFocused() {
+    this._tabs[this._focusIndex].selectItem();
+  }
+
+  /**
+   * Focuses the previous tab.
+   */
+  focusPrevious() {
+    if (this._focusIndex === 0) {
+      // hover last item
+      this._focusIndex = this._tabs.length - 1;
+    } else {
+      this._focusIndex--;
+    }
+    this._tabs[this._focusIndex].triggerFocus();
+  }
+
+  /**
+   * Inject data from a navigationnode
+   * @param nodeArray
+   */
   injectTabs(nodeArray) {
     this._tabs = nodeArray;
     this._FBPTriggerWire("--itemsInjected", nodeArray);
@@ -119,6 +174,7 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -129,7 +185,7 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
   }
 
   /**
-   * focuses the element
+   * focuses the element itself. The "focused" tab will get the focus
    */
   focus() {
     super.focus();
@@ -150,10 +206,6 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
        * indicates that the element is focused
        */
       focused: {type: Boolean, reflect: true},
-      /**
-       * indicator for searching. Maybe you want style your item depending on this attribute
-       */
-      _searchIsActive: {type: Boolean, attribute: "searching", reflect: true}
     };
   }
 
