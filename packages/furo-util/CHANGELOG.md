@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/util@0.21.1...@furo/util@0.22.0) (2020-02-26)
+
+
+### Features
+
+* navigation-pad ([e29dccd](https://github.com/theNorstroem/FuroBaseComponents/commit/e29dccd))
+
+
+
+
+
 ## [0.21.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/util@0.21.0...@furo/util@0.21.1) (2020-02-18)
 
 **Note:** Version bump only for package @furo/util

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.15](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.11.14...@furo/data-ui@0.11.15) (2020-02-26)
+
+
+### Bug Fixes
+
+* single selection delivered wrong object ([5753f21](https://github.com/theNorstroem/FuroBaseComponents/commit/5753f21))
+
+
+
+
+
 ## [0.11.14](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.11.13...@furo/data-ui@0.11.14) (2020-02-19)
 
 **Note:** Version bump only for package @furo/data-ui

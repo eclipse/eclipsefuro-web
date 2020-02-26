@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.41.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.40.3...@furo/navigation@0.41.0) (2020-02-26)
+
+
+### Bug Fixes
+
+* css transition deduplicated ([8d8b346](https://github.com/theNorstroem/FuroBaseComponents/commit/8d8b346))
+
+
+### Features
+
+* navigation-pad ([e29dccd](https://github.com/theNorstroem/FuroBaseComponents/commit/e29dccd))
+* ripple effect on tree item click ([a369c0f](https://github.com/theNorstroem/FuroBaseComponents/commit/a369c0f))
+* state-vars from styling and pseudohover ([9a78dfe](https://github.com/theNorstroem/FuroBaseComponents/commit/9a78dfe))
+* tree with external api for navigation ([3218c76](https://github.com/theNorstroem/FuroBaseComponents/commit/3218c76))
+
+
+
+
+
 ## [0.40.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.40.2...@furo/navigation@0.40.3) (2020-02-19)
 
 **Note:** Version bump only for package @furo/navigation
