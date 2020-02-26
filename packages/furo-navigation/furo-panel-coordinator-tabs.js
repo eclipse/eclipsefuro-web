@@ -6,12 +6,21 @@ import "./furo-panel-coordinator-tab-item"
 import {NodeEvent} from "@furo/data/lib/EventTreeNode.js"
 
 /**
- * Tabs for open panels in panel coordinator
- * Tabs
+ * Tab navigation for the open panels in a panel-coordinator.
  *
- * @summary todo shortdescription
+ *
+ *```html
+ *  <!-- inject the tabs from panelCoordinator and connect the keyboard navigation -->
+ *  <furo-panel-coordinator-tabs ƒ-inject-tabs="--panelChanges" ƒ-trigger-navigation="--navpadPanelTabs" >
+ *    <!-- add keyboard navigation -->
+ *    <furo-navigation-pad @-navigated="--navpadPanelTabs"></furo-navigation-pad>
+ *  </furo-panel-coordinator-tabs>
+ *  <furo-pages flex default="default">
+ *    <furo-panel-coordinator ƒ-show-page="--nodeSelected"  @-panels-changed="--panelChanges"></furo-panel-coordinator>
+ *```
+ *
+ * @summary tab navigation for panel-coordinator
  * @customElement
- * @demo demo/furo-mini-tabs.html
  * @appliesMixin FBP
  */
 class FuroPanelCoordinatorTabs extends FBP(LitElement) {
