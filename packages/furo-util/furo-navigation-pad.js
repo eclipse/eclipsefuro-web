@@ -68,7 +68,7 @@ class FuroNavigationPad extends FBP(LitElement) {
 
       switch (key) {
         case "Enter":
-          event.preventDefault();
+          event.stopPropagation();
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
@@ -79,11 +79,11 @@ class FuroNavigationPad extends FBP(LitElement) {
            */
           let enterEvent = new Event('enter-pressed', {composed: true, bubbles: true});
           enterEvent.detail = event;
-          this.dispatchEvent(enterEvent)
+          this.dispatchEvent(enterEvent);
           break;
 
         case "ArrowDown":
-          event.preventDefault();
+          event.stopPropagation();
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
@@ -94,11 +94,11 @@ class FuroNavigationPad extends FBP(LitElement) {
            */
           let arrowDownEvent = new Event('arrow-down-pressed', {composed: true, bubbles: true});
           arrowDownEvent.detail = event;
-          this.dispatchEvent(arrowDownEvent)
+          this.dispatchEvent(arrowDownEvent);
           break;
 
         case "ArrowUp":
-          event.preventDefault();
+          event.stopPropagation();
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
@@ -109,11 +109,11 @@ class FuroNavigationPad extends FBP(LitElement) {
            */
           let arrowUpEvent = new Event('arrow-up-pressed', {composed: true, bubbles: true});
           arrowUpEvent.detail = event;
-          this.dispatchEvent(arrowUpEvent)
+          this.dispatchEvent(arrowUpEvent);
           break;
 
         case "ArrowLeft":
-          event.preventDefault();
+          event.stopPropagation();
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
@@ -122,13 +122,14 @@ class FuroNavigationPad extends FBP(LitElement) {
            * Fired when ArrowLeft key was pressed
            * detail payload: keyboard event
            */
+
           let arrowLeftEvent = new Event('arrow-left-pressed', {composed: true, bubbles: true});
           arrowLeftEvent.detail = event;
-          this.dispatchEvent(arrowLeftEvent)
+          this.dispatchEvent(arrowLeftEvent);
           break;
 
         case "ArrowRight":
-          event.preventDefault();
+          event.stopPropagation();
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
@@ -139,11 +140,11 @@ class FuroNavigationPad extends FBP(LitElement) {
            */
           let arrowRightEvent = new Event('arrow-right-pressed', {composed: true, bubbles: true});
           arrowRightEvent.detail = event;
-          this.dispatchEvent(arrowRightEvent)
+          this.dispatchEvent(arrowRightEvent);
           break;
 
         case"Escape":
-          event.preventDefault();
+          event.stopPropagation();
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
@@ -154,12 +155,12 @@ class FuroNavigationPad extends FBP(LitElement) {
            */
           let escapeEvent = new Event('escape-pressed', {composed: true, bubbles: true});
           escapeEvent.detail = event;
-          this.dispatchEvent(escapeEvent)
+          this.dispatchEvent(escapeEvent);
           break;
 
 
         case"PageUp":
-          event.preventDefault();
+          event.stopPropagation();
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
@@ -170,11 +171,11 @@ class FuroNavigationPad extends FBP(LitElement) {
            */
           let pageUpEvent = new Event('page-up-pressed', {composed: true, bubbles: true});
           pageUpEvent.detail = event;
-          this.dispatchEvent(pageUpEvent)
+          this.dispatchEvent(pageUpEvent);
           break;
 
         case"PageDown":
-          event.preventDefault();
+          event.stopPropagation();
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
@@ -185,11 +186,11 @@ class FuroNavigationPad extends FBP(LitElement) {
            */
           let pageDownEvent = new Event('page-down-pressed', {composed: true, bubbles: true});
           pageDownEvent.detail = event;
-          this.dispatchEvent(pageDownEvent)
+          this.dispatchEvent(pageDownEvent);
           break;
 
         case"Home":
-          event.preventDefault();
+          event.stopPropagation();
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
@@ -200,11 +201,11 @@ class FuroNavigationPad extends FBP(LitElement) {
            */
           let homeEvent = new Event('home-pressed', {composed: true, bubbles: true});
           homeEvent.detail = event;
-          this.dispatchEvent(homeEvent)
+          this.dispatchEvent(homeEvent);
           break;
 
         case"End":
-          event.preventDefault();
+          event.stopPropagation();
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
@@ -215,9 +216,8 @@ class FuroNavigationPad extends FBP(LitElement) {
            */
           let endEvent = new Event('end-pressed', {composed: true, bubbles: true});
           endEvent.detail = event;
-          this.dispatchEvent(endEvent)
+          this.dispatchEvent(endEvent);
           break;
-
       }
 
     });

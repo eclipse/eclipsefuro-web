@@ -1,0 +1,147 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for furo-keydown</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <test-bind>
+      <template>
+        <furo-keydown stop-propagation prevent-default global key="Enter"></furo-keydown>
+      </template>
+    </test-bind>
+  </template>
+</test-fixture>
+
+<script type="module">
+  import "../furo-catalog.js"
+
+  import "@furo/fbp/testhelper/test-bind"; // for testing
+  import 'axe-core/axe.min.js';
+  import {axeReport} from 'pwa-helpers/axe-report.js';
+
+
+  describe('furo-keydown tests ', function () {
+
+
+    let element = {};
+
+    beforeEach(async () => {
+      let fix = fixture('basic');
+      element = fix[1];
+      await element.updateComplete;
+
+    });
+
+    it('should fire the key event when key was pressed', (done) => {
+      element.addEventListener("key", (d) => {
+        done();
+      },{once:true});
+
+
+      let customEvent = new Event('keydown', {composed: true, bubbles: true});
+      customEvent.key = "Enter";
+      element.dispatchEvent(customEvent);
+
+    });
+
+
+    it('should fire the key event when key was pressed with ctrl', (done) => {
+      element.addEventListener("key", (d) => {
+        done();
+      },{once:true});
+
+      element.setAttribute("ctrl","");
+
+      let customEvent = new Event('keydown', {composed: true, bubbles: true});
+      customEvent.key = "Enter";
+      customEvent.ctrlKey = true;
+      element.dispatchEvent(customEvent);
+
+    });
+
+    it('should fire the key event when key was pressed with meta', (done) => {
+      element.addEventListener("key", (d) => {
+        done();
+      },{once:true});
+
+      element.setAttribute("meta","");
+
+      let customEvent = new Event('keydown', {composed: true, bubbles: true});
+      customEvent.key = "Enter";
+      customEvent.metaKey = true;
+      element.dispatchEvent(customEvent);
+
+    });
+    it('should fire the key event when key was pressed with alt', (done) => {
+      element.addEventListener("key", (d) => {
+        done();
+      },{once:true});
+
+      element.setAttribute("option","");
+
+      let customEvent = new Event('keydown', {composed: true, bubbles: true});
+      customEvent.key = "Enter";
+      customEvent.altKey = true;
+      element.dispatchEvent(customEvent);
+
+    });
+
+
+    it('should fire the key event when key was pressed with shift', (done) => {
+      element.addEventListener("key", (d) => {
+        done();
+      },{once:true});
+
+      element.setAttribute("shift","");
+
+      let customEvent = new Event('keydown', {composed: true, bubbles: true});
+      customEvent.key = "Enter";
+      customEvent.shiftKey = true;
+      element.dispatchEvent(customEvent);
+
+    });
+
+    it('should fire the key event when key was pressed with shift meta', (done) => {
+      element.addEventListener("key", (d) => {
+        done();
+      },{once:true});
+
+      element.setAttribute("shift","");
+      element.setAttribute("meta","");
+      element.setAttribute("global","");
+
+      let customEvent = new Event('keydown', {composed: true, bubbles: true});
+      customEvent.key = "Enter";
+      customEvent.shiftKey = true;
+      customEvent.metaKey = true;
+      element.dispatchEvent(customEvent);
+
+    });
+
+    // a11y tests
+    it('a11y', () => {
+      return axeReport(fixture('basic'));
+    });
+
+    it('should be a furo-keydown', (done) => {
+      assert.equal(element.nodeName.toLowerCase(), "furo-keydown");
+      done()
+    });
+
+
+  });
+</script>
+</body>
+</html>

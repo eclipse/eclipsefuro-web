@@ -91,7 +91,7 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
     this.field.addEventListener("this-node-focused", (e) => {
       this.focused = true;
       //this.scrollIntoViewIfNeeded();
-      if (this.scrollIntoViewIfNeeded) {
+      if (this.scrollIntoViewIfNeeded && this.parentNode.host.getAttribute("focused") !== null) {
         this.scrollIntoViewIfNeeded();
       }
     });

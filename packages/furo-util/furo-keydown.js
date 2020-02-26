@@ -50,6 +50,7 @@ class FuroKeydown extends FBP(LitElement) {
       target = this.parentNode;
     }
     target.addEventListener("keydown", (keyevent) => {
+
       if(this.meta && !keyevent.metaKey){
         return
       }
@@ -59,6 +60,7 @@ class FuroKeydown extends FBP(LitElement) {
       if(this.option && !keyevent.altKey){
         return
       }
+
       if(this.shift && !keyevent.shiftKey){
         return
       }
@@ -74,6 +76,7 @@ class FuroKeydown extends FBP(LitElement) {
         * Fired when key was catched on target
         * detail payload: keyevent
         */
+
         let customEvent = new Event('key', {composed:true, bubbles: true});
         customEvent.detail = keyevent;
         this.dispatchEvent(customEvent)

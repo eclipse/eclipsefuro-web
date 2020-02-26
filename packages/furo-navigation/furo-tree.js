@@ -869,9 +869,10 @@ class FuroTree extends FBP(LitElement) {
       };
 
       // focuss the current node
+      // ?? maybe we want also do a tab-node-focused in panel-coordinator.tabs?
       node.triggerFocus = () => {
-        node.dispatchNodeEvent(new NodeEvent('tree-node-focused', this, true));
-        node.dispatchNodeEvent(new NodeEvent('this-node-focused', this, false));
+          node.dispatchNodeEvent(new NodeEvent('tree-node-focused', this, true));
+          node.dispatchNodeEvent(new NodeEvent('this-node-focused', this, false));
       };
 
       // selects the current item
