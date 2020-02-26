@@ -35,6 +35,11 @@ class DemoFuroDataTable extends FBP(LitElement) {
                 display: none;
             }
 
+            furo-data-table {
+                /*--furo-data-table-background: #3c3f41;*/
+                /*--furo-data-table-on-background: #e2e2e2;*/
+            }
+
         `, Styling.theme]
     }
 
@@ -73,7 +78,13 @@ class DemoFuroDataTable extends FBP(LitElement) {
                                      ƒ-prev="--arrowUp"
                                      ƒ-next="--arrowDown"
                                      ƒ-select="--enter"
-                                     @-tablerow-selected="--rowSelected"></furo-data-table>
+                                     @-tablerow-selected="--rowSelected">
+
+                        <furo-button-bar>
+                            <furo-empty-spacer></furo-empty-spacer>
+                            <furo-button label="place your component here. E.g. pagination"></furo-button>
+                        </furo-button-bar>
+                    </furo-data-table>
                     
                     <furo-horizontal-flex space slot="action">
                         <furo-button label="List data" primary @-click="--btnListClicked"></furo-button>

@@ -22,22 +22,15 @@ const tdWRepeat = (fields) => html`
   
 `;
 
-
 /**
  * `furo-data-table`
  * Read only data table based on the response type from the rest api spec.
  *
- * ```
- * <furo-data-table type="project.Project"
- *                  ƒ-bind-data="--data"></furo-data-table>
- * ```
  *
  * Custom property | Description | Default  | Fallback
  * ----------------|-------------|----------|----------
- * `--furo-data-table-background` | Background color of the element | --surface | transparent
+ * `--furo-data-table-background` | Background color of the element | --surface | white
  * `--furo-data-table-on-background` | Color of the element | --on-surface | black
- * `--furo-data-table-select-background` | Background color of the focused table row element | --accent-light | lightgrey
- * `--furo-data-table-select-on-background` | Color of the focused table row element | --on-accent | black
  *
  * Configuration:
  * Attribute: hide-header | hides the table header row
@@ -171,13 +164,6 @@ class FuroDataTable extends FBP(LitElement) {
 
             },
             /**
-             * Flag to show table header information
-             * TRUE => shows header
-             */
-            hideHeader: {
-                type: Boolean, attribute: "hide-header"
-            },
-            /**
              * if True the single row selection mode is activated
              */
             singleSelection: {
@@ -197,16 +183,20 @@ class FuroDataTable extends FBP(LitElement) {
             :host {
                 display: block;
                 height: 100%;
-                background-color: var(--furo-data-table-background, var(--surface, transparent));
-                color: var(--furo-data-table-on-background, var(--on-surface, black));
+                background-color: var(--surface, transparent);
+                color: var(--on-surface, black);
             }
 
             :host([hidden]) {
                 display: none;
             }
 
+            ::slotted(*) {
+                border-top: 1px solid var(--separator, rgba(0, 0, 0, .12));
+            }
+
             div.data-table {
-                background-color: var(--surface, #fff);
+                background-color: var(--furo-data-table-background, var(--surface, #fff));
                 border-radius: 4px;
                 border-width: 1px;
                 border-style: solid;
@@ -219,7 +209,7 @@ class FuroDataTable extends FBP(LitElement) {
 
             table {
                 display: table;
-                color: var(--on-surface);
+                color: var(--furo-data-table-on-background, var(--on-surface, black));
                 border-spacing: 2px;
                 min-width: 100%;
                 border: 0;
@@ -273,7 +263,7 @@ class FuroDataTable extends FBP(LitElement) {
             .table-row {
                 border-top-width: 1px;
                 border-top-style: solid;
-                border-top-color: rgba(0, 0, 0, .12);
+                border-top-color: var(--separator, rgba(0, 0, 0, .12));
             }
 
             .table-cell {
@@ -517,6 +507,7 @@ class FuroDataTable extends FBP(LitElement) {
                 
                 </tbody>
             </table>
+            <slot></slot>
         </div>`;
     }
 
