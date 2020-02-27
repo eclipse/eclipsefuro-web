@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.67.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.66.3...@furo/input@0.67.0) (2020-02-27)
+
+
+### Features
+
+* furo-data-table extended with default slot to place e.g. pagination controls ([7308acc](https://github.com/theNorstroem/FuroBaseComponents/commit/7308acc))
+
+
+
+
+
 ## [0.66.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.66.2...@furo/input@0.66.3) (2020-02-26)
 
 **Note:** Version bump only for package @furo/input

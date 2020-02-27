@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.11.15...@furo/data-ui@0.12.0) (2020-02-27)
+
+
+### Features
+
+* furo-data-table extended with default slot to place e.g. pagination controls ([7308acc](https://github.com/theNorstroem/FuroBaseComponents/commit/7308acc))
+
+
+
+
+
 ## [0.11.15](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.11.14...@furo/data-ui@0.11.15) (2020-02-26)
 
 

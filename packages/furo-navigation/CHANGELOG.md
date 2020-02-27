@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.42.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.41.0...@furo/navigation@0.42.0) (2020-02-27)
+
+
+### Features
+
+* furo-data-table extended with default slot to place e.g. pagination controls ([7308acc](https://github.com/theNorstroem/FuroBaseComponents/commit/7308acc))
+
+
+
+
+
 # [0.41.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.40.3...@furo/navigation@0.41.0) (2020-02-26)
 
 
