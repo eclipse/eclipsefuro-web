@@ -66,7 +66,7 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
 
   bindData(fieldNode) {
     if (this.field) {
-      this._removeListeners("bind");
+      this._removeListeners();
     }
 
     this.field = fieldNode;
@@ -82,7 +82,7 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
 
   }
 
-  _removeListeners(c) {
+  _removeListeners() {
     if(this.field){
     this.field.removeEventListener("this-node-selected", this._select);
     this.field.removeEventListener("tree-node-unselection-requested", this._deselect);
@@ -96,7 +96,7 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    this._removeListeners("discon");
+    this._removeListeners();
   }
 
 
