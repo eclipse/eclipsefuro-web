@@ -881,13 +881,15 @@ class FuroTree extends FBP(LitElement) {
 
       // selects the current item
       node.selectItem = () => {
+        // focus the selected
+        node.triggerFocus()
+
         node.dispatchNodeEvent(new NodeEvent('tree-node-selected', node, true));
         node.dispatchNodeEvent(new NodeEvent('this-node-selected', node, false));
 
         // used to open the paths upwards from the selected node
         node.__parentNode.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true));
-        // focus the selected
-        node.triggerFocus()
+
       };
 
       // if a descendant was selected, we ensure to open the path

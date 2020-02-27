@@ -42,9 +42,6 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
           this._focusIndex = i;
         }
       });
-      this._tabs[0].__parentNode.broadcastEvent(new NodeEvent('tab-unhover-requested', this));
-      this._tabs[this._focusIndex].dispatchNodeEvent(new NodeEvent('this-tab-hover-requested', this, false));
-
     });
 
 
@@ -112,13 +109,18 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
    */
   closeFocused() {
     this._focusIndex = 0;
-
+    this._tabs.forEach((e, i) => {
+      if (e.__tabHasFocus) {
+        this._focusIndex = i;
+      }
+    });
     this._tabs[this._focusIndex]._isSelected = false;
-    this._tabs[this._focusIndex].dispatchNodeEvent(new NodeEvent('close-requested', this, false));
 
-    if (this._tabs.length === 0) {
-      this.setAttribute("hidden", "");
-    }
+
+    let oldFocusIndex = this._focusIndex;
+    this._tabs[this._focusIndex].dispatchNodeEvent(new NodeEvent('close-requested', this, false));
+    this._focusIndex = oldFocusIndex;
+
   }
 
   /**
@@ -178,7 +180,7 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
   injectTabs(nodeArray) {
     this._tabs = nodeArray;
     this._FBPTriggerWire("--itemsInjected", nodeArray);
-    this.removeAttribute("hidden");
+
   }
 
   /**

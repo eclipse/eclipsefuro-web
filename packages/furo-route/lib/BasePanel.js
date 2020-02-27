@@ -1,5 +1,6 @@
 import {FBP} from "@furo/fbp";
 import {LitElement, html, css} from 'lit-element';
+import {NodeEvent} from "@furo/data/lib/EventTreeNode";
 
 /**
  * BasePanel to extend
@@ -57,8 +58,8 @@ export class BasePanel extends FBP(LitElement) {
    */
   closePanel() {
     if (this.treeNode) {
-      this.treeNode.selectItem();
       this.removePanel();
+      this.treeNode.dispatchNodeEvent(new NodeEvent('panel-closed', this, false));
     }
   }
 }

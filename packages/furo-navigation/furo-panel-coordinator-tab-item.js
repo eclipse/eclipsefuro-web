@@ -22,6 +22,8 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
     this.inedit = false;
     this.haserror = false;
     this.addEventListener("click", (e) => {
+
+
       this.field.selectItem();
     });
 
@@ -29,35 +31,75 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
 
 
   bindData(fieldNode) {
+    if (this.field) {
+      this._removeListeners("bind");
+    }
+
     this.field = fieldNode;
     this.selected = fieldNode._isSelected;
 
-    this.field.addEventListener("this-node-selected", (n) => {
-      this.selected = true;
-    });
-
-    this.field.addEventListener("tree-node-unselection-requested", (n) => {
-      this.selected = false;
-    });
-    this.field.addEventListener("modified", (n) => {
-      this.inedit = true;
-    });
-
-    this.field.addEventListener("cleared", (n) => {
-      this.inedit = false;
-      this.haserror = false;
-    });
-    this.field.addEventListener("has-error", (n) => {
-      this.haserror = true;
-    });
+    this.field.addEventListener("this-node-selected", this._select);
+    this.field.addEventListener("tree-node-unselection-requested", this._deselect);
+    this.field.addEventListener("modified", this._inedit);
+    this.field.addEventListener("cleared", this._clear);
+    this.field.addEventListener("has-error", this._error);
+    this.field.addEventListener("tree-node-blur-requested", this._unfocus);
+    this.field.addEventListener("this-node-focused", this._focus);
 
   }
 
-  _closeTab(e) {
-
-    e.stopPropagation();
-    this.field.dispatchNodeEvent(new NodeEvent('close-requested', this, false));
+  _removeListeners(c) {
+    if(this.field){
+    this.field.removeEventListener("this-node-selected", this._select);
+    this.field.removeEventListener("tree-node-unselection-requested", this._deselect);
+    this.field.removeEventListener("modified", this._inedit);
+    this.field.removeEventListener("cleared", this._clear);
+    this.field.removeEventListener("has-error", this._error);
+    this.field.removeEventListener("tree-node-blur-requested", this._unfocus);
+    this.field.removeEventListener("this-node-focused", this._focus);
+    }
   }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this._removeListeners("discon");
+  }
+
+  _select = () => {
+    this.selected = true;
+  };
+
+  _deselect = () => {
+    this.selected = false;
+  };
+
+  _error = () => {
+    this.haserror = true;
+  };
+
+  _inedit = () => {
+    this.focused = true;
+  };
+
+  _focus = () => {
+    this.focused = true;
+    //this.scrollIntoViewIfNeeded();
+    this.field.__tabHasFocus = true;
+    if (this.scrollIntoViewIfNeeded && this.parentNode && this.parentNode.host.getAttribute("focused") !== null) {
+      this.scrollIntoViewIfNeeded();
+    }
+  };
+
+  _unfocus = () => {
+    this.field.__tabHasFocus = false;
+    this.focused = false;
+  };
+
+  _clear = () => {
+    this.inedit = false;
+    this.haserror = false;
+  };
+
 
   /**
    * @private
@@ -84,17 +126,6 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
     //this._FBPTraceWires();
 
 
-    this.field.addEventListener("tree-node-blur-requested", (e) => {
-      this.focused = false;
-    });
-
-    this.field.addEventListener("this-node-focused", (e) => {
-      this.focused = true;
-      //this.scrollIntoViewIfNeeded();
-      if (this.scrollIntoViewIfNeeded && this.parentNode.host.getAttribute("focused") !== null) {
-        this.scrollIntoViewIfNeeded();
-      }
-    });
   }
 
   /**
@@ -106,7 +137,7 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
   get styles() {
     // language=CSS
     return Theme.getThemeForComponent('FuroPanelCoordinatorTabItem') || css`
-      
+
 
       :host {
         display: inline-block;
