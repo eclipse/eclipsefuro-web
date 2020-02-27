@@ -132,69 +132,75 @@ export class FuroAppBarTop extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent('FuroAppBarTop') || css`
-        :host {
-            display: block;
-            position: relative;
-            color: var(--on-primary);
-            background: linear-gradient(315deg, var(--furo-app-bar-top-background-light, var(--primary-light, #7f7f7f)) 0%, var(--furo-app-bar-top-background-dark, var(--primary-dark, #aFAFAF)) 100%);
-            box-shadow: 0 2px 4px rgba(0,0,0,.5);
-            transition: all var(--transition-duration, 200ms) cubic-bezier(.25, .8, .25, 1);
-            font-size: 20px;
-            z-index: 1;
-        }
+      :host {
+        display: block;
+        position: relative;
+        color: var(--on-primary);
+        background: linear-gradient(315deg, var(--furo-app-bar-top-background-light, var(--primary-light, #7f7f7f)) 0%, var(--furo-app-bar-top-background-dark, var(--primary-dark, #aFAFAF)) 100%);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+        transition: all var(--transition-duration, 200ms) cubic-bezier(.25, .8, .25, 1);
+        font-size: 20px;
+        z-index: 1;
+      }
 
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
 
-        furo-horizontal-flex {
-            height: 56px;
-            line-height: 56px;
-        }
-
-        ::slotted(*) {
-            margin-left: var(--spacing-s, 16px);
-            margin-right: var(--spacing-s, 16px);
-        }
-
-        ::slotted(furo-icon-button), furo-icon-button.navigation {
-            cursor: pointer;
-            margin: var(--spacing-xxs, 4px) 0;
-        }
-
-        furo-icon-button.navigation {
-            display: none;
-        }
-
-        :host([navigation]) furo-icon-button.navigation, :host([navigation-icon]) furo-icon-button.navigation {
-            display: block;
-            margin-right: var(--spacing-xs, 8px);
-        }
+      furo-horizontal-flex {
+        height: 56px;
+        line-height: 56px;
+      }
 
 
-        furo-loading-indicator-bar{
-            position: absolute;
-            bottom:0;
-            width: 100%;
-        }
-        .extended {
-            display: none;
-            height: 72px;
-            line-height: 32px;
-            padding-left: 56px;
-        }
+      ::slotted(.small), ::slotted(.small) {
+        font-weight: 100;
+      }
 
-        /* pos bottom 20 with line-height 32 will result in 28px distance to the bottom (https://material.io/components/app-bars-top/#specs)  */
-        .extended ::slotted(*){
-            position: absolute;
-            bottom: 20px;
-            right: 96px;
-            left: 56px;
-        }
-        
-        :host([extended]) .extended{
-            display: block;
-        }
+      ::slotted(*) {
+        margin-left: var(--spacing-s, 16px);
+        margin-right: var(--spacing-s, 16px);
+      }
+
+      ::slotted(furo-icon-button), furo-icon-button.navigation {
+        cursor: pointer;
+        margin: var(--spacing-xxs, 4px) 0;
+      }
+
+      furo-icon-button.navigation {
+        display: none;
+      }
+
+      :host([navigation]) furo-icon-button.navigation, :host([navigation-icon]) furo-icon-button.navigation {
+        display: block;
+        margin-right: var(--spacing-xs, 8px);
+      }
+
+
+      furo-loading-indicator-bar {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .extended {
+        display: none;
+        height: 72px;
+        line-height: 32px;
+        padding-left: 56px;
+      }
+
+      /* pos bottom 20 with line-height 32 will result in 28px distance to the bottom (https://material.io/components/app-bars-top/#specs)  */
+      .extended ::slotted(*) {
+        position: absolute;
+        bottom: 20px;
+        right: 96px;
+        left: 56px;
+      }
+
+      :host([extended]) .extended {
+        display: block;
+      }
     `;
   }
 
