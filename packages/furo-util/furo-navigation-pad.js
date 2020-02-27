@@ -117,12 +117,12 @@ class FuroNavigationPad extends FBP(LitElement) {
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
+
           /**
            * @event arrow-left-pressed
            * Fired when ArrowLeft key was pressed
            * detail payload: keyboard event
            */
-
           let arrowLeftEvent = new Event('arrow-left-pressed', {composed: true, bubbles: true});
           arrowLeftEvent.detail = event;
           this.dispatchEvent(arrowLeftEvent);
