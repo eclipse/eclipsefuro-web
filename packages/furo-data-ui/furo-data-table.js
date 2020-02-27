@@ -251,13 +251,13 @@ class FuroDataTable extends FBP(LitElement) {
                 text-align: left;
                 text-overflow: ellipsis;
                 overflow: hidden;
-                padding-right: 16px;
-                padding-left: 16px;
+                padding-right: var(--spacing-l, 16px);
+                padding-left: var(--spacing-s, 8px);
                 height: 56px;
             }
 
             .cell-checkbox {
-                padding-left: var(--spacing-x, 12px);
+                padding-left: var(--spacing-s, 12px);
             }
 
             .table-row {
@@ -277,8 +277,8 @@ class FuroDataTable extends FBP(LitElement) {
                 box-sizing: border-box;
                 text-overflow: ellipsis;
                 overflow: hidden;
-                padding-right: 16px;
-                padding-left: 16px;
+                padding-right: var(--spacing-l, 16px);
+                padding-left: var(--spacing-s, 8px);
                 height: 52px;
             }
 

@@ -56,7 +56,7 @@ class FuroDataTableToggle extends FBP(LitElement) {
                     display: none;
                 }
                 span{
-                    margin-left: var(--spacing, 8px);
+                    margin-left: var(--spacing-xxs, 8px);
                 }
             `
         ];
