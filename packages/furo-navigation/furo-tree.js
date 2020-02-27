@@ -620,6 +620,10 @@ class FuroTree extends FBP(LitElement) {
     `;
   }
 
+  injectData(furoTypelibNavigationnode){
+    // mache ein data object vom
+
+  }
 
   bindData(treeNode) {
 

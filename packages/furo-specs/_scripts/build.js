@@ -41,7 +41,9 @@ function sh(command, arguments) {
 }
 
 // Build up the file list
-sh(__dirname + "/createSpecList.sh", [config.spec_dir, __dirname + "/../_baseTypes"]);
+sh(__dirname + "/createSpecList.sh", [config.spec_dir, ...config.import_spec_dirs]);
+
+
 
 // read the list with the filenames and build the main structure
 
