@@ -22,10 +22,44 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
     this.inedit = false;
     this.haserror = false;
     this.addEventListener("click", (e) => {
-
-
       this.field.selectItem();
     });
+
+
+    this._select = () => {
+      this.selected = true;
+    };
+
+    this._deselect = () => {
+      this.selected = false;
+    };
+
+    this._error = () => {
+      this.haserror = true;
+    };
+
+    this._inedit = () => {
+      this.focused = true;
+    };
+
+    this._focus = () => {
+      this.focused = true;
+      //this.scrollIntoViewIfNeeded();
+      this.field.__tabHasFocus = true;
+      if (this.scrollIntoViewIfNeeded && this.parentNode && this.parentNode.host.getAttribute("focused") !== null) {
+        this.scrollIntoViewIfNeeded();
+      }
+    };
+
+    this._unfocus = () => {
+      this.field.__tabHasFocus = false;
+      this.focused = false;
+    };
+
+    this._clear = () => {
+      this.inedit = false;
+      this.haserror = false;
+    };
 
   }
 
@@ -65,40 +99,6 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
     this._removeListeners("discon");
   }
 
-  _select = () => {
-    this.selected = true;
-  };
-
-  _deselect = () => {
-    this.selected = false;
-  };
-
-  _error = () => {
-    this.haserror = true;
-  };
-
-  _inedit = () => {
-    this.focused = true;
-  };
-
-  _focus = () => {
-    this.focused = true;
-    //this.scrollIntoViewIfNeeded();
-    this.field.__tabHasFocus = true;
-    if (this.scrollIntoViewIfNeeded && this.parentNode && this.parentNode.host.getAttribute("focused") !== null) {
-      this.scrollIntoViewIfNeeded();
-    }
-  };
-
-  _unfocus = () => {
-    this.field.__tabHasFocus = false;
-    this.focused = false;
-  };
-
-  _clear = () => {
-    this.inedit = false;
-    this.haserror = false;
-  };
 
 
   /**
