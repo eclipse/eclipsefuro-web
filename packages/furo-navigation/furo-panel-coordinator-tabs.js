@@ -108,6 +108,7 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
    *
    */
   closeFocused() {
+    // find out which item is focused
     this._focusIndex = 0;
     this._tabs.forEach((e, i) => {
       if (e.__tabHasFocus) {
@@ -115,7 +116,6 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
       }
     });
     this._tabs[this._focusIndex]._isSelected = false;
-
 
     let oldFocusIndex = this._focusIndex;
     this._tabs[this._focusIndex].dispatchNodeEvent(new NodeEvent('close-requested', this, false));
