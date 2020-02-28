@@ -24,8 +24,6 @@ class FuroTooltipDisplay extends FBP(LitElement) {
       }
     });
     window.addEventListener("show-tooltip-requested", (e) => {
-
-
       let cr = e.detail.cr;
       let x = cr.left + cr.width / 2;
       let y = cr.bottom + 16;
@@ -50,8 +48,9 @@ class FuroTooltipDisplay extends FBP(LitElement) {
           if (this.show) {
             this.show = false;
           }
-        }, e.detail.duration)
-      }, 0)
+        }, e.detail.duration);
+        this.requestUpdate();
+      }, 10)
 
 
     })

@@ -47,21 +47,19 @@ class FuroGraphRenderer extends FBP(LitElement) {
 
         // set tooltip if exist
         if (node.node.description !== "") {
-          let tootltip = box.element('title');
-          tootltip.words(node.node.description);
           //add info
-          box.addClass("withdescription")
-          box.mouseover((e)=>{
-            let elem = {duration:2000,cr:box.node.getBoundingClientRect(), label:node.node.description}
+          box.addClass("withdescription");
+          box.mouseover((e) => {
+            let elem = {duration: 5000, cr: box.node.getBoundingClientRect(), label: node.node.description}
             /**
-            * @event show-tooltip-requested
-            * Fired when
-            * detail payload:
-            */
-            let customEvent = new Event('show-tooltip-requested', {composed:true, bubbles: true});
+             * @event show-tooltip-requested
+             * Fired when
+             * detail payload:
+             */
+            let customEvent = new Event('show-tooltip-requested', {composed: true, bubbles: true});
             customEvent.detail = elem;
             this.dispatchEvent(customEvent)
-          })
+          });
         }
         /*
         box.click((e) => {
@@ -81,8 +79,45 @@ class FuroGraphRenderer extends FBP(LitElement) {
         });
         let line = canvas.polyline(points).addClass("line");
         line.addClass(edge.type);
-        let tootltip = line.element('title');
-        tootltip.words(edge.wirename);
+
+        // send tooltip event for nodes with values in the attr
+        // debounce tooltip on lines
+        let timout;
+        let toRegistred = false;
+        line.mouseover((e) => {
+
+          if (!toRegistred) {
+            toRegistred = true;
+            timout = setTimeout(() => {
+              let elem = {duration: 5000,
+                cr: {
+                  top: e.clientY - 10,
+                  bottom: e.clientY + 10,
+                  x: e.clientX,
+                  y: e.clientY,
+                  left: e.clientX - 10,
+                  width: 20,
+                  height: 20
+                },
+                label: edge.wirename
+              };
+              /**
+               * @event show-tooltip-requested
+               * Fired on mouseover of a attr node
+               */
+              let customEvent = new Event('show-tooltip-requested', {composed: true, bubbles: true});
+              customEvent.detail = elem;
+              this.dispatchEvent(customEvent)
+
+            }, 60);
+          }
+        });
+
+        // clear the timeout
+        line.mouseout((e) => {
+          clearTimeout(timout);
+          toRegistred = false;
+        });
       }
     });
 
@@ -99,6 +134,13 @@ class FuroGraphRenderer extends FBP(LitElement) {
             background.width(text.length() + 50);
           }, 90)
 
+          // send tooltip event for nodes with values in the attr
+          text.mouseover((e) => {
+            let elem = {duration: 5000, cr: text.node.getBoundingClientRect(), label:  node.label};
+            let customEvent = new Event('show-tooltip-requested', {composed: true, bubbles: true});
+            customEvent.detail = elem;
+            this.dispatchEvent(customEvent)
+          });
 
         }
 
@@ -145,10 +187,26 @@ class FuroGraphRenderer extends FBP(LitElement) {
           indicator.radius(3);
           indicator.addClass("flagindicator");
 
-        } else {
-          let tootltip = box.element('title');
-          tootltip.words(node.attr.value);
+          // send tooltip event for nodes with values in the attr
+          box.mouseover((e) => {
+            let elem = {duration: 5000, cr: box.node.getBoundingClientRect(), label: "Flag: " + node.label};
+            let customEvent = new Event('show-tooltip-requested', {composed: true, bubbles: true});
+            customEvent.detail = elem;
+            this.dispatchEvent(customEvent)
+          });
 
+        } else {
+          // send tooltip event for nodes with values in the attr
+          box.mouseover((e) => {
+            let elem = {duration: 5000, cr: box.node.getBoundingClientRect(), label: node.label + " = " + node.attr.value}
+            /**
+             * @event show-tooltip-requested
+             * Fired on mouseover of a attr node
+             */
+            let customEvent = new Event('show-tooltip-requested', {composed: true, bubbles: true});
+            customEvent.detail = elem;
+            this.dispatchEvent(customEvent)
+          });
         }
 
         if (node.label) {
@@ -157,13 +215,24 @@ class FuroGraphRenderer extends FBP(LitElement) {
       }
       if (node.type === "notarget") {
         let circle = canvas.circle(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2)).fill('red');
-        let tootltip = circle.element('title');
-        tootltip.words(node.wirename);
+
+        // send tooltip event
+        circle.mouseover((e) => {
+          let elem = {duration: 5000, cr: circle.node.getBoundingClientRect(), label: node.wirename};
+          let customEvent = new Event('show-tooltip-requested', {composed: true, bubbles: true});
+          customEvent.detail = elem;
+          this.dispatchEvent(customEvent)
+        });
       }
       if (node.type === "nosource") {
         let circle = canvas.circle(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2)).fill('orange');
-        let tootltip = circle.element('title');
-        tootltip.words(node.wirename);
+        // send tooltip event
+        circle.mouseover((e) => {
+          let elem = {duration: 5000, cr: circle.node.getBoundingClientRect(), label: node.wirename};
+          let customEvent = new Event('show-tooltip-requested', {composed: true, bubbles: true});
+          customEvent.detail = elem;
+          this.dispatchEvent(customEvent)
+        });
       }
 
       if (node.type === "park") {
@@ -173,6 +242,13 @@ class FuroGraphRenderer extends FBP(LitElement) {
         if (node.label) {
           let text = canvas.text(node.label).move((node.x - node.width / 2) + 15, (node.y - node.height / 2) + 5);
         }
+        // send tooltip event
+        box.mouseover((e) => {
+          let elem = {duration: 5000, cr: box.node.getBoundingClientRect(), label: "park to var " + node.label};
+          let customEvent = new Event('show-tooltip-requested', {composed: true, bubbles: true});
+          customEvent.detail = elem;
+          this.dispatchEvent(customEvent);
+        });
       }
       if (node.type === "bubbling") {
         let box = canvas.rect(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2));
@@ -181,6 +257,13 @@ class FuroGraphRenderer extends FBP(LitElement) {
         if (node.label) {
           let text = canvas.text(node.label).move((node.x - node.width / 2) + 15, (node.y - node.height / 2) + 5);
         }
+        // send tooltip event
+        box.mouseover((e) => {
+          let elem = {duration: 5000, cr: box.node.getBoundingClientRect(), label: "bubbling event " + node.label};
+          let customEvent = new Event('show-tooltip-requested', {composed: true, bubbles: true});
+          customEvent.detail = elem;
+          this.dispatchEvent(customEvent);
+        });
       }
       if (node.type === "nonbubbling") {
         let box = canvas.rect(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2));
@@ -189,6 +272,13 @@ class FuroGraphRenderer extends FBP(LitElement) {
         if (node.label) {
           let text = canvas.text(node.label).move((node.x - node.width / 2) + 15, (node.y - node.height / 2) + 5);
         }
+        // send tooltip event
+        box.mouseover((e) => {
+          let elem = {duration: 5000, cr: box.node.getBoundingClientRect(), label: "event " + node.label};
+          let customEvent = new Event('show-tooltip-requested', {composed: true, bubbles: true});
+          customEvent.detail = elem;
+          this.dispatchEvent(customEvent);
+        });
       }
       if (node.type === "hostevent") {
         let box = canvas.rect(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2));
@@ -197,6 +287,13 @@ class FuroGraphRenderer extends FBP(LitElement) {
         if (node.label) {
           let text = canvas.text(node.label).move((node.x - node.width / 2) + 15, (node.y - node.height / 2) + 5);
         }
+        // send tooltip event
+        box.mouseover((e) => {
+          let elem = {duration: 5000, cr: box.node.getBoundingClientRect(), label: node.label};
+          let customEvent = new Event('show-tooltip-requested', {composed: true, bubbles: true});
+          customEvent.detail = elem;
+          this.dispatchEvent(customEvent);
+        });
       }
 
     });
