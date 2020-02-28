@@ -13,6 +13,7 @@ import '@furo/route/furo-location';
 import '@furo/route/furo-pages';
 import '@furo/route/furo-app-flow';
 import '@furo/fbp/flow-bind';
+import '@furo/app/furo-tooltip-display';
 
 
 /**
@@ -102,6 +103,7 @@ class MainStage extends FBP(LitElement) {
        
       <furo-location @-location-changed="--locationChanged"></furo-location>
         <furo-snackbar-display></furo-snackbar-display>
+        <furo-tooltip-display></furo-tooltip-display>
     `;
   }
 

@@ -10,7 +10,7 @@
     "@furo/route": "^0.23.8",
     "@furo/util": "^0.23.0",
     "@svgdotjs/svg.js": "^3.0.13",
-    "@svgdotjs/svg.panzoom.js": "2.0.3",
+    "@svgdotjs/svg.panzoom.js": "^2.1.0",
     "dagre": "^0.8.4",
     "lit-element": "^2.2.1"
   },

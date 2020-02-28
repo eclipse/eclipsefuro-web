@@ -2,7 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import {SVG} from "@svgdotjs/svg.js";
-import '@svgdotjs/svg.panzoom.js'
+import '@svgdotjs/svg.panzoom.js/dist/svg.panzoom.esm.js'
 
 /**
  * `furo-graph-renderer`
@@ -27,10 +27,10 @@ class FuroGraphRenderer extends FBP(LitElement) {
 
     // remove old image on redraw
     let i = this.shadowRoot.querySelector("svg");
-    if(i){
+    if (i) {
       i.remove();
     }
-    var canvas = SVG().addTo(this.shadowRoot).panZoom({zoomMin: 0.1, zoomMax: 10, zoomFactor: 0.015});
+    var canvas = SVG().addTo(this.shadowRoot).panZoom({zoomMin: 0.1, zoomMax: 10, zoomFactor: 0.115});
 
     canvas.viewbox(0, 0, graphWidth, graphHeight);
     this.canvas = canvas;
@@ -51,11 +51,24 @@ class FuroGraphRenderer extends FBP(LitElement) {
           tootltip.words(node.node.description);
           //add info
           box.addClass("withdescription")
+          box.mouseover((e)=>{
+            let elem = {duration:2000,cr:box.node.getBoundingClientRect(), label:node.node.description}
+            /**
+            * @event show-tooltip-requested
+            * Fired when
+            * detail payload:
+            */
+            let customEvent = new Event('show-tooltip-requested', {composed:true, bubbles: true});
+            customEvent.detail = elem;
+            this.dispatchEvent(customEvent)
+          })
         }
-
+        /*
         box.click((e) => {
           console.log(node.node)
         })
+
+         */
       }
     });
 
@@ -82,9 +95,9 @@ class FuroGraphRenderer extends FBP(LitElement) {
         if (node.label) {
           let text = canvas.text(node.label).move((node.x - node.width / 2) + 25, (node.y - node.height / 2) + 2);
           // width is taken from the image, so wait a moment.
-          setTimeout(()=>{
-            background.width( text.length() + 50);
-          },90)
+          setTimeout(() => {
+            background.width(text.length() + 50);
+          }, 90)
 
 
         }
@@ -135,6 +148,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
         } else {
           let tootltip = box.element('title');
           tootltip.words(node.attr.value);
+
         }
 
         if (node.label) {
@@ -205,108 +219,108 @@ class FuroGraphRenderer extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent('FuroGraphRenderer') || css`
-        :host {
-            display: block;
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
+      :host {
+        display: block;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
 
-        }
+      }
 
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
 
-        svg {
-            width: 100%;
-            height: 100%;
-        }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
 
-        .component {
-            fill: #f6f6f6;
-            stroke: #67686a;
-            stroke-width: 2;
-        }
+      .component {
+        fill: #f6f6f6;
+        stroke: #67686a;
+        stroke-width: 2;
+      }
 
-        .boxlabelbg {
-            fill: white;
-            stroke: #67686a;
-            stroke-width: 2;
-        }
+      .boxlabelbg {
+        fill: white;
+        stroke: #67686a;
+        stroke-width: 2;
+      }
 
-        .component.withdescription {
-            stroke-dasharray: 20 4;
-        }
+      .component.withdescription {
+        stroke-dasharray: 20 4;
+      }
 
-        .attribute {
-            fill: white;
-            stroke: #ffb65b;
-            stroke-width: 2;
-        }
+      .attribute {
+        fill: white;
+        stroke: #ffb65b;
+        stroke-width: 2;
+      }
 
-        .attribute.method {
-            stroke: #4caf50;
-        }
+      .attribute.method {
+        stroke: #4caf50;
+      }
 
-        .methodindicator {
-            stroke: #4caf50;
-            fill: #4caf50;
-        }
+      .methodindicator {
+        stroke: #4caf50;
+        fill: #4caf50;
+      }
 
-        .eventindicator {
-            stroke: #02a8f4;
-            fill: #02a8f4;
-        }
-
-
-        .attribute.event {
-            stroke: #02a8f4;
-        }
-
-        .attribute.flag {
-            stroke: #686868;
-        }
-
-        .flagindicator {
-            stroke: #686868;
-            fill: #686868;
-        }
-
-        .park {
-            stroke: #686868;
-            fill: none;
-            stroke-width: 3;
-        }
-
-        .bubbling, .hostevent, .nonbubbling {
-            stroke: #fa4600;
-            fill: none;
-            stroke-width: 3;
-        }
+      .eventindicator {
+        stroke: #02a8f4;
+        fill: #02a8f4;
+      }
 
 
-        .line.event {
-            stroke: #fa4600;
-            fill: none;
-            stroke-width: 4;
-        }
+      .attribute.event {
+        stroke: #02a8f4;
+      }
 
-        .line {
-            stroke: #02a8f4;
-            fill: none;
-            stroke-width: 4;
-        }
+      .attribute.flag {
+        stroke: #686868;
+      }
 
-        .line.park {
-            stroke: #070707;
-            fill: none;
-            stroke-width: 4;
-        }
+      .flagindicator {
+        stroke: #686868;
+        fill: #686868;
+      }
+
+      .park {
+        stroke: #686868;
+        fill: none;
+        stroke-width: 3;
+      }
+
+      .bubbling, .hostevent, .nonbubbling {
+        stroke: #fa4600;
+        fill: none;
+        stroke-width: 3;
+      }
 
 
-        .line:hover {
-            stroke: #f4c633;
-        }
+      .line.event {
+        stroke: #fa4600;
+        fill: none;
+        stroke-width: 4;
+      }
+
+      .line {
+        stroke: #02a8f4;
+        fill: none;
+        stroke-width: 4;
+      }
+
+      .line.park {
+        stroke: #070707;
+        fill: none;
+        stroke-width: 4;
+      }
+
+
+      .line:hover {
+        stroke: #f4c633;
+      }
 
     `
   }
