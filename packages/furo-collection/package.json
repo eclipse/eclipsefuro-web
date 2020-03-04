@@ -21,7 +21,8 @@
     "@furo/notification": "^0.10.7",
     "@furo/route": "^0.23.8",
     "@furo/timing": "^0.1.1",
-    "@furo/util": "^0.23.0"
+    "@furo/util": "^0.23.0",
+    "@furo/spec-basetypes": "^0.0.1"
   },
   "author": "veith",
   "license": "MIT",
