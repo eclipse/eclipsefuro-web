@@ -1,15 +1,15 @@
 {
   "name": "navigationnode",
   "type": "Navigationnode",
-  "description": "Item of the navigationtree",
+  "description": "This is an example signature of a navigation node, which can be used for the components of @furo/navigation ",
   "__proto": {
-    "package": "furo.typelib",
+    "package": "signatures",
     "imports": ["furo/link.proto"],
-    "targetfile": "types.proto"
+    "targetfile": "furo-navigation.proto"
   },
   "fields": {
     "id": {
-      "description": "Id of the node",
+      "description": "Id of the node, this field value must be unique",
       "type": "string",
       "__proto": {
         "number": 1
@@ -27,7 +27,7 @@
       }
     },
     "secondary_text": {
-      "description": "Secondary text of the node",
+      "description": "Secondary text of the node [optional]",
       "type": "string",
       "meta": {
         "tree-search-index": true
@@ -36,25 +36,15 @@
         "number": 3
       }
     },
-    "description": {
-      "description": "description of the node",
-      "meta": {
-        "tree-search-index": true
-      },
-      "type": "string",
-      "__proto": {
-        "number": 4
-      }
-    },
     "icon": {
-      "description": "icon of the node",
+      "description": "icon of a node. When used in furo-tree it will be displayed as leading icon [optional]",
       "type": "string",
       "__proto": {
         "number": 5
       }
     },
     "panel": {
-      "description": "Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)",
+      "description": "Which panel (i.e. view, edit, display) opens the node type (which is defined in property link). The value of this field must correspond to your registry.",
       "type": "string",
       "meta": {
         "readonly": true,
@@ -107,7 +97,7 @@
     },
     "children": {
       "description": "Children of this node",
-      "type": "furo.typelib.Navigationnode",
+      "type": "tree.Navigationnode",
       "meta": {
         "repeated": true
       },

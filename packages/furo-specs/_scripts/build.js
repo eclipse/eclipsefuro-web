@@ -180,6 +180,19 @@ let t = {};
 
 
 ClientEnv.types.forEach((type) => {
+  for (let f in type.fields) {
+    let field = type.fields[f];
+    if (field.meta && !(field.meta.default === null || field.meta.default === undefined)) {
+
+      // convert to Object Literal when Json string was given
+      try {
+        field.meta.default =   JSON.parse(field.meta.default);
+      } catch (e) {
+
+      }
+
+    }
+  }
   t[type.__proto.package + "." + type.type] = type
 });
 
