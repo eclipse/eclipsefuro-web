@@ -38,6 +38,9 @@ class DemoFuroDataTable extends FBP(LitElement) {
             furo-data-table {
                 /*--furo-data-table-background: #3c3f41;*/
                 /*--furo-data-table-on-background: #e2e2e2;*/
+                /*--furo-data-table-header-background: #2b2b2b;*/
+                /*--furo-data-table-header-on-background: #cc7832;*/
+                /*--data-table-separator: #555758;*/
             }
 
         `, Styling.theme]
@@ -68,9 +71,9 @@ class DemoFuroDataTable extends FBP(LitElement) {
                 
                 <furo-card header-text="Project Overview - Data Table Standard" secondary-text="All your project data" class="flex">
 
-                    <furo-data-table type="project.Project" 
-                                     fields="display_name, members, start,end,cost_limit" 
-                                     sortable-fields="cost_limit,start" 
+                    <furo-data-table type="project.Project"
+                                     fields="display_name, members, start,end,cost_limit"
+                                     sortable-fields="cost_limit,start"
                                      single-selection
                                      ƒ-bind-data="--data"
                                      ƒ-trigger-navigation="--navpad"
@@ -82,7 +85,7 @@ class DemoFuroDataTable extends FBP(LitElement) {
 
                         <furo-button-bar>
                             <furo-empty-spacer></furo-empty-spacer>
-                            <furo-button label="place your component here. E.g. pagination"></furo-button>
+                            <furo-button primary label="place your component here. E.g. pagination"></furo-button>
                         </furo-button-bar>
                     </furo-data-table>
                     

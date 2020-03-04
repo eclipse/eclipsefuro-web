@@ -29,11 +29,12 @@ const tdWRepeat = (fields) => html`
  *
  * Custom property | Description | Default  | Fallback
  * ----------------|-------------|----------|----------
+ * `--furo-data-table-header-background` | Background color of the header row | --surface | white
+ * `--furo-data-table-header-on-background` | Color of the header row | --on-surface | black
  * `--furo-data-table-background` | Background color of the element | --surface | white
  * `--furo-data-table-on-background` | Color of the element | --on-surface | black
+ * `--data-table-separator` | Color of separator lines | --separator | rgba(0, 0, 0, .12)
  *
- * Configuration:
- * Attribute: hide-header | hides the table header row
  *
  * Tags: data-ui
  *
@@ -139,6 +140,7 @@ class FuroDataTable extends FBP(LitElement) {
             /**
              * Typedefinition of row items
              * REST SPEC Type
+             * Supported __ui flags: "flags": ["align-right"] e.g. for numeric values
              * e.g. task.Task.[type]
              */
             type: {
@@ -165,9 +167,16 @@ class FuroDataTable extends FBP(LitElement) {
             },
             /**
              * if True the single row selection mode is activated
+             * No bulk action or checkboxes are available
              */
             singleSelection: {
                 type: Boolean, attribute: "single-selection"
+            },
+            /**
+             * if True the header row is unvisible
+             */
+            hideHead: {
+                type: Boolean, attribute: "hide-head"
             }
         };
     }
@@ -191,8 +200,16 @@ class FuroDataTable extends FBP(LitElement) {
                 display: none;
             }
 
+            :host([hide-head]) thead {
+                display: none;
+            }
+
+            :host([hide-head]) tbody tr:first-of-type {
+                border-top: none;
+            }
+
             ::slotted(*) {
-                border-top: 1px solid var(--separator, rgba(0, 0, 0, .12));
+                border-top: 1px solid var(--data-table-separator, var(--separator, rgba(0, 0, 0, .12)));
             }
 
             div.data-table {
@@ -200,7 +217,7 @@ class FuroDataTable extends FBP(LitElement) {
                 border-radius: 4px;
                 border-width: 1px;
                 border-style: solid;
-                border-color: var(--separator, rgba(0, 0, 0, .12));
+                border-color: var(--data-table-separator, var(--separator, rgba(0, 0, 0, .12)));
                 -webkit-overflow-scrolling: touch;
                 display: block;
                 box-sizing: border-box;
@@ -219,6 +236,8 @@ class FuroDataTable extends FBP(LitElement) {
             }
 
             thead {
+                color: var(--furo-data-table-header-on-background, var(--on-surface, black));
+                background-color: var(--furo-data-table-header-background, var(--surface, white));
             }
 
             furo-data-table-toggle:hover {
@@ -263,7 +282,7 @@ class FuroDataTable extends FBP(LitElement) {
             .table-row {
                 border-top-width: 1px;
                 border-top-style: solid;
-                border-top-color: var(--separator, rgba(0, 0, 0, .12));
+                border-top-color: var(--data-table-separator, var(--separator, rgba(0, 0, 0, .12)));
             }
 
             .table-cell {
@@ -396,7 +415,10 @@ class FuroDataTable extends FBP(LitElement) {
                 let column = this.cols.filter(obj => {
                     return obj.id === f;
                 });
-                column[0].sortable = true;
+                if (column.length) {
+                    column[0].sortable = true;
+                }
+
             });
         }
     }
@@ -484,7 +506,6 @@ class FuroDataTable extends FBP(LitElement) {
                 <tr class="header-row">
                     <th class="header-cell col-checkbox" role="columnheader" scope="col">
                         <div class="cell-checkbox">
-<!--                            <input type="checkbox" tabindex="-1">-->
                             <furo-checkbox tabindex="-1" @-checked="--bulkChecked" @-unchecked="--bulkUnchecked"></furo-checkbox>
                         </div>
                     </th>
@@ -497,7 +518,6 @@ class FuroDataTable extends FBP(LitElement) {
                         <tr class="table-row" aria-selected="false">
                             <td class="table-cell cell--checkbox col-checkbox">
                                 <div class="cell-checkbox">
-<!--                                    <input type="checkbox" tabindex="-1">-->
                                     <furo-checkbox tabindex="-1"></furo-checkbox>
                                 </div>
                             </td>
