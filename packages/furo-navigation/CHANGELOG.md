@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.43.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.42.0...@furo/navigation@0.43.0) (2020-03-04)
+
+
+### Bug Fixes
+
+* close tab fixed ([bd5d4eb](https://github.com/theNorstroem/FuroBaseComponents/commit/bd5d4eb))
+* close tab fixed ([e8e0372](https://github.com/theNorstroem/FuroBaseComponents/commit/e8e0372))
+* compatibility ([f06b658](https://github.com/theNorstroem/FuroBaseComponents/commit/f06b658))
+* compatibility ([6674c97](https://github.com/theNorstroem/FuroBaseComponents/commit/6674c97))
+
+
+### Features
+
+* app-bar-top with "small" tag for the title ([550d7f4](https://github.com/theNorstroem/FuroBaseComponents/commit/550d7f4))
+* spec are installable, basetype component ([be52471](https://github.com/theNorstroem/FuroBaseComponents/commit/be52471))
+
+
+
+
+
 # [0.42.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.41.0...@furo/navigation@0.42.0) (2020-02-27)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/util@0.23.0...@furo/util@0.24.0) (2020-03-04)
+
+
+### Features
+
+* app-bar-top with "small" tag for the title ([550d7f4](https://github.com/theNorstroem/FuroBaseComponents/commit/550d7f4))
+
+
+
+
+
 # [0.23.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/util@0.22.0...@furo/util@0.23.0) (2020-02-27)
 
 

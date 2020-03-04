@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.50.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.49.1...@furo/specs@0.50.0) (2020-03-04)
+
+
+### Features
+
+* app-bar-top with "small" tag for the title ([550d7f4](https://github.com/theNorstroem/FuroBaseComponents/commit/550d7f4))
+* spec are installable, basetype component ([be52471](https://github.com/theNorstroem/FuroBaseComponents/commit/be52471))
+
+
+
+
+
 ## [0.49.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.49.0...@furo/specs@0.49.1) (2020-02-26)
 
 **Note:** Version bump only for package @furo/specs

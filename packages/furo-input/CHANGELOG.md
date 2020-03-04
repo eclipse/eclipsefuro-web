@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.67.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.0...@furo/input@0.67.1) (2020-03-04)
+
+
+### Bug Fixes
+
+* safari input type search css fix ([cddcdc4](https://github.com/theNorstroem/FuroBaseComponents/commit/cddcdc4))
+
+
+
+
+
 # [0.67.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.66.3...@furo/input@0.67.0) (2020-02-27)
 
 

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.20](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.19...@furo/doc-helper@0.15.20) (2020-03-04)
+
+
+### Bug Fixes
+
+* compatibility ([6674c97](https://github.com/theNorstroem/FuroBaseComponents/commit/6674c97))
+* graph mouseover events to tooltip ([dbfbd6d](https://github.com/theNorstroem/FuroBaseComponents/commit/dbfbd6d))
+* svgjs panzoom import structure ([7f0ee54](https://github.com/theNorstroem/FuroBaseComponents/commit/7f0ee54))
+
+
+
+
+
 ## [0.15.19](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.18...@furo/doc-helper@0.15.19) (2020-02-27)
 
 **Note:** Version bump only for package @furo/doc-helper

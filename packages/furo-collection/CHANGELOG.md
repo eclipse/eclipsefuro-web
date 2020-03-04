@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.23.27...@furo/collection@0.24.0) (2020-03-04)
+
+
+### Features
+
+* spec basetype ([073c3b3](https://github.com/theNorstroem/FuroBaseComponents/commit/073c3b3))
+
+
+
+
+
 ## [0.23.27](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.23.26...@furo/collection@0.23.27) (2020-02-27)
 
 **Note:** Version bump only for package @furo/collection

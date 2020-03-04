@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.12.0...@furo/data-ui@0.12.1) (2020-03-04)
+
+
+### Bug Fixes
+
+* styling updates, fix values removed ([dbfeaf2](https://github.com/theNorstroem/FuroBaseComponents/commit/dbfeaf2))
+
+
+
+
+
 # [0.12.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.11.15...@furo/data-ui@0.12.0) (2020-02-27)
 
 
