@@ -79,6 +79,10 @@ class FuroIconButton extends FBP(LitElement) {
             display: none;
         }
 
+        :host([disabled]) {
+            color: var(--disabled, inherit);
+        }
+
         button {
             cursor: pointer;
             background: none;
