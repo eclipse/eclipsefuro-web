@@ -33,13 +33,14 @@
         "readonly": false,
         "repeated": true,
         "options": {
-          "list": []
+          "list": [],
+          "flags": null
         }
       },
       "constraints": null
     },
     "flags": {
-      "type": "map<string,bool>",
+      "type": "string",
       "description": "Add flags for your field. This can be something like \"searchable\"=true\n",
       "__proto": {
         "number": 2
@@ -55,9 +56,10 @@
         "hint": "optional flags",
         "default": null,
         "readonly": false,
-        "repeated": false,
+        "repeated": true,
         "options": {
-          "list": []
+          "list": [],
+          "flags": null
         },
         "typespecific": null
       },
