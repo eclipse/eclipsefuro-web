@@ -1,0 +1,52 @@
+{
+  "init": {
+    "packages": [],
+    "excludes": [],
+    "default_type_for_identities": "string"
+  },
+  "spec_dir": "./",
+  "import_spec_dirs": [],
+  "swagger": false,
+  "grpc_gateway": false,
+  "java": false,
+  "build_output_dir": "./build",
+  "furo_env_name": "data_environment.js",
+  "_hooks": {
+    "type_completed": "./sample-hook.js",
+    "service_completed": "./sample-hook.js",
+    "build_completed": "./sample-hook.js"
+  },
+  "bundled": {
+    "build": false,
+    "package_name": "taskmanager",
+    "service_name": "BundledService",
+    "proto_options": {
+      "csharp_namespace": "Google.Protobuf.WellKnownTypes",
+      "go_package": "taskmanager",
+      "java_package": "taskmanager",
+      "java_outer_classname": "AnyProto",
+      "java_multiple_files": true,
+      "objc_class_prefix": "GPB"
+    },
+    "imports": [
+      "google/protobuf/empty.proto",
+      "google/protobuf/any.proto",
+      "google/type/money.proto",
+      "google/type/date.proto",
+      "furo/link.proto",
+      "furo/meta.proto",
+      "furo/reference.proto"
+    ]
+  },
+  "protoc_I": [
+    "/usr/local/include",
+    "$GOPATH/src",
+    "$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis"
+  ],
+  "protoc_M": [
+    "google/protobuf/any.proto=github.com/golang/protobuf/ptypes/any",
+    "google/protobuf/empty.proto=github.com/golang/protobuf/ptypes/empty",
+    "google/protobuf/wrappers.proto=github.com/golang/protobuf/ptypes/wrappers",
+    "google/protobuf/field_mask.proto=google.golang.org/genproto/protobuf/field_mask"
+  ]
+}
