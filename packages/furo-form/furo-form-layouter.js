@@ -16,7 +16,7 @@ import {FBP} from "@furo/fbp";
  *
  * <furo-form-layouter></furo-form-layouter>
  *
- * To customize the slotted elements inside furo-form-layout there are several attributes.
+ * To customize the slotted elements inside furo-form-layouter there are several attributes.
  * - double | stretches the element over two units
  * - full | stretches the element to full width
  * - newline | forces a new line
