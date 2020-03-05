@@ -255,7 +255,7 @@ class FuroDataTable extends FBP(LitElement) {
             }
 
             .header-row {
-                background-color: inherit;
+                background-color: var(--furo-data-table-header-background, var(--surface, white));
             }
 
             .header-cell {
