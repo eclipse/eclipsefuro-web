@@ -16,10 +16,16 @@ import {FBP} from "@furo/fbp";
  *
  * <furo-form-layouter></furo-form-layouter>
  *
+ * To customize the slotted elements inside furo-form-layout there are several attributes.
+ * - double | stretches the element over two units
+ * - full | stretches the element to full width
+ * - newline | forces a new line
+ *
  * Tags: form
  * @summary Grid based form field row
  * @customElement
- * @demo demo-furo-form-layouter Form Design Sample
+ * @demo demo-furo-form-layouter Basic forms
+ * @demo demo-furo-form-layouter-complex Complex forms
  * @mixes FBP
  */
 class FuroFormLayouter extends FBP(LitElement) {
@@ -140,6 +146,15 @@ class FuroFormLayouter extends FBP(LitElement) {
                 grid-column: span 2 / auto;
             }
 
+            :host([two]) ::slotted(*[newline]) {
+                grid-column-start: 1;
+                grid-column-end: 2;
+            }
+            
+            :host([two]) ::slotted(*[newline][double]) {
+                grid-column: span 2 / auto;
+            }
+
             :host([two]) ::slotted(*[full]) {
                 grid-column: span 2 / auto;
             }
@@ -148,10 +163,20 @@ class FuroFormLayouter extends FBP(LitElement) {
                 grid-column: span 2  / auto;
             }
 
+            :host([four]) ::slotted(*[newline]) {
+                grid-column-start: 1;
+                grid-column-end: 2;
+            }
+            
+            :host([four]) ::slotted(*[newline][double]) {
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
+
             :host([four]) ::slotted(*[full]) {
                 grid-column: span 4 / auto;
             }
-
+            
             :host([two]) {
                 grid-template-columns: repeat(2, 1fr);
                 grid-column-gap: var(--spacing);

@@ -2042,7 +2042,7 @@
       ]
     },
     {
-      "description": "`furo-form-layouter`\n\nUse furo-form-layouter to structure your forms.\nIt is based on a grid system with the following properties:\n- full-width row (Standard)\n- two columns\n- four columns\n\nThe required variant is set using an attribute.\ne.g. two, four\n\n<furo-form-layouter></furo-form-layouter>\n\nTags: form",
+      "description": "`furo-form-layouter`\n\nUse furo-form-layouter to structure your forms.\nIt is based on a grid system with the following properties:\n- full-width row (Standard)\n- two columns\n- four columns\n\nThe required variant is set using an attribute.\ne.g. two, four\n\n<furo-form-layouter></furo-form-layouter>\n\nTo customize the slotted elements inside furo-form-layout there are several attributes.\n- double | stretches the element over two units\n- full | stretches the element to full width\n- newline | forces a new line\n\nTags: form",
       "summary": "Grid based form field row",
       "path": "packages/furo-form/furo-form-layouter.js",
       "properties": [
@@ -2053,11 +2053,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 96,
+              "line": 102,
               "column": 12
             },
             "end": {
-              "line": 96,
+              "line": 102,
               "column": 85
             }
           },
@@ -2074,11 +2074,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 103,
               "column": 12
             },
             "end": {
-              "line": 97,
+              "line": 103,
               "column": 89
             }
           },
@@ -2095,11 +2095,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 108,
               "column": 12
             },
             "end": {
-              "line": 106,
+              "line": 112,
               "column": 13
             }
           },
@@ -2116,11 +2116,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 117,
               "column": 12
             },
             "end": {
-              "line": 115,
+              "line": 121,
               "column": 13
             }
           },
@@ -2354,11 +2354,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 63,
+              "line": 69,
               "column": 4
             },
             "end": {
-              "line": 88,
+              "line": 94,
               "column": 5
             }
           },
@@ -2550,11 +2550,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 34,
+              "line": 40,
               "column": 4
             },
             "end": {
-              "line": 52,
+              "line": 58,
               "column": 5
             }
           },
@@ -2574,11 +2574,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 54,
+              "line": 60,
               "column": 4
             },
             "end": {
-              "line": 58,
+              "line": 64,
               "column": 5
             }
           },
@@ -2594,11 +2594,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 234,
+              "line": 259,
               "column": 4
             },
             "end": {
-              "line": 239,
+              "line": 264,
               "column": 5
             }
           },
@@ -2613,17 +2613,21 @@
       "demos": [
         {
           "url": "demo-furo-form-layouter",
-          "description": "Form Design Sample"
+          "description": "Basic forms"
+        },
+        {
+          "url": "demo-furo-form-layouter-complex",
+          "description": "Complex forms"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 24,
+          "line": 30,
           "column": 0
         },
         "end": {
-          "line": 240,
+          "line": 265,
           "column": 1
         }
       },
@@ -2636,11 +2640,11 @@
           "description": "Set custom breakpoints max. two values\nDefault: \"810,405\"",
           "sourceRange": {
             "start": {
-              "line": 96,
+              "line": 102,
               "column": 12
             },
             "end": {
-              "line": 96,
+              "line": 102,
               "column": 85
             }
           },
@@ -2652,11 +2656,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 103,
               "column": 12
             },
             "end": {
-              "line": 97,
+              "line": 103,
               "column": 89
             }
           },
@@ -2668,11 +2672,11 @@
           "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 108,
               "column": 12
             },
             "end": {
-              "line": 106,
+              "line": 112,
               "column": 13
             }
           },
@@ -2684,11 +2688,11 @@
           "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 117,
               "column": 12
             },
             "end": {
-              "line": 115,
+              "line": 121,
               "column": 13
             }
           },
