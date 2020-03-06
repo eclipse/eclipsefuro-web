@@ -9,106 +9,10 @@ public interface ListProjectServiceRequestOrBuilder extends
 
   /**
    * <pre>
-   *Partial representation, fields=id,name
-   * </pre>
-   *
-   * <code>string fields = 1;</code>
-   */
-  java.lang.String getFields();
-  /**
-   * <pre>
-   *Partial representation, fields=id,name
-   * </pre>
-   *
-   * <code>string fields = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getFieldsBytes();
-
-  /**
-   * <pre>
-   **
-   * Sort fields, comma separated list for the ordering
-   * use **?filter=-display_name** with a dash to sort descending
-   * use **?filter=display_name** to sort ascending
-   * </pre>
-   *
-   * <code>string order_by = 2;</code>
-   */
-  java.lang.String getOrderBy();
-  /**
-   * <pre>
-   **
-   * Sort fields, comma separated list for the ordering
-   * use **?filter=-display_name** with a dash to sort descending
-   * use **?filter=display_name** to sort ascending
-   * </pre>
-   *
-   * <code>string order_by = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getOrderByBytes();
-
-  /**
-   * <pre>
-   *Filter
-   * </pre>
-   *
-   * <code>string filter = 3;</code>
-   */
-  java.lang.String getFilter();
-  /**
-   * <pre>
-   *Filter
-   * </pre>
-   *
-   * <code>string filter = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getFilterBytes();
-
-  /**
-   * <pre>
-   *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-   * </pre>
-   *
-   * <code>int32 page = 4;</code>
-   */
-  int getPage();
-
-  /**
-   * <pre>
-   *Number of elements to return per page
-   * </pre>
-   *
-   * <code>int32 limit = 5;</code>
-   */
-  int getLimit();
-
-  /**
-   * <pre>
-   *https://cloud.google.com/apis/design/design_patterns#resource_view
-   * </pre>
-   *
-   * <code>string view = 8;</code>
-   */
-  java.lang.String getView();
-  /**
-   * <pre>
-   *https://cloud.google.com/apis/design/design_patterns#resource_view
-   * </pre>
-   *
-   * <code>string view = 8;</code>
-   */
-  com.google.protobuf.ByteString
-      getViewBytes();
-
-  /**
-   * <pre>
    *Query term to search a project
    * </pre>
    *
-   * <code>string q = 11;</code>
+   * <code>string q = 1;</code>
    */
   java.lang.String getQ();
   /**
@@ -116,7 +20,7 @@ public interface ListProjectServiceRequestOrBuilder extends
    *Query term to search a project
    * </pre>
    *
-   * <code>string q = 11;</code>
+   * <code>string q = 1;</code>
    */
   com.google.protobuf.ByteString
       getQBytes();

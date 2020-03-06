@@ -17,10 +17,11 @@ private static final long serialVersionUID = 0L;
   }
   private ListTaskServiceRequest() {
     fields_ = "";
-    orderBy_ = "";
     filter_ = "";
-    view_ = "";
+    orderBy_ = "";
+    pageSize_ = "";
     q_ = "";
+    view_ = "";
   }
 
   @java.lang.Override
@@ -56,35 +57,31 @@ private static final long serialVersionUID = 0L;
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            orderBy_ = s;
+            filter_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            filter_ = s;
+            orderBy_ = s;
             break;
           }
-          case 32: {
-
-            page_ = input.readInt32();
-            break;
-          }
-          case 40: {
-
-            limit_ = input.readInt32();
-            break;
-          }
-          case 66: {
+          case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            view_ = s;
+            pageSize_ = s;
             break;
           }
-          case 90: {
+          case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
             q_ = s;
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            view_ = s;
             break;
           }
           default: {
@@ -123,7 +120,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object fields_;
   /**
    * <pre>
-   *Partial representation, fields=id,name
+   *Partial representation (comma separated list of field names), ?fields=
    * </pre>
    *
    * <code>string fields = 1;</code>
@@ -142,7 +139,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Partial representation, fields=id,name
+   *Partial representation (comma separated list of field names), ?fields=
    * </pre>
    *
    * <code>string fields = 1;</code>
@@ -161,62 +158,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ORDER_BY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object orderBy_;
-  /**
-   * <pre>
-   **
-   * Sort fields, comma separated list for the ordering
-   * use **?filter=-display_name** with a dash to sort descending
-   * use **?filter=display_name** to sort ascending
-   * </pre>
-   *
-   * <code>string order_by = 2;</code>
-   */
-  public java.lang.String getOrderBy() {
-    java.lang.Object ref = orderBy_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      orderBy_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   **
-   * Sort fields, comma separated list for the ordering
-   * use **?filter=-display_name** with a dash to sort descending
-   * use **?filter=display_name** to sort ascending
-   * </pre>
-   *
-   * <code>string order_by = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getOrderByBytes() {
-    java.lang.Object ref = orderBy_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      orderBy_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int FILTER_FIELD_NUMBER = 3;
+  public static final int FILTER_FIELD_NUMBER = 2;
   private volatile java.lang.Object filter_;
   /**
    * <pre>
-   *Filter
+   *The response message will be filtered by the fields before being sent back to the client, filter=[[&amp;#39;id&amp;#39;,&amp;#39;eq&amp;#39;,&amp;#39;1&amp;#39;]]
    * </pre>
    *
-   * <code>string filter = 3;</code>
+   * <code>string filter = 2;</code>
    */
   public java.lang.String getFilter() {
     java.lang.Object ref = filter_;
@@ -232,10 +181,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Filter
+   *The response message will be filtered by the fields before being sent back to the client, filter=[[&amp;#39;id&amp;#39;,&amp;#39;eq&amp;#39;,&amp;#39;1&amp;#39;]]
    * </pre>
    *
-   * <code>string filter = 3;</code>
+   * <code>string filter = 2;</code>
    */
   public com.google.protobuf.ByteString
       getFilterBytes() {
@@ -251,82 +200,102 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PAGE_FIELD_NUMBER = 4;
-  private int page_;
+  public static final int ORDER_BY_FIELD_NUMBER = 3;
+  private volatile java.lang.Object orderBy_;
   /**
    * <pre>
-   *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
+   *Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar
    * </pre>
    *
-   * <code>int32 page = 4;</code>
+   * <code>string order_by = 3;</code>
    */
-  public int getPage() {
-    return page_;
-  }
-
-  public static final int LIMIT_FIELD_NUMBER = 5;
-  private int limit_;
-  /**
-   * <pre>
-   *Number of elements to return per page
-   * </pre>
-   *
-   * <code>int32 limit = 5;</code>
-   */
-  public int getLimit() {
-    return limit_;
-  }
-
-  public static final int VIEW_FIELD_NUMBER = 8;
-  private volatile java.lang.Object view_;
-  /**
-   * <pre>
-   *https://cloud.google.com/apis/design/design_patterns#resource_view
-   * </pre>
-   *
-   * <code>string view = 8;</code>
-   */
-  public java.lang.String getView() {
-    java.lang.Object ref = view_;
+  public java.lang.String getOrderBy() {
+    java.lang.Object ref = orderBy_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      view_ = s;
+      orderBy_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   *https://cloud.google.com/apis/design/design_patterns#resource_view
+   *Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar
    * </pre>
    *
-   * <code>string view = 8;</code>
+   * <code>string order_by = 3;</code>
    */
   public com.google.protobuf.ByteString
-      getViewBytes() {
-    java.lang.Object ref = view_;
+      getOrderByBytes() {
+    java.lang.Object ref = orderBy_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      view_ = b;
+      orderBy_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int Q_FIELD_NUMBER = 11;
+  public static final int PAGE_SIZE_FIELD_NUMBER = 4;
+  private volatile java.lang.Object pageSize_;
+  /**
+   * <pre>
+   *Use this field to specify the maximum number of results to be returned by the server. 
+   *The server may further constrain the maximum number of results returned in a single page. 
+   *If the page_size is 0, the server will decide the number of results to be returned. page_size=15
+   * </pre>
+   *
+   * <code>string page_size = 4;</code>
+   */
+  public java.lang.String getPageSize() {
+    java.lang.Object ref = pageSize_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      pageSize_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *Use this field to specify the maximum number of results to be returned by the server. 
+   *The server may further constrain the maximum number of results returned in a single page. 
+   *If the page_size is 0, the server will decide the number of results to be returned. page_size=15
+   * </pre>
+   *
+   * <code>string page_size = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getPageSizeBytes() {
+    java.lang.Object ref = pageSize_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      pageSize_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int Q_FIELD_NUMBER = 5;
   private volatile java.lang.Object q_;
   /**
    * <pre>
-   *Query term to search a task
+   *Query term to search a {{.name}}
    * </pre>
    *
-   * <code>string q = 11;</code>
+   * <code>string q = 5;</code>
    */
   public java.lang.String getQ() {
     java.lang.Object ref = q_;
@@ -342,10 +311,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Query term to search a task
+   *Query term to search a {{.name}}
    * </pre>
    *
-   * <code>string q = 11;</code>
+   * <code>string q = 5;</code>
    */
   public com.google.protobuf.ByteString
       getQBytes() {
@@ -355,6 +324,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       q_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int VIEW_FIELD_NUMBER = 6;
+  private volatile java.lang.Object view_;
+  /**
+   * <pre>
+   *allows the client to specify which view of the resource it wants to receive in the response. view=BASIC
+   * </pre>
+   *
+   * <code>string view = 6;</code>
+   */
+  public java.lang.String getView() {
+    java.lang.Object ref = view_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      view_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *allows the client to specify which view of the resource it wants to receive in the response. view=BASIC
+   * </pre>
+   *
+   * <code>string view = 6;</code>
+   */
+  public com.google.protobuf.ByteString
+      getViewBytes() {
+    java.lang.Object ref = view_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      view_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -378,23 +389,20 @@ private static final long serialVersionUID = 0L;
     if (!getFieldsBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fields_);
     }
-    if (!getOrderByBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, orderBy_);
-    }
     if (!getFilterBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, filter_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, filter_);
     }
-    if (page_ != 0) {
-      output.writeInt32(4, page_);
+    if (!getOrderByBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, orderBy_);
     }
-    if (limit_ != 0) {
-      output.writeInt32(5, limit_);
-    }
-    if (!getViewBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, view_);
+    if (!getPageSizeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, pageSize_);
     }
     if (!getQBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, q_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, q_);
+    }
+    if (!getViewBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, view_);
     }
     unknownFields.writeTo(output);
   }
@@ -408,25 +416,20 @@ private static final long serialVersionUID = 0L;
     if (!getFieldsBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, fields_);
     }
-    if (!getOrderByBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, orderBy_);
-    }
     if (!getFilterBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, filter_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, filter_);
     }
-    if (page_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, page_);
+    if (!getOrderByBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, orderBy_);
     }
-    if (limit_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(5, limit_);
-    }
-    if (!getViewBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, view_);
+    if (!getPageSizeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, pageSize_);
     }
     if (!getQBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, q_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, q_);
+    }
+    if (!getViewBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, view_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -445,18 +448,16 @@ private static final long serialVersionUID = 0L;
 
     if (!getFields()
         .equals(other.getFields())) return false;
-    if (!getOrderBy()
-        .equals(other.getOrderBy())) return false;
     if (!getFilter()
         .equals(other.getFilter())) return false;
-    if (getPage()
-        != other.getPage()) return false;
-    if (getLimit()
-        != other.getLimit()) return false;
-    if (!getView()
-        .equals(other.getView())) return false;
+    if (!getOrderBy()
+        .equals(other.getOrderBy())) return false;
+    if (!getPageSize()
+        .equals(other.getPageSize())) return false;
     if (!getQ()
         .equals(other.getQ())) return false;
+    if (!getView()
+        .equals(other.getView())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -470,18 +471,16 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + FIELDS_FIELD_NUMBER;
     hash = (53 * hash) + getFields().hashCode();
-    hash = (37 * hash) + ORDER_BY_FIELD_NUMBER;
-    hash = (53 * hash) + getOrderBy().hashCode();
     hash = (37 * hash) + FILTER_FIELD_NUMBER;
     hash = (53 * hash) + getFilter().hashCode();
-    hash = (37 * hash) + PAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getPage();
-    hash = (37 * hash) + LIMIT_FIELD_NUMBER;
-    hash = (53 * hash) + getLimit();
-    hash = (37 * hash) + VIEW_FIELD_NUMBER;
-    hash = (53 * hash) + getView().hashCode();
+    hash = (37 * hash) + ORDER_BY_FIELD_NUMBER;
+    hash = (53 * hash) + getOrderBy().hashCode();
+    hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
+    hash = (53 * hash) + getPageSize().hashCode();
     hash = (37 * hash) + Q_FIELD_NUMBER;
     hash = (53 * hash) + getQ().hashCode();
+    hash = (37 * hash) + VIEW_FIELD_NUMBER;
+    hash = (53 * hash) + getView().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -617,17 +616,15 @@ private static final long serialVersionUID = 0L;
       super.clear();
       fields_ = "";
 
-      orderBy_ = "";
-
       filter_ = "";
 
-      page_ = 0;
+      orderBy_ = "";
 
-      limit_ = 0;
-
-      view_ = "";
+      pageSize_ = "";
 
       q_ = "";
+
+      view_ = "";
 
       return this;
     }
@@ -656,12 +653,11 @@ private static final long serialVersionUID = 0L;
     public taskmanager.ListTaskServiceRequest buildPartial() {
       taskmanager.ListTaskServiceRequest result = new taskmanager.ListTaskServiceRequest(this);
       result.fields_ = fields_;
-      result.orderBy_ = orderBy_;
       result.filter_ = filter_;
-      result.page_ = page_;
-      result.limit_ = limit_;
-      result.view_ = view_;
+      result.orderBy_ = orderBy_;
+      result.pageSize_ = pageSize_;
       result.q_ = q_;
+      result.view_ = view_;
       onBuilt();
       return result;
     }
@@ -714,26 +710,24 @@ private static final long serialVersionUID = 0L;
         fields_ = other.fields_;
         onChanged();
       }
-      if (!other.getOrderBy().isEmpty()) {
-        orderBy_ = other.orderBy_;
-        onChanged();
-      }
       if (!other.getFilter().isEmpty()) {
         filter_ = other.filter_;
         onChanged();
       }
-      if (other.getPage() != 0) {
-        setPage(other.getPage());
+      if (!other.getOrderBy().isEmpty()) {
+        orderBy_ = other.orderBy_;
+        onChanged();
       }
-      if (other.getLimit() != 0) {
-        setLimit(other.getLimit());
-      }
-      if (!other.getView().isEmpty()) {
-        view_ = other.view_;
+      if (!other.getPageSize().isEmpty()) {
+        pageSize_ = other.pageSize_;
         onChanged();
       }
       if (!other.getQ().isEmpty()) {
         q_ = other.q_;
+        onChanged();
+      }
+      if (!other.getView().isEmpty()) {
+        view_ = other.view_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -768,7 +762,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object fields_ = "";
     /**
      * <pre>
-     *Partial representation, fields=id,name
+     *Partial representation (comma separated list of field names), ?fields=
      * </pre>
      *
      * <code>string fields = 1;</code>
@@ -787,7 +781,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Partial representation, fields=id,name
+     *Partial representation (comma separated list of field names), ?fields=
      * </pre>
      *
      * <code>string fields = 1;</code>
@@ -807,7 +801,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Partial representation, fields=id,name
+     *Partial representation (comma separated list of field names), ?fields=
      * </pre>
      *
      * <code>string fields = 1;</code>
@@ -824,7 +818,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Partial representation, fields=id,name
+     *Partial representation (comma separated list of field names), ?fields=
      * </pre>
      *
      * <code>string fields = 1;</code>
@@ -837,7 +831,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Partial representation, fields=id,name
+     *Partial representation (comma separated list of field names), ?fields=
      * </pre>
      *
      * <code>string fields = 1;</code>
@@ -854,117 +848,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object orderBy_ = "";
-    /**
-     * <pre>
-     **
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     * </pre>
-     *
-     * <code>string order_by = 2;</code>
-     */
-    public java.lang.String getOrderBy() {
-      java.lang.Object ref = orderBy_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        orderBy_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     **
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     * </pre>
-     *
-     * <code>string order_by = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getOrderByBytes() {
-      java.lang.Object ref = orderBy_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        orderBy_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     **
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     * </pre>
-     *
-     * <code>string order_by = 2;</code>
-     */
-    public Builder setOrderBy(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      orderBy_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     **
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     * </pre>
-     *
-     * <code>string order_by = 2;</code>
-     */
-    public Builder clearOrderBy() {
-      
-      orderBy_ = getDefaultInstance().getOrderBy();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     **
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     * </pre>
-     *
-     * <code>string order_by = 2;</code>
-     */
-    public Builder setOrderByBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      orderBy_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object filter_ = "";
     /**
      * <pre>
-     *Filter
+     *The response message will be filtered by the fields before being sent back to the client, filter=[[&amp;#39;id&amp;#39;,&amp;#39;eq&amp;#39;,&amp;#39;1&amp;#39;]]
      * </pre>
      *
-     * <code>string filter = 3;</code>
+     * <code>string filter = 2;</code>
      */
     public java.lang.String getFilter() {
       java.lang.Object ref = filter_;
@@ -980,10 +870,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Filter
+     *The response message will be filtered by the fields before being sent back to the client, filter=[[&amp;#39;id&amp;#39;,&amp;#39;eq&amp;#39;,&amp;#39;1&amp;#39;]]
      * </pre>
      *
-     * <code>string filter = 3;</code>
+     * <code>string filter = 2;</code>
      */
     public com.google.protobuf.ByteString
         getFilterBytes() {
@@ -1000,10 +890,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Filter
+     *The response message will be filtered by the fields before being sent back to the client, filter=[[&amp;#39;id&amp;#39;,&amp;#39;eq&amp;#39;,&amp;#39;1&amp;#39;]]
      * </pre>
      *
-     * <code>string filter = 3;</code>
+     * <code>string filter = 2;</code>
      */
     public Builder setFilter(
         java.lang.String value) {
@@ -1017,10 +907,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Filter
+     *The response message will be filtered by the fields before being sent back to the client, filter=[[&amp;#39;id&amp;#39;,&amp;#39;eq&amp;#39;,&amp;#39;1&amp;#39;]]
      * </pre>
      *
-     * <code>string filter = 3;</code>
+     * <code>string filter = 2;</code>
      */
     public Builder clearFilter() {
       
@@ -1030,10 +920,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Filter
+     *The response message will be filtered by the fields before being sent back to the client, filter=[[&amp;#39;id&amp;#39;,&amp;#39;eq&amp;#39;,&amp;#39;1&amp;#39;]]
      * </pre>
      *
-     * <code>string filter = 3;</code>
+     * <code>string filter = 2;</code>
      */
     public Builder setFilterBytes(
         com.google.protobuf.ByteString value) {
@@ -1047,97 +937,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int page_ ;
+    private java.lang.Object orderBy_ = "";
     /**
      * <pre>
-     *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
+     *Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar
      * </pre>
      *
-     * <code>int32 page = 4;</code>
+     * <code>string order_by = 3;</code>
      */
-    public int getPage() {
-      return page_;
-    }
-    /**
-     * <pre>
-     *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-     * </pre>
-     *
-     * <code>int32 page = 4;</code>
-     */
-    public Builder setPage(int value) {
-      
-      page_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-     * </pre>
-     *
-     * <code>int32 page = 4;</code>
-     */
-    public Builder clearPage() {
-      
-      page_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int limit_ ;
-    /**
-     * <pre>
-     *Number of elements to return per page
-     * </pre>
-     *
-     * <code>int32 limit = 5;</code>
-     */
-    public int getLimit() {
-      return limit_;
-    }
-    /**
-     * <pre>
-     *Number of elements to return per page
-     * </pre>
-     *
-     * <code>int32 limit = 5;</code>
-     */
-    public Builder setLimit(int value) {
-      
-      limit_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *Number of elements to return per page
-     * </pre>
-     *
-     * <code>int32 limit = 5;</code>
-     */
-    public Builder clearLimit() {
-      
-      limit_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object view_ = "";
-    /**
-     * <pre>
-     *https://cloud.google.com/apis/design/design_patterns#resource_view
-     * </pre>
-     *
-     * <code>string view = 8;</code>
-     */
-    public java.lang.String getView() {
-      java.lang.Object ref = view_;
+    public java.lang.String getOrderBy() {
+      java.lang.Object ref = orderBy_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        view_ = s;
+        orderBy_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -1145,19 +959,19 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *https://cloud.google.com/apis/design/design_patterns#resource_view
+     *Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar
      * </pre>
      *
-     * <code>string view = 8;</code>
+     * <code>string order_by = 3;</code>
      */
     public com.google.protobuf.ByteString
-        getViewBytes() {
-      java.lang.Object ref = view_;
+        getOrderByBytes() {
+      java.lang.Object ref = orderBy_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        view_ = b;
+        orderBy_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1165,49 +979,148 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *https://cloud.google.com/apis/design/design_patterns#resource_view
+     *Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar
      * </pre>
      *
-     * <code>string view = 8;</code>
+     * <code>string order_by = 3;</code>
      */
-    public Builder setView(
+    public Builder setOrderBy(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      view_ = value;
+      orderBy_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *https://cloud.google.com/apis/design/design_patterns#resource_view
+     *Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar
      * </pre>
      *
-     * <code>string view = 8;</code>
+     * <code>string order_by = 3;</code>
      */
-    public Builder clearView() {
+    public Builder clearOrderBy() {
       
-      view_ = getDefaultInstance().getView();
+      orderBy_ = getDefaultInstance().getOrderBy();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *https://cloud.google.com/apis/design/design_patterns#resource_view
+     *Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar
      * </pre>
      *
-     * <code>string view = 8;</code>
+     * <code>string order_by = 3;</code>
      */
-    public Builder setViewBytes(
+    public Builder setOrderByBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      view_ = value;
+      orderBy_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object pageSize_ = "";
+    /**
+     * <pre>
+     *Use this field to specify the maximum number of results to be returned by the server. 
+     *The server may further constrain the maximum number of results returned in a single page. 
+     *If the page_size is 0, the server will decide the number of results to be returned. page_size=15
+     * </pre>
+     *
+     * <code>string page_size = 4;</code>
+     */
+    public java.lang.String getPageSize() {
+      java.lang.Object ref = pageSize_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        pageSize_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *Use this field to specify the maximum number of results to be returned by the server. 
+     *The server may further constrain the maximum number of results returned in a single page. 
+     *If the page_size is 0, the server will decide the number of results to be returned. page_size=15
+     * </pre>
+     *
+     * <code>string page_size = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPageSizeBytes() {
+      java.lang.Object ref = pageSize_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pageSize_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *Use this field to specify the maximum number of results to be returned by the server. 
+     *The server may further constrain the maximum number of results returned in a single page. 
+     *If the page_size is 0, the server will decide the number of results to be returned. page_size=15
+     * </pre>
+     *
+     * <code>string page_size = 4;</code>
+     */
+    public Builder setPageSize(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      pageSize_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *Use this field to specify the maximum number of results to be returned by the server. 
+     *The server may further constrain the maximum number of results returned in a single page. 
+     *If the page_size is 0, the server will decide the number of results to be returned. page_size=15
+     * </pre>
+     *
+     * <code>string page_size = 4;</code>
+     */
+    public Builder clearPageSize() {
+      
+      pageSize_ = getDefaultInstance().getPageSize();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *Use this field to specify the maximum number of results to be returned by the server. 
+     *The server may further constrain the maximum number of results returned in a single page. 
+     *If the page_size is 0, the server will decide the number of results to be returned. page_size=15
+     * </pre>
+     *
+     * <code>string page_size = 4;</code>
+     */
+    public Builder setPageSizeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      pageSize_ = value;
       onChanged();
       return this;
     }
@@ -1215,10 +1128,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object q_ = "";
     /**
      * <pre>
-     *Query term to search a task
+     *Query term to search a {{.name}}
      * </pre>
      *
-     * <code>string q = 11;</code>
+     * <code>string q = 5;</code>
      */
     public java.lang.String getQ() {
       java.lang.Object ref = q_;
@@ -1234,10 +1147,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Query term to search a task
+     *Query term to search a {{.name}}
      * </pre>
      *
-     * <code>string q = 11;</code>
+     * <code>string q = 5;</code>
      */
     public com.google.protobuf.ByteString
         getQBytes() {
@@ -1254,10 +1167,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Query term to search a task
+     *Query term to search a {{.name}}
      * </pre>
      *
-     * <code>string q = 11;</code>
+     * <code>string q = 5;</code>
      */
     public Builder setQ(
         java.lang.String value) {
@@ -1271,10 +1184,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Query term to search a task
+     *Query term to search a {{.name}}
      * </pre>
      *
-     * <code>string q = 11;</code>
+     * <code>string q = 5;</code>
      */
     public Builder clearQ() {
       
@@ -1284,10 +1197,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Query term to search a task
+     *Query term to search a {{.name}}
      * </pre>
      *
-     * <code>string q = 11;</code>
+     * <code>string q = 5;</code>
      */
     public Builder setQBytes(
         com.google.protobuf.ByteString value) {
@@ -1297,6 +1210,95 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       q_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object view_ = "";
+    /**
+     * <pre>
+     *allows the client to specify which view of the resource it wants to receive in the response. view=BASIC
+     * </pre>
+     *
+     * <code>string view = 6;</code>
+     */
+    public java.lang.String getView() {
+      java.lang.Object ref = view_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        view_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *allows the client to specify which view of the resource it wants to receive in the response. view=BASIC
+     * </pre>
+     *
+     * <code>string view = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getViewBytes() {
+      java.lang.Object ref = view_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        view_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *allows the client to specify which view of the resource it wants to receive in the response. view=BASIC
+     * </pre>
+     *
+     * <code>string view = 6;</code>
+     */
+    public Builder setView(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      view_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *allows the client to specify which view of the resource it wants to receive in the response. view=BASIC
+     * </pre>
+     *
+     * <code>string view = 6;</code>
+     */
+    public Builder clearView() {
+      
+      view_ = getDefaultInstance().getView();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *allows the client to specify which view of the resource it wants to receive in the response. view=BASIC
+     * </pre>
+     *
+     * <code>string view = 6;</code>
+     */
+    public Builder setViewBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      view_ = value;
       onChanged();
       return this;
     }

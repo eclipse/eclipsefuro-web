@@ -16,10 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ListProjectMembersServiceRequest() {
-    fields_ = "";
-    orderBy_ = "";
-    filter_ = "";
-    view_ = "";
     q_ = "";
   }
 
@@ -48,40 +44,6 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            fields_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            orderBy_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            filter_ = s;
-            break;
-          }
-          case 32: {
-
-            page_ = input.readInt32();
-            break;
-          }
-          case 40: {
-
-            limit_ = input.readInt32();
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            view_ = s;
-            break;
-          }
-          case 90: {
             java.lang.String s = input.readStringRequireUtf8();
 
             q_ = s;
@@ -119,214 +81,14 @@ private static final long serialVersionUID = 0L;
             taskmanager.ListProjectMembersServiceRequest.class, taskmanager.ListProjectMembersServiceRequest.Builder.class);
   }
 
-  public static final int FIELDS_FIELD_NUMBER = 1;
-  private volatile java.lang.Object fields_;
-  /**
-   * <pre>
-   *Partial representation, fields=id,name
-   * </pre>
-   *
-   * <code>string fields = 1;</code>
-   */
-  public java.lang.String getFields() {
-    java.lang.Object ref = fields_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      fields_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *Partial representation, fields=id,name
-   * </pre>
-   *
-   * <code>string fields = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getFieldsBytes() {
-    java.lang.Object ref = fields_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      fields_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int ORDER_BY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object orderBy_;
-  /**
-   * <pre>
-   **
-   * Sort fields, comma separated list for the ordering
-   * use **?filter=-display_name** with a dash to sort descending
-   * use **?filter=display_name** to sort ascending
-   * </pre>
-   *
-   * <code>string order_by = 2;</code>
-   */
-  public java.lang.String getOrderBy() {
-    java.lang.Object ref = orderBy_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      orderBy_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   **
-   * Sort fields, comma separated list for the ordering
-   * use **?filter=-display_name** with a dash to sort descending
-   * use **?filter=display_name** to sort ascending
-   * </pre>
-   *
-   * <code>string order_by = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getOrderByBytes() {
-    java.lang.Object ref = orderBy_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      orderBy_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int FILTER_FIELD_NUMBER = 3;
-  private volatile java.lang.Object filter_;
-  /**
-   * <pre>
-   *Filter
-   * </pre>
-   *
-   * <code>string filter = 3;</code>
-   */
-  public java.lang.String getFilter() {
-    java.lang.Object ref = filter_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      filter_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *Filter
-   * </pre>
-   *
-   * <code>string filter = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getFilterBytes() {
-    java.lang.Object ref = filter_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      filter_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int PAGE_FIELD_NUMBER = 4;
-  private int page_;
-  /**
-   * <pre>
-   *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-   * </pre>
-   *
-   * <code>int32 page = 4;</code>
-   */
-  public int getPage() {
-    return page_;
-  }
-
-  public static final int LIMIT_FIELD_NUMBER = 5;
-  private int limit_;
-  /**
-   * <pre>
-   *Number of elements to return per page
-   * </pre>
-   *
-   * <code>int32 limit = 5;</code>
-   */
-  public int getLimit() {
-    return limit_;
-  }
-
-  public static final int VIEW_FIELD_NUMBER = 8;
-  private volatile java.lang.Object view_;
-  /**
-   * <pre>
-   *https://cloud.google.com/apis/design/design_patterns#resource_view
-   * </pre>
-   *
-   * <code>string view = 8;</code>
-   */
-  public java.lang.String getView() {
-    java.lang.Object ref = view_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      view_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *https://cloud.google.com/apis/design/design_patterns#resource_view
-   * </pre>
-   *
-   * <code>string view = 8;</code>
-   */
-  public com.google.protobuf.ByteString
-      getViewBytes() {
-    java.lang.Object ref = view_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      view_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int Q_FIELD_NUMBER = 11;
+  public static final int Q_FIELD_NUMBER = 1;
   private volatile java.lang.Object q_;
   /**
    * <pre>
    *Query term to search a member
    * </pre>
    *
-   * <code>string q = 11;</code>
+   * <code>string q = 1;</code>
    */
   public java.lang.String getQ() {
     java.lang.Object ref = q_;
@@ -345,7 +107,7 @@ private static final long serialVersionUID = 0L;
    *Query term to search a member
    * </pre>
    *
-   * <code>string q = 11;</code>
+   * <code>string q = 1;</code>
    */
   public com.google.protobuf.ByteString
       getQBytes() {
@@ -375,26 +137,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getFieldsBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fields_);
-    }
-    if (!getOrderByBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, orderBy_);
-    }
-    if (!getFilterBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, filter_);
-    }
-    if (page_ != 0) {
-      output.writeInt32(4, page_);
-    }
-    if (limit_ != 0) {
-      output.writeInt32(5, limit_);
-    }
-    if (!getViewBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, view_);
-    }
     if (!getQBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, q_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, q_);
     }
     unknownFields.writeTo(output);
   }
@@ -405,28 +149,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getFieldsBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, fields_);
-    }
-    if (!getOrderByBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, orderBy_);
-    }
-    if (!getFilterBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, filter_);
-    }
-    if (page_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, page_);
-    }
-    if (limit_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(5, limit_);
-    }
-    if (!getViewBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, view_);
-    }
     if (!getQBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, q_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, q_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -443,18 +167,6 @@ private static final long serialVersionUID = 0L;
     }
     taskmanager.ListProjectMembersServiceRequest other = (taskmanager.ListProjectMembersServiceRequest) obj;
 
-    if (!getFields()
-        .equals(other.getFields())) return false;
-    if (!getOrderBy()
-        .equals(other.getOrderBy())) return false;
-    if (!getFilter()
-        .equals(other.getFilter())) return false;
-    if (getPage()
-        != other.getPage()) return false;
-    if (getLimit()
-        != other.getLimit()) return false;
-    if (!getView()
-        .equals(other.getView())) return false;
     if (!getQ()
         .equals(other.getQ())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -468,18 +180,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + FIELDS_FIELD_NUMBER;
-    hash = (53 * hash) + getFields().hashCode();
-    hash = (37 * hash) + ORDER_BY_FIELD_NUMBER;
-    hash = (53 * hash) + getOrderBy().hashCode();
-    hash = (37 * hash) + FILTER_FIELD_NUMBER;
-    hash = (53 * hash) + getFilter().hashCode();
-    hash = (37 * hash) + PAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getPage();
-    hash = (37 * hash) + LIMIT_FIELD_NUMBER;
-    hash = (53 * hash) + getLimit();
-    hash = (37 * hash) + VIEW_FIELD_NUMBER;
-    hash = (53 * hash) + getView().hashCode();
     hash = (37 * hash) + Q_FIELD_NUMBER;
     hash = (53 * hash) + getQ().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -615,18 +315,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      fields_ = "";
-
-      orderBy_ = "";
-
-      filter_ = "";
-
-      page_ = 0;
-
-      limit_ = 0;
-
-      view_ = "";
-
       q_ = "";
 
       return this;
@@ -655,12 +343,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public taskmanager.ListProjectMembersServiceRequest buildPartial() {
       taskmanager.ListProjectMembersServiceRequest result = new taskmanager.ListProjectMembersServiceRequest(this);
-      result.fields_ = fields_;
-      result.orderBy_ = orderBy_;
-      result.filter_ = filter_;
-      result.page_ = page_;
-      result.limit_ = limit_;
-      result.view_ = view_;
       result.q_ = q_;
       onBuilt();
       return result;
@@ -710,28 +392,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(taskmanager.ListProjectMembersServiceRequest other) {
       if (other == taskmanager.ListProjectMembersServiceRequest.getDefaultInstance()) return this;
-      if (!other.getFields().isEmpty()) {
-        fields_ = other.fields_;
-        onChanged();
-      }
-      if (!other.getOrderBy().isEmpty()) {
-        orderBy_ = other.orderBy_;
-        onChanged();
-      }
-      if (!other.getFilter().isEmpty()) {
-        filter_ = other.filter_;
-        onChanged();
-      }
-      if (other.getPage() != 0) {
-        setPage(other.getPage());
-      }
-      if (other.getLimit() != 0) {
-        setLimit(other.getLimit());
-      }
-      if (!other.getView().isEmpty()) {
-        view_ = other.view_;
-        onChanged();
-      }
       if (!other.getQ().isEmpty()) {
         q_ = other.q_;
         onChanged();
@@ -765,460 +425,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object fields_ = "";
-    /**
-     * <pre>
-     *Partial representation, fields=id,name
-     * </pre>
-     *
-     * <code>string fields = 1;</code>
-     */
-    public java.lang.String getFields() {
-      java.lang.Object ref = fields_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        fields_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *Partial representation, fields=id,name
-     * </pre>
-     *
-     * <code>string fields = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getFieldsBytes() {
-      java.lang.Object ref = fields_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        fields_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *Partial representation, fields=id,name
-     * </pre>
-     *
-     * <code>string fields = 1;</code>
-     */
-    public Builder setFields(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      fields_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *Partial representation, fields=id,name
-     * </pre>
-     *
-     * <code>string fields = 1;</code>
-     */
-    public Builder clearFields() {
-      
-      fields_ = getDefaultInstance().getFields();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *Partial representation, fields=id,name
-     * </pre>
-     *
-     * <code>string fields = 1;</code>
-     */
-    public Builder setFieldsBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      fields_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object orderBy_ = "";
-    /**
-     * <pre>
-     **
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     * </pre>
-     *
-     * <code>string order_by = 2;</code>
-     */
-    public java.lang.String getOrderBy() {
-      java.lang.Object ref = orderBy_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        orderBy_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     **
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     * </pre>
-     *
-     * <code>string order_by = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getOrderByBytes() {
-      java.lang.Object ref = orderBy_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        orderBy_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     **
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     * </pre>
-     *
-     * <code>string order_by = 2;</code>
-     */
-    public Builder setOrderBy(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      orderBy_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     **
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     * </pre>
-     *
-     * <code>string order_by = 2;</code>
-     */
-    public Builder clearOrderBy() {
-      
-      orderBy_ = getDefaultInstance().getOrderBy();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     **
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     * </pre>
-     *
-     * <code>string order_by = 2;</code>
-     */
-    public Builder setOrderByBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      orderBy_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object filter_ = "";
-    /**
-     * <pre>
-     *Filter
-     * </pre>
-     *
-     * <code>string filter = 3;</code>
-     */
-    public java.lang.String getFilter() {
-      java.lang.Object ref = filter_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        filter_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *Filter
-     * </pre>
-     *
-     * <code>string filter = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getFilterBytes() {
-      java.lang.Object ref = filter_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        filter_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *Filter
-     * </pre>
-     *
-     * <code>string filter = 3;</code>
-     */
-    public Builder setFilter(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      filter_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *Filter
-     * </pre>
-     *
-     * <code>string filter = 3;</code>
-     */
-    public Builder clearFilter() {
-      
-      filter_ = getDefaultInstance().getFilter();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *Filter
-     * </pre>
-     *
-     * <code>string filter = 3;</code>
-     */
-    public Builder setFilterBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      filter_ = value;
-      onChanged();
-      return this;
-    }
-
-    private int page_ ;
-    /**
-     * <pre>
-     *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-     * </pre>
-     *
-     * <code>int32 page = 4;</code>
-     */
-    public int getPage() {
-      return page_;
-    }
-    /**
-     * <pre>
-     *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-     * </pre>
-     *
-     * <code>int32 page = 4;</code>
-     */
-    public Builder setPage(int value) {
-      
-      page_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-     * </pre>
-     *
-     * <code>int32 page = 4;</code>
-     */
-    public Builder clearPage() {
-      
-      page_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int limit_ ;
-    /**
-     * <pre>
-     *Number of elements to return per page
-     * </pre>
-     *
-     * <code>int32 limit = 5;</code>
-     */
-    public int getLimit() {
-      return limit_;
-    }
-    /**
-     * <pre>
-     *Number of elements to return per page
-     * </pre>
-     *
-     * <code>int32 limit = 5;</code>
-     */
-    public Builder setLimit(int value) {
-      
-      limit_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *Number of elements to return per page
-     * </pre>
-     *
-     * <code>int32 limit = 5;</code>
-     */
-    public Builder clearLimit() {
-      
-      limit_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object view_ = "";
-    /**
-     * <pre>
-     *https://cloud.google.com/apis/design/design_patterns#resource_view
-     * </pre>
-     *
-     * <code>string view = 8;</code>
-     */
-    public java.lang.String getView() {
-      java.lang.Object ref = view_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        view_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *https://cloud.google.com/apis/design/design_patterns#resource_view
-     * </pre>
-     *
-     * <code>string view = 8;</code>
-     */
-    public com.google.protobuf.ByteString
-        getViewBytes() {
-      java.lang.Object ref = view_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        view_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *https://cloud.google.com/apis/design/design_patterns#resource_view
-     * </pre>
-     *
-     * <code>string view = 8;</code>
-     */
-    public Builder setView(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      view_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *https://cloud.google.com/apis/design/design_patterns#resource_view
-     * </pre>
-     *
-     * <code>string view = 8;</code>
-     */
-    public Builder clearView() {
-      
-      view_ = getDefaultInstance().getView();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *https://cloud.google.com/apis/design/design_patterns#resource_view
-     * </pre>
-     *
-     * <code>string view = 8;</code>
-     */
-    public Builder setViewBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      view_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object q_ = "";
     /**
      * <pre>
      *Query term to search a member
      * </pre>
      *
-     * <code>string q = 11;</code>
+     * <code>string q = 1;</code>
      */
     public java.lang.String getQ() {
       java.lang.Object ref = q_;
@@ -1237,7 +450,7 @@ private static final long serialVersionUID = 0L;
      *Query term to search a member
      * </pre>
      *
-     * <code>string q = 11;</code>
+     * <code>string q = 1;</code>
      */
     public com.google.protobuf.ByteString
         getQBytes() {
@@ -1257,7 +470,7 @@ private static final long serialVersionUID = 0L;
      *Query term to search a member
      * </pre>
      *
-     * <code>string q = 11;</code>
+     * <code>string q = 1;</code>
      */
     public Builder setQ(
         java.lang.String value) {
@@ -1274,7 +487,7 @@ private static final long serialVersionUID = 0L;
      *Query term to search a member
      * </pre>
      *
-     * <code>string q = 11;</code>
+     * <code>string q = 1;</code>
      */
     public Builder clearQ() {
       
@@ -1287,7 +500,7 @@ private static final long serialVersionUID = 0L;
      *Query term to search a member
      * </pre>
      *
-     * <code>string q = 11;</code>
+     * <code>string q = 1;</code>
      */
     public Builder setQBytes(
         com.google.protobuf.ByteString value) {

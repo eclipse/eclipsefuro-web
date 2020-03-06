@@ -134,11 +134,12 @@
             collectionAgent.search("a better life");
         });
 
-        it('should send filter, field, order together ', (done) => {
+        it('should send filter, field, order_by and page_size together ', (done) => {
             collectionAgent.setAttribute("service", "TaskService");
             collectionAgent.setFilter([["id", "eq", "1"]]);
             collectionAgent.setOrderBy("id,    -display_name");
             collectionAgent.setFields("display_name");
+            collectionAgent.setPageSize(15);
             /**
              * Register hook on wire --triggerLoad to
              *
@@ -148,6 +149,7 @@
                 assert.equal(req.url.indexOf("order_by=id,-display_name") > 0, true);
                 assert.equal(req.url.indexOf("filter=[[%22id%22,%22eq%22,%221%22]]") > 0, true);
                 assert.equal(req.url.indexOf("fields=display_name") > 0, true);
+                assert.equal(req.url.indexOf("page_size=15") > 0, true);
                 done()
             });
 
@@ -248,6 +250,57 @@
              */
             collectionAgent._FBPAddWireHook("--triggerLoad", (req) => {
                 assert.equal(req.url.indexOf("fields=display_name") > 0, true);
+                done()
+            });
+
+            collectionAgent.htsIn([
+                {
+                    "href": "/mockdata/tasks/list.json",
+                    "method": "GET",
+                    "rel": "list",
+                    "type": "task.TaskCollection",
+                    "service": "TaskService"
+                }
+            ]);
+            collectionAgent.load();
+        });
+
+        it('should request page_size', (done) => {
+            collectionAgent.setAttribute("service", "TaskService");
+            collectionAgent.setPageSize(15);
+
+            /**
+             * Register hook on wire --triggerLoad to
+             *
+             */
+            collectionAgent._FBPAddWireHook("--triggerLoad", (req) => {
+                assert.equal(req.url.indexOf("page_size=15") > 0, true);
+                done()
+            });
+
+            collectionAgent.htsIn([
+                {
+                    "href": "/mockdata/tasks/list.json",
+                    "method": "GET",
+                    "rel": "list",
+                    "type": "task.TaskCollection",
+                    "service": "TaskService"
+                }
+            ]);
+            collectionAgent.load();
+        });
+
+        it('should clear page_size', (done) => {
+            collectionAgent.setAttribute("service", "TaskService");
+            collectionAgent.setPageSize(15);
+            collectionAgent.setPageSize(0);
+
+            /**
+             * Register hook on wire --triggerLoad to
+             *
+             */
+            collectionAgent._FBPAddWireHook("--triggerLoad", (req) => {
+                assert.equal(req.url.indexOf("page_size") == -1, true);
                 done()
             });
 

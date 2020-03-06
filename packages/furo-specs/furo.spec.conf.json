@@ -12,6 +12,7 @@
     "excludes": [],
     "default_type_for_identities": "string"
   },
+  "import_spec_dirs": ["../furo-spec-basetypes"],
   "spec_dir": "./specs",
   "_custom_tepmplate_dir": "./_scripts/templates",
   "swagger": true,

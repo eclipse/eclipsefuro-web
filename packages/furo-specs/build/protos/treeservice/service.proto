@@ -14,7 +14,7 @@ import "google/protobuf/empty.proto";
 
 // service specs for the tree api
 service TreeService {                       
-   
+       
     // Creates a new Tree
     rpc CreateTree (CreateTreeServiceRequest) returns (tree.TreeEntity){
         //
@@ -55,56 +55,34 @@ service TreeService {
     }
 }
 
-
    
 message CreateTreeServiceRequest { 
-    
-    tree.Tree data =  1;  
-}
 
-   
+    tree.Tree data = 1;  
+}
+       
 message DeleteTreeServiceRequest { 
-    
-    string tre = 1;
-    google.protobuf.Empty data =  2;  
-}
 
-   
+    string tre = 1;
+    google.protobuf.Empty data = 2;  
+}
+       
 message GetTreeServiceRequest { 
-    
+
     string tre = 1; 
 }
-
-   
-message ListTreeServiceRequest { 
-    
-    //Partial representation, fields=id,name
-    string fields = 1;
-    /**
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     */
-    string order_by = 2;
-    //Filter
-    string filter = 3;
-    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-    int32 page = 4;
-    //Number of elements to return per page
-    int32 limit = 5;
-    //https://cloud.google.com/apis/design/design_patterns#resource_view
-    string view = 8;       
        
-    //Query term to search a tree
-    string q = 11;
-}
-
+message ListTreeServiceRequest { 
+      
    
-message UpdateTreeServiceRequest { 
-    
-    string tre = 1;
-    tree.Tree data =  2;  
+    //Query term to search a tree
+    string q = 1;
 }
+       
+message UpdateTreeServiceRequest { 
 
-
+    string tre = 1;
+    tree.Tree data = 2;  
+}
+    
 

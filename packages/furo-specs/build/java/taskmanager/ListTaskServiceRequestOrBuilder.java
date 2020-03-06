@@ -9,7 +9,7 @@ public interface ListTaskServiceRequestOrBuilder extends
 
   /**
    * <pre>
-   *Partial representation, fields=id,name
+   *Partial representation (comma separated list of field names), ?fields=
    * </pre>
    *
    * <code>string fields = 1;</code>
@@ -17,7 +17,7 @@ public interface ListTaskServiceRequestOrBuilder extends
   java.lang.String getFields();
   /**
    * <pre>
-   *Partial representation, fields=id,name
+   *Partial representation (comma separated list of field names), ?fields=
    * </pre>
    *
    * <code>string fields = 1;</code>
@@ -27,97 +27,95 @@ public interface ListTaskServiceRequestOrBuilder extends
 
   /**
    * <pre>
-   **
-   * Sort fields, comma separated list for the ordering
-   * use **?filter=-display_name** with a dash to sort descending
-   * use **?filter=display_name** to sort ascending
+   *The response message will be filtered by the fields before being sent back to the client, filter=[[&amp;#39;id&amp;#39;,&amp;#39;eq&amp;#39;,&amp;#39;1&amp;#39;]]
    * </pre>
    *
-   * <code>string order_by = 2;</code>
-   */
-  java.lang.String getOrderBy();
-  /**
-   * <pre>
-   **
-   * Sort fields, comma separated list for the ordering
-   * use **?filter=-display_name** with a dash to sort descending
-   * use **?filter=display_name** to sort ascending
-   * </pre>
-   *
-   * <code>string order_by = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getOrderByBytes();
-
-  /**
-   * <pre>
-   *Filter
-   * </pre>
-   *
-   * <code>string filter = 3;</code>
+   * <code>string filter = 2;</code>
    */
   java.lang.String getFilter();
   /**
    * <pre>
-   *Filter
+   *The response message will be filtered by the fields before being sent back to the client, filter=[[&amp;#39;id&amp;#39;,&amp;#39;eq&amp;#39;,&amp;#39;1&amp;#39;]]
    * </pre>
    *
-   * <code>string filter = 3;</code>
+   * <code>string filter = 2;</code>
    */
   com.google.protobuf.ByteString
       getFilterBytes();
 
   /**
    * <pre>
-   *Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
+   *Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar
    * </pre>
    *
-   * <code>int32 page = 4;</code>
+   * <code>string order_by = 3;</code>
    */
-  int getPage();
-
+  java.lang.String getOrderBy();
   /**
    * <pre>
-   *Number of elements to return per page
+   *Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar
    * </pre>
    *
-   * <code>int32 limit = 5;</code>
-   */
-  int getLimit();
-
-  /**
-   * <pre>
-   *https://cloud.google.com/apis/design/design_patterns#resource_view
-   * </pre>
-   *
-   * <code>string view = 8;</code>
-   */
-  java.lang.String getView();
-  /**
-   * <pre>
-   *https://cloud.google.com/apis/design/design_patterns#resource_view
-   * </pre>
-   *
-   * <code>string view = 8;</code>
+   * <code>string order_by = 3;</code>
    */
   com.google.protobuf.ByteString
-      getViewBytes();
+      getOrderByBytes();
 
   /**
    * <pre>
-   *Query term to search a task
+   *Use this field to specify the maximum number of results to be returned by the server. 
+   *The server may further constrain the maximum number of results returned in a single page. 
+   *If the page_size is 0, the server will decide the number of results to be returned. page_size=15
    * </pre>
    *
-   * <code>string q = 11;</code>
+   * <code>string page_size = 4;</code>
+   */
+  java.lang.String getPageSize();
+  /**
+   * <pre>
+   *Use this field to specify the maximum number of results to be returned by the server. 
+   *The server may further constrain the maximum number of results returned in a single page. 
+   *If the page_size is 0, the server will decide the number of results to be returned. page_size=15
+   * </pre>
+   *
+   * <code>string page_size = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getPageSizeBytes();
+
+  /**
+   * <pre>
+   *Query term to search a {{.name}}
+   * </pre>
+   *
+   * <code>string q = 5;</code>
    */
   java.lang.String getQ();
   /**
    * <pre>
-   *Query term to search a task
+   *Query term to search a {{.name}}
    * </pre>
    *
-   * <code>string q = 11;</code>
+   * <code>string q = 5;</code>
    */
   com.google.protobuf.ByteString
       getQBytes();
+
+  /**
+   * <pre>
+   *allows the client to specify which view of the resource it wants to receive in the response. view=BASIC
+   * </pre>
+   *
+   * <code>string view = 6;</code>
+   */
+  java.lang.String getView();
+  /**
+   * <pre>
+   *allows the client to specify which view of the resource it wants to receive in the response. view=BASIC
+   * </pre>
+   *
+   * <code>string view = 6;</code>
+   */
+  com.google.protobuf.ByteString
+      getViewBytes();
 }

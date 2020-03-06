@@ -127,51 +127,42 @@
         "parameters": [
           {
             "name": "fields",
-            "description": "Partial representation, fields=id,name.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "order_by",
-            "description": "*\nSort fields, comma separated list for the ordering\nuse **?filter=-display_name** with a dash to sort descending\nuse **?filter=display_name** to sort ascending.",
+            "description": "Partial representation (comma separated list of field names), ?fields=.",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "filter",
-            "description": "Filter.",
+            "description": "The response message will be filtered by the fields before being sent back to the client, filter=[[\u0026#39;id\u0026#39;,\u0026#39;eq\u0026#39;,\u0026#39;1\u0026#39;]].",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "page",
-            "description": "Page number for paginated content. Tipp: follow the HATEOAS next, prev,...",
+            "name": "order_by",
+            "description": "Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar.",
             "in": "query",
             "required": false,
-            "type": "integer",
-            "format": "int32"
+            "type": "string"
           },
           {
-            "name": "limit",
-            "description": "Number of elements to return per page.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "view",
-            "description": "https://cloud.google.com/apis/design/design_patterns#resource_view.",
+            "name": "page_size",
+            "description": "Use this field to specify the maximum number of results to be returned by the server. \nThe server may further constrain the maximum number of results returned in a single page. \nIf the page_size is 0, the server will decide the number of results to be returned. page_size=15.",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "q",
-            "description": "Query term to search a task.",
+            "description": "Query term to search a {{.name}}.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "view",
+            "description": "allows the client to specify which view of the resource it wants to receive in the response. view=BASIC.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -391,10 +382,9 @@
       "type": "object",
       "properties": {
         "flags": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "boolean",
-            "format": "boolean"
+          "type": "array",
+          "items": {
+            "type": "string"
           }
         },
         "list": {

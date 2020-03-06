@@ -191,9 +191,13 @@ class FuroCollectionAgent extends FBP(LitElement) {
     this.dispatchEvent(customEvent)
   }
 
-  // Gewünschte Seite. Tipp: Folge dem HATEOAS
-
-  // Seitengrösse  page_size
+  /**
+   * Sets pagination size in the List request.
+   * @param s
+   */
+  setPageSize(size){
+    this.pageSize = size;
+  }
 
   // Meta für die Anzahl der Elemente der Resource
 
@@ -285,30 +289,47 @@ class FuroCollectionAgent extends FBP(LitElement) {
       });
     }
 
-    // append query params
-
-    // query params
-
+    /**
+     * Append query params
+     */
     for (let key in this._queryParams) {
       if (this._queryParams.hasOwnProperty(key)) {
         params[key] = this._queryParams[key];
       }
     }
 
-
-    // Fields
+    /**
+     * ?fields="id,foo,bar"
+     * Partial Response
+     */
     if (this.fields) {
       params.fields = this.fields.split(' ').join('');
     }
 
-    // Sort
+    /**
+     * ?order_by="foo desc,bar"
+     * Lets client specify sorting order for list results
+     */
     if (this.orderBy) {
       params.order_by = this.orderBy.split(' ').join('');
     }
 
-    // Filter
+    /**
+     * ?filter=[["id","eq","1"]]"
+     * The response message will be filtered by the fields before being sent back to the client.
+     */
     if (this._filter) {
       params.filter = JSON.stringify(this._filter);
+    }
+
+    /**
+     * ?page_size=15
+     * use this field to specify the maximum number of results to be returned by the server.
+     * The server may further constrain the maximum number of results returned in a single page.
+     * If the page_size is 0, the server will decide the number of results to be returned.
+     */
+    if (this.pageSize) {
+      params.page_size = JSON.stringify(this.pageSize);
     }
 
     // rebuild req

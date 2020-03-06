@@ -1918,38 +1918,23 @@ public final class MetaOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>map&lt;string, bool&gt; flags = 2;</code>
+     * <code>repeated string flags = 2;</code>
+     */
+    java.util.List<java.lang.String>
+        getFlagsList();
+    /**
+     * <code>repeated string flags = 2;</code>
      */
     int getFlagsCount();
     /**
-     * <code>map&lt;string, bool&gt; flags = 2;</code>
+     * <code>repeated string flags = 2;</code>
      */
-    boolean containsFlags(
-        java.lang.String key);
+    java.lang.String getFlags(int index);
     /**
-     * Use {@link #getFlagsMap()} instead.
+     * <code>repeated string flags = 2;</code>
      */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.Boolean>
-    getFlags();
-    /**
-     * <code>map&lt;string, bool&gt; flags = 2;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.Boolean>
-    getFlagsMap();
-    /**
-     * <code>map&lt;string, bool&gt; flags = 2;</code>
-     */
-
-    boolean getFlagsOrDefault(
-        java.lang.String key,
-        boolean defaultValue);
-    /**
-     * <code>map&lt;string, bool&gt; flags = 2;</code>
-     */
-
-    boolean getFlagsOrThrow(
-        java.lang.String key);
+    com.google.protobuf.ByteString
+        getFlagsBytes(int index);
 
     /**
      * <pre>
@@ -2012,6 +1997,7 @@ public final class MetaOuterClass {
       super(builder);
     }
     private Fieldoption() {
+      flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       list_ = java.util.Collections.emptyList();
     }
 
@@ -2049,16 +2035,12 @@ public final class MetaOuterClass {
               break;
             }
             case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                flags_ = com.google.protobuf.MapField.newMapField(
-                    FlagsDefaultEntryHolder.defaultEntry);
+                flags_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.Boolean>
-              flags__ = input.readMessage(
-                  FlagsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              flags_.getMutableMap().put(
-                  flags__.getKey(), flags__.getValue());
+              flags_.add(s);
               break;
             }
             default: {
@@ -2079,6 +2061,9 @@ public final class MetaOuterClass {
         if (((mutable_bitField0_ & 0x00000002) != 0)) {
           list_ = java.util.Collections.unmodifiableList(list_);
         }
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          flags_ = flags_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -2088,18 +2073,6 @@ public final class MetaOuterClass {
       return furo.MetaOuterClass.internal_static_furo_Fieldoption_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 2:
-          return internalGetFlags();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -2109,79 +2082,32 @@ public final class MetaOuterClass {
     }
 
     public static final int FLAGS_FIELD_NUMBER = 2;
-    private static final class FlagsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.Boolean> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.Boolean>newDefaultInstance(
-                  furo.MetaOuterClass.internal_static_furo_Fieldoption_FlagsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.BOOL,
-                  false);
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.Boolean> flags_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.Boolean>
-    internalGetFlags() {
-      if (flags_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            FlagsDefaultEntryHolder.defaultEntry);
-      }
+    private com.google.protobuf.LazyStringList flags_;
+    /**
+     * <code>repeated string flags = 2;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getFlagsList() {
       return flags_;
     }
-
+    /**
+     * <code>repeated string flags = 2;</code>
+     */
     public int getFlagsCount() {
-      return internalGetFlags().getMap().size();
+      return flags_.size();
     }
     /**
-     * <code>map&lt;string, bool&gt; flags = 2;</code>
+     * <code>repeated string flags = 2;</code>
      */
-
-    public boolean containsFlags(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetFlags().getMap().containsKey(key);
+    public java.lang.String getFlags(int index) {
+      return flags_.get(index);
     }
     /**
-     * Use {@link #getFlagsMap()} instead.
+     * <code>repeated string flags = 2;</code>
      */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.Boolean> getFlags() {
-      return getFlagsMap();
-    }
-    /**
-     * <code>map&lt;string, bool&gt; flags = 2;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.Boolean> getFlagsMap() {
-      return internalGetFlags().getMap();
-    }
-    /**
-     * <code>map&lt;string, bool&gt; flags = 2;</code>
-     */
-
-    public boolean getFlagsOrDefault(
-        java.lang.String key,
-        boolean defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Boolean> map =
-          internalGetFlags().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, bool&gt; flags = 2;</code>
-     */
-
-    public boolean getFlagsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Boolean> map =
-          internalGetFlags().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    public com.google.protobuf.ByteString
+        getFlagsBytes(int index) {
+      return flags_.getByteString(index);
     }
 
     public static final int LIST_FIELD_NUMBER = 1;
@@ -2256,12 +2182,9 @@ public final class MetaOuterClass {
       for (int i = 0; i < list_.size(); i++) {
         output.writeMessage(1, list_.get(i));
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetFlags(),
-          FlagsDefaultEntryHolder.defaultEntry,
-          2);
+      for (int i = 0; i < flags_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, flags_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2275,15 +2198,13 @@ public final class MetaOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, list_.get(i));
       }
-      for (java.util.Map.Entry<java.lang.String, java.lang.Boolean> entry
-           : internalGetFlags().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.Boolean>
-        flags__ = FlagsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(2, flags__);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < flags_.size(); i++) {
+          dataSize += computeStringSizeNoTag(flags_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getFlagsList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2300,8 +2221,8 @@ public final class MetaOuterClass {
       }
       furo.MetaOuterClass.Fieldoption other = (furo.MetaOuterClass.Fieldoption) obj;
 
-      if (!internalGetFlags().equals(
-          other.internalGetFlags())) return false;
+      if (!getFlagsList()
+          .equals(other.getFlagsList())) return false;
       if (!getListList()
           .equals(other.getListList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -2315,9 +2236,9 @@ public final class MetaOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (!internalGetFlags().getMap().isEmpty()) {
+      if (getFlagsCount() > 0) {
         hash = (37 * hash) + FLAGS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetFlags().hashCode();
+        hash = (53 * hash) + getFlagsList().hashCode();
       }
       if (getListCount() > 0) {
         hash = (37 * hash) + LIST_FIELD_NUMBER;
@@ -2434,28 +2355,6 @@ public final class MetaOuterClass {
         return furo.MetaOuterClass.internal_static_furo_Fieldoption_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 2:
-            return internalGetFlags();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 2:
-            return internalGetMutableFlags();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -2483,7 +2382,8 @@ public final class MetaOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        internalGetMutableFlags().clear();
+        flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (listBuilder_ == null) {
           list_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000002);
@@ -2517,8 +2417,11 @@ public final class MetaOuterClass {
       public furo.MetaOuterClass.Fieldoption buildPartial() {
         furo.MetaOuterClass.Fieldoption result = new furo.MetaOuterClass.Fieldoption(this);
         int from_bitField0_ = bitField0_;
-        result.flags_ = internalGetFlags();
-        result.flags_.makeImmutable();
+        if (((bitField0_ & 0x00000001) != 0)) {
+          flags_ = flags_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.flags_ = flags_;
         if (listBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0)) {
             list_ = java.util.Collections.unmodifiableList(list_);
@@ -2576,8 +2479,16 @@ public final class MetaOuterClass {
 
       public Builder mergeFrom(furo.MetaOuterClass.Fieldoption other) {
         if (other == furo.MetaOuterClass.Fieldoption.getDefaultInstance()) return this;
-        internalGetMutableFlags().mergeFrom(
-            other.internalGetFlags());
+        if (!other.flags_.isEmpty()) {
+          if (flags_.isEmpty()) {
+            flags_ = other.flags_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureFlagsIsMutable();
+            flags_.addAll(other.flags_);
+          }
+          onChanged();
+        }
         if (listBuilder_ == null) {
           if (!other.list_.isEmpty()) {
             if (list_.isEmpty()) {
@@ -2634,126 +2545,97 @@ public final class MetaOuterClass {
       }
       private int bitField0_;
 
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.Boolean> flags_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Boolean>
-      internalGetFlags() {
-        if (flags_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              FlagsDefaultEntryHolder.defaultEntry);
-        }
-        return flags_;
+      private com.google.protobuf.LazyStringList flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureFlagsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          flags_ = new com.google.protobuf.LazyStringArrayList(flags_);
+          bitField0_ |= 0x00000001;
+         }
       }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Boolean>
-      internalGetMutableFlags() {
-        onChanged();;
-        if (flags_ == null) {
-          flags_ = com.google.protobuf.MapField.newMapField(
-              FlagsDefaultEntryHolder.defaultEntry);
-        }
-        if (!flags_.isMutable()) {
-          flags_ = flags_.copy();
-        }
-        return flags_;
+      /**
+       * <code>repeated string flags = 2;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getFlagsList() {
+        return flags_.getUnmodifiableView();
       }
-
+      /**
+       * <code>repeated string flags = 2;</code>
+       */
       public int getFlagsCount() {
-        return internalGetFlags().getMap().size();
+        return flags_.size();
       }
       /**
-       * <code>map&lt;string, bool&gt; flags = 2;</code>
+       * <code>repeated string flags = 2;</code>
        */
-
-      public boolean containsFlags(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetFlags().getMap().containsKey(key);
+      public java.lang.String getFlags(int index) {
+        return flags_.get(index);
       }
       /**
-       * Use {@link #getFlagsMap()} instead.
+       * <code>repeated string flags = 2;</code>
        */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Boolean> getFlags() {
-        return getFlagsMap();
+      public com.google.protobuf.ByteString
+          getFlagsBytes(int index) {
+        return flags_.getByteString(index);
       }
       /**
-       * <code>map&lt;string, bool&gt; flags = 2;</code>
+       * <code>repeated string flags = 2;</code>
        */
-
-      public java.util.Map<java.lang.String, java.lang.Boolean> getFlagsMap() {
-        return internalGetFlags().getMap();
+      public Builder setFlags(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFlagsIsMutable();
+        flags_.set(index, value);
+        onChanged();
+        return this;
       }
       /**
-       * <code>map&lt;string, bool&gt; flags = 2;</code>
+       * <code>repeated string flags = 2;</code>
        */
-
-      public boolean getFlagsOrDefault(
-          java.lang.String key,
-          boolean defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Boolean> map =
-            internalGetFlags().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
+      public Builder addFlags(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFlagsIsMutable();
+        flags_.add(value);
+        onChanged();
+        return this;
       }
       /**
-       * <code>map&lt;string, bool&gt; flags = 2;</code>
+       * <code>repeated string flags = 2;</code>
        */
-
-      public boolean getFlagsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Boolean> map =
-            internalGetFlags().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
+      public Builder addAllFlags(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureFlagsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, flags_);
+        onChanged();
+        return this;
       }
-
+      /**
+       * <code>repeated string flags = 2;</code>
+       */
       public Builder clearFlags() {
-        internalGetMutableFlags().getMutableMap()
-            .clear();
+        flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
         return this;
       }
       /**
-       * <code>map&lt;string, bool&gt; flags = 2;</code>
+       * <code>repeated string flags = 2;</code>
        */
-
-      public Builder removeFlags(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableFlags().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Boolean>
-      getMutableFlags() {
-        return internalGetMutableFlags().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, bool&gt; flags = 2;</code>
-       */
-      public Builder putFlags(
-          java.lang.String key,
-          boolean value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        
-        internalGetMutableFlags().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, bool&gt; flags = 2;</code>
-       */
-
-      public Builder putAllFlags(
-          java.util.Map<java.lang.String, java.lang.Boolean> values) {
-        internalGetMutableFlags().getMutableMap()
-            .putAll(values);
+      public Builder addFlagsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureFlagsIsMutable();
+        flags_.add(value);
+        onChanged();
         return this;
       }
 
@@ -6314,11 +6196,6 @@ public final class MetaOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_furo_Fieldoption_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_furo_Fieldoption_FlagsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_furo_Fieldoption_FlagsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_furo_Meta_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -6354,19 +6231,17 @@ public final class MetaOuterClass {
       "aintsEntry\022\013\n\003key\030\001 \001(\t\022$\n\005value\030\002 \001(\0132\025" +
       ".furo.FieldConstraint:\0028\001\"@\n\nOptionitem\022" +
       "\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\020\n\010sel" +
-      "ected\030\003 \001(\010\"\214\001\n\013Fieldoption\022+\n\005flags\030\002 \003" +
-      "(\0132\034.furo.Fieldoption.FlagsEntry\022\"\n\004list" +
-      "\030\001 \003(\0132\024.google.protobuf.Any\032,\n\nFlagsEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\010:\0028\001\"n\n\004Me" +
-      "ta\022&\n\006fields\030\001 \003(\0132\026.furo.Meta.FieldsEnt" +
-      "ry\032>\n\013FieldsEntry\022\013\n\003key\030\001 \001(\t\022\036\n\005value\030" +
-      "\002 \001(\0132\017.furo.MetaField:\0028\001\"\255\001\n\tFieldMeta" +
-      "\022\017\n\007default\030\003 \001(\t\022\014\n\004hint\030\002 \001(\t\022\r\n\005label" +
-      "\030\001 \001(\t\022\"\n\007options\030\006 \001(\0132\021.furo.Fieldopti" +
-      "on\022\020\n\010readonly\030\004 \001(\010\022\020\n\010repeated\030\005 \001(\010\022*" +
-      "\n\014typespecific\030\007 \001(\0132\024.google.protobuf.A" +
-      "ny\".\n\017FieldConstraint\022\n\n\002is\030\001 \001(\t\022\017\n\007mes" +
-      "sage\030\002 \001(\tb\006proto3"
+      "ected\030\003 \001(\010\"@\n\013Fieldoption\022\r\n\005flags\030\002 \003(" +
+      "\t\022\"\n\004list\030\001 \003(\0132\024.google.protobuf.Any\"n\n" +
+      "\004Meta\022&\n\006fields\030\001 \003(\0132\026.furo.Meta.Fields" +
+      "Entry\032>\n\013FieldsEntry\022\013\n\003key\030\001 \001(\t\022\036\n\005val" +
+      "ue\030\002 \001(\0132\017.furo.MetaField:\0028\001\"\255\001\n\tFieldM" +
+      "eta\022\017\n\007default\030\003 \001(\t\022\014\n\004hint\030\002 \001(\t\022\r\n\005la" +
+      "bel\030\001 \001(\t\022\"\n\007options\030\006 \001(\0132\021.furo.Fieldo" +
+      "ption\022\020\n\010readonly\030\004 \001(\010\022\020\n\010repeated\030\005 \001(" +
+      "\010\022*\n\014typespecific\030\007 \001(\0132\024.google.protobu" +
+      "f.Any\".\n\017FieldConstraint\022\n\n\002is\030\001 \001(\t\022\017\n\007" +
+      "message\030\002 \001(\tb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6405,12 +6280,6 @@ public final class MetaOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_furo_Fieldoption_descriptor,
         new java.lang.String[] { "Flags", "List", });
-    internal_static_furo_Fieldoption_FlagsEntry_descriptor =
-      internal_static_furo_Fieldoption_descriptor.getNestedTypes().get(0);
-    internal_static_furo_Fieldoption_FlagsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_furo_Fieldoption_FlagsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
     internal_static_furo_Meta_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_furo_Meta_fieldAccessorTable = new
