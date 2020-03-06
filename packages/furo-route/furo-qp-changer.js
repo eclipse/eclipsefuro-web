@@ -4,29 +4,17 @@ import {FBP} from "@furo/fbp";
 
 /**
  * `qp-changer`
- * Updates the query params
+ * updates the query params in the url
  *
- * # work in progress
  *
- * @summary todo shortdescription
+ *
+ * @summary deep linking helper
  * @customElement
  * @demo demo/qp-changer.html
  * @appliesMixin FBP
  */
 class FuroQpChanger extends FBP(LitElement) {
 
-    /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-            /**
-             * Description
-             */
-            myBool: {type: Boolean}
-        };
-    }
     setQp(newQP){
 
 // read current qp and update incomming qp

@@ -8,7 +8,7 @@ import {NodeEvent} from "@furo/data/lib/EventTreeNode.js"
  * `furo-panel-coordinator`
  * todo Describe your element
  *
- * @summary todo shortdescription
+ * @summary Complex content switcher based on furo-tree
  * @customElement
  * @demo demo-furo-panel-coordinator Basic usage
  * @appliesMixin FBP

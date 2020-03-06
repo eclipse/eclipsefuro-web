@@ -6,7 +6,7 @@ import {FBP} from "@furo/fbp";
  * `furo-tooltip`
  * EXPERIMENTAL, API MAY CHANGE
  *
- * @summary
+ * @summary displays a tooltip
  * @customElement
  * @demo demo-furo-tooltip
  * @appliesMixin FBP

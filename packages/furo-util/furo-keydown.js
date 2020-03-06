@@ -7,7 +7,7 @@ import {FBP} from "@furo/fbp";
  *
  *  [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)
  *
- * @summary keypress listener
+ * @summary keyboard event listener
  * @customElement
  * @demo demo-furo-key-press
  * @appliesMixin FBP

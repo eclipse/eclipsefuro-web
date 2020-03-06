@@ -7,9 +7,9 @@ import "./furo-loading-indicator-bar"
 
 /**
  * `furo-card`
- * todo Describe your element
+ *  is a container with a shadow and slots for media, content, actions,...
  *
- * @summary todo shortdescription
+ * @summary Material design card element
  * @customElement
  * @demo demo-furo-card
  * @appliesMixin FBP

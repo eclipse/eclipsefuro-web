@@ -10,7 +10,7 @@ import {FBP} from "@furo/fbp";
  *    <app-flow-router config="[[conf]]" ƒ-trigger="--flowEvent" ƒ-back="--wire" ƒ-forward="--wire"></app-flow-router>
  *
  *
- *
+ * @summary Application Flow => routing
  * @customElement
  * @appliesMixin FBP
  */

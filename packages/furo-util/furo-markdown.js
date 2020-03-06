@@ -11,7 +11,7 @@ import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
  *  Renders given md data with parseMarkdown or loads a md file with `mdsrc="source.md"`
  *
  *
- * @summary renders md data
+ * @summary renders markdown data
  * @customElement
  * @demo demo-furo-markdown
  * @appliesMixin FBP

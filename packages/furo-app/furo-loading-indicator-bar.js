@@ -4,12 +4,13 @@ import {Theme} from "@furo/framework/theme"
 
 /**
  * `loading-indicator`
- * Describe your element
+ * Indicates that something is in progress.
+ *
  * todo: make it like https://material.io/design/components/progress-indicators.html#
  *
- * @summary shortdescription
+ * @summary An ugly progress bar
  * @customElement
- * @demo demo/loading-indicator.html
+ * @demo demo-furo-app-bar-top Inside of the app bar
  * @appliesMixin FBP
  */
 class FuroLoadingIndicatorBar extends FBP(LitElement) {

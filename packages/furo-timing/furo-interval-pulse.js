@@ -4,7 +4,7 @@ import { LitElement } from 'lit-element';
  * `furo-interval-pulse`
  * todo Describe your element
  *
- * @summary todo shortdescription
+ * @summary trigger an event in intervals
  * @customElement
  * @demo demo/furo-interval-pulse.html
  * @appliesMixin FBP

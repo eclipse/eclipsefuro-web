@@ -9,6 +9,7 @@ function TypeAppFlow(name) {
 /**
  * `furo-app-flow`
  *
+ * @summary Application Flow => routing
  * @customElement
  * @demo demo/furo-app-flow.html
  * @appliesMixin FBP

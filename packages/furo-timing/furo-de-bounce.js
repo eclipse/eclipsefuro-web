@@ -8,7 +8,7 @@ import {FBP} from "@furo/fbp";
  *  N milliseconds. If `immediate` is passed as a attribute, it triggers the input-wire on the
  *  leading edge, instead of the trailing.
  *
- * @summary
+ * @summary event de bouncer
  * @customElement
  * @demo demo-furo-de-bounce Basic usage
  * @demo demo-furo-de-bounce-immediately Immediate usage

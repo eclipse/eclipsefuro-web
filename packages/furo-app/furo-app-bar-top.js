@@ -20,6 +20,7 @@ import './furo-loading-indicator-bar';
  * `--furo-app-bar-top-background-light` | Light background color | --primary-light | #7f7f7f;
  * `--furo-app-bar-top-background-dark` |Dark background color | --primary-dark | #aFAFAF;
  *
+ * @summary Toolbar to place on top
  * @customElement
  * @demo demo-furo-app-bar-top Usage
  */

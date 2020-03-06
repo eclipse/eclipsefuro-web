@@ -2,10 +2,12 @@ import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
 
 /**
- * `furo-pages`
+ * `furo-pages` is used to select one of its children to show.
  *
- * You have to implement a `:host([hidden]){display:none}` in your views
+ * ### caveat
+ * You have to implement a `:host([hidden]){display:none}` in your views css
  *
+ * @summary Simple content switcher
  * @customElement
  * @demo demo/furo-pages.html
  */

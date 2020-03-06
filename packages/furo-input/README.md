@@ -4,7 +4,8 @@ Input components for furo
  
 
 
-### furo-number-input
+### [furo-number-input](?t=FuroButton)
+
 [![number input](assets/furo-input/number-input.png)](/?t=FuroNumberInput) 
 ![number input](assets/furo-input/number-input.png) 
 ![number input](assets/furo-input/number-input.png) 

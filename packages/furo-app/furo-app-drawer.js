@@ -4,13 +4,13 @@ import {FBP} from "@furo/fbp";
 import "@furo/layout/furo-horizontal-flex"
 
 /**
- * # Experimental
+ *
  * The API may change, documentation will follow
  *
  * `furo-app-drawer`
  * todo Describe the element
  *
- * @summary todo shortdescription
+ * @summary Application drawer
  * @customElement
  * @demo demo-furo-app-drawer
  * @appliesMixin FBP

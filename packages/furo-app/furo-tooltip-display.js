@@ -3,10 +3,10 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 
 /**
- * `furo-tooltip`
- * todo Describe your element
+ * `furo-tooltip-display`
+ *  place this component as high as possible in your DOM.
  *
- * @summary todo shortdescription
+ * @summary helper component for tooltip
  * @customElement
  * @demo demo-furo-tooltip
  * @appliesMixin FBP
