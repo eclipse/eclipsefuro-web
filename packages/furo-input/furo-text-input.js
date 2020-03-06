@@ -55,6 +55,10 @@ class FuroTextInput extends FBP(LitElement) {
    * This event bubbles
    */
 
+  constructor() {
+    super();
+    this.valid = true;
+  }
 
   _FBPReady() {
     super._FBPReady();
