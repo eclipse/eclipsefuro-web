@@ -130,7 +130,7 @@ class FuroDataRepeat extends FBP(LitElement) {
     if (this.deleteIcon) {
       icn = '<data-repeat-delete icon="' + this.deleteIcon + '" ' + isCondensed + ' ƒ-bind-item="--init"></data-repeat-delete>';
     }
-    r.innerHTML = '<template><furo-horizontal-flex><' + component + ' ' + attrs + ' flex ƒ-bind-data="--init"></' + component + '>' + icn + '</furo-horizontal-flex></template>';
+    r.innerHTML = '<template><div class="repeat-row"><' + component + ' ' + attrs + ' class="in-repeater" ƒ-bind-data="--init"></' + component + '>' + icn + '</div></template>';
 
 
     container.appendChild(r);
@@ -228,10 +228,26 @@ class FuroDataRepeat extends FBP(LitElement) {
     return Theme.getThemeForComponent('FuroDataRepeat') || css`
       :host {
         display: block;
+        
       }
 
       :host([hidden]) {
         display: none;
+      }
+      
+      .repeat-row{
+        position: relative;
+       
+      }
+      data-repeat-delete{
+        position: absolute;
+        top:0;
+        right: var(--spacing-xs);
+      }
+      
+      .in-repeater{
+        width: 100%;
+        box-sizing: border-box;
       }
     `
   }

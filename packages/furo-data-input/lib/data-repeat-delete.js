@@ -57,26 +57,21 @@ class DataRepeatDelete extends FBP(LitElement) {
         :host {
             display: block;
             box-sizing: border-box;
-            padding:  26px 0 0 var(--spacing-xs);
+            padding-top:  26px;
             cursor: pointer;
         }
 
         :host([condensed]){
-            padding:  18px 0 0 var(--spacing-xs);
+            padding-top:  18px;
         }
         :host([hidden]) {
             display: none;
            
         }
 
-        :host([condensed]) furo-icon {
-            width: 16px;
-            height: 16px;
-            
-        }
         furo-icon {
-            width: 20px;
-            height: 20px;
+          width: 24px;
+          height: 24px;
             
         }
 

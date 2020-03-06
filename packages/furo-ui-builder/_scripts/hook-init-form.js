@@ -54,6 +54,9 @@ class HookInitForm {
     u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");
 
+    u33e.addStyle(":host(.in-repeater)")
+        .addCSSAttribute("border-bottom", "1px solid var(--separator, #FAFAFA)");
+
 
     // all field will be added to this node
     let root = u33e.addDomNode("furo-form");

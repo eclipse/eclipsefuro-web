@@ -41,7 +41,7 @@
     },
     "flags": {
       "type": "string",
-      "description": "Add flags for your field. This can be something like \"searchable\"=true\n",
+      "description": "Add flags for your field. This can be something like \"searchable\". \nThe flags can be used by generators, ui components,...\n",
       "__proto": {
         "number": 2
       },
