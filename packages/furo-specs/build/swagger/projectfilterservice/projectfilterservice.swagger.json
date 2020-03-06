@@ -88,10 +88,9 @@
       "type": "object",
       "properties": {
         "flags": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "boolean",
-            "format": "boolean"
+          "type": "array",
+          "items": {
+            "type": "string"
           }
         },
         "list": {

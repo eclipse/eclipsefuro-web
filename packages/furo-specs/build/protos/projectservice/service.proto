@@ -14,7 +14,7 @@ import "google/protobuf/empty.proto";
 
 // service specs for the project api
 service ProjectService {                       
-   
+       
     // Creates a new Project
     rpc CreateProject (CreateProjectServiceRequest) returns (project.ProjectEntity){
         //
@@ -55,56 +55,34 @@ service ProjectService {
     }
 }
 
-
    
 message CreateProjectServiceRequest { 
-    
-    project.Project data =  1;  
-}
 
-   
+    project.Project data = 1;  
+}
+       
 message DeleteProjectServiceRequest { 
-    
-    string prj = 1;
-    google.protobuf.Empty data =  2;  
-}
 
-   
+    string prj = 1;
+    google.protobuf.Empty data = 2;  
+}
+       
 message GetProjectServiceRequest { 
-    
+
     string prj = 1; 
 }
-
-   
-message ListProjectServiceRequest { 
-    
-    //Partial representation, fields=id,name
-    string fields = 1;
-    /**
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     */
-    string order_by = 2;
-    //Filter
-    string filter = 3;
-    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-    int32 page = 4;
-    //Number of elements to return per page
-    int32 limit = 5;
-    //https://cloud.google.com/apis/design/design_patterns#resource_view
-    string view = 8;       
        
-    //Query term to search a project
-    string q = 11;
-}
-
+message ListProjectServiceRequest { 
+      
    
-message UpdateProjectServiceRequest { 
-    
-    string prj = 1;
-    project.Project data =  2;  
+    //Query term to search a project
+    string q = 1;
 }
+       
+message UpdateProjectServiceRequest { 
 
-
+    string prj = 1;
+    project.Project data = 2;  
+}
+    
 

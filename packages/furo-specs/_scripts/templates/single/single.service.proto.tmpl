@@ -4,7 +4,7 @@ syntax = "proto3";
 package {{.package}};
 
 {{range $key, $option := .options}}
-option {{$key}} = {{if  (typeOf $option | eq "bool")}}{{$option}};{{else}}"{{$option}}";{{end}}{{end}}
+    option {{$key}} = {{if  (typeOf $option | eq "bool")}}{{$option}};{{else}}"{{$option}}";{{end}}{{end}}
 
 import "google/api/annotations.proto";
 {{range $import := .imports}}
@@ -14,7 +14,7 @@ import "{{$import}}";{{end}}
 {{$serviceName := camelcase (snakecase $service.name)}}
 // {{$service.description}}
 service {{$serviceName}} { {{ $rpcDict := dict }} {{ $keyList := list }} {{range  $k, $v := $service.services }}  {{$_ := set $rpcDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
-{{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
+    {{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
     // {{$method.description}}
     rpc {{if $method.rpc_name}}{{$method.rpc_name}}{{else}}{{$key}}{{$serviceName}}{{end}} ({{$key}}{{$serviceName}}Request) returns ({{$method.data.response}}){
         //{{$method.deeplink.description}}
@@ -25,33 +25,14 @@ service {{$serviceName}} { {{ $rpcDict := dict }} {{ $keyList := list }} {{range
     }{{end}}
 }
 
-
 {{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
-message {{$key}}{{$serviceName}}Request { {{ $params := regexFindAll  "{[a-zA-Z]*}" $method.deeplink.href 10}}{{$reservedIdx := 0}}
-    {{if eq $key "List"}}{{$reservedIdx = 10}}
-    //Partial representation, fields=id,name
-    string fields = 1;
-    /**
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     */
-    string order_by = 2;
-    //Filter
-    string filter = 3;
-    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-    int32 page = 4;
-    //Number of elements to return per page
-    int32 limit = 5;
-    //https://cloud.google.com/apis/design/design_patterns#resource_view
-    string view = 8;{{range $index, $value := $params}}
-    string {{ trimAll "}" (trimAll "{" $value ) }} = {{add 11 $index}};{{$length := $index}}{{end}} {{else}}{{range $index, $value := $params}}
-    string {{ trimAll "}" (trimAll "{" $value ) }} = {{add1 $index}};{{$length :=$index}}{{end}}{{ if $method.data.request}}
-    {{$method.data.request}} data = {{if eq $key "List"}} {{add 10 (len $params)}} {{else}} {{add1 (len $params)}}{{end}}; {{end}}{{end}} {{ if $method.query}} {{ $qDict := dict }} {{ $keyList := list }} {{range  $k, $v := $method.query }}{{$_ := set $qDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
-    {{range $qIndex, $qKey := sortAlpha $keyList }} {{ $values := pick $qDict $qKey }} {{ $valueTmp := values $values }} {{ $query := index $valueTmp 0 }}
+message {{$key}}{{$serviceName}}Request { {{ $params := regexFindAll  "{[a-zA-Z]*}" $method.deeplink.href 10}}
+{{range $index, $value := $params}}
+    string {{ trimAll "}" (trimAll "{" $value ) }} = {{add 1 $index}};{{$length :=$index}}{{end}}{{ if $method.data.request}}
+    {{$method.data.request}} data = {{add1 (len $params)}}; {{end}} {{ if $method.query}} {{ $qDict := dict }} {{ $keyList := list }} {{range  $k, $v := $method.query }}{{$_ := set $qDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
+{{range $qIndex, $qKey := sortAlpha $keyList }} {{ $values := pick $qDict $qKey }} {{ $valueTmp := values $values }} {{ $query := index $valueTmp 0 }}
     //{{$query.description}}
-    string {{$qKey}} = {{ if $method.data.request}}{{if eq $key "List"}}{{ add (len $params) (add 12 $qIndex)}}{{else}}{{ add (len $params) (add 2 $qIndex)}}{{end}}{{else}}{{if eq $key "List"}}{{add (len $params) (add 11 $qIndex)}}{{else}}{{add (len $params) (add1 $qIndex)}}{{end}}{{end}};{{end}}{{end}}
+    string {{$qKey}} = {{ if $method.data.request}}{{ add (len $params) (add 2 $qIndex)}}{{else}}{{add (len $params) (add1 $qIndex)}}{{end}};{{end}}{{end}}
 }
-
-{{end}}
+    {{end}}
 {{end}}

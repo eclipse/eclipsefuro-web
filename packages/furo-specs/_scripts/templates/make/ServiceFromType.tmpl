@@ -33,6 +33,61 @@
           "__proto": {
             "type": "string"
           }
+        },
+        "fields": {
+          "description": "Partial representation (comma separated list of field names), ?fields=",
+          "type": "string",
+          "meta": {
+            "label": "Fields",
+            "hint": "Comma separated list of field names"
+          },
+          "__proto": {
+            "type": "string"
+          }
+        },
+        "order_by": {
+          "description": "Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar",
+          "type": "string",
+          "meta": {
+            "label": "Sorting Order",
+            "hint": "The default sorting order is ascending"
+          },
+          "__proto": {
+            "type": "string"
+          }
+        },
+        "filter": {
+          "description": "The response message will be filtered by the fields before being sent back to the client, filter=[['id','eq','1']]",
+          "type": "string",
+          "meta": {
+            "label": "Filter",
+            "hint": ""
+          },
+          "__proto": {
+            "type": "string"
+          }
+        },
+        "page_size": {
+          "description": "Use this field to specify the maximum number of results to be returned by the server. \n The server may further constrain the maximum number of results returned in a single page. \n If the page_size is 0, the server will decide the number of results to be returned. page_size=15",
+          "type": "string",
+          "meta": {
+            "label": "Page Size",
+            "hint": "If the page_size is 0, the server will decide the number of results to be returned."
+          },
+          "__proto": {
+            "type": "string"
+          }
+        },
+        "view": {
+          "description": "allows the client to specify which view of the resource it wants to receive in the response. view=BASIC",
+          "type": "string",
+          "meta": {
+            "label": "View",
+            "hint": "Should be a enum type. MUST be named view"
+          },
+          "__proto": {
+            "type": "string"
+          }
         }
       },
       "deeplink": {

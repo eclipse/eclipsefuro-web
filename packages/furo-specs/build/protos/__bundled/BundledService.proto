@@ -331,54 +331,33 @@ service BundledService {
 
    
 message CreateTreeServiceRequest { 
-    
-    tree.Tree data =  1;  
-}
 
+    tree.Tree data = 1;  
+}
    
 message DeleteTreeServiceRequest { 
-    
-    string tre = 1;
-    google.protobuf.Empty data =  2;  
-}
 
+    string tre = 1;
+    google.protobuf.Empty data = 2;  
+}
    
 message GetTreeServiceRequest { 
-    
+
     string tre = 1; 
 }
-
    
 message ListTreeServiceRequest { 
-    
-    //Partial representation, fields=id,name
-    string fields = 1;
-    /**
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     */
-    string order_by = 2;
-    //Filter
-    string filter = 3;
-    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-    int32 page = 4;
-    //Number of elements to return per page
-    int32 limit = 5;
-    //https://cloud.google.com/apis/design/design_patterns#resource_view
-    string view = 8;       
-       
+      
+   
     //Query term to search a tree
-    string q = 11;
+    string q = 1;
 }
-
    
 message UpdateTreeServiceRequest { 
-    
-    string tre = 1;
-    tree.Tree data =  2;  
-}
 
+    string tre = 1;
+    tree.Tree data = 2;  
+}
 
 
 
@@ -387,9 +366,8 @@ message UpdateTreeServiceRequest {
 
    
 message GetProjectfilterServiceRequest { 
-     
+ 
 }
-
 
 
 
@@ -398,53 +376,32 @@ message GetProjectfilterServiceRequest {
 
    
 message CreateAuthServiceRequest { 
-    
-    auth.Auth data =  1;  
-}
 
+    auth.Auth data = 1;  
+}
    
 message DeleteAuthServiceRequest { 
-    
-    google.protobuf.Empty data =  1;  
-}
 
+    google.protobuf.Empty data = 1;  
+}
    
 message GetAuthServiceRequest { 
-    
+
     string uid = 1; 
 }
-
    
 message ListAuthServiceRequest { 
-    
-    //Partial representation, fields=id,name
-    string fields = 1;
-    /**
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     */
-    string order_by = 2;
-    //Filter
-    string filter = 3;
-    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-    int32 page = 4;
-    //Number of elements to return per page
-    int32 limit = 5;
-    //https://cloud.google.com/apis/design/design_patterns#resource_view
-    string view = 8;       
-       
+      
+   
     //Query term to search a auth
-    string q = 11;
+    string q = 1;
 }
-
    
 message UpdateAuthServiceRequest { 
-    
-    string uid = 1;
-    auth.Auth data =  2;  
-}
 
+    string uid = 1;
+    auth.Auth data = 2;  
+}
 
 
 
@@ -453,54 +410,33 @@ message UpdateAuthServiceRequest {
 
    
 message CreatePersonServiceRequest { 
-    
-    person.Person data =  1;  
-}
 
+    person.Person data = 1;  
+}
    
 message DeletePersonServiceRequest { 
-    
-    string prs = 1;
-    google.protobuf.Empty data =  2;  
-}
 
+    string prs = 1;
+    google.protobuf.Empty data = 2;  
+}
    
 message GetPersonServiceRequest { 
-    
+
     string prs = 1; 
 }
-
    
 message ListPersonServiceRequest { 
-    
-    //Partial representation, fields=id,name
-    string fields = 1;
-    /**
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     */
-    string order_by = 2;
-    //Filter
-    string filter = 3;
-    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-    int32 page = 4;
-    //Number of elements to return per page
-    int32 limit = 5;
-    //https://cloud.google.com/apis/design/design_patterns#resource_view
-    string view = 8;       
-       
+      
+   
     //Query term to search a person
-    string q = 11;
+    string q = 1;
 }
-
    
 message UpdatePersonServiceRequest { 
-    
-    string prs = 1;
-    person.Person data =  2;  
-}
 
+    string prs = 1;
+    person.Person data = 2;  
+}
 
 
 
@@ -509,54 +445,33 @@ message UpdatePersonServiceRequest {
 
    
 message CreateProjectServiceRequest { 
-    
-    project.Project data =  1;  
-}
 
+    project.Project data = 1;  
+}
    
 message DeleteProjectServiceRequest { 
-    
-    string prj = 1;
-    google.protobuf.Empty data =  2;  
-}
 
+    string prj = 1;
+    google.protobuf.Empty data = 2;  
+}
    
 message GetProjectServiceRequest { 
-    
+
     string prj = 1; 
 }
-
    
 message ListProjectServiceRequest { 
-    
-    //Partial representation, fields=id,name
-    string fields = 1;
-    /**
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     */
-    string order_by = 2;
-    //Filter
-    string filter = 3;
-    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-    int32 page = 4;
-    //Number of elements to return per page
-    int32 limit = 5;
-    //https://cloud.google.com/apis/design/design_patterns#resource_view
-    string view = 8;       
-       
+      
+   
     //Query term to search a project
-    string q = 11;
+    string q = 1;
 }
-
    
 message UpdateProjectServiceRequest { 
-    
-    string prj = 1;
-    project.Project data =  2;  
-}
 
+    string prj = 1;
+    project.Project data = 2;  
+}
 
 
 
@@ -565,36 +480,18 @@ message UpdateProjectServiceRequest {
 
    
 message ListProjectMembersServiceRequest { 
-    
-    //Partial representation, fields=id,name
-    string fields = 1;
-    /**
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     */
-    string order_by = 2;
-    //Filter
-    string filter = 3;
-    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-    int32 page = 4;
-    //Number of elements to return per page
-    int32 limit = 5;
-    //https://cloud.google.com/apis/design/design_patterns#resource_view
-    string view = 8;       
-       
+      
+   
     //Query term to search a member
-    string q = 11;
+    string q = 1;
 }
-
    
 message UnsubscribeProjectMembersServiceRequest { 
-    
+
     string prj = 1;
     string prs = 2;
-    person.PersonEntity data =  3;  
+    person.PersonEntity data = 3;  
 }
-
 
 
 
@@ -603,54 +500,45 @@ message UnsubscribeProjectMembersServiceRequest {
 
    
 message CreateTaskServiceRequest { 
-    
-    task.Task data =  1;  
-}
 
+    task.Task data = 1;  
+}
    
 message DeleteTaskServiceRequest { 
-    
-    string tsk = 1;
-    google.protobuf.Empty data =  2;  
-}
 
+    string tsk = 1;
+    google.protobuf.Empty data = 2;  
+}
    
 message GetTaskServiceRequest { 
-    
+
     string tsk = 1; 
 }
-
    
 message ListTaskServiceRequest { 
-    
-    //Partial representation, fields=id,name
-    string fields = 1;
-    /**
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     */
-    string order_by = 2;
-    //Filter
-    string filter = 3;
-    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-    int32 page = 4;
-    //Number of elements to return per page
-    int32 limit = 5;
-    //https://cloud.google.com/apis/design/design_patterns#resource_view
-    string view = 8;       
-       
-    //Query term to search a task
-    string q = 11;
+                
+   
+    //Partial representation (comma separated list of field names), ?fields=
+    string fields = 1;   
+    //The response message will be filtered by the fields before being sent back to the client, filter=[[&#39;id&#39;,&#39;eq&#39;,&#39;1&#39;]]
+    string filter = 2;   
+    //Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar
+    string order_by = 3;   
+    //Use this field to specify the maximum number of results to be returned by the server. 
+    //The server may further constrain the maximum number of results returned in a single page. 
+    //If the page_size is 0, the server will decide the number of results to be returned. page_size=15
+    string page_size = 4;   
+    //Query term to search a {{.name}}
+    string q = 5;   
+    //allows the client to specify which view of the resource it wants to receive in the response. view=BASIC
+    string view = 6;
 }
-
    
 message UpdateTaskServiceRequest { 
-    
-    string tsk = 1;
-    task.Task data =  2;  
-}
 
+    string tsk = 1;
+    task.Task data = 2;  
+}
 
 
 
@@ -659,59 +547,37 @@ message UpdateTaskServiceRequest {
 
    
 message CreateExperimentServiceRequest { 
-    
-    experiment.Experiment data =  1;  
-}
 
+    experiment.Experiment data = 1;  
+}
    
 message DeleteExperimentServiceRequest { 
-    
-    string exp = 1;
-    google.protobuf.Empty data =  2;  
-}
 
+    string exp = 1;
+    google.protobuf.Empty data = 2;  
+}
    
 message GetExperimentServiceRequest { 
-    
+
     string exp = 1; 
 }
-
    
 message ListExperimentServiceRequest { 
-    
-    //Partial representation, fields=id,name
-    string fields = 1;
-    /**
-     * Sort fields, comma separated list for the ordering
-     * use **?filter=-display_name** with a dash to sort descending
-     * use **?filter=display_name** to sort ascending
-     */
-    string order_by = 2;
-    //Filter
-    string filter = 3;
-    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
-    int32 page = 4;
-    //Number of elements to return per page
-    int32 limit = 5;
-    //https://cloud.google.com/apis/design/design_patterns#resource_view
-    string view = 8;       
-       
+      
+   
     //Query term to search a experiment
-    string q = 11;
+    string q = 1;
 }
-
    
 message ReleaseExperimentServiceRequest { 
-    
-    experiment.ExperimentEntity data =  1;  
-}
 
+    experiment.ExperimentEntity data = 1;  
+}
    
 message UpdateExperimentServiceRequest { 
-    
-    string exp = 1;
-    experiment.Experiment data =  2;  
-}
 
+    string exp = 1;
+    experiment.Experiment data = 2;  
+}
 
 
