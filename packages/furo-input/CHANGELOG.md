@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.67.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.1...@furo/input@0.67.2) (2020-03-07)
+
+
+### Bug Fixes
+
+* input field should initially be valid ([a271ba3](https://github.com/theNorstroem/FuroBaseComponents/commit/a271ba3))
+
+
+
+
+
 ## [0.67.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.67.0...@furo/input@0.67.1) (2020-03-04)
 
 

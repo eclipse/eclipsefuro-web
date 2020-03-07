@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.7.0...@furo/ui-builder@0.8.0) (2020-03-07)
+
+
+### Features
+
+* generated repeated map items can have css :host(.in-repeater) ([9623ac1](https://github.com/theNorstroem/FuroBaseComponents/commit/9623ac1))
+* repeated items can have css :host(.in-repeater) to define a border or margins when it is in a data-repeat ([b8824f6](https://github.com/theNorstroem/FuroBaseComponents/commit/b8824f6))
+
+
+
+
+
 # [0.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.6.0...@furo/ui-builder@0.7.0) (2020-02-07)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.50.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.50.0...@furo/specs@0.50.1) (2020-03-07)
+
+
+### Bug Fixes
+
+* query params are now fully describable in the service api specification. ([975f542](https://github.com/theNorstroem/FuroBaseComponents/commit/975f542))
+
+
+
+
+
 # [0.50.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.49.1...@furo/specs@0.50.0) (2020-03-04)
 
 

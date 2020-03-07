@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.69.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.68.7...@furo/data-input@0.69.0) (2020-03-07)
+
+
+### Features
+
+* repeated items can have css :host(.in-repeater) to define a border or margins when it is in a data-repeat ([b8824f6](https://github.com/theNorstroem/FuroBaseComponents/commit/b8824f6))
+
+
+
+
+
 ## [0.68.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.68.6...@furo/data-input@0.68.7) (2020-03-04)
 
 **Note:** Version bump only for package @furo/data-input

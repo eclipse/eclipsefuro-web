@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.70.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.5...@furo/data@0.70.6) (2020-03-07)
+
+
+### Bug Fixes
+
+* query params are now fully describable in the service api specification. ([975f542](https://github.com/theNorstroem/FuroBaseComponents/commit/975f542))
+
+
+
+
+
 ## [0.70.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.4...@furo/data@0.70.5) (2020-02-19)
 
 **Note:** Version bump only for package @furo/data
