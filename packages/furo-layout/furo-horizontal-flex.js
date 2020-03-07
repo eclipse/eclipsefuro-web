@@ -4,7 +4,7 @@ import {Theme} from "@furo/framework/theme"
 /**
  * `furo-horizontal-flex`
  *
- *  Für vertikales anordnen von Komponenten. Die Breite ist automatisch auf 100% gesetzt (display block).
+ *  Für horizontales anordnen von Komponenten. Die Breite ist automatisch auf 100% gesetzt (display block).
  *
  *  Setze auf dem flexiblen Element das Attribut **flex**
  *
@@ -18,6 +18,7 @@ import {Theme} from "@furo/framework/theme"
  * ```
  *  Tags: layout
  *
+ * @summary horizontal alignment
  * @customElement
  * @demo demo-furo-horizontal-flex
  * @appliesMixin FBP

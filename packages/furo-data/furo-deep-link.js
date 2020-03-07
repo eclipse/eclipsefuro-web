@@ -3,7 +3,9 @@ import {Env} from "@furo/framework"
 
 /**
  * `furo-deep-link`
+ * Resolve deep links HATEOAS based on the  query params
  *
+ * @summary Resolve deep links HATEOAS based on  query params
  * @customElement
  * @demo demo/form.html
  * @appliesMixin FBP

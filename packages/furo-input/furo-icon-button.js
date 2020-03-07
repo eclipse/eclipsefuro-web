@@ -11,7 +11,7 @@ import "@furo/layout/furo-ripple"
  *
  * `furo-icon-button`
  *
- * @summary todo shortdescription
+ * @summary icon button element
  * @customElement
  * @demo demo-furo-icon-button
  * @appliesMixin FBP

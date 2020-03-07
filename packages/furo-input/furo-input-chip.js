@@ -37,7 +37,7 @@ import "@furo/layout/furo-ripple";
  * `--input-checkbox-disabled-unselected-border-color` | border color of the unchecked disabled checkbox | `--on-background-rgb`  with `--state-disabled` opacity| rgba: 33, 33, 33, 0.38
  *
  *
- * @summary chips
+ * @summary input chips
  * @customElement
  * @demo demo-furo-input-chip Basic demo
  * @appliesMixin FBP

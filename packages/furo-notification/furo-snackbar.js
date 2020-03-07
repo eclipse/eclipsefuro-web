@@ -18,6 +18,7 @@ import {FBP} from '@furo/fbp';
  * `furo-banner`    | Prominent, medium priority  |Optional: Banners remain until dismissed by the user, or if the state that caused the banner is resolved
  * `furo-dialog`    | Highest priority |Required: Dialogs block app usage until the user takes a dialog action or exits the dialog (if available)
  *
+ * @summary a snackbar
  * @customElement
  * @demo demo-furo-snackbar-display snackbar demo
  * @demo demo-furo-snackbar-display-error snackbar display demo with error binding

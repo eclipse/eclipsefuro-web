@@ -10,7 +10,7 @@ import "./furo-tree-item"
 /**
  * `furo-tree` renders a tree,
  *
- * @summary tree menu
+ * @summary tree navigation menu
  * @customElement
  * @demo demo-furo-tree Basic usage
  * @demo demo-furo-tree-qp Working with query params

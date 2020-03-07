@@ -36,6 +36,7 @@ import {Theme} from "@furo/framework/theme"
  *  with variable `--furo-ripple-bg-color` you can modify the backgroud color of the ripple effect
  *
  *
+ * @summary add a ripple effect
  * @customElement
  */
 class FuroRipple extends LitElement {

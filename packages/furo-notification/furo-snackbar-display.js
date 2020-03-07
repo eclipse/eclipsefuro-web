@@ -29,8 +29,8 @@ import "@furo/input";
  * `--snackbar-label-color` | Color of label in snackbar| `--primary-variant,,` | #dedede
  * `--snackbar-button-text-color` | Color of button text | `--secondary` | #bb86fc
  * `--snackbar-border-distance` | Distance to the border of the parent element | `--spacing` | 24px
-
  *
+ * @summary helper component to show a snackbar
  * @customElement
  * @demo demo-furo-snackbar-display snackbar demo
  * @demo demo-furo-snackbar-display-error snackbar display demo with error binding

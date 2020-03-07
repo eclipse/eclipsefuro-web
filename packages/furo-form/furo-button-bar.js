@@ -6,7 +6,7 @@ import "@furo/layout/furo-horizontal-flex"
  * `furo-button-bar`
  *
  * Tags: form
- * @summary
+ * @summary automatic button bar
  * @customElement
  * @demo demo-furo-button-bar Demo button bar
  */

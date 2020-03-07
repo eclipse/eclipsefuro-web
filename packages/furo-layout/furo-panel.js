@@ -13,7 +13,7 @@ import {Theme} from "@furo/framework/theme"
  * ----------------|-------------|----------|----------
  * `--furo-panel-margin` | Margin size | 0 var(--spacing-s) 0 var(--spacing-s) | --
  *
- * @summary
+ * @summary content panel with predefined margins
  * @customElement
  * @demo demo-furo-panel Sample
  * @appliesMixin FBP

@@ -2,8 +2,8 @@ import {FBP} from '@furo/fbp/fbp.js';
 
 /**
  * `append-object`
- * Native element
  *
+ * @summary append data to object literals
  * @customElement
  */
 

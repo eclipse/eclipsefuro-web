@@ -38,7 +38,7 @@ const tdWRepeat = (fields) => html`
  *
  * Tags: data-ui
  *
- * @summary datatable
+ * @summary type based data table
  * @demo demo-furo-data-table Data Table Standard
  * @demo demo-furo-data-table-row-selection Data Table with Row Selection
  * @customElement

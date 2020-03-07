@@ -4,7 +4,7 @@ import {FBP} from "@furo/fbp";
 
 /**
  * `fd-input-row`
- *
+ * # DEPRECATED
  *
  * @summary Zweigespaltene Formularzeile
  * @customElement

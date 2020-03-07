@@ -7,6 +7,7 @@
  * <furo-api-fetch ƒ-invoke-request="" ƒ-abort-request=""></furo-api-fetch>
  * ```
  *
+ * @summary fetch data from network
  * @customElement
  * @demo demo/furo-api-fetch_demo.html
  */

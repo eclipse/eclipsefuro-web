@@ -6,7 +6,7 @@ import {FBP} from "@furo/fbp";
  * `furo-file-drop`
  * EXPERIMENTAL
  *
- * @summary todo shortdescription
+ * @summary dropzone for files
  * @customElement
  * @demo demo-furo-file-drop
  * @appliesMixin FBP

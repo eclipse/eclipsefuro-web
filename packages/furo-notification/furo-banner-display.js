@@ -35,7 +35,7 @@ import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
  * `--banner-icon-margin-right` | right margin of icon | `--spacing` | 24px
  * `--banner-margin-bottom`     | bottom margin of the banner   | `--spacing-s`     | 16px
 
- *
+ * @summary helper component to show a banner
  * @customElement
  * @demo demo-furo-banner-display banner display demo
  * @demo demo-furo-banner-display-error banner display demo with error binding

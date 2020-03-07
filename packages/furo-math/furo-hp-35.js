@@ -6,6 +6,7 @@ import {ForthStack} from "@furo/logic/furo-forth-stack.js"
    * see https://hansklav.home.xs4all.nl/rpn/
    * http://h10032.www1.hp.com/ctg/Manual/c01579350
    *
+   * @summary calculator component
    * @customElement
    */
   class FuroHp35 extends ForthStack {

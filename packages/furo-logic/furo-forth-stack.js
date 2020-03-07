@@ -10,7 +10,7 @@ import {FBP} from "@furo/fbp";
  * http://wiki.laptop.org/go/Forth_stack_operators
  * http://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm#stacks
  *
- * @summary doing stack operations
+ * @summary forth like stack
  * @customElement
  */
 class FuroForthStack extends (LitElement) {

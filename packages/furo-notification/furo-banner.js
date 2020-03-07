@@ -18,6 +18,7 @@ import {LitElement, html, css} from 'lit-element';
  * `furo-banner`    | Prominent, medium priority  |Optional: Banners remain until dismissed by the user, or if the state that caused the banner is resolved
  * `furo-dialog`    | Highest priority |Required: Dialogs block app usage until the user takes a dialog action or exits the dialog (if available)
  *
+ * @summary a banner
  * @customElement
  * @demo demo-furo-banner-display banner display demo
  * @demo demo-furo-banner-display-error banner display demo with error binding

@@ -15,7 +15,7 @@ import SignaturePad from "signature_pad/dist/signature_pad.m"
  *   </template>
  *  </furo-demo-snippet>
  *
- * @summary shortdescription
+ * @summary draw or sign
  * @customElement
  * @demo demo-furo-sign-pad
  * @appliesMixin FBP

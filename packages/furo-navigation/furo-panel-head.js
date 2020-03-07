@@ -7,7 +7,7 @@ import {CheckMetaAndOverrides} from "@furo/data-input/lib/CheckMetaAndOverrides"
  * `furo-panel-head`
  *  Displays a navigation node as title
  *
- * @summary todo shortdescription
+ * @summary dislay a navigationNode as title
  * @customElement
  * @demo demo-panel-head
  * @appliesMixin FBP

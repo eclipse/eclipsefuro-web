@@ -9,7 +9,7 @@ import '@furo/layout';
  *
  * `furo-form`
  *
- * @summary todo shortdescription
+ * @summary form container
  * @customElement
  * @demo demo-furo-form
  * @appliesMixin FBP

@@ -1,9 +1,18 @@
 #furo Framework
 
 
-This package contains the furo "framework" components. 
+This package contains the furo "framework" classes. 
 
 
+## What is inside
 
-## Detailed documentation
-Read more about the components of the @furo/form package on the  [documentation pages](https://furo.pro/api/form/doc/).
+### Classes
+
+
+- [Env](?t=Env) stores your environment data
+- **furo.js** Export bundle for all framework classes
+- [i18n](?t=i18n) Base i18n class
+- [iconset](?t=Iconset) Icon set loader
+- [Sys](?t=Sys) Set your locale
+- [Init](?t=Init) App init stuff
+- [Theme](?t=Theme) Theming stuff 

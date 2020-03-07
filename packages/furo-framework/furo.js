@@ -1,3 +1,12 @@
+/**
+ * Export bundle for
+ * - Env
+ * - i18n
+ * - Init
+ * - Sys
+ * - Theme
+ * - Iconset
+ */
 export {Env} from "./environment"
 export {i18n} from "./i18n";
 export {Init,Sys} from "./system";

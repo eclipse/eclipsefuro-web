@@ -4,8 +4,10 @@ import "./furo-api-fetch"
 import {Env} from "@furo/framework"
 
 /**
- * `furo-entity-agent`
+ * `furo-custom-method`
+ * interface component to handle custom methods
  *
+ * @summary interface component to handle custom methods
  * @customElement
  * @demo demo-furo-custom-method Basic usage
  * @appliesMixin FBP

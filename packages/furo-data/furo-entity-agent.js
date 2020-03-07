@@ -8,6 +8,7 @@ import {Env} from "@furo/framework"
  *
  * If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`
  *
+ * @summary interface component to handle entity requests
  * @customElement
  * @demo demo-furo-entity-agent Basic usage
  * @appliesMixin FBP

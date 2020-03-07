@@ -5,7 +5,7 @@ import {FBP} from "@furo/fbp";
  * `furo-data-table-toggle`
  * Toggle with HTML entity
  *
- * @summary
+ * @summary helper for furo-data-table
  * @customElement
  * @appliesMixin FBP
  */

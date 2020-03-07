@@ -25,7 +25,7 @@ import {Env} from "@furo/framework"
  *                    >
  * </furo-collection-agent>
  * ```
- *
+ * @summary interface component to handle collection requests
  * @customElement
  * @demo demo-furo-collection-agent Basic usage
  * @appliesMixin FBP
