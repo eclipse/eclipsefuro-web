@@ -4,7 +4,7 @@ import {FuroSignPad} from "@furo/input/furo-sign-pad";
  * `furo-data-sign-pad`
  * Describe your element
  *
- * @summary shortdescription
+ * @summary Bind a entityObject.field to a sign-pad input
  * @customElement
  * @demo demo-furo-data-sign-pad
  * @appliesMixin FBP

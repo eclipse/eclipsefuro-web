@@ -31,7 +31,7 @@ import "@furo/form/furo-form-layouter"
  *
  *
  *
- * @summary todo shortdescription
+ * @summary automatic display of repeated fields
  * @customElement
  * @demo demo-furo-data-repeat
  * @appliesMixin FBP

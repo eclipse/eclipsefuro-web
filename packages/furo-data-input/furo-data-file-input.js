@@ -11,7 +11,7 @@ import {Helper} from "./lib/helper";
  * Binds a entityObject field to a furo-file-input field
  *
  * Tags: input
- * @summary Bind a entityObject.field to a text input
+ * @summary Binds a entityObject field to a furo-file-input field
  * @customElement
  * @demo demo-furo-data-file-input Data binding
  * @mixes FBP

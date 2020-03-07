@@ -28,7 +28,7 @@ import {RepeaterNode} from "@furo/data/lib/RepeaterNode";
  * - "furo.NumberProperty": "furo-data-display"
  * - "furo.StringOptionProperty": "furo-data-display"
  *
- * @summary property display
+ * @summary helper for furo-data-property
  * @customElement
  * @demo demo-furo-data-property-display
  * @appliesMixin FBP

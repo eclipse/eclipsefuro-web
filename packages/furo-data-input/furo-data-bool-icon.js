@@ -5,9 +5,11 @@ import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
 
 /**
  * `furo-data-bool-icon`
- * todo Describe your element
+ * Displays a icon/symbol for a boolean value
  *
- * @summary todo shortdescription
+ * This component uses utf-8 symbols for true and false at the moment.
+ *
+ * @summary  Displays a icon/symbol for a boolean value
  * @customElement
  * @demo demo-furo-data-bool-icon
  * @appliesMixin FBP

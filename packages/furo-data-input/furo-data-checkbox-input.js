@@ -17,7 +17,7 @@ import {Helper} from "./lib/helper";
  *  </furo-demo-snippet>
  *
  * Tags: data-input
- * @summary furo data checkbox input element
+ * @summary binds to a furo data checkbox input element
  * @demo demo-furo-data-checkbox-input Input samples
  * @customElement
  * @mixes FBP

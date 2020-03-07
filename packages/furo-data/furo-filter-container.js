@@ -23,6 +23,7 @@ import {FBP} from '@furo/fbp';
  * </furo-filter-container>
  * ```
  *
+ * @summary Placeholder component to describe nested filters
  * @demo demo-furo-filter Basic usage
  * @appliesMixin FBP
  */

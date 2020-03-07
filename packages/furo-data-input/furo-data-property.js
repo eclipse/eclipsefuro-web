@@ -92,7 +92,7 @@ import {RepeaterNode} from "@furo/data/lib/RepeaterNode";
  * - "furo.NumberProperty": "furo-data-number-input"
  * - "furo.StringOptionProperty": "furo-data-collection-dropdown"
  *
- * @summary property input
+ * @summary display and bind types of type any
  * @customElement
  * @demo demo-furo-data-property
  * @appliesMixin FBP

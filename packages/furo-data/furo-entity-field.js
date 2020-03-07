@@ -6,7 +6,7 @@ import {FBP} from "@furo/fbp";
  *
  * You can set the field value or listen to changes of a field.
  *
- * @summary non visual field
+ * @summary interact with single field of a data object
  * @customElement
  * @mixes FBP
  */

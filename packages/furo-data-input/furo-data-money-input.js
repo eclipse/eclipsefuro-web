@@ -19,7 +19,7 @@ import {Helper} from "./lib/helper";
  *  <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" currencies="chf,eur,usd"></furo-data-money-input>
  *
  * Tags: money input
- * @summary Bind a entityObject.field to a number and dropdown fields
+ * @summary  Binds a entityObject field google.type.Money to a furo-number-input and currency dropdown fields
  * @customElement
  * @demo demo-furo-data-money-input Data binding
  * @mixes FBP

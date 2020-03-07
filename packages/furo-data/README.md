@@ -13,13 +13,13 @@ This package contains the furo data components.
 - [furo-data-object](?t=FuroDataObject) Typed data object, the heart of all furo-data related components
 - [furo-deep-link](?t=FuroDeepLink) Resolve deep links HATEOAS based on  query params
 - [furo-entity-agent](?t=FuroEntityAgent) interface component to handle entity requests
-- [furo-entity-field](?t=Furo) 
-- [furo-filter-and](?t=Furo) 
-- [furo-filter-container](?t=Furo) 
-- [furo-filter-field](?t=Furo) 
-- [furo-filter-or](?t=Furo) 
-- [furo-rel-exists](?t=Furo) 
-- [furo-reverse-deep-link](?t=Furo) 
+- [furo-entity-field](?t=FuroEntityField) interact with single field of a data object
+- [furo-filter-and](?t=FuroFilterAnd) and filter "bracket"
+- [furo-filter-container](?t=FuroFilterContainer) Placeholder component to describe nested filters
+- [furo-filter-field](?t=FuroFilterField) set a filter field
+- [furo-filter-or](?t=FuroFilterOr) or filter "bracket"
+- [furo-rel-exists](?t=FuroRelExists) checks for a specific rel in links
+- [furo-reverse-deep-link](?t=FuroReverseDeepLink) create query param object from HATEOAS
 
 
 ## Detailed documentation

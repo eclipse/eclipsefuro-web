@@ -13,6 +13,7 @@ import {Env} from "@furo/framework"
  *></furo-reverse-deep-link>
  *```
  *
+ * @summary create query param object from HATEOAS
  * @customElement
  * @demo demo/furo-reverse-deep-link.html
   */

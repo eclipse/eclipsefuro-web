@@ -40,7 +40,7 @@ import {Helper} from "./lib/helper";
  * `--furo-data-reference-search-list-background` | Background color of result list | --surface | #ffffff;
  * `--reference-search-no-result-hint` | color of hint when no result found | --accent | #ddb13d;
  *
- * @summary shortdescription
+ * @summary autocomplete searcher for referenced types
  * @customElement
  * @demo demo-furo-data-reference-search
  * @demo demo-furo-data-reference-search-no-result
