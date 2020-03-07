@@ -1,12 +1,12 @@
 {
   "name": "@furo/input",
-  "version": "0.67.2",
+  "version": "0.67.3",
   "description": "Base input components",
   "dependencies": {
     "@furo/fbp": "^4.29.1",
-    "@furo/framework": "^0.13.5",
-    "@furo/icon": "^0.1.6",
-    "@furo/layout": "^0.41.4",
+    "@furo/framework": "^0.13.6",
+    "@furo/icon": "^0.1.7",
+    "@furo/layout": "^0.41.5",
     "lit-element": "^2.2.1",
     "signature_pad": "^3.0.0-beta.3"
   },

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.70.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.6...@furo/data@0.70.7) (2020-03-07)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
 ## [0.70.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.5...@furo/data@0.70.6) (2020-03-07)
 
 
