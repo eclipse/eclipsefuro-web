@@ -6,6 +6,6 @@ Furo navigation components
 
 ### Elements
 
-- [furo-panel-coordinator-tabs](?t=FuroPanelCoordinatorTabs) tab navigation for panel-coordinator
-- [furo-panel-head](?t=FuroPanelHead)  dislay a navigationNode as title
-- [furo-tree](?t=FuroTree)  tree navigation menu
+- [furo-panel-coordinator-tabs](https://components.furo.pro/?t=FuroPanelCoordinatorTabs) tab navigation for panel-coordinator
+- [furo-panel-head](https://components.furo.pro/?t=FuroPanelHead)  dislay a navigationNode as title
+- [furo-tree](https://components.furo.pro/?t=FuroTree)  tree navigation menu

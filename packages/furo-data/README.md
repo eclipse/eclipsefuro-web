@@ -6,20 +6,20 @@ This package contains the furo data components.
 
 ### Elements
 
-- [furo-api-fetch](?t=FuroApiFetch) fetch data from network
-- [furo-collection-agent](?t=FuroCollectionAgent) interface component to handle collection requests
-- [furo-custom-method](?t=FuroCustomMethod) interface component to handle custom methods
-- [furo-data-emmiter](?t=FuroDataEmmiter) event emitter for values of data object
-- [furo-data-object](?t=FuroDataObject) Typed data object, the heart of all furo-data related components
-- [furo-deep-link](?t=FuroDeepLink) Resolve deep links HATEOAS based on  query params
-- [furo-entity-agent](?t=FuroEntityAgent) interface component to handle entity requests
-- [furo-entity-field](?t=FuroEntityField) interact with single field of a data object
-- [furo-filter-and](?t=FuroFilterAnd) and filter "bracket"
-- [furo-filter-container](?t=FuroFilterContainer) Placeholder component to describe nested filters
-- [furo-filter-field](?t=FuroFilterField) set a filter field
-- [furo-filter-or](?t=FuroFilterOr) or filter "bracket"
-- [furo-rel-exists](?t=FuroRelExists) checks for a specific rel in links
-- [furo-reverse-deep-link](?t=FuroReverseDeepLink) create query param object from HATEOAS
+- [furo-api-fetch](https://components.furo.pro/?t=FuroApiFetch) fetch data from network
+- [furo-collection-agent](https://components.furo.pro/?t=FuroCollectionAgent) interface component to handle collection requests
+- [furo-custom-method](https://components.furo.pro/?t=FuroCustomMethod) interface component to handle custom methods
+- [furo-data-emmiter](https://components.furo.pro/?t=FuroDataEmmiter) event emitter for values of data object
+- [furo-data-object](https://components.furo.pro/?t=FuroDataObject) Typed data object, the heart of all furo-data related components
+- [furo-deep-link](https://components.furo.pro/?t=FuroDeepLink) Resolve deep links HATEOAS based on  query params
+- [furo-entity-agent](https://components.furo.pro/?t=FuroEntityAgent) interface component to handle entity requests
+- [furo-entity-field](https://components.furo.pro/?t=FuroEntityField) interact with single field of a data object
+- [furo-filter-and](https://components.furo.pro/?t=FuroFilterAnd) and filter "bracket"
+- [furo-filter-container](https://components.furo.pro/?t=FuroFilterContainer) Placeholder component to describe nested filters
+- [furo-filter-field](https://components.furo.pro/?t=FuroFilterField) set a filter field
+- [furo-filter-or](https://components.furo.pro/?t=FuroFilterOr) or filter "bracket"
+- [furo-rel-exists](https://components.furo.pro/?t=FuroRelExists) checks for a specific rel in links
+- [furo-reverse-deep-link](https://components.furo.pro/?t=FuroReverseDeepLink) create query param object from HATEOAS
 
 
 ## Detailed documentation

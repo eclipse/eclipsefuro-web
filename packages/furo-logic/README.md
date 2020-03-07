@@ -7,7 +7,7 @@ logic components
 
 ### Elements
 
-- [furo-forth-stack](?t=FuroForthStack) forth like stack
+- [furo-forth-stack](https://components.furo.pro/?t=FuroForthStack) forth like stack
 - **furo-bool-and** N/A, in planing
 - **furo-bool-or** N/A, in planing
 - **furo-bool-to-event** N/A, in planing

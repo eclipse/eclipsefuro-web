@@ -6,8 +6,8 @@ Furo config components
 
 ### Elements
 
-- [furo-config](?t=FuroConfig) access config data
-- [furo-config-loader](?t=FuroConfigLoader) load config files
+- [furo-config](https://components.furo.pro/?t=FuroConfig) access config data
+- [furo-config-loader](https://components.furo.pro/?t=FuroConfigLoader) load config files
  
 
 

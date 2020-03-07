@@ -7,4 +7,4 @@ Utility components for data
 
 ### Elements
 
-- [furo-append-object](?t=FuroAppendObject)  append data to object literals
+- [furo-append-object](https://components.furo.pro/?t=FuroAppendObject)  append data to object literals

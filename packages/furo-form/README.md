@@ -7,8 +7,8 @@ creation of forms simpler.
 
 ### Elements
 
-- [furo-button-bar](?t=FuroButtonBar) automatic button bar
-- [furo-collapsible-box](?t=FuroCollapsibleBox) collapsible box with head
-- [furo-form](?t=FuroForm) form container
-- [furo-form-layouter](?t=FuroFormLayouter) form auto layouter
-- [furo-input-row](?t=FuroInputRow) *DEPRECATED* label slot layout 
+- [furo-button-bar](https://components.furo.pro/?t=FuroButtonBar) automatic button bar
+- [furo-collapsible-box](https://components.furo.pro/?t=FuroCollapsibleBox) collapsible box with head
+- [furo-form](https://components.furo.pro/?t=FuroForm) form container
+- [furo-form-layouter](https://components.furo.pro/?t=FuroFormLayouter) form auto layouter
+- [furo-input-row](https://components.furo.pro/?t=FuroInputRow) *DEPRECATED* label slot layout 

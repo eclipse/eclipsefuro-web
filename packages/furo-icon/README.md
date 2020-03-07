@@ -8,4 +8,4 @@ If you want to create a iconset by your own, look at the framework section.
 
 ### Elements
 
-- [furo-icon](?t=FuroIcon) displays an icon
+- [furo-icon](https://components.furo.pro/?t=FuroIcon) displays an icon

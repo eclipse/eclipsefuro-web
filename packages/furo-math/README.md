@@ -7,6 +7,6 @@ Math related components
 
 ### Elements
 
-- [furo-hp-35](?t=FuroHp35)  calculator component
+- [furo-hp-35](https://components.furo.pro/?t=FuroHp35)  calculator component
 - **furo-counter** N/A, in planing
 - **furo-random-number** N/A, in planing
