@@ -40,6 +40,7 @@ function sh(command, arguments) {
   execSync(command + " " + arguments.join(" "), {stdio: 'inherit'});
 }
 
+
 // Build up the file list
 sh(__dirname + "/createSpecList.sh", [config.spec_dir, ...config.import_spec_dirs]);
 
