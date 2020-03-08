@@ -9,7 +9,6 @@ import {FBP} from "@furo/fbp";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-doc-events-item.html
  * @appliesMixin FBP
  */
 class FuroDocEventsItem extends FBP(LitElement) {

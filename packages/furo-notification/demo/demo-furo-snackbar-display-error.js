@@ -12,7 +12,6 @@ import "./produce-snackbar-data.js";
  * Lit element
  *
  * @customElement
- * @demo demo/index.html
  */
 class DemoFuroSnackbarDisplayError extends FBP(LitElement) {
 
@@ -42,12 +41,12 @@ class DemoFuroSnackbarDisplayError extends FBP(LitElement) {
     `
   }
 
-    
+
     /**
      *@private
      */
     static get properties(){
-    
+
         return {
         };
     }
@@ -77,7 +76,7 @@ class DemoFuroSnackbarDisplayError extends FBP(LitElement) {
       </furo-demo-snippet>
         `;
     }
-  
+
 }
 
 customElements.define('demo-furo-snackbar-display-error', DemoFuroSnackbarDisplayError);

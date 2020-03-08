@@ -8,7 +8,6 @@ import {FBP} from "@furo/fbp";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-doc-menu-element-item.html
  * @appliesMixin FBP
  */
 class FuroDocMenuElementItem extends FBP(LitElement) {

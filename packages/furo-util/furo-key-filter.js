@@ -15,7 +15,6 @@ import {FBP} from "@furo/fbp";
  *
  * @summary keyboard event filter
  * @customElement
- * @demo demo/furo-key-filter.html
  * @appliesMixin FBP
  */
 class FuroKeyFilter extends FBP(LitElement) {

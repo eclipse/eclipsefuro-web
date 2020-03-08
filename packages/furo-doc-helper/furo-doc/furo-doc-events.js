@@ -10,7 +10,6 @@ import "./furo-doc-events-item"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-doc-events.html
  * @appliesMixin FBP
  */
 class FuroDocEvents extends FBP(LitElement) {

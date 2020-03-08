@@ -6,7 +6,6 @@ import '@furo/layout';
  * Lit element
  *
  * @customElement
- * @demo demo/index.html
  */
 class FuroIconWithLabel extends FBP(LitElement) {
 

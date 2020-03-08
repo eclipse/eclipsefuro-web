@@ -10,7 +10,6 @@ import '@svgdotjs/svg.panzoom.js/dist/svg.panzoom.esm.js'
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-graph-renderer.html
  * @appliesMixin FBP
  */
 class FuroGraphRenderer extends FBP(LitElement) {

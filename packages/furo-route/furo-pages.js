@@ -8,8 +8,8 @@ import {FBP} from "@furo/fbp";
  * You have to implement a `:host([hidden]){display:none}` in your views css
  *
  * @summary Simple content switcher
+ * @demo demo-furo-panel-coordinator with panel coordinator
  * @customElement
- * @demo demo/furo-pages.html
  */
 class FuroPages extends (LitElement) {
 

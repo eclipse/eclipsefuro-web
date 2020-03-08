@@ -7,7 +7,6 @@ import {FBP} from "@furo/fbp";
  *
  * @summary representation of a result item
  * @customElement
- * @demo demo/reference-search-item.html
  * @appliesMixin FBP
  */
 export class ReferenceSearchItem extends FBP(LitElement) {

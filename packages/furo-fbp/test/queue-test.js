@@ -5,7 +5,6 @@ import {FBP} from "../fbp.js";
  * `queue-test`
  *
  * @customElement
- * @demo demo/index.html
  * @appliesMixin FBP
  */
 class QueueTest extends FBP(LitElement) {

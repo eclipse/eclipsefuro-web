@@ -12,7 +12,6 @@ import "./produce-snackbar-data.js";
  * Lit element
  *
  * @customElement
- * @demo demo/index.html
  */
 class DemoFuroSnackbarDisplay extends FBP(LitElement) {
 

@@ -7,7 +7,6 @@ import "@furo/input";
  * `produce-error`
  *
  * @customElement
- * @demo demo/index.html
  * @appliesMixin FBP
  */
 class ProduceSnackbarData extends FBP(LitElement) {

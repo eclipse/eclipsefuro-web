@@ -8,7 +8,6 @@ import {FBP} from "@furo/fbp";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/tree-demo-form.html
  * @appliesMixin FBP
  */
 class TreeDemoForm extends FBP(LitElement) {

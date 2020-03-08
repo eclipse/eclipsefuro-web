@@ -10,8 +10,8 @@ If you look for input components with data binding, look at the @furo/data-input
 
 - [furo-button](https://components.furo.pro/?t=FuroButton) a md button 
 - [furo-checkbox](https://components.furo.pro/?t=FuroCheckbox) checkbox input box
-- [furo-checkbox-input](https://components.furo.pro/?t=FuroCheckboxInput)checkbox input element with label
-  - ![checkbox input](assets/furo-input/checkbox-input.png) 
+- [furo-checkbox-input](https://components.furo.pro/?t=FuroCheckboxInput) checkbox input element with label
+  - ![checkbox input](https://components.furo.pro/assets/furo-input/checkbox-input.png) 
 - [furo-chip](https://components.furo.pro/?t=FuroChip) chips 
 - [furo-color-input](https://components.furo.pro/?t=FuroColorInput) color input element
 - [furo-date-input](https://components.furo.pro/?t=FuroDateInput) date input element
@@ -20,7 +20,7 @@ If you look for input components with data binding, look at the @furo/data-input
 - [furo-icon-button](https://components.furo.pro/?t=FuroIconButton) icon button element
 - [furo-input-chip](https://components.furo.pro/?t=FuroInputChip) input chips
 - [furo-number-input](https://components.furo.pro/?t=FuroNumberInput) number input element
-  - ![number input](assets/furo-input/number-input.png)
+  - ![number input](https://components.furo.pro/assets/furo-input/number-input.png)
 - [furo-password-input](https://components.furo.pro/?t=FuroPasswordInput) password input element
 - [furo-radio-button](https://components.furo.pro/?t=FuroRadioButton) radio input circle
 - [furo-radio-button-input](https://components.furo.pro/?t=FuroRadioButtonInput) radio input with label

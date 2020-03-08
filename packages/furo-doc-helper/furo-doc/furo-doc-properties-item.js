@@ -9,7 +9,6 @@ import "@furo/fbp/flow-repeat";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-doc-properties-item.html
  * @appliesMixin FBP
  */
 class FuroDocPropertiesItem extends FBP(LitElement) {

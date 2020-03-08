@@ -10,7 +10,6 @@ import "@furo/layout/furo-ripple"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-mini-tab-item.html
  * @appliesMixin FBP
  */
 class FuroPanelCoordinatorTabItem extends FBP(LitElement) {

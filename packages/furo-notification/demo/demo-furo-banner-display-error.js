@@ -12,7 +12,6 @@ import "./produce-banner-data.js"
  * Lit element
  *
  * @customElement
- * @demo demo/index.html
  */
 class DemoFuroBannerDisplayError extends FBP(LitElement) {
 

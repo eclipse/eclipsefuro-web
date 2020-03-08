@@ -11,7 +11,7 @@ import '@furo/layout';
  *
  * @summary form container
  * @customElement
- * @demo demo-furo-form
+ * @demo demo-furo-form-layouter With form layouter
  * @appliesMixin FBP
  */
 class FuroForm extends FBP(LitElement) {

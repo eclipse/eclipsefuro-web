@@ -9,7 +9,6 @@ import {BasePanel} from "../../lib/BasePanel";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/example-panel-b.html
  * @appliesMixin FBP
  */
 class ExamplePanelB extends BasePanel {

@@ -11,7 +11,6 @@ function TypeAppFlow(name) {
  *
  * @summary Application Flow => routing
  * @customElement
- * @demo demo/furo-app-flow.html
  * @appliesMixin FBP
  */
 class FuroAppFlow extends (LitElement) {

@@ -13,7 +13,6 @@ import {NodeEvent} from "@furo/data/lib/EventTreeNode.js"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-recursive-tree.html
  * @appliesMixin FBP
  */
 export class FuroRecursiveTree extends FBP(LitElement) {

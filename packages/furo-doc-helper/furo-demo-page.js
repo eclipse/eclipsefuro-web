@@ -5,11 +5,9 @@ import "@furo/route/furo-location"
 import "./furo-demo-loader"
 /**
  * `panel-demo`
- * todo Describe your element
+ * panel to show a demo
  *
- * @summary todo shortdescription
  * @customElement
- * @demo demo/panel-demo.html
  * @appliesMixin FBP
  */
 class FuroDemoPage extends FBP(LitElement) {

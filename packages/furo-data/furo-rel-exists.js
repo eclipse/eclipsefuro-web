@@ -5,7 +5,6 @@ import {LitElement, html, css} from 'lit-element';
  * Checks if a rel exists in a hateaos Link array
  *
  * @summary checks for a specific rel
- * @demo demo/furo-rel-exists.html
  * @customElement
  */
 class FuroRelExists extends LitElement {

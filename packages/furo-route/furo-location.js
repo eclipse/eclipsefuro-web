@@ -4,7 +4,6 @@
  *
  * @summary url watcher
  * @customElement
- * @demo demo/location.html
  */
 class FuroLocation extends HTMLElement {
 

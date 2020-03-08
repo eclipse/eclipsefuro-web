@@ -10,7 +10,6 @@ import "./side-navigation/side-navigation-group";
  *
  * @summary shortdescription
  * @customElement
- * @demo demo/api-navigation.html
  * @appliesMixin FBP
  */
 class SideNavigation extends FBP(LitElement) {

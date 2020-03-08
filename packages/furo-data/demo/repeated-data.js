@@ -6,7 +6,6 @@ import   "@furo/fbp/flow-repeat";
  * `repeated-data`
  *
  * @customElement
- * @demo demo/index.html
  * @appliesMixin FBP
  */
 class RepeatedData extends FBP(LitElement) {

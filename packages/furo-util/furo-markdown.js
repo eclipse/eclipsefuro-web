@@ -13,7 +13,8 @@ import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
  *
  * @summary renders markdown data
  * @customElement
- * @demo demo-furo-markdown
+ * @demo demo-furo-markdown safe mode (default)
+ * @demo demo-furo-markdown-unsafe unsafe enabled
  * @appliesMixin FBP
  */
 class FuroMarkdown extends (LitElement) {

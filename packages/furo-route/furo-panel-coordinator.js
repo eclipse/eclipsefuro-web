@@ -6,11 +6,11 @@ import {NodeEvent} from "@furo/data/lib/EventTreeNode.js"
 
 /**
  * `furo-panel-coordinator`
- * todo Describe your element
+ *
  *
  * @summary Complex content switcher based on furo-tree
  * @customElement
- * @demo demo-furo-panel-coordinator Basic usage
+ * @demo demo-furo-panel-coordinator with deep link
  * @appliesMixin FBP
  */
 class FuroPanelCoordinator extends FBP(LitElement) {

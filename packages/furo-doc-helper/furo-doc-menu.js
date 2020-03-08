@@ -11,7 +11,6 @@ import "./furo-doc/furo-doc-menu-class-item"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-doc-menu.html
  * @appliesMixin FBP
  */
 class FuroDocMenu extends FBP(LitElement) {

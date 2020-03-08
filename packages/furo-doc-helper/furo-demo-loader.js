@@ -10,7 +10,6 @@ import {FBP} from "@furo/fbp";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-demo-loader.html
  * @appliesMixin FBP
  */
 class FuroDemoLoader extends FBP(LitElement) {

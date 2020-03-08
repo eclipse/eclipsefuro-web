@@ -20,7 +20,7 @@ import {Theme} from "@furo/framework/theme"
  *
  * @summary horizontal alignment
  * @customElement
- * @demo demo-furo-horizontal-flex
+ * @demo demo-furo-horizontal-flex  Basic usage
  * @appliesMixin FBP
  */
 class FuroHorizontalFlex extends (LitElement) {

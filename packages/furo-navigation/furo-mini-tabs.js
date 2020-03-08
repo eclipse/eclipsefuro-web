@@ -9,7 +9,6 @@ import  "@furo/fbp/flow-repeat";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-mini-tabs.html
  * @appliesMixin FBP
  */
 class FuroMiniTabs extends FBP(LitElement) {

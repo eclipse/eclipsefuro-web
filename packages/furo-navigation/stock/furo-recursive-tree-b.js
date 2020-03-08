@@ -12,7 +12,6 @@ import {FuroRecursiveTree} from "./furo-recursive-tree"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-tree.html
  * @appliesMixin FBP
  */
 class FuroRecursiveTreeB extends FuroRecursiveTree {

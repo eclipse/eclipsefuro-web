@@ -8,7 +8,6 @@ import "./side-navigation-item"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/side-navigation-group.html
  * @appliesMixin FBP
  */
 class SideNavigationGroup extends FBP(LitElement) {

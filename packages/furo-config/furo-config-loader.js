@@ -15,7 +15,6 @@ import {Config} from "./lib/Config";
  *
  * @summary load config files
  * @customElement
- * @demo demo-furo-config-loader
  * @appliesMixin FBP
  */
 class FuroConfigLoader extends  FBP(LitElement) {

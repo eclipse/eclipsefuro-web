@@ -6,7 +6,6 @@ import "@furo/input";
  * `produce-error`
  *
  * @customElement
- * @demo demo/index.html
  * @appliesMixin FBP
  */
 class ProduceBannerData extends FBP(LitElement) {

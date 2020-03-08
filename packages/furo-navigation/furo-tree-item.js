@@ -12,7 +12,6 @@ import {NodeEvent} from "@furo/data/lib/EventTreeNode";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-tree-item.html
  * @appliesMixin FBP
  */
 export class FuroTreeItem extends FBP(LitElement) {

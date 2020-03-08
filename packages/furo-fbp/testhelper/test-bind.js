@@ -20,7 +20,6 @@ import {FBP} from '../fbp.js';
  *```
  *
  * @customElement
- * @demo demo/flow-bind.html
  * @mixes FBP
  * @summary Custom element to allow using furo-fbp's template features in a html document.
  */

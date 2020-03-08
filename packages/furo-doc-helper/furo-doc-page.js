@@ -13,7 +13,6 @@ import "@furo/route"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/panel-doc.html
  * @appliesMixin FBP
  */
 class FuroDocPage extends FBP(LitElement) {

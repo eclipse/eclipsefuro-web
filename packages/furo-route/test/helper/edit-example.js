@@ -9,7 +9,6 @@ import "@furo/util/furo-pretty-json"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/edit-example.html
  * @appliesMixin FBP
  */
 class EditExample extends BasePanel {

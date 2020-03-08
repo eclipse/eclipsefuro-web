@@ -6,7 +6,6 @@ import { LitElement } from 'lit-element';
  *
  * @summary trigger an event in intervals
  * @customElement
- * @demo demo/furo-interval-pulse.html
  * @appliesMixin FBP
  */
 class FuroIntervalPulse extends (LitElement) {

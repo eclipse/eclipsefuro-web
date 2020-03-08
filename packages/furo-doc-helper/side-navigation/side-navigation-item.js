@@ -8,7 +8,6 @@ import {FBP} from "@furo/fbp";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/side-navigation-item.html
  * @appliesMixin FBP
  */
 class SideNavigationItem extends FBP(LitElement) {

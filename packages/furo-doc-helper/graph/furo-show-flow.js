@@ -9,7 +9,6 @@ import "./furo-graph-renderer"
  * Renders a flow from dom node or html source
  *
  * @customElement
- * @demo demo/furo-show-flow.html
  * @appliesMixin FBP
  */
 class FuroShowFlow extends FBP(LitElement) {

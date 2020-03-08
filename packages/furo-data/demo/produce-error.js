@@ -5,7 +5,6 @@ import {FBP} from "@furo/fbp";
  * `produce-error`
  *
  * @customElement
- * @demo demo/index.html
  * @appliesMixin FBP
  */
 class ProduceError extends FBP(LitElement) {

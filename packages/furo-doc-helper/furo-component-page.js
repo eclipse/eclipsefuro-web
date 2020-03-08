@@ -13,7 +13,6 @@ import "./furo-demo-page"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/view-api.html
  * @appliesMixin FBP
  */
 class FuroComponentPage extends FBP(LitElement) {

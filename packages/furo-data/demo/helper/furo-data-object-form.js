@@ -8,7 +8,6 @@ import {FBP} from "@furo/fbp";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-data-object-form.html
  * @appliesMixin FBP
  */
 class FuroDataObjectForm extends FBP(LitElement) {

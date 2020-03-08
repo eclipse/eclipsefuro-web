@@ -10,7 +10,6 @@ import "../furo-catalog"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/demo-furo-horizontal-flex.html
  * @appliesMixin FBP
  */
 class DemoFuroHorizontalFlex extends FBP(LitElement) {

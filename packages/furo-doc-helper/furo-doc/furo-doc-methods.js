@@ -10,7 +10,6 @@ import "./furo-doc-methods-item"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-doc-methods.html
  * @appliesMixin FBP
  */
 class FuroDocMethods extends FBP(LitElement) {

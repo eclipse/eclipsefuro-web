@@ -9,7 +9,6 @@ import {FBP} from "@furo/fbp";
  *
  * @summary keyboard event listener
  * @customElement
- * @demo demo-furo-key-press
  * @appliesMixin FBP
  */
 class FuroKeydown extends FBP(LitElement) {

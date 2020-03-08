@@ -17,7 +17,8 @@ import SignaturePad from "signature_pad/dist/signature_pad.m"
  *
  * @summary draw or sign
  * @customElement
- * @demo demo-furo-sign-pad
+ * @demo demo-furo-sign-pad Basic usage
+ * @demo demo-furo-sign-pad-img with injected image
  * @appliesMixin FBP
  */
 export class FuroSignPad extends FBP(LitElement) {

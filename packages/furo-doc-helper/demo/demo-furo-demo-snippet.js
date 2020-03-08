@@ -12,7 +12,6 @@ import "./fetch-analysis"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/demo-furo-demo-snippet.html
  * @appliesMixin FBP
  */
 class DemoFuroDemoSnippet extends FBP(LitElement) {

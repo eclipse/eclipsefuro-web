@@ -7,7 +7,6 @@ import {Env} from "@furo/framework"
  *
  * @summary Resolve deep links HATEOAS based on  query params
  * @customElement
- * @demo demo/form.html
  * @appliesMixin FBP
  */
 class FuroDeepLink extends LitElement {

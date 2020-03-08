@@ -15,7 +15,6 @@ import {Env} from "@furo/framework"
  *
  * @summary create query param object from HATEOAS
  * @customElement
- * @demo demo/furo-reverse-deep-link.html
   */
 class FuroReverseDeepLink extends (LitElement) {
 

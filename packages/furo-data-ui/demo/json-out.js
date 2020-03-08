@@ -6,7 +6,6 @@ import {FBP} from "@furo/fbp";
  * Lit element
  *
  * @customElement
- * @demo demo/index.html
  */
 class JsonOut extends FBP(LitElement) {
 

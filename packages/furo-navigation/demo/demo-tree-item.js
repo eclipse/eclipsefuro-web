@@ -9,7 +9,6 @@ import "@furo/icon/furo-icon";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/demo-tree-item.html
  * @appliesMixin FBP
  */
 class DemoTreeItem extends FuroTreeItem {

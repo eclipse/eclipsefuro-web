@@ -13,7 +13,6 @@ import "./furo-doc/furo-demo-link"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-doc-element.html
  * @appliesMixin FBP
  */
 class FuroDocElement extends FBP(LitElement) {

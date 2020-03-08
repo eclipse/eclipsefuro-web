@@ -17,8 +17,8 @@ import {Theme} from "@furo/framework/theme"
  *
  * @summary fill the space in a furo-xxxx-flex
  * @customElement
- * @demo demo-furo-vertical-flex
- * @demo demo-furo-horizontal-flex
+ * @demo demo-furo-vertical-flex With vertical flex
+ * @demo demo-furo-horizontal-flex With horizontal flex
  * @appliesMixin FBP
  */
 class FuroEmptySpacer extends LitElement {

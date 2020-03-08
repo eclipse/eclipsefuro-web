@@ -10,7 +10,6 @@ import {LitElement} from 'lit-element';
  *
  * @summary Capture Audio
  * @customElement
- * @demo demo/.html
  */
 class FuroCaptureAudio extends (LitElement) {
 

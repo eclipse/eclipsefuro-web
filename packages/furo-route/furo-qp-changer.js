@@ -10,7 +10,7 @@ import {FBP} from "@furo/fbp";
  *
  * @summary deep linking helper
  * @customElement
- * @demo demo/qp-changer.html
+ * @demo demo-furo-panel-coordinator update qp from tree
  * @appliesMixin FBP
  */
 class FuroQpChanger extends FBP(LitElement) {

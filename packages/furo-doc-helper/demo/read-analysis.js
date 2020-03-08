@@ -8,7 +8,6 @@ import {FBP} from "@furo/fbp";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/read-analysis.html
  * @appliesMixin FBP
  */
 class ReadAnalysis extends FBP(LitElement) {

@@ -9,7 +9,6 @@ import {CheckMetaAndOverrides} from "@furo/data-input/lib/CheckMetaAndOverrides"
  *
  * @summary dislay a navigationNode as title
  * @customElement
- * @demo demo-panel-head
  * @appliesMixin FBP
  */
 class FuroPanelHead extends FBP(LitElement) {

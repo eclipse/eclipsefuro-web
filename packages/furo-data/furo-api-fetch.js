@@ -9,7 +9,6 @@
  *
  * @summary fetch data from network
  * @customElement
- * @demo demo/furo-api-fetch_demo.html
  */
 class FuroApiFetch extends HTMLElement {
 
