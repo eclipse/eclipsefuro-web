@@ -3,7 +3,7 @@
   "elements": [
     {
       "description": "`furo-data-table`\nRead only data table based on the response type from the rest api spec.\n\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--furo-data-table-header-background` | Background color of the header row | --surface | white\n`--furo-data-table-header-on-background` | Color of the header row | --on-surface | black\n`--furo-data-table-background` | Background color of the element | --surface | white\n`--furo-data-table-on-background` | Color of the element | --on-surface | black\n`--data-table-separator` | Color of separator lines | --separator | rgba(0, 0, 0, .12)\n\n\nTags: data-ui",
-      "summary": "datatable",
+      "summary": "type based data table",
       "path": "packages/furo-data-ui/furo-data-table.js",
       "properties": [
         {
@@ -1757,7 +1757,7 @@
     },
     {
       "description": "`furo-data-table-toggle`\nToggle with HTML entity",
-      "summary": "",
+      "summary": "helper for furo-data-table",
       "path": "packages/furo-data-ui/furo-data-table-toggle.js",
       "properties": [
         {

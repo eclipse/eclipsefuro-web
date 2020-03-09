@@ -36,9 +36,6 @@ class MainStage extends FBP(LitElement) {
      */
     this._FBPAddWireHook("--locationChanged", (e) => {
       switch (e.pathSegments[0]) {
-        case "api":
-          import("./api/view-api");
-          break;
         case "guide":
           import ("./guide/view-guide");
           break;

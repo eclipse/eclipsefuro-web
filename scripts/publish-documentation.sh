@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-npm run doc
 
 polymer build
 cp -r ./build/es6-bundled/* ./docs/

@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`furo-data-bool-icon`\ntodo Describe your element",
-      "summary": "todo shortdescription",
+      "description": "`furo-data-bool-icon`\nDisplays a icon/symbol for a boolean value\n\nThis component uses utf-8 symbols for true and false at the moment.",
+      "summary": "Displays a icon/symbol for a boolean value",
       "path": "packages/furo-data-input/furo-data-bool-icon.js",
       "properties": [
         {
@@ -13,11 +13,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 51,
+              "line": 53,
               "column": 12
             },
             "end": {
-              "line": 51,
+              "line": 53,
               "column": 35
             }
           },
@@ -34,11 +34,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 52,
+              "line": 54,
               "column": 12
             },
             "end": {
-              "line": 52,
+              "line": 54,
               "column": 38
             }
           },
@@ -55,11 +55,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 55,
               "column": 12
             },
             "end": {
-              "line": 53,
+              "line": 55,
               "column": 39
             }
           },
@@ -293,11 +293,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 31,
+              "line": 33,
               "column": 2
             },
             "end": {
-              "line": 36,
+              "line": 38,
               "column": 3
             }
           },
@@ -489,11 +489,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 38,
+              "line": 40,
               "column": 4
             },
             "end": {
-              "line": 40,
+              "line": 42,
               "column": 5
             }
           },
@@ -509,11 +509,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 78,
+              "line": 80,
               "column": 2
             },
             "end": {
-              "line": 98,
+              "line": 100,
               "column": 3
             }
           },
@@ -533,11 +533,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 100,
+              "line": 102,
               "column": 2
             },
             "end": {
-              "line": 103,
+              "line": 105,
               "column": 3
             }
           },
@@ -553,11 +553,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 109,
+              "line": 111,
               "column": 2
             },
             "end": {
-              "line": 114,
+              "line": 116,
               "column": 3
             }
           },
@@ -578,11 +578,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 14,
+          "line": 16,
           "column": 0
         },
         "end": {
-          "line": 115,
+          "line": 117,
           "column": 1
         }
       },
@@ -595,11 +595,11 @@
           "description": "Description",
           "sourceRange": {
             "start": {
-              "line": 51,
+              "line": 53,
               "column": 12
             },
             "end": {
-              "line": 51,
+              "line": 53,
               "column": 35
             }
           },
@@ -611,11 +611,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 52,
+              "line": 54,
               "column": 12
             },
             "end": {
-              "line": 52,
+              "line": 54,
               "column": 38
             }
           },
@@ -627,11 +627,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 55,
               "column": 12
             },
             "end": {
-              "line": 53,
+              "line": 55,
               "column": 39
             }
           },
@@ -2036,7 +2036,7 @@
     },
     {
       "description": "`furo-data-checkbox-input`\nfuro-data-checkbox-input element which uses a  `<furo-checkbox-input >` element. Works best with furo-data components.\n\n  ### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-data-checkbox-input  ƒ-bind-data=\"--entity(*.fields.open)\"></furo-data-checkbox-input>\n  </template>\n </furo-demo-snippet>\n\nTags: data-input",
-      "summary": "furo data checkbox input element",
+      "summary": "binds to a furo data checkbox input element",
       "path": "packages/furo-data-input/furo-data-checkbox-input.js",
       "properties": [
         {
@@ -7210,7 +7210,7 @@
     },
     {
       "description": "`furo-data-money-input`\nBinds a entityObject field google.type.Money to a furo-number-input and currency dropdown fields\n <sample-furo-data-money-input></sample-furo-data-money-input>\n\n you can set currencies dropdown with options in meta or set options attribute as json in element or set currencies as string in element. the three\n ways have priority : currencies > options as attribute > options in meta. When no currencies is setted. Default currency will be `CHF`\n\n <furo-data-money-input autofocus ƒ-bind-data=\"--entity(*.furo_data_money_input)\" options='{\"list\": [ \"chf\",\"eur\",\"usd\" ]}'></furo-data-money-input>\n <furo-data-money-input autofocus ƒ-bind-data=\"--entity(*.furo_data_money_input)\" options='{\"list\": [ {\"id\":\"CHF\",\"label\":\"Schweiz\"},{\"id\":\"EUR\",\"label\":\"Europa\", \"selected\": true}'></furo-data-money-input>\n <furo-data-money-input autofocus ƒ-bind-data=\"--entity(*.furo_data_money_input)\" currencies=\"chf,eur,usd\"></furo-data-money-input>\n\nTags: money input",
-      "summary": "Bind a entityObject.field to a number and dropdown fields",
+      "summary": "Binds a entityObject field google.type.Money to a furo-number-input and currency dropdown fields",
       "path": "packages/furo-data-input/furo-data-money-input.js",
       "properties": [
         {
@@ -9682,7 +9682,7 @@
     },
     {
       "description": "`furo-data-property`\n Field for type furo.Property. It works with repeated types an nonrepeating type. Supported\n\n ```html\n <!-- single Property -->\n <furo-data-property ƒ-bind-data=\"--entity(*.single_type_property)\"></furo-data-property>\n <!-- repeated Property -->\n <furo-data-property ƒ-bind-data=\"--entity(*.type_property)\"></furo-data-property>\n\n ```\n\n ## Example data for the data-object looks like this\n\n ```json\n \"single_type_property\": {\n   \"data\": {\n     \"@type\": \"google.type.Date\",\n     \"day\": 8,\n     \"month\":  11,\n     \"year\": 2022\n   },\n   \"display_name\": \"a date\",\n   \"id\": \"date\",\n   \"code\": \"date\",\n   \"meta\": {\n     \"fields\": {\n       \"data\": {\n         \"meta\": {\n           \"label\": \"Additional fields\",\n           \"hint\": \"this is data\"\n         },\n         \"constraints\": {\n           \"min\": {\n             \"value\": \"2019-09-09\",\n             \"message\": \"to small\"\n           }\n         }\n       }\n     }\n   }\n }\n ```\n## Example StringOptions Field\n\n```json\n{\n  \"data\": {\n       \"@type\": \"furo.StringOptionProperty\",\n       \"id\": \"bb\",\n       \"display_name\": \"Display\"\n     },\n     \"display_name\": \"Display\",\n     \"id\": \"opt\",\n     \"code\": \"option\",\n     \"meta\": {\n       \"fields\": {\n         \"data\": {\n           \"meta\": {\n             \"label\": \"Please select\",\n             \"hint\": \"datehint is data\",\n             \"repeated\": false,\n             \"options\": [\n               {\n                 \"id\": \"aa\",\n                 \"display_name\": \"The display a\"\n               },\n               {\n                 \"id\": \"bb\",\n                 \"display_name\": \"The display b\"\n               }\n             ]\n           }\n         }\n       }\n     }\n   }\n\n```\n\n The current type mappings are:\n\n- \"google.type.Date\": \"furo-data-date-input\"\n- \"furo.StringProperty\": \"furo-data-text-input\"\n- \"furo.IntegerProperty\": \"furo-data-number-input\"\n- \"furo.NumberProperty\": \"furo-data-number-input\"\n- \"furo.StringOptionProperty\": \"furo-data-collection-dropdown\"",
-      "summary": "property input",
+      "summary": "display and bind types of type any",
       "path": "packages/furo-data-input/furo-data-property.js",
       "properties": [],
       "methods": [
@@ -10182,7 +10182,7 @@
     },
     {
       "description": "`furo-data-property-display`\n Field for type furo.Property. It works with repeated types an nonrepeating type. Supported\n\n ```html\n <!-- single Property -->\n <furo-data-property-display ƒ-bind-data=\"--entity(*.single_type_property)\"></furo-data-property-display>\n <!-- repeated Property -->\n <furo-data-property-display ƒ-bind-data=\"--entity(*.type_property)\"></furo-data-property-display>\n\nThis component uses the same data like `furo-data-property`\n\n\n\n```\n\n The current type mappings are:\n\n- \"google.type.Date\": \"furo-data-display\"\n- \"furo.StringProperty\": \"furo-data-display\"\n- \"furo.IntegerProperty\": \"furo-data-display\"\n- \"furo.NumberProperty\": \"furo-data-display\"\n- \"furo.StringOptionProperty\": \"furo-data-display\"",
-      "summary": "property display",
+      "summary": "helper for furo-data-property",
       "path": "packages/furo-data-input/furo-data-property-display.js",
       "properties": [],
       "methods": [
@@ -12746,11 +12746,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 28,
+              "line": 27,
               "column": 12
             },
             "end": {
-              "line": 28,
+              "line": 27,
               "column": 35
             }
           },
@@ -13182,11 +13182,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 32,
+              "line": 31,
               "column": 4
             },
             "end": {
-              "line": 35,
+              "line": 34,
               "column": 5
             }
           },
@@ -13206,11 +13206,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 67,
+              "line": 66,
               "column": 4
             },
             "end": {
-              "line": 70,
+              "line": 69,
               "column": 5
             }
           },
@@ -13226,11 +13226,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 72,
+              "line": 71,
               "column": 4
             },
             "end": {
-              "line": 75,
+              "line": 74,
               "column": 5
             }
           },
@@ -13246,11 +13246,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 77,
+              "line": 76,
               "column": 4
             },
             "end": {
-              "line": 86,
+              "line": 85,
               "column": 5
             }
           },
@@ -13266,11 +13266,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 92,
+              "line": 91,
               "column": 4
             },
             "end": {
-              "line": 99,
+              "line": 98,
               "column": 5
             }
           },
@@ -13282,20 +13282,15 @@
         }
       ],
       "staticMethods": [],
-      "demos": [
-        {
-          "url": "demo/reference-search-item.html",
-          "description": ""
-        }
-      ],
+      "demos": [],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 12,
+          "line": 11,
           "column": 7
         },
         "end": {
-          "line": 100,
+          "line": 99,
           "column": 1
         }
       },
@@ -13308,11 +13303,11 @@
           "description": "Description",
           "sourceRange": {
             "start": {
-              "line": 28,
+              "line": 27,
               "column": 12
             },
             "end": {
-              "line": 28,
+              "line": 27,
               "column": 35
             }
           },
@@ -13340,7 +13335,7 @@
     },
     {
       "description": "`furo-data-reference-search`\n Sucht eine Referenz\n bounded data should be furo-reference\n\n```\n<!--  furo-data-object will eine Referenz auflösen -->\n<furo-data-object type=\"task.Task\" @-object-ready=\"--entityReady\"></furo-data-object>\n\n<furo-horizontal-flex>\n   <!--  furo-data-reference-search kann eine Referenz die entity-objekt besitzt darstellen.\n   Bei einer Texteingabe wird ^^search mit dem eingegebenen Text gesucht. Diesr geht via wire --term an den furo-collection-agent.\n   Wenn furo-collection-agent eine Kollektion zurückliefert, klappt die Auswahl auf. -->\n   <furo-data-reference-search autofocus  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-data-reference-search>\n\n   <furo-data-reference-search  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" min-term-length=\"2\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-data-reference-search>\n\n</furo-horizontal-flex>\n\n<!-- Der furo-collection-agent erhält die hts von ref.value, wenn ein term eingegeben wurde beginnt dieser zu suchen.\nDie Resultate werden an furo-data-reference-search zurück gegeben. -->\n<furo-collection-agent service=\"tasks\" ƒ-search=\"--term\" ƒ-hts-in=\"--entityReady(*.fields.ref._value)\" @-response=\"--refCol\"></furo-collection-agent>\n\n```\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property                                | Description | Default  | Fallback\n-----------------------------------------------|-------------|----------|----------\n`--furo-data-reference-search-list-background` | Background color of result list | --surface | #ffffff;\n`--reference-search-no-result-hint` | color of hint when no result found | --accent | #ddb13d;",
-      "summary": "shortdescription",
+      "summary": "autocomplete searcher for referenced types",
       "path": "packages/furo-data-input/furo-data-reference-search.js",
       "properties": [
         {
@@ -15270,11 +15265,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 92,
+              "line": 87,
               "column": 2
             },
             "end": {
-              "line": 99,
+              "line": 94,
               "column": 3
             }
           },
@@ -15294,7 +15289,7 @@
           "column": 0
         },
         "end": {
-          "line": 100,
+          "line": 95,
           "column": 1
         }
       },
@@ -15332,7 +15327,7 @@
     },
     {
       "description": "`furo-data-repeat`\n Display for repeated fields.\n\n ```html\n <furo-data-repeat ƒ-bind-data=\"--data(*.repeaterfield)\"\n     repeated-component=\"furo-date-input\"\n     condensed\n     delete-icon=\"remove\"\n     add-icon=\"star\"\n     add-text=\"add another date\"\n     ƒ-add=\"--additionalDateClicked\"\n     ></furo-data-repeat>\n\n     <!-- Add is controlled from outside, delete from inside of the item -->\n     <furo-data-repeat ƒ-bind-data=\"--data(*.repeatedcomplextype)\"\n     repeated-component=\"my big form\"\n     ƒ-add=\"--additionalDateClicked\"\n     ></furo-data-repeat>\n\n ```\n\n Every Attribute (boolean or string) which is set on furo-data-repeat which is not part of its own api, will be set on the child element.\n If you set condensed as an example, it will be set on the repeated element. It is not possible to set wires to the children.",
-      "summary": "todo shortdescription",
+      "summary": "automatic display of repeated fields",
       "path": "packages/furo-data-input/furo-data-repeat.js",
       "properties": [
         {
@@ -15967,7 +15962,7 @@
           "column": 0
         },
         "end": {
-          "line": 238,
+          "line": 254,
           "column": 1
         }
       },
@@ -20555,7 +20550,7 @@
     },
     {
       "description": "`furo-data-file-input`\nBinds a entityObject field to a furo-file-input field\n\nTags: input",
-      "summary": "Bind a entityObject.field to a text input",
+      "summary": "Binds a entityObject field to a furo-file-input field",
       "path": "packages/furo-data-input/furo-data-file-input.js",
       "properties": [
         {
@@ -21223,7 +21218,7 @@
     },
     {
       "description": "`furo-data-sign-pad`\nDescribe your element",
-      "summary": "shortdescription",
+      "summary": "Bind a entityObject.field to a sign-pad input",
       "path": "packages/furo-data-input/furo-data-sign-pad.js",
       "properties": [],
       "methods": [
@@ -21648,11 +21643,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 54,
+              "line": 55,
               "column": 2
             },
             "end": {
-              "line": 62,
+              "line": 63,
               "column": 3
             }
           },
@@ -21670,11 +21665,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 104,
+              "line": 105,
               "column": 2
             },
             "end": {
-              "line": 111,
+              "line": 112,
               "column": 3
             }
           },
@@ -21692,11 +21687,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 124,
+              "line": 125,
               "column": 2
             },
             "end": {
-              "line": 126,
+              "line": 127,
               "column": 3
             }
           },
@@ -21718,11 +21713,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 128,
+              "line": 129,
               "column": 2
             },
             "end": {
-              "line": 130,
+              "line": 131,
               "column": 3
             }
           },
@@ -21744,11 +21739,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 135,
+              "line": 136,
               "column": 2
             },
             "end": {
-              "line": 138,
+              "line": 139,
               "column": 3
             }
           },
@@ -21766,11 +21761,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 140,
+              "line": 141,
               "column": 2
             },
             "end": {
-              "line": 150,
+              "line": 151,
               "column": 3
             }
           },
@@ -21809,11 +21804,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 171,
+              "line": 172,
               "column": 2
             },
             "end": {
-              "line": 173,
+              "line": 174,
               "column": 3
             }
           },
@@ -21835,11 +21830,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 175,
+              "line": 176,
               "column": 2
             },
             "end": {
-              "line": 178,
+              "line": 179,
               "column": 3
             }
           },
@@ -21861,11 +21856,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 180,
+              "line": 181,
               "column": 2
             },
             "end": {
-              "line": 183,
+              "line": 184,
               "column": 3
             }
           },
@@ -21890,11 +21885,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 185,
+              "line": 186,
               "column": 2
             },
             "end": {
-              "line": 188,
+              "line": 189,
               "column": 3
             }
           },
@@ -21919,11 +21914,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 190,
+              "line": 191,
               "column": 2
             },
             "end": {
-              "line": 193,
+              "line": 194,
               "column": 3
             }
           },
@@ -21948,11 +21943,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 195,
+              "line": 196,
               "column": 2
             },
             "end": {
-              "line": 198,
+              "line": 199,
               "column": 3
             }
           },
@@ -21977,11 +21972,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 200,
+              "line": 201,
               "column": 2
             },
             "end": {
-              "line": 203,
+              "line": 204,
               "column": 3
             }
           },
@@ -22006,11 +22001,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 205,
+              "line": 206,
               "column": 2
             },
             "end": {
-              "line": 208,
+              "line": 209,
               "column": 3
             }
           },
@@ -22035,11 +22030,11 @@
           "sourceRange": {
             "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 210,
+              "line": 211,
               "column": 2
             },
             "end": {
-              "line": 214,
+              "line": 215,
               "column": 3
             }
           },

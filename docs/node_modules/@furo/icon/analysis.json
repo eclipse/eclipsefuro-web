@@ -922,12 +922,12 @@
       ],
       "demos": [
         {
-          "url": "demo-furo-icon",
-          "description": ""
+          "url": "demo-furo-icon-list",
+          "description": "list of the icons"
         },
         {
-          "url": "demo-furo-icon-list",
-          "description": ""
+          "url": "demo-furo-icon",
+          "description": "example usage"
         }
       ],
       "metadata": {},

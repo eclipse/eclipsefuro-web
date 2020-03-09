@@ -104,7 +104,7 @@ class HeaderToolbar extends FBP(LitElement) {
         <a name="home" href="/FuroBaseComponents/">フロー Furo BaseComponents</a>
         <furo-empty-spacer></furo-empty-spacer>
         <a name="guide" href="/guide/md/overview/">Guide</a>
-        <a name="api" href="/api/input/doc/">Components API</a>
+        <a name="api" href="https://components.furo.pro/">Components API</a>
         <a href="https://github.com/veith/FuroBaseComponents">
           <furo-icon icon="furo:github"></furo-icon>
         </a>

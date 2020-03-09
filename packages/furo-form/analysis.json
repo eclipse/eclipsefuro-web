@@ -3,7 +3,7 @@
   "elements": [
     {
       "description": "`furo-button-bar`\n\nTags: form",
-      "summary": "",
+      "summary": "automatic button bar",
       "path": "packages/furo-form/furo-button-bar.js",
       "properties": [
         {
@@ -2042,7 +2042,7 @@
       ]
     },
     {
-      "description": "`furo-form-layouter`\n\nUse furo-form-layouter to structure your forms.\nIt is based on a grid system with the following properties:\n- full-width row (Standard)\n- two columns\n- four columns\n\nThe required variant is set using an attribute.\ne.g. two, four\n\n<furo-form-layouter></furo-form-layouter>\n\nTo customize the slotted elements inside furo-form-layout there are several attributes.\n- double | stretches the element over two units\n- full | stretches the element to full width\n- newline | forces a new line\n\nTags: form",
+      "description": "`furo-form-layouter`\n\nUse furo-form-layouter to structure your forms.\nIt is based on a grid system with the following properties:\n- full-width row (Standard)\n- two columns\n- four columns\n\nThe required variant is set using an attribute.\ne.g. two, four\n\n<furo-form-layouter></furo-form-layouter>\n\nTo customize the slotted elements inside furo-form-layouter there are several attributes.\n- double | stretches the element over two units\n- full | stretches the element to full width\n- newline | forces a new line\n\nTags: form",
       "summary": "Grid based form field row",
       "path": "packages/furo-form/furo-form-layouter.js",
       "properties": [
@@ -2713,7 +2713,7 @@
     },
     {
       "description": "Form container with integrated activity indicator and three slots.\n\n`furo-form`",
-      "summary": "todo shortdescription",
+      "summary": "form container",
       "path": "packages/furo-form/furo-form.js",
       "properties": [
         {
@@ -3278,8 +3278,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-form",
-          "description": ""
+          "url": "demo-furo-form-layouter",
+          "description": "With form layouter"
         }
       ],
       "metadata": {},
@@ -3374,7 +3374,7 @@
       ]
     },
     {
-      "description": "`fd-input-row`",
+      "description": "`fd-input-row`\n# DEPRECATED",
       "summary": "Zweigespaltene Formularzeile",
       "path": "packages/furo-form/furo-input-row.js",
       "properties": [
@@ -3385,11 +3385,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 21,
+              "line": 20,
               "column": 4
             },
             "end": {
-              "line": 21,
+              "line": 20,
               "column": 14
             }
           },
@@ -3820,11 +3820,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 42,
+              "line": 41,
               "column": 2
             },
             "end": {
-              "line": 50,
+              "line": 49,
               "column": 3
             }
           },
@@ -3833,20 +3833,15 @@
         }
       ],
       "staticMethods": [],
-      "demos": [
-        {
-          "url": "demo/furo-input-row.html",
-          "description": ""
-        }
-      ],
+      "demos": [],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 13,
+          "line": 12,
           "column": 0
         },
         "end": {
-          "line": 63,
+          "line": 62,
           "column": 1
         }
       },
@@ -3859,11 +3854,11 @@
           "description": "The label for the input row",
           "sourceRange": {
             "start": {
-              "line": 21,
+              "line": 20,
               "column": 4
             },
             "end": {
-              "line": 21,
+              "line": 20,
               "column": 14
             }
           },

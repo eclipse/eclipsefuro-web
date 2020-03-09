@@ -1433,7 +1433,7 @@ return html`
         <a name="home" href="/FuroBaseComponents/">フロー Furo BaseComponents</a>
         <furo-empty-spacer></furo-empty-spacer>
         <a name="guide" href="/guide/md/overview/">Guide</a>
-        <a name="api" href="/api/input/doc/">Components API</a>
+        <a name="api" href="https://components.furo.pro/">Components API</a>
         <a href="https://github.com/veith/FuroBaseComponents">
           <furo-icon icon="furo:github"></furo-icon>
         </a>
@@ -1499,7 +1499,7 @@ console.log("Set locale from",Env.locale);Env.locale=locale;Init.translateStatic
     */_exports.$system=system;class Iconset{// register an icon set
 static registerIconset(setName,icons){this[setName]=icons}// get icon svg via icon set name and icon name
 static get(setName,iconName){// default fallback icon `report problem`
-let icon="<g></g>";if(this[setName]&&this[setName][iconName]){icon=this[setName][iconName]}return icon}}_exports.Iconset$1=_exports.Iconset=Iconset;var iconset$1={Iconset:Iconset};_exports.$iconset$1=iconset$1;var furo={Env:Env,i18n:i18n,Init:Init,Sys:Sys,Theme:Theme,Iconset:Iconset};_exports.$furo=furo;const Services={TreeService:{name:"TreeService",description:"service specs for the tree api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"treeservice",imports:["tree/tree.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",rpc_name:"ListTrees",data:{request:null,response:"tree.TreeCollection"},query:{q:{description:"Query term to search a tree",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/trees",method:"GET"}},Create:{description:"Creates a new Tree",rpc_name:"CreateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/trees",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",rpc_name:"GetTree",data:{request:null,response:"tree.TreeEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/trees/{tre}/get.json",method:"GET"}},Update:{description:"Updates a Tree, partial updates are supported",rpc_name:"UpdateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/trees/{tre}",method:"PATCH"}},Delete:{description:"Delete a Tree",rpc_name:"DeleteTree",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/trees/{tre}",method:"DELETE"}}}},ProjectfilterService:{name:"ProjectfilterService",description:"service specs for the projectfilter api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectfilterservice",imports:["projectfilter/projectfilter.proto","google/protobuf/empty.proto"],targetfile:"projectfilterservice.proto"},services:{Get:{description:"The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter",rpc_name:"GetProjectfilter",data:{request:null,response:"projectfilter.ProjectfilterEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/filter/get.json",method:"GET"}}}},AuthService:{name:"AuthService",description:"service specs for the auth api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"authservice",imports:["auth/auth.proto","google/protobuf/empty.proto"],targetfile:"authservice.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a AuthCollection of AuthEntity that match the input parameters.",rpc_name:"ListAuths",data:{request:null,response:"auth.AuthCollection"},query:{q:{description:"Query term to search a auth",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/api/auths",method:"GET"}},Create:{description:"Creates a new Auth",rpc_name:"CreateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"create",href:"/api/auths",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a AuthEntity which contains a Auth",rpc_name:"GetAuth",data:{request:null,response:"auth.AuthEntity"},query:{},deeplink:{rel:"self",href:"/api/auths/{uid}",method:"GET"}},Update:{description:"Updates a Auth, partial updates are supported",rpc_name:"UpdateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"update",href:"/api/auths/{uid}",method:"PATCH"}},Delete:{description:"Logout ala delete a auth session",rpc_name:"Logout",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/api/auth",method:"DELETE"}}}},PersonService:{name:"PersonService",description:"service specs for the person api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"personservice",imports:["person/person.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",rpc_name:"ListPersons",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a person",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/persons/list.json",method:"GET"}},Create:{description:"Creates a new Person",rpc_name:"CreatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/persons/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",rpc_name:"GetPerson",data:{request:null,response:"person.PersonEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/persons/{prs}/get.json",method:"GET"}},Update:{description:"Updates a Person, partial updates are supported",rpc_name:"UpdatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/persons/{prs}/update.json",method:"PATCH"}},Delete:{description:"Delete a Person",rpc_name:"DeletePerson",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/persons/{prs}/delete.json",method:"GET"}}}},ProjectService:{name:"ProjectService",description:"service specs for the project api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectservice",imports:["project/project.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",rpc_name:"ListProjects",data:{request:null,response:"project.ProjectCollection"},filter:{},query:{q:{description:"Query term to search a project",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/projects/list.json",method:"GET"}},Create:{description:"Creates a new Project",rpc_name:"CreateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/projects/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",rpc_name:"GetProject",data:{request:null,response:"project.ProjectEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/{prj}/get.json",method:"GET"}},Update:{description:"Updates a Project, partial updates are supported",rpc_name:"UpdateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/projects/{prj}/update.json",method:"GET"}},Delete:{description:"Delete a Project",rpc_name:"DeleteProject",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/projects/{prj}/delete.json",method:"GET"}}}},ProjectMembersService:{name:"ProjectMembersService",description:"The members of a project",version:"1.0.0",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectmemberservice",imports:["person/person.proto"],targetfile:"service.proto"},services:{Unsubscribe:{description:"Custom method to unsubscribe a member, complete PersonEntity is expected",rdpc_name:"UnsubscribeMember",data:{request:"person.PersonEntity",response:"person.PersonCollection"},query:{},deeplink:{description:"{prs} stands for person",rel:"unsubscibe",href:"/api/projects/{prj}/members/{prs}:unsubscribe",method:"POST"}},List:{description:"Get a collection with PersonEntities",rpc_name:"ListMembers",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a member",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{rel:"list",href:"/api/members",method:"GET"}}}},TaskService:{name:"TaskService",description:"service specs for the task api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"taskservice",imports:["task/task.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",rpc_name:"ListTasks",data:{request:null,response:"task.TaskCollection"},query:{q:{description:"Query term to search a task",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/tasks/list.json",method:"GET"}},Create:{description:"Creates a new Task",rpc_name:"CreateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/tasks/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",rpc_name:"GetTask",data:{request:null,response:"task.TaskEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/tasks/{tsk}/get.json",method:"GET"}},Update:{description:"Updates a Task, partial updates are not supported",rpc_name:"UpdateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/tasks/{tsk}/update.json",method:"GET"}},Delete:{description:"Delete a Task",rpc_name:"DeleteTask",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/tasks/{tsk}/delete.json",method:"GET"}}}},ExperimentService:{name:"ExperimentService",description:"service specs for the experiment api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"experimentservice",imports:["experiment/experiment.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",rpc_name:"ListExperiments",data:{request:null,response:"experiment.ExperimentCollection"},query:{q:{description:"Query term to search a experiment",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/experiments",method:"GET"}},Create:{description:"Creates a new Experiment",rpc_name:"CreateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/experiments",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",rpc_name:"GetExperiment",data:{request:null,response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/experiments/{exp}/get.json",method:"GET"}},Update:{description:"Updates a Experiment, partial updates are supported",rpc_name:"UpdateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/experiments/{exp}",method:"PATCH"}},Delete:{description:"Delete a Experiment",rpc_name:"DeleteExperiment",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/experiments/{exp}",method:"DELETE"}},Release:{description:"Releases experiment",rpc_name:"ReleaseExperiment",data:{request:"experiment.ExperimentEntity",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"release",href:"/mockdata/experiments/1:release",method:"POST"}}}}};_exports.Services=Services;const Types={"tree.Tree":{name:"tree",type:"Tree",description:"Navigation tree type with recursive navigation nodes",__proto:{package:"tree",imports:[],targetfile:"tree.proto"},fields:{id:{description:"Id of the tree",type:"string",__proto:{number:1}},display_name:{description:"String representation of the tree",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the tree",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},root:{description:"Rootnode of the tree",type:"tree.Navigationnode",meta:{},__proto:{number:10}}}},"tree.TreeEntity":{name:"tree_entity",type:"TreeEntity",description:"TreeEntity with Tree",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{data:{description:"contains a tree.Tree",type:"tree.Tree",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"tree.Navigationnode":{name:"navigationnode",type:"Navigationnode",description:"Item of the navigationtree",__proto:{package:"tree",imports:["furo/link.proto"],targetfile:"tree.proto"},fields:{id:{description:"Id of the node",type:"string",__proto:{number:1}},display_name:{description:"String representation of the node",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},icon:{description:"icon of the node",type:"string",__proto:{number:5}},panel:{description:"Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)",type:"string",meta:{readonly:!0,"tree-search-index":!1},__proto:{number:6}},key_words:{description:"key words of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:7}},has_error:{description:"if node has error",type:"bool",__proto:{number:8}},open:{description:"node is open or not",type:"bool",__proto:{number:9}},link:{description:"Deeplink information of this node",type:"furo.Link",__proto:{number:10}},is_group_label:{description:"This node is a group label",type:"bool",meta:{default:!1},__proto:{number:11}},children:{description:"Children of this node",type:"tree.Navigationnode",meta:{repeated:!0},__proto:{number:12}}}},"tree.TreeCollection":{name:"tree_collection",type:"TreeCollection",description:"TreeCollection with repeated TreeEntity",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a tree.TreeEntity repeated",type:"tree.TreeEntity",meta:{repeated:!0},__proto:{number:4}}}},"projectfilter.ProjectfilterEntity":{name:"projectfilter_entity",type:"ProjectfilterEntity",description:"ProjectfilterEntity with Projectfilter",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{data:{description:"contains a projectfilter.Projectfilter",type:"projectfilter.Projectfilter",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"projectfilter.Projectfilter":{name:"projectfilter",type:"Projectfilter",description:"Options for possible filter values",__proto:{package:"projectfilter",options:{},imports:["google/type/date.proto","google/type/money.proto","furo/reference.proto"],targetfile:"projectfilter.proto"},fields:{description:{description:"Filter preset for field description from resource projects",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:1}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:2}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:3}},members:{description:"List of possible project members",type:"furo.Reference",meta:{label:"Choose person",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}}},constraints:{},__proto:{number:4}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{},__proto:{number:5}}}},"projectfilter.ProjectfilterCollection":{name:"projectfilter_collection",type:"ProjectfilterCollection",description:"ProjectfilterCollection with repeated ProjectfilterEntity",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a projectfilter.ProjectfilterEntity repeated",type:"projectfilter.ProjectfilterEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthCollection":{name:"auth_collection",type:"AuthCollection",description:"AuthCollection with repeated AuthEntity",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a auth.AuthEntity repeated",type:"auth.AuthEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthEntity":{name:"auth_entity",type:"AuthEntity",description:"AuthEntity with Auth",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{data:{description:"contains a auth.Auth",type:"auth.Auth",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"auth.Auth":{name:"auth",type:"Auth",description:"autogenerated",__proto:{package:"auth",options:{},imports:[],targetfile:"auth.proto"},fields:{id:{description:"Identity of Auth",type:"string",meta:{label:"Id",default:"",hint:""},constraints:{},__proto:{number:1}},username:{type:"string",description:"The unique username, ussualy an email address",meta:{label:"Username",hint:""},constraints:{},__proto:{number:2}},password:{type:"string",description:"Das _neue_ Kennwort des Benutzers",meta:{label:"Password",hint:"Look under your keyboard"},constraints:{},__proto:{number:3}},role:{type:"string",description:"",meta:{label:"Role",hint:""},constraints:{},__proto:{number:4}}}},"person.Person":{name:"person",type:"Person",description:"Person message type",__proto:{package:"person",imports:["google/protobuf/field_mask.proto"],targetfile:"person.proto"},fields:{id:{description:"Identity of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},name:{description:"Name of a person",type:"string",meta:{label:"Name",default:"",hint:""},constraints:{required:{is:"true",message:"you must enter a name"}},__proto:{number:3}},first_name:{description:"First name of a person",type:"string",meta:{label:"First name",default:"",hint:""},constraints:{},__proto:{number:4},__ui:{component:"furo-data-text-input"}},phone_nr:{description:"Internal phone number",type:"string",meta:{label:"Phone No",default:"",hint:""},constraints:{},__proto:{number:5}},skills:{description:"List of main skills of a person",type:"string",meta:{label:"Skills",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:7}}}},"person.PersonCollection":{name:"person_collection",type:"PersonCollection",description:"PersonCollection with repeated PersonEntity",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a person.PersonEntity repeated",type:"person.PersonEntity",meta:{repeated:!0},__proto:{number:4}}}},"person.PersonEntity":{name:"person_entity",type:"PersonEntity",description:"PersonEntity with Person",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{data:{description:"contains a person.Person",type:"person.Person",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.ProjectCollection":{name:"project_collection",type:"ProjectCollection",description:"ProjectCollection with repeated ProjectEntity",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a project.ProjectEntity repeated",type:"project.ProjectEntity",meta:{repeated:!0},__proto:{number:4}}}},"project.ProjectEntity":{name:"project_entity",type:"ProjectEntity",description:"ProjectEntity with Project",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{data:{description:"contains a project.Project",type:"project.Project",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.Project":{name:"project",type:"Project",description:"Project description",__proto:{package:"project",imports:["google/protobuf/field_mask.proto","google/type/money.proto","google/type/date.proto","person/person.proto"],targetfile:"project.proto"},fields:{id:{description:"Identity of a project",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a project",type:"string",meta:{label:"Project",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:3}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:4}},description:{description:"Short project description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:5}},members:{description:"List of project members",type:"person.Person",meta:{label:"Project members",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:25e3,message:"max 25000"}},__proto:{number:7}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:8}}}},"task.TaskEntity":{name:"task_entity",type:"TaskEntity",description:"TaskEntity with Task",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{data:{description:"contains a task.Task",type:"task.Task",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"task.TaskCollection":{name:"task_collection",type:"TaskCollection",description:"TaskCollection with repeated TaskEntity",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a task.TaskEntity repeated",type:"task.TaskEntity",meta:{repeated:!0},__proto:{number:4}}}},"task.Task":{name:"task",type:"Task",description:"Task data description",__proto:{package:"task",imports:["furo/reference.proto"],targetfile:"task.proto"},fields:{id:{description:"Identity of a task",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a task",type:"string",meta:{label:"task.display_name.label",default:"",hint:"task.display_name.hint",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short task description",type:"string",meta:{label:"task.desc.label",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:180,message:"task.desc.maxlength"}},__proto:{number:3}},estimated_time:{description:"Estimated time in days",type:"int32",meta:{label:"Est. days",default:"",hint:""},constraints:{},__proto:{number:4}},owner:{description:"Owner of a task",type:"furo.Reference",meta:{label:"person.type.sex.label",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}},hint:"",no_result_hint:"",options:{list:[{id:"unknown",display_name:"person.type.sex.unknown.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"},{id:"female",display_name:"person.type.sex.female.label",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"male",display_name:"person.type.sex.male.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:5}},subtasks:{description:"List of subtasks",type:"task.Task",meta:{label:"Subtask",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}}}},"experiment.ExperimentEntity":{name:"experiment_entity",type:"ExperimentEntity",description:"ExperimentEntity with Experiment",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{data:{description:"contains a experiment.Experiment",type:"experiment.Experiment",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Constraints":{name:"experiment",type:"Constraints",description:"Test the Constraints",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},max:{is:"12",message:"maximal 12"}},__proto:{number:2}},number:{description:"Short experiment description",type:"int32",meta:{label:"Valid values are 6,9,12",default:"1",hint:""},constraints:{min:{is:"6",message:"Minimal number 6"},max:{is:"12",message:"maximal 12"},step:{is:"3",message:"step 3"}},__proto:{number:3}},text:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},min:{is:"6",message:"minimal 6"},max:{is:"12",message:"maximal 12"}},__proto:{number:4}}}},"experiment.Experiment":{name:"experiment",type:"Experiment",description:"experiment spec for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto","google/type/money.proto","google/protobuf/field_mask.proto","furo/property.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:3}},furo_data_checkbox_input:{description:"field for furo_data_checkbox_input for testing",type:"bool",meta:{label:"checkbox_input",default:"",hint:"Hint",readonly:!1},constraints:{},__proto:{number:4}},furo_data_text_input:{description:"field for furo_data_text_input for testing",type:"string",meta:{label:"text_input",hint:"hint",readonly:!1},constraints:{required:{is:"true",message:"is required"},min:{is:3,message:"at least 3 characters"},max:{is:15,message:"15 characters maximum"},pattern:{is:"^a.*",message:"must start with a"}},__proto:{number:5}},furo_data_textarea_input:{description:"field for furo_data_textarea_input for testing",type:"string",meta:{label:"textarea_input",hint:"hint",readonly:!1,rows:3,cols:100},constraints:{},__proto:{number:6}},furo_data_time_input:{description:"field for furo-data-time-input for testing",type:"string",meta:{label:"time-input",hint:"hint",readonly:!1},constraints:{min:{is:"05:00",message:"From 05:00"},max:{is:"19:00",message:"to 19:00"},step:{is:"5",message:"step 5"}},__proto:{number:7}},furo_data_range_input:{description:"field for furo-data-range-input for testing",type:"string",meta:{label:"range-input",hint:"hint",readonly:!1},constraints:{min:{is:20,message:"From 20"},max:{is:50,message:"to 50"},step:{is:"2.5",message:"step 2.5"}},__proto:{number:8}},furo_data_number_input:{description:"field for furo-data-number-input for testing",type:"float",meta:{label:"number-input",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"from 1"},max:{is:555,message:"to 555"},step:{is:"3",message:"step 3"}},__proto:{number:9}},furo_data_color_input:{description:"field for furo-data-color-input for testing",type:"string",meta:{label:"color-input",hint:"hint",readonly:!1},constraints:{},__proto:{number:10}},furo_data_password_input:{description:"field for furo-data-password-input for testing",type:"string",meta:{label:"password-input",hint:"hint",readonly:!1},constraints:{min:{is:6,message:"min 6"},max:{is:15,message:"max 15"}},__proto:{number:11}},furo_data_search_input:{description:"field for furo-search-input for testing",type:"string",meta:{label:" search",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"min 1"},max:{is:15,message:"max 15"},pattern:{is:"a.*",message:"must start with a"}},__proto:{number:12}},furo_data_date_input:{description:"field for furo-data-date-input for testing",type:"string",meta:{label:"date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"5",message:"step 5"}},__proto:{number:13}},furo_data_bool_icon:{description:"field for furo-data-bool-icon for testing",type:"bool",meta:{label:"bool-icon input",hint:"hint",readonly:!1},constraints:{},__proto:{number:14}},the_any_type:{description:"field for testing any",type:"google.protobuf.Any",meta:{label:"can be anything",hint:"hint",readonly:!1},constraints:{},__proto:{number:15}},type_with_options:{description:"field for testing static options",type:"string",meta:{label:"String options",hint:"Choose one",options:{list:[{id:"option_1",display_name:"option_1",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_2",display_name:"option_2",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_3",display_name:"option_3",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:16}},type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields",repeated:!0},constraints:{},__proto:{number:17}},furo_data_date_input_google:{description:"field for furo-data-date-input for testing",type:"google.type.Date",meta:{label:"gogole-date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"2",message:"step 2"}},__proto:{number:18}},single_type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields"},constraints:{},__proto:{number:19}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:20}},furo_data_money_input:{description:"field for testing money type",type:"google.type.Money",meta:{readonly:!1,label:"Amount",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{required:{is:"true",message:"is required"},min:{is:0,message:"amount can not be negative"},max:{is:999999,message:"amount maximal 999999"},step:{is:.01,message:"step 0.01"}},__proto:{number:21}},furo_data_file_input:{description:"field for testing file type",type:"string",meta:{readonly:!1,repeated:!0,label:"Choose a file"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:22}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:23}}}},"experiment.Default":{name:"experiment",type:"Default",description:"Test the default value",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:3}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:4}}}},"experiment.Readonly":{name:"readonly",type:"Readonly",description:"Readonly spec for testing",__proto:{package:"experiment",targetfile:"experiment.proto",imports:["furo/property.proto","project/project.proto"],options:null},fields:{project:{type:"project.Project",description:"Identity of a experiment",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Id",hint:"",default:"",readonly:!0,repeated:!1,options:{list:[]}},constraints:null},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Recursive":{name:"recursive",type:"Recursive",description:"recursive type for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:2}},recursion:{description:"The recursion",type:"experiment.Recursive",meta:{label:"Recursio"},constraints:{},__proto:{number:3}}}},"experiment.ExperimentCollection":{name:"experiment_collection",type:"ExperimentCollection",description:"ExperimentCollection with repeated ExperimentEntity",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a experiment.ExperimentEntity repeated",type:"experiment.ExperimentEntity",meta:{repeated:!0},__proto:{number:4}}}},"furo.Reference":{name:"reference",type:"Reference",description:"reference",__proto:{package:"furo",imports:["furo/link.proto"],targetfile:"reference.proto"},fields:{display_name:{description:"String representation of the reference",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"Id of the reference",type:"string",__proto:{number:2}},link:{description:"Hateoas link",type:"furo.Link",__proto:{number:3}}}},"furo.MetaField":{name:"metafield",type:"MetaField",description:"fields of meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{meta:{description:"meta information of a field",type:"furo.FieldMeta",__proto:{number:1}},constraints:{description:"constraints for a field",type:"map<string,furo.FieldConstraint>",__proto:{number:2}}}},"furo.StringOptionProperty":{name:"string_option_property",type:"StringOptionProperty",description:"String type to use in property",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{display_name:{description:"String representation of val",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"The value, Id is used to make working with data-inputs easier",type:"string",__proto:{number:2}}}},"furo.Optionitem":{name:"optionitem",type:"Optionitem",description:"Items for fieldoption.list",__proto:{package:"furo",targetfile:"meta.proto",imports:[],options:null},fields:{id:{type:"string",description:"Id",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Id",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},display_name:{type:"string",description:"String representation",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Display name",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},selected:{type:"bool",description:"is the item selected",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Selected",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null}}},"furo.NumberProperty":{name:"number_property",type:"NumberProperty",description:"Number type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"data part",type:"float",__proto:{number:1}}}},"furo.Fieldoption":{name:"fieldoption",type:"Fieldoption",description:"Metas for a field",__proto:{package:"furo",targetfile:"meta.proto",imports:["google/protobuf/any.proto"],options:null},fields:{list:{type:"google.protobuf.Any",description:"a list with options, use furo.optionitem or your own",__proto:{number:1},__ui:{component:"",flags:["full","condensed"],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[]}},constraints:null}}},"furo.StringProperty":{name:"string_property",type:"StringProperty",description:"String type to use in property",__proto:{package:"furo",imports:["furo/meta.proto"],targetfile:"property.proto"},fields:{data:{description:"data part",type:"string",__proto:{number:1}}}},"furo.Meta":{name:"meta",type:"Meta",description:"meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{fields:{description:"fields of meta info",type:"map<string, furo.MetaField>",__proto:{number:1}}}},"furo.IntegerProperty":{name:"integer_property",type:"IntegerProperty",description:"Integer type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"Integer data part",type:"int32",constraints:{step:{is:1}},__proto:{number:1}}}},"furo.Link":{name:"link",type:"Link",description:"link",__proto:{package:"furo",imports:[],targetfile:"link.proto"},fields:{rel:{description:"the relationship",type:"string",__proto:{number:1}},method:{description:"method of curl",type:"string",__proto:{number:2}},href:{description:"link",type:"string",__proto:{number:3}},type:{description:"mime type",type:"string",__proto:{number:4}},service:{description:"name of the service which can handle this link",type:"string",__proto:{number:5}}}},"furo.FieldMeta":{name:"fieldmeta",type:"FieldMeta",description:"Metas for a field",__proto:{package:"furo",options:{},imports:["google/protobuf/any.proto"],targetfile:"meta.proto"},fields:{label:{description:"The label",type:"string",meta:{label:"Label",hint:"Also used for input-fields"},__proto:{number:1}},hint:{description:"A hint",type:"string",meta:{label:"Hint",hint:"Also used for input-fields"},__proto:{number:2}},default:{description:"The default value as JSON string",type:"string",meta:{label:"Default value"},__proto:{number:3}},readonly:{description:"readonly",type:"bool",meta:{label:"readonly"},__proto:{number:4}},repeated:{description:"repeated",type:"bool",meta:{label:"repeated"},__proto:{number:5}},options:{description:"Fieldoptions",type:"furo.Fieldoption",meta:{label:"options"},__proto:{number:6}},typespecific:{description:"Put in type specific metas for your fields here",type:"google.protobuf.Any",meta:{label:"typespecific meta"},__proto:{number:7},__ui:{no_init:!0}}}},"furo.FieldConstraint":{name:"fieldconstraint",type:"FieldConstraint",description:"a single fieldconstraint",__proto:{package:"furo",options:{},imports:[],targetfile:"meta.proto"},fields:{is:{description:"the constraint value as string, even it is a number",type:"string",meta:{label:"is",hint:"the constraint value as string, even it is a number"},__proto:{number:1}},message:{description:"The message to display on constraint violation",type:"string",meta:{label:"message"},__proto:{number:2}}}},"furo.BigDecimal":{name:"big_decimal",type:"BigDecimal",description:"A BigDecimal is defined by two values: an arbitrary precision integer and a 32-bit integer scale. The value of the BigDecimal is defined to be unscaledValue*10^{-scale}.",__proto:{package:"furo",imports:[],targetfile:"bigdecimal.proto"},fields:{display_name:{description:"String representation of BigDecimal entity",type:"string",meta:{readonly:!0},constraints:{},options:[],__proto:{number:1}},scale:{description:"If zero or positive, the scale is the number of digits to the right of the decimal point. If negative, the unscaled value of the number is multiplied by ten to the power of the negation of the scale. For example, a scale of -3 means the unscaled value is multiplied by 1000.",type:"int32",meta:{},constraints:{},options:[],__proto:{number:2}},int_val:{description:"The integer value of the BigDecimal",type:"int64",meta:{},constraints:{},options:[],__proto:{number:3}}}},"furo.Property":{name:"property",type:"Property",description:"Type to define property values with type information",__proto:{package:"furo",imports:["google/protobuf/any.proto"],targetfile:"property.proto"},fields:{id:{description:"Id of the property",type:"string",meta:{label:"Id"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"String representation of the property",type:"string",meta:{label:"Property",readonly:!0},constraints:{},__proto:{number:2}},data:{description:"data part of the property",type:"google.protobuf.Any",constraints:{},__proto:{number:3}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:4}},code:{description:"property code for additional settings",type:"string",__proto:{number:5}}}},"google.type.Money":{name:"money",type:"Money",description:"Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto",__proto:{package:"google.type",imports:[],targetfile:"money.proto"},fields:{display_name:{description:"String representation of money entity",type:"string",meta:{default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:1}},currency_code:{description:"The 3-letter currency code defined in ISO 4217.",type:"string",meta:{label:"W\xE4hrungscode",default:"",hint:""},constraints:{},options:[],__proto:{number:2}},units:{description:"The whole units of the amount.",type:"int64",meta:{label:"Ganzahliger W\xE4hrungsbetrag",default:"",hint:""},constraints:{},options:[],__proto:{number:3}},nanos:{description:"Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",type:"int64",meta:{label:"Nanos",default:"",hint:""},constraints:{},options:[],__proto:{number:4}}}},"google.type.Date":{name:"date",type:"Date",description:"Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto ",__proto:{package:"google.type",imports:[],targetfile:"date.proto"},fields:{display_name:{description:"Localized String representation of date",type:"string",meta:{label:"Datum",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:4}},year:{description:"Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:1}},month:{description:"Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:2}},day:{description:"Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:3}}}},"google.protobuf.StringValue":{name:"stringvalue",type:"StringValue",description:"Wrapper message for `string`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `StringValue` is JSON string",type:"string",__proto:{number:1}}}},"google.protobuf.FieldMask":{name:"field_mask",type:"FieldMask",description:"A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"field_mask.proto"},fields:{paths:{description:"The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable.",type:"string",meta:{repeated:!0},__proto:{number:1}}}},"google.protobuf.Int64Value":{name:"int64value",type:"Int64Value",description:"Wrapper message for `int64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int64Value` is JSON string",type:"int64",__proto:{number:1}}}},"google.protobuf.Empty":{name:"empty",type:"Empty",description:"https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto",__proto:{package:"google.protobuf",imports:[],targetfile:"empty.proto",options:{}},fields:{}},"google.protobuf.Int32Value":{name:"int32value",type:"Int32Value",description:"Wrapper message for `int32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int32Value` is JSON number",type:"int32",__proto:{number:1},constraints:{min:{is:"\u22122147483648",message:"out of range"},max:{is:"2147483647",message:"out of range"}}}}},"google.protobuf.BoolValue":{name:"boolvalue",type:"BoolValue",description:"Wrapper message for `bool`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BoolValue` is JSON `true` and `false`",type:"bool",__proto:{number:1}}}},"google.protobuf.FloatValue":{name:"floatvalue",type:"FloatValue",description:"Wrapper message for `float`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `FloatValue` is JSON number",type:"float",__proto:{number:1}}}},"google.protobuf.BytesValue":{name:"bytesvalue",type:"BytesValue",description:"Wrapper message for `bytes`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BytesValue` is JSON string",type:"bytes",__proto:{number:1}}}},"google.protobuf.Any":{name:"any",type:"Any",description:"Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"any.proto"},fields:{type_url:{type:"string",__proto:{number:1}},value:{type:"bytes",__proto:{number:2}}}},"google.protobuf.UInt32Value":{name:"uint32value",type:"UInt32Value",description:"Wrapper message for `uint32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt32Value` is JSON number",type:"uint32",__proto:{number:1}}}},"google.protobuf.UInt64Value":{name:"uint64value",type:"UInt64Value",description:"Wrapper message for `uint64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt64Value` is JSON string",type:"uint64",__proto:{number:1}}}},"google.protobuf.DoubleValue":{name:"doublevalue",type:"DoubleValue",description:"Wrapper message for `double`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `DoubleValue` is JSON number",type:"double",__proto:{number:1}}}}};_exports.Types=Types;var data_environment={Services:Services,Types:Types};/**
+let icon="<g></g>";if(this[setName]&&this[setName][iconName]){icon=this[setName][iconName]}return icon}}_exports.Iconset$1=_exports.Iconset=Iconset;var iconset$1={Iconset:Iconset};_exports.$iconset$1=iconset$1;var furo={Env:Env,i18n:i18n,Init:Init,Sys:Sys,Theme:Theme,Iconset:Iconset};_exports.$furo=furo;const Services={TreeService:{name:"TreeService",description:"service specs for the tree api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"treeservice",imports:["tree/tree.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",rpc_name:"ListTrees",data:{request:null,response:"tree.TreeCollection"},query:{q:{description:"Query term to search a tree",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/trees",method:"GET"}},Create:{description:"Creates a new Tree",rpc_name:"CreateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/trees",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",rpc_name:"GetTree",data:{request:null,response:"tree.TreeEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/trees/{tre}/get.json",method:"GET"}},Update:{description:"Updates a Tree, partial updates are supported",rpc_name:"UpdateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/trees/{tre}",method:"PATCH"}},Delete:{description:"Delete a Tree",rpc_name:"DeleteTree",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/trees/{tre}",method:"DELETE"}}}},ProjectfilterService:{name:"ProjectfilterService",description:"service specs for the projectfilter api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectfilterservice",imports:["projectfilter/projectfilter.proto","google/protobuf/empty.proto"],targetfile:"projectfilterservice.proto"},services:{Get:{description:"The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter",rpc_name:"GetProjectfilter",data:{request:null,response:"projectfilter.ProjectfilterEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/filter/get.json",method:"GET"}}}},AuthService:{name:"AuthService",description:"service specs for the auth api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"authservice",imports:["auth/auth.proto","google/protobuf/empty.proto"],targetfile:"authservice.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a AuthCollection of AuthEntity that match the input parameters.",rpc_name:"ListAuths",data:{request:null,response:"auth.AuthCollection"},query:{q:{description:"Query term to search a auth",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/api/auths",method:"GET"}},Create:{description:"Creates a new Auth",rpc_name:"CreateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"create",href:"/api/auths",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a AuthEntity which contains a Auth",rpc_name:"GetAuth",data:{request:null,response:"auth.AuthEntity"},query:{},deeplink:{rel:"self",href:"/api/auths/{uid}",method:"GET"}},Update:{description:"Updates a Auth, partial updates are supported",rpc_name:"UpdateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"update",href:"/api/auths/{uid}",method:"PATCH"}},Delete:{description:"Logout ala delete a auth session",rpc_name:"Logout",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/api/auth",method:"DELETE"}}}},PersonService:{name:"PersonService",description:"service specs for the person api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"personservice",imports:["person/person.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",rpc_name:"ListPersons",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a person",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/persons/list.json",method:"GET"}},Create:{description:"Creates a new Person",rpc_name:"CreatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/persons/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",rpc_name:"GetPerson",data:{request:null,response:"person.PersonEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/persons/{prs}/get.json",method:"GET"}},Update:{description:"Updates a Person, partial updates are supported",rpc_name:"UpdatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/persons/{prs}/update.json",method:"PATCH"}},Delete:{description:"Delete a Person",rpc_name:"DeletePerson",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/persons/{prs}/delete.json",method:"GET"}}}},ProjectService:{name:"ProjectService",description:"service specs for the project api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectservice",imports:["project/project.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",rpc_name:"ListProjects",data:{request:null,response:"project.ProjectCollection"},filter:{},query:{q:{description:"Query term to search a project",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/projects/list.json",method:"GET"}},Create:{description:"Creates a new Project",rpc_name:"CreateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/projects/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",rpc_name:"GetProject",data:{request:null,response:"project.ProjectEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/{prj}/get.json",method:"GET"}},Update:{description:"Updates a Project, partial updates are supported",rpc_name:"UpdateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/projects/{prj}/update.json",method:"GET"}},Delete:{description:"Delete a Project",rpc_name:"DeleteProject",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/projects/{prj}/delete.json",method:"GET"}}}},ProjectMembersService:{name:"ProjectMembersService",description:"The members of a project",version:"1.0.0",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectmemberservice",imports:["person/person.proto"],targetfile:"service.proto"},services:{Unsubscribe:{description:"Custom method to unsubscribe a member, complete PersonEntity is expected",rdpc_name:"UnsubscribeMember",data:{request:"person.PersonEntity",response:"person.PersonCollection"},query:{},deeplink:{description:"{prs} stands for person",rel:"unsubscibe",href:"/api/projects/{prj}/members/{prs}:unsubscribe",method:"POST"}},List:{description:"Get a collection with PersonEntities",rpc_name:"ListMembers",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a member",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{rel:"list",href:"/api/members",method:"GET"}}}},TaskService:{name:"TaskService",description:"service specs for the task api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"taskservice",imports:["task/task.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",rpc_name:"ListTasks",data:{request:null,response:"task.TaskCollection"},query:{q:{description:"Query term to search a {{.name}}",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}},fields:{description:"Partial representation (comma separated list of field names), ?fields=",type:"string",meta:{label:"Fields",hint:"Comma separated list of field names"},__proto:{type:"string"}},order_by:{description:"Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar",type:"string",meta:{label:"Sorting Order",hint:"The default sorting order is ascending"},__proto:{type:"string"}},filter:{description:"The response message will be filtered by the fields before being sent back to the client, filter=[['id','eq','1']]",type:"string",meta:{label:"Filter",hint:""},__proto:{type:"string"}},page_size:{description:"Use this field to specify the maximum number of results to be returned by the server. \n    //The server may further constrain the maximum number of results returned in a single page. \n    //If the page_size is 0, the server will decide the number of results to be returned. page_size=15",type:"string",meta:{label:"Page Size",hint:"If the page_size is 0, the server will decide the number of results to be returned."},__proto:{type:"string"}},view:{description:"allows the client to specify which view of the resource it wants to receive in the response. view=BASIC",type:"string",meta:{label:"View",hint:"Should be a enum type. MUST be named view"},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/tasks/list.json",method:"GET"}},Create:{description:"Creates a new Task",rpc_name:"CreateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/tasks/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",rpc_name:"GetTask",data:{request:null,response:"task.TaskEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/tasks/{tsk}/get.json",method:"GET"}},Update:{description:"Updates a Task, partial updates are not supported",rpc_name:"UpdateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/tasks/{tsk}/update.json",method:"GET"}},Delete:{description:"Delete a Task",rpc_name:"DeleteTask",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/tasks/{tsk}/delete.json",method:"GET"}}}},ExperimentService:{name:"ExperimentService",description:"service specs for the experiment api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"experimentservice",imports:["experiment/experiment.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",rpc_name:"ListExperiments",data:{request:null,response:"experiment.ExperimentCollection"},query:{q:{description:"Query term to search a experiment",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/experiments",method:"GET"}},Create:{description:"Creates a new Experiment",rpc_name:"CreateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/experiments",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",rpc_name:"GetExperiment",data:{request:null,response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/experiments/{exp}/get.json",method:"GET"}},Update:{description:"Updates a Experiment, partial updates are supported",rpc_name:"UpdateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/experiments/{exp}",method:"PATCH"}},Delete:{description:"Delete a Experiment",rpc_name:"DeleteExperiment",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/experiments/{exp}",method:"DELETE"}},Release:{description:"Releases experiment",rpc_name:"ReleaseExperiment",data:{request:"experiment.ExperimentEntity",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"release",href:"/mockdata/experiments/1:release",method:"POST"}}}}};_exports.Services=Services;const Types={"tree.Tree":{name:"tree",type:"Tree",description:"Navigation tree type with recursive navigation nodes",__proto:{package:"tree",imports:[],targetfile:"tree.proto"},fields:{id:{description:"Id of the tree",type:"string",__proto:{number:1}},display_name:{description:"String representation of the tree",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the tree",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},root:{description:"Rootnode of the tree",type:"tree.Navigationnode",meta:{},__proto:{number:10}}}},"tree.TreeEntity":{name:"tree_entity",type:"TreeEntity",description:"TreeEntity with Tree",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{data:{description:"contains a tree.Tree",type:"tree.Tree",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"tree.Navigationnode":{name:"navigationnode",type:"Navigationnode",description:"Item of the navigationtree",__proto:{package:"tree",imports:["furo/link.proto"],targetfile:"tree.proto"},fields:{id:{description:"Id of the node",type:"string",__proto:{number:1}},display_name:{description:"String representation of the node",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},icon:{description:"icon of the node",type:"string",__proto:{number:5}},panel:{description:"Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)",type:"string",meta:{readonly:!0,"tree-search-index":!1},__proto:{number:6}},key_words:{description:"key words of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:7}},has_error:{description:"if node has error",type:"bool",__proto:{number:8}},open:{description:"node is open or not",type:"bool",__proto:{number:9}},link:{description:"Deeplink information of this node",type:"furo.Link",__proto:{number:10}},is_group_label:{description:"This node is a group label",type:"bool",meta:{default:!1},__proto:{number:11}},children:{description:"Children of this node",type:"tree.Navigationnode",meta:{repeated:!0},__proto:{number:12}}}},"tree.TreeCollection":{name:"tree_collection",type:"TreeCollection",description:"TreeCollection with repeated TreeEntity",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a tree.TreeEntity repeated",type:"tree.TreeEntity",meta:{repeated:!0},__proto:{number:4}}}},"projectfilter.ProjectfilterEntity":{name:"projectfilter_entity",type:"ProjectfilterEntity",description:"ProjectfilterEntity with Projectfilter",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{data:{description:"contains a projectfilter.Projectfilter",type:"projectfilter.Projectfilter",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"projectfilter.Projectfilter":{name:"projectfilter",type:"Projectfilter",description:"Options for possible filter values",__proto:{package:"projectfilter",options:{},imports:["google/type/date.proto","google/type/money.proto","furo/reference.proto"],targetfile:"projectfilter.proto"},fields:{description:{description:"Filter preset for field description from resource projects",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:1}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:2}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:3}},members:{description:"List of possible project members",type:"furo.Reference",meta:{label:"Choose person",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}}},constraints:{},__proto:{number:4}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{},__proto:{number:5}}}},"projectfilter.ProjectfilterCollection":{name:"projectfilter_collection",type:"ProjectfilterCollection",description:"ProjectfilterCollection with repeated ProjectfilterEntity",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a projectfilter.ProjectfilterEntity repeated",type:"projectfilter.ProjectfilterEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthCollection":{name:"auth_collection",type:"AuthCollection",description:"AuthCollection with repeated AuthEntity",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a auth.AuthEntity repeated",type:"auth.AuthEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthEntity":{name:"auth_entity",type:"AuthEntity",description:"AuthEntity with Auth",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{data:{description:"contains a auth.Auth",type:"auth.Auth",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"auth.Auth":{name:"auth",type:"Auth",description:"autogenerated",__proto:{package:"auth",options:{},imports:[],targetfile:"auth.proto"},fields:{id:{description:"Identity of Auth",type:"string",meta:{label:"Id",default:"",hint:""},constraints:{},__proto:{number:1}},username:{type:"string",description:"The unique username, ussualy an email address",meta:{label:"Username",hint:""},constraints:{},__proto:{number:2}},password:{type:"string",description:"Das _neue_ Kennwort des Benutzers",meta:{label:"Password",hint:"Look under your keyboard"},constraints:{},__proto:{number:3}},role:{type:"string",description:"",meta:{label:"Role",hint:""},constraints:{},__proto:{number:4}}}},"person.Person":{name:"person",type:"Person",description:"Person message type",__proto:{package:"person",imports:["google/protobuf/field_mask.proto"],targetfile:"person.proto"},fields:{id:{description:"Identity of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},name:{description:"Name of a person",type:"string",meta:{label:"Name",default:"",hint:""},constraints:{required:{is:"true",message:"you must enter a name"}},__proto:{number:3}},first_name:{description:"First name of a person",type:"string",meta:{label:"First name",default:"",hint:""},constraints:{},__proto:{number:4},__ui:{component:"furo-data-text-input"}},phone_nr:{description:"Internal phone number",type:"string",meta:{label:"Phone No",default:"",hint:""},constraints:{},__proto:{number:5}},skills:{description:"List of main skills of a person",type:"string",meta:{label:"Skills",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:7}}}},"person.PersonCollection":{name:"person_collection",type:"PersonCollection",description:"PersonCollection with repeated PersonEntity",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a person.PersonEntity repeated",type:"person.PersonEntity",meta:{repeated:!0},__proto:{number:4}}}},"person.PersonEntity":{name:"person_entity",type:"PersonEntity",description:"PersonEntity with Person",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{data:{description:"contains a person.Person",type:"person.Person",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.ProjectCollection":{name:"project_collection",type:"ProjectCollection",description:"ProjectCollection with repeated ProjectEntity",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a project.ProjectEntity repeated",type:"project.ProjectEntity",meta:{repeated:!0},__proto:{number:4}}}},"project.ProjectEntity":{name:"project_entity",type:"ProjectEntity",description:"ProjectEntity with Project",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{data:{description:"contains a project.Project",type:"project.Project",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.Project":{name:"project",type:"Project",description:"Project description",__proto:{package:"project",imports:["google/protobuf/field_mask.proto","google/type/money.proto","google/type/date.proto","person/person.proto"],targetfile:"project.proto"},fields:{id:{description:"Identity of a project",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a project",type:"string",meta:{label:"Project",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:3}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:4}},description:{description:"Short project description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:5}},members:{description:"List of project members",type:"person.Person",meta:{label:"Project members",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:25e3,message:"max 25000"}},__ui:{component:"",flags:["align-right"]},__proto:{number:7}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:8}}}},"task.TaskEntity":{name:"task_entity",type:"TaskEntity",description:"TaskEntity with Task",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{data:{description:"contains a task.Task",type:"task.Task",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"task.TaskCollection":{name:"task_collection",type:"TaskCollection",description:"TaskCollection with repeated TaskEntity",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a task.TaskEntity repeated",type:"task.TaskEntity",meta:{repeated:!0},__proto:{number:4}}}},"task.Task":{name:"task",type:"Task",description:"Task data description",__proto:{package:"task",imports:["furo/reference.proto"],targetfile:"task.proto"},fields:{id:{description:"Identity of a task",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a task",type:"string",meta:{label:"task.display_name.label",default:"",hint:"task.display_name.hint",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short task description",type:"string",meta:{label:"task.desc.label",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:180,message:"task.desc.maxlength"}},__proto:{number:3}},estimated_time:{description:"Estimated time in days",type:"int32",meta:{label:"Est. days",default:"",hint:""},constraints:{},__proto:{number:4}},owner:{description:"Owner of a task",type:"furo.Reference",meta:{label:"person.type.sex.label",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}},hint:"",no_result_hint:"",options:{list:[{id:"unknown",display_name:"person.type.sex.unknown.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"},{id:"female",display_name:"person.type.sex.female.label",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"male",display_name:"person.type.sex.male.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:5}},subtasks:{description:"List of subtasks",type:"task.Task",meta:{label:"Subtask",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}}}},"experiment.ExperimentEntity":{name:"experiment_entity",type:"ExperimentEntity",description:"ExperimentEntity with Experiment",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{data:{description:"contains a experiment.Experiment",type:"experiment.Experiment",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Constraints":{name:"experiment",type:"Constraints",description:"Test the Constraints",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},max:{is:"12",message:"maximal 12"}},__proto:{number:2}},number:{description:"Short experiment description",type:"int32",meta:{label:"Valid values are 6,9,12",default:1,hint:""},constraints:{min:{is:"6",message:"Minimal number 6"},max:{is:"12",message:"maximal 12"},step:{is:"3",message:"step 3"}},__proto:{number:3}},text:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},min:{is:"6",message:"minimal 6"},max:{is:"12",message:"maximal 12"}},__proto:{number:4}}}},"experiment.Experiment":{name:"experiment",type:"Experiment",description:"experiment spec for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto","google/type/money.proto","google/protobuf/field_mask.proto","furo/property.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:3}},furo_data_checkbox_input:{description:"field for furo_data_checkbox_input for testing",type:"bool",meta:{label:"checkbox_input",default:"",hint:"Hint",readonly:!1},constraints:{},__proto:{number:4}},furo_data_text_input:{description:"field for furo_data_text_input for testing",type:"string",meta:{label:"text_input",hint:"hint",readonly:!1},constraints:{required:{is:"true",message:"is required"},min:{is:3,message:"at least 3 characters"},max:{is:15,message:"15 characters maximum"},pattern:{is:"^a.*",message:"must start with a"}},__proto:{number:5}},furo_data_textarea_input:{description:"field for furo_data_textarea_input for testing",type:"string",meta:{label:"textarea_input",hint:"hint",readonly:!1,rows:3,cols:100},constraints:{},__proto:{number:6}},furo_data_time_input:{description:"field for furo-data-time-input for testing",type:"string",meta:{label:"time-input",hint:"hint",readonly:!1},constraints:{min:{is:"05:00",message:"From 05:00"},max:{is:"19:00",message:"to 19:00"},step:{is:"5",message:"step 5"}},__proto:{number:7}},furo_data_range_input:{description:"field for furo-data-range-input for testing",type:"string",meta:{label:"range-input",hint:"hint",readonly:!1},constraints:{min:{is:20,message:"From 20"},max:{is:50,message:"to 50"},step:{is:"2.5",message:"step 2.5"}},__proto:{number:8}},furo_data_number_input:{description:"field for furo-data-number-input for testing",type:"float",meta:{label:"number-input",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"from 1"},max:{is:555,message:"to 555"},step:{is:"3",message:"step 3"}},__proto:{number:9}},furo_data_color_input:{description:"field for furo-data-color-input for testing",type:"string",meta:{label:"color-input",hint:"hint",readonly:!1},constraints:{},__proto:{number:10}},furo_data_password_input:{description:"field for furo-data-password-input for testing",type:"string",meta:{label:"password-input",hint:"hint",readonly:!1},constraints:{min:{is:6,message:"min 6"},max:{is:15,message:"max 15"}},__proto:{number:11}},furo_data_search_input:{description:"field for furo-search-input for testing",type:"string",meta:{label:" search",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"min 1"},max:{is:15,message:"max 15"},pattern:{is:"a.*",message:"must start with a"}},__proto:{number:12}},furo_data_date_input:{description:"field for furo-data-date-input for testing",type:"string",meta:{label:"date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"5",message:"step 5"}},__proto:{number:13}},furo_data_bool_icon:{description:"field for furo-data-bool-icon for testing",type:"bool",meta:{label:"bool-icon input",hint:"hint",readonly:!1},constraints:{},__proto:{number:14}},the_any_type:{description:"field for testing any",type:"google.protobuf.Any",meta:{label:"can be anything",hint:"hint",readonly:!1},constraints:{},__proto:{number:15}},type_with_options:{description:"field for testing static options",type:"string",meta:{label:"String options",hint:"Choose one",options:{list:[{id:"option_1",display_name:"option_1",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_2",display_name:"option_2",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_3",display_name:"option_3",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:16}},type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields",repeated:!0},constraints:{},__proto:{number:17}},furo_data_date_input_google:{description:"field for furo-data-date-input for testing",type:"google.type.Date",meta:{label:"gogole-date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"2",message:"step 2"}},__proto:{number:18}},single_type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields"},constraints:{},__proto:{number:19}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:20}},furo_data_money_input:{description:"field for testing money type",type:"google.type.Money",meta:{readonly:!1,label:"Amount",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{required:{is:"true",message:"is required"},min:{is:0,message:"amount can not be negative"},max:{is:999999,message:"amount maximal 999999"},step:{is:.01,message:"step 0.01"}},__proto:{number:21}},furo_data_file_input:{description:"field for testing file type",type:"string",meta:{readonly:!1,repeated:!0,label:"Choose a file"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:22}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:23}}}},"experiment.Default":{name:"experiment",type:"Default",description:"Test the default value",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:3}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:4}}}},"experiment.Readonly":{name:"readonly",type:"Readonly",description:"Readonly spec for testing",__proto:{package:"experiment",targetfile:"experiment.proto",imports:["furo/property.proto","project/project.proto"],options:null},fields:{project:{type:"project.Project",description:"Identity of a experiment",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Id",hint:"",default:"",readonly:!0,repeated:!1,options:{list:[]}},constraints:null},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Recursive":{name:"recursive",type:"Recursive",description:"recursive type for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:2}},recursion:{description:"The recursion",type:"experiment.Recursive",meta:{label:"Recursio"},constraints:{},__proto:{number:3}}}},"experiment.ExperimentCollection":{name:"experiment_collection",type:"ExperimentCollection",description:"ExperimentCollection with repeated ExperimentEntity",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a experiment.ExperimentEntity repeated",type:"experiment.ExperimentEntity",meta:{repeated:!0},__proto:{number:4}}}},"furo.Reference":{name:"reference",type:"Reference",description:"reference",__proto:{package:"furo",imports:["furo/link.proto"],targetfile:"reference.proto"},fields:{display_name:{description:"String representation of the reference",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"Id of the reference",type:"string",__proto:{number:2}},link:{description:"Hateoas link",type:"furo.Link",__proto:{number:3}}}},"furo.MetaField":{name:"metafield",type:"MetaField",description:"fields of meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{meta:{description:"meta information of a field",type:"furo.FieldMeta",__proto:{number:1}},constraints:{description:"constraints for a field",type:"map<string,furo.FieldConstraint>",__proto:{number:2}}}},"furo.StringOptionProperty":{name:"string_option_property",type:"StringOptionProperty",description:"String type to use in property",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{display_name:{description:"String representation of val",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"The value, Id is used to make working with data-inputs easier",type:"string",__proto:{number:2}}}},"furo.Optionitem":{name:"optionitem",type:"Optionitem",description:"Items for fieldoption.list",__proto:{package:"furo",targetfile:"meta.proto",imports:[],options:null},fields:{id:{type:"string",description:"Id",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Id",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},display_name:{type:"string",description:"String representation",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Display name",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},selected:{type:"bool",description:"is the item selected",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Selected",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null}}},"furo.NumberProperty":{name:"number_property",type:"NumberProperty",description:"Number type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"data part",type:"float",__proto:{number:1}}}},"furo.Fieldoption":{name:"fieldoption",type:"Fieldoption",description:"Metas for a field",__proto:{package:"furo",targetfile:"meta.proto",imports:["google/protobuf/any.proto"],options:null},fields:{list:{type:"google.protobuf.Any",description:"a list with options, use furo.optionitem or your own",__proto:{number:1},__ui:{component:"",flags:["full","condensed"],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:null}},constraints:null},flags:{type:"string",description:"Add flags for your field. This can be something like \"searchable\". \n//The flags can be used by generators, ui components,...\n",__proto:{number:2},__ui:{component:null,flags:[],no_init:!1,no_skip:!1},meta:{label:"flags",hint:"optional flags",default:null,readonly:!1,repeated:!0,options:{list:[],flags:null},typespecific:null},constraints:null}}},"furo.StringProperty":{name:"string_property",type:"StringProperty",description:"String type to use in property",__proto:{package:"furo",imports:["furo/meta.proto"],targetfile:"property.proto"},fields:{data:{description:"data part",type:"string",__proto:{number:1}}}},"furo.Meta":{name:"meta",type:"Meta",description:"meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{fields:{description:"fields of meta info",type:"map<string, furo.MetaField>",__proto:{number:1}}}},"furo.IntegerProperty":{name:"integer_property",type:"IntegerProperty",description:"Integer type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"Integer data part",type:"int32",constraints:{step:{is:1}},__proto:{number:1}}}},"furo.Link":{name:"link",type:"Link",description:"link",__proto:{package:"furo",imports:[],targetfile:"link.proto"},fields:{rel:{description:"the relationship",type:"string",__proto:{number:1}},method:{description:"method of curl",type:"string",__proto:{number:2}},href:{description:"link",type:"string",__proto:{number:3}},type:{description:"mime type",type:"string",__proto:{number:4}},service:{description:"name of the service which can handle this link",type:"string",__proto:{number:5}}}},"furo.FieldMeta":{name:"fieldmeta",type:"FieldMeta",description:"Metas for a field",__proto:{package:"furo",options:{},imports:["google/protobuf/any.proto"],targetfile:"meta.proto"},fields:{label:{description:"The label",type:"string",meta:{label:"Label",hint:"Also used for input-fields"},__proto:{number:1}},hint:{description:"A hint",type:"string",meta:{label:"Hint",hint:"Also used for input-fields"},__proto:{number:2}},default:{description:"The default value as JSON string",type:"string",meta:{label:"Default value"},__proto:{number:3}},readonly:{description:"readonly",type:"bool",meta:{label:"readonly"},__proto:{number:4}},repeated:{description:"repeated",type:"bool",meta:{label:"repeated"},__proto:{number:5}},options:{description:"Fieldoptions",type:"furo.Fieldoption",meta:{label:"options"},__proto:{number:6}},typespecific:{description:"Put in type specific metas for your fields here",type:"google.protobuf.Any",meta:{label:"typespecific meta"},__proto:{number:7},__ui:{no_init:!0}}}},"furo.FieldConstraint":{name:"fieldconstraint",type:"FieldConstraint",description:"a single fieldconstraint",__proto:{package:"furo",options:{},imports:[],targetfile:"meta.proto"},fields:{is:{description:"the constraint value as string, even it is a number",type:"string",meta:{label:"is",hint:"the constraint value as string, even it is a number"},__proto:{number:1}},message:{description:"The message to display on constraint violation",type:"string",meta:{label:"message"},__proto:{number:2}}}},"furo.BigDecimal":{name:"big_decimal",type:"BigDecimal",description:"A BigDecimal is defined by two values: an arbitrary precision integer and a 32-bit integer scale. The value of the BigDecimal is defined to be unscaledValue*10^{-scale}.",__proto:{package:"furo",imports:[],targetfile:"bigdecimal.proto"},fields:{display_name:{description:"String representation of BigDecimal entity",type:"string",meta:{readonly:!0},constraints:{},options:[],__proto:{number:1}},scale:{description:"If zero or positive, the scale is the number of digits to the right of the decimal point. If negative, the unscaled value of the number is multiplied by ten to the power of the negation of the scale. For example, a scale of -3 means the unscaled value is multiplied by 1000.",type:"int32",meta:{},constraints:{},options:[],__proto:{number:2}},int_val:{description:"The integer value of the BigDecimal",type:"int64",meta:{},constraints:{},options:[],__proto:{number:3}}}},"furo.Property":{name:"property",type:"Property",description:"Type to define property values with type information",__proto:{package:"furo",imports:["google/protobuf/any.proto"],targetfile:"property.proto"},fields:{id:{description:"Id of the property",type:"string",meta:{label:"Id"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"String representation of the property",type:"string",meta:{label:"Property",readonly:!0},constraints:{},__proto:{number:2}},data:{description:"data part of the property",type:"google.protobuf.Any",constraints:{},__proto:{number:3}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:4}},code:{description:"property code for additional settings",type:"string",__proto:{number:5}}}},"google.type.Money":{name:"money",type:"Money",description:"Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto",__proto:{package:"google.type",imports:[],targetfile:"money.proto"},fields:{display_name:{description:"String representation of money entity",type:"string",meta:{default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:1}},currency_code:{description:"The 3-letter currency code defined in ISO 4217.",type:"string",meta:{label:"W\xE4hrungscode",default:"",hint:""},constraints:{},options:[],__proto:{number:2}},units:{description:"The whole units of the amount.",type:"int64",meta:{label:"Ganzahliger W\xE4hrungsbetrag",default:"",hint:""},constraints:{},options:[],__proto:{number:3}},nanos:{description:"Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",type:"int64",meta:{label:"Nanos",default:"",hint:""},constraints:{},options:[],__proto:{number:4}}}},"google.type.Date":{name:"date",type:"Date",description:"Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto ",__proto:{package:"google.type",imports:[],targetfile:"date.proto"},fields:{display_name:{description:"Localized String representation of date",type:"string",meta:{label:"Datum",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:4}},year:{description:"Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:1}},month:{description:"Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:2}},day:{description:"Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:3}}}},"google.protobuf.StringValue":{name:"stringvalue",type:"StringValue",description:"Wrapper message for `string`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `StringValue` is JSON string",type:"string",__proto:{number:1}}}},"google.protobuf.FieldMask":{name:"field_mask",type:"FieldMask",description:"A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"field_mask.proto"},fields:{paths:{description:"The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable.",type:"string",meta:{repeated:!0},__proto:{number:1}}}},"google.protobuf.Int64Value":{name:"int64value",type:"Int64Value",description:"Wrapper message for `int64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int64Value` is JSON string",type:"int64",__proto:{number:1}}}},"google.protobuf.Empty":{name:"empty",type:"Empty",description:"https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto",__proto:{package:"google.protobuf",imports:[],targetfile:"empty.proto",options:{}},fields:{}},"google.protobuf.Int32Value":{name:"int32value",type:"Int32Value",description:"Wrapper message for `int32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int32Value` is JSON number",type:"int32",__proto:{number:1},constraints:{min:{is:"\u22122147483648",message:"out of range"},max:{is:"2147483647",message:"out of range"}}}}},"google.protobuf.BoolValue":{name:"boolvalue",type:"BoolValue",description:"Wrapper message for `bool`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BoolValue` is JSON `true` and `false`",type:"bool",__proto:{number:1}}}},"google.protobuf.FloatValue":{name:"floatvalue",type:"FloatValue",description:"Wrapper message for `float`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `FloatValue` is JSON number",type:"float",__proto:{number:1}}}},"google.protobuf.BytesValue":{name:"bytesvalue",type:"BytesValue",description:"Wrapper message for `bytes`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BytesValue` is JSON string",type:"bytes",__proto:{number:1}}}},"google.protobuf.Any":{name:"any",type:"Any",description:"Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"any.proto"},fields:{type_url:{type:"string",__proto:{number:1}},value:{type:"bytes",__proto:{number:2}}}},"google.protobuf.UInt32Value":{name:"uint32value",type:"UInt32Value",description:"Wrapper message for `uint32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt32Value` is JSON number",type:"uint32",__proto:{number:1}}}},"google.protobuf.UInt64Value":{name:"uint64value",type:"UInt64Value",description:"Wrapper message for `uint64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt64Value` is JSON string",type:"uint64",__proto:{number:1}}}},"google.protobuf.DoubleValue":{name:"doublevalue",type:"DoubleValue",description:"Wrapper message for `double`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `DoubleValue` is JSON number",type:"double",__proto:{number:1}}}}};_exports.Types=Types;var data_environment={Services:Services,Types:Types};/**
     * Furo Base Icons
     * This is a set of the 24x24 icons from https://github.com/google/material-design-icons.
     *
@@ -2296,7 +2296,7 @@ return css`
       ::-webkit-resizer {
       }
 
-    `}}_exports.Styling$1=Styling;var styling={Styling:Styling};_exports.$styling=styling;if(!Iconset.default){Iconset.registerIconset("default",FuroBaseIcons)}/**
+    `}}_exports.Styling=Styling;var styling={Styling:Styling};_exports.$styling=styling;if(!Iconset.default){Iconset.registerIconset("default",FuroBaseIcons)}/**
    * `furo-icon`
    *
    * to use furo icon you should
@@ -2337,8 +2337,8 @@ return css`
    * you can also define other properties lik viewport ,preserveAspectRatio...
    * @summary furo icon
    * @customElement
-   * @demo demo-furo-icon
-   * @demo demo-furo-icon-list
+   * @demo demo-furo-icon-list list of the icons
+   * @demo demo-furo-icon example usage
    */class FuroIcon extends LitElement{constructor(){super();this.viewBox="0 0 24 24";this.preserveAspectRatio="xMidYMid meet";this.focusable="false";this.svgstyle="pointer-events: none; display: block; width: 100%; height: 100%;"}/**
      * @private
      * @returns {CSSResult}
@@ -2398,6 +2398,10 @@ return Theme.getThemeForComponent("FuroIconButton")||css`
 
         :host([hidden]) {
             display: none;
+        }
+
+        :host([disabled]) {
+            color: var(--disabled, inherit);
         }
 
         button {
@@ -2530,69 +2534,75 @@ this._drawer.addEventListener("is-floating",()=>{this.showNavigationIcon()});thi
    * @return {CSSResult}
    */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroAppBarTop")||css`
-        :host {
-            display: block;
-            position: relative;
-            color: var(--on-primary);
-            background: linear-gradient(315deg, var(--furo-app-bar-top-background-light, var(--primary-light, #7f7f7f)) 0%, var(--furo-app-bar-top-background-dark, var(--primary-dark, #aFAFAF)) 100%);
-            box-shadow: 0 2px 4px rgba(0,0,0,.5);
-            transition: all var(--transition-duration, 200ms) cubic-bezier(.25, .8, .25, 1);
-            font-size: 20px;
-            z-index: 1;
-        }
+      :host {
+        display: block;
+        position: relative;
+        color: var(--on-primary);
+        background: linear-gradient(315deg, var(--furo-app-bar-top-background-light, var(--primary-light, #7f7f7f)) 0%, var(--furo-app-bar-top-background-dark, var(--primary-dark, #aFAFAF)) 100%);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+        transition: all var(--transition-duration, 200ms) cubic-bezier(.25, .8, .25, 1);
+        font-size: 20px;
+        z-index: 1;
+      }
 
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
 
-        furo-horizontal-flex {
-            height: 56px;
-            line-height: 56px;
-        }
-
-        ::slotted(*) {
-            margin-left: var(--spacing-s, 16px);
-            margin-right: var(--spacing-s, 16px);
-        }
-
-        ::slotted(furo-icon-button), furo-icon-button.navigation {
-            cursor: pointer;
-            margin: var(--spacing-xxs, 4px) 0;
-        }
-
-        furo-icon-button.navigation {
-            display: none;
-        }
-
-        :host([navigation]) furo-icon-button.navigation, :host([navigation-icon]) furo-icon-button.navigation {
-            display: block;
-            margin-right: var(--spacing-xs, 8px);
-        }
+      furo-horizontal-flex {
+        height: 56px;
+        line-height: 56px;
+      }
 
 
-        furo-loading-indicator-bar{
-            position: absolute;
-            bottom:0;
-            width: 100%;
-        }
-        .extended {
-            display: none;
-            height: 72px;
-            line-height: 32px;
-            padding-left: 56px;
-        }
+      ::slotted(.small), ::slotted(.small) {
+        font-weight: 100;
+      }
 
-        /* pos bottom 20 with line-height 32 will result in 28px distance to the bottom (https://material.io/components/app-bars-top/#specs)  */
-        .extended ::slotted(*){
-            position: absolute;
-            bottom: 20px;
-            right: 96px;
-            left: 56px;
-        }
-        
-        :host([extended]) .extended{
-            display: block;
-        }
+      ::slotted(*) {
+        margin-left: var(--spacing-s, 16px);
+        margin-right: var(--spacing-s, 16px);
+      }
+
+      ::slotted(furo-icon-button), furo-icon-button.navigation {
+        cursor: pointer;
+        margin: var(--spacing-xxs, 4px) 0;
+      }
+
+      furo-icon-button.navigation {
+        display: none;
+      }
+
+      :host([navigation]) furo-icon-button.navigation, :host([navigation-icon]) furo-icon-button.navigation {
+        display: block;
+        margin-right: var(--spacing-xs, 8px);
+      }
+
+
+      furo-loading-indicator-bar {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .extended {
+        display: none;
+        height: 72px;
+        line-height: 32px;
+        padding-left: 56px;
+      }
+
+      /* pos bottom 20 with line-height 32 will result in 28px distance to the bottom (https://material.io/components/app-bars-top/#specs)  */
+      .extended ::slotted(*) {
+        position: absolute;
+        bottom: 20px;
+        right: 96px;
+        left: 56px;
+      }
+
+      :host([extended]) .extended {
+        display: block;
+      }
     `}showNavigationIcon(){this.setAttribute("navigation","")}hideNavigationIcon(){this.removeAttribute("navigation")}/**
      * @event navigation-clicked
      * Fired when the navigation icon was clicked
@@ -3631,10 +3641,12 @@ return Theme.getThemeForComponent("FuroCheckbox")||css`
                 border: solid 2px;
                 border-color: var(--input-checkbox-unselected-border-color, var(--on-background, #212121));
                 box-sizing: border-box;
+                border-color: var(--on-surface, #808080);
             }
             
             .wrapper:hover input ~ .checkbox-background {
                 background-color: rgba( var(--input-checkbox-unselected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
+              
             }
 
             /* unselected checkbox when pressing */
@@ -6259,320 +6271,332 @@ return html`
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroSearchInput")||css`
-        /* https://material.io/design/components/text-fields.html#theming */
-        :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 10px 0 15px 0;
-            height: 56px;
-            width: 190px;
-        }
+      /* https://material.io/design/components/text-fields.html#theming */
+      :host {
+        display: inline-block;
+        position: relative;
+        box-sizing: border-box;
+        margin: 10px 0 15px 0;
+        height: 56px;
+        width: 190px;
+      }
 
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
 
-        .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            height: 56px;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
-        }
+      .wrapper {
+        position: relative;
+        padding: 0 12px;
+        box-sizing: border-box;
+        height: 56px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+      }
 
-        .iwrap {
-            position: relative;
-        }
-
-
-        input {
-            position: absolute;
-            top: 16px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            line-height: 24px;
-            color: inherit;
-            outline: none;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
-        }
-        input:required {
-          box-shadow:none;
-        }
-        input:invalid {
-          box-shadow:none;
-        }
-        :host([filled]) .wrapper {
-            background-color: var(--surface-light, #FEFEFE);
-        }
-
-        :host([filled]) .wrapper:hover {
-            background-color: var(--surface, #FCFCFC);
-        }
-
-        :host([filled]:focus-within) .wrapper {
-            background-color: var(--surface-dark, #FEA222);
-        }
-
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-color: var(--input-hover-color, #333333);
-        }
+      .iwrap {
+        position: relative;
+      }
 
 
-        .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
-        }
+      input {
+        position: absolute;
+        top: 16px;
+        border: none;
+        background: none;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        line-height: 24px;
+        color: inherit;
+        outline: none;
+        font-family: "Roboto", "Noto", sans-serif;
+        font-kerning: auto;
+        font-size: 16px;
+        font-stretch: 100%;
+        font-style: normal;
+        -webkit-appearance: textfield;
+      }
 
-        .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
-        }
+      input:required {
+        box-shadow: none;
+      }
 
-        :host(:not([filled])) label span {
-            top: 0;
-            position: relative;
-        }
+      input:invalid {
+        box-shadow: none;
+      }
 
-        :host(:not([filled])) label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
-            line-height: 56px;
-        }
+      :host([filled]) .wrapper {
+        background-color: var(--surface-light, #FEFEFE);
+      }
 
-        :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
-            border-top: none;
-        }
+      :host([filled]) .wrapper:hover {
+        background-color: var(--surface, #FCFCFC);
+      }
 
-        :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
-            font-size: 12px;
-            top: -28px;
-            left:0;
-            position: relative;
-        }
+      :host([filled]:focus-within) .wrapper {
+        background-color: var(--surface-dark, #FEA222);
+      }
+
+      :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+        border-color: var(--input-hover-color, #333333);
+      }
 
 
-        .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
-        }
+      .borderlabel {
+        pointer-events: none;
+        position: absolute;
+        box-sizing: border-box;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 56px;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+      }
+
+      .left-border {
+        width: 8px;
+        box-sizing: border-box;
+        pointer-events: none;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-right: none;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+
+      :host(:not([filled])) label span {
+        top: 0;
+        position: relative;
+      }
+
+      :host(:not([filled])) label {
+        padding: 0 4px;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-left: none;
+        border-right: none;
+        line-height: 56px;
+      }
+
+      :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
+        border-top: none;
+      }
+
+      :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
+        font-size: 12px;
+        top: -28px;
+        left: 0;
+        position: relative;
+      }
 
 
-        .ripple-line {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 54px;
-            border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-        }
-
-        :host([filled]) .ripple-line {
-            display: block;
-        }
-
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
-        }
-
-        :host([filled]) label {
-            border: none;
-        }
+      .right-border {
+        pointer-events: none;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-left: none;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        -ms-flex: 1 1 0.000000001px;
+        -webkit-flex: 1;
+        flex: 1;
+        -webkit-flex-basis: 0.000000001px;
+        flex-basis: 0.000000001px;
+      }
 
 
-        :host([filled]) label {
-            padding: 0 12px;
-            line-height: 56px;
-        }
+      .ripple-line {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        top: 54px;
+        border: none;
+        border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+      }
 
-        :host([filled]) label span {
-            position: relative;
-            top: 0;
-        }
+      :host([filled]) .ripple-line {
+        display: block;
+      }
 
-        :host([filled]) label[float] span, :host(:focus-within) label span {
-            font-size: 12px;
-            font-weight: 400;
-            top: -20px;
-            position: relative;
-        }
+      :host([filled]) .right-border, :host([filled]) .left-border {
+        display: none;
+      }
 
-
-        * {
-            transition: all 200ms ease-out;
-        }
-
-        .hint, .errortext {
-            position: absolute;
-            bottom: -19px;
-            font-size: 12px;
-            color: transparent;
-            padding-left: 12px;
-            white-space: nowrap;
-            pointer-events: none;
-        }
-
-        :host(:focus-within) .hint {
-            color: var(--input-hint-color, #999999);
-            transition: all 550ms ease-in;
-        }
+      :host([filled]) label {
+        border: none;
+      }
 
 
-        :host([error]) .errortext {
-            display: block;
-        }
+      :host([filled]) label {
+        padding: 0 12px;
+        line-height: 56px;
+      }
 
-        .errortext {
-            color: var(--input-error-text-color, var(--error, red));
-            display: none;
-        }
+      :host([filled]) label span {
+        position: relative;
+        top: 0;
+      }
 
-
-        label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
-        }
-
-        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-        }
+      :host([filled]) label[float] span, :host(:focus-within) label span {
+        font-size: 12px;
+        font-weight: 400;
+        top: -20px;
+        position: relative;
+      }
 
 
-        :host(:focus-within) .ripple-line {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
-        }
+      * {
+        transition: all 200ms ease-out;
+      }
 
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
-        }
+      .hint, .errortext {
+        position: absolute;
+        bottom: -19px;
+        font-size: 12px;
+        color: transparent;
+        padding-left: 12px;
+        white-space: nowrap;
+        pointer-events: none;
+      }
 
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-color: var(--input-error-text-color, var(--error, red));
-            border-width: 2px;
-        }
-
-        :host([error]:focus-within) label {
-            color: var(--input-error-text-color, var(--error, red));
-        }
-
-        :host([error]:focus-within) .hint {
-            display: none;
-        }
+      :host(:focus-within) .hint {
+        color: var(--input-hint-color, #999999);
+        transition: all 550ms ease-in;
+      }
 
 
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-color: var(--input-error-activation-indicator-color, var(--error, red));
-        }
+      :host([error]) .errortext {
+        display: block;
+      }
 
-        furo-icon {
-            display: none;
-            top:16px;
-        }
-        furo-icon.lead{
-            position: absolute;
+      .errortext {
+        color: var(--input-error-text-color, var(--error, red));
+        display: none;
+      }
 
-            left:8px;
-        }
-        furo-icon.trail{
-            position: absolute;
-            right:8px;
-        }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
-        }
+      label {
+        color: var(--input-hint-color, var(--disabled, #DEDEDE));
+      }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
-            left: 24px;
-        }
+      :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+        color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+      }
 
-        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span{
-            left: 0;
-        }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper{
-            padding-left: 36px;
-        }
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper{
-            padding-right: 36px;
-        }
-        :host(:focus-within:not([valid])) label{
-            color: var(--input-error-text-color, var(--error, red));
-        }
+      :host(:focus-within) .ripple-line {
+        border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+        border-width: 2px;
+      }
 
-        :host([condensed]) input{
-            top: 12px;
-            font-size: 14px;
-        }
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
-            line-height: 40px;
-            font-size: 14px;
-        }
-        :host([condensed][filled]) input{
-            top: 12px;
-        }
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper{
-            height: 40px;
-        }
+      :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+        border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+        border-width: 2px;
+      }
 
-        :host([condensed])  furo-icon {
-            top:10px;
-        }
+      :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+        border-color: var(--input-error-text-color, var(--error, red));
+        border-width: 2px;
+      }
 
-        :host([condensed]) .ripple-line {
-            top: 38px;
-        }
+      :host([error]:focus-within) label {
+        color: var(--input-error-text-color, var(--error, red));
+      }
 
-        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-            top: -12px;
-            
-        }
-        :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-            top:-20px;
-            
-        }
-        
-        :host([condensed]){
-            height: 40px;
-        }
+      :host([error]:focus-within) .hint {
+        display: none;
+      }
+
+
+      :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+        border-color: var(--input-error-activation-indicator-color, var(--error, red));
+      }
+
+      furo-icon {
+        display: none;
+        top: 16px;
+      }
+
+      furo-icon.lead {
+        position: absolute;
+
+        left: 8px;
+      }
+
+      furo-icon.trail {
+        position: absolute;
+        right: 8px;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+        display: block;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
+        left: 24px;
+      }
+
+      :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span {
+        left: 0;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
+        padding-left: 36px;
+      }
+
+      :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
+        padding-right: 36px;
+      }
+
+      :host(:focus-within:not([valid])) label {
+        color: var(--input-error-text-color, var(--error, red));
+      }
+
+      :host([condensed]) input {
+        top: 12px;
+        font-size: 14px;
+      }
+
+      :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
+        line-height: 40px;
+        font-size: 14px;
+      }
+
+      :host([condensed][filled]) input {
+        top: 12px;
+      }
+
+      :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
+        height: 40px;
+      }
+
+      :host([condensed]) furo-icon {
+        top: 10px;
+      }
+
+      :host([condensed]) .ripple-line {
+        top: 38px;
+      }
+
+      :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
+        top: -12px;
+
+      }
+
+      :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
+        top: -20px;
+
+      }
+
+      :host([condensed]) {
+        height: 40px;
+      }
 
     `}/**
      *
@@ -7141,7 +7165,7 @@ return html`
        * detail payload: the value of the text input
        *
        * This event bubbles
-       */_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -8795,6 +8819,7 @@ return css`
      */render(){// language=HTML
 return html`
       <input type="file" class="inputfile"
+             tabindex="-1"
              ?accept=${this.accept}
              ?multiple=${this.multiple} 
              ?capture="${this.capture}"
@@ -8930,10 +8955,9 @@ if(!this._isWiredWithShow()){window.addEventListener("open-furo-snackbar-request
                                                                       * `furo-location`
                                                                       *  Somethin like iron-location
                                                                       *
+                                                                      * @summary url watcher
                                                                       * @customElement
-                                                                      */ /**
-                                                                          * @demo demo/location.html
-                                                                          */class FuroLocation extends HTMLElement{constructor(){super();this.style.display="none";this._location={host:window.location.host};/**
+                                                                      */class FuroLocation extends HTMLElement{constructor(){super();this.style.display="none";this._location={host:window.location.host};/**
         * A regexp that defines the set of URLs that should be considered part
         * of this web app.
         *
@@ -9038,8 +9062,8 @@ return html`
     `}}window.customElements.define("furo-pages",FuroPages);function TypeAppFlow(name){this.event=name;this.data={}}/**
    * `furo-app-flow`
    *
+   * @summary Application Flow => routing
    * @customElement
-   * @demo demo/furo-app-flow.html
    * @appliesMixin FBP
    */class FuroAppFlow extends LitElement{constructor(){super();this.style.display="none"}static get properties(){return{/**
        * Name of your app-flow event object
@@ -9053,10 +9077,61 @@ return html`
        *
        * App-flow event with app-flow object will be fired when you trigger the `emit` function.
        * detail payload: data
-       */let customEvent=new Event("app-flow",{composed:!0,bubbles:!0});customEvent.detail=data;this.dispatchEvent(customEvent);return customEvent}}window.customElements.define("furo-app-flow",FuroAppFlow);class FlowBind extends FBP(HTMLElement){constructor(){super();this.attachShadow({mode:"open"});let t=this.querySelector("template");this.template=t.content;let elem=document.createElement("empty-fbp-node");elem.attachShadow({mode:"open"});elem.shadowRoot.appendChild(this.template.cloneNode(!0));elem._appendFBP(elem.shadowRoot);this._host=elem;this.parentNode.appendChild(elem.shadowRoot)}}window.customElements.define("flow-bind",FlowBind);class MainStage extends FBP(LitElement){constructor(){super()}_FBPReady(){super._FBPReady();/**
+       */let customEvent=new Event("app-flow",{composed:!0,bubbles:!0});customEvent.detail=data;this.dispatchEvent(customEvent);return customEvent}}window.customElements.define("furo-app-flow",FuroAppFlow);class FlowBind extends FBP(HTMLElement){constructor(){super();this.attachShadow({mode:"open"});let t=this.querySelector("template");this.template=t.content;let elem=document.createElement("empty-fbp-node");elem.attachShadow({mode:"open"});elem.shadowRoot.appendChild(this.template.cloneNode(!0));elem._appendFBP(elem.shadowRoot);this._host=elem;this.parentNode.appendChild(elem.shadowRoot)}}window.customElements.define("flow-bind",FlowBind);class FuroTooltipDisplay extends FBP(LitElement){constructor(){super();// return **this** to component which want to connect
+window.addEventListener("hide-tooltip-requested",e=>{if(this.show){clearTimeout(this.to);this.show=!1}});window.addEventListener("show-tooltip-requested",e=>{let cr=e.detail.cr,x=cr.left+cr.width/2,y=cr.bottom+16,max_y=window.innerHeight-48;if(y>max_y){y=cr.top-32}this.style.top=y+"px";this.start=!0;this.label=e.detail.label;clearTimeout(this.to);setTimeout(()=>{let mycr=this.getBoundingClientRect(),max=window.innerWidth-8;this.style.left=Math.min(max-mycr.width,Math.max(8,x-mycr.width/2))+"px";this.show=!0;this.to=setTimeout(()=>{// hide if shown
+if(this.show){this.show=!1}},e.detail.duration);this.requestUpdate()},10)})}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Description
+       */start:{type:Boolean,reflect:!0},show:{type:Boolean,reflect:!0}}}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent("FuroTooltipDisplay")||css`
+      :host {
+        position: absolute;
+        display: none;
+        top:0;
+        left: 0;
+        transition: opacity 300ms;
+        opacity: 0;
+        background-color: #6d6d6d;
+        color: white;
+        height: 24px;
+        padding: 0 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        line-height: 24px;
+        z-index: 10;
+        white-space: nowrap;
+      }
+
+      :host([start]) {
+        display: block;
+        opacity: 0;
+      }
+
+      :host([show]) {
+        opacity: 1;
+        display: block;
+
+      }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html`
+      ${this.label}
+    `}}window.customElements.define("furo-tooltip-display",FuroTooltipDisplay);class MainStage extends FBP(LitElement){constructor(){super()}_FBPReady(){super._FBPReady();/**
                         * Register hook on wire --locationChanged to
                         * Lazy load parts of the page
-                        */this._FBPAddWireHook("--locationChanged",e=>{switch(e.pathSegments[0]){case"api":new Promise((res,rej)=>_require.default(["./api/view-api.js"],res,rej)).then(bundle=>bundle&&bundle.$viewApi||{});break;case"guide":new Promise((res,rej)=>_require.default(["./guide/view-guide.js"],res,rej)).then(bundle=>bundle&&bundle.$viewGuide||{});break;case"spec":new Promise((res,rej)=>_require.default(["./spec/view-spec.js"],res,rej)).then(bundle=>bundle&&bundle.$viewSpec||{});break;}})}/**
+                        */this._FBPAddWireHook("--locationChanged",e=>{switch(e.pathSegments[0]){case"guide":new Promise((res,rej)=>_require.default(["./guide/view-guide.js"],res,rej)).then(bundle=>bundle&&bundle.$viewGuide||{});break;case"spec":new Promise((res,rej)=>_require.default(["./spec/view-spec.js"],res,rej)).then(bundle=>bundle&&bundle.$viewSpec||{});break;}})}/**
      *
      * @private
      * @return {CSSResult}
@@ -9096,6 +9171,7 @@ return html`
        
       <furo-location @-location-changed="--locationChanged"></furo-location>
         <furo-snackbar-display></furo-snackbar-display>
+        <furo-tooltip-display></furo-tooltip-display>
     `}}window.customElements.define("main-stage",MainStage);class FuroShell extends FBP(LitElement){/**
    *
    * @private
@@ -9113,197 +9189,91 @@ return[css`
      */render(){// language=HTML
 return html`
             <main-stage></main-stage>
-        `}}window.customElements.define("furo-shell",FuroShell);class FuroAppDrawer extends FBP(LitElement){constructor(){super();/**
-              * Width for the autofloat
-              * @type {number}
-              */this.floatBreakpoint=1159;this._movementDetectionRange=10;// return **this** to component which want to connect
-window.addEventListener("connect-to-drawer-requested",e=>{if(e.detail.name===this.name){e.detail.drawer=this}})}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
-       * Use method floatDrawer or set this attribute to enable float mode
-       * @private
-       */_isFloating:{type:Boolean,reflect:!0,attribute:"float"},/**
-       * Enable this to put the drawer on the right side
-       */isReverse:{type:Boolean,reflect:!0,attribute:"reverse"},/**
-       * disables automatic floating mode
-       */permanent:{type:Boolean},/**
-       * let the menu float (hidden).
-       */float:{type:Boolean},/**
-       * Min width of the app-drawer to switch to floating mode
-       */floatBreakpoint:{type:Number,attribute:"float-breakpoint"},/**
-       * name of this drawer, needed if you want to connect to this drawer
-       */name:{type:String}}}/**
-     * helper variable to set the floating
-     * @param val
-     * @private
-     */set __isFloating(val){this._isFloating=val;if(val){/**
-       * @event is-floating
-       * Fired when drawer is in floating mode. This event is fired when drawer is closed and opened
-       */let customEvent=new Event("is-floating",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}else{/**
-       * @event is-pinned
-       * Fired when drawer is in pinned mode.
-       */let customEvent=new Event("is-pinned",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}}get __isFloating(){return this._isFloating}/**
-     * open the drawer when it is in float mode
-     */open(){this.isOpen=!0;if(this.__isFloating){let drawer=this.shadowRoot.getElementById("drawer");//drawer.style.transform = "translate3d(0, 0, 0)";
-if(this.isReverse){//drawer.style.transform = "translate3d("+ width +"px, 0, 0)";
-drawer.style.right=0}else{drawer.style.left=0;//drawer.style.transform = "translate3d(-"+ width +"px, 0, 0)";
-}let backdrop=this.shadowRoot.getElementById("backdrop");backdrop.style.opacity=1;backdrop.style.pointerEvents="auto";// unregister movement tracker
-this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);//unregister trackend
-this.removeEventListener("mouseup",this.trackEnd,{once:!0});this.removeEventListener("touchend",this.trackEnd,{once:!0})}/**
-       * @event drawer-opened
-       * Fired when drawer was opened.
-       */let customEvent=new Event("drawer-opened",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}/**
-     * closes the drawer when it is in float mode
-     */close(){this.isOpen=!1;if(this.__isFloating){let drawer=this.shadowRoot.getElementById("drawer"),width=drawer.getBoundingClientRect().width;if(this.isReverse){//drawer.style.transform = "translate3d("+ width +"px, 0, 0)";
-drawer.style.right=-width+"px"}else{drawer.style.left=-width+"px";//drawer.style.transform = "translate3d(-"+ width +"px, 0, 0)";
-}let backdrop=this.shadowRoot.getElementById("backdrop");backdrop.style.opacity=0;backdrop.style.pointerEvents="none";// unregister movement tracker
-this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);//unregister trackend
-this.removeEventListener("mouseup",this.trackEnd,{once:!0});this.removeEventListener("touchend",this.trackEnd,{once:!0})}/**
-       * @event drawer-closed
-       * Fired when drawer was closed.
-       */let customEvent=new Event("drawer-closed",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}/**
-     * let the drawer float
-     */floatDrawer(){this.__isFloating=!0}/**
-     * disable the floating
-     */pinDrawer(){this.__isFloating=!1}/**
-     * Put the drawer on the right side
-     *
-     * Or use the attribute reverse for the same effect
-     *
-     */putDrawerToRight(){this.isReverse=!0}/**
-     * Put the drawer on the left side (default)
-     */putDrawerToLeft(){this.isReverse=!1}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-/**
-     * Register hook on wire --backdropClicked to
-     * close the menu
-     */this._FBPAddWireHook("--backdropClicked",e=>{this.close()});// register resize listener
-if(!this.permanent){if(window.ResizeObserver){let ro=new ResizeObserver(entries=>{for(let entry of entries){const cr=entry.contentRect;this.__isFloating=cr.width<=this.floatBreakpoint}if(this.__isFloating){this.close()}});ro.observe(this)}else{// fallback, just listen to the resize event
-let cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;window.addEventListener("resize",e=>{let cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;if(this.__isFloating){this.close()}})}}let drawer=this.shadowRoot.getElementById("drawer"),drag=this.shadowRoot.getElementById("drag"),backdrop=this.shadowRoot.getElementById("backdrop"),trackhandler=e=>{// unregister
-this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);if(e instanceof MouseEvent){this.pauseEvent(e)}if(this.__isFloating){let start_x=this._getScreenX(e),start_y=this._getScreenY(e),start_time=performance.now(),width=drawer.getBoundingClientRect().width,trackingEnabled=!1,trackingFixed=!1;drawer.style.transitionDuration="0ms";// Setup a timer
-let animationframetimeout;// register move
-this.moveHandler=e=>{// If there's a timer, cancel it
-if(requestAnimationFrame){window.cancelAnimationFrame(animationframetimeout)}if(e instanceof MouseEvent){this.pauseEvent(e);// prevent dragging of links in a drawer
-e.preventDefault()}let distance=this._getScreenX(e)-start_x,y=this._getScreenY(e)-start_y;// start tracking if angle is in a 45 deg horizontal
-if(!trackingFixed&&Math.abs(distance)<this._movementDetectionRange&&Math.abs(y)<this._movementDetectionRange){trackingEnabled=Math.abs(y)<Math.abs(distance);return}// Setup the new requestAnimationFrame()
-animationframetimeout=window.requestAnimationFrame(()=>{if(!trackingEnabled){return}trackingFixed=!0;// correct the 10 pixels from tracking enable
-if(!this.isReverse){distance+=this._movementDetectionRange}else{distance-=this._movementDetectionRange}// update drawer position
-let delta=100*distance/width;if(this.isOpen){// limit the dragging, it makes no sense to pull the drawer in to the content area
-if(!this.isReverse&&0<delta||this.isReverse&&0>delta){delta=0}//drawer.style.transform = "translate3d(" + distance + "px, 0, 0)";
-if(this.isReverse){if(0>distance){distance=0}drawer.style.right=-distance+"px"}else{if(0<distance){distance=0}drawer.style.left=distance+"px"}backdrop.style.opacity=Math.floor(100+delta)/100}else{// limit the dragging
-if(100<delta){delta=100;distance=width}if(-100>delta){delta=-100;distance=-width}if(this.isReverse){//drawer.style.transform = "translate3d(" + (100 + delta) + "%, 0, 0)";
-drawer.style.right=-(width+distance)+"px"}else{//drawer.style.transform = "translate3d(" + (delta - 100) + "%, 0, 0)";
-drawer.style.left=distance-width+"px"}// backdrop darkness
-backdrop.style.opacity=Math.abs(delta/100)}})};// register move
-this.addEventListener("mousemove",this.moveHandler,!0);//todo: check this: this.addEventListener("touchmove", this.moveHandler, {passive: true});
-// https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
-this.addEventListener("touchmove",this.moveHandler,!0);this.trackEnd=e=>{drawer.style.transitionDuration="";// If there's a animation timer, cancel it
-if(requestAnimationFrame){window.cancelAnimationFrame(animationframetimeout)}let end_time=performance.now(),distance=this._getScreenX(e)-start_x,duration=end_time-start_time;// quick movement
-if(30<Math.abs(distance)&&200>duration){if(this.isOpen){if(!this.isReverse&&0>distance||this.isReverse&&0<distance){this.close()}}else{this.open()}}else{if(!trackingEnabled){return}// complete the movement, slow
-let delta=100*distance/width;if(-40<delta&&40>delta){// restore initial pos
-if(this.isOpen){this.open()}else{this.close()}}else{if(this.isOpen){this.close()}else{this.open()}}}// unregister
-this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0)};// unregister movement tracker
-this.addEventListener("mouseup",this.trackEnd,{once:!0});this.addEventListener("touchend",this.trackEnd,{once:!0})}};drawer.addEventListener("trackstart",trackhandler,{passive:!0});drawer.addEventListener("mousedown",trackhandler);drag.addEventListener("trackstart",trackhandler,{passive:!0});drag.addEventListener("mousedown",trackhandler)}pauseEvent(e){if(e.stopPropagation)e.stopPropagation();if(e.preventDefault)e.preventDefault();e.cancelBubble=!0;e.returnValue=!1;return!1}_getScreenX(e){let x;if(e instanceof MouseEvent){x=e.screenX}else{x=e.changedTouches[0].screenX}return x}_getScreenY(e){let y;if(e instanceof MouseEvent){y=e.screenY}else{y=e.changedTouches[0].screenY}return y}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroAppDrawer")||css`
+        `}}window.customElements.define("furo-shell",FuroShell);class Styling$1{static get theme(){// language=CSS
+return css`
       :host {
-        display: block;
-        height: 100%;
-        position: relative;
-        overflow: hidden;
+
+        /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
+        /* https://material.io/design/material-theming/implementing-your-theme.html#color */
+        --primary-light: #4ccd50;
+        --primary: #4caf50;
+        --primary-rgb: 76, 175, 80;
+        --primary-dark: #4b9b4f;
+        --primary-variant: #2587a3;
+        --on-primary: #ffffff;
+
+        --secondary-light: #fdd756;
+        --secondary: #fecf2f;
+        --secondary-rgb: 254,207,47;
+        --secondary-dark: #ffc911;
+        --secondary-variant: #faedc1;
+        --on-secondary: #212121;
+
+        --accent-light: #ecf3ca;
+        --accent: #cce35b;
+        --accent-rgb: 204,227,91;
+        --accent-dark: #bada18;
+        --on-accent: #212121;
+
+        --background: #eeeeee;
+        --background-rgb: 238, 238, 238;
+        --on-background: #212121;
+        --on-background-rgb: 33,33,33;
+
+        --surface-light: #f3f3f3;
+        --surface-light-rgb: 243, 243, 243;
+        --surface: #FEFEFE;
+        --surface-rgb: 254, 254, 254;
+        --surface-dark: #f0f0f0;
+        --on-surface: #212121;
+        --on-surface-rgb: 33, 33, 33;
+        --separator: #E4E4E4;
+
+        /* States */
+        --state-hover: 0.04;
+        --state-selected: 0.08;
+        --state-selected-hover: 0.12;
+        --state-active: 0.1;
+        --state-focus: 0.12;
+        --state-focused-hover: 0.18;
+        --state-selected-focus: 0.2;
+        --state-selected-focused-hover:0.24;
+        --state-disabled: 0.38;
+
+        /* Emphasis, used for secondary text,... */
+        --medium-emphasis-surface: 0.6;
+        --medium-emphasis-primary: 0.74;
+
+
+        /* Input, Forms, Toast*/
+        --error: #ea1c24;
+        --on-error: #ffffff;
+
+        --danger-light: #fc1c21;
+        --danger: #ee1c21;
+        --danger-dark: #de1c21;
+        --on-danger: #f8f8f8;
+
+        --success: #129991;
+        --on-success: #202124;
+
+        --disabled: #c3c4c3;
+        --on-disabled: #585858;
+
+
+        /* Spacing */
+        --spacing-xxs: 4px;
+        --spacing-xs: 8px;
+        --spacing-s: 16px;
+        --spacing: 24px;
+        --spacing-m: 24px;
+        --spacing-l: 32px;
+        --spacing-xl: 48px;
+        --spacing-xxl: 96px;
+
       }
 
-      :host([hidden]) {
-        display: none;
-      }
-
-      furo-horizontal-flex {
-        height: 100%;
-      }
-
-
-      #drawer {
-        border-right: 1px solid var(--separator, rgb(228, 228, 228));
-        transition-duration: 200ms;
-        background: var(--surface-light);
-      }
-
-      ::slotted([scroll]) {
-        height: 100%;
-        overflow-y: auto;
-      }
-
-      /* disable pointer events, z-index 15 just to be below the drawer */
-      #backdrop {
-        pointer-events: none;
-        transition-duration: 200ms;
-        transition-property: opacity;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        opacity: 0;
-        background: var(--furo-app-drawer-backdrop, rgba(0, 0, 0, 0.5));
-        z-index: 15;
-      }
-
-
-      #drag {
-        position: absolute;
-        top: 0;
-        width: 18px;
-        bottom: 0;
-        left: 0;
-        z-index: 16;
-      }
-
-      :host([reverse]) #drag {
-        left: unset;
-        right: 0;
-      }
-
-      /* put the floating drawer outside the visible area, z-index 16 should be enough layers above 0 */
-      :host([float]) #drawer {
-        position: absolute;
-        z-index: 16;
-        top: 0;
-        left: 0;
-        bottom: 0;
-      }
-
-      /* put drawer to the right side on reverse mode */
-      :host([float][reverse]) #drawer {
-        left: unset;
-        right: 0;
-
-      }
-
-
-
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     * @private
-     */render(){// language=HTML
-return html`
-
-      <furo-horizontal-flex ?reverse="${this.isReverse}">
-        <div id="drawer">
-          <slot name="drawer"></slot>
-        </div>
-        <div flex>
-          <slot></slot>
-        </div>
-      </furo-horizontal-flex>
-      <div id="backdrop" @-click="--backdropClicked"></div>
-      <div id="drag"></div>
-    `}}window.customElements.define("furo-app-drawer",FuroAppDrawer);/*! markdown-it 9.1.0 https://github.com//markdown-it/markdown-it @license MIT */(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.markdownit=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){// HTML5 entities map: { name -> utf16string }
+    `}}_exports.Styling$1=Styling$1;var styling$1={Styling:Styling$1};/*! markdown-it 9.1.0 https://github.com//markdown-it/markdown-it @license MIT */_exports.$styling$1=styling$1;(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.markdownit=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){// HTML5 entities map: { name -> utf16string }
 //
 'use strict';/*eslint quotes:0*/module.exports=require("entities/maps/entities.json")},{"entities/maps/entities.json":52}],2:[function(require,module,exports){// List of valid html blocks names, accorting to commonmark spec
 // http://jgm.github.io/CommonMark/spec.html#html-blocks
@@ -11549,750 +11519,7 @@ return Theme.getThemeForComponent("FuroMarkdown")||css`
 
 
     `}render(){return html`    
-      ${this.markdownRendered}`}}window.customElements.define("furo-markdown",FuroMarkdown);class FuroDocPropertiesItem extends FBP(LitElement){constructor(){super();this.prop}data(data){this.prop=data;if("protected"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDocPropertiesItem")||css`
-        :host {
-            display: block;
-            font-size: 13px;
-            margin-bottom: 36px;
-        }
-
-
-        :host([hidden]) {
-            display: none;
-        }
-        span.default{
-            color:green;
-        }
-        span.propname{
-            font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
-            font-weight: 900;
-        }
-       
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){this.cname=this.prop.name.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase();// language=HTML
-return html`
-      <span class="propname">${this.cname}</span>   <span class="propname">(${this.prop.name}):</span>  ${this.prop.type} = <span class="default">${this.prop.defaultValue}</span>  <i>${this.prop.inheritedFrom}</i>
-      <furo-markdown ƒ-parse-markdown="--data(*.description)">></furo-markdown>
-      
-    `}}window.customElements.define("furo-doc-properties-item",FuroDocPropertiesItem);class FuroDocProperties extends FBP(LitElement){constructor(){super();this.hidden=!0}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
-       * hide props if empty
-       */hidden:{type:Boolean,reflect:!0}}}data(data){if(Array.isArray(data)){data=data.sort((a,b)=>{var textA=a.name.toUpperCase(),textB=b.name.toUpperCase();return textA<textB?-1:textA>textB?1:0});this._FBPTriggerWire("--data",data);this.removeAttribute("hidden")}else{this.setAttribute("hidden","")}}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDocProperties")||css`
-        :host {
-            display: block;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        h2 {
-            margin-top: 48px;
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: 0.0125em;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
-        }
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return html`
-      <h2>Attributes & Properties</h2>
-      <template is="flow-repeat" ƒ-inject-items="--data">
-        <furo-doc-properties-item ƒ-data="--item"></furo-doc-properties-item>
-
-      </template>
-    `}}window.customElements.define("furo-doc-properties",FuroDocProperties);class FuroDocMethodsItem extends FBP(LitElement){constructor(){super();this.method}data(data){this.method=data;if("protected"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDocMethodsItem")||css`
-        :host {
-            display: block;
-            font-size: 13px;
-            margin-bottom: 36px;
-        }
-
-        strong {
-            font-weight: 700;
-            font-family: "Roboto Mono";
-
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        span.name {
-            color: green;
-        }
-
-        span.paramname {
-            font-family: "Roboto Mono";
-            color: #717171;
-        }
-
-        span.type, span.return {
-            color: #717171;
-            font-weight: 900;
-        }
-
-
-        span.type:after {
-            content: ","
-        }
-        .inherited{
-            font-style: italic;
-            line-height: 24px;
-            color: #7f7f7f;
-        }
-
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-if(!this.method.return){this.method.return={}}this.cname=this.method.name.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase();return html`
-      <strong>${this.cname}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
-      <span class="name" ƒ-.inner-text="--item(*.name)"></span> : 
-      <span class="type" ƒ-.inner-text="--item(*.type)"></span></template>) ⟹ <span class="return">${this.method.return.type}</span>
-      
-      <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
-      <ul>
-      <template is="flow-repeat" ƒ-inject-items="--data(*.params)">
-    <li><span class="paramname" ƒ-.inner-text="--item(*.name)">fd</span> <br>
-    <furo-markdown ƒ-parse-markdown="--item(*.description)">></furo-markdown></li>   
-</template></ul> 
-    `}}window.customElements.define("furo-doc-methods-item",FuroDocMethodsItem);class FuroDocMethods extends FBP(LitElement){constructor(){super();this.hidden=!0}/**
-     * @private
-     * @return {Object}
-     */static get methods(){return{/**
-       * hide props if empty
-       */hidden:{type:Boolean,reflect:!0}}}data(data){if(Array.isArray(data)){// show public fields only hide inhterite from inheritedFrom: "LitElement"
-data=data.filter(m=>{// todo: filter out inherited stuff like connectedCallback and so
-return"public"===m.privacy&&!m.inheritedFrom});data=data.sort((a,b)=>{var textA=a.name.toUpperCase(),textB=b.name.toUpperCase();return textA<textB?-1:textA>textB?1:0});this._FBPTriggerWire("--data",data);this.removeAttribute("hidden")}else{this.setAttribute("hidden","")}}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDocMethods")||css`
-        :host {
-            display: block;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        h2 {
-            margin-top: 48px;
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: 0.0125em;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
-        }
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return html`
-      <h2>Methods</h2>
-      <template is="flow-repeat" ƒ-inject-items="--data">
-        <furo-doc-methods-item ƒ-data="--item"></furo-doc-methods-item>
-
-      </template>
-    `}}window.customElements.define("furo-doc-methods",FuroDocMethods);class FuroDocEventsItem extends FBP(LitElement){constructor(){super();this.prop}data(data){this.prop=data;if("protected"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDocEventsItem")||css`
-        :host {
-            display: block;
-            font-size: 13px;
-            margin-bottom: 36px;
-        }
-        strong {
-            font-weight: 700;
-            font-family: "Roboto Mono";
-            
-        }
-        :host([hidden]) {
-            display: none;
-        }
-        span.type, span.return {
-            color: #717171;
-        }
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return html`
-      <strong>${this.prop.name}</strong> : <span class="type">${this.prop.type}</span> 
-      <furo-markdown ƒ-parse-markdown="--data(*.description)">></furo-markdown>
-      
-    `}}window.customElements.define("furo-doc-events-item",FuroDocEventsItem);class FuroDocEvents extends FBP(LitElement){constructor(){super();this.hidden=!0}/**
-     * @private
-     * @return {Object}
-     */static get events(){return{/**
-       * hide props if empty
-       */hidden:{type:Boolean,reflect:!0}}}data(data){if(Array.isArray(data)){this._FBPTriggerWire("--data",data);data=data.sort((a,b)=>{var textA=a.name.toUpperCase(),textB=b.name.toUpperCase();return textA<textB?-1:textA>textB?1:0});this.removeAttribute("hidden")}else{this.setAttribute("hidden","")}}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDocEvents")||css`
-        :host {
-            display: block;
-        }
-
-        
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        h2 {
-            margin-top: 48px;
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: 0.0125em;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
-        }
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return html`
-      <h2>Events</h2>
-      <template is="flow-repeat" ƒ-inject-items="--data">
-        <furo-doc-events-item ƒ-data="--item"></furo-doc-events-item>
-
-      </template>
-    `}}window.customElements.define("furo-doc-events",FuroDocEvents);class FuroDemoLink extends FBP(LitElement){constructor(){super()}/**
-    * flow is ready lifecycle method
-    */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDemoLink")||css`
-        :host {
-            display: block;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-    `}injectData(data){this.data=data}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return html`
-      <a href="../demo/${this.data.url}">${this.data.url}</a> <i>${this.data.description}</i>
-    `}}window.customElements.define("furo-demo-link",FuroDemoLink);class FuroDocElement extends FBP(LitElement){constructor(){super();this.element={}}hide(){this.setAttribute("hidden","")}print(analysisElement){this.element=analysisElement;this._FBPTriggerWire("--data",this.element);if(this.element.demos){this.element.demos.forEach(d=>{d.package=this.element.__package});this._FBPTriggerWire("--demos",this.element.demos)}this.removeAttribute("hidden");this.requestUpdate();this.scrollTop=0}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDocElement")||css`
-        :host {
-            display: block;
-            font-weight: 400;
-            font-size: 14px;
-            max-width: 1024px;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        h1{
-            font-size: 2.8rem;
-            font-weight: 400;
-            line-height: 3.5rem;
-            margin-top: 0;
-            letter-spacing: normal;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        h2.description {
-            margin-top: 20px;
-            margin-bottom: 24px;
-            max-width: 600px;
-            color: #999;
-            border-bottom: none;
-        }
-        h2 {
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: 0.0125em;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
-        }
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return html`
-      <h1><${this.element.tagname}&gt;</h1>
-      <h2 class="description">${this.element.summary}</h2>         
-      <h2>Description</h2>
-      <furo-markdown unsafe ƒ-parse-markdown="--data(*.description)"></furo-markdown>
-      <h2>Demos</h2>
-      <template is="flow-repeat" ƒ-inject-items="--demos">
-          <furo-demo-link ƒ-inject-data="--item"></furo-demo-link>
-      </template>
-      <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>
-      <furo-doc-events ƒ-data="--data(*.events)"></furo-doc-events>
-      <furo-doc-methods ƒ-data="--data(*.methods)"></furo-doc-methods>
-    `}}window.customElements.define("furo-doc-element",FuroDocElement);class FuroDocClassMethodsItem extends FBP(LitElement){constructor(){super();this.method}data(data){this.method=data;if("protected"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDocClassMethodsItem")||css`
-        :host {
-            display: block;
-            font-size: 13px;
-            margin-bottom: 36px;
-        }
-
-        strong {
-            font-weight: 700;
-            font-family: "Roboto Mono";
-           
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        span.name {
-            color: green;
-        }
-
-        span.paramname {
-            font-family: "Roboto Mono";
-            color: #717171;
-        }
-
-        span.type, span.return {
-            color: #717171;
-            font-weight: 900;
-        }
-        
-
-        span.type:after {
-            content: ","
-        }
-        .inherited{
-            font-style: italic;
-            line-height: 24px;
-            color: #7f7f7f;
-        }
-
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-if(!this.method.return){this.method.return={}}return html`
-      <strong>${this.method.name}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
-      <span class="name" ƒ-.inner-text="--item(*.name)"></span> : 
-      <span class="type" ƒ-.inner-text="--item(*.type)"></span></template>) ⟹ <span class="return">${this.method.return.type}</span>
-       <span class="inherited"> Inherited from ${this.method.inheritedFrom}</span>
-      <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
-      <ul>
-      <template is="flow-repeat" ƒ-inject-items="--data(*.params)">
-    <li><span class="paramname" ƒ-.inner-text="--item(*.name)">fd</span> <br>
-    <furo-markdown ƒ-parse-markdown="--item(*.description)">></furo-markdown></li>   
-</template></ul> 
-    `}}window.customElements.define("furo-doc-class-methods-item",FuroDocClassMethodsItem);class FuroDocClassMethods extends FBP(LitElement){constructor(){super();this.hidden=!0}/**
-     * @private
-     * @return {Object}
-     */static get methods(){return{/**
-       * hide props if empty
-       */hidden:{type:Boolean,reflect:!0}}}data(data){if(Array.isArray(data)){// show public fields only
-data=data.filter(m=>{return"public"===m.privacy});this._FBPTriggerWire("--data",data);this.removeAttribute("hidden")}else{this.setAttribute("hidden","")}}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDocClassMethods")||css`
-        :host {
-            display: block;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        h2 {
-            font-weight: 400;
-            line-height: 28px;
-            font-size: 20px;
-            margin-top: 48px;
-        }
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return html`
-      <h2>Methods</h2>
-      <template is="flow-repeat" ƒ-inject-items="--data">
-        <furo-doc-class-methods-item ƒ-data="--item"></furo-doc-class-methods-item>
-
-      </template>
-    `}}window.customElements.define("furo-doc-class-methods",FuroDocClassMethods);class FuroDocClass extends FBP(LitElement){constructor(){super();this.class={}}hide(){this.setAttribute("hidden","")}print(analysisElement){this.class=analysisElement;this._FBPTriggerWire("--data",this.class);this.removeAttribute("hidden");this.requestUpdate();this.scrollTop=0}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDocClass")||css`
-        :host {
-            display: block;
-            font-weight: 400;
-            font-size: 14px;
-            max-width: 1024px;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-        h1{
-            font-size: 2.8rem;
-            font-weight: 400;
-            line-height: 3.5rem;
-            margin-top: 0;
-            letter-spacing: normal;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        h2.description {
-            margin-top: 20px;
-            margin-bottom: 24px;
-            max-width: 600px;
-            color: #999;
-            border-bottom: none;
-        }
-        h2 {
-            font-weight: 400;
-            line-height: 28px;
-            font-size: 20px;
-            margin-top: 48px;
-        }
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return html`
-      <h1>${this.class.name}</h1>
-      <h2 class="description">${this.class.summary}</h2>  
-      <h2>Description</h2>
-      <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
-      <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>     
-      <furo-doc-class-methods ƒ-data="--data(*.methods)"></furo-doc-class-methods>
-    `}}window.customElements.define("furo-doc-class",FuroDocClass);class FuroDocMenuElementItem extends FBP(LitElement){constructor(){super();//forward click to a
-this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}setItem(item){this.item=item;this.selected=item.__selected;if(this.selected){setTimeout(()=>{if(this.scrollIntoViewIfNeeded){this.scrollIntoViewIfNeeded()}},16)}}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
-       * Description
-       */selected:{type:Boolean,reflect:!0}}}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDocMenuElementItem")||css`
-        :host {
-            display: list-item;
-            padding-left: var(--spacing-s);
-            line-height: 30px;
-            margin-bottom: 4px;
-            color: var(--on-background);
-            letter-spacing: 0.0178571em;
-            font-size: 0.875rem;
-            font-weight: 300;
-            transition: all 0.2s ease 0s;
-            cursor: pointer;
-        }
-        
-        :host([hidden]) {
-            display: none;
-        }
-        
-
-        :host(:hover), :host([selected]) {
-            background-color: var(--secondary);
-            border-radius: 4px;
-            color: var(--on-secondary);
-        }
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return html`
-<a href="${this.item.tagname}" ƒ-click=":STOP,--click"></a>&lt;${this.item.tagname}&gt;
-      
-    `}}window.customElements.define("furo-doc-menu-element-item",FuroDocMenuElementItem);class FuroDocMenuClassItem extends FBP(LitElement){constructor(){super();this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}setItem(item){this.item=item;this.selected=item.__selected;if(this.selected){setTimeout(()=>{if(this.scrollIntoViewIfNeeded){this.scrollIntoViewIfNeeded()}},16)}// remove classes without names (ie superclasses)
-if(!this.item.name){this.remove()}}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
-       * Description
-       */selected:{type:Boolean,reflect:!0}}}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDocMenuClassItem")||css`
-        :host {
-            display: list-item;
-            padding-left: var(--spacing-s);
-            line-height: 30px;
-            margin-bottom: 4px;
-            color: var(--on-background);
-            letter-spacing: 0.0178571em;
-            font-size: 0.875rem;
-            font-weight: 300;
-            transition: all 0.2s ease 0s;
-            cursor: pointer;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-
-        :host(:hover), :host([selected]) {
-            background-color: var(--secondary);
-            border-radius: 4px;
-            color: var(--on-secondary);
-        }
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return html`
-      <a href="${this.item.name}" ƒ-click=":STOP,--click"></a>${this.item.name}
-    `}}window.customElements.define("furo-doc-menu-class-item",FuroDocMenuClassItem);class FuroDocMenu extends FBP(LitElement){constructor(){super()}analysis(analysis){if(analysis.elements){this._FBPTriggerWire("--elements",analysis.elements)}else{//clear
-this._FBPTriggerWire("--elements",[])}if(analysis.classes){this._FBPTriggerWire("--classes",analysis.classes)}else{//clear
-this._FBPTriggerWire("--classes",[])}if(analysis.mixins){this._FBPTriggerWire("--mixins",analysis.mixins)}else{//clear
-this._FBPTriggerWire("--mixins",[])}// send selected, analysis.__selectedElement is set from furo-doc-fetch-analysis
-if(analysis.__selectedElement){/**
-       * @event element
-       * Fired when element is selected
-       * detail payload: element analysis data
-       */let customEvent=new Event("element",{composed:!0,bubbles:!0});customEvent.detail=analysis.__selectedElement;this.dispatchEvent(customEvent)}// send selected class
-if(analysis.__selectedClass){/**
-       * @event element
-       * Fired when element is selected
-       * detail payload: element analysis data
-       */let customEvent=new Event("class",{composed:!0,bubbles:!0});customEvent.detail=analysis.__selectedClass;this.dispatchEvent(customEvent)}// send selected mixin
-if(analysis.__selectedMixin){/**
-       * @event element
-       * Fired when element is selected
-       * detail payload: element analysis data
-       */let customEvent=new Event("mixin",{composed:!0,bubbles:!0});customEvent.detail=analysis.__selectedMixin;this.dispatchEvent(customEvent)}}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDocMenu")||css`
-        :host {
-            display: block;
-            height: 100%;
-            padding-right: var(--spacing-s);
-            background-color: var(--surface);
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        h3 {
-            position: sticky;
-            top: 0;
-            background-color: var(--surface);
-            z-index: 1;
-            margin-top: 0;
-            color: var(--on-background);
-            letter-spacing: .07272727em;
-            font-size: 12px;
-            font-weight: 500;
-            text-transform: uppercase;
-        }
-
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return html`
-
-      <h3>Elements</h3>
-      <ul>
-        <template is="flow-repeat" ƒ-inject-items="--elements" identity-path="name">
-          <furo-doc-menu-element-item ƒ-set-item="--item"></furo-doc-menu-element-item>
-        </template>
-      </ul>
-
-
-      <h3>Mixins</h3>
-      <ul>
-        <template is="flow-repeat" ƒ-inject-items="--mixins" identity-path="name">
-          <furo-doc-menu-class-item ƒ-set-item="--item"></furo-doc-menu-class-item>
-        </template>
-      </ul>
-
-      <h3>Classes</h3>
-      <ul>
-        <template is="flow-repeat" ƒ-inject-items="--classes" identity-path="name">
-          <furo-doc-menu-class-item ƒ-set-item="--item"></furo-doc-menu-class-item>
-        </template>
-      </ul>
-
-    `}}window.customElements.define("furo-doc-menu",FuroDocMenu);class Styling$1{static get theme(){// language=CSS
-return css`
-      :host {
-
-        /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
-        /* https://material.io/design/material-theming/implementing-your-theme.html#color */
-        --primary-light: #4ccd50;
-        --primary: #4caf50;
-        --primary-rgb: 76, 175, 80;
-        --primary-dark: #4b9b4f;
-        --primary-variant: #2587a3;
-        --on-primary: #ffffff;
-
-        --secondary-light: #fdd756;
-        --secondary: #fecf2f;
-        --secondary-rgb: 254,207,47;
-        --secondary-dark: #ffc911;
-        --secondary-variant: #faedc1;
-        --on-secondary: #212121;
-
-        --accent-light: #ecf3ca;
-        --accent: #cce35b;
-        --accent-rgb: 204,227,91;
-        --accent-dark: #bada18;
-        --on-accent: #212121;
-
-        --background: #eeeeee;
-        --background-rgb: 238, 238, 238;
-        --on-background: #212121;
-        --on-background-rgb: 33,33,33;
-
-        --surface-light: #f3f3f3;
-        --surface-light-rgb: 243, 243, 243;
-        --surface: #FEFEFE;
-        --surface-rgb: 254, 254, 254;
-        --surface-dark: #f0f0f0;
-        --on-surface: #212121;
-        --on-surface-rgb: 33, 33, 33;
-        --separator: #E4E4E4;
-
-        /* States */
-        --state-hover: 0.04;
-        --state-selected: 0.08;
-        --state-selected-hover: 0.12;
-        --state-active: 0.1;
-        --state-focus: 0.12;
-        --state-selected-focus: 0.2;
-        --state-disabled: 0.38;
-
-        /* Emphasis, used for secondary text,... */
-        --medium-emphasis-surface: 0.6;
-        --medium-emphasis-primary: 0.74;
-
-
-        /* Input, Forms, Toast*/
-        --error: #ea1c24;
-        --on-error: #ffffff;
-
-        --danger-light: #fc1c21;
-        --danger: #ee1c21;
-        --danger-dark: #de1c21;
-        --on-danger: #f8f8f8;
-
-        --success: #129991;
-        --on-success: #202124;
-
-        --disabled: #c3c4c3;
-        --on-disabled: #585858;
-
-
-        /* Spacing */
-        --spacing-xxs: 4px;
-        --spacing-xs: 8px;
-        --spacing-s: 16px;
-        --spacing: 24px;
-        --spacing-m: 24px;
-        --spacing-l: 32px;
-        --spacing-xl: 48px;
-        --spacing-xxl: 96px;
-
-      }
-
-    `}}_exports.Styling=Styling$1;var styling$1={Styling:Styling$1};_exports.$styling$1=styling$1;(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.dagre=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){/*
+      ${this.markdownRendered}`}}window.customElements.define("furo-markdown",FuroMarkdown);(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.dagre=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){/*
       Copyright (c) 2012-2014 Chris Pettitt
       
       Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -16208,16 +15435,45 @@ return text.path(this)}),targets(){return baseFind("svg [href*=\""+this.id()+"\"
 element(element,file){// Set lined element
 return this.attr("href",(file||"")+"#"+element,xlink)}}_exports.Use=_exports.$UseDefault=Use;registerMethods({Container:{// Create a use element
 use:wrapWithAttrCheck(function(element,file){return this.put(new Use).element(element,file)})}});register(Use,"Use");var Use$1={default:Use};_exports.$Use=Use$1;const SVG=makeInstance;_exports.SVG=SVG;extend([Svg,Symbol$1,Image$1,Pattern,Marker],getMethodsFor("viewbox"));extend([Line,Polyline,Polygon,Path],getMethodsFor("marker"));extend(Text,getMethodsFor("Text"));extend(Path,getMethodsFor("Path"));extend(Defs,getMethodsFor("Defs"));extend([Text,Tspan],getMethodsFor("Tspan"));extend([Rect,Ellipse,Circle,Gradient],getMethodsFor("radius"));extend(EventTarget,getMethodsFor("EventTarget"));extend(Dom,getMethodsFor("Dom"));extend(Element,getMethodsFor("Element"));extend(Shape,getMethodsFor("Shape"));// extend(Element, getConstructor('Memory'))
-extend(Container,getMethodsFor("Container"));extend(Runner,getMethodsFor("Runner"));List.extend(getMethodNames());registerMorphableType([SVGNumber,Color,Box,Matrix,SVGArray,PointArray,PathArray]);makeMorphable();var main={Morphable:Morphable,registerMorphableType:registerMorphableType,makeMorphable:makeMorphable,TransformBag:TransformBag,ObjectBag:ObjectBag,NonMorphable:NonMorphable,defaults:defaults,utils:utils,namespaces:namespaces,regex:regex,SVG:SVG,parser:parser,find:baseFind,on:on,off:off,dispatch:dispatch,root:root,create:create,makeInstance:makeInstance,nodeOrNew:nodeOrNew,adopt:adopt,mockAdopt:mockAdopt,register:register,getClass:getClass,eid:eid,assignNewId:assignNewId,extend:extend,wrapWithAttrCheck:wrapWithAttrCheck,invent:invent,registerWindow:registerWindow,Animator:Animator,Controller:Controller,Ease:Ease,PID:PID,Spring:Spring,easing:easing,Queue:Queue,Runner:Runner,Timeline:Timeline,Array:SVGArray,Box:Box,Color:Color,EventTarget:EventTarget,Matrix:Matrix,Number:SVGNumber,PathArray:PathArray,Point:Point$1,PointArray:PointArray,List:List,Circle:Circle,ClipPath:ClipPath,Container:Container,Defs:Defs,Dom:Dom,Element:Element,Ellipse:Ellipse,ForeignObject:ForeignObject,Gradient:Gradient,G:G,A:A,Image:Image$1,Line:Line,Marker:Marker,Mask:Mask,Path:Path,Pattern:Pattern,Polygon:Polygon,Polyline:Polyline,Rect:Rect,Shape:Shape,Stop:Stop,Style:Style,Svg:Svg,Symbol:Symbol$1,Text:Text,TextPath:TextPath,Tspan:Tspan,Use:Use};_exports.$main=main;const normalizeEvent=ev=>ev.touches||[{clientX:ev.clientX,clientY:ev.clientY}];extend(Svg,{panZoom(options){this.off(".panZoom");// when called with false, disable panZoom
-if(!1===options)return this;options=options||{};const zoomFactor=options.zoomFactor||.03,zoomMin=options.zoomMin||Number.MIN_VALUE,zoomMax=options.zoomMax||Number.MAX_VALUE;let lastP,lastTouches,zoomInProgress=!1;var wheelZoom=function(ev){ev.preventDefault();// touchpads can give ev.deltaY == 0, which skrews the lvl calculation
-if(0===ev.deltaY)return;let lvl=this.zoom()-zoomFactor*ev.deltaY/Math.abs(ev.deltaY);const p=this.point(ev.clientX,ev.clientY);if(lvl>zoomMax){lvl=zoomMax}if(lvl<zoomMin){lvl=zoomMin}if(this.dispatch("zoom",{level:lvl,focus:p}).defaultPrevented){return this}this.zoom(lvl,p)};const pinchZoomStart=function(ev){lastTouches=normalizeEvent(ev);if(2>lastTouches.length)return;ev.preventDefault();if(this.dispatch("pinchZoomStart",{event:ev}).defaultPrevented){return}this.off("touchstart.panZoom",pinchZoomStart);zoomInProgress=!0;on(document,"touchmove.panZoom",pinchZoom,this,{passive:!1});on(document,"touchend.panZoom",pinchZoomStop,this,{passive:!1})},pinchZoomStop=function(ev){ev.preventDefault();zoomInProgress=!1;this.dispatch("pinchZoomEnd",{event:ev});off(document,"touchmove.panZoom",pinchZoom);off(document,"touchend.panZoom",pinchZoomStop);this.on("touchstart.panZoom",pinchZoomStart)},pinchZoom=function(ev){ev.preventDefault();const currentTouches=normalizeEvent(ev),zoom=this.zoom(),lastDelta=Math.sqrt(Math.pow(lastTouches[0].clientX-lastTouches[1].clientX,2)+Math.pow(lastTouches[0].clientY-lastTouches[1].clientY,2)),currentDelta=Math.sqrt(Math.pow(currentTouches[0].clientX-currentTouches[1].clientX,2)+Math.pow(currentTouches[0].clientY-currentTouches[1].clientY,2));let zoomAmount=lastDelta/currentDelta;if(zoom<zoomMin&&1<zoomAmount||zoom>zoomMax&&1>zoomAmount){zoomAmount=1}const currentFocus={x:currentTouches[0].clientX+.5*(currentTouches[1].clientX-currentTouches[0].clientX),y:currentTouches[0].clientY+.5*(currentTouches[1].clientY-currentTouches[0].clientY)},lastFocus={x:lastTouches[0].clientX+.5*(lastTouches[1].clientX-lastTouches[0].clientX),y:lastTouches[0].clientY+.5*(lastTouches[1].clientY-lastTouches[0].clientY)},p=this.point(currentFocus.x,currentFocus.y),focusP=this.point(2*currentFocus.x-lastFocus.x,2*currentFocus.y-lastFocus.y),box=new Box(this.viewbox()).transform(new Matrix().translate(p.x,p.y).scale(zoomAmount,0,0).translate(-focusP.x,-focusP.y));this.viewbox(box);lastTouches=currentTouches;this.dispatch("zoom",{box:box,focus:focusP})},panStart=function(ev){ev.preventDefault();this.off("mousedown.panZoom",panStart);lastTouches=normalizeEvent(ev);if(zoomInProgress)return;this.dispatch("panStart",{event:ev});lastP={x:lastTouches[0].clientX,y:lastTouches[0].clientY};on(document,"mousemove.panZoom",panning,this);on(document,"mouseup.panZoom",panStop,this)},panStop=function(ev){ev.preventDefault();off(document,"mousemove.panZoom",panning);off(document,"mouseup.panZoom",panStop);this.on("mousedown.panZoom",panStart);this.dispatch("panEnd",{event:ev})},panning=function(ev){ev.preventDefault();const currentTouches=normalizeEvent(ev),currentP={x:currentTouches[0].clientX,y:currentTouches[0].clientY},p1=this.point(currentP.x,currentP.y),p2=this.point(lastP.x,lastP.y),deltaP=[p2.x-p1.x,p2.y-p1.y],box=new Box(this.viewbox()).transform(new Matrix().translate(deltaP[0],deltaP[1]));this.viewbox(box);lastP=currentP};this.on("wheel.panZoom",wheelZoom);this.on("touchstart.panZoom",pinchZoomStart,this,{passive:!1});this.on("mousedown.panZoom",panStart,this);return this}});class FuroGraphRenderer extends FBP(LitElement){constructor(){super()}draw(graph){var sizes=graph.graph(),graphWidth=sizes.width,graphHeight=sizes.height;// remove old image on redraw
-let i=this.shadowRoot.querySelector("svg");if(i){i.remove()}var canvas=SVG().addTo(this.shadowRoot).panZoom({zoomMin:.1,zoomMax:10,zoomFactor:.015});canvas.viewbox(0,0,graphWidth,graphHeight);this.canvas=canvas;let nodes=graph.nodes();nodes.forEach(v=>{let node=graph.node(v);// boxes for the components
+extend(Container,getMethodsFor("Container"));extend(Runner,getMethodsFor("Runner"));List.extend(getMethodNames());registerMorphableType([SVGNumber,Color,Box,Matrix,SVGArray,PointArray,PathArray]);makeMorphable();var main={Morphable:Morphable,registerMorphableType:registerMorphableType,makeMorphable:makeMorphable,TransformBag:TransformBag,ObjectBag:ObjectBag,NonMorphable:NonMorphable,defaults:defaults,utils:utils,namespaces:namespaces,regex:regex,SVG:SVG,parser:parser,find:baseFind,on:on,off:off,dispatch:dispatch,root:root,create:create,makeInstance:makeInstance,nodeOrNew:nodeOrNew,adopt:adopt,mockAdopt:mockAdopt,register:register,getClass:getClass,eid:eid,assignNewId:assignNewId,extend:extend,wrapWithAttrCheck:wrapWithAttrCheck,invent:invent,registerWindow:registerWindow,Animator:Animator,Controller:Controller,Ease:Ease,PID:PID,Spring:Spring,easing:easing,Queue:Queue,Runner:Runner,Timeline:Timeline,Array:SVGArray,Box:Box,Color:Color,EventTarget:EventTarget,Matrix:Matrix,Number:SVGNumber,PathArray:PathArray,Point:Point$1,PointArray:PointArray,List:List,Circle:Circle,ClipPath:ClipPath,Container:Container,Defs:Defs,Dom:Dom,Element:Element,Ellipse:Ellipse,ForeignObject:ForeignObject,Gradient:Gradient,G:G,A:A,Image:Image$1,Line:Line,Marker:Marker,Mask:Mask,Path:Path,Pattern:Pattern,Polygon:Polygon,Polyline:Polyline,Rect:Rect,Shape:Shape,Stop:Stop,Style:Style,Svg:Svg,Symbol:Symbol$1,Text:Text,TextPath:TextPath,Tspan:Tspan,Use:Use};/*!
+   * @svgdotjs/svg.panzoom.js - A plugin for svg.js that enables panzoom for viewport elements
+   * @version 2.1.0
+   * https://github.com/svgdotjs/svg.panzoom.js#readme
+   *
+   * @copyright undefined
+   * @license MIT
+   *
+   * BUILT: Tue Feb 25 2020 01:37:12 GMT+0100 (GMT+01:00)
+   */_exports.$main=main;;var normalizeEvent=function normalizeEvent(ev){return ev.touches||[{clientX:ev.clientX,clientY:ev.clientY}]};extend(Svg,{panZoom:function panZoom(options){var _options,_options$zoomFactor,_options$zoomMin,_options$zoomMax,_options$wheelZoom,_options$pinchZoom,_options$panning,_options$panButton,_options$oneFingerPan,_options$margins,_this=this;this.off(".panZoom");// when called with false, disable panZoom
+if(!1===options)return this;options=null!=(_options=options)?_options:{};var zoomFactor=null!=(_options$zoomFactor=options.zoomFactor)?_options$zoomFactor:2,zoomMin=null!=(_options$zoomMin=options.zoomMin)?_options$zoomMin:Number.MIN_VALUE,zoomMax=null!=(_options$zoomMax=options.zoomMax)?_options$zoomMax:Number.MAX_VALUE,doWheelZoom=null!=(_options$wheelZoom=options.wheelZoom)?_options$wheelZoom:!0,doPinchZoom=null!=(_options$pinchZoom=options.pinchZoom)?_options$pinchZoom:!0,doPanning=null!=(_options$panning=options.panning)?_options$panning:!0,panButton=null!=(_options$panButton=options.panButton)?_options$panButton:0,oneFingerPan=null!=(_options$oneFingerPan=options.oneFingerPan)?_options$oneFingerPan:!1,margins=null!=(_options$margins=options.margins)?_options$margins:!1,lastP,lastTouches,zoomInProgress=!1,restrictToMargins=function restrictToMargins(box){if(!margins)return;var top=margins.top,left=margins.left,bottom=margins.bottom,right=margins.right,zoom=_this.width()/box.width,_this$attr=_this.attr(["width","height"]),width=_this$attr.width,height=_this$attr.height,leftLimit=width-left/zoom,rightLimit=(right-width)/zoom,topLimit=height-top/zoom,bottomLimit=(bottom-height)/zoom;box.x=Math.min(leftLimit,Math.max(rightLimit,box.x));box.y=Math.min(topLimit,Math.max(bottomLimit,box.y));return box},wheelZoom=function wheelZoom(ev){ev.preventDefault();// touchpads can give ev.deltaY == 0, which skrews the lvl calculation
+if(0===ev.deltaY)return;var lvl=Math.pow(1+zoomFactor,-1*ev.deltaY/100)*this.zoom(),p=this.point(ev.clientX,ev.clientY);if(lvl>zoomMax){lvl=zoomMax}if(lvl<zoomMin){lvl=zoomMin}if(this.dispatch("zoom",{level:lvl,focus:p}).defaultPrevented){return this}this.zoom(lvl,p);if(margins){var box=restrictToMargins(this.viewbox());this.viewbox(box)}},pinchZoomStart=function pinchZoomStart(ev){lastTouches=normalizeEvent(ev);// Start panning in case only one touch is found
+if(2>lastTouches.length){if(doPanning&&oneFingerPan){panStart.call(this,ev)}return}// Stop panning for more than one touch
+if(doPanning&&oneFingerPan){panStop.call(this,ev)}// We call it so late, so the user is still able to scroll / reload the page via gesture
+// In case oneFingerPan is not active
+ev.preventDefault();if(this.dispatch("pinchZoomStart",{event:ev}).defaultPrevented){return}this.off("touchstart.panZoom",pinchZoomStart);zoomInProgress=!0;on(document,"touchmove.panZoom",pinchZoom,this,{passive:!1});on(document,"touchend.panZoom",pinchZoomStop,this,{passive:!1})},pinchZoomStop=function pinchZoomStop(ev){ev.preventDefault();var currentTouches=normalizeEvent(ev);if(1<currentTouches.length){return}zoomInProgress=!1;this.dispatch("pinchZoomEnd",{event:ev});off(document,"touchmove.panZoom",pinchZoom);off(document,"touchend.panZoom",pinchZoomStop);this.on("touchstart.panZoom",pinchZoomStart);if(currentTouches.length&&doPanning&&oneFingerPan){panStart.call(this,ev)}},pinchZoom=function pinchZoom(ev){ev.preventDefault();var currentTouches=normalizeEvent(ev),zoom=this.zoom(),lastDelta=Math.sqrt(Math.pow(lastTouches[0].clientX-lastTouches[1].clientX,2)+Math.pow(lastTouches[0].clientY-lastTouches[1].clientY,2)),currentDelta=Math.sqrt(Math.pow(currentTouches[0].clientX-currentTouches[1].clientX,2)+Math.pow(currentTouches[0].clientY-currentTouches[1].clientY,2)),zoomAmount=lastDelta/currentDelta;if(zoom<zoomMin&&1<zoomAmount||zoom>zoomMax&&1>zoomAmount){zoomAmount=1}var currentFocus={x:currentTouches[0].clientX+.5*(currentTouches[1].clientX-currentTouches[0].clientX),y:currentTouches[0].clientY+.5*(currentTouches[1].clientY-currentTouches[0].clientY)},lastFocus={x:lastTouches[0].clientX+.5*(lastTouches[1].clientX-lastTouches[0].clientX),y:lastTouches[0].clientY+.5*(lastTouches[1].clientY-lastTouches[0].clientY)},p=this.point(currentFocus.x,currentFocus.y),focusP=this.point(2*currentFocus.x-lastFocus.x,2*currentFocus.y-lastFocus.y),box=new Box(this.viewbox()).transform(new Matrix().translate(-focusP.x,-focusP.y).scale(zoomAmount,0,0).translate(p.x,p.y));restrictToMargins(box);this.viewbox(box);lastTouches=currentTouches;this.dispatch("zoom",{box:box,focus:focusP})},panStart=function panStart(ev){var isMouse=-1<ev.type.indexOf("mouse");// In case panStart is called with touch, ev.button is undefined
+if(isMouse&&ev.button!==panButton&&ev.which!==panButton+1){return}ev.preventDefault();this.off("mousedown.panZoom",panStart);lastTouches=normalizeEvent(ev);if(zoomInProgress)return;this.dispatch("panStart",{event:ev});lastP={x:lastTouches[0].clientX,y:lastTouches[0].clientY};on(document,"touchmove.panZoom mousemove.panZoom",panning,this,{passive:!1});on(document,"touchend.panZoom mouseup.panZoom",panStop,this,{passive:!1})},panStop=function panStop(ev){ev.preventDefault();off(document,"touchmove.panZoom mousemove.panZoom",panning);off(document,"touchend.panZoom mouseup.panZoom",panStop);this.on("mousedown.panZoom",panStart);this.dispatch("panEnd",{event:ev})},panning=function panning(ev){ev.preventDefault();var currentTouches=normalizeEvent(ev),currentP={x:currentTouches[0].clientX,y:currentTouches[0].clientY},p1=this.point(currentP.x,currentP.y),p2=this.point(lastP.x,lastP.y),deltaP=[p2.x-p1.x,p2.y-p1.y];if(!deltaP[0]&&!deltaP[1]){return}var box=new Box(this.viewbox()).transform(new Matrix().translate(deltaP[0],deltaP[1]));lastP=currentP;restrictToMargins(box);if(this.dispatch("panning",{box:box,event:ev}).defaultPrevented){return}this.viewbox(box)};if(doWheelZoom){this.on("wheel.panZoom",wheelZoom,this,{passive:!1})}if(doPinchZoom){this.on("touchstart.panZoom",pinchZoomStart,this,{passive:!1})}if(doPanning){this.on("mousedown.panZoom",panStart,this,{passive:!1})}return this}});class FuroGraphRenderer extends FBP(LitElement){constructor(){super()}draw(graph){var sizes=graph.graph(),graphWidth=sizes.width,graphHeight=sizes.height;// remove old image on redraw
+let i=this.shadowRoot.querySelector("svg");if(i){i.remove()}var canvas=SVG().addTo(this.shadowRoot).panZoom({zoomMin:.1,zoomMax:10,zoomFactor:.115});canvas.viewbox(0,0,graphWidth,graphHeight);this.canvas=canvas;let nodes=graph.nodes();nodes.forEach(v=>{let node=graph.node(v);// boxes for the components
 if("component"===node.type){let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2).fill("none");box.radius(5);box.addClass(node.type);// set tooltip if exist
-if(""!==node.node.description){let tootltip=box.element("title");tootltip.words(node.node.description);//add info
-box.addClass("withdescription")}box.click(e=>{console.log(node.node)})}});// draw the lines
-graph.edges().forEach(e=>{let edge=graph.edge(e);if("center"!==edge.type){let points=edge.points.map(p=>{return[p.x,p.y]}),line=canvas.polyline(points).addClass("line");line.addClass(edge.type);let tootltip=line.element("title");tootltip.words(edge.wirename)}});// component Labels over the edges
+if(""!==node.node.description){//add info
+box.addClass("withdescription");box.mouseover(e=>{let elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:node.node.description/**
+                                            * @event show-tooltip-requested
+                                            * Fired when
+                                            * detail payload:
+                                            */},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}/*
+          box.click((e) => {
+            console.log(node.node)
+          })
+            */}});// draw the lines
+graph.edges().forEach(e=>{let edge=graph.edge(e);if("center"!==edge.type){let points=edge.points.map(p=>{return[p.x,p.y]}),line=canvas.polyline(points).addClass("line");line.addClass(edge.type);// send tooltip event for nodes with values in the attr
+// debounce tooltip on lines
+let timout,toRegistred=!1;line.mouseover(e=>{if(!toRegistred){toRegistred=!0;timout=setTimeout(()=>{let elem={duration:5e3,cr:{top:e.clientY-10,bottom:e.clientY+10,x:e.clientX,y:e.clientY,left:e.clientX-10,width:20,height:20},label:edge.wirename},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});/**
+                  * @event show-tooltip-requested
+                  * Fired on mouseover of a attr node
+                  */customEvent.detail=elem;this.dispatchEvent(customEvent)},60)}});// clear the timeout
+line.mouseout(e=>{clearTimeout(timout);toRegistred=!1})}});// component Labels over the edges
 nodes.forEach(v=>{let node=graph.node(v);if("component"===node.type){let background=canvas.rect(10,25).move(node.x-node.width/2,node.y-node.height/2).addClass("boxlabelbg");background.radius(5);if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+25,node.y-node.height/2+2);// width is taken from the image, so wait a moment.
-setTimeout(()=>{background.width(text.length()+50)},90)}}});nodes.forEach(v=>{let node=graph.node(v);if("attribute"===node.type){// add receiving circle
+setTimeout(()=>{background.width(text.length()+50)},90);// send tooltip event for nodes with values in the attr
+text.mouseover(e=>{let elem={duration:5e3,cr:text.node.getBoundingClientRect(),label:node.label},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}}});nodes.forEach(v=>{let node=graph.node(v);if("attribute"===node.type){// add receiving circle
 //if(node.attr._type === "method"){
 //  let r = canvas.circle(12, 12).move((node.x - node.width / 2) -6, (node.y - node.height / 2)+6).addClass('line');
 //}
@@ -16226,7 +15482,18 @@ if("method"===node.attr._type){let box=canvas.rect(10,node.height).move(node.x-n
 if("event"===node.attr._type){let box=canvas.rect(10,node.height).move(node.x+node.width/2-10,node.y-node.height/2);box.radius(3);box.addClass("eventindicator")}// add classes for ^^bubbling, -^host, ^nonbubbling, ƒ-.property
 // for bool like flex
 if(!node.attr.value){box.addClass("flag");// add black bar to the left
-let indicator=canvas.rect(10,node.height).move(node.x-node.width/2,node.y-node.height/2);indicator.radius(3);indicator.addClass("flagindicator")}else{let tootltip=box.element("title");tootltip.words(node.attr.value)}if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}}if("notarget"===node.type){let circle=canvas.circle(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2).fill("red"),tootltip=circle.element("title");tootltip.words(node.wirename)}if("nosource"===node.type){let circle=canvas.circle(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2).fill("orange"),tootltip=circle.element("title");tootltip.words(node.wirename)}if("park"===node.type){let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("park");if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}}if("bubbling"===node.type){let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("bubbling");if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}}if("nonbubbling"===node.type){let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("nonbubbling");if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}}if("hostevent"===node.type){let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("hostevent");if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}}})}/**
+let indicator=canvas.rect(10,node.height).move(node.x-node.width/2,node.y-node.height/2);indicator.radius(3);indicator.addClass("flagindicator");// send tooltip event for nodes with values in the attr
+box.mouseover(e=>{let elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:"Flag: "+node.label},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}else{// send tooltip event for nodes with values in the attr
+box.mouseover(e=>{let elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:node.label+" = "+node.attr.value/**
+                                                           * @event show-tooltip-requested
+                                                           * Fired on mouseover of a attr node
+                                                           */},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}}if("notarget"===node.type){let circle=canvas.circle(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2).fill("red");// send tooltip event
+circle.mouseover(e=>{let elem={duration:5e3,cr:circle.node.getBoundingClientRect(),label:node.wirename},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("nosource"===node.type){let circle=canvas.circle(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2).fill("orange");// send tooltip event
+circle.mouseover(e=>{let elem={duration:5e3,cr:circle.node.getBoundingClientRect(),label:node.wirename},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("park"===node.type){let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("park");if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}// send tooltip event
+box.mouseover(e=>{let elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:"park to var "+node.label},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("bubbling"===node.type){let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("bubbling");if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}// send tooltip event
+box.mouseover(e=>{let elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:"bubbling event "+node.label},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("nonbubbling"===node.type){let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("nonbubbling");if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}// send tooltip event
+box.mouseover(e=>{let elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:"event "+node.label},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("hostevent"===node.type){let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("hostevent");if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}// send tooltip event
+box.mouseover(e=>{let elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:node.label},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
 }/**
@@ -16235,108 +15502,108 @@ let indicator=canvas.rect(10,node.height).move(node.x-node.width/2,node.y-node.h
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroGraphRenderer")||css`
-        :host {
-            display: block;
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
+      :host {
+        display: block;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
 
-        }
+      }
 
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
 
-        svg {
-            width: 100%;
-            height: 100%;
-        }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
 
-        .component {
-            fill: #f6f6f6;
-            stroke: #67686a;
-            stroke-width: 2;
-        }
+      .component {
+        fill: #f6f6f6;
+        stroke: #67686a;
+        stroke-width: 2;
+      }
 
-        .boxlabelbg {
-            fill: white;
-            stroke: #67686a;
-            stroke-width: 2;
-        }
+      .boxlabelbg {
+        fill: white;
+        stroke: #67686a;
+        stroke-width: 2;
+      }
 
-        .component.withdescription {
-            stroke-dasharray: 20 4;
-        }
+      .component.withdescription {
+        stroke-dasharray: 20 4;
+      }
 
-        .attribute {
-            fill: white;
-            stroke: #ffb65b;
-            stroke-width: 2;
-        }
+      .attribute {
+        fill: white;
+        stroke: #ffb65b;
+        stroke-width: 2;
+      }
 
-        .attribute.method {
-            stroke: #4caf50;
-        }
+      .attribute.method {
+        stroke: #4caf50;
+      }
 
-        .methodindicator {
-            stroke: #4caf50;
-            fill: #4caf50;
-        }
+      .methodindicator {
+        stroke: #4caf50;
+        fill: #4caf50;
+      }
 
-        .eventindicator {
-            stroke: #02a8f4;
-            fill: #02a8f4;
-        }
-
-
-        .attribute.event {
-            stroke: #02a8f4;
-        }
-
-        .attribute.flag {
-            stroke: #686868;
-        }
-
-        .flagindicator {
-            stroke: #686868;
-            fill: #686868;
-        }
-
-        .park {
-            stroke: #686868;
-            fill: none;
-            stroke-width: 3;
-        }
-
-        .bubbling, .hostevent, .nonbubbling {
-            stroke: #fa4600;
-            fill: none;
-            stroke-width: 3;
-        }
+      .eventindicator {
+        stroke: #02a8f4;
+        fill: #02a8f4;
+      }
 
 
-        .line.event {
-            stroke: #fa4600;
-            fill: none;
-            stroke-width: 4;
-        }
+      .attribute.event {
+        stroke: #02a8f4;
+      }
 
-        .line {
-            stroke: #02a8f4;
-            fill: none;
-            stroke-width: 4;
-        }
+      .attribute.flag {
+        stroke: #686868;
+      }
 
-        .line.park {
-            stroke: #070707;
-            fill: none;
-            stroke-width: 4;
-        }
+      .flagindicator {
+        stroke: #686868;
+        fill: #686868;
+      }
+
+      .park {
+        stroke: #686868;
+        fill: none;
+        stroke-width: 3;
+      }
+
+      .bubbling, .hostevent, .nonbubbling {
+        stroke: #fa4600;
+        fill: none;
+        stroke-width: 3;
+      }
 
 
-        .line:hover {
-            stroke: #f4c633;
-        }
+      .line.event {
+        stroke: #fa4600;
+        fill: none;
+        stroke-width: 4;
+      }
+
+      .line {
+        stroke: #02a8f4;
+        fill: none;
+        stroke-width: 4;
+      }
+
+      .line.park {
+        stroke: #070707;
+        fill: none;
+        stroke-width: 4;
+      }
+
+
+      .line:hover {
+        stroke: #f4c633;
+      }
 
     `}}window.customElements.define("furo-graph-renderer",FuroGraphRenderer);class FuroShowFlow extends FBP(LitElement){/**
    * Parse html content
@@ -16526,35 +15793,7 @@ return html`
           <furo-markdown id="source" ƒ-parse-markdown="--markdown"></furo-markdown>
         </div>
       </furo-vertical-flex>
-    `}}window.customElements.define("furo-demo-snippet",FuroDemoSnippet);class FuroDocFetchAnalysis extends FBP(LitElement){constructor(){super()}fetchSrc(src){fetch(src).then(res=>res.json()).then(analysis=>{this._analysis=analysis;if(this.__location){this.checkSubroute(this.__location)}}).catch(err=>err)}checkSubroute(location){// enqueue when analysis is not
-if(!this._analysis){this.__location=location;return}// Subelement deep linking
-// on ../input/component-name we want to select component-name
-if(location.pathSegments[0]){let subElement=location.pathSegments[0];if(this._analysis.elements){this._analysis.elements.forEach(e=>{// needed for linking to the demos
-e.__package=this._path;if(e.tagname===subElement){this._analysis.__selectedElement=e;//disable class
-this._analysis.__selectedClass=void 0;this._analysis.__selectedMixin=void 0;e.__selected=!0}else{e.__selected=!1}})}// check classes if available
-if(this._analysis.classes){this._analysis.classes.forEach((e,i)=>{if(e.name===subElement){this._analysis.__selectedClass=e;//disable element
-this._analysis.__selectedMixin=void 0;this._analysis.__selectedElement=void 0;e.__selected=!0}else{e.__selected=!1}})}// check mixins if available
-if(this._analysis.mixins){this._analysis.mixins.forEach((e,i)=>{if(e.name===subElement){this._analysis.__selectedMixin=e;//disable element
-this._analysis.__selectedClass=void 0;this._analysis.__selectedElement=void 0;e.__selected=!0}else{e.__selected=!1}})}}else{// select first element on default
-if(this._analysis.elements){this._analysis.__selectedElement=this._analysis.elements[0]}else{// try with classes
-if(this._analysis.classes){this._analysis.__selectedClass=this._analysis.classes[0]}}}/**
-       * @event data
-       * Fired when analysis loaded
-       * detail payload: analysis
-       */let customEvent=new Event("data",{composed:!0,bubbles:!0});customEvent.detail=this._analysis;this.dispatchEvent(customEvent)}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroDocFetchAnalysis")||css`
-        :host {
-            display: block;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-    `}}window.customElements.define("furo-doc-fetch-analysis",FuroDocFetchAnalysis);class SideNavigationItem extends FBP(LitElement){constructor(){super();this.basePath=this.getAttribute("base-path");//forward click to a
+    `}}window.customElements.define("furo-demo-snippet",FuroDemoSnippet);class SideNavigationItem extends FBP(LitElement){constructor(){super();this.basePath=this.getAttribute("base-path");//forward click to a
 this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}injectItem(item){this.item=item;this.requestUpdate()}/**
      * @private
      * @return {Object}
@@ -16703,1630 +15942,4 @@ return html`
       <template is="flow-repeat" ƒ-inject-items="--groups">
         <side-navigation-group base-path="${this.basePath}" ƒ-inject-item="--item"></side-navigation-group>
       </template>
-    `}}window.customElements.define("side-navigation",SideNavigation);class FuroButtonBar extends LitElement{constructor(){super();this._entity={};// default attribute values for hidden
-this.hideNoRel=!0;this.hideNotValid=!1;this.hidePristine=!1;// default attribute values for disabled
-this.disableNoRel=!1;this.disableNotValid=!0;this.disablePristine=!0}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
-       * Hides element if condition is true
-       * Only available with bindEntity
-       */hideNoRel:{type:String,attribute:"hide-no-rel"},hideNotValid:{type:String,attribute:"hide-not-valid"},hidePristine:{type:String,attribute:"hide-pristine"},/**
-       * Disables element if condition is true
-       * Only available with bindEntity
-       */disableNoRel:{type:String,attribute:"disable-no-rel"},disableNotValid:{type:String,attribute:"disable-not-valid"},disablePristine:{type:String,attribute:"disable-pristine"}}}/**
-     * Entity bind to control elements inside the bar.
-     *
-     * @param entity
-     */bindEntity(entity){if(entity&&entity.data){this._entity=entity;this._entity.addEventListener("this-branch-value-changed",()=>{this._updateElements(this._entity)});this._entity.addEventListener("field-value-changed",()=>{this._updateElements(this._entity)});this._entity.addEventListener("data-injected",()=>{this._updateElements(this._entity)})}else{console.warn("Invalid binding ",entity,this)}}/**
-     * Disable all elements inside
-     * Can be used to disable during pending requests
-     * e.g. furo-entity-agent @-request-started until @-response or @-response-error
-     */disableAll(){let elems=this.querySelectorAll("*");elems.forEach(item=>{item.setAttribute("disabled","")})}/**
-     * Enables all elements inside if check is true
-     * Can be used to enable after a request
-     */enableAll(){if(this._entity&&this._entity.data){this._updateElements(this._entity)}else{let elems=this.querySelectorAll("*");elems.forEach(item=>{item.removeAttribute("disabled")})}}/**
-     * Set the default value if any hide/disable attribute  or
-     * rel="" attribute is set
-     * @param changedProperties
-     * @private
-     */firstUpdated(changedProperties){let nodes=this.querySelectorAll("*");nodes.forEach(item=>{if(null!==item.getAttribute("rel")&&null!==item.getAttribute("hide-no-rel")||null!==item.getAttribute("hide-not-valid")||null!==item.getAttribute("hide-pristine")){item.setAttribute("hidden","")}else if(null!==item.getAttribute("rel")&&null!==item.getAttribute("disable-no-rel")||null!==item.getAttribute("disable-not-valid")||null!==item.getAttribute("disable-pristine")){item.setAttribute("disabled","")}})}/**
-     *
-     * @param entity
-     * @private
-     */_updateElements(entity){let rels=[];entity.links.__childNodes.forEach(item=>{rels.push(item._value.rel)});let nodes=this.querySelectorAll("*");nodes.forEach(item=>{// hidden path
-if(null!==item.getAttribute("rel")&&0<item.getAttribute("rel").length&&-1===rels.indexOf(item.getAttribute("rel"))&&null!==item.getAttribute("hide-no-rel")){item.setAttribute("hidden","")}// not valid
-else if(null!==item.getAttribute("hide-not-valid")&&!entity._isValid){item.setAttribute("hidden","")}// pristine
-else if(null!==item.getAttribute("hide-pristine")&&entity._pristine){item.setAttribute("hidden","")}else{item.removeAttribute("hidden")}// disable path
-if(null!==item.getAttribute("rel")&&0<item.getAttribute("rel").length&&-1===rels.indexOf(item.getAttribute("rel"))&&null!==item.getAttribute("disable-no-rel")){item.setAttribute("disabled","")}else if(null!==item.getAttribute("disable-not-valid")&&!entity._isValid){item.setAttribute("disabled","")}else if(null!==item.getAttribute("disable-pristine")&&entity._pristine){item.setAttribute("disabled","")}else{item.removeAttribute("disabled")}})}/**
-     *
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroButtonBar")||css`
-            :host {
-                display: block;
-            }
-
-            ::slotted(*) {
-                margin: var(--spacing-xs, 8px) var(--spacing-xs, 8px) var(--spacing-xs, 8px) 0;
-            }
-
-            
-
-            furo-horizontal-flex {
-                flex-wrap: wrap;
-            }
-
-        `}/**
-     *
-     * @returns {TemplateResult|TemplateResult}
-     * @private
-     */render(){// language=HTML
-return html`
-            <furo-horizontal-flex>
-                <slot></slot>
-            </furo-horizontal-flex>
-        `}}window.customElements.define("furo-button-bar",FuroButtonBar);class FuroCollapsibleBox extends FBP(LitElement){constructor(){super();/**
-              * @type {boolean}
-              */this._open=!1;/**
-                         * @type {string}
-                         */this.iconOpen="expand-more";/**
-                                    *
-                                    * @type {string}
-                                    */this.iconClosed="expand-less";/**
-                                      *
-                                      * @type {number}
-                                      */this.tabindex=0;this.icon=this._open?this.iconOpen:this.iconClosed;// toggle method
-this._FBPAddWireHook("--toggleClicked",()=>{this.toggle()});/**
-         * minimal keyboard navigation
-         */this._FBPAddWireHook("--keystrokes",e=>{switch(e.code){case"ArrowRight":this.open();break;case"ArrowLeft":this.close();break;case"Enter":this.toggle();break;}});this._FBPAddWireHook("--blured",()=>{if(this.closeOnBlur){this.close()}})}/**
-     * Opens the Box
-     */open(){this._open=!0;this.icon=this._open?this.iconOpen:this.iconClosed;this.requestUpdate()}/**
-     * closes the box
-     */close(){this._open=!1;this.icon=this._open?this.iconOpen:this.iconClosed;this.requestUpdate()}/**
-     * Toggles the box open/close
-     */toggle(){this._open=!this._open;this.icon=this._open?this.iconOpen:this.iconClosed;this.requestUpdate();if(!0==this._open){/**
-       * @event opened
-       *
-       * Fired when collapsible box was opened
-       *
-       * detail payload: void
-       */let customEvent=new Event("opened",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent)}else{/**
-       * @event closed
-       * Fired when collapsible box was closed
-       *
-       * detail payload: void
-       */let customEvent=new Event("closed",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent)}/**
-       * @event toggled
-       * Fired when collapsible-box was toggled
-       * detail payload: Boolean true for open, false for closed
-       * @param Boolean true for open, false for closed
-       */let customEvent=new Event("toggled",{composed:!0,bubbles:!1});customEvent.detail=this._open;this.dispatchEvent(customEvent)}firstUpdated(changedProperties){super.firstUpdated(changedProperties);this.icon=this._open?this.iconOpen:this.iconClosed;this.requestUpdate()}/**
-     * focus the box (focuses the icon)
-     */focus(){this._FBPTriggerWire("--focus");if(this.openOnFocus){this.open()}}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
-       * Label der Collapsible
-       */label:{type:String},/**
-      * Label der Collapsible
-      */secondaryText:{type:String,attribute:"secondary-text"},/**
-       * Opens the box on focus
-       */openOnFocus:{type:Boolean,attribute:"open-on-focus"},/**
-       * Closes the box on blur (icon)
-       */closeOnBlur:{type:Boolean,attribute:"close-on-blur"},/**
-       * https://developer.mozilla.org/de/docs/Web/HTML/Globale_Attribute/tabindex
-       */tabindex:{type:Number},/**
-       * Indicates the collapse state, set the collapse state
-       */_open:{type:Boolean,reflect:!0,attribute:"open"},/**
-       * The icon for the open state.
-       *
-       */iconOpen:{type:String,attribute:"icon-open"},/**
-       * The icon for the closed state.
-       *
-       */iconClosed:{type:String,attribute:"icon-closed"},/**
-       * reserved flag
-       * todo implement remember component
-       */rememberState:{type:Boolean}}}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroCollapsibleBox")||css`
-
-        :host {
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-            0 1px 5px 0 rgba(0, 0, 0, 0.12),
-            0 3px 1px -2px rgba(0, 0, 0, 0.2);
-            padding: var(--furo-collapsible-box-padding, 16px);
-            background: var(--furo-collapsible-box-background, white);
-            display: block;
-            margin: var(--furo-collapsible-box-margin, 16px);
-            box-sizing: border-box;
-
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        label {
-            display: block;
-            padding-left: 8px;
-            cursor: pointer;
-
-            font-size: 24px;
-            line-height: 24px;
-            letter-spacing: 0;
-            margin: 0;
-            font-weight: normal;
-        }
-
-        .secondary{
-            padding-left: var(--spacing,24px);
-            font-size: 14px;
-            letter-spacing: 0.1px;
-        }
-        .content {
-            display: none;
-        }
-
-        :host([open]) .content {
-            display: block;
-        }
-
-        .head {
-            border-bottom: 1px solid var(--separator-color, gainsboro);;
-
-        }
-
-        furo-icon {
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            outline: none;
-        }
-
-        furo-icon:focus {
-            color: var(--primary, #CDCDCD)
-        }
-
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return html`
-<furo-horizontal-flex class="head">
-  <furo-icon tabindex="${this.tabindex}" ƒ-focus="--focus" icon="${this.icon}" @-keydown="--keystrokes(*)" @-click="--toggleClicked" @-blur="--blured"></furo-icon>     
-  <label  @-click="--toggleClicked">${this.label}</label>
-  <div flex class="secondary"  @-click="--toggleClicked">${this.secondaryText}</div>
-  <slot name="context"></slot>
-</furo-horizontal-flex>
-<div class="content"><slot></slot></div>
-    `}}window.customElements.define("furo-collapsible-box",FuroCollapsibleBox);class FuroFormLayouter extends FBP(LitElement){constructor(){super();this.narrow=!1;this.narrower=!1;this.breakpointBig=810;this.breakpointSmall=405}_checkSize(width){if(0<width&&width<this.breakpointBig&&width>this.breakpointSmall){this.setAttribute("narrow","");this.narrow=!0;this.removeAttribute("narrower");this.narrower=!1;this._fireResize()}else if(0<width&&width<=this.breakpointSmall){this.setAttribute("narrower","");this.narrower=!0;this.removeAttribute("narrow");this.narrow=!1;this._fireResize()}else{this.removeAttribute("narrow");this.removeAttribute("narrower");this.narrow=this.narrower=!1}}_fireResize(){this.dispatchEvent(new CustomEvent("layout-changed",{detail:this,bubbles:!0,composed:!0}))}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-this.updateComplete.then(()=>{if(window.ResizeObserver){const ro=new ResizeObserver(entries=>{for(let entry of entries){this._checkSize(entry.contentRect.width)}});ro.observe(this)}else{// fallback, just listen to the resize event
-setTimeout(()=>{let cr=this.getBoundingClientRect();this._checkSize(cr.width)},1);window.addEventListener("resize",e=>{let cr=this.getBoundingClientRect();this._checkSize(cr.width)})}})}static get properties(){return{/**
-       * Set custom breakpoints max. two values
-       * Default: "810,405"
-       */breakpointBig:{type:String,attribute:"breakpoint-big",reflect:!0},breakpointSmall:{type:String,attribute:"breakpoint-small",reflect:!0},/**
-       * Set narrow-fix attribute to force
-       * the layout analog to breakpoint big
-       */narrowFix:{type:Boolean,attribute:"narrow-fix",reflect:!0},/**
-       * Set narrower-fix attribute to force
-       * 1 column view (analog breakpoint small)
-       */narrowerFix:{type:Boolean,attribute:"narrower-fix",reflect:!0}}}static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroFormLayouter")||css`
-            :host {
-                display: grid;
-                grid-row-gap: 0px;
-                grid-column-gap: 0px;
-                grid-template-columns: repeat(1, 1fr);
-            }
-
-            :host([hidden]) {
-                display: none;
-            }
-
-            ::slotted(*) {
-                width: 100%;
-            }
-
-            :host([two]) ::slotted(*[double]) {
-                grid-column: span 2 / auto;
-            }
-
-            :host([two]) ::slotted(*[full]) {
-                grid-column: span 2 / auto;
-            }
-
-            :host([four]) ::slotted(*[double]) {
-                grid-column: span 2  / auto;
-            }
-
-            :host([four]) ::slotted(*[full]) {
-                grid-column: span 4 / auto;
-            }
-
-            :host([two]) {
-                grid-template-columns: repeat(2, 1fr);
-                grid-column-gap: var(--spacing);
-            }
-
-            :host([four]) {
-                grid-template-columns: repeat(4, 1fr);
-                grid-column-gap: var(--spacing);
-            }
-
-            :host([narrow]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
-
-            :host([narrow]) > ::slotted(*[full]) {
-                grid-column: auto;
-            }
-
-            :host([four][narrow]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
-
-            :host([four][narrow]) > ::slotted(*[double]) {
-                grid-column: auto;
-            }
-
-            :host([narrower]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
-
-            :host([narrower]) > ::slotted(*) {
-                grid-column: auto;
-            }
-
-            :host([narrow-fix]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
-
-            :host([four][narrower]) > ::slotted(*) {
-                grid-column: auto;
-            }
-
-            :host([four][narrow-fix]) {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            :host([four][narrower-fix]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
-
-            :host([narrower-fix]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
-
-            :host([narrower-fix]) > ::slotted(*) {
-                grid-column: auto;
-            }
-
-            :host([card]) {
-
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                0 1px 5px 0 rgba(0, 0, 0, 0.12),
-                0 3px 1px -2px rgba(0, 0, 0, 0.2);
-
-                background: var(--furo-card-background, var(--surface, white));
-                padding: var(--furo-card-padding, var(--spacing-xs, 8px));
-                margin: var(--furo-card-margin, 0);
-
-
-                border-radius: 4px;
-                font-size: 14px;
-                letter-spacing: 0.1px;
-            }
-        `}/**
-     * @private
-     * @returns {TemplateResult | TemplateResult}
-     */render(){// language=HTML
-return html`
-            <slot></slot>
-        `}}window.customElements.define("furo-form-layouter",FuroFormLayouter);class FuroForm extends FBP(LitElement){constructor(){super();this.hasaction=0<this.querySelectorAll("*[slot=\"action\"]").length;this.hasmedia=0<this.querySelectorAll("*[slot=\"media\"]").length}/**
-     * You can show a progress indicator while you have pending requests or work
-     * Shows furo-loading-indicator-bar
-     */startActivity(){this._FBPTriggerWire("--activityStarted")}/**
-     * Stop loading indicator
-     * Hides furo-loading-indicator-bar
-     */stopActivity(){this._FBPTriggerWire("--activityStopped")}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
-       * Main title
-       */headerText:{type:String,attribute:"header-text"},secondaryText:{type:String,attribute:"secondary-text"},hasaction:{type:Boolean,reflect:!0},hasmedia:{type:Boolean,reflect:!0}}}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
-}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroForm")||css`
-      :host {
-        display: block;
-        --furo-button-padding: var(--spacing-xs, 8px);
-        background: var(--furo-form-background, var(--surface, white));
-        padding-bottom: var(--furo-form-padding, var(--spacing-xs, 8px));
-        margin: var(--furo-form-margin, 0);
-        box-sizing: border-box;
-        position: relative;
-        font-size: 14px;
-        letter-spacing: 0.1px;
-        max-width: var(--furo-form-max-width, 90em);
-      }
-
-      furo-loading-indicator-bar {
-        position: absolute;
-        top: 0;
-        width: 100%;
-      }
-
-      :host([hidden]) {
-        display: none;
-      }
-
-      :host([hasaction]) .content {
-        padding-bottom: 54px;
-      }
-
-
-      /** no padding-top on .content if header-text is set **/
-      :host([header-text]) .content {
-        padding-top: 0;
-      }
-
-      /** set padding-top on .content if media is present **/
-      :host([header-text][hasmedia]) .content {
-        padding-top: var(--furo-form-padding, var(--spacing-s, 16px));
-      }
-
-
-      .content ::slotted(h1) {
-        font-size: 24px;
-        line-height: 24px;
-        letter-spacing: 0;
-        margin: 0;
-        font-weight: normal;
-        margin-bottom: var(--spacing-xxs, 4px);
-        margin-top: var(--spacing-s, 16px);
-      }
-
-      .content ::slotted(secondary) {
-        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
-        line-height: 22px;
-        font-size: unset;
-        display: block;
-        margin-bottom: var(--spacing-xs, 4px);
-      }
-
-      .content ::slotted(h2) {
-        line-height: 24px;
-        letter-spacing: 0;
-        margin: 0;
-        font-weight: normal;
-        margin-bottom: var(--spacing-xxs, 4px);
-        margin-top: var(--spacing-s, 16px);
-      }
-
-      .action {
-        position: absolute;
-        bottom: var(--furo-form-padding, var(--spacing-xs, 8px));
-        left: var(--furo-form-padding, 0);
-        right: var(--furo-form-padding, 0);
-
-      }
-
-
-      .head {
-        padding-bottom: var(--spacing-s, 16px);
-      }
-
-      .head span {
-        font-size: 14px;
-        height: 24px;
-        letter-spacing: 0.1px;
-        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
-        line-height: 20px;
-      }
-
-      h1 {
-        font-size: 20px;
-        height: 40px;
-        line-height: 56px;
-        margin: 0;
-        font-weight: normal;
-
-      }
-
-
-      .media ::slotted(*) {
-        width: 100%;
-      }
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     * @private
-     */render(){// language=HTML
-return html`
-      <furo-loading-indicator-bar ƒ-start="--activityStarted" ƒ-stop="--activityStopped"></furo-loading-indicator-bar>
-      ${this.headerText?html`
-      <div class="head">
-         <h1>${this.headerText}</h1>
-         ${this.secondaryText?html`<span>${this.secondaryText}</span>`:html``}     
-      </div>`:html``} 
-      <div class="media">
-      <slot name="media"></slot>
-      </div>
-      <div class="content">
-      <slot></slot>
-      </div>
-      <div class="action">
-        <slot name="action"></slot>
-      </div>
-    `}}window.customElements.define("furo-form",FuroForm);class FuroInputRow extends FBP(LitElement){constructor(){super();/**
-              *
-              * @type {string}
-              */this.label="set the label!"}static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroInputRow")||css`
-        :host {
-            display: block;
-        }
-
-        div {
-            line-height: 100%;
-            width: var(--input-row-width,140px);
-        }
-
-        ::slotted(*) {
-            resize: horizontal;
-        }
-    `}render(){// language=HTML
-return html`
-            <furo-horizontal-flex>
-                <div>${this.label}</div>
-                <slot></slot>
-            </furo-horizontal-flex>
-        `}static get properties(){return{/**
-       * The label for the input row
-       */label:{type:String}}}}window.customElements.define("furo-input-row",FuroInputRow);class FuroIconWithLabel extends FBP(LitElement){static get properties(){return{icon:{type:String}}}static get styles(){// language=CSS
-return[css`
-                :host {
-                    height: 48px;
-                    display: inline-block;
-                    width: 7em;
-                    margin: 1em 0.5em;
-                    text-align: center;
-                }
-
-                span{
-                    display: block;
-                    font-size: 8px;
-                }
-                
-                furo-icon{
-                    margin: auto;
-                    display: block;
-                    
-                }
-
-            `]}render(){// language=HTML
-return html`
-            <furo-icon icon="${this.icon}"></furo-icon>
-            <span> ${this.icon} </span>
-        `}}window.customElements.define("furo-icon-with-label",FuroIconWithLabel);class DemoFuroIconList extends FBP(LitElement){/**
-   * Themable Styles
-   * @private
-   * @return {CSSResult}
-   */static get styles(){// language=CSS
-return Theme.getThemeForComponent("DemoFuroIconList")||css`
-        :host {
-            display: block;
-            
-            padding-right: var(--spacing);
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        h2 {
-            margin-top: 0;
-        }
-
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return html`
-      <h2>Iconset baseIcons</h2>
-      <p>
-      <pre>
-        import {FuroBaseIcons} from "@furo/icon/iconsets/baseIcons";
-        Iconset.registerIconset("default", FuroBaseIcons);
-      </pre></p>
-      <div>
-        <furo-icon-with-label icon="3d-rotation"></furo-icon-with-label>
-        <furo-icon-with-label icon="accessibility"></furo-icon-with-label>
-        <furo-icon-with-label icon="accessible"></furo-icon-with-label>
-        <furo-icon-with-label icon="account-balance"></furo-icon-with-label>
-        <furo-icon-with-label icon="account-balance-wallet"></furo-icon-with-label>
-        <furo-icon-with-label icon="account-box"></furo-icon-with-label>
-        <furo-icon-with-label icon="account-circle"></furo-icon-with-label>
-        <furo-icon-with-label icon="add"></furo-icon-with-label>
-        <furo-icon-with-label icon="add-alert"></furo-icon-with-label>
-        <furo-icon-with-label icon="add-box"></furo-icon-with-label>
-        <furo-icon-with-label icon="add-circle"></furo-icon-with-label>
-        <furo-icon-with-label icon="add-circle-outline"></furo-icon-with-label>
-        <furo-icon-with-label icon="add-shopping-cart"></furo-icon-with-label>
-        <furo-icon-with-label icon="alarm"></furo-icon-with-label>
-        <furo-icon-with-label icon="alarm-add"></furo-icon-with-label>
-        <furo-icon-with-label icon="alarm-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="alarm-on"></furo-icon-with-label>
-        <furo-icon-with-label icon="all-out"></furo-icon-with-label>
-        <furo-icon-with-label icon="android"></furo-icon-with-label>
-        <furo-icon-with-label icon="announcement"></furo-icon-with-label>
-        <furo-icon-with-label icon="apps"></furo-icon-with-label>
-        <furo-icon-with-label icon="archive"></furo-icon-with-label>
-        <furo-icon-with-label icon="arrow-back"></furo-icon-with-label>
-        <furo-icon-with-label icon="arrow-downward"></furo-icon-with-label>
-        <furo-icon-with-label icon="arrow-drop-down"></furo-icon-with-label>
-        <furo-icon-with-label icon="arrow-drop-down-circle"></furo-icon-with-label>
-        <furo-icon-with-label icon="arrow-drop-up"></furo-icon-with-label>
-        <furo-icon-with-label icon="arrow-forward"></furo-icon-with-label>
-        <furo-icon-with-label icon="arrow-upward"></furo-icon-with-label>
-        <furo-icon-with-label icon="aspect-ratio"></furo-icon-with-label>
-        <furo-icon-with-label icon="assessment"></furo-icon-with-label>
-        <furo-icon-with-label icon="assignment"></furo-icon-with-label>
-        <furo-icon-with-label icon="assignment-ind"></furo-icon-with-label>
-        <furo-icon-with-label icon="assignment-late"></furo-icon-with-label>
-        <furo-icon-with-label icon="assignment-return"></furo-icon-with-label>
-        <furo-icon-with-label icon="assignment-returned"></furo-icon-with-label>
-        <furo-icon-with-label icon="assignment-turned-in"></furo-icon-with-label>
-        <furo-icon-with-label icon="attachment"></furo-icon-with-label>
-        <furo-icon-with-label icon="autorenew"></furo-icon-with-label>
-        <furo-icon-with-label icon="backspace"></furo-icon-with-label>
-        <furo-icon-with-label icon="backup"></furo-icon-with-label>
-        <furo-icon-with-label icon="block"></furo-icon-with-label>
-        <furo-icon-with-label icon="book"></furo-icon-with-label>
-        <furo-icon-with-label icon="bookmark"></furo-icon-with-label>
-        <furo-icon-with-label icon="bookmark-border"></furo-icon-with-label>
-        <furo-icon-with-label icon="bug-report"></furo-icon-with-label>
-        <furo-icon-with-label icon="build"></furo-icon-with-label>
-        <furo-icon-with-label icon="cached"></furo-icon-with-label>
-        <furo-icon-with-label icon="camera-enhance"></furo-icon-with-label>
-        <furo-icon-with-label icon="cancel"></furo-icon-with-label>
-        <furo-icon-with-label icon="card-giftcard"></furo-icon-with-label>
-        <furo-icon-with-label icon="card-membership"></furo-icon-with-label>
-        <furo-icon-with-label icon="card-travel"></furo-icon-with-label>
-        <furo-icon-with-label icon="change-history"></furo-icon-with-label>
-        <furo-icon-with-label icon="check"></furo-icon-with-label>
-        <furo-icon-with-label icon="check-box"></furo-icon-with-label>
-        <furo-icon-with-label icon="check-box-outline-blank"></furo-icon-with-label>
-        <furo-icon-with-label icon="check-circle"></furo-icon-with-label>
-        <furo-icon-with-label icon="chevron-left"></furo-icon-with-label>
-        <furo-icon-with-label icon="chevron-right"></furo-icon-with-label>
-        <furo-icon-with-label icon="chrome-reader-mode"></furo-icon-with-label>
-        <furo-icon-with-label icon="class"></furo-icon-with-label>
-        <furo-icon-with-label icon="clear"></furo-icon-with-label>
-        <furo-icon-with-label icon="close"></furo-icon-with-label>
-        <furo-icon-with-label icon="cloud"></furo-icon-with-label>
-        <furo-icon-with-label icon="cloud-circle"></furo-icon-with-label>
-        <furo-icon-with-label icon="cloud-done"></furo-icon-with-label>
-        <furo-icon-with-label icon="cloud-download"></furo-icon-with-label>
-        <furo-icon-with-label icon="cloud-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="cloud-queue"></furo-icon-with-label>
-        <furo-icon-with-label icon="cloud-upload"></furo-icon-with-label>
-        <furo-icon-with-label icon="code"></furo-icon-with-label>
-        <furo-icon-with-label icon="compare-arrows"></furo-icon-with-label>
-        <furo-icon-with-label icon="content-copy"></furo-icon-with-label>
-        <furo-icon-with-label icon="content-cut"></furo-icon-with-label>
-        <furo-icon-with-label icon="content-paste"></furo-icon-with-label>
-        <furo-icon-with-label icon="copyright"></furo-icon-with-label>
-        <furo-icon-with-label icon="create"></furo-icon-with-label>
-        <furo-icon-with-label icon="create-new-folder"></furo-icon-with-label>
-        <furo-icon-with-label icon="credit-card"></furo-icon-with-label>
-        <furo-icon-with-label icon="dashboard"></furo-icon-with-label>
-        <furo-icon-with-label icon="date-range"></furo-icon-with-label>
-        <furo-icon-with-label icon="delete"></furo-icon-with-label>
-        <furo-icon-with-label icon="delete-forever"></furo-icon-with-label>
-        <furo-icon-with-label icon="delete-sweep"></furo-icon-with-label>
-        <furo-icon-with-label icon="description"></furo-icon-with-label>
-        <furo-icon-with-label icon="dns"></furo-icon-with-label>
-        <furo-icon-with-label icon="done"></furo-icon-with-label>
-        <furo-icon-with-label icon="done-all"></furo-icon-with-label>
-        <furo-icon-with-label icon="donut-large"></furo-icon-with-label>
-        <furo-icon-with-label icon="donut-small"></furo-icon-with-label>
-        <furo-icon-with-label icon="drafts"></furo-icon-with-label>
-        <furo-icon-with-label icon="eject"></furo-icon-with-label>
-        <furo-icon-with-label icon="error"></furo-icon-with-label>
-        <furo-icon-with-label icon="error-outline"></furo-icon-with-label>
-        <furo-icon-with-label icon="euro-symbol"></furo-icon-with-label>
-        <furo-icon-with-label icon="event"></furo-icon-with-label>
-        <furo-icon-with-label icon="event-seat"></furo-icon-with-label>
-        <furo-icon-with-label icon="exit-to-app"></furo-icon-with-label>
-        <furo-icon-with-label icon="expand-less"></furo-icon-with-label>
-        <furo-icon-with-label icon="expand-more"></furo-icon-with-label>
-        <furo-icon-with-label icon="explore"></furo-icon-with-label>
-        <furo-icon-with-label icon="extension"></furo-icon-with-label>
-        <furo-icon-with-label icon="face"></furo-icon-with-label>
-        <furo-icon-with-label icon="favorite"></furo-icon-with-label>
-        <furo-icon-with-label icon="favorite-border"></furo-icon-with-label>
-        <furo-icon-with-label icon="feedback"></furo-icon-with-label>
-        <furo-icon-with-label icon="file-download"></furo-icon-with-label>
-        <furo-icon-with-label icon="file-upload"></furo-icon-with-label>
-        <furo-icon-with-label icon="filter-list"></furo-icon-with-label>
-        <furo-icon-with-label icon="find-in-page"></furo-icon-with-label>
-        <furo-icon-with-label icon="find-replace"></furo-icon-with-label>
-        <furo-icon-with-label icon="fingerprint"></furo-icon-with-label>
-        <furo-icon-with-label icon="first-page"></furo-icon-with-label>
-        <furo-icon-with-label icon="flag"></furo-icon-with-label>
-        <furo-icon-with-label icon="flight-land"></furo-icon-with-label>
-        <furo-icon-with-label icon="flight-takeoff"></furo-icon-with-label>
-        <furo-icon-with-label icon="flip-to-back"></furo-icon-with-label>
-        <furo-icon-with-label icon="flip-to-front"></furo-icon-with-label>
-        <furo-icon-with-label icon="folder"></furo-icon-with-label>
-        <furo-icon-with-label icon="folder-open"></furo-icon-with-label>
-        <furo-icon-with-label icon="folder-shared"></furo-icon-with-label>
-        <furo-icon-with-label icon="font-download"></furo-icon-with-label>
-        <furo-icon-with-label icon="forward"></furo-icon-with-label>
-        <furo-icon-with-label icon="fullscreen"></furo-icon-with-label>
-        <furo-icon-with-label icon="fullscreen-exit"></furo-icon-with-label>
-        <furo-icon-with-label icon="g-translate"></furo-icon-with-label>
-        <furo-icon-with-label icon="gavel"></furo-icon-with-label>
-        <furo-icon-with-label icon="gesture"></furo-icon-with-label>
-        <furo-icon-with-label icon="get-app"></furo-icon-with-label>
-        <furo-icon-with-label icon="gif"></furo-icon-with-label>
-        <furo-icon-with-label icon="grade"></furo-icon-with-label>
-        <furo-icon-with-label icon="group-work"></furo-icon-with-label>
-        <furo-icon-with-label icon="help"></furo-icon-with-label>
-        <furo-icon-with-label icon="help-outline"></furo-icon-with-label>
-        <furo-icon-with-label icon="highlight-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="history"></furo-icon-with-label>
-        <furo-icon-with-label icon="home"></furo-icon-with-label>
-        <furo-icon-with-label icon="hourglass-empty"></furo-icon-with-label>
-        <furo-icon-with-label icon="hourglass-full"></furo-icon-with-label>
-        <furo-icon-with-label icon="http"></furo-icon-with-label>
-        <furo-icon-with-label icon="https"></furo-icon-with-label>
-        <furo-icon-with-label icon="important-devices"></furo-icon-with-label>
-        <furo-icon-with-label icon="inbox"></furo-icon-with-label>
-        <furo-icon-with-label icon="indeterminate-check-box"></furo-icon-with-label>
-        <furo-icon-with-label icon="info"></furo-icon-with-label>
-        <furo-icon-with-label icon="info-outline"></furo-icon-with-label>
-        <furo-icon-with-label icon="input"></furo-icon-with-label>
-        <furo-icon-with-label icon="invert-colors"></furo-icon-with-label>
-        <furo-icon-with-label icon="label"></furo-icon-with-label>
-        <furo-icon-with-label icon="label-outline"></furo-icon-with-label>
-        <furo-icon-with-label icon="language"></furo-icon-with-label>
-        <furo-icon-with-label icon="last-page"></furo-icon-with-label>
-        <furo-icon-with-label icon="launch"></furo-icon-with-label>
-        <furo-icon-with-label icon="lightbulb-outline"></furo-icon-with-label>
-        <furo-icon-with-label icon="line-style"></furo-icon-with-label>
-        <furo-icon-with-label icon="line-weight"></furo-icon-with-label>
-        <furo-icon-with-label icon="link"></furo-icon-with-label>
-        <furo-icon-with-label icon="list"></furo-icon-with-label>
-        <furo-icon-with-label icon="lock"></furo-icon-with-label>
-        <furo-icon-with-label icon="lock-open"></furo-icon-with-label>
-        <furo-icon-with-label icon="lock-outline"></furo-icon-with-label>
-        <furo-icon-with-label icon="low-priority"></furo-icon-with-label>
-        <furo-icon-with-label icon="loyalty"></furo-icon-with-label>
-        <furo-icon-with-label icon="mail"></furo-icon-with-label>
-        <furo-icon-with-label icon="markunread"></furo-icon-with-label>
-        <furo-icon-with-label icon="markunread-mailbox"></furo-icon-with-label>
-        <furo-icon-with-label icon="menu"></furo-icon-with-label>
-        <furo-icon-with-label icon="more-horiz"></furo-icon-with-label>
-        <furo-icon-with-label icon="more-vert"></furo-icon-with-label>
-        <furo-icon-with-label icon="motorcycle"></furo-icon-with-label>
-        <furo-icon-with-label icon="move-to-inbox"></furo-icon-with-label>
-        <furo-icon-with-label icon="next-week"></furo-icon-with-label>
-        <furo-icon-with-label icon="note-add"></furo-icon-with-label>
-        <furo-icon-with-label icon="offline-pin"></furo-icon-with-label>
-        <furo-icon-with-label icon="opacity"></furo-icon-with-label>
-        <furo-icon-with-label icon="open-in-browser"></furo-icon-with-label>
-        <furo-icon-with-label icon="open-in-new"></furo-icon-with-label>
-        <furo-icon-with-label icon="open-with"></furo-icon-with-label>
-        <furo-icon-with-label icon="pageview"></furo-icon-with-label>
-        <furo-icon-with-label icon="pan-tool"></furo-icon-with-label>
-        <furo-icon-with-label icon="payment"></furo-icon-with-label>
-        <furo-icon-with-label icon="perm-camera-mic"></furo-icon-with-label>
-        <furo-icon-with-label icon="perm-contact-calendar"></furo-icon-with-label>
-        <furo-icon-with-label icon="perm-data-setting"></furo-icon-with-label>
-        <furo-icon-with-label icon="perm-device-information"></furo-icon-with-label>
-        <furo-icon-with-label icon="perm-identity"></furo-icon-with-label>
-        <furo-icon-with-label icon="perm-media"></furo-icon-with-label>
-        <furo-icon-with-label icon="perm-phone-msg"></furo-icon-with-label>
-        <furo-icon-with-label icon="perm-scan-wifi"></furo-icon-with-label>
-        <furo-icon-with-label icon="pets"></furo-icon-with-label>
-        <furo-icon-with-label icon="picture-in-picture"></furo-icon-with-label>
-        <furo-icon-with-label icon="picture-in-picture-alt"></furo-icon-with-label>
-        <furo-icon-with-label icon="play-for-work"></furo-icon-with-label>
-        <furo-icon-with-label icon="polymer"></furo-icon-with-label>
-        <furo-icon-with-label icon="power-settings-new"></furo-icon-with-label>
-        <furo-icon-with-label icon="pregnant-woman"></furo-icon-with-label>
-        <furo-icon-with-label icon="print"></furo-icon-with-label>
-        <furo-icon-with-label icon="query-builder"></furo-icon-with-label>
-        <furo-icon-with-label icon="question-answer"></furo-icon-with-label>
-        <furo-icon-with-label icon="radio-button-checked"></furo-icon-with-label>
-        <furo-icon-with-label icon="radio-button-unchecked"></furo-icon-with-label>
-        <furo-icon-with-label icon="receipt"></furo-icon-with-label>
-        <furo-icon-with-label icon="record-voice-over"></furo-icon-with-label>
-        <furo-icon-with-label icon="redeem"></furo-icon-with-label>
-        <furo-icon-with-label icon="redo"></furo-icon-with-label>
-        <furo-icon-with-label icon="refresh"></furo-icon-with-label>
-        <furo-icon-with-label icon="remove"></furo-icon-with-label>
-        <furo-icon-with-label icon="remove-circle"></furo-icon-with-label>
-        <furo-icon-with-label icon="remove-circle-outline"></furo-icon-with-label>
-        <furo-icon-with-label icon="remove-shopping-cart"></furo-icon-with-label>
-        <furo-icon-with-label icon="reorder"></furo-icon-with-label>
-        <furo-icon-with-label icon="reply"></furo-icon-with-label>
-        <furo-icon-with-label icon="reply-all"></furo-icon-with-label>
-        <furo-icon-with-label icon="report"></furo-icon-with-label>
-        <furo-icon-with-label icon="report-problem"></furo-icon-with-label>
-        <furo-icon-with-label icon="restore"></furo-icon-with-label>
-        <furo-icon-with-label icon="restore-page"></furo-icon-with-label>
-        <furo-icon-with-label icon="room"></furo-icon-with-label>
-        <furo-icon-with-label icon="rounded-corner"></furo-icon-with-label>
-        <furo-icon-with-label icon="rowing"></furo-icon-with-label>
-        <furo-icon-with-label icon="save"></furo-icon-with-label>
-        <furo-icon-with-label icon="schedule"></furo-icon-with-label>
-        <furo-icon-with-label icon="search"></furo-icon-with-label>
-        <furo-icon-with-label icon="select-all"></furo-icon-with-label>
-        <furo-icon-with-label icon="send"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-applications"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-backup-restore"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-bluetooth"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-brightness"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-cell"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-ethernet"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-input-antenna"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-input-component"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-input-composite"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-input-hdmi"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-input-svideo"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-overscan"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-phone"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-power"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-remote"></furo-icon-with-label>
-        <furo-icon-with-label icon="settings-voice"></furo-icon-with-label>
-        <furo-icon-with-label icon="shop"></furo-icon-with-label>
-        <furo-icon-with-label icon="shop-two"></furo-icon-with-label>
-        <furo-icon-with-label icon="shopping-basket"></furo-icon-with-label>
-        <furo-icon-with-label icon="shopping-cart"></furo-icon-with-label>
-        <furo-icon-with-label icon="sort"></furo-icon-with-label>
-        <furo-icon-with-label icon="speaker-notes"></furo-icon-with-label>
-        <furo-icon-with-label icon="speaker-notes-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="spellcheck"></furo-icon-with-label>
-        <furo-icon-with-label icon="star"></furo-icon-with-label>
-        <furo-icon-with-label icon="star-border"></furo-icon-with-label>
-        <furo-icon-with-label icon="star-half"></furo-icon-with-label>
-        <furo-icon-with-label icon="stars"></furo-icon-with-label>
-        <furo-icon-with-label icon="store"></furo-icon-with-label>
-        <furo-icon-with-label icon="subdirectory-arrow-left"></furo-icon-with-label>
-        <furo-icon-with-label icon="subdirectory-arrow-right"></furo-icon-with-label>
-        <furo-icon-with-label icon="subject"></furo-icon-with-label>
-        <furo-icon-with-label icon="supervisor-account"></furo-icon-with-label>
-        <furo-icon-with-label icon="swap-horiz"></furo-icon-with-label>
-        <furo-icon-with-label icon="swap-vert"></furo-icon-with-label>
-        <furo-icon-with-label icon="swap-vertical-circle"></furo-icon-with-label>
-        <furo-icon-with-label icon="system-update-alt"></furo-icon-with-label>
-        <furo-icon-with-label icon="tab"></furo-icon-with-label>
-        <furo-icon-with-label icon="tab-unselected"></furo-icon-with-label>
-        <furo-icon-with-label icon="text-format"></furo-icon-with-label>
-        <furo-icon-with-label icon="theaters"></furo-icon-with-label>
-        <furo-icon-with-label icon="thumb-down"></furo-icon-with-label>
-        <furo-icon-with-label icon="thumb-up"></furo-icon-with-label>
-        <furo-icon-with-label icon="thumbs-up-down"></furo-icon-with-label>
-        <furo-icon-with-label icon="timeline"></furo-icon-with-label>
-        <furo-icon-with-label icon="toc"></furo-icon-with-label>
-        <furo-icon-with-label icon="today"></furo-icon-with-label>
-        <furo-icon-with-label icon="toll"></furo-icon-with-label>
-        <furo-icon-with-label icon="touch-app"></furo-icon-with-label>
-        <furo-icon-with-label icon="track-changes"></furo-icon-with-label>
-        <furo-icon-with-label icon="translate"></furo-icon-with-label>
-        <furo-icon-with-label icon="trending-down"></furo-icon-with-label>
-        <furo-icon-with-label icon="trending-flat"></furo-icon-with-label>
-        <furo-icon-with-label icon="trending-up"></furo-icon-with-label>
-        <furo-icon-with-label icon="turned-in"></furo-icon-with-label>
-        <furo-icon-with-label icon="turned-in-not"></furo-icon-with-label>
-        <furo-icon-with-label icon="unarchive"></furo-icon-with-label>
-        <furo-icon-with-label icon="undo"></furo-icon-with-label>
-        <furo-icon-with-label icon="unfold-less"></furo-icon-with-label>
-        <furo-icon-with-label icon="unfold-more"></furo-icon-with-label>
-        <furo-icon-with-label icon="update"></furo-icon-with-label>
-        <furo-icon-with-label icon="verified-user"></furo-icon-with-label>
-        <furo-icon-with-label icon="view-agenda"></furo-icon-with-label>
-        <furo-icon-with-label icon="view-array"></furo-icon-with-label>
-        <furo-icon-with-label icon="view-carousel"></furo-icon-with-label>
-        <furo-icon-with-label icon="view-column"></furo-icon-with-label>
-        <furo-icon-with-label icon="view-day"></furo-icon-with-label>
-        <furo-icon-with-label icon="view-headline"></furo-icon-with-label>
-        <furo-icon-with-label icon="view-list"></furo-icon-with-label>
-        <furo-icon-with-label icon="view-module"></furo-icon-with-label>
-        <furo-icon-with-label icon="view-quilt"></furo-icon-with-label>
-        <furo-icon-with-label icon="view-stream"></furo-icon-with-label>
-        <furo-icon-with-label icon="view-week"></furo-icon-with-label>
-        <furo-icon-with-label icon="visibility"></furo-icon-with-label>
-        <furo-icon-with-label icon="visibility-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="warning"></furo-icon-with-label>
-        <furo-icon-with-label icon="watch-later"></furo-icon-with-label>
-        <furo-icon-with-label icon="weekend"></furo-icon-with-label>
-        <furo-icon-with-label icon="work"></furo-icon-with-label>
-        <furo-icon-with-label icon="youtube-searched-for"></furo-icon-with-label>
-        <furo-icon-with-label icon="zoom-in"></furo-icon-with-label>
-        <furo-icon-with-label icon="zoom-out"></furo-icon-with-label>
-      </div>
-
-
-      <h2>Iconset avIcons</h2>
-      <p>
-      <pre>
-        import {AvIcons} from "@furo/icon/iconsets/avIcons";
-        Iconset.registerIconset("av", AvIcons);
-      </pre></p>
-
-      <div>
-        <furo-icon-with-label icon="av:add-to-queue"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:airplay"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:album"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:art-track"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:av-timer"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:branding-watermark"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:call-to-action"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:closed-caption"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:equalizer"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:explicit"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:fast-forward"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:fast-rewind"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:featured-play-list"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:featured-video"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:fiber-dvr"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:fiber-manual-record"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:fiber-new"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:fiber-pin"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:fiber-smart-record"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:forward-10"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:forward-30"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:forward-5"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:games"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:hd"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:hearing"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:high-quality"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:library-add"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:library-books"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:library-music"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:loop"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:mic"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:mic-none"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:mic-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:movie"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:music-video"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:new-releases"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:not-interested"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:note"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:pause"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:pause-circle-filled"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:pause-circle-outline"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:play-arrow"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:play-circle-filled"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:play-circle-outline"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:playlist-add"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:playlist-add-check"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:playlist-play"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:queue"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:queue-music"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:queue-play-next"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:radio"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:recent-actors"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:remove-from-queue"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:repeat"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:repeat-one"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:replay"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:replay-10"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:replay-30"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:replay-5"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:shuffle"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:skip-next"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:skip-previous"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:slow-motion-video"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:snooze"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:sort-by-alpha"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:stop"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:subscriptions"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:subtitles"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:surround-sound"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:video-call"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:video-label"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:video-library"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:videocam"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:videocam-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:volume-down"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:volume-mute"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:volume-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:volume-up"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:web"></furo-icon-with-label>
-        <furo-icon-with-label icon="av:web-asset"></furo-icon-with-label>
-      </div>
-      
-      
-      
-      <h2>Iconset communicationIcons</h2>
-      <p>
-      <pre>
-        import {CommunicationIcons} from "@furo/icon/iconsets/communicationIcons";
-        Iconset.registerIconset("communication", CommunicationIcons);
-      </pre></p>
-
-      <div>
-        <furo-icon-with-label icon="communication:business"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:call"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:call-end"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:call-made"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:call-merge"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:call-missed"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:call-missed-outgoing"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:call-received"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:call-split"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:chat"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:chat-bubble"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:chat-bubble-outline"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:clear-all"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:comment"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:contact-mail"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:contact-phone"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:contacts"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:dialer-sip"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:dialpad"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:email"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:forum"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:import-contacts"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:import-export"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:invert-colors-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:live-help"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:location-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:location-on"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:mail-outline"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:message"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:no-sim"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:phone"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:phonelink-erase"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:phonelink-lock"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:phonelink-ring"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:phonelink-setup"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:portable-wifi-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:present-to-all"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:ring-volume"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:rss-feed"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:screen-share"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:speaker-phone"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:stay-current-landscape"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:stay-current-portrait"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:stay-primary-landscape"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:stay-primary-portrait"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:stop-screen-share"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:swap-calls"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:textsms"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:voicemail"></furo-icon-with-label>
-        <furo-icon-with-label icon="communication:vpn-key"></furo-icon-with-label>
-      </div>
-     
-      <h2>Iconset deviceIcons</h2>
-      <p>
-      <pre>
-        import {DeviceIcons} from "@furo/icon/iconsets/deviceIcons";
-        Iconset.registerIconset("device", DeviceIcons);
-      </pre></p>
-
-      <div>
-        <furo-icon-with-label icon="device:access-alarm"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:access-alarms"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:access-time"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:add-alarm"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:airplanemode-active"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:airplanemode-inactive"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-20"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-30"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-50"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-60"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-80"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-90"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-alert"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-charging-20"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-charging-30"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-charging-50"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-charging-60"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-charging-80"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-charging-90"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-charging-full"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-full"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-std"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:battery-unknown"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:bluetooth"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:bluetooth-connected"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:bluetooth-disabled"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:bluetooth-searching"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:brightness-auto"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:brightness-high"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:brightness-low"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:brightness-medium"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:data-usage"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:developer-mode"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:devices"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:dvr"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:gps-fixed"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:gps-not-fixed"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:gps-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:graphic-eq"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:location-disabled"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:location-searching"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:network-cell"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:network-wifi"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:nfc"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:screen-lock-landscape"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:screen-lock-portrait"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:screen-lock-rotation"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:screen-rotation"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:sd-storage"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:settings-system-daydream"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-cellular-0-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-cellular-1-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-cellular-2-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-cellular-3-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-cellular-4-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-cellular-connected-no-internet-0-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-cellular-connected-no-internet-1-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-cellular-connected-no-internet-2-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-cellular-connected-no-internet-3-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-cellular-connected-no-internet-4-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-cellular-no-sim"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-cellular-null"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-cellular-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-wifi-0-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-wifi-1-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-wifi-1-bar-lock"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-wifi-2-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-wifi-2-bar-lock"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-wifi-3-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-wifi-3-bar-lock"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-wifi-4-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-wifi-4-bar-lock"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:signal-wifi-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:storage"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:usb"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:wallpaper"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:widgets"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:wifi-lock"></furo-icon-with-label>
-        <furo-icon-with-label icon="device:wifi-tethering"></furo-icon-with-label>
-      </div>
-     
-      <h2>Iconset editorIcons</h2>
-      <p>
-      <pre>
-        import {EditorIcons} from "@furo/icon/iconsets/editorIcons";
-        Iconset.registerIconset("editor", EditorIcons);
-      </pre></p>
-
-      <div>
-        <furo-icon-with-label icon="editor:attach-file"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:attach-money"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:border-all"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:border-bottom"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:border-clear"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:border-color"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:border-horizontal"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:border-inner"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:border-left"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:border-outer"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:border-right"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:border-style"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:border-top"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:border-vertical"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:bubble-chart"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:drag-handle"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-align-center"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-align-justify"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-align-left"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-align-right"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-bold"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-clear"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-color-fill"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-color-reset"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-color-text"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-indent-decrease"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-indent-increase"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-italic"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-line-spacing"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-list-bulleted"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-list-numbered"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-paint"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-quote"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-shapes"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-size"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-strikethrough"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-textdirection-l-to-r"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-textdirection-r-to-l"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:format-underlined"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:functions"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:highlight"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:insert-chart"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:insert-comment"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:insert-drive-file"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:insert-emoticon"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:insert-invitation"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:insert-link"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:insert-photo"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:linear-scale"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:merge-type"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:mode-comment"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:mode-edit"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:monetization-on"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:money-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:multiline-chart"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:pie-chart"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:pie-chart-outlined"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:publish"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:short-text"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:show-chart"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:space-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:strikethrough-s"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:text-fields"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:title"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:vertical-align-bottom"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:vertical-align-center"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:vertical-align-top"></furo-icon-with-label>
-        <furo-icon-with-label icon="editor:wrap-text"></furo-icon-with-label>
-      </div>
-     
-      <h2>Iconset hardwareIcons</h2>
-      <p>
-      <pre>
-        import {HardwareIcons} from "@furo/icon/iconsets/hardwareIcons";
-        Iconset.registerIconset("hardware", HardwareIcons);
-      </pre></p>
-
-      <div>
-        <furo-icon-with-label icon="hardware:cast"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:cast-connected"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:computer"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:desktop-mac"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:desktop-windows"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:developer-board"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:device-hub"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:devices-other"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:dock"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:gamepad"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:headset"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:headset-mic"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:keyboard"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:keyboard-arrow-down"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:keyboard-arrow-left"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:keyboard-arrow-right"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:keyboard-arrow-up"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:keyboard-backspace"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:keyboard-capslock"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:keyboard-hide"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:keyboard-return"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:keyboard-tab"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:keyboard-voice"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:laptop"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:laptop-chromebook"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:laptop-mac"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:laptop-windows"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:memory"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:mouse"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:phone-android"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:phone-iphone"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:phonelink"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:phonelink-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:power-input"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:router"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:scanner"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:security"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:sim-card"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:smartphone"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:speaker"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:speaker-group"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:tablet"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:tablet-android"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:tablet-mac"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:toys"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:tv"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:videogame-asset"></furo-icon-with-label>
-        <furo-icon-with-label icon="hardware:watch"></furo-icon-with-label>
-      </div>
-          
-      <h2>Iconset imageIcons</h2>
-      <p>
-      <pre>
-        import {ImageIcons} from "@furo/icon/iconsets/imageIcons";
-        Iconset.registerIconset("image", ImageIcons);
-      </pre></p>
-
-      <div>
-        <furo-icon-with-label icon="image:add-a-photo"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:add-to-photos"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:adjust"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:assistant"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:assistant-photo"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:audiotrack"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:blur-circular"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:blur-linear"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:blur-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:blur-on"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:brightness-1"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:brightness-2"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:brightness-3"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:brightness-4"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:brightness-5"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:brightness-6"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:brightness-7"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:broken-image"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:brush"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:burst-mode"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:camera"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:camera-alt"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:camera-front"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:camera-rear"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:camera-roll"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:center-focus-strong"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:center-focus-weak"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:collections"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:collections-bookmark"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:color-lens"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:colorize"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:compare"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:control-point"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:control-point-duplicate"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:crop"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:crop-16-9"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:crop-3-2"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:crop-5-4"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:crop-7-5"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:crop-din"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:crop-free"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:crop-landscape"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:crop-original"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:crop-portrait"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:crop-rotate"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:crop-square"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:dehaze"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:details"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:edit"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:exposure"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:exposure-neg-1"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:exposure-neg-2"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:exposure-plus-1"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:exposure-plus-2"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:exposure-zero"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-1"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-2"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-3"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-4"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-5"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-6"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-7"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-8"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-9"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-9-plus"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-b-and-w"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-center-focus"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-drama"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-frames"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-hdr"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-none"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-tilt-shift"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:filter-vintage"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:flare"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:flash-auto"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:flash-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:flash-on"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:flip"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:gradient"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:grain"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:grid-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:grid-on"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:hdr-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:hdr-on"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:hdr-strong"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:hdr-weak"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:healing"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:image"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:image-aspect-ratio"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:iso"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:landscape"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:leak-add"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:leak-remove"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:lens"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:linked-camera"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:looks"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:looks-3"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:looks-4"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:looks-5"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:looks-6"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:looks-one"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:looks-two"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:loupe"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:monochrome-photos"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:movie-creation"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:movie-filter"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:music-note"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:nature"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:nature-people"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:navigate-before"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:navigate-next"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:palette"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:panorama"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:panorama-fish-eye"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:panorama-horizontal"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:panorama-vertical"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:panorama-wide-angle"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:photo"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:photo-album"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:photo-camera"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:photo-filter"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:photo-library"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:photo-size-select-actual"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:photo-size-select-large"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:photo-size-select-small"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:picture-as-pdf"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:portrait"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:remove-red-eye"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:rotate-90-degrees-ccw"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:rotate-left"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:rotate-right"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:slideshow"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:straighten"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:style"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:switch-camera"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:switch-video"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:tag-faces"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:texture"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:timelapse"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:timer"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:timer-10"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:timer-3"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:timer-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:tonality"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:transform"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:tune"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:view-comfy"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:view-compact"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:vignette"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:wb-auto"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:wb-cloudy"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:wb-incandescent"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:wb-iridescent"></furo-icon-with-label>
-        <furo-icon-with-label icon="image:wb-sunny"></furo-icon-with-label>
-      </div>
-           
-      <h2>Iconset mapsIcons</h2>
-      <p>
-      <pre>
-        import {MapsIcons} from "@furo/icon/iconsets/mapsIcons";
-        Iconset.registerIconset("maps", MapsIcons);
-      </pre></p>
-
-      <div>
-        <furo-icon-with-label icon="map:add-location"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:beenhere"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:directions"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:directions-bike"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:directions-boat"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:directions-bus"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:directions-car"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:directions-railway"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:directions-run"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:directions-subway"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:directions-transit"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:directions-walk"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:edit-location"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:ev-station"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:flight"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:hotel"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:layers"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:layers-clear"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-activity"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-airport"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-atm"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-bar"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-cafe"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-car-wash"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-convenience-store"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-dining"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-drink"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-florist"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-gas-station"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-grocery-store"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-hospital"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-hotel"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-laundry-service"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-library"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-mall"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-movies"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-offer"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-parking"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-pharmacy"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-phone"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-pizza"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-play"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-post-office"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-printshop"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-see"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-shipping"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:local-taxi"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:map"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:my-location"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:navigation"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:near-me"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:person-pin"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:person-pin-circle"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:pin-drop"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:place"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:rate-review"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:restaurant"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:restaurant-menu"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:satellite"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:store-mall-directory"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:streetview"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:subway"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:terrain"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:traffic"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:train"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:tram"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:transfer-within-a-station"></furo-icon-with-label>
-        <furo-icon-with-label icon="map:zoom-out-map"></furo-icon-with-label>
-      </div>
-            
-      <h2>Iconset notificationIcons</h2>
-      <p>
-      <pre>
-        import {NotificationIcons} from "@furo/icon/iconsets/notificationIcons";
-        Iconset.registerIconset("notification", NotificationIcons);
-      </pre></p>
-
-      <div>
-        <furo-icon-with-label icon="notification:adb"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:airline-seat-flat"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:airline-seat-flat-angled"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:airline-seat-individual-suite"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:airline-seat-legroom-extra"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:airline-seat-legroom-normal"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:airline-seat-legroom-reduced"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:airline-seat-recline-extra"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:airline-seat-recline-normal"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:bluetooth-audio"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:confirmation-number"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:disc-full"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:do-not-disturb"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:do-not-disturb-alt"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:do-not-disturb-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:do-not-disturb-on"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:drive-eta"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:enhanced-encryption"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:event-available"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:event-busy"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:event-note"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:folder-special"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:live-tv"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:mms"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:more"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:network-check"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:network-locked"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:no-encryption"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:ondemand-video"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:personal-video"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:phone-bluetooth-speaker"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:phone-forwarded"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:phone-in-talk"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:phone-locked"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:phone-missed"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:phone-paused"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:power"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:priority-high"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:rv-hookup"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:sd-card"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:sim-card-alert"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:sms"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:sms-failed"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:sync"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:sync-disabled"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:sync-problem"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:system-update"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:tap-and-play"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:time-to-leave"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:vibration"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:voice-chat"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:vpn-lock"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:wc"></furo-icon-with-label>
-        <furo-icon-with-label icon="notification:wifi"></furo-icon-with-label>
-      </div>
-      
-      
-      <h2>Iconset placesIcons</h2>
-      <p>
-      <pre>
-        import {PlacesIcons} from "@furo/icon/iconsets/placesIcons";
-        Iconset.registerIconset("places", PlacesIcons);
-      </pre></p>
-
-      <div>
-        <furo-icon-with-label icon="places:ac-unit"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:airport-shuttle"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:all-inclusive"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:beach-access"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:business-center"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:casino"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:child-care"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:child-friendly"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:fitness-center"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:free-breakfast"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:golf-course"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:hot-tub"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:kitchen"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:pool"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:room-service"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:rv-hookup"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:smoke-free"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:smoking-rooms"></furo-icon-with-label>
-        <furo-icon-with-label icon="places:spa"></furo-icon-with-label>
-      </div>
-      
-      
-      <h2>Iconset socialIcons</h2>
-      <p>
-      <pre>
-        import {SocialIcons} from "@furo/icon/iconsets/socialIcons";
-        Iconset.registerIconset("social", SocialIcons);
-      </pre></p>
-
-      <div>
-        <furo-icon-with-label icon="social:cake"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:domain"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:group"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:group-add"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:location-city"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:mood"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:mood-bad"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:notifications"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:notifications-active"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:notifications-none"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:notifications-off"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:notifications-paused"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:pages"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:party-mode"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:people"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:people-outline"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:person"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:person-add"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:person-outline"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:plus-one"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:poll"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:public"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:school"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:sentiment-dissatisfied"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:sentiment-neutral"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:sentiment-satisfied"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:sentiment-very-dissatisfied"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:sentiment-very-satisfied"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:share"></furo-icon-with-label>
-        <furo-icon-with-label icon="social:whatshot"></furo-icon-with-label>
-      </div>
-     
-    `}}window.customElements.define("demo-furo-icon-list",DemoFuroIconList);class FuroIntervalPulse extends LitElement{constructor(){super();this.interval=200;this.takt=4;if(this.auto){this.start()}}static get properties(){return{interval:{type:Number},takt:{type:Number},/**
-       * Starts interval automatically
-       */auto:Boolean}}start(){let cnt=0;clearInterval(this._intervalObject);this._intervalObject=setInterval(()=>{let pos=cnt++%this.takt,customEvent=new Event("tick",{bubbles:!0});/**
-                                    * Fired when interval is
-                                    * detail payload: position
-                                    * @event tick
-                                    */customEvent.detail=pos;this.dispatchEvent(customEvent);if(0==pos){/**
-         * Fired when tock
-         * detail payload: position
-         * @event tick
-         */let customEvent=new Event("tock",{bubbles:!0});customEvent.detail=pos;this.dispatchEvent(customEvent)}},this.interval)}stop(){clearInterval(this._intervalObject)}}window.customElements.define("furo-interval-pulse",FuroIntervalPulse)});
+    `}}window.customElements.define("side-navigation",SideNavigation)});
