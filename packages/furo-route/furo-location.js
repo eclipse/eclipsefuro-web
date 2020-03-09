@@ -26,7 +26,9 @@ class FuroLocation extends HTMLElement {
      * URL. So to match just URLs that start with /app/ do:
      *     url-space-regex="^/app/"
      *
-     * If you plan to work in sub directories, you may set **url-space-regex="^${window.APPROOT}/additional/path"**
+     * If you plan to work in sub directories, you may set **url-space-regex="^${window.APPROOT}/additional/path"**.
+     * Keep in mind to put a "url-space-regex" on every furo-location. Otherwise you can not switch between apps in different
+     * folders with a link.
      *
      * @type {string|RegExp}
      */
