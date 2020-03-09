@@ -76,7 +76,7 @@ class FuroPages extends (LitElement) {
       this._lastPage.removeAttribute(this._attrForSelected)
     }
 
-    this._lastPage = this.querySelector("*[name=" + page + "]");
+    this._lastPage = this.querySelector(`*[name="${page}"]`);
 
     if (!this._lastPage) {
       // 404

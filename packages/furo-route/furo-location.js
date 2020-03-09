@@ -26,6 +26,8 @@ class FuroLocation extends HTMLElement {
      * URL. So to match just URLs that start with /app/ do:
      *     url-space-regex="^/app/"
      *
+     * If you plan to work in sub directories, you may set **url-space-regex="^${window.APPROOT}/additional/path"**
+     *
      * @type {string|RegExp}
      */
     this.urlSpaceRegex = this.getAttribute("url-space-regex") || "";
@@ -44,6 +46,12 @@ class FuroLocation extends HTMLElement {
 
     this._registerHandler();
 
+  }
+
+  // listen to changes of the url space regex
+  static get observedAttributes() { return ["url-space-regex"]; }
+  attributeChangedCallback(name, oldValue, newValue) {
+    this.urlSpaceRegex = newValue;
   }
 
   /**
@@ -90,6 +98,9 @@ class FuroLocation extends HTMLElement {
   }
 
 
+  /**
+   * @private
+   */
   _registerHandler() {
     this._locationChangeNotyfier = (e) => {
       this._lastChangedAt = e.detail;
