@@ -3,7 +3,21 @@ import {Env} from "@furo/framework"
 
 /**
  * `furo-deep-link`
- * Resolve deep links HATEOAS based on the  query params
+ * Resolve deep links HATEOAS based on the query params and the selected service.
+ *
+ * *Deeplink inside of a furo-page*
+ * ```html
+ * <furo-deep-link service="TaskService" ƒ-qp-in="--pageQueryChanged(*.query)" @-hts-out="--serviceHTS"></furo-deep-link>
+ * ```
+ *
+ * Services must be registered in the Env:
+ *
+ * ```html
+ * import {Services,Types} from "./apiConfig.js"
+ * Init.registerApiServices(Services);
+ * Init.registerApiTypes(Types);
+ * ```
+ * Usually this is done in your src/configs/init.js
  *
  * @summary Resolve deep links HATEOAS based on  query params
  * @customElement
@@ -20,12 +34,7 @@ class FuroDeepLink extends LitElement {
   static get properties() {
     return {
       /**
-       * @type {object|QueryParams} Query Params
-       */
-      qp: {type: Object},
-
-      /**
-       * Name des Services
+       * Name of the service
        */
       service: {type: String, attribute: true}
     };
@@ -40,6 +49,12 @@ class FuroDeepLink extends LitElement {
     }
   }
 
+  /**
+   *
+   * @param qp
+   * @param service
+   * @private
+   */
   _buildHTS(qp, service) {
     this._hts = [];
 
@@ -65,6 +80,16 @@ class FuroDeepLink extends LitElement {
       }
     }
     if (this._hts.length) {
+
+      // prefix the hrefs if they do not start with a host
+      if(Env.api.prefix){
+        this._hts.forEach((link)=>{
+          if(link.href.startsWith('/')){
+            link.href = Env.api.prefix + link.href;
+          }
+        });
+      }
+
       /**
        * @event hts-out
        * Fired when hateoas is available
@@ -78,7 +103,17 @@ class FuroDeepLink extends LitElement {
   }
 
   /**
-   * set queryParams and evaluate for hateoas
+   * Furo-deep-link consumes a object literal with key value pairs.
+   *
+   * This can come from the `*.query` part of an event from furo-location.
+   *
+   * Or from a furo-pages wire.
+   *
+   * Relevant wires from furo-pages:
+   * - --pageQueryChanged(*.query)
+   * - --pageActivated(*.query)
+   * - --pageHashChanged(*.query)
+   *
    * @param queryParams
    */
   qpIn(queryParams) {
@@ -88,32 +123,7 @@ class FuroDeepLink extends LitElement {
 
 
   /**
-   * Deprecated
-   *
-   * use ƒ-qp-in instead
-   *
-   * Inject a QueryParams (key value) Object
-   * @param {object|QueryParams} qp
-   */
-  injectQueryParams(qp) {
-    console.warn("injectQueryParams is deprecated, use ƒ-qp-in instead");
-    console.warn("This feature will be removed in Q3-2019",this);
-    // zwischenspeichern für einen ev. ƒ-trigger
-    this._qp = qp;
-    this.trigger();
-  }
-
-  /**
-   * Sets the service
-   *
-   * Services must be registered like:
-   *
-   * ```html
-   * import {Services,Types} from "./apiConfig.js"
-   * Init.registerApiServices(Services);
-   * Init.registerApiTypes(Types);
-   * ```
-   * Usually this is done in your main-app.js
+   * Sets the service by wire
    *
    * @param serviceName
    */
@@ -122,7 +132,10 @@ class FuroDeepLink extends LitElement {
   }
 
   /**
-   * Setze den Service
+   * Set the service name like `TaskService`.
+   *
+   * Services must be registered before.
+   *
    * @param service
    */
   set service(service) {

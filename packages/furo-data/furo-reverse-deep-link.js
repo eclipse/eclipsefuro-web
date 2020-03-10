@@ -7,7 +7,7 @@ import {Env} from "@furo/framework"
  *
  *```
  *<furo-reverse-deep-link
- *      service="tasks"
+ *      service="TaskService"
  *      rel="self" @-converted="--queryParams"
  *      ƒ-convert="--rawEntityOrCollection, --linksArray, --linkObject"
  *></furo-reverse-deep-link>
