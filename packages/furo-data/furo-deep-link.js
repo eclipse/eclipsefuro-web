@@ -40,14 +40,6 @@ class FuroDeepLink extends LitElement {
     };
   }
 
-  /**
-   * Evaluates hts. Use qpIn(qp) if you have a qp object in your event.detail
-   */
-  trigger() {
-    if (this._qp && this._service) {
-      this._buildHTS(this._qp, this._service)
-    }
-  }
 
   /**
    *
@@ -93,6 +85,25 @@ class FuroDeepLink extends LitElement {
       /**
        * @event hts-out
        * Fired when hateoas is available
+       *
+       * ```json
+       * [
+       *    {
+       *        "rel": "list",
+       *        "href": "/api/mockdata/tasks/list.json",
+       *        "method": "GET",
+       *        "service": "TaskService"
+       *      },
+       *    {
+       *        "rel": "create",
+       *        "href": "api.otherhost.com/mockdata/tasks",
+       *        "method": "PUT",
+       *        "service": "TaskService"
+       *      }
+       *    ]
+       *
+       * ```
+       *
        * detail payload: {[]Links} Array of hateoas links
        */
       let customEvent = new Event('hts-out', {composed: true, bubbles: true});
@@ -120,6 +131,18 @@ class FuroDeepLink extends LitElement {
     this._qp = queryParams;
     this.trigger();
   }
+
+
+  /**
+   * Evaluates hts. Use qpIn(qp) if you have a qp object in your event.detail
+   * This method have no effect as long _qp is not set.
+   */
+  trigger() {
+    if (this._qp && this._service) {
+      this._buildHTS(this._qp, this._service)
+    }
+  }
+
 
 
   /**

@@ -472,6 +472,7 @@ export class FieldNode extends EventTreeNode {
     let vType = spec.match(/,\s*(.*)>/)[1];
     let fieldSpec = {type: vType};
 
+    this._fieldIsMap = true;
     // create if not exist
     for (let fieldName in val) {
       if (this[fieldName] == undefined) {
@@ -505,10 +506,13 @@ export class FieldNode extends EventTreeNode {
       let index = this.__parentNode.__childNodes.indexOf(this);
       this.__parentNode.__childNodes.splice(index, 1);
       delete (this.__parentNode[this._name]);
+      this.dispatchNodeEvent(new NodeEvent("field-value-changed", this._name, true));
     }
     //notify
     this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted", this._name, false));
     this.dispatchNodeEvent(new NodeEvent("node-field-deleted", this._name, true));
+
+
   }
 
   set defaultvalue(val) {
@@ -544,7 +548,7 @@ export class FieldNode extends EventTreeNode {
   }
 
   get _value() {
-    if (this.__childNodes.length > 0) {
+    if (this.__childNodes.length > 0 || this._fieldIsMap) {
       this.__value = {};
       // nur reine Daten zurück geben
       for (let index in this.__childNodes) {

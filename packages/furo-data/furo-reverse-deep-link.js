@@ -5,12 +5,12 @@ import {Env} from "@furo/framework"
  * Converts hateoas to queryParams, which is useful for routing with app-flow
  *
  *
- *```
- *<furo-reverse-deep-link
+ *```html
+ *  <furo-reverse-deep-link
  *      service="TaskService"
  *      rel="self" @-converted="--queryParams"
  *      ƒ-convert="--rawEntityOrCollection, --linksArray, --linkObject"
- *></furo-reverse-deep-link>
+ *  ></furo-reverse-deep-link>
  *```
  *
  * @summary create query param object from HATEOAS
