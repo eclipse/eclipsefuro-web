@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.11...@furo/route@0.24.0) (2020-03-10)
+
+
+### Features
+
+* app support in sub directory ([c1c0a92](https://github.com/theNorstroem/FuroBaseComponents/commit/c1c0a92))
+* app support in sub directory ([d1ea586](https://github.com/theNorstroem/FuroBaseComponents/commit/d1ea586))
+
+
+
+
+
 ## [0.23.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.10...@furo/route@0.23.11) (2020-03-07)
 
 **Note:** Version bump only for package @furo/route

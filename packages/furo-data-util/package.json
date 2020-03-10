@@ -1,10 +1,10 @@
 {
   "name": "@furo/data-util",
-  "version": "0.1.23",
+  "version": "0.1.24",
   "description": "Furo data utility components",
   "main": "furo-catalog.js",
   "dependencies": {
-    "@furo/fbp": "^4.29.1",
+    "@furo/fbp": "^4.29.2",
     "@furo/framework": "^0.13.6",
     "lit-element": "^2.2.1"
   },
