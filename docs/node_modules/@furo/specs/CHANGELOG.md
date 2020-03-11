@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.50.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.50.1...@furo/specs@0.50.2) (2020-03-10)
+
+
+### Bug Fixes
+
+* parse root dir spec projects ([d54727e](https://github.com/theNorstroem/FuroBaseComponents/commit/d54727e))
+
+
+
+
+
 ## [0.50.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.50.0...@furo/specs@0.50.1) (2020-03-07)
 
 

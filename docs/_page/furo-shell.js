@@ -8968,6 +8968,10 @@ if(!this._isWiredWithShow()){window.addEventListener("open-furo-snackbar-request
         * URL. So to match just URLs that start with /app/ do:
         *     url-space-regex="^/app/"
         *
+        * If you plan to work in sub directories, you may set **url-space-regex="^${window.APPROOT}/additional/path"**.
+        * Keep in mind to put a "url-space-regex" on every furo-location. Otherwise you can not switch between apps in different
+        * folders with a link.
+        *
         * @type {string|RegExp}
         */this.urlSpaceRegex=this.getAttribute("url-space-regex")||"";/**
                                                                       * If the user was on a URL for less than `dwellTime` milliseconds, it
@@ -8977,14 +8981,17 @@ if(!this._isWiredWithShow()){window.addEventListener("open-furo-snackbar-request
                                                                       * This is to prevent large numbers of entries from clogging up the user's
                                                                       * browser history. Disable by setting to a negative number.
                                                                       * @type {number} in milliseconds
-                                                                      */this.dwellTime=this.getAttribute("dwell-time")||2e3;this._registerHandler()}/**
+                                                                      */this.dwellTime=this.getAttribute("dwell-time")||2e3;this._registerHandler()}// listen to changes of the url space regex
+static get observedAttributes(){return["url-space-regex"]}attributeChangedCallback(name,oldValue,newValue){this.urlSpaceRegex=newValue}/**
      * @private
      */connectedCallback(){document.body.addEventListener("click",this._clickHandler,!0);document.body.addEventListener("__furoLocationChanged",this._locationChangeNotyfier,!0);window.addEventListener("popstate",this._locationChangeNotyfier,!0);window.addEventListener("popstate",this._locationChangeNotyfier,!0);this._lastChangedAt=window.performance.now()-(this.dwellTime-200);// initial notyfier
 setTimeout(()=>{this._locationChangeNotyfier({detail:this._lastChangedAt})},0)}/**
      * @private
      */disconnectedCallback(){document.body.removeEventListener("click",this._clickHandler,!0);document.body.removeEventListener("__furoLocationChanged",this._locationChangeNotyfier,!0);window.removeEventListener("popstate",this._locationChangeNotyfier,!0);window.removeEventListener("popstate",this._locationChangeNotyfier,!0)}// create a valid href string from this._location
 _getHrefFromLocation(){// path, query hash
-let href=this._location.path;if(0<this._location.query.length){href+="?"+this._location.query}if(0<this._location.hash.length){href+="#"+this._location.hash}return href}_registerHandler(){this._locationChangeNotyfier=e=>{this._lastChangedAt=e.detail;let sendHashChanged=!1,sendQueryChanged=!1,sendPathChanged=!1;// ignore links outside urlSpaceRegex
+let href=this._location.path;if(0<this._location.query.length){href+="?"+this._location.query}if(0<this._location.hash.length){href+="#"+this._location.hash}return href}/**
+     * @private
+     */_registerHandler(){this._locationChangeNotyfier=e=>{this._lastChangedAt=e.detail;let sendHashChanged=!1,sendQueryChanged=!1,sendPathChanged=!1;// ignore links outside urlSpaceRegex
 if(""!==this.urlSpaceRegex){if(null===window.location.pathname.match(this.urlSpaceRegex)){return}}// register empty objects for later usage
 this._location.query={};this._location.hash={};// path-changed
 // cut of urlSpaceRegex
@@ -9039,7 +9046,7 @@ if(!this._lastPageName){this.activatePage(this._fallback)}},1)}/**
      * Inject the location Object from furo-location
      *
      * @param location
-     */injectLocation(location){let page=location.pathSegments[0]||this._fallback;if(this._lastPage&&page!==this._lastPageName){if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageDeActivated")}this._lastPage.setAttribute("hidden","");this._lastPage.removeAttribute(this._attrForSelected)}this._lastPage=this.querySelector("*[name="+page+"]");if(!this._lastPage){// 404
+     */injectLocation(location){let page=location.pathSegments[0]||this._fallback;if(this._lastPage&&page!==this._lastPageName){if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageDeActivated")}this._lastPage.setAttribute("hidden","");this._lastPage.removeAttribute(this._attrForSelected)}this._lastPage=this.querySelector(`*[name="${page}"]`);if(!this._lastPage){// 404
 this._lastPage=this.querySelector("*[name=\"404\"]");if(this._lastPage){}else{this._lastPage=this._default}}if(this._lastPage){if(page!==this._lastPageName){this._lastPage.removeAttribute("hidden");this._lastPage.setAttribute(this._attrForSelected,"");this._lastPageName=page;if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageActivated",location)}}// QP
 if(this._lastQP[page]!==location.querystring){this._lastQP[page]=location.querystring;// fire --pageParamsChanged if we have a fbp component
 if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageQueryChanged",location)}}// Hash
