@@ -72,16 +72,6 @@ class FuroDeepLink extends LitElement {
       }
     }
     if (this._hts.length) {
-
-      // prefix the hrefs if they do not start with a host
-      if(Env.api.prefix){
-        this._hts.forEach((link)=>{
-          if(link.href.startsWith('/')){
-            link.href = Env.api.prefix + link.href;
-          }
-        });
-      }
-
       /**
        * @event hts-out
        * Fired when hateoas is available

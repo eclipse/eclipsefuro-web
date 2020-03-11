@@ -48,70 +48,100 @@ import {i18n} from "./i18n";
  */
 export class Init {
 
-    static registerEnv(section, data) {
-        Env[section] = data;
-    }
+  static registerEnv(section, data) {
+    Env[section] = data;
+  }
 
-    static registerApiServices(services) {
-        Env.api.services = services
-    }
+  static registerApiServices(services) {
+    Env.api.services = services
+  }
 
-    static registerApiTypes(types) {
-        Env.api.specs = types
-    }
+  static registerApiTypes(types) {
+    Env.api.specs = types
+  }
 
-    /**
-     *
-     * @param locale
-     */
-    static translateStaticTypeMessages(locale) {
-        // read from original spec to apply locale
-        if (this._raw_spec) {
-            Env.api.specs = JSON.parse(this._raw_spec);
-        } else {
-            this._raw_spec = JSON.stringify(Env.api.specs);
+  /**
+   * Apply the prefix to all service deeplinks and to all furo.Reference types with defaults
+   * @param prefix
+   */
+  static applyCustomApiPrefixToServicesAndTypes(prefix) {
+    // Apply the prefix to all hrefs in the services which not start with a folder or host (all /xxx)
+    for (let s in Env.api.services) {
+      for (let service in Env.api.services[s].services) {
+        // prefix the hrefs if they do not start with a host
+        let deeplink = Env.api.services[s].services[service].deeplink;
+        if (deeplink.href.startsWith('/')) {
+          deeplink.href = Env.api.prefix + deeplink.href;
         }
+      }
+    }
 
-        for (let type in Env.api.specs) {
-            for (let field in Env.api.specs[type].fields) {
-                // translate static meta messages
-                if (Env.api.specs[type].fields[field].meta) {
+    // Apply prefix for the types. Currently furo.Reference is the only affected field
+    for (let t in Env.api.specs) {
+      for (let field in Env.api.specs[t].fields) {
+        // Apply the prefix for the default links in furo.Reference types
+        if (Env.api.specs[t].fields[field].type === "furo.Reference" && Env.api.specs[t].fields[field].meta && Env.api.specs[t].fields[field].meta.default) {
+          let deeplink = Env.api.specs[t].fields[field].meta.default.link;
+          if (deeplink.href.startsWith('/')) {
+            deeplink.href = Env.api.prefix + deeplink.href;
+          }
+        }
+      }
+    }
+  }
 
-                    // translate static label text
-                    if (Env.api.specs[type].fields[field].meta.label) {
-                        Env.api.specs[type].fields[field].meta.label = i18n.t(Env.api.specs[type].fields[field].meta.label);
-                    }
-                    // translate static hint text
-                    if (Env.api.specs[type].fields[field].meta.hint) {
-                        Env.api.specs[type].fields[field].meta.hint = i18n.t(Env.api.specs[type].fields[field].meta.hint);
-                    }
-                    // translate option list if set
-                    if (Env.api.specs[type].fields[field].meta.options && Env.api.specs[type].fields[field].meta.options.list && Array.isArray(Env.api.specs[type].fields[field].meta.options.list)) {
-                        let size = Env.api.specs[type].fields[field].meta.options.list.length;
-                        while (size--) {
-                            // additional check if list object has property display_name
-                            if (Env.api.specs[type].fields[field].meta.options.list[size].display_name) {
-                                Env.api.specs[type].fields[field].meta.options.list[size].display_name = i18n.t(Env.api.specs[type].fields[field].meta.options.list[size].display_name);
-                            }
-                        }
-                    }
+  /**
+   *
+   * @param locale
+   */
+  static translateStaticTypeMessages(locale) {
+    // read from original spec to apply locale
+    if (this._raw_spec) {
+      Env.api.specs = JSON.parse(this._raw_spec);
+    } else {
+      this._raw_spec = JSON.stringify(Env.api.specs);
+    }
 
-                }
-                if (Env.api.specs[type].fields[field].constraints) {
-                    for (let attr in Env.api.specs[type].fields[field].constraints) {
-                        if (Env.api.specs[type].fields[field].constraints.hasOwnProperty(attr)) {
-                            if (Env.api.specs[type].fields[field].constraints[attr].message) {
-                                Env.api.specs[type].fields[field].constraints[attr].message = i18n.t(Env.api.specs[type].fields[field].constraints[attr].message);
-                            }
-                        }
-                    }
+    for (let type in Env.api.specs) {
+      for (let field in Env.api.specs[type].fields) {
+        // translate static meta messages
+        if (Env.api.specs[type].fields[field].meta) {
 
-                }
-
+          // translate static label text
+          if (Env.api.specs[type].fields[field].meta.label) {
+            Env.api.specs[type].fields[field].meta.label = i18n.t(Env.api.specs[type].fields[field].meta.label);
+          }
+          // translate static hint text
+          if (Env.api.specs[type].fields[field].meta.hint) {
+            Env.api.specs[type].fields[field].meta.hint = i18n.t(Env.api.specs[type].fields[field].meta.hint);
+          }
+          // translate option list if set
+          if (Env.api.specs[type].fields[field].meta.options && Env.api.specs[type].fields[field].meta.options.list && Array.isArray(Env.api.specs[type].fields[field].meta.options.list)) {
+            let size = Env.api.specs[type].fields[field].meta.options.list.length;
+            while (size--) {
+              // additional check if list object has property display_name
+              if (Env.api.specs[type].fields[field].meta.options.list[size].display_name) {
+                Env.api.specs[type].fields[field].meta.options.list[size].display_name = i18n.t(Env.api.specs[type].fields[field].meta.options.list[size].display_name);
+              }
             }
+          }
+
+        }
+        if (Env.api.specs[type].fields[field].constraints) {
+          for (let attr in Env.api.specs[type].fields[field].constraints) {
+            if (Env.api.specs[type].fields[field].constraints.hasOwnProperty(attr)) {
+              if (Env.api.specs[type].fields[field].constraints[attr].message) {
+                Env.api.specs[type].fields[field].constraints[attr].message = i18n.t(Env.api.specs[type].fields[field].constraints[attr].message);
+              }
+            }
+          }
+
         }
 
+      }
     }
+
+  }
 
 }
 
@@ -120,11 +150,11 @@ export class Init {
  *
  */
 export class Sys {
-    static setLocale(locale) {
-        //todo: checks
-        console.log("Set locale from", Env.locale);
-        Env.locale = locale;
-        Init.translateStaticTypeMessages(Env.locale);
-        console.log("to", Env.locale)
-    }
+  static setLocale(locale) {
+    //todo: checks
+    console.log("Set locale from", Env.locale);
+    Env.locale = locale;
+    Init.translateStaticTypeMessages(Env.locale);
+    console.log("to", Env.locale)
+  }
 }
