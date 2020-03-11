@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.71.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.8...@furo/data@0.71.0) (2020-03-11)
+
+
+### Bug Fixes
+
+* deleting map types ([8132a48](https://github.com/theNorstroem/FuroBaseComponents/commit/8132a48))
+
+
+### Features
+
+* api prefixes for apis which are relative to the apps directory ([c861499](https://github.com/theNorstroem/FuroBaseComponents/commit/c861499))
+* prefixes for apis ([3036882](https://github.com/theNorstroem/FuroBaseComponents/commit/3036882))
+
+
+
+
+
 ## [0.70.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.7...@furo/data@0.70.8) (2020-03-10)
 
 **Note:** Version bump only for package @furo/data

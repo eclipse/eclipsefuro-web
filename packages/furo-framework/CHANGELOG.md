@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@0.13.6...@furo/framework@0.14.0) (2020-03-11)
+
+
+### Features
+
+* api prefixes for apis which are relative to the apps directory ([c861499](https://github.com/theNorstroem/FuroBaseComponents/commit/c861499))
+
+
+
+
+
 ## [0.13.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@0.13.5...@furo/framework@0.13.6) (2020-03-07)
 
 **Note:** Version bump only for package @furo/framework
