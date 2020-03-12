@@ -6,15 +6,23 @@ import "./furo-horizontal-flex"
 import "./furo-vertical-scroller"
 
 /**
- * `furo-split-view`
+ * `furo-split-view`  is a layouter for master detail views.
+ *
+ * You can add the attribute scroll on the detail view to make the content scrollable.
+ *
  *
  * ```html
  * <furo-split-view>
- *   <div slot="master" style="height: 100%; background-image: linear-gradient(blue, violet);">Master</div>
- *   <big-component scroll> </big-component scroll>
+ *   <div slot="master">Master</div>
+ *   <big-component scroll> </big-component>
  * </furo-split-view>
  * ```
+ * ### Styling
+ * The following custom properties are available for styling:
  *
+ * Custom property | Description | Default  | Fallback
+ * ----------------|-------------|----------|----------
+ * `--split-master-width` | width of the master slot | 270px | --
  *
  * Left right layout for master detail views
  *
