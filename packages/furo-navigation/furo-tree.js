@@ -16,7 +16,7 @@ import "./furo-tree-item"
  * @demo demo-furo-tree-qp Working with query params
  * @appliesMixin FBP
  */
-class FuroTree extends FBP(LitElement) {
+export class FuroTree extends FBP(LitElement) {
 
   constructor() {
     super();
