@@ -2,14 +2,14 @@
   "name": "@furo/data-input",
   "description": "Input components",
   "main": "furo-catalog.js",
-  "version": "0.69.3",
+  "version": "0.69.4",
   "dependencies": {
     "@furo/data": "^0.71.0",
     "@furo/fbp": "^4.29.2",
-    "@furo/form": "^0.27.3",
+    "@furo/form": "^0.27.4",
     "@furo/framework": "^0.14.0",
-    "@furo/input": "^0.67.5",
-    "@furo/layout": "^0.41.7",
+    "@furo/input": "^0.67.6",
+    "@furo/layout": "^0.41.8",
     "lit-element": "^2.2.1"
   },
   "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",

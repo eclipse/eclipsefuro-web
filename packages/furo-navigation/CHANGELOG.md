@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.44.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.43.4...@furo/navigation@0.44.0) (2020-03-12)
+
+
+### Features
+
+* furo-tree extendable ([e0aad5c](https://github.com/theNorstroem/FuroBaseComponents/commit/e0aad5c))
+
+
+
+
+
 ## [0.43.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.43.3...@furo/navigation@0.43.4) (2020-03-11)
 
 **Note:** Version bump only for package @furo/navigation
