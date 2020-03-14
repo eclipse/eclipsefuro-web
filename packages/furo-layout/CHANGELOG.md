@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.43.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.42.0...@furo/layout@0.43.0) (2020-03-14)
+
+
+### Features
+
+* doc-helpers updated ([05b5efd](https://github.com/theNorstroem/FuroBaseComponents/commit/05b5efd))
+
+
+
+
+
 # [0.42.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.41.8...@furo/layout@0.42.0) (2020-03-14)
 
 
