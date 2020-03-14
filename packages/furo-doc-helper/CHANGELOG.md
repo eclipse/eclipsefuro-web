@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.26](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.25...@furo/doc-helper@0.15.26) (2020-03-14)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
 ## [0.15.25](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.15.24...@furo/doc-helper@0.15.25) (2020-03-12)
 
 **Note:** Version bump only for package @furo/doc-helper

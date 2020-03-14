@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.42.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.41.8...@furo/layout@0.42.0) (2020-03-14)
+
+
+### Features
+
+* furo-resizer ([fcfe887](https://github.com/theNorstroem/FuroBaseComponents/commit/fcfe887))
+
+
+
+
+
 ## [0.41.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.41.7...@furo/layout@0.41.8) (2020-03-12)
 
 **Note:** Version bump only for package @furo/layout
