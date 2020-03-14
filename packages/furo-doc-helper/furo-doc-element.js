@@ -34,8 +34,9 @@ class FuroDocElement extends FBP(LitElement) {
     this._FBPTriggerWire("--data", this.element);
 
     if(this.element.demos){
-      this.element.demos.forEach((d)=>{
-        d.package = this.element.__package;
+
+      this.element.demos.forEach((d,i)=>{
+        d.docurl =  `?t=demo-${this.element.name}-${i}`;
       });
 
       this._FBPTriggerWire("--demos", this.element.demos);

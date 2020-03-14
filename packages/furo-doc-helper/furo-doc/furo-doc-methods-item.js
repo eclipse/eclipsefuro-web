@@ -25,6 +25,10 @@ class FuroDocMethodsItem extends FBP(LitElement) {
     if (data.privacy === "protected") {
       this.setAttribute("hidden", "")
     }
+    if (data.privacy === "private") {
+      this.setAttribute("hidden", "")
+    }
+
     this._FBPTriggerWire("--data", data);
 
     this.requestUpdate();

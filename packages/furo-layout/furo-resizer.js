@@ -20,6 +20,7 @@ import {FBP} from "@furo/fbp";
  *```
  *
  * @summary resizable box
+ * @demo demo-furo-resizer  Basic usage
  * @customElement
  * @appliesMixin FBP
  */
@@ -66,10 +67,11 @@ class FuroResizer extends FBP(LitElement) {
 
     /**
      * remove the listeners
+     * @private
      */
-    this.unregister = () => {
-      window.removeEventListener("mousemove", this.movementHandler);
-      window.removeEventListener("mouseup", this.unregister);
+    this._unregister = () => {
+      window.removeEventListener("mousemove", this._movementHandler);
+      window.removeEventListener("mouseup", this._unregister);
       // set cursor to avoid flickering
       this.parentNode.style.cursor = "";
 
@@ -77,21 +79,22 @@ class FuroResizer extends FBP(LitElement) {
 
     /**
      * capture the mouse movement and resize the width
-     * @param e
+     * @param e MouseEvent
+     * @private
      */
-    this.movementHandler = (e) => {
-      const delta = (e.x - this.positions.x) * this._handleLRM;
+    this._movementHandler = (e) => {
+      const delta = (e.x - this._positions.x) * this._handleLRM;
 
       // todo request animation frame
-      let width = this.startwidth + delta;
+      let width = this._startwidth + delta;
 
       if(this.minwidth && width +3 < this.minwidth){
         width = this.minwidth;
-        this.unregister();
+        this._unregister();
       }
       if(this.maxwidth && width -3   > this.maxwidth){
         width = this.maxwidth;
-        this.unregister();
+        this._unregister();
       }
 
       this.resizer.style.width = `${width}px`;
@@ -104,31 +107,34 @@ class FuroResizer extends FBP(LitElement) {
     /**
      * register the left handler
      * @param e
+     * @private
      */
-    this.startTrackingLeft = (e) => {
+    this._startTrackingLeft = (e) => {
       this._handleLRM = -1;
-      this.startTracking(e);
+      this._startTracking(e);
     };
 
     /**
      * register the right handler
      * @param e
+     * @private
      */
-    this.startTrackingRight = (e) => {
+    this._startTrackingRight = (e) => {
       this._handleLRM = 1;
-      this.startTracking(e);
+      this._startTracking(e);
     };
 
     /**
      * Start mouse move tracking
      * @param e
+     * @private
      */
-    this.startTracking = (e) => {
+    this._startTracking = (e) => {
       e.preventDefault();
-      window.addEventListener("mousemove", this.movementHandler);
-      window.addEventListener("mouseup", this.unregister);
-      this.positions.x = e.screenX;
-      this.startwidth = this.getBoundingClientRect().width;
+      window.addEventListener("mousemove", this._movementHandler);
+      window.addEventListener("mouseup", this._unregister);
+      this._positions.x = e.screenX;
+      this._startwidth = this.getBoundingClientRect().width;
 
       // set cursor to avoid flickering
       this.parentNode.style.cursor = "col-resize";
@@ -154,13 +160,13 @@ class FuroResizer extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
     // this._FBPTraceWires()
-    this.positions = {};
+    this._positions = {};
     this.lefthandle = this.shadowRoot.getElementById("lefthandle");
-    this.lefthandle.addEventListener("mousedown", this.startTrackingLeft);
+    this.lefthandle.addEventListener("mousedown", this._startTrackingLeft);
     this.lefthandle.addEventListener("dblclick", this.resetSize);
 
     this.righthandle = this.shadowRoot.getElementById("righthandle");
-    this.righthandle.addEventListener("mousedown", this.startTrackingRight);
+    this.righthandle.addEventListener("mousedown", this._startTrackingRight);
     this.righthandle.addEventListener("dblclick", this.resetSize);
 
     this.resizer = this;

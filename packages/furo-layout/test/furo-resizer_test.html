@@ -101,7 +101,7 @@
       mousemove.x = 187;
       handle.dispatchEvent(mousemove);
       assert.equal(element.style.width, "167px");
-      element.unregister();
+      element._unregister();
       setTimeout(()=>{done()},20);
 
     });
@@ -129,7 +129,7 @@
       mousemove.x = 1100;
       handle.dispatchEvent(mousemove);
       assert.equal(element.style.width, "154px");
-      element.unregister();
+      element._unregister();
       setTimeout(()=>{done()},20);
 
     });
