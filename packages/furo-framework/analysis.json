@@ -129,11 +129,11 @@
           "sourceRange": {
             "start": {
               "line": 50,
-              "column": 4
+              "column": 2
             },
             "end": {
               "line": 52,
-              "column": 5
+              "column": 3
             }
           },
           "metadata": {},
@@ -156,11 +156,11 @@
           "sourceRange": {
             "start": {
               "line": 54,
-              "column": 4
+              "column": 2
             },
             "end": {
               "line": 56,
-              "column": 5
+              "column": 3
             }
           },
           "metadata": {},
@@ -180,11 +180,11 @@
           "sourceRange": {
             "start": {
               "line": 58,
-              "column": 4
+              "column": 2
             },
             "end": {
               "line": 60,
-              "column": 5
+              "column": 3
             }
           },
           "metadata": {},
@@ -198,17 +198,41 @@
           }
         },
         {
+          "name": "applyCustomApiPrefixToServicesAndTypes",
+          "description": "Apply the prefix to all service deeplinks and to all furo.Reference types with defaults",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 66,
+              "column": 2
+            },
+            "end": {
+              "line": 90,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "prefix"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "translateStaticTypeMessages",
           "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 66,
-              "column": 4
+              "line": 96,
+              "column": 2
             },
             "end": {
-              "line": 113,
-              "column": 5
+              "line": 143,
+              "column": 3
             }
           },
           "metadata": {},
@@ -230,7 +254,7 @@
           "column": 7
         },
         "end": {
-          "line": 115,
+          "line": 145,
           "column": 1
         }
       },
@@ -250,12 +274,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 122,
-              "column": 4
+              "line": 152,
+              "column": 2
             },
             "end": {
-              "line": 128,
-              "column": 5
+              "line": 158,
+              "column": 3
             }
           },
           "metadata": {},
@@ -273,11 +297,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 121,
+          "line": 151,
           "column": 7
         },
         "end": {
-          "line": 129,
+          "line": 159,
           "column": 1
         }
       },

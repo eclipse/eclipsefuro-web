@@ -1549,15 +1549,15 @@
         {
           "name": "urlSpaceRegex",
           "type": "(string | RegExp)",
-          "description": "A regexp that defines the set of URLs that should be considered part\nof this web app.\n\nClicking on a link that matches this regex won't result in a full page\nnavigation, but will instead just update the URL state in place.\n\nThis regexp is given everything after the origin in an absolute\nURL. So to match just URLs that start with /app/ do:\n    url-space-regex=\"^/app/\"",
+          "description": "A regexp that defines the set of URLs that should be considered part\nof this web app.\n\nClicking on a link that matches this regex won't result in a full page\nnavigation, but will instead just update the URL state in place.\n\nThis regexp is given everything after the origin in an absolute\nURL. So to match just URLs that start with /app/ do:\n    url-space-regex=\"^/app/\"\n\nIf you plan to work in sub directories, you may set **url-space-regex=\"^${window.APPROOT}/additional/path\"**.\nKeep in mind to put a \"url-space-regex\" on every furo-location. Otherwise you can not switch between apps in different\nfolders with a link.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 30,
+              "line": 34,
               "column": 4
             },
             "end": {
-              "line": 30,
+              "line": 34,
               "column": 22
             }
           },
@@ -1575,11 +1575,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 41,
+              "line": 45,
               "column": 4
             },
             "end": {
-              "line": 41,
+              "line": 45,
               "column": 18
             }
           },
@@ -1593,16 +1593,46 @@
       ],
       "methods": [
         {
+          "name": "attributeChangedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 54,
+              "column": 2
+            },
+            "end": {
+              "line": 56,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "oldValue"
+            },
+            {
+              "name": "newValue"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "connectedCallback",
           "description": "",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 51,
+              "line": 61,
               "column": 2
             },
             "end": {
-              "line": 64,
+              "line": 74,
               "column": 3
             }
           },
@@ -1618,11 +1648,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 70,
+              "line": 80,
               "column": 2
             },
             "end": {
-              "line": 75,
+              "line": 85,
               "column": 3
             }
           },
@@ -1638,11 +1668,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 79,
+              "line": 89,
               "column": 2
             },
             "end": {
-              "line": 89,
+              "line": 99,
               "column": 3
             }
           },
@@ -1652,14 +1682,14 @@
         {
           "name": "_registerHandler",
           "description": "",
-          "privacy": "protected",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 92,
+              "line": 105,
               "column": 2
             },
             "end": {
-              "line": 249,
+              "line": 262,
               "column": 3
             }
           },
@@ -1675,11 +1705,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 257,
+              "line": 270,
               "column": 2
             },
             "end": {
-              "line": 268,
+              "line": 281,
               "column": 3
             }
           },
@@ -1699,11 +1729,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 274,
+              "line": 287,
               "column": 2
             },
             "end": {
-              "line": 279,
+              "line": 292,
               "column": 3
             }
           },
@@ -1723,14 +1753,30 @@
           "column": 0
         },
         "end": {
-          "line": 280,
+          "line": 293,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "HTMLElement",
       "name": "FuroLocation",
-      "attributes": [],
+      "attributes": [
+        {
+          "name": "url-space-regex",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 44
+            },
+            "end": {
+              "line": 53,
+              "column": 61
+            }
+          },
+          "metadata": {}
+        }
+      ],
       "events": [
         {
           "type": "CustomEvent",
@@ -1765,7 +1811,7 @@
       "tagname": "furo-location"
     },
     {
-      "description": "`furo-pages` is used to select one of its children to show.\n\n### caveat\nYou have to implement a `:host([hidden]){display:none}` in your views css",
+      "description": "`furo-pages` is used to select one of its children to show.\n\n### caveat\nYou have to implement a `:host([hidden]){display:none}` in your views css\n\n### flowbased auto wires\nfuro-pages provides auto wires, which are automatically injected if\nthe element inside has flowbased enabled.\n\n| wire               | timing  |\n|:-------------------|:---|\n| --pageDeActivated  | Every time the page changes to hidden   |\n| --pageActivated    | Every time the page changes its attribute _attrForSelected or selected",
       "summary": "Simple content switcher",
       "path": "packages/furo-route/furo-pages.js",
       "properties": [
@@ -1868,11 +1914,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 57,
+              "line": 66,
               "column": 2
             },
             "end": {
-              "line": 59,
+              "line": 68,
               "column": 3
             }
           },
@@ -2312,11 +2358,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 33,
+              "line": 42,
               "column": 2
             },
             "end": {
-              "line": 41,
+              "line": 50,
               "column": 3
             }
           },
@@ -2381,11 +2427,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 144,
+              "line": 153,
               "column": 2
             },
             "end": {
-              "line": 149,
+              "line": 158,
               "column": 3
             }
           },
@@ -2401,11 +2447,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 48,
+              "line": 57,
               "column": 2
             },
             "end": {
-              "line": 50,
+              "line": 59,
               "column": 3
             }
           },
@@ -2422,11 +2468,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 66,
+              "line": 75,
               "column": 2
             },
             "end": {
-              "line": 123,
+              "line": 132,
               "column": 3
             }
           },
@@ -2650,11 +2696,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 13,
+          "line": 22,
           "column": 0
         },
         "end": {
-          "line": 151,
+          "line": 160,
           "column": 1
         }
       },
