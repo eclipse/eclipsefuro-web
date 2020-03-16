@@ -83,7 +83,7 @@ class FuroResizer extends FBP(LitElement) {
      * @private
      */
     this._movementHandler = (e) => {
-      const delta = (e.x - this._positions.x) * this._handleLRM;
+      const delta = (e.screenX - this._positions.x) * this._handleLRM;
 
       // todo request animation frame
       let width = this._startwidth + delta;
