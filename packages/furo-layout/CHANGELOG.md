@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.43.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.43.0...@furo/layout@0.43.1) (2020-03-16)
+
+
+### Bug Fixes
+
+* use screenX for movement tracking and initial positions ([99f299c](https://github.com/theNorstroem/FuroBaseComponents/commit/99f299c))
+
+
+
+
+
 # [0.43.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.42.0...@furo/layout@0.43.0) (2020-03-14)
 
 
