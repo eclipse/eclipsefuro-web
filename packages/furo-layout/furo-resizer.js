@@ -144,7 +144,12 @@ class FuroResizer extends FBP(LitElement) {
      * removes remember and set to the initial size
      */
     this.resetSize = () =>{
-      this.resizer.style.width = `${this.initialWidth}px`;
+      if(this.initialWidthSetByStyle){
+        this.resizer.style.width = `${this.initialWidthSetByStyle}`;
+      }else{
+        this.resizer.style.removeProperty("width");
+      }
+
       if (this.remember) {
         sessionStorage.removeItem(this.remember)
 
@@ -171,7 +176,7 @@ class FuroResizer extends FBP(LitElement) {
 
     this.resizer = this;
 
-    this.initialWidth = this.getBoundingClientRect().width;
+    this.initialWidthSetByStyle = this.resizer.style.width;
 
     // restore remembered value
     if (this.remember) {
