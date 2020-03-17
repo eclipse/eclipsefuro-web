@@ -3149,7 +3149,7 @@
       ]
     },
     {
-      "description": "`furo-split-view`\n\n```html\n<furo-split-view>\n  <div slot=\"master\" style=\"height: 100%; background-image: linear-gradient(blue, violet);\">Master</div>\n  <big-component scroll> </big-component scroll>\n</furo-split-view>\n```\n\n\nLeft right layout for master detail views",
+      "description": "`furo-split-view`  is a layouter for master detail views.\n\nYou can add the attribute scroll on the detail view to make the content scrollable.\n\n\n```html\n<furo-split-view>\n  <div slot=\"master\">Master</div>\n  <big-component scroll> </big-component>\n</furo-split-view>\n```\n### Styling\nThe following custom properties are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--split-master-width` | width of the master slot | 270px | --\n\nLeft right layout for master detail views",
       "summary": "splitted layout",
       "path": "packages/furo-layout/furo-split-view.js",
       "properties": [
@@ -3160,11 +3160,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 34,
+              "line": 42,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 42,
               "column": 30
             }
           },
@@ -3596,11 +3596,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 81,
+              "line": 89,
               "column": 2
             },
             "end": {
-              "line": 93,
+              "line": 101,
               "column": 3
             }
           },
@@ -3621,11 +3621,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 25,
+          "line": 33,
           "column": 0
         },
         "end": {
-          "line": 95,
+          "line": 103,
           "column": 1
         }
       },
@@ -3638,11 +3638,11 @@
           "description": "flip the left and right side",
           "sourceRange": {
             "start": {
-              "line": 34,
+              "line": 42,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 42,
               "column": 30
             }
           },
@@ -5090,6 +5090,775 @@
       },
       "slots": [],
       "tagname": "furo-panel",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-resizer`\n container which let you resize its width.\n\n Doubleclick on the handler to reset the width.\n You need a counter part which flexes.\n\n```html\n  <furo-horizontal-flex>\n    <div flex> the flexible part </div>\n    <!-- you have to set at leas one handle to resize the content -->\n    <furo-resizer righthandle remember=\"logv\" minwidth=\"280\" maxwidth=\"780\">\n      <some-content></some-content>\n    </furo-resizer>\n  </furo-horizontal-flex>\n```",
+      "summary": "resizable box",
+      "path": "packages/furo-layout/furo-resizer.js",
+      "properties": [
+        {
+          "name": "_unregister",
+          "type": "?",
+          "description": "remove the listeners",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 71,
+              "column": 4
+            },
+            "end": {
+              "line": 71,
+              "column": 20
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "() => {\n  window.removeEventListener(\"mousemove\", this._movementHandler);\n  window.removeEventListener(\"mouseup\", this._unregister); // set cursor to avoid flickering\n\n  this.parentNode.style.cursor = \"\";\n}"
+        },
+        {
+          "name": "_movementHandler",
+          "type": "?",
+          "description": "capture the mouse movement and resize the width",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 84,
+              "column": 4
+            },
+            "end": {
+              "line": 84,
+              "column": 25
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "e => {\n  const delta = (e.screenX - this._positions.x) * this._handleLRM; // todo request animation frame\n\n  let width = this._startwidth + delta;\n\n  if (this.minwidth && width + 3 < this.minwidth) {\n    width = this.minwidth;\n\n    this._unregister();\n  }\n\n  if (this.maxwidth && width - 3 > this.maxwidth) {\n    width = this.maxwidth;\n\n    this._unregister();\n  }\n\n  this.resizer.style.width = `${width}px`;\n\n  if (this.remember) {\n    sessionStorage.setItem(this.remember, width);\n  }\n}"
+        },
+        {
+          "name": "_startTrackingLeft",
+          "type": "?",
+          "description": "register the left handler",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 111,
+              "column": 4
+            },
+            "end": {
+              "line": 111,
+              "column": 27
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "e => {\n  this._handleLRM = -1;\n\n  this._startTracking(e);\n}"
+        },
+        {
+          "name": "_startTrackingRight",
+          "type": "?",
+          "description": "register the right handler",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 121,
+              "column": 4
+            },
+            "end": {
+              "line": 121,
+              "column": 28
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "e => {\n  this._handleLRM = 1;\n\n  this._startTracking(e);\n}"
+        },
+        {
+          "name": "_startTracking",
+          "type": "?",
+          "description": "Start mouse move tracking",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 131,
+              "column": 4
+            },
+            "end": {
+              "line": 131,
+              "column": 23
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "e => {\n  e.preventDefault();\n  window.addEventListener(\"mousemove\", this._movementHandler);\n  window.addEventListener(\"mouseup\", this._unregister);\n  this._positions.x = e.screenX;\n  this._startwidth = this.getBoundingClientRect().width; // set cursor to avoid flickering\n\n  this.parentNode.style.cursor = \"col-resize\";\n}"
+        },
+        {
+          "name": "lefthandle",
+          "type": "boolean | null | undefined",
+          "description": "add a handle to the left side",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 38,
+              "column": 6
+            },
+            "end": {
+              "line": 38,
+              "column": 33
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "righthandle",
+          "type": "boolean | null | undefined",
+          "description": "add a handle to the right side",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 43,
+              "column": 6
+            },
+            "end": {
+              "line": 43,
+              "column": 34
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "remember",
+          "type": "string | null | undefined",
+          "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 49,
+              "column": 6
+            },
+            "end": {
+              "line": 49,
+              "column": 30
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "maxwidth",
+          "type": "number | null | undefined",
+          "description": "Set the maximal width of the resizer",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 6
+            },
+            "end": {
+              "line": 53,
+              "column": 28
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "minwidth",
+          "type": "number | null | undefined",
+          "description": "Set the minimal width of the resizer",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 57,
+              "column": 6
+            },
+            "end": {
+              "line": 57,
+              "column": 28
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_attachDom",
+          "description": "Auto append fbp for Polymer",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 47,
+              "column": 8
+            },
+            "end": {
+              "line": 50,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "dom"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "firstUpdated",
+          "description": "Auto append fbp for lit elements",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 53,
+              "column": 8
+            },
+            "end": {
+              "line": 61,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "changedProperties"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPTriggerWire",
+          "description": "Triggers a wire",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 69,
+              "column": 8
+            },
+            "end": {
+              "line": 115,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire",
+              "description": "(String) Name of the wire like --buttonClicked"
+            },
+            {
+              "name": "detailData",
+              "description": "(*) data to pass"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPAddWireHook",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 125,
+              "column": 8
+            },
+            "end": {
+              "line": 142,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire",
+              "description": "(String) Name of the wire"
+            },
+            {
+              "name": "cb",
+              "description": "(function) Callback function cb(detailData)"
+            },
+            {
+              "name": "before"
+            }
+          ],
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPTraceWires",
+          "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 151,
+              "column": 8
+            },
+            "end": {
+              "line": 187,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPDebug",
+          "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 197,
+              "column": 8
+            },
+            "end": {
+              "line": 233,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire"
+            },
+            {
+              "name": "openDebugger",
+              "description": "opens the debugger console, so you can inspect your component."
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "__toCamelCase",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 235,
+              "column": 8
+            },
+            "end": {
+              "line": 239,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "str"
+            }
+          ],
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_appendFBP",
+          "description": "parses the dom for flowbased programming tags",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 246,
+              "column": 8
+            },
+            "end": {
+              "line": 529,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "dom",
+              "description": "dom node"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 159,
+              "column": 2
+            },
+            "end": {
+              "line": 184,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "__enqueueTrigger",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 541,
+              "column": 8
+            },
+            "end": {
+              "line": 543,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire"
+            },
+            {
+              "name": "detailData"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "__resolveWireAndPath",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 545,
+              "column": 8
+            },
+            "end": {
+              "line": 553,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "w"
+            }
+          ],
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "disconnectedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 555,
+              "column": 8
+            },
+            "end": {
+              "line": 569,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_pathGet",
+          "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 580,
+              "column": 8
+            },
+            "end": {
+              "line": 593,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "root",
+              "type": "Object",
+              "description": "Object from which to dereference path from"
+            },
+            {
+              "name": "path",
+              "type": "(string | !Array.<(string | number)>)",
+              "description": "Path to read"
+            }
+          ],
+          "return": {
+            "type": "*",
+            "desc": "Value at path, or `undefined` if the path could not be\n fully dereferenced."
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_pathSet",
+          "description": "Sets a value to a path.  If any sub-property in the path is `undefined`,\nthis method will no-op.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 604,
+              "column": 8
+            },
+            "end": {
+              "line": 626,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "root",
+              "type": "Object",
+              "description": "Object from which to dereference path from"
+            },
+            {
+              "name": "path",
+              "type": "(string | !Array.<(string | number)>)",
+              "description": "Path to set"
+            },
+            {
+              "name": "value",
+              "type": "*",
+              "description": "Value to set to path"
+            }
+          ],
+          "return": {
+            "type": "(string | undefined)",
+            "desc": "The normalized version of the input path"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_split",
+          "description": "Splits a path into an array of property names. Accepts either arrays\nof path parts or strings.\n\nExample:\n\n```\nsplit(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']\nsplit('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']\n```",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 644,
+              "column": 8
+            },
+            "end": {
+              "line": 646,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "path",
+              "type": "(string | !Array.<(string | number)>)",
+              "description": "Input path"
+            }
+          ],
+          "return": {
+            "type": "!Array.<string>",
+            "desc": "Array of path parts"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 240,
+              "column": 2
+            },
+            "end": {
+              "line": 247,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-resizer",
+          "description": "Basic usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 26,
+          "column": 0
+        },
+        "end": {
+          "line": 248,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroResizer",
+      "attributes": [
+        {
+          "name": "lefthandle",
+          "description": "add a handle to the left side",
+          "sourceRange": {
+            "start": {
+              "line": 38,
+              "column": 6
+            },
+            "end": {
+              "line": 38,
+              "column": 33
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "righthandle",
+          "description": "add a handle to the right side",
+          "sourceRange": {
+            "start": {
+              "line": 43,
+              "column": 6
+            },
+            "end": {
+              "line": 43,
+              "column": 34
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "remember",
+          "description": "remember the size after resizing.\nGive the id for the rememberer, you can use the id on different views",
+          "sourceRange": {
+            "start": {
+              "line": 49,
+              "column": 6
+            },
+            "end": {
+              "line": 49,
+              "column": 30
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "maxwidth",
+          "description": "Set the maximal width of the resizer",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 6
+            },
+            "end": {
+              "line": 53,
+              "column": 28
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "minwidth",
+          "description": "Set the minimal width of the resizer",
+          "sourceRange": {
+            "start": {
+              "line": 57,
+              "column": 6
+            },
+            "end": {
+              "line": 57,
+              "column": 28
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-resizer",
       "mixins": [
         "FBP"
       ]

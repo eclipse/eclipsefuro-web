@@ -7,6 +7,15 @@ import {FBP} from "@furo/fbp";
  * ### caveat
  * You have to implement a `:host([hidden]){display:none}` in your views css
  *
+ * ### flowbased auto wires
+ * furo-pages provides auto wires, which are automatically injected if
+ * the element inside has flowbased enabled.
+ *
+ * | wire               | timing           |
+ * |:-------------------|:-----------------|
+ * | --pageDeActivated  | Every time the page changes to hidden   |
+ * | --pageActivated    | Every time the page changes its attribute _attrForSelected or selected
+ *
  * @summary Simple content switcher
  * @demo demo-furo-panel-coordinator with panel coordinator
  * @customElement
