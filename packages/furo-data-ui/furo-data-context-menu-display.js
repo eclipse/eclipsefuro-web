@@ -1,6 +1,8 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/theme.js';
 import { FBP } from '@furo/fbp';
+import '@furo/fbp/flow-repeat.js';
+import './lib/furo-data-context-menu-item';
 
 /**
  * `furo-data-menu-display`
@@ -16,7 +18,14 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.borderDistance = 48;
+
+    // for bindData
+    this._repeatsChanged = ()=>{
+      this._FBPTriggerWire('--menuObject', this.menuObject.menu.children.repeats);
+    }
+
   }
+
 
   /**
    * flow is ready lifecycle method
@@ -29,13 +38,16 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
 
     window.addEventListener('open-furo-data-menu-requested', (e) => {
 
-      console.log('ctx', e.detail.context);
-      console.log('menu', e.detail.menu);
+      this.menuObject = e.detail;
+
+      // listener is de registred in hideMenu()
+      this.menuObject.menu.children.addEventListener("this-repeated-field-changed",this._repeatsChanged);
+      this._FBPTriggerWire('--menuObject', this.menuObject.menu.children.repeats);
 
 
       this.setAttribute('backdrop', '');
       const initiator = e.detail.initiator;
-      let side = "right";
+      let side = 'right';
       let thisCR = this.getBoundingClientRect();
 
 
@@ -48,32 +60,30 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
       menucontainer.style.removeProperty('right');
 
 
-
       // find the ideal position and direction
       const initiatorCoordinates = {
         left: { x: initiatorCR.left, y: (initiatorCR.top + initiatorCR.bottom) / 2 },
         right: { x: initiatorCR.right, y: (initiatorCR.top + initiatorCR.bottom) / 2 },
       };
-      if(initiatorCoordinates.left.x > thisCR.width - initiatorCoordinates.right.x ){
-        side = "left";
-        menucontainer.style.right = (thisCR.width - initiatorCoordinates.left.x ) + 'px';
+      if (initiatorCoordinates.left.x > thisCR.width - initiatorCoordinates.right.x) {
+        side = 'left';
+        menucontainer.style.right = (thisCR.width - initiatorCoordinates.left.x) + 'px';
         menucontainer.style.top = initiatorCoordinates.left.y + 'px';
-      }else{
-        side = "right";
+      } else {
+        side = 'right';
         menucontainer.style.removeProperty('right');
         menucontainer.style.left = initiatorCoordinates.right.x + 'px';
         menucontainer.style.top = initiatorCoordinates.right.y + 'px';
       }
 
 
-
       // calculate container positions from bottom when the initator is in the under third of the screen
       let onUpperSide = true;
-      if(initiatorCoordinates.right.y * 2.5 > thisCR.height){
+      if (initiatorCoordinates.right.y * 2.5 > thisCR.height) {
         // we are in the under half of the screen
         menucontainer.style.removeProperty('top');
         menucontainer.style.bottom = (thisCR.height - initiatorCoordinates.right.y) + 'px';
-        onUpperSide = false
+        onUpperSide = false;
       }
 
       this._start = true;
@@ -85,7 +95,7 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
         const menucontainerCr = menucontainer.getBoundingClientRect();
 
         let maxHeight = thisCR.height - initiatorCoordinates.left.y - this.borderDistance;
-        if(!onUpperSide){
+        if (!onUpperSide) {
           maxHeight = initiatorCoordinates.left.y - this.borderDistance;
         }
 
@@ -119,6 +129,11 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
     this._start = false;
     this._show = false;
     this.requestUpdate();
+
+
+    // unregister the event listener from open-furo-data-menu-requested
+    this.menuObject.menu.children.removeEventListener("this-repeated-field-changed",this._repeatsChanged);
+
   }
 
   /**
@@ -175,6 +190,7 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
         bottom: 0;
         right: 0;
       }
+
     `;
   }
 
@@ -190,38 +206,11 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
     return html`
     <div class="clickcatcher" @-click="--backdropClick"></div>
       <div id="menu" ?start="${this._start}" ?show="${this._show}">
-      ${this._quadrant}
-        <p>Hej, welcome</p>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdsfdfs <br>
-        dsfdfsdsf
-        dsfdfsdfs  
+         <template is="flow-repeat" ƒ-inject-items="--menuObject">    
+        <div class="separator">
+            <furo-data-context-menu-item ƒ-bind-data="--itemInjected(*.item)"></furo-data-context-menu-item>
+        </div>              
+        </template>
       </div>
       
       

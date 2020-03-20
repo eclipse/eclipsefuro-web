@@ -118,7 +118,7 @@ export class FuroDataContextMenu extends FBP(LitElement) {
     // language=HTML
     return html`
       <slot></slot>
-      <furo-keydown key="F10" @-key="--keynav"></furo-keydown>
+      <furo-keydown shift key="F10" @-key="--keynav"></furo-keydown>
     `;
   }
 }
