@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/theme.js';
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/flow-repeat.js';
+import '@furo/util/furo-navigation-pad.js';
 import './lib/furo-data-context-menu-item';
 
 /**
@@ -20,9 +21,9 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
     this.borderDistance = 48;
 
     // for bindData
-    this._repeatsChanged = ()=>{
+    this._repeatsChanged = () => {
       this._FBPTriggerWire('--menuObject', this.menuObject.menu.children.repeats);
-    }
+    };
 
   }
 
@@ -33,6 +34,7 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
     // this._FBPTraceWires()
+    this._repeater = this.shadowRoot.getElementById('repeater');
 
     const menucontainer = this.shadowRoot.getElementById('menu');
 
@@ -41,7 +43,7 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
       this.menuObject = e.detail;
 
       // listener is de registred in hideMenu()
-      this.menuObject.menu.children.addEventListener("this-repeated-field-changed",this._repeatsChanged);
+      this.menuObject.menu.children.addEventListener('this-repeated-field-changed', this._repeatsChanged);
       this._FBPTriggerWire('--menuObject', this.menuObject.menu.children.repeats);
 
 
@@ -108,6 +110,10 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
         this._show = true;
         this.requestUpdate();
 
+        setTimeout(() => {
+          menucontainer.focus();
+        }, 100);
+
       }, 10);
 
 
@@ -115,11 +121,28 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
 
 
     /**
+     * Register hook on wire --nav to
+     * listen to the navigation pad
+     */
+    this._FBPAddWireHook('--nav', (e) => {
+      this.triggerNavigation(e);
+    });
+
+    /**
      * Register hook on wire --backdropClick to
      * remove the menu
      */
     this._FBPAddWireHook('--backdropClick', (e) => {
       this.hideMenu();
+    });
+
+    /**
+     * Listen to item-selected to pass it back to furo-context-menu (callback)
+     *
+     */
+    this.addEventListener("item-selected",(e)=>{
+          this.menuObject.selectCallback(e);
+          this.hideMenu();
     });
   }
 
@@ -132,8 +155,56 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
 
 
     // unregister the event listener from open-furo-data-menu-requested
-    this.menuObject.menu.children.removeEventListener("this-repeated-field-changed",this._repeatsChanged);
+    this.menuObject.menu.children.removeEventListener('this-repeated-field-changed', this._repeatsChanged);
 
+  }
+
+
+  /**
+   * Interface for the furo navigation pad
+   * @param key
+   */
+  triggerNavigation(key) {
+    switch (key) {
+      case 'Enter':
+        this._repeater.triggerSelected(key);
+        break;
+
+      case 'ArrowDown':
+        this._repeater.selectNextIndex();
+        break;
+      case 'ArrowUp':
+        this._repeater.selectPreviousIndex();
+        break;
+      case 'PageDown':
+
+        break;
+      case 'PageUp':
+        this._repeater.select(0);
+        break;
+
+      case 'End':
+        this.focusLast();
+        break;
+      case 'Home':
+        this._repeater.select(0);
+        break;
+
+      case 'ArrowLeft':
+// closes subnav
+        this._repeater.triggerSelected(key);
+        break;
+
+      case 'ArrowRight':
+// opens subnav
+        this._repeater.triggerSelected(key);
+        break;
+
+      case'Escape':
+// closes the menu
+        this.hideMenu();
+        break;
+    }
   }
 
   /**
@@ -165,7 +236,6 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
         transition: opacity 350ms;
         opacity: 0;
         background-color: var(--surface);
-        padding: 0 8px;
         overflow: auto;
         border-radius: 4px;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
@@ -191,6 +261,14 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
         right: 0;
       }
 
+      /*  only focus is needed, because the menu closes on select */
+      furo-data-context-menu-item:hover, furo-data-context-menu-item[focused] {
+        background-color: rgba(var(--primary-rgb), var(--state-hover));
+        color: var(--primary);
+      }
+
+
+
     `;
   }
 
@@ -204,14 +282,18 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
+    
     <div class="clickcatcher" @-click="--backdropClick"></div>
-      <div id="menu" ?start="${this._start}" ?show="${this._show}">
-         <template is="flow-repeat" ƒ-inject-items="--menuObject">    
-        <div class="separator">
-            <furo-data-context-menu-item ƒ-bind-data="--itemInjected(*.item)"></furo-data-context-menu-item>
-        </div>              
-        </template>
-      </div>
+    <div id="menu" tabindex="0" ?start="${this._start}" ?show="${this._show}" @-mousefocus="--mousefocus"  >
+    <!-- the wires --itemSelected and --itemDeSelected means focus, they come from flow-repeat -->
+       <template id="repeater" is="flow-repeat" ƒ-inject-items="--menuObject" ƒ-select="--mousefocus">    
+      <div class="separator">       
+          <furo-data-context-menu-item ƒ-index="--index" ƒ-select="--trigger" ƒ-set-focused="--itemSelected"  ƒ-unset-focused="--itemDeSelected"          
+          ƒ-bind-data="--itemInjected(*.item)"></furo-data-context-menu-item>
+      </div>              
+      </template>
+      <furo-navigation-pad @-navigated="--nav"></furo-navigation-pad>
+    </div>
       
       
       

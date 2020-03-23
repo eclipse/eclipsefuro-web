@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/theme.js';
 import { FBP } from '@furo/fbp';
-import  '@furo/util/furo-keydown.js';
+import '@furo/util/furo-keydown.js';
 
 /**
  * `furo-data-menu`
@@ -31,17 +31,17 @@ export class FuroDataContextMenu extends FBP(LitElement) {
   bindData(menu) {
     this._menuNode = menu;
     // queued trigger context
-    if(this._queueTrigger){
+    if (this._queueTrigger) {
       this.trigger(this._context);
       this._queueTrigger = false;
     }
   }
 
-  setContext(ctx){
+  setContext(ctx) {
     this._context = ctx;
   }
 
-  trigger(){
+  trigger() {
     this.triggerContext(this._context);
   }
 
@@ -49,27 +49,44 @@ export class FuroDataContextMenu extends FBP(LitElement) {
    * triggers the menu with context
    * @param context
    */
-  triggerContext(context){
+  triggerContext(context) {
     // enqueue when menuNode is not set
-    if(!this._menuNode){
+    if (!this._menuNode) {
       this._context = context;
       this._queueTrigger = true;
-    }else{
+    } else {
       /**
        * @event open-furo-data-menu-requested
        * Fired when context menu was triggered
        * detail payload: {context, menuitem}
        */
-      let customEvent = new Event('open-furo-data-menu-requested', {composed:true, bubbles: true});
-      customEvent.detail = {context, menu: this._menuNode, selectCallback:this._itemSelectedCallback, initiator:this};
+      let customEvent = new Event('open-furo-data-menu-requested', { composed: true, bubbles: true });
+      customEvent.detail = {
+        context, menu: this._menuNode, selectCallback:
+          (item) => {
+            /**
+             * @event menu-item-selected
+             * Fired when a menu item is selected
+             * detail payload: the menu node
+             */
+            let customEvent = new Event('menu-item-selected', { composed: true, bubbles: true });
+            customEvent.detail = item.detail;
+            this.dispatchEvent(customEvent);
+
+            // focus the childnode
+            const slottContents = this.shadowRoot.firstElementChild.assignedElements()
+            if(slottContents.length > 0){
+              setTimeout(()=>{
+                slottContents[0].focus();
+              },10)
+
+            }
+
+          }
+        , initiator: this,
+      };
       this.dispatchEvent(customEvent);
     }
-  }
-
-  _itemSelectedCallback(item){
-    console.log(this)
-    console.log(item)
-
   }
 
   /**
@@ -80,13 +97,11 @@ export class FuroDataContextMenu extends FBP(LitElement) {
     // this._FBPTraceWires()
     /**
      * Register hook on wire --keynav to
-     * listen on shift+F10
+     * listen on shift+F10 to open by keyboard
      */
-    this._FBPAddWireHook("--keynav",(e)=>{
-       console.log(e)
-      // check for shift
-
+    this._FBPAddWireHook('--keynav', (e) => {
       // trigger
+      this.trigger();
     });
   }
 
