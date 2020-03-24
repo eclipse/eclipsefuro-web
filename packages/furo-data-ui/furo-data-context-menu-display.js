@@ -166,6 +166,10 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
     this._show = false;
     this.requestUpdate();
 
+    // remove all submenus
+    this.shadowRoot.querySelectorAll("furo-data-context-submenu").forEach((sub)=>{
+      sub.remove();
+    })
 
     // unregister the event listener from open-furo-data-menu-requested
     this.menuObject.menu.children.removeEventListener('this-repeated-field-changed', this._repeatsChanged);
@@ -237,6 +241,7 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
         bottom: 0;
         right: 0;
         z-index: 10;
+        
       }
 
       :host([backdrop]) {
@@ -244,6 +249,7 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
       }
 
       #menu {
+        outline:none;
         position: absolute;
         display: none;
         transition: opacity 350ms;

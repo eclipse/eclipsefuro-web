@@ -99,12 +99,12 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
     if (initiatorCoordinates.left.x > thisCR.width - initiatorCoordinates.right.x) {
       side = 'left';
       menucontainer.style.right = (thisCR.width - initiatorCoordinates.left.x) + 'px';
-      menucontainer.style.top = initiatorCoordinates.left.y + 'px';
+      menucontainer.style.top = initiatorCR.top + 'px';
     } else {
       side = 'right';
       menucontainer.style.removeProperty('right');
       menucontainer.style.left = initiatorCoordinates.right.x + 'px';
-      menucontainer.style.top = initiatorCoordinates.right.y + 'px';
+      menucontainer.style.top = initiatorCR.top + 'px';
     }
 
 
@@ -152,9 +152,12 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
     this.removeAttribute('backdrop');
     this._start = false;
     this._show = false;
-    this.initiator.parentNode.parentNode.focus()
+    if(this.initiator.parentNode.parentNode){
+      this.initiator.parentNode.parentNode.focus()
+    }
     this.requestUpdate();
-
+    // destroy the instance
+    this.remove();
 
   }
 
@@ -217,6 +220,7 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
 
       :host {
         z-index: 10;
+        
       }
 
       :host([backdrop]) {
@@ -226,6 +230,7 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
       #menu {
         position: absolute;
         display: none;
+        outline:none;
         transition: opacity 350ms;
         opacity: 0;
         background-color: var(--surface);

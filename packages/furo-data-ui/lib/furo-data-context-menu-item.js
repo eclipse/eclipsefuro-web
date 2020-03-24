@@ -35,6 +35,9 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
     // this._FBPTraceWires()
 
     this.addEventListener('mouseover', () => {
+      this._mouseFocus = true;
+      // do not reopen when submenu exist
+
       /**
        * @event mousefocus
        * Fired when hovered with mouse
@@ -44,7 +47,6 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
       customEvent.detail = this._index;
       this.dispatchEvent(customEvent);
 
-      // open the subnode if the item have child
     });
 
   }
@@ -56,8 +58,11 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
     }
   }
 
+  /**
+   * send event to open the submenu
+   * @private
+   */
   _openSub() {
-    console.log('open sub');
     /**
      * @event opensub-requested
      * Fired when submenu should be opened
@@ -69,12 +74,20 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
     this._submenu = customEvent.submenu;
   }
 
+  /**
+   * The submenu item was set from the _openSub() event response
+   * @private
+   */
   _closeSub() {
-    console.log('close sub');
-    this._submenu.hideMenu();
-
+    if (this._submenu) {
+      this._submenu.hideMenu();
+    }
   }
 
+  /**
+   * Select the item, furo-data-context-menu callback will be called
+   * @private
+   */
   _selectItem() {
     /**
      * @event item-selected
@@ -141,9 +154,10 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
    */
   setFocused() {
     this.focused = true;
-    // opens subnav
-    if (this.menuitem.children.repeats.length > 0) {
+    // opens subnav on mousefocus
+    if (this._mouseFocus && this.menuitem.children.repeats.length > 0) {
       this._openSub();
+      this._mouseFocus = false;
     }
   }
 
@@ -155,6 +169,10 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
     if (this.menuitem.children.repeats.length > 0) {
       this._closeSub();
     }
+  }
+
+  disconnectedCallback() {
+    this._closeSub();
   }
 
   /**
