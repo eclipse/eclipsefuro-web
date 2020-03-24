@@ -56,6 +56,11 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
     if (this.menuitem.children.repeats.length > 0) {
       this._FBPTriggerWire('--submenu', this.menuitem);
     }
+    if(this.menuitem.leading_divider._value === true){
+      const separator = document.createElement("div");
+      separator.classList.add("separator");
+      this.parentNode.insertBefore(separator, this)
+    }
   }
 
   /**
@@ -204,15 +209,18 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
       /* 4px from left comes from horizontal-flex*/
       furo-icon {
         padding: 6px 4px 6px 20px;
-      }
+      }  
+       
 
       /* the display name */
       .name {
         padding: 0 16px;
+        overflow: hidden;
       }
 
+
       .command {
-        color: var(--separator);
+        color: #838383;
         padding-right: 24px;
       }
 
@@ -238,7 +246,7 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
     // language=HTML
     return html`
 
-<furo-horizontal-flex @click="${this._mouseSelect}"><furo-icon icon="${this.menuitem.icon}"></furo-icon>
+<furo-horizontal-flex @click="${this._mouseSelect}"><furo-icon ?hidden="${this.menuitem._noicon}" icon="${this.menuitem.icon}"></furo-icon>
 <div flex  class="name">${this.menuitem.display_name}</div>
 <div class="command">${this.menuitem.command}</div>
 

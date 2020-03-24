@@ -72,8 +72,50 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
 
     const menucontainer = this.shadowRoot.getElementById('menu');
 
-    this._FBPTriggerWire('--menuObject', this.menuObject.menu.children.repeats);
+    /**
+     * add flag _noicon if none of the group (between dividers) has no icons
+     */
+    let noicon = true;
+    let stage = [];
+    this.menuObject.menu.children.repeats.forEach((item, i, items) => {
+      /**
+       * if next item has a leading separator push before, otherwise push after loop
+       */
+      let pushed = false;
+      if(item.leading_divider._value && items[i+1] && items[i+1].leading_divider._value ){
+        stage.push(item);
+        pushed = true;
+      }
 
+      if (item.icon._value) {
+        noicon = false;
+      }
+      if (item.leading_divider._value) {
+        stage.forEach((i) => {
+          i._noicon = noicon;
+        });
+        stage = [];
+        noicon = true;
+      }
+      if(!pushed){
+        stage.push(item);
+      }
+
+    });
+    noicon = true;
+    // do the last stage
+    stage.forEach((item) => {
+
+      if (item.icon._value) {
+        noicon = false;
+      }
+      stage.forEach((i) => {
+        i._noicon = noicon;
+      });
+    });
+
+
+    this._FBPTriggerWire('--menuObject', this.menuObject.menu.children.repeats);
 
 
     this.initiator = e.detail.initiator;
@@ -231,14 +273,12 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
         position: absolute;
         display: none;
         outline:none;
-        transition: opacity 350ms;
+        transition: opacity .03s linear,transform .12s cubic-bezier(0,0,.2,1),-webkit-transform .12s cubic-bezier(0,0,.2,1);
         opacity: 0;
         background-color: var(--surface);
         overflow: auto;
         border-radius: 4px;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-        0 1px 5px 0 rgba(0, 0, 0, 0.12),
-        0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
       }
 
       #menu[start] {
@@ -265,6 +305,12 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
         color: var(--primary);
       }
 
+      .separator{
+        height: 8px;
+        box-sizing: border-box;
+        border-bottom: 1px solid var(--separator);
+        margin-bottom: 8px;
+      }
 
 
     `;
@@ -283,7 +329,7 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
     <div id="menu" tabindex="0" ?start="${this._start}" ?show="${this._show}" @-mousefocus="--mousefocus"  >
     <!-- the wires --itemSelected and --itemDeSelected means focus, they come from flow-repeat -->
        <template id="repeater" is="flow-repeat" ƒ-inject-items="--menuObject" ƒ-select="--mousefocus">    
-      <div class="separator">       
+      <div>       
           <furo-data-context-menu-item ƒ-index="--index" ƒ-select="--trigger" ƒ-set-focused="--itemSelected"  ƒ-unset-focused="--itemDeSelected"          
           ƒ-bind-data="--itemInjected(*.item)"></furo-data-context-menu-item>
       </div>              
