@@ -41,15 +41,15 @@ export class FuroDataContextMenu extends FBP(LitElement) {
     this._context = ctx;
   }
 
-  trigger() {
-    this.triggerContext(this._context);
+  trigger(byKeyboard) {
+    this.triggerContext(this._context,byKeyboard);
   }
 
   /**
    * triggers the menu with context
    * @param context
    */
-  triggerContext(context) {
+  triggerContext(context,byKeyboard) {
     // enqueue when menuNode is not set
     if (!this._menuNode) {
       this._context = context;
@@ -85,6 +85,8 @@ export class FuroDataContextMenu extends FBP(LitElement) {
           }
         , initiator: this,
       };
+
+      customEvent.byKeyboard = byKeyboard;
       this.dispatchEvent(customEvent);
     }
   }
@@ -101,7 +103,7 @@ export class FuroDataContextMenu extends FBP(LitElement) {
      */
     this._FBPAddWireHook('--keynav', (e) => {
       // trigger
-      this.trigger();
+      this.trigger(true);
     });
   }
 

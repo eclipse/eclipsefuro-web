@@ -56,7 +56,6 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
       noicon = true;
       // do the last stage
       stage.forEach((item) => {
-
         if (item.icon._value) {
           noicon = false;
         }
@@ -85,11 +84,10 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
       const submenu = document.createElement('furo-data-context-submenu');
       this.shadowRoot.appendChild(submenu);
       setTimeout(() => {
-        submenu.init(e, this);
+        submenu.init(e, this, e.byKeyboard);
       }, 10);
       // add submenu to event, so the requester can close it
       e.submenu = submenu;
-
     });
 
     window.addEventListener('open-furo-data-menu-requested', (e) => {
@@ -166,6 +164,10 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
 
         setTimeout(() => {
           menucontainer.focus();
+          // mark first element if opened by keyboard
+          if(e.byKeyboard){
+            this._repeater.select(0);
+          }
         }, 100);
 
       }, 10);

@@ -65,9 +65,11 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
 
   /**
    * send event to open the submenu
+
+   * @param byKeyboard Boolean
    * @private
    */
-  _openSub() {
+  _openSub(byKeyboard) {
     /**
      * @event opensub-requested
      * Fired when submenu should be opened
@@ -75,6 +77,7 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
      */
     let customEvent = new Event('opensub-requested', { composed: true, bubbles: true });
     customEvent.detail = { menu: this.menuitem, initiator: this };
+    customEvent.byKeyboard = byKeyboard;
     this.dispatchEvent(customEvent);
     this._submenu = customEvent.submenu;
   }
@@ -127,7 +130,7 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
       case 'ArrowRight':
         // opens subnav
         if (this.menuitem.children.repeats.length > 0) {
-          this._openSub();
+          this._openSub(true);
         }
         break;
     }

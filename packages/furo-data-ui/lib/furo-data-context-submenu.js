@@ -64,7 +64,7 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
 
   }
 
-  init(e, display){
+  init(e, display,byKeyboard){
 
     this.menuObject = e.detail;
 
@@ -183,6 +183,11 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
 
       setTimeout(() => {
         menucontainer.focus();
+        // mark first element if opened by keyboard
+        if(byKeyboard){
+          this._repeater.selectNextIndex();
+        }
+
       }, 100);
 
     }, 10);
