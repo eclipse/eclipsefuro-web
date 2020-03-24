@@ -11,7 +11,7 @@ import { FBP } from '@furo/fbp';
  * @demo demo-furo-data-context-menu-item
  * @appliesMixin FBP
  */
-class FuroDataContextMenuItem extends FBP(LitElement) {
+export class FuroDataContextMenuItem extends FBP(LitElement) {
 
 
   /**
@@ -51,15 +51,28 @@ class FuroDataContextMenuItem extends FBP(LitElement) {
 
   bindData(menuNode) {
     this.menuitem = menuNode;
-
+    if (this.menuitem.children.repeats.length > 0) {
+      this._FBPTriggerWire('--submenu', this.menuitem);
+    }
   }
 
   _openSub() {
     console.log('open sub');
+    /**
+     * @event opensub-requested
+     * Fired when submenu should be opened
+     * detail payload:
+     */
+    let customEvent = new Event('opensub-requested', { composed: true, bubbles: true });
+    customEvent.detail = { menu: this.menuitem, initiator: this };
+    this.dispatchEvent(customEvent);
+    this._submenu = customEvent.submenu;
   }
 
   _closeSub() {
     console.log('close sub');
+    this._submenu.hideMenu();
+
   }
 
   _selectItem() {
@@ -210,7 +223,9 @@ class FuroDataContextMenuItem extends FBP(LitElement) {
 <furo-horizontal-flex @click="${this._mouseSelect}"><furo-icon icon="${this.menuitem.icon}"></furo-icon>
 <div flex  class="name">${this.menuitem.display_name}</div>
 <div class="command">${this.menuitem.command}</div>
-<furo-icon icon="chevron-right" class="children" ?children="${this.menuitem.children.repeats.length > 0}"></furo-icon>
+
+<furo-icon icon="chevron-right" class="children" @click="${this._openSub}" ?children="${this.menuitem.children.repeats.length > 0}"></furo-icon>
+
 </furo-horizontal-flex>
      
     `;

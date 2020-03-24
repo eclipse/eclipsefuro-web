@@ -3,7 +3,8 @@ import { Theme } from '@furo/framework/theme.js';
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/flow-repeat.js';
 import '@furo/util/furo-navigation-pad.js';
-import './lib/furo-data-context-menu-item';
+import './lib/furo-data-context-menu-item.js';
+import './lib/furo-data-context-submenu.js';
 
 /**
  * `furo-data-menu-display`
@@ -37,6 +38,17 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
     this._repeater = this.shadowRoot.getElementById('repeater');
 
     const menucontainer = this.shadowRoot.getElementById('menu');
+
+    this.addEventListener("opensub-requested", (e)=>{
+      const submenu = document.createElement("furo-data-context-submenu");
+      this.shadowRoot.appendChild(submenu);
+      setTimeout(()=>{
+        submenu.init(e, this)
+      },10)
+      // add submenu to event, so the requester can close it
+      e.submenu = submenu;
+
+    });
 
     window.addEventListener('open-furo-data-menu-requested', (e) => {
 
@@ -144,6 +156,7 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
           this.menuObject.selectCallback(e);
           this.hideMenu();
     });
+
   }
 
 
