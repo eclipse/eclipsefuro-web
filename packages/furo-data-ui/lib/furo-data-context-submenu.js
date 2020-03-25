@@ -317,6 +317,9 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
         margin-bottom: 8px;
       }
 
+      :host([condensed]) furo-data-context-menu-item{
+        padding: 0;
+      }
 
     `;
   }

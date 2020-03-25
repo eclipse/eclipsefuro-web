@@ -3,6 +3,7 @@ import { Theme } from '@furo/framework/theme.js';
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/flow-repeat.js';
 import '@furo/util/furo-navigation-pad.js';
+import {RepeaterNode} from "@furo/data/lib/RepeaterNode.js"
 import './lib/furo-data-context-menu-item.js';
 import './lib/furo-data-context-submenu.js';
 
@@ -28,7 +29,7 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
        */
       let noicon = true;
       let stage = [];
-      this.menuObject.menu.children.repeats.forEach((item, i, items) => {
+      this._children.repeats.forEach((item, i, items) => {
         /**
          * if next item has a leading separator push before, otherwise push after loop
          */
@@ -64,11 +65,25 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
         });
       });
 
-      this._FBPTriggerWire('--menuObject', this.menuObject.menu.children.repeats);
+      this._FBPTriggerWire('--menuObject', this._children.repeats);
     };
 
   }
 
+
+
+  /**
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * set this for condensed mode
+       */
+      condensed:{type:Boolean, reflect:true}
+    };
+  }
 
   /**
    * flow is ready lifecycle method
@@ -83,6 +98,11 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
     this.addEventListener('opensub-requested', (e) => {
       const submenu = document.createElement('furo-data-context-submenu');
       this.shadowRoot.appendChild(submenu);
+
+      if(this.condensed){
+        submenu.setAttribute("condensed","");
+      }
+
       setTimeout(() => {
         submenu.init(e, this, e.byKeyboard);
       }, 10);
@@ -93,10 +113,19 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
     window.addEventListener('open-furo-data-menu-requested', (e) => {
 
       this.menuObject = e.detail;
+      this.condensed = this.menuObject.condensed;
+
+      // if menuObject.menu is an RepeaterNode, a children field was passed in to the menu, otherwise a menuitem itself was passed in
+      if(e.detail.menu instanceof RepeaterNode){
+        this._children = this.menuObject.menu;
+      }else{
+        this._children =  this.menuObject.menu.children;
+      }
+
 
       // listener is de registred in hideMenu()
-      this.menuObject.menu.children.addEventListener('this-repeated-field-changed', this._repeatsChanged);
-      this._FBPTriggerWire('--menuObject', this.menuObject.menu.children.repeats);
+      this._children.addEventListener('this-repeated-field-changed', this._repeatsChanged);
+      this._repeatsChanged();
 
 
       this.setAttribute('backdrop', '');
@@ -216,7 +245,7 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
     });
 
     // unregister the event listener from open-furo-data-menu-requested
-    this.menuObject.menu.children.removeEventListener('this-repeated-field-changed', this._repeatsChanged);
+    this._children.removeEventListener('this-repeated-field-changed', this._repeatsChanged);
 
   }
 
@@ -335,6 +364,9 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
         margin-bottom: 8px;
       }
 
+      :host([condensed]) furo-data-context-menu-item{
+        padding: 0;
+      }
     `;
   }
 

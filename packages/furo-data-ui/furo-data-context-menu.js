@@ -25,6 +25,10 @@ export class FuroDataContextMenu extends FBP(LitElement) {
        * ??? Context string
        */
       context: { type: String },
+      /**
+       * set this for condensed mode
+       */
+      condensed:{type:Boolean}
     };
   }
 
@@ -83,7 +87,8 @@ export class FuroDataContextMenu extends FBP(LitElement) {
             }
 
           }
-        , initiator: this,
+        , initiator: this
+        , condensed:this.condensed
       };
 
       customEvent.byKeyboard = byKeyboard;
