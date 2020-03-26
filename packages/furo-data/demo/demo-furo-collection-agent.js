@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "@furo/fbp/flow-repeat.js";
+import "@furo/fbp/flow-repeat";
 import "@furo/doc-helper";
 import "../furo-catalog";
 import "@furo/data-input/demo/helper/produce-qp-data.js";

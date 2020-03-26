@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/theme.js';
 import { FBP } from '@furo/fbp';
-import '@furo/util/furo-keydown.js';
+import '@furo/util/furo-keydown';
 
 /**
  * `furo-data-menu`

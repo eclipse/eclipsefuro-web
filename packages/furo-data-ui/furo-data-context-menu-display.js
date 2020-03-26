@@ -1,11 +1,11 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/theme.js';
 import { FBP } from '@furo/fbp';
-import '@furo/fbp/flow-repeat.js';
-import '@furo/util/furo-navigation-pad.js';
+import '@furo/fbp/flow-repeat';
+import '@furo/util/furo-navigation-pad';
 import {RepeaterNode} from "@furo/data/lib/RepeaterNode.js"
-import './lib/furo-data-context-menu-item.js';
-import './lib/furo-data-context-submenu.js';
+import './lib/furo-data-context-menu-item';
+import './lib/furo-data-context-submenu';
 
 /**
  * `furo-data-menu-display`
@@ -110,8 +110,8 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
       e.submenu = submenu;
     });
 
-    window.addEventListener('open-furo-data-menu-requested', (e) => {
-
+    this.parentNode.addEventListener('open-furo-data-menu-requested', (e) => {
+      e.stopPropagation();
       this.menuObject = e.detail;
       this.condensed = this.menuObject.condensed;
 

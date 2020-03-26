@@ -3,7 +3,7 @@ import {FBP} from "@furo/fbp";
 import {Env, i18n} from "@furo/framework"
 import {Theme} from "@furo/framework/theme"
 
-import '@furo/fbp/flow-repeat.js';
+import '@furo/fbp/flow-repeat';
 import '@furo/data-ui/furo-data-table-toggle';
 import '@furo/input/furo-checkbox.js';
 

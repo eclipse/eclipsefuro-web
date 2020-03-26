@@ -75,7 +75,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
           if (panel._FBPTriggerWire) {
             panel._FBPTriggerWire("--navNode", NavigationNode);
           }
-        }else{
+        } else {
           console.warn("panel does not have a closePanel method, implement panel interfaces or extend from BasePanel.js")
         }
 
@@ -129,7 +129,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     });
 
     // remove from laoded panels array
-    this._loadedPanels = this._loadedPanels.filter(function(value, index, arr){
+    this._loadedPanels = this._loadedPanels.filter(function (value, index, arr) {
       return value !== nodeName;
     });
 

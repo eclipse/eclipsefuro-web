@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/theme.js';
 import { FBP } from '@furo/fbp';
-import '@furo/fbp/flow-repeat.js';
-import '@furo/util/furo-navigation-pad.js';
+// import '@furo/fbp/flow-repeat'; // disabled for tests :-(
+// import '@furo/util/furo-navigation-pad';
 import './furo-data-context-menu-item';
 
 /**
@@ -199,7 +199,7 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
     this.removeAttribute('backdrop');
     this._start = false;
     this._show = false;
-    if(this.initiator.parentNode.parentNode){
+    if(this.initiator && this.initiator.parentNode && this.initiator.parentNode.parentNode){
       this.initiator.parentNode.parentNode.focus()
     }
     this.requestUpdate();
