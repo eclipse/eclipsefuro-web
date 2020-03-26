@@ -22,13 +22,13 @@ export class FuroDataContextMenu extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * ??? Context string
+       * Context
        */
-      context: { type: String },
+      _context: { type: String, attribute: "context" },
       /**
        * set this for condensed mode
        */
-      condensed:{type:Boolean}
+      condensed: { type: Boolean },
     };
   }
 
@@ -36,7 +36,7 @@ export class FuroDataContextMenu extends FBP(LitElement) {
     this._menuNode = menu;
     // queued trigger context
     if (this._queueTrigger) {
-      this.trigger(this._context);
+      this.triggerContext(this._context);
       this._queueTrigger = false;
     }
   }
@@ -46,17 +46,17 @@ export class FuroDataContextMenu extends FBP(LitElement) {
   }
 
   trigger(byKeyboard) {
-    this.triggerContext(this._context,byKeyboard);
+    this.triggerContext(this._context, byKeyboard);
   }
 
   /**
    * triggers the menu with context
    * @param context
    */
-  triggerContext(context,byKeyboard) {
+  triggerContext(context, byKeyboard) {
+
     // enqueue when menuNode is not set
     if (!this._menuNode) {
-      this._context = context;
       this._queueTrigger = true;
     } else {
       /**
@@ -74,21 +74,21 @@ export class FuroDataContextMenu extends FBP(LitElement) {
              * detail payload: the menu node
              */
             let customEvent = new Event('menu-item-selected', { composed: true, bubbles: true });
-            customEvent.detail = item.detail;
+            customEvent.detail = {context: this._context, menuitem: item.detail };
             this.dispatchEvent(customEvent);
 
             // focus the childnode
-            const slottContents = this.shadowRoot.firstElementChild.assignedElements()
-            if(slottContents.length > 0){
-              setTimeout(()=>{
+            const slottContents = this.shadowRoot.firstElementChild.assignedElements();
+            if (slottContents.length > 0) {
+              setTimeout(() => {
                 slottContents[0].focus();
-              },10)
+              }, 10);
 
             }
 
           }
         , initiator: this
-        , condensed:this.condensed
+        , condensed: this.condensed,
       };
 
       customEvent.byKeyboard = byKeyboard;
