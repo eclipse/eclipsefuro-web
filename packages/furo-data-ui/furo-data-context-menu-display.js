@@ -17,7 +17,6 @@ import './lib/furo-data-context-submenu';
  * @appliesMixin FBP
  */
 export class FuroDataContextMenuDisplay extends FBP(LitElement) {
-
   constructor(props) {
     super(props);
     this.borderDistance = 48;
