@@ -21,7 +21,6 @@
 
         <furo-data-context-menu condensed ƒ-trigger="--menuClkd" ƒ-bind-data="--menuDO"
                                 @-menu-item-selected="--menuItem">
-
         </furo-data-context-menu>
         <furo-data-object type="menu.Menuitem" ƒ-inject-raw="--data" @-object-ready="--menuDO"
                           @-data-injected="--menuDO"></furo-data-object>
@@ -72,7 +71,7 @@
       trigger.click();
 
       menu.addEventListener("menu-item-selected",(e)=>{
-        assert.equal( e.detail.display_name._value, "Single");
+        assert.equal( e.detail.menuitem.display_name._value, "Single");
         done();
       });
 
@@ -138,6 +137,8 @@ done();
       }, 150);
 
     });
+
+
 
 
     it('should queue the trigger, when the menu was not set', (done) => {
