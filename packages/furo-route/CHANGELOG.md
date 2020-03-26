@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.24.1...@furo/route@0.25.0) (2020-03-26)
+
+
+### Features
+
+* furo-data-context-menu tests are working again ([8448896](https://github.com/theNorstroem/FuroBaseComponents/commit/8448896))
+
+
+
+
+
 ## [0.24.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.24.0...@furo/route@0.24.1) (2020-03-11)
 
 **Note:** Version bump only for package @furo/route

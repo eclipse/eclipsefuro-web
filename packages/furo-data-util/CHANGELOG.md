@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.26](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-util@0.1.25...@furo/data-util@0.1.26) (2020-03-26)
+
+**Note:** Version bump only for package @furo/data-util
+
+
+
+
+
 ## [0.1.25](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-util@0.1.24...@furo/data-util@0.1.25) (2020-03-11)
 
 **Note:** Version bump only for package @furo/data-util

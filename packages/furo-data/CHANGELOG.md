@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.72.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.71.0...@furo/data@0.72.0) (2020-03-26)
+
+
+### Features
+
+* furo-data-context-menu tests are working again ([8448896](https://github.com/theNorstroem/FuroBaseComponents/commit/8448896))
+
+
+
+
+
 # [0.71.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.8...@furo/data@0.71.0) (2020-03-11)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.43.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.43.1...@furo/layout@0.43.2) (2020-03-26)
+
+
+### Bug Fixes
+
+* works now without style attributes too ([9160840](https://github.com/theNorstroem/FuroBaseComponents/commit/9160840))
+
+
+
+
+
 ## [0.43.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.43.0...@furo/layout@0.43.1) (2020-03-16)
 
 
