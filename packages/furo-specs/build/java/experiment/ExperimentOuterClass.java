@@ -7503,6 +7503,15 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
+     * field for furo_data_checkbox_input for testing
+     * </pre>
+     *
+     * <code>bool furo_data_checkbox_input = 5;</code>
+     */
+    boolean getFuroDataCheckboxInput();
+
+    /**
+     * <pre>
      * Identity of a experiment
      * </pre>
      *
@@ -7621,11 +7630,16 @@ public final class ExperimentOuterClass {
             }
             case 34: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
                 repstring_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000010;
               }
               repstring_.add(s);
+              break;
+            }
+            case 40: {
+
+              furoDataCheckboxInput_ = input.readBool();
               break;
             }
             default: {
@@ -7643,7 +7657,7 @@ public final class ExperimentOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
+        if (((mutable_bitField0_ & 0x00000010) != 0)) {
           repstring_ = repstring_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
@@ -7746,6 +7760,19 @@ public final class ExperimentOuterClass {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int FURO_DATA_CHECKBOX_INPUT_FIELD_NUMBER = 5;
+    private boolean furoDataCheckboxInput_;
+    /**
+     * <pre>
+     * field for furo_data_checkbox_input for testing
+     * </pre>
+     *
+     * <code>bool furo_data_checkbox_input = 5;</code>
+     */
+    public boolean getFuroDataCheckboxInput() {
+      return furoDataCheckboxInput_;
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -7861,6 +7888,9 @@ public final class ExperimentOuterClass {
       for (int i = 0; i < repstring_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, repstring_.getRaw(i));
       }
+      if (furoDataCheckboxInput_ != false) {
+        output.writeBool(5, furoDataCheckboxInput_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -7887,6 +7917,10 @@ public final class ExperimentOuterClass {
         size += dataSize;
         size += 1 * getRepstringList().size();
       }
+      if (furoDataCheckboxInput_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, furoDataCheckboxInput_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -7906,6 +7940,8 @@ public final class ExperimentOuterClass {
           .equals(other.getDescription())) return false;
       if (!getDisplayName()
           .equals(other.getDisplayName())) return false;
+      if (getFuroDataCheckboxInput()
+          != other.getFuroDataCheckboxInput()) return false;
       if (!getId()
           .equals(other.getId())) return false;
       if (!getRepstringList()
@@ -7925,6 +7961,9 @@ public final class ExperimentOuterClass {
       hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getDisplayName().hashCode();
+      hash = (37 * hash) + FURO_DATA_CHECKBOX_INPUT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getFuroDataCheckboxInput());
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
       if (getRepstringCount() > 0) {
@@ -8072,10 +8111,12 @@ public final class ExperimentOuterClass {
 
         displayName_ = "";
 
+        furoDataCheckboxInput_ = false;
+
         id_ = "";
 
         repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -8106,10 +8147,11 @@ public final class ExperimentOuterClass {
         int to_bitField0_ = 0;
         result.description_ = description_;
         result.displayName_ = displayName_;
+        result.furoDataCheckboxInput_ = furoDataCheckboxInput_;
         result.id_ = id_;
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           repstring_ = repstring_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.repstring_ = repstring_;
         result.bitField0_ = to_bitField0_;
@@ -8169,6 +8211,9 @@ public final class ExperimentOuterClass {
           displayName_ = other.displayName_;
           onChanged();
         }
+        if (other.getFuroDataCheckboxInput() != false) {
+          setFuroDataCheckboxInput(other.getFuroDataCheckboxInput());
+        }
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
           onChanged();
@@ -8176,7 +8221,7 @@ public final class ExperimentOuterClass {
         if (!other.repstring_.isEmpty()) {
           if (repstring_.isEmpty()) {
             repstring_ = other.repstring_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureRepstringIsMutable();
             repstring_.addAll(other.repstring_);
@@ -8391,6 +8436,44 @@ public final class ExperimentOuterClass {
         return this;
       }
 
+      private boolean furoDataCheckboxInput_ ;
+      /**
+       * <pre>
+       * field for furo_data_checkbox_input for testing
+       * </pre>
+       *
+       * <code>bool furo_data_checkbox_input = 5;</code>
+       */
+      public boolean getFuroDataCheckboxInput() {
+        return furoDataCheckboxInput_;
+      }
+      /**
+       * <pre>
+       * field for furo_data_checkbox_input for testing
+       * </pre>
+       *
+       * <code>bool furo_data_checkbox_input = 5;</code>
+       */
+      public Builder setFuroDataCheckboxInput(boolean value) {
+        
+        furoDataCheckboxInput_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo_data_checkbox_input for testing
+       * </pre>
+       *
+       * <code>bool furo_data_checkbox_input = 5;</code>
+       */
+      public Builder clearFuroDataCheckboxInput() {
+        
+        furoDataCheckboxInput_ = false;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object id_ = "";
       /**
        * <pre>
@@ -8482,9 +8565,9 @@ public final class ExperimentOuterClass {
 
       private com.google.protobuf.LazyStringList repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureRepstringIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           repstring_ = new com.google.protobuf.LazyStringArrayList(repstring_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000010;
          }
       }
       /**
@@ -8587,7 +8670,7 @@ public final class ExperimentOuterClass {
        */
       public Builder clearRepstring() {
         repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -12320,17 +12403,18 @@ public final class ExperimentOuterClass {
       "\n\014the_any_type\030\017 \001(\0132\024.google.protobuf.A" +
       "ny\022%\n\rtype_property\030\021 \003(\0132\016.furo.Propert" +
       "y\022\031\n\021type_with_options\030\020 \001(\t\022/\n\013update_m" +
-      "ask\030\027 \001(\0132\032.google.protobuf.FieldMask\"S\n" +
+      "ask\030\027 \001(\0132\032.google.protobuf.FieldMask\"u\n" +
       "\007Default\022\023\n\013description\030\003 \001(\t\022\024\n\014display" +
-      "_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003" +
-      "(\t\"G\n\010Readonly\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta" +
-      "\022!\n\007project\030\001 \001(\0132\020.project.Project\"W\n\tR" +
-      "ecursive\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001" +
-      "(\t\022(\n\trecursion\030\003 \001(\0132\025.experiment.Recur" +
-      "sive\"{\n\024ExperimentCollection\022.\n\010entities" +
-      "\030\004 \003(\0132\034.experiment.ExperimentEntity\022\031\n\005" +
-      "links\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n." +
-      "furo.Metab\006proto3"
+      "_name\030\002 \001(\t\022 \n\030furo_data_checkbox_input\030" +
+      "\005 \001(\010\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"G\n\010" +
+      "Readonly\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\022!\n\007pr" +
+      "oject\030\001 \001(\0132\020.project.Project\"W\n\tRecursi" +
+      "ve\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(\n\t" +
+      "recursion\030\003 \001(\0132\025.experiment.Recursive\"{" +
+      "\n\024ExperimentCollection\022.\n\010entities\030\004 \003(\013" +
+      "2\034.experiment.ExperimentEntity\022\031\n\005links\030" +
+      "\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.M" +
+      "etab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -12375,7 +12459,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Default_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Default_descriptor,
-        new java.lang.String[] { "Description", "DisplayName", "Id", "Repstring", });
+        new java.lang.String[] { "Description", "DisplayName", "FuroDataCheckboxInput", "Id", "Repstring", });
     internal_static_experiment_Readonly_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_experiment_Readonly_fieldAccessorTable = new

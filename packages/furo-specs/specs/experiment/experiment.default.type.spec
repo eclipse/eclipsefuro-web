@@ -64,6 +64,20 @@
       "__proto": {
         "number": 4
       }
+    },
+    "furo_data_checkbox_input": {
+      "description": "field for furo_data_checkbox_input for testing",
+      "type": "bool",
+      "meta": {
+        "label": "checkbox_input",
+        "default": "",
+        "hint": "Hint",
+        "readonly": false
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 5
+      }
     }
   }
 }
