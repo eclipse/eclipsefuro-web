@@ -4,12 +4,23 @@ import { FBP } from '@furo/fbp';
 import '@furo/util/furo-keydown';
 
 /**
- * `furo-data-menu`
- * todo Describe your element
+ * `furo-data-context-menu`
+ *  A  [material design](https://material.io/components/menus/) context menu or menu element.
  *
- * @summary todo shortdescription
+ *  You have to put a `furo-data-context-menu-display` element in one of the parent elements of the element where you use the `furo-data-context-menu`.
+ *  The app-shell is a good place for that.
+ *
+ * ```html
+ *  <furo-data-context-menu condensed position="below" ƒ-trigger="--menuClkd" ƒ-bind-data="--menuObject" @-menu-item-selected="--menuItem">
+ *      <furo-icon-button icon="menu" @-click="--menuClkd"></furo-icon-button>
+ *  </furo-data-context-menu>
+ * ```
+ *
+ *
+ *
+ * @summary a context menu
  * @customElement
- * @demo demo-furo-data-menu
+ * @demo demo-furo-data-context-menu Basic usage
  * @appliesMixin FBP
  */
 export class FuroDataContextMenu extends FBP(LitElement) {
@@ -22,16 +33,21 @@ export class FuroDataContextMenu extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Context
+       * Use this to set a string value as context.
        */
       _context: { type: String, attribute: "context" },
       /**
-       * set this for condensed mode
+       * set this for condensed mode.
        */
       condensed: { type: Boolean },
     };
   }
 
+  /**
+   * Bind your menu object with the signature of menu.Menuitem or [menu.Menuitem].
+   *
+   * @param {Fieldnode || RepeaterNode}
+   */
   bindData(menu) {
     this._menuNode = menu;
     // queued trigger context
@@ -41,17 +57,25 @@ export class FuroDataContextMenu extends FBP(LitElement) {
     }
   }
 
+  /**
+   * Sets the context. Use this if you want to set a Object as context
+   * @param ctx {*} Can be anything, will be returned at the menu-item-selected method
+   */
   setContext(ctx) {
     this._context = ctx;
   }
 
+  /**
+   * Triggers the context menu. Set by keyboard to true to focus the first element for keyboard navigation
+   * @param byKeyboard
+   */
   trigger(byKeyboard) {
     this.triggerContext(this._context, byKeyboard);
   }
 
   /**
    * triggers the menu with context
-   * @param context
+   * @param context {Object}
    */
   triggerContext(context, byKeyboard) {
 
@@ -62,6 +86,7 @@ export class FuroDataContextMenu extends FBP(LitElement) {
       /**
        * @event open-furo-data-menu-requested
        * Fired when context menu was triggered
+       *
        * detail payload: {context, menuitem}
        */
       let customEvent = new Event('open-furo-data-menu-requested', { composed: true, bubbles: true });
@@ -71,7 +96,7 @@ export class FuroDataContextMenu extends FBP(LitElement) {
             /**
              * @event menu-item-selected
              * Fired when a menu item is selected
-             * detail payload: the menu node
+             * detail payload:  {context, menuitem}
              */
             let customEvent = new Event('menu-item-selected', { composed: true, bubbles: true });
             customEvent.detail = {context: this._context, menuitem: item.detail };
@@ -98,6 +123,7 @@ export class FuroDataContextMenu extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -121,7 +147,7 @@ export class FuroDataContextMenu extends FBP(LitElement) {
     // language=CSS
     return Theme.getThemeForComponent('FuroDataMenu') || css`
         :host {
-            display: block;
+            display: inline-block;
         }
 
         :host([hidden]) {

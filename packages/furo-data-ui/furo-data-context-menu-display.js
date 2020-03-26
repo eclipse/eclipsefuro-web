@@ -7,16 +7,29 @@ import {RepeaterNode} from "@furo/data/lib/RepeaterNode.js"
 import './lib/furo-data-context-menu-item';
 import './lib/furo-data-context-submenu';
 
-/**
- * `furo-data-menu-display`
- * todo Describe your element
- *
- * @summary todo shortdescription
- * @customElement
- * @demo demo-furo-data-menu-display
- * @appliesMixin FBP
- */
 export class FuroDataContextMenuDisplay extends FBP(LitElement) {
+  /**
+   * `furo-data-context-menu-display`
+   *  is the display element for furo-data-context-menu and submenus. Place this component as high as needed in your dom.
+   *
+   *  You should not interact with this component directly. Use [`furo-data-context-menu`](?t=FuroDataContextMenu) to show a context menu.
+   *
+   *  There is nothing more to do. The menu creates a transparent "backdrop" with absolut positions 0 0 0 0
+   *
+   * ```html
+   *
+   *  <furo-data-context-menu-display></furo-data-context-menu-display>
+   *
+   * ```
+   *
+   *
+   * @summary todo shortdescription
+   * @customElement
+   * @demo demo-furo-data-context-menu Basic usage
+   * @appliesMixin FBP
+   */
+
+
   constructor(props) {
     super(props);
     this.borderDistance = 48;
@@ -68,8 +81,6 @@ export class FuroDataContextMenuDisplay extends FBP(LitElement) {
     };
 
   }
-
-
 
   /**
    * @private

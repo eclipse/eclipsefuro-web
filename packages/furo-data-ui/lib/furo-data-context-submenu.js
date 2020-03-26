@@ -6,12 +6,12 @@ import { FBP } from '@furo/fbp';
 import './furo-data-context-menu-item';
 
 /**
- * `furo-data-menu-display`
- * todo Describe your element
+ * `furo-data-context-submenu` is a helper component for `furo-data-context-menu`.
  *
- * @summary todo shortdescription
+ * Use [`furo-data-context-menu`](?t=FuroDataContextMenu) to show a context menu.
+ *
+ * @summary helper
  * @customElement
- * @demo demo-furo-data-menu-display
  * @appliesMixin FBP
  */
 export class FuroDataContextSubmenu extends FBP(LitElement) {
@@ -51,7 +51,6 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
     this._FBPAddWireHook('--nav', (e) => {
       this.triggerNavigation(e);
     });
-
 
 
     /**
@@ -343,10 +342,7 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
       </div>              
       </template>
       <furo-navigation-pad @-navigated="--nav"></furo-navigation-pad>
-    </div>
-      
-      
-      
+    </div>                 
     `;
   }
 }

@@ -3,12 +3,12 @@ import { Theme } from '@furo/framework/theme.js';
 import { FBP } from '@furo/fbp';
 
 /**
- * `furo-data-context-menu-item`
- * todo Describe your element
+ * `furo-data-context-menu-item` is a helper component for `furo-data-context-menu`.
  *
- * @summary todo shortdescription
+ * Use [`furo-data-context-menu`](?t=FuroDataContextMenu) to show a context menu.
+ *
+ * @summary helper
  * @customElement
- * @demo demo-furo-data-context-menu-item
  * @appliesMixin FBP
  */
 export class FuroDataContextMenuItem extends FBP(LitElement) {
