@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.72.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.72.0...@furo/data@0.72.1) (2020-03-27)
+
+
+### Bug Fixes
+
+* meta information from response should be applied before meta information from api spec ([1a42fac](https://github.com/theNorstroem/FuroBaseComponents/commit/1a42fac))
+
+
+
+
+
 # [0.72.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.71.0...@furo/data@0.72.0) (2020-03-26)
 
 

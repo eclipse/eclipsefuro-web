@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.13.0...@furo/data-ui@0.13.1) (2020-03-27)
+
+
+### Bug Fixes
+
+* scrolling behaviour ([4ea03fb](https://github.com/theNorstroem/FuroBaseComponents/commit/4ea03fb))
+
+
+
+
+
 # [0.13.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.12.5...@furo/data-ui@0.13.0) (2020-03-26)
 
 
