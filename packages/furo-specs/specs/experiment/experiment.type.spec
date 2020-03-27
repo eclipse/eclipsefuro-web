@@ -47,7 +47,7 @@
       "type": "string",
       "meta": {
         "label": "Description",
-        "default": "",
+        "default": "Default Description",
         "hint": ""
       },
       "constraints": {},

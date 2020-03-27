@@ -117,12 +117,15 @@ message Experiment {
 }
 
 // Test the default value
-message Default {                        
+message Default {                            
     // Short experiment description
     string description = 3;
     
     // Localized String representation of a experiment
     string display_name = 2;
+    
+    // field for furo_data_checkbox_input for testing
+    bool furo_data_checkbox_input = 5;
     
     // Identity of a experiment
     string id = 1;

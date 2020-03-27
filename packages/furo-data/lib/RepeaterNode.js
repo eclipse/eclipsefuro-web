@@ -199,7 +199,7 @@ export class RepeaterNode extends EventTreeNode {
             field._meta[m] = mc.meta[m];
             // broadcast readonly changes for all ancestors
             if(m === "readonly"){
-              this.broadcastEvent(new NodeEvent("parent-readonly-meta-setted",this, true));
+              this.broadcastEvent(new NodeEvent("parent-readonly-meta-set",this, true));
             }
           }
           for (let c in mc.constraints) {

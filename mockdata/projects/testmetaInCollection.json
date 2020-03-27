@@ -32,6 +32,11 @@
         },
         "options": ["A","B"]
       },
+      "data.members": {
+        "meta": {
+          "readonly": true
+        }
+      },
       "data.members.0.first_name": {
         "meta": {
           "label": "firstname label from response"
