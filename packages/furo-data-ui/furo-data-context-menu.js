@@ -35,7 +35,7 @@ export class FuroDataContextMenu extends FBP(LitElement) {
       /**
        * Use this to set a string value as context.
        */
-      _context: { type: String, attribute: "context" },
+      _context: { type: String, attribute: 'context' },
       /**
        * set this for condensed mode.
        */
@@ -99,19 +99,18 @@ export class FuroDataContextMenu extends FBP(LitElement) {
              * detail payload:  {context, menuitem}
              */
             let customEvent = new Event('menu-item-selected', { composed: true, bubbles: true });
-            customEvent.detail = {context: this._context, menuitem: item.detail };
+            customEvent.detail = { context: this._context, menuitem: item.detail };
             this.dispatchEvent(customEvent);
-
-            // focus the childnode
-            const slottContents = this.shadowRoot.firstElementChild.assignedElements();
-            if (slottContents.length > 0) {
-              setTimeout(() => {
-                slottContents[0].focus();
-              }, 10);
-
-            }
-
           }
+        , onClose: () => {
+          // focus the childnode
+          const slottContents = this.shadowRoot.firstElementChild.assignedElements();
+          if (slottContents.length > 0) {
+            setTimeout(() => {
+              slottContents[0].focus();
+            }, 10);
+          }
+        }
         , initiator: this
         , condensed: this.condensed,
       };

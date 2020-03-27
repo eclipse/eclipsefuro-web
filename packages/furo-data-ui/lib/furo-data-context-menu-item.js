@@ -194,6 +194,7 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
       :host {
         display: block;
         padding: 8px 0;
+        
       }
 
       :host([hidden]) {
@@ -211,7 +212,7 @@ export class FuroDataContextMenuItem extends FBP(LitElement) {
 
       /* 4px from left comes from horizontal-flex*/
       furo-icon {
-        padding: 6px 4px 6px 20px;
+        padding: 6px 4px 0px 20px;
       }  
        
 

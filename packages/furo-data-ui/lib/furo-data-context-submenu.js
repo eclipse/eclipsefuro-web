@@ -240,7 +240,7 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
 
       case 'ArrowLeft':
 // closes subnav
-        this._repeater.triggerSelected(key);
+        this.hideMenu();
         break;
 
       case 'ArrowRight':
@@ -274,15 +274,17 @@ export class FuroDataContextSubmenu extends FBP(LitElement) {
       }
 
       #menu {
+        outline: none;
         position: absolute;
         display: none;
-        outline:none;
-        transition: opacity .03s linear,transform .12s cubic-bezier(0,0,.2,1),-webkit-transform .12s cubic-bezier(0,0,.2,1);
+        transition: opacity .03s linear, transform .12s cubic-bezier(0, 0, .2, 1), -webkit-transform .12s cubic-bezier(0, 0, .2, 1);
         opacity: 0;
         background-color: var(--surface);
-        overflow: auto;
+        overflow-y: auto;
+        box-sizing: border-box;
         border-radius: 4px;
-        box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+        padding: 6px 0;
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12);
       }
 
       #menu[start] {
