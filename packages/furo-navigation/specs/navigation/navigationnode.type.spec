@@ -3,9 +3,9 @@
   "type": "Navigationnode",
   "description": "This is an example signature of a navigation node, which can be used for the components of @furo/navigation ",
   "__proto": {
-    "package": "signatures",
+    "package": "navigation",
     "imports": ["furo/link.proto"],
-    "targetfile": "furo-navigation.proto"
+    "targetfile": "navigation.proto"
   },
   "fields": {
     "id": {
@@ -97,7 +97,7 @@
     },
     "children": {
       "description": "Children of this node",
-      "type": "tree.Navigationnode",
+      "type": "navigation.Navigationnode",
       "meta": {
         "repeated": true
       },

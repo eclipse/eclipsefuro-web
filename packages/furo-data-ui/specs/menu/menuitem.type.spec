@@ -4,10 +4,7 @@
   "description": "Item of a contextual menu",
   "__proto": {
     "package": "menu",
-    "options": {
-      "java_outer_classname": "MenuApi",
-      "java_package": "com.adcubum.marketingdistribution.salessupport.menu"
-    },
+    "options": null,
     "imports": [
       "google/protobuf/any.proto"
     ],
