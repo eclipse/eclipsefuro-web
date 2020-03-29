@@ -2,11 +2,11 @@
   "name": "@furo/config",
   "description": "Furo config components",
   "main": "furo-catalog.js",
-  "version": "0.17.37",
+  "version": "0.17.38",
   "dependencies": {
-    "@furo/data": "^0.72.1",
+    "@furo/data": "^0.72.2",
     "@furo/fbp": "^4.29.2",
-    "@furo/util": "^0.24.5",
+    "@furo/util": "^0.24.6",
     "lit-element": "^2.2.1"
   },
   "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",

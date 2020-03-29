@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.52.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.51.1...@furo/specs@0.52.0) (2020-03-29)
+
+
+### Features
+
+* creator for importable specs ([2650ade](https://github.com/theNorstroem/FuroBaseComponents/commit/2650ade))
+
+
+
+
+
 ## [0.51.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.51.0...@furo/specs@0.51.1) (2020-03-27)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.13.1...@furo/data-ui@0.14.0) (2020-03-29)
+
+
+### Features
+
+* installable specs and signatures for package navigation ([65005b9](https://github.com/theNorstroem/FuroBaseComponents/commit/65005b9))
+* menu type signature and importable spec ([c68e4ba](https://github.com/theNorstroem/FuroBaseComponents/commit/c68e4ba))
+
+
+
+
+
 ## [0.13.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.13.0...@furo/data-ui@0.13.1) (2020-03-27)
 
 
