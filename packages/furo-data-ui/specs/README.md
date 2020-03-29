@@ -18,5 +18,14 @@ Init.addApiTypeSpec("menu.Menu", Menuspec)
 
 ### with @furo/specs
 If you work with spec projects, import the specs dir in your  `furo.spec.conf.json`. 
+```json
+{
+  "import_spec_dirs": [
+      "node_modules/@furo/spec-basetypes", 
+      "node_modules/@furo/data-ui/specs"
+  ]
+}
+```
+
 If want to make some changes, just use this specs as a **reference** for the type signature.
 
