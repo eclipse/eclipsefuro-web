@@ -61,6 +61,29 @@ export class Init {
   }
 
   /**
+   * Add a single type spec to the registry
+   *
+   * Attention: If the name already exist, the old entry is overwritten.
+   * @param typename
+   * @param spec
+   */
+  static addApiTypeSpec(typename, spec){
+    Env.api.specs[typename] = spec;
+  }
+
+  /**
+   * Add a single service spec to the registry
+   *
+   * Attention: If the name already exist, the old entry is overwritten.
+   * @param servicename
+   * @param spec
+   */
+  static addApiServiceSpec(servicename, spec){
+    Env.api.services[servicename] = spec;
+  }
+
+
+  /**
    * Apply the prefix to all service deeplinks and to all furo.Reference types with defaults
    * @param prefix
    */
