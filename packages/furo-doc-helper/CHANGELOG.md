@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.17.0...@furo/doc-helper@0.18.0) (2020-03-30)
+
+
+### Features
+
+* ghpages publish script for component template ([f069107](https://github.com/theNorstroem/FuroBaseComponents/commit/f069107))
+
+
+
+
+
 # [0.17.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.16.4...@furo/doc-helper@0.17.0) (2020-03-30)
 
 
