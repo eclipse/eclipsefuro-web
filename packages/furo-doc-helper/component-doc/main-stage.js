@@ -23,7 +23,6 @@ import '@furo/navigation/furo-panel-coordinator-tabs.js';
 import '@furo/util/furo-navigation-pad.js';
 import '@furo/util/furo-keydown.js';
 import '@furo/data-ui/furo-data-context-menu-display.js';
-import '/demos/demos.js';
 import './inital-panel.js';
 
 /**

@@ -10,7 +10,6 @@
     "@furo/data-input": "^0.69.10",
     "@furo/data-ui": "^0.14.0",
     "@furo/data-util": "^0.1.27",
-    "@furo/doc-helper": "^0.18.0",
     "@furo/fbp": "^4.29.2",
     "@furo/form": "^0.27.9",
     "@furo/framework": "^0.15.0",
@@ -26,7 +25,7 @@
   },
   "author": "veith",
   "license": "MIT",
-  "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",
+  "gitHead": "1b62126998dcbe54c6fddf8d0225e1ffef78f638",
   "publishConfig": {
     "access": "public"
   }
