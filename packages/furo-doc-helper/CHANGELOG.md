@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.18.1...@furo/doc-helper@0.18.2) (2020-03-30)
+
+
+### Bug Fixes
+
+* paths and typo ([12b4a56](https://github.com/theNorstroem/FuroBaseComponents/commit/12b4a56))
+
+
+
+
+
 ## [0.18.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.18.0...@furo/doc-helper@0.18.1) (2020-03-30)
 
 
