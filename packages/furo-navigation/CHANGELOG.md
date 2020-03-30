@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.46.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.45.0...@furo/navigation@0.46.0) (2020-03-30)
+
+
+### Features
+
+* installable specs and signatures for package navigation ([fbf529c](https://github.com/theNorstroem/FuroBaseComponents/commit/fbf529c))
+
+
+
+
+
 # [0.45.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.44.5...@furo/navigation@0.45.0) (2020-03-29)
 
 
