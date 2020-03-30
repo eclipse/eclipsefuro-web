@@ -104,6 +104,16 @@
       "__proto": {
         "number": 12
       }
+    },
+    "payload": {
+      "description": "Optional payload",
+      "type": "google.protobuf.Any",
+      "meta": {
+        "readonly": true
+      },
+      "__proto": {
+        "number": 13
+      }
     }
 
   }
