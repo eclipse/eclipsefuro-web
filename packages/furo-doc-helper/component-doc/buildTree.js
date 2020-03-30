@@ -27,7 +27,7 @@ if (analysis.elements) {
     let demos = [];
     if (el.demos) {
       demos = el.demos.map((demo, i) => ({
-        display_name: demo.payload || 'demo',
+        display_name: demo.description || 'demo',
         icon: 'av:play-circle-outline',
         id: `demo-${el.name}-${i}`,
         link: {
