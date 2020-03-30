@@ -192,7 +192,7 @@ class MainStage extends FBP(LitElement) {
         <furo-app-bar-top drawer="main-drawer">
           <div>
             <a name="home" href="/">
-              ${this._pkgjson.name}<small>${this._pkgjson.description}</small></a
+              ${this._pkgjson.name} <small>${this._pkgjson.description}</small></a
             >
           </div>
           <furo-empty-spacer></furo-empty-spacer>
@@ -283,7 +283,7 @@ class MainStage extends FBP(LitElement) {
 
       <!-- Use the --FBPready wire to load the tree data once, --pageActivated will not work on the first time because of lazy loading  -->
       <furo-fetch-json
-        src="/documentation.json"
+        src="documentation.json"
         ƒ-fetch="--FBPready"
         @-data="--data"
       ></furo-fetch-json>

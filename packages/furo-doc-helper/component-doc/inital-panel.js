@@ -55,7 +55,7 @@ class InitalPanel extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-markdown mdsrc="/README.md"></furo-markdown>
+      <furo-markdown mdsrc="README.md"></furo-markdown>
     `;
   }
 }
