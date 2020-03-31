@@ -1,0 +1,45 @@
+import {fixture, html} from '@open-wc/testing';
+import 'axe-core/axe.min.js';
+import {axeReport} from 'pwa-helpers/axe-report.js';
+import '@furo/util/src/furo-catalog.js';
+import "@furo/fbp/testhelper/test-bind"; // for testing with wires and hooks
+
+describe('furo-markdown', () => {
+
+  let element;
+  let host;
+
+  beforeEach(async () => {
+    let testbind = await fixture(html`
+    <test-bind>
+    <template>
+      <furo-markdown></furo-markdown>
+     </template>
+    </test-bind>
+    `);
+    await testbind.updateComplete;
+    host = testbind._host;
+    element = testbind.parentNode.children[1];
+    await element.updateComplete;
+  });
+
+  it('should be a furo-markdown', (done) => {
+    // keep this test on top, so you can recognize a wrong asignment
+    assert.equal(element.nodeName.toLowerCase(), "furo-markdown");
+    done()
+  });
+
+  // axeReport a11y tests
+  it('a11y', () => axeReport(element));
+
+
+  it('should fetch and render a md file', async () => {
+    await element.fetchMd('/base/packages/furo-util/test/helper/test.md');
+    let c = element.shadowRoot.querySelectorAll("*");
+    assert.equal(c[0].innerText, "Test");
+    assert.equal(c[1].innerText, "done");
+
+  });
+
+
+});
