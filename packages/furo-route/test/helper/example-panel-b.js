@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "@furo/util/furo-pretty-json"
+import "@furo/util/src/furo-pretty-json"
 import {BasePanel} from "../../lib/BasePanel";
 /**
  * `example-panel-b`

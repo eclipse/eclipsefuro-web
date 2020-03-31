@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/theme.js';
 import { FBP } from '@furo/fbp';
 import '@furo/doc-helper/furo-doc-element.js';
-import '@furo/util/furo-fetch-json.js';
+import '@furo/util/src/furo-fetch-json.js';
 import { NodeEvent } from '@furo/data/lib/EventTreeNode.js';
 /**
  * `component-panel`

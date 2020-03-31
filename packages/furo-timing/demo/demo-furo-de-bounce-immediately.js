@@ -2,7 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper";
-import "@furo/util/furo-pretty-json.js";
+import "@furo/util/src/furo-pretty-json.js";
 import "@furo/input/furo-search-input.js";
 import "@furo/data";
 import "@furo/layout";

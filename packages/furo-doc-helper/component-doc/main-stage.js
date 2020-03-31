@@ -15,13 +15,13 @@ import '@furo/layout/furo-empty-spacer.js';
 import '@furo/layout/furo-horizontal-flex.js';
 import '@furo/input/furo-search-input.js';
 import '@furo/data/furo-data-object.js';
-import '@furo/util/furo-fetch-json.js';
+import '@furo/util/src/furo-fetch-json.js';
 import '@furo/navigation/furo-tree.js';
 import '@furo/route/furo-qp-changer.js';
 import '@furo/route/furo-panel-coordinator.js';
 import '@furo/navigation/furo-panel-coordinator-tabs.js';
-import '@furo/util/furo-navigation-pad.js';
-import '@furo/util/furo-keydown.js';
+import '@furo/util/src/furo-navigation-pad.js';
+import '@furo/util/src/furo-keydown.js';
 import '@furo/data-ui/furo-data-context-menu-display.js';
 import './inital-panel.js';
 

@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/theme.js';
 import { FBP } from '@furo/fbp';
-import '@furo/util/furo-pretty-json.js';
+import '@furo/util/src/furo-pretty-json.js';
 import { NodeEvent } from '@furo/data/lib/EventTreeNode.js';
 /**
  * `markdown-panel`

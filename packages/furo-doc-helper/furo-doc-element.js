@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "@furo/util/furo-markdown"
+import "@furo/util/src/furo-markdown"
 import "./furo-doc/furo-doc-properties"
 import "./furo-doc/furo-doc-methods"
 import "./furo-doc/furo-doc-events"

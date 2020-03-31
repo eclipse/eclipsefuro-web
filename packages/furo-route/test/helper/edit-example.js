@@ -2,7 +2,7 @@ import {BasePanel} from "../../lib/BasePanel";
 import {Theme} from "@furo/framework/theme"
 import { LitElement, html, css } from 'lit-element';
 
-import "@furo/util/furo-pretty-json"
+import "@furo/util/src/furo-pretty-json"
 /**
  * `edit-example`
  * todo Describe your element

@@ -3,7 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import {Styling} from "./styling";
 import "@furo/layout"
-import "@furo/util/furo-markdown"
+import "@furo/util/src/furo-markdown"
 import "./graph/furo-show-flow"
 
 /**

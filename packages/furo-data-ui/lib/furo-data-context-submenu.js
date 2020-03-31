@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/theme.js';
 import { FBP } from '@furo/fbp';
 // import '@furo/fbp/flow-repeat'; // disabled for tests :-(
-// import '@furo/util/furo-navigation-pad';
+// import '@furo/util/src/furo-navigation-pad';
 import './furo-data-context-menu-item';
 
 /**

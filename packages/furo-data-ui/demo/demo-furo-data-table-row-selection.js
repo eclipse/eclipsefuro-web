@@ -7,7 +7,7 @@ import "../furo-catalog"
 
 import "@furo/data";
 import "@furo/input";
-import "@furo/util/furo-navigation-pad.js";
+import "@furo/util/src/furo-navigation-pad.js";
 
 /**
  * `demo-furo-data-table-row-selection-row-selection`

@@ -1,0 +1,98 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for furo-fetch-json</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <test-bind>
+    <template>
+      <furo-fetch-json src="/mockdata/experiments/1/get.json" ƒ-fetch-src="--fetchSrc" ƒ-fetch="--fetch" @-data="--contentReceived" @-parse-error="--error"></furo-fetch-json>
+     </template>
+    </test-bind>
+  </template>
+</test-fixture>
+
+<script type="module">
+  import "../furo-catalog.js"
+
+  import "@furo/fbp/testhelper/test-bind"; // for testing
+  import 'axe-core/axe.min.js';
+  import {axeReport} from 'pwa-helpers/axe-report.js';
+
+
+  describe('furo-fetch-json tests ', function () {
+
+
+    let element = {};
+    let host;
+
+    beforeEach(async () => {
+      let fix = fixture('basic');
+      host = fix[0]._host;
+      element = fix[1];
+      await element.updateComplete;
+
+    });
+
+
+    // a11y tests
+    it('a11y', () => {
+      return axeReport(fixture('basic'));
+    });
+
+    it('should emit an error', (done) => {
+      assert.equal(element.nodeName.toLowerCase(), "furo-fetch-json");
+      /**
+       * Register hook on wire --contentReceived to
+       * get the json content
+       */
+      host._FBPAddWireHook("--error",(err)=>{
+        assert.equal(err,"SyntaxError: Unexpected token < in JSON at position 0");
+        done()
+      });
+      host._FBPTriggerWire("--fetchSrc","/mockdata/____404");
+    });
+
+    it('should fetch a source with fetch-src', (done) => {
+      assert.equal(element.nodeName.toLowerCase(), "furo-fetch-json");
+      /**
+       * Register hook on wire --contentReceived to
+       * get the json content
+       */
+      host._FBPAddWireHook("--contentReceived",(e)=>{
+        assert.equal(e.data.id,2);
+        done()
+      });
+      host._FBPTriggerWire("--fetchSrc","/mockdata/projects/2/get.json");
+    });
+
+    it('should be a furo-fetch-json', (done) => {
+      assert.equal(element.nodeName.toLowerCase(), "furo-fetch-json");
+      /**
+       * Register hook on wire --contentReceived to
+       * get the json content
+       */
+      host._FBPAddWireHook("--contentReceived",(e)=>{
+        assert.equal(e.data.id,1);
+        done()
+      });
+      host._FBPTriggerWire("--fetch");
+    });
+
+
+  });
+</script>
+</body>
+</html>

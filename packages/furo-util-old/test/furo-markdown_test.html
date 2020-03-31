@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for furo-markdown</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <test-bind>
+      <template>
+        <furo-markdown></furo-markdown>
+      </template>
+    </test-bind>
+  </template>
+</test-fixture>
+
+<script type="module">
+  import "@furo/fbp/testhelper/test-bind"; // for testing
+
+  import "../furo-catalog.js"
+
+  describe('furo-markdown tests ', function () {
+
+
+    let element = {};
+
+    beforeEach(async () => {
+      let fix = fixture('basic');
+      element = fix[1];
+      await element.updateComplete;
+
+    });
+
+    it('should fetch and render a md file', async () => {
+      await element.fetchMd('./test.md');
+      let c = element.shadowRoot.querySelectorAll("*");
+      assert.equal(c[0].innerText, "Test");
+      assert.equal(c[1].innerText, "done");
+
+    });
+
+
+    it('should be a furo-markdown', (done) => {
+      assert.equal(element.nodeName.toLowerCase(), "furo-markdown");
+      done()
+    });
+
+
+  });
+</script>
+</body>
+</html>

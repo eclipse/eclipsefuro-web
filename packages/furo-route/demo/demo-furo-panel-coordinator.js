@@ -12,7 +12,7 @@ import "@furo/navigation";
 import "@furo/navigation/furo-mini-tabs";
 
 
-import "@furo/util/furo-key-filter"
+import "@furo/util/src/furo-key-filter"
 import "@furo/data"
 import "../test/helper/panel-produce-data"
 import "@furo/layout"
