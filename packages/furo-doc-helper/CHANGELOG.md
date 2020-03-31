@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.18.2...@furo/doc-helper@0.19.0) (2020-03-31)
+
+
+### Features
+
+* buildTree uses furo-catalog.js as a starting point. ([76e80b1](https://github.com/theNorstroem/FuroBaseComponents/commit/76e80b1))
+* install notification ([f226b86](https://github.com/theNorstroem/FuroBaseComponents/commit/f226b86))
+
+
+
+
+
 ## [0.18.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.18.1...@furo/doc-helper@0.18.2) (2020-03-30)
 
 
