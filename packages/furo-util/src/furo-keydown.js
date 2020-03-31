@@ -1,5 +1,5 @@
-import { LitElement, html, css } from 'lit-element';
-import {FBP} from "@furo/fbp";
+import { LitElement } from 'lit-element';
+import { FBP } from '@furo/fbp';
 
 /**
  * `furo-key-press`
@@ -12,73 +12,70 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class FuroKeydown extends FBP(LitElement) {
-
-    /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-            /**
-             * Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c
-             */
-            key: {type: String},
-          /**
-           * Set this attribute to listen to the keydown event global (window).
-           */
-            global: {type: Boolean},
-            alt: {type: Boolean},
-            ctrl: {type: Boolean},
-            meta: {type: Boolean},
-            shift: {type: Boolean},
-          preventDefault: {type: Boolean, attribute: "prevent-default"},
-          stopPropagation: {type: Boolean, attribute: "stop-propagation"}
-
-        };
-    }
+  /**
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c
+       */
+      key: { type: String },
+      /**
+       * Set this attribute to listen to the keydown event global (window).
+       */
+      global: { type: Boolean },
+      alt: { type: Boolean },
+      ctrl: { type: Boolean },
+      meta: { type: Boolean },
+      shift: { type: Boolean },
+      preventDefault: { type: Boolean, attribute: 'prevent-default' },
+      stopPropagation: { type: Boolean, attribute: 'stop-propagation' },
+    };
+  }
 
   /**
-  * flow is ready lifecycle method
-  */
-  _FBPReady(){
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
     super._FBPReady();
     let target;
-    if(this.global){
+    if (this.global) {
       target = window;
-    }else{
+    } else {
       target = this.parentNode;
     }
-    target.addEventListener("keydown", (keyevent) => {
+    target.addEventListener('keydown', keyevent => {
+      if (this.meta && !keyevent.metaKey) {
+        return;
+      }
+      if (this.ctrl && !keyevent.ctrlKey) {
+        return;
+      }
+      if (this.option && !keyevent.altKey) {
+        return;
+      }
 
-      if(this.meta && !keyevent.metaKey){
-        return
-      }
-      if(this.ctrl && !keyevent.ctrlKey){
-        return
-      }
-      if(this.option && !keyevent.altKey){
-        return
-      }
-
-      if(this.shift && !keyevent.shiftKey){
-        return
+      if (this.shift && !keyevent.shiftKey) {
+        return;
       }
       if (keyevent.key === this.key) {
-        if(this.preventDefault){
+        if (this.preventDefault) {
           keyevent.preventDefault();
         }
-        if(this.stopPropagation){
+        if (this.stopPropagation) {
           keyevent.stopPropagation();
         }
         /**
-        * @event key
-        * Fired when key was catched on target
-        * detail payload: keyevent
-        */
+         * @event key
+         * Fired when key was catched on target
+         * detail payload: keyevent
+         */
 
-        const customEvent = new Event('key', {composed:true, bubbles: true});
+        const customEvent = new Event('key', { composed: true, bubbles: true });
         customEvent.detail = keyevent;
-        this.dispatchEvent(customEvent)
+        this.dispatchEvent(customEvent);
       }
     });
   }

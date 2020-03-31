@@ -1,6 +1,6 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/theme.js"
-import {FBP} from "@furo/fbp";
+import { LitElement, css } from 'lit-element';
+import { Theme } from '@furo/framework/theme.js';
+import { FBP } from '@furo/fbp';
 
 /**
  * `furo-navigation-pad` listens to different keyboard navigation events like the arrow keys. It will attach the listeners
@@ -22,8 +22,6 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class FuroNavigationPad extends FBP(LitElement) {
-
-
   /**
    * @private
    * @return {Object}
@@ -35,7 +33,7 @@ class FuroNavigationPad extends FBP(LitElement) {
        *
        * i.e. "Escape, ArrowLeft"
        */
-      ignoredKeys: {type: String, attribute: "ignored-keys"}
+      ignoredKeys: { type: String, attribute: 'ignored-keys' },
     };
   }
 
@@ -45,29 +43,41 @@ class FuroNavigationPad extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
     // this._FBPTraceWires()
-    this.parentNode.addEventListener("keydown", (event) => {
+    this.parentNode.addEventListener('keydown', event => {
       const key = event.key || event.keyCode;
 
       // abort on modifier keys
       if (event.ctrlKey || event.shiftKey || event.altKey || event.metaKey) {
-        return
-      }
-
-      // abort on ignoredKeys
-      if(this.ignoredKeys && this.ignoredKeys.split(",").filter(k=>(k.trim() === key)).length > 0){
         return;
       }
 
+      // abort on ignoredKeys
+      if (
+        this.ignoredKeys &&
+        this.ignoredKeys.split(',').filter(k => k.trim() === key).length > 0
+      ) {
+        return;
+      }
 
       /**
        * @event navigated
        * Fired when one of the keys was pressed
        * detail payload: key
        */
-      const navigatedEvent = new Event('navigated', {composed: true, bubbles: true});
+      const navigatedEvent = new Event('navigated', { composed: true, bubbles: true });
+      const enterEvent = new Event('enter-pressed', { composed: true, bubbles: true });
+      const arrowDownEvent = new Event('arrow-down-pressed', { composed: true, bubbles: true });
+      const arrowUpEvent = new Event('arrow-up-pressed', { composed: true, bubbles: true });
+      const endEvent = new Event('end-pressed', { composed: true, bubbles: true });
+      const homeEvent = new Event('home-pressed', { composed: true, bubbles: true });
+      const pageDownEvent = new Event('page-down-pressed', { composed: true, bubbles: true });
+      const pageUpEvent = new Event('page-up-pressed', { composed: true, bubbles: true });
+      const escapeEvent = new Event('escape-pressed', { composed: true, bubbles: true });
+      const arrowLeftEvent = new Event('arrow-left-pressed', { composed: true, bubbles: true });
+      const arrowRightEvent = new Event('arrow-right-pressed', { composed: true, bubbles: true });
 
       switch (key) {
-        case "Enter":
+        case 'Enter':
           event.stopPropagation();
 
           navigatedEvent.detail = key;
@@ -77,12 +87,12 @@ class FuroNavigationPad extends FBP(LitElement) {
            * Fired when Enter key was pressed
            * detail payload: keyboard event
            */
-          const enterEvent = new Event('enter-pressed', {composed: true, bubbles: true});
+
           enterEvent.detail = event;
           this.dispatchEvent(enterEvent);
           break;
 
-        case "ArrowDown":
+        case 'ArrowDown':
           event.stopPropagation();
 
           navigatedEvent.detail = key;
@@ -92,12 +102,12 @@ class FuroNavigationPad extends FBP(LitElement) {
            * Fired when ArrowDown key was pressed
            * detail payload: keyboard event
            */
-          const arrowDownEvent = new Event('arrow-down-pressed', {composed: true, bubbles: true});
+
           arrowDownEvent.detail = event;
           this.dispatchEvent(arrowDownEvent);
           break;
 
-        case "ArrowUp":
+        case 'ArrowUp':
           event.stopPropagation();
 
           navigatedEvent.detail = key;
@@ -107,12 +117,12 @@ class FuroNavigationPad extends FBP(LitElement) {
            * Fired when ArrowUp key was pressed
            * detail payload: keyboard event
            */
-          const arrowUpEvent = new Event('arrow-up-pressed', {composed: true, bubbles: true});
+
           arrowUpEvent.detail = event;
           this.dispatchEvent(arrowUpEvent);
           break;
 
-        case "ArrowLeft":
+        case 'ArrowLeft':
           event.stopPropagation();
 
           navigatedEvent.detail = key;
@@ -123,12 +133,12 @@ class FuroNavigationPad extends FBP(LitElement) {
            * Fired when ArrowLeft key was pressed
            * detail payload: keyboard event
            */
-          const arrowLeftEvent = new Event('arrow-left-pressed', {composed: true, bubbles: true});
+
           arrowLeftEvent.detail = event;
           this.dispatchEvent(arrowLeftEvent);
           break;
 
-        case "ArrowRight":
+        case 'ArrowRight':
           event.stopPropagation();
 
           navigatedEvent.detail = key;
@@ -138,12 +148,12 @@ class FuroNavigationPad extends FBP(LitElement) {
            * Fired when ArrowRight key was pressed
            * detail payload: keyboard event
            */
-          const arrowRightEvent = new Event('arrow-right-pressed', {composed: true, bubbles: true});
+
           arrowRightEvent.detail = event;
           this.dispatchEvent(arrowRightEvent);
           break;
 
-        case"Escape":
+        case 'Escape':
           event.stopPropagation();
 
           navigatedEvent.detail = key;
@@ -153,13 +163,12 @@ class FuroNavigationPad extends FBP(LitElement) {
            * Fired when Escape key was pressed
            * detail payload: keyboard event
            */
-          const escapeEvent = new Event('escape-pressed', {composed: true, bubbles: true});
+
           escapeEvent.detail = event;
           this.dispatchEvent(escapeEvent);
           break;
 
-
-        case"PageUp":
+        case 'PageUp':
           event.stopPropagation();
 
           navigatedEvent.detail = key;
@@ -169,12 +178,12 @@ class FuroNavigationPad extends FBP(LitElement) {
            * Fired when PageUp key was pressed
            * detail payload: keyboard event
            */
-          const pageUpEvent = new Event('page-up-pressed', {composed: true, bubbles: true});
+
           pageUpEvent.detail = event;
           this.dispatchEvent(pageUpEvent);
           break;
 
-        case"PageDown":
+        case 'PageDown':
           event.stopPropagation();
 
           navigatedEvent.detail = key;
@@ -184,12 +193,12 @@ class FuroNavigationPad extends FBP(LitElement) {
            * Fired when PageDown key was pressed
            * detail payload: keyboard event
            */
-          const pageDownEvent = new Event('page-down-pressed', {composed: true, bubbles: true});
+
           pageDownEvent.detail = event;
           this.dispatchEvent(pageDownEvent);
           break;
 
-        case"Home":
+        case 'Home':
           event.stopPropagation();
 
           navigatedEvent.detail = key;
@@ -199,12 +208,12 @@ class FuroNavigationPad extends FBP(LitElement) {
            * Fired when Home key was pressed
            * detail payload: keyboard event
            */
-          const homeEvent = new Event('home-pressed', {composed: true, bubbles: true});
+
           homeEvent.detail = event;
           this.dispatchEvent(homeEvent);
           break;
 
-        case"End":
+        case 'End':
           event.stopPropagation();
 
           navigatedEvent.detail = key;
@@ -214,12 +223,12 @@ class FuroNavigationPad extends FBP(LitElement) {
            * Fired when End key was pressed
            * detail payload: keyboard event
            */
-          const endEvent = new Event('end-pressed', {composed: true, bubbles: true});
+
           endEvent.detail = event;
           this.dispatchEvent(endEvent);
           break;
+        default:
       }
-
     });
   }
 
@@ -230,13 +239,15 @@ class FuroNavigationPad extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroNavigationPad') || css`
-      :host {
-        display: none;
-      }
-    `
+    return (
+      Theme.getThemeForComponent('FuroNavigationPad') ||
+      css`
+        :host {
+          display: none;
+        }
+      `
+    );
   }
-
 }
 
 window.customElements.define('furo-navigation-pad', FuroNavigationPad);

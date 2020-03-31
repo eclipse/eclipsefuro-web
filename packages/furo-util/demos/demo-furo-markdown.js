@@ -1,8 +1,9 @@
 import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/doc-helper"
-import "@furo/util/src/furo-catalog.js"
+import { Theme } from '@furo/framework/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/doc-helper';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/util/src/furo-catalog.js';
 
 /**
  * `demo-furo-markdown`
@@ -11,7 +12,6 @@ import "@furo/util/src/furo-catalog.js"
  * @appliesMixin FBP
  */
 class DemoFuroMarkdown extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -19,21 +19,22 @@ class DemoFuroMarkdown extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('DemoFuroMarkdown') || css`
+    return (
+      Theme.getThemeForComponent('DemoFuroMarkdown') ||
+      css`
         :host {
-            display: block;
-            height: 100%;
-            overflow: auto;
-            padding-right: var(--spacing);
+          display: block;
+          height: 100%;
+          overflow: auto;
+          padding-right: var(--spacing);
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-       
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -53,4 +54,4 @@ class DemoFuroMarkdown extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-markdown', DemoFuroMarkdown );
+window.customElements.define('demo-furo-markdown', DemoFuroMarkdown);

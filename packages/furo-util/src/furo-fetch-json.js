@@ -1,6 +1,5 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/theme"
-import {FBP} from "@furo/fbp";
+import { LitElement } from 'lit-element';
+import { FBP } from '@furo/fbp';
 
 /**
  * `furo-fetch-json`
@@ -15,7 +14,6 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class FuroFetchJson extends FBP(LitElement) {
-
   /**
    * @private
    * @return {Object}
@@ -25,7 +23,7 @@ class FuroFetchJson extends FBP(LitElement) {
       /**
        * the url you want to fetch
        */
-      src: {type: String}
+      src: { type: String },
     };
   }
 
@@ -36,27 +34,33 @@ class FuroFetchJson extends FBP(LitElement) {
    *
    * @return {Promise<any>}
    */
+  // eslint-disable-next-line consistent-return
   fetch() {
     if (this.src) {
-      return fetch(this.src).then(res => res.json()).then(data => {
-        /**
-         * @event data
-         * Fired when data received and json parsed
-         * detail payload: {Object} json data
-         */
-        const customEvent = new Event('data', {composed: true, bubbles: true});
-        customEvent.detail = data;
-        this.dispatchEvent(customEvent);
-      },(err)=>{
-        /**
-        * @event parse-error
-        * Fired when json is not parseable
-        * detail payload: error
-        */
-        const customEvent = new Event('parse-error', {composed:true, bubbles: true});
-        customEvent.detail = err;
-        this.dispatchEvent(customEvent)
-      });
+      return fetch(this.src)
+        .then(res => res.json())
+        .then(
+          data => {
+            /**
+             * @event data
+             * Fired when data received and json parsed
+             * detail payload: {Object} json data
+             */
+            const customEvent = new Event('data', { composed: true, bubbles: true });
+            customEvent.detail = data;
+            this.dispatchEvent(customEvent);
+          },
+          err => {
+            /**
+             * @event parse-error
+             * Fired when json is not parseable
+             * detail payload: error
+             */
+            const customEvent = new Event('parse-error', { composed: true, bubbles: true });
+            customEvent.detail = err;
+            this.dispatchEvent(customEvent);
+          },
+        );
     }
   }
 
@@ -70,7 +74,6 @@ class FuroFetchJson extends FBP(LitElement) {
     this.src = source;
     return this.fetch();
   }
-
 }
 
 window.customElements.define('furo-fetch-json', FuroFetchJson);

@@ -1,6 +1,4 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/theme"
-import {FBP} from "@furo/fbp";
+import { LitElement } from 'lit-element';
 
 /**
  * `furo-put-clipboard`
@@ -16,40 +14,34 @@ import {FBP} from "@furo/fbp";
  * @summary write content to clipboard
  * @customElement
  */
-class FuroPutClipboard extends (LitElement) {
-
-  constructor() {
-    super();
-  }
-
-  setData(data){
-    this.data= data;
+class FuroPutClipboard extends LitElement {
+  setData(data) {
+    this.data = data;
   }
 
   trigger(data) {
-    if(this.data){
-      data = this.data;
+    let ndata = data;
+    if (this.data) {
+      ndata = this.data;
     }
     let d;
     if (this.json) {
-      d = JSON.stringify(data, "", 2);
+      d = JSON.stringify(ndata, '', 2);
     } else {
-      d = data;
+      d = ndata;
     }
 
-    navigator.clipboard.writeText(d).then(
-        () => {
-          /**
-           * @event content
-           * Fired when clipboard content is received
-           * detail payload: {*} content of the clipboard
-           */
-          const customEvent = new Event('content-putted', {composed: true, bubbles: true});
-          customEvent.detail = d;
-          this.dispatchEvent(customEvent)
-        })
+    navigator.clipboard.writeText(d).then(() => {
+      /**
+       * @event content
+       * Fired when clipboard content is received
+       * detail payload: {*} content of the clipboard
+       */
+      const customEvent = new Event('content-putted', { composed: true, bubbles: true });
+      customEvent.detail = d;
+      this.dispatchEvent(customEvent);
+    });
   }
-
 
   /**
    * @private
@@ -60,10 +52,9 @@ class FuroPutClipboard extends (LitElement) {
       /**
        * Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.
        */
-      json: {type: Boolean}
+      json: { type: Boolean },
     };
   }
-
 }
 
 window.customElements.define('furo-put-clipboard', FuroPutClipboard);

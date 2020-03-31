@@ -1,69 +1,73 @@
-import {fixture, html} from '@open-wc/testing';
+import { fixture, html } from '@open-wc/testing';
 import 'axe-core/axe.min.js';
-import {axeReport} from 'pwa-helpers/axe-report.js';
-import '@furo/util/src/furo-catalog.js';
-import "@furo/fbp/testhelper/test-bind"; // for testing with wires and hooks
+import { axeReport } from 'pwa-helpers/axe-report.js';
+import '../src/furo-catalog.js';
+import '@furo/fbp/testhelper/test-bind'; // for testing with wires and hooks
 
 describe('furo-fetch-json', () => {
-
   let element = {};
   let host;
 
   beforeEach(async () => {
-    let fix = await fixture(html`
-    <test-bind>
-    <template>
-      <furo-fetch-json src="/base/mockdata/experiments/1/get.json" ƒ-fetch-src="--fetchSrc" ƒ-fetch="--fetch" @-data="--contentReceived" @-parse-error="--error"></furo-fetch-json>
-     </template>
-    </test-bind>
+    const fix = await fixture(html`
+      <test-bind>
+        <template>
+          <furo-fetch-json
+            src="/base/mockdata/experiments/1/get.json"
+            ƒ-fetch-src="--fetchSrc"
+            ƒ-fetch="--fetch"
+            @-data="--contentReceived"
+            @-parse-error="--error"
+          ></furo-fetch-json>
+        </template>
+      </test-bind>
     `);
     await fix.updateComplete;
     host = fix._host;
-    element = fix.parentNode.children[1];
+    await host.updateComplete;
+    [, element] = fix.parentNode.children;
     await element.updateComplete;
   });
 
   // a11y tests
   it('a11y', () => axeReport(element));
 
-  it('should emit an error', (done) => {
-    assert.equal(element.nodeName.toLowerCase(), "furo-fetch-json");
+  it('should emit an error', done => {
+    assert.equal(element.nodeName.toLowerCase(), 'furo-fetch-json');
     /**
      * Register hook on wire --contentReceived to
      * get the json content
      */
-    host._FBPAddWireHook("--error",(err)=>{
-      assert.equal(err.name,"SyntaxError");
-      done()
+    host._FBPAddWireHook('--error', err => {
+      assert.equal(err.name, 'SyntaxError');
+      done();
     });
-    host._FBPTriggerWire("--fetchSrc","/base/mockdata/____404");
+    host._FBPTriggerWire('--fetchSrc', '/base/mockdata/____404');
   });
 
-  it('should fetch a source with fetch-src', (done) => {
-    assert.equal(element.nodeName.toLowerCase(), "furo-fetch-json");
+  it('should fetch a source with fetch-src', done => {
+    assert.equal(element.nodeName.toLowerCase(), 'furo-fetch-json');
     /**
      * Register hook on wire --contentReceived to
      * get the json content
      */
-    host._FBPAddWireHook("--contentReceived",(e)=>{
-      assert.equal(e.data.id,2);
-      done()
+    host._FBPAddWireHook('--contentReceived', e => {
+      assert.equal(e.data.id, 2);
+      done();
     });
-    host._FBPTriggerWire("--fetchSrc","/base/mockdata/projects/2/get.json");
+    host._FBPTriggerWire('--fetchSrc', '/base/mockdata/projects/2/get.json');
   });
 
-  it('should be a furo-fetch-json', (done) => {
-    assert.equal(element.nodeName.toLowerCase(), "furo-fetch-json");
+  it('should be a furo-fetch-json', done => {
+    assert.equal(element.nodeName.toLowerCase(), 'furo-fetch-json');
     /**
      * Register hook on wire --contentReceived to
      * get the json content
      */
-    host._FBPAddWireHook("--contentReceived",(e)=>{
-      assert.equal(e.data.id,1);
-      done()
+    host._FBPAddWireHook('--contentReceived', e => {
+      assert.equal(e.data.id, 1);
+      done();
     });
-    host._FBPTriggerWire("--fetch");
+    host._FBPTriggerWire('--fetch');
   });
-
-
 });

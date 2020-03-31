@@ -9,7 +9,7 @@ module.exports = config => {
       frameworks: ['mocha', 'chai'],
       _browsers: ['Chrome'], // remove the underscore to activate browser tests
       proxies: {
-        '/src/configs/flowConfig.json': '/base/src/configs/flowConfig.json'
+        '/src/configs/flowConfig.json': '/base/src/configs/flowConfig.json',
       },
       colors: true,
       files: [
@@ -18,7 +18,10 @@ module.exports = config => {
         //
         // npm run test -- --grep test/foo/bar.test.js
         // npm run test -- --grep test/bar/*
-        { pattern: config.grep ? config.grep : 'packages/furo-util/test/**/*.test.js', type: 'module' },
+        {
+          pattern: config.grep ? config.grep : 'packages/furo-util/test/**/*.test.js',
+          type: 'module',
+        },
       ],
 
       esm: {

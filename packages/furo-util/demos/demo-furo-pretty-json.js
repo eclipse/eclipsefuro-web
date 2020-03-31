@@ -1,9 +1,10 @@
 import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/doc-helper"
-import "@furo/util/src/furo-catalog.js"
-import "../test/helper/produce-data.js"
+import { Theme } from '@furo/framework/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/doc-helper';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/util/src/furo-catalog.js';
+import '../test/helper/produce-data.js';
 /**
  * `demo-furo-pretty-json`
  *
@@ -11,7 +12,6 @@ import "../test/helper/produce-data.js"
  * @appliesMixin FBP
  */
 class DemoFuroPrettyJson extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -19,23 +19,24 @@ class DemoFuroPrettyJson extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('DemoFuroPrettyJson') || css`
+    return (
+      Theme.getThemeForComponent('DemoFuroPrettyJson') ||
+      css`
         :host {
-            display: block;
-            
-            padding-right: var(--spacing);
+          display: block;
+
+          padding-right: var(--spacing);
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-        furo-demo-snippet{
-            height: 500px;
+        furo-demo-snippet {
+          height: 500px;
         }
-       
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -46,11 +47,11 @@ class DemoFuroPrettyJson extends FBP(LitElement) {
     return html`
       <h2>Demo demo-furo-pretty-json</h2>
       <p>description</p>
-      <furo-demo-snippet >
+      <furo-demo-snippet>
         <template>
-          <produce-data  @-data="--data"></produce-data>
+          <produce-data @-data="--data"></produce-data>
           <furo-vertical-scroller>
-          <furo-pretty-json ƒ-inject-data="--data"></furo-pretty-json>
+            <furo-pretty-json ƒ-inject-data="--data"></furo-pretty-json>
           </furo-vertical-scroller>
         </template>
       </furo-demo-snippet>
@@ -58,4 +59,4 @@ class DemoFuroPrettyJson extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-pretty-json', DemoFuroPrettyJson );
+window.customElements.define('demo-furo-pretty-json', DemoFuroPrettyJson);
