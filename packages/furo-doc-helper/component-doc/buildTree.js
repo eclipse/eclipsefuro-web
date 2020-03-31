@@ -11,9 +11,9 @@ if (!fs.existsSync(`${pkgdir}/package.json`)) {
 
 const pkgjson = JSON.parse(fs.readFileSync(`${pkgdir}/package.json`));
 // eslint-disable-next-line no-console
-console.log('analyzing ', `${pkgdir}src/*.js`);
+console.log('analyzing ', `${pkgdir}src/furo-catalog.js`);
 const analysisPath = `analysis.json`;
-execSync(`polymer analyze ${pkgdir}src/*.js > ${analysisPath}`);
+execSync(`polymer analyze ${pkgdir}src/furo-catalog.js > ${analysisPath}`);
 
 // the elements
 const analysis = JSON.parse(fs.readFileSync(analysisPath));
