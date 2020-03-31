@@ -292,7 +292,7 @@ class MainStage extends FBP(LitElement) {
       <furo-location url-space-regex="^/" @-location-query-changed="--qp"></furo-location>
 
       <furo-location @-location-changed="--locationChanged"></furo-location>
-
+      <furo-snackbar-display></furo-snackbar-display>    
       <furo-data-context-menu-display></furo-data-context-menu-display>
     `;
   }

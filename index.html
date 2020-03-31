@@ -23,38 +23,50 @@
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
   <script>
     window.APPROOT = {rootPath: '/'};
+
     if ('serviceWorker' in navigator) {
+
       window.addEventListener('load', () => {
         navigator.serviceWorker.getRegistration().then((registration) => {
           if (registration) {
             registration.addEventListener('updatefound', () => {
-              let obj = {};
-              obj.labelText = "Press Reload to update";
-              obj._action = () => {
-                // reload page
-                window.location.reload();
-              };
-              obj.icon = "clear";
-              obj._dismiss = () => {
-                console.log("closed without reload...")
-              };
-              obj.actionButtonText = "reload";
-              let customEvent = new Event("open-furo-snackbar-requested", {composed: true, bubbles: true});
-              customEvent.detail = obj;
-              this.dispatchEvent(customEvent);
+              // A wild service worker has appeared in reg.installing!
+              const newWorker = registration.installing;
+              // "installing" - the install event has fired, but not yet complete
+              // "installed"  - install complete
+              // "activating" - the activate event has fired, but not yet complete
+              // "activated"  - fully active
+              // "redundant"  - discarded. Either failed install, or it's been
+              //                replaced by a newer version
+
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed') {
+                  const obj = {};
+                  obj.labelText = "New update installed.";
+                  obj._action = () => {
+                    // reload page
+                    registration.unregister();
+                    window.location.reload();
+
+                  };
+                  obj.icon = "clear";
+                  obj._dismiss = () => {
+                    console.log("closed without reload...")
+                  };
+                  obj.actionButtonText = "restart";
+                  const customEvent = new Event("open-furo-snackbar-requested", {composed: true, bubbles: true});
+                  customEvent.detail = obj;
+                  this.dispatchEvent(customEvent);
+                }
+              });
             });
           }
         });
       });
-    }
 
-
-    // Load and register pre-caching Service Worker
-    if ('serviceWorker' in navigator) {
+      // Load and register pre-caching Service Worker
       window.addEventListener('load', function (registration) {
-        navigator.serviceWorker.register('/service-worker.js', {
-          scope: APPROOT.rootPath
-        });
+        navigator.serviceWorker.register('service-worker.js');
       });
     }
 
