@@ -14,25 +14,21 @@ import '@furo/input/furo-button.js';
  */
 class ProduceMassiveLoad extends FBP(LitElement) {
 
-    constructor() {
-        super();
-
-    }
 
     /**
      * flow is ready lifecycle method
      */
     _FBPReady() {
         super._FBPReady();
-        //this._FBPTraceWires()
+        // this._FBPTraceWires()
         this._FBPAddWireHook('--massiveLoad', () => {
             // generate events
-            for (let i = 0; i<11; i++) {
-                let payload = {"action": "term" + i};
+            for (let i = 0; i<11; i+=1) {
+                const payload = {"action": `term${  i}`};
                 this.dispatchEvent(new CustomEvent('action', {
                     detail: payload, bubbles: true, composed: true
                 }));
-                console.log(payload);
+
             }
 
         });

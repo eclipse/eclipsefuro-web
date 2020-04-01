@@ -7,8 +7,9 @@ import "@furo/input/furo-search-input.js";
 import "@furo/data";
 import "@furo/layout";
 import "./helper/produce-massive-load.js";
-import "@furo/data-input/demo/helper/produce-qp-data.js";
-import "../furo-catalog";
+// import "@furo/data-input/demo/helper/produce-qp-data.js";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "@furo/timing/src/furo-catalog.js";
 
 /**
  * `demo-furo-de-bounce`
@@ -78,7 +79,7 @@ class DemoFuroDeBounce extends FBP(LitElement) {
                         <furo-collection-agent service="ProjectService" ƒ-hts-in="--hts" ƒ-set-filter="--term"
                                                ƒ-list="--debouncedTerm"></furo-collection-agent>
                         <br>
-                        <produce-qp-data @-data="--qp" qp={"prj":1}></produce-qp-data>
+                        <produce-qp-data @-data="--qp" qpescaped="%7B%22prj%22%3A1%7D"></produce-qp-data>
                         <furo-pretty-json ƒ-inject-data="--term"></furo-pretty-json>
                         <furo-pretty-json ƒ-inject-data="--debouncedTerm"></furo-pretty-json>
                     </template>

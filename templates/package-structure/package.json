@@ -1,9 +1,9 @@
 {
   "name": "@furo/samplepackage",
   "version": "0.24.6",
-  "description": "package sample",
-  "homepage": "https://github.com/veith/template-component-package",
-  "repository": "git@github.com:veith/template-component-package.git",
+  "description": "samplepackage",
+  "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-samplepackage",
+  "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
     "name": "",
     "email": "",

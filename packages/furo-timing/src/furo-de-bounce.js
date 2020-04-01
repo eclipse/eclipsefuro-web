@@ -21,7 +21,7 @@ class FuroDeBounce extends FBP(LitElement) {
      */
     _FBPReady() {
         super._FBPReady();
-        //this._FBPTraceWires();
+        // this._FBPTraceWires();
     }
 
     static get properties() {
@@ -44,14 +44,14 @@ class FuroDeBounce extends FBP(LitElement) {
 
         // as taken from Underscore.js
         this._debounce = function debounce(func, wait, immediate) {
-            var timeout;
+            let timeout;
             return function() {
-                var context = this, args = arguments;
-                var later = function() {
+                const context = this; const args = arguments;
+                const later = function() {
                     timeout = null;
                     if (!immediate) func.apply(context, args);
                 };
-                var callNow = immediate && !timeout;
+                const callNow = immediate && !timeout;
                 clearTimeout(timeout);
                 timeout = setTimeout(later, wait);
                 if (callNow) func.apply(context, args);

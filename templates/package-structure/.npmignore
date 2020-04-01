@@ -1,5 +1,6 @@
 node_modules
 coverage
+CHANGELOG.md
 dist
 .divshot-cache
 .idea

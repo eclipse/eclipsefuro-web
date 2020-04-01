@@ -12,71 +12,75 @@ import {FBP} from "@furo/fbp";
  */
 class ProduceQpData extends FBP(LitElement) {
 
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.addEventListener("click", this.produce)
+    this.addEventListener("click", this.produce)
+  }
+
+  _FBPReady() {
+    super._FBPReady();
+    if (this.auto) {
+      this.produce();
+    }
+  }
+
+  /**
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * Description
+       */
+      auto: {type: Boolean},
+
+      qp: {type: Object},
+      qpescaped: {type: String}
+    };
+  }
+
+
+  produce() {
+    if (this.qpescaped) {
+      this.qp = JSON.parse( unescape(this.qpescaped))
     }
 
-    _FBPReady() {
-        super._FBPReady();
-        if (this.auto) {
-            this.produce();
-        }
-    }
+    const customEvent = new Event('data', {composed: true, bubbles: true});
+    customEvent.detail = this.qp;
+    this.dispatchEvent(customEvent);
+  }
 
-    /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-            /**
-             * Description
-             */
-            auto: {type: Boolean},
+  /**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return Theme.getThemeForComponent('ProduceQpData') || css`
+      :host {
+        display: inline-block;
+      }
 
-            qp: {type: Object, reflect: true}
-        };
-    }
-
-
-    produce() {
-
-        let customEvent = new Event('data', {composed: true, bubbles: true});
-        customEvent.detail = this.qp ;
-        this.dispatchEvent(customEvent);
-    }
-
-    /**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */
-    static get styles() {
-        // language=CSS
-        return Theme.getThemeForComponent('ProduceQpData') || css`
-        :host {
-            display: inline-block;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
     `
-    }
+  }
 
 
-    /**
-     * @private
-     * @returns {TemplateResult}
-     */
-    render() {
-        // language=HTML
-        return html`
+  /**
+   * @private
+   * @returns {TemplateResult}
+   */
+  render() {
+    // language=HTML
+    return html`
       <furo-button label="load test data" outline></furo-button>
     `;
-    }
+  }
 }
 
 window.customElements.define('produce-qp-data', ProduceQpData);

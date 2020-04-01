@@ -35,25 +35,26 @@ class FuroIntervalPulse extends (LitElement) {
     let cnt = 0;
     clearInterval(this._intervalObject);
     this._intervalObject = setInterval(() => {
-      let pos = cnt++ % this.takt;
+      cnt +=1;
+      const pos = cnt % this.takt;
       /**
        * Fired when interval is
        * detail payload: position
        * @event tick
        */
-      let customEvent = new Event('tick', {bubbles: true});
+      const customEvent = new Event('tick', {bubbles: true});
       customEvent.detail = pos;
       this.dispatchEvent(customEvent);
 
-      if (pos == 0) {
+      if (pos === 0) {
         /**
          * Fired when tock
          * detail payload: position
          * @event tick
          */
-        let customEvent = new Event('tock', {bubbles: true});
-        customEvent.detail = pos;
-        this.dispatchEvent(customEvent);
+        const tockEvent = new Event('tock', {bubbles: true});
+        tockEvent.detail = pos;
+        this.dispatchEvent(tockEvent);
       }
 
     }, this.interval)
