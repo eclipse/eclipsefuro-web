@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "@furo/route/furo-location"
+import "@furo/route/src/furo-location"
 import "./furo-demo-loader"
 /**
  * `panel-demo`

@@ -1,4 +1,4 @@
-import {panelRegistry} from "@furo/route/lib/panelRegistry.js";
+import {panelRegistry} from "@furo/route/src/lib/panelRegistry.js";
 
 // import panels
 

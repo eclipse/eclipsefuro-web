@@ -8,7 +8,7 @@ import { i18n } from '@furo/framework/i18n.js';
 
 import "@furo/data";
 import "@furo/data-input";
-import "@furo/timing/furo-de-bounce.js";
+import "@furo/timing/src/furo-de-bounce.js";
 
 /**
  * service specs for the project api
@@ -20,7 +20,7 @@ import "@furo/timing/furo-de-bounce.js";
  */
 export class ProjectProjectReferenceSearch extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -39,7 +39,7 @@ export class ProjectProjectReferenceSearch extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method

@@ -4,7 +4,7 @@ import {  Theme  } from '@furo/framework/theme.js';
 
 // eslint-disable-next-line no-unused-vars
 import {  i18n  } from '@furo/framework/i18n.js';
-import {  BasePanel  } from '@furo/route/lib/BasePanel.js';
+import {  BasePanel  } from '@furo/route/src/lib/BasePanel.js';
 
 import "@furo/layout/furo-vertical-flex.js";
 import "@furo/layout/furo-panel.js";
@@ -24,13 +24,13 @@ import "./person-person-update-action.js";
  */
 export class PersonPersonUpdatePanel extends BasePanel {
 
-  
+
 
   // Inject HATEOAS Link Object for the specific service.
   htsIn(d) {
     this._FBPTriggerWire('--htsIn', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method

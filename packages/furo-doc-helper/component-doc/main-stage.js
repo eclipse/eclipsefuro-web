@@ -4,8 +4,8 @@ import { Theme } from '@furo/framework/theme.js';
 import { Styling } from './styling.js';
 
 import '@furo/input/furo-button.js';
-import '@furo/route/furo-location.js';
-import '@furo/route/furo-pages.js';
+import '@furo/route/src/furo-location.js';
+import '@furo/route/src/furo-pages.js';
 
 import '@furo/app/furo-app-drawer.js';
 import '@furo/app/furo-app-bar-top.js';
@@ -17,8 +17,8 @@ import '@furo/input/furo-search-input.js';
 import '@furo/data/furo-data-object.js';
 import '@furo/util/src/furo-fetch-json.js';
 import '@furo/navigation/furo-tree.js';
-import '@furo/route/furo-qp-changer.js';
-import '@furo/route/furo-panel-coordinator.js';
+import '@furo/route/src/furo-qp-changer.js';
+import '@furo/route/src/furo-panel-coordinator.js';
 import '@furo/navigation/furo-panel-coordinator-tabs.js';
 import '@furo/util/src/furo-navigation-pad.js';
 import '@furo/util/src/furo-keydown.js';

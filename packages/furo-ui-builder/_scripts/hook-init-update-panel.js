@@ -29,7 +29,7 @@ class HookInitUpdatePanel {
     u33e.addImportWithMember(" Theme ", "@furo/framework/theme.js");
 
     u33e.addImportWithMember(" i18n ", "@furo/framework/i18n.js", "eslint-disable-next-line no-unused-vars");
-    u33e.addImportWithMember(" BasePanel ", "@furo/route/lib/BasePanel.js");
+    u33e.addImportWithMember(" BasePanel ", "@furo/route/src/lib/BasePanel.js");
 
 
     u33e.addImport("@furo/layout/furo-vertical-flex.js");

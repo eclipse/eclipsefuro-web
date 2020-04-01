@@ -15,7 +15,7 @@
 ``` json 
   "suites": [
         "node_modules/@furo/fbp/test/index.html",
-        "node_modules/@furo/route/test/index.html"
+        "node_modules/@furo/route/src/test/index.html"
     ]
 ```
 
@@ -24,7 +24,7 @@
 ``` json 
   "suites": [
         "node_modules/@furo/fbp/test/*_test.html",
-        "node_modules/@furo/route/test/*_.html"
+        "node_modules/@furo/route/src/test/*_.html"
     ]
 ```
 

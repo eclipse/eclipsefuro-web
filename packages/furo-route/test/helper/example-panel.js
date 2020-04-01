@@ -1,8 +1,8 @@
-import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/util/src/furo-pretty-json"
-import {BasePanel} from "../../lib/BasePanel";
+import { html, css } from 'lit-element';
+import { Theme } from '@furo/framework/theme';
+
+import '@furo/util/src/furo-pretty-json';
+import { BasePanel } from '../../src/lib/BasePanel.js';
 /**
  * `example-panel`
  * todo Describe your element
@@ -12,40 +12,41 @@ import {BasePanel} from "../../lib/BasePanel";
  * @appliesMixin FBP
  */
 class ExamplePanel extends BasePanel {
-
-  constructor(){
+  constructor() {
     super();
     // register the close
     // todo: do some checks
-    this._FBPAddWireHook("--navNode",(treeNode)=>{
+    this._FBPAddWireHook('--navNode', treeNode => {
       this.treeNode = treeNode;
-      treeNode.addEventListener("close-requested",()=>{
-        this.treeNode.selectItem();
-        this.removePanel();
-      },{once:true});
+      treeNode.addEventListener(
+        'close-requested',
+        () => {
+          this.treeNode.selectItem();
+          this.removePanel();
+        },
+        { once: true },
+      );
     });
   }
 
+  /**
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * Description
+       */
+      name: { type: String },
+    };
+  }
 
   /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-            /**
-             * Description
-             */
-            name: {type: String}
-        };
-    }
-
-  /**
-  * flow is ready lifecycle method
-  */
-  _FBPReady(){
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
   }
 
   /**
@@ -55,18 +56,19 @@ class ExamplePanel extends BasePanel {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('ExamplePanel') || css`
+    return (
+      Theme.getThemeForComponent('ExamplePanel') ||
+      css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `
+      `
+    );
   }
-
-
 
   /**
    * @private

@@ -1,0 +1,13 @@
+import 'axe-core/axe.min.js';
+
+import '../src/furo-catalog.js';
+import '@furo/fbp/testhelper/test-bind'; // for testing with wires and hooks
+import { panelRegistry } from '../src/lib/panelRegistry.js';
+
+describe('panelRegistry.test', () => {
+  it('should deliver false on unknown registry', () => {
+    assert.equal(panelRegistry.getPanelName(), false);
+    assert.equal(panelRegistry.getPanelName('something'), false);
+    assert.equal(panelRegistry.getPanelName('something', 'unknown'), false);
+  });
+});

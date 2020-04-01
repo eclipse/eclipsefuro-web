@@ -23,7 +23,7 @@
   "imports": [
     "@furo/data",
     "@furo/data-input",
-    "@furo/timing/furo-de-bounce.js"
+    "@furo/timing/src/furo-de-bounce.js"
   ],
   "component_name": "person-person-reference-search",
   "path": "./generates/ui_specs/projectmemberservice/person-person-reference-search.u33e",

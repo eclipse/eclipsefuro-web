@@ -17,7 +17,7 @@
     ],
     [
       " BasePanel ",
-      "@furo/route/lib/BasePanel.js"
+      "@furo/route/src/lib/BasePanel.js"
     ]
   ],
   "imports": [
