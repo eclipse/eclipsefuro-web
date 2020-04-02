@@ -1,6 +1,6 @@
-import {LitElement,html,css} from 'lit-element';
-import {FBP} from '@furo/fbp';
-import "@furo/input";
+import { LitElement, html, css } from 'lit-element';
+import { FBP } from '@furo/fbp';
+import '@furo/input';
 
 /**
  * `furo-snackbar-display`
@@ -35,15 +35,12 @@ import "@furo/input";
  * @demo demo-furo-snackbar-display snackbar demo
  * @demo demo-furo-snackbar-display-error snackbar display demo with error binding
  */
-class FuroSnackbarDisplay extends  FBP(LitElement) {
-
-
-  constructor(){
+class FuroSnackbarDisplay extends FBP(LitElement) {
+  constructor() {
     super();
     this._stack = [];
 
-    this.displayObj = {"labelText":"", "actonButtonText":"","snackbar":{}};
-
+    this.displayObj = { labelText: '', actonButtonText: '', snackbar: {} };
   }
 
   /**
@@ -52,43 +49,39 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
 
-    this._snackbar = this.shadowRoot.getElementById("snackbar");
+    this._snackbar = this.shadowRoot.getElementById('snackbar');
 
-    this._FBPAddWireHook('--actionClicked', (e) => {
-
-      if(this.displayObj.snackbar) {
+    this._FBPAddWireHook('--actionClicked', () => {
+      if (this.displayObj.snackbar) {
         this.displayObj.snackbar._action();
       }
       this._close();
     });
 
-    this._FBPAddWireHook('--closeClicked', (e) => {
-
-      if(this.displayObj.snackbar) {
+    this._FBPAddWireHook('--closeClicked', () => {
+      if (this.displayObj.snackbar) {
         this.displayObj.snackbar._dismiss();
       }
       this._close();
     });
 
-
     /**
      * listen to keyboard events
      */
-    document.addEventListener("keydown", (event) => {
-      let key = event.key || event.keyCode;
+    document.addEventListener('keydown', event => {
+      const key = event.key || event.keyCode;
 
       if (key === 'Escape' || key === 'Esc' || key === 27) {
-
-        if(this.displayObj.closeOnEscape) {
-
+        if (this.displayObj.closeOnEscape) {
           this._close();
         }
       }
     });
 
     // when display not wired with show method, listening open event from window
-    if(!this._isWiredWithShow()) {
-      window.addEventListener("open-furo-snackbar-requested", (e)=>{
+    if (!this._isWiredWithShow()) {
+      window.addEventListener('open-furo-snackbar-requested', e => {
+        e.stopPropagation();
         this.show(e.detail);
       });
     }
@@ -101,10 +94,10 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
    */
   _isWiredWithShow() {
     let isWired = false;
-    let l = this.attributes.length;
-    for (let i = 0; i < l; ++i) {
-      let nodeName = this.attributes.item(i).nodeName;
-      if (nodeName == "ƒ-show") {
+    const l = this.attributes.length;
+    for (let i = 0; i < l; i += 1) {
+      const { nodeName } = this.attributes.item(i);
+      if (nodeName === 'ƒ-show') {
         isWired = true;
         break;
       }
@@ -198,27 +191,26 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
   /**
    *@private
    */
-  static get properties(){
-
+  static get properties() {
     return {
       displayObj: {
-        type: Object
+        type: Object,
       },
 
       _stack: {
-        type: Array
+        type: Array,
       },
 
       /**
        * virsule element snackbar
        */
       _snackbar: {
-        type: Object
+        type: Object,
       },
 
       _timer: {
-        type: Object
-      }
+        type: Object,
+      },
     };
   }
 
@@ -229,7 +221,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
    */
   show(s) {
     this._pushToStack(s);
-    if( !this.displayObj.isOpen ) {
+    if (!this.displayObj.isOpen) {
       this._show();
     }
   }
@@ -240,8 +232,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
    * @private
    */
   _pushToStack(s) {
-
-    let obj = {};
+    const obj = {};
     obj.labelText = s.labelText;
     obj.icon = s.icon;
     obj.actionButtonText = s.actionButtonText;
@@ -261,42 +252,35 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
    * @private
    */
   _show() {
+    if (this._stack.length > 0) {
+      [this.displayObj] = this._stack;
 
-    if(this._stack.length > 0 ) {
+      this._snackbar.classList.remove('hide');
 
-      this.displayObj = this._stack[0];
-
-      this._snackbar.classList.remove("hide");
-
-      this._fadeIn(this.shadowRoot.getElementById("snackbar"));
+      FuroSnackbarDisplay._fadeIn(this.shadowRoot.getElementById('snackbar'));
 
       this.requestUpdate();
       this.displayObj.snackbar.isOpen = true;
       this.displayObj.isOpen = true;
 
-      let timeoutInMs = this.displayObj.snackbar.timeoutInMs;
+      const { timeoutInMs } = this.displayObj.snackbar;
 
-      if(timeoutInMs > 0) {
-        let self = this;
-        this._timer = setInterval(function () {
-
+      if (timeoutInMs > 0) {
+        const self = this;
+        this._timer = setInterval(() => {
           clearInterval(self._timer);
-          self._snackbar.classList.add("hide");
+          self._snackbar.classList.add('hide');
 
           self._stack.shift();
           self.displayObj.snackbar._close();
-          if(self._stack.length  > 0 ) {
-
+          if (self._stack.length > 0) {
             self._show();
-          }else {
+          } else {
             self.displayObj.snackbar.isOpen = false;
             self.displayObj.isOpen = false;
           }
-
         }, timeoutInMs);
-
-      }
-      else {
+      } else {
         this._stack.shift();
       }
     }
@@ -306,25 +290,21 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
    * close the CURRENT snackbar
    */
   _close() {
-
     clearInterval(this._timer);
 
-    if(this._stack.length >1) {
-
-      this._snackbar.classList.add("hide");
+    if (this._stack.length > 1) {
+      this._snackbar.classList.add('hide');
 
       this._stack.shift();
-      if(this._stack.length  > 0 ) {
-
+      if (this._stack.length > 0) {
         this._show();
-      }else {
+      } else {
         this.displayObj.snackbar.isOpen = false;
         this.displayObj.isOpen = false;
       }
-    }
-    else {
+    } else {
       this._stack.shift();
-      this._snackbar.classList.add("hide");
+      this._snackbar.classList.add('hide');
       this.displayObj.snackbar.isOpen = false;
       this.displayObj.isOpen = false;
     }
@@ -335,41 +315,49 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
    * @param element
    * @private
    */
-  _fadeIn(element) {
-    let op = 0.1;  // initial opacity
-    let timer = setInterval(function () {
-
-      if (op >= 1){
-
+  static _fadeIn(element) {
+    let op = 0.1; // initial opacity
+    const timer = setInterval(() => {
+      if (op >= 1) {
         clearInterval(timer);
       }
+      // eslint-disable-next-line no-param-reassign
       element.style.opacity = op;
-      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+      // eslint-disable-next-line no-param-reassign
+      element.style.filter = `alpha(opacity=${op * 100})`;
       op += op * 0.2;
     }, 10);
   }
-
 
   /**
    * @private
    * @returns {TemplateResult}
    */
-  render(){
+  render() {
     return html`
-       <div class="wrapper"  ?left="${this.displayObj.positionLeft}"  ?right="${this.displayObj.positionRight}">
-        <div id="snackbar" class="hide" 
-             ?stacked="${this.displayObj.stacked}"
-             style="width:${this.displayObj.size}; max-width:${this.displayObj.maxSize}" >
-            <div class="label"><span>${this.displayObj.labelText}</span></div>
-            <div class="button">
-              <furo-button label="${this.displayObj.actionButtonText}" @-click="--actionClicked"></furo-button>
-              <furo-button icon="${this.displayObj.icon}" @-click="--closeClicked"></furo-button>
-            </div>
+      <div
+        class="wrapper"
+        ?left="${this.displayObj.positionLeft}"
+        ?right="${this.displayObj.positionRight}"
+      >
+        <div
+          id="snackbar"
+          class="hide"
+          ?stacked="${this.displayObj.stacked}"
+          style="width:${this.displayObj.size}; max-width:${this.displayObj.maxSize}"
+        >
+          <div class="label"><span>${this.displayObj.labelText}</span></div>
+          <div class="button">
+            <furo-button
+              label="${this.displayObj.actionButtonText}"
+              @-click="--actionClicked"
+            ></furo-button>
+            <furo-button icon="${this.displayObj.icon}" @-click="--closeClicked"></furo-button>
+          </div>
         </div>
       </div>
-        `;
+    `;
   }
-
 }
 
 customElements.define('furo-snackbar-display', FuroSnackbarDisplay);

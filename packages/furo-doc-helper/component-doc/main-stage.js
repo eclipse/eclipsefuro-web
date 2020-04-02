@@ -9,7 +9,7 @@ import '@furo/route/src/furo-pages.js';
 
 import '@furo/app/furo-app-drawer.js';
 import '@furo/app/furo-app-bar-top.js';
-import '@furo/notification/furo-snackbar-display.js';
+import '@furo/notification/src/furo-snackbar-display.js';
 
 import '@furo/layout/furo-empty-spacer.js';
 import '@furo/layout/furo-horizontal-flex.js';

@@ -1,7 +1,7 @@
-import {LitElement, html, css} from 'lit-element';
-import {FBP} from "@furo/fbp";
-import "markdown-it/dist/markdown-it.js"
-import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
+import { LitElement, html, css } from 'lit-element';
+import { FBP } from '@furo/fbp';
+import 'markdown-it/dist/markdown-it.js';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 
 /**
  * `furo-banner-display`
@@ -41,37 +41,39 @@ import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
  * @demo demo-furo-banner-display-error banner display demo with error binding
  */
 class FuroBannerDisplay extends FBP(LitElement) {
-
-
   constructor() {
     super();
-    this._banner = {"text": "", "dismissButtonText": "dismiss", "confirmButtonText": "", "icon": "", "banner": {}};
+    this._banner = {
+      text: '',
+      dismissButtonText: 'dismiss',
+      confirmButtonText: '',
+      icon: '',
+      banner: {},
+    };
     this._stack = [];
-    this.setAttribute("hidden", "");
-    this.setAttribute("tabindex", "-1");
   }
 
   /**
    * flow is ready lifecycle method
    */
   _FBPReady() {
+    this.setAttribute('hidden', '');
+    this.setAttribute('tabindex', '-1');
     super._FBPReady();
-    this.parentNode.addEventListener("open-furo-banner-requested", (e) => {
+
+    this.parentNode.addEventListener('open-furo-banner-requested', e => {
       e.stopPropagation();
       this._show(e.detail);
     });
 
-
-    this._FBPAddWireHook('--confirmClicked', (e) => {
-
+    this._FBPAddWireHook('--confirmClicked', () => {
       if (this._banner.banner) {
         this._banner.banner.confirm();
       }
       this._close();
     });
 
-    this._FBPAddWireHook('--dismissClicked', (e) => {
-
+    this._FBPAddWireHook('--dismissClicked', () => {
       if (this._banner.banner) {
         this._banner.banner.dismiss();
       }
@@ -79,46 +81,44 @@ class FuroBannerDisplay extends FBP(LitElement) {
     });
   }
 
-
   /**
    * parse markdown string to html content
    * @param markdown
    * @return {TemplateResult | TemplateResult}
    */
-  _parseMarkdown(markdown) {
-    let md = window.markdownit({
+  static _parseMarkdown(markdown) {
+    const md = window.markdownit({
       html: false,
       linkify: true,
-      typographer: true
+      typographer: true,
     });
 
-
-    return html`${unsafeHTML(md.render(markdown))}`;
+    return html`
+      ${unsafeHTML(md.render(markdown))}
+    `;
   }
-
 
   /**
    *@private
    */
   static get properties() {
-
     return {
       _banner: {
-        type: Object
+        type: Object,
       },
       _stack: {
-        type: Array
+        type: Array,
       },
       _isOpen: {
-        type: Boolean
+        type: Boolean,
       },
       _timer: {
-        type: Object
+        type: Object,
       },
       /**
        * enable autofocus for dismiss button after slide in
        */
-      autofocus: {type: Boolean}
+      autofocus: { type: Boolean },
     };
   }
 
@@ -128,11 +128,9 @@ class FuroBannerDisplay extends FBP(LitElement) {
    * @private
    */
   _show(b) {
-
     this._pushToStack(b);
 
     if (!this._isOpen) {
-
       this.__show();
     }
   }
@@ -143,8 +141,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
    * @private
    */
   _pushToStack(b) {
-
-    let obj = {};
+    const obj = {};
     obj.text = b.text;
     obj.multilineText = b.multilineText;
     obj.dismissButtonText = b.dismissButtonText;
@@ -160,63 +157,58 @@ class FuroBannerDisplay extends FBP(LitElement) {
    */
   __show() {
     if (this._stack.length > 0) {
-
-      this._banner = this._stack[0];
+      // this is array destructing
+      [this._banner] = this._stack;
       // defensive copy, do not overwrite the reference (this._stack[0]);
       if (this._banner.multilineText && this._banner.multilineText.length > 0) {
-        this._bannerText = this._parseMarkdown(this._banner.multilineText.join("\n\n"));
-      } else {
-        // default banner text
-        if (this._banner.text) {
-          this._bannerText = this._parseMarkdown(this._banner.text);
-        }
+        this._bannerText = FuroBannerDisplay._parseMarkdown(
+          this._banner.multilineText.join('\n\n'),
+        );
+      } else if (this._banner.text) {
+        this._bannerText = FuroBannerDisplay._parseMarkdown(this._banner.text);
       }
 
       this.requestUpdate();
 
       setTimeout(() => {
-        this.style.height = "0px";
-        this.removeAttribute("hidden");
-        this.removeAttribute("tabindex");
-        let height = this.shadowRoot.querySelector(".wrapper").getBoundingClientRect().height;
-        this.style.height = height + "px";
+        this.style.height = '0px';
+        this.removeAttribute('hidden');
+        this.removeAttribute('tabindex');
+        const { height } = this.shadowRoot.querySelector('.wrapper').getBoundingClientRect();
+        this.style.height = `${height}px`;
         this._isOpen = true;
       }, 0);
 
       if (this.autofocus) {
         setTimeout(() => {
           // focus the dismiss after animation
-          this._FBPTriggerWire("--focus");
+          this._FBPTriggerWire('--focus');
         }, 500);
       }
     }
   }
 
-
   focus() {
-    this._FBPTriggerWire("--focus")
+    this._FBPTriggerWire('--focus');
   }
 
   /**
    * close the CURRENT banner
    */
   _close() {
-    this.style.height = "0px";
+    this.style.height = '0px';
     setTimeout(() => {
-      this.setAttribute("hidden", "");
-      this.setAttribute("tabindex", "-1");
+      this.setAttribute('hidden', '');
+      this.setAttribute('tabindex', '-1');
     }, 500);
 
     if (this._stack.length > 1) {
-
-
       this._stack.shift();
       if (this._stack.length > 0) {
-        let self = this;
-        this._timer = setInterval(function () {
+        const self = this;
+        this._timer = setInterval(() => {
           clearInterval(self._timer);
           self.__show();
-
         }, 500);
       } else {
         this._isOpen = false;
@@ -226,7 +218,6 @@ class FuroBannerDisplay extends FBP(LitElement) {
       this._isOpen = false;
     }
   }
-
 
   /**
    * @private
@@ -310,29 +301,36 @@ class FuroBannerDisplay extends FBP(LitElement) {
         `;
   }
 
-
   /**
    * @private
    * @returns {TemplateResult}
    */
   render() {
     return html`
-          <div class="wrapper" ?icon="${this._banner.icon}">
-          <furo-horizontal-flex>
-            <div>
-               <furo-icon icon="${this._banner.icon}"></furo-icon>
-            </div>
-            <div flex class="md">${this._bannerText}</div>            
-          </furo-horizontal-flex>
-          <furo-horizontal-flex>
-           <furo-empty-spacer></furo-empty-spacer>           
-              <furo-button ƒ-focus="--focus" label="${this._banner.dismissButtonText}" ?hide="${!this._banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
-              <furo-button label="${this._banner.confirmButtonText}" ?hidden="${!this._banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
-          </furo-horizontal-flex>            
+      <div class="wrapper" ?icon="${this._banner.icon}">
+        <furo-horizontal-flex>
+          <div>
+            <furo-icon icon="${this._banner.icon}"></furo-icon>
           </div>
-        `;
+          <div flex class="md">${this._bannerText}</div>
+        </furo-horizontal-flex>
+        <furo-horizontal-flex>
+          <furo-empty-spacer></furo-empty-spacer>
+          <furo-button
+            ƒ-focus="--focus"
+            label="${this._banner.dismissButtonText}"
+            ?hide="${!this._banner.dismissButtonText}"
+            @-click="--dismissClicked"
+          ></furo-button>
+          <furo-button
+            label="${this._banner.confirmButtonText}"
+            ?hidden="${!this._banner.confirmButtonText}"
+            @-click="--confirmClicked"
+          ></furo-button>
+        </furo-horizontal-flex>
+      </div>
+    `;
   }
-
 }
 
 customElements.define('furo-banner-display', FuroBannerDisplay);

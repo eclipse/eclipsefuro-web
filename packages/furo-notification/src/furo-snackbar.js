@@ -1,5 +1,5 @@
-import {LitElement,html,css} from 'lit-element';
-import {FBP} from '@furo/fbp';
+import { LitElement, css } from 'lit-element';
+import { FBP } from '@furo/fbp';
 
 /**
  * `furo-snackbar`
@@ -24,13 +24,11 @@ import {FBP} from '@furo/fbp';
  * @demo demo-furo-snackbar-display-error snackbar display demo with error binding
  */
 class FuroSnackbar extends FBP(LitElement) {
-
-
-  constructor(){
+  constructor() {
     super();
-    this.labelText = "";
-    this.actionButtonText = "";
-    this.icon = "done";
+    this.labelText = '';
+    this.actionButtonText = '';
+    this.icon = 'done';
     this.isOpen = false;
   }
 
@@ -42,29 +40,16 @@ class FuroSnackbar extends FBP(LitElement) {
   }
 
   /**
-   * @private
-   * @returns {CSSResult}
-   */
-  static get styles() {
-    return css`
-            :host {
-            }
-        `;
-  }
-
-  /**
    *@private
    */
-  static get properties(){
-
+  static get properties() {
     return {
-
       /**
        * text of button
        */
       actionButtonText: {
         type: String,
-        attribute: "action-button-text"
+        attribute: 'action-button-text',
       },
 
       /**
@@ -72,21 +57,21 @@ class FuroSnackbar extends FBP(LitElement) {
        */
       labelText: {
         type: String,
-        attribute: "label-text"
+        attribute: 'label-text',
       },
 
       timeoutInMs: {
         type: Number,
-        attribute: "timeout-in-ms"
+        attribute: 'timeout-in-ms',
       },
 
       closeOnEscape: {
         type: Boolean,
-        attribute: "close-on-escape"
+        attribute: 'close-on-escape',
       },
 
       icon: {
-        type: String
+        type: String,
       },
 
       /**
@@ -94,7 +79,7 @@ class FuroSnackbar extends FBP(LitElement) {
        */
       maxSize: {
         type: String,
-        attribute: "max-size"
+        attribute: 'max-size',
       },
 
       /**
@@ -102,31 +87,30 @@ class FuroSnackbar extends FBP(LitElement) {
        */
       size: {
         type: String,
-        attribute: true
+        attribute: true,
       },
 
       isOpen: {
-        type: Boolean
+        type: Boolean,
       },
 
       positionLeft: {
         type: Boolean,
-        attribute: "position-left"
+        attribute: 'position-left',
       },
 
       positionRight: {
         type: Boolean,
-        attribute: "position-right"
+        attribute: 'position-right',
       },
 
       stacked: {
-        type: Boolean
+        type: Boolean,
       },
 
       payload: {
-        type: Object
-      }
-
+        type: Object,
+      },
     };
   }
 
@@ -135,14 +119,16 @@ class FuroSnackbar extends FBP(LitElement) {
    * @param p {Object} payload
    */
   show(p) {
-
     this.payload = p;
     /**
      * @event open-furo-snackbar-requested
      * Fired when value open snackbar is requested
      * detail payload: {Object}  this
      */
-    let customEvent = new Event("open-furo-snackbar-requested",{composed: true, bubbles: true});
+    const customEvent = new Event('open-furo-snackbar-requested', {
+      composed: true,
+      bubbles: true,
+    });
     customEvent.detail = this;
     this.dispatchEvent(customEvent);
   }
@@ -151,13 +137,12 @@ class FuroSnackbar extends FBP(LitElement) {
    * trigger the action of snackbar. event `snackbar-action-clicked` will be sent with payload
    */
   _action() {
-
     /**
      * @event snackbar-action-clicked
      * Fired when action button of snackbar is clicked
      * detail payload: {Object}  payload
      */
-    let customEvent = new Event("snackbar-action-clicked",{composed: true, bubbles: true});
+    const customEvent = new Event('snackbar-action-clicked', { composed: true, bubbles: true });
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);
 
@@ -168,41 +153,37 @@ class FuroSnackbar extends FBP(LitElement) {
    * Send event `snackbar-dismiss-clicked` will be sent with payload which was set with show()
    */
   _dismiss() {
-
     /**
      * @event snackbar-dismiss-clicked
      * Fired when dismiss icon in snackbar-display is clicked
      * detail payload: {Object}  payload
      */
-    let customEvent = new Event("snackbar-dismiss-clicked",{composed: true, bubbles: true});
+    const customEvent = new Event('snackbar-dismiss-clicked', { composed: true, bubbles: true });
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);
 
     this._close();
   }
 
-
   /**
    * Send event `snackbar-closed` will be sent with payload which was set with show()
    */
   _close() {
-
     /**
      * @event snackbar-closed
      * Fired when snackbar is closed
      * detail payload: {Object}  payload
      */
-    let customEvent = new Event("snackbar-closed",{composed: true, bubbles: true});
+    const customEvent = new Event('snackbar-closed', { composed: true, bubbles: true });
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);
   }
-
 
   /**
    * set the label text o
    * @param t
    */
-  setLabelText(t){
+  setLabelText(t) {
     this.labelText = t;
   }
 
@@ -219,7 +200,6 @@ class FuroSnackbar extends FBP(LitElement) {
    * @param s
    */
   parseGrpcStatus(s) {
-
     if (s.message) {
       this.setLabelText(s.message);
       this.show(s);
@@ -229,12 +209,12 @@ class FuroSnackbar extends FBP(LitElement) {
   // set display none
   static get styles() {
     // language=CSS
-    return (
-      css`
-        :host {
-          display: none;
-        }`)
-  };
+    return css`
+      :host {
+        display: none;
+      }
+    `;
+  }
 }
 
 customElements.define('furo-snackbar', FuroSnackbar);

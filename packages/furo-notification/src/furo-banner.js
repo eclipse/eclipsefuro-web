@@ -1,4 +1,4 @@
-import {LitElement, html, css} from 'lit-element';
+import { LitElement, css } from 'lit-element';
 
 /**
  * `furo-banner`
@@ -24,30 +24,15 @@ import {LitElement, html, css} from 'lit-element';
  * @demo demo-furo-banner-display-error banner display demo with error binding
  */
 class FuroBanner extends LitElement {
-
-
   constructor() {
     super();
-    this.dismissButtonText = "dismiss";
-  }
-
-
-  /**
-   * @private
-   * @returns {CSSResult}
-   */
-  static get styles() {
-    return css`
-            :host {
-            }
-        `;
+    this.dismissButtonText = 'dismiss';
   }
 
   /**
    *@private
    */
   static get properties() {
-
     return {
       /**
        * banner text content. Use *word* to mark as strong. Use \n to insert a line break.
@@ -55,38 +40,38 @@ class FuroBanner extends LitElement {
        * *HTML tags will be stripped out.*
        */
       text: {
-        type: String
+        type: String,
       },
       /**
        * label text of dismiss button
        */
       dismissButtonText: {
         type: String,
-        attribute: "dismiss-button-text"
+        attribute: 'dismiss-button-text',
       },
       /**
        * label text of confirm button
        */
       confirmButtonText: {
         type: String,
-        attribute: "confirm-button-text"
+        attribute: 'confirm-button-text',
       },
       /**
        * icon of the banner
        */
       icon: {
-        type: String
+        type: String,
       },
       /**
        * payload
        */
       payload: {
-        type: Object
+        type: Object,
       },
       /**
        * set this flag to display the icon in --danger color
        */
-      danger: {type: Boolean}
+      danger: { type: Boolean },
     };
   }
 
@@ -127,30 +112,27 @@ class FuroBanner extends LitElement {
    * @param p {Object} payload
    */
   show(p) {
-
     this.payload = p;
     /**
      * @event open-furo-banner-requested
      * Fired when value open banner is requested
      * detail payload: {Object}  this
      */
-    let customEvent = new Event("open-furo-banner-requested", {composed: true, bubbles: true});
+    const customEvent = new Event('open-furo-banner-requested', { composed: true, bubbles: true });
     customEvent.detail = this;
     this.dispatchEvent(customEvent);
   }
-
 
   /**
    *  event `dismissed` will be sent with payload
    */
   dismiss() {
-
     /**
      * @event dismissed
      * Fired when dismiss button of banner is clicked
      * detail payload: {Object}  payload
      */
-    let customEvent = new Event("dismissed", {composed: true, bubbles: true});
+    const customEvent = new Event('dismissed', { composed: true, bubbles: true });
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);
 
@@ -161,13 +143,12 @@ class FuroBanner extends LitElement {
    *  event `confirmed` will be sent with payload
    */
   confirm() {
-
     /**
      * @event confirmed
      * Fired when confirm button of banner is clicked
      * detail payload: {Object}  payload
      */
-    let customEvent = new Event("confirmed", {composed: true, bubbles: true});
+    const customEvent = new Event('confirmed', { composed: true, bubbles: true });
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);
 
@@ -183,7 +164,7 @@ class FuroBanner extends LitElement {
      * Fired when banner is closed
      * detail payload: {Object}  payload
      */
-    let customEvent = new Event("banner-closed", {composed: true, bubbles: true});
+    const customEvent = new Event('banner-closed', { composed: true, bubbles: true });
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);
   }
@@ -194,30 +175,25 @@ class FuroBanner extends LitElement {
    * @param s
    */
   parseGrpcStatus(status) {
-
     // fallback, if no localized message was given
     this.setText(status.message);
     // log developper message
     if (status.details && status.details.length > 0) {
-
       this.multilineText = status.details
-          .filter((det) => {
-            return det["@type"].includes("LocalizedMessage");
-          })
-          .map((det) => {
-            return det.message;
-          });
-
+        .filter(det => det['@type'].includes('LocalizedMessage'))
+        .map(det => det.message);
     }
 
     this.show(status);
   }
 
   static get styles() {
-    return css`:host {display:none}`
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
-
-
 }
 
 customElements.define('furo-banner', FuroBanner);
