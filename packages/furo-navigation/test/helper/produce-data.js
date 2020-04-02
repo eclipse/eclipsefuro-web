@@ -1,6 +1,6 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/theme"
-import {FBP} from "@furo/fbp";
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/theme';
+import { FBP } from '@furo/fbp';
 
 /**
  * `produce-data`
@@ -8,14 +8,14 @@ import {FBP} from "@furo/fbp";
  *
  * @summary todo shortdescription
  * @customElement
+ * @demo demo/produce-data.html
  * @appliesMixin FBP
  */
 class ProduceData extends FBP(LitElement) {
-
   constructor() {
     super();
 
-    this.addEventListener("click", this.produce)
+    this.addEventListener('click', this.produce);
   }
 
   _FBPReady() {
@@ -34,10 +34,9 @@ class ProduceData extends FBP(LitElement) {
       /**
        * Description
        */
-      auto: {type: Boolean}
+      auto: { type: Boolean },
     };
   }
-
 
   produce() {
     /**
@@ -45,14 +44,14 @@ class ProduceData extends FBP(LitElement) {
      * Fired when
      * detail payload:
      */
-    return fetch("/mockdata/trees/1/testdata.json").then(res => res.json()).then(data => {
-      this.data = data;
-      let customEvent = new Event('data', {composed: true, bubbles: true});
-      customEvent.detail = this.data;
-      this.dispatchEvent(customEvent)
-    });
-
-
+    return fetch('/base/mockdata/trees/1/testdata.json')
+      .then(res => res.json())
+      .then(data => {
+        this.data = data;
+        const customEvent = new Event('data', { composed: true, bubbles: true });
+        customEvent.detail = this.data;
+        this.dispatchEvent(customEvent);
+      });
   }
 
   /**
@@ -62,17 +61,19 @@ class ProduceData extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('ProduceData') || css`
+    return (
+      Theme.getThemeForComponent('ProduceData') ||
+      css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `
+      `
+    );
   }
-
 
   /**
    * @private

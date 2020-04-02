@@ -22,7 +22,7 @@ If you work with spec projects, import the specs dir in your  `furo.spec.conf.js
 {
   "import_spec_dirs": [
       "node_modules/@furo/spec-basetypes", 
-      "node_modules/@furo/navigation/specs"
+      "node_modules/@furo/navigation/src/specs"
   ]
 }
 ```

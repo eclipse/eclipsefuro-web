@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/theme"
-import {FBP} from "@furo/fbp";
-import  "@furo/fbp/flow-repeat";
+import { Theme } from '@furo/framework/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/fbp/flow-repeat';
 
 /**
  * `furo-mini-tabs`
@@ -12,22 +12,16 @@ import  "@furo/fbp/flow-repeat";
  * @appliesMixin FBP
  */
 class FuroMiniTabs extends FBP(LitElement) {
-
-    constructor() {
-        super();
-    }
-
-    injectItems(nodeArray){
-      this._FBPTriggerWire("--itemsInjected");
-
-    }
+  injectItems(nodeArray) {
+    this._FBPTriggerWire('--itemsInjected', nodeArray);
+  }
 
   /**
-  * flow is ready lifecycle method
-  */
-  _FBPReady(){
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires();
+    // this._FBPTraceWires();
   }
 
   /**
@@ -37,17 +31,19 @@ class FuroMiniTabs extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroMiniTabs') || css`
+    return (
+      Theme.getThemeForComponent('FuroMiniTabs') ||
+      css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `
+      `
+    );
   }
-
 
   /**
    * @private

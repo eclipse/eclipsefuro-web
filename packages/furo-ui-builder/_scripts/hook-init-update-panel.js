@@ -34,7 +34,7 @@ class HookInitUpdatePanel {
 
     u33e.addImport("@furo/layout/furo-vertical-flex.js");
     u33e.addImport("@furo/layout/furo-panel.js");
-    u33e.addImport("@furo/navigation/furo-panel-head.js");
+    u33e.addImport("@furo/navigation/src/furo-panel-head.js");
     u33e.addImport("@furo/data/furo-entity-agent.js");
     u33e.addImport("@furo/data/furo-data-object.js");
 

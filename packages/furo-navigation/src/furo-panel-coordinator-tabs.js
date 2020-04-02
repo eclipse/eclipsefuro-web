@@ -1,9 +1,9 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/fbp/flow-repeat";
-import "./furo-panel-coordinator-tab-item"
-import {NodeEvent} from "@furo/data/lib/EventTreeNode.js"
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/fbp/flow-repeat';
+import './furo-panel-coordinator-tab-item.js';
+import { NodeEvent } from '@furo/data/lib/EventTreeNode.js';
 
 /**
  * Tab navigation for the open panels in a panel-coordinator.
@@ -24,17 +24,14 @@ import {NodeEvent} from "@furo/data/lib/EventTreeNode.js"
  * @appliesMixin FBP
  */
 class FuroPanelCoordinatorTabs extends FBP(LitElement) {
-
-
   constructor() {
     super();
     this.tabindex = 0;
 
     this._focusIndex = 0;
 
-
     // hover selected
-    this.addEventListener("focus", (e) => {
+    this.addEventListener('focus', () => {
       // find selected tab and set hover index
       this._focusIndex = 0;
       this._tabs.forEach((e, i) => {
@@ -43,8 +40,6 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
         }
       });
     });
-
-
   }
 
   /**
@@ -64,44 +59,39 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
    */
   triggerNavigation(key) {
     switch (key) {
-      case "Enter":
-
+      case 'Enter':
         this.selectFocused();
 
         break;
 
-
-      case "ArrowLeft":
+      case 'ArrowLeft':
         this.focusPrevious();
 
         break;
 
-      case "End":
+      case 'End':
         this.focusLast();
 
         break;
 
-
-      case "Home":
+      case 'Home':
         this.focusFirst();
 
         break;
 
-
-      case "ArrowRight":
+      case 'ArrowRight':
         this.focusNext();
 
         break;
 
-
-        // close the focused tab
-      case "Escape":
+      // close the focused tab
+      case 'Escape':
         this.closeFocused();
 
         break;
+      default:
     }
   }
-
 
   /**
    * Closes the focused tab.
@@ -117,10 +107,9 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
     });
     this._tabs[this._focusIndex]._isSelected = false;
 
-    let oldFocusIndex = this._focusIndex;
+    const oldFocusIndex = this._focusIndex;
     this._tabs[this._focusIndex].dispatchNodeEvent(new NodeEvent('close-requested', this, false));
     this._focusIndex = oldFocusIndex;
-
   }
 
   /**
@@ -131,7 +120,7 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
       // hover first item
       this._focusIndex = 0;
     } else {
-      this._focusIndex++;
+      this._focusIndex += 1;
     }
 
     this._tabs[this._focusIndex].triggerFocus();
@@ -168,7 +157,7 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
       // hover last item
       this._focusIndex = this._tabs.length - 1;
     } else {
-      this._focusIndex--;
+      this._focusIndex -= +1;
     }
     this._tabs[this._focusIndex].triggerFocus();
   }
@@ -179,8 +168,7 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
    */
   injectTabs(nodeArray) {
     this._tabs = nodeArray;
-    this._FBPTriggerWire("--itemsInjected", nodeArray);
-
+    this._FBPTriggerWire('--itemsInjected', nodeArray);
   }
 
   /**
@@ -189,10 +177,14 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires();
+    // this._FBPTraceWires();
     // update the focused state
-    this.addEventListener("focusin", () => this.focused = true)
-    this.addEventListener("focusout", () => this.focused = false)
+    this.addEventListener('focusin', () => {
+      this.focused = true;
+    });
+    this.addEventListener('focusout', () => {
+      this.focused = false;
+    });
   }
 
   /**
@@ -200,7 +192,6 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
    */
   focus() {
     super.focus();
-
   }
 
   /**
@@ -212,14 +203,13 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
       /**
        * Sets the tabindex
        */
-      tabindex: {type: Number, reflect: true},
+      tabindex: { type: Number, reflect: true },
       /**
        * indicates that the element is focused
        */
-      focused: {type: Boolean, reflect: true},
+      focused: { type: Boolean, reflect: true },
     };
   }
-
 
   /**
    * Themable Styles
@@ -228,86 +218,79 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroPanelCoordinatorTabs') || css`
-      :host {
-        display: block;
-        outline: none;
-        position: relative;
-        padding-left: var(--spacing-s, 24px);
-      }
+    return (
+      Theme.getThemeForComponent('FuroPanelCoordinatorTabs') ||
+      css`
+        :host {
+          display: block;
+          outline: none;
+          position: relative;
+          padding-left: var(--spacing-s, 24px);
+        }
 
-      furo-panel-coordinator-tab-item[selected] {
-        border-bottom: 2px solid var(--primary, #686868);
-        color: var(--primary, #686868);
-      }
+        furo-panel-coordinator-tab-item[selected] {
+          border-bottom: 2px solid var(--primary, #686868);
+          color: var(--primary, #686868);
+        }
 
-      :host([focused]) furo-panel-coordinator-tab-item[selected][haserror] {
-        border-bottom: 2px solid var(--error, red);
-      }
+        :host([focused]) furo-panel-coordinator-tab-item[selected][haserror] {
+          border-bottom: 2px solid var(--error, red);
+        }
 
+        /* mouse hover */
+        furo-panel-coordinator-tab-item:hover {
+          background-color: rgba(var(--primary-rgb), var(--state-hover));
+          border-bottom: 2px solid transparent;
+          color: var(--primary, #686868);
+        }
 
-      /* mouse hover */
-      furo-panel-coordinator-tab-item:hover {
-        background-color: rgba(var(--primary-rgb), var(--state-hover));
-        border-bottom: 2px solid transparent;
-        color: var(--primary, #686868);
-      }
-      furo-panel-coordinator-tab-item[selected]:hover {
-        border-bottom: 2px solid var(--primary, #686868);
-        
-      }
+        furo-panel-coordinator-tab-item[selected]:hover {
+          border-bottom: 2px solid var(--primary, #686868);
+        }
 
-      /* focus, :host(:focus) furo-panel-coordinator-tab-item[focused]  is for mouse navigation */
-      :host([focused]) furo-panel-coordinator-tab-item[focused] {
-        background-color: rgba(var(--primary-rgb), var(--state-focus));
-        border-bottom: 2px solid transparent;
-        color: var(--primary, #686868);
-      }
+        /* focus, :host(:focus) furo-panel-coordinator-tab-item[focused]  is for mouse navigation */
+        :host([focused]) furo-panel-coordinator-tab-item[focused] {
+          background-color: rgba(var(--primary-rgb), var(--state-focus));
+          border-bottom: 2px solid transparent;
+          color: var(--primary, #686868);
+        }
 
+        /* selected */
+        :host([focused]) furo-panel-coordinator-tab-item[selected] {
+          background-color: rgba(var(--primary-rgb), var(--state-selected));
+          border-bottom: 2px solid var(--primary, #686868);
+          color: var(--primary, #686868);
+        }
 
-      /* selected */
-      :host([focused]) furo-panel-coordinator-tab-item[selected] {
-        background-color: rgba(var(--primary-rgb), var(--state-selected));
-        border-bottom: 2px solid var(--primary, #686868);
-        color: var(--primary, #686868);
+        /* selected focus  */
+        :host([focused]) furo-panel-coordinator-tab-item[selected][focused] {
+          background-color: rgba(var(--primary-rgb), var(--state-selected-focus));
+          border-bottom: 2px solid var(--primary, #686868);
+        }
 
-      }
+        /* selected focus hovered  */
+        :host([focused]) furo-panel-coordinator-tab-item[selected][focused]:hover {
+          background-color: rgba(var(--primary-rgb), var(--state-selected-focused-hover));
+          border-bottom: 2px solid var(--primary, #686868);
+        }
 
-      /* selected focus  */
-      :host([focused]) furo-panel-coordinator-tab-item[selected][focused] {
-        background-color: rgba(var(--primary-rgb), var(--state-selected-focus));
-        border-bottom: 2px solid var(--primary, #686868);
+        /* selected focus */
+        :host([focused]) furo-panel-coordinator-tab-item[selected][focused] {
+          background-color: rgba(var(--primary-rgb), var(--state-selected-focus));
+          border-bottom: 2px solid var(--primary, #686868);
+          color: var(--primary);
+        }
 
-      }
+        furo-panel-coordinator-tab-item {
+          margin: 0;
+        }
 
-
-      /* selected focus hovered  */
-      :host([focused]) furo-panel-coordinator-tab-item[selected][focused]:hover {
-        background-color: rgba(var(--primary-rgb), var(--state-selected-focused-hover));
-        border-bottom: 2px solid var(--primary, #686868);
-
-      }
-
-
-      /* selected focus */
-      :host([focused]) furo-panel-coordinator-tab-item[selected][focused] {
-        background-color: rgba(var(--primary-rgb), var(--state-selected-focus));
-        border-bottom: 2px solid var(--primary, #686868);
-        color: var(--primary);
-      }
-
-
-      furo-panel-coordinator-tab-item {
-        margin: 0;
-      }
-
-      :host([hidden]) {
-        display: none;
-      }
-
-    `
+        :host([hidden]) {
+          display: none;
+        }
+      `
+    );
   }
-
 
   /**
    * @private
@@ -319,7 +302,6 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
       <template is="flow-repeat" ƒ-inject-items="--itemsInjected" identity-path="id._value">
         <furo-panel-coordinator-tab-item ƒ-bind-data="--init"></furo-panel-coordinator-tab-item>
       </template>
-
     `;
   }
 }

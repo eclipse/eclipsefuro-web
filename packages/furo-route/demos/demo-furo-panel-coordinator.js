@@ -5,13 +5,13 @@ import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/route/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/navigation/furo-catalog.js';
+import '@furo/navigation/src/furo-catalog.js';
 
 import './helper/example-panel.js';
 import './helper/example-panel-b.js';
 import './helper/edit-example.js';
 
-import '@furo/navigation/furo-mini-tabs';
+import '@furo/navigation/src/furo-mini-tabs';
 
 import '@furo/util/src/furo-key-filter';
 import '@furo/data';
