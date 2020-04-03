@@ -1,6 +1,6 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/theme.js"
-import {FBP} from "@furo/fbp";
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/theme.js';
+import { FBP } from '@furo/fbp';
 
 /**
  * `furo-resizer`
@@ -25,56 +25,50 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class FuroResizer extends FBP(LitElement) {
-
   /**
    * @private
    * @return {Object}
    */
   static get properties() {
     return {
-
       /**
        * add a handle to the left side
        */
-      lefthandle: {type: Boolean},
+      lefthandle: { type: Boolean },
 
       /**
        * add a handle to the right side
        */
-      righthandle: {type: Boolean},
+      righthandle: { type: Boolean },
 
       /**
        * remember the size after resizing.
        * Give the id for the rememberer, you can use the id on different views
        */
-      remember: {type: String},
+      remember: { type: String },
       /**
        * Set the maximal width of the resizer
        */
-      maxwidth:{type:Number},
+      maxwidth: { type: Number },
       /**
        * Set the minimal width of the resizer
        */
-      minwidth:{type:Number},
-
+      minwidth: { type: Number },
     };
   }
 
-
   constructor(props) {
     super(props);
-
 
     /**
      * remove the listeners
      * @private
      */
     this._unregister = () => {
-      window.removeEventListener("mousemove", this._movementHandler);
-      window.removeEventListener("mouseup", this._unregister);
+      window.removeEventListener('mousemove', this._movementHandler);
+      window.removeEventListener('mouseup', this._unregister);
       // set cursor to avoid flickering
-      this.parentNode.style.cursor = "";
-
+      this.parentNode.style.cursor = '';
     };
 
     /**
@@ -82,26 +76,25 @@ class FuroResizer extends FBP(LitElement) {
      * @param e MouseEvent
      * @private
      */
-    this._movementHandler = (e) => {
+    this._movementHandler = e => {
       const delta = (e.screenX - this._positions.x) * this._handleLRM;
 
       // todo request animation frame
       let width = this._startwidth + delta;
 
-      if(this.minwidth && width +3 < this.minwidth){
+      if (this.minwidth && width + 3 < this.minwidth) {
         width = this.minwidth;
         this._unregister();
       }
-      if(this.maxwidth && width -3   > this.maxwidth){
+      if (this.maxwidth && width - 3 > this.maxwidth) {
         width = this.maxwidth;
         this._unregister();
       }
 
       this.resizer.style.width = `${width}px`;
       if (this.remember) {
-        sessionStorage.setItem(this.remember, width)
+        sessionStorage.setItem(this.remember, width);
       }
-
     };
 
     /**
@@ -109,7 +102,7 @@ class FuroResizer extends FBP(LitElement) {
      * @param e
      * @private
      */
-    this._startTrackingLeft = (e) => {
+    this._startTrackingLeft = e => {
       this._handleLRM = -1;
       this._startTracking(e);
     };
@@ -119,7 +112,7 @@ class FuroResizer extends FBP(LitElement) {
      * @param e
      * @private
      */
-    this._startTrackingRight = (e) => {
+    this._startTrackingRight = e => {
       this._handleLRM = 1;
       this._startTracking(e);
     };
@@ -129,35 +122,32 @@ class FuroResizer extends FBP(LitElement) {
      * @param e
      * @private
      */
-    this._startTracking = (e) => {
+    this._startTracking = e => {
       e.preventDefault();
-      window.addEventListener("mousemove", this._movementHandler);
-      window.addEventListener("mouseup", this._unregister);
+      window.addEventListener('mousemove', this._movementHandler);
+      window.addEventListener('mouseup', this._unregister);
       this._positions.x = e.screenX;
       this._startwidth = this.getBoundingClientRect().width;
 
       // set cursor to avoid flickering
-      this.parentNode.style.cursor = "col-resize";
+      this.parentNode.style.cursor = 'col-resize';
     };
 
     /**
      * removes remember and set to the initial size
      */
-    this.resetSize = () =>{
-      if(this.initialWidthSetByStyle){
+    this.resetSize = () => {
+      if (this.initialWidthSetByStyle) {
         this.resizer.style.width = `${this.initialWidthSetByStyle}`;
-      }else{
-        this.resizer.style.removeProperty("width");
+      } else {
+        this.resizer.style.removeProperty('width');
       }
 
       if (this.remember) {
-        sessionStorage.removeItem(this.remember)
-
+        sessionStorage.removeItem(this.remember);
       }
-
-    }
+    };
   }
-
 
   /**
    * flow is ready lifecycle method
@@ -166,13 +156,13 @@ class FuroResizer extends FBP(LitElement) {
     super._FBPReady();
     // this._FBPTraceWires()
     this._positions = {};
-    this.lefthandle = this.shadowRoot.getElementById("lefthandle");
-    this.lefthandle.addEventListener("mousedown", this._startTrackingLeft);
-    this.lefthandle.addEventListener("dblclick", this.resetSize);
+    this.lefthandle = this.shadowRoot.getElementById('lefthandle');
+    this.lefthandle.addEventListener('mousedown', this._startTrackingLeft);
+    this.lefthandle.addEventListener('dblclick', this.resetSize);
 
-    this.righthandle = this.shadowRoot.getElementById("righthandle");
-    this.righthandle.addEventListener("mousedown", this._startTrackingRight);
-    this.righthandle.addEventListener("dblclick", this.resetSize);
+    this.righthandle = this.shadowRoot.getElementById('righthandle');
+    this.righthandle.addEventListener('mousedown', this._startTrackingRight);
+    this.righthandle.addEventListener('dblclick', this.resetSize);
 
     this.resizer = this;
 
@@ -184,11 +174,8 @@ class FuroResizer extends FBP(LitElement) {
       if (width) {
         this.resizer.style.width = `${width}px`;
       }
-
     }
-
   }
-
 
   /**
    * Themable Styles
@@ -197,46 +184,48 @@ class FuroResizer extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroResizer') || css`
-      :host {
-        display: block;
-        position: relative;
-      }
+    return (
+      Theme.getThemeForComponent('FuroResizer') ||
+      css`
+        :host {
+          display: block;
+          position: relative;
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
+        :host([hidden]) {
+          display: none;
+        }
 
-      #lefthandle {
-        position: absolute;
-        left: -3px;
-        width: 6px;
-        top: 0;
-        bottom: 0;
-        cursor: col-resize;
-        display: none;
-      }
+        #lefthandle {
+          position: absolute;
+          left: -3px;
+          width: 6px;
+          top: 0;
+          bottom: 0;
+          cursor: col-resize;
+          display: none;
+        }
 
-      #righthandle {
-        position: absolute;
-        right: -3px;
-        width: 6px;
-        top: 0;
-        bottom: 0;
-        cursor: col-resize;
-        display: none;
-      }
+        #righthandle {
+          position: absolute;
+          right: -3px;
+          width: 6px;
+          top: 0;
+          bottom: 0;
+          cursor: col-resize;
+          display: none;
+        }
 
-      :host([lefthandle]) #lefthandle {
-        display: block;
-      }
+        :host([lefthandle]) #lefthandle {
+          display: block;
+        }
 
-      :host([righthandle]) #righthandle {
-        display: block;
-      }
-    `
+        :host([righthandle]) #righthandle {
+          display: block;
+        }
+      `
+    );
   }
-
 
   /**
    * @private

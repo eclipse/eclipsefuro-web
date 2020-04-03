@@ -11,7 +11,7 @@
     "@furo/input/furo-button.js",
     "@furo/input/furo-password-input.js",
     "@furo/input/furo-text-input.js",
-    "@furo/layout/furo-horizontal-flex.js"
+    "@furo/layout/src/furo-horizontal-flex.js"
   ],
   "component_name": "login-form",
   "path": "src/project-components/demo",

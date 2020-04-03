@@ -1,9 +1,9 @@
 import { LitElement, html, css } from 'lit-element';
-import {FBP} from "@furo/fbp";
-import {Theme} from "@furo/framework/theme"
+import { FBP } from '@furo/fbp';
+import { Theme } from '@furo/framework/theme';
 
-import "./furo-horizontal-flex"
-import "./furo-vertical-scroller"
+import './furo-horizontal-flex.js';
+import './furo-vertical-scroller.js';
 
 /**
  * `furo-split-view`  is a layouter for master detail views.
@@ -32,18 +32,14 @@ import "./furo-vertical-scroller"
  * @appliesMixin FBP
  */
 class FuroSplitView extends FBP(LitElement) {
-
-
-
   static get properties() {
     return {
       /**
        * flip the left and right side
        */
-      reverse: {type: Boolean}
+      reverse: { type: Boolean },
     };
   }
-
 
   /**
    *
@@ -52,35 +48,36 @@ class FuroSplitView extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroSplitView') || css`
+    return (
+      Theme.getThemeForComponent('FuroSplitView') ||
+      css`
         :host {
-            display: block;
-            height: inherit;
+          display: block;
+          height: inherit;
         }
         :host([hidden]) {
-            display: none;
+          display: none;
         }
         .master {
-            height: inherit;
-            width: var(--split-master-width, 270px);
-            min-width: var(--split-master-width, 270px);
-            
+          height: inherit;
+          width: var(--split-master-width, 270px);
+          min-width: var(--split-master-width, 270px);
         }
 
         .detail {
-            height: 100%;
-            position: relative;
+          height: 100%;
+          position: relative;
         }
 
         furo-horizontal-flex {
-            height: 100%;
+          height: 100%;
         }
-        ::slotted([scroll]){
-            height: 100%;
-            overflow-y: auto;
+        ::slotted([scroll]) {
+          height: 100%;
+          overflow-y: auto;
         }
-       
-    `
+      `
+    );
   }
 
   /**
@@ -89,18 +86,17 @@ class FuroSplitView extends FBP(LitElement) {
    */
   render() {
     // language=HTML
-    return html`             
+    return html`
       <furo-horizontal-flex ?reverse="${this.reverse}">
         <div class="master">
           <slot name="master"></slot>
         </div>
         <div flex class="detail">
           <slot></slot>
-        </div> 
-      </furo-horizontal-flex>     
+        </div>
+      </furo-horizontal-flex>
     `;
   }
-
 }
 
 window.customElements.define('furo-split-view', FuroSplitView);

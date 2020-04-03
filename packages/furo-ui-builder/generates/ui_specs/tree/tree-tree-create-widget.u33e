@@ -25,7 +25,7 @@
     "@furo/form/furo-form-layouter.js",
     "@furo/input/furo-button.js",
     "@furo/app/furo-card.js",
-    "@furo/layout/furo-horizontal-flex.js"
+    "@furo/layout/src/furo-horizontal-flex.js"
   ],
   "component_name": "tree-tree-create-widget",
   "path": "./generates/ui_specs/tree/tree-tree-create-widget.u33e",

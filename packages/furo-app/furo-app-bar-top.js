@@ -3,7 +3,7 @@ import {FBP} from "@furo/fbp";
 import {Theme} from "@furo/framework/theme"
 
 import '@furo/input/furo-icon-button';
-import '@furo/layout/furo-horizontal-flex';
+import '@furo/layout/src/furo-horizontal-flex';
 import './furo-loading-indicator-bar';
 
 /**

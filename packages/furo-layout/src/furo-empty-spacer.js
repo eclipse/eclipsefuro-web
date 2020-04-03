@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/theme"
+import { Theme } from '@furo/framework/theme';
 
 /**
  * `furo-empty-spacer` Takes the place in furo-horizontal-flex or a furo-vertical-flex.
@@ -22,10 +22,10 @@ import {Theme} from "@furo/framework/theme"
  * @appliesMixin FBP
  */
 class FuroEmptySpacer extends LitElement {
-
   constructor() {
     super();
     this.flex = true;
+    // eslint-disable-next-line wc/no-constructor-attributes
     this.hidden = false;
   }
 
@@ -36,15 +36,15 @@ class FuroEmptySpacer extends LitElement {
        */
       flex: {
         type: Boolean,
-        reflect: true
+        reflect: true,
       },
       /**
        * Set to true to hide the spacer
        */
       hidden: {
         type: Boolean,
-        reflect: true
-      }
+        reflect: true,
+      },
     };
   }
 
@@ -55,15 +55,18 @@ class FuroEmptySpacer extends LitElement {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroEmptySpacer') || css`
+    return (
+      Theme.getThemeForComponent('FuroEmptySpacer') ||
+      css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `
+      `
+    );
   }
 
   /**
@@ -74,7 +77,6 @@ class FuroEmptySpacer extends LitElement {
     // language=HTML
     return html``;
   }
-
 }
 
 window.customElements.define('furo-empty-spacer', FuroEmptySpacer);

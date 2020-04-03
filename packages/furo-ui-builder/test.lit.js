@@ -8,7 +8,7 @@ import "@furo/form/furo-form.js";
 import "@furo/input/furo-button.js";
 import "@furo/input/furo-password-input.js";
 import "@furo/input/furo-text-input.js";
-import "@furo/layout/furo-horizontal-flex.js";
+import "@furo/layout/src/furo-horizontal-flex.js";
 import "@furo/util/src/furo-keydown.js";
 
 /**

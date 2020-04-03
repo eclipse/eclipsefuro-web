@@ -3,7 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 
 import "@furo/icon/furo-icon"
-import "@furo/layout/furo-ripple"
+import "@furo/layout/src/furo-ripple"
 
 /**
  * # Experimental

@@ -1,5 +1,5 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/theme"
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/theme';
 
 /**
  * `furo-vertical-flex`
@@ -24,10 +24,6 @@ import {Theme} from "@furo/framework/theme"
  * @appliesMixin FBP
  */
 class FuroVerticalFlex extends LitElement {
-
-
-
-
   /**
    *
    * @private
@@ -35,42 +31,44 @@ class FuroVerticalFlex extends LitElement {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroVerticalFlex') || css`        
+    return (
+      Theme.getThemeForComponent('FuroVerticalFlex') ||
+      css`
         :host {
-            display: block;
-            height: 100%;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: column;
-            -webkit-flex-direction: column;
-            flex-direction: column;
+          display: block;
+          height: 100%;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: column;
+          -webkit-flex-direction: column;
+          flex-direction: column;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         :host([reverse]) {
-            -ms-flex-direction: column-reverse;
-            -webkit-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+          -ms-flex-direction: column-reverse;
+          -webkit-flex-direction: column-reverse;
+          flex-direction: column-reverse;
         }
-        
-        ::slotted(*[flex]) {
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
-        }
-        ::slotted([scroll]){
-            height: 100%;
-            overflow-y: auto;
-        }
-    `
-  }
 
+        ::slotted(*[flex]) {
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
+        }
+        ::slotted([scroll]) {
+          height: 100%;
+          overflow-y: auto;
+        }
+      `
+    );
+  }
 
   /**
    * @private
@@ -78,11 +76,10 @@ class FuroVerticalFlex extends LitElement {
    */
   render() {
     // language=HTML
-    return html`        
+    return html`
       <slot></slot>
     `;
   }
-
 }
 
 window.customElements.define('furo-vertical-flex', FuroVerticalFlex);

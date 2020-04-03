@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "@furo/layout/furo-vertical-scroller";
+import "@furo/layout/src/furo-vertical-scroller";
 import "./furo-doc/furo-doc-menu-element-item"
 import "./furo-doc/furo-doc-menu-class-item"
 

@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "@furo/layout/furo-ripple";
+import "@furo/layout/src/furo-ripple";
 /**
  * `furo-input-chip`
  *

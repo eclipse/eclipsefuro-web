@@ -1,8 +1,9 @@
 import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/doc-helper"
-import "../furo-catalog"
+import { Theme } from '@furo/framework/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/doc-helper';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/layout/src/furo-catalog.js';
 /**
  * `demo-furo-vertical-flex`
  *
@@ -11,7 +12,6 @@ import "../furo-catalog"
  * @appliesMixin FBP
  */
 class DemoFuroVerticalFlex extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -19,18 +19,23 @@ class DemoFuroVerticalFlex extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('DemoFuroVerticalFlex') || css`
+    return (
+      Theme.getThemeForComponent('DemoFuroVerticalFlex') ||
+      css`
         :host {
-            display: block;
-            height: 100%;
-            padding-right: var(--spacing);
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-       
-    `
+        h2 {
+          margin-top: 0;
+        }
+      `
+    );
   }
 
   /**
@@ -42,7 +47,7 @@ class DemoFuroVerticalFlex extends FBP(LitElement) {
     return html`
       <h2>Demo furo-vertical-flex</h2>
       <p>Arrange your components vertically. Add the flex attribute for the flexing part.</p>
-      <furo-demo-snippet >
+      <furo-demo-snippet>
         <template>
           <furo-vertical-flex style="height: 180px">
             <div>small</div>

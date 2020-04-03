@@ -1,8 +1,9 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/doc-helper"
-import "../furo-catalog"
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/doc-helper';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/layout/src/furo-catalog.js';
 
 /**
  * `demo-furo-horizontal-flex`
@@ -10,10 +11,10 @@ import "../furo-catalog"
  *
  * @summary todo shortdescription
  * @customElement
+ * @demo demo/demo-furo-horizontal-flex.html
  * @appliesMixin FBP
  */
 class DemoFuroHorizontalFlex extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -21,19 +22,24 @@ class DemoFuroHorizontalFlex extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('DemoFuroHorizontalFlex') || css`
+    return (
+      Theme.getThemeForComponent('DemoFuroHorizontalFlex') ||
+      css`
         :host {
-            display: block;
-            height: 100%;
-            padding-right: var(--spacing);
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `
+        h2 {
+          margin-top: 0;
+        }
+      `
+    );
   }
-
 
   /**
    * @private
@@ -54,8 +60,6 @@ class DemoFuroHorizontalFlex extends FBP(LitElement) {
           </furo-horizontal-flex>
         </template>
       </furo-demo-snippet>
-
-      
     `;
   }
 }

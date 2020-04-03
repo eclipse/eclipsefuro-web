@@ -10,7 +10,7 @@ import "@furo/data-input";
 import "@furo/form/furo-form-layouter.js";
 import "@furo/input/furo-button.js";
 import "@furo/app/furo-card.js";
-import "@furo/layout/furo-horizontal-flex.js";
+import "@furo/layout/src/furo-horizontal-flex.js";
 
 /**
  * Any contains an arbitrary serialized protocol buffer message along with a

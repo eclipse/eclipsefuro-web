@@ -26,7 +26,7 @@ class HookInitCreateWidget {
     u33e.addImport("@furo/form/furo-form-layouter.js");
     u33e.addImport("@furo/input/furo-button.js");
     u33e.addImport("@furo/app/furo-card.js");
-    u33e.addImport("@furo/layout/furo-horizontal-flex.js");
+    u33e.addImport("@furo/layout/src/furo-horizontal-flex.js");
 
     u33e.addMethod("bindData", "data",
         " Bind your furo-data-object event @-object-ready\n @public\n @param data",

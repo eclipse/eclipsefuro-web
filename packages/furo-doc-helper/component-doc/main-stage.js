@@ -11,8 +11,8 @@ import '@furo/app/furo-app-drawer.js';
 import '@furo/app/furo-app-bar-top.js';
 import '@furo/notification/src/furo-snackbar-display.js';
 
-import '@furo/layout/furo-empty-spacer.js';
-import '@furo/layout/furo-horizontal-flex.js';
+import '@furo/layout/src/furo-empty-spacer.js';
+import '@furo/layout/src/furo-horizontal-flex.js';
 import '@furo/input/furo-search-input.js';
 import '@furo/data/furo-data-object.js';
 import '@furo/util/src/furo-fetch-json.js';

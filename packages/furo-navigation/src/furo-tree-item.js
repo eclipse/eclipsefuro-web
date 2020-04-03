@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/theme';
 import { FBP } from '@furo/fbp';
-import '@furo/layout/furo-horizontal-flex';
+import '@furo/layout/src/furo-horizontal-flex';
 import '@furo/data-input/furo-data-bool-icon';
 import { NodeEvent } from '@furo/data/lib/EventTreeNode';
 

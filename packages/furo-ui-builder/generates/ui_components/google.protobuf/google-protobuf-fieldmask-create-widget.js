@@ -10,7 +10,7 @@ import "@furo/data-input";
 import "@furo/form/furo-form-layouter.js";
 import "@furo/input/furo-button.js";
 import "@furo/app/furo-card.js";
-import "@furo/layout/furo-horizontal-flex.js";
+import "@furo/layout/src/furo-horizontal-flex.js";
 
 /**
  * A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto

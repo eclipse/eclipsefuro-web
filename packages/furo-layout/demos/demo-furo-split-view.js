@@ -1,8 +1,9 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/doc-helper"
-import "../furo-catalog"
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/doc-helper';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/layout/src/furo-catalog.js';
 
 /**
  * `demo-furo-split-view`
@@ -11,7 +12,6 @@ import "../furo-catalog"
  * @appliesMixin FBP
  */
 class DemoFuroSplitView extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -19,20 +19,24 @@ class DemoFuroSplitView extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('DemoFuroSplitView') || css`
+    return (
+      Theme.getThemeForComponent('DemoFuroSplitView') ||
+      css`
         :host {
-            display: block;
-            height: 100%;
-            padding-right: var(--spacing);
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-
-    `
+        h2 {
+          margin-top: 0;
+        }
+      `
+    );
   }
-
 
   /**
    * @private
@@ -46,10 +50,16 @@ class DemoFuroSplitView extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-split-view>
-            <div slot="master" style="height: 100%; background-image: linear-gradient(blue, violet);">Master</div>
+            <div
+              slot="master"
+              style="height: 100%; background-image: linear-gradient(blue, violet);"
+            >
+              Master
+            </div>
             <furo-vertical-scroller>
               <div style="height: 420px;background-image: linear-gradient(red, yellow);">
-                Detail... <br> should be on flex side
+                Detail... <br />
+                should be on flex side
               </div>
             </furo-vertical-scroller>
           </furo-split-view>
@@ -61,17 +71,21 @@ class DemoFuroSplitView extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-split-view reverse>
-            <div slot="master" style="height: 100%; background-image: linear-gradient(blue, violet);">Master</div>
+            <div
+              slot="master"
+              style="height: 100%; background-image: linear-gradient(blue, violet);"
+            >
+              Master
+            </div>
             <furo-vertical-scroller>
               <div style="height: 420px;background-image: linear-gradient(red, yellow);">
-                Detail... <br> should be on flex side
+                Detail... <br />
+                should be on flex side
               </div>
             </furo-vertical-scroller>
           </furo-split-view>
         </template>
       </furo-demo-snippet>
-
-
     `;
   }
 }

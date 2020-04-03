@@ -10,7 +10,7 @@ import "@furo/data-input";
 import "@furo/form/furo-form-layouter.js";
 import "@furo/input/furo-button.js";
 import "@furo/app/furo-card.js";
-import "@furo/layout/furo-horizontal-flex.js";
+import "@furo/layout/src/furo-horizontal-flex.js";
 
 /**
  * Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto
@@ -22,13 +22,13 @@ import "@furo/layout/furo-horizontal-flex.js";
  */
 export class GoogleTypeMoneyCreateWidget extends FBP(LitElement) {
 
-  
+
 
   // Fokus
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method

@@ -6,8 +6,8 @@ import {  Theme  } from '@furo/framework/theme.js';
 import {  i18n  } from '@furo/framework/i18n.js';
 import {  BasePanel  } from '@furo/route/src/lib/BasePanel.js';
 
-import "@furo/layout/furo-vertical-flex.js";
-import "@furo/layout/furo-panel.js";
+import "@furo/layout/src/furo-vertical-flex.js";
+import "@furo/layout/src/furo-panel.js";
 import "@furo/navigation/src/furo-panel-head.js";
 import "@furo/data/furo-entity-agent.js";
 import "@furo/data/furo-data-object.js";

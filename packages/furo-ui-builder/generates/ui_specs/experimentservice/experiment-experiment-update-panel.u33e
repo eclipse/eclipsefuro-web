@@ -21,8 +21,8 @@
     ]
   ],
   "imports": [
-    "@furo/layout/furo-vertical-flex.js",
-    "@furo/layout/furo-panel.js",
+    "@furo/layout/src/furo-vertical-flex.js",
+    "@furo/layout/src/furo-panel.js",
     "@furo/navigation/src/furo-panel-head.js",
     "@furo/data/furo-entity-agent.js",
     "@furo/data/furo-data-object.js",
