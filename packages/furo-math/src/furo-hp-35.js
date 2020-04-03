@@ -63,11 +63,11 @@ class FuroHp35 extends FuroForthStack {
 
   updateXYZT() {
     this.x = this._stack[this._stack.length - 1] || 0;
-    this.y= this._stack[this._stack.length - 2] || 0;
+    this.y = this._stack[this._stack.length - 2] || 0;
     this.z = this._stack[this._stack.length - 3] || 0;
     this.t = this._stack[this._stack.length - 4] || 0;
 
-    this.stack =  this._stack;
+    this.stack = this._stack;
     /**
      * Fired when something in stack changes
      * detail payload:
@@ -132,7 +132,6 @@ class FuroHp35 extends FuroForthStack {
     return res;
   }
 
-
   /**
    * Perform square root operation
    */
@@ -164,7 +163,7 @@ class FuroHp35 extends FuroForthStack {
       this.updateXYZT();
       return res;
     }
-    return  Math.log(0);
+    return Math.log(0);
   }
 
   /**
@@ -186,7 +185,7 @@ class FuroHp35 extends FuroForthStack {
       return res;
     }
     // fallback with no number uses 0
-      res = Math.cos(0);
+    res = Math.cos(0);
 
     return res;
   }
@@ -210,7 +209,7 @@ class FuroHp35 extends FuroForthStack {
       return res;
     }
     // fallback with no number uses 0
-      res = Math.sin(0);
+    res = Math.sin(0);
 
     return res;
   }
@@ -233,8 +232,8 @@ class FuroHp35 extends FuroForthStack {
       this.updateXYZT();
       return res;
     }
-   // fallback with no number uses 0
-      res = Math.tan(0);
+    // fallback with no number uses 0
+    res = Math.tan(0);
 
     return res;
   }
@@ -337,7 +336,6 @@ class FuroHp35 extends FuroForthStack {
     }
 
     if (this.size > 1) {
-
       const res = this.drop() ** this.drop();
       this.put(res);
       this.updateXYZT();
@@ -362,8 +360,8 @@ class FuroHp35 extends FuroForthStack {
       this.updateXYZT();
       return res;
     }
-   // fallback div by 0 returns Infinity
-    return Infinity
+    // fallback div by 0 returns Infinity
+    return Infinity;
   }
 
   clear() {
