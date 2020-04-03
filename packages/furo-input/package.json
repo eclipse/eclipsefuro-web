@@ -14,5 +14,6 @@
   "main": "furo-catalog.js",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "460d7e5c155ac2323182beda228a5206183c2567"
 }
