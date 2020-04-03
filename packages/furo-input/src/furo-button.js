@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/layout/src/furo-ripple';
-import '@furo/icon/furo-icon';
+import '@furo/icon/src/furo-icon.js';
 
 /**
  * `furo-button` displays a button.

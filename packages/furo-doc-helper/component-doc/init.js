@@ -3,17 +3,17 @@
 import { Init, Iconset } from '@furo/framework/furo.js';
 
 // Attention: Styling is defined in main-stage
-import { FuroBaseIcons } from '@furo/icon/iconsets/baseIcons.js';
-import { MapsIcons } from '@furo/icon/iconsets/mapsIcons.js';
-import { PlacesIcons } from '@furo/icon/iconsets/placesIcons.js';
-import { CommunicationIcons } from '@furo/icon/iconsets/communicationIcons.js';
-import { NotificationIcons } from '@furo/icon/iconsets/notificationIcons.js';
-import { AvIcons } from '@furo/icon/iconsets/avIcons.js';
-import { DeviceIcons } from '@furo/icon/iconsets/deviceIcons.js';
-import { EditorIcons } from '@furo/icon/iconsets/editorIcons.js';
-import { SocialIcons } from '@furo/icon/iconsets/socialIcons.js';
-import { HardwareIcons } from '@furo/icon/iconsets/hardwareIcons.js';
-import { ImageIcons } from '@furo/icon/iconsets/imageIcons.js';
+import { FuroBaseIcons } from '@furo/icon/assets/iconsets/baseIcons.js';
+import { MapsIcons } from '@furo/icon/assets/iconsets/mapsIcons.js';
+import { PlacesIcons } from '@furo/icon/assets/iconsets/placesIcons.js';
+import { CommunicationIcons } from '@furo/icon/assets/iconsets/communicationIcons.js';
+import { NotificationIcons } from '@furo/icon/assets/iconsets/notificationIcons.js';
+import { AvIcons } from '@furo/icon/assets/iconsets/avIcons.js';
+import { DeviceIcons } from '@furo/icon/assets/iconsets/deviceIcons.js';
+import { EditorIcons } from '@furo/icon/assets/iconsets/editorIcons.js';
+import { SocialIcons } from '@furo/icon/assets/iconsets/socialIcons.js';
+import { HardwareIcons } from '@furo/icon/assets/iconsets/hardwareIcons.js';
+import { ImageIcons } from '@furo/icon/assets/iconsets/imageIcons.js';
 
 import './registry.js';
 

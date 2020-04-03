@@ -3,7 +3,7 @@ import { html } from 'lit-element';
 import '@furo/navigation/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { FuroTreeItem } from '@furo/navigation/src/furo-tree-item.js';
-import '@furo/icon/furo-icon';
+import '@furo/icon/src/furo-icon.js';
 
 /**
  * `demo-tree-item`
