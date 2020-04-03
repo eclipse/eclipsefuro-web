@@ -4,7 +4,7 @@
     {
       "description": "`hp-35` is a declarative rpn calculator component.\n\nsee https://hansklav.home.xs4all.nl/rpn/\nhttp://h10032.www1.hp.com/ctg/Manual/c01579350",
       "summary": "calculator component",
-      "path": "packages/furo-math/furo-hp-35.js",
+      "path": "src/furo-hp-35.js",
       "properties": [
         {
           "name": "x",

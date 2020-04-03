@@ -1,6 +1,5 @@
 import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/theme"
-import {FBP} from "@furo/fbp";
+
 
 
 /**
@@ -13,7 +12,7 @@ import {FBP} from "@furo/fbp";
  * @summary forth like stack
  * @customElement
  */
-class FuroForthStack extends (LitElement) {
+export class FuroForthStack extends (LitElement) {
 
   constructor() {
     super();
@@ -40,6 +39,9 @@ class FuroForthStack extends (LitElement) {
     }
   }
 
+  get size(){
+    return this._size;
+  }
   /**
    * Empties the stack and set the stack-size to 0
    */
