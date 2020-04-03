@@ -1,4 +1,4 @@
-import { FuroForthStack } from '@furo/logic/furo-forth-stack.js';
+import { FuroForthStack } from '@furo/logic/src/furo-forth-stack.js';
 
 /**
  * `hp-35` is a declarative rpn calculator component.

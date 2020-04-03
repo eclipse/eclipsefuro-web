@@ -1,6 +1,5 @@
-import {LitElement, html, css} from 'lit-element';
-
-
+import { LitElement } from 'lit-element';
+import { EmpptyStackError } from './lib/EmptyStackError.js';
 
 /**
  * `furo-forth-stack` is a declarative stack, inspired by the forth stack.
@@ -12,8 +11,7 @@ import {LitElement, html, css} from 'lit-element';
  * @summary forth like stack
  * @customElement
  */
-export class FuroForthStack extends (LitElement) {
-
+export class FuroForthStack extends LitElement {
   constructor() {
     super();
     this._stack = [];
@@ -26,22 +24,23 @@ export class FuroForthStack extends (LitElement) {
 
   set size(val) {
     if (this._size !== val) {
-    this._size = val;
-    /**
-     * @event stack-size-changed
-     * Fired when the stack size changes
-     * detail payload: {Number} Integer with the current size of the stack
-     */
-    let customEvent = new Event('stack-size-changed', {composed: true, bubbles: true});
-    customEvent.detail = val;
-    this.dispatchEvent(customEvent);
+      this._size = val;
+      /**
+       * @event stack-size-changed
+       * Fired when the stack size changes
+       * detail payload: {Number} Integer with the current size of the stack
+       */
+      const customEvent = new Event('stack-size-changed', { composed: true, bubbles: true });
+      customEvent.detail = val;
+      this.dispatchEvent(customEvent);
       this._notifyStackChange();
     }
   }
 
-  get size(){
+  get size() {
     return this._size;
   }
+
   /**
    * Empties the stack and set the stack-size to 0
    */
@@ -75,12 +74,12 @@ export class FuroForthStack extends (LitElement) {
    */
   swap() {
     if (this._stack.length > 1) {
-    this._move(this._stack, this._stack.length - 1, this._stack.length - 2);
-    /**
-     * Fired when stack was swapped
-     * @event swapped
-     */
-    let customEvent = new Event('swapped', {composed: true, bubbles: false});
+      this._move(this._stack, this._stack.length - 1, this._stack.length - 2);
+      /**
+       * Fired when stack was swapped
+       * @event swapped
+       */
+      const customEvent = new Event('swapped', { composed: true, bubbles: false });
       this.dispatchEvent(customEvent);
     }
   }
@@ -97,19 +96,19 @@ export class FuroForthStack extends (LitElement) {
    */
   drop() {
     if (this._stack.length > 0) {
-      let e = this._stack.pop();
+      const e = this._stack.pop();
       this.size = this._stack.length;
       if (this._stack.length === 0) {
         /**
          * Fired when stack is empty
          * @event empty
          */
-        let customEvent = new Event('empty', {composed: true, bubbles: true});
-        this.dispatchEvent(customEvent)
+        const customEvent = new Event('empty', { composed: true, bubbles: true });
+        this.dispatchEvent(customEvent);
       }
       return e;
     }
-
+    return new EmpptyStackError('Stack is empty');
   }
 
   /**
@@ -159,16 +158,15 @@ export class FuroForthStack extends (LitElement) {
   rot() {
     if (this._stack.length >= 3) {
       this._move(this._stack, 0, this._stack.length - 1);
-
     } else {
       this.swap();
     }
     if (this._stack.length > 1) {
-    /**
-     * Fired when stack was rotated
-     * @event rotated
-     */
-    let customEvent = new Event('rotated', {composed: true, bubbles: false});
+      /**
+       * Fired when stack was rotated
+       * @event rotated
+       */
+      const customEvent = new Event('rotated', { composed: true, bubbles: false });
       customEvent.detail = this._stack[this._stack.length - 1];
       this.dispatchEvent(customEvent);
     }
@@ -196,7 +194,7 @@ export class FuroForthStack extends (LitElement) {
        * Fired when stack was rotated
        * @event rotated
        */
-      let customEvent = new Event('rotated', {composed: true, bubbles: false});
+      const customEvent = new Event('rotated', { composed: true, bubbles: false });
       customEvent.detail = this._stack[this._stack.length - 1];
       this.dispatchEvent(customEvent);
     }
@@ -210,7 +208,7 @@ export class FuroForthStack extends (LitElement) {
    * @private
    */
   _move(arr, fromIndex, toIndex) {
-    var e = arr[fromIndex];
+    const e = arr[fromIndex];
     arr.splice(fromIndex, 1);
     arr.splice(toIndex, 0, e);
     this._notifyStackChange();
@@ -223,11 +221,10 @@ export class FuroForthStack extends (LitElement) {
      *
      * detail payload: the top element
      */
-    let stackEvent = new Event('stack-changed', {composed: true, bubbles: true});
+    const stackEvent = new Event('stack-changed', { composed: true, bubbles: true });
     stackEvent.detail = this._stack[this._stack.length - 1];
     this.dispatchEvent(stackEvent);
   }
 }
-
 
 window.customElements.define('furo-forth-stack', FuroForthStack);
