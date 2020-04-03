@@ -1,6 +1,6 @@
 // -- Minimal init with icons only
 
-import { Init, Iconset } from '@furo/framework/furo.js';
+import { Init, Iconset } from '@furo/framework/src/furo.js';
 
 // Attention: Styling is defined in main-stage
 import { FuroBaseIcons } from '@furo/icon/assets/iconsets/baseIcons.js';

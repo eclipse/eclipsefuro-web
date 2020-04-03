@@ -1,5 +1,5 @@
 import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/theme"
+import {Theme} from "@furo/framework/src/theme"
 import {Styling} from "@furo/doc-helper/styling";
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"

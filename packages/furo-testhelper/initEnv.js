@@ -1,6 +1,6 @@
 
 
-import {Init, i18n, Env} from "@furo/framework/furo.js";
+import {Init, i18n, Env} from "@furo/framework/src/furo.js";
 import {Services, Types} from "@furo/specs/build/data_environment.js"
 import {Translations} from "./translations.js";
 

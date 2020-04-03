@@ -1,5 +1,5 @@
 import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/theme"
+import {Theme} from "@furo/framework/src/theme"
 import {FBP} from "@furo/fbp";
 import {SVG} from "@svgdotjs/svg.js";
 import '@svgdotjs/svg.panzoom.js/dist/svg.panzoom.esm.js'

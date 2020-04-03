@@ -1,6 +1,6 @@
 // -- initialize application env, theme, api
 
-import { Iconset } from '@furo/framework/furo.js';
+import { Iconset } from '@furo/framework/src/furo.js';
 
 import { FuroBaseIcons } from '../assets/iconsets/baseIcons.js';
 import { DeviceIcons } from '../assets/iconsets/deviceIcons.js';

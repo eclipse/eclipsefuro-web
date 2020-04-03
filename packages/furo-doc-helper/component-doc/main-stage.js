@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
-import { Theme } from '@furo/framework/theme.js';
+import { Theme } from '@furo/framework/src/theme.js';
 import { Styling } from './styling.js';
 
 import '@furo/input/src/furo-button.js';

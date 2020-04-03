@@ -1,4 +1,4 @@
-import {Env} from "./environment"
+import { Env } from './environment.js';
 
 /**
  * The built in i18n is a trivial translation mechanism which translates keys (words)
@@ -13,7 +13,7 @@ import {Env} from "./environment"
  *
  * ```javascript
  * // import i18n
- * import {i18n} from "@furo/framework/i18n"
+ * import {i18n} from "@furo/framework/src/i18n"
  *
  * // use it in your source
  *  let label = i18n.t("key");
@@ -30,7 +30,7 @@ import {Env} from "./environment"
  * Register i18n in the init phase of your application.
  *
  *```javascript
- *import {Init, i18n, Env, Iconset} from "@furo/framework/furo.js";
+ *import {Init, i18n, Env, Iconset} from "@furo/framework/src/furo.js";
  *
  * // import your translations
  *import {Translations} from "./translations";
@@ -99,32 +99,32 @@ import {Env} from "./environment"
  *```
  */
 export class i18n {
+  static registerResBundle(bundle) {
+    this.resbundle = bundle;
+  }
 
-    static registerResBundle(bundle) {
-        this.resbundle = bundle;
+  static t(key) {
+    if (i18n.resbundle === undefined) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        'There is no resouce bundle registered. Please register with i18.registerResBundle(RESBUNDLE).',
+      );
+      return key;
     }
 
-    static t(key) {
+    const b = i18n.resbundle[Env.locale];
 
-        if (i18n.resbundle === undefined) {
-            console.warn('There is no resouce bundle registered. Please register with i18.registerResBundle(RESBUNDLE).');
-            return key;
-        }
-
-        let b = i18n.resbundle[Env.locale];
-
-        if (b === undefined) {
-            console.warn('No resource bundle with locale ' + Env.locale + ' exists.');
-            return key + '**';
-        }
-
-        const res = key.split('.').reduce((acc, part) => acc && acc[part], b);
-        return (res !== undefined ? res : key + '**');
+    if (b === undefined) {
+      // eslint-disable-next-line no-console
+      console.warn(`No resource bundle with locale ${Env.locale} exists.`);
+      return `${key}**`;
     }
 
+    const res = key.split('.').reduce((acc, part) => acc && acc[part], b);
+    return res !== undefined ? res : `${key}**`;
+  }
 
-    static n(key, num) {
-
-        return key + "*" + num;
-    }
+  static n(key, num) {
+    return `${key}*${num}`;
+  }
 }

@@ -1,5 +1,6 @@
-import {Env} from "./environment";
-import {i18n} from "./i18n";
+// eslint-disable-next-line max-classes-per-file
+import { Env } from './environment.js';
+import { i18n } from './i18n.js';
 
 /**
  * The init class is used to init your *Env*, the API services and the API types.
@@ -11,7 +12,7 @@ import {i18n} from "./i18n";
  *
  * ```javascript
  * // -- initialize application env, theme, api
- * import  {Init,Iconset} from "@furo/framework/furo.js";
+ * import  {Init,Iconset} from "@furo/framework/src/furo.js";
  * import {Services, Types} from "@furo/specs/build/data_environment.js"
  * Init.registerApiServices(Services);
  * Init.registerApiTypes(Types);
@@ -47,17 +48,16 @@ import {i18n} from "./i18n";
  *
  */
 export class Init {
-
   static registerEnv(section, data) {
     Env[section] = data;
   }
 
   static registerApiServices(services) {
-    Env.api.services = services
+    Env.api.services = services;
   }
 
   static registerApiTypes(types) {
-    Env.api.specs = types
+    Env.api.specs = types;
   }
 
   /**
@@ -67,7 +67,7 @@ export class Init {
    * @param typename
    * @param spec
    */
-  static addApiTypeSpec(typename, spec){
+  static addApiTypeSpec(typename, spec) {
     Env.api.specs[typename] = spec;
   }
 
@@ -78,21 +78,22 @@ export class Init {
    * @param servicename
    * @param spec
    */
-  static addApiServiceSpec(servicename, spec){
+  static addApiServiceSpec(servicename, spec) {
     Env.api.services[servicename] = spec;
   }
-
 
   /**
    * Apply the prefix to all service deeplinks and to all furo.Reference types with defaults
    * @param prefix
    */
-  static applyCustomApiPrefixToServicesAndTypes(prefix) {
+  static applyCustomApiPrefixToServicesAndTypes() {
     // Apply the prefix to all hrefs in the services which not start with a folder or host (all /xxx)
-    for (let s in Env.api.services) {
-      for (let service in Env.api.services[s].services) {
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
+    for (const s in Env.api.services) {
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
+      for (const service in Env.api.services[s].services) {
         // prefix the hrefs if they do not start with a host
-        let deeplink = Env.api.services[s].services[service].deeplink;
+        const { deeplink } = Env.api.services[s].services[service];
         if (deeplink.href.startsWith('/')) {
           deeplink.href = Env.api.prefix + deeplink.href;
         }
@@ -100,11 +101,17 @@ export class Init {
     }
 
     // Apply prefix for the types. Currently furo.Reference is the only affected field
-    for (let t in Env.api.specs) {
-      for (let field in Env.api.specs[t].fields) {
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
+    for (const t in Env.api.specs) {
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
+      for (const field in Env.api.specs[t].fields) {
         // Apply the prefix for the default links in furo.Reference types
-        if (Env.api.specs[t].fields[field].type === "furo.Reference" && Env.api.specs[t].fields[field].meta && Env.api.specs[t].fields[field].meta.default) {
-          let deeplink = Env.api.specs[t].fields[field].meta.default.link;
+        if (
+          Env.api.specs[t].fields[field].type === 'furo.Reference' &&
+          Env.api.specs[t].fields[field].meta &&
+          Env.api.specs[t].fields[field].meta.default
+        ) {
+          const deeplink = Env.api.specs[t].fields[field].meta.default.link;
           if (deeplink.href.startsWith('/')) {
             deeplink.href = Env.api.prefix + deeplink.href;
           }
@@ -114,58 +121,67 @@ export class Init {
   }
 
   /**
-   *
-   * @param locale
+   * Translates spec content like meta.label, hints
    */
-  static translateStaticTypeMessages(locale) {
+  static translateStaticTypeMessages() {
     // read from original spec to apply locale
     if (this._raw_spec) {
       Env.api.specs = JSON.parse(this._raw_spec);
     } else {
       this._raw_spec = JSON.stringify(Env.api.specs);
     }
-
-    for (let type in Env.api.specs) {
-      for (let field in Env.api.specs[type].fields) {
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
+    for (const type in Env.api.specs) {
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
+      for (const field in Env.api.specs[type].fields) {
         // translate static meta messages
         if (Env.api.specs[type].fields[field].meta) {
-
           // translate static label text
           if (Env.api.specs[type].fields[field].meta.label) {
-            Env.api.specs[type].fields[field].meta.label = i18n.t(Env.api.specs[type].fields[field].meta.label);
+            Env.api.specs[type].fields[field].meta.label = i18n.t(
+              Env.api.specs[type].fields[field].meta.label,
+            );
           }
           // translate static hint text
           if (Env.api.specs[type].fields[field].meta.hint) {
-            Env.api.specs[type].fields[field].meta.hint = i18n.t(Env.api.specs[type].fields[field].meta.hint);
+            Env.api.specs[type].fields[field].meta.hint = i18n.t(
+              Env.api.specs[type].fields[field].meta.hint,
+            );
           }
           // translate option list if set
-          if (Env.api.specs[type].fields[field].meta.options && Env.api.specs[type].fields[field].meta.options.list && Array.isArray(Env.api.specs[type].fields[field].meta.options.list)) {
+          if (
+            Env.api.specs[type].fields[field].meta.options &&
+            Env.api.specs[type].fields[field].meta.options.list &&
+            Array.isArray(Env.api.specs[type].fields[field].meta.options.list)
+          ) {
             let size = Env.api.specs[type].fields[field].meta.options.list.length;
+            // eslint-disable-next-line no-cond-assign,no-plusplus
             while (size--) {
               // additional check if list object has property display_name
               if (Env.api.specs[type].fields[field].meta.options.list[size].display_name) {
-                Env.api.specs[type].fields[field].meta.options.list[size].display_name = i18n.t(Env.api.specs[type].fields[field].meta.options.list[size].display_name);
+                Env.api.specs[type].fields[field].meta.options.list[size].display_name = i18n.t(
+                  Env.api.specs[type].fields[field].meta.options.list[size].display_name,
+                );
               }
             }
           }
-
         }
         if (Env.api.specs[type].fields[field].constraints) {
-          for (let attr in Env.api.specs[type].fields[field].constraints) {
+          // eslint-disable-next-line guard-for-in,no-restricted-syntax
+          for (const attr in Env.api.specs[type].fields[field].constraints) {
+            // eslint-disable-next-line no-prototype-builtins
             if (Env.api.specs[type].fields[field].constraints.hasOwnProperty(attr)) {
               if (Env.api.specs[type].fields[field].constraints[attr].message) {
-                Env.api.specs[type].fields[field].constraints[attr].message = i18n.t(Env.api.specs[type].fields[field].constraints[attr].message);
+                Env.api.specs[type].fields[field].constraints[attr].message = i18n.t(
+                  Env.api.specs[type].fields[field].constraints[attr].message,
+                );
               }
             }
           }
-
         }
-
       }
     }
-
   }
-
 }
 
 /**
@@ -174,10 +190,13 @@ export class Init {
  */
 export class Sys {
   static setLocale(locale) {
-    //todo: checks
-    console.log("Set locale from", Env.locale);
+    // todo: checks
+
+    // eslint-disable-next-line no-console
+    console.log('Set locale from', Env.locale);
     Env.locale = locale;
     Init.translateStaticTypeMessages(Env.locale);
-    console.log("to", Env.locale)
+    // eslint-disable-next-line no-console
+    console.log('to', Env.locale);
   }
 }

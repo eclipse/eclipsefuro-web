@@ -20,7 +20,7 @@
  *
  * ```javascript
  * import {iconSetName} from "./iconSetName";
- * import {Iconset} from "@furo/framework/furo.js";
+ * import {Iconset} from "@furo/framework/src/furo.js";
  * Iconset.registerIconset( "iconSetName", iconSetName);
  *```
  *
@@ -37,23 +37,19 @@
  *```
  */
 export class Iconset {
+  // register an icon set
+  static registerIconset(setName, icons) {
+    this[setName] = icons;
+  }
 
-    // register an icon set
-    static registerIconset(setName, icons) {
-
-        this[setName] = icons;
+  // get icon svg via icon set name and icon name
+  static get(setName, iconName) {
+    // default fallback icon `report problem`
+    let icon = '<g></g>';
+    if (this[setName] && this[setName][iconName]) {
+      icon = this[setName][iconName];
     }
 
-    // get icon svg via icon set name and icon name
-    static get(setName, iconName) {
-
-        // default fallback icon `report problem`
-        let icon = '<g></g>';
-        if(this[setName] && this[setName][iconName]) {
-            icon = this[setName][iconName];
-        }
-
-        return icon;
-    }
-
+    return icon;
+  }
 }

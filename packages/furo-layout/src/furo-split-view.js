@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
-import { Theme } from '@furo/framework/theme';
+import { Theme } from '@furo/framework/src/theme';
 
 import './furo-horizontal-flex.js';
 import './furo-vertical-scroller.js';

@@ -7,9 +7,9 @@
   "summary": "summary",
   "import_members": [
     [" LitElement, html, css " , "lit-element"],
-    ["Theme" , "@furo/framework/theme.js"],
+    ["Theme" , "@furo/framework/src/theme.js"],
     ["FBP" , "@furo/fbp"],
-    ["i18n", "@furo/framework/i18n.js","eslint-disable-next-line no-unused-vars"]
+    ["i18n", "@furo/framework/src/i18n.js","eslint-disable-next-line no-unused-vars"]
   ],
   "imports": [
     "@furo/data-input",

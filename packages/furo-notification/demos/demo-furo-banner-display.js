@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/theme';
+import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/notification/src/furo-banner-display.js';

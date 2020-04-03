@@ -1,5 +1,5 @@
 import { html, css } from 'lit-element';
-import { Theme } from '@furo/framework/theme';
+import { Theme } from '@furo/framework/src/theme';
 
 import '@furo/util/src/furo-pretty-json';
 import { BasePanel } from '../../src/lib/BasePanel.js';

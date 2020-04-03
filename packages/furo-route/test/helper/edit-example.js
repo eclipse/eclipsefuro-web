@@ -1,4 +1,4 @@
-import { Theme } from '@furo/framework/theme';
+import { Theme } from '@furo/framework/src/theme';
 import { html, css } from 'lit-element';
 import { BasePanel } from '../../src/lib/BasePanel.js';
 

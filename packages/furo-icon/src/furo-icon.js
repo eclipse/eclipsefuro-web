@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
-import { Iconset } from '@furo/framework/furo.js';
+import { Iconset } from '@furo/framework/src/furo.js';
 import { FuroBaseIcons } from '../assets/iconsets/baseIcons.js';
 
 // Autoregister default set with FuroBaseIcons if no iconset was registered
@@ -11,7 +11,7 @@ if (!Iconset.default) {
  * `furo-icon`
  *
  * to use furo icon you should
- * first import a svg set of icons and register it to @furo/framework/iconset
+ * first import a svg set of icons and register it to @furo/framework/src/iconset
  *
  *
  *
@@ -24,7 +24,7 @@ if (!Iconset.default) {
  *     };
  * then import the iconset and register it
  * import {iconSetName} from "./iconSetName";
- * import {Iconset} from "@furo/framework/furo.js";
+ * import {Iconset} from "@furo/framework/src/furo.js";
  * Iconset.registerIconset( "iconSetName", iconSetName);
  *```
  *

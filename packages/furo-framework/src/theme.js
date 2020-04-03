@@ -1,5 +1,3 @@
-import {css} from 'lit-element/lib/css-tag';
-
 /**
  * We differ themeing and styling. *Themes* are in regular a rewrite of the components css and can contain style vars. We do not use mixins as long they are not "standard". *Styles* are used to set style vars like `--primary-color`. They give you the possibility to configure your themes in a simple way. Components which are using theming, give you *full control* over the css.
  *
@@ -22,7 +20,7 @@ import {css} from 'lit-element/lib/css-tag';
  *Applying a theme to a component can be achieved by:
  *
  *```
- *import {Theme} from "@furo/framework/theme"
+ *import {Theme} from "@furo/framework/src/theme"
  *
  *
  * // @private
@@ -44,7 +42,7 @@ import {css} from 'lit-element/lib/css-tag';
  *to apply theming to your main app:
  *
  *```js
- *import {Theme} from "@furo/framework/theme"
+ *import {Theme} from "@furo/framework/src/theme"
  *
  *
  *
@@ -76,7 +74,6 @@ import {css} from 'lit-element/lib/css-tag';
  *
  */
 export class Theme {
-
   /**
    * Get the theme for the component if it exists
    * @param componentName

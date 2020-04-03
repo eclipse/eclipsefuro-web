@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/theme.js';
+import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 
 /**

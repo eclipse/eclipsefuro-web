@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
 import {Env, i18n} from "@furo/framework"
-import {Theme} from "@furo/framework/theme"
+import {Theme} from "@furo/framework/src/theme"
 
 import '@furo/fbp/flow-repeat';
 import '@furo/data-ui/furo-data-table-toggle';
