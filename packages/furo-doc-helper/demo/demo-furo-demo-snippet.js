@@ -16,9 +16,7 @@ import "./fetch-analysis"
  */
 class DemoFuroDemoSnippet extends FBP(LitElement) {
 
-  constructor() {
-    super();
-  }
+
 
   /**
    * @private

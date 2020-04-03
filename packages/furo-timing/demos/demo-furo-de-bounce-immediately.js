@@ -3,7 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper";
 import "@furo/util/src/furo-pretty-json.js";
-import "@furo/input/furo-search-input.js";
+import "@furo/input/src/furo-search-input.js";
 import "@furo/data";
 import "@furo/layout";
 import "./helper/produce-massive-load.js";

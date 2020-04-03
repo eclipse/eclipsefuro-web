@@ -12,9 +12,7 @@ import {FBP} from "@furo/fbp";
  */
 class FuroDataObjectForm extends FBP(LitElement) {
 
-    constructor() {
-        super();
-    }
+
 
     bindFields(EntityFields){
       this._FBPTriggerWire("--dataObjectFields",EntityFields)

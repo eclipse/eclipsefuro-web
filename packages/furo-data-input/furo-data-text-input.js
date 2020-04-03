@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "@furo/input/furo-text-input";
+import "@furo/input/src/furo-text-input";
 
 import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
 import {Helper} from "./lib/helper";

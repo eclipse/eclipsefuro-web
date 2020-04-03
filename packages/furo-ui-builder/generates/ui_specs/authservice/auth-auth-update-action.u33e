@@ -22,7 +22,7 @@
   ],
   "imports": [
     "@furo/form/furo-button-bar.js",
-    "@furo/input/furo-button.js"
+    "@furo/input/src/furo-button.js"
   ],
   "component_name": "auth-auth-update-action",
   "path": "./generates/ui_specs/authservice/auth-auth-update-action.u33e",

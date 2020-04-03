@@ -21641,7 +21641,7 @@
           "description": "",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 55,
               "column": 2
@@ -21663,7 +21663,7 @@
           "description": "",
           "privacy": "private",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 105,
               "column": 2
@@ -21685,7 +21685,7 @@
           "description": "",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 125,
               "column": 2
@@ -21711,7 +21711,7 @@
           "description": "",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 129,
               "column": 2
@@ -21737,7 +21737,7 @@
           "description": "Clears the image",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 136,
               "column": 2
@@ -21759,7 +21759,7 @@
           "description": "",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 141,
               "column": 2
@@ -21802,7 +21802,7 @@
           "description": "",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 172,
               "column": 2
@@ -21828,7 +21828,7 @@
           "description": "",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 176,
               "column": 2
@@ -21854,7 +21854,7 @@
           "description": "",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 181,
               "column": 2
@@ -21883,7 +21883,7 @@
           "description": "",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 186,
               "column": 2
@@ -21912,7 +21912,7 @@
           "description": "",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 191,
               "column": 2
@@ -21941,7 +21941,7 @@
           "description": "",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 196,
               "column": 2
@@ -21970,7 +21970,7 @@
           "description": "",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 201,
               "column": 2
@@ -21999,7 +21999,7 @@
           "description": "",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 206,
               "column": 2
@@ -22028,7 +22028,7 @@
           "description": "",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
+            "file": "../../../@furo/input/src/furo-sign-pad.js",
             "start": {
               "line": 211,
               "column": 2

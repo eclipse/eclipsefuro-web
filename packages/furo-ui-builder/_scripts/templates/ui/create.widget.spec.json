@@ -7,7 +7,7 @@
   "source": "package/typename.type.spec",
   "imports": [
     "@furo/app/furo-card.js",
-    "@furo/input/furo-button.js",
+    "@furo/input/src/furo-button.js",
     "@furo/form/furo-form-layouter.js"
   ],
   "widget": {

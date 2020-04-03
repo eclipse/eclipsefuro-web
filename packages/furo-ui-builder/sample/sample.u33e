@@ -8,9 +8,9 @@
   ],
   "imports": [
     "@furo/form/furo-form.js",
-    "@furo/input/furo-button.js",
-    "@furo/input/furo-password-input.js",
-    "@furo/input/furo-text-input.js",
+    "@furo/input/src/furo-button.js",
+    "@furo/input/src/furo-password-input.js",
+    "@furo/input/src/furo-text-input.js",
     "@furo/layout/src/furo-horizontal-flex.js"
   ],
   "component_name": "login-form",

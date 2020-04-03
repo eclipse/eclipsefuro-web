@@ -3,7 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 import "../furo-catalog"
-import "@furo/input/furo-icon-button.js";
+import "@furo/input/src/furo-icon-button.js";
 
 /**
  * `demo-furo-app-bar-top`

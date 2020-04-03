@@ -46,9 +46,7 @@ class DemoFuroDataTable extends FBP(LitElement) {
         `, Styling.theme]
     }
 
-    constructor() {
-        super();
-    }
+
 
     _FBPReady() {
         super._FBPReady();

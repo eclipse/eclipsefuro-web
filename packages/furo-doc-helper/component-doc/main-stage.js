@@ -3,7 +3,7 @@ import { FBP } from '@furo/fbp';
 import { Theme } from '@furo/framework/theme.js';
 import { Styling } from './styling.js';
 
-import '@furo/input/furo-button.js';
+import '@furo/input/src/furo-button.js';
 import '@furo/route/src/furo-location.js';
 import '@furo/route/src/furo-pages.js';
 
@@ -13,7 +13,7 @@ import '@furo/notification/src/furo-snackbar-display.js';
 
 import '@furo/layout/src/furo-empty-spacer.js';
 import '@furo/layout/src/furo-horizontal-flex.js';
-import '@furo/input/furo-search-input.js';
+import '@furo/input/src/furo-search-input.js';
 import '@furo/data/furo-data-object.js';
 import '@furo/util/src/furo-fetch-json.js';
 import '@furo/navigation/src/furo-tree.js';

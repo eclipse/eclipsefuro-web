@@ -14,9 +14,7 @@ import {FBP} from "@furo/fbp";
  */
 class FuroDemoLoader extends FBP(LitElement) {
 
-  constructor() {
-    super();
-  }
+
 
   load(location) {
 

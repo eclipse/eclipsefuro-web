@@ -5,7 +5,7 @@ import {Theme} from "@furo/framework/theme"
 
 import '@furo/fbp/flow-repeat';
 import '@furo/data-ui/furo-data-table-toggle';
-import '@furo/input/furo-checkbox.js';
+import '@furo/input/src/furo-checkbox.js';
 
 const tableHeaders = (fields) => html`${fields.map(f => html`<th class="header-cell" numeric="${f.ui.flags.includes('align-right')}" role="columnheader" scope="col">${f.meta.label}<furo-data-table-toggle sortable="${f.sortable}" field="${f.id}"></furo-data-table-toggle></th>`)}`;
 const tdWRepeat = (fields) => html`

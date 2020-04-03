@@ -14,9 +14,7 @@ import '@svgdotjs/svg.panzoom.js/dist/svg.panzoom.esm.js'
  */
 class FuroGraphRenderer extends FBP(LitElement) {
 
-  constructor() {
-    super();
-  }
+
 
   draw(graph) {
 

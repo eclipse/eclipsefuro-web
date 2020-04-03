@@ -1,6 +1,6 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
-import "@furo/input/furo-select-input";
+import "@furo/input/src/furo-select-input";
 
 import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
 import {Helper} from "./lib/helper";

@@ -9,10 +9,7 @@ import {FBP} from "@furo/fbp";
  */
 class JsonOut extends FBP(LitElement) {
 
-    constructor() {
-        super();
 
-    }
 
     static get properties() {
         return {};

@@ -15,10 +15,7 @@ import "@furo/util";
  */
 class DemoProjectFilterForm extends FBP(LitElement) {
 
-    constructor() {
-        super();
 
-    }
 
   /**
    * flow is ready lifecycle method

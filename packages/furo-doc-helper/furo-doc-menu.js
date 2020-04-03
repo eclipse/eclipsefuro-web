@@ -15,9 +15,7 @@ import "./furo-doc/furo-doc-menu-class-item"
  */
 class FuroDocMenu extends FBP(LitElement) {
 
-  constructor() {
-    super();
-  }
+
 
   analysis(analysis) {
     if (analysis.elements) {

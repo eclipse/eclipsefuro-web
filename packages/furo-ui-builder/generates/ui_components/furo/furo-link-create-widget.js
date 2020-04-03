@@ -8,7 +8,7 @@ import {  i18n  } from '@furo/framework/i18n.js';
 
 import "@furo/data-input";
 import "@furo/form/furo-form-layouter.js";
-import "@furo/input/furo-button.js";
+import "@furo/input/src/furo-button.js";
 import "@furo/app/furo-card.js";
 import "@furo/layout/src/furo-horizontal-flex.js";
 
@@ -22,13 +22,13 @@ import "@furo/layout/src/furo-horizontal-flex.js";
  */
 export class FuroLinkCreateWidget extends FBP(LitElement) {
 
-  
+
 
   // Fokus
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method

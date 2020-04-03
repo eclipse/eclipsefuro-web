@@ -78,15 +78,6 @@ if (analysis.classes) {
   }));
 }
 
-if (fs.existsSync(`${pkgdir}/assets/${pkgjson.name.replace('@furo/', 'furo-')}`)) {
-  // copy the assets
-  execSync(
-    `cp -rv ${pkgdir}/assets/${pkgjson.name.replace(
-      '@furo/',
-      'furo-',
-    )} assets/${pkgjson.name.replace('@furo/', 'furo-')}`,
-  );
-}
 
 elements = elements.concat(classes);
 // the package

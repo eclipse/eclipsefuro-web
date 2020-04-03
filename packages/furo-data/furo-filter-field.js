@@ -57,9 +57,7 @@ import {FBP} from "@furo/fbp";
  */
 class FuroFilterField extends FBP(LitElement) {
 
-  constructor() {
-    super();
-  }
+
 
   /**
    * @private

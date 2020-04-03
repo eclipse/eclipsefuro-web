@@ -9,9 +9,7 @@ import {LitElement, html, css} from 'lit-element';
  */
 class FuroRelExists extends LitElement {
 
-  constructor() {
-    super();
-  }
+
 
   /**
    * Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.

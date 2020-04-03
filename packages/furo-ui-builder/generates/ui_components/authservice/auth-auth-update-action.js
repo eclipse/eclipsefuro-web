@@ -7,7 +7,7 @@ import {  Theme  } from '@furo/framework/theme.js';
 import {  i18n  } from '@furo/framework/i18n.js';
 
 import "@furo/form/furo-button-bar.js";
-import "@furo/input/furo-button.js";
+import "@furo/input/src/furo-button.js";
 
 /**
  * service specs for the auth api
@@ -19,25 +19,25 @@ import "@furo/input/furo-button.js";
  */
 export class AuthAuthUpdateAction extends FBP(LitElement) {
 
-  
+
 
   // Bind an entity data object. This will be forwarded to the furo-button-bar element inside this element.
   bindEntity(d) {
     this._FBPTriggerWire('--entityObjectInjected', d)
   }
-  
+
 
   // Disables all elements inside furo-button-bar
   disableAll(d) {
     this._FBPTriggerWire('--disableAllReq', d)
   }
-  
+
 
   // Enables all elements inside furo-button-bar
   enableAll(d) {
     this._FBPTriggerWire('--enableAllReq', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method

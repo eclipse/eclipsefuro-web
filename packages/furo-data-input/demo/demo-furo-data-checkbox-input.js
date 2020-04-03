@@ -17,9 +17,7 @@ import "@furo/data/furo-entity-agent";
  */
 class DemoFuroDataCheckboxInput extends FBP(LitElement) {
 
-    constructor() {
-        super();
-    }
+
 
     /**
      * Themable Styles

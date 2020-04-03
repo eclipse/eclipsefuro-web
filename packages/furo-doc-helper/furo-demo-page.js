@@ -12,9 +12,7 @@ import "./furo-demo-loader"
  */
 class FuroDemoPage extends FBP(LitElement) {
 
-  constructor() {
-    super();
-  }
+
 
   /**
    * @private

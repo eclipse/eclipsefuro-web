@@ -5,9 +5,9 @@ import { Theme } from '@furo/framework/theme';
 import { FBP } from '@furo/fbp';
 
 import "@furo/form/furo-form.js";
-import "@furo/input/furo-button.js";
-import "@furo/input/furo-password-input.js";
-import "@furo/input/furo-text-input.js";
+import "@furo/input/src/furo-button.js";
+import "@furo/input/src/furo-password-input.js";
+import "@furo/input/src/furo-text-input.js";
 import "@furo/layout/src/furo-horizontal-flex.js";
 import "@furo/util/src/furo-keydown.js";
 

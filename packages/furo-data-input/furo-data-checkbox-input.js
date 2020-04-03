@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "@furo/input/furo-checkbox-input";
+import "@furo/input/src/furo-checkbox-input";
 import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
 import {Helper} from "./lib/helper";
 

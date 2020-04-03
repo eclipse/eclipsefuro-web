@@ -17,9 +17,7 @@ import "@furo/data/furo-entity-agent";
  */
 class DemoFuroDataRadioButtonInput extends FBP(LitElement) {
 
-    constructor() {
-        super();
-    }
+
 
     /**
      * Themable Styles

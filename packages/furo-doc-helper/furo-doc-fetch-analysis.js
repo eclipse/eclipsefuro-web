@@ -12,10 +12,7 @@ import {FBP} from "@furo/fbp";
  */
 class FuroDocFetchAnalysis extends FBP(LitElement) {
 
-  constructor() {
-    super();
 
-  }
 
 
 

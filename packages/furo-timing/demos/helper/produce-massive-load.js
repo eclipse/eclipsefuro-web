@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
 
-import '@furo/input/furo-button.js';
+import '@furo/input/src/furo-button.js';
 
 /**
  * `produce-massive-load`

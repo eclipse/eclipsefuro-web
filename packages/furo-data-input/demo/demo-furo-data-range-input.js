@@ -7,7 +7,7 @@ import "@furo/data/furo-data-object";
 import "@furo/data/furo-deep-link";
 import "./helper/produce-qp-data";
 import "@furo/data/furo-entity-agent";
-import "@furo/input/furo-text-input";
+import "@furo/input/src/furo-text-input";
 
 /**
  * `demo-furo-data-range-input`

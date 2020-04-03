@@ -7,7 +7,7 @@ import {  Theme  } from '@furo/framework/theme.js';
 import {  i18n  } from '@furo/framework/i18n.js';
 
 import "@furo/form/furo-button-bar.js";
-import "@furo/input/furo-button.js";
+import "@furo/input/src/furo-button.js";
 
 /**
  * service specs for the tree api

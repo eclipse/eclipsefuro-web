@@ -3,7 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 import "../furo-catalog";
-import "@furo/input/furo-button.js";
+import "@furo/input/src/furo-button.js";
 import "./helper/produce-qp-data";
 
 /**

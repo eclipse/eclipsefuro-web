@@ -12,9 +12,7 @@ import {FBP} from "@furo/fbp";
  */
 class FuroDemoLink extends FBP(LitElement) {
 
-    constructor() {
-        super();
-    }
+
 
 
   /**
