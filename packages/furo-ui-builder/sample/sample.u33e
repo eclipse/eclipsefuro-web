@@ -7,7 +7,7 @@
     ["FBP" , "@furo/fbp"]
   ],
   "imports": [
-    "@furo/form/furo-form.js",
+    "@furo/form/src/furo-form.js",
     "@furo/input/src/furo-button.js",
     "@furo/input/src/furo-password-input.js",
     "@furo/input/src/furo-text-input.js",

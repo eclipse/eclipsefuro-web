@@ -4,7 +4,7 @@ import {  LitElement, html, css  } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 
-import "@furo/form/furo-form.js";
+import "@furo/form/src/furo-form.js";
 import "@furo/input/src/furo-button.js";
 import "@furo/input/src/furo-password-input.js";
 import "@furo/input/src/furo-text-input.js";

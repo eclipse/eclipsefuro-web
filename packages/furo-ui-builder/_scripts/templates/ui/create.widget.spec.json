@@ -8,7 +8,7 @@
   "imports": [
     "@furo/app/furo-card.js",
     "@furo/input/src/furo-button.js",
-    "@furo/form/furo-form-layouter.js"
+    "@furo/form/src/furo-form-layouter.js"
   ],
   "widget": {
     "description": "",

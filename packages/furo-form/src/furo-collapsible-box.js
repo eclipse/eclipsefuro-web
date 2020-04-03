@@ -1,7 +1,7 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import "@furo/layout/src/furo-horizontal-flex"
-import {FBP} from "@furo/fbp";
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import '@furo/layout/src/furo-horizontal-flex';
+import { FBP } from '@furo/fbp';
 
 /**
  * `furo-collapsible-box` is a card which can be toggled to be open and closed
@@ -19,7 +19,6 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class FuroCollapsibleBox extends FBP(LitElement) {
-
   constructor() {
     super();
     /**
@@ -29,12 +28,12 @@ class FuroCollapsibleBox extends FBP(LitElement) {
     /**
      * @type {string}
      */
-    this.iconOpen = "expand-more";
+    this.iconOpen = 'expand-more';
     /**
      *
      * @type {string}
      */
-    this.iconClosed = "expand-less";
+    this.iconClosed = 'expand-less';
     /**
      *
      * @type {number}
@@ -43,33 +42,32 @@ class FuroCollapsibleBox extends FBP(LitElement) {
     this.icon = this._open ? this.iconOpen : this.iconClosed;
 
     // toggle method
-    this._FBPAddWireHook("--toggleClicked", () => {
-      this.toggle()
+    this._FBPAddWireHook('--toggleClicked', () => {
+      this.toggle();
     });
-
 
     /**
      * minimal keyboard navigation
      */
-    this._FBPAddWireHook("--keystrokes", (e) => {
+    this._FBPAddWireHook('--keystrokes', e => {
       switch (e.code) {
-        case "ArrowRight":
+        case 'ArrowRight':
           this.open();
           break;
-        case "ArrowLeft":
+        case 'ArrowLeft':
           this.close();
           break;
-        case "Enter":
+        case 'Enter':
           this.toggle();
           break;
+        default:
       }
     });
-    this._FBPAddWireHook("--blured", () => {
+    this._FBPAddWireHook('--blured', () => {
       if (this.closeOnBlur) {
         this.close();
       }
     });
-
   }
 
   /**
@@ -79,7 +77,6 @@ class FuroCollapsibleBox extends FBP(LitElement) {
     this._open = true;
     this.icon = this._open ? this.iconOpen : this.iconClosed;
     this.requestUpdate();
-
   }
 
   /**
@@ -89,7 +86,6 @@ class FuroCollapsibleBox extends FBP(LitElement) {
     this._open = false;
     this.icon = this._open ? this.iconOpen : this.iconClosed;
     this.requestUpdate();
-
   }
 
   /**
@@ -100,7 +96,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
     this.icon = this._open ? this.iconOpen : this.iconClosed;
     this.requestUpdate();
 
-    if (this._open == true) {
+    if (this._open === true) {
       /**
        * @event opened
        *
@@ -108,8 +104,8 @@ class FuroCollapsibleBox extends FBP(LitElement) {
        *
        * detail payload: void
        */
-      let customEvent = new Event('opened', {composed: true, bubbles: false});
-      this.dispatchEvent(customEvent)
+      const customEvent = new Event('opened', { composed: true, bubbles: false });
+      this.dispatchEvent(customEvent);
     } else {
       /**
        * @event closed
@@ -117,8 +113,8 @@ class FuroCollapsibleBox extends FBP(LitElement) {
        *
        * detail payload: void
        */
-      let customEvent = new Event('closed', {composed: true, bubbles: false});
-      this.dispatchEvent(customEvent)
+      const customEvent = new Event('closed', { composed: true, bubbles: false });
+      this.dispatchEvent(customEvent);
     }
 
     /**
@@ -127,11 +123,10 @@ class FuroCollapsibleBox extends FBP(LitElement) {
      * detail payload: Boolean true for open, false for closed
      * @param Boolean true for open, false for closed
      */
-    let customEvent = new Event('toggled', {composed: true, bubbles: false});
+    const customEvent = new Event('toggled', { composed: true, bubbles: false });
     customEvent.detail = this._open;
-    this.dispatchEvent(customEvent)
+    this.dispatchEvent(customEvent);
   }
-
 
   firstUpdated(changedProperties) {
     super.firstUpdated(changedProperties);
@@ -143,7 +138,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
    * focus the box (focuses the icon)
    */
   focus() {
-    this._FBPTriggerWire("--focus");
+    this._FBPTriggerWire('--focus');
     if (this.openOnFocus) {
       this.open();
     }
@@ -159,34 +154,33 @@ class FuroCollapsibleBox extends FBP(LitElement) {
        * Label der Collapsible
        */
       label: {
-        type: String
-      }
-      ,/**
-       * Label der Collapsible
-       */
-      secondaryText: {
         type: String,
-        attribute:"secondary-text"
+      },
+      /**
+       * Label der Collapsible
+       */ secondaryText: {
+        type: String,
+        attribute: 'secondary-text',
       },
       /**
        * Opens the box on focus
        */
       openOnFocus: {
         type: Boolean,
-        attribute: 'open-on-focus'
+        attribute: 'open-on-focus',
       },
       /**
        * Closes the box on blur (icon)
        */
       closeOnBlur: {
         type: Boolean,
-        attribute: 'close-on-blur'
+        attribute: 'close-on-blur',
       },
       /**
        * https://developer.mozilla.org/de/docs/Web/HTML/Globale_Attribute/tabindex
        */
       tabindex: {
-        type: Number
+        type: Number,
       },
       /**
        * Indicates the collapse state, set the collapse state
@@ -194,7 +188,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
       _open: {
         type: Boolean,
         reflect: true,
-        attribute: "open"
+        attribute: 'open',
       },
       /**
        * The icon for the open state.
@@ -202,7 +196,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
        */
       iconOpen: {
         type: String,
-        attribute: 'icon-open'
+        attribute: 'icon-open',
       },
       /**
        * The icon for the closed state.
@@ -210,19 +204,17 @@ class FuroCollapsibleBox extends FBP(LitElement) {
        */
       iconClosed: {
         type: String,
-        attribute: 'icon-closed'
+        attribute: 'icon-closed',
       },
       /**
        * reserved flag
        * todo implement remember component
        */
       rememberState: {
-        type: Boolean
+        type: Boolean,
       },
-
     };
   }
-
 
   /**
    * Themable Styles
@@ -231,68 +223,65 @@ class FuroCollapsibleBox extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroCollapsibleBox') || css`
-
+    return (
+      Theme.getThemeForComponent('FuroCollapsibleBox') ||
+      css`
         :host {
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-            0 1px 5px 0 rgba(0, 0, 0, 0.12),
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
             0 3px 1px -2px rgba(0, 0, 0, 0.2);
-            padding: var(--furo-collapsible-box-padding, 16px);
-            background: var(--furo-collapsible-box-background, white);
-            display: block;
-            margin: var(--furo-collapsible-box-margin, 16px);
-            box-sizing: border-box;
-
+          padding: var(--furo-collapsible-box-padding, 16px);
+          background: var(--furo-collapsible-box-background, white);
+          display: block;
+          margin: var(--furo-collapsible-box-margin, 16px);
+          box-sizing: border-box;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         label {
-            display: block;
-            padding-left: 8px;
-            cursor: pointer;
+          display: block;
+          padding-left: 8px;
+          cursor: pointer;
 
-            font-size: 24px;
-            line-height: 24px;
-            letter-spacing: 0;
-            margin: 0;
-            font-weight: normal;
+          font-size: 24px;
+          line-height: 24px;
+          letter-spacing: 0;
+          margin: 0;
+          font-weight: normal;
         }
 
-        .secondary{
-            padding-left: var(--spacing,24px);
-            font-size: 14px;
-            letter-spacing: 0.1px;
+        .secondary {
+          padding-left: var(--spacing, 24px);
+          font-size: 14px;
+          letter-spacing: 0.1px;
         }
         .content {
-            display: none;
+          display: none;
         }
 
         :host([open]) .content {
-            display: block;
+          display: block;
         }
 
         .head {
-            border-bottom: 1px solid var(--separator-color, gainsboro);;
-
+          border-bottom: 1px solid var(--separator-color, gainsboro);
         }
 
         furo-icon {
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            outline: none;
+          width: 24px;
+          height: 24px;
+          cursor: pointer;
+          outline: none;
         }
 
         furo-icon:focus {
-            color: var(--primary, #CDCDCD)
+          color: var(--primary, #cdcdcd);
         }
-
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -301,13 +290,20 @@ class FuroCollapsibleBox extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-<furo-horizontal-flex class="head">
-  <furo-icon tabindex="${this.tabindex}" ƒ-focus="--focus" icon="${this.icon}" @-keydown="--keystrokes(*)" @-click="--toggleClicked" @-blur="--blured"></furo-icon>     
-  <label  @-click="--toggleClicked">${this.label}</label>
-  <div flex class="secondary"  @-click="--toggleClicked">${this.secondaryText}</div>
-  <slot name="context"></slot>
-</furo-horizontal-flex>
-<div class="content"><slot></slot></div>
+      <furo-horizontal-flex class="head">
+        <furo-icon
+          tabindex="${this.tabindex}"
+          ƒ-focus="--focus"
+          icon="${this.icon}"
+          @-keydown="--keystrokes(*)"
+          @-click="--toggleClicked"
+          @-blur="--blured"
+        ></furo-icon>
+        <label @-click="--toggleClicked">${this.label}</label>
+        <div flex class="secondary" @-click="--toggleClicked">${this.secondaryText}</div>
+        <slot name="context"></slot>
+      </furo-horizontal-flex>
+      <div class="content"><slot></slot></div>
     `;
   }
 }

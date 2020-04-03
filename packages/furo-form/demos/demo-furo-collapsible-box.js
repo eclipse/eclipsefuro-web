@@ -1,8 +1,10 @@
 import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/doc-helper"
-import "../furo-catalog"
+import { Theme } from '@furo/framework/src/theme.js';
+import { FBP } from '@furo/fbp';
+import '@furo/doc-helper';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/form/src/furo-catalog.js';
+
 /**
  * `demo-furo-collapsible-box`
  *
@@ -10,7 +12,6 @@ import "../furo-catalog"
  * @appliesMixin FBP
  */
 class DemoFuroCollapsibleBox extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -18,20 +19,21 @@ class DemoFuroCollapsibleBox extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('DemoFuroCollapsibleBox') || css`
+    return (
+      Theme.getThemeForComponent('DemoFuroCollapsibleBox') ||
+      css`
         :host {
-            display: block;
-            height: 100%;
-            padding-right: var(--spacing);
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-       
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -42,7 +44,7 @@ class DemoFuroCollapsibleBox extends FBP(LitElement) {
     return html`
       <h2>Demo demo-furo-collapsible-box</h2>
       <p>description</p>
-      <furo-demo-snippet >
+      <furo-demo-snippet>
         <template>
           <furo-collapsible-box label="label" open>
             <div>flex content in default slot</div>
@@ -54,4 +56,4 @@ class DemoFuroCollapsibleBox extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-collapsible-box', DemoFuroCollapsibleBox );
+window.customElements.define('demo-furo-collapsible-box', DemoFuroCollapsibleBox);

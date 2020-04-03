@@ -25,7 +25,7 @@ class HookInitUpdateAction {
     u33e.addImportWithMember(" Theme ", "@furo/framework/src/theme.js");
     u33e.addImportWithMember(" i18n ", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
-    u33e.addImport("@furo/form/furo-button-bar.js");
+    u33e.addImport("@furo/form/src/furo-button-bar.js");
     u33e.addImport("@furo/input/src/furo-button.js");
 
     // styling

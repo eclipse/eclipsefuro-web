@@ -6,7 +6,7 @@ import {  Theme  } from '@furo/framework/src/theme.js';
 // eslint-disable-next-line no-unused-vars
 import {  i18n  } from '@furo/framework/src/i18n.js';
 
-import "@furo/form/furo-button-bar.js";
+import "@furo/form/src/furo-button-bar.js";
 import "@furo/input/src/furo-button.js";
 
 /**

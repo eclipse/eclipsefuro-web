@@ -7,7 +7,7 @@ import "@furo/data/furo-data-object";
 import "@furo/data/furo-deep-link";
 import "./helper/produce-qp-data";
 import "@furo/data/furo-entity-agent";
-import "@furo/form/furo-form-layouter.js";
+import "@furo/form/src/furo-form-layouter.js";
 
 /**
  * `demo-furo-data-collection-dropdown`

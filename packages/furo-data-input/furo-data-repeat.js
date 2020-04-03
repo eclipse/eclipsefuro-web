@@ -2,7 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/src/theme"
 import {FBP} from "@furo/fbp";
 import "./lib/data-repeat-delete"
-import "@furo/form/furo-form-layouter"
+import "@furo/form/src/furo-form-layouter"
 
 /**
  * `furo-data-repeat`

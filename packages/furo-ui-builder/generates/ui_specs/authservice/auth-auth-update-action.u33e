@@ -21,7 +21,7 @@
     ]
   ],
   "imports": [
-    "@furo/form/furo-button-bar.js",
+    "@furo/form/src/furo-button-bar.js",
     "@furo/input/src/furo-button.js"
   ],
   "component_name": "auth-auth-update-action",

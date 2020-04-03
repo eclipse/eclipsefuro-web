@@ -58,7 +58,7 @@ class U33eBuilder {
 
   /**
    * Add a import
-   * @param module {String} module or path like "@furo/form/furo-form.js" or "../../your-component.js"
+   * @param module {String} module or path like "@furo/form/src/furo-form.js" or "../../your-component.js"
    * @return {U33eBuilder}
    */
   addImport(module) {
