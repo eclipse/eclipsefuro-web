@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/icon@0.1.12...@furo/icon@0.1.13) (2020-04-03)
+
+**Note:** Version bump only for package @furo/icon
+
+
+
+
+
 ## [0.1.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/icon@0.1.11...@furo/icon@0.1.12) (2020-04-03)
 
 **Note:** Version bump only for package @furo/icon

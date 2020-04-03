@@ -2,10 +2,10 @@
   "name": "@furo/logic",
   "description": "logic components for furo",
   "main": "furo-catalog.js",
-  "version": "0.5.23",
+  "version": "0.5.24",
   "dependencies": {
     "@furo/fbp": "^4.29.2",
-    "@furo/framework": "^0.15.1",
+    "@furo/framework": "^0.15.2",
     "lit-element": "^2.2.1"
   },
   "publishConfig": {
