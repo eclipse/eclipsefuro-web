@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.46.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.46.0...@furo/navigation@0.46.1) (2020-04-03)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
 # [0.46.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.45.0...@furo/navigation@0.46.0) (2020-03-30)
 
 

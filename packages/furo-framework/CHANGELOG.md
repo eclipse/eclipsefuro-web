@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@0.15.0...@furo/framework@0.15.1) (2020-04-03)
+
+
+### Bug Fixes
+
+* method PATCH should transmit required fields inside of deep repeated structure ([5a9f87a](https://github.com/theNorstroem/FuroBaseComponents/commit/5a9f87a))
+
+
+
+
+
 # [0.15.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@0.14.1...@furo/framework@0.15.0) (2020-03-29)
 
 
