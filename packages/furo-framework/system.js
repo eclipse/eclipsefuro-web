@@ -93,7 +93,7 @@ export class Init {
       for (let service in Env.api.services[s].services) {
         // prefix the hrefs if they do not start with a host
         let deeplink = Env.api.services[s].services[service].deeplink;
-        if (deeplink.href.startsWith('/')) {
+        if (deeplink.href && deeplink.href.length && deeplink.href.startsWith('/')) {
           deeplink.href = Env.api.prefix + deeplink.href;
         }
       }
@@ -105,7 +105,7 @@ export class Init {
         // Apply the prefix for the default links in furo.Reference types
         if (Env.api.specs[t].fields[field].type === "furo.Reference" && Env.api.specs[t].fields[field].meta && Env.api.specs[t].fields[field].meta.default) {
           let deeplink = Env.api.specs[t].fields[field].meta.default.link;
-          if (deeplink.href.startsWith('/')) {
+          if (deeplink.href && deeplink.href.length && deeplink.href.startsWith('/')) {
             deeplink.href = Env.api.prefix + deeplink.href;
           }
         }

@@ -72,6 +72,8 @@
 
           entityObject.addEventListener("data-injected", () => {
               assert.equal(dataPropertyDisplay.field.data.year._value, "2022");
+              assert.equal(dataPropertyDisplay.field.data._meta.readonly, true);
+              assert.equal(dataPropertyDisplay.field.data._meta.label, "Additional fields");
               done();
 
           });

@@ -46,6 +46,112 @@
       await dataObject.updateComplete;
     });
 
+    it('should build correct transmit values', (done) => {
+      entityAgent.loadOnHtsIn = true;
+      entityAgent.setAttribute("service", "ExperimentService");
+      dataObject.setAttribute("type", "experiment.ExperimentEntity");
+
+      dataObject.addEventListener('data-injected', ()=>{
+
+        let transmit = dataObject.data.data._transmit_value;
+        assert.equal(transmit.type_property.length, 5);
+        expect(transmit.type_property[0].hasOwnProperty("meta")).to.be.false;
+        expect(transmit.hasOwnProperty("furo-data-color-input")).to.be.false;
+        expect(transmit.hasOwnProperty("display_name")).to.be.false;
+
+        done();
+      });
+
+      entityAgent.addEventListener("response", (r) => {
+        dataObject.injectRaw(r.detail);
+      }, {once: true});
+
+      entityAgent.htsIn([
+        {
+          "href": "/mockdata/experiments/1/get-props.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "experiment.ExperimentEntity",
+          "service": "ExperimentService"
+        },
+        {
+          "href": "http://httpbin.org/anything",
+          "method": "POST",
+          "rel": "create",
+          "type": "experiment.ExperimentEntity",
+          "service": "ExperimentService"
+        }
+      ]);
+
+    });
+
+    it('should build correct delta values', (done) => {
+      entityAgent.loadOnHtsIn = true;
+      entityAgent.setAttribute("service", "ExperimentService");
+      dataObject.setAttribute("type", "experiment.ExperimentEntity");
+
+      dataObject.addEventListener('data-injected', ()=>{
+
+        dataObject.data.data.type_property.__childNodes[0].data._value = {"data": "12122020", "@type": "type.googleapis.com/furo.StringProperty"};
+
+        let payload = {};
+        for (let index in dataObject.data.data.__childNodes) {
+          let field = dataObject.data.data.__childNodes[index];
+          let val = field._delta_value;
+
+          if (val !== undefined) {
+            if (typeof val === 'object' && !Array.isArray(val)) {
+              payload[field._name] = {};
+
+              for (var key in val) {
+                if (val[key] !== null) {
+                  payload[field._name][key] = val[key];
+                }
+              }
+            } else {
+              payload[field._name] = val;
+            }
+          }
+        }
+        assert.equal(payload.type_property.length, 5);
+        expect(payload.type_property[0].hasOwnProperty("id")).to.be.true;
+        expect(payload.type_property[0].hasOwnProperty("meta")).to.be.false;
+        expect(payload.type_property[1].hasOwnProperty("data")).to.be.true;
+        expect(payload.type_property[1].hasOwnProperty("id")).to.be.true;
+        expect(payload.type_property[2].hasOwnProperty("id")).to.be.true;
+        expect(payload.type_property[3].hasOwnProperty("id")).to.be.true;
+        expect(payload.type_property[4].hasOwnProperty("id")).to.be.true;
+        expect(payload.hasOwnProperty("display_name")).to.be.false;
+        expect(payload.hasOwnProperty("furo_data_text_input")).to.be.true;
+        expect(payload.hasOwnProperty("furo_data_money_input")).to.be.true;
+        assert.equal(payload.furo_data_money_input.currency_code, "CHF");
+
+        done();
+      });
+
+      entityAgent.addEventListener("response", (r) => {
+        dataObject.injectRaw(r.detail);
+      }, {once: true});
+
+      entityAgent.htsIn([
+        {
+          "href": "/mockdata/experiments/1/get-props.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "experiment.ExperimentEntity",
+          "service": "ExperimentService"
+        },
+        {
+          "href": "http://httpbin.org/anything",
+          "method": "POST",
+          "rel": "create",
+          "type": "experiment.ExperimentEntity",
+          "service": "ExperimentService"
+        }
+      ]);
+
+    });
+
     it('request payload should only have writeable or required properties inside', (done) => {
       entityAgent.loadOnHtsIn = true;
       entityAgent.setAttribute("service", "ExperimentService");
@@ -103,6 +209,44 @@
         assert.equal(r.detail.json.furo_data_money_input.currency_code, 'CHF');
         assert.equal(r.detail.json.furo_data_money_input.units, 3333);
         assert.equal(r.detail.json.furo_data_money_input.nanos, 75100000);
+        assert.equal(r.detail.json.type_property.length, 7);
+        assert.equal(r.detail.json.type_property[0].id, "246d79a0-0a15-43c5-b18f-ac8a4a449df1");
+        expect(r.detail.json.furo_data_money_input.hasOwnProperty("display_name")).to.be.false;
+        done();
+      });
+
+      dataObject.addEventListener('data-injected', ()=>{
+        dataObject.data.data.description._value = 'modified desc';
+        entityAgent.save();
+      });
+
+      entityAgent.addEventListener("response", (r) => {
+        dataObject.injectRaw(r.detail);
+      }, {once: true});
+
+      entityAgent.htsIn([
+        {
+          "href": "/mockdata/experiments/1/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "experiment.ExperimentEntity",
+          "service": "ExperimentService"
+        }
+      ]);
+
+    });
+
+    it('Method POST should transmit transmit_values of dao.', (done) => {
+      entityAgent.loadOnHtsIn = true;
+      entityAgent.setAttribute("service", "ExperimentService");
+      dataObject.setAttribute("type", "experiment.ExperimentEntity");
+
+      entityAgent.addEventListener("create-success", (r) => {
+        assert.equal(r.detail.json.furo_data_text_input, 'hallo test');
+        assert.equal(r.detail.json.furo_data_money_input.currency_code, 'CHF');
+        assert.equal(r.detail.json.furo_data_money_input.units, 3333);
+        assert.equal(r.detail.json.furo_data_money_input.nanos, 75100000);
+        assert.equal(r.detail.json.type_property.length, 7);
         expect(r.detail.json.furo_data_money_input.hasOwnProperty("display_name")).to.be.false;
         done();
       });
@@ -110,7 +254,7 @@
       dataObject.addEventListener('data-injected', ()=>{
         dataObject.data.data.description._value = 'modified desc';
 
-        entityAgent.save();
+        entityAgent.create();
       });
 
       entityAgent.addEventListener("response", (r) => {
@@ -138,8 +282,8 @@
         assert.equal(r.detail.json.description, 'overwritten desc');
         assert.equal(r.detail.json.furo_data_text_input, 'overwritten text');
         expect(r.detail.json.hasOwnProperty("furo_data_color_input")).to.be.false;
-        assert.equal(r.detail.json.type_property.length, 1);
-        assert.equal(r.detail.json.type_property[0].data.day, 22);
+        assert.equal(r.detail.json.type_property.length, 7);
+        assert.equal(r.detail.json.type_property[1].data.day, 22);
         expect(r.detail.json.hasOwnProperty("repstring")).to.be.false;
         assert.equal(r.detail.json.furo_data_money_input.currency_code, 'CHF');
         assert.equal(r.detail.json.furo_data_money_input.units, 3333);
@@ -509,8 +653,6 @@
       assert.equal(entityAgent.nodeName.toLowerCase(), "furo-entity-agent");
       done()
     });
-
-
   });
 </script>
 </body>

@@ -20,29 +20,30 @@
     "furo_data_bool_icon": false,
     "type_property": [
       {
-      "code": "c0a7f550-0fbe-4046-8fa9-60c86327b6b1",
-      "data": {
-        "@type": "type.googleapis.com/furo.StringProperty",
-        "data": "01012020"
-      },
-      "display_name": "Vertragsbeginn",
-      "id": "246d79a0-0a15-43c5-b18f-ac8a4a449df1",
-      "meta": {
-        "fields": {
-          "data.data": {
-            "constraints": {
-              "required": {
-                "is": "true",
-                "message": "Bitte ausfüllen!"
+        "code": "c0a7f550-0fbe-4046-8fa9-60c86327b6b1",
+        "data": {
+          "@type": "type.googleapis.com/furo.StringProperty",
+          "data": "01032020"
+        },
+        "display_name": "Vertragsbeginn",
+        "id": "246d79a0-0a15-43c5-b18f-ac8a4a449df1",
+        "meta": {
+          "fields": {
+            "data": {
+              "constraints": {
+                "required": {
+                  "is": "true",
+                  "message": "Bitte ausfüllen!"
+                }
+              },
+              "meta": {
+                "label": "Vertragsbeginn custom label",
+                "readonly": true
               }
-            },
-            "meta": {
-              "label": "Vertragsbeginn"
             }
           }
         }
-      }
-    },
+      },
       {
         "data": {
           "@type": "xx/google.type.Date",
@@ -59,7 +60,8 @@
             "data": {
               "meta": {
                 "label": "datelabel",
-                "hint": "datehint is data"
+                "hint": "datehint is data",
+                "readonly": true
               },
               "constraints": {
                 "min": {
@@ -167,7 +169,6 @@
           }
         }
       },
-
       {
         "data": {
           "@type": "xx/google.protobuf.BoolValue",
@@ -202,7 +203,8 @@
           "data": {
             "meta": {
               "label": "Additional fields",
-              "hint": "this is data"
+              "hint": "this is data",
+              "readonly": true
             },
             "constraints": {
               "min": {
@@ -237,6 +239,13 @@
       "href": "http://httpbin.org/anything",
       "method": "PATCH",
       "rel": "update",
+      "type": "experiment.ExperimentEntity",
+      "service": "ExperimentService"
+    },
+    {
+      "href": "http://httpbin.org/anything",
+      "method": "POST",
+      "rel": "create",
       "type": "experiment.ExperimentEntity",
       "service": "ExperimentService"
     }

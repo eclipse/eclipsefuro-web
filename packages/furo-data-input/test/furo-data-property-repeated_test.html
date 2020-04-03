@@ -70,6 +70,10 @@
     it('should bind data to repeated Property', (done) => {
 
       entityObject.addEventListener("data-injected", () => {
+        assert.equal(dataPropertyDisplay.field.repeats.length, 7);
+        assert.equal(dataPropertyDisplay.field.repeats[0].data._meta.label, "Vertragsbeginn custom label");
+        assert.equal(dataPropertyDisplay.field.repeats[0].data._meta.readonly, true);
+        assert.equal(dataPropertyDisplay.field.repeats[0].data._constraints.required.is, "true");
         assert.equal(dataPropertyDisplay.field.repeats[1].data.year._value, "2022");
         assert.equal(dataPropertyDisplay.field.repeats[2].data.data._value, "34.23");
         done();
