@@ -39,6 +39,7 @@
     "@furo/collection": "^0.24.14",
     "@furo/doc-helper": "^0.19.0",
     "@furo/data-input": "^0.69.13",
+    "@furo/data": "^0.72.5",
     "@furo/input": "^0.67.13",
     "axe-core": "^3.5.2",
     "pwa-helpers": "^0.9.1",
