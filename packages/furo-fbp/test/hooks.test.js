@@ -19,14 +19,14 @@ describe('hooks', () => {
         <template>
           <button id="btn" @-click="--clk"></button>
           <div id="dd" ƒ-done="--clk" @-dummy="--clk">x</div>
-          <div id="xx" ƒ-dummy="--clk" ƒ-dummy-camel="--clk">dummy</div>
+          <div id="xx" ƒ-dummy="--clk" ƒ-dummy-camel="--clk" ƒ-subprop="--subProperty(*.b)" @-firesub="^^subbubble(*.ccc), ^subnonbubble(*.eee), -^subhost(*.ccc.xx)">dummy</div>
 
           <button id="bubblebtn" @-click="--bubble"></button>
 
           <div
             id="bubble"
             ƒ-hit="--bubble"
-            @-hitted="((propp)),--raw(*), --data(id), ^prop(prop),^fire, ^^testEvent,^^fireBubbleData(id), -^fire-on-host-with-data, -^fire-on-host-with-data(id),:STOP"
+            @-hitted="((propp)),--raw(*), --subProperty(subproperty), --data(id), ^prop(prop),^fire, ^^testEvent,^^fireBubbleData(id), -^fire-on-host-with-data, -^fire-on-host-with-data(id),:STOP,:PREVENTDEFAULT"
             ƒ-sefl="oo"
           >
             dummy
@@ -51,6 +51,56 @@ describe('hooks', () => {
     assert.equal(bubblebtn.id, 'bubblebtn');
     assert.equal(bubble.id, 'bubble');
     done();
+  });
+
+  it('should filter subprops of details on refire the event with ^^subnonbubble(*.eee)', (done) => {
+    xx.addEventListener("subnonbubble",(e)=>{
+      assert.equal(e.detail, 3);
+      done();
+    });
+
+    const customEvent = new Event('firesub', {composed:true, bubbles: true});
+    customEvent.detail = {eee:3,ccc:4};
+    xx.dispatchEvent(customEvent)
+  });
+
+  it('should filter subprops of details on refire the event with ^^subbubble(*.ccc)', (done) => {
+    xx.parentNode.addEventListener("subbubble",(e)=>{
+      assert.equal(e.detail, 4);
+      done();
+    });
+
+    const customEvent = new Event('firesub', {composed:true, bubbles: true});
+    customEvent.detail = {eee:3,ccc:4};
+    xx.dispatchEvent(customEvent)
+  });
+
+  it('should filter subprops of details on refire the event with -^subhost(*.ccc)', (done) => {
+    host.addEventListener("subhost",(e)=>{
+      assert.equal(e.detail.a, 2);
+      done();
+    });
+
+    const customEvent = new Event('firesub', {composed:true, bubbles: true});
+    customEvent.detail = {eee:3,ccc:{xx:{a:2}}};
+    xx.dispatchEvent(customEvent)
+  });
+
+  it('should send sub properties of a wire', (done) => {
+    xx.subprop = (data)=>{
+      assert.equal(data, 4);
+      done();
+    };
+    host.subproperty = {a:3,b:4};
+
+    // eslint-disable-next-line func-names
+    bubble.hit = function() {
+      const customEvent = new Event('hitted', { composed: true, bubbles: true });
+      customEvent.detail = 3333;
+      this.dispatchEvent(customEvent);
+    };
+
+    bubblebtn.click();
   });
 
   it('click should bubble event', done => {

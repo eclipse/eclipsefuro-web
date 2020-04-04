@@ -43,12 +43,6 @@ export const FBP = superClass =>
       this.__wireQueue = [];
     }
 
-    //  Auto append fbp for Polymer
-    _attachDom(dom) {
-      this._appendFBP(dom);
-      super._attachDom(dom);
-    }
-
     // Auto append fbp for lit elements
     firstUpdated() {
       // ensure to append only once
@@ -452,11 +446,9 @@ export const FBP = superClass =>
               const customEvent = new Event(theEvent, { composed: false, bubbles: true });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
-                if (prop.length === 1) {
-                  customEvent.detail = e;
-                } else {
-                  customEvent.detail = self._pathGet(e, prop.substr(2));
-                }
+
+                  customEvent.detail = self._pathGet(e.detail, prop.substr(2));
+
               } else {
                 customEvent.detail = self._pathGet(self, prop);
               }
@@ -475,11 +467,9 @@ export const FBP = superClass =>
               const customEvent = new Event(theEvent, { composed: false, bubbles: true });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
-                if (prop.length === 1) {
-                  customEvent.detail = e;
-                } else {
-                  customEvent.detail = self._pathGet(e, prop.substr(2));
-                }
+
+                  customEvent.detail = self._pathGet(e.detail, prop.substr(2));
+
               } else {
                 customEvent.detail = self._pathGet(self, prop);
               }
@@ -498,11 +488,9 @@ export const FBP = superClass =>
               const customEvent = new Event(theEvent, { composed: true, bubbles: true });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
-                if (prop.length === 1) {
-                  customEvent.detail = e;
-                } else {
-                  customEvent.detail = self._pathGet(e, prop.substr(2));
-                }
+
+                  customEvent.detail = self._pathGet(e.detail, prop.substr(2));
+
               } else {
                 customEvent.detail = self._pathGet(self, prop);
               }
