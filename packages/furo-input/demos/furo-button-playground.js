@@ -4,7 +4,7 @@ import { FBP } from '@furo/fbp';
 import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/input/src/furo-catalog.js';
-import { Styling } from '@furo/doc-helper/styling';
+import { Styling } from '@furo/doc-helper/src/styling';
 
 /**
  * `demo-furo-button`

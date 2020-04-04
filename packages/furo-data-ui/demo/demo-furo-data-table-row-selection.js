@@ -1,6 +1,6 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/src/theme"
-import {Styling} from "@furo/doc-helper/styling";
+import {Styling} from "@furo/doc-helper/src/styling";
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 import "../furo-catalog"

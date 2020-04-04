@@ -13,7 +13,7 @@
   "main": "src/furo-catalog.js",
   "scripts": {
     "start": "../../node_modules/.bin/es-dev-server --root-dir ../../ --app-index packages/furo-timing/index.html --open",
-    "update-docs": "../../node_modules/@furo/doc-helper/component-doc/buildTree.js",
+    "update-docs": "../../node_modules/@furo/doc-helper/src/component-doc/buildTree.js",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "lint:eslint": "../../node_modules/.bin/eslint --ext .js . --ignore-path .gitignore",
     "lint:prettier": "../../node_modules/.bin/prettier \"**/*.js\" --check --ignore-path .gitignore",

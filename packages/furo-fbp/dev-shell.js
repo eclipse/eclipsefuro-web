@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit-element';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { FBP } from '@furo/fbp';
-import '@furo/doc-helper/component-doc/init.js';
-import '@furo/doc-helper/component-doc/main-stage.js';
+import '@furo/doc-helper/src/component-doc/init.js';
+import '@furo/doc-helper/src/component-doc/main-stage.js';
 import './demos/demos.js';
 // import with @furo/... because we are in a monorepo
 // eslint-disable-next-line import/no-extraneous-dependencies
