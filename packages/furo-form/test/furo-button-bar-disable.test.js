@@ -44,7 +44,6 @@ describe('furo-button-bar-disable', () => {
     await element.updateComplete;
   });
 
-
   it('should be a furo-button-bar', done => {
     // keep this test on top, so you can recognize a wrong asignment
     assert.equal(element.nodeName.toLowerCase(), 'furo-button-bar');
@@ -72,43 +71,40 @@ describe('furo-button-bar-disable', () => {
   // axeReport a11y tests
   it('a11y', () => axeReport(element));
 
-  it('should set the correct disabled states', (done) => {
+  it('should set the correct disabled states', done => {
     agent.loadOnHtsIn = true;
 
     agent.addEventListener('response', () => {
       let cntDisabled = 0;
       console.log(dao);
       const slotted = element.shadowRoot.firstElementChild.children[0].assignedElements();
-      slotted.forEach((e) => {
+      slotted.forEach(e => {
         if (e.getAttribute('disabled') !== null) {
-          cntDisabled+=1;
+          cntDisabled += 1;
         }
       });
       assert.equal(cntDisabled, 1);
       done();
-
     });
-    qp.qpIn({"tsk": 2});
+    qp.qpIn({ tsk: 2 });
   });
 
-  it('should detect a field change', (done) => {
+  it('should detect a field change', done => {
     agent.loadOnHtsIn = true;
 
     agent.addEventListener('response', () => {
       let cntDisabled = 0;
 
-      dao.data.data.description._value = "modified value";
+      dao.data.data.description._value = 'modified value';
       const slotted = element.shadowRoot.firstElementChild.children[0].assignedElements();
-      slotted.forEach((e) => {
+      slotted.forEach(e => {
         if (e.getAttribute('disabled') !== null) {
-          cntDisabled+=1;
+          cntDisabled += 1;
         }
       });
       assert.equal(cntDisabled, 0);
       done();
-
     });
-    qp.qpIn({"tsk": 2});
+    qp.qpIn({ tsk: 2 });
   });
-
 });
