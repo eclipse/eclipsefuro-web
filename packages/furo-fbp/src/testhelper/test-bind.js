@@ -1,4 +1,5 @@
-import {FBP} from '../fbp.js';
+// eslint-disable-next-line max-classes-per-file
+import { FBP } from '../fbp.js';
 
 /**
  * `flow-bind`
@@ -24,24 +25,22 @@ import {FBP} from '../fbp.js';
  * @summary Custom element to allow using furo-fbp's template features in a html document.
  */
 class TestBind extends FBP(HTMLElement) {
-    constructor() {
-        super();
-        this.attachShadow({mode: 'open'});
-        let t = this.querySelector('template');
-        this.template = t.content;
-        let elem = document.createElement("empty-test-fbp-node");
-        elem.attachShadow({mode: 'open'});
-        elem.shadowRoot.appendChild(this.template.cloneNode(true));
-        elem._appendFBP(elem.shadowRoot);
-        this._host = elem;
-        this.parentNode.appendChild(elem.shadowRoot);
-    }
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    // eslint-disable-next-line wc/no-constructor-attributes
+    const t = this.querySelector('template');
+    this.template = t.content;
+    const elem = document.createElement('empty-test-fbp-node');
+    elem.attachShadow({ mode: 'open' });
+    elem.shadowRoot.appendChild(this.template.cloneNode(true));
+    elem._appendFBP(elem.shadowRoot);
+    this._host = elem;
+    this.parentNode.appendChild(elem.shadowRoot);
+  }
 }
 
-window.customElements.define("test-bind", TestBind);
+window.customElements.define('test-bind', TestBind);
 
-
-class EmptyTestFBPNode extends FBP(HTMLElement) {
-
-}
+class EmptyTestFBPNode extends FBP(HTMLElement) {}
 window.customElements.define('empty-test-fbp-node', EmptyTestFBPNode);

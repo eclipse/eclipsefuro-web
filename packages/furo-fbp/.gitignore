@@ -1,9 +1,8 @@
-node_modules
-coverage
-bower_components
-dist
-.divshot-cache
+.furo
 .idea
-.DS_Store
-docs/public
 coverage
+build
+dist
+node_modules/
+_specbuild
+__tmp

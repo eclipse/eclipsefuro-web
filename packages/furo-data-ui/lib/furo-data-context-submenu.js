@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
-// import '@furo/fbp/flow-repeat'; // disabled for tests :-(
+// import '@furo/fbp/src/flow-repeat'; // disabled for tests :-(
 // import '@furo/util/src/furo-navigation-pad';
 import './furo-data-context-menu-item';
 

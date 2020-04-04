@@ -1,7 +1,7 @@
 import 'axe-core/axe.min.js';
 
 import '../src/furo-catalog.js';
-import '@furo/fbp/testhelper/test-bind'; // for testing with wires and hooks
+import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
 import { panelRegistry } from '../src/lib/panelRegistry.js';
 
 describe('panelRegistry.test', () => {

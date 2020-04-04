@@ -2,7 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {FBP} from '@furo/fbp';
 import {Theme} from "@furo/framework/src/theme";
 import '@furo/layout';
-import "@furo/fbp/flow-repeat";
+import "@furo/fbp/src/flow-repeat";
 import "./side-navigation/side-navigation-group";
 /**
  * `api-navigation`

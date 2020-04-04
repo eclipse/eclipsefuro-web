@@ -940,7 +940,7 @@
           "description": "Auto append fbp for Polymer",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../@furo/fbp/src/fbp.js",
             "start": {
               "line": 47,
               "column": 8
@@ -966,7 +966,7 @@
           "description": "Auto append fbp for lit elements",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../@furo/fbp/src/fbp.js",
             "start": {
               "line": 53,
               "column": 8
@@ -992,7 +992,7 @@
           "description": "Triggers a wire",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../@furo/fbp/src/fbp.js",
             "start": {
               "line": 69,
               "column": 8
@@ -1023,7 +1023,7 @@
           "description": "",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../@furo/fbp/src/fbp.js",
             "start": {
               "line": 125,
               "column": 8
@@ -1054,7 +1054,7 @@
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../@furo/fbp/src/fbp.js",
             "start": {
               "line": 151,
               "column": 8
@@ -1076,7 +1076,7 @@
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../@furo/fbp/src/fbp.js",
             "start": {
               "line": 197,
               "column": 8
@@ -1106,7 +1106,7 @@
           "description": "",
           "privacy": "private",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../@furo/fbp/src/fbp.js",
             "start": {
               "line": 235,
               "column": 8
@@ -1129,7 +1129,7 @@
           "description": "parses the dom for flowbased programming tags",
           "privacy": "private",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../@furo/fbp/src/fbp.js",
             "start": {
               "line": 246,
               "column": 8
@@ -1176,7 +1176,7 @@
           "description": "",
           "privacy": "private",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../@furo/fbp/src/fbp.js",
             "start": {
               "line": 541,
               "column": 8
@@ -1205,7 +1205,7 @@
           "description": "",
           "privacy": "private",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../@furo/fbp/src/fbp.js",
             "start": {
               "line": 545,
               "column": 8
@@ -1228,7 +1228,7 @@
           "description": "",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../@furo/fbp/src/fbp.js",
             "start": {
               "line": 555,
               "column": 8
@@ -1250,7 +1250,7 @@
           "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../@furo/fbp/src/fbp.js",
             "start": {
               "line": 580,
               "column": 8
@@ -1284,7 +1284,7 @@
           "description": "Sets a value to a path.  If any sub-property in the path is `undefined`,\nthis method will no-op.",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../@furo/fbp/src/fbp.js",
             "start": {
               "line": 604,
               "column": 8
@@ -1323,7 +1323,7 @@
           "description": "Splits a path into an array of property names. Accepts either arrays\nof path parts or strings.\n\nExample:\n\n```\nsplit(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']\nsplit('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']\n```",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../@furo/fbp/src/fbp.js",
             "start": {
               "line": 644,
               "column": 8

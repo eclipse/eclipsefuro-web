@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit-element';
 import {FBP} from "@furo/fbp";
-import   "@furo/fbp/flow-repeat";
+import   "@furo/fbp/src/flow-repeat";
 
 /**
  * `repeated-data`

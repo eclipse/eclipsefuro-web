@@ -1,5 +1,5 @@
-import {FBP} from './fbp.js';
-import "./empty-fbp-node"
+import { FBP } from './fbp.js';
+import './empty-fbp-node.js';
 
 /**
  * `flow-bind`
@@ -25,18 +25,19 @@ import "./empty-fbp-node"
  * @summary Custom element to allow using furo-fbp's template features in a html document.
  */
 class FlowBind extends FBP(HTMLElement) {
-    constructor() {
-        super();
-        this.attachShadow({mode: 'open'});
-        let t = this.querySelector('template');
-        this.template = t.content;
-        let elem = document.createElement("empty-fbp-node");
-        elem.attachShadow({mode: 'open'});
-        elem.shadowRoot.appendChild(this.template.cloneNode(true));
-        elem._appendFBP(elem.shadowRoot);
-        this._host = elem;
-        this.parentNode.appendChild(elem.shadowRoot);
-    }
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    // eslint-disable-next-line wc/no-constructor-attributes
+    const t = this.querySelector('template');
+    this.template = t.content;
+    const elem = document.createElement('empty-fbp-node');
+    elem.attachShadow({ mode: 'open' });
+    elem.shadowRoot.appendChild(this.template.cloneNode(true));
+    elem._appendFBP(elem.shadowRoot);
+    this._host = elem;
+    this.parentNode.appendChild(elem.shadowRoot);
+  }
 }
 
-window.customElements.define("flow-bind", FlowBind);
+window.customElements.define('flow-bind', FlowBind);

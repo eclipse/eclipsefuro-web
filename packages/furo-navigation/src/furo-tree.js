@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
-import '@furo/fbp/flow-repeat';
+import '@furo/fbp/src/flow-repeat';
 import { FieldNode } from '@furo/data/lib/FieldNode';
 import '@furo/layout/src/furo-vertical-flex';
 import { NodeEvent } from '@furo/data/lib/EventTreeNode.js';

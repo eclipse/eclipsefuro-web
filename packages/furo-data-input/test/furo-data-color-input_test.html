@@ -20,7 +20,7 @@
         <test-bind>
             <template>
                 <furo-data-color-input ƒ-bind-data="--entity(*.data.furo_data_color_input)"></furo-data-color-input>
-                
+
                 <furo-data-object type="experiment.ExperimentEntity" @-object-ready="--entity"
                                   ƒ-inject-raw="--response"></furo-data-object>
 
@@ -40,7 +40,7 @@
 
 <script type="module">
     import "../furo-catalog.js"
-    import "@furo/fbp/testhelper/test-bind";
+    import "@furo/fbp/src/testhelper/test-bind";
     import "@furo/testhelper/initEnv.js"
     import "@furo/data/furo-data-object.js";
     import "@furo/data/furo-entity-agent";
