@@ -3,7 +3,7 @@ import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat';
 import '@furo/util/src/furo-navigation-pad';
-import { RepeaterNode } from '@furo/data/lib/RepeaterNode.js';
+import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode.js';
 import './lib/furo-data-context-menu-item.js';
 import './lib/furo-data-context-submenu.js';
 

@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
-import { NodeEvent } from '@furo/data/lib/EventTreeNode.js';
+import { NodeEvent } from '@furo/data/src/lib/EventTreeNode.js';
 /**
  * `demo-panel`
  * todo Describe your element

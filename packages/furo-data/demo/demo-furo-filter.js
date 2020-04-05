@@ -5,7 +5,7 @@ import "@furo/doc-helper"
 import "@furo/data";
 import "@furo/util";
 
-import "../furo-catalog"
+import "../src/furo-catalog"
 import "./helper/demo-project-filter-form"
 
 /**

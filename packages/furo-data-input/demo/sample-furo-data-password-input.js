@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/src/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
-import "../furo-catalog"
+import "../src/furo-catalog"
 /**
  * `sample-furo-data-password-input`
  *

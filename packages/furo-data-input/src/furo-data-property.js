@@ -1,8 +1,8 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/src/theme"
 import {FBP} from "@furo/fbp";
-import {NodeEvent} from "@furo/data/lib/EventTreeNode";
-import {RepeaterNode} from "@furo/data/lib/RepeaterNode";
+import {NodeEvent} from "@furo/data/src/lib/EventTreeNode";
+import {RepeaterNode} from "@furo/data/src/lib/RepeaterNode";
 
 /**
  * `furo-data-property`

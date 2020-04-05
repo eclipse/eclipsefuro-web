@@ -3,7 +3,7 @@ import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 import '@furo/doc-helper/src/furo-doc-class.js';
 import '@furo/util/src/furo-fetch-json.js';
-import { NodeEvent } from '@furo/data/lib/EventTreeNode.js';
+import { NodeEvent } from '@furo/data/src/lib/EventTreeNode.js';
 
 /**
  * `class-panel`

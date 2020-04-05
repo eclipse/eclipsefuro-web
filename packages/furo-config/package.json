@@ -1,7 +1,7 @@
 {
   "name": "@furo/config",
   "description": "Furo config components",
-  "main": "furo-catalog.js",
+  "main": "src/furo-catalog.js",
   "version": "0.17.38",
   "dependencies": {
     "@furo/data": "^0.72.2",

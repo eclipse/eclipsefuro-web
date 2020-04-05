@@ -1,4 +1,4 @@
-import {EventTreeNode, NodeEvent} from "@furo/data/lib/EventTreeNode";
+import {EventTreeNode, NodeEvent} from "@furo/data/src/lib/EventTreeNode";
 
 class ConfigTree extends EventTreeNode {
   constructor(parentNode, fieldName) {

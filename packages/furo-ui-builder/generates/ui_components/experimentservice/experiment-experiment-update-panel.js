@@ -9,8 +9,8 @@ import {  BasePanel  } from '@furo/route/src/lib/BasePanel.js';
 import "@furo/layout/src/furo-vertical-flex.js";
 import "@furo/layout/src/furo-panel.js";
 import "@furo/navigation/src/furo-panel-head.js";
-import "@furo/data/furo-entity-agent.js";
-import "@furo/data/furo-data-object.js";
+import "@furo/data/src/furo-entity-agent.js";
+import "@furo/data/src/furo-data-object.js";
 import "../experiment/experiment-experiment-form.js";
 import "./experiment-experiment-update-action.js";
 

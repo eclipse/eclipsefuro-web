@@ -1497,7 +1497,7 @@
           "description": "move the position of an item from an index to an index.\n\nKeep in mind that this is not swaping!\n\nhttps://stackoverflow.com/questions/5306680/move-an-array-element-from-one-array-position-to-another",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../../@furo/data/lib/EventTreeNode.js",
+            "file": "../../../../@furo/data/src/lib/EventTreeNode.js",
             "start": {
               "line": 74,
               "column": 2
@@ -1526,7 +1526,7 @@
           "description": "shorthand function to add a property as child node",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../../@furo/data/lib/EventTreeNode.js",
+            "file": "../../../../@furo/data/src/lib/EventTreeNode.js",
             "start": {
               "line": 93,
               "column": 2
@@ -1555,7 +1555,7 @@
           "description": "Add a listener to a node",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../../@furo/data/lib/EventTreeNode.js",
+            "file": "../../../../@furo/data/src/lib/EventTreeNode.js",
             "start": {
               "line": 104,
               "column": 2
@@ -1589,7 +1589,7 @@
           "description": "Removes the listener from a node",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../../@furo/data/lib/EventTreeNode.js",
+            "file": "../../../../@furo/data/src/lib/EventTreeNode.js",
             "start": {
               "line": 116,
               "column": 2
@@ -1618,7 +1618,7 @@
           "description": "Dispatch an event",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../../@furo/data/lib/EventTreeNode.js",
+            "file": "../../../../@furo/data/src/lib/EventTreeNode.js",
             "start": {
               "line": 133,
               "column": 2
@@ -1645,7 +1645,7 @@
           "description": "Broadcast the event to node and all childNodes and their childNodes\nBubbling is ignored, but propagation can be stopped",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../../@furo/data/lib/EventTreeNode.js",
+            "file": "../../../../@furo/data/src/lib/EventTreeNode.js",
             "start": {
               "line": 156,
               "column": 2
@@ -1671,7 +1671,7 @@
           "description": "",
           "privacy": "private",
           "sourceRange": {
-            "file": "../../../../@furo/data/lib/EventTreeNode.js",
+            "file": "../../../../@furo/data/src/lib/EventTreeNode.js",
             "start": {
               "line": 168,
               "column": 2

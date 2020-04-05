@@ -1,6 +1,6 @@
 import { LitElement } from 'lit-element';
 import { FBP } from '@furo/fbp';
-import { NodeEvent } from '@furo/data/lib/EventTreeNode.js';
+import { NodeEvent } from '@furo/data/src/lib/EventTreeNode.js';
 import { panelRegistry } from './lib/panelRegistry.js';
 
 /**

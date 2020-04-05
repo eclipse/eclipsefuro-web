@@ -2,8 +2,8 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/layout/src/furo-horizontal-flex';
-import '@furo/data-input/furo-data-bool-icon';
-import { NodeEvent } from '@furo/data/lib/EventTreeNode';
+import '@furo/data-input/src/furo-data-bool-icon';
+import { NodeEvent } from '@furo/data/src/lib/EventTreeNode';
 
 /**
  * `furo-tree-item`

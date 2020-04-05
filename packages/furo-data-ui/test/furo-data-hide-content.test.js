@@ -5,7 +5,7 @@ import '../src/furo-catalog.js';
 import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/testhelper/initEnv.js';
-import '@furo/data/furo-data-object.js';
+import '@furo/data/src/furo-data-object.js';
 
 describe('furo-data-hide-content', () => {
   let element;

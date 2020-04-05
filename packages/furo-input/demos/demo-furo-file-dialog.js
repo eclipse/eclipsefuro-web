@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/doc-helper';
-import '@furo/app/furo-card.js';
+import '@furo/app/src/furo-card.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/input/src/furo-catalog.js';

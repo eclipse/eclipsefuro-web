@@ -6,7 +6,7 @@
   "description": "",
   "source": "package/typename.type.spec",
   "imports": [
-    "@furo/app/furo-card.js",
+    "@furo/app/src/furo-card.js",
     "@furo/input/src/furo-button.js",
     "@furo/form/src/furo-form-layouter.js"
   ],

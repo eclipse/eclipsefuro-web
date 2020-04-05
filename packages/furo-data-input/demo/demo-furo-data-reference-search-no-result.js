@@ -2,12 +2,12 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/src/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
-import "@furo/data/furo-data-object";
-import "../furo-catalog";
-import "@furo/data/furo-deep-link";
+import "@furo/data/src/furo-data-object";
+import "../src/furo-catalog";
+import "@furo/data/src/furo-deep-link";
 import "./helper/produce-qp-data";
-import "@furo/data/furo-entity-agent";
-import "@furo/data/furo-collection-agent";
+import "@furo/data/src/furo-entity-agent";
+import "@furo/data/src/furo-collection-agent";
 import "./helper/produce-empty-data.js";
 
 /**

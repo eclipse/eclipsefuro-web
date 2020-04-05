@@ -24,7 +24,7 @@
     "@furo/data-input",
     "@furo/form/src/furo-form-layouter.js",
     "@furo/input/src/furo-button.js",
-    "@furo/app/furo-card.js",
+    "@furo/app/src/furo-card.js",
     "@furo/layout/src/furo-horizontal-flex.js"
   ],
   "component_name": "google-protobuf-int64value-create-widget",

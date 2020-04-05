@@ -7,14 +7,14 @@ import '@furo/input/src/furo-button.js';
 import '@furo/route/src/furo-location.js';
 import '@furo/route/src/furo-pages.js';
 
-import '@furo/app/furo-app-drawer.js';
-import '@furo/app/furo-app-bar-top.js';
+import '@furo/app/src/furo-app-drawer.js';
+import '@furo/app/src/furo-app-bar-top.js';
 import '@furo/notification/src/furo-snackbar-display.js';
 
 import '@furo/layout/src/furo-empty-spacer.js';
 import '@furo/layout/src/furo-horizontal-flex.js';
 import '@furo/input/src/furo-search-input.js';
-import '@furo/data/furo-data-object.js';
+import '@furo/data/src/furo-data-object.js';
 import '@furo/util/src/furo-fetch-json.js';
 import '@furo/navigation/src/furo-tree.js';
 import '@furo/route/src/furo-qp-changer.js';

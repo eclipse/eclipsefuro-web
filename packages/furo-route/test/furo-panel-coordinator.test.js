@@ -5,7 +5,7 @@ import '../src/furo-catalog.js';
 import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
 
 import './helper/panel-produce-data.js';
-import '@furo/data/furo-data-object.js';
+import '@furo/data/src/furo-data-object.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/navigation';
 // eslint-disable-next-line import/no-extraneous-dependencies

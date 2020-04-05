@@ -4,7 +4,7 @@ import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 import "@furo/data"
 
-import "../furo-catalog"
+import "../src/furo-catalog"
 /**
  * `sample-furo-number-input`
  *
