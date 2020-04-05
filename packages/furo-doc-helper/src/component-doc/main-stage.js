@@ -22,7 +22,7 @@ import '@furo/route/src/furo-panel-coordinator.js';
 import '@furo/navigation/src/furo-panel-coordinator-tabs.js';
 import '@furo/util/src/furo-navigation-pad.js';
 import '@furo/util/src/furo-keydown.js';
-import '@furo/data-ui/furo-data-context-menu-display.js';
+import '@furo/data-ui/src/furo-data-context-menu-display.js';
 import './inital-panel.js';
 
 /**
