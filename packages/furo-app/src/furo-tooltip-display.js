@@ -1,6 +1,6 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
 
 /**
  * `furo-tooltip-display`
@@ -12,35 +12,36 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class FuroTooltipDisplay extends FBP(LitElement) {
-
   constructor() {
     super();
 
     // return **this** to component which want to connect
-    window.addEventListener("hide-tooltip-requested", (e) => {
+    window.addEventListener('hide-tooltip-requested', () => {
       if (this.show) {
-        clearTimeout(this.to)
+        clearTimeout(this.to);
         this.show = false;
       }
     });
-    window.addEventListener("show-tooltip-requested", (e) => {
-      let cr = e.detail.cr;
-      let x = cr.left + cr.width / 2;
+    window.addEventListener('show-tooltip-requested', e => {
+      const { cr } = e.detail;
+      const x = cr.left + cr.width / 2;
       let y = cr.bottom + 16;
 
-      let max_y = window.innerHeight - 48;
-      if(y > max_y){
+      const maxY = window.innerHeight - 48;
+      if (y > maxY) {
         y = cr.top - 32;
       }
-      this.style.top = y + "px";
+      // eslint-disable-next-line wc/no-constructor-attributes
+      this.style.top = `${y}px`;
       this.start = true;
       this.label = e.detail.label;
       clearTimeout(this.to);
 
       setTimeout(() => {
-        let mycr = this.getBoundingClientRect();
-        let max = window.innerWidth - 8;
-        this.style.left = Math.min(max - mycr.width , Math.max(8,x - mycr.width / 2)) + "px";
+        const mycr = this.getBoundingClientRect();
+        const max = window.innerWidth - 8;
+        // eslint-disable-next-line wc/no-constructor-attributes
+        this.style.left = `${Math.min(max - mycr.width, Math.max(8, x - mycr.width / 2))}px`;
 
         this.show = true;
         this.to = setTimeout(() => {
@@ -50,11 +51,8 @@ class FuroTooltipDisplay extends FBP(LitElement) {
           }
         }, e.detail.duration);
         this.requestUpdate();
-      }, 10)
-
-
-    })
-
+      }, 10);
+    });
   }
 
   /**
@@ -66,8 +64,8 @@ class FuroTooltipDisplay extends FBP(LitElement) {
       /**
        * Description
        */
-      start: {type: Boolean, reflect: true},
-      show: {type: Boolean, reflect: true}
+      start: { type: Boolean, reflect: true },
+      show: { type: Boolean, reflect: true },
     };
   }
 
@@ -76,8 +74,7 @@ class FuroTooltipDisplay extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
-
+    // this._FBPTraceWires()
   }
 
   /**
@@ -87,38 +84,39 @@ class FuroTooltipDisplay extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroTooltipDisplay') || css`
-      :host {
-        position: absolute;
-        display: none;
-        top:0;
-        left: 0;
-        transition: opacity 300ms;
-        opacity: 0;
-        background-color: #6d6d6d;
-        color: white;
-        height: 24px;
-        padding: 0 8px;
-        border-radius: 4px;
-        font-size: 12px;
-        line-height: 24px;
-        z-index: 10;
-        white-space: nowrap;
-      }
+    return (
+      Theme.getThemeForComponent('FuroTooltipDisplay') ||
+      css`
+        :host {
+          position: absolute;
+          display: none;
+          top: 0;
+          left: 0;
+          transition: opacity 300ms;
+          opacity: 0;
+          background-color: #6d6d6d;
+          color: white;
+          height: 24px;
+          padding: 0 8px;
+          border-radius: 4px;
+          font-size: 12px;
+          line-height: 24px;
+          z-index: 10;
+          white-space: nowrap;
+        }
 
-      :host([start]) {
-        display: block;
-        opacity: 0;
-      }
+        :host([start]) {
+          display: block;
+          opacity: 0;
+        }
 
-      :host([show]) {
-        opacity: 1;
-        display: block;
-
-      }
-    `
+        :host([show]) {
+          opacity: 1;
+          display: block;
+        }
+      `
+    );
   }
-
 
   /**
    * @private

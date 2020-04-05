@@ -1,6 +1,6 @@
-import {LitElement, html, css} from 'lit-element';
-import {FBP} from "@furo/fbp";
-import {Theme} from "@furo/framework/src/theme"
+import { LitElement, html, css } from 'lit-element';
+import { FBP } from '@furo/fbp';
+import { Theme } from '@furo/framework/src/theme';
 
 /**
  * `loading-indicator`
@@ -14,12 +14,11 @@ import {Theme} from "@furo/framework/src/theme"
  * @appliesMixin FBP
  */
 class FuroLoadingIndicatorBar extends FBP(LitElement) {
-
   constructor() {
     super();
-    this.setAttribute("hidden", "")
+    // eslint-disable-next-line wc/no-constructor-attributes
+    this.setAttribute('hidden', '');
   }
-
 
   /**
    *
@@ -28,20 +27,22 @@ class FuroLoadingIndicatorBar extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroLoadingIndicatorBar') || css`
+    return (
+      Theme.getThemeForComponent('FuroLoadingIndicatorBar') ||
+      css`
         :host {
-            display: block;
-            width: 100%;
-            height: 4px;
-            pointer-events: none;
-            opacity: 0.8;
-            background-color: var(--secondary);
-            animation: colorchange 5s infinite;
-            @apply --loading-indicator-mixin;
+          display: block;
+          width: 100%;
+          height: 4px;
+          pointer-events: none;
+          opacity: 0.8;
+          background-color: var(--secondary);
+          animation: colorchange 5s infinite;
+          @apply --loading-indicator-mixin;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         @keyframes colorchange {
@@ -61,16 +62,16 @@ class FuroLoadingIndicatorBar extends FBP(LitElement) {
             background: var(--secondary, red);
           }
         }
-    `
+      `
+    );
   }
 
-
   start() {
-    this.removeAttribute("hidden");
+    this.removeAttribute('hidden');
   }
 
   stop() {
-    this.setAttribute("hidden", "");
+    this.setAttribute('hidden', '');
   }
 
   /**

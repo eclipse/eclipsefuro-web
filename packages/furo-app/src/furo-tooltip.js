@@ -1,6 +1,6 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
+import { LitElement, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
 
 /**
  * `furo-tooltip`
@@ -12,7 +12,6 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class FuroTooltip extends FBP(LitElement) {
-
   constructor() {
     super();
     /**
@@ -20,22 +19,20 @@ class FuroTooltip extends FBP(LitElement) {
      * @type {number}
      */
     this.duration = 1500;
-    this.parentNode.addEventListener("mouseover", (e) => {
+    this.parentNode.addEventListener('mouseover', () => {
       this.show();
     });
 
-
-    this.parentNode.addEventListener("mouseout", (e) => {
+    this.parentNode.addEventListener('mouseout', () => {
       /**
        * @event show-tooltip-requested
        * Fired when mouseover on component
        * detail payload:
        */
-      let customEvent = new Event('hide-tooltip-requested', {composed: true, bubbles: true});
+      const customEvent = new Event('hide-tooltip-requested', { composed: true, bubbles: true });
       customEvent.detail = this;
-      this.dispatchEvent(customEvent)
+      this.dispatchEvent(customEvent);
     });
-
   }
 
   /**
@@ -50,7 +47,7 @@ class FuroTooltip extends FBP(LitElement) {
      * Fired when mouseover on component
      * detail payload:
      */
-    let customEvent = new Event('show-tooltip-requested', {composed: true, bubbles: true});
+    const customEvent = new Event('show-tooltip-requested', { composed: true, bubbles: true });
     customEvent.detail = this;
     this.dispatchEvent(customEvent);
   }
@@ -64,8 +61,8 @@ class FuroTooltip extends FBP(LitElement) {
       /**
        * Display duration in ms
        */
-      duration: {type: Number},
-      label: {type: String}
+      duration: { type: Number },
+      label: { type: String },
     };
   }
 
@@ -74,8 +71,7 @@ class FuroTooltip extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
-
+    // this._FBPTraceWires()
   }
 
   /**
@@ -85,14 +81,15 @@ class FuroTooltip extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroTooltip') || css`
-      :host {
-        display: none;
-      }
-    `
+    return (
+      Theme.getThemeForComponent('FuroTooltip') ||
+      css`
+        :host {
+          display: none;
+        }
+      `
+    );
   }
-
-
 }
 
 window.customElements.define('furo-tooltip', FuroTooltip);
