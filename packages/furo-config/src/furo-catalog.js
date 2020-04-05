@@ -1,2 +1,2 @@
-import "./furo-config"
-import "./furo-config-loader"
+import "./furo-config.js"
+import "./furo-config-loader.js"

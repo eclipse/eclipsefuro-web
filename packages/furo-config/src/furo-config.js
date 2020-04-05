@@ -51,7 +51,7 @@ class FuroConfig extends (LitElement) {
        * Fired when section changed
        * detail payload: section config
        */
-      let customEvent = new Event('config-updated', {composed: true, bubbles: true});
+      const customEvent = new Event('config-updated', {composed: true, bubbles: true});
       customEvent.detail = section.detail._value;
       this.dispatchEvent(customEvent);
     })
