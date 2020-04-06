@@ -36,12 +36,16 @@ class ProduceQpData extends FBP(LitElement) {
        */
       auto: {type: Boolean},
 
-      qp: {type: Object, reflect: true}
+      qp: {type: Object},
+      qpescaped: {type: String}
     };
   }
 
 
   produce() {
+    if (this.qpescaped) {
+      this.qp = JSON.parse( unescape(this.qpescaped))
+    }
 
     const customEvent = new Event('data', {composed: true, bubbles: true});
     customEvent.detail = this.qp ;
