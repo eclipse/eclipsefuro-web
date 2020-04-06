@@ -1,4 +1,4 @@
-import {LitElement} from 'lit-element';
+import { LitElement } from 'lit-element';
 
 /**
  * `furo-rel-exists`
@@ -8,9 +8,6 @@ import {LitElement} from 'lit-element';
  * @customElement
  */
 class FuroRelExists extends LitElement {
-
-
-
   /**
    * Inject a HTS Link Array to receive a `rel-exist` or a `rel-dont-exist` event.
    *
@@ -20,10 +17,8 @@ class FuroRelExists extends LitElement {
    * @return {boolean}
    */
   inject(linkArray) {
-    const links = linkArray.filter((link) => {
-
+    const links = linkArray.filter(link => {
       if (this.type) {
-
         return link.rel === this.rel && link.type === this.type;
       }
       return link.rel === this.rel;
@@ -35,8 +30,8 @@ class FuroRelExists extends LitElement {
        * Fired when rel exists in linkArray
        * detail payload: {Object} Hateoas Link
        */
-      const customEvent = new Event('furo-rel-exists', {composed: true, bubbles: true});
-      customEvent.detail = links[0];
+      const customEvent = new Event('furo-rel-exists', { composed: true, bubbles: true });
+      [customEvent.detail] = links;
       this.dispatchEvent(customEvent);
       return true;
     }
@@ -46,7 +41,7 @@ class FuroRelExists extends LitElement {
      * Fired when rel does not exists in linkArray
      * detail payload: void
      */
-    const customEvent = new Event('rel-dont-exist', {composed: true, bubbles: true});
+    const customEvent = new Event('rel-dont-exist', { composed: true, bubbles: true });
     this.dispatchEvent(customEvent);
 
     return false;
@@ -61,26 +56,26 @@ class FuroRelExists extends LitElement {
       /**
        * Name of the rel
        */
-      rel: {type: String},
+      rel: { type: String },
       /**
        * define the type if you want a specific check on the type also
        */
-      type: {type: String}
+      type: { type: String },
     };
   }
 
   attributeChangedCallback(name, old, value) {
     switch (name) {
-      case "rel":
+      case 'rel':
         this.rel = value;
         break;
 
-      case "type":
+      case 'type':
         this.type = value;
         break;
+      default:
     }
   }
-
 }
 
 window.customElements.define('furo-rel-exists', FuroRelExists);

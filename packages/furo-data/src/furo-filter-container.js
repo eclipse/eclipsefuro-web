@@ -1,4 +1,4 @@
-import {FBP} from '@furo/fbp';
+import { FBP } from '@furo/fbp';
 
 /**
  * Placeholder component to describe nested filters
@@ -28,90 +28,90 @@ import {FBP} from '@furo/fbp';
  * @appliesMixin FBP
  */
 class FuroFilterContainer extends FBP(HTMLElement) {
-
   constructor() {
     super();
-    this.style.display = "none";
-    this.type = this.getAttribute("type");
+    this.style.display = 'none';
+    this.type = this.getAttribute('type');
 
     // find .querySelectorAll("simple-filter-field")
-    const filterFields = this.querySelectorAll("simple-filter-field");
+    const filterFields = this.querySelectorAll('simple-filter-field');
     if (filterFields != null) {
-      filterFields.forEach((f) => {
+      filterFields.forEach(f => {
         // set types to children
-        f.type = this.type
-      })
+        // eslint-disable-next-line no-param-reassign
+        f.type = this.type;
+      });
     }
 
     // register changes
-    this.addEventListener("furo-filter-field-changed", (e) => {
+    this.addEventListener(
+      'furo-filter-field-changed',
+      () => {
+        // baum für filter aufbauen
+        const filter = [];
+        this._scanfilterFields(this, filter);
 
-      // baum für filter aufbauen
-      const filter = [];
-      this._scanfilterFields(this, filter);
+        if (filter.length > 0) {
+          // debounce filters for 16ms
+          clearTimeout(this._debounce);
 
-      if (filter.length > 0) {
-        // debounce filters for 16ms
-        clearTimeout(this._debounce);
-
-        this._debounce = setTimeout(() => {
+          this._debounce = setTimeout(() => {
+            /**
+             * @event filter-changed
+             * Fired when filter changed
+             * detail payload: filter
+             */
+            const customEvent = new Event('filter-changed', { composed: true, bubbles: true });
+            customEvent.detail = filter;
+            //  console.log(JSON.stringify(filter));
+            this.dispatchEvent(customEvent);
+          }, 16);
+        } else {
           /**
-           * @event filter-changed
-           * Fired when filter changed
-           * detail payload: filter
+           * @event filter-cleared
+           * Fired when filter is empty
+           * detail payload: none
            */
-          const customEvent = new Event('filter-changed', {composed: true, bubbles: true});
-          customEvent.detail = filter;
-          console.log(JSON.stringify(filter));
-          this.dispatchEvent(customEvent)
-        }, 16);
-
-      }else {
-        /**
-         * @event filter-cleared
-         * Fired when filter is empty
-         * detail payload: none
-         */
-        const customEvent = new Event('filter-cleared', {composed: true, bubbles: true});
-        this.dispatchEvent(customEvent);
-      }
-
-    }, true)
+          const customEvent = new Event('filter-cleared', { composed: true, bubbles: true });
+          this.dispatchEvent(customEvent);
+        }
+      },
+      true,
+    );
   }
-
 
   _appendAnd(node, filterArray) {
     let andFilter = filterArray;
-    for (let index = 0; index < node.children.length; index++) {
+    for (let index = 0; index < node.children.length; index += 1) {
       const el = node.children[index];
 
-      if (el.tagName === "FURO-FILTER-FIELD") {
+      if (el.tagName === 'FURO-FILTER-FIELD') {
         if (el._value) {
           const f = [el._field, el._is, el._value];
           if (index + 1 < node.children.length) {
             f.push([]);
           }
           andFilter.push(f);
+          // eslint-disable-next-line prefer-destructuring
           andFilter = f[3];
         }
       } else {
-        if (el.tagName === "FURO-FILTER-AND") {
+        if (el.tagName === 'FURO-FILTER-AND') {
           // append to index3
           this._appendAnd(el, andFilter);
         }
-        if (el.tagName === "FURO-FILTER-OR") {
+        if (el.tagName === 'FURO-FILTER-OR') {
           this._appendOr(el, andFilter);
         }
       }
-
     }
   }
 
   _appendOr(node, filterArray) {
-    for (let index = 0; index < node.children.length; index++) {
+    for (let index = 0; index < node.children.length; index += 1) {
       const el = node.children[index];
 
-      if (el.tagName === "FURO-FILTER-FIELD") {
+      if (el.tagName === 'FURO-FILTER-FIELD') {
         if (el._value) {
           const f = [el._field, el._is, el._value];
           // oder reinpushen
@@ -120,11 +120,11 @@ class FuroFilterContainer extends FBP(HTMLElement) {
       } else {
         const sub = [];
         filterArray.push(sub);
-        if (el.tagName === "FURO-FILTER-AND") {
+        if (el.tagName === 'FURO-FILTER-AND') {
           // append to index3
           this._appendAnd(el, sub);
         }
-        if (el.tagName === "FURO-FILTER-OR") {
+        if (el.tagName === 'FURO-FILTER-OR') {
           this._appendOr(el, sub);
         }
       }
@@ -132,19 +132,17 @@ class FuroFilterContainer extends FBP(HTMLElement) {
   }
 
   _scanfilterFields(node, filterArray) {
-
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
     for (const index in node.children) {
       const el = node.children[index];
 
-      if (el.tagName === "FURO-FILTER-AND") {
+      if (el.tagName === 'FURO-FILTER-AND') {
         // append to index3
         this._appendAnd(el, filterArray);
       }
-      if (el.tagName === "FURO-FILTER-OR") {
+      if (el.tagName === 'FURO-FILTER-OR') {
         this._appendOr(el, filterArray);
       }
-
-
     }
   }
 }

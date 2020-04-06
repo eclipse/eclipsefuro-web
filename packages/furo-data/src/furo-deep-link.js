@@ -1,5 +1,5 @@
-import {LitElement} from 'lit-element';
-import {Env} from "@furo/framework"
+import { LitElement } from 'lit-element';
+import { Env } from '@furo/framework';
 
 /**
  * `furo-deep-link`
@@ -24,7 +24,6 @@ import {Env} from "@furo/framework"
  * @appliesMixin FBP
  */
 class FuroDeepLink extends LitElement {
-
   constructor() {
     super();
     this._servicedefinitions = Env.api.services;
@@ -36,10 +35,9 @@ class FuroDeepLink extends LitElement {
       /**
        * Name of the service
        */
-      service: {type: String, attribute: true}
+      service: { type: String, attribute: true },
     };
   }
-
 
   /**
    *
@@ -51,22 +49,23 @@ class FuroDeepLink extends LitElement {
     this._hts = [];
 
     // loop services
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
     for (const serviceName in service.services) {
       const candidate = {
-        "rel": service.services[serviceName].deeplink.rel,
-        "href": service.services[serviceName].deeplink.href,
-        "method": service.services[serviceName].deeplink.method,
-        "service": service.name
+        rel: service.services[serviceName].deeplink.rel,
+        href: service.services[serviceName].deeplink.href,
+        method: service.services[serviceName].deeplink.method,
+        service: service.name,
       };
-
 
       candidate.type = service.services[serviceName].request;
 
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const param in this._qp) {
-        candidate.href = candidate.href.replace(`{${  param  }}`, this._qp[param]);
+        candidate.href = candidate.href.replace(`{${param}}`, this._qp[param]);
       }
       // wenn es keine {xx} mehr hat, ist es ein treffer
-      if (candidate.href.indexOf("{") === -1) {
+      if (candidate.href.indexOf('{') === -1) {
         // candidate.type = "application/" + candidate.type + "+json"
         this._hts.push(candidate);
       }
@@ -96,11 +95,10 @@ class FuroDeepLink extends LitElement {
        *
        * detail payload: {[]Links} Array of hateoas links
        */
-      const customEvent = new Event('hts-out', {composed: true, bubbles: true});
+      const customEvent = new Event('hts-out', { composed: true, bubbles: true });
       customEvent.detail = this._hts;
-      this.dispatchEvent(customEvent)
+      this.dispatchEvent(customEvent);
     }
-
   }
 
   /**
@@ -122,18 +120,15 @@ class FuroDeepLink extends LitElement {
     this.trigger();
   }
 
-
   /**
    * Evaluates hts. Use qpIn(qp) if you have a qp object in your event.detail
    * This method have no effect as long _qp is not set.
    */
   trigger() {
     if (this._qp && this._service) {
-      this._buildHTS(this._qp, this._service)
+      this._buildHTS(this._qp, this._service);
     }
   }
-
-
 
   /**
    * Sets the service by wire
@@ -155,14 +150,21 @@ class FuroDeepLink extends LitElement {
     if (this._servicedefinitions[service]) {
       this._service = this._servicedefinitions[service];
       if (this._service.lifecycle && this._service.lifecycle.deprecated) {
-        console.warn(`You are using a deprecated service (${  service  }) ${  this._service.lifecycle.info}`);
+        // eslint-disable-next-line no-console
+        console.warn(
+          `You are using a deprecated service (${service}) ${this._service.lifecycle.info}`,
+        );
       }
     } else {
-      console.error(`service ${  service  } does not exist`, this, "Available Services:", this._servicedefinitions);
+      // eslint-disable-next-line no-console
+      console.error(
+        `service ${service} does not exist`,
+        this,
+        'Available Services:',
+        this._servicedefinitions,
+      );
     }
   }
-
-
 }
 
 window.customElements.define('furo-deep-link', FuroDeepLink);

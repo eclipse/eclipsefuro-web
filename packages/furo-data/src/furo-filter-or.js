@@ -25,9 +25,6 @@
  * @customElement
  * @demo demo-furo-filter Basic usage
  */
-class FuroFilterOr extends (HTMLElement) {
-
-
-}
+class FuroFilterOr extends HTMLElement {}
 
 window.customElements.define('furo-filter-or', FuroFilterOr);

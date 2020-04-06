@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit-element';
-import {FBP} from "@furo/fbp";
-import   "@furo/fbp/src/flow-repeat";
+import { FBP } from '@furo/fbp';
+import '@furo/fbp/src/flow-repeat';
 
 /**
  * `repeated-data`
@@ -10,22 +10,20 @@ import   "@furo/fbp/src/flow-repeat";
  * @appliesMixin FBP
  */
 class RepeatedData extends FBP(LitElement) {
-
   constructor() {
     super();
-    this._FBPAddWireHook("--add",( )=>{
-      this.field.add()
-    })
+    this._FBPAddWireHook('--add', () => {
+      this.field.add();
+    });
   }
 
   static get properties() {
     return {
-      message: {type: String},
-      myArray: {type: Array},
-      myBool: {type: Boolean}
+      message: { type: String },
+      myArray: { type: Array },
+      myBool: { type: Boolean },
     };
   }
-
 
   render() {
     // language=HTML
@@ -34,9 +32,8 @@ class RepeatedData extends FBP(LitElement) {
       <style>
         :host {
           display: block;
-
         }
-        .box{
+        .box {
           border: 2px solid #e2e2e2;
           margin: 8px;
           padding: 8px;
@@ -44,43 +41,39 @@ class RepeatedData extends FBP(LitElement) {
       </style>
       <h4>Repeated Zeitunddatum</h4>
       <template is="flow-repeat" ƒ-inject-items="--data">
-           <div class="box">
+        <div class="box">
           <furo-data-date-input ƒ-bind-data="--itemInjected(*.item.date)"></furo-data-date-input>
           <furo-data-time-input ƒ-bind-data="--itemInjected(*.item.time)"></furo-data-time-input>
-          <hr>
+          --
           <div style="background-color: #e2e2e2">
             <repeated-string ƒ-bind-data="--itemInjected(*.item.repstring)"></repeated-string>
           </div>
-          <hr>
-
-          </div>
-       </template>
+          --
+        </div>
+      </template>
 
       <button @-click="--add">add</button>
     `;
   }
 
-
   bindData(d) {
     if (d === undefined) {
-      console.warn("Invalid binding ");
+      // eslint-disable-next-line no-console
+      console.warn('Invalid binding ');
+      // eslint-disable-next-line no-console
       console.log(this);
-      return
+      return;
     }
 
     this.field = d;
 
-
-    this.field.addEventListener('repeated-fields-changed', (e) => {
+    this.field.addEventListener('repeated-fields-changed', e => {
       // updates wieder einspielen
       this._FBPTriggerWire('--data', e.detail);
-
     });
-
 
     // init
     this._FBPTriggerWire('--data', this.field.repeats);
-
   }
 }
 

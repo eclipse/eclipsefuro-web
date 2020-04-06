@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit-element';
-import {FBP} from "@furo/fbp";
-import "@furo/input/src/furo-button.js";
+import { FBP } from '@furo/fbp';
+import '@furo/input/src/furo-button.js';
 /**
  * `produce-qp`
  *
@@ -9,16 +9,13 @@ import "@furo/input/src/furo-button.js";
  * @appliesMixin FBP
  */
 class ProduceQp extends FBP(LitElement) {
-
   constructor() {
     super();
-    this.qp= {"vtr":12, "tfag":233};
-    setTimeout(()=>{
-      this._FBPTriggerWire("--autoclick")
-    },300)
+    this.qp = { vtr: 12, tfag: 233 };
+    setTimeout(() => {
+      this._FBPTriggerWire('--autoclick');
+    }, 300);
   }
-
-
 
   render() {
     // language=HTML
@@ -32,7 +29,6 @@ class ProduceQp extends FBP(LitElement) {
       <furo-button primary ƒ-click="--autoclick" @-click="^^qp(qp)" label="make qp"></furo-button>
     `;
   }
-
 }
 
 window.customElements.define('produce-qp', ProduceQp);

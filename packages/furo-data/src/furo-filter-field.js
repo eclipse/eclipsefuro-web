@@ -1,5 +1,5 @@
-import {LitElement, html, css} from 'lit-element';
-import {FBP} from "@furo/fbp";
+import { LitElement, css } from 'lit-element';
+import { FBP } from '@furo/fbp';
 
 /**
  * `furo-filter-field` is used with `furo-filter-container`, `furo-filter-and` and `furo-filter-and` to build the filter string.
@@ -56,9 +56,6 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class FuroFilterField extends FBP(LitElement) {
-
-
-
   /**
    * @private
    * @return {Object}
@@ -68,24 +65,22 @@ class FuroFilterField extends FBP(LitElement) {
       /**
        *  Defines the operator.
        */
-      is: {type: String},
+      is: { type: String },
       /**
        *  Defines the field you want to filter
        */
-      field: {type: String},
+      field: { type: String },
       /**
        *  Defines the value to filter
        */
-      value: {type: String}
+      value: { type: String },
     };
   }
-
 
   set is(val) {
     this._is = val;
     this._notifyChanges();
   }
-
 
   set field(val) {
     this._field = val;
@@ -112,7 +107,7 @@ class FuroFilterField extends FBP(LitElement) {
        * Fired when something changed
        * detail payload:
        */
-      const customEvent = new Event('furo-filter-field-changed', {composed: true, bubbles: true});
+      const customEvent = new Event('furo-filter-field-changed', { composed: true, bubbles: true });
       customEvent.detail = this;
       this.dispatchEvent(customEvent);
     }
@@ -126,13 +121,11 @@ class FuroFilterField extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return css`
-        :host {
-            display: none;
-        }
-    `
+      :host {
+        display: none;
+      }
+    `;
   }
-
-
 }
 
 window.customElements.define('furo-filter-field', FuroFilterField);

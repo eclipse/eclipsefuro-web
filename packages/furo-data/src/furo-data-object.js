@@ -1,7 +1,6 @@
-import {LitElement} from 'lit-element';
-import {Env} from "@furo/framework"
-import {DataObject} from "./lib/DataObject.js"
-
+import { LitElement } from 'lit-element';
+import { Env } from '@furo/framework';
+import { DataObject } from './lib/DataObject.js';
 
 /**
  * `furo-data-object` gives you a object which is built based on the **type** spec.
@@ -32,23 +31,20 @@ import {DataObject} from "./lib/DataObject.js"
  * @demo demo-furo-data-object-validator object validator demo
  * @appliesMixin FBP
  */
-export class FuroDataObject extends (LitElement) {
-
+export class FuroDataObject extends LitElement {
   constructor() {
     super();
     this._specs = Env.api.specs;
   }
-
 
   static get properties() {
     return {
       /**
        * The name of the type you want to use. The type must be registered in Env
        */
-      type: {type: String}
+      type: { type: String },
     };
   }
-
 
   /**
    * inject a raw data response from the corresonding agent.
@@ -68,15 +64,14 @@ export class FuroDataObject extends (LitElement) {
    * @param jsonObj
    */
   injectRaw(jsonObj) {
-     this._injectPromise = new Promise((resolve) => {
+    this._injectPromise = new Promise(resolve => {
       // queue inject bis entity bereit ist
       if (!this.data) {
         this._queue = jsonObj;
         this._queuedInjectResolver = resolve;
       } else {
-
-       this.data.injectRaw(jsonObj);
-       resolve(this.data);
+        this.data.injectRaw(jsonObj);
+        resolve(this.data);
       }
     });
     return this._injectPromise;
@@ -89,25 +84,25 @@ export class FuroDataObject extends (LitElement) {
    *
    * Will cause a `data-object-became-valid` or `data-object-became-invalid` and a validation-success or validation-failed event.
    */
-  validateAllFields(){
+  validateAllFields() {
     // broadcast validation
     this.data.validateAllFields();
-    if(this.data._isValid){
+    if (this.data._isValid) {
       /**
-      * @event validation-success
-      * Fired when validation results in a valid state
-      * detail payload: DataObject
-      */
-      const customEvent = new Event('validation-success', {composed:true, bubbles: true});
+       * @event validation-success
+       * Fired when validation results in a valid state
+       * detail payload: DataObject
+       */
+      const customEvent = new Event('validation-success', { composed: true, bubbles: true });
       customEvent.detail = this.data;
       this.dispatchEvent(customEvent);
-    }else{
+    } else {
       /**
        * @event validation-failed
        * Fired when validation results in a invalid state
        * detail payload: DataObject
        */
-      const customEvent = new Event('validation-failed', {composed:true, bubbles: true});
+      const customEvent = new Event('validation-failed', { composed: true, bubbles: true });
       customEvent.detail = this.data;
       this.dispatchEvent(customEvent);
     }
@@ -118,7 +113,6 @@ export class FuroDataObject extends (LitElement) {
    * @param type
    */
   set type(type) {
-
     if (this._checkType(type)) {
       this._type = type;
     }
@@ -127,8 +121,8 @@ export class FuroDataObject extends (LitElement) {
   /**
    * get the data from the data object as raw json
    */
-  get json(){
-      return this.data.value;
+  get json() {
+    return this.data.value;
   }
 
   /**
@@ -136,7 +130,7 @@ export class FuroDataObject extends (LitElement) {
    *
    * To set the model to the initial state use init
    */
-  reset(){
+  reset() {
     this.data.reset();
   }
 
@@ -145,16 +139,14 @@ export class FuroDataObject extends (LitElement) {
    *
    * To reset changed data to the last injected state, please use reset();
    */
-  init(){
-
+  init() {
     this.data.init();
-    const customEvent = new Event('object-ready', {composed: true, bubbles: true});
+    const customEvent = new Event('object-ready', { composed: true, bubbles: true });
     customEvent.detail = this.data;
     setTimeout(() => {
       this.dispatchEvent(customEvent);
     }, 0);
   }
-
 
   /**
    *
@@ -162,10 +154,10 @@ export class FuroDataObject extends (LitElement) {
    * @private
    */
   _checkType(type) {
-
     if (this._specs[type] === undefined) {
-      console.warn("Type does not exist.", type, this, this._specs);
-      return false
+      // eslint-disable-next-line no-console
+      console.warn('Type does not exist.', type, this, this._specs);
+      return false;
     }
 
     /**
@@ -189,14 +181,13 @@ export class FuroDataObject extends (LitElement) {
      *
      * **bubbles**
      */
-    const customEvent = new Event('object-ready', {composed: true, bubbles: true});
+    const customEvent = new Event('object-ready', { composed: true, bubbles: true });
     customEvent.detail = this.data;
     setTimeout(() => {
       this.dispatchEvent(customEvent);
     }, 0);
 
-
-    this.data.addEventListener("data-object-became-valid", (e) => {
+    this.data.addEventListener('data-object-became-valid', e => {
       /**
        * @event data-object-became-valid
        * Fired when the data object switches from invalid to valid state
@@ -205,12 +196,12 @@ export class FuroDataObject extends (LitElement) {
        *
        * **bubbles**
        */
-      const customEvent = new Event('data-object-became-valid', {composed: true, bubbles: true});
-      customEvent.detail = e.detail;
-      this.dispatchEvent(customEvent)
+      const validEvent = new Event('data-object-became-valid', { composed: true, bubbles: true });
+      validEvent.detail = e.detail;
+      this.dispatchEvent(validEvent);
     });
 
-    this.data.addEventListener("data-object-became-invalid", (e) => {
+    this.data.addEventListener('data-object-became-invalid', e => {
       /**
        * @event data-object-became-invalid
        * Fired when the data object switches from ininvalid to invalid state
@@ -219,13 +210,15 @@ export class FuroDataObject extends (LitElement) {
        *
        * **bubbles**
        */
-      const customEvent = new Event('data-object-became-invalid', {composed: true, bubbles: true});
-      customEvent.detail = e.detail;
-      this.dispatchEvent(customEvent)
+      const invalidEvent = new Event('data-object-became-invalid', {
+        composed: true,
+        bubbles: true,
+      });
+      invalidEvent.detail = e.detail;
+      this.dispatchEvent(invalidEvent);
     });
 
-
-    this.data.addEventListener("data-injected", (e) => {
+    this.data.addEventListener('data-injected', e => {
       /**
        * @event data-injected
        * Fired when injected data was processed.
@@ -234,13 +227,12 @@ export class FuroDataObject extends (LitElement) {
        *
        * **bubbles**
        */
-      const customEvent = new Event('data-injected', {composed: true, bubbles: true});
-      customEvent.detail = e.detail;
-      this.dispatchEvent(customEvent)
+      const injectedEvent = new Event('data-injected', { composed: true, bubbles: true });
+      injectedEvent.detail = e.detail;
+      this.dispatchEvent(injectedEvent);
     });
 
-
-    this.data.addEventListener("field-value-changed", (e) => {
+    this.data.addEventListener('field-value-changed', e => {
       /**
        * @event data-changed
        * Fired when data in furo-data-object has changed
@@ -252,10 +244,9 @@ export class FuroDataObject extends (LitElement) {
        *   **bubbles**
        */
 
-      const dataEvent = new Event('data-changed', {composed: true, bubbles: true});
-      dataEvent.detail = this.data ;
+      const dataEvent = new Event('data-changed', { composed: true, bubbles: true });
+      dataEvent.detail = this.data;
       this.dispatchEvent(dataEvent);
-
 
       /**
        * @event data-changed-after-inject
@@ -268,30 +259,28 @@ export class FuroDataObject extends (LitElement) {
        *   **bubbles**
        */
       if (this._injectPromise) {
-        this._injectPromise.then((e) => {
-          const dataEvent = new Event('data-changed-after-inject', {composed: true, bubbles: true});
-          dataEvent.detail = this.data;
-          this.dispatchEvent(dataEvent);
-        })
+        this._injectPromise.then(() => {
+          const dataInjectEvent = new Event('data-changed-after-inject', {
+            composed: true,
+            bubbles: true,
+          });
+          dataInjectEvent.detail = this.data;
+          this.dispatchEvent(dataInjectEvent);
+        });
       }
 
       /**
-      * @event field-value-changed
-      * Fired when a field has changed
-      * detail payload: {Object} the field node
-      */
-      const customEvent = new Event('field-value-changed', {composed:true, bubbles: true});
-      customEvent.detail = e.detail;
-      this.dispatchEvent(customEvent)
-
+       * @event field-value-changed
+       * Fired when a field has changed
+       * detail payload: {Object} the field node
+       */
+      const valueChangedEvent = new Event('field-value-changed', { composed: true, bubbles: true });
+      valueChangedEvent.detail = e.detail;
+      this.dispatchEvent(valueChangedEvent);
     });
 
-    return true
+    return true;
   }
-
-
-
-
 }
 
 window.customElements.define('furo-data-object', FuroDataObject);

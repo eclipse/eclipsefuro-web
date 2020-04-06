@@ -37,7 +37,6 @@ export class NodeEvent {
     this.cancelBroadcast = false;
   }
 
-
   stopPropagation() {
     this.cancelBubble = true;
   }
@@ -46,7 +45,6 @@ export class NodeEvent {
     // todo: implement
     this.cancelBroadcast = true;
   }
-
 }
 
 /**
@@ -59,7 +57,7 @@ export class EventTreeNode {
     this.__eventListener = {};
     this.__childNodes = [];
     if (parentNode) {
-      parentNode.__childNodes.push(this)
+      parentNode.__childNodes.push(this);
     }
   }
 
@@ -82,11 +80,9 @@ export class EventTreeNode {
       }
     }
     this.__childNodes.splice(newIndex, 0, this.__childNodes.splice(oldIndex, 1)[0]);
-    this.dispatchNodeEvent(new NodeEvent("order-changed", this, true));
-    this.dispatchNodeEvent(new NodeEvent("this-order-changed", this, false));
-
-
-  };
+    this.dispatchNodeEvent(new NodeEvent('order-changed', this, true));
+    this.dispatchNodeEvent(new NodeEvent('this-order-changed', this, false));
+  }
 
   /**
    * shorthand function to add a property as child node
@@ -108,7 +104,7 @@ export class EventTreeNode {
     if (!this.__eventListener[type]) {
       this.__eventListener[type] = [];
     }
-    this.__eventListener[type].push({cb: handler, options});
+    this.__eventListener[type].push({ cb: handler, options });
   }
 
   /**
@@ -118,12 +114,11 @@ export class EventTreeNode {
    */
   removeEventListener(type, handler) {
     if (this.__eventListener[type]) {
-      this.__eventListener[type] = this.__eventListener[type].filter((e) => {
+      this.__eventListener[type] = this.__eventListener[type].filter(e => {
         if (e.cb === handler) {
           return false;
         }
-          return true;
-
+        return true;
       });
     }
   }
@@ -146,7 +141,7 @@ export class EventTreeNode {
 
     // trigger parent node
     if (event.bubbles && !event.cancelBubble && this.__parentNode) {
-      this.__parentNode.dispatchNodeEvent(event)
+      this.__parentNode.dispatchNodeEvent(event);
     }
     return event;
   }
@@ -162,8 +157,8 @@ export class EventTreeNode {
     this.__triggerNodeEvents(event);
     // children
     if (!event.cancelBroadcast) {
-      this.__childNodes.forEach((c) => {
-        c.broadcastEvent(event)
+      this.__childNodes.forEach(c => {
+        c.broadcastEvent(event);
       });
     }
     return event;
@@ -175,9 +170,9 @@ export class EventTreeNode {
         t.cb(event);
         if (t.options.once) {
           // eslint-disable-next-line no-param-reassign
-          delete listenerArray[i]
+          delete listenerArray[i];
         }
-      })
+      });
     }
   }
 }

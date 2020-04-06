@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/src/theme.js"
-import {FBP} from "@furo/fbp";
+import { Theme } from '@furo/framework/src/theme.js';
+import { FBP } from '@furo/fbp';
 
 /**
  * `furo-data-object-form`
@@ -12,31 +12,29 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class FuroDataObjectForm extends FBP(LitElement) {
-
-
-    bindFields(EntityFields){
-      this._FBPTriggerWire("--dataObjectFields",EntityFields)
-    }
-
-    /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-            /**
-             * Description
-             */
-            myBool: {type: Boolean}
-        };
-    }
+  bindFields(EntityFields) {
+    this._FBPTriggerWire('--dataObjectFields', EntityFields);
+  }
 
   /**
-  * flow is ready lifecycle method
-  */
-  _FBPReady(){
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * Description
+       */
+      myBool: { type: Boolean },
+    };
+  }
+
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
     super._FBPReady();
-    this._FBPTraceWires()
+    this._FBPTraceWires();
   }
 
   /**
@@ -46,17 +44,19 @@ class FuroDataObjectForm extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroDataObjectForm') || css`
+    return (
+      Theme.getThemeForComponent('FuroDataObjectForm') ||
+      css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -68,11 +68,13 @@ class FuroDataObjectForm extends FBP(LitElement) {
     return html`
       Some fields are readonly:
       <furo-form-layouter>
-        <furo-data-text-input ƒ-bind-data="--dataObject(*.fields.display_name)"></furo-data-text-input>
+        <furo-data-text-input
+          ƒ-bind-data="--dataObject(*.fields.display_name)"
+        ></furo-data-text-input>
         <furo-data-date-input ƒ-bind-data="--dataObject(*.fields.start)"></furo-data-date-input>
         <furo-data-date-input ƒ-bind-data="--dataObject(*.fields.end)"></furo-data-date-input>
       </furo-form-layouter>
-        Thank you
+      Thank you
     `;
   }
 }

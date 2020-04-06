@@ -1,10 +1,10 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme.js"
-import {FBP} from "@furo/fbp";
-import "@furo/doc-helper"
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme.js';
+import { FBP } from '@furo/fbp';
+import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import "@furo/data/src/furo-catalog.js";
-import "./helper/furo-data-object-form.js"
+import '@furo/data/src/furo-catalog.js';
+import './helper/furo-data-object-form.js';
 
 /**
  * `demo-furo-data-object-validator`
@@ -13,7 +13,6 @@ import "./helper/furo-data-object-form.js"
  * @appliesMixin FBP
  */
 class DemoFuroDataObjectValidator extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -21,20 +20,21 @@ class DemoFuroDataObjectValidator extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('DemoFuroDataObjectValidator') || css`
+    return (
+      Theme.getThemeForComponent('DemoFuroDataObjectValidator') ||
+      css`
         :host {
-            display: block;
-            height: 100%;
-            padding-right: var(--spacing);
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -49,17 +49,26 @@ class DemoFuroDataObjectValidator extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-              <furo-horizontal-flex>
-              <furo-data-text-input  ƒ-bind-data="--entity(*.text)"></furo-data-text-input>
+            <furo-horizontal-flex>
+              <furo-data-text-input ƒ-bind-data="--entity(*.text)"></furo-data-text-input>
               <furo-data-text-input autofocus ƒ-bind-data="--entity(*.text)"></furo-data-text-input>
-              <furo-data-number-input  autofocus ƒ-bind-data="--entity(*.number)"></furo-data-number-input>
-              <furo-data-number-input  autofocus ƒ-bind-data="--entity(*.number)"></furo-data-number-input>
-              
-              <furo-data-object type="experiment.Constraints" @-object-ready="--entity" ƒ-validate-all-fields="--clicked"
-                                ƒ-inject-raw="--response(*.data)"></furo-data-object>
-              </furo-horizontal-flex>
-              <furo-button raised label="validate object" @-click="--clicked"></furo-button>
-              
+              <furo-data-number-input
+                autofocus
+                ƒ-bind-data="--entity(*.number)"
+              ></furo-data-number-input>
+              <furo-data-number-input
+                autofocus
+                ƒ-bind-data="--entity(*.number)"
+              ></furo-data-number-input>
+
+              <furo-data-object
+                type="experiment.Constraints"
+                @-object-ready="--entity"
+                ƒ-validate-all-fields="--clicked"
+                ƒ-inject-raw="--response(*.data)"
+              ></furo-data-object>
+            </furo-horizontal-flex>
+            <furo-button raised label="validate object" @-click="--clicked"></furo-button>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

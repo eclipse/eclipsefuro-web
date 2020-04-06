@@ -1,5 +1,4 @@
-import {LitElement} from 'lit-element';
-
+import { LitElement } from 'lit-element';
 
 /**
  * Use this component to interact with fields from an furo-data-object.
@@ -11,19 +10,18 @@ import {LitElement} from 'lit-element';
  * @mixes FBP
  */
 class FuroEntityField extends LitElement {
-
   /**
    * Set the value of the field.
    * @param v
    */
   setValue(v) {
     this.value = v;
-  };
+  }
 
   set value(v) {
     this._value = v;
     this.field._value = v;
-  };
+  }
 
   get value() {
     return this._value;
@@ -36,27 +34,27 @@ class FuroEntityField extends LitElement {
    */
   bindData(fieldNode) {
     if (fieldNode === undefined) {
-      console.warn("Invalid binding ");
+      // eslint-disable-next-line no-console
+      console.warn('Invalid binding ');
+      // eslint-disable-next-line no-console
       console.log(this);
-      return new Error("Invalid binding");
+      return new Error('Invalid binding');
     }
 
     this.field = fieldNode;
 
-    this.field.addEventListener('field-value-changed', (e) => {
+    this.field.addEventListener('field-value-changed', e => {
       /**
        * @event value-changed
        * Fired when
        * detail payload:
        */
-      const customEvent = new Event('value-changed', {composed: true, bubbles: true});
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = e.detail.value;
-      this.dispatchEvent(customEvent)
+      this.dispatchEvent(customEvent);
     });
     return this.field;
   }
-
-
 }
 
 customElements.define('furo-entity-field', FuroEntityField);

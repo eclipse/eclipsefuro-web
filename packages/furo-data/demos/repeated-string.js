@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit-element';
-import {FBP} from "@furo/fbp";
-import   "@furo/fbp/src/flow-repeat";
+import { FBP } from '@furo/fbp';
+import '@furo/fbp/src/flow-repeat';
 
 /**
  * `repeated-data`
@@ -10,27 +10,25 @@ import   "@furo/fbp/src/flow-repeat";
  * @appliesMixin FBP
  */
 class RepeatedString extends FBP(LitElement) {
-
   constructor() {
     super();
-    this._FBPAddWireHook("--add",(e)=>{
-      this.field.add()
+    this._FBPAddWireHook('--add', () => {
+      this.field.add();
     });
 
     // delete field
-    this.addEventListener("delete-item",(e)=>{
-      e.detail.deleteFromList()
-    })
+    this.addEventListener('delete-item', e => {
+      e.detail.deleteFromList();
+    });
   }
 
   static get properties() {
     return {
-      message: {type: String},
-      myArray: {type: Array},
-      myBool: {type: Boolean}
+      message: { type: String },
+      myArray: { type: Array },
+      myBool: { type: Boolean },
     };
   }
-
 
   render() {
     // language=HTML
@@ -40,7 +38,7 @@ class RepeatedString extends FBP(LitElement) {
         :host {
           display: block;
         }
-        span{
+        span {
           cursor: pointer;
         }
       </style>
@@ -48,41 +46,43 @@ class RepeatedString extends FBP(LitElement) {
       <button @-click="--last">last</button>
       <button @-click="--index">index</button>
       <div>
-      <template is="flow-repeat" ƒ-inject-items="--data" ƒ-trigger-first="--first" ƒ-trigger-last="--last" ƒ-trigger-index="--index">
-          <furo-text-input ƒ-bind-data="--itemInjected(*.item)" ƒ-focus="--lastItem, --trigger"></furo-text-input><span @-click="^^delete-item(item)">X</span>
-      </template>
+        <template
+          is="flow-repeat"
+          ƒ-inject-items="--data"
+          ƒ-trigger-first="--first"
+          ƒ-trigger-last="--last"
+          ƒ-trigger-index="--index"
+        >
+          <furo-text-input
+            ƒ-bind-data="--itemInjected(*.item)"
+            ƒ-focus="--lastItem, --trigger"
+          ></furo-text-input
+          ><span @-click="^^delete-item(item)">X</span>
+        </template>
       </div>
-        <button @-click="--add">add</button>
-        <button @-click="--first">first</button>
-        
+      <button @-click="--add">add</button>
+      <button @-click="--first">first</button>
     `;
   }
 
   bindData(d) {
     if (d === undefined) {
-      console.warn("Invalid binding ");
+      // eslint-disable-next-line no-console
+      console.warn('Invalid binding ');
+      // eslint-disable-next-line no-console
       console.log(this);
-      return
+      return;
     }
 
     this.field = d;
 
-
-
-
     this.field.addEventListener('repeated-fields-changed', () => {
       // updates wieder einspielen
       this._FBPTriggerWire('--data', this.field.repeats);
-
     });
-
-
-
 
     // init
     this._FBPTriggerWire('--data', this.field.repeats);
-
-
   }
 }
 
