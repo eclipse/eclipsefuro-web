@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>furo-catalog.js demo</title>
+
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <script type="module">
+      import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+      import '@polymer/iron-demo-helpers/demo-snippet';
+    </script>
+
+    <script type="module" src="../furo-catalog.js"></script>
+    <style>
+      :root {
+        --primary-color: #0e5e9f;
+      }
+    </style>
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic furo-catalog.js demo</h3>
+      <demo-snippet>
+        <template>
+          <hr>
+          <furo-data-collection-dropdown label="hier"></furo-data-collection-dropdown>
+          <hr>
+          <furo-data-search-input autofocus label="search"></furo-data-search-input>
+          <furo-data-reference-search disabled label="refSearch"></furo-data-reference-search>
+          <furo-data-checkbox-input label="Please select" text="Click to toggle the checkbox"></furo-data-checkbox-input>
+          <furo-data-date-input  label="date"></furo-data-date-input>
+          <furo-data-color-input label="colordddddd"></furo-data-color-input>
+          <furo-data-search-input label="search"></furo-data-search-input>
+          <furo-data-time-input label="time"></furo-data-time-input>
+          <furo-number-input label="number" ></furo-number-input>
+          <furo-text-input disabled label="disabled"></furo-text-input>
+          <furo-text-input label="text"></furo-text-input>
+          <furo-data-password-input label="password"></furo-data-password-input>
+          <furo-data-range-input label="range"></furo-data-range-input>
+          <furo-data-password-input label="password"></furo-data-password-input>
+          <furo-text-input label="text"></furo-text-input>
+          <furo-data-search-input label="search"></furo-data-search-input>
+          <hr>
+          <furo-data-textarea-input label="textarea"></furo-data-textarea-input>
+          <furo-data-textarea-input label="textarea" rows="4"></furo-data-textarea-input>
+          <furo-data-textarea-input label="textarea" rows="5"></furo-data-textarea-input>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
