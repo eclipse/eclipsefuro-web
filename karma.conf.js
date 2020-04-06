@@ -5,7 +5,7 @@ const merge = require('deepmerge');
 module.exports = config => {
   config.set(
     merge(createDefaultConfig(config), {
-      basePath: '../..',
+      _basePath: '',
       frameworks: ['mocha', 'chai'],
       _browsers: ['Chrome'], // remove the underscore to activate browser tests
       proxies: {
@@ -19,7 +19,7 @@ module.exports = config => {
         // npm run test -- --grep test/foo/bar.test.js
         // npm run test -- --grep test/bar/*
         {
-          pattern: config.grep ? config.grep : 'packages/furo-doc-helper/test/**/*.test.js',
+          pattern: config.grep ? config.grep : 'packages/*/test/**/*.test.js',
           type: 'module',
         },
       ],

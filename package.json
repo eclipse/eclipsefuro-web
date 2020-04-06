@@ -22,9 +22,8 @@
   "scripts": {
     "lint:imports": "node scripts/check-imports.js",
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
-    "doc": "./scripts/generate-analysis.sh",
-    "serve": "polymer serve -p 5555",
-    "test": "wct",
+    "start": "./node_modules/.bin/es-dev-server  --app-index packages/furo-app/index.html --open",
+    "test": "./node_modules/.bin/karma start --coverage",
     "genpage": "./scripts/publish-documentation.sh"
   },
   "author": "veith",

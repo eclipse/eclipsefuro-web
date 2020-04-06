@@ -9,7 +9,7 @@ module.exports = config => {
       frameworks: ['mocha', 'chai'],
       _browsers: ['Chrome'], // remove the underscore to activate browser tests
       proxies: {
-        '/mockdata/projects/list.json': '/base/mockdata/projects/list.json',
+        '/mockdata/': '/base/mockdata/',
       },
       colors: true,
       files: [
