@@ -44,13 +44,13 @@ class FuroEntityAgent extends FBP(LitElement) {
                  * Fired when
                  * detail payload: hts
                  */
-                let customEvent = new Event('response-hts-updated', {composed: true, bubbles: true});
+                const customEvent = new Event('response-hts-updated', {composed: true, bubbles: true});
                 customEvent.detail = r.links;
                 this.dispatchEvent(customEvent);
             }
         });
 
-        this._singleElementQueue = []; //queue for calls, before hts is set
+        this._singleElementQueue = []; // queue for calls, before hts is set
 
     }
 
@@ -74,12 +74,12 @@ class FuroEntityAgent extends FBP(LitElement) {
     set service(service) {
 
         if (!this._servicedefinitions[service]) {
-            console.error("service " + service + " does not exist", this, "Available Services:", this._servicedefinitions);
+            console.error(`service ${  service  } does not exist`, this, "Available Services:", this._servicedefinitions);
             return;
         }
         this._service = this._servicedefinitions[service];
         if (this._service.lifecycle && this._service.lifecycle.deprecated) {
-            console.warn("You are using a deprecated service (" + service + ") " + this._service.lifecycle.info);
+            console.warn(`You are using a deprecated service (${  service  }) ${  this._service.lifecycle.info}`);
         }
     }
 
@@ -112,14 +112,14 @@ class FuroEntityAgent extends FBP(LitElement) {
         if (dataObject) {
             // Method PATCH sends only modified data (.pristine)
             if (link.method.toLowerCase() === 'patch') {
-                for (let index in dataObject.__childNodes) {
-                    let field = dataObject.__childNodes[index];
-                    let val = field._delta_value;
+                for (const index in dataObject.__childNodes) {
+                    const field = dataObject.__childNodes[index];
+                    const val = field._delta_value;
                     if (val !== undefined) {
 
                         if (typeof val === 'object' && !Array.isArray(val)) {
                           body[field._name] = {};
-                          for (var key in val) {
+                          for (const key in val) {
                                 if (val[key] !== null) {
                                     body[field._name][key] = val[key];
                                 }
@@ -131,18 +131,18 @@ class FuroEntityAgent extends FBP(LitElement) {
                 }
                 // the request object MUST contain a field named 'update_mask'
                 if (!this._ApiEnvironment.specs[this._service.services.Update.data.request].fields.hasOwnProperty('update_mask')) {
-                    console.warn("The request type " + this._ApiEnvironment.specs[this._service.services.Update.data.request].name + " has no specified field (update_mask) to transmit the changed fields. The operation applies to all fields!", this._ApiEnvironment.specs[this._service.services.Update.data.request], this);
+                    console.warn(`The request type ${  this._ApiEnvironment.specs[this._service.services.Update.data.request].name  } has no specified field (update_mask) to transmit the changed fields. The operation applies to all fields!`, this._ApiEnvironment.specs[this._service.services.Update.data.request], this);
                 }
                 // add the field_mask
-                body['update_mask'] = this._getFieldMask(body);
+                body.update_mask = this._getFieldMask(body);
             } else {
                 // send all data
                 if (Env.api.sendAllDataOnMethodPut && link.method.toLowerCase() === 'put') {
                     body = dataObject._value;
                 } else {
-                    for (let index in dataObject.__childNodes) {
-                        let field = dataObject.__childNodes[index];
-                        let val = field._transmit_value;
+                    for (const index in dataObject.__childNodes) {
+                        const field = dataObject.__childNodes[index];
+                        const val = field._transmit_value;
                         if (val !== undefined) {
                             body[field._name] = val;
                         }
@@ -171,7 +171,7 @@ class FuroEntityAgent extends FBP(LitElement) {
          * Preparation of the request payload
          * @type {string}
          */
-        let data = this._prepareRequestPaylod(link, dataObject);
+        const data = this._prepareRequestPaylod(link, dataObject);
 
         /**
          * The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
@@ -180,11 +180,11 @@ class FuroEntityAgent extends FBP(LitElement) {
          * @private
          */
         this._abortController = new AbortController();
-        let signal = this._abortController.signal;
+        const {signal} = this._abortController;
 
         // create Request object with headers and body
-        let headers = new Headers(this._ApiEnvironment.headers);
-        headers.append('Content-Type', 'application/' + link.type + '+json');
+        const headers = new Headers(this._ApiEnvironment.headers);
+        headers.append('Content-Type', `application/${  link.type  }+json`);
 
         if (link.method.toLowerCase() !== 'put') {
             headers.append('Content-Type', 'application/json');
@@ -192,7 +192,7 @@ class FuroEntityAgent extends FBP(LitElement) {
         return new Request(link.href, {
             signal,
             method: link.method,
-            headers: headers,
+            headers,
             body: data
         })
     }
@@ -205,13 +205,13 @@ class FuroEntityAgent extends FBP(LitElement) {
      * @private
      */
     _getFieldMask(obj) {
-        let result = [];
+        const result = [];
 
-        let flat = this._flattenObject(obj);
+        const flat = this._flattenObject(obj);
 
-        let keys = Object.keys(flat);
+        const keys = Object.keys(flat);
         keys.forEach((k) => {
-            result.push("paths: " + k);
+            result.push(`paths: ${  k}`);
         });
         return result;
     }
@@ -223,16 +223,16 @@ class FuroEntityAgent extends FBP(LitElement) {
      * @private
      */
     _flattenObject(obj) {
-        let result = {};
+        const result = {};
 
-        for (let i in obj) {
+        for (const i in obj) {
             if (!obj.hasOwnProperty(i)) continue;
 
             if ((typeof obj[i]) === 'object' && !Array.isArray(obj[i])) {
-                let flatObject = this._flattenObject(obj[i]);
-                for (let x in flatObject) {
+                const flatObject = this._flattenObject(obj[i]);
+                for (const x in flatObject) {
                     if (!flatObject.hasOwnProperty(x)) continue;
-                    result[i + '.' + x] = flatObject[x];
+                    result[`${i  }.${  x}`] = flatObject[x];
                 }
             } else {
                 result[i] = obj[i];
@@ -251,23 +251,23 @@ class FuroEntityAgent extends FBP(LitElement) {
     _checkServiceAndHateoasLinkError(rel, serviceName) {
         // check Service Get
         if (!this._service.services[serviceName]) {
-            console.warn("Service " + serviceName + " is not specified", this._service, this);
+            console.warn(`Service ${  serviceName  } is not specified`, this._service, this);
             return undefined;
         }
 
-        //queue if no hts is set, queue it
+        // queue if no hts is set, queue it
         if (!this._hts) {
             this._singleElementQueue = [[rel, serviceName]];
             return undefined;
         }
         // check rel and type
-        let htsFound = this._hts.find((link) => {
+        const htsFound = this._hts.find((link) => {
             if (link.rel === rel && link.service === this._service.name) {
                 return link;
             }
         });
         if (!htsFound) {
-            console.warn("No HATEOAS for rel " + rel + " in service " + this._service.name + " found.", this._hts, this);
+            console.warn(`No HATEOAS for rel ${  rel  } in service ${  this._service.name  } found.`, this._hts, this);
             return undefined;
         }
         return htsFound;
@@ -289,9 +289,9 @@ class FuroEntityAgent extends FBP(LitElement) {
      * loads the entity if hts is available
      */
     load() {
-        let hts = this._checkServiceAndHateoasLinkError('self', 'Get');
+        const hts = this._checkServiceAndHateoasLinkError('self', 'Get');
         if (!hts) {
-            let customEvent = new Event('missing-hts-self', {composed: true, bubbles: false});
+            const customEvent = new Event('missing-hts-self', {composed: true, bubbles: false});
             this.dispatchEvent(customEvent);
             return false;
         }
@@ -316,9 +316,9 @@ class FuroEntityAgent extends FBP(LitElement) {
      * delete the entity if hts is available
      */
     delete() {
-        let hts = this._checkServiceAndHateoasLinkError('delete', 'Delete');
+        const hts = this._checkServiceAndHateoasLinkError('delete', 'Delete');
         if (!hts) {
-            let customEvent = new Event('missing-hts-delete', {composed: true, bubbles: false});
+            const customEvent = new Event('missing-hts-delete', {composed: true, bubbles: false});
             this.dispatchEvent(customEvent);
             return;
         }
@@ -346,10 +346,10 @@ class FuroEntityAgent extends FBP(LitElement) {
 
         // if no rel self is present but a rel create exists, take create
         // rel self is consciously chosen
-        let hts_self = this._hts.find((link) => {
+        const hts_self = this._hts.find((link) => {
             if (link.rel === 'self') return link;
         });
-        let hts_create = this._hts.find((link) => {
+        const hts_create = this._hts.find((link) => {
             if (link.rel === 'create') return link;
         });
 
@@ -358,9 +358,9 @@ class FuroEntityAgent extends FBP(LitElement) {
             return;
         }
 
-        let hts = this._checkServiceAndHateoasLinkError('update', 'Update');
+        const hts = this._checkServiceAndHateoasLinkError('update', 'Update');
         if (!hts) {
-            let customEvent = new Event('missing-hts-update', {composed: true, bubbles: false});
+            const customEvent = new Event('missing-hts-update', {composed: true, bubbles: false});
             this.dispatchEvent(customEvent);
             return;
         }
@@ -386,9 +386,9 @@ class FuroEntityAgent extends FBP(LitElement) {
      * saves the entity with method put if hts is available
      */
     put() {
-        let hts = this._checkServiceAndHateoasLinkError('update', 'Update');
+        const hts = this._checkServiceAndHateoasLinkError('update', 'Update');
         if (!hts) {
-            let customEvent = new Event('missing-hts-update', {composed: true, bubbles: false});
+            const customEvent = new Event('missing-hts-update', {composed: true, bubbles: false});
             this.dispatchEvent(customEvent);
             return;
         }
@@ -412,9 +412,9 @@ class FuroEntityAgent extends FBP(LitElement) {
      * creating the entity if hts rel="create" is available
      */
     create() {
-        let hts = this._checkServiceAndHateoasLinkError('create', 'Create');
+        const hts = this._checkServiceAndHateoasLinkError('create', 'Create');
         if (!hts) {
-            let customEvent = new Event('missing-hts-create', {composed: true, bubbles: false});
+            const customEvent = new Event('missing-hts-create', {composed: true, bubbles: false});
             this.dispatchEvent(customEvent);
             return;
         }
@@ -428,10 +428,10 @@ class FuroEntityAgent extends FBP(LitElement) {
      * @private
      */
     _attachListeners(eventPrefix) {
-        let success = (e) => {
+        const success = (e) => {
             // we do not want req-success and req-failed outside of this component
             e.stopPropagation();
-            let customEvent = new Event(eventPrefix + '-success', {composed: true, bubbles: true});
+            const customEvent = new Event(`${eventPrefix  }-success`, {composed: true, bubbles: true});
             customEvent.detail = e.detail;
             this.dispatchEvent(customEvent);
 
@@ -444,13 +444,13 @@ class FuroEntityAgent extends FBP(LitElement) {
         let failed = (e) => {
 
             // append error to the _requestDataObject (set the fields invalid)
-            let err = e.detail;
+            const err = e.detail;
             if (err.error && err.details) {
                 err.details.forEach((errorSet) => {
-                    if (errorSet["field_violations"]) {
+                    if (errorSet.field_violations) {
 
-                        errorSet["field_violations"].map((error) => {
-                            let path = error.field.split(".");
+                        errorSet.field_violations.map((error) => {
+                            const path = error.field.split(".");
                             if (path.length > 0) {
                                 // rest wieder in error reinwerfen
                                 error.field = path.slice(1).join(".");
@@ -468,7 +468,7 @@ class FuroEntityAgent extends FBP(LitElement) {
 
             // we do not want req-success and req-failed outside of this component
             e.stopPropagation();
-            let customEvent = new Event(eventPrefix + '-failed', {composed: true, bubbles: true});
+            const customEvent = new Event(`${eventPrefix  }-failed`, {composed: true, bubbles: true});
             customEvent.detail = e.detail;
             this.dispatchEvent(customEvent);
 
@@ -501,7 +501,7 @@ class FuroEntityAgent extends FBP(LitElement) {
              * Fired when hateoas is updated from response
              * detail payload: {Array|HATEOAS}
              */
-            let customEvent = new Event('hts-updated', {composed: true, bubbles: false});
+            const customEvent = new Event('hts-updated', {composed: true, bubbles: false});
             customEvent.detail = hts;
             this.dispatchEvent(customEvent);
             return true;
@@ -516,7 +516,7 @@ class FuroEntityAgent extends FBP(LitElement) {
              * Fired when hateoas is updated
              * detail payload: Hateoas links
              */
-            let customEvent = new Event('hts-injected', {composed: true, bubbles: false});
+            const customEvent = new Event('hts-injected', {composed: true, bubbles: false});
             customEvent.detail = hts;
             this.dispatchEvent(customEvent);
 

@@ -6,6 +6,7 @@ import   "@furo/fbp/src/flow-repeat";
  * `repeated-data`
  *
  * @customElement
+ * @demo demo/index.html
  * @appliesMixin FBP
  */
 class RepeatedString extends FBP(LitElement) {
@@ -16,7 +17,7 @@ class RepeatedString extends FBP(LitElement) {
       this.field.add()
     });
 
-    //delete field
+    // delete field
     this.addEventListener("delete-item",(e)=>{
       e.detail.deleteFromList()
     })
@@ -69,7 +70,7 @@ class RepeatedString extends FBP(LitElement) {
 
 
 
-    this.field.addEventListener('repeated-fields-changed', (e) => {
+    this.field.addEventListener('repeated-fields-changed', () => {
       // updates wieder einspielen
       this._FBPTriggerWire('--data', this.field.repeats);
 

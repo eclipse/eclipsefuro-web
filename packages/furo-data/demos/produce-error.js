@@ -5,6 +5,7 @@ import {FBP} from "@furo/fbp";
  * `produce-error`
  *
  * @customElement
+ * @demo demo/index.html
  * @appliesMixin FBP
  */
 class ProduceError extends FBP(LitElement) {
@@ -19,7 +20,7 @@ class ProduceError extends FBP(LitElement) {
        * Fired when
        * detail payload:
        */
-      let customEvent = new Event('response-error', {composed: true, bubbles: true});
+      const customEvent = new Event('response-error', {composed: true, bubbles: true});
       customEvent.detail = {
 
         "error": "invalid username",

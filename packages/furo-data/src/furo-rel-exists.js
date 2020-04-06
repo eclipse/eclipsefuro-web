@@ -20,7 +20,7 @@ class FuroRelExists extends LitElement {
    * @return {boolean}
    */
   inject(linkArray) {
-    let links = linkArray.filter((link) => {
+    const links = linkArray.filter((link) => {
 
       if (this.type) {
 
@@ -35,7 +35,7 @@ class FuroRelExists extends LitElement {
        * Fired when rel exists in linkArray
        * detail payload: {Object} Hateoas Link
        */
-      let customEvent = new Event('furo-rel-exists', {composed: true, bubbles: true});
+      const customEvent = new Event('furo-rel-exists', {composed: true, bubbles: true});
       customEvent.detail = links[0];
       this.dispatchEvent(customEvent);
       return true;
@@ -46,7 +46,7 @@ class FuroRelExists extends LitElement {
      * Fired when rel does not exists in linkArray
      * detail payload: void
      */
-    let customEvent = new Event('rel-dont-exist', {composed: true, bubbles: true});
+    const customEvent = new Event('rel-dont-exist', {composed: true, bubbles: true});
     this.dispatchEvent(customEvent);
 
     return false;

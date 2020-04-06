@@ -1,9 +1,10 @@
 import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
+import {Theme} from "@furo/framework/src/theme.js"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
-import "../src/furo-catalog"
-import "./helper/furo-data-object-form"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "@furo/data/src/furo-catalog.js";
+import "./helper/furo-data-object-form.js"
 
 /**
  * `demo-furo-data-object`

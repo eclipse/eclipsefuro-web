@@ -112,7 +112,7 @@ class FuroFilterField extends FBP(LitElement) {
        * Fired when something changed
        * detail payload:
        */
-      let customEvent = new Event('furo-filter-field-changed', {composed: true, bubbles: true});
+      const customEvent = new Event('furo-filter-field-changed', {composed: true, bubbles: true});
       customEvent.detail = this;
       this.dispatchEvent(customEvent);
     }

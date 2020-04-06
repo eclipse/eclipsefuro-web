@@ -49,7 +49,7 @@ class FuroEntityField extends LitElement {
        * Fired when
        * detail payload:
        */
-      let customEvent = new Event('value-changed', {composed: true, bubbles: true});
+      const customEvent = new Event('value-changed', {composed: true, bubbles: true});
       customEvent.detail = e.detail.value;
       this.dispatchEvent(customEvent)
     });

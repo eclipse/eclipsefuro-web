@@ -1,6 +1,6 @@
 import {LitElement, html} from 'lit-element';
-import {DataObject} from "./lib/DataObject.js"
 import {Env} from "@furo/framework"
+import {DataObject} from "./lib/DataObject.js"
 
 
 /**
@@ -98,7 +98,7 @@ export class FuroDataObject extends (LitElement) {
       * Fired when validation results in a valid state
       * detail payload: DataObject
       */
-      let customEvent = new Event('validation-success', {composed:true, bubbles: true});
+      const customEvent = new Event('validation-success', {composed:true, bubbles: true});
       customEvent.detail = this.data;
       this.dispatchEvent(customEvent);
     }else{
@@ -107,11 +107,12 @@ export class FuroDataObject extends (LitElement) {
        * Fired when validation results in a invalid state
        * detail payload: DataObject
        */
-      let customEvent = new Event('validation-failed', {composed:true, bubbles: true});
+      const customEvent = new Event('validation-failed', {composed:true, bubbles: true});
       customEvent.detail = this.data;
       this.dispatchEvent(customEvent);
     }
   }
+
   /**
    * Set the type. The type must be available in the environment
    * @param type
@@ -147,7 +148,7 @@ export class FuroDataObject extends (LitElement) {
   init(){
 
     this.data.init();
-    let customEvent = new Event('object-ready', {composed: true, bubbles: true});
+    const customEvent = new Event('object-ready', {composed: true, bubbles: true});
     customEvent.detail = this.data;
     setTimeout(() => {
       this.dispatchEvent(customEvent);
@@ -188,7 +189,7 @@ export class FuroDataObject extends (LitElement) {
      *
      * **bubbles**
      */
-    let customEvent = new Event('object-ready', {composed: true, bubbles: true});
+    const customEvent = new Event('object-ready', {composed: true, bubbles: true});
     customEvent.detail = this.data;
     setTimeout(() => {
       this.dispatchEvent(customEvent);
@@ -204,7 +205,7 @@ export class FuroDataObject extends (LitElement) {
        *
        * **bubbles**
        */
-      let customEvent = new Event('data-object-became-valid', {composed: true, bubbles: true});
+      const customEvent = new Event('data-object-became-valid', {composed: true, bubbles: true});
       customEvent.detail = e.detail;
       this.dispatchEvent(customEvent)
     });
@@ -218,7 +219,7 @@ export class FuroDataObject extends (LitElement) {
        *
        * **bubbles**
        */
-      let customEvent = new Event('data-object-became-invalid', {composed: true, bubbles: true});
+      const customEvent = new Event('data-object-became-invalid', {composed: true, bubbles: true});
       customEvent.detail = e.detail;
       this.dispatchEvent(customEvent)
     });
@@ -233,7 +234,7 @@ export class FuroDataObject extends (LitElement) {
        *
        * **bubbles**
        */
-      let customEvent = new Event('data-injected', {composed: true, bubbles: true});
+      const customEvent = new Event('data-injected', {composed: true, bubbles: true});
       customEvent.detail = e.detail;
       this.dispatchEvent(customEvent)
     });
@@ -251,7 +252,7 @@ export class FuroDataObject extends (LitElement) {
        *   **bubbles**
        */
 
-      let dataEvent = new Event('data-changed', {composed: true, bubbles: true});
+      const dataEvent = new Event('data-changed', {composed: true, bubbles: true});
       dataEvent.detail = this.data ;
       this.dispatchEvent(dataEvent);
 
@@ -268,7 +269,7 @@ export class FuroDataObject extends (LitElement) {
        */
       if (this._injectPromise) {
         this._injectPromise.then((e) => {
-          let dataEvent = new Event('data-changed-after-inject', {composed: true, bubbles: true});
+          const dataEvent = new Event('data-changed-after-inject', {composed: true, bubbles: true});
           dataEvent.detail = this.data;
           this.dispatchEvent(dataEvent);
         })
@@ -279,7 +280,7 @@ export class FuroDataObject extends (LitElement) {
       * Fired when a field has changed
       * detail payload: {Object} the field node
       */
-      let customEvent = new Event('field-value-changed', {composed:true, bubbles: true});
+      const customEvent = new Event('field-value-changed', {composed:true, bubbles: true});
       customEvent.detail = e.detail;
       this.dispatchEvent(customEvent)
 

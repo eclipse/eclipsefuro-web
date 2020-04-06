@@ -69,13 +69,13 @@ class FuroCollectionAgent extends FBP(LitElement) {
          * Fired when
          * detail payload: hts
          */
-        let customEvent = new Event('response-hts-updated', {composed: true, bubbles: true});
+        const customEvent = new Event('response-hts-updated', {composed: true, bubbles: true});
         customEvent.detail = r.links;
         this.dispatchEvent(customEvent);
       }
     });
 
-    this._singleElementQueue = []; //queue for calls, before hts is set
+    this._singleElementQueue = []; // queue for calls, before hts is set
     this._queryParams = {};
   }
 
@@ -86,10 +86,10 @@ class FuroCollectionAgent extends FBP(LitElement) {
    */
   _attachListeners(eventPrefix) {
 
-    let success = (e) => {
+    const success = (e) => {
       // we do not want req-success and req-failed outside of this component
       e.stopPropagation();
-      let customEvent = new Event(eventPrefix + '-success', {composed: true, bubbles: true});
+      const customEvent = new Event(`${eventPrefix  }-success`, {composed: true, bubbles: true});
 
       customEvent.detail = e.detail;
       this.dispatchEvent(customEvent);
@@ -103,7 +103,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
     let failed = (e) => {
       // we do not want req-success and req-failed outside of this component
       e.stopPropagation();
-      let customEvent = new Event(eventPrefix + '-failed', {composed: true, bubbles: true});
+      const customEvent = new Event(`${eventPrefix  }-failed`, {composed: true, bubbles: true});
       customEvent.detail = e.detail;
       this.dispatchEvent(customEvent);
 
@@ -186,7 +186,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
      * Fired when filter was updated with ƒ-set-filter
      * detail payload:
      */
-    let customEvent = new Event('filter-changed', {composed: true, bubbles: true});
+    const customEvent = new Event('filter-changed', {composed: true, bubbles: true});
     customEvent.detail = this;
     this.dispatchEvent(customEvent)
   }
@@ -218,13 +218,13 @@ class FuroCollectionAgent extends FBP(LitElement) {
    */
   set service(service) {
     if (!this._servicedefinitions[service]) {
-      console.warn("service " + service + " does not exist", this, "Available Services:", this._servicedefinitions);
+      console.warn(`service ${  service  } does not exist`, this, "Available Services:", this._servicedefinitions);
       return;
     }
     this._service = this._servicedefinitions[service];
 
     if (this._service.lifecycle && this._service.lifecycle.deprecated) {
-      console.warn("You are using a deprecated service (" + service + ") " + this._service.lifecycle.info);
+      console.warn(`You are using a deprecated service (${  service  }) ${  this._service.lifecycle.info}`);
     }
     // set pagination defaults
   }
@@ -238,7 +238,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
    */
   updateQp(qp){
     let qpChanged = false;
-    for(let key in qp){
+    for(const key in qp){
       if (qp.hasOwnProperty(key)) {
         if(this._queryParams[key] != qp[key]){
           qpChanged = true;
@@ -253,7 +253,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
       * Fired when query params changed
       * detail payload: qp
       */
-      let customEvent = new Event('qp-changed', {composed:true, bubbles: true});
+      const customEvent = new Event('qp-changed', {composed:true, bubbles: true});
       customEvent.detail = this._queryParams;
       this.dispatchEvent(customEvent)
     }
@@ -274,17 +274,17 @@ class FuroCollectionAgent extends FBP(LitElement) {
       data = JSON.stringify(body)
     }
     // Daten
-    let headers = new Headers(this._ApiEnvironment.headers);
-    headers.append('Content-Type', 'application/' + link.type + '+json');
+    const headers = new Headers(this._ApiEnvironment.headers);
+    headers.append('Content-Type', `application/${  link.type  }+json`);
     headers.append('Content-Type', 'application/json');
 
-    let params = {};
-    let r = link.href.split("?");
+    const params = {};
+    const r = link.href.split("?");
     let req = r[0];
     // add existing params from href
     if (r[1]) {
       r[1].split("&").forEach((p) => {
-        let s = p.split("=");
+        const s = p.split("=");
         params[s[0]] = s[1];
       });
     }
@@ -292,7 +292,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
     /**
      * Append query params
      */
-    for (let key in this._queryParams) {
+    for (const key in this._queryParams) {
       if (this._queryParams.hasOwnProperty(key)) {
         params[key] = this._queryParams[key];
       }
@@ -333,14 +333,14 @@ class FuroCollectionAgent extends FBP(LitElement) {
     }
 
     // rebuild req
-    let qp = [];
-    for (let key in params) {
+    const qp = [];
+    for (const key in params) {
       if (params.hasOwnProperty(key)) {
-        qp.push(key + "=" + params[key]);
+        qp.push(`${key  }=${  params[key]}`);
       }
     }
     if (qp.length > 0) {
-      req = req + "?" + qp.join("&");
+      req = `${req  }?${  qp.join("&")}`;
     }
 
     /**
@@ -350,12 +350,12 @@ class FuroCollectionAgent extends FBP(LitElement) {
      * @private
      */
     this._abortController = new AbortController();
-    let signal = this._abortController.signal;
+    const {signal} = this._abortController;
 
     return new Request(req, {
       signal,
       method: link.method,
-      headers: headers,
+      headers,
       body: data
     });
   }
@@ -370,23 +370,23 @@ class FuroCollectionAgent extends FBP(LitElement) {
   _checkServiceAndHateoasLinkError(rel, serviceName) {
     // check Service Get
     if (!this._service.services[serviceName]) {
-      console.warn("Service " + serviceName + " is not specified", this._service, this);
+      console.warn(`Service ${  serviceName  } is not specified`, this._service, this);
       return undefined;
     }
 
-    //queue if no hts is set, queue it
+    // queue if no hts is set, queue it
     if (!this._hts) {
       this._singleElementQueue = [[rel, serviceName]];
       return undefined;
     }
     // check rel and type
-    let htsFound = this._hts.find((link) => {
+    const htsFound = this._hts.find((link) => {
       if (link.rel === rel && link.service === this._service.name){
         return link;
       }
     });
     if (!htsFound) {
-      console.warn("No HATEOAS for rel " + rel + " in service " + this._service.name + " found.", this._hts, this);
+      console.warn(`No HATEOAS for rel ${  rel  } in service ${  this._service.name  } found.`, this._hts, this);
       return undefined;
     }
     return htsFound;
@@ -400,9 +400,9 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * @private
    */
   _followRelService(rel, serviceName) {
-    let hts = this._checkServiceAndHateoasLinkError(rel, serviceName);
+    const hts = this._checkServiceAndHateoasLinkError(rel, serviceName);
     if (!hts) {
-      let customEvent = new Event( 'missing-hts-' + rel, {composed: true, bubbles: false});
+      const customEvent = new Event( `missing-hts-${  rel}`, {composed: true, bubbles: false});
       this.dispatchEvent(customEvent);
       return;
     }
@@ -482,7 +482,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
        * Fired when hateoas is updated from response
        * detail payload: {Array|HATEOAS}
        */
-      let customEvent = new Event('hts-updated', {composed: true, bubbles: false});
+      const customEvent = new Event('hts-updated', {composed: true, bubbles: false});
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
       return true;
@@ -497,7 +497,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
        * Fired when hateoas is updated
        * detail payload: Hateoas links
        */
-      let customEvent = new Event('hts-injected', {composed: true, bubbles: false});
+      const customEvent = new Event('hts-injected', {composed: true, bubbles: false});
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
 
@@ -506,7 +506,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
       }
       // there was a list,last,next call before the hts was set
       if (this._singleElementQueue.length > 0) {
-        let q = this._singleElementQueue.pop();
+        const q = this._singleElementQueue.pop();
         this._followRelService(q[0], q[1]);
       }
 

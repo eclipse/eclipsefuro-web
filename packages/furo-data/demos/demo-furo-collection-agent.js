@@ -1,10 +1,12 @@
 import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
+import {Theme} from "@furo/framework/src/theme.js"
 import {FBP} from "@furo/fbp";
-import "@furo/fbp/src/flow-repeat";
+import "@furo/fbp/src/flow-repeat.js";
 import "@furo/doc-helper";
-import "../src/furo-catalog";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "@furo/data/src/furo-catalog.js"
 import "@furo/data-input/demo/helper/produce-qp-data.js";
+
 /**
  * `demo-furo-collection-agent`
  *
@@ -65,7 +67,7 @@ class DemoFuroCollectionAgent extends FBP(LitElement) {
                 </template>
                 
               <furo-horizontal-flex slot="action">
-                <produce-qp-data @-data="--qp" qp={"prj":1}></produce-qp-data>
+                <produce-qp-data @-data="--qp" qpescaped="%7B%22prj%22%3A1%7D"></produce-qp-data>
               </furo-horizontal-flex>
             </furo-card>
            

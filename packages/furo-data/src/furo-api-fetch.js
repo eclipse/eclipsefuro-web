@@ -114,9 +114,9 @@ class FuroApiFetch extends HTMLElement {
          * dispatches fatal-error
          * @param detail
          */
-        let fatal = (detail) => {
+        const fatal = (detail) => {
             this.dispatchEvent(new CustomEvent('fatal-error', {
-                detail: detail, bubbles: true, composed: true
+                detail, bubbles: true, composed: true
             }));
         };
 
@@ -169,7 +169,7 @@ class FuroApiFetch extends HTMLElement {
          */
         this.isLoading = false;
 
-        let status = response.status | 0;
+        const status = response.status || 0;
 
         if (status === 0 || (status >= 200 && status < 300)) {
             /**
@@ -214,7 +214,7 @@ class FuroApiFetch extends HTMLElement {
                 this.dispatchEvent(new CustomEvent('response-error', {
                     detail: r, bubbles: true, composed: true
                 }));
-                this.dispatchEvent(new CustomEvent('response-error-' + response.status, {
+                this.dispatchEvent(new CustomEvent(`response-error-${  response.status}`, {
                     detail: r, bubbles: true, composed: true
                 }));
             }).catch((error) => {
@@ -232,12 +232,13 @@ class FuroApiFetch extends HTMLElement {
      * Default response handler is json!
      * @param response
      */
+    // eslint-disable-next-line class-methods-use-this
     _parseResponse(response) {
 
         return new Promise((resolve, reject) => {
 
             if (response) {
-                let responseHandler = {
+                const responseHandler = {
                     'text/plain': (r) => {
                         r.text().then((text) => {
                             resolve(text)
@@ -253,43 +254,43 @@ class FuroApiFetch extends HTMLElement {
                         });
                     },
                     'application/json': (r) => {
-                        r.json().then(function (json) {
+                        r.json().then((json) => {
                             resolve(json);
                         }).catch((err) => {
                             reject(err);
                         });
                     },
                     'application/octet-stream': (r) => {
-                        r.arrayBuffer().then(function (buffer) {
+                        r.arrayBuffer().then((buffer) => {
                             resolve(buffer);
                         }).catch((err) => {
                             reject(err);
                         });
                     },
                     'application/pdf': (r) => {
-                        r.blob().then(function (blob) {
+                        r.blob().then((blob) => {
                             resolve(blob);
                         }).catch((err) => {
                             reject(err);
                         });
                     },
                     'image/jpeg': (r) => {
-                        r.blob().then(function (blob) {
+                        r.blob().then((blob) => {
                             resolve(blob);
                         }).catch((err) => {
                             reject(err);
                         });
                     },
                     'default': (r) => {
-                        r.json().then(function (json) {
+                        r.json().then((json) => {
                             resolve(json);
                         }).catch((err) => {
                             reject(err);
                         });
                     },
                 };
-                let contentType = response.headers.get('content-type');
-                let typeHandler = responseHandler[contentType.split(";")[0].trim()] || responseHandler['default'];
+                const contentType = response.headers.get('content-type');
+                const typeHandler = responseHandler[contentType.split(";")[0].trim()] || responseHandler.default;
                 typeHandler(response);
             } else {
                 reject(undefined);

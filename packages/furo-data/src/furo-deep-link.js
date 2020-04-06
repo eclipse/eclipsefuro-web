@@ -51,8 +51,8 @@ class FuroDeepLink extends LitElement {
     this._hts = [];
 
     // loop services
-    for (let serviceName in service.services) {
-      let candidate = {
+    for (const serviceName in service.services) {
+      const candidate = {
         "rel": service.services[serviceName].deeplink.rel,
         "href": service.services[serviceName].deeplink.href,
         "method": service.services[serviceName].deeplink.method,
@@ -62,12 +62,12 @@ class FuroDeepLink extends LitElement {
 
       candidate.type = service.services[serviceName].request;
 
-      for (let param in this._qp) {
-        candidate.href = candidate.href.replace("{" + param + "}", this._qp[param]);
+      for (const param in this._qp) {
+        candidate.href = candidate.href.replace(`{${  param  }}`, this._qp[param]);
       }
-      //wenn es keine {xx} mehr hat, ist es ein treffer
+      // wenn es keine {xx} mehr hat, ist es ein treffer
       if (candidate.href.indexOf("{") === -1) {
-        //candidate.type = "application/" + candidate.type + "+json"
+        // candidate.type = "application/" + candidate.type + "+json"
         this._hts.push(candidate);
       }
     }
@@ -96,7 +96,7 @@ class FuroDeepLink extends LitElement {
        *
        * detail payload: {[]Links} Array of hateoas links
        */
-      let customEvent = new Event('hts-out', {composed: true, bubbles: true});
+      const customEvent = new Event('hts-out', {composed: true, bubbles: true});
       customEvent.detail = this._hts;
       this.dispatchEvent(customEvent)
     }
@@ -155,10 +155,10 @@ class FuroDeepLink extends LitElement {
     if (this._servicedefinitions[service]) {
       this._service = this._servicedefinitions[service];
       if (this._service.lifecycle && this._service.lifecycle.deprecated) {
-        console.warn("You are using a deprecated service (" + service + ") " + this._service.lifecycle.info);
+        console.warn(`You are using a deprecated service (${  service  }) ${  this._service.lifecycle.info}`);
       }
     } else {
-      console.error("service " + service + " does not exist", this, "Available Services:", this._servicedefinitions);
+      console.error(`service ${  service  } does not exist`, this, "Available Services:", this._servicedefinitions);
     }
   }
 

@@ -94,7 +94,7 @@ export class RepeaterNode extends EventTreeNode {
     });
 
 
-    //store __initial_value _value for resetting the field
+    // store __initial_value _value for resetting the field
     this.__initialValue = JSON.stringify(this._value);
   }
 
@@ -130,11 +130,11 @@ export class RepeaterNode extends EventTreeNode {
 
   deleteNode() {
 
-    let index = this.__parentNode.__childNodes.indexOf(this);
+    const index = this.__parentNode.__childNodes.indexOf(this);
     this.__parentNode.__childNodes.splice(index, 1);
     delete (this.__parentNode[this._name]);
 
-    //notify
+    // notify
     this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted", this._name, false));
     this.dispatchNodeEvent(new NodeEvent("node-field-deleted", this._name, true));
 
@@ -167,7 +167,7 @@ export class RepeaterNode extends EventTreeNode {
       });
       // remove additional nodes in repeats console.log(val.length,this.repeats.length)
       if (this.repeats.length > val.length) {
-        let l = val.length - 1;
+        const l = val.length - 1;
         for (let i = this.repeats.length - 1; i > l; i--) {
           this.deleteChild(i);
         }
@@ -181,20 +181,20 @@ export class RepeaterNode extends EventTreeNode {
 
 
   __updateMetaAndConstraints(metaAndConstraints) {
-    for (let fieldname in metaAndConstraints.fields) {
-      let mc = metaAndConstraints.fields[fieldname];
-      let f = fieldname.split(".");
+    for (const fieldname in metaAndConstraints.fields) {
+      const mc = metaAndConstraints.fields[fieldname];
+      const f = fieldname.split(".");
 
-      let target = f[0];
-      let targetfield = f[1];
+      const target = f[0];
+      const targetfield = f[1];
 
       if (f.length === 2) {
         // typo protection
         if (this.repeats[parseInt(target)][targetfield]) {
           // we are on the parent of a endpoint. Update the metas in this
-          let field = this.repeats[parseInt(target)][targetfield];
+          const field = this.repeats[parseInt(target)][targetfield];
 
-          for (let m in mc.meta) {
+          for (const m in mc.meta) {
             // update the metas
             field._meta[m] = mc.meta[m];
             // broadcast readonly changes for all ancestors
@@ -202,7 +202,7 @@ export class RepeaterNode extends EventTreeNode {
               this.broadcastEvent(new NodeEvent("parent-readonly-meta-set",this, true));
             }
           }
-          for (let c in mc.constraints) {
+          for (const c in mc.constraints) {
             // update the constraints
             field._constraints[c] = mc.constraints[c];
           }
@@ -221,7 +221,7 @@ export class RepeaterNode extends EventTreeNode {
       }
 
 
-      let subMetaAndConstraints = {fields: {}};
+      const subMetaAndConstraints = {fields: {}};
       subMetaAndConstraints.fields[f.slice(2).join(".")] = mc;
       // typo protection
       if (this.repeats[parseInt(target)][targetfield]) {
@@ -233,9 +233,7 @@ export class RepeaterNode extends EventTreeNode {
   }
 
   get _value() {
-    return this.repeats.map(f => {
-      return f._value;
-    });
+    return this.repeats.map(f => f._value);
   }
 
   /**
@@ -246,7 +244,7 @@ export class RepeaterNode extends EventTreeNode {
   get _transmit_value(){
     const n = [];
     this.__childNodes.forEach(f => {
-      let val = f._transmit_value;
+      const val = f._transmit_value;
       if (val !== undefined) {
         n.push(val);
       }
@@ -261,7 +259,7 @@ export class RepeaterNode extends EventTreeNode {
   get _delta_value(){
     const n = [];
     this.__childNodes.forEach(f => {
-      let val = f._delta_value;
+      const val = f._delta_value;
       if (val !== undefined) {
         n.push(val);
       }
@@ -277,7 +275,7 @@ export class RepeaterNode extends EventTreeNode {
   get _required_value(){
     const n = [];
     this.__childNodes.forEach(f => {
-      let val = f._required_value;
+      const val = f._required_value;
       if (val !== undefined) {
         n.push(val);
       }
@@ -303,12 +301,12 @@ export class RepeaterNode extends EventTreeNode {
   }
 
   _addSilent() {
-    let fieldNode = new FieldNode(this, this._spec, this._name);
+    const fieldNode = new FieldNode(this, this._spec, this._name);
     // if this field has disabled Validation, pass to new attributes. Because they do not have to validate too.
     if(this._validationDisabled || this.__parentNode._validationDisabled){
       fieldNode._validationDisabled = true;
     }
-    let index = this.repeats.push(fieldNode) - 1;
+    const index = this.repeats.push(fieldNode) - 1;
 
     fieldNode.__index = index;
 
@@ -324,7 +322,7 @@ export class RepeaterNode extends EventTreeNode {
 
   _setInvalid(error) {
     this._isValid = false;
-    let path = error.field.split(".");
+    const path = error.field.split(".");
     if (path.length > 0) {
       // rest wieder in error reinwerfen
       error.field = path.slice(1).join(".");
@@ -334,11 +332,11 @@ export class RepeaterNode extends EventTreeNode {
 
 
   add(data) {
-    let index = this._addSilent();
+    const index = this._addSilent();
     this._pristine = false;
     // set data if given
     if (data) {
-      let child = this.repeats[index];
+      const child = this.repeats[index];
       child._value = data;
     }
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-added", this.repeats[index], true));

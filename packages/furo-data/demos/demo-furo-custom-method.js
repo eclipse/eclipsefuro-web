@@ -1,8 +1,9 @@
 import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
+import {Theme} from "@furo/framework/src/theme.js"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper";
-import "../src/furo-catalog";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "@furo/data/src/furo-catalog.js"
 import "@furo/data-input/demo/helper/produce-qp-data.js";
 
 /**
@@ -56,7 +57,7 @@ class DemoFuroCustomMethod extends FBP(LitElement) {
                         <furo-card style="width: 450px; margin: 30px" header-text="Some data" secondary-text="First load test data then trigger custom method :RELEASE">
                             <furo-data-text-input ƒ-bind-data="--dao(*.data.description)"></furo-data-text-input>
                             <furo-horizontal-flex slot="action">
-                                <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
+                                <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
                                 <furo-button label="Trigger custom method" @-click="--customClick"></furo-button>
                             </furo-horizontal-flex>
                         </furo-card>

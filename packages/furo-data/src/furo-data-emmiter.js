@@ -36,7 +36,7 @@ class FuroDataEmmiter extends FBP(LitElement) {
     * detail payload: json data of a data object
     */
     if(this.field){
-      let customEvent = new Event('data', {composed:true, bubbles: false});
+      const customEvent = new Event('data', {composed:true, bubbles: false});
       customEvent.detail = this.field._value;
       this.dispatchEvent(customEvent)
     }

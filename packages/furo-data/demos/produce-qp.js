@@ -5,6 +5,7 @@ import "@furo/input/src/furo-button.js";
  * `produce-qp`
  *
  * @customElement
+ * @demo demo/index.html
  * @appliesMixin FBP
  */
 class ProduceQp extends FBP(LitElement) {

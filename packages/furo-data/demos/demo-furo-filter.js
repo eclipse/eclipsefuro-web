@@ -1,12 +1,12 @@
 import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
+import {Theme} from "@furo/framework/src/theme.js"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
-import "@furo/data";
 import "@furo/util";
 
-import "../src/furo-catalog"
-import "./helper/demo-project-filter-form"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "@furo/data/src/furo-catalog.js";
+import "./helper/demo-project-filter-form.js"
 
 /**
  * `demo-furo-filter`

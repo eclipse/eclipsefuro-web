@@ -52,24 +52,17 @@ class FuroReverseDeepLink extends (LitElement) {
         if (!this.rel) {
           this.rel = "list"
         }
-      } else {
-        // is entity
-        if (!this.rel) {
-          this.rel = "self"
-        }
+      } else if (!this.rel) {
+        this.rel = 'self';
       }
 
-      linkObject = data.links.filter((e) => {
-        return e.rel.toLowerCase() === this.rel.toLowerCase();
-      })[0]
+      linkObject = data.links.filter((e) => e.rel.toLowerCase() === this.rel.toLowerCase())[0]
     }
 
 
     // Links Array
     if (Array.isArray(data)) {
-      linkObject = data.filter((e) => {
-        return e.rel === this.rel;
-      })[0]
+      linkObject = data.filter((e) => e.rel === this.rel)[0]
     }
 
     if (linkObject) {
@@ -81,7 +74,7 @@ class FuroReverseDeepLink extends (LitElement) {
      * Fired when input was converted
      * detail payload: {object|QueryParams}
      */
-    let customEvent = new Event('converted', {composed: true, bubbles: true});
+    const customEvent = new Event('converted', {composed: true, bubbles: true});
     customEvent.detail = qp;
     this.dispatchEvent(customEvent);
     return qp;
@@ -89,7 +82,7 @@ class FuroReverseDeepLink extends (LitElement) {
 
 
   _convert(link) {
-    let linkObject = {
+    const linkObject = {
       rel : link.rel,
       href : link.href,
       method : link.method,
@@ -107,9 +100,9 @@ class FuroReverseDeepLink extends (LitElement) {
        pattern = this._serviceDef[linkObject.rel].deeplink.href;
     }
 
-    let rgx = new RegExp("\{([^\}]*)\}", "gi");
+    const rgx = new RegExp("\{([^\}]*)\}", "gi");
 
-    let keys = [];
+    const keys = [];
     let m;
 
     while ((m = rgx.exec(pattern)) !== null) {
@@ -118,9 +111,9 @@ class FuroReverseDeepLink extends (LitElement) {
 
     pattern = pattern.replace(rgx, "(.*)");
 
-    let srgx = new RegExp( pattern + "$");
-    let qp = {};
-    let matches = srgx.exec(linkObject.href);
+    const srgx = new RegExp( `${pattern  }$`);
+    const qp = {};
+    const matches = srgx.exec(linkObject.href);
     if (matches) {
       keys.forEach((e, i) => {
         qp[e] = matches[i + 1];

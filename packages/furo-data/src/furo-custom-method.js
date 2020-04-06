@@ -56,13 +56,13 @@ class FuroCustomMethod extends FBP(LitElement) {
      */
     set service(service) {
         if (!this._servicedefinitions[service]) {
-            console.error("service " + service + " does not exist", this, "Available Services:", this._servicedefinitions);
+            console.error(`service ${  service  } does not exist`, this, "Available Services:", this._servicedefinitions);
             return;
         }
         this._service = this._servicedefinitions[service];
 
         if (this._service.lifecycle && this._service.lifecycle.deprecated) {
-            console.warn("You are using a deprecated service (" + service + ") " + this._service.lifecycle.info);
+            console.warn(`You are using a deprecated service (${  service  }) ${  this._service.lifecycle.info}`);
         }
     }
 
@@ -73,12 +73,12 @@ class FuroCustomMethod extends FBP(LitElement) {
     _makeRequest(link, dataObject) {
         this._FBPTriggerWire('--beforeRequestStart');
         let data;
-        let body = {};
+        const body = {};
         // check if dataObject is set and create body object
         if (dataObject) {
-            for (let index in dataObject.__childNodes) {
-                let field = dataObject.__childNodes[index];
-                let val = field._transmit_value;
+            for (const index in dataObject.__childNodes) {
+                const field = dataObject.__childNodes[index];
+                const val = field._transmit_value;
                 if (val !== undefined) {
                     body[field._name] = val
                 }
@@ -92,36 +92,34 @@ class FuroCustomMethod extends FBP(LitElement) {
          * @private
          */
         this._abortController = new AbortController();
-        let signal = this._abortController.signal;
+        const {signal} = this._abortController;
 
         // Daten
-        let headers = new Headers(this._ApiEnvironment.headers);
-        headers.append('Content-Type', 'application/' + link.type + '+json');
+        const headers = new Headers(this._ApiEnvironment.headers);
+        headers.append('Content-Type', `application/${  link.type  }+json`);
         headers.append('Content-Type', 'application/json');
 
         return new Request(link.href, {
             signal,
             method: link.method,
-            headers: headers,
+            headers,
             body: data
         })
     }
 
     _checkServiceAndHateoasLinkError(rel, serviceName) {
         // check Service Get
-        let s = Object.keys(this._service.services).map((key) => {
-            return key.toLowerCase();
-        });
+        const s = Object.keys(this._service.services).map((key) => key.toLowerCase());
 
         if (s.indexOf(serviceName.toLowerCase()) === -1) {
-            console.warn("Service " + serviceName + " is not specified", this._service, this);
+            console.warn(`Service ${  serviceName  } is not specified`, this._service, this);
             return true;
         }
 
         // check Hateoas
         if (!this._hts[rel]) {
-            console.warn("No HATEOAS for rel " + rel + " in service " + this._service.name + " found.", this);
-            let customEvent = new Event('missing-hts-' + rel, {composed: true, bubbles: false});
+            console.warn(`No HATEOAS for rel ${  rel  } in service ${  this._service.name  } found.`, this);
+            const customEvent = new Event(`missing-hts-${  rel}`, {composed: true, bubbles: false});
             this.dispatchEvent(customEvent);
             return true;
         }
@@ -172,7 +170,7 @@ class FuroCustomMethod extends FBP(LitElement) {
              * Fired when
              * detail payload:
              */
-            let customEvent = new Event('hts-updated', {composed: true, bubbles: true});
+            const customEvent = new Event('hts-updated', {composed: true, bubbles: true});
             customEvent.detail = hts;
             this.dispatchEvent(customEvent)
         }

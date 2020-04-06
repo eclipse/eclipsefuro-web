@@ -35,7 +35,7 @@ class FuroFilterContainer extends FBP(HTMLElement) {
     this.type = this.getAttribute("type");
 
     // find .querySelectorAll("simple-filter-field")
-    let filterFields = this.querySelectorAll("simple-filter-field");
+    const filterFields = this.querySelectorAll("simple-filter-field");
     if (filterFields != null) {
       filterFields.forEach((f) => {
         // set types to children
@@ -47,7 +47,7 @@ class FuroFilterContainer extends FBP(HTMLElement) {
     this.addEventListener("furo-filter-field-changed", (e) => {
 
       // baum für filter aufbauen
-      let filter = [];
+      const filter = [];
       this._scanfilterFields(this, filter);
 
       if (filter.length > 0) {
@@ -60,7 +60,7 @@ class FuroFilterContainer extends FBP(HTMLElement) {
            * Fired when filter changed
            * detail payload: filter
            */
-          let customEvent = new Event('filter-changed', {composed: true, bubbles: true});
+          const customEvent = new Event('filter-changed', {composed: true, bubbles: true});
           customEvent.detail = filter;
           console.log(JSON.stringify(filter));
           this.dispatchEvent(customEvent)
@@ -72,7 +72,7 @@ class FuroFilterContainer extends FBP(HTMLElement) {
          * Fired when filter is empty
          * detail payload: none
          */
-        let customEvent = new Event('filter-cleared', {composed: true, bubbles: true});
+        const customEvent = new Event('filter-cleared', {composed: true, bubbles: true});
         this.dispatchEvent(customEvent);
       }
 
@@ -83,11 +83,11 @@ class FuroFilterContainer extends FBP(HTMLElement) {
   _appendAnd(node, filterArray) {
     let andFilter = filterArray;
     for (let index = 0; index < node.children.length; index++) {
-      let el = node.children[index];
+      const el = node.children[index];
 
       if (el.tagName === "FURO-FILTER-FIELD") {
         if (el._value) {
-          let f = [el._field, el._is, el._value];
+          const f = [el._field, el._is, el._value];
           if (index + 1 < node.children.length) {
             f.push([]);
           }
@@ -109,16 +109,16 @@ class FuroFilterContainer extends FBP(HTMLElement) {
 
   _appendOr(node, filterArray) {
     for (let index = 0; index < node.children.length; index++) {
-      let el = node.children[index];
+      const el = node.children[index];
 
       if (el.tagName === "FURO-FILTER-FIELD") {
         if (el._value) {
-          let f = [el._field, el._is, el._value];
+          const f = [el._field, el._is, el._value];
           // oder reinpushen
           filterArray.push(f);
         }
       } else {
-        let sub = [];
+        const sub = [];
         filterArray.push(sub);
         if (el.tagName === "FURO-FILTER-AND") {
           // append to index3
@@ -133,8 +133,8 @@ class FuroFilterContainer extends FBP(HTMLElement) {
 
   _scanfilterFields(node, filterArray) {
 
-    for (let index in node.children) {
-      let el = node.children[index];
+    for (const index in node.children) {
+      const el = node.children[index];
 
       if (el.tagName === "FURO-FILTER-AND") {
         // append to index3

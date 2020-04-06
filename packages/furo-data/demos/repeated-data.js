@@ -6,13 +6,14 @@ import   "@furo/fbp/src/flow-repeat";
  * `repeated-data`
  *
  * @customElement
+ * @demo demo/index.html
  * @appliesMixin FBP
  */
 class RepeatedData extends FBP(LitElement) {
 
   constructor() {
     super();
-    this._FBPAddWireHook("--add",(e)=>{
+    this._FBPAddWireHook("--add",( )=>{
       this.field.add()
     })
   }

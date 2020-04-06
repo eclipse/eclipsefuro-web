@@ -42,7 +42,7 @@ export class NodeEvent {
   }
 
   stopBroadcast() {
-    //todo: implement
+    // todo: implement
     this.cancelBroadcast = true;
   }
 
@@ -74,7 +74,7 @@ export class EventTreeNode {
    */
   moveNode(old_index, new_index) {
     if (new_index >= this.__childNodes.length) {
-      var k = new_index - this.__childNodes.length + 1;
+      let k = new_index - this.__childNodes.length + 1;
       while (k--) {
         this.__childNodes.push(undefined);
       }
@@ -106,7 +106,7 @@ export class EventTreeNode {
     if (!this.__eventListener[type]) {
       this.__eventListener[type] = [];
     }
-    this.__eventListener[type].push({cb: handler, options: options});
+    this.__eventListener[type].push({cb: handler, options});
   }
 
   /**
@@ -119,9 +119,9 @@ export class EventTreeNode {
       this.__eventListener[type] = this.__eventListener[type].filter((e, i) => {
         if (e.cb === handler) {
           return false;
-        }else{
-          return true;
         }
+          return true;
+        
       });
     }
   }
@@ -141,7 +141,7 @@ export class EventTreeNode {
     // trigger the events on current node
     this.__triggerNodeEvents(event);
 
-    //trigger parent node
+    // trigger parent node
     if (event.bubbles && !event.cancelBubble && this.__parentNode) {
       this.__parentNode.dispatchNodeEvent(event)
     }
@@ -157,7 +157,7 @@ export class EventTreeNode {
   broadcastEvent(event) {
     // trigger the events on current node
     this.__triggerNodeEvents(event);
-    //children
+    // children
     if (!event.cancelBroadcast) {
       this.__childNodes.map((c) => {
         c.broadcastEvent(event)

@@ -68,7 +68,7 @@ export class FieldNode extends EventTreeNode {
      * Schaltet ein Feld auf valid, müssen wir alle Kinder oder verästelungend des Felds auf validity prüfen...
      */
     this.addEventListener("field-became-valid", (e) => {
-      let v = this.__childNodes.filter(f => !f._isValid);
+      const v = this.__childNodes.filter(f => !f._isValid);
       if (v.length === 0) {
         this._isValid = true;
       }
@@ -112,7 +112,7 @@ export class FieldNode extends EventTreeNode {
     });
 
 
-    //store __initialValue value for resetting the field
+    // store __initialValue value for resetting the field
     this.__initialValue = JSON.stringify(this._value);
   }
 
@@ -122,7 +122,7 @@ export class FieldNode extends EventTreeNode {
    * @param options {"fieldName":"name","type":"string", "spec":{..}}  spec is optional
    */
   createField(options) {
-    let fieldName = options.fieldName;
+    const {fieldName} = options;
     let spec = {"type": options.type};
 
     if (options.spec) {
@@ -138,9 +138,9 @@ export class FieldNode extends EventTreeNode {
         this[fieldName]._value = options._value;
       }
       return true;
-    } else {
+    } 
       return false;
-    }
+    
   }
 
   /**
@@ -149,9 +149,9 @@ export class FieldNode extends EventTreeNode {
   _hasAncestorOfType(type) {
     if (this._type === type) {
       return true;
-    } else {
+    } 
       return this.__parentNode._hasAncestorOfType(type);
-    }
+    
   }
 
   moveNode(old_index, new_index) {
@@ -169,7 +169,7 @@ export class FieldNode extends EventTreeNode {
 
   _createVendorType(type) {
     if (this.__specdefinitions[type]) {
-      for (let fieldName in this.__specdefinitions[type].fields) {
+      for (const fieldName in this.__specdefinitions[type].fields) {
 
         if (this.__specdefinitions[type].fields[fieldName].meta && this.__specdefinitions[type].fields[fieldName].meta.repeated) {
           this[fieldName] = new RepeaterNode(this, this.__specdefinitions[type].fields[fieldName], fieldName);
@@ -180,7 +180,7 @@ export class FieldNode extends EventTreeNode {
 
       }
     } else {
-      console.warn(type + " does not exist")
+      console.warn(`${type  } does not exist`)
     }
   }
 
@@ -196,11 +196,10 @@ export class FieldNode extends EventTreeNode {
     // map<string, something> typ
     if (this._spec.type.startsWith("map<")) {
       this._updateKeyValueMap(val, this._spec.type)
-    } else {
-      if (this.__childNodes.length > 0) {
+    } else if (this.__childNodes.length > 0) {
         let furoMetaDetected = false;
-        for (let index in this.__childNodes) {
-          let field = this.__childNodes[index];
+        for (const index in this.__childNodes) {
+          const field = this.__childNodes[index];
 
           if (field._spec.type === "furo.Meta") {
             // we have meta declaration on this layer
@@ -256,7 +255,6 @@ export class FieldNode extends EventTreeNode {
 
         }
       }
-    }
 
 
     //  clear field if it is not in the incomming data
@@ -287,9 +285,9 @@ export class FieldNode extends EventTreeNode {
     let validity = true;
     // todo: decide if we should check for type conformity like uint32 is positive and not bigger then 32bit
     // validate only if they are constraints
-    for (let constraintName in this._constraints) {
-      let constraint = this._constraints[constraintName];
-      let numericType = Helper.isNumericType(this._spec.type);
+    for (const constraintName in this._constraints) {
+      const constraint = this._constraints[constraintName];
+      const numericType = Helper.isNumericType(this._spec.type);
       switch (constraintName.toLowerCase()) {
           /**
            * the min constraint
@@ -331,7 +329,7 @@ export class FieldNode extends EventTreeNode {
         case "step":
           if (numericType) {
             // step check is (value - min)%is == 0
-            let modulo = parseFloat(constraint.is);
+            const modulo = parseFloat(constraint.is);
             let min = 0;
             if (this._constraints.min && this._constraints.min.is) {
               min = parseFloat(this._constraints.min.is);
@@ -347,7 +345,7 @@ export class FieldNode extends EventTreeNode {
            * the pattern constraint
            */
         case "pattern":
-          let reg = new RegExp(constraint.is);
+          const reg = new RegExp(constraint.is);
 
           if (validity && (this._value == null || !this._value.match(reg))) {
 
@@ -390,13 +388,13 @@ export class FieldNode extends EventTreeNode {
     // on this layer you can only pass the constraint to the children
     // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
     // a field which is targeted we delegate the sub request to  this field
-    for (let fieldname in metaAndConstraints.fields) {
-      let mc = metaAndConstraints.fields[fieldname];
-      let f = fieldname.split(".");
+    for (const fieldname in metaAndConstraints.fields) {
+      const mc = metaAndConstraints.fields[fieldname];
+      const f = fieldname.split(".");
       if (f.length === 1) {
         // we are on the parent of a endpoint. Update the metas in this
-        let field = f[0];
-        for (let m in mc.meta) {
+        const field = f[0];
+        for (const m in mc.meta) {
           // update the metas
           if (this[field]) {
             this[field]._meta[m] = mc.meta[m];
@@ -409,7 +407,7 @@ export class FieldNode extends EventTreeNode {
             return;
           }
         }
-        for (let c in mc.constraints) {
+        for (const c in mc.constraints) {
           // update the constraints
           if (this[field]) {
             this[field]._constraints[c] = mc.constraints[c];
@@ -430,10 +428,10 @@ export class FieldNode extends EventTreeNode {
         // exit here, it does not go deeper
         return;
       }
-      let target = f[0];
-      let subMetaAndConstraints = {fields: {}};
+      const target = f[0];
+      const subMetaAndConstraints = {fields: {}};
       subMetaAndConstraints.fields[f.slice(1).join(".")] = mc;
-      let x = this[target];
+      const x = this[target];
 
       this[target].__updateMetaAndConstraints(subMetaAndConstraints);
 
@@ -447,7 +445,7 @@ export class FieldNode extends EventTreeNode {
     // remove if type changes
     if (val && this.__anyCreated && this["@type"]._value !== val["@type"]) {
       for (let i = this.__childNodes.length - 1; i >= 0; i--) {
-        let field = this.__childNodes[i];
+        const field = this.__childNodes[i];
         if (!val[field._name]) {
           field.deleteNode();
         }
@@ -469,23 +467,23 @@ export class FieldNode extends EventTreeNode {
 
 
   _updateKeyValueMap(val, spec) {
-    let vType = spec.match(/,\s*(.*)>/)[1];
-    let fieldSpec = {type: vType};
+    const vType = spec.match(/,\s*(.*)>/)[1];
+    const fieldSpec = {type: vType};
 
     this._fieldIsMap = true;
     // create if not exist
-    for (let fieldName in val) {
+    for (const fieldName in val) {
       if (this[fieldName] == undefined) {
         this[fieldName] = new FieldNode(this, fieldSpec, fieldName);
 
 
       }
-      //update data
+      // update data
       this[fieldName]._value = val[fieldName];
     }
-    //remove unseted
+    // remove unseted
     for (let i = this.__childNodes.length - 1; i >= 0; i--) {
-      let field = this.__childNodes[i];
+      const field = this.__childNodes[i];
       if (!val || !val[field._name]) {
         field.deleteNode();
       }
@@ -503,12 +501,12 @@ export class FieldNode extends EventTreeNode {
     if (typeof this._deleteFromList === "function") {
       this._deleteFromList();
     } else {
-      let index = this.__parentNode.__childNodes.indexOf(this);
+      const index = this.__parentNode.__childNodes.indexOf(this);
       this.__parentNode.__childNodes.splice(index, 1);
       delete (this.__parentNode[this._name]);
       this.dispatchNodeEvent(new NodeEvent("field-value-changed", this._name, true));
     }
-    //notify
+    // notify
     this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted", this._name, false));
     this.dispatchNodeEvent(new NodeEvent("node-field-deleted", this._name, true));
 
@@ -530,13 +528,11 @@ export class FieldNode extends EventTreeNode {
     this._createAnyType(val);
 
     if (this.__childNodes.length > 0 && val) {
-      for (let index in this.__childNodes) {
-        let field = this.__childNodes[index];
+      for (const index in this.__childNodes) {
+        const field = this.__childNodes[index];
         field.defaultvalue = val[field._name];
       }
-    } else {
-
-      if (this._spec.type.startsWith("map<")) {
+    } else if (this._spec.type.startsWith("map<")) {
         this._updateKeyValueMap(val, this._spec.type)
       } else {
 
@@ -544,15 +540,14 @@ export class FieldNode extends EventTreeNode {
         this.__value = val;
         this._pristine = true;
       }
-    }
   }
 
   get _value() {
     if (this.__childNodes.length > 0 || this._fieldIsMap) {
       this.__value = {};
       // nur reine Daten zurück geben
-      for (let index in this.__childNodes) {
-        let field = this.__childNodes[index];
+      for (const index in this.__childNodes) {
+        const field = this.__childNodes[index];
         this.__value[field._name] = field._value
       }
     }
@@ -574,8 +569,8 @@ export class FieldNode extends EventTreeNode {
       if (this.__childNodes.length > 0) {
         this.__value = {};
         // nur reine Daten zurück geben
-        for (let index in this.__childNodes) {
-          let field = this.__childNodes[index];
+        for (const index in this.__childNodes) {
+          const field = this.__childNodes[index];
           let val;
           if (this._constraints && this._constraints.required && this._constraints.required.is === 'true') {
             val = this._required_value;
@@ -590,9 +585,9 @@ export class FieldNode extends EventTreeNode {
       }
       return this.__value;
 
-    } else {
+    } 
       return undefined;
-    }
+    
   }
 
   /**
@@ -609,8 +604,8 @@ export class FieldNode extends EventTreeNode {
       if (this.__childNodes.length > 0) {
         this.__value = {};
         // nur reine Daten zurück geben
-        for (let index in this.__childNodes) {
-          let field = this.__childNodes[index];
+        for (const index in this.__childNodes) {
+          const field = this.__childNodes[index];
           let val;
           if (this._constraints && this._constraints.required && this._constraints.required.is === 'true') {
             val = this._required_value;
@@ -624,9 +619,9 @@ export class FieldNode extends EventTreeNode {
       }
       return this.__value;
 
-    } else {
+    } 
       return undefined;
-    }
+    
   }
 
   /**
@@ -640,9 +635,9 @@ export class FieldNode extends EventTreeNode {
       if (this.__childNodes.length > 0) {
         this.__value = {};
         // nur reine Daten zurück geben
-        for (let index in this.__childNodes) {
-          let field = this.__childNodes[index];
-          let val = field._required_value;
+        for (const index in this.__childNodes) {
+          const field = this.__childNodes[index];
+          const val = field._required_value;
           if (val !== undefined) {
             this.__value[field._name] = val;
           }
@@ -650,9 +645,9 @@ export class FieldNode extends EventTreeNode {
       }
       return this.__value;
 
-    } else {
+    } 
       return undefined;
-    }
+    
   }
 
 
@@ -692,7 +687,7 @@ export class FieldNode extends EventTreeNode {
     // set field empty, if not defined
     error.field = error.field || "";
 
-    let path = error.field.split(".");
+    const path = error.field.split(".");
     if (path.length > 0 && path[0] !== "") {
       // rest wieder in error reinwerfen
       error.field = path.slice(1).join(".");
@@ -711,9 +706,9 @@ export class FieldNode extends EventTreeNode {
   toString() {
     if (this._value !== null) {
       return this._value;
-    } else {
+    } 
       return ""
-    }
+    
 
   };
 }

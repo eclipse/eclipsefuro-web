@@ -103,6 +103,7 @@ export class DataObject extends EventTreeNode {
   _hasAncestorOfType(type){
     return this._type === type;
   }
+
   /**
    * Inits the EntityNode
    */
@@ -145,10 +146,10 @@ export class DataObject extends EventTreeNode {
    * @return {*}
    */
   getJson() {
-    let data = {};
+    const data = {};
     // nur reine Daten zurück geben
-    for (let index in this.__childNodes) {
-      let field = this.__childNodes[index];
+    for (const index in this.__childNodes) {
+      const field = this.__childNodes[index];
       data[field._name] = field._value
     }
     return data;
@@ -159,8 +160,8 @@ export class DataObject extends EventTreeNode {
   _updateFieldValuesAndMetaFromRawEntity(node, data) {
 
     let furoMetaDetected = false;
-    for (let fieldName in data) {
-      let fieldNode = node[fieldName];
+    for (const fieldName in data) {
+      const fieldNode = node[fieldName];
 
       if (fieldNode === undefined){
         console.warn("field not specified", fieldName)
@@ -171,11 +172,10 @@ export class DataObject extends EventTreeNode {
       }
       if (!fieldNode) {
         console.warn("unspecified field", fieldName)
-      } else {
-        if (fieldNode._isRepeater) {
-          let initialSize = fieldNode.repeats.length;
+      } else if (fieldNode._isRepeater) {
+          const initialSize = fieldNode.repeats.length;
 
-          //fieldNode.removeAllChildren();
+          // fieldNode.removeAllChildren();
 
           // update records
           data[fieldName].forEach((repdata, i) => {
@@ -194,7 +194,7 @@ export class DataObject extends EventTreeNode {
 
 
           // entferne überzählige nodes
-          let newSize = data[fieldName].length;
+          const newSize = data[fieldName].length;
           if (newSize < fieldNode.repeats.length) {
             fieldNode.repeats.splice(newSize);
             fieldNode.__childNodes.splice(newSize);
@@ -204,16 +204,13 @@ export class DataObject extends EventTreeNode {
           fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", fieldNode, true));
           fieldNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", fieldNode, false));
 
-        } else {
-          if (fieldNode) {
+        } else if (fieldNode) {
             fieldNode._clearInvalidity();
 
             // Werte aktualisieren
             fieldNode._value = data[fieldName];
             fieldNode._pristine = true;
           }
-        }
-      }
     }
 
 
@@ -245,11 +242,11 @@ export class DataObject extends EventTreeNode {
     // on this layer you can only pass the constraint to the children
     // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
     // a field which is targeted we delegate the sub request to  this field
-    for (let fieldname in metaAndConstraints.fields) {
-      let mc = metaAndConstraints.fields[fieldname];
-      let f = fieldname.split(".");
-      let target = f[0];
-      let subMetaAndConstraints = {fields: {}};
+    for (const fieldname in metaAndConstraints.fields) {
+      const mc = metaAndConstraints.fields[fieldname];
+      const f = fieldname.split(".");
+      const target = f[0];
+      const subMetaAndConstraints = {fields: {}};
       subMetaAndConstraints.fields[f.slice(1).join(".")] = mc;
       this[target].__updateMetaAndConstraints(subMetaAndConstraints);
     }
@@ -260,7 +257,7 @@ export class DataObject extends EventTreeNode {
   _setInvalid(error) {
     // set field empty, if not defined
     error.field = error.field || "";
-    let path = error.field.split(".");
+    const path = error.field.split(".");
     if (path.length > 0 && path[0] !== "") {
       // rest wieder in error reinwerfen
       error.field = path.slice(1).join(".");
@@ -283,7 +280,7 @@ export class DataObject extends EventTreeNode {
    * @private
    */
   _initFieldsFromSpec(node, fieldSpec) {
-    for (let fieldName in fieldSpec) {
+    for (const fieldName in fieldSpec) {
       if (fieldSpec[fieldName].meta && fieldSpec[fieldName].meta.repeated) {
         node[fieldName] = new RepeaterNode(node, fieldSpec[fieldName], fieldName);
 
