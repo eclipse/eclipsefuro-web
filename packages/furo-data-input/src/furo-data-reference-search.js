@@ -66,7 +66,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
      */
     _FBPReady() {
         super._FBPReady();
-        //this._FBPTraceWires();
+        // this._FBPTraceWires();
         // check initial overrides
         CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
         this._registerListeners();
@@ -101,7 +101,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
          * listen to keyboard events
          */
         this.addEventListener("keydown", (event) => {
-            let key = event.key || event.keyCode;
+            const key = event.key || event.keyCode;
 
             if (key === 'Escape' || key === 'Esc' || key === 27) {
 
@@ -195,7 +195,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
              * Fired when term is entered and bigger then min-term-length
              * detail payload: {String} term
              */
-            let customEvent = new Event('search', {composed: true, bubbles: true});
+            const customEvent = new Event('search', {composed: true, bubbles: true});
             customEvent.detail = this._searchTerm;
             this.dispatchEvent(customEvent);
         }
@@ -237,7 +237,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
          * Fired when input value is cleared
          * detail payload: empty
          */
-        let customEvent = new Event('value-cleared', {composed: true, bubbles: true});
+        const customEvent = new Event('value-cleared', {composed: true, bubbles: true});
         this.dispatchEvent(customEvent);
     }
 

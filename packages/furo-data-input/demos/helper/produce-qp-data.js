@@ -43,7 +43,7 @@ class ProduceQpData extends FBP(LitElement) {
 
   produce() {
 
-    let customEvent = new Event('data', {composed: true, bubbles: true});
+    const customEvent = new Event('data', {composed: true, bubbles: true});
     customEvent.detail = this.qp ;
     this.dispatchEvent(customEvent);
   }

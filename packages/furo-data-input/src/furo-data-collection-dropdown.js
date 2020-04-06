@@ -2,10 +2,10 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/src/theme"
 import "@furo/input/src/furo-select-input";
 
+import {FBP} from "@furo/fbp";
 import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
 import {Helper} from "./lib/helper";
 
-import {FBP} from "@furo/fbp";
 
 /**
  * `furo-data-collection-dropdown`
@@ -92,7 +92,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires();
+    // this._FBPTraceWires();
     // check initial overrides
     CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
   }
@@ -105,7 +105,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
      *
      * detail payload: the original item object
      */
-    let customEvent = new Event('item-selected', {composed: true, bubbles: true});
+    const customEvent = new Event('item-selected', {composed: true, bubbles: true});
     // find item from list
     let selectedItem;
 
@@ -167,8 +167,8 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   set list(value) {
 
     // map
-    let arr = value.split(",").map((e) => {
-      let item = e.trim();
+    const arr = value.split(",").map((e) => {
+      const item = e.trim();
       return {
         "id": item,
         "label": e,
@@ -193,12 +193,12 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
         // notifiy first item if field is not set
         let selectedItem = null;
         for(let i=0; i<arr.length; i++) {
-          if(arr[i]["selected"]) {
+          if(arr[i].selected) {
             selectedItem = arr[i].id;
             break;
           }
         }
-        selectedItem = selectedItem? selectedItem: arr[0].id;
+        selectedItem = selectedItem || arr[0].id;
         this._notifiySelectedItem(selectedItem);
         if(this._fieldNodeToUpdate) {
           this._fieldNodeToUpdate._value = selectedItem;
@@ -359,8 +359,8 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       if(this.subfieldDisplay) {
         this._fieldDisplayNodeToUpdate = this.field[this.subfieldDisplay]
       }
-      else if(this.field["display_name"]){
-        this._fieldDisplayNodeToUpdate = this.field["display_name"];
+      else if(this.field.display_name){
+        this._fieldDisplayNodeToUpdate = this.field.display_name;
       }
     }
     else{
@@ -429,7 +429,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    */
   _buildListWithMetaOptions(options) {
 
-    let arr = this._mapDataToList(options.list);
+    const arr = this._mapDataToList(options.list);
 
     this._notifyAndTriggerUpdate(arr);
   }
@@ -448,7 +448,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
         let hasSelectedMark = false;
         let preSelectedValueInList = null;
         for(let i=0; i < list.length; i++) {
-          let item = {
+          const item = {
             "id": list[i][this.valueField],
             "label": list[i][this.displayField],
             "selected": false,
@@ -461,7 +461,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
             isSelected = true;
           }
 
-          if(list[i]["selected"]) {
+          if(list[i].selected) {
             hasSelectedMark = true;
             preSelectedValueInList =  list[i][this.valueField];
           }
@@ -482,14 +482,12 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   _setItemSelectedViaSelectedMark(list) {
     let arr =[];
     if(Array.isArray(list)) {
-      arr = list.map((e) => {
-        return {
+      arr = list.map((e) => ({
           "id": e[this.valueField],
           "label": e[this.displayField],
-          "selected": e["selected"]? true : false,
+          "selected": !!e.selected,
           "_original": e
-        }
-      });
+        }));
     }
     return arr;
   }
@@ -517,7 +515,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    */
   injectList(list) {
 
-    let arr = this._mapDataToList(list);
+    const arr = this._mapDataToList(list);
 
     this._notifyAndTriggerUpdate(arr);
   }
@@ -533,13 +531,13 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     // select the item when it's value is equal the field value.
     // when field value is not equal the filed value, select the item if the item is marked as `selected`
     if(Array.isArray(entities)) {
-      let arrA = [];
-      let arrB = [];
+      const arrA = [];
+      const arrB = [];
       let isSelected = false;
       let hasSelectedMark = false;
       let preSelectedValueInList = null;
       for(let i=0; i < entities.length; i++) {
-        let item = {
+        const item = {
           "id": entities[i].data[this.valueField],
           "label": entities[i].data[this.displayField],
           "selected": false,
@@ -556,7 +554,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
         }
 
 
-        if(entities[i].data["selected"]) {
+        if(entities[i].data.selected) {
           hasSelectedMark = true;
           itemB.selected = true;
           preSelectedValueInList =  entities[i].data[this.valueField];

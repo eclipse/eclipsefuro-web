@@ -122,22 +122,22 @@ class FuroDataProperty extends FBP(LitElement) {
     if (propertyField._isRepeater) {
       // add flow repeat to parent and inject on repeated changes
       // repeated
-      let r = document.createElement("flow-repeat");
+      const r = document.createElement("flow-repeat");
       r.setAttribute("identity-path", "id._value");
 
       let attrs = "";
-      let l = this.attributes.length;
+      const l = this.attributes.length;
       for (let i = 0; i < l; ++i) {
-        var nodeName = this.attributes.item(i).nodeName;
-        var nodeValue = this.attributes.item(i).nodeValue;
+        const {nodeName} = this.attributes.item(i);
+        const {nodeValue} = this.attributes.item(i);
         if (!nodeName.startsWith("@") && !nodeName.startsWith("ƒ")) {
-          attrs += nodeName + '="' + nodeValue + '"';
+          attrs += `${nodeName  }="${  nodeValue  }"`;
         }
       }
-      r.innerHTML = '<template><furo-data-property ƒ-bind-data="--init" ' + attrs + '></furo-data-property></template>';
+      r.innerHTML = `<template><furo-data-property ƒ-bind-data="--init" ${  attrs  }></furo-data-property></template>`;
 
 
-      let repeater = this.parentNode.insertBefore(r, this);
+      const repeater = this.parentNode.insertBefore(r, this);
       this._createdRepeater = repeater;
 
       this.field.addEventListener('this-repeated-field-changed', (data) => {
@@ -166,7 +166,7 @@ class FuroDataProperty extends FBP(LitElement) {
 
   _createPropComponent(propertyField) {
     if (!this._property_created) {
-      let type = propertyField.data["@type"]._value.replace(/.*\//, '');
+      const type = propertyField.data["@type"]._value.replace(/.*\//, '');
       let e ;
 
       // TODO, should check for the better generic solution
@@ -174,7 +174,7 @@ class FuroDataProperty extends FBP(LitElement) {
         && propertyField.data
         && propertyField.data.link
         && propertyField.data.link.type) {
-        let c = propertyField.data.link.type._value.replace(".","-")+"-reference-search";
+        const c = `${propertyField.data.link.type._value.replace(".","-")}-reference-search`;
         e = document.createElement(c);
       }
       else {
@@ -182,10 +182,10 @@ class FuroDataProperty extends FBP(LitElement) {
       }
 
       // Grab all of the original's attributes, and pass them to the replacement
-      let l = this.attributes.length;
+      const l = this.attributes.length;
       for (let i = 0; i < l; ++i) {
-        var nodeName = this.attributes.item(i).nodeName;
-        var nodeValue = this.attributes.item(i).nodeValue;
+        const {nodeName} = this.attributes.item(i);
+        const {nodeValue} = this.attributes.item(i);
         if (!nodeName.startsWith("@") && !nodeName.startsWith("ƒ")) {
           e.setAttribute(nodeName, nodeValue);
         }

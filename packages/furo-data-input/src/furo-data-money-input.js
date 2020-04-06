@@ -67,7 +67,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
        * Fired when value has changed from inside the component
        * detail payload: google money object
        */
-      let customEvent = new Event('value-changed', {composed: true, bubbles: true});
+      const customEvent = new Event('value-changed', {composed: true, bubbles: true});
       customEvent.detail = this.field._value;
       this.dispatchEvent(customEvent);
     });
@@ -86,10 +86,10 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       obj.currency_code = currency;
     }
     if(amount) {
-      let arr = String(amount).split(".");
+      const arr = String(amount).split(".");
       obj.units = Number(arr[0]);
       if(arr[1]) {
-        obj.nanos = Number("0."+arr[1])*100000000;
+        obj.nanos = Number(`0.${arr[1]}`)*100000000;
       }
       else {
         obj.nanos = 0;
@@ -109,7 +109,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
 
   _updateField() {
     if(this.field.units && this.field.units._value!== null && this.field.nanos._value!== null) {
-      let amout = Number(this.field.units._value+ "." + this.field.nanos._value);
+      const amout = Number(`${this.field.units._value }.${  this.field.nanos._value}`);
       this._FBPTriggerWire('--valueAmount', amout);
     }
     if(this.field.currency_code && this.field.currency_code._value) {
@@ -118,6 +118,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
 
     this.requestUpdate();
   }
+
   /**
    * Updater for the hint attr
    * @param value
@@ -314,9 +315,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   }
 
   set currencies(c) {
-    let arr = c.split(",").map(function (item) {
-      return item.trim();
-    });
+    const arr = c.split(",").map((item) => item.trim());
     this._currencies = arr;
     this.updateSelectOptions(arr);
   }
@@ -324,26 +323,21 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   updateSelectOptions(collection) {
     // convert array list to id, label structure
     if (typeof collection[0] === "string") {
-      collection = collection.map((item) => {
-        return {"id": item, "label": item};
-      });
+      collection = collection.map((item) => ({"id": item, "label": item}));
     }
 
-    let arr = collection.map((e) => {
+    const arr = collection.map((e) => {
       let selected = false;
       if (e.selected) {
         this.value.currency_code = e.id.toString();
         this.field.currency_code._value= this.value.currency_code;
         selected = true;
       }
-      else {
-
-        if(this.value.currency_code  === e.id.toString()) {
+      else if(this.value.currency_code  === e.id.toString()) {
           // init the currency code in field
           this.field.currency_code._value= this.value.currency_code;
           selected = true;
         }
-      }
 
       return {"id": e.id, "label": e.label, "selected": selected }
     });

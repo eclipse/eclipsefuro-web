@@ -51,7 +51,7 @@ class FuroDataColorInput extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires();
+    // this._FBPTraceWires();
     // check initial overrides
     CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
   }

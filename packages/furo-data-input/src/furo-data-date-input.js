@@ -55,7 +55,7 @@ class FuroDataDateInput extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires();
+    // this._FBPTraceWires();
     // check initial overrides
     CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
   }
@@ -258,7 +258,7 @@ class FuroDataDateInput extends FBP(LitElement) {
       this._updateFieldBranch();
     });
 
-    //init
+    // init
     this._updateFieldBranch();
   }
 
@@ -268,7 +268,7 @@ class FuroDataDateInput extends FBP(LitElement) {
   }
 
   _updateFieldBranch() {
-    //mark incomming error
+    // mark incomming error
     if (!this.field._isValid) {
       this.error = true;
       this.errortext = this.field._validity.description;
@@ -302,20 +302,20 @@ class FuroDataDateInput extends FBP(LitElement) {
       let year = String(obj.year);
 
       if (month.length < 2) {
-        month = "0" + month;
+        month = `0${  month}`;
       }
 
       if (day.length < 2) {
-        day = "0" + day;
+        day = `0${  day}`;
       }
 
       if (year.length < 4) {
-        var l = 4 - year.length;
-        for (var i = 0; i < l; i++) {
-          year = "0" + year;
+        const l = 4 - year.length;
+        for (let i = 0; i < l; i++) {
+          year = `0${  year}`;
         }
       }
-      date = year + "-" + month + "-" + day;
+      date = `${year  }-${  month  }-${  day}`;
     }
 
     return date;
@@ -324,7 +324,7 @@ class FuroDataDateInput extends FBP(LitElement) {
   // convert date string ISO 8601 to object for google.type.Dates
   _convertStringToDateObj(str, obj) {
 
-    let arr = str.split("-", 3);
+    const arr = str.split("-", 3);
     // only override properties: day, month, year
     if (arr.length === 3) {
       obj.day = Number(arr[2]);

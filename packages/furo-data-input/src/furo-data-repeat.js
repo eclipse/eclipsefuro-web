@@ -89,22 +89,22 @@ class FuroDataRepeat extends FBP(LitElement) {
 
     // add flow repeat to parent and inject on repeated changes
     // repeated
-    let container = document.createElement("furo-form-layouter");
-    let r = document.createElement("flow-repeat");
+    const container = document.createElement("furo-form-layouter");
+    const r = document.createElement("flow-repeat");
 
-    let identityPath = this.identityPath? this.identityPath : "__index";
+    const identityPath = this.identityPath? this.identityPath : "__index";
     r.setAttribute("identity-path", identityPath);
     r.setAttribute("ƒ-inject-items", "--repeatsChanged");
 
     let isCondensed = "";
     let attrs = "";
-    let l = this.attributes.length;
+    const l = this.attributes.length;
     for (let i = 0; i < l; ++i) {
-      var nodeName = this.attributes.item(i).nodeName;
-      var nodeValue = this.attributes.item(i).nodeValue;
+      const {nodeName} = this.attributes.item(i);
+      const {nodeValue} = this.attributes.item(i);
       switch (nodeName) {
         case "condensed":
-          attrs += nodeName + '="' + nodeValue + '"';
+          attrs += `${nodeName  }="${  nodeValue  }"`;
           isCondensed = "condensed";
           break;
         case "two":
@@ -121,16 +121,16 @@ class FuroDataRepeat extends FBP(LitElement) {
           break;
         default:
           if (!nodeName.startsWith("@") && !nodeName.startsWith("ƒ")) {
-            attrs += nodeName + '="' + nodeValue + '"';
+            attrs += `${nodeName  }="${  nodeValue  }"`;
           }
       }
 
     }
     let icn = "";
     if (this.deleteIcon) {
-      icn = '<data-repeat-delete icon="' + this.deleteIcon + '" ' + isCondensed + ' ƒ-bind-item="--init"></data-repeat-delete>';
+      icn = `<data-repeat-delete icon="${  this.deleteIcon  }" ${  isCondensed  } ƒ-bind-item="--init"></data-repeat-delete>`;
     }
-    r.innerHTML = '<template><div class="repeat-row"><' + component + ' ' + attrs + ' class="in-repeater" ƒ-bind-data="--init"></' + component + '>' + icn + '</div></template>';
+    r.innerHTML = `<template><div class="repeat-row"><${  component  } ${  attrs  } class="in-repeater" ƒ-bind-data="--init"></${  component  }>${  icn  }</div></template>`;
 
 
     container.appendChild(r);
@@ -183,11 +183,9 @@ class FuroDataRepeat extends FBP(LitElement) {
     if (this.field.repeats.length === 0) {
       this.setAttribute("hidden", "");
       this._isHidden = true;
-    } else {
-      if (this._isHidden) {
+    } else if (this._isHidden) {
         this.removeAttribute("hidden");
       }
-    }
   }
 
   /**
@@ -215,7 +213,7 @@ class FuroDataRepeat extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    // this._FBPTraceWires()
   }
 
   /**

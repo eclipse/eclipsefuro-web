@@ -51,7 +51,7 @@ class FuroDataCheckboxInput extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires();
+    // this._FBPTraceWires();
     // check initial overrides
     CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
   }
@@ -105,7 +105,7 @@ class FuroDataCheckboxInput extends FBP(LitElement) {
 
     _updateField() {
 
-        this.disabled = this.field._meta.readonly ? true : false;
+        this.disabled = !!this.field._meta.readonly;
         this._FBPTriggerWire('--value', this.field._value);
         this.requestUpdate();
     }

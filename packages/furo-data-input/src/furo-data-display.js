@@ -37,7 +37,7 @@ class FuroDataDisplay extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires();
+    // this._FBPTraceWires();
     // check initial overrides
     CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
   }
@@ -47,11 +47,9 @@ class FuroDataDisplay extends FBP(LitElement) {
 
     if (this.displayfield && this.field[this.displayfield]) {
       this.text = this.field[this.displayfield];
-    } else {
-      if (this.field.display_name) {
+    } else if (this.field.display_name) {
         this.text = this.field.display_name;
       }
-    }
 
     if (this.text && this.text.toString() == undefined) {
       this.text = "";

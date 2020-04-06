@@ -49,7 +49,7 @@ class FuroDataPasswordInput extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires();
+    // this._FBPTraceWires();
     // check initial overrides
     CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
   }
@@ -235,6 +235,7 @@ class FuroDataPasswordInput extends FBP(LitElement) {
   disable(){
     this.disabled = true;
   }
+
   /**
    * Makes the field writable.
    */

@@ -13,11 +13,9 @@
   "main": "src/furo-catalog.js",
   "scripts": {
     "start": "../../node_modules/.bin/es-dev-server --root-dir ../../ --app-index packages/furo-data-input/index.html --open",
-
     "update-docs": "../../node_modules/@furo/doc-helper/src/component-doc/buildTree.js",
-
     "lint": "npm run lint:eslint && npm run lint:prettier",
-    "lint:eslint": "../../node_modules/.bin/eslint --ext .js . --ignore-path .gitignore",
+    "lint:eslint": "../../node_modules/.bin/eslint  --ext .js . --ignore-path .gitignore",
     "lint:prettier": "../../node_modules/.bin/prettier \"**/*.js\" --check --ignore-path .gitignore",
     "format": "npm run format:eslint && npm run format:prettier",
     "format:eslint": "../../node_modules/.bin/eslint --ext .js . --fix --ignore-path .gitignore",

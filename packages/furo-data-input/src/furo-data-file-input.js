@@ -80,7 +80,7 @@ class FuroDataFileInput extends FBP(LitElement) {
      */
     _FBPReady() {
         super._FBPReady();
-        //this._FBPTraceWires();
+        // this._FBPTraceWires();
         this._FBPAddWireHook("--valueChanged", (e) => {
 
             /**
@@ -196,7 +196,7 @@ class FuroDataFileInput extends FBP(LitElement) {
         CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
 
         this.field.addEventListener('field-value-changed', (e) => {
-            //nop
+            // nop
         });
 
         // update meta and constraints when they change

@@ -54,20 +54,20 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
 
       // add flow repeat to parent and inject on repeated changes
       // repeated
-      let r = document.createElement("flow-repeat");
+      const r = document.createElement("flow-repeat");
       r.setAttribute("identity-path", "id._value");
       let attrs = "";
-      let l = this.attributes.length;
+      const l = this.attributes.length;
       for (let i = 0; i < l; ++i) {
-        var nodeName = this.attributes.item(i).nodeName;
-        var nodeValue = this.attributes.item(i).nodeValue;
+        const {nodeName} = this.attributes.item(i);
+        const {nodeValue} = this.attributes.item(i);
         if (!nodeName.startsWith("@") && !nodeName.startsWith("ƒ")) {
-          attrs += nodeName +'="' + nodeValue +'"';
+          attrs += `${nodeName }="${  nodeValue }"`;
         }
       }
-      r.innerHTML = '<template><furo-data-property-display ƒ-bind-data="--init" ' + attrs +'></furo-data-property-display></template>';
+      r.innerHTML = `<template><furo-data-property-display ƒ-bind-data="--init" ${  attrs }></furo-data-property-display></template>`;
 
-      let repeater = this.parentNode.insertBefore(r, this);
+      const repeater = this.parentNode.insertBefore(r, this);
       this._createdRepeater = repeater;
 
       this.field.addEventListener('this-repeated-field-changed', (data) => {
@@ -96,13 +96,13 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
 
   _createPropComponent(propertyField) {
     if (!this._property_created) {
-      let e = document.createElement(this.typemap[propertyField.data["@type"]._value.replace(/.*\//, '')]);
+      const e = document.createElement(this.typemap[propertyField.data["@type"]._value.replace(/.*\//, '')]);
 
       // Grab all of the original's attributes, and pass them to the replacement
-      let l = this.attributes.length;
+      const l = this.attributes.length;
       for (let i = 0; i < l; ++i) {
-        var nodeName = this.attributes.item(i).nodeName;
-        var nodeValue = this.attributes.item(i).nodeValue;
+        const {nodeName} = this.attributes.item(i);
+        const {nodeValue} = this.attributes.item(i);
         if (!nodeName.startsWith("@") && !nodeName.startsWith("ƒ")) {
           e.setAttribute(nodeName, nodeValue);
         }

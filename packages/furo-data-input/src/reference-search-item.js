@@ -80,7 +80,7 @@ export class ReferenceSearchItem extends FBP(LitElement) {
          * Fired when item is selected
          * detail payload: item
          */
-        let customEvent = new Event('item-selected', {composed: true, bubbles: true});
+        const customEvent = new Event('item-selected', {composed: true, bubbles: true});
         customEvent.detail = this._item;
         this.dispatchEvent(customEvent)
     }
