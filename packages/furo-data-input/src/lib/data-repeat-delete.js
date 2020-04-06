@@ -1,7 +1,7 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/icon/src/furo-icon.js"
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/icon/src/furo-icon.js';
 
 /**
  * `data-repeat-delete`
@@ -11,7 +11,6 @@ import "@furo/icon/src/furo-icon.js"
  * @appliesMixin FBP
  */
 class DataRepeatDelete extends FBP(LitElement) {
-
   /**
    * @private
    * @return {Object}
@@ -21,7 +20,7 @@ class DataRepeatDelete extends FBP(LitElement) {
       /**
        * Description
        */
-      icon: {type: String}
+      icon: { type: String },
     };
   }
 
@@ -35,11 +34,9 @@ class DataRepeatDelete extends FBP(LitElement) {
      * Register hook on wire --delClicked to
      * delete the item
      */
-    this.addEventListener("click",(e)=>{
-      this.field.deleteNode()
+    this.addEventListener('click', e => {
+      this.field.deleteNode();
     });
-
-
   }
 
   bindItem(repeatedNode) {
@@ -53,32 +50,30 @@ class DataRepeatDelete extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('DataRepeatDelete') || css`
+    return (
+      Theme.getThemeForComponent('DataRepeatDelete') ||
+      css`
         :host {
-            display: block;
-            box-sizing: border-box;
-            padding-top:  26px;
-            cursor: pointer;
+          display: block;
+          box-sizing: border-box;
+          padding-top: 26px;
+          cursor: pointer;
         }
 
-        :host([condensed]){
-            padding-top:  18px;
+        :host([condensed]) {
+          padding-top: 18px;
         }
         :host([hidden]) {
-            display: none;
-           
+          display: none;
         }
 
         furo-icon {
           width: 24px;
           height: 24px;
-            
         }
-
-      
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -88,9 +83,7 @@ class DataRepeatDelete extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      
-      <furo-icon icon="${this.icon}"></furo-icon>     
-       
+      <furo-icon icon="${this.icon}"></furo-icon>
     `;
   }
 }

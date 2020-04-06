@@ -1,11 +1,11 @@
 import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/doc-helper"
-import "@furo/data"
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/doc-helper';
+import '@furo/data';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import "@furo/data-input/src/furo-catalog.js";
+import '@furo/data-input/src/furo-catalog.js';
 /**
  * `sample-furo-number-input`
  *
@@ -13,7 +13,6 @@ import "@furo/data-input/src/furo-catalog.js";
  * @appliesMixin FBP
  */
 class SampleFuroDataNumberInput extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -21,21 +20,22 @@ class SampleFuroDataNumberInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('SampleFuroDataNumberInput') || css`
+    return (
+      Theme.getThemeForComponent('SampleFuroDataNumberInput') ||
+      css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
         furo-demo-snippet {
-            height: 230px;
+          height: 230px;
         }
-       
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -45,16 +45,26 @@ class SampleFuroDataNumberInput extends FBP(LitElement) {
     // language=HTML
     return html`
       <h3>Sample</h3>
-      
-      <furo-demo-snippet >
+
+      <furo-demo-snippet>
         <template>
-          <furo-data-object type="experiment.Experiment" @-object-ready="--entity"></furo-data-object>
-          <furo-data-number-input autofocus ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-number-input>
-          <furo-data-number-input  hint="Type in a number" label="label" ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-number-input>
+          <furo-data-object
+            type="experiment.Experiment"
+            @-object-ready="--entity"
+          ></furo-data-object>
+          <furo-data-number-input
+            autofocus
+            ƒ-bind-data="--entity(*.furo_data_number_input)"
+          ></furo-data-number-input>
+          <furo-data-number-input
+            hint="Type in a number"
+            label="label"
+            ƒ-bind-data="--entity(*.furo_data_number_input)"
+          ></furo-data-number-input>
         </template>
       </furo-demo-snippet>
     `;
   }
 }
 
-window.customElements.define('sample-furo-data-number-input', SampleFuroDataNumberInput );
+window.customElements.define('sample-furo-data-number-input', SampleFuroDataNumberInput);

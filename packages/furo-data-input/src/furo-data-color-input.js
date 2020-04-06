@@ -1,11 +1,10 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/input/src/furo-color-input";
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/input/src/furo-color-input';
 
-import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
-import {Helper} from "./lib/helper";
-
+ import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { Helper } from './lib/helper.js';
 
 /**
  * `furo-input-color`
@@ -19,8 +18,6 @@ import {Helper} from "./lib/helper";
  * @mixes FuroInputBase
  */
 class FuroDataColorInput extends FBP(LitElement) {
-
-
   /**
    * @event value-changed
    * Fired when value has changed from inside the input field.
@@ -35,16 +32,12 @@ class FuroDataColorInput extends FBP(LitElement) {
     this.error = false;
     this.disabled = false;
 
-    this._FBPAddWireHook("--valueChanged", (val) => {
-
-
+    this._FBPAddWireHook('--valueChanged', val => {
       if (this.field) {
-        this.field._value= val;
+        this.field._value = val;
       }
     });
-
   }
-
 
   /**
    * flow is ready lifecycle method
@@ -61,7 +54,7 @@ class FuroDataColorInput extends FBP(LitElement) {
    * @param value
    */
   set _label(value) {
-    Helper.UpdateInputAttribute(this, "label", value);
+    Helper.UpdateInputAttribute(this, 'label', value);
   }
 
   /**
@@ -69,7 +62,7 @@ class FuroDataColorInput extends FBP(LitElement) {
    * @param value
    */
   set _hint(value) {
-    Helper.UpdateInputAttribute(this, "hint", value);
+    Helper.UpdateInputAttribute(this, 'hint', value);
   }
 
   /**
@@ -77,7 +70,7 @@ class FuroDataColorInput extends FBP(LitElement) {
    * @param value
    */
   set leadingIcon(value) {
-    Helper.UpdateInputAttribute(this, "leading-icon", value);
+    Helper.UpdateInputAttribute(this, 'leading-icon', value);
   }
 
   /**
@@ -85,7 +78,7 @@ class FuroDataColorInput extends FBP(LitElement) {
    * @param value
    */
   set trailingIcon(value) {
-    Helper.UpdateInputAttribute(this, "trailing-icon", value);
+    Helper.UpdateInputAttribute(this, 'trailing-icon', value);
   }
 
   /**
@@ -93,7 +86,7 @@ class FuroDataColorInput extends FBP(LitElement) {
    * @param value
    */
   set errortext(value) {
-    Helper.UpdateInputAttribute(this, "errortext", value);
+    Helper.UpdateInputAttribute(this, 'errortext', value);
   }
 
   /**
@@ -110,12 +103,10 @@ class FuroDataColorInput extends FBP(LitElement) {
     this.disabled = false;
   }
 
-
   /**
    */
   static get properties() {
     return {
-
       /**
        * Overrides the label text from the **specs**.
        *
@@ -130,7 +121,7 @@ class FuroDataColorInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       required: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -152,49 +143,50 @@ class FuroDataColorInput extends FBP(LitElement) {
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       disabled: {
-        type: Boolean, reflect: true
+        type: Boolean,
+        reflect: true,
       },
 
       /**
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Icon on the left side
        */
       leadingIcon: {
         type: String,
-        attribute: "leading-icon"
+        attribute: 'leading-icon',
       },
       /**
        * Icon on the right side
        */
       trailingIcon: {
         type: String,
-        attribute: "trailing-icon"
+        attribute: 'trailing-icon',
       },
       /**
        * html input validity
        */
       valid: {
         type: Boolean,
-        reflect: true
+        reflect: true,
       },
       /**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
        */
       condensed: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * passes always float the label
        */
       float: {
-        type: Boolean
-      }
-    }
+        type: Boolean,
+      },
+    };
   }
 
   /**
@@ -205,7 +197,6 @@ class FuroDataColorInput extends FBP(LitElement) {
   bindData(fieldNode) {
     Helper.BindData(this, fieldNode);
   }
-
 
   _updateField() {
     this._FBPTriggerWire('--value', this.field._value);
@@ -219,101 +210,103 @@ class FuroDataColorInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroDataColorInput') || css`
+    return (
+      Theme.getThemeForComponent('FuroDataColorInput') ||
+      css`
         :host {
-            display: inline-block;
-            position: relative;
-            font-size: 12px;
-            box-sizing: border-box;
-            font-family: "Roboto", "Noto", sans-serif;
-            line-height: 1.5;
+          display: inline-block;
+          position: relative;
+          font-size: 12px;
+          box-sizing: border-box;
+          font-family: 'Roboto', 'Noto', sans-serif;
+          line-height: 1.5;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         :host([error]) .border {
-            border-color: red;
-            border-width: 1px;
+          border-color: red;
+          border-width: 1px;
         }
-
 
         input {
-            border: none;
-            background: 0 0;
-            font-size: 12px;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            text-align: left;
-            color: inherit;
-            outline: none;
-            width:30px;
-            height: 19px;
-         }
+          border: none;
+          background: 0 0;
+          font-size: 12px;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          text-align: left;
+          color: inherit;
+          outline: none;
+          width: 30px;
+          height: 19px;
+        }
 
         .border {
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 28px;
-            border: none;
-            border-bottom: 1px solid rgba(0, 0, 0, .12);
-         }
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top: 28px;
+          border: none;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        }
 
         label {
-            position: unset;
-            top: unset;
-            color: unset;
-            pointer-events: unset;
-            display: unset;
-            width: unset;
-            overflow: unset;
-            padding-left: 12px;
+          position: unset;
+          top: unset;
+          color: unset;
+          pointer-events: unset;
+          display: unset;
+          width: unset;
+          overflow: unset;
+          padding-left: 12px;
         }
-        
 
         * {
-            transition: all 150ms ease-out;
+          transition: all 150ms ease-out;
         }
 
         .hint {
-            position: absolute;
-            top: 30px;
-            font-size: 10px;
-            color: transparent;
-            white-space: nowrap;
-            pointer-events: none;
-         }
+          position: absolute;
+          top: 30px;
+          font-size: 10px;
+          color: transparent;
+          white-space: nowrap;
+          pointer-events: none;
+        }
 
         :host(:focus-within) .hint {
-            color: var(--app-hint-color);
-            transition: all 550ms ease-in;
+          color: var(--app-hint-color);
+          transition: all 550ms ease-in;
         }
-        
+
         :host(:focus-within) .border {
-            border-color: var(--primary, #3f51b5);
-            border-width: 1px;
+          border-color: var(--primary, #3f51b5);
+          border-width: 1px;
         }
-    `
+      `
+    );
   }
 
   render() {
     // language=HTML
     return html`
-       <furo-color-input id="input"
-          ?autofocus=${this.autofocus} 
-          ?disabled=${this._readonly || this.disabled}                 
-          ?error="${this.error}" 
-          ?float="${this.float}" 
-          ?condensed="${this.condensed}"                         
-          ?required=${this._required}                   
-          @-value-changed="--valueChanged"
-          ƒ-set-value="--value"></furo-color-input>      
+      <furo-color-input
+        id="input"
+        ?autofocus=${this.autofocus}
+        ?disabled=${this._readonly || this.disabled}
+        ?error="${this.error}"
+        ?float="${this.float}"
+        ?condensed="${this.condensed}"
+        ?required=${this._required}
+        @-value-changed="--valueChanged"
+        ƒ-set-value="--value"
+      ></furo-color-input>
     `;
   }
-
 }
 
 customElements.define('furo-data-color-input', FuroDataColorInput);

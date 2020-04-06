@@ -1,10 +1,10 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/input/src/furo-text-input";
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/input/src/furo-text-input';
 
-import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
-import {Helper} from "./lib/helper";
+ import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { Helper } from './lib/helper.js';
 
 /**
  * `furo-data-text-input`
@@ -19,7 +19,6 @@ import {Helper} from "./lib/helper";
  * @mixes FBP
  */
 class FuroDataTextInput extends FBP(LitElement) {
-
   /**
    * @event value-changed
    * Fired when value has changed from inside the input field.
@@ -34,14 +33,12 @@ class FuroDataTextInput extends FBP(LitElement) {
     this.error = false;
     this.disabled = false;
 
-    this._FBPAddWireHook("--valueChanged", (val) => {
-
+    this._FBPAddWireHook('--valueChanged', val => {
       if (this.field) {
-        this.field._value= val;
+        this.field._value = val;
       }
     });
   }
-
 
   /**
    * flow is ready lifecycle method
@@ -58,7 +55,7 @@ class FuroDataTextInput extends FBP(LitElement) {
    * @param value
    */
   set _label(value) {
-    Helper.UpdateInputAttribute(this, "label", value);
+    Helper.UpdateInputAttribute(this, 'label', value);
   }
 
   /**
@@ -66,7 +63,7 @@ class FuroDataTextInput extends FBP(LitElement) {
    * @param value
    */
   set _hint(value) {
-    Helper.UpdateInputAttribute(this, "hint", value);
+    Helper.UpdateInputAttribute(this, 'hint', value);
   }
 
   /**
@@ -74,7 +71,7 @@ class FuroDataTextInput extends FBP(LitElement) {
    * @param value
    */
   set leadingIcon(value) {
-    Helper.UpdateInputAttribute(this, "leading-icon", value);
+    Helper.UpdateInputAttribute(this, 'leading-icon', value);
   }
 
   /**
@@ -82,7 +79,7 @@ class FuroDataTextInput extends FBP(LitElement) {
    * @param value
    */
   set trailingIcon(value) {
-    Helper.UpdateInputAttribute(this, "trailing-icon", value);
+    Helper.UpdateInputAttribute(this, 'trailing-icon', value);
   }
 
   /**
@@ -90,7 +87,7 @@ class FuroDataTextInput extends FBP(LitElement) {
    * @param value
    */
   set errortext(value) {
-    Helper.UpdateInputAttribute(this, "errortext", value);
+    Helper.UpdateInputAttribute(this, 'errortext', value);
   }
 
   /**
@@ -100,7 +97,7 @@ class FuroDataTextInput extends FBP(LitElement) {
    * @param value
    */
   set _pattern(value) {
-    Helper.UpdateInputAttribute(this, "pattern", value);
+    Helper.UpdateInputAttribute(this, 'pattern', value);
   }
 
   /**
@@ -110,7 +107,7 @@ class FuroDataTextInput extends FBP(LitElement) {
    * @param value
    */
   set _min(value) {
-    Helper.UpdateInputAttribute(this, "min", value);
+    Helper.UpdateInputAttribute(this, 'min', value);
   }
 
   /**
@@ -120,7 +117,7 @@ class FuroDataTextInput extends FBP(LitElement) {
    * @param value
    */
   set _max(value) {
-    Helper.UpdateInputAttribute(this, "max", value);
+    Helper.UpdateInputAttribute(this, 'max', value);
   }
 
   /**
@@ -136,7 +133,6 @@ class FuroDataTextInput extends FBP(LitElement) {
   enable() {
     this.disabled = false;
   }
-
 
   static get properties() {
     return {
@@ -154,7 +150,7 @@ class FuroDataTextInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       pattern: {
-        type: String
+        type: String,
       },
       /**
        * Overrides the required value from the **specs**.
@@ -162,7 +158,7 @@ class FuroDataTextInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       required: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -200,49 +196,50 @@ class FuroDataTextInput extends FBP(LitElement) {
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       disabled: {
-        type: Boolean, reflect: true
+        type: Boolean,
+        reflect: true,
       },
 
       /**
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Icon on the left side
        */
       leadingIcon: {
         type: String,
-        attribute: "leading-icon"
+        attribute: 'leading-icon',
       },
       /**
        * Icon on the right side
        */
       trailingIcon: {
         type: String,
-        attribute: "trailing-icon"
+        attribute: 'trailing-icon',
       },
       /**
        * html input validity
        */
       valid: {
         type: Boolean,
-        reflect: true
+        reflect: true,
       },
       /**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
        */
       condensed: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * passes always float the label
        */
       float: {
-        type: Boolean
-      }
-    }
+        type: Boolean,
+      },
+    };
   }
 
   /**
@@ -253,7 +250,6 @@ class FuroDataTextInput extends FBP(LitElement) {
   bindData(fieldNode) {
     Helper.BindData(this, fieldNode);
   }
-
 
   _updateField() {
     this._FBPTriggerWire('--value', this.field._value);
@@ -267,37 +263,41 @@ class FuroDataTextInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroDataTextInput') || css`
+    return (
+      Theme.getThemeForComponent('FuroDataTextInput') ||
+      css`
         :host {
-            display: inline-block;
-            width: 190px;
+          display: inline-block;
+          width: 190px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         furo-text-input {
-            width: 100%;
+          width: 100%;
         }
-    `
+      `
+    );
   }
 
   render() {
     // language=HTML
     return html`
-       <furo-text-input id="input"
-          ?autofocus=${this.autofocus} 
-          ?disabled=${this._readonly || this.disabled}                 
-          ?error="${this.error}" 
-          ?float="${this.float}" 
-          ?condensed="${this.condensed}"                         
-          ?required=${this._required}                   
-          @-value-changed="--valueChanged"
-          ƒ-set-value="--value"></furo-text-input>      
+      <furo-text-input
+        id="input"
+        ?autofocus=${this.autofocus}
+        ?disabled=${this._readonly || this.disabled}
+        ?error="${this.error}"
+        ?float="${this.float}"
+        ?condensed="${this.condensed}"
+        ?required=${this._required}
+        @-value-changed="--valueChanged"
+        ƒ-set-value="--value"
+      ></furo-text-input>
     `;
   }
-
 }
 
 customElements.define('furo-data-text-input', FuroDataTextInput);

@@ -1,10 +1,10 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/input/src/furo-number-input";
-import "@furo/input/src/furo-select-input";
-import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
-import {Helper} from "./lib/helper";
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/input/src/furo-number-input';
+import '@furo/input/src/furo-select-input';
+ import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { Helper } from './lib/helper.js';
 
 /**
  * `furo-data-money-input`
@@ -25,41 +25,34 @@ import {Helper} from "./lib/helper";
  * @mixes FBP
  */
 class FuroDataMoneyInput extends FBP(LitElement) {
-
-
   constructor() {
     super();
     this.valid = true;
     this._currencies = [];
     // init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
-    this.value= {"currency_code":"CHF", "units":null, "nanos":null};
+    this.value = { currency_code: 'CHF', units: null, nanos: null };
   }
 
   _FBPReady() {
-
     super._FBPReady();
 
     // reset hint, label etc..
     CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
 
-
-    this.shadowRoot.getElementById("wrapper").addEventListener("value-changed", (e)=>{
-
+    this.shadowRoot.getElementById('wrapper').addEventListener('value-changed', e => {
       e.stopPropagation();
 
       if (e.path[0]) {
-
-        if( e.path[0].nodeName == "FURO-SELECT-INPUT") {
-
-          this.field._value= this._convertDataToMoneyObj(e.detail,"", this.field._value);
+        if (e.path[0].nodeName == 'FURO-SELECT-INPUT') {
+          this.field._value = this._convertDataToMoneyObj(e.detail, '', this.field._value);
         }
 
-        if( e.path[0].nodeName == "FURO-NUMBER-INPUT") {
-          this.field._value= this._convertDataToMoneyObj("",e.detail, this.field._value);
+        if (e.path[0].nodeName == 'FURO-NUMBER-INPUT') {
+          this.field._value = this._convertDataToMoneyObj('', e.detail, this.field._value);
         }
       }
 
-      this._value= this.field._value;
+      this._value = this.field._value;
       this.error = false;
 
       /**
@@ -67,31 +60,27 @@ class FuroDataMoneyInput extends FBP(LitElement) {
        * Fired when value has changed from inside the component
        * detail payload: google money object
        */
-      const customEvent = new Event('value-changed', {composed: true, bubbles: true});
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = this.field._value;
       this.dispatchEvent(customEvent);
     });
   }
 
-
-
   // convert data to google.type.Money format
-  _convertDataToMoneyObj(currency, amount, obj){
-
-    if(obj==null) {
+  _convertDataToMoneyObj(currency, amount, obj) {
+    if (obj == null) {
       obj = {};
     }
 
-    if(currency) {
+    if (currency) {
       obj.currency_code = currency;
     }
-    if(amount) {
-      const arr = String(amount).split(".");
+    if (amount) {
+      const arr = String(amount).split('.');
       obj.units = Number(arr[0]);
-      if(arr[1]) {
-        obj.nanos = Number(`0.${arr[1]}`)*100000000;
-      }
-      else {
+      if (arr[1]) {
+        obj.nanos = Number(`0.${arr[1]}`) * 100000000;
+      } else {
         obj.nanos = 0;
       }
     }
@@ -108,11 +97,11 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   }
 
   _updateField() {
-    if(this.field.units && this.field.units._value!== null && this.field.nanos._value!== null) {
-      const amout = Number(`${this.field.units._value }.${  this.field.nanos._value}`);
+    if (this.field.units && this.field.units._value !== null && this.field.nanos._value !== null) {
+      const amout = Number(`${this.field.units._value}.${this.field.nanos._value}`);
       this._FBPTriggerWire('--valueAmount', amout);
     }
-    if(this.field.currency_code && this.field.currency_code._value) {
+    if (this.field.currency_code && this.field.currency_code._value) {
       this._FBPTriggerWire('--valueCurrency', this.field.currency_code._value);
     }
 
@@ -124,7 +113,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
    * @param value
    */
   set _hint(value) {
-    Helper.UpdateInputAttribute(this, "hint", value);
+    Helper.UpdateInputAttribute(this, 'hint', value);
   }
 
   /**
@@ -132,7 +121,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
    * @param value
    */
   set errortext(value) {
-    Helper.UpdateInputAttribute(this, "errortext", value);
+    Helper.UpdateInputAttribute(this, 'errortext', value);
   }
 
   /**
@@ -140,7 +129,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
    * @param value
    */
   set _label(value) {
-    Helper.UpdateInputAttribute(this, "label", value);
+    Helper.UpdateInputAttribute(this, 'label', value);
   }
 
   /**
@@ -148,22 +137,20 @@ class FuroDataMoneyInput extends FBP(LitElement) {
    * @param value
    */
   set _readonly(value) {
-    Helper.UpdateInputAttribute(this, "readonly", value);
+    Helper.UpdateInputAttribute(this, 'readonly', value);
   }
-
-
 
   static get properties() {
     return {
       /**
        * set this to true to indicate errors
        */
-      error: {type: Boolean, reflect: true},
+      error: { type: Boolean, reflect: true },
       /**
        * The start value. Changes will be notified with the `@-value-changed` event
        */
       value: {
-        type: Object
+        type: Object,
       },
       /**
        * The list of currencies. Can be a simple list like ["A","B","C"]. In this case the value is equals the label
@@ -178,7 +165,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
        * [{"id":23,"label":"AAA","selected":false},{"id":44,"label":"BBB","selected":true}]
        */
       options: {
-        type: Array
+        type: Array,
       },
       /**
        * Set a string list as options:
@@ -188,31 +175,33 @@ class FuroDataMoneyInput extends FBP(LitElement) {
        * This will convert to options ["A","B","C"]
        */
       currencies: {
-        type: String
+        type: String,
       },
       /**
        * amount field label
        */
       label: {
-        type: String
+        type: String,
       },
       /**
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       disabled: {
-        type: Boolean, reflect: true
+        type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       readonly: {
-        type: Boolean, reflect: true
+        type: Boolean,
+        reflect: true,
       },
 
       /**
@@ -221,7 +210,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       required: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -242,24 +231,22 @@ class FuroDataMoneyInput extends FBP(LitElement) {
        */
       valid: {
         type: Boolean,
-        reflect: true
+        reflect: true,
       },
       /**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
        */
       condensed: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
        */
       filled: {
-        type: Boolean
-      }
+        type: Boolean,
+      },
     };
   }
-
-
 
   /**
    * Set the options programmatically
@@ -293,20 +280,15 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     this.requestUpdate();
   }
 
-
   set _options(options) {
-
     // the attribute currencies has priority than the options in meta
-    if(this._currencies.length >0 ) {
+    if (this._currencies.length > 0) {
       this.updateSelectOptions(this._currencies);
-    }
-    else {
+    } else {
       let collection;
-      if(options.list) {
-
+      if (options.list) {
         collection = options.list;
-      }
-      else{
+      } else {
         collection = options;
       }
 
@@ -315,36 +297,34 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   }
 
   set currencies(c) {
-    const arr = c.split(",").map((item) => item.trim());
+    const arr = c.split(',').map(item => item.trim());
     this._currencies = arr;
     this.updateSelectOptions(arr);
   }
 
   updateSelectOptions(collection) {
     // convert array list to id, label structure
-    if (typeof collection[0] === "string") {
-      collection = collection.map((item) => ({"id": item, "label": item}));
+    if (typeof collection[0] === 'string') {
+      collection = collection.map(item => ({ id: item, label: item }));
     }
 
-    const arr = collection.map((e) => {
+    const arr = collection.map(e => {
       let selected = false;
       if (e.selected) {
         this.value.currency_code = e.id.toString();
-        this.field.currency_code._value= this.value.currency_code;
+        this.field.currency_code._value = this.value.currency_code;
+        selected = true;
+      } else if (this.value.currency_code === e.id.toString()) {
+        // init the currency code in field
+        this.field.currency_code._value = this.value.currency_code;
         selected = true;
       }
-      else if(this.value.currency_code  === e.id.toString()) {
-          // init the currency code in field
-          this.field.currency_code._value= this.value.currency_code;
-          selected = true;
-        }
 
-      return {"id": e.id, "label": e.label, "selected": selected }
+      return { id: e.id, label: e.label, selected };
     });
 
-    this._FBPTriggerWire("--selection", arr);
+    this._FBPTriggerWire('--selection', arr);
   }
-
 
   /**
    *
@@ -353,20 +333,23 @@ class FuroDataMoneyInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroDataMoneyInput') || css`
+    return (
+      Theme.getThemeForComponent('FuroDataMoneyInput') ||
+      css`
         /* https://material.io/design/components/text-fields.html#theming */
 
         furo-select-input {
-            width: 90px;
-            margin-left: var(--spacing-xs);
+          width: 90px;
+          margin-left: var(--spacing-xs);
         }
         furo-number-input {
-            width: calc(100% - var(--spacing-xs) - 90px);
+          width: calc(100% - var(--spacing-xs) - 90px);
         }
         :host {
-            width: 190px;
+          width: 190px;
         }
-    `
+      `
+    );
   }
 
   /**
@@ -376,31 +359,33 @@ class FuroDataMoneyInput extends FBP(LitElement) {
    */
   render() {
     // language=HTML
-    return html` 
+    return html`
       <furo-horizontal-flex id="wrapper">
-          <furo-number-input id="input"
-          ?autofocus=${this.autofocus} 
-          ?disabled=${this._readonly || this.disabled} 
-          ?error="${this.error}" 
-          ?float="${this.float}" 
-          ?condensed="${this.condensed}"          
+        <furo-number-input
+          id="input"
+          ?autofocus=${this.autofocus}
+          ?disabled=${this._readonly || this.disabled}
+          ?error="${this.error}"
+          ?float="${this.float}"
+          ?condensed="${this.condensed}"
           ?required=${this._required}
           @-value-changed="--valueChanged"
-          ƒ-set-value="--valueAmount"></furo-number-input>      
-          
-       <furo-select-input id="select"
-          ?disabled=${this._readonly || this.disabled} 
-          ?float="${this.float}" 
+          ƒ-set-value="--valueAmount"
+        ></furo-number-input>
+
+        <furo-select-input
+          id="select"
+          ?disabled=${this._readonly || this.disabled}
+          ?float="${this.float}"
           list="CHF"
-          ?condensed="${this.condensed}"          
+          ?condensed="${this.condensed}"
           ƒ-set-options="--selection"
           @-value-changed="--valueChanged"
-          ƒ-set-value="--valueCurrency"></furo-select-input>    
+          ƒ-set-value="--valueCurrency"
+        ></furo-select-input>
       </furo-horizontal-flex>
     `;
   }
-
 }
-
 
 customElements.define('furo-data-money-input', FuroDataMoneyInput);

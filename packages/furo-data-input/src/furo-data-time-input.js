@@ -1,9 +1,9 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/input/src/furo-time-input";
-import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
-import {Helper} from "./lib/helper";
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/input/src/furo-time-input';
+ import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { Helper } from './lib/helper.js';
 
 /**
  * `furo-data-time-input`
@@ -18,7 +18,6 @@ import {Helper} from "./lib/helper";
  * @mixes FBP
  */
 class FuroDataTimeInput extends FBP(LitElement) {
-
   /**
    * @event value-changed
    * Fired when value has changed from inside the input field.
@@ -32,18 +31,14 @@ class FuroDataTimeInput extends FBP(LitElement) {
     super();
     this.error = false;
     this.disabled = false;
-    this.errortext = "";
+    this.errortext = '';
 
-
-    this._FBPAddWireHook("--valueChanged", (val) => {
-
-
+    this._FBPAddWireHook('--valueChanged', val => {
       if (this.field) {
-        this.field._value= val;
+        this.field._value = val;
       }
     });
   }
-
 
   /**
    * flow is ready lifecycle method
@@ -60,7 +55,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
    * @param value
    */
   set _label(value) {
-    Helper.UpdateInputAttribute(this, "label", value);
+    Helper.UpdateInputAttribute(this, 'label', value);
   }
 
   /**
@@ -68,7 +63,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
    * @param value
    */
   set _hint(value) {
-    Helper.UpdateInputAttribute(this, "hint", value);
+    Helper.UpdateInputAttribute(this, 'hint', value);
   }
 
   /**
@@ -76,7 +71,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
    * @param value
    */
   set leadingIcon(value) {
-    Helper.UpdateInputAttribute(this, "leading-icon", value);
+    Helper.UpdateInputAttribute(this, 'leading-icon', value);
   }
 
   /**
@@ -84,7 +79,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
    * @param value
    */
   set trailingIcon(value) {
-    Helper.UpdateInputAttribute(this, "trailing-icon", value);
+    Helper.UpdateInputAttribute(this, 'trailing-icon', value);
   }
 
   /**
@@ -92,7 +87,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
    * @param value
    */
   set errortext(value) {
-    Helper.UpdateInputAttribute(this, "errortext", value);
+    Helper.UpdateInputAttribute(this, 'errortext', value);
   }
 
   /**
@@ -100,7 +95,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
    * @param value
    */
   set _min(value) {
-    Helper.UpdateInputAttribute(this, "min", value);
+    Helper.UpdateInputAttribute(this, 'min', value);
   }
 
   /**
@@ -108,7 +103,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
    * @param value
    */
   set _max(value) {
-    Helper.UpdateInputAttribute(this, "max", value);
+    Helper.UpdateInputAttribute(this, 'max', value);
   }
 
   /**
@@ -116,12 +111,11 @@ class FuroDataTimeInput extends FBP(LitElement) {
    * @param value
    */
   set _step(value) {
-    Helper.UpdateInputAttribute(this, "step", value);
+    Helper.UpdateInputAttribute(this, 'step', value);
   }
 
   static get properties() {
     return {
-
       /**
        * Overrides the label text from the **specs**.
        *
@@ -136,7 +130,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       required: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -182,36 +176,37 @@ class FuroDataTimeInput extends FBP(LitElement) {
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       disabled: {
-        type: Boolean, reflect: true
+        type: Boolean,
+        reflect: true,
       },
 
       /**
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
        */
       condensed: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Icon on the left side
        */
       leadingIcon: {
         type: String,
-        attribute: "leading-icon"
+        attribute: 'leading-icon',
       },
       /**
        * Icon on the right side
        */
       trailingIcon: {
         type: String,
-        attribute: "trailing-icon"
-      }
-    }
+        attribute: 'trailing-icon',
+      },
+    };
   }
 
   /**
@@ -249,36 +244,40 @@ class FuroDataTimeInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroDataTimeInput') || css`
+    return (
+      Theme.getThemeForComponent('FuroDataTimeInput') ||
+      css`
         :host {
-            display: inline-block;
-            width: 104px;
+          display: inline-block;
+          width: 104px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         furo-time-input {
-            width: 100%;
+          width: 100%;
         }
-    `
+      `
+    );
   }
 
   render() {
     // language=HTML
-    return html` 
-       <furo-time-input id="input"
-          ?autofocus=${this.autofocus} 
-          ?disabled=${this._readonly || this.disabled} 
-          ?error="${this.error}" 
-          ?required=${this._required}
-          ?condensed="${this.condensed}"                         
-          @-value-changed="--valueChanged"
-          ƒ-set-value="--value"></furo-time-input>      
+    return html`
+      <furo-time-input
+        id="input"
+        ?autofocus=${this.autofocus}
+        ?disabled=${this._readonly || this.disabled}
+        ?error="${this.error}"
+        ?required=${this._required}
+        ?condensed="${this.condensed}"
+        @-value-changed="--valueChanged"
+        ƒ-set-value="--value"
+      ></furo-time-input>
     `;
   }
-
 }
 
 customElements.define('furo-data-time-input', FuroDataTimeInput);

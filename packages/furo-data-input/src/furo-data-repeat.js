@@ -1,8 +1,8 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "./lib/data-repeat-delete"
-import "@furo/form/src/furo-form-layouter"
+import { LitElement, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import './lib/data-repeat-delete.js';
+import '@furo/form/src/furo-form-layouter';
 
 /**
  * `furo-data-repeat`
@@ -37,7 +37,6 @@ import "@furo/form/src/furo-form-layouter"
  * @appliesMixin FBP
  */
 class FuroDataRepeat extends FBP(LitElement) {
-
   constructor() {
     super();
     /**
@@ -57,8 +56,8 @@ class FuroDataRepeat extends FBP(LitElement) {
        * repeated-component to be used for the items.
        * The component must support ƒ-bind-data
        */
-      repeatedComponent: {type: String, attribute: "repeated-component"},
-      identityPath:{type: String, attribute: "identity-path"}
+      repeatedComponent: { type: String, attribute: 'repeated-component' },
+      identityPath: { type: String, attribute: 'identity-path' },
     };
   }
 
@@ -71,7 +70,7 @@ class FuroDataRepeat extends FBP(LitElement) {
   createAttribute(options) {
     // extract type from this.field if not given in options
     if (!options.type) {
-      if (this.field._spec.type.startsWith("map<")) {
+      if (this.field._spec.type.startsWith('map<')) {
         options.type = this.field._spec.type.match(/map<string,(.*)>/)[1]; // get the type of map<string,xxxx
       } else {
         options.type = this.field._spec.type;
@@ -80,99 +79,92 @@ class FuroDataRepeat extends FBP(LitElement) {
     this.field.createField(options);
   }
 
-
-  createAttributeByString(fieldname){
-    this.createAttribute({"fieldName":fieldname});
+  createAttributeByString(fieldname) {
+    this.createAttribute({ fieldName: fieldname });
   }
 
   set repeatedComponent(component) {
-
     // add flow repeat to parent and inject on repeated changes
     // repeated
-    const container = document.createElement("furo-form-layouter");
-    const r = document.createElement("flow-repeat");
+    const container = document.createElement('furo-form-layouter');
+    const r = document.createElement('flow-repeat');
 
-    const identityPath = this.identityPath? this.identityPath : "__index";
-    r.setAttribute("identity-path", identityPath);
-    r.setAttribute("ƒ-inject-items", "--repeatsChanged");
+    const identityPath = this.identityPath ? this.identityPath : '__index';
+    r.setAttribute('identity-path', identityPath);
+    r.setAttribute('ƒ-inject-items', '--repeatsChanged');
 
-    let isCondensed = "";
-    let attrs = "";
+    let isCondensed = '';
+    let attrs = '';
     const l = this.attributes.length;
     for (let i = 0; i < l; ++i) {
-      const {nodeName} = this.attributes.item(i);
-      const {nodeValue} = this.attributes.item(i);
+      const { nodeName } = this.attributes.item(i);
+      const { nodeValue } = this.attributes.item(i);
       switch (nodeName) {
-        case "condensed":
-          attrs += `${nodeName  }="${  nodeValue  }"`;
-          isCondensed = "condensed";
+        case 'condensed':
+          attrs += `${nodeName}="${nodeValue}"`;
+          isCondensed = 'condensed';
           break;
-        case "two":
-          container.setAttribute("two", "");
+        case 'two':
+          container.setAttribute('two', '');
           break;
-        case "four":
-          container.setAttribute("four", "");
+        case 'four':
+          container.setAttribute('four', '');
           break;
-        case "eight":
-          container.setAttribute("eight", "");
+        case 'eight':
+          container.setAttribute('eight', '');
           break;
-        case "delete-icon":
+        case 'delete-icon':
           this.deleteIcon = nodeValue;
           break;
         default:
-          if (!nodeName.startsWith("@") && !nodeName.startsWith("ƒ")) {
-            attrs += `${nodeName  }="${  nodeValue  }"`;
+          if (!nodeName.startsWith('@') && !nodeName.startsWith('ƒ')) {
+            attrs += `${nodeName}="${nodeValue}"`;
           }
       }
-
     }
-    let icn = "";
+    let icn = '';
     if (this.deleteIcon) {
-      icn = `<data-repeat-delete icon="${  this.deleteIcon  }" ${  isCondensed  } ƒ-bind-item="--init"></data-repeat-delete>`;
+      icn = `<data-repeat-delete icon="${this.deleteIcon}" ${isCondensed} ƒ-bind-item="--init"></data-repeat-delete>`;
     }
-    r.innerHTML = `<template><div class="repeat-row"><${  component  } ${  attrs  } class="in-repeater" ƒ-bind-data="--init"></${  component  }>${  icn  }</div></template>`;
-
+    r.innerHTML = `<template><div class="repeat-row"><${component} ${attrs} class="in-repeater" ƒ-bind-data="--init"></${component}>${icn}</div></template>`;
 
     container.appendChild(r);
 
-
     this.shadowRoot.appendChild(container);
-
-  };
+  }
 
   bindData(repeats) {
     this.field = repeats;
-    this.field.addEventListener("this-repeated-field-changed", (node) => {
-      this._FBPTriggerWire("--repeatsChanged", this.field.repeats);
+    this.field.addEventListener('this-repeated-field-changed', node => {
+      this._FBPTriggerWire('--repeatsChanged', this.field.repeats);
       this._checkSize();
     });
 
     // key value repeats
     if (this.field.repeats) {
       // initial trigger
-      this._FBPTriggerWire("--repeatsChanged", this.field.repeats);
+      this._FBPTriggerWire('--repeatsChanged', this.field.repeats);
       this._checkSize();
     } else {
       // attributes
 
-      this.field.addEventListener("branch-value-changed", (node) => {
-        this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
+      this.field.addEventListener('branch-value-changed', node => {
+        this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
       });
 
-      this.field.addEventListener("node-field-deleted", (node) => {
-        this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
+      this.field.addEventListener('node-field-deleted', node => {
+        this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
       });
-      this.field.addEventListener("node-field-added", (node) => {
-        this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
+      this.field.addEventListener('node-field-added', node => {
+        this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
       });
 
-      this.field.addEventListener("this-order-changed", (node) => {
-        this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
+      this.field.addEventListener('this-order-changed', node => {
+        this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
       });
       // initial trigger for fields
-      this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
+      this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
     }
-
   }
 
   /**
@@ -181,11 +173,11 @@ class FuroDataRepeat extends FBP(LitElement) {
    */
   _checkSize() {
     if (this.field.repeats.length === 0) {
-      this.setAttribute("hidden", "");
+      this.setAttribute('hidden', '');
       this._isHidden = true;
     } else if (this._isHidden) {
-        this.removeAttribute("hidden");
-      }
+      this.removeAttribute('hidden');
+    }
   }
 
   /**
@@ -194,7 +186,7 @@ class FuroDataRepeat extends FBP(LitElement) {
    */
   add(data) {
     if (this.field) {
-      this.field.add(data)
+      this.field.add(data);
     }
   }
 
@@ -202,9 +194,9 @@ class FuroDataRepeat extends FBP(LitElement) {
    * Adds a repeated item with type
    * @param type
    */
-  addType(type){
+  addType(type) {
     if (this.field) {
-      this.field.add({"@type":type})
+      this.field.add({ '@type': type });
     }
   }
 
@@ -223,33 +215,33 @@ class FuroDataRepeat extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroDataRepeat') || css`
-      :host {
-        display: block;
-        
-      }
+    return (
+      Theme.getThemeForComponent('FuroDataRepeat') ||
+      css`
+        :host {
+          display: block;
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
-      
-      .repeat-row{
-        position: relative;
-       
-      }
-      data-repeat-delete{
-        position: absolute;
-        top:0;
-        right: var(--spacing-xs);
-      }
-      
-      .in-repeater{
-        width: 100%;
-        box-sizing: border-box;
-      }
-    `
+        :host([hidden]) {
+          display: none;
+        }
+
+        .repeat-row {
+          position: relative;
+        }
+        data-repeat-delete {
+          position: absolute;
+          top: 0;
+          right: var(--spacing-xs);
+        }
+
+        .in-repeater {
+          width: 100%;
+          box-sizing: border-box;
+        }
+      `
+    );
   }
-
 }
 
 window.customElements.define('furo-data-repeat', FuroDataRepeat);

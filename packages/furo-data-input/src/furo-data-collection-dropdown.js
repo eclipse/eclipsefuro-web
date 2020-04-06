@@ -1,11 +1,10 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import "@furo/input/src/furo-select-input";
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import '@furo/input/src/furo-select-input';
 
-import {FBP} from "@furo/fbp";
-import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
-import {Helper} from "./lib/helper";
-
+import { FBP } from '@furo/fbp';
+ import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { Helper } from './lib/helper.js';
 
 /**
  * `furo-data-collection-dropdown`
@@ -54,20 +53,18 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     super();
     this.error = false;
     this.disabled = false;
-    this.displayField = "display_name";
-    this.valueField = "id";
+    this.displayField = 'display_name';
+    this.valueField = 'id';
 
     this._fieldNodeToUpdate = {};
     this._fieldDisplayNodeToUpdate = {};
 
-    this._FBPAddWireHook("--valueChanged", (val) => {
-
+    this._FBPAddWireHook('--valueChanged', val => {
       if (this.field) {
         // by valid input reset meta and constraints
         this._fieldNodeToUpdate._value = val;
 
-        if(this.subfield) {
-
+        if (this.subfield) {
           this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(val);
         }
       }
@@ -76,10 +73,10 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   }
 
   _findDisplayNameByValue(val) {
-    let displayName = "";
+    let displayName = '';
 
-    for(let i = 0; i < this._dropdownList.length; i++) {
-      if(this._dropdownList[i].id == val) {
+    for (let i = 0; i < this._dropdownList.length; i++) {
+      if (this._dropdownList[i].id == val) {
         displayName = this._dropdownList[i].label;
         break;
       }
@@ -98,21 +95,20 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   }
 
   _notifiySelectedItem(val) {
-
     /**
      * @event item-selected
      * Fired when a item from the dropdown was selected
      *
      * detail payload: the original item object
      */
-    const customEvent = new Event('item-selected', {composed: true, bubbles: true});
+    const customEvent = new Event('item-selected', { composed: true, bubbles: true });
     // find item from list
     let selectedItem;
 
     for (let i = this._dropdownList.length - 1; i >= 0; i--) {
       if (this._dropdownList[i].id == val) {
         selectedItem = this._dropdownList[i]._original;
-        break
+        break;
       }
     }
 
@@ -125,7 +121,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @param value
    */
   set _label(value) {
-    Helper.UpdateInputAttribute(this, "label", value);
+    Helper.UpdateInputAttribute(this, 'label', value);
   }
 
   /**
@@ -133,7 +129,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @param value
    */
   set _hint(value) {
-    Helper.UpdateInputAttribute(this, "hint", value);
+    Helper.UpdateInputAttribute(this, 'hint', value);
   }
 
   /**
@@ -141,7 +137,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @param value
    */
   set leadingIcon(value) {
-    Helper.UpdateInputAttribute(this, "leading-icon", value);
+    Helper.UpdateInputAttribute(this, 'leading-icon', value);
   }
 
   /**
@@ -149,7 +145,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @param value
    */
   set trailingIcon(value) {
-    Helper.UpdateInputAttribute(this, "trailing-icon", value);
+    Helper.UpdateInputAttribute(this, 'trailing-icon', value);
   }
 
   /**
@@ -157,7 +153,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @param value
    */
   set errortext(value) {
-    Helper.UpdateInputAttribute(this, "errortext", value);
+    Helper.UpdateInputAttribute(this, 'errortext', value);
   }
 
   /**
@@ -165,16 +161,15 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @param value
    */
   set list(value) {
-
     // map
-    const arr = value.split(",").map((e) => {
+    const arr = value.split(',').map(e => {
       const item = e.trim();
       return {
-        "id": item,
-        "label": e,
-        "selected": (this._fieldNodeToUpdate._value == item),
-        "_original": item
-      }
+        id: item,
+        label: e,
+        selected: this._fieldNodeToUpdate._value == item,
+        _original: item,
+      };
     });
 
     this._notifyAndTriggerUpdate(arr);
@@ -186,35 +181,33 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @private
    */
   _notifyAndTriggerUpdate(arr) {
-    if(arr.length > 0) {
+    if (arr.length > 0) {
       this._dropdownList = arr;
 
       if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
         // notifiy first item if field is not set
         let selectedItem = null;
-        for(let i=0; i<arr.length; i++) {
-          if(arr[i].selected) {
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i].selected) {
             selectedItem = arr[i].id;
             break;
           }
         }
         selectedItem = selectedItem || arr[0].id;
         this._notifiySelectedItem(selectedItem);
-        if(this._fieldNodeToUpdate) {
+        if (this._fieldNodeToUpdate) {
           this._fieldNodeToUpdate._value = selectedItem;
         }
       } else {
         this._notifiySelectedItem(this._fieldNodeToUpdate._value);
       }
 
-      this._FBPTriggerWire("--selection", arr);
+      this._FBPTriggerWire('--selection', arr);
     }
-
   }
 
   static get properties() {
     return {
-
       /**
        * Overrides the label text from the **specs**.
        *
@@ -222,7 +215,6 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
        */
       label: {
         type: String,
-
       },
       /**
        * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
@@ -239,21 +231,21 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
        */
       subfieldDisplay: {
         type: String,
-        attribute: "subfield-display"
+        attribute: 'subfield-display',
       },
       /**
        * The name of the field from the injected collection that contains the label for the dropdown array.
        */
       displayField: {
         type: String,
-        attribute: "display-field"
+        attribute: 'display-field',
       },
       /**
        * The name of the field from the injected collection that contains the value you want to assign to the attribute value and the bounded field.
        */
       valueField: {
         type: String,
-        attribute: "value-field"
+        attribute: 'value-field',
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -271,41 +263,42 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       disabled: {
-        type: Boolean, reflect: true
+        type: Boolean,
+        reflect: true,
       },
 
       /**
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Icon on the left side
        */
       leadingIcon: {
         type: String,
-        attribute: "leading-icon"
+        attribute: 'leading-icon',
       },
       /**
        * Icon on the right side
        */
       trailingIcon: {
         type: String,
-        attribute: "trailing-icon"
+        attribute: 'trailing-icon',
       },
       /**
        * html input validity
        */
       valid: {
         type: Boolean,
-        reflect: true
+        reflect: true,
       },
       /**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
        */
       condensed: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Set a string list as options:
@@ -315,15 +308,15 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
        * This will convert to options ["A","B","C"] by furo-select-input
        */
       list: {
-        type: String
+        type: String,
       },
       /**
        * the dropdown list
        */
       _dropdownList: {
-        type: Array
-      }
-    }
+        type: Array,
+      },
+    };
   }
 
   /**
@@ -349,32 +342,30 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     Helper.BindData(this, fieldNode);
 
     // by complex type set `id` as `subfield` as default
-    if(this._checkIsComplexType(fieldNode) && !this.subfield  ) {
-      this.subfield = "id";
+    if (this._checkIsComplexType(fieldNode) && !this.subfield) {
+      this.subfield = 'id';
     }
 
-    if(this.subfield){
+    if (this.subfield) {
       this._fieldNodeToUpdate = this.field[this.subfield];
 
-      if(this.subfieldDisplay) {
-        this._fieldDisplayNodeToUpdate = this.field[this.subfieldDisplay]
-      }
-      else if(this.field.display_name){
+      if (this.subfieldDisplay) {
+        this._fieldDisplayNodeToUpdate = this.field[this.subfieldDisplay];
+      } else if (this.field.display_name) {
         this._fieldDisplayNodeToUpdate = this.field.display_name;
       }
-    }
-    else{
+    } else {
       this._fieldNodeToUpdate = this.field;
     }
 
     // inject options from meta which is defined in spec
-    if(this.field._meta && this.field._meta.options ) {
+    if (this.field._meta && this.field._meta.options) {
       this._buildListWithMetaOptions(this.field._meta.options);
     }
 
     // update meta and constraints when they change
-    this.field.addEventListener('this-metas-changed', (e) => {
-      if(this.field._meta && this.field._meta.options ) {
+    this.field.addEventListener('this-metas-changed', e => {
+      if (this.field._meta && this.field._meta.options) {
         this._buildListWithMetaOptions(this.field._meta.options);
       }
     });
@@ -387,9 +378,8 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @private
    */
   _checkIsComplexType(fieldNode) {
-
     let isComplex = false;
-    if(fieldNode.__childNodes.length > 0 ) {
+    if (fieldNode.__childNodes.length > 0) {
       isComplex = true;
     }
     return isComplex;
@@ -407,20 +397,23 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroDataCollectionDropdown') || css`
+    return (
+      Theme.getThemeForComponent('FuroDataCollectionDropdown') ||
+      css`
         :host {
-            display: inline-block;
-            width: 190px;
+          display: inline-block;
+          width: 190px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         furo-select-input {
-            width: 100%;
+          width: 100%;
         }
-    `
+      `
+    );
   }
 
   /**
@@ -428,48 +421,45 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @param {options} list of options with id and display_name
    */
   _buildListWithMetaOptions(options) {
-
     const arr = this._mapDataToList(options.list);
 
     this._notifyAndTriggerUpdate(arr);
   }
 
   _mapDataToList(list) {
-    let arr =[];
+    let arr = [];
     // if field value not exists. select item when the item is marked as `selected` in list
-    if(!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
+    if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
       arr = this._setItemSelectedViaSelectedMark(list);
-    }
-    else {
+    } else {
       // if field value exists. select the item when it's value is equal the field value.
       // when field value is not equal the filed value, select the item if the item is marked as `selected`
-      if(Array.isArray(list)) {
+      if (Array.isArray(list)) {
         let isSelected = false;
         let hasSelectedMark = false;
         let preSelectedValueInList = null;
-        for(let i=0; i < list.length; i++) {
+        for (let i = 0; i < list.length; i++) {
           const item = {
-            "id": list[i][this.valueField],
-            "label": list[i][this.displayField],
-            "selected": false,
-            "_original": list[i]
-          }
+            id: list[i][this.valueField],
+            label: list[i][this.displayField],
+            selected: false,
+            _original: list[i],
+          };
 
-          if(this._fieldNodeToUpdate._value == list[i][this.valueField]) {
-
+          if (this._fieldNodeToUpdate._value == list[i][this.valueField]) {
             item.selected = true;
             isSelected = true;
           }
 
-          if(list[i].selected) {
+          if (list[i].selected) {
             hasSelectedMark = true;
-            preSelectedValueInList =  list[i][this.valueField];
+            preSelectedValueInList = list[i][this.valueField];
           }
 
           arr.push(item);
         }
 
-        if(!isSelected && hasSelectedMark ) {
+        if (!isSelected && hasSelectedMark) {
           arr = this._setItemSelectedViaSelectedMark(list);
           this._fieldNodeToUpdate._value = preSelectedValueInList;
         }
@@ -480,14 +470,14 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   }
 
   _setItemSelectedViaSelectedMark(list) {
-    let arr =[];
-    if(Array.isArray(list)) {
-      arr = list.map((e) => ({
-          "id": e[this.valueField],
-          "label": e[this.displayField],
-          "selected": !!e.selected,
-          "_original": e
-        }));
+    let arr = [];
+    if (Array.isArray(list)) {
+      arr = list.map(e => ({
+        id: e[this.valueField],
+        label: e[this.displayField],
+        selected: !!e.selected,
+        _original: e,
+      }));
     }
     return arr;
   }
@@ -514,7 +504,6 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @param {Array} Array with entities
    */
   injectList(list) {
-
     const arr = this._mapDataToList(list);
 
     this._notifyAndTriggerUpdate(arr);
@@ -526,49 +515,46 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @param {Array} Array with entities
    */
   injectEntities(entities) {
-    let arr =[];
+    let arr = [];
 
     // select the item when it's value is equal the field value.
     // when field value is not equal the filed value, select the item if the item is marked as `selected`
-    if(Array.isArray(entities)) {
+    if (Array.isArray(entities)) {
       const arrA = [];
       const arrB = [];
       let isSelected = false;
       let hasSelectedMark = false;
       let preSelectedValueInList = null;
-      for(let i=0; i < entities.length; i++) {
+      for (let i = 0; i < entities.length; i++) {
         const item = {
-          "id": entities[i].data[this.valueField],
-          "label": entities[i].data[this.displayField],
-          "selected": false,
-          "_original": entities[i]
-        }
+          id: entities[i].data[this.valueField],
+          label: entities[i].data[this.displayField],
+          selected: false,
+          _original: entities[i],
+        };
         let itemB = {};
 
         itemB = Object.assign(itemB, item);
 
-        if(this._fieldNodeToUpdate._value == entities[i].data[this.valueField]) {
-
+        if (this._fieldNodeToUpdate._value == entities[i].data[this.valueField]) {
           item.selected = true;
           isSelected = true;
         }
 
-
-        if(entities[i].data.selected) {
+        if (entities[i].data.selected) {
           hasSelectedMark = true;
           itemB.selected = true;
-          preSelectedValueInList =  entities[i].data[this.valueField];
+          preSelectedValueInList = entities[i].data[this.valueField];
         }
 
         arrA.push(item);
         arrB.push(itemB);
       }
 
-      if(!isSelected && hasSelectedMark ) {
+      if (!isSelected && hasSelectedMark) {
         arr = arrB;
         this._fieldNodeToUpdate._value = preSelectedValueInList;
-      }
-      else {
+      } else {
         arr = arrA;
       }
     }
@@ -584,15 +570,17 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-       <furo-select-input id="input"
-          ?autofocus=${this.autofocus} 
-          ?disabled=${this._readonly || this.disabled} 
-          ?error="${this.error}" 
-          ?float="${this.float}" 
-          ?condensed="${this.condensed}"          
-          ƒ-set-options="--selection"
-          @-value-changed="--valueChanged"
-          ƒ-set-value="--value"></furo-select-input>      
+      <furo-select-input
+        id="input"
+        ?autofocus=${this.autofocus}
+        ?disabled=${this._readonly || this.disabled}
+        ?error="${this.error}"
+        ?float="${this.float}"
+        ?condensed="${this.condensed}"
+        ƒ-set-options="--selection"
+        @-value-changed="--valueChanged"
+        ƒ-set-value="--value"
+      ></furo-select-input>
     `;
   }
 }

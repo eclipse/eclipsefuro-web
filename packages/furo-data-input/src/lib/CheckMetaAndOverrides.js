@@ -1,6 +1,4 @@
 export class CheckMetaAndOverrides {
-
-
   static UpdateMetaAndConstraints(element) {
     if (element.field) {
       // options are available for text inputs at the moment
@@ -15,7 +13,7 @@ export class CheckMetaAndOverrides {
         if (element.field._meta.hint) {
           element._hint = element.field._meta.hint;
         }
-        if(element.field._meta.no_result_hint) {
+        if (element.field._meta.no_result_hint) {
           element._noResultHint = element.field._meta.no_result_hint;
         }
         if (element.field._meta.cols) {
@@ -34,15 +32,15 @@ export class CheckMetaAndOverrides {
       // check if constraints ara available
       if (element.field._constraints) {
         if (element.field._constraints.max) {
-          element._max = (element.field._constraints.max.is);
+          element._max = element.field._constraints.max.is;
           element._maxErrorMessage = element.field._constraints.max.message;
         }
         if (element.field._constraints.min) {
-          element._min = (element.field._constraints.min.is);
+          element._min = element.field._constraints.min.is;
           element._minErrorMessage = element.field._constraints.min.message;
         }
         if (element.field._constraints.step) {
-          element._step = (element.field._constraints.step.is);
+          element._step = element.field._constraints.step.is;
           element._stepErrorMessage = element.field._constraints.step.message;
         }
         if (element.field._constraints.pattern) {
@@ -50,7 +48,9 @@ export class CheckMetaAndOverrides {
           element._patternErrorMessage = element.field._constraints.pattern.message;
         }
         if (element.field._constraints.required) {
-          element._required = element.field._constraints.required.is == "true" || element.field._constraints.required.is === true;
+          element._required =
+            element.field._constraints.required.is == 'true' ||
+            element.field._constraints.required.is === true;
           element._requiredErrorMessage = element.field._constraints.required.message;
         }
       }
@@ -59,7 +59,6 @@ export class CheckMetaAndOverrides {
   }
 
   static CheckAttributeOverrides(element) {
-
     /**
      * Attribute overrides
      * hint, min, max, readonly or disabled on the element are higher ranked then field metas from spec or server
@@ -117,6 +116,3 @@ export class CheckMetaAndOverrides {
     }
   }
 }
-
-
-

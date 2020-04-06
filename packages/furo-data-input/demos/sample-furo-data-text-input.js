@@ -1,11 +1,11 @@
 import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/doc-helper"
-import "@furo/data"
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/doc-helper';
+import '@furo/data';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import "@furo/data-input/src/furo-catalog.js";
+import '@furo/data-input/src/furo-catalog.js';
 /**
  * `sample-furo-text-input`
  *
@@ -13,7 +13,6 @@ import "@furo/data-input/src/furo-catalog.js";
  * @appliesMixin FBP
  */
 class SampleFuroDataTextInput extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -21,21 +20,22 @@ class SampleFuroDataTextInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('SampleFuroDataTextInput') || css`
+    return (
+      Theme.getThemeForComponent('SampleFuroDataTextInput') ||
+      css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
         furo-demo-snippet {
-            height: 230px;
+          height: 230px;
         }
-       
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -45,15 +45,21 @@ class SampleFuroDataTextInput extends FBP(LitElement) {
     // language=HTML
     return html`
       <h3>Sample</h3>
-      
-      <furo-demo-snippet >
+
+      <furo-demo-snippet>
         <template>
-          <furo-data-object type="experiment.Experiment" @-object-ready="--entity"></furo-data-object>
-          <furo-data-text-input autofocus ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
+          <furo-data-object
+            type="experiment.Experiment"
+            @-object-ready="--entity"
+          ></furo-data-object>
+          <furo-data-text-input
+            autofocus
+            ƒ-bind-data="--entity(*.furo_data_text_input)"
+          ></furo-data-text-input>
         </template>
       </furo-demo-snippet>
     `;
   }
 }
 
-window.customElements.define('sample-furo-data-text-input', SampleFuroDataTextInput );
+window.customElements.define('sample-furo-data-text-input', SampleFuroDataTextInput);

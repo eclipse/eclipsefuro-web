@@ -1,10 +1,10 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/input/src/furo-textarea-input";
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/input/src/furo-textarea-input';
 
-import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
-import {Helper} from "./lib/helper";
+ import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { Helper } from './lib/helper.js';
 
 /**
  * `furo-data-textarea-input`
@@ -19,7 +19,6 @@ import {Helper} from "./lib/helper";
  * @mixes FBP
  */
 class FuroDataTextareaInput extends FBP(LitElement) {
-
   /**
    * @event value-changed
    * Fired when value has changed from inside the input field.
@@ -34,14 +33,12 @@ class FuroDataTextareaInput extends FBP(LitElement) {
     this.error = false;
     this.disabled = false;
 
-    this._FBPAddWireHook("--valueChanged", (val) => {
-
+    this._FBPAddWireHook('--valueChanged', val => {
       if (this.field) {
-        this.field._value= val;
+        this.field._value = val;
       }
     });
   }
-
 
   /**
    * flow is ready lifecycle method
@@ -58,7 +55,7 @@ class FuroDataTextareaInput extends FBP(LitElement) {
    * @param value
    */
   set _cols(value) {
-    Helper.UpdateInputAttribute(this, "cols", value);
+    Helper.UpdateInputAttribute(this, 'cols', value);
   }
 
   /**
@@ -66,7 +63,7 @@ class FuroDataTextareaInput extends FBP(LitElement) {
    * @param value
    */
   set _rows(value) {
-    Helper.UpdateInputAttribute(this, "rows", value);
+    Helper.UpdateInputAttribute(this, 'rows', value);
   }
 
   /**
@@ -74,7 +71,7 @@ class FuroDataTextareaInput extends FBP(LitElement) {
    * @param value
    */
   set _label(value) {
-    Helper.UpdateInputAttribute(this, "label", value);
+    Helper.UpdateInputAttribute(this, 'label', value);
   }
 
   /**
@@ -82,7 +79,7 @@ class FuroDataTextareaInput extends FBP(LitElement) {
    * @param value
    */
   set _hint(value) {
-    Helper.UpdateInputAttribute(this, "hint", value);
+    Helper.UpdateInputAttribute(this, 'hint', value);
   }
 
   /**
@@ -90,9 +87,8 @@ class FuroDataTextareaInput extends FBP(LitElement) {
    * @param value
    */
   set errortext(value) {
-    Helper.UpdateInputAttribute(this, "errortext", value);
+    Helper.UpdateInputAttribute(this, 'errortext', value);
   }
-
 
   /**
    * todo , add more attributes like  spellcheck..
@@ -100,7 +96,6 @@ class FuroDataTextareaInput extends FBP(LitElement) {
    */
   static get properties() {
     return {
-
       /**
        * Overrides the label text from the **specs**.
        *
@@ -115,7 +110,7 @@ class FuroDataTextareaInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       required: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -137,47 +132,48 @@ class FuroDataTextareaInput extends FBP(LitElement) {
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       disabled: {
-        type: Boolean, reflect: true
+        type: Boolean,
+        reflect: true,
       },
 
       /**
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * html input validity
        */
       valid: {
         type: Boolean,
-        reflect: true
+        reflect: true,
       },
       /**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
        */
       condensed: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * passes always float the label
        */
       float: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * The number of visible text lines for the control.
        */
       rows: {
-        type: Number
+        type: Number,
       },
       /**
        * The visible width of the text control
        */
       cols: {
-        type: Number
-      }
-    }
+        type: Number,
+      },
+    };
   }
 
   /**
@@ -189,9 +185,7 @@ class FuroDataTextareaInput extends FBP(LitElement) {
     Helper.BindData(this, fieldNode);
   }
 
-
   _updateField() {
-
     this.disabled = !!this.field._meta.readonly;
 
     this._FBPTriggerWire('--value', this.field._value);
@@ -205,36 +199,40 @@ class FuroDataTextareaInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroDataTextareaInput') || css`
+    return (
+      Theme.getThemeForComponent('FuroDataTextareaInput') ||
+      css`
         :host {
-            display: inline-block;
+          display: inline-block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
-        furo-textarea-input{
-            width: 100%;
+        furo-textarea-input {
+          width: 100%;
         }
-    `
+      `
+    );
   }
 
   render() {
     // language=HTML
-    return html` 
-       <furo-textarea-input  id="input"
-          ?autofocus=${this.autofocus} 
-          ?disabled=${this._readonly || this.disabled}                 
-          ?error="${this.error}" 
-          ?float="${this.float}" 
-          ?condensed="${this.condensed}"                         
-          ?required=${this._required}    
-          @-value-changed="--valueChanged"
-          ƒ-set-value="--value"></furo-textarea-input>      
+    return html`
+      <furo-textarea-input
+        id="input"
+        ?autofocus=${this.autofocus}
+        ?disabled=${this._readonly || this.disabled}
+        ?error="${this.error}"
+        ?float="${this.float}"
+        ?condensed="${this.condensed}"
+        ?required=${this._required}
+        @-value-changed="--valueChanged"
+        ƒ-set-value="--value"
+      ></furo-textarea-input>
     `;
   }
-
 }
 
 customElements.define('furo-data-textarea-input', FuroDataTextareaInput);

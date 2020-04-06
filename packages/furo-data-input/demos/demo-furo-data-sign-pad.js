@@ -1,9 +1,9 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/doc-helper"
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import "@furo/data-input/src/furo-catalog.js";
+import '@furo/data-input/src/furo-catalog.js';
 
 /**
  * `demo-furo-data-sign-pad`
@@ -12,7 +12,6 @@ import "@furo/data-input/src/furo-catalog.js";
  * @appliesMixin FBP
  */
 class DemoFuroDataSignPad extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -20,20 +19,21 @@ class DemoFuroDataSignPad extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
-      :host {
-        display: block;
-        height: 100%;
-        padding-right: var(--spacing);
-      }
+    return (
+      Theme.getThemeForComponent(this.name) ||
+      css`
+        :host {
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
-
-    `
+        :host([hidden]) {
+          display: none;
+        }
+      `
+    );
   }
-
 
   /**
    * @private
@@ -51,11 +51,22 @@ class DemoFuroDataSignPad extends FBP(LitElement) {
           <template>
             <furo-vertical-scroller>
               <furo-button @-click="--clrCLK">clear</furo-button>
-              <furo-data-object type="experiment.Experiment" @-object-ready="--entity"></furo-data-object>
-              <furo-data-sign-pad ƒ-clear="--clrCLK" ƒ-bind-data="--entity(*.description)"></furo-data-sign-pad>
+              <furo-data-object
+                type="experiment.Experiment"
+                @-object-ready="--entity"
+              ></furo-data-object>
+              <furo-data-sign-pad
+                ƒ-clear="--clrCLK"
+                ƒ-bind-data="--entity(*.description)"
+              ></furo-data-sign-pad>
               <furo-data-sign-pad ƒ-bind-data="--entity(*.description)"></furo-data-sign-pad>
-              <furo-data-textarea-input rows="12" cols="120"  hint="custom hint" required
-                                    ƒ-bind-data="--entity(*.description)"></furo-data-textarea-input>
+              <furo-data-textarea-input
+                rows="12"
+                cols="120"
+                hint="custom hint"
+                required
+                ƒ-bind-data="--entity(*.description)"
+              ></furo-data-textarea-input>
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>

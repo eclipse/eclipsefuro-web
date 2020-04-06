@@ -1,13 +1,13 @@
 import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/doc-helper"
-import "@furo/data/src/furo-data-object.js";
-import "@furo/data/src/furo-deep-link";
-import "./helper/produce-qp-data.js"
-import "@furo/data/src/furo-entity-agent";
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/doc-helper';
+import '@furo/data/src/furo-data-object.js';
+import '@furo/data/src/furo-deep-link';
+import './helper/produce-qp-data.js';
+import '@furo/data/src/furo-entity-agent';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import "@furo/data-input/src/furo-catalog.js";
+import '@furo/data-input/src/furo-catalog.js';
 
 /**
  * `demo-furo-data-bool-icon`
@@ -16,7 +16,6 @@ import "@furo/data-input/src/furo-catalog.js";
  * @appliesMixin FBP
  */
 class DemoFuroDataBoolIcon extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -24,20 +23,21 @@ class DemoFuroDataBoolIcon extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('DemoFuroDataBoolIcon') || css`
+    return (
+      Theme.getThemeForComponent('DemoFuroDataBoolIcon') ||
+      css`
         :host {
-            display: block;
-            height: 100%;
-            padding-right: var(--spacing);
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-       
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -48,20 +48,29 @@ class DemoFuroDataBoolIcon extends FBP(LitElement) {
     return html`
       <h2>Demo demo-furo-data-bool-icon</h2>
       <p>description</p>
-      <furo-demo-snippet >
+      <furo-demo-snippet>
         <template>
           <furo-data-bool-icon ƒ-bind-data="--entity(*.furo_data_bool_icon)"></furo-data-bool-icon>
-            
-          <produce-qp-data  @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
 
-          <furo-data-object type="experiment.Experiment" @-data-injected="--entity"
-                          ƒ-inject-raw="--response(*.data)"></furo-data-object>
-          <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
-          <furo-entity-agent service="ExperimentService"
-                             ƒ-hts-in="--hts"
-                             ƒ-load="--hts"
-                             ƒ-bind-request-data="--entity"
-                             @-response="--response">
+          <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
+
+          <furo-data-object
+            type="experiment.Experiment"
+            @-data-injected="--entity"
+            ƒ-inject-raw="--response(*.data)"
+          ></furo-data-object>
+          <furo-deep-link
+            service="ExperimentService"
+            @-hts-out="--hts"
+            ƒ-qp-in="--qp"
+          ></furo-deep-link>
+          <furo-entity-agent
+            service="ExperimentService"
+            ƒ-hts-in="--hts"
+            ƒ-load="--hts"
+            ƒ-bind-request-data="--entity"
+            @-response="--response"
+          >
           </furo-entity-agent>
         </template>
       </furo-demo-snippet>
@@ -69,4 +78,4 @@ class DemoFuroDataBoolIcon extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-data-bool-icon', DemoFuroDataBoolIcon );
+window.customElements.define('demo-furo-data-bool-icon', DemoFuroDataBoolIcon);

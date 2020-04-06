@@ -1,6 +1,6 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
 
 /**
  * `simulate-error`
@@ -12,11 +12,9 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class SimulateError extends FBP(LitElement) {
-
   constructor() {
     super();
-    this.addEventListener("click",()=>{
-
+    this.addEventListener('click', () => {
       /**
        * error example
        * {
@@ -25,27 +23,24 @@ class SimulateError extends FBP(LitElement) {
        *};
        */
       this.fields._setInvalid(this.error);
-    })
+    });
   }
-
 
   bindData(d) {
     this.fields = d;
-
   }
 
   static get properties() {
     return {
-
       /**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
        */
       error: {
-        type: Object
-      }
-    }
+        type: Object,
+      },
+    };
   }
 
   /**
@@ -55,17 +50,19 @@ class SimulateError extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('SimulateError') || css`
+    return (
+      Theme.getThemeForComponent('SimulateError') ||
+      css`
         :host {
-            display: inline-block;
+          display: inline-block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -75,7 +72,7 @@ class SimulateError extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-        <furo-button raised danger>set error</furo-button>
+      <furo-button raised danger>set error</furo-button>
     `;
   }
 }

@@ -1,9 +1,9 @@
 import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/doc-helper"
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import "@furo/data-input/src/furo-catalog.js";
+import '@furo/data-input/src/furo-catalog.js';
 /**
  * `sample-furo-data-password-input`
  *
@@ -11,7 +11,6 @@ import "@furo/data-input/src/furo-catalog.js";
  * @appliesMixin FBP
  */
 class SampleFuroDataPasswordInput extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -19,21 +18,22 @@ class SampleFuroDataPasswordInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('SampleFuroDataPasswordInput') || css`
+    return (
+      Theme.getThemeForComponent('SampleFuroDataPasswordInput') ||
+      css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
         furo-demo-snippet {
-            height: 130px;
+          height: 130px;
         }
-       
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -43,14 +43,17 @@ class SampleFuroDataPasswordInput extends FBP(LitElement) {
     // language=HTML
     return html`
       <h3>Sample</h3>
-      
+
       <furo-demo-snippet>
         <template>
-          <furo-data-password-input hint="Hint text for password" label="Password"></furo-data-password-input>
+          <furo-data-password-input
+            hint="Hint text for password"
+            label="Password"
+          ></furo-data-password-input>
         </template>
       </furo-demo-snippet>
     `;
   }
 }
 
-window.customElements.define('sample-furo-data-password-input', SampleFuroDataPasswordInput );
+window.customElements.define('sample-furo-data-password-input', SampleFuroDataPasswordInput);

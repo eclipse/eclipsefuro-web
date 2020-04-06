@@ -1,6 +1,6 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
 
 /**
  * `produce-qp-data`
@@ -11,11 +11,10 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class ProduceQpData extends FBP(LitElement) {
-
   constructor() {
     super();
 
-    this.addEventListener("click", this.produce)
+    this.addEventListener('click', this.produce);
   }
 
   _FBPReady() {
@@ -34,21 +33,20 @@ class ProduceQpData extends FBP(LitElement) {
       /**
        * Description
        */
-      auto: {type: Boolean},
+      auto: { type: Boolean },
 
-      qp: {type: Object},
-      qpescaped: {type: String}
+      qp: { type: Object },
+      qpescaped: { type: String },
     };
   }
 
-
   produce() {
     if (this.qpescaped) {
-      this.qp = JSON.parse( unescape(this.qpescaped))
+      this.qp = JSON.parse(unescape(this.qpescaped));
     }
 
-    const customEvent = new Event('data', {composed: true, bubbles: true});
-    customEvent.detail = this.qp ;
+    const customEvent = new Event('data', { composed: true, bubbles: true });
+    customEvent.detail = this.qp;
     this.dispatchEvent(customEvent);
   }
 
@@ -59,17 +57,19 @@ class ProduceQpData extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('ProduceQpData') || css`
+    return (
+      Theme.getThemeForComponent('ProduceQpData') ||
+      css`
         :host {
-            display: inline-block;
+          display: inline-block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `
+      `
+    );
   }
-
 
   /**
    * @private

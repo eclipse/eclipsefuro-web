@@ -1,9 +1,9 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/input/src/furo-date-input";
-import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
-import {Helper} from "./lib/helper";
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/input/src/furo-date-input';
+ import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { Helper } from './lib/helper.js';
 
 /**
  * `furo-data-date-input`
@@ -17,7 +17,6 @@ import {Helper} from "./lib/helper";
  * @mixes FBP
  */
 class FuroDataDateInput extends FBP(LitElement) {
-
   /**
    * @event value-changed
    * Fired when value has changed from inside the input field.
@@ -32,23 +31,23 @@ class FuroDataDateInput extends FBP(LitElement) {
     this.error = false;
     this.disabled = false;
 
-    this._FBPAddWireHook("--valueChanged", (val) => {
+    this._FBPAddWireHook('--valueChanged', val => {
       // by valid input reset meta and constraints
 
-
       if (this.field) {
-        if (this.field._spec.type === "google.type.Date" || (this.field["@type"] && this.field["@type"]._value.replace(/.*\//, '') === "google.type.Date")) {
+        if (
+          this.field._spec.type === 'google.type.Date' ||
+          (this.field['@type'] &&
+            this.field['@type']._value.replace(/.*\//, '') === 'google.type.Date')
+        ) {
           val = this._convertStringToDateObj(val, this.field._value);
         }
         // store tmpval to check against loop
         this.tmpval = val;
-        this.field._value= val;
-
+        this.field._value = val;
       }
-
     });
   }
-
 
   /**
    * flow is ready lifecycle method
@@ -65,7 +64,7 @@ class FuroDataDateInput extends FBP(LitElement) {
    * @param value
    */
   set _label(value) {
-    Helper.UpdateInputAttribute(this, "label", value);
+    Helper.UpdateInputAttribute(this, 'label', value);
   }
 
   /**
@@ -73,7 +72,7 @@ class FuroDataDateInput extends FBP(LitElement) {
    * @param value
    */
   set _hint(value) {
-    Helper.UpdateInputAttribute(this, "hint", value);
+    Helper.UpdateInputAttribute(this, 'hint', value);
   }
 
   /**
@@ -81,7 +80,7 @@ class FuroDataDateInput extends FBP(LitElement) {
    * @param value
    */
   set leadingIcon(value) {
-    Helper.UpdateInputAttribute(this, "leading-icon", value);
+    Helper.UpdateInputAttribute(this, 'leading-icon', value);
   }
 
   /**
@@ -89,7 +88,7 @@ class FuroDataDateInput extends FBP(LitElement) {
    * @param value
    */
   set trailingIcon(value) {
-    Helper.UpdateInputAttribute(this, "trailing-icon", value);
+    Helper.UpdateInputAttribute(this, 'trailing-icon', value);
   }
 
   /**
@@ -97,7 +96,7 @@ class FuroDataDateInput extends FBP(LitElement) {
    * @param value
    */
   set _min(value) {
-    Helper.UpdateInputAttribute(this, "min", value);
+    Helper.UpdateInputAttribute(this, 'min', value);
   }
 
   /**
@@ -105,7 +104,7 @@ class FuroDataDateInput extends FBP(LitElement) {
    * @param value
    */
   set _max(value) {
-    Helper.UpdateInputAttribute(this, "max", value);
+    Helper.UpdateInputAttribute(this, 'max', value);
   }
 
   /**
@@ -113,7 +112,7 @@ class FuroDataDateInput extends FBP(LitElement) {
    * @param value
    */
   set errortext(value) {
-    Helper.UpdateInputAttribute(this, "errortext", value);
+    Helper.UpdateInputAttribute(this, 'errortext', value);
   }
 
   /**
@@ -121,12 +120,11 @@ class FuroDataDateInput extends FBP(LitElement) {
    * @param value
    */
   set _step(value) {
-    Helper.UpdateInputAttribute(this, "step", value);
+    Helper.UpdateInputAttribute(this, 'step', value);
   }
 
   static get properties() {
     return {
-
       /**
        * Overrides the label text from the **specs**.
        *
@@ -134,7 +132,7 @@ class FuroDataDateInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-        attribute: true
+        attribute: true,
       },
       /**
        * Overrides the required value from the **specs**.
@@ -142,7 +140,7 @@ class FuroDataDateInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       required: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -188,49 +186,50 @@ class FuroDataDateInput extends FBP(LitElement) {
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       disabled: {
-        type: Boolean, reflect: true
+        type: Boolean,
+        reflect: true,
       },
 
       /**
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Icon on the left side
        */
       leadingIcon: {
         type: String,
-        attribute: "leading-icon"
+        attribute: 'leading-icon',
       },
       /**
        * Icon on the right side
        */
       trailingIcon: {
         type: String,
-        attribute: "trailing-icon"
+        attribute: 'trailing-icon',
       },
       /**
        * html input validity
        */
       valid: {
         type: Boolean,
-        reflect: true
+        reflect: true,
       },
       /**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
        */
       condensed: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * passes always float the label
        */
       float: {
-        type: Boolean
-      }
-    }
+        type: Boolean,
+      },
+    };
   }
 
   /**
@@ -254,7 +253,7 @@ class FuroDataDateInput extends FBP(LitElement) {
    */
   bindData(fieldNode) {
     Helper.BindData(this, fieldNode);
-    this.field.addEventListener('branch-value-changed', (e) => {
+    this.field.addEventListener('branch-value-changed', e => {
       this._updateFieldBranch();
     });
 
@@ -262,10 +261,7 @@ class FuroDataDateInput extends FBP(LitElement) {
     this._updateFieldBranch();
   }
 
-
-  _updateField() {
-
-  }
+  _updateField() {}
 
   _updateFieldBranch() {
     // mark incomming error
@@ -277,12 +273,13 @@ class FuroDataDateInput extends FBP(LitElement) {
     let dateValue = this.field._value;
 
     if (this.tmpval || JSON.stringify(this.field._value) !== JSON.stringify(this.tmpval)) {
-
-
       // convert value when date type is google.type.Date
-      if (this.field._spec.type === "google.type.Date" || (this.field["@type"] && this.field["@type"]._value.replace(/.*\//, '') === "google.type.Date")) {
+      if (
+        this.field._spec.type === 'google.type.Date' ||
+        (this.field['@type'] &&
+          this.field['@type']._value.replace(/.*\//, '') === 'google.type.Date')
+      ) {
         dateValue = this._convertDateObjToString(dateValue);
-
       }
 
       this._FBPTriggerWire('--value', dateValue);
@@ -293,8 +290,7 @@ class FuroDataDateInput extends FBP(LitElement) {
 
   // convert google date object to ISO 8601
   _convertDateObjToString(obj) {
-
-    let date = "";
+    let date = '';
 
     if (obj && obj.day && obj.month && obj.year) {
       let month = String(obj.month);
@@ -302,20 +298,20 @@ class FuroDataDateInput extends FBP(LitElement) {
       let year = String(obj.year);
 
       if (month.length < 2) {
-        month = `0${  month}`;
+        month = `0${month}`;
       }
 
       if (day.length < 2) {
-        day = `0${  day}`;
+        day = `0${day}`;
       }
 
       if (year.length < 4) {
         const l = 4 - year.length;
         for (let i = 0; i < l; i++) {
-          year = `0${  year}`;
+          year = `0${year}`;
         }
       }
-      date = `${year  }-${  month  }-${  day}`;
+      date = `${year}-${month}-${day}`;
     }
 
     return date;
@@ -323,15 +319,13 @@ class FuroDataDateInput extends FBP(LitElement) {
 
   // convert date string ISO 8601 to object for google.type.Dates
   _convertStringToDateObj(str, obj) {
-
-    const arr = str.split("-", 3);
+    const arr = str.split('-', 3);
     // only override properties: day, month, year
     if (arr.length === 3) {
       obj.day = Number(arr[2]);
       obj.month = Number(arr[1]);
       obj.year = Number(arr[0]);
-    }
-    else {
+    } else {
       obj.day = null;
       obj.month = null;
       obj.year = null;
@@ -347,37 +341,41 @@ class FuroDataDateInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroDataDateInput') || css`
+    return (
+      Theme.getThemeForComponent('FuroDataDateInput') ||
+      css`
         :host {
-            display: inline-block;
-            width: 190px;
+          display: inline-block;
+          width: 190px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         furo-date-input {
-            width: 100%;
+          width: 100%;
         }
-    `
+      `
+    );
   }
 
   render() {
     // language=HTML
-    return html` 
-       <furo-date-input id="input"  
-          ?autofocus=${this.autofocus} 
-          ?disabled=${this._readonly || this.disabled} 
-          ?error="${this.error}" 
-          ?float="${this.float}" 
-          ?condensed="${this.condensed}"     
-          ?required=${this._required}     
-          @-value-changed="--valueChanged"
-          ƒ-set-value="--value"></furo-date-input>      
+    return html`
+      <furo-date-input
+        id="input"
+        ?autofocus=${this.autofocus}
+        ?disabled=${this._readonly || this.disabled}
+        ?error="${this.error}"
+        ?float="${this.float}"
+        ?condensed="${this.condensed}"
+        ?required=${this._required}
+        @-value-changed="--valueChanged"
+        ƒ-set-value="--value"
+      ></furo-date-input>
     `;
   }
-
 }
 
 customElements.define('furo-data-date-input', FuroDataDateInput);

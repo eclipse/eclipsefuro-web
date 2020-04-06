@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+ import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
 
 /**
  * `furo-data-bool-icon`
@@ -15,18 +15,16 @@ import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
  * @appliesMixin FBP
  */
 class FuroDataBoolIcon extends FBP(LitElement) {
-
-    constructor() {
-        super();
-        this.addEventListener("click",()=>{
-          this.toggle();
-        });
-      this.symboltrue = "▼";
-      this.symbolfalse = "▶";
-      this.field = {};
-      this._updateSymbol();
-    }
-
+  constructor() {
+    super();
+    this.addEventListener('click', () => {
+      this.toggle();
+    });
+    this.symboltrue = '▼';
+    this.symbolfalse = '▶';
+    this.field = {};
+    this._updateSymbol();
+  }
 
   /**
    * flow is ready lifecycle method
@@ -38,25 +36,24 @@ class FuroDataBoolIcon extends FBP(LitElement) {
     CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
   }
 
-    toggle(){
-      this.field._value= !this.field._value;
-    }
+  toggle() {
+    this.field._value = !this.field._value;
+  }
 
-    /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-            /**
-             * Description
-             */
-            myBool: {type: Boolean},
-            symboltrue: {type: String},
-            symbolfalse: {type: String},
-        };
-    }
-
+  /**
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * Description
+       */
+      myBool: { type: Boolean },
+      symboltrue: { type: String },
+      symbolfalse: { type: String },
+    };
+  }
 
   /**
    * Themable Styles
@@ -65,43 +62,42 @@ class FuroDataBoolIcon extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroDataBoolIcon') || css`
+    return (
+      Theme.getThemeForComponent('FuroDataBoolIcon') ||
+      css`
         :host {
-            display: inline-block;
-            width: 16px;
+          display: inline-block;
+          width: 16px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `
+      `
+    );
   }
-
 
   bindData(d) {
     if (d === undefined) {
-      return
+      return;
     }
 
-    if(d._spec.type !== "bool"){
-      console.warn("wrong type binded", this);
+    if (d._spec.type !== 'bool') {
+      console.warn('wrong type binded', this);
       return;
     }
     this.field = d;
 
-
-
     // render on changed data
-    this.field.addEventListener("field-value-changed", () => {
+    this.field.addEventListener('field-value-changed', () => {
       this._updateSymbol();
     });
-
 
     this._updateSymbol();
   }
 
-  _updateSymbol(){
-    this._ocSymbol = this.field._value? this.symboltrue : this.symbolfalse;
+  _updateSymbol() {
+    this._ocSymbol = this.field._value ? this.symboltrue : this.symbolfalse;
     this.requestUpdate();
   }
 

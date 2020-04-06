@@ -1,4 +1,4 @@
-import {CheckMetaAndOverrides} from "./CheckMetaAndOverrides";
+import { CheckMetaAndOverrides } from './CheckMetaAndOverrides.js';
 
 /**
  * update Attribute on input element actively, so we dont have things like pattern="undefined" on the native element.
@@ -8,8 +8,6 @@ import {CheckMetaAndOverrides} from "./CheckMetaAndOverrides";
  */
 
 export class Helper {
-
-
   /**
    * update Attribute on input element actively, so we dont have things like pattern="undefined" on the native element.
    * @param attribute
@@ -17,20 +15,18 @@ export class Helper {
    * @private
    */
   static UpdateInputAttribute(caller, attribute, value) {
-    caller.updateComplete.then((d) => {
+    caller.updateComplete.then(d => {
       if (!caller._theInputElement) {
-        caller._theInputElement = caller.shadowRoot.getElementById("input");
+        caller._theInputElement = caller.shadowRoot.getElementById('input');
       }
       if (value !== null) {
         caller._theInputElement.setAttribute(attribute, value);
-
       } else {
         // remove the attribute on null value
         caller._theInputElement.removeAttribute(attribute);
       }
-    })
+    });
   }
-
 
   /**
    * Bind a entity field to the input. You can use the entity even when no data was received.
@@ -39,18 +35,17 @@ export class Helper {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   static BindData(caller, fieldNode) {
-
     if (fieldNode === undefined) {
-      console.warn("Invalid binding ");
+      console.warn('Invalid binding ');
       console.log(caller);
-      return
+      return;
     }
 
     caller.field = fieldNode;
     CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);
     caller._updateField();
 
-    caller.field.addEventListener('field-value-changed', (e) => {
+    caller.field.addEventListener('field-value-changed', e => {
       caller._updateField();
       if (caller.field._meta && caller.field._meta.hint) {
         caller._hint = caller.field._meta.hint;
@@ -60,20 +55,19 @@ export class Helper {
       }
     });
 
-
     // update meta and constraints when they change
-    caller.field.addEventListener('this-metas-changed', (e) => {
+    caller.field.addEventListener('this-metas-changed', e => {
       CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);
     });
 
-    caller.field.addEventListener('field-became-invalid', (e) => {
+    caller.field.addEventListener('field-became-invalid', e => {
       // updates wieder einspielen
       caller.error = true;
       caller.errortext = caller.field._validity.description;
       caller.requestUpdate();
     });
 
-    caller.field.addEventListener('field-became-valid', (e) => {
+    caller.field.addEventListener('field-became-valid', e => {
       // updates wieder einspielen
       caller.error = false;
       caller.requestUpdate();

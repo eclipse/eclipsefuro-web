@@ -1,9 +1,9 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/input/src/furo-password-input";
-import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
-import {Helper} from "./lib/helper";
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
+import '@furo/input/src/furo-password-input';
+ import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { Helper } from './lib/helper.js';
 
 /**
  * `furo-data-password-input`
@@ -19,7 +19,6 @@ import {Helper} from "./lib/helper";
  * @mixes FBP
  */
 class FuroDataPasswordInput extends FBP(LitElement) {
-
   /**
    * @event value-changed
    * Fired when value has changed from inside the input field.
@@ -34,12 +33,9 @@ class FuroDataPasswordInput extends FBP(LitElement) {
     this.error = false;
     this.disabled = false;
 
-    this._FBPAddWireHook("--valueChanged", (val) => {
-
-
-
+    this._FBPAddWireHook('--valueChanged', val => {
       if (this.field) {
-        this.field._value= val;
+        this.field._value = val;
       }
     });
   }
@@ -59,7 +55,7 @@ class FuroDataPasswordInput extends FBP(LitElement) {
    * @param value
    */
   set _label(value) {
-    Helper.UpdateInputAttribute(this, "label", value);
+    Helper.UpdateInputAttribute(this, 'label', value);
   }
 
   /**
@@ -67,7 +63,7 @@ class FuroDataPasswordInput extends FBP(LitElement) {
    * @param value
    */
   set _hint(value) {
-    Helper.UpdateInputAttribute(this, "hint", value);
+    Helper.UpdateInputAttribute(this, 'hint', value);
   }
 
   /**
@@ -75,7 +71,7 @@ class FuroDataPasswordInput extends FBP(LitElement) {
    * @param value
    */
   set leadingIcon(value) {
-    Helper.UpdateInputAttribute(this, "leading-icon", value);
+    Helper.UpdateInputAttribute(this, 'leading-icon', value);
   }
 
   /**
@@ -83,7 +79,7 @@ class FuroDataPasswordInput extends FBP(LitElement) {
    * @param value
    */
   set trailingIcon(value) {
-    Helper.UpdateInputAttribute(this, "trailing-icon", value);
+    Helper.UpdateInputAttribute(this, 'trailing-icon', value);
   }
 
   /**
@@ -93,7 +89,7 @@ class FuroDataPasswordInput extends FBP(LitElement) {
    * @param value
    */
   set _pattern(value) {
-    Helper.UpdateInputAttribute(this, "pattern", value);
+    Helper.UpdateInputAttribute(this, 'pattern', value);
   }
 
   /**
@@ -101,7 +97,7 @@ class FuroDataPasswordInput extends FBP(LitElement) {
    * @param value
    */
   set _min(value) {
-    Helper.UpdateInputAttribute(this, "min", value);
+    Helper.UpdateInputAttribute(this, 'min', value);
   }
 
   /**
@@ -109,7 +105,7 @@ class FuroDataPasswordInput extends FBP(LitElement) {
    * @param value
    */
   set _max(value) {
-    Helper.UpdateInputAttribute(this, "max", value);
+    Helper.UpdateInputAttribute(this, 'max', value);
   }
 
   /**
@@ -117,12 +113,11 @@ class FuroDataPasswordInput extends FBP(LitElement) {
    * @param value
    */
   set errortext(value) {
-    Helper.UpdateInputAttribute(this, "errortext", value);
+    Helper.UpdateInputAttribute(this, 'errortext', value);
   }
 
   static get properties() {
     return {
-
       /**
        * Overrides the label text from the **specs**.
        *
@@ -130,7 +125,7 @@ class FuroDataPasswordInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-        attribute: true
+        attribute: true,
       },
       /**
        * Overrides the required value from the **specs**.
@@ -138,7 +133,7 @@ class FuroDataPasswordInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       required: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Overrides the pattern from the **specs**.
@@ -146,7 +141,7 @@ class FuroDataPasswordInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       pattern: {
-        type: String
+        type: String,
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -184,62 +179,63 @@ class FuroDataPasswordInput extends FBP(LitElement) {
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       disabled: {
-        type: Boolean, reflect: true
+        type: Boolean,
+        reflect: true,
       },
 
       /**
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Icon on the left side
        */
       leadingIcon: {
         type: String,
-        attribute: "leading-icon"
+        attribute: 'leading-icon',
       },
       /**
        * Icon on the right side
        */
       trailingIcon: {
         type: String,
-        attribute: "trailing-icon"
+        attribute: 'trailing-icon',
       },
       /**
        * html input validity
        */
-      valid:{
-        type:Boolean,
-        reflect:true
+      valid: {
+        type: Boolean,
+        reflect: true,
       },
       /**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
        */
-      condensed:{
-        type:Boolean
+      condensed: {
+        type: Boolean,
       },
       /**
        * passes always float the label
        */
-      float:{
-        type:Boolean
-      }
-    }
+      float: {
+        type: Boolean,
+      },
+    };
   }
 
   /**
    * Sets the field to readonly
    */
-  disable(){
+  disable() {
     this.disabled = true;
   }
 
   /**
    * Makes the field writable.
    */
-  enable(){
+  enable() {
     this.disabled = false;
   }
 
@@ -251,7 +247,6 @@ class FuroDataPasswordInput extends FBP(LitElement) {
   bindData(fieldNode) {
     Helper.BindData(this, fieldNode);
   }
-
 
   _updateField() {
     this._FBPTriggerWire('--value', this.field._value);
@@ -265,37 +260,41 @@ class FuroDataPasswordInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroDataPasswordInput') || css`
+    return (
+      Theme.getThemeForComponent('FuroDataPasswordInput') ||
+      css`
         :host {
-            display: inline-block;
-            width: 190px;
+          display: inline-block;
+          width: 190px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
-        furo-password-input{
-            width: 100%;
+        furo-password-input {
+          width: 100%;
         }
-    `
+      `
+    );
   }
 
   render() {
     // language=HTML
-    return html` 
-       <furo-password-input id="input"
-          ?autofocus=${this.autofocus} 
-          ?disabled=${this._readonly||this.disabled} 
-          ?error="${this.error}" 
-          ?float="${this.float}" 
-          ?condensed="${this.condensed}" 
-          ?required=${this._required}         
-          @-value-changed="--valueChanged"
-          ƒ-set-value="--value"></furo-password-input>      
+    return html`
+      <furo-password-input
+        id="input"
+        ?autofocus=${this.autofocus}
+        ?disabled=${this._readonly || this.disabled}
+        ?error="${this.error}"
+        ?float="${this.float}"
+        ?condensed="${this.condensed}"
+        ?required=${this._required}
+        @-value-changed="--valueChanged"
+        ƒ-set-value="--value"
+      ></furo-password-input>
     `;
   }
-
 }
 
 customElements.define('furo-data-password-input', FuroDataPasswordInput);
