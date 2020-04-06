@@ -1,10 +1,11 @@
 import {fixture, html} from '@open-wc/testing';
 import 'axe-core/axe.min.js';
-import {axeReport} from 'pwa-helpers/axe-report.js';
 import '../src/furo-catalog.js';
-import "@furo/fbp/testhelper/test-bind"; // for testing with wires and hooks
+import "@furo/fbp/src/testhelper/test-bind.js"; // for testing with wires and hooks
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "@furo/testhelper/initEnv.js"
 
-describe('sample-component', () => {
+describe('furo-filter-or', () => {
 
   let element;
   let host;
@@ -13,7 +14,7 @@ describe('sample-component', () => {
     const testbind = await fixture(html`
     <test-bind>
     <template>
-      <sample-component></sample-component>
+      <furo-filter-or></furo-filter-or>
      </template>
     </test-bind>
     `);
@@ -24,14 +25,12 @@ describe('sample-component', () => {
     await element.updateComplete;
   });
 
-  it('should be a sample-component', (done) => {
+  it('should be a furo-filter-or', (done) => {
     // keep this test on top, so you can recognize a wrong asignment
-    assert.equal(element.nodeName.toLowerCase(), "sample-component");
+    assert.equal(element.nodeName.toLowerCase(), "furo-filter-or");
     done()
   });
 
-  // axeReport a11y tests
-  it('a11y', () => axeReport(element));
 
 
 

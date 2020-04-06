@@ -1,6 +1,6 @@
 import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
-import "./furo-api-fetch"
+import "./furo-api-fetch.js"
 import {Env} from "@furo/framework"
 
 /**
@@ -104,8 +104,8 @@ class FuroEntityAgent extends FBP(LitElement) {
         /**
          * Check if dataObject is set
          * if TRUE => body object create
-         * - Method PATCH: _delta_value
-         * - Method PUT: _transmit_value or sendAllDataOnMethodPut
+         * - Method PATCH: _deltaValue
+         * - Method PUT: _transmitValue or sendAllDataOnMethodPut
          *
          * ELSE => @return undefined
          */
@@ -114,7 +114,7 @@ class FuroEntityAgent extends FBP(LitElement) {
             if (link.method.toLowerCase() === 'patch') {
                 for (const index in dataObject.__childNodes) {
                     const field = dataObject.__childNodes[index];
-                    const val = field._delta_value;
+                    const val = field._deltaValue;
                     if (val !== undefined) {
 
                         if (typeof val === 'object' && !Array.isArray(val)) {
@@ -142,7 +142,7 @@ class FuroEntityAgent extends FBP(LitElement) {
                 } else {
                     for (const index in dataObject.__childNodes) {
                         const field = dataObject.__childNodes[index];
-                        const val = field._transmit_value;
+                        const val = field._transmitValue;
                         if (val !== undefined) {
                             body[field._name] = val;
                         }

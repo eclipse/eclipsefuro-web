@@ -1,6 +1,7 @@
-import {EventTreeNode, NodeEvent} from "./EventTreeNode";
-import {RepeaterNode} from "./RepeaterNode";
-import {Helper} from "./Helper";
+import {EventTreeNode, NodeEvent} from "./EventTreeNode.js";
+// eslint-disable-next-line import/no-cycle
+import {RepeaterNode} from "./RepeaterNode.js";
+import {Helper} from "./Helper.js";
 
 export class FieldNode extends EventTreeNode {
 
@@ -14,7 +15,7 @@ export class FieldNode extends EventTreeNode {
     if (this._spec.meta) {
       this._meta = JSON.parse(JSON.stringify(this._spec.meta));
     } else {
-      this._meta = function () {
+      this._meta = function emptyObject() {
         return {}
       }();
     }
@@ -28,7 +29,7 @@ export class FieldNode extends EventTreeNode {
     if (this._spec.constraints) {
       this._constraints = JSON.parse(JSON.stringify(this._spec.constraints));
     } else {
-      this._constraints = function () {
+      this._constraints = function emptyObject() {
         return {}
       }();
     }
@@ -67,7 +68,7 @@ export class FieldNode extends EventTreeNode {
     /**
      * Schaltet ein Feld auf valid, müssen wir alle Kinder oder verästelungend des Felds auf validity prüfen...
      */
-    this.addEventListener("field-became-valid", (e) => {
+    this.addEventListener("field-became-valid", ( ) => {
       const v = this.__childNodes.filter(f => !f._isValid);
       if (v.length === 0) {
         this._isValid = true;
@@ -77,32 +78,32 @@ export class FieldNode extends EventTreeNode {
     /**
      * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
      */
-    this.addEventListener("field-became-invalid", (e) => {
+    this.addEventListener("field-became-invalid", ( ) => {
       this._isValid = false;
     });
 
-    this.addEventListener("field-value-changed", (e) => {
+    this.addEventListener("field-value-changed", ( ) => {
       this._pristine = false;
     });
 
-    this.addEventListener('disable-validation', (e) => {
+    this.addEventListener('disable-validation', ( ) => {
       this._validationDisabled = true;
     });
-    this.addEventListener('enable-validation', (e) => {
+    this.addEventListener('enable-validation', ( ) => {
       this._validationDisabled = false;
     });
 
-    this.addEventListener('new-data-injected', (e) => {
+    this.addEventListener('new-data-injected', ( ) => {
       this._pristine = true;
       this._validationDisabled = false;
     });
 
 
-    this.addEventListener('validation-requested', (e) => {
+    this.addEventListener('validation-requested', ( ) => {
       this._checkConstraints();
     });
 
-    this.addEventListener('parent-readonly-meta-set', (e) => {
+    this.addEventListener('parent-readonly-meta-set', ( ) => {
       // check parent readonly meta and inherit if true
       if((parentNode && parentNode._meta && parentNode._meta.readonly) || (this._meta && this._meta.readonly) || (this._spec.meta && this._spec.meta.readonly)){
         this._meta.readonly = true;
@@ -138,9 +139,9 @@ export class FieldNode extends EventTreeNode {
         this[fieldName]._value = options._value;
       }
       return true;
-    } 
+    }
       return false;
-    
+
   }
 
   /**
@@ -149,13 +150,13 @@ export class FieldNode extends EventTreeNode {
   _hasAncestorOfType(type) {
     if (this._type === type) {
       return true;
-    } 
+    }
       return this.__parentNode._hasAncestorOfType(type);
-    
+
   }
 
-  moveNode(old_index, new_index) {
-    super.moveNode(old_index, new_index);
+  moveNode(oldIndex, newIndex) {
+    super.moveNode(oldIndex, newIndex);
     this.dispatchNodeEvent(new NodeEvent('field-value-changed', this, true));
     this.dispatchNodeEvent(new NodeEvent('this-field-value-changed', this, false));
   }
@@ -169,8 +170,8 @@ export class FieldNode extends EventTreeNode {
 
   _createVendorType(type) {
     if (this.__specdefinitions[type]) {
+      // eslint-disable-next-line no-restricted-syntax
       for (const fieldName in this.__specdefinitions[type].fields) {
-
         if (this.__specdefinitions[type].fields[fieldName].meta && this.__specdefinitions[type].fields[fieldName].meta.repeated) {
           this[fieldName] = new RepeaterNode(this, this.__specdefinitions[type].fields[fieldName], fieldName);
         } else {
@@ -180,6 +181,7 @@ export class FieldNode extends EventTreeNode {
 
       }
     } else {
+      // eslint-disable-next-line no-console
       console.warn(`${type  } does not exist`)
     }
   }
@@ -198,6 +200,7 @@ export class FieldNode extends EventTreeNode {
       this._updateKeyValueMap(val, this._spec.type)
     } else if (this.__childNodes.length > 0) {
         let furoMetaDetected = false;
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
         for (const index in this.__childNodes) {
           const field = this.__childNodes[index];
 
@@ -206,6 +209,7 @@ export class FieldNode extends EventTreeNode {
             furoMetaDetected = val[field._name];
           }
 
+          // eslint-disable-next-line no-prototype-builtins
           if (val && val.hasOwnProperty(field._name)) {
             field._value = val[field._name];
           }
@@ -260,17 +264,21 @@ export class FieldNode extends EventTreeNode {
     //  clear field if it is not in the incomming data
     // set default values according to https://developers.google.com/protocol-buffers/docs/proto3#default
     this.__childNodes.forEach((n) => {
+      // eslint-disable-next-line no-prototype-builtins
       if (val && !val.hasOwnProperty(n._name)) {
         // object or repeater
         if (n.__childNodes.length > 0) {
           if (n.repeats) {
+            // eslint-disable-next-line no-param-reassign
             n._value = [];
           } else {
+            // eslint-disable-next-line no-param-reassign
             n._value = {};
           }
 
         } else {
           // skalar value
+          // eslint-disable-next-line no-param-reassign
           n._value = Helper.defaultForType(n._spec.type);
         }
       }
@@ -285,6 +293,7 @@ export class FieldNode extends EventTreeNode {
     let validity = true;
     // todo: decide if we should check for type conformity like uint32 is positive and not bigger then 32bit
     // validate only if they are constraints
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
     for (const constraintName in this._constraints) {
       const constraint = this._constraints[constraintName];
       const numericType = Helper.isNumericType(this._spec.type);
@@ -298,12 +307,9 @@ export class FieldNode extends EventTreeNode {
               this._validity = {"constraint": constraintName, "description": constraint.message};
               validity = false
             }
-          } else {
-            // check for length
-            if (validity && this._value.length < constraint.is) {
-              this._validity = {"constraint": constraintName, "description": constraint.message};
-              validity = false
-            }
+          } else if (validity && this._value.length < constraint.is) {
+            this._validity = { 'constraint': constraintName, 'description': constraint.message };
+            validity = false;
           }
           break;
           /**
@@ -315,12 +321,9 @@ export class FieldNode extends EventTreeNode {
               this._validity = {"constraint": constraintName, "description": constraint.message};
               validity = false
             }
-          } else {
-            // check for length
-            if (validity && this._value.length > constraint.is) {
-              this._validity = {"constraint": constraintName, "description": constraint.message};
-              validity = false
-            }
+          } else if (validity && this._value.length > constraint.is) {
+            this._validity = { 'constraint': constraintName, 'description': constraint.message };
+            validity = false;
           }
           break;
           /**
@@ -335,7 +338,7 @@ export class FieldNode extends EventTreeNode {
               min = parseFloat(this._constraints.min.is);
             }
 
-            if (validity && ((min - this._value) % modulo != 0)) {
+            if (validity && ((min - this._value) % modulo !== 0)) {
               this._validity = {"constraint": constraintName, "description": constraint.message};
               validity = false
             }
@@ -345,9 +348,7 @@ export class FieldNode extends EventTreeNode {
            * the pattern constraint
            */
         case "pattern":
-          const reg = new RegExp(constraint.is);
-
-          if (validity && (this._value == null || !this._value.match(reg))) {
+          if (validity && (this._value == null || !this._value.match(new RegExp(constraint.is)))) {
 
             this._validity = {"constraint": constraintName, "description": constraint.message};
             validity = false
@@ -363,14 +364,12 @@ export class FieldNode extends EventTreeNode {
               this._validity = {"constraint": constraintName, "description": constraint.message};
               validity = false
             }
-          } else {
-            // check for length and null values
-            if (validity && (this._value == null || this._value.length == 0)) {
-              this._validity = {"constraint": constraintName, "description": constraint.message};
-              validity = false
-            }
+          } else if (validity && (this._value == null || this._value.length === 0)) {
+            this._validity = { 'constraint': constraintName, 'description': constraint.message };
+            validity = false;
           }
           break;
+        default:
       }
     }
 
@@ -388,12 +387,14 @@ export class FieldNode extends EventTreeNode {
     // on this layer you can only pass the constraint to the children
     // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
     // a field which is targeted we delegate the sub request to  this field
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
     for (const fieldname in metaAndConstraints.fields) {
       const mc = metaAndConstraints.fields[fieldname];
       const f = fieldname.split(".");
       if (f.length === 1) {
         // we are on the parent of a endpoint. Update the metas in this
         const field = f[0];
+        // eslint-disable-next-line no-restricted-syntax
         for (const m in mc.meta) {
           // update the metas
           if (this[field]) {
@@ -403,15 +404,18 @@ export class FieldNode extends EventTreeNode {
               this.broadcastEvent(new NodeEvent("parent-readonly-meta-set",this, true));
             }
           } else {
+            // eslint-disable-next-line no-console
             console.warn("invalid meta", mc, metaAndConstraints);
             return;
           }
         }
+        // eslint-disable-next-line no-restricted-syntax
         for (const c in mc.constraints) {
           // update the constraints
           if (this[field]) {
             this[field]._constraints[c] = mc.constraints[c];
           } else {
+            // eslint-disable-next-line no-console
             console.warn("invalid meta", mc, metaAndConstraints);
             return;
           }
@@ -431,7 +435,6 @@ export class FieldNode extends EventTreeNode {
       const target = f[0];
       const subMetaAndConstraints = {fields: {}};
       subMetaAndConstraints.fields[f.slice(1).join(".")] = mc;
-      const x = this[target];
 
       this[target].__updateMetaAndConstraints(subMetaAndConstraints);
 
@@ -444,6 +447,7 @@ export class FieldNode extends EventTreeNode {
 
     // remove if type changes
     if (val && this.__anyCreated && this["@type"]._value !== val["@type"]) {
+      // eslint-disable-next-line no-plusplus
       for (let i = this.__childNodes.length - 1; i >= 0; i--) {
         const field = this.__childNodes[i];
         if (!val[field._name]) {
@@ -472,8 +476,9 @@ export class FieldNode extends EventTreeNode {
 
     this._fieldIsMap = true;
     // create if not exist
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
     for (const fieldName in val) {
-      if (this[fieldName] == undefined) {
+      if (this[fieldName] === undefined) {
         this[fieldName] = new FieldNode(this, fieldSpec, fieldName);
 
 
@@ -482,6 +487,7 @@ export class FieldNode extends EventTreeNode {
       this[fieldName]._value = val[fieldName];
     }
     // remove unseted
+    // eslint-disable-next-line no-plusplus
     for (let i = this.__childNodes.length - 1; i >= 0; i--) {
       const field = this.__childNodes[i];
       if (!val || !val[field._name]) {
@@ -517,9 +523,10 @@ export class FieldNode extends EventTreeNode {
     // if the default value is already an object, number,array do nothing otherwise try to parse json
     if (typeof val === "string") {
       try {
+        // eslint-disable-next-line no-param-reassign
         val = JSON.parse(val);
       } catch (error) {
-
+        // nothing to do
       }
     }
 
@@ -528,6 +535,7 @@ export class FieldNode extends EventTreeNode {
     this._createAnyType(val);
 
     if (this.__childNodes.length > 0 && val) {
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const index in this.__childNodes) {
         const field = this.__childNodes[index];
         field.defaultvalue = val[field._name];
@@ -546,6 +554,7 @@ export class FieldNode extends EventTreeNode {
     if (this.__childNodes.length > 0 || this._fieldIsMap) {
       this.__value = {};
       // nur reine Daten zurück geben
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const index in this.__childNodes) {
         const field = this.__childNodes[index];
         this.__value[field._name] = field._value
@@ -560,22 +569,23 @@ export class FieldNode extends EventTreeNode {
    * !readonly || required
    * @private
    */
-  get _transmit_value() {
+  get _transmitValue() {
     // a required field needs a special treatment --> required path
     if (this._constraints && this._constraints.required && this._constraints.required.is === 'true') {
-      return this._required_value;
+      return this._requiredValue;
     }
     if (this._meta && !this._meta.readonly) {
       if (this.__childNodes.length > 0) {
         this.__value = {};
         // nur reine Daten zurück geben
+        // eslint-disable-next-line guard-for-in,no-restricted-syntax
         for (const index in this.__childNodes) {
           const field = this.__childNodes[index];
           let val;
           if (this._constraints && this._constraints.required && this._constraints.required.is === 'true') {
-            val = this._required_value;
+            val = this._requiredValue;
           } else {
-            val = field._transmit_value;
+            val = field._transmitValue;
           }
 
           if (val !== undefined) {
@@ -585,9 +595,9 @@ export class FieldNode extends EventTreeNode {
       }
       return this.__value;
 
-    } 
+    }
       return undefined;
-    
+
   }
 
   /**
@@ -595,33 +605,34 @@ export class FieldNode extends EventTreeNode {
    * modified || required
    * @private
    */
-  get _delta_value() {
+  get _deltaValue() {
     // a required field needs a special treatment --> required path
     if (this._constraints && this._constraints.required && this._constraints.required.is === 'true') {
-      return this._required_value;
+      return this._requiredValue;
     }
     if (!this._pristine) {
       if (this.__childNodes.length > 0) {
         this.__value = {};
         // nur reine Daten zurück geben
+        // eslint-disable-next-line guard-for-in,no-restricted-syntax
         for (const index in this.__childNodes) {
           const field = this.__childNodes[index];
           let val;
           if (this._constraints && this._constraints.required && this._constraints.required.is === 'true') {
-            val = this._required_value;
+            val = this._requiredValue;
           } else {
-            val = field._delta_value;
+            val = field._deltaValue;
           }
-          if (val != undefined) {
+          if (val !== undefined) {
             this.__value[field._name] = val;
           }
         }
       }
       return this.__value;
 
-    } 
+    }
       return undefined;
-    
+
   }
 
   /**
@@ -630,14 +641,15 @@ export class FieldNode extends EventTreeNode {
    * ! readonly || req || modified
    * @private
    */
-  get _required_value() {
+  get _requiredValue() {
     if (this._meta && !this._meta.readonly || this._constraints && this._constraints.required && this._constraints.required.is === 'true' || !this._pristine) {
       if (this.__childNodes.length > 0) {
         this.__value = {};
         // nur reine Daten zurück geben
+        // eslint-disable-next-line guard-for-in,no-restricted-syntax
         for (const index in this.__childNodes) {
           const field = this.__childNodes[index];
-          const val = field._required_value;
+          const val = field._requiredValue;
           if (val !== undefined) {
             this.__value[field._name] = val;
           }
@@ -645,9 +657,9 @@ export class FieldNode extends EventTreeNode {
       }
       return this.__value;
 
-    } 
+    }
       return undefined;
-    
+
   }
 
 
@@ -685,15 +697,18 @@ export class FieldNode extends EventTreeNode {
    */
   _setInvalid(error) {
     // set field empty, if not defined
+    // eslint-disable-next-line no-param-reassign
     error.field = error.field || "";
 
     const path = error.field.split(".");
     if (path.length > 0 && path[0] !== "") {
       // rest wieder in error reinwerfen
+      // eslint-disable-next-line no-param-reassign
       error.field = path.slice(1).join(".");
       if (this[path[0]]) {
         this[path[0]]._setInvalid(error);
       } else {
+        // eslint-disable-next-line no-console
         console.warn("Unknown field", path, this._name)
       }
     } else {
@@ -706,9 +721,9 @@ export class FieldNode extends EventTreeNode {
   toString() {
     if (this._value !== null) {
       return this._value;
-    } 
+    }
       return ""
-    
+
 
   };
 }

@@ -79,7 +79,8 @@
   },
   "eslintConfig": {
     "globals": {
-      "assert": "writable"
+      "assert": "writable",
+      "expect": "writable"
     },
     "plugins": [
       "lit"

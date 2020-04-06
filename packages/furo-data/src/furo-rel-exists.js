@@ -1,4 +1,4 @@
-import {LitElement, html, css} from 'lit-element';
+import {LitElement} from 'lit-element';
 
 /**
  * `furo-rel-exists`

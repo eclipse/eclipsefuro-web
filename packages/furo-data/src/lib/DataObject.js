@@ -1,7 +1,7 @@
-import {EventTreeNode, NodeEvent} from "./EventTreeNode";
-import {FieldNode} from "./FieldNode";
-import {RepeaterNode} from "./RepeaterNode";
-import {Helper} from "./Helper";
+import {EventTreeNode, NodeEvent} from "./EventTreeNode.js";
+import {FieldNode} from "./FieldNode.js";
+import {RepeaterNode} from "./RepeaterNode.js";
+import {Helper} from "./Helper.js";
 
 /**
  * EntityNode is usually the root node of an eventTree

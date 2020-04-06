@@ -1,5 +1,5 @@
-import {LitElement, html} from 'lit-element';
-import {FBP} from "@furo/fbp";
+import {LitElement} from 'lit-element';
+
 
 /**
  * Use this component to interact with fields from an furo-data-object.
@@ -38,7 +38,7 @@ class FuroEntityField extends LitElement {
     if (fieldNode === undefined) {
       console.warn("Invalid binding ");
       console.log(this);
-      return
+      return new Error("Invalid binding");
     }
 
     this.field = fieldNode;
@@ -53,7 +53,7 @@ class FuroEntityField extends LitElement {
       customEvent.detail = e.detail.value;
       this.dispatchEvent(customEvent)
     });
-
+    return this.field;
   }
 
 

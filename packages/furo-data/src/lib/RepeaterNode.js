@@ -1,5 +1,6 @@
-import {EventTreeNode, NodeEvent} from "./EventTreeNode";
-import {FieldNode} from "./FieldNode";
+import {EventTreeNode, NodeEvent} from "./EventTreeNode.js";
+// eslint-disable-next-line import/no-cycle
+import {FieldNode} from "./FieldNode.js";
 
 export class RepeaterNode extends EventTreeNode {
 
@@ -14,7 +15,7 @@ export class RepeaterNode extends EventTreeNode {
     if (this._spec.meta) {
       this._meta = JSON.parse(JSON.stringify(this._spec.meta));
     } else {
-      this._meta = function () {
+      this._meta = function emptyObject() {
         return {}
       }();
     }
@@ -28,7 +29,8 @@ export class RepeaterNode extends EventTreeNode {
     if (this._spec.constraints) {
       this._constraints = JSON.parse(JSON.stringify(this._spec.constraints));
     } else {
-      this._constraints = function () {
+
+      this._constraints = function emptyObject () {
         return {}
       }();
     }
@@ -59,7 +61,7 @@ export class RepeaterNode extends EventTreeNode {
     /**
      * Schaltet ein Feld auf valid, müssen wir alle Felder auf validity prüfen...
      */
-    this.addEventListener("field-became-valid", (e) => {
+    this.addEventListener("field-became-valid", ( ) => {
       if (this.repeats.filter(f => !f._isValid).length === 0) {
         this._isValid = true;
         this.dispatchNodeEvent(new NodeEvent("repeat-became-valid", this));
@@ -70,25 +72,25 @@ export class RepeaterNode extends EventTreeNode {
     /**
      * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
      */
-    this.addEventListener("field-became-invalid", (e) => {
+    this.addEventListener("field-became-invalid", ( ) => {
       this._isValid = false;
       this.dispatchNodeEvent(new NodeEvent("repeat-became-invalid", this));
     });
     /**
      * Wird ein Wert geändert gilt das form ebenfalls nicht mehr als jungfräulich
      */
-    this.addEventListener("field-value-changed", (e) => {
+    this.addEventListener("field-value-changed", ( ) => {
       this._pristine = false;
     });
 
-    this.addEventListener('disable-validation', (e) => {
+    this.addEventListener('disable-validation', ( ) => {
       this._validationDisabled = true;
     });
-    this.addEventListener('enable-validation', (e) => {
+    this.addEventListener('enable-validation', ( ) => {
       this._validationDisabled = true;
     });
 
-    this.addEventListener('new-data-injected', (e) => {
+    this.addEventListener('new-data-injected', ( ) => {
       this._pristine = true;
       this._validationDisabled = false;
     });
@@ -98,8 +100,8 @@ export class RepeaterNode extends EventTreeNode {
     this.__initialValue = JSON.stringify(this._value);
   }
 
-  moveNode(old_index, new_index) {
-    super.moveNode(old_index, new_index);
+  moveNode(oldIndex, newIndex) {
+    super.moveNode(oldIndex, newIndex);
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this, true));
     this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
   }
@@ -124,7 +126,8 @@ export class RepeaterNode extends EventTreeNode {
    * infinite recursive element protection
    * we can return false here, because a repeater node is not created automatically
    */
-  _hasAncestorOfType(type) {
+  // eslint-disable-next-line class-methods-use-this
+  _hasAncestorOfType( ) {
     return false;
   }
 
@@ -168,6 +171,7 @@ export class RepeaterNode extends EventTreeNode {
       // remove additional nodes in repeats console.log(val.length,this.repeats.length)
       if (this.repeats.length > val.length) {
         const l = val.length - 1;
+        // eslint-disable-next-line no-plusplus
         for (let i = this.repeats.length - 1; i > l; i--) {
           this.deleteChild(i);
         }
@@ -181,6 +185,7 @@ export class RepeaterNode extends EventTreeNode {
 
 
   __updateMetaAndConstraints(metaAndConstraints) {
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
     for (const fieldname in metaAndConstraints.fields) {
       const mc = metaAndConstraints.fields[fieldname];
       const f = fieldname.split(".");
@@ -190,10 +195,11 @@ export class RepeaterNode extends EventTreeNode {
 
       if (f.length === 2) {
         // typo protection
-        if (this.repeats[parseInt(target)][targetfield]) {
+        if (this.repeats[parseInt(target,10)][targetfield]) {
           // we are on the parent of a endpoint. Update the metas in this
-          const field = this.repeats[parseInt(target)][targetfield];
+          const field = this.repeats[parseInt(target,10)][targetfield];
 
+          // eslint-disable-next-line guard-for-in,no-restricted-syntax
           for (const m in mc.meta) {
             // update the metas
             field._meta[m] = mc.meta[m];
@@ -202,6 +208,7 @@ export class RepeaterNode extends EventTreeNode {
               this.broadcastEvent(new NodeEvent("parent-readonly-meta-set",this, true));
             }
           }
+          // eslint-disable-next-line guard-for-in,no-restricted-syntax
           for (const c in mc.constraints) {
             // update the constraints
             field._constraints[c] = mc.constraints[c];
@@ -224,8 +231,8 @@ export class RepeaterNode extends EventTreeNode {
       const subMetaAndConstraints = {fields: {}};
       subMetaAndConstraints.fields[f.slice(2).join(".")] = mc;
       // typo protection
-      if (this.repeats[parseInt(target)][targetfield]) {
-        this.repeats[parseInt(target)][targetfield].__updateMetaAndConstraints(subMetaAndConstraints);
+      if (this.repeats[parseInt(target,10)][targetfield]) {
+        this.repeats[parseInt(target,10)][targetfield].__updateMetaAndConstraints(subMetaAndConstraints);
       }
     }
 
@@ -241,10 +248,10 @@ export class RepeaterNode extends EventTreeNode {
    *
    * @private
    */
-  get _transmit_value(){
+  get _transmitValue(){
     const n = [];
     this.__childNodes.forEach(f => {
-      const val = f._transmit_value;
+      const val = f._transmitValue;
       if (val !== undefined) {
         n.push(val);
       }
@@ -256,10 +263,10 @@ export class RepeaterNode extends EventTreeNode {
    * Returns all modified field values with deep dive (! _pristine)
    * @private
    */
-  get _delta_value(){
+  get _deltaValue(){
     const n = [];
     this.__childNodes.forEach(f => {
-      const val = f._delta_value;
+      const val = f._deltaValue;
       if (val !== undefined) {
         n.push(val);
       }
@@ -272,10 +279,10 @@ export class RepeaterNode extends EventTreeNode {
    * not readonly
    * @private
    */
-  get _required_value(){
+  get _requiredValue(){
     const n = [];
     this.__childNodes.forEach(f => {
-      const val = f._required_value;
+      const val = f._requiredValue;
       if (val !== undefined) {
         n.push(val);
       }
@@ -325,6 +332,7 @@ export class RepeaterNode extends EventTreeNode {
     const path = error.field.split(".");
     if (path.length > 0) {
       // rest wieder in error reinwerfen
+      // eslint-disable-next-line no-param-reassign
       error.field = path.slice(1).join(".");
     }
     this.repeats[path[0]]._setInvalid(error);

@@ -1,6 +1,7 @@
 /**
  * Custom event type for the AST
  */
+// eslint-disable-next-line max-classes-per-file
 export class NodeEvent {
   constructor(type, detail, bubbles = true) {
     /**
@@ -69,17 +70,18 @@ export class EventTreeNode {
    *
    * https://stackoverflow.com/questions/5306680/move-an-array-element-from-one-array-position-to-another
    *
-   * @param old_index
-   * @param new_index
+   * @param oldIndex
+   * @param newIndex
    */
-  moveNode(old_index, new_index) {
-    if (new_index >= this.__childNodes.length) {
-      let k = new_index - this.__childNodes.length + 1;
+  moveNode(oldIndex, newIndex) {
+    if (newIndex >= this.__childNodes.length) {
+      let k = newIndex - this.__childNodes.length + 1;
+      // eslint-disable-next-line no-plusplus
       while (k--) {
         this.__childNodes.push(undefined);
       }
     }
-    this.__childNodes.splice(new_index, 0, this.__childNodes.splice(old_index, 1)[0]);
+    this.__childNodes.splice(newIndex, 0, this.__childNodes.splice(oldIndex, 1)[0]);
     this.dispatchNodeEvent(new NodeEvent("order-changed", this, true));
     this.dispatchNodeEvent(new NodeEvent("this-order-changed", this, false));
 
@@ -116,12 +118,12 @@ export class EventTreeNode {
    */
   removeEventListener(type, handler) {
     if (this.__eventListener[type]) {
-      this.__eventListener[type] = this.__eventListener[type].filter((e, i) => {
+      this.__eventListener[type] = this.__eventListener[type].filter((e) => {
         if (e.cb === handler) {
           return false;
         }
           return true;
-        
+
       });
     }
   }
@@ -134,6 +136,7 @@ export class EventTreeNode {
   dispatchNodeEvent(event) {
     // simulate target and path
     if (!event.target) {
+      // eslint-disable-next-line no-param-reassign
       event.target = this;
     }
     event.path.push(this);
@@ -159,7 +162,7 @@ export class EventTreeNode {
     this.__triggerNodeEvents(event);
     // children
     if (!event.cancelBroadcast) {
-      this.__childNodes.map((c) => {
+      this.__childNodes.forEach((c) => {
         c.broadcastEvent(event)
       });
     }
@@ -168,9 +171,10 @@ export class EventTreeNode {
 
   __triggerNodeEvents(event) {
     if (this.__eventListener[event.type] && this.__eventListener[event.type].length > 0) {
-      this.__eventListener[event.type].map((t, i, listenerArray) => {
+      this.__eventListener[event.type].forEach((t, i, listenerArray) => {
         t.cb(event);
         if (t.options.once) {
+          // eslint-disable-next-line no-param-reassign
           delete listenerArray[i]
         }
       })

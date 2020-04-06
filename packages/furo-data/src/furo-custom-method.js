@@ -1,6 +1,6 @@
 import {LitElement, html} from 'lit-element';
 import {FBP} from "@furo/fbp";
-import "./furo-api-fetch"
+import "./furo-api-fetch.js"
 import {Env} from "@furo/framework"
 
 /**
@@ -78,7 +78,7 @@ class FuroCustomMethod extends FBP(LitElement) {
         if (dataObject) {
             for (const index in dataObject.__childNodes) {
                 const field = dataObject.__childNodes[index];
-                const val = field._transmit_value;
+                const val = field._transmitValue;
                 if (val !== undefined) {
                     body[field._name] = val
                 }
