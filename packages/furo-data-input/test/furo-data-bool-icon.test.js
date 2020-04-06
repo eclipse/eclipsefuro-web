@@ -13,7 +13,7 @@ describe('furo-data-bool-icon', () => {
 
 
   let host;
-  let dataBoolIcon,   entityObject, deeplink;
+  let dataBoolIcon; let   entityObject; let deeplink;
 
   beforeEach(async () => {
     const testbind = await fixture(html`
@@ -56,8 +56,8 @@ describe('furo-data-bool-icon', () => {
   it('should receive value with bind', (done) => {
     console.log("those tests are base on the mockdata/experiment/1/get.json");
 
-    host._FBPAddWireHook("--hts", (e) => {
-      entityObject.addEventListener("data-changed", (e) => {
+    host._FBPAddWireHook("--hts", ( ) => {
+      entityObject.addEventListener("data-changed", ( ) => {
         assert.equal(dataBoolIcon._ocSymbol, dataBoolIcon.__symbolfalse);
         done();
 
