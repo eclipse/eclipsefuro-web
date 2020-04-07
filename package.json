@@ -20,7 +20,6 @@
     "wct-test-reporter": "0.0.1"
   },
   "scripts": {
-    "lint:imports": "node scripts/check-imports.js",
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
     "start": "./node_modules/.bin/es-dev-server  --app-index packages/furo-app/index.html --open",
     "test": "./node_modules/.bin/karma start --coverage",
