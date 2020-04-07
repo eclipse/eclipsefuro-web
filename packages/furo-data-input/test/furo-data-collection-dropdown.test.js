@@ -106,10 +106,14 @@ describe('furo-data-collection-dropdown', () => {
       entityObject.data.data.description.addEventListener(
         'this-metas-changed',
         () => {
-          assert.equal(collectionDropdown1.field._value, 'Furo Foundation');
-          assert.equal(collectionDropdown1.field._meta.label, 'ID label from response');
-          assert.equal(collectionDropdown1.field._meta.options.list.length, 2);
-          done();
+          setTimeout(()=>{
+            assert.equal(collectionDropdown1.field._meta.options.list.length, 2);
+            assert.equal(collectionDropdown1.field._value, 2);
+            assert.equal(collectionDropdown1.field._oldvalue, 'Furo Foundation');
+            assert.equal(collectionDropdown1.field._meta.label, 'ID label from response');
+            done();
+          },15)
+
         },
         { once: true },
       );

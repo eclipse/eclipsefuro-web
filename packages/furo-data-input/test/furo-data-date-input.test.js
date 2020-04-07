@@ -108,7 +108,7 @@ describe('furo-data-date-input', () => {
         assert.equal(dataDateInput.error, true);
         assert.equal(dataDateInput._theInputElement.getAttribute('errortext'), 'step 3');
         done();
-      }, 0);
+      }, 15);
 
     });
     dataDateInput.field._setInvalid(err);

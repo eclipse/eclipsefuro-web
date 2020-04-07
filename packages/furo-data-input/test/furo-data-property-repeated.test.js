@@ -7,30 +7,52 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 import '@furo/testhelper/initEnv.js';
 
 describe('furo-data-property-repeated', () => {
-  let element;
-  let host;
+  let dataProperty, host, entityObject, entityAgent,  deeplink, dataPropertyRepeated;
 
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-data-property-repeated></furo-data-property-repeated>
+           <!-- single Property -->
+                <furo-data-property ƒ-bind-data="--entity(*.type_property)"></furo-data-property>
+                <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
+                <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+                <furo-entity-agent service="ExperimentService" ƒ-hts-in="--hts" ƒ-load="--hts" @-response="--response"> </furo-entity-agent>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, element] = testbind.parentNode.children;
+    [, ,dataProperty,entityObject,deeplink,entityAgent] = testbind.parentNode.children;
     await host.updateComplete;
-    await element.updateComplete;
+
+    await dataProperty.updateComplete;
+    await entityAgent.updateComplete;
+    await entityObject.updateComplete;
+    await deeplink.updateComplete;
   });
 
-  it('should be a furo-data-property-repeated', done => {
+
+  it('should be a furo-data-property', done => {
     // keep this test on top, so you can recognize a wrong asignment
-    assert.equal(element.nodeName.toLowerCase(), 'furo-data-property-repeated');
+    assert.equal(dataProperty.nodeName.toLowerCase(), 'furo-data-property');
+    assert.equal(entityAgent.nodeName.toLowerCase(), 'furo-entity-agent');
+    assert.equal(entityObject.nodeName.toLowerCase(), 'furo-data-object');
+    assert.equal(deeplink.nodeName.toLowerCase(), 'furo-deep-link');
     done();
   });
 
-  // axeReport a11y tests
-  xit('a11y', () => axeReport(element));
+
+  it('should bind data to repeated Property', (done) => {
+
+    entityObject.addEventListener("data-injected", () => {
+      setTimeout(()=>{
+        assert.equal(dataProperty.field.repeats[1].data.year._value, "2022");
+        assert.equal(dataProperty.field.repeats[2].data.data._value, "34.23");
+        done();
+      },5)
+
+    });
+    deeplink.qpIn({"exp": 1});
+  });
 });

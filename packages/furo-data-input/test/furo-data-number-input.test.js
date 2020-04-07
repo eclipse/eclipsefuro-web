@@ -35,7 +35,8 @@ describe('furo-data-number-input', () => {
       </test-bind>
     `);
     await testbind.updateComplete;
-    host = testbind._host;  [, dataNumberInput,secondNumberInput,invalidNumberInput, dataObject, deeplink] = testbind.parentNode.children;
+    host = testbind._host;
+    [, dataNumberInput, secondNumberInput, invalidNumberInput, dataObject, deeplink] = testbind.parentNode.children;
     await host.updateComplete;
     await dataNumberInput.updateComplete;
     await secondNumberInput.updateComplete;
@@ -57,43 +58,44 @@ describe('furo-data-number-input', () => {
   });
 
   // axeReport a11y tests
-  xit('a11y', () => axeReport(element));
+  xit('a11y', () => axeReport(dataNumberInput));
 
   it('should log invalid bindings', (done) => {
-
+    setTimeout(() => {
       // invalid binding
       assert.equal(invalidNumberInput.field, undefined);
       // valid binding
       assert.equal(dataNumberInput.field._isValid, true);
       done();
+    }, 0);
 
   });
 
   it('should override hints ', (done) => {
 
 
-      setTimeout(()=>{
-        assert.equal(secondNumberInput._theInputElement.getAttribute("hint"), "FromTPL");
-        done();
-      },0)
+    setTimeout(() => {
+      assert.equal(secondNumberInput._theInputElement.getAttribute('hint'), 'FromTPL');
+      done();
+    }, 0);
 
   });
 
   it('should override labels ', (done) => {
 
-      setTimeout(()=>{
-        assert.equal(secondNumberInput._theInputElement.getAttribute("label"), "FromTPL");
-        done();
-      },0)
+    setTimeout(() => {
+      assert.equal(secondNumberInput._theInputElement.getAttribute('label'), 'FromTPL');
+      done();
+    }, 0);
 
 
   });
 
   it('should override readonly ', (done) => {
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(secondNumberInput.readonly, true);
       done();
-    },0)
+    }, 0);
   });
 
   it('should set disabled via disable method', (done) => {
@@ -109,63 +111,60 @@ describe('furo-data-number-input', () => {
   });
 
   it('should receive value with bind', (done) => {
-    dataObject.addEventListener("data-injected", (e) => {
+    dataObject.addEventListener('data-injected', (e) => {
 
-      setTimeout(()=>{
-        assert.equal(dataNumberInput.shadowRoot.querySelector("*").value, 12.55);
-        assert.equal(dataNumberInput._theInputElement.getAttribute("hint"), "hint");
+      setTimeout(() => {
+        assert.equal(dataNumberInput.shadowRoot.querySelector('*').value, 12.55);
+        assert.equal(dataNumberInput._theInputElement.getAttribute('hint'), 'hint');
         done();
-      },0);
+      }, 0);
 
     });
 
-    deeplink.qpIn({"exp": 1});
+    deeplink.qpIn({ 'exp': 1 });
   });
 
 
   it('should bind the field description', (done) => {
 
 
+    setTimeout(() => {
 
-      setTimeout(()=>{
-
-        assert.equal(dataNumberInput._theInputElement.getAttribute("label"), "number-input");
-        done();
-      },0);
+      assert.equal(dataNumberInput._theInputElement.getAttribute('label'), 'number-input');
+      done();
+    }, 0);
 
 
-    deeplink.qpIn({"exp": 1});
+    deeplink.qpIn({ 'exp': 1 });
   });
 
 
   it('should log invalid bindings', (done) => {
-    setTimeout(()=>{
+    setTimeout(() => {
 
       // invalid binding
       assert.equal(invalidNumberInput.field, undefined);
       // valid binding
       assert.equal(secondNumberInput.field._isValid, true);
       done();
-    },0);
+    }, 0);
   });
 
 
-
-
   it('should listen field-became-invalid event add set error', (done) => {
-   setTimeout(()=>{
+    setTimeout(() => {
 
-      let err = {"description": "max 23", constraint: "max"};
-      dataNumberInput.field.addEventListener("field-became-invalid",()=>{
+      let err = { 'description': 'max 23', constraint: 'max' };
+      dataNumberInput.field.addEventListener('field-became-invalid', () => {
 
         setTimeout(() => {
           assert.equal(dataNumberInput.error, true);
-          assert.equal(dataNumberInput._theInputElement.getAttribute("errortext"), "max 23");
+          assert.equal(dataNumberInput._theInputElement.getAttribute('errortext'), 'max 23');
           done();
-        }, 0)
+        }, 0);
 
       });
       dataNumberInput.field._setInvalid(err);
-    },0);
+    }, 0);
   });
 });
