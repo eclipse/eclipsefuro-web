@@ -117,7 +117,7 @@ describe('furo-data-search-input', () => {
           assert.equal(dataSearchInput.error, true);
           assert.equal(dataSearchInput._theInputElement.getAttribute("errortext"), "minimal 3 charaters");
           done();
-        }, 10)
+        }, 25)
 
       });
       dataSearchInput.field._setInvalid(err);

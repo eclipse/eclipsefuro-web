@@ -133,7 +133,7 @@ describe('furo-data-range-input', () => {
           assert.equal(dataRangeInput.error, true);
           assert.equal(dataRangeInput._theInputElement.getAttribute("errortext"), "step 3");
           done();
-        }, 15)
+        }, 25)
 
       });
       dataRangeInput.field._setInvalid(err);
