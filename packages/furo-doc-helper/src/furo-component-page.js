@@ -25,29 +25,28 @@ class FuroComponentPage extends FBP(LitElement) {
     const theme = Theme.getThemeForComponent('FuroComponentPage');
     if (theme) {
       return [theme, Styling.theme];
-    } 
-      // language=CSS
-      return [
-        css`
-          :host {
-            display: block;
-            height: 100%;
-            overflow: hidden;
-            box-sizing: border-box;
-            padding: var(--spacing) 0 var(--spacing) var(--spacing);
-            --split-master-width: 250px;
-          }
+    }
+    // language=CSS
+    return [
+      css`
+        :host {
+          display: block;
+          height: 100%;
+          overflow: hidden;
+          box-sizing: border-box;
+          padding: var(--spacing) 0 var(--spacing) var(--spacing);
+          --split-master-width: 250px;
+        }
 
-          :host([hidden]) {
-            display: none;
-          }
-          furo-pages {
-            height: 100%;
-          }
-        `,
-        Styling.theme,
-      ];
-    
+        :host([hidden]) {
+          display: none;
+        }
+        furo-pages {
+          height: 100%;
+        }
+      `,
+      Styling.theme,
+    ];
   }
 
   /**

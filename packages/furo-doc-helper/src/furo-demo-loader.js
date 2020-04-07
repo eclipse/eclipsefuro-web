@@ -28,7 +28,7 @@ class FuroDemoLoader extends FBP(LitElement) {
         const demo = document.createElement('div');
         demo.id = 'demo';
         demo.classList.add('error');
-        demo.innerText = `404  -  ${  this.demoComponent  } is not imported, nothing to show here`;
+        demo.innerText = `404  -  ${this.demoComponent} is not imported, nothing to show here`;
         this.shadowRoot.appendChild(demo);
       }
 

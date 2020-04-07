@@ -21,7 +21,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
 
     const t = this.querySelector('template');
     this.template = t.content;
-    this.markdown = `\`\`\`html\n${  t.innerHTML  }\n\`\`\``;
+    this.markdown = `\`\`\`html\n${t.innerHTML}\n\`\`\``;
 
     this.icon = 'fullscreen';
     this.addEventListener('source', e => {
@@ -30,7 +30,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
       this.flow = false;
       this._FBPTriggerWire('--markdown', this.markdown);
       const md = this.shadowRoot.querySelector('furo-markdown');
-      md.style.width = `${this.offsetWidth  }px`;
+      md.style.width = `${this.offsetWidth}px`;
     });
 
     this.addEventListener('demo', e => {
@@ -50,7 +50,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
   firstUpdated(v) {
     super.firstUpdated(v);
     const md = this.shadowRoot.querySelector('furo-markdown');
-    md.style.width = `${this.offsetWidth  }px`;
+    md.style.width = `${this.offsetWidth}px`;
   }
 
   /**
@@ -127,109 +127,108 @@ class FuroDemoSnippet extends FBP(LitElement) {
     const theme = Theme.getThemeForComponent('FuroDemoSnippet');
     if (theme) {
       return [theme, Styling.theme];
-    } 
-      // language=CSS
-      return [
-        css`
-          :host {
-            display: block;
-            height: 320px;
-            box-sizing: border-box;
-            overflow: hidden;
-            background-color: var(--surface);
-          }
+    }
+    // language=CSS
+    return [
+      css`
+        :host {
+          display: block;
+          height: 320px;
+          box-sizing: border-box;
+          overflow: hidden;
+          background-color: var(--surface);
+        }
 
-          :host([hidden]) {
-            display: none;
-          }
+        :host([hidden]) {
+          display: none;
+        }
 
-          :host([fullscreen]) .nav {
-            background-color: var(--surface-light);
-            padding: 16px;
-          }
+        :host([fullscreen]) .nav {
+          background-color: var(--surface-light);
+          padding: 16px;
+        }
 
-          :host([fullscreen]) .nav span {
-            border-bottom-color: var(--surface-light);
-          }
+        :host([fullscreen]) .nav span {
+          border-bottom-color: var(--surface-light);
+        }
 
-          :host([fullscreen]) {
-            height: 100vh;
-          }
+        :host([fullscreen]) {
+          height: 100vh;
+        }
 
-          furo-markdown {
-            background-color: var(--surface-light);
-            height: 100%;
-            overflow: auto;
-          }
-          furo-show-flow {
-            background-color: var(--surface-light);
-          }
-          #demo,
-          #flow {
-            height: 100%;
-          }
-          #demo {
-            padding: var(--spacing-s);
-            box-sizing: border-box;
-          }
+        furo-markdown {
+          background-color: var(--surface-light);
+          height: 100%;
+          overflow: auto;
+        }
+        furo-show-flow {
+          background-color: var(--surface-light);
+        }
+        #demo,
+        #flow {
+          height: 100%;
+        }
+        #demo {
+          padding: var(--spacing-s);
+          box-sizing: border-box;
+        }
 
-          :host(:not([demo])) #demo {
-            display: none;
-          }
+        :host(:not([demo])) #demo {
+          display: none;
+        }
 
-          :host(:not([flow])) #flow {
-            display: none;
-          }
+        :host(:not([flow])) #flow {
+          display: none;
+        }
 
-          :host(:not([source])) > furo-markdown {
-            display: none;
-          }
+        :host(:not([source])) > furo-markdown {
+          display: none;
+        }
 
-          div.flexbody {
-            height: inherit;
-            overflow: hidden;
-          }
+        div.flexbody {
+          height: inherit;
+          overflow: hidden;
+        }
 
-          span {
-            cursor: pointer;
-          }
+        span {
+          cursor: pointer;
+        }
 
-          .nav {
-            background-color: var(--surface-light, white);
-            color: var(--on-surfcae);
-          }
+        .nav {
+          background-color: var(--surface-light, white);
+          color: var(--on-surfcae);
+        }
 
-          .nav span {
-            display: inline-block;
-            border-bottom: 1px solid var(--surface-light, white);
-            cursor: pointer;
-          }
+        .nav span {
+          display: inline-block;
+          border-bottom: 1px solid var(--surface-light, white);
+          cursor: pointer;
+        }
 
-          .nav furo-icon {
-            cursor: pointer;
-          }
-          :host([flow]) .flow {
-            font-weight: 800;
-            border-bottom: 1px solid var(--on-primary);
-          }
+        .nav furo-icon {
+          cursor: pointer;
+        }
+        :host([flow]) .flow {
+          font-weight: 800;
+          border-bottom: 1px solid var(--on-primary);
+        }
 
-          :host([demo]) .demo {
-            font-weight: 800;
-            border-bottom: 1px solid var(--on-primary);
-          }
+        :host([demo]) .demo {
+          font-weight: 800;
+          border-bottom: 1px solid var(--on-primary);
+        }
 
-          :host([no-demo]) .demo {
-            display: none;
-          }
+        :host([no-demo]) .demo {
+          display: none;
+        }
 
-          :host([source]) .source {
-            font-weight: 800;
-            border-bottom: 1px solid var(--on-primary);
-          }
-        `,
-        Styling.theme,
-      ];
-    
+        :host([source]) .source {
+          font-weight: 800;
+          border-bottom: 1px solid var(--on-primary);
+        }
+      `,
+      Styling.theme,
+    ];
   }
 
   /**
