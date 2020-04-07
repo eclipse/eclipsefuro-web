@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { BasePanel } from '@furo/route/src/lib/BasePanel';
-import { Theme } from '@furo/framework/theme';
+import { Theme } from '@furo/framework/src/theme';
 import { html, css } from 'lit-element';
 
 import '@furo/util/src/furo-pretty-json';

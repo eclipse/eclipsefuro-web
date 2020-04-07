@@ -4,7 +4,8 @@ import { FBP } from '@furo/fbp';
 import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/util/src/furo-catalog.js';
-import '../test/helper/produce-data.js';
+import '@furo/navigation/demos/helper/produce-data.js';
+
 /**
  * `demo-furo-pretty-json`
  *

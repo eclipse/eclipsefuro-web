@@ -8,7 +8,7 @@
     ],
     [
       "Theme",
-      "@furo/framework/theme.js"
+      "@furo/framework/src/theme.js"
     ],
     [
       "FBP",

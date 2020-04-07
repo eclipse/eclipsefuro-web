@@ -103,6 +103,7 @@ describe('furo-data-date-input', () => {
 
   it('should listen field-became-invalid event add set error', done => {
     const err = { description: 'step 3', constraint: 'min' };
+    setTimeout(() => {
     dataDateInput.field.addEventListener('field-became-invalid', () => {
       setTimeout(() => {
         assert.equal(dataDateInput.error, true);
@@ -111,5 +112,6 @@ describe('furo-data-date-input', () => {
       }, 15);
     });
     dataDateInput.field._setInvalid(err);
+    }, 15);
   });
 });
