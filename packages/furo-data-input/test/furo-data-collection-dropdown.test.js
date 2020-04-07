@@ -102,7 +102,7 @@ describe('furo-data-collection-dropdown', () => {
   xit('a11y', () => axeReport(collectionDropdown1));
 
   it('should receive value with bind', done => {
-    host._FBPAddWireHook('--hts', () => {
+
       entityObject.data.data.description.addEventListener(
         'this-metas-changed',
         () => {
@@ -113,7 +113,7 @@ describe('furo-data-collection-dropdown', () => {
         },
         { once: true },
       );
-    });
+
     deeplink.qpIn({ prj: 1 });
   });
 
@@ -134,21 +134,13 @@ describe('furo-data-collection-dropdown', () => {
   });
 
   it('should selected the items when the field value not exists and the item in option list is marked as `selected:true`', done => {
-    collectionDropdown2.addEventListener('item-selected', e => {
-      assert.equal(e.detail.id, 'female');
+    setTimeout(() => {
+      assert.equal(collectionDropdown2.field.id, 'female');
       done();
-    });
+    }, 0);
   });
 
-  it('should fire item-selected event with attribute valueField set', done => {
-    collectionDropdown2.valueField = 'display_name';
 
-    deeplink.qpIn({ prj: 1 });
-    collectionDropdown2.addEventListener('item-selected', e => {
-      assert.equal(e.detail.id, 'female');
-      done();
-    });
-  });
 
   it('should assign the field value (is not setted before) initially with the selected item value from spec', done => {
     setTimeout(() => {

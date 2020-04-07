@@ -7,30 +7,111 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 import '@furo/testhelper/initEnv.js';
 
 describe('furo-data-date-input', () => {
-  let element;
+  let dataDateInput;
   let host;
+  let dataObject;
+  let secondDateInput;
+  let deeplink;
 
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-data-date-input></furo-data-date-input>
+           <furo-data-date-input  ƒ-bind-data="--entityReady(*.furo_data_date_input)"></furo-data-date-input>
+          <furo-data-date-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entityReady(*.furo_data_date_input_google)"
+                                @-value-changed="--textChanged"></furo-data-date-input>
+
+          <furo-data-object type="experiment.Experiment" @-object-ready="--entityReady"
+                            ƒ-inject-raw="--response(*.data)"></furo-data-object>
+
+
+          <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+          <furo-entity-agent service="ExperimentService"
+                             ƒ-hts-in="--hts"
+                             ƒ-load="--hts"
+                             ƒ-bind-request-data="--entity"
+                             @-response="--response">
+          </furo-entity-agent>
+
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, element] = testbind.parentNode.children;
+    [, dataDateInput, secondDateInput, dataObject, deeplink] = testbind.parentNode.children;
     await host.updateComplete;
-    await element.updateComplete;
+    await dataDateInput.updateComplete;
+    await dataObject.updateComplete;
+    await secondDateInput.updateComplete;
+    await deeplink.updateComplete;
   });
 
   it('should be a furo-data-date-input', done => {
     // keep this test on top, so you can recognize a wrong asignment
-    assert.equal(element.nodeName.toLowerCase(), 'furo-data-date-input');
+    assert.equal(dataDateInput.nodeName.toLowerCase(), 'furo-data-date-input');
+    assert.equal(dataObject.nodeName.toLowerCase(), 'furo-data-object');
+    assert.equal(secondDateInput.nodeName.toLowerCase(), 'furo-data-date-input');
+    assert.equal(deeplink.nodeName.toLowerCase(), 'furo-deep-link');
     done();
   });
 
   // axeReport a11y tests
-  xit('a11y', () => axeReport(element));
+  xit('a11y', () => axeReport(dataDateInput));
+
+
+  it('should override labels ', (done) => {
+    setTimeout(() => {
+      assert.equal(secondDateInput._theInputElement.getAttribute('label'), 'FromTPL');
+      done();
+    }, 0);
+  });
+
+  it('should receive date (ISO 8601 d) value with bind', (done) => {
+    dataObject.addEventListener('data-injected', (e) => {
+
+      setTimeout(() => {
+        assert.equal(dataDateInput.shadowRoot.querySelector('*').value, '2019-02-22');
+        done();
+      }, 0);
+
+    });
+
+    deeplink.qpIn({ 'exp': 1 });
+  });
+
+  it('should receive date (google.type.Date) value with bind', (done) => {
+    dataObject.addEventListener('data-injected', (e) => {
+
+      setTimeout(() => {
+        assert.equal(secondDateInput.shadowRoot.querySelector('*').value, '2020-12-31');
+        done();
+      }, 0);
+
+    });
+
+    deeplink.qpIn({ 'exp': 1 });
+  });
+
+
+  it('should be a furo-data-date-input_test', (done) => {
+    assert.equal(dataDateInput.nodeName.toLowerCase(), 'furo-data-date-input');
+    done();
+  });
+
+  it('should listen field-became-invalid event add set error', (done) => {
+
+
+    let err = { 'description': 'step 3', constraint: 'min' };
+    dataDateInput.field.addEventListener('field-became-invalid', () => {
+
+      setTimeout(() => {
+        assert.equal(dataDateInput.error, true);
+        assert.equal(dataDateInput._theInputElement.getAttribute('errortext'), 'step 3');
+        done();
+      }, 0);
+
+    });
+    dataDateInput.field._setInvalid(err);
+  });
+
 });

@@ -77,18 +77,23 @@ describe('furo-data-checkbox-input', () => {
 
   // those tests are base on the mockdata/trees/1/get.json. the field tree.root.open should be true in mockdata
   it('should override labels ', done => {
+
     assert.equal(secondCheckboxInput._theInputElement.getAttribute('label'), 'FromTPL');
     done();
   });
 
   it('should receive label from meta in spec by entity object ready', done => {
-    assert.equal(dataCheckboxInput._theInputElement.getAttribute('label'), 'checkbox_input');
-    done();
+    setTimeout(() => {
+      assert.equal(dataCheckboxInput._theInputElement.getAttribute('label'), 'checkbox_input');
+      done();
+    }, 5);
+
   });
 
   it('should receive hint from meta in spec by entity object ready', done => {
+    setTimeout(() => {
     assert.equal(dataCheckboxInput._theInputElement.getAttribute('hint'), 'Hint');
-    done();
+    done();  }, 5);
   });
 
   it('should receive value with bind', done => {
