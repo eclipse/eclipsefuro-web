@@ -113,20 +113,21 @@ describe('furo-data-password-input', () => {
 
 
   it('should listen field-became-invalid event add set error', (done) => {
-    dataObject.addEventListener('object-ready', () => {
+
 
       let err = { 'description': 'max 23', constraint: 'max' };
+    setTimeout(() => {
       dataPasswordInput.field.addEventListener('field-became-invalid', () => {
 
         setTimeout(() => {
           assert.equal(dataPasswordInput.error, true);
           assert.equal(dataPasswordInput._theInputElement.getAttribute('errortext'), 'max 23');
           done();
-        }, 15);
+        }, 10);
 
       });
       dataPasswordInput.field._setInvalid(err);
-    });
+    }, 20);
   });
 
 });

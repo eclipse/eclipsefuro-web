@@ -124,8 +124,8 @@ describe('furo-data-range-input', () => {
 
 
   it('should listen field-became-invalid event add set error', (done) => {
-    dataObject.addEventListener("object-ready",()=>{
 
+    setTimeout(() => {
       let err = {"description": "step 3", constraint: "min"};
       dataRangeInput.field.addEventListener("field-became-invalid",()=>{
 
@@ -133,10 +133,10 @@ describe('furo-data-range-input', () => {
           assert.equal(dataRangeInput.error, true);
           assert.equal(dataRangeInput._theInputElement.getAttribute("errortext"), "step 3");
           done();
-        }, 25)
+        }, 10);
 
       });
       dataRangeInput.field._setInvalid(err);
-    });
+  }, 20)
   });
 });

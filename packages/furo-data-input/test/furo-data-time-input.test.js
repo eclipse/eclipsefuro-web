@@ -126,20 +126,23 @@ describe('furo-data-time-input', () => {
   });
 
   it('should listen field-became-invalid event add set error', (done) => {
-    dataObject.addEventListener("object-ready",()=>{
 
-      let err = {"description": "step 3", constraint: "min"};
-      dataTimeInput.field.addEventListener("field-became-invalid",()=>{
 
-        setTimeout(() => {
-          assert.equal(dataTimeInput.error, true);
-          assert.equal(dataTimeInput._theInputElement.getAttribute("errortext"), "step 3");
-          done();
-        }, 0)
+        let err = {"description": "step 3", constraint: "min"};
+    setTimeout(() => {
+        dataTimeInput.field.addEventListener("field-became-invalid",()=>{
 
-      });
-      dataTimeInput.field._setInvalid(err);
-    });
+          setTimeout(() => {
+            assert.equal(dataTimeInput.error, true);
+            assert.equal(dataTimeInput._theInputElement.getAttribute("errortext"), "step 3");
+            done();
+          }, 10)
+
+        });
+        dataTimeInput.field._setInvalid(err);
+
+    }, 20)
+
   });
 
 });

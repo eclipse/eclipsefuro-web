@@ -152,19 +152,20 @@ describe('furo-data-number-input', () => {
 
 
   it('should listen field-became-invalid event add set error', (done) => {
-    setTimeout(() => {
+    let err = { 'description': 'max 23', constraint: 'max' };
 
-      let err = { 'description': 'max 23', constraint: 'max' };
+    setTimeout(() => {
       dataNumberInput.field.addEventListener('field-became-invalid', () => {
 
         setTimeout(() => {
           assert.equal(dataNumberInput.error, true);
           assert.equal(dataNumberInput._theInputElement.getAttribute('errortext'), 'max 23');
           done();
-        }, 0);
+        }, 10);
 
       });
       dataNumberInput.field._setInvalid(err);
-    }, 0);
+  }, 20);
+
   });
 });
