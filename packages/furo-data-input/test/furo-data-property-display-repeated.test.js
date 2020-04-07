@@ -30,7 +30,7 @@ if( testbind.parentNode.children.length === 5){
 }
 // repeater creates a node before it self,
 if( testbind.parentNode.children.length === 6){
-  [,, entityObject,deeplink,entityAgent,dataPropertyDisplay] = testbind.parentNode.children;
+  [, entityObject,deeplink,entityAgent,,dataPropertyDisplay] = testbind.parentNode.children;
 }
 
     await dataPropertyDisplay.updateComplete;

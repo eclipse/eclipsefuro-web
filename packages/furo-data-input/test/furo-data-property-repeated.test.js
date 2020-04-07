@@ -23,7 +23,15 @@ describe('furo-data-property-repeated', () => {
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, ,dataProperty,entityObject,deeplink,entityAgent] = testbind.parentNode.children;
+    if(testbind.parentNode.children.length === 5){
+      [, dataProperty,entityObject,deeplink,entityAgent] = testbind.parentNode.children;
+    }
+
+    if(testbind.parentNode.children.length === 6){
+      [, ,dataProperty,entityObject,deeplink,entityAgent] = testbind.parentNode.children;
+    }
+
+
     await host.updateComplete;
 
     await dataProperty.updateComplete;
