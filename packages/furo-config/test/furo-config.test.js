@@ -73,21 +73,21 @@ describe('furo-config', () => {
 
     config.addEventListener("config-updated", (d) => {
 
-      assert(d.detail.license, "MIT");
+      assert.equal(d.detail.license, "MIT");
     });
 
+    config.setAttribute("section","package")
+    config.addEventListener("config-updated", (d) => {
 
-    secondConfig.addEventListener("config-updated", (d) => {
-
-      assert(d.detail.entrypoint, "index.html");
+      assert.equal(d.detail.name, "furo-base-components");
       done()
     });
     secondConfig.setAttribute("section", "lerna");
     configLoader.setAttribute("src", "/base/lerna.json");
-    configLoader.setAttribute("section", "package");
 
-    secondConfigLoader.setAttribute("section", "lerna");
-    secondConfigLoader.setAttribute("src", "/base/lerna.json");
+
+    secondConfigLoader.setAttribute("section", "package");
+    secondConfigLoader.setAttribute("src", "/base/package.json");
   });
 
 

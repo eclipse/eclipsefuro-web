@@ -8,5 +8,8 @@ Init.registerApiServices(Services);
 Init.registerApiTypes(Types);
 i18n.registerResBundle(Translations);
 
+// Translate messages in specs
+Init.translateStaticTypeMessages(Env.locale);
+
 // enable this option to send readonly fields too.
 // Env.api.sendAllDataOnMethodPut = true;

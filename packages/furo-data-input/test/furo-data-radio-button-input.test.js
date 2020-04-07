@@ -82,14 +82,14 @@ describe('furo-data-radio-button-input', () => {
 
   it('should receive label from meta in spec by entity object ready', done => {
     setTimeout(() => {
-      assert.equal(dataRadioButtonInput._theInputElement.getAttribute('label'), 'checkbox_input');
+      assert.equal(dataRadioButtonInput._theInputElement.getAttribute('label'), 'checkbox_input**');
       done();
     }, 0);
   });
 
   it('should receive hint from meta in spec by entity object ready', done => {
     setTimeout(() => {
-      assert.equal(dataRadioButtonInput._theInputElement.getAttribute('hint'), 'Hint');
+      assert.equal(dataRadioButtonInput._theInputElement.getAttribute('hint'), 'Hint**');
       done();
     }, 0);
   });

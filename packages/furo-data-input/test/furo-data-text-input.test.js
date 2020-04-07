@@ -139,8 +139,8 @@ describe('furo-data-text-input', () => {
 
   it('should bind the field label, hint ', done => {
     setTimeout(() => {
-      assert.equal(dataTextInput._theInputElement.getAttribute('label'), 'text_input');
-      assert.equal(dataTextInput._theInputElement.getAttribute('hint'), 'hint');
+      assert.equal(dataTextInput._theInputElement.getAttribute('label'), 'text_input**');
+      assert.equal(dataTextInput._theInputElement.getAttribute('hint'), 'hint**');
       done();
     }, 10);
   });

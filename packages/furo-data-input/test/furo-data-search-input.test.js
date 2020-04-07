@@ -89,7 +89,7 @@ describe('furo-data-search-input', () => {
   });
   it('should bind the field description', done => {
     setTimeout(() => {
-      assert.equal(dataSearchInput._theInputElement.getAttribute('label'), 'Name');
+      assert.equal(dataSearchInput._theInputElement.getAttribute('label'), 'Name**');
       done();
     }, 10);
   });
@@ -112,6 +112,7 @@ describe('furo-data-search-input', () => {
   });
 
   it('should listen field-became-invalid event add set error', done => {
+    setTimeout(() => {
     const err = { description: 'minimal 3 charaters', constraint: 'min' };
     dataSearchInput.field.addEventListener('field-became-invalid', () => {
       setTimeout(() => {
@@ -121,8 +122,10 @@ describe('furo-data-search-input', () => {
           'minimal 3 charaters',
         );
         done();
-      }, 25);
+      }, 10);
     });
-    dataSearchInput.field._setInvalid(err);
+      dataSearchInput.field._setInvalid(err);
+    }, 10);
+
   });
 });

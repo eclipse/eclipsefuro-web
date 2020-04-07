@@ -209,7 +209,7 @@ describe('furo-data-object', () => {
   it('should apply meta of fields and overwrite existing default meta information', done => {
     element.setAttribute('type', 'experiment.ExperimentEntity');
     assert.equal(element.data.data.description._value, 'Default Description');
-    assert.equal(element.data.data.furo_data_checkbox_input._meta.label, 'checkbox_input');
+    assert.equal(element.data.data.furo_data_checkbox_input._meta.label, 'checkbox_input**');
     assert.equal(element.data.data.furo_data_checkbox_input._meta.readonly, false);
 
     // after response inject

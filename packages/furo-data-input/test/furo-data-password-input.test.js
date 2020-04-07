@@ -90,7 +90,7 @@ describe('furo-data-password-input', () => {
   });
   it('should bind the field description', done => {
     setTimeout(() => {
-      assert.equal(dataPasswordInput._theInputElement.getAttribute('label'), 'Name');
+      assert.equal(dataPasswordInput._theInputElement.getAttribute('label'), 'Name**');
       done();
     }, 0);
   });

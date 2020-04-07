@@ -74,7 +74,7 @@ describe('furo-data-reference-search', () => {
 
   it('should bind data', done => {
     setTimeout(() => {
-      assert.equal(referenceSearch.field._meta.label, 'person.type.sex.label');
+      assert.equal(referenceSearch.field._meta.label, 'person.type.sex.label**');
       done();
     }, 15);
   });
@@ -172,7 +172,6 @@ describe('furo-data-reference-search', () => {
 
   it('should show no result hint by empty response', done => {
     referenceSearch.collectionIn({});
-
     setTimeout(() => {
       assert.equal(referenceSearch.shadowRoot.getElementById('input').hint, 'no result found');
       done();

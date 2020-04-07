@@ -10,6 +10,7 @@ module.exports = config => {
       _browsers: ['Chrome'], // remove the underscore to activate browser tests
       proxies: {
         '/mockdata/': '/base/mockdata/',
+        '/package.json': '/base/package.json',
       },
       colors: true,
       files: [

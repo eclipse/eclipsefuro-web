@@ -11,6 +11,8 @@ describe('furo-data-table', () => {
   let host;
   let linker;
   let dataTable;
+  let collectionAgent;
+  let dataObject;
 
   beforeEach(async () => {
     const testbind = await fixture(html`
@@ -41,10 +43,12 @@ describe('furo-data-table', () => {
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, linker, , , dataTable] = testbind.parentNode.children;
+    [, linker, collectionAgent,dataObject , dataTable] = testbind.parentNode.children;
     await host.updateComplete;
     await linker.updateComplete;
     await dataTable.updateComplete;
+    await collectionAgent.updateComplete;
+    await dataObject.updateComplete;
   });
 
   it('should be a furo-data-table', done => {
@@ -74,7 +78,7 @@ describe('furo-data-table', () => {
         .querySelector('thead')
         .querySelector('tr')
         .querySelectorAll('th')[2].innerText,
-      'Id',
+      'Id**',
     );
     assert.notEqual(
       dataTable.shadowRoot.querySelector('table').querySelector('thead').offsetHeight,
@@ -93,20 +97,20 @@ describe('furo-data-table', () => {
   });
 
   it('should focus first row', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
+
+    dataTable._FBPAddWireHook('--collectionData', () => {
         dataTable.focus();
         assert.equal(dataTable._selectedIndex, 0);
 
         done();
       });
-    });
+
     linker.trigger();
   });
 
   it('should focus first row with first()', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
+
+    dataTable._FBPAddWireHook('--collectionData', () => {
         dataTable.focus();
         dataTable.last();
         dataTable.first();
@@ -114,108 +118,105 @@ describe('furo-data-table', () => {
 
         done();
       });
-    });
+
     linker.trigger();
   });
 
   it('should focus prev row', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
+
+    dataTable._FBPAddWireHook('--collectionData', () => {
         dataTable.focus();
         dataTable.last();
         dataTable.prev();
         assert.equal(dataTable._selectedIndex, 2);
 
         done();
-      });
+
     });
     linker.trigger();
   });
 
   it('should navigate if triggerNavigation is sent (ArrowDown)', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
+    dataTable._FBPAddWireHook('--collectionData', () => {
         dataTable.focus();
         dataTable.triggerNavigation('ArrowDown');
         assert.equal(dataTable._selectedIndex, 1);
         done();
-      });
+
     });
     linker.trigger();
   });
 
   it('should navigate if triggerNavigation is sent (ArrowUp)', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
+    dataTable._FBPAddWireHook('--collectionData', () => {
         dataTable.focus();
         dataTable.triggerNavigation('ArrowDown');
         dataTable.triggerNavigation('ArrowUp');
         assert.equal(dataTable._selectedIndex, 0);
         done();
-      });
     });
     linker.trigger();
   });
 
   it('should navigate if triggerNavigation is sent (End)', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
+
+    dataTable._FBPAddWireHook('--collectionData', () => {
         dataTable.focus();
         dataTable.triggerNavigation('End');
         assert.equal(dataTable._selectedIndex, 3);
         done();
       });
-    });
+
     linker.trigger();
   });
 
   it('should focus last row', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
+
+    dataTable._FBPAddWireHook('--collectionData', () => {
         dataTable.focus();
         dataTable.last();
         assert.equal(dataTable._selectedIndex, 3);
 
         done();
       });
-    });
+
     linker.trigger();
   });
 
   it('should navigate if triggerNavigation is sent (Home)', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
+
+    dataTable._FBPAddWireHook('--collectionData', () => {
         dataTable.focus();
         dataTable.triggerNavigation('End');
         dataTable.triggerNavigation('Home');
         assert.equal(dataTable._selectedIndex, 0);
         done();
       });
-    });
+
     linker.trigger();
   });
 
   it('should select a specific row', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
+
+    dataTable._FBPAddWireHook('--collectionData', () => {
         dataTable.focus();
         dataTable.next();
         assert.equal(dataTable._selectedIndex, 1);
 
         done();
       });
-    });
+
     linker.trigger();
   });
 
   it('should select all table rows', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
+
+    dataTable._FBPAddWireHook('--collectionData', () => {
         dataTable.focus();
         const cb = dataTable.shadowRoot.querySelector('th').querySelector('furo-checkbox');
         cb.check();
       });
-    });
+
     dataTable.addEventListener('checkstate-changed', r => {
       assert.equal(r.detail.length, 4);
       done();
@@ -224,8 +225,8 @@ describe('furo-data-table', () => {
   });
 
   it('should deselect all table rows', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
+
+    dataTable._FBPAddWireHook('--collectionData', () => {
         dataTable.focus();
         const cb = dataTable.shadowRoot.querySelector('th').querySelector('furo-checkbox');
         cb.check();
@@ -236,19 +237,19 @@ describe('furo-data-table', () => {
         });
         cb.uncheck();
       });
-    });
+
 
     linker.trigger();
   });
 
   it('enter should select the table row', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
+
+    dataTable._FBPAddWireHook('--collectionData', () => {
         dataTable.focus();
         dataTable.next();
         dataTable.select();
       });
-    });
+
     dataTable.addEventListener('tablerow-selected', r => {
       assert.equal(r.detail.data.description, 'Build Documentation');
       done();
@@ -257,20 +258,20 @@ describe('furo-data-table', () => {
   });
 
   it('should have 4 entity items', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
+
+    dataTable._FBPAddWireHook('--collectionData', () => {
         dataTable.focus();
         assert.equal(dataTable._collection.rawEntity.entities.length, 4);
 
         done();
       });
-    });
+
     linker.trigger();
   });
 
   it('checking a table row should send all checked rows as an array', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
+
+    dataTable._FBPAddWireHook('--collectionData', () => {
         dataTable.focus();
 
         setTimeout(() => {
@@ -282,7 +283,7 @@ describe('furo-data-table', () => {
           cb.shadowRoot.querySelector('input').click();
         }, 10);
       });
-    });
+
     dataTable.addEventListener('checkstate-changed', r => {
       assert.equal(r.detail[0].data.description, 'Furo Foundation');
       done();
@@ -291,17 +292,16 @@ describe('furo-data-table', () => {
   });
 
   it('table row should have columns', done => {
-    dataTable.addEventListener('data-loaded', () => {
-      dataTable._collection.addEventListener('data-injected', () => {
-        dataTable.focus();
 
+    dataTable._FBPAddWireHook('--collectionData', () => {
+        dataTable.focus();
         assert.equal(
           dataTable.shadowRoot.querySelector('table').querySelector('tbody').children.length,
           5,
         );
         done();
       });
-    });
+
     linker.trigger();
   });
 });

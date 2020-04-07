@@ -83,14 +83,14 @@ describe('furo-data-checkbox-input', () => {
 
   it('should receive label from meta in spec by entity object ready', done => {
     setTimeout(() => {
-      assert.equal(dataCheckboxInput._theInputElement.getAttribute('label'), 'checkbox_input');
+      assert.equal(dataCheckboxInput._theInputElement.getAttribute('label'), 'checkbox_input**');
       done();
     }, 5);
   });
 
   it('should receive hint from meta in spec by entity object ready', done => {
     setTimeout(() => {
-      assert.equal(dataCheckboxInput._theInputElement.getAttribute('hint'), 'Hint');
+      assert.equal(dataCheckboxInput._theInputElement.getAttribute('hint'), 'Hint**');
       done();
     }, 5);
   });

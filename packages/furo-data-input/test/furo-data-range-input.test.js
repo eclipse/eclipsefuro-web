@@ -102,8 +102,8 @@ describe('furo-data-range-input', () => {
 
   it('should bind the field description', done => {
     setTimeout(() => {
-      assert.equal(dataRangeInput._theInputElement.getAttribute('label'), 'range-input');
-      assert.equal(dataRangeInput._theInputElement.getAttribute('hint'), 'hint');
+      assert.equal(dataRangeInput._theInputElement.getAttribute('label'), 'range-input**');
+      assert.equal(dataRangeInput._theInputElement.getAttribute('hint'), 'hint**');
       done();
     }, 0);
 

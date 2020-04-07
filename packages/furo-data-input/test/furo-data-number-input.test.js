@@ -128,7 +128,7 @@ describe('furo-data-number-input', () => {
     dataObject.addEventListener('data-injected', () => {
       setTimeout(() => {
         assert.equal(dataNumberInput.shadowRoot.querySelector('*').value, 12.55);
-        assert.equal(dataNumberInput._theInputElement.getAttribute('hint'), 'hint');
+        assert.equal(dataNumberInput._theInputElement.getAttribute('hint'), 'hint**');
         done();
       }, 0);
     });
@@ -138,7 +138,7 @@ describe('furo-data-number-input', () => {
 
   it('should bind the field description', done => {
     setTimeout(() => {
-      assert.equal(dataNumberInput._theInputElement.getAttribute('label'), 'number-input');
+      assert.equal(dataNumberInput._theInputElement.getAttribute('label'), 'number-input**');
       done();
     }, 0);
 
