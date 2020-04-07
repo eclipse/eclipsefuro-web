@@ -32,7 +32,7 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
     // Subelement deep linking
     // on ../input/component-name we want to select component-name
     if (location.pathSegments[0]) {
-      let subElement = location.pathSegments[0];
+      const subElement = location.pathSegments[0];
       if (this._analysis.elements) {
         this._analysis.elements.forEach(e => {
           // needed for linking to the demos
@@ -40,7 +40,7 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
 
           if (e.tagname === subElement) {
             this._analysis.__selectedElement = e;
-            //disable class
+            // disable class
             this._analysis.__selectedClass = undefined;
             this._analysis.__selectedMixin = undefined;
             e.__selected = true;
@@ -54,7 +54,7 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
         this._analysis.classes.forEach((e, i) => {
           if (e.name === subElement) {
             this._analysis.__selectedClass = e;
-            //disable element
+            // disable element
             this._analysis.__selectedMixin = undefined;
             this._analysis.__selectedElement = undefined;
             e.__selected = true;
@@ -67,7 +67,7 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
         this._analysis.mixins.forEach((e, i) => {
           if (e.name === subElement) {
             this._analysis.__selectedMixin = e;
-            //disable element
+            // disable element
             this._analysis.__selectedClass = undefined;
             this._analysis.__selectedElement = undefined;
             e.__selected = true;
@@ -93,7 +93,7 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
      * Fired when analysis loaded
      * detail payload: analysis
      */
-    let customEvent = new Event('data', { composed: true, bubbles: true });
+    const customEvent = new Event('data', { composed: true, bubbles: true });
     customEvent.detail = this._analysis;
     this.dispatchEvent(customEvent);
   }

@@ -13,7 +13,7 @@ import { FBP } from '@furo/fbp';
 class FuroDemoLoader extends FBP(LitElement) {
   load(location) {
     if (location.pathSegments[0]) {
-      let lastDemo = this.shadowRoot.querySelector('#demo');
+      const lastDemo = this.shadowRoot.querySelector('#demo');
       lastDemo.remove();
 
       this.demoComponent = location.pathSegments[0];
@@ -21,14 +21,14 @@ class FuroDemoLoader extends FBP(LitElement) {
       // if the element is registered append the new
       if (document.createElement(this.demoComponent).constructor !== HTMLElement) {
         // append the demo element
-        let demo = document.createElement(this.demoComponent);
+        const demo = document.createElement(this.demoComponent);
         demo.id = 'demo';
         this.shadowRoot.appendChild(demo);
       } else {
-        let demo = document.createElement('div');
+        const demo = document.createElement('div');
         demo.id = 'demo';
         demo.classList.add('error');
-        demo.innerText = '404  -  ' + this.demoComponent + ' is not imported, nothing to show here';
+        demo.innerText = `404  -  ${  this.demoComponent  } is not imported, nothing to show here`;
         this.shadowRoot.appendChild(demo);
       }
 
@@ -41,7 +41,7 @@ class FuroDemoLoader extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    // this._FBPTraceWires()
   }
 
   /**

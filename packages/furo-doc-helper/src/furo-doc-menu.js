@@ -18,21 +18,21 @@ class FuroDocMenu extends FBP(LitElement) {
     if (analysis.elements) {
       this._FBPTriggerWire('--elements', analysis.elements);
     } else {
-      //clear
+      // clear
       this._FBPTriggerWire('--elements', []);
     }
 
     if (analysis.classes) {
       this._FBPTriggerWire('--classes', analysis.classes);
     } else {
-      //clear
+      // clear
       this._FBPTriggerWire('--classes', []);
     }
 
     if (analysis.mixins) {
       this._FBPTriggerWire('--mixins', analysis.mixins);
     } else {
-      //clear
+      // clear
       this._FBPTriggerWire('--mixins', []);
     }
 
@@ -43,7 +43,7 @@ class FuroDocMenu extends FBP(LitElement) {
        * Fired when element is selected
        * detail payload: element analysis data
        */
-      let customEvent = new Event('element', { composed: true, bubbles: true });
+      const customEvent = new Event('element', { composed: true, bubbles: true });
       customEvent.detail = analysis.__selectedElement;
       this.dispatchEvent(customEvent);
     }
@@ -54,7 +54,7 @@ class FuroDocMenu extends FBP(LitElement) {
        * Fired when element is selected
        * detail payload: element analysis data
        */
-      let customEvent = new Event('class', { composed: true, bubbles: true });
+      const customEvent = new Event('class', { composed: true, bubbles: true });
       customEvent.detail = analysis.__selectedClass;
       this.dispatchEvent(customEvent);
     }
@@ -66,7 +66,7 @@ class FuroDocMenu extends FBP(LitElement) {
        * Fired when element is selected
        * detail payload: element analysis data
        */
-      let customEvent = new Event('mixin', { composed: true, bubbles: true });
+      const customEvent = new Event('mixin', { composed: true, bubbles: true });
       customEvent.detail = analysis.__selectedMixin;
       this.dispatchEvent(customEvent);
     }

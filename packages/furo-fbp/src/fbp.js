@@ -446,9 +446,7 @@ export const FBP = superClass =>
               const customEvent = new Event(theEvent, { composed: false, bubbles: true });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
-
-                  customEvent.detail = self._pathGet(e.detail, prop.substr(2));
-
+                customEvent.detail = self._pathGet(e.detail, prop.substr(2));
               } else {
                 customEvent.detail = self._pathGet(self, prop);
               }
@@ -467,9 +465,7 @@ export const FBP = superClass =>
               const customEvent = new Event(theEvent, { composed: false, bubbles: true });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
-
-                  customEvent.detail = self._pathGet(e.detail, prop.substr(2));
-
+                customEvent.detail = self._pathGet(e.detail, prop.substr(2));
               } else {
                 customEvent.detail = self._pathGet(self, prop);
               }
@@ -488,9 +484,7 @@ export const FBP = superClass =>
               const customEvent = new Event(theEvent, { composed: true, bubbles: true });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
-
-                  customEvent.detail = self._pathGet(e.detail, prop.substr(2));
-
+                customEvent.detail = self._pathGet(e.detail, prop.substr(2));
               } else {
                 customEvent.detail = self._pathGet(self, prop);
               }

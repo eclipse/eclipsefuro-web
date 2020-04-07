@@ -52,7 +52,7 @@ class FuroDocPage extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires();
+    // this._FBPTraceWires();
     this._FBPTriggerWire('--src', '../analysis.json');
     if (window.location.pathname === '/') {
       history.pushState(null, 'Doc', '/doc/');

@@ -19,9 +19,9 @@ class FuroDemoSnippet extends FBP(LitElement) {
   constructor() {
     super();
 
-    let t = this.querySelector('template');
+    const t = this.querySelector('template');
     this.template = t.content;
-    this.markdown = '```html\n' + t.innerHTML + '\n```';
+    this.markdown = `\`\`\`html\n${  t.innerHTML  }\n\`\`\``;
 
     this.icon = 'fullscreen';
     this.addEventListener('source', e => {
@@ -29,8 +29,8 @@ class FuroDemoSnippet extends FBP(LitElement) {
       this.demo = false;
       this.flow = false;
       this._FBPTriggerWire('--markdown', this.markdown);
-      let md = this.shadowRoot.querySelector('furo-markdown');
-      md.style.width = this.offsetWidth + 'px';
+      const md = this.shadowRoot.querySelector('furo-markdown');
+      md.style.width = `${this.offsetWidth  }px`;
     });
 
     this.addEventListener('demo', e => {
@@ -49,8 +49,8 @@ class FuroDemoSnippet extends FBP(LitElement) {
 
   firstUpdated(v) {
     super.firstUpdated(v);
-    let md = this.shadowRoot.querySelector('furo-markdown');
-    md.style.width = this.offsetWidth + 'px';
+    const md = this.shadowRoot.querySelector('furo-markdown');
+    md.style.width = `${this.offsetWidth  }px`;
   }
 
   /**
@@ -76,9 +76,9 @@ class FuroDemoSnippet extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
     // check if demo is disabled
-    let demo = this.shadowRoot.querySelector('#demo');
+    const demo = this.shadowRoot.querySelector('#demo');
     if (!this.noDemo) {
-      let elem = document.createElement('empty-fbp-node');
+      const elem = document.createElement('empty-fbp-node');
       elem.attachShadow({ mode: 'open' });
       elem.shadowRoot.appendChild(this.template.cloneNode(true));
       elem._appendFBP(elem.shadowRoot);
@@ -124,10 +124,10 @@ class FuroDemoSnippet extends FBP(LitElement) {
    * @return {CSSResult}
    */
   static get styles() {
-    let theme = Theme.getThemeForComponent('FuroDemoSnippet');
+    const theme = Theme.getThemeForComponent('FuroDemoSnippet');
     if (theme) {
       return [theme, Styling.theme];
-    } else {
+    } 
       // language=CSS
       return [
         css`
@@ -229,7 +229,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
         `,
         Styling.theme,
       ];
-    }
+    
   }
 
   /**

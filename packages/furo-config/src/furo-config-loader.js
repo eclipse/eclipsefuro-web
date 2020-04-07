@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
-import {FBP} from "@furo/fbp";
-import "@furo/util/src/furo-fetch-json"
-import {Config} from "./lib/Config";
+import { FBP } from '@furo/fbp';
+import '@furo/util/src/furo-fetch-json';
+import { Config } from './lib/Config';
 
 /**
  * `furo-config-loader`
@@ -17,82 +17,77 @@ import {Config} from "./lib/Config";
  * @customElement
  * @appliesMixin FBP
  */
-class FuroConfigLoader extends  FBP(LitElement) {
+class FuroConfigLoader extends FBP(LitElement) {
+  constructor() {
+    super();
 
-    constructor() {
-        super();
+    this.src;
+    this.section;
+  }
 
-        this.src;
-        this.section;
-    }
+  /**
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * src
+       * Quelle der Konfiguration
+       */
+      src: {
+        type: String,
+      },
 
-    /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-          /**
-           * src
-           * Quelle der Konfiguration
-           */
-          src: {
-            type: String
-          },
-
-          /**
-           * section
-           * Die Sektion in der die Antwort gesichert wird
-           */
-          section: {
-            type: String,
-          }
-        };
-    }
-
+      /**
+       * section
+       * Die Sektion in der die Antwort gesichert wird
+       */
+      section: {
+        type: String,
+      },
+    };
+  }
 
   attributeChangedCallback(name, oldval, newval) {
     super.attributeChangedCallback(name, oldval, newval);
 
-    if(this.section && this.src){
-      this._FBPTriggerWire("--load", this.src)
+    if (this.section && this.src) {
+      this._FBPTriggerWire('--load', this.src);
     }
   }
 
   /**
-  * flow is ready lifecycle method
-  */
-  _FBPReady(){
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    // this._FBPTraceWires()
     /**
      * Register hook on wire --response to
      * parse the response
      */
-    this._FBPAddWireHook("--response",(e)=>{
-
-       let c = Config.append(this.section, e);
-       /**
+    this._FBPAddWireHook('--response', e => {
+      const c = Config.append(this.section, e);
+      /**
        * @event config-loaded
        * Fired when
        * detail payload:
        */
-       let customEvent = new Event('config-loaded', {composed:true, bubbles: true});
-       customEvent.detail = c._value;
-       this.dispatchEvent(customEvent)
+      const customEvent = new Event('config-loaded', { composed: true, bubbles: true });
+      customEvent.detail = c._value;
+      this.dispatchEvent(customEvent);
     });
   }
-
 
   static get styles() {
     // language=CSS
     return css`
-        :host {
-            display: none;
-        }
-    `
+      :host {
+        display: none;
+      }
+    `;
   }
-
 
   /**
    * @returns {TemplateResult}
@@ -101,7 +96,7 @@ class FuroConfigLoader extends  FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-fetch-json  ƒ-fetch-src="--load" @-data="--response"></furo-fetch-json>
+      <furo-fetch-json ƒ-fetch-src="--load" @-data="--response"></furo-fetch-json>
     `;
   }
 }

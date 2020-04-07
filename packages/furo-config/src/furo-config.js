@@ -1,6 +1,5 @@
-import {LitElement, html, css} from 'lit-element';
-import {Config} from "./lib/Config";
-
+import { LitElement, html, css } from 'lit-element';
+import { Config } from './lib/Config';
 
 /**
  * `furo-config`
@@ -19,13 +18,11 @@ import {Config} from "./lib/Config";
  * @summary config access
  * @customElement
  */
-class FuroConfig extends (LitElement) {
-
+class FuroConfig extends LitElement {
   constructor() {
     super();
     this.config = Config;
   }
-
 
   /**
    * @private
@@ -38,25 +35,22 @@ class FuroConfig extends (LitElement) {
        *
        * access deep object with dots like `main.sub.sub`
        */
-      section: {type: String}
+      section: { type: String },
     };
   }
 
   set section(val) {
-
-    Config.watch(val, (section) => {
-
+    Config.watch(val, section => {
       /**
        * @event config-updated
        * Fired when section changed
        * detail payload: section config
        */
-      const customEvent = new Event('config-updated', {composed: true, bubbles: true});
+      const customEvent = new Event('config-updated', { composed: true, bubbles: true });
       customEvent.detail = section.detail._value;
       this.dispatchEvent(customEvent);
-    })
+    });
   }
-
 }
 
 window.customElements.define('furo-config', FuroConfig);

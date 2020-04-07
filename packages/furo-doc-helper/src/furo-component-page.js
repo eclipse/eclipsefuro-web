@@ -22,10 +22,10 @@ class FuroComponentPage extends FBP(LitElement) {
    * @return {CSSResult}
    */
   static get styles() {
-    let theme = Theme.getThemeForComponent('FuroComponentPage');
+    const theme = Theme.getThemeForComponent('FuroComponentPage');
     if (theme) {
       return [theme, Styling.theme];
-    } else {
+    } 
       // language=CSS
       return [
         css`
@@ -47,7 +47,7 @@ class FuroComponentPage extends FBP(LitElement) {
         `,
         Styling.theme,
       ];
-    }
+    
   }
 
   /**
@@ -55,7 +55,7 @@ class FuroComponentPage extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    // this._FBPTraceWires()
   }
 
   /**

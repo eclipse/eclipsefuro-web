@@ -23,6 +23,7 @@ class FuroDocClass extends FBP(LitElement) {
   hide() {
     this.setAttribute('hidden', '');
   }
+
   print(analysisElement) {
     this.class = analysisElement;
     this._FBPTriggerWire('--data', this.class);
@@ -36,7 +37,7 @@ class FuroDocClass extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    // this._FBPTraceWires()
   }
 
   /**
