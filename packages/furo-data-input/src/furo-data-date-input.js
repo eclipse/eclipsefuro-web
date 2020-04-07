@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/input/src/furo-date-input';
- import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
 import { Helper } from './lib/helper.js';
 
 /**
@@ -40,6 +40,7 @@ class FuroDataDateInput extends FBP(LitElement) {
           (this.field['@type'] &&
             this.field['@type']._value.replace(/.*\//, '') === 'google.type.Date')
         ) {
+          // eslint-disable-next-line no-param-reassign
           val = this._convertStringToDateObj(val, this.field._value);
         }
         // store tmpval to check against loop
@@ -253,7 +254,7 @@ class FuroDataDateInput extends FBP(LitElement) {
    */
   bindData(fieldNode) {
     Helper.BindData(this, fieldNode);
-    this.field.addEventListener('branch-value-changed', e => {
+    this.field.addEventListener('branch-value-changed', () => {
       this._updateFieldBranch();
     });
 
@@ -261,6 +262,7 @@ class FuroDataDateInput extends FBP(LitElement) {
     this._updateFieldBranch();
   }
 
+  // eslint-disable-next-line class-methods-use-this
   _updateField() {}
 
   _updateFieldBranch() {
@@ -289,6 +291,7 @@ class FuroDataDateInput extends FBP(LitElement) {
   }
 
   // convert google date object to ISO 8601
+  // eslint-disable-next-line class-methods-use-this
   _convertDateObjToString(obj) {
     let date = '';
 
@@ -307,7 +310,7 @@ class FuroDataDateInput extends FBP(LitElement) {
 
       if (year.length < 4) {
         const l = 4 - year.length;
-        for (let i = 0; i < l; i++) {
+        for (let i = 0; i < l; i += 1) {
           year = `0${year}`;
         }
       }
@@ -318,16 +321,23 @@ class FuroDataDateInput extends FBP(LitElement) {
   }
 
   // convert date string ISO 8601 to object for google.type.Dates
+  // eslint-disable-next-line class-methods-use-this
   _convertStringToDateObj(str, obj) {
     const arr = str.split('-', 3);
     // only override properties: day, month, year
     if (arr.length === 3) {
+      // eslint-disable-next-line no-param-reassign
       obj.day = Number(arr[2]);
+      // eslint-disable-next-line no-param-reassign
       obj.month = Number(arr[1]);
+      // eslint-disable-next-line no-param-reassign
       obj.year = Number(arr[0]);
     } else {
+      // eslint-disable-next-line no-param-reassign
       obj.day = null;
+      // eslint-disable-next-line no-param-reassign
       obj.month = null;
+      // eslint-disable-next-line no-param-reassign
       obj.year = null;
     }
 

@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
- import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
 
 /**
  * `furo-data-bool-icon`
@@ -83,6 +83,7 @@ class FuroDataBoolIcon extends FBP(LitElement) {
     }
 
     if (d._spec.type !== 'bool') {
+      // eslint-disable-next-line no-console
       console.warn('wrong type binded', this);
       return;
     }

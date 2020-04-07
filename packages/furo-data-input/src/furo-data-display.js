@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 
- import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
 import { Helper } from './lib/helper.js';
 
 /**
@@ -47,7 +47,7 @@ class FuroDataDisplay extends FBP(LitElement) {
       this.text = this.field.display_name;
     }
 
-    if (this.text && this.text.toString() == undefined) {
+    if (this.text && this.text.toString() === undefined) {
       this.text = '';
     }
 

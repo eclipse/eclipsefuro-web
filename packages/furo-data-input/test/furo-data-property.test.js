@@ -7,24 +7,37 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 import '@furo/testhelper/initEnv.js';
 
 describe('furo-data-property', () => {
-
-  let dataProperty, host, entityObject, entityAgent,  deeplink, dataPropertyRepeated;
+  let dataProperty;
+  let host;
+  let entityObject;
+  let entityAgent;
+  let deeplink;
 
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-           <!-- single Property -->
-                <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
-                <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
-                <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
-                <furo-entity-agent service="ExperimentService" ƒ-hts-in="--hts" ƒ-load="--hts" @-response="--response"> </furo-entity-agent>
+          <!-- single Property -->
+          <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
+          <furo-data-object
+            type="experiment.Experiment"
+            @-object-ready="--entity"
+            ƒ-inject-raw="--response(*.data)"
+          ></furo-data-object>
+          <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+          <furo-entity-agent
+            service="ExperimentService"
+            ƒ-hts-in="--hts"
+            ƒ-load="--hts"
+            @-response="--response"
+          >
+          </furo-entity-agent>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, dataProperty,entityObject,deeplink,entityAgent] = testbind.parentNode.children;
+    [, dataProperty, entityObject, deeplink, entityAgent] = testbind.parentNode.children;
     await host.updateComplete;
 
     await dataProperty.updateComplete;
@@ -45,14 +58,11 @@ describe('furo-data-property', () => {
   // axeReport a11y tests
   xit('a11y', () => axeReport(dataProperty));
 
-  it('should bind data to single Property', (done) => {
-
-    entityObject.addEventListener("data-injected", () => {
-      assert.equal(dataProperty.field.data.year._value, "2022");
+  it('should bind data to single Property', done => {
+    entityObject.addEventListener('data-injected', () => {
+      assert.equal(dataProperty.field.data.year._value, '2022');
       done();
-
     });
-    deeplink.qpIn({"exp": 1});
+    deeplink.qpIn({ exp: 1 });
   });
-
 });

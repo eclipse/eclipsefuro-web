@@ -3,7 +3,7 @@ import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/input/src/furo-number-input';
 import '@furo/input/src/furo-select-input';
- import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
 import { Helper } from './lib/helper.js';
 
 /**
@@ -43,11 +43,11 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       e.stopPropagation();
 
       if (e.path[0]) {
-        if (e.path[0].nodeName == 'FURO-SELECT-INPUT') {
+        if (e.path[0].nodeName === 'FURO-SELECT-INPUT') {
           this.field._value = this._convertDataToMoneyObj(e.detail, '', this.field._value);
         }
 
-        if (e.path[0].nodeName == 'FURO-NUMBER-INPUT') {
+        if (e.path[0].nodeName === 'FURO-NUMBER-INPUT') {
           this.field._value = this._convertDataToMoneyObj('', e.detail, this.field._value);
         }
       }
@@ -67,20 +67,26 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   }
 
   // convert data to google.type.Money format
+  // eslint-disable-next-line class-methods-use-this
   _convertDataToMoneyObj(currency, amount, obj) {
     if (obj == null) {
+      // eslint-disable-next-line no-param-reassign
       obj = {};
     }
 
     if (currency) {
+      // eslint-disable-next-line no-param-reassign
       obj.currency_code = currency;
     }
     if (amount) {
       const arr = String(amount).split('.');
+      // eslint-disable-next-line no-param-reassign
       obj.units = Number(arr[0]);
       if (arr[1]) {
+        // eslint-disable-next-line no-param-reassign
         obj.nanos = Number(`0.${arr[1]}`) * 100000000;
       } else {
+        // eslint-disable-next-line no-param-reassign
         obj.nanos = 0;
       }
     }
@@ -305,6 +311,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   updateSelectOptions(collection) {
     // convert array list to id, label structure
     if (typeof collection[0] === 'string') {
+      // eslint-disable-next-line no-param-reassign
       collection = collection.map(item => ({ id: item, label: item }));
     }
 

@@ -7,22 +7,41 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 import '@furo/testhelper/initEnv.js';
 
 describe('furo-data-repeat', () => {
-  let dataRepeat, host, entityObject, entityAgent,  deeplink;
+  let dataRepeat;
+  let host;
+  let entityObject;
+  let entityAgent;
+  let deeplink;
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-                <furo-data-repeat ƒ-bind-data="--entity(*.repstring)" delete-icon="delete" ƒ-add="--addFieldClicked(null)" repeated-component="furo-data-text-input"></furo-data-repeat>
-                <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-init="--emptyClicked" ƒ-inject-raw="--response(*.data)"></furo-data-object>
-                <furo-deep-link service="ExperimentService" @-hts-out="--hts" ></furo-deep-link>
-                <furo-entity-agent service="ExperimentService" ƒ-hts-in="--hts" load-on-hts-in ƒ-bind-request-data="--entity" @-response="--response"></furo-entity-agent>
-         
+          <furo-data-repeat
+            ƒ-bind-data="--entity(*.repstring)"
+            delete-icon="delete"
+            ƒ-add="--addFieldClicked(null)"
+            repeated-component="furo-data-text-input"
+          ></furo-data-repeat>
+          <furo-data-object
+            type="experiment.Experiment"
+            @-object-ready="--entity"
+            ƒ-init="--emptyClicked"
+            ƒ-inject-raw="--response(*.data)"
+          ></furo-data-object>
+          <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+          <furo-entity-agent
+            service="ExperimentService"
+            ƒ-hts-in="--hts"
+            load-on-hts-in
+            ƒ-bind-request-data="--entity"
+            @-response="--response"
+          ></furo-entity-agent>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, dataRepeat,entityObject,deeplink,entityAgent] = testbind.parentNode.children;
+    [, dataRepeat, entityObject, deeplink, entityAgent] = testbind.parentNode.children;
     await host.updateComplete;
     await dataRepeat.updateComplete;
     await entityObject.updateComplete;
@@ -42,28 +61,36 @@ describe('furo-data-repeat', () => {
   // axeReport a11y tests
   xit('a11y', () => axeReport(dataRepeat));
 
-  it('should produce repeated components after binding', (done) => {
-
-    entityAgent.addEventListener("response", () => {
-
-      setTimeout(()=>{
-        assert.equal((dataRepeat.shadowRoot.querySelector("*").shadowRoot.querySelector("slot").assignedNodes().length > 0), true);
+  it('should produce repeated components after binding', done => {
+    entityAgent.addEventListener('response', () => {
+      setTimeout(() => {
+        assert.equal(
+          dataRepeat.shadowRoot
+            .querySelector('*')
+            .shadowRoot.querySelector('slot')
+            .assignedNodes().length > 0,
+          true,
+        );
         done();
-      },100);
+      }, 100);
     });
-    deeplink.qpIn({"exp": 1});
+    deeplink.qpIn({ exp: 1 });
   });
 
-  it('should bind data', (done) => {
-
-    entityAgent.addEventListener("response", () => {
-
-      setTimeout(()=>{
-        assert.equal(dataRepeat.shadowRoot.querySelector("*").shadowRoot.querySelector("slot").assignedNodes()[0].querySelector("*").field._value, "AAA");
+  it('should bind data', done => {
+    entityAgent.addEventListener('response', () => {
+      setTimeout(() => {
+        assert.equal(
+          dataRepeat.shadowRoot
+            .querySelector('*')
+            .shadowRoot.querySelector('slot')
+            .assignedNodes()[0]
+            .querySelector('*').field._value,
+          'AAA',
+        );
         done();
-      },100);
+      }, 100);
     });
-    deeplink.qpIn({"exp": 1});
+    deeplink.qpIn({ exp: 1 });
   });
-
 });

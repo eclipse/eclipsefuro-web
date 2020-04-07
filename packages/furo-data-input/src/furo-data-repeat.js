@@ -71,8 +71,10 @@ class FuroDataRepeat extends FBP(LitElement) {
     // extract type from this.field if not given in options
     if (!options.type) {
       if (this.field._spec.type.startsWith('map<')) {
+        // eslint-disable-next-line no-param-reassign,prefer-destructuring
         options.type = this.field._spec.type.match(/map<string,(.*)>/)[1]; // get the type of map<string,xxxx
       } else {
+        // eslint-disable-next-line no-param-reassign
         options.type = this.field._spec.type;
       }
     }
@@ -96,6 +98,7 @@ class FuroDataRepeat extends FBP(LitElement) {
     let isCondensed = '';
     let attrs = '';
     const l = this.attributes.length;
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < l; ++i) {
       const { nodeName } = this.attributes.item(i);
       const { nodeValue } = this.attributes.item(i);
@@ -135,7 +138,7 @@ class FuroDataRepeat extends FBP(LitElement) {
 
   bindData(repeats) {
     this.field = repeats;
-    this.field.addEventListener('this-repeated-field-changed', node => {
+    this.field.addEventListener('this-repeated-field-changed', () => {
       this._FBPTriggerWire('--repeatsChanged', this.field.repeats);
       this._checkSize();
     });
@@ -148,18 +151,18 @@ class FuroDataRepeat extends FBP(LitElement) {
     } else {
       // attributes
 
-      this.field.addEventListener('branch-value-changed', node => {
+      this.field.addEventListener('branch-value-changed', () => {
         this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
       });
 
-      this.field.addEventListener('node-field-deleted', node => {
+      this.field.addEventListener('node-field-deleted', () => {
         this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
       });
-      this.field.addEventListener('node-field-added', node => {
+      this.field.addEventListener('node-field-added', () => {
         this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
       });
 
-      this.field.addEventListener('this-order-changed', node => {
+      this.field.addEventListener('this-order-changed', () => {
         this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
       });
       // initial trigger for fields

@@ -1,8 +1,7 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import { NodeEvent } from '@furo/data/src/lib/EventTreeNode';
-import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
 
 /**
  * `furo-data-property-display`
@@ -55,6 +54,7 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
       r.setAttribute('identity-path', 'id._value');
       let attrs = '';
       const l = this.attributes.length;
+      // eslint-disable-next-line no-plusplus
       for (let i = 0; i < l; ++i) {
         const { nodeName } = this.attributes.item(i);
         const { nodeValue } = this.attributes.item(i);
@@ -67,7 +67,7 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
       const repeater = this.parentNode.insertBefore(r, this);
       this._createdRepeater = repeater;
 
-      this.field.addEventListener('this-repeated-field-changed', data => {
+      this.field.addEventListener('this-repeated-field-changed', () => {
         repeater.injectItems(this.field.repeats);
       });
 
@@ -78,7 +78,7 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
     } else {
       this.field.data.addEventListener(
         'branch-value-changed',
-        d => {
+        () => {
           this._createPropComponent(propertyField);
         },
         { once: true },
@@ -99,6 +99,7 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
 
       // Grab all of the original's attributes, and pass them to the replacement
       const l = this.attributes.length;
+      // eslint-disable-next-line no-plusplus
       for (let i = 0; i < l; ++i) {
         const { nodeName } = this.attributes.item(i);
         const { nodeValue } = this.attributes.item(i);
@@ -125,6 +126,7 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
         );
         this._property_created = true;
       } else {
+        // eslint-disable-next-line no-console
         console.warn(propertyField.data['@type']._value, 'not in map', this);
       }
     }

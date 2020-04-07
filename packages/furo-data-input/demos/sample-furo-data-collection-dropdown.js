@@ -51,7 +51,6 @@ class SampleFuroDataCollectionDropdown extends FBP(LitElement) {
         <template>
           <furo-form-layouter two>
             <furo-data-collection-dropdown
-              label="label overrid"
               hint="hint override"
               leading-icon="mail"
               trailing-icon="fingerprint"
@@ -62,7 +61,6 @@ class SampleFuroDataCollectionDropdown extends FBP(LitElement) {
               ƒ-bind-data="--entity(*.owner)"
             ></furo-data-collection-dropdown>
             <furo-data-collection-dropdown
-              label="label overrid"
               hint="hint override"
               leading-icon="mail"
               trailing-icon="fingerprint"

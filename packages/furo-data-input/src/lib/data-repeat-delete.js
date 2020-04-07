@@ -34,7 +34,7 @@ class DataRepeatDelete extends FBP(LitElement) {
      * Register hook on wire --delClicked to
      * delete the item
      */
-    this.addEventListener('click', e => {
+    this.addEventListener('click', () => {
       this.field.deleteNode();
     });
   }

@@ -16,7 +16,7 @@ export class FuroDataSignPad extends FuroSignPad {
       this.setImage(this.field._value);
     }
     // update drawing on changes from outside
-    this.field.addEventListener('this-field-value-changed', e => {
+    this.field.addEventListener('this-field-value-changed', () => {
       this.signaturePad.clear();
       this.setImage(this.field._value);
     });

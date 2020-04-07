@@ -82,7 +82,6 @@ class DemoFuroDataRangeInput extends FBP(LitElement) {
                 ƒ-bind-data="--entity(*.furo_data_range_input)"
               ></furo-data-range-input>
               <furo-data-range-input
-                label="disabled"
                 disabled
                 label="with step"
                 step="3"

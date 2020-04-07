@@ -7,30 +7,41 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 import '@furo/testhelper/initEnv.js';
 
 describe('furo-data-color-input', () => {
-  let dataInput; let host; let entityObject; let deeplink; let entityAgent;
+  let dataInput;
+  let host;
+  let entityObject;
+  let deeplink;
+  let entityAgent;
 
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-           <furo-data-color-input ƒ-bind-data="--entity(*.data.furo_data_color_input)"></furo-data-color-input>
+          <furo-data-color-input
+            ƒ-bind-data="--entity(*.data.furo_data_color_input)"
+          ></furo-data-color-input>
 
-                <furo-data-object type="experiment.ExperimentEntity" @-object-ready="--entity"
-                                  ƒ-inject-raw="--response"></furo-data-object>
+          <furo-data-object
+            type="experiment.ExperimentEntity"
+            @-object-ready="--entity"
+            ƒ-inject-raw="--response"
+          ></furo-data-object>
 
-                <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
-                <furo-entity-agent service="ExperimentService"
-                                   ƒ-hts-in="--hts"
-                                   ƒ-load="--hts"
-                                   ƒ-bind-request-data="--entity"
-                                   @-response="--response">
-                </furo-entity-agent>
+          <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+          <furo-entity-agent
+            service="ExperimentService"
+            ƒ-hts-in="--hts"
+            ƒ-load="--hts"
+            ƒ-bind-request-data="--entity"
+            @-response="--response"
+          >
+          </furo-entity-agent>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, dataInput,entityObject,deeplink,entityAgent] = testbind.parentNode.children;
+    [, dataInput, entityObject, deeplink, entityAgent] = testbind.parentNode.children;
     await host.updateComplete;
     await dataInput.updateComplete;
     await entityObject.updateComplete;
@@ -49,17 +60,19 @@ describe('furo-data-color-input', () => {
 
   // axeReport a11y tests
   xit('a11y', () => axeReport(dataInput));
-  it('should receive value with bind', (done) => {
-
-    host._FBPAddWireHook("--hts", () => {
-      entityObject.addEventListener("data-changed", (e) => {
-        dataInput._FBPAddWireHook("--value", (val) => {
-          assert.equal(val, "#e318ed");
-          done();
-        });
-
-      }, {once: true});
+  it('should receive value with bind', done => {
+    host._FBPAddWireHook('--hts', () => {
+      entityObject.addEventListener(
+        'data-changed',
+        () => {
+          dataInput._FBPAddWireHook('--value', val => {
+            assert.equal(val, '#e318ed');
+            done();
+          });
+        },
+        { once: true },
+      );
     });
-    deeplink.qpIn({"exp": 1});
+    deeplink.qpIn({ exp: 1 });
   });
 });

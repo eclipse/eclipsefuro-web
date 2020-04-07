@@ -46,6 +46,7 @@ class DemoFuroDataMoneyInput extends FBP(LitElement) {
    */
   render() {
     // language=HTML
+    // eslint-disable-next-line lit/attribute-value-entities
     return html`
       <furo-vertical-flex>
         <div>

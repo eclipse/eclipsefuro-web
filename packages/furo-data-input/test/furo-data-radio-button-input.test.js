@@ -7,31 +7,52 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 import '@furo/testhelper/initEnv.js';
 
 describe('furo-data-radio-button-input', () => {
-  let dataRadioButtonInput; let host; let entityObject; let secondDataRadioButtonInput; let deeplink;
+  let dataRadioButtonInput;
+  let host;
+  let entityObject;
+  let secondDataRadioButtonInput;
+  let deeplink;
 
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-data-radio-button-input ƒ-bind-data="--entity(*.furo_data_checkbox_input)"></furo-data-radio-button-input>
-        <furo-data-radio-button-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
-                              @-value-changed="--valueChanged"></furo-data-radio-button-input>
+          <furo-data-radio-button-input
+            ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+          ></furo-data-radio-button-input>
+          <furo-data-radio-button-input
+            hint="FromTPL"
+            label="FromTPL"
+            ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+            @-value-changed="--valueChanged"
+          ></furo-data-radio-button-input>
 
-        <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
-        <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
-        <furo-entity-agent service="ExperimentService"
-                          ƒ-hts-in="--hts"
-                          ƒ-load="--hts"
-                          ƒ-bind-request-data="--entity"
-                          @-response="--response">
-        </furo-entity-agent>
-
+          <furo-data-object
+            type="experiment.Experiment"
+            @-object-ready="--entity"
+            ƒ-inject-raw="--response(*.data)"
+          ></furo-data-object>
+          <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+          <furo-entity-agent
+            service="ExperimentService"
+            ƒ-hts-in="--hts"
+            ƒ-load="--hts"
+            ƒ-bind-request-data="--entity"
+            @-response="--response"
+          >
+          </furo-entity-agent>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, dataRadioButtonInput,secondDataRadioButtonInput,entityObject,deeplink] = testbind.parentNode.children;
+    [
+      ,
+      dataRadioButtonInput,
+      secondDataRadioButtonInput,
+      entityObject,
+      deeplink,
+    ] = testbind.parentNode.children;
     await host.updateComplete;
     await dataRadioButtonInput.updateComplete;
     await entityObject.updateComplete;
@@ -51,53 +72,43 @@ describe('furo-data-radio-button-input', () => {
   // axeReport a11y tests
   xit('a11y', () => axeReport(dataRadioButtonInput));
 
-
   // those tests are base on the mockdata/trees/1/get.json. the field tree.root.open should be true in mockdata
-  it('should override labels ', (done) => {
-
-
-      setTimeout(()=>{
-        assert.equal(secondDataRadioButtonInput._theInputElement.getAttribute("label"), "FromTPL")
-        done();
-      },0)
-
+  it('should override labels ', done => {
+    setTimeout(() => {
+      assert.equal(secondDataRadioButtonInput._theInputElement.getAttribute('label'), 'FromTPL');
+      done();
+    }, 0);
   });
 
-
-  it('should receive label from meta in spec by entity object ready', (done) => {
-
-      setTimeout(()=>{
-        assert.equal(dataRadioButtonInput._theInputElement.getAttribute("label"), "checkbox_input");
-        done();
-      },0)
-
+  it('should receive label from meta in spec by entity object ready', done => {
+    setTimeout(() => {
+      assert.equal(dataRadioButtonInput._theInputElement.getAttribute('label'), 'checkbox_input');
+      done();
+    }, 0);
   });
 
-  it('should receive hint from meta in spec by entity object ready', (done) => {
-
-
-      setTimeout(()=>{
-        assert.equal(dataRadioButtonInput._theInputElement.getAttribute("hint"), "Hint");
-        done();
-      },0)
-
+  it('should receive hint from meta in spec by entity object ready', done => {
+    setTimeout(() => {
+      assert.equal(dataRadioButtonInput._theInputElement.getAttribute('hint'), 'Hint');
+      done();
+    }, 0);
   });
 
-  it('should receive value with bind', (done) => {
-    console.log("those tests are base on the mockdata/experiment/1/get.json");
+  it('should receive value with bind', done => {
+    console.log('those tests are base on the mockdata/experiment/1/get.json');
 
-    host._FBPAddWireHook("--hts", (e) => {
-      entityObject.addEventListener("data-changed",(e)=>{
-        secondDataRadioButtonInput._FBPAddWireHook("--value", (val) => {
-          assert.equal(val, true);
-          done();
-        });
-
-      },{once:true});
-
+    host._FBPAddWireHook('--hts', () => {
+      entityObject.addEventListener(
+        'data-changed',
+        () => {
+          secondDataRadioButtonInput._FBPAddWireHook('--value', val => {
+            assert.equal(val, true);
+            done();
+          });
+        },
+        { once: true },
+      );
     });
-    deeplink.qpIn({"exp": 1});
+    deeplink.qpIn({ exp: 1 });
   });
-
-
 });

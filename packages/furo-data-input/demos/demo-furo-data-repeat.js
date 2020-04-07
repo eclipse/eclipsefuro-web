@@ -41,6 +41,7 @@ class DemoFuroDataRepeat extends FBP(LitElement) {
    */
   render() {
     // language=HTML
+    // eslint-disable-next-line lit/attribute-value-entities
     return html`
       <furo-vertical-flex>
         <div>
@@ -55,7 +56,7 @@ class DemoFuroDataRepeat extends FBP(LitElement) {
                 error='{"field":"repstring.1","description":"something went wrong"}'
               ></simulate-error>
 
-              <hr />
+              ---
               <furo-card
                 header-text="furo-data-repeater demo"
                 secondary-text="On this screen we have 2 repeated items. The one on the right uses furo-data-display"

@@ -3,7 +3,7 @@ import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/input/src/furo-color-input';
 
- import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
 import { Helper } from './lib/helper.js';
 
 /**

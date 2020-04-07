@@ -80,7 +80,6 @@ class DemoFuroDataDateInput extends FBP(LitElement) {
                 ƒ-bind-data="--entity(*.furo_data_date_input)"
               ></furo-data-date-input>
               <furo-data-date-input
-                label="disabled"
                 disabled
                 label="with step"
                 step="7"

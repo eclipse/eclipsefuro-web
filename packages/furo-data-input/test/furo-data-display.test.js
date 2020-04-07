@@ -16,23 +16,28 @@ describe('furo-data-display', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-            <furo-data-display ƒ-bind-data="--entity(*.data.description)"></furo-data-display>
-                <furo-data-object type="experiment.ExperimentEntity" @-object-ready="--entity"
-                                  ƒ-inject-raw="--response"></furo-data-object>
+          <furo-data-display ƒ-bind-data="--entity(*.data.description)"></furo-data-display>
+          <furo-data-object
+            type="experiment.ExperimentEntity"
+            @-object-ready="--entity"
+            ƒ-inject-raw="--response"
+          ></furo-data-object>
 
-                <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
-                <furo-entity-agent service="ExperimentService"
-                                   ƒ-hts-in="--hts"
-                                   ƒ-load="--hts"
-                                   ƒ-bind-request-data="--entity"
-                                   @-response="--response">
-                </furo-entity-agent>
+          <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+          <furo-entity-agent
+            service="ExperimentService"
+            ƒ-hts-in="--hts"
+            ƒ-load="--hts"
+            ƒ-bind-request-data="--entity"
+            @-response="--response"
+          >
+          </furo-entity-agent>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, dataInput,entityObject,deeplink,entityAgent] = testbind.parentNode.children;
+    [, dataInput, entityObject, deeplink, entityAgent] = testbind.parentNode.children;
     await host.updateComplete;
     await dataInput.updateComplete;
     await entityObject.updateComplete;
@@ -52,32 +57,35 @@ describe('furo-data-display', () => {
   // axeReport a11y tests
   xit('a11y', () => axeReport(dataInput));
 
-  it('should receive value with bind', (done) => {
-
-    host._FBPAddWireHook("--hts", () => {
-      entityObject.data.data.description.addEventListener("field-value-changed", () => {
-        assert.equal(dataInput.field._value, 'experiment data for testing');
-        assert.equal(dataInput.field._meta.label, 'Description');
-        done();
-
-      }, {once: true});
+  it('should receive value with bind', done => {
+    host._FBPAddWireHook('--hts', () => {
+      entityObject.data.data.description.addEventListener(
+        'field-value-changed',
+        () => {
+          assert.equal(dataInput.field._value, 'experiment data for testing');
+          assert.equal(dataInput.field._meta.label, 'Description');
+          done();
+        },
+        { once: true },
+      );
     });
-    deeplink.qpIn({"exp": 1});
+    deeplink.qpIn({ exp: 1 });
   });
 
-  it('should receive value of binded field if attribute displayfield does not exist', (done) => {
-
+  it('should receive value of binded field if attribute displayfield does not exist', done => {
     dataInput.displayfield = 'some_attribute';
 
-    host._FBPAddWireHook("--hts", () => {
-      entityObject.data.data.description.addEventListener("field-value-changed", () => {
-        assert.equal(dataInput.field._value, 'experiment data for testing');
-        assert.equal(dataInput.field._meta.label, 'Description');
-        done();
-
-      }, {once: true});
+    host._FBPAddWireHook('--hts', () => {
+      entityObject.data.data.description.addEventListener(
+        'field-value-changed',
+        () => {
+          assert.equal(dataInput.field._value, 'experiment data for testing');
+          assert.equal(dataInput.field._meta.label, 'Description');
+          done();
+        },
+        { once: true },
+      );
     });
-    deeplink.qpIn({"exp": 1});
+    deeplink.qpIn({ exp: 1 });
   });
-
 });

@@ -15,8 +15,9 @@ export class Helper {
    * @private
    */
   static UpdateInputAttribute(caller, attribute, value) {
-    caller.updateComplete.then(d => {
+    caller.updateComplete.then(() => {
       if (!caller._theInputElement) {
+        // eslint-disable-next-line no-param-reassign
         caller._theInputElement = caller.shadowRoot.getElementById('input');
       }
       if (value !== null) {
@@ -36,42 +37,48 @@ export class Helper {
    */
   static BindData(caller, fieldNode) {
     if (fieldNode === undefined) {
+      // eslint-disable-next-line no-console
       console.warn('Invalid binding ');
+      // eslint-disable-next-line no-console
       console.log(caller);
       return;
     }
-
+    // eslint-disable-next-line no-param-reassign
     caller.field = fieldNode;
     CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);
     caller._updateField();
 
-    caller.field.addEventListener('field-value-changed', e => {
+    caller.field.addEventListener('field-value-changed', () => {
       caller._updateField();
       if (caller.field._meta && caller.field._meta.hint) {
+        // eslint-disable-next-line no-param-reassign
         caller._hint = caller.field._meta.hint;
       }
       if (caller.hint) {
+        // eslint-disable-next-line no-param-reassign
         caller._hint = caller.hint;
       }
     });
 
     // update meta and constraints when they change
-    caller.field.addEventListener('this-metas-changed', e => {
+    caller.field.addEventListener('this-metas-changed', () => {
       CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);
     });
 
-    caller.field.addEventListener('field-became-invalid', e => {
+    caller.field.addEventListener('field-became-invalid', () => {
       // updates wieder einspielen
+      // eslint-disable-next-line no-param-reassign
       caller.error = true;
+      // eslint-disable-next-line no-param-reassign
       caller.errortext = caller.field._validity.description;
       caller.requestUpdate();
     });
 
-    caller.field.addEventListener('field-became-valid', e => {
+    caller.field.addEventListener('field-became-valid', () => {
       // updates wieder einspielen
+      // eslint-disable-next-line no-param-reassign
       caller.error = false;
       caller.requestUpdate();
     });
-
   }
 }

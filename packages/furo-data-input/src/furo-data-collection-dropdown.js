@@ -3,7 +3,7 @@ import { Theme } from '@furo/framework/src/theme';
 import '@furo/input/src/furo-select-input';
 
 import { FBP } from '@furo/fbp';
- import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
 import { Helper } from './lib/helper.js';
 
 /**
@@ -75,8 +75,8 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   _findDisplayNameByValue(val) {
     let displayName = '';
 
-    for (let i = 0; i < this._dropdownList.length; i++) {
-      if (this._dropdownList[i].id == val) {
+    for (let i = 0; i < this._dropdownList.length; i += 1) {
+      if (this._dropdownList[i].id === val) {
         displayName = this._dropdownList[i].label;
         break;
       }
@@ -105,8 +105,8 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     // find item from list
     let selectedItem;
 
-    for (let i = this._dropdownList.length - 1; i >= 0; i--) {
-      if (this._dropdownList[i].id == val) {
+    for (let i = this._dropdownList.length - 1; i >= 0; i -= 1) {
+      if (this._dropdownList[i].id === val) {
         selectedItem = this._dropdownList[i]._original;
         break;
       }
@@ -167,7 +167,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       return {
         id: item,
         label: e,
-        selected: this._fieldNodeToUpdate._value == item,
+        selected: this._fieldNodeToUpdate._value === item,
         _original: item,
       };
     });
@@ -187,7 +187,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
         // notifiy first item if field is not set
         let selectedItem = null;
-        for (let i = 0; i < arr.length; i++) {
+        for (let i = 0; i < arr.length; i += 1) {
           if (arr[i].selected) {
             selectedItem = arr[i].id;
             break;
@@ -364,7 +364,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     }
 
     // update meta and constraints when they change
-    this.field.addEventListener('this-metas-changed', e => {
+    this.field.addEventListener('this-metas-changed', () => {
       if (this.field._meta && this.field._meta.options) {
         this._buildListWithMetaOptions(this.field._meta.options);
       }
@@ -377,6 +377,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @returns {boolean}
    * @private
    */
+  // eslint-disable-next-line class-methods-use-this
   _checkIsComplexType(fieldNode) {
     let isComplex = false;
     if (fieldNode.__childNodes.length > 0) {
@@ -431,38 +432,34 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     // if field value not exists. select item when the item is marked as `selected` in list
     if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
       arr = this._setItemSelectedViaSelectedMark(list);
-    } else {
-      // if field value exists. select the item when it's value is equal the field value.
-      // when field value is not equal the filed value, select the item if the item is marked as `selected`
-      if (Array.isArray(list)) {
-        let isSelected = false;
-        let hasSelectedMark = false;
-        let preSelectedValueInList = null;
-        for (let i = 0; i < list.length; i++) {
-          const item = {
-            id: list[i][this.valueField],
-            label: list[i][this.displayField],
-            selected: false,
-            _original: list[i],
-          };
+    } else if (Array.isArray(list)) {
+      let isSelected = false;
+      let hasSelectedMark = false;
+      let preSelectedValueInList = null;
+      for (let i = 0; i < list.length; i += 1) {
+        const item = {
+          id: list[i][this.valueField],
+          label: list[i][this.displayField],
+          selected: false,
+          _original: list[i],
+        };
 
-          if (this._fieldNodeToUpdate._value == list[i][this.valueField]) {
-            item.selected = true;
-            isSelected = true;
-          }
-
-          if (list[i].selected) {
-            hasSelectedMark = true;
-            preSelectedValueInList = list[i][this.valueField];
-          }
-
-          arr.push(item);
+        if (this._fieldNodeToUpdate._value === list[i][this.valueField]) {
+          item.selected = true;
+          isSelected = true;
         }
 
-        if (!isSelected && hasSelectedMark) {
-          arr = this._setItemSelectedViaSelectedMark(list);
-          this._fieldNodeToUpdate._value = preSelectedValueInList;
+        if (list[i].selected) {
+          hasSelectedMark = true;
+          preSelectedValueInList = list[i][this.valueField];
         }
+
+        arr.push(item);
+      }
+
+      if (!isSelected && hasSelectedMark) {
+        arr = this._setItemSelectedViaSelectedMark(list);
+        this._fieldNodeToUpdate._value = preSelectedValueInList;
       }
     }
 
@@ -525,7 +522,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       let isSelected = false;
       let hasSelectedMark = false;
       let preSelectedValueInList = null;
-      for (let i = 0; i < entities.length; i++) {
+      for (let i = 0; i < entities.length; i += 1) {
         const item = {
           id: entities[i].data[this.valueField],
           label: entities[i].data[this.displayField],
@@ -536,7 +533,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
 
         itemB = Object.assign(itemB, item);
 
-        if (this._fieldNodeToUpdate._value == entities[i].data[this.valueField]) {
+        if (this._fieldNodeToUpdate._value === entities[i].data[this.valueField]) {
           item.selected = true;
           isSelected = true;
         }

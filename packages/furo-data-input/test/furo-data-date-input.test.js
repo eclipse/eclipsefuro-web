@@ -17,22 +17,31 @@ describe('furo-data-date-input', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-           <furo-data-date-input  ƒ-bind-data="--entityReady(*.furo_data_date_input)"></furo-data-date-input>
-          <furo-data-date-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entityReady(*.furo_data_date_input_google)"
-                                @-value-changed="--textChanged"></furo-data-date-input>
+          <furo-data-date-input
+            ƒ-bind-data="--entityReady(*.furo_data_date_input)"
+          ></furo-data-date-input>
+          <furo-data-date-input
+            hint="FromTPL"
+            label="FromTPL"
+            ƒ-bind-data="--entityReady(*.furo_data_date_input_google)"
+            @-value-changed="--textChanged"
+          ></furo-data-date-input>
 
-          <furo-data-object type="experiment.Experiment" @-object-ready="--entityReady"
-                            ƒ-inject-raw="--response(*.data)"></furo-data-object>
-
+          <furo-data-object
+            type="experiment.Experiment"
+            @-object-ready="--entityReady"
+            ƒ-inject-raw="--response(*.data)"
+          ></furo-data-object>
 
           <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
-          <furo-entity-agent service="ExperimentService"
-                             ƒ-hts-in="--hts"
-                             ƒ-load="--hts"
-                             ƒ-bind-request-data="--entity"
-                             @-response="--response">
+          <furo-entity-agent
+            service="ExperimentService"
+            ƒ-hts-in="--hts"
+            ƒ-load="--hts"
+            ƒ-bind-request-data="--entity"
+            @-response="--response"
+          >
           </furo-entity-agent>
-
         </template>
       </test-bind>
     `);
@@ -58,60 +67,49 @@ describe('furo-data-date-input', () => {
   // axeReport a11y tests
   xit('a11y', () => axeReport(dataDateInput));
 
-
-  it('should override labels ', (done) => {
+  it('should override labels ', done => {
     setTimeout(() => {
       assert.equal(secondDateInput._theInputElement.getAttribute('label'), 'FromTPL');
       done();
     }, 0);
   });
 
-  it('should receive date (ISO 8601 d) value with bind', (done) => {
-    dataObject.addEventListener('data-injected', (e) => {
-
+  it('should receive date (ISO 8601 d) value with bind', done => {
+    dataObject.addEventListener('data-injected', () => {
       setTimeout(() => {
         assert.equal(dataDateInput.shadowRoot.querySelector('*').value, '2019-02-22');
         done();
       }, 0);
-
     });
 
-    deeplink.qpIn({ 'exp': 1 });
+    deeplink.qpIn({ exp: 1 });
   });
 
-  it('should receive date (google.type.Date) value with bind', (done) => {
-    dataObject.addEventListener('data-injected', (e) => {
-
+  it('should receive date (google.type.Date) value with bind', done => {
+    dataObject.addEventListener('data-injected', () => {
       setTimeout(() => {
         assert.equal(secondDateInput.shadowRoot.querySelector('*').value, '2020-12-31');
         done();
       }, 0);
-
     });
 
-    deeplink.qpIn({ 'exp': 1 });
+    deeplink.qpIn({ exp: 1 });
   });
 
-
-  it('should be a furo-data-date-input_test', (done) => {
+  it('should be a furo-data-date-input_test', done => {
     assert.equal(dataDateInput.nodeName.toLowerCase(), 'furo-data-date-input');
     done();
   });
 
-  it('should listen field-became-invalid event add set error', (done) => {
-
-
-    let err = { 'description': 'step 3', constraint: 'min' };
+  it('should listen field-became-invalid event add set error', done => {
+    const err = { description: 'step 3', constraint: 'min' };
     dataDateInput.field.addEventListener('field-became-invalid', () => {
-
       setTimeout(() => {
         assert.equal(dataDateInput.error, true);
         assert.equal(dataDateInput._theInputElement.getAttribute('errortext'), 'step 3');
         done();
       }, 15);
-
     });
     dataDateInput.field._setInvalid(err);
   });
-
 });

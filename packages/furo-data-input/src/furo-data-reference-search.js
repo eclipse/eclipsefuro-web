@@ -4,7 +4,7 @@ import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat';
 import '@furo/input/src/furo-search-input';
 import './reference-search-item.js';
- import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
 import { Helper } from './lib/helper.js';
 
 /**
@@ -144,21 +144,21 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     });
 
     // lock blur for slow clickers
-    this.addEventListener('mousedown', event => {
+    this.addEventListener('mousedown', () => {
       this._lockBlur = true;
     });
     // unlock after long click
-    this.addEventListener('mouseup', event => {
+    this.addEventListener('mouseup', () => {
       this._lockBlur = false;
     });
 
     // reinit binded value on cleared
-    this._FBPAddWireHook('--cleared', item => {
+    this._FBPAddWireHook('--cleared', () => {
       this._clear();
     });
 
     // close list on blur
-    this._FBPAddWireHook('--blured', item => {
+    this._FBPAddWireHook('--blured', () => {
       this._focused = false;
       if (!this._lockBlur) {
         this._closeList();
@@ -166,7 +166,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     });
 
     // opens the list on focus
-    this._FBPAddWireHook('--focused', item => {
+    this._FBPAddWireHook('--focused', () => {
       this._focused = true;
       if (this._hasCollection) {
         this._showList();
@@ -197,10 +197,10 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       this.setAttribute('show-list', '');
       let index = 0;
       // find index to preselect item in the opened list
-      for (let i = 0; i < this._collection.length; i++) {
+      for (let i = 0; i < this._collection.length; i += 1) {
         if (
           this._collection[i].data &&
-          this._collection[i].data[this.valueField] == this.field.id._value
+          this._collection[i].data[this.valueField] === this.field.id._value
         ) {
           index = i;
           break;

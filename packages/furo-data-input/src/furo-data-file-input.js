@@ -3,7 +3,7 @@ import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/input/src/furo-file-dialog.js';
 
- import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
 import { Helper } from './lib/helper.js';
 
 /**
@@ -48,7 +48,7 @@ class FuroDataFileInput extends FBP(LitElement) {
    * @private
    */
   _fetchLocalFile(file) {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       // Create a new FileReader instance
       const reader = new FileReader();
 
@@ -100,7 +100,7 @@ class FuroDataFileInput extends FBP(LitElement) {
       /**
        * File encoding for the convenience event `value-changed
        */
-      for (let i = 0; i < FILES.length; i++) {
+      for (let i = 0; i < FILES.length; i += 1) {
         promises.push(this._fetchLocalFile(FILES[i]));
       }
 
@@ -116,9 +116,9 @@ class FuroDataFileInput extends FBP(LitElement) {
          * Fired when value has changed from inside the component
          * detail payload: {Array} all selected files base64 encoded
          */
-        const customEvent = new Event('value-changed', { composed: true, bubbles: true });
-        customEvent.detail = values;
-        this.dispatchEvent(customEvent);
+        const valueChangeEvent = new Event('value-changed', { composed: true, bubbles: true });
+        valueChangeEvent.detail = values;
+        this.dispatchEvent(valueChangeEvent);
       });
     });
     // check initial overrides
@@ -186,7 +186,9 @@ class FuroDataFileInput extends FBP(LitElement) {
    */
   bindData(fieldNode) {
     if (fieldNode === undefined) {
+      // eslint-disable-next-line no-console
       console.warn('Invalid binding ');
+      // eslint-disable-next-line no-console
       console.log(this);
       return;
     }
@@ -194,7 +196,7 @@ class FuroDataFileInput extends FBP(LitElement) {
     this.field = fieldNode;
     CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
 
-    this.field.addEventListener('field-value-changed', e => {
+    this.field.addEventListener('field-value-changed', () => {
       // nop
     });
 

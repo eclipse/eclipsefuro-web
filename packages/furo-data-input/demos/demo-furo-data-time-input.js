@@ -77,7 +77,6 @@ class DemoFuroDataTimeInput extends FBP(LitElement) {
                 ƒ-bind-data="--entity(*.furo_data_time_input)"
               ></furo-data-time-input>
               <furo-data-time-input
-                label="disabled"
                 disabled
                 label="with step"
                 step="2"

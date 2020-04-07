@@ -102,21 +102,19 @@ describe('furo-data-collection-dropdown', () => {
   xit('a11y', () => axeReport(collectionDropdown1));
 
   it('should receive value with bind', done => {
-
-      entityObject.data.data.description.addEventListener(
-        'this-metas-changed',
-        () => {
-          setTimeout(()=>{
-            assert.equal(collectionDropdown1.field._meta.options.list.length, 2);
-            assert.equal(collectionDropdown1.field._value, 2);
-            assert.equal(collectionDropdown1.field._oldvalue, 'Furo Foundation');
-            assert.equal(collectionDropdown1.field._meta.label, 'ID label from response');
-            done();
-          },15)
-
-        },
-        { once: true },
-      );
+    entityObject.data.data.description.addEventListener(
+      'this-metas-changed',
+      () => {
+        setTimeout(() => {
+          assert.equal(collectionDropdown1.field._meta.options.list.length, 2);
+          assert.equal(collectionDropdown1.field._value, 2);
+          assert.equal(collectionDropdown1.field._oldvalue, 'Furo Foundation');
+          assert.equal(collectionDropdown1.field._meta.label, 'ID label from response');
+          done();
+        }, 15);
+      },
+      { once: true },
+    );
 
     deeplink.qpIn({ prj: 1 });
   });
@@ -143,8 +141,6 @@ describe('furo-data-collection-dropdown', () => {
       done();
     }, 0);
   });
-
-
 
   it('should assign the field value (is not setted before) initially with the selected item value from spec', done => {
     setTimeout(() => {
