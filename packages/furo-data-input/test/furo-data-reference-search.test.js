@@ -171,10 +171,10 @@ describe('furo-data-reference-search', () => {
   });
 
   it('should show no result hint by empty response', done => {
-    setTimeout(() => {
+    referenceSearch.addEventListener('input-attr-updated', ()=>{
       assert.equal(referenceSearch.shadowRoot.getElementById('input').hint, 'no result found');
       done();
-    }, 16);
+    });
     referenceSearch.collectionIn({});
   });
 });
