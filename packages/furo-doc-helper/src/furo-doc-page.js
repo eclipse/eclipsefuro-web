@@ -3,7 +3,7 @@ import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/util';
 import '@furo/layout';
-import './furo-catalog';
+// import './furo-catalog';
 import '@furo/route';
 
 /**
@@ -55,6 +55,7 @@ class FuroDocPage extends FBP(LitElement) {
     // this._FBPTraceWires();
     this._FBPTriggerWire('--src', '../analysis.json');
     if (window.location.pathname === '/') {
+      // eslint-disable-next-line no-restricted-globals
       history.pushState(null, 'Doc', '/doc/');
     }
   }

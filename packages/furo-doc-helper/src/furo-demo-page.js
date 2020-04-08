@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/route/src/furo-location';
-import './furo-demo-loader';
+import './furo-demo-loader.js';
 /**
  * `panel-demo`
  * panel to show a demo

@@ -16,7 +16,7 @@ class FuroDemoLoader extends FBP(LitElement) {
       const lastDemo = this.shadowRoot.querySelector('#demo');
       lastDemo.remove();
 
-      this.demoComponent = location.pathSegments[0];
+      [this.demoComponent] = location.pathSegments;
 
       // if the element is registered append the new
       if (document.createElement(this.demoComponent).constructor !== HTMLElement) {

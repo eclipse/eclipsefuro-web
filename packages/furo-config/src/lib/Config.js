@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 import {EventTreeNode, NodeEvent} from "@furo/data/src/lib/EventTreeNode";
 
 class ConfigTree extends EventTreeNode {
@@ -12,8 +13,9 @@ class ConfigTree extends EventTreeNode {
     if (this.__childNodes.length > 0) {
       this.__value = {};
       // nur reine Daten zurück geben
-      for (let index in this.__childNodes) {
-        let field = this.__childNodes[index];
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
+      for (const index in this.__childNodes) {
+        const field = this.__childNodes[index];
         this.__value[field._name] = field._value
       }
     }
@@ -26,7 +28,7 @@ class ConfigTree extends EventTreeNode {
   }
 }
 
-let sharedConfig = new ConfigTree(null);
+const sharedConfig = new ConfigTree(null);
 
 export class Config {
   static append(section, obj) {
@@ -44,20 +46,26 @@ export class Config {
    */
   static deepCreate(parent, section, obj) {
     if (!parent[section]) {
+      // eslint-disable-next-line no-param-reassign
       parent[section] = new ConfigTree(parent, section);
     }
     // append array only configs directly as value
     if(Array.isArray(obj)){
+      // eslint-disable-next-line no-param-reassign
       parent[section]._value = obj;
     }else{
-      for (let k in obj) {
+      // eslint-disable-next-line no-restricted-syntax
+      for (const k in obj) {
+        // eslint-disable-next-line no-prototype-builtins
         if (obj[k].constructor === Object && obj.hasOwnProperty(k)) {
           this.deepCreate(parent[section], k, obj[k]);
         } else {
           if (!parent[section][k]) {
+            // eslint-disable-next-line no-param-reassign
             parent[section][k] = new ConfigTree(parent[section], k);
           }
           // assign the value
+          // eslint-disable-next-line no-param-reassign
           parent[section][k]._value = obj[k];
         }
       }
@@ -67,7 +75,7 @@ export class Config {
 
   static watch(section, cb) {
 
-    let targetNode = section.split('.').reduce((acc, part) => {
+    const targetNode = section.split('.').reduce((acc, part) => {
       if (!acc[part]) {
         acc[part] = new ConfigTree(acc, part);
       }
@@ -76,5 +84,5 @@ export class Config {
     targetNode.addEventListener("config-updated", cb)
   }
 
-  //this.identityPath.split('.').reduce((acc, part) => acc && acc[part], e);
+  // this.identityPath.split('.').reduce((acc, part) => acc && acc[part], e);
 }

@@ -44,10 +44,11 @@ class FuroDeBounce extends FBP(LitElement) {
     // as taken from Underscore.js
     this._debounce = function debounce(func, wait, immediate) {
       let timeout;
-      return function() {
+      return function debouncer() {
         const context = this;
+        // eslint-disable-next-line prefer-rest-params
         const args = arguments;
-        const later = function() {
+        const later = function applyLater() {
           timeout = null;
           if (!immediate) func.apply(context, args);
         };

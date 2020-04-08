@@ -1,10 +1,10 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
-import { Styling } from './styling';
+import { Styling } from './styling.js';
 import '@furo/layout';
 import '@furo/util/src/furo-markdown';
-import './graph/furo-show-flow';
+import './graph/furo-show-flow.js';
 
 /**
  * `furo-demo-snippet`
@@ -19,27 +19,29 @@ class FuroDemoSnippet extends FBP(LitElement) {
   constructor() {
     super();
 
+    // eslint-disable-next-line wc/no-constructor-attributes
     const t = this.querySelector('template');
     this.template = t.content;
     this.markdown = `\`\`\`html\n${t.innerHTML}\n\`\`\``;
 
     this.icon = 'fullscreen';
-    this.addEventListener('source', e => {
+    this.addEventListener('source', ( ) => {
       this.source = true;
       this.demo = false;
       this.flow = false;
       this._FBPTriggerWire('--markdown', this.markdown);
+      // eslint-disable-next-line wc/no-constructor-attributes
       const md = this.shadowRoot.querySelector('furo-markdown');
       md.style.width = `${this.offsetWidth}px`;
     });
 
-    this.addEventListener('demo', e => {
+    this.addEventListener('demo', ( ) => {
       this.source = false;
       this.demo = true;
       this.flow = false;
     });
 
-    this.addEventListener('flow', e => {
+    this.addEventListener('flow', ( ) => {
       this.source = false;
       this.demo = false;
       this.flow = true;
@@ -103,7 +105,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
      * Register hook on wire --fullscreen to
      * toggle fullscreen of the demo
      */
-    this._FBPAddWireHook('--fullscreen', e => {
+    this._FBPAddWireHook('--fullscreen', ( ) => {
       if (!this.fullscreen) {
         this.requestFullscreen();
         this.fullscreen = true;

@@ -2,9 +2,9 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/util/src/furo-markdown';
-import './furo-doc/furo-doc-properties';
-import './furo-doc/furo-doc-class-methods';
-import './furo-doc/furo-doc-events';
+import './furo-doc/furo-doc-properties.js';
+import './furo-doc/furo-doc-class-methods.js';
+import './furo-doc/furo-doc-events.js';
 
 /**
  * `furo-doc-element`

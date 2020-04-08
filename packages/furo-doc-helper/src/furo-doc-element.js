@@ -2,10 +2,10 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/util/src/furo-markdown';
-import './furo-doc/furo-doc-properties';
-import './furo-doc/furo-doc-methods';
-import './furo-doc/furo-doc-events';
-import './furo-doc/furo-demo-link';
+import './furo-doc/furo-doc-properties.js';
+import './furo-doc/furo-doc-methods.js';
+import './furo-doc/furo-doc-events.js';
+import './furo-doc/furo-demo-link.js';
 
 /**
  * `furo-doc-element`
@@ -31,6 +31,7 @@ class FuroDocElement extends FBP(LitElement) {
 
     if (this.element.demos) {
       this.element.demos.forEach((d, i) => {
+        // eslint-disable-next-line no-param-reassign
         d.docurl = `?t=demo-${this.element.name}-${i}`;
       });
 

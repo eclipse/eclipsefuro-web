@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 import '@furo/util/src/furo-fetch-json';
-import { Config } from './lib/Config';
+import { Config } from './lib/Config.js';
 
 /**
  * `furo-config-loader`
@@ -18,12 +18,7 @@ import { Config } from './lib/Config';
  * @appliesMixin FBP
  */
 class FuroConfigLoader extends FBP(LitElement) {
-  constructor() {
-    super();
 
-    this.src;
-    this.section;
-  }
 
   /**
    * @private
@@ -50,6 +45,7 @@ class FuroConfigLoader extends FBP(LitElement) {
   }
 
   attributeChangedCallback(name, oldval, newval) {
+    // eslint-disable-next-line wc/guard-super-call
     super.attributeChangedCallback(name, oldval, newval);
 
     if (this.section && this.src) {

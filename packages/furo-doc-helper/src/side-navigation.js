@@ -3,7 +3,7 @@ import { FBP } from '@furo/fbp';
 import { Theme } from '@furo/framework/src/theme';
 import '@furo/layout';
 import '@furo/fbp/src/flow-repeat';
-import './side-navigation/side-navigation-group';
+import './side-navigation/side-navigation-group.js';
 /**
  * `api-navigation`
  * Describe your element
@@ -15,6 +15,7 @@ import './side-navigation/side-navigation-group';
 class SideNavigation extends FBP(LitElement) {
   constructor() {
     super();
+    // eslint-disable-next-line wc/no-constructor-attributes
     this.basePath = this.getAttribute('base-path');
   }
 

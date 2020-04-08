@@ -1,1 +1,1 @@
-import './demo/demo-furo-demo-snippet';
+import './demo/demo-furo-demo-snippet.js';

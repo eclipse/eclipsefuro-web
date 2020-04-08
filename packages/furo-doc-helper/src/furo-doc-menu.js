@@ -2,8 +2,8 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/layout/src/furo-vertical-scroller';
-import './furo-doc/furo-doc-menu-element-item';
-import './furo-doc/furo-doc-menu-class-item';
+import './furo-doc/furo-doc-menu-element-item.js';
+import './furo-doc/furo-doc-menu-class-item.js';
 
 /**
  * `furo-doc-menu`

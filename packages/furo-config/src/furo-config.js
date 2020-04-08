@@ -1,5 +1,5 @@
-import { LitElement, html, css } from 'lit-element';
-import { Config } from './lib/Config';
+import { LitElement  } from 'lit-element';
+import { Config } from './lib/Config.js';
 
 /**
  * `furo-config`

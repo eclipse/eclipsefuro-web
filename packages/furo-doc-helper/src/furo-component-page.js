@@ -1,11 +1,11 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
-import { Styling } from './styling';
+import { Styling } from './styling.js';
 import '@furo/route';
-import './furo-doc-page';
+import './furo-doc-page.js';
 
-import './furo-demo-page';
+import './furo-demo-page.js';
 
 /**
  * `view-api`
