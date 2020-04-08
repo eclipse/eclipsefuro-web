@@ -6,7 +6,9 @@ import '@furo/notification/src/furo-snackbar-display.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/notification/src/furo-snackbar.js';
 import '@furo/input';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
+
 import './produce-snackbar-data.js';
 
 /**

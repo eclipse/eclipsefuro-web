@@ -1,4 +1,4 @@
-import { LitElement,   css } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 
@@ -51,7 +51,7 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
       }
       // check classes if available
       if (this._analysis.classes) {
-        this._analysis.classes.forEach((e) => {
+        this._analysis.classes.forEach(e => {
           if (e.name === subElement) {
             this._analysis.__selectedClass = e;
             // disable element
@@ -64,7 +64,7 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
         });
       } // check mixins if available
       if (this._analysis.mixins) {
-        this._analysis.mixins.forEach((e) => {
+        this._analysis.mixins.forEach(e => {
           if (e.name === subElement) {
             this._analysis.__selectedMixin = e;
             // disable element

@@ -2,7 +2,9 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-catalog.js';
 import '@furo/data-input/demos/helper/produce-qp-data.js';

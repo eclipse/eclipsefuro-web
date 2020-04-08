@@ -36,9 +36,8 @@
     "@furo/layout": "^0.43.5"
   },
   "devDependencies": {
-    "@furo/collection": "^0.24.14",
+
     "@furo/input": "^0.67.13",
-    "@furo/doc-helper": "^0.19.0",
     "axe-core": "^3.5.2",
     "pwa-helpers": "^0.9.1",
     "@commitlint/cli": "^8.3.5",

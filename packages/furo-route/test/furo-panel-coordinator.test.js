@@ -34,7 +34,7 @@ describe('furo-panel-coordinator', () => {
             ></furo-panel-coordinator>
           </furo-pages>
 
-          <panel-produce-data  @-data="--data"></panel-produce-data>
+          <panel-produce-data @-data="--data"></panel-produce-data>
 
           <furo-tree
             slot="master"
@@ -88,13 +88,11 @@ describe('furo-panel-coordinator', () => {
       done();
     });
 
-
     furoTree._FBPAddWireHook('--treeChanged', () => {
       furoTree.selectById('2');
     });
 
     dataProducer.produce();
-
   });
 
   it('should close all Pages via closeAll', done => {
@@ -111,7 +109,6 @@ describe('furo-panel-coordinator', () => {
       },
       { once: true },
     );
-
 
     furoTree._FBPAddWireHook('--treeChanged', () => {
       furoTree.selectById('2');
@@ -131,7 +128,6 @@ describe('furo-panel-coordinator', () => {
       },
       { once: true },
     );
-
 
     furoTree._FBPAddWireHook('--treeChanged', () => {
       furoTree.selectById('2');

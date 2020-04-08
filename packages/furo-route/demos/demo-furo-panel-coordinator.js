@@ -1,7 +1,9 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/route/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies

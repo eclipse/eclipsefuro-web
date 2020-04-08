@@ -41,7 +41,7 @@
     "dagre": "^0.8.4"
   },
   "devDependencies": {
-    "@furo/collection": "^0.24.14",
+
     "axe-core": "^3.5.2",
     "pwa-helpers": "^0.9.1",
     "@commitlint/cli": "^8.3.5",

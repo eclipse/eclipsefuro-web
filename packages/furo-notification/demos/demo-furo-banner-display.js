@@ -6,7 +6,9 @@ import '@furo/notification/src/furo-banner-display.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/notification/src/furo-banner.js';
 import '@furo/input';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
+
 import './produce-banner-data.js';
 
 /**

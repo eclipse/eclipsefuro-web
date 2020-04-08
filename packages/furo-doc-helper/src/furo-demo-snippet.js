@@ -25,7 +25,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
     this.markdown = `\`\`\`html\n${t.innerHTML}\n\`\`\``;
 
     this.icon = 'fullscreen';
-    this.addEventListener('source', ( ) => {
+    this.addEventListener('source', () => {
       this.source = true;
       this.demo = false;
       this.flow = false;
@@ -35,13 +35,13 @@ class FuroDemoSnippet extends FBP(LitElement) {
       md.style.width = `${this.offsetWidth}px`;
     });
 
-    this.addEventListener('demo', ( ) => {
+    this.addEventListener('demo', () => {
       this.source = false;
       this.demo = true;
       this.flow = false;
     });
 
-    this.addEventListener('flow', ( ) => {
+    this.addEventListener('flow', () => {
       this.source = false;
       this.demo = false;
       this.flow = true;
@@ -105,7 +105,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
      * Register hook on wire --fullscreen to
      * toggle fullscreen of the demo
      */
-    this._FBPAddWireHook('--fullscreen', ( ) => {
+    this._FBPAddWireHook('--fullscreen', () => {
       if (!this.fullscreen) {
         this.requestFullscreen();
         this.fullscreen = true;
