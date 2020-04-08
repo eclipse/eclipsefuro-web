@@ -22,7 +22,7 @@ class FetchAnalysis extends FBP(LitElement) {
          * Fired when analysis loaded
          * detail payload: analysis
          */
-        let customEvent = new Event('data', { composed: true, bubbles: true });
+        const customEvent = new Event('data', { composed: true, bubbles: true });
         customEvent.detail = analysis;
         this.dispatchEvent(customEvent);
       })

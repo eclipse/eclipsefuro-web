@@ -17,7 +17,7 @@ class FuroShowFlow extends FBP(LitElement) {
    * @param {string} source
    */
   parseHtml(source) {
-    let tpl = document.createElement('div');
+    const tpl = document.createElement('div');
     tpl.innerHTML = source;
     this.parseTemplate(tpl);
   }
@@ -48,12 +48,12 @@ class FuroShowFlow extends FBP(LitElement) {
 
   _setWireEdges() {
     // extract the wire parts from all attributes
-    let sendingWires = {};
-    let receivingWires = {};
+    const sendingWires = {};
+    const receivingWires = {};
     this._collectedWires.events.forEach(attr => {
-      let rawwires = attr.value.split(',');
+      const rawwires = attr.value.split(',');
       rawwires.forEach(w => {
-        let match = w.trim().match(/^([^\(\^][a-z\-_]+)/gi);
+        const match = w.trim().match(/^([^\(\^][a-z\-_]+)/gi);
         if (match !== null) {
           if (sendingWires[match[0]] === undefined) {
             sendingWires[match[0]] = [];
@@ -63,13 +63,13 @@ class FuroShowFlow extends FBP(LitElement) {
 
         // park a value
         if (w.trim().startsWith('((')) {
-          this.graph.setNode('park-' + w.trim(), {
+          this.graph.setNode(`park-${  w.trim()}`, {
             width: 200,
             height: 30,
             type: 'park',
             label: w.trim(),
           });
-          this.graph.setEdge(attr._graphID, 'park-' + w.trim(), {
+          this.graph.setEdge(attr._graphID, `park-${  w.trim()}`, {
             weight: 1,
             type: 'park',
           });
@@ -77,15 +77,15 @@ class FuroShowFlow extends FBP(LitElement) {
 
         // bubbling nonbubbling a value
         if (w.trim().startsWith('^')) {
-          let eventtype = w.trim().startsWith('^^') ? 'bubbling' : 'nonbubbling';
+          const eventtype = w.trim().startsWith('^^') ? 'bubbling' : 'nonbubbling';
 
-          this.graph.setNode(attr._graphID + '-' + w.trim(), {
+          this.graph.setNode(`${attr._graphID  }-${  w.trim()}`, {
             width: 200,
             height: 30,
             type: eventtype,
             label: w.trim(),
           });
-          this.graph.setEdge(attr._graphID, attr._graphID + '-' + w.trim(), {
+          this.graph.setEdge(attr._graphID, `${attr._graphID  }-${  w.trim()}`, {
             weight: 1,
             type: 'event',
           });
@@ -93,13 +93,13 @@ class FuroShowFlow extends FBP(LitElement) {
 
         // bubbling nonbubbling a value
         if (w.trim().startsWith('-^')) {
-          this.graph.setNode(attr._graphID + '-' + w.trim(), {
+          this.graph.setNode(`${attr._graphID  }-${  w.trim()}`, {
             width: 200,
             height: 30,
             type: 'hostevent',
             label: w.trim(),
           });
-          this.graph.setEdge(attr._graphID, attr._graphID + '-' + w.trim(), {
+          this.graph.setEdge(attr._graphID, `${attr._graphID  }-${  w.trim()}`, {
             weight: 1,
             type: 'event',
           });
@@ -108,9 +108,9 @@ class FuroShowFlow extends FBP(LitElement) {
     });
 
     this._collectedWires.methods.forEach(attr => {
-      let rawwires = attr.value.split(',');
+      const rawwires = attr.value.split(',');
       rawwires.forEach(w => {
-        let match = w.trim().match(/^([^\(\(][a-z\-_]+)/gi);
+        const match = w.trim().match(/^([^\(\(][a-z\-_]+)/gi);
         if (match !== null) {
           if (receivingWires[match[0]] === undefined) {
             receivingWires[match[0]] = [];
@@ -121,30 +121,30 @@ class FuroShowFlow extends FBP(LitElement) {
     });
 
     // setEdges for every sendingWire element with receivingWire element
-    for (let wire in sendingWires) {
+    for (const wire in sendingWires) {
       sendingWires[wire].forEach(source => {
         if (receivingWires[wire]) {
           receivingWires[wire].forEach(target => {
             this.graph.setEdge(source._graphID, target._graphID, {
               weight: 1,
-              source: source,
-              target: target,
+              source,
+              target,
               wirename: wire,
             });
           });
         } else {
           // no target element
           // add node and set edge
-          this.graph.setNode(source._graphID + '-notarget', {
+          this.graph.setNode(`${source._graphID  }-notarget`, {
             width: 30,
             height: 30,
             type: 'notarget',
-            source: source,
+            source,
             wirename: wire,
           });
-          this.graph.setEdge(source._graphID, source._graphID + '-notarget', {
+          this.graph.setEdge(source._graphID, `${source._graphID  }-notarget`, {
             weight: 1,
-            source: source,
+            source,
             wirename: wire,
           });
         }
@@ -152,22 +152,22 @@ class FuroShowFlow extends FBP(LitElement) {
     }
 
     // find edges without source (for things like --pageActivated)
-    for (let wire in receivingWires) {
+    for (const wire in receivingWires) {
       receivingWires[wire].forEach(source => {
         if (!sendingWires[wire]) {
           // no target element
           // add node and set edge
-          this.graph.setNode(source._graphID + '-nosource', {
+          this.graph.setNode(`${source._graphID  }-nosource`, {
             width: 30,
             height: 30,
             type: 'nosource',
-            source: source,
+            source,
             wirename: wire,
           });
-          this.graph.setParent(source._graphID + '-nosource', source.parentComponentID);
-          this.graph.setEdge(source._graphID + '-nosource', source._graphID, {
+          this.graph.setParent(`${source._graphID  }-nosource`, source.parentComponentID);
+          this.graph.setEdge(`${source._graphID  }-nosource`, source._graphID, {
             weight: 1,
-            source: source,
+            source,
             wirename: wire,
           });
         }
@@ -186,7 +186,7 @@ class FuroShowFlow extends FBP(LitElement) {
           description = e.textContent;
         }
         if (e.nodeType === 1) {
-          let nodeID = parentNode + '.' + e.tagName + '-' + i;
+          const nodeID = `${parentNode  }.${  e.tagName  }-${  i}`;
           e._graphID = nodeID;
           e.description = description;
           // clear description for next loop
@@ -200,12 +200,12 @@ class FuroShowFlow extends FBP(LitElement) {
           });
 
           if (parentNode !== '') {
-            //set parent
+            // set parent
             this.graph.setParent(nodeID, parentNode);
           }
           // Attributes
           Array.from(e.attributes).forEach(attr => {
-            let attrNodeID = nodeID + '-' + attr.name;
+            const attrNodeID = `${nodeID  }-${  attr.name}`;
             attr._graphID = attrNodeID;
             attr.parentComponentID = nodeID;
             this.graph.setNode(attrNodeID, {
@@ -213,25 +213,25 @@ class FuroShowFlow extends FBP(LitElement) {
               width: 200,
               height: 30,
               type: 'attribute',
-              attr: attr,
+              attr,
               value: attr.value,
             });
 
             this.graph.setParent(attrNodeID, nodeID);
 
             // add center node
-            this.graph.setNode(nodeID + '-center', { type: 'center' });
-            this.graph.setParent(nodeID + '-center', nodeID);
+            this.graph.setNode(`${nodeID  }-center`, { type: 'center' });
+            this.graph.setParent(`${nodeID  }-center`, nodeID);
 
             // collect the event wires
             if (attr.name.startsWith('@-')) {
               this._collectedWires.events.push(attr);
               attr._type = 'event';
-              //einen edge setzen um @ immer rechts zu haben
-              this.graph.setEdge(nodeID + '-center', attrNodeID, { type: 'center', weight: 15 });
+              // einen edge setzen um @ immer rechts zu haben
+              this.graph.setEdge(`${nodeID  }-center`, attrNodeID, { type: 'center', weight: 15 });
             } else {
-              //einen edge setzen um ƒ und alle anderen immer links zu haben
-              this.graph.setEdge(attrNodeID, nodeID + '-center', { type: 'center', weight: 15 });
+              // einen edge setzen um ƒ und alle anderen immer links zu haben
+              this.graph.setEdge(attrNodeID, `${nodeID  }-center`, { type: 'center', weight: 15 });
             }
             // collect the method wires
             if (attr.name.startsWith('ƒ-')) {
@@ -263,7 +263,7 @@ class FuroShowFlow extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    // this._FBPTraceWires()
   }
 
   /**

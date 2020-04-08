@@ -34,8 +34,8 @@ class FuroDocProperties extends FBP(LitElement) {
   data(data) {
     if (Array.isArray(data)) {
       data = data.sort((a, b) => {
-        var textA = a.name.toUpperCase();
-        var textB = b.name.toUpperCase();
+        const textA = a.name.toUpperCase();
+        const textB = b.name.toUpperCase();
         return textA < textB ? -1 : textA > textB ? 1 : 0;
       });
 
@@ -51,7 +51,7 @@ class FuroDocProperties extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    // this._FBPTraceWires()
   }
 
   /**

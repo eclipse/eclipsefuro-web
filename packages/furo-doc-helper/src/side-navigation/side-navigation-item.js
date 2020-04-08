@@ -14,7 +14,7 @@ class SideNavigationItem extends FBP(LitElement) {
   constructor() {
     super();
     this.basePath = this.getAttribute('base-path');
-    //forward click to a
+    // forward click to a
     this.addEventListener('click', e => {
       this._FBPTriggerWire('--click', e);
     });
@@ -43,7 +43,7 @@ class SideNavigationItem extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    // this._FBPTraceWires()
   }
 
   /**

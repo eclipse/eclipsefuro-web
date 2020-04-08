@@ -36,8 +36,8 @@ class FuroDocEvents extends FBP(LitElement) {
       this._FBPTriggerWire('--data', data);
 
       data = data.sort((a, b) => {
-        var textA = a.name.toUpperCase();
-        var textB = b.name.toUpperCase();
+        const textA = a.name.toUpperCase();
+        const textB = b.name.toUpperCase();
         return textA < textB ? -1 : textA > textB ? 1 : 0;
       });
 
@@ -52,7 +52,7 @@ class FuroDocEvents extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    // this._FBPTraceWires()
   }
 
   /**

@@ -305,7 +305,7 @@ class ReadAnalysis extends FBP(LitElement) {
        * Fired when analysis loaded
        * detail payload: analysis
        */
-      let customEvent = new Event('data', { composed: true, bubbles: true });
+      const customEvent = new Event('data', { composed: true, bubbles: true });
       customEvent.detail = this.element;
       this.dispatchEvent(customEvent);
     }, 16);
@@ -329,7 +329,7 @@ class ReadAnalysis extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    // this._FBPTraceWires()
   }
 
   /**

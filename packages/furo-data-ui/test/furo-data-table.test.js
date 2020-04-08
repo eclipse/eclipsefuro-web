@@ -43,7 +43,7 @@ describe('furo-data-table', () => {
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, linker, collectionAgent,dataObject , dataTable] = testbind.parentNode.children;
+    [, linker, collectionAgent, dataObject, dataTable] = testbind.parentNode.children;
     await host.updateComplete;
     await linker.updateComplete;
     await dataTable.updateComplete;
@@ -97,125 +97,115 @@ describe('furo-data-table', () => {
   });
 
   it('should focus first row', done => {
-
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
-        assert.equal(dataTable._selectedIndex, 0);
+      dataTable.focus();
+      assert.equal(dataTable._selectedIndex, 0);
 
-        done();
-      });
+      done();
+    });
 
     linker.trigger();
   });
 
   it('should focus first row with first()', done => {
-
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
-        dataTable.last();
-        dataTable.first();
-        assert.equal(dataTable._selectedIndex, 0);
+      dataTable.focus();
+      dataTable.last();
+      dataTable.first();
+      assert.equal(dataTable._selectedIndex, 0);
 
-        done();
-      });
+      done();
+    });
 
     linker.trigger();
   });
 
   it('should focus prev row', done => {
-
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
-        dataTable.last();
-        dataTable.prev();
-        assert.equal(dataTable._selectedIndex, 2);
+      dataTable.focus();
+      dataTable.last();
+      dataTable.prev();
+      assert.equal(dataTable._selectedIndex, 2);
 
-        done();
-
+      done();
     });
     linker.trigger();
   });
 
   it('should navigate if triggerNavigation is sent (ArrowDown)', done => {
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
-        dataTable.triggerNavigation('ArrowDown');
-        assert.equal(dataTable._selectedIndex, 1);
-        done();
-
+      dataTable.focus();
+      dataTable.triggerNavigation('ArrowDown');
+      assert.equal(dataTable._selectedIndex, 1);
+      done();
     });
     linker.trigger();
   });
 
   it('should navigate if triggerNavigation is sent (ArrowUp)', done => {
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
-        dataTable.triggerNavigation('ArrowDown');
-        dataTable.triggerNavigation('ArrowUp');
-        assert.equal(dataTable._selectedIndex, 0);
-        done();
+      dataTable.focus();
+      dataTable.triggerNavigation('ArrowDown');
+      dataTable.triggerNavigation('ArrowUp');
+      assert.equal(dataTable._selectedIndex, 0);
+      done();
     });
     linker.trigger();
   });
 
   it('should navigate if triggerNavigation is sent (End)', done => {
-
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
-        dataTable.triggerNavigation('End');
-        assert.equal(dataTable._selectedIndex, 3);
-        done();
-      });
+      dataTable.focus();
+      dataTable.triggerNavigation('End');
+      assert.equal(dataTable._selectedIndex, 3);
+      done();
+    });
 
     linker.trigger();
   });
 
   it('should focus last row', done => {
-
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
-        dataTable.last();
-        assert.equal(dataTable._selectedIndex, 3);
+      dataTable.focus();
+      dataTable.last();
+      assert.equal(dataTable._selectedIndex, 3);
 
-        done();
-      });
+      done();
+    });
 
     linker.trigger();
   });
 
   it('should navigate if triggerNavigation is sent (Home)', done => {
-
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
-        dataTable.triggerNavigation('End');
-        dataTable.triggerNavigation('Home');
-        assert.equal(dataTable._selectedIndex, 0);
-        done();
-      });
+      dataTable.focus();
+      dataTable.triggerNavigation('End');
+      dataTable.triggerNavigation('Home');
+      assert.equal(dataTable._selectedIndex, 0);
+      done();
+    });
 
     linker.trigger();
   });
 
   it('should select a specific row', done => {
-
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
-        dataTable.next();
-        assert.equal(dataTable._selectedIndex, 1);
+      dataTable.focus();
+      dataTable.next();
+      assert.equal(dataTable._selectedIndex, 1);
 
-        done();
-      });
+      done();
+    });
 
     linker.trigger();
   });
 
   it('should select all table rows', done => {
-
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
-        const cb = dataTable.shadowRoot.querySelector('th').querySelector('furo-checkbox');
-        cb.check();
-      });
+      dataTable.focus();
+      const cb = dataTable.shadowRoot.querySelector('th').querySelector('furo-checkbox');
+      cb.check();
+    });
 
     dataTable.addEventListener('checkstate-changed', r => {
       assert.equal(r.detail.length, 4);
@@ -225,30 +215,27 @@ describe('furo-data-table', () => {
   });
 
   it('should deselect all table rows', done => {
-
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
-        const cb = dataTable.shadowRoot.querySelector('th').querySelector('furo-checkbox');
-        cb.check();
+      dataTable.focus();
+      const cb = dataTable.shadowRoot.querySelector('th').querySelector('furo-checkbox');
+      cb.check();
 
-        dataTable.addEventListener('checkstate-changed', r => {
-          assert.equal(r.detail.length, 0);
-          done();
-        });
-        cb.uncheck();
+      dataTable.addEventListener('checkstate-changed', r => {
+        assert.equal(r.detail.length, 0);
+        done();
       });
-
+      cb.uncheck();
+    });
 
     linker.trigger();
   });
 
   it('enter should select the table row', done => {
-
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
-        dataTable.next();
-        dataTable.select();
-      });
+      dataTable.focus();
+      dataTable.next();
+      dataTable.select();
+    });
 
     dataTable.addEventListener('tablerow-selected', r => {
       assert.equal(r.detail.data.description, 'Build Documentation');
@@ -258,31 +245,29 @@ describe('furo-data-table', () => {
   });
 
   it('should have 4 entity items', done => {
-
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
-        assert.equal(dataTable._collection.rawEntity.entities.length, 4);
+      dataTable.focus();
+      assert.equal(dataTable._collection.rawEntity.entities.length, 4);
 
-        done();
-      });
+      done();
+    });
 
     linker.trigger();
   });
 
   it('checking a table row should send all checked rows as an array', done => {
-
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
+      dataTable.focus();
 
-        setTimeout(() => {
-          const cb = dataTable.shadowRoot
-            .querySelector('tbody')
-            .querySelector('tr')
-            .querySelector('td')
-            .querySelector('furo-checkbox');
-          cb.shadowRoot.querySelector('input').click();
-        }, 10);
-      });
+      setTimeout(() => {
+        const cb = dataTable.shadowRoot
+          .querySelector('tbody')
+          .querySelector('tr')
+          .querySelector('td')
+          .querySelector('furo-checkbox');
+        cb.shadowRoot.querySelector('input').click();
+      }, 10);
+    });
 
     dataTable.addEventListener('checkstate-changed', r => {
       assert.equal(r.detail[0].data.description, 'Furo Foundation');
@@ -292,15 +277,14 @@ describe('furo-data-table', () => {
   });
 
   it('table row should have columns', done => {
-
     dataTable._FBPAddWireHook('--collectionData', () => {
-        dataTable.focus();
-        assert.equal(
-          dataTable.shadowRoot.querySelector('table').querySelector('tbody').children.length,
-          5,
-        );
-        done();
-      });
+      dataTable.focus();
+      assert.equal(
+        dataTable.shadowRoot.querySelector('table').querySelector('tbody').children.length,
+        5,
+      );
+      done();
+    });
 
     linker.trigger();
   });

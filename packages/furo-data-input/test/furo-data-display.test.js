@@ -60,8 +60,8 @@ describe('furo-data-display', () => {
   it('should receive value with bind', done => {
     entityObject.addEventListener('data-injected', () => {
       setTimeout(() => {
-          assert.equal(dataInput.field._value, 'experiment data for testing');
-          assert.equal(dataInput.field._meta.label, 'Description**');
+        assert.equal(dataInput.field._value, 'experiment data for testing');
+        assert.equal(dataInput.field._meta.label, 'Description**');
         done();
       }, 0);
     });
@@ -73,8 +73,8 @@ describe('furo-data-display', () => {
 
     entityObject.addEventListener('data-injected', () => {
       setTimeout(() => {
-          assert.equal(dataInput.field._value, 'experiment data for testing');
-          assert.equal(dataInput.field._meta.label, 'Description**');
+        assert.equal(dataInput.field._value, 'experiment data for testing');
+        assert.equal(dataInput.field._meta.label, 'Description**');
         done();
       }, 0);
     });

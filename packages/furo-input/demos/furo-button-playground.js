@@ -6,7 +6,8 @@ import '@furo/doc-helper';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/input/src/furo-catalog.js';
-import { Styling } from '@furo/doc-helper/src/styling';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Styling } from '@furo/doc-helper/src/styling.js';
 
 /**
  * `demo-furo-button`

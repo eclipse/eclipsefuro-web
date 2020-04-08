@@ -13,7 +13,7 @@ import { FBP } from '@furo/fbp';
 class FuroDocMenuElementItem extends FBP(LitElement) {
   constructor() {
     super();
-    //forward click to a
+    // forward click to a
     this.addEventListener('click', e => {
       this._FBPTriggerWire('--click', e);
     });
@@ -49,7 +49,7 @@ class FuroDocMenuElementItem extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    // this._FBPTraceWires()
   }
 
   /**

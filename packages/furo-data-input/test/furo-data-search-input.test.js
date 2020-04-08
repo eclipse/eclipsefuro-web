@@ -113,19 +113,18 @@ describe('furo-data-search-input', () => {
 
   it('should listen field-became-invalid event add set error', done => {
     setTimeout(() => {
-    const err = { description: 'minimal 3 charaters', constraint: 'min' };
-    dataSearchInput.field.addEventListener('field-became-invalid', () => {
-      setTimeout(() => {
-        assert.equal(dataSearchInput.error, true);
-        assert.equal(
-          dataSearchInput._theInputElement.getAttribute('errortext'),
-          'minimal 3 charaters',
-        );
-        done();
-      }, 10);
-    });
+      const err = { description: 'minimal 3 charaters', constraint: 'min' };
+      dataSearchInput.field.addEventListener('field-became-invalid', () => {
+        setTimeout(() => {
+          assert.equal(dataSearchInput.error, true);
+          assert.equal(
+            dataSearchInput._theInputElement.getAttribute('errortext'),
+            'minimal 3 charaters',
+          );
+          done();
+        }, 10);
+      });
       dataSearchInput.field._setInvalid(err);
     }, 10);
-
   });
 });

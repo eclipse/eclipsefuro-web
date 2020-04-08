@@ -33,9 +33,7 @@ class FuroDocClassMethods extends FBP(LitElement) {
   data(data) {
     if (Array.isArray(data)) {
       // show public fields only
-      data = data.filter(m => {
-        return m.privacy === 'public';
-      });
+      data = data.filter(m => m.privacy === 'public');
       this._FBPTriggerWire('--data', data);
       this.removeAttribute('hidden');
     } else {
@@ -48,7 +46,7 @@ class FuroDocClassMethods extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    // this._FBPTraceWires()
   }
 
   /**

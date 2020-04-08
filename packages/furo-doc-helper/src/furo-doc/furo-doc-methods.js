@@ -34,14 +34,14 @@ class FuroDocMethods extends FBP(LitElement) {
   data(data) {
     if (Array.isArray(data)) {
       // show public fields only hide inhterite from inheritedFrom: "LitElement"
-      data = data.filter(m => {
+      data = data.filter(m => 
         // todo: filter out inherited stuff like connectedCallback and so
-        return m.privacy === 'public' && !m.inheritedFrom;
-      });
+         m.privacy === 'public' && !m.inheritedFrom
+      );
 
       data = data.sort((a, b) => {
-        var textA = a.name.toUpperCase();
-        var textB = b.name.toUpperCase();
+        const textA = a.name.toUpperCase();
+        const textB = b.name.toUpperCase();
         return textA < textB ? -1 : textA > textB ? 1 : 0;
       });
 
@@ -57,7 +57,7 @@ class FuroDocMethods extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    // this._FBPTraceWires()
   }
 
   /**
