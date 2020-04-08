@@ -100,7 +100,7 @@ describe('furo-data-reference-search', () => {
           .getElementById('input')
           .shadowRoot.getElementById('input')
           .dispatchEvent(emptyEvent);
-      }, 0);
+      }, 10);
     });
   });
 
