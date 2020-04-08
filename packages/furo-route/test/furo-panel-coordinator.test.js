@@ -21,6 +21,7 @@ describe('furo-panel-coordinator', () => {
   let furoTree;
   let dataObject;
   let host;
+  let dataProducer;
 
   beforeEach(async () => {
     const testbind = await fixture(html`
@@ -33,7 +34,7 @@ describe('furo-panel-coordinator', () => {
             ></furo-panel-coordinator>
           </furo-pages>
 
-          <panel-produce-data auto @-data="--data"></panel-produce-data>
+          <panel-produce-data  @-data="--data"></panel-produce-data>
 
           <furo-tree
             slot="master"
@@ -53,7 +54,7 @@ describe('furo-panel-coordinator', () => {
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, page, , furoTree, dataObject] = testbind.parentNode.children;
+    [, page, dataProducer, furoTree, dataObject] = testbind.parentNode.children;
 
     [furoPannelCoordinator] = page.children;
 
@@ -62,6 +63,7 @@ describe('furo-panel-coordinator', () => {
     await furoPannelCoordinator.updateComplete;
     await furoTree.updateComplete;
     await dataObject.updateComplete;
+    await dataProducer.updateComplete;
   });
 
   it('it should check for correct assignments', done => {
@@ -86,9 +88,13 @@ describe('furo-panel-coordinator', () => {
       done();
     });
 
-    dataObject.addEventListener('data-injected', () => {
-      furoTree.selectById(2);
+
+    furoTree._FBPAddWireHook('--treeChanged', () => {
+      furoTree.selectById('2');
     });
+
+    dataProducer.produce();
+
   });
 
   it('should close all Pages via closeAll', done => {
@@ -106,9 +112,12 @@ describe('furo-panel-coordinator', () => {
       { once: true },
     );
 
-    dataObject.addEventListener('data-injected', () => {
-      furoTree.selectById(2);
+
+    furoTree._FBPAddWireHook('--treeChanged', () => {
+      furoTree.selectById('2');
     });
+
+    dataProducer.produce();
   });
 
   it('should remove node by id via _removeNodeById', done => {
@@ -123,8 +132,11 @@ describe('furo-panel-coordinator', () => {
       { once: true },
     );
 
-    dataObject.addEventListener('data-injected', () => {
-      furoTree.selectById(2);
+
+    furoTree._FBPAddWireHook('--treeChanged', () => {
+      furoTree.selectById('2');
     });
+
+    dataProducer.produce();
   });
 });
