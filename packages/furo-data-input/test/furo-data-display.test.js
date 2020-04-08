@@ -55,19 +55,15 @@ describe('furo-data-display', () => {
   });
 
   // axeReport a11y tests
-  xit('a11y', () => axeReport(dataInput));
+  it('a11y', () => axeReport(dataInput));
 
   it('should receive value with bind', done => {
-    host._FBPAddWireHook('--hts', () => {
-      entityObject.data.data.description.addEventListener(
-        'field-value-changed',
-        () => {
+    entityObject.addEventListener('data-injected', () => {
+      setTimeout(() => {
           assert.equal(dataInput.field._value, 'experiment data for testing');
-          assert.equal(dataInput.field._meta.label, 'Description');
-          done();
-        },
-        { once: true },
-      );
+          assert.equal(dataInput.field._meta.label, 'Description**');
+        done();
+      }, 0);
     });
     deeplink.qpIn({ exp: 1 });
   });
@@ -75,16 +71,12 @@ describe('furo-data-display', () => {
   it('should receive value of binded field if attribute displayfield does not exist', done => {
     dataInput.displayfield = 'some_attribute';
 
-    host._FBPAddWireHook('--hts', () => {
-      entityObject.data.data.description.addEventListener(
-        'field-value-changed',
-        () => {
+    entityObject.addEventListener('data-injected', () => {
+      setTimeout(() => {
           assert.equal(dataInput.field._value, 'experiment data for testing');
-          assert.equal(dataInput.field._meta.label, 'Description');
-          done();
-        },
-        { once: true },
-      );
+          assert.equal(dataInput.field._meta.label, 'Description**');
+        done();
+      }, 0);
     });
     deeplink.qpIn({ exp: 1 });
   });
