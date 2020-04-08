@@ -1,4 +1,4 @@
-import { EventTreeNode, NodeEvent } from './EventTreeNode.js';
+import { EventTreeNode, NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 import { FieldNode } from './FieldNode.js';
 import { RepeaterNode } from './RepeaterNode.js';
 import { Helper } from './Helper.js';

@@ -1,12 +1,11 @@
 // eslint-disable-next-line max-classes-per-file
-import {EventTreeNode, NodeEvent} from "@furo/data/src/lib/EventTreeNode";
+import { EventTreeNode, NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 
 class ConfigTree extends EventTreeNode {
   constructor(parentNode, fieldName) {
     super(parentNode);
     this._name = fieldName;
     this.__value = null;
-
   }
 
   get _value() {
@@ -16,7 +15,7 @@ class ConfigTree extends EventTreeNode {
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const index in this.__childNodes) {
         const field = this.__childNodes[index];
-        this.__value[field._name] = field._value
+        this.__value[field._name] = field._value;
       }
     }
     return this.__value;
@@ -24,7 +23,7 @@ class ConfigTree extends EventTreeNode {
 
   set _value(val) {
     this.__value = val;
-    this.dispatchNodeEvent(new NodeEvent("config-updated", this, false));
+    this.dispatchNodeEvent(new NodeEvent('config-updated', this, false));
   }
 }
 
@@ -33,10 +32,11 @@ const sharedConfig = new ConfigTree(null);
 export class Config {
   static append(section, obj) {
     this.deepCreate(sharedConfig, section, obj);
-    sharedConfig[section].dispatchNodeEvent(new NodeEvent("config-updated", sharedConfig[section], true));
-    return (sharedConfig[section])
+    sharedConfig[section].dispatchNodeEvent(
+      new NodeEvent('config-updated', sharedConfig[section], true),
+    );
+    return sharedConfig[section];
   }
-
 
   /**
    * create nodes a long they are objects
@@ -50,10 +50,10 @@ export class Config {
       parent[section] = new ConfigTree(parent, section);
     }
     // append array only configs directly as value
-    if(Array.isArray(obj)){
+    if (Array.isArray(obj)) {
       // eslint-disable-next-line no-param-reassign
       parent[section]._value = obj;
-    }else{
+    } else {
       // eslint-disable-next-line no-restricted-syntax
       for (const k in obj) {
         // eslint-disable-next-line no-prototype-builtins
@@ -70,18 +70,16 @@ export class Config {
         }
       }
     }
-
   }
 
   static watch(section, cb) {
-
     const targetNode = section.split('.').reduce((acc, part) => {
       if (!acc[part]) {
         acc[part] = new ConfigTree(acc, part);
       }
       return acc && acc[part];
     }, sharedConfig);
-    targetNode.addEventListener("config-updated", cb)
+    targetNode.addEventListener('config-updated', cb);
   }
 
   // this.identityPath.split('.').reduce((acc, part) => acc && acc[part], e);

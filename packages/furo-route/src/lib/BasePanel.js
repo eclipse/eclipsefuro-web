@@ -1,6 +1,6 @@
 import { FBP } from '@furo/fbp';
 import { LitElement } from 'lit-element';
-import { NodeEvent } from '@furo/data/src/lib/EventTreeNode';
+import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 
 /**
  * BasePanel to extend

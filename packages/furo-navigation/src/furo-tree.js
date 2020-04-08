@@ -4,7 +4,7 @@ import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat';
 import { FieldNode } from '@furo/data/src/lib/FieldNode';
 import '@furo/layout/src/furo-vertical-flex';
-import { NodeEvent } from '@furo/data/src/lib/EventTreeNode.js';
+import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 import './furo-tree-item.js';
 
 /**

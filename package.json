@@ -9,6 +9,7 @@
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
     "start": "./node_modules/.bin/es-dev-server  --app-index packages/furo-app/index.html --open",
     "test": "./node_modules/.bin/karma start --coverage",
+    "lint:individual": "./scripts/lintIndividual.sh",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "lint:fix": "./node_modules/.bin/eslint --fix --ext .js  \"packages/**/src/*.js\" --ignore-path .gitignore",
     "lint:eslint": "./node_modules/.bin/eslint --ext .js  \"packages/**/src/*.js\" --ignore-path .gitignore",

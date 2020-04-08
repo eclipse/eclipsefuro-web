@@ -1,9 +1,10 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper/src/furo-doc-element.js';
 import '@furo/util/src/furo-fetch-json.js';
-import { NodeEvent } from '@furo/data/src/lib/EventTreeNode.js';
+import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 /**
  * `component-panel`
  * todo Describe your element

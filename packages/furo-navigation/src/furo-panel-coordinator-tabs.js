@@ -3,7 +3,7 @@ import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat';
 import './furo-panel-coordinator-tab-item.js';
-import { NodeEvent } from '@furo/data/src/lib/EventTreeNode.js';
+import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 
 /**
  * Tab navigation for the open panels in a panel-coordinator.

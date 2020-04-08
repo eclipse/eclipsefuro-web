@@ -1,4 +1,4 @@
-import { EventTreeNode, NodeEvent } from './EventTreeNode.js';
+import { EventTreeNode, NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 // eslint-disable-next-line import/no-cycle
 import { FieldNode } from './FieldNode.js';
 

@@ -3,7 +3,7 @@ import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/layout/src/furo-horizontal-flex';
 import '@furo/data-input/src/furo-data-bool-icon';
-import { NodeEvent } from '@furo/data/src/lib/EventTreeNode';
+import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 
 /**
  * `furo-tree-item`
