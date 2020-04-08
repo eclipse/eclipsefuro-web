@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat';
-import './furo-doc-events-item';
+import './furo-doc-events-item.js';
 
 /**
  * `furo-doc-events`
@@ -15,6 +15,7 @@ import './furo-doc-events-item';
 class FuroDocEvents extends FBP(LitElement) {
   constructor() {
     super();
+    // eslint-disable-next-line wc/no-constructor-attributes
     this.hidden = true;
   }
 
@@ -35,9 +36,11 @@ class FuroDocEvents extends FBP(LitElement) {
     if (Array.isArray(data)) {
       this._FBPTriggerWire('--data', data);
 
+      // eslint-disable-next-line no-param-reassign
       data = data.sort((a, b) => {
         const textA = a.name.toUpperCase();
         const textB = b.name.toUpperCase();
+        // eslint-disable-next-line no-nested-ternary
         return textA < textB ? -1 : textA > textB ? 1 : 0;
       });
 

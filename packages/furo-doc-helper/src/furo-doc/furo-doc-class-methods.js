@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat';
-import './furo-doc-class-methods-item';
+import './furo-doc-class-methods-item.js';
 /**
  * `furo-doc-methods`
  * todo Describe your element
@@ -14,6 +14,7 @@ import './furo-doc-class-methods-item';
 class FuroDocClassMethods extends FBP(LitElement) {
   constructor() {
     super();
+    // eslint-disable-next-line wc/no-constructor-attributes
     this.hidden = true;
   }
 
@@ -33,6 +34,7 @@ class FuroDocClassMethods extends FBP(LitElement) {
   data(data) {
     if (Array.isArray(data)) {
       // show public fields only
+      // eslint-disable-next-line no-param-reassign
       data = data.filter(m => m.privacy === 'public');
       this._FBPTriggerWire('--data', data);
       this.removeAttribute('hidden');

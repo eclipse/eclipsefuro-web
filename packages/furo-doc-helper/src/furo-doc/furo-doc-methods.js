@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat';
-import './furo-doc-methods-item';
+import './furo-doc-methods-item.js';
 
 /**
  * `furo-doc-methods`
@@ -15,6 +15,7 @@ import './furo-doc-methods-item';
 class FuroDocMethods extends FBP(LitElement) {
   constructor() {
     super();
+    // eslint-disable-next-line wc/no-constructor-attributes
     this.hidden = true;
   }
 
@@ -34,14 +35,18 @@ class FuroDocMethods extends FBP(LitElement) {
   data(data) {
     if (Array.isArray(data)) {
       // show public fields only hide inhterite from inheritedFrom: "LitElement"
-      data = data.filter(m => 
-        // todo: filter out inherited stuff like connectedCallback and so
-         m.privacy === 'public' && !m.inheritedFrom
+      // eslint-disable-next-line no-param-reassign
+      data = data.filter(
+        m =>
+          // todo: filter out inherited stuff like connectedCallback and so
+          m.privacy === 'public' && !m.inheritedFrom,
       );
 
+      // eslint-disable-next-line no-param-reassign
       data = data.sort((a, b) => {
         const textA = a.name.toUpperCase();
         const textB = b.name.toUpperCase();
+        // eslint-disable-next-line no-nested-ternary
         return textA < textB ? -1 : textA > textB ? 1 : 0;
       });
 

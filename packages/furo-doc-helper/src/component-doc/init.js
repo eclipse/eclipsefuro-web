@@ -19,7 +19,7 @@ import './registry.js';
 
 // first import the spec (scr/configs/init.js is a good place)
 import spec from '@furo/navigation/specs/navigation/navigationnode.type.spec.js';
-import {Services, Types} from "@furo/specs/build/data_environment.js"
+import { Services, Types } from '@furo/specs/build/data_environment.js';
 import { ExampleCustomIconset } from './iconset.js';
 
 Init.registerApiServices(Services);

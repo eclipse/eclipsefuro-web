@@ -14,7 +14,7 @@ import '@furo/fbp/src/flow-repeat';
 class FuroDocPropertiesItem extends FBP(LitElement) {
   constructor() {
     super();
-    this.prop;
+    this.prop = {};
   }
 
   data(data) {

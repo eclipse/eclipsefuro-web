@@ -13,6 +13,7 @@ import { FBP } from '@furo/fbp';
 class SideNavigationItem extends FBP(LitElement) {
   constructor() {
     super();
+    // eslint-disable-next-line wc/no-constructor-attributes
     this.basePath = this.getAttribute('base-path');
     // forward click to a
     this.addEventListener('click', e => {

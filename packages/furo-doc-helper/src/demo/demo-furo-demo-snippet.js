@@ -2,9 +2,9 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 // demo imports
-import '../furo-catalog';
-import '../furo-demo-snippet';
-import './fetch-analysis';
+import '../furo-catalog.js';
+import '../furo-demo-snippet.js';
+import './fetch-analysis.js';
 
 /**
  * `demo-furo-demo-snippet`

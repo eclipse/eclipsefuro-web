@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import 'dagre/dist/dagre.min';
-import './furo-graph-renderer';
+import './furo-graph-renderer.js';
 
 /**
  * `furo-show-flow`
@@ -27,6 +27,7 @@ class FuroShowFlow extends FBP(LitElement) {
    * @param {dom} dom node
    */
   parseTemplate(template) {
+    // eslint-disable-next-line no-undef
     this.graph = new dagre.graphlib.Graph({ multigraph: false, compound: true });
     // graph settings
     this.graph.setGraph({
@@ -41,6 +42,7 @@ class FuroShowFlow extends FBP(LitElement) {
     this._collectedWires = { methods: [], events: [] };
     this._recursiveParse(template, '');
     this._setWireEdges();
+    // eslint-disable-next-line no-undef
     dagre.layout(this.graph);
 
     this._FBPTriggerWire('--graph', this.graph);
@@ -53,6 +55,7 @@ class FuroShowFlow extends FBP(LitElement) {
     this._collectedWires.events.forEach(attr => {
       const rawwires = attr.value.split(',');
       rawwires.forEach(w => {
+        // eslint-disable-next-line no-useless-escape
         const match = w.trim().match(/^([^\(\^][a-z\-_]+)/gi);
         if (match !== null) {
           if (sendingWires[match[0]] === undefined) {
@@ -63,13 +66,13 @@ class FuroShowFlow extends FBP(LitElement) {
 
         // park a value
         if (w.trim().startsWith('((')) {
-          this.graph.setNode(`park-${  w.trim()}`, {
+          this.graph.setNode(`park-${w.trim()}`, {
             width: 200,
             height: 30,
             type: 'park',
             label: w.trim(),
           });
-          this.graph.setEdge(attr._graphID, `park-${  w.trim()}`, {
+          this.graph.setEdge(attr._graphID, `park-${w.trim()}`, {
             weight: 1,
             type: 'park',
           });
@@ -79,13 +82,13 @@ class FuroShowFlow extends FBP(LitElement) {
         if (w.trim().startsWith('^')) {
           const eventtype = w.trim().startsWith('^^') ? 'bubbling' : 'nonbubbling';
 
-          this.graph.setNode(`${attr._graphID  }-${  w.trim()}`, {
+          this.graph.setNode(`${attr._graphID}-${w.trim()}`, {
             width: 200,
             height: 30,
             type: eventtype,
             label: w.trim(),
           });
-          this.graph.setEdge(attr._graphID, `${attr._graphID  }-${  w.trim()}`, {
+          this.graph.setEdge(attr._graphID, `${attr._graphID}-${w.trim()}`, {
             weight: 1,
             type: 'event',
           });
@@ -93,13 +96,13 @@ class FuroShowFlow extends FBP(LitElement) {
 
         // bubbling nonbubbling a value
         if (w.trim().startsWith('-^')) {
-          this.graph.setNode(`${attr._graphID  }-${  w.trim()}`, {
+          this.graph.setNode(`${attr._graphID}-${w.trim()}`, {
             width: 200,
             height: 30,
             type: 'hostevent',
             label: w.trim(),
           });
-          this.graph.setEdge(attr._graphID, `${attr._graphID  }-${  w.trim()}`, {
+          this.graph.setEdge(attr._graphID, `${attr._graphID}-${w.trim()}`, {
             weight: 1,
             type: 'event',
           });
@@ -110,6 +113,7 @@ class FuroShowFlow extends FBP(LitElement) {
     this._collectedWires.methods.forEach(attr => {
       const rawwires = attr.value.split(',');
       rawwires.forEach(w => {
+        // eslint-disable-next-line no-useless-escape
         const match = w.trim().match(/^([^\(\(][a-z\-_]+)/gi);
         if (match !== null) {
           if (receivingWires[match[0]] === undefined) {
@@ -121,6 +125,7 @@ class FuroShowFlow extends FBP(LitElement) {
     });
 
     // setEdges for every sendingWire element with receivingWire element
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
     for (const wire in sendingWires) {
       sendingWires[wire].forEach(source => {
         if (receivingWires[wire]) {
@@ -135,14 +140,14 @@ class FuroShowFlow extends FBP(LitElement) {
         } else {
           // no target element
           // add node and set edge
-          this.graph.setNode(`${source._graphID  }-notarget`, {
+          this.graph.setNode(`${source._graphID}-notarget`, {
             width: 30,
             height: 30,
             type: 'notarget',
             source,
             wirename: wire,
           });
-          this.graph.setEdge(source._graphID, `${source._graphID  }-notarget`, {
+          this.graph.setEdge(source._graphID, `${source._graphID}-notarget`, {
             weight: 1,
             source,
             wirename: wire,
@@ -152,20 +157,21 @@ class FuroShowFlow extends FBP(LitElement) {
     }
 
     // find edges without source (for things like --pageActivated)
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
     for (const wire in receivingWires) {
       receivingWires[wire].forEach(source => {
         if (!sendingWires[wire]) {
           // no target element
           // add node and set edge
-          this.graph.setNode(`${source._graphID  }-nosource`, {
+          this.graph.setNode(`${source._graphID}-nosource`, {
             width: 30,
             height: 30,
             type: 'nosource',
             source,
             wirename: wire,
           });
-          this.graph.setParent(`${source._graphID  }-nosource`, source.parentComponentID);
-          this.graph.setEdge(`${source._graphID  }-nosource`, source._graphID, {
+          this.graph.setParent(`${source._graphID}-nosource`, source.parentComponentID);
+          this.graph.setEdge(`${source._graphID}-nosource`, source._graphID, {
             weight: 1,
             source,
             wirename: wire,
@@ -186,7 +192,7 @@ class FuroShowFlow extends FBP(LitElement) {
           description = e.textContent;
         }
         if (e.nodeType === 1) {
-          const nodeID = `${parentNode  }.${  e.tagName  }-${  i}`;
+          const nodeID = `${parentNode}.${e.tagName}-${i}`;
           e._graphID = nodeID;
           e.description = description;
           // clear description for next loop
@@ -205,8 +211,10 @@ class FuroShowFlow extends FBP(LitElement) {
           }
           // Attributes
           Array.from(e.attributes).forEach(attr => {
-            const attrNodeID = `${nodeID  }-${  attr.name}`;
+            const attrNodeID = `${nodeID}-${attr.name}`;
+            // eslint-disable-next-line no-param-reassign
             attr._graphID = attrNodeID;
+            // eslint-disable-next-line no-param-reassign
             attr.parentComponentID = nodeID;
             this.graph.setNode(attrNodeID, {
               label: attr.name,
@@ -220,22 +228,24 @@ class FuroShowFlow extends FBP(LitElement) {
             this.graph.setParent(attrNodeID, nodeID);
 
             // add center node
-            this.graph.setNode(`${nodeID  }-center`, { type: 'center' });
-            this.graph.setParent(`${nodeID  }-center`, nodeID);
+            this.graph.setNode(`${nodeID}-center`, { type: 'center' });
+            this.graph.setParent(`${nodeID}-center`, nodeID);
 
             // collect the event wires
             if (attr.name.startsWith('@-')) {
               this._collectedWires.events.push(attr);
+              // eslint-disable-next-line no-param-reassign
               attr._type = 'event';
               // einen edge setzen um @ immer rechts zu haben
-              this.graph.setEdge(`${nodeID  }-center`, attrNodeID, { type: 'center', weight: 15 });
+              this.graph.setEdge(`${nodeID}-center`, attrNodeID, { type: 'center', weight: 15 });
             } else {
               // einen edge setzen um ƒ und alle anderen immer links zu haben
-              this.graph.setEdge(attrNodeID, `${nodeID  }-center`, { type: 'center', weight: 15 });
+              this.graph.setEdge(attrNodeID, `${nodeID}-center`, { type: 'center', weight: 15 });
             }
             // collect the method wires
             if (attr.name.startsWith('ƒ-')) {
               this._collectedWires.methods.push(attr);
+              // eslint-disable-next-line no-param-reassign
               attr._type = 'method';
             }
           });
@@ -243,27 +253,6 @@ class FuroShowFlow extends FBP(LitElement) {
         }
       });
     }
-  }
-
-  /**
-   * @private
-   * @return {Object}
-   */
-  static get properties() {
-    return {
-      /**
-       * Description
-       */
-      myBool: { type: Boolean },
-    };
-  }
-
-  /**
-   * flow is ready lifecycle method
-   */
-  _FBPReady() {
-    super._FBPReady();
-    // this._FBPTraceWires()
   }
 
   /**

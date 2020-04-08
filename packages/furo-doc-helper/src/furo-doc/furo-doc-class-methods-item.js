@@ -13,7 +13,7 @@ import { FBP } from '@furo/fbp';
 class FuroDocClassMethodsItem extends FBP(LitElement) {
   constructor() {
     super();
-    this.method;
+    this.method = {};
   }
 
   data(data) {

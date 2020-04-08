@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
-import './side-navigation-item';
+import './side-navigation-item.js';
 /**
  * `side-navigation-group`
  * todo Describe your element
@@ -13,6 +13,7 @@ import './side-navigation-item';
 class SideNavigationGroup extends FBP(LitElement) {
   constructor() {
     super();
+    // eslint-disable-next-line wc/no-constructor-attributes
     this.basePath = this.getAttribute('base-path');
   }
 

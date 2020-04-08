@@ -13,7 +13,7 @@ import { FBP } from '@furo/fbp';
 class FuroDocEventsItem extends FBP(LitElement) {
   constructor() {
     super();
-    this.prop;
+    this.prop = {};
   }
 
   data(data) {

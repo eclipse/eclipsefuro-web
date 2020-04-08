@@ -10,6 +10,7 @@ import '@furo/route/src/furo-pages.js';
 import '@furo/app/src/furo-app-drawer.js';
 import '@furo/app/src/furo-app-bar-top.js';
 import '@furo/notification/src/furo-snackbar-display.js';
+import '@furo/app/src/furo-tooltip-display.js';
 
 import '@furo/layout/src/furo-empty-spacer.js';
 import '@furo/layout/src/furo-horizontal-flex.js';
@@ -293,6 +294,7 @@ class MainStage extends FBP(LitElement) {
 
       <furo-location @-location-changed="--locationChanged"></furo-location>
       <furo-snackbar-display></furo-snackbar-display>
+      <furo-tooltip-display></furo-tooltip-display>
       <furo-data-context-menu-display></furo-data-context-menu-display>
     `;
   }

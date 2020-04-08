@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import { SVG } from '@svgdotjs/svg.js';
@@ -46,7 +46,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
         if (node.node.description !== '') {
           // add info
           box.addClass('withdescription');
-          box.mouseover(e => {
+          box.mouseover(() => {
             const elem = {
               duration: 5000,
               cr: box.node.getBoundingClientRect(),
@@ -86,7 +86,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
         // debounce tooltip on lines
         let timout;
         let toRegistred = false;
-        line.mouseover(e => {
+        line.mouseover(() => {
           if (!toRegistred) {
             toRegistred = true;
             timout = setTimeout(() => {
@@ -118,7 +118,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
         });
 
         // clear the timeout
-        line.mouseout(e => {
+        line.mouseout(() => {
           clearTimeout(timout);
           toRegistred = false;
         });
@@ -144,8 +144,12 @@ class FuroGraphRenderer extends FBP(LitElement) {
           }, 90);
 
           // send tooltip event for nodes with values in the attr
-          text.mouseover(e => {
-            const elem = { duration: 5000, cr: text.node.getBoundingClientRect(), label: node.label };
+          text.mouseover(() => {
+            const elem = {
+              duration: 5000,
+              cr: text.node.getBoundingClientRect(),
+              label: node.label,
+            };
             const customEvent = new Event('show-tooltip-requested', {
               composed: true,
               bubbles: true,
@@ -165,7 +169,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
         //  let r = canvas.circle(12, 12).move((node.x - node.width / 2) -6, (node.y - node.height / 2)+6).addClass('line');
         // }
 
-        const box = canvas
+        let box = canvas
           .rect(node.width, node.height)
           .move(node.x - node.width / 2, node.y - node.height / 2);
         box.radius(3);
@@ -174,7 +178,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
 
         // add green bar to the left
         if (node.attr._type === 'method') {
-          const box = canvas
+          box = canvas
             .rect(10, node.height)
             .move(node.x - node.width / 2, node.y - node.height / 2);
           box.radius(3);
@@ -183,7 +187,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
 
         // add blue bar to the right
         if (node.attr._type === 'event') {
-          const box = canvas
+          box = canvas
             .rect(10, node.height)
             .move(node.x + node.width / 2 - 10, node.y - node.height / 2);
           box.radius(3);
@@ -203,11 +207,11 @@ class FuroGraphRenderer extends FBP(LitElement) {
           indicator.addClass('flagindicator');
 
           // send tooltip event for nodes with values in the attr
-          box.mouseover(e => {
+          box.mouseover(() => {
             const elem = {
               duration: 5000,
               cr: box.node.getBoundingClientRect(),
-              label: `Flag: ${  node.label}`,
+              label: `Flag: ${node.label}`,
             };
             const customEvent = new Event('show-tooltip-requested', {
               composed: true,
@@ -218,11 +222,11 @@ class FuroGraphRenderer extends FBP(LitElement) {
           });
         } else {
           // send tooltip event for nodes with values in the attr
-          box.mouseover(e => {
+          box.mouseover(() => {
             const elem = {
               duration: 5000,
               cr: box.node.getBoundingClientRect(),
-              label: `${node.label  } = ${  node.attr.value}`,
+              label: `${node.label} = ${node.attr.value}`,
             };
             /**
              * @event show-tooltip-requested
@@ -238,6 +242,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
         }
 
         if (node.label) {
+          // eslint-disable-next-line no-unused-vars
           const text = canvas
             .text(node.label)
             .move(node.x - node.width / 2 + 15, node.y - node.height / 2 + 5);
@@ -250,13 +255,16 @@ class FuroGraphRenderer extends FBP(LitElement) {
           .fill('red');
 
         // send tooltip event
-        circle.mouseover(e => {
+        circle.mouseover(() => {
           const elem = {
             duration: 5000,
             cr: circle.node.getBoundingClientRect(),
             label: node.wirename,
           };
-          const customEvent = new Event('show-tooltip-requested', { composed: true, bubbles: true });
+          const customEvent = new Event('show-tooltip-requested', {
+            composed: true,
+            bubbles: true,
+          });
           customEvent.detail = elem;
           this.dispatchEvent(customEvent);
         });
@@ -267,13 +275,16 @@ class FuroGraphRenderer extends FBP(LitElement) {
           .move(node.x - node.width / 2, node.y - node.height / 2)
           .fill('orange');
         // send tooltip event
-        circle.mouseover(e => {
+        circle.mouseover(() => {
           const elem = {
             duration: 5000,
             cr: circle.node.getBoundingClientRect(),
             label: node.wirename,
           };
-          const customEvent = new Event('show-tooltip-requested', { composed: true, bubbles: true });
+          const customEvent = new Event('show-tooltip-requested', {
+            composed: true,
+            bubbles: true,
+          });
           customEvent.detail = elem;
           this.dispatchEvent(customEvent);
         });
@@ -286,18 +297,22 @@ class FuroGraphRenderer extends FBP(LitElement) {
         box.radius(3);
         box.addClass('park');
         if (node.label) {
+          // eslint-disable-next-line no-unused-vars
           const text = canvas
             .text(node.label)
             .move(node.x - node.width / 2 + 15, node.y - node.height / 2 + 5);
         }
         // send tooltip event
-        box.mouseover(e => {
+        box.mouseover(() => {
           const elem = {
             duration: 5000,
             cr: box.node.getBoundingClientRect(),
-            label: `park to var ${  node.label}`,
+            label: `park to var ${node.label}`,
           };
-          const customEvent = new Event('show-tooltip-requested', { composed: true, bubbles: true });
+          const customEvent = new Event('show-tooltip-requested', {
+            composed: true,
+            bubbles: true,
+          });
           customEvent.detail = elem;
           this.dispatchEvent(customEvent);
         });
@@ -309,18 +324,22 @@ class FuroGraphRenderer extends FBP(LitElement) {
         box.radius(3);
         box.addClass('bubbling');
         if (node.label) {
+          // eslint-disable-next-line no-unused-vars
           const text = canvas
             .text(node.label)
             .move(node.x - node.width / 2 + 15, node.y - node.height / 2 + 5);
         }
         // send tooltip event
-        box.mouseover(e => {
+        box.mouseover(() => {
           const elem = {
             duration: 5000,
             cr: box.node.getBoundingClientRect(),
-            label: `bubbling event ${  node.label}`,
+            label: `bubbling event ${node.label}`,
           };
-          const customEvent = new Event('show-tooltip-requested', { composed: true, bubbles: true });
+          const customEvent = new Event('show-tooltip-requested', {
+            composed: true,
+            bubbles: true,
+          });
           customEvent.detail = elem;
           this.dispatchEvent(customEvent);
         });
@@ -332,18 +351,22 @@ class FuroGraphRenderer extends FBP(LitElement) {
         box.radius(3);
         box.addClass('nonbubbling');
         if (node.label) {
+          // eslint-disable-next-line no-unused-vars
           const text = canvas
             .text(node.label)
             .move(node.x - node.width / 2 + 15, node.y - node.height / 2 + 5);
         }
         // send tooltip event
-        box.mouseover(e => {
+        box.mouseover(() => {
           const elem = {
             duration: 5000,
             cr: box.node.getBoundingClientRect(),
-            label: `event ${  node.label}`,
+            label: `event ${node.label}`,
           };
-          const customEvent = new Event('show-tooltip-requested', { composed: true, bubbles: true });
+          const customEvent = new Event('show-tooltip-requested', {
+            composed: true,
+            bubbles: true,
+          });
           customEvent.detail = elem;
           this.dispatchEvent(customEvent);
         });
@@ -355,14 +378,18 @@ class FuroGraphRenderer extends FBP(LitElement) {
         box.radius(3);
         box.addClass('hostevent');
         if (node.label) {
+          // eslint-disable-next-line no-unused-vars
           const text = canvas
             .text(node.label)
             .move(node.x - node.width / 2 + 15, node.y - node.height / 2 + 5);
         }
         // send tooltip event
-        box.mouseover(e => {
+        box.mouseover(() => {
           const elem = { duration: 5000, cr: box.node.getBoundingClientRect(), label: node.label };
-          const customEvent = new Event('show-tooltip-requested', { composed: true, bubbles: true });
+          const customEvent = new Event('show-tooltip-requested', {
+            composed: true,
+            bubbles: true,
+          });
           customEvent.detail = elem;
           this.dispatchEvent(customEvent);
         });
