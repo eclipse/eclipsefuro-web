@@ -592,7 +592,7 @@ export class FieldNode extends EventTreeNode {
       this._constraints.required &&
       this._constraints.required.is === 'true'
     ) {
-      return this._required_value;
+      return this._requiredValue;
     }
     if (this.__childNodes.length > 0) {
       this.__value = {};

@@ -24,9 +24,13 @@ export class Helper {
         // remove the attribute on null value
         caller._theInputElement.removeAttribute(attribute);
       }
-      caller.dispatchEvent(new CustomEvent('input-attr-updated', {
-          detail: value, bubbles: true, composed: true
-      }));
+      caller.dispatchEvent(
+        new CustomEvent('input-attr-updated', {
+          detail: value,
+          bubbles: true,
+          composed: true,
+        }),
+      );
     });
   }
 

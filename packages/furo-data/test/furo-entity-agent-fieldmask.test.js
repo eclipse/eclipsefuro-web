@@ -63,9 +63,8 @@ describe('furo-entity-agent fieldmask', () => {
     dataObject.addEventListener('object-ready', () => {
       dataObject.data.data.description._value = 'updated description';
       dataObject.data.data.cost_limit.currency_code._value = 'DKK';
-setTimeout(()=>{
+
       entityAgent.save();
-},10);
     });
   });
 
