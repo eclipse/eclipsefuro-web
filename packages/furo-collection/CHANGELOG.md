@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.0.1...@furo/collection@1.2.4) (2020-04-09)
+
+
+### Bug Fixes
+
+* prepare for v1 final steps ([07ea3d3](https://github.com/theNorstroem/FuroBaseComponents/commit/07ea3d3))
+* prepare for v1 final steps ([71827bb](https://github.com/theNorstroem/FuroBaseComponents/commit/71827bb))
+
+
+
+
+
 ## [0.24.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.24.16...@furo/collection@0.24.17) (2020-04-03)
 
 **Note:** Version bump only for package @furo/collection
