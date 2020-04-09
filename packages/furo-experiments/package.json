@@ -6,7 +6,7 @@
   "dependencies": {
     "@furo/fbp": "^5.0.0",
     "apexcharts": "^3.15.6",
-    "lit-element": "^2.2.1"
+    "lit-element": "^2.3.1"
   },
   "publishConfig": {
     "access": "public"
