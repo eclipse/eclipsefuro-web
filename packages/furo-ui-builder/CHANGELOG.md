@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.8.0...@furo/ui-builder@1.1.0) (2020-04-09)
+
+
+### Features
+
+* furo-input migrated to new package struckture ([56a148e](https://github.com/theNorstroem/FuroBaseComponents/commit/56a148e))
+* furo-layout migrated to new package struckture ([aae1b5d](https://github.com/theNorstroem/FuroBaseComponents/commit/aae1b5d))
+* package framework with new package structure ([23292ec](https://github.com/theNorstroem/FuroBaseComponents/commit/23292ec))
+
+
+
+
+
 # [0.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.7.0...@furo/ui-builder@0.8.0) (2020-03-07)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/spec-basetypes@0.2.0...@furo/spec-basetypes@1.0.1) (2020-04-09)
+
+**Note:** Version bump only for package @furo/spec-basetypes
+
+
+
+
+
 # [0.2.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/spec-basetypes@0.1.0...@furo/spec-basetypes@0.2.0) (2020-03-07)
 
 
