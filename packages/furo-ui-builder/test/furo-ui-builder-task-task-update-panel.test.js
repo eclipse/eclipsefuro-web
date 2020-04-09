@@ -6,7 +6,7 @@ import '@furo/data';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/testhelper/initEnv.js';
 
-describe('furo-ui-builder-task-task-update-action', () => {
+describe('furo-ui-builder-task-task-update-panel', () => {
 
   let host;
   let panel;
@@ -35,7 +35,25 @@ describe('furo-ui-builder-task-task-update-action', () => {
     panel._FBPAddWireHook('--response', (response) =>{
       setTimeout(()=>{
         assert.equal(titleElement.shadowRoot.querySelector('h1').innerHTML, '<!---->Rework documentation<!---->');
-      },24);
+      },18);
+      done();
+    });
+    linker.qpIn({"tsk": 1});
+  });
+
+  it('should render the values of the data model in the embedded form', (done)=>{
+    const form = panel.shadowRoot.querySelector('task-task-form');
+    panel._FBPAddWireHook('--response', (response) =>{
+      setTimeout(()=>{
+        expect(form.shadowRoot.querySelector('furo-data-text-input').innerHTML).to.not.be.null;
+        expect(form.shadowRoot.querySelector('furo-data-number-input').innerHTML).to.not.be.null;
+        expect(form.shadowRoot.querySelector('person-person-reference-search').innerHTML).to.not.be.null;
+        expect(form.shadowRoot.querySelector('task-task-repeat').innerHTML).to.not.be.null;
+
+        assert.equal(form.shadowRoot.querySelector('furo-data-text-input').field._value, "Apply new documentation structure");
+        assert.equal(form.shadowRoot.querySelector('furo-data-number-input').field._value, "5");
+        assert.equal(form.shadowRoot.querySelector('person-person-reference-search').field.display_name, "John Doe, +41783332244");
+      },18);
       done();
     });
     linker.qpIn({"tsk": 1});
