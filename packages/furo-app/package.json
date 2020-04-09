@@ -36,7 +36,6 @@
     "@furo/layout": "^1.0.0"
   },
   "devDependencies": {
-
     "@furo/input": "^1.0.0",
     "axe-core": "^3.5.2",
     "pwa-helpers": "^0.9.1",
