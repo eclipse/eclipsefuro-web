@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class ExperimentRecursiveForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -44,7 +44,7 @@ export class ExperimentRecursiveForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -79,6 +79,10 @@ export class ExperimentRecursiveForm extends FBP(LitElement) {
         display: block;
       }
 
+      :host(.in-repeater) {
+        border-bottom: 1px solid var(--separator, #FAFAFA);
+      }
+
       :host([hidden]) {
         display: none;
       }
@@ -103,7 +107,7 @@ export class ExperimentRecursiveForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: recursion -->
-          <experiment-recursive-form condensed full header-text="${i18n.t('experiment.recursive.form.header.text')}" secondary-text="${i18n.t('experiment.recursive.form.secondary.text')}" ƒ-bind-data="--data(*.recursion)" ƒ-focus="--focused"></experiment-recursive-form> 
+          <experiment-recursive-form condensed full header-text="${i18n.t('form.experiment.recursive.recursion.header.text')}" secondary-text="${i18n.t('form.experiment.recursive.recursion.secondary.text')}" ƒ-bind-data="--data(*.recursion)" ƒ-focus="--focused"></experiment-recursive-form> 
         </furo-form-layouter> 
       </furo-form> 
     `;

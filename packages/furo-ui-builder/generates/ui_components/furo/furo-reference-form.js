@@ -20,7 +20,7 @@ import "./furo-link-form.js";
  */
 export class FuroReferenceForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -45,7 +45,7 @@ export class FuroReferenceForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -80,6 +80,10 @@ export class FuroReferenceForm extends FBP(LitElement) {
         display: block;
       }
 
+      :host(.in-repeater) {
+        border-bottom: 1px solid var(--separator, #FAFAFA);
+      }
+
       :host([hidden]) {
         display: none;
       }
@@ -104,7 +108,7 @@ export class FuroReferenceForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: link -->
-          <furo-link-form condensed full header-text="${i18n.t('furo.link.form.header.text')}" secondary-text="${i18n.t('furo.link.form.secondary.text')}" ƒ-bind-data="--data(*.link)" ƒ-focus="--focused"></furo-link-form> 
+          <furo-link-form condensed full header-text="${i18n.t('form.furo.reference.link.header.text')}" secondary-text="${i18n.t('form.furo.reference.link.secondary.text')}" ƒ-bind-data="--data(*.link)" ƒ-focus="--focused"></furo-link-form> 
         </furo-form-layouter> 
       </furo-form> 
     `;

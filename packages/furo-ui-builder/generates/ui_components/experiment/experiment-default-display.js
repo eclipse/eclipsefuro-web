@@ -107,6 +107,9 @@ export class ExperimentDefaultDisplay extends FBP(LitElement) {
 
           <!-- field: repstring -->
           <furo-data-display condensed double ƒ-bind-data="--data(*.repstring)"></furo-data-display> 
+
+          <!-- field: furo_data_checkbox_input -->
+          <furo-data-display condensed double ƒ-bind-data="--data(*.furo_data_checkbox_input)"></furo-data-display> 
         </furo-form-layouter> 
       </furo-form> 
     `;

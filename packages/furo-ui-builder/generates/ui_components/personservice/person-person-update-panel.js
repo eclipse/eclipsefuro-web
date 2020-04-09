@@ -24,13 +24,13 @@ import "./person-person-update-action.js";
  */
 export class PersonPersonUpdatePanel extends BasePanel {
 
-
+  
 
   // Inject HATEOAS Link Object for the specific service.
   htsIn(d) {
     this._FBPTriggerWire('--htsIn', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method

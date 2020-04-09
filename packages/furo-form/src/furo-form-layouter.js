@@ -78,9 +78,11 @@ class FuroFormLayouter extends FBP(LitElement) {
     this.updateComplete.then(() => {
       if (window.ResizeObserver) {
         const ro = new ResizeObserver(entries => {
-          for (const entry of entries) {
-            this._checkSize(entry.contentRect.width);
-          }
+          window.requestAnimationFrame(() => {
+            for (const entry of entries) {
+              this._checkSize(entry.contentRect.width);
+            }
+          });
         });
         ro.observe(this);
       } else {

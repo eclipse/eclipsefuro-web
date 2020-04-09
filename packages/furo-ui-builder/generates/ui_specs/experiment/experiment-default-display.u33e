@@ -93,6 +93,20 @@
               },
               "events": {},
               "children": []
+            },
+            {
+              "component": "furo-data-display",
+              "description": "field: furo_data_checkbox_input",
+              "flags": [
+                "condensed",
+                "double"
+              ],
+              "attributes": {},
+              "methods": {
+                "bind-data": "--data(*.furo_data_checkbox_input)"
+              },
+              "events": {},
+              "children": []
             }
           ]
         }

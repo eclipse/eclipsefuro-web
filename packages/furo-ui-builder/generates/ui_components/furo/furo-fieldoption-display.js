@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class FuroFieldoptionDisplay extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -44,7 +44,7 @@ export class FuroFieldoptionDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -104,6 +104,9 @@ export class FuroFieldoptionDisplay extends FBP(LitElement) {
 
           <!-- field: list -->
           <furo-data-display full condensed ƒ-bind-data="--data(*.list)" ƒ-focus="--focused"></furo-data-display> 
+
+          <!-- field: flags -->
+          <furo-data-display condensed double ƒ-bind-data="--data(*.flags)"></furo-data-display> 
         </furo-form-layouter> 
       </furo-form> 
     `;

@@ -4,7 +4,7 @@ import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 
 // eslint-disable-next-line no-unused-vars
-import { i18n } from '@furo/framework/i18n.js';
+import { i18n } from '@furo/framework/src/i18n.js';
 
 import "@furo/data-input";
 import "@furo/form";
@@ -20,7 +20,7 @@ import "@furo/form";
  */
 export class GoogleProtobufAnyCreateForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -45,7 +45,7 @@ export class GoogleProtobufAnyCreateForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method

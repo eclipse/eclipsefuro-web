@@ -21,7 +21,7 @@ import "../projectmemberservice/person-person-reference-search.js";
  */
 export class ProjectfilterProjectfilterForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -46,7 +46,7 @@ export class ProjectfilterProjectfilterForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -79,6 +79,10 @@ export class ProjectfilterProjectfilterForm extends FBP(LitElement) {
       
       :host {
         display: block;
+      }
+
+      :host(.in-repeater) {
+        border-bottom: 1px solid var(--separator, #FAFAFA);
       }
 
       :host([hidden]) {
@@ -114,7 +118,7 @@ export class ProjectfilterProjectfilterForm extends FBP(LitElement) {
           <furo-data-date-input condensed double ƒ-bind-data="--data(*.end)"></furo-data-date-input> 
 
           <!-- field: members -->
-          <person-person-reference-search condensed full header-text="${i18n.t('furo.reference.form.header.text')}" secondary-text="${i18n.t('furo.reference.form.secondary.text')}" ƒ-bind-data="--data(*.members)"></person-person-reference-search> 
+          <person-person-reference-search condensed full header-text="${i18n.t('form.projectfilter.projectfilter.members.header.text')}" secondary-text="${i18n.t('form.projectfilter.projectfilter.members.secondary.text')}" ƒ-bind-data="--data(*.members)"></person-person-reference-search> 
 
           <!-- field: cost_limit -->
           <furo-data-money-input condensed double ƒ-bind-data="--data(*.cost_limit)"></furo-data-money-input> 

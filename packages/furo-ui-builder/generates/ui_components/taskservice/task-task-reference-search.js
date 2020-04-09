@@ -20,7 +20,7 @@ import "@furo/timing/src/furo-de-bounce.js";
  */
 export class TaskTaskReferenceSearch extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -39,7 +39,7 @@ export class TaskTaskReferenceSearch extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method

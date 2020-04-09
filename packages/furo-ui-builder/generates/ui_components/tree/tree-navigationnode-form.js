@@ -9,6 +9,7 @@ import { i18n } from '@furo/framework/src/i18n.js';
 import "@furo/data-input";
 import "@furo/form";
 import "../furo/furo-link-form.js";
+import "./tree-navigationnode-repeat.js";
 
 /**
  * Item of the navigationtree
@@ -20,7 +21,7 @@ import "../furo/furo-link-form.js";
  */
 export class TreeNavigationnodeForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -45,7 +46,7 @@ export class TreeNavigationnodeForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -78,6 +79,10 @@ export class TreeNavigationnodeForm extends FBP(LitElement) {
       
       :host {
         display: block;
+      }
+
+      :host(.in-repeater) {
+        border-bottom: 1px solid var(--separator, #FAFAFA);
       }
 
       :host([hidden]) {
@@ -125,13 +130,13 @@ export class TreeNavigationnodeForm extends FBP(LitElement) {
           <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.open)"></furo-data-checkbox-input> 
 
           <!-- field: link -->
-          <furo-link-form condensed full header-text="${i18n.t('furo.link.form.header.text')}" secondary-text="${i18n.t('furo.link.form.secondary.text')}" ƒ-bind-data="--data(*.link)"></furo-link-form> 
+          <furo-link-form condensed full header-text="${i18n.t('form.tree.navigationnode.link.header.text')}" secondary-text="${i18n.t('form.tree.navigationnode.link.secondary.text')}" ƒ-bind-data="--data(*.link)"></furo-link-form> 
 
           <!-- field: is_group_label -->
           <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.is_group_label)"></furo-data-checkbox-input> 
 
           <!-- field: children -->
-          <tree-navigationnode-repeat condensed double ƒ-bind-data="--data(*.children)"></tree-navigationnode-repeat> 
+          <tree-navigationnode-repeat condensed double header-text="${i18n.t('form.tree.navigationnode.children.header.text')}" secondary-text="${i18n.t('form.tree.navigationnode.children.secondary.text')}" ƒ-bind-data="--data(*.children)"></tree-navigationnode-repeat> 
         </furo-form-layouter> 
       </furo-form> 
     `;

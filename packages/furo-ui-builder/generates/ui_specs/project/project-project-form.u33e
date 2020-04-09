@@ -22,7 +22,8 @@
   ],
   "imports": [
     "@furo/data-input",
-    "@furo/form"
+    "@furo/form",
+    "../person/person-person-repeat.js"
   ],
   "component_name": "project-project-form",
   "path": "./generates/ui_specs/project/project-project-form.u33e",
@@ -38,6 +39,12 @@
         "children": {},
         "attributes": {
           "display": "none"
+        }
+      },
+      ":host(.in-repeater)": {
+        "children": {},
+        "attributes": {
+          "border-bottom": "1px solid var(--separator, #FAFAFA)"
         }
       }
     },
@@ -115,7 +122,10 @@
                 "condensed",
                 "double"
               ],
-              "attributes": {},
+              "attributes": {
+                "header-text": "${i18n.t('form.project.project.members.header.text')}",
+                "secondary-text": "${i18n.t('form.project.project.members.secondary.text')}"
+              },
               "methods": {
                 "bind-data": "--data(*.members)"
               },
@@ -126,8 +136,7 @@
               "component": "furo-data-money-input",
               "description": "field: cost_limit",
               "flags": [
-                "condensed",
-                "double"
+                "align-right"
               ],
               "attributes": {},
               "methods": {

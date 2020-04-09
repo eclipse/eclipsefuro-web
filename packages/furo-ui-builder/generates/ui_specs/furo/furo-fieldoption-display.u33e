@@ -79,6 +79,20 @@
               },
               "events": {},
               "children": []
+            },
+            {
+              "component": "furo-data-display",
+              "description": "field: flags",
+              "flags": [
+                "condensed",
+                "double"
+              ],
+              "attributes": {},
+              "methods": {
+                "bind-data": "--data(*.flags)"
+              },
+              "events": {},
+              "children": []
             }
           ]
         }

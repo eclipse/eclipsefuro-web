@@ -39,6 +39,12 @@
         "attributes": {
           "display": "none"
         }
+      },
+      ":host(.in-repeater)": {
+        "children": {},
+        "attributes": {
+          "border-bottom": "1px solid var(--separator, #FAFAFA)"
+        }
       }
     },
     "attributes": {}
@@ -87,9 +93,26 @@
                 "condensed",
                 "double"
               ],
-              "attributes": {},
+              "attributes": {
+                "header-text": "${i18n.t('form.experiment.default.repstring.header.text')}",
+                "secondary-text": "${i18n.t('form.experiment.default.repstring.secondary.text')}"
+              },
               "methods": {
                 "bind-data": "--data(*.repstring)"
+              },
+              "events": {},
+              "children": []
+            },
+            {
+              "component": "furo-data-checkbox-input",
+              "description": "field: furo_data_checkbox_input",
+              "flags": [
+                "condensed",
+                "double"
+              ],
+              "attributes": {},
+              "methods": {
+                "bind-data": "--data(*.furo_data_checkbox_input)"
               },
               "events": {},
               "children": []

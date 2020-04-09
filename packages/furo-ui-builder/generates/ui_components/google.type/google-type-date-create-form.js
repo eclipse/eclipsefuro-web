@@ -10,7 +10,7 @@ import "@furo/data-input";
 import "@furo/form";
 
 /**
- * Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto
+ * Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto 
  *
  * @summary todo: write summary
  * @customElement
@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class GoogleTypeDateCreateForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -44,7 +44,7 @@ export class GoogleTypeDateCreateForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method

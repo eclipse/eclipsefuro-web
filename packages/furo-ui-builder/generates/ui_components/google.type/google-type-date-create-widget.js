@@ -13,7 +13,7 @@ import "@furo/app/src/furo-card.js";
 import "@furo/layout/src/furo-horizontal-flex.js";
 
 /**
- * Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto
+ * Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto 
  *
  * @summary todo: write summary
  * @customElement
@@ -22,13 +22,13 @@ import "@furo/layout/src/furo-horizontal-flex.js";
  */
 export class GoogleTypeDateCreateWidget extends FBP(LitElement) {
 
-
+  
 
   // Fokus
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method

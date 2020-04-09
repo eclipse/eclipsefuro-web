@@ -20,7 +20,7 @@ import "./furo-meta-display.js";
  */
 export class FuroPropertyDisplay extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -45,7 +45,7 @@ export class FuroPropertyDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method

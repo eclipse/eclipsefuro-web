@@ -126,8 +126,7 @@
               "component": "furo-data-display",
               "description": "field: cost_limit",
               "flags": [
-                "condensed",
-                "double"
+                "align-right"
               ],
               "attributes": {},
               "methods": {

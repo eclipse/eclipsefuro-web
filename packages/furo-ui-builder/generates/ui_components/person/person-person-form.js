@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class PersonPersonForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -44,7 +44,7 @@ export class PersonPersonForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -77,6 +77,10 @@ export class PersonPersonForm extends FBP(LitElement) {
       
       :host {
         display: block;
+      }
+
+      :host(.in-repeater) {
+        border-bottom: 1px solid var(--separator, #FAFAFA);
       }
 
       :host([hidden]) {
@@ -112,7 +116,7 @@ export class PersonPersonForm extends FBP(LitElement) {
           <furo-data-text-input condensed double ƒ-bind-data="--data(*.phone_nr)"></furo-data-text-input> 
 
           <!-- field: skills -->
-          <string-repeat condensed double ƒ-bind-data="--data(*.skills)"></string-repeat> 
+          <string-repeat condensed double header-text="${i18n.t('form.person.person.skills.header.text')}" secondary-text="${i18n.t('form.person.person.skills.secondary.text')}" ƒ-bind-data="--data(*.skills)"></string-repeat> 
 
           <!-- field: update_mask -->
           <furo-data-text-input condensed double ƒ-bind-data="--data(*.update_mask)"></furo-data-text-input> 

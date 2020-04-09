@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class FuroMetaForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -44,7 +44,7 @@ export class FuroMetaForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -79,6 +79,10 @@ export class FuroMetaForm extends FBP(LitElement) {
         display: block;
       }
 
+      :host(.in-repeater) {
+        border-bottom: 1px solid var(--separator, #FAFAFA);
+      }
+
       :host([hidden]) {
         display: none;
       }
@@ -103,7 +107,7 @@ export class FuroMetaForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: fields -->
-          <furo-metafield-map condensed double ƒ-bind-data="--data(*.fields)" ƒ-focus="--focused"></furo-metafield-map> 
+          <furo-metafield-map condensed double header-text="${i18n.t('form.furo.meta.fields.header.text')}" secondary-text="${i18n.t('form.furo.meta.fields.secondary.text')}" ƒ-bind-data="--data(*.fields)" ƒ-focus="--focused"></furo-metafield-map> 
         </furo-form-layouter> 
       </furo-form> 
     `;

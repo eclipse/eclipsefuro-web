@@ -8,6 +8,7 @@ import { i18n } from '@furo/framework/src/i18n.js';
 
 import "@furo/data-input";
 import "@furo/form";
+import "../google.protobuf/google-protobuf-any-repeat.js";
 
 /**
  * Metas for a field
@@ -19,7 +20,7 @@ import "@furo/form";
  */
 export class FuroFieldoptionForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -44,7 +45,7 @@ export class FuroFieldoptionForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -79,6 +80,10 @@ export class FuroFieldoptionForm extends FBP(LitElement) {
         display: block;
       }
 
+      :host(.in-repeater) {
+        border-bottom: 1px solid var(--separator, #FAFAFA);
+      }
+
       :host([hidden]) {
         display: none;
       }
@@ -103,7 +108,10 @@ export class FuroFieldoptionForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: list -->
-          <google-protobuf-any-repeat full condensed ƒ-bind-data="--data(*.list)" ƒ-focus="--focused"></google-protobuf-any-repeat> 
+          <google-protobuf-any-repeat full condensed header-text="${i18n.t('form.furo.fieldoption.list.header.text')}" secondary-text="${i18n.t('form.furo.fieldoption.list.secondary.text')}" ƒ-bind-data="--data(*.list)" ƒ-focus="--focused"></google-protobuf-any-repeat> 
+
+          <!-- field: flags -->
+          <bool-map condensed double header-text="${i18n.t('form.furo.fieldoption.flags.header.text')}" secondary-text="${i18n.t('form.furo.fieldoption.flags.secondary.text')}" ƒ-bind-data="--data(*.flags)"></bool-map> 
         </furo-form-layouter> 
       </furo-form> 
     `;

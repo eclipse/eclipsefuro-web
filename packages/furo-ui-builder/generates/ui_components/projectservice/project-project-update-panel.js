@@ -24,13 +24,13 @@ import "./project-project-update-action.js";
  */
 export class ProjectProjectUpdatePanel extends BasePanel {
 
-
+  
 
   // Inject HATEOAS Link Object for the specific service.
   htsIn(d) {
     this._FBPTriggerWire('--htsIn', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method

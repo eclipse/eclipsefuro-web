@@ -20,7 +20,7 @@ import "./tree-navigationnode-form.js";
  */
 export class TreeTreeForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -45,7 +45,7 @@ export class TreeTreeForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -80,6 +80,10 @@ export class TreeTreeForm extends FBP(LitElement) {
         display: block;
       }
 
+      :host(.in-repeater) {
+        border-bottom: 1px solid var(--separator, #FAFAFA);
+      }
+
       :host([hidden]) {
         display: none;
       }
@@ -110,7 +114,7 @@ export class TreeTreeForm extends FBP(LitElement) {
           <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)"></furo-data-text-input> 
 
           <!-- field: root -->
-          <tree-navigationnode-form condensed full header-text="${i18n.t('tree.navigationnode.form.header.text')}" secondary-text="${i18n.t('tree.navigationnode.form.secondary.text')}" ƒ-bind-data="--data(*.root)"></tree-navigationnode-form> 
+          <tree-navigationnode-form condensed full header-text="${i18n.t('form.tree.tree.root.header.text')}" secondary-text="${i18n.t('form.tree.tree.root.secondary.text')}" ƒ-bind-data="--data(*.root)"></tree-navigationnode-form> 
         </furo-form-layouter> 
       </furo-form> 
     `;

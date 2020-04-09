@@ -20,7 +20,7 @@ import "@furo/form";
  */
 export class GoogleProtobufAnyDisplay extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -45,7 +45,7 @@ export class GoogleProtobufAnyDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method

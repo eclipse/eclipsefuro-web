@@ -8,6 +8,7 @@ import { i18n } from '@furo/framework/src/i18n.js';
 
 import "@furo/data-input";
 import "@furo/form";
+import "../person/person-person-repeat.js";
 
 /**
  * Project description
@@ -19,7 +20,7 @@ import "@furo/form";
  */
 export class ProjectProjectForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -44,7 +45,7 @@ export class ProjectProjectForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -77,6 +78,10 @@ export class ProjectProjectForm extends FBP(LitElement) {
       
       :host {
         display: block;
+      }
+
+      :host(.in-repeater) {
+        border-bottom: 1px solid var(--separator, #FAFAFA);
       }
 
       :host([hidden]) {
@@ -112,10 +117,10 @@ export class ProjectProjectForm extends FBP(LitElement) {
           <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)"></furo-data-text-input> 
 
           <!-- field: members -->
-          <person-person-repeat condensed double ƒ-bind-data="--data(*.members)"></person-person-repeat> 
+          <person-person-repeat condensed double header-text="${i18n.t('form.project.project.members.header.text')}" secondary-text="${i18n.t('form.project.project.members.secondary.text')}" ƒ-bind-data="--data(*.members)"></person-person-repeat> 
 
           <!-- field: cost_limit -->
-          <furo-data-money-input condensed double ƒ-bind-data="--data(*.cost_limit)"></furo-data-money-input> 
+          <furo-data-money-input align-right ƒ-bind-data="--data(*.cost_limit)"></furo-data-money-input> 
 
           <!-- field: update_mask -->
           <furo-data-text-input condensed double ƒ-bind-data="--data(*.update_mask)"></furo-data-text-input> 

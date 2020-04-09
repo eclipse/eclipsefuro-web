@@ -22,13 +22,13 @@ import "@furo/layout/src/furo-horizontal-flex.js";
  */
 export class ProjectfilterProjectfilterCreateWidget extends FBP(LitElement) {
 
-
+  
 
   // Fokus
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method

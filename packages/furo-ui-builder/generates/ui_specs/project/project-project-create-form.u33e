@@ -69,8 +69,7 @@
               "component": "furo-data-money-input",
               "description": "field: cost_limit",
               "flags": [
-                "condensed",
-                "double"
+                "align-right"
               ],
               "attributes": {},
               "methods": {

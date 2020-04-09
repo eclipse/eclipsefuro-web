@@ -39,6 +39,12 @@
         "attributes": {
           "display": "none"
         }
+      },
+      ":host(.in-repeater)": {
+        "children": {},
+        "attributes": {
+          "border-bottom": "1px solid var(--separator, #FAFAFA)"
+        }
       }
     },
     "attributes": {}

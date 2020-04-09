@@ -10,6 +10,7 @@ import "@furo/data-input";
 import "@furo/form";
 import "../furo/furo-reference-form.js";
 import "../projectmemberservice/person-person-reference-search.js";
+import "./task-task-repeat.js";
 
 /**
  * Task data description
@@ -21,7 +22,7 @@ import "../projectmemberservice/person-person-reference-search.js";
  */
 export class TaskTaskForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -46,7 +47,7 @@ export class TaskTaskForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -81,6 +82,10 @@ export class TaskTaskForm extends FBP(LitElement) {
         display: block;
       }
 
+      :host(.in-repeater) {
+        border-bottom: 1px solid var(--separator, #FAFAFA);
+      }
+
       :host([hidden]) {
         display: none;
       }
@@ -111,10 +116,10 @@ export class TaskTaskForm extends FBP(LitElement) {
           <furo-data-number-input condensed double ƒ-bind-data="--data(*.estimated_time)"></furo-data-number-input> 
 
           <!-- field: owner -->
-          <person-person-reference-search condensed full header-text="${i18n.t('furo.reference.form.header.text')}" secondary-text="${i18n.t('furo.reference.form.secondary.text')}" ƒ-bind-data="--data(*.owner)"></person-person-reference-search> 
+          <person-person-reference-search condensed full header-text="${i18n.t('form.task.task.owner.header.text')}" secondary-text="${i18n.t('form.task.task.owner.secondary.text')}" ƒ-bind-data="--data(*.owner)"></person-person-reference-search> 
 
           <!-- field: subtasks -->
-          <task-task-repeat condensed double ƒ-bind-data="--data(*.subtasks)"></task-task-repeat> 
+          <task-task-repeat condensed double header-text="${i18n.t('form.task.task.subtasks.header.text')}" secondary-text="${i18n.t('form.task.task.subtasks.secondary.text')}" ƒ-bind-data="--data(*.subtasks)"></task-task-repeat> 
         </furo-form-layouter> 
       </furo-form> 
     `;

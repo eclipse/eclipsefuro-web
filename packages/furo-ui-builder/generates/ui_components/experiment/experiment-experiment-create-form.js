@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class ExperimentExperimentCreateForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -44,7 +44,7 @@ export class ExperimentExperimentCreateForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -109,7 +109,7 @@ export class ExperimentExperimentCreateForm extends FBP(LitElement) {
           <furo-data-money-input condensed double ƒ-bind-data="--data(*.furo_data_money_input)"></furo-data-money-input> 
 
           <!-- field: furo_data_file_input -->
-          <furo-data-repeat condensed double repeated-component="string-repeat" ƒ-bind-data="--data(*.furo_data_file_input)"></furo-data-repeat> 
+          <furo-data-repeat condensed double header-text="${i18n.t('createform.experiment.experiment.furo_data_file_input.header.text')}" repeated-component="string-repeat" secondary-text="${i18n.t('createform.experiment.experiment.furo_data_file_input.secondary.text')}" ƒ-bind-data="--data(*.furo_data_file_input)"></furo-data-repeat> 
         </furo-form-layouter> 
       </furo-form> 
     `;

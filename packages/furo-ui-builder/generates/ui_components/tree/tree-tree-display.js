@@ -20,7 +20,7 @@ import "./tree-navigationnode-display.js";
  */
 export class TreeTreeDisplay extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -45,7 +45,7 @@ export class TreeTreeDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method

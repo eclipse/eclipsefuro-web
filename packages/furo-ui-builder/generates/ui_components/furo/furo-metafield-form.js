@@ -20,7 +20,7 @@ import "./furo-fieldmeta-form.js";
  */
 export class FuroMetafieldForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -45,7 +45,7 @@ export class FuroMetafieldForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -80,6 +80,10 @@ export class FuroMetafieldForm extends FBP(LitElement) {
         display: block;
       }
 
+      :host(.in-repeater) {
+        border-bottom: 1px solid var(--separator, #FAFAFA);
+      }
+
       :host([hidden]) {
         display: none;
       }
@@ -104,10 +108,10 @@ export class FuroMetafieldForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: meta -->
-          <furo-fieldmeta-form condensed full header-text="${i18n.t('furo.fieldmeta.form.header.text')}" secondary-text="${i18n.t('furo.fieldmeta.form.secondary.text')}" ƒ-bind-data="--data(*.meta)" ƒ-focus="--focused"></furo-fieldmeta-form> 
+          <furo-fieldmeta-form condensed full header-text="${i18n.t('form.furo.metafield.meta.header.text')}" secondary-text="${i18n.t('form.furo.metafield.meta.secondary.text')}" ƒ-bind-data="--data(*.meta)" ƒ-focus="--focused"></furo-fieldmeta-form> 
 
           <!-- field: constraints -->
-          <furo-fieldconstraint-map condensed double ƒ-bind-data="--data(*.constraints)"></furo-fieldconstraint-map> 
+          <furo-fieldconstraint-map condensed double header-text="${i18n.t('form.furo.metafield.constraints.header.text')}" secondary-text="${i18n.t('form.furo.metafield.constraints.secondary.text')}" ƒ-bind-data="--data(*.constraints)"></furo-fieldconstraint-map> 
         </furo-form-layouter> 
       </furo-form> 
     `;

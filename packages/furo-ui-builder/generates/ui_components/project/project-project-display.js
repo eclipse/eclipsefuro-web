@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class ProjectProjectDisplay extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -44,7 +44,7 @@ export class ProjectProjectDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -115,7 +115,7 @@ export class ProjectProjectDisplay extends FBP(LitElement) {
           <furo-data-display condensed double ƒ-bind-data="--data(*.members)"></furo-data-display> 
 
           <!-- field: cost_limit -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.cost_limit)"></furo-data-display> 
+          <furo-data-display align-right ƒ-bind-data="--data(*.cost_limit)"></furo-data-display> 
 
           <!-- field: update_mask -->
           <furo-data-display condensed double ƒ-bind-data="--data(*.update_mask)"></furo-data-display> 

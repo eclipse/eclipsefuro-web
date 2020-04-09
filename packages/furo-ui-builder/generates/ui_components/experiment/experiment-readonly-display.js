@@ -21,7 +21,7 @@ import "../furo/furo-meta-display.js";
  */
 export class ExperimentReadonlyDisplay extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -46,7 +46,7 @@ export class ExperimentReadonlyDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method

@@ -215,8 +215,10 @@ class FuroAppDrawer extends FBP(LitElement) {
       if (window.ResizeObserver) {
         const ro = new ResizeObserver(entries => {
           for (const entry of entries) {
-            const cr = entry.contentRect;
-            this.__isFloating = cr.width <= this.floatBreakpoint;
+            window.requestAnimationFrame(() => {
+              const cr = entry.contentRect;
+              this.__isFloating = cr.width <= this.floatBreakpoint;
+            });
           }
           if (this.__isFloating) {
             this.close();

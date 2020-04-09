@@ -21,7 +21,7 @@ import "../projectmemberservice/person-person-reference-search.js";
  */
 export class ProjectfilterProjectfilterDisplay extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -46,7 +46,7 @@ export class ProjectfilterProjectfilterDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method

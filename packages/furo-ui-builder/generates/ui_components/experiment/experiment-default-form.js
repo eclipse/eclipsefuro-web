@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class ExperimentDefaultForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -44,7 +44,7 @@ export class ExperimentDefaultForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -79,6 +79,10 @@ export class ExperimentDefaultForm extends FBP(LitElement) {
         display: block;
       }
 
+      :host(.in-repeater) {
+        border-bottom: 1px solid var(--separator, #FAFAFA);
+      }
+
       :host([hidden]) {
         display: none;
       }
@@ -106,7 +110,10 @@ export class ExperimentDefaultForm extends FBP(LitElement) {
           <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)" ƒ-focus="--focused"></furo-data-text-input> 
 
           <!-- field: repstring -->
-          <string-repeat condensed double ƒ-bind-data="--data(*.repstring)"></string-repeat> 
+          <string-repeat condensed double header-text="${i18n.t('form.experiment.default.repstring.header.text')}" secondary-text="${i18n.t('form.experiment.default.repstring.secondary.text')}" ƒ-bind-data="--data(*.repstring)"></string-repeat> 
+
+          <!-- field: furo_data_checkbox_input -->
+          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.furo_data_checkbox_input)"></furo-data-checkbox-input> 
         </furo-form-layouter> 
       </furo-form> 
     `;

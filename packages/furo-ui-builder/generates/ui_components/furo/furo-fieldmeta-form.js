@@ -20,7 +20,7 @@ import "./furo-fieldoption-form.js";
  */
 export class FuroFieldmetaForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -45,7 +45,7 @@ export class FuroFieldmetaForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -78,6 +78,10 @@ export class FuroFieldmetaForm extends FBP(LitElement) {
       
       :host {
         display: block;
+      }
+
+      :host(.in-repeater) {
+        border-bottom: 1px solid var(--separator, #FAFAFA);
       }
 
       :host([hidden]) {
@@ -119,7 +123,7 @@ export class FuroFieldmetaForm extends FBP(LitElement) {
           <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.repeated)"></furo-data-checkbox-input> 
 
           <!-- field: options -->
-          <furo-fieldoption-form condensed full header-text="${i18n.t('furo.fieldoption.form.header.text')}" secondary-text="${i18n.t('furo.fieldoption.form.secondary.text')}" ƒ-bind-data="--data(*.options)"></furo-fieldoption-form> 
+          <furo-fieldoption-form condensed full header-text="${i18n.t('form.furo.fieldmeta.options.header.text')}" secondary-text="${i18n.t('form.furo.fieldmeta.options.secondary.text')}" ƒ-bind-data="--data(*.options)"></furo-fieldoption-form> 
         </furo-form-layouter> 
       </furo-form> 
     `;

@@ -39,6 +39,12 @@
         "attributes": {
           "display": "none"
         }
+      },
+      ":host(.in-repeater)": {
+        "children": {},
+        "attributes": {
+          "border-bottom": "1px solid var(--separator, #FAFAFA)"
+        }
       }
     },
     "attributes": {}
@@ -72,7 +78,10 @@
                 "condensed",
                 "double"
               ],
-              "attributes": {},
+              "attributes": {
+                "header-text": "${i18n.t('form.furo.meta.fields.header.text')}",
+                "secondary-text": "${i18n.t('form.furo.meta.fields.secondary.text')}"
+              },
               "methods": {
                 "bind-data": "--data(*.fields)",
                 "focus": "--focused"

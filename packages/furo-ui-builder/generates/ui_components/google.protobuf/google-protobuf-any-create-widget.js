@@ -23,13 +23,13 @@ import "@furo/layout/src/furo-horizontal-flex.js";
  */
 export class GoogleProtobufAnyCreateWidget extends FBP(LitElement) {
 
-
+  
 
   // Fokus
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method

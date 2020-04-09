@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class ExperimentExperimentForm extends FBP(LitElement) {
 
-
+  
   /**
    * @private
    * @return {Object}
@@ -44,7 +44,7 @@ export class ExperimentExperimentForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-
+  
 
   /**
    * flow is ready lifecycle method
@@ -77,6 +77,10 @@ export class ExperimentExperimentForm extends FBP(LitElement) {
       
       :host {
         display: block;
+      }
+
+      :host(.in-repeater) {
+        border-bottom: 1px solid var(--separator, #FAFAFA);
       }
 
       :host([hidden]) {
@@ -170,13 +174,13 @@ export class ExperimentExperimentForm extends FBP(LitElement) {
           </furo-form> 
 
           <!-- field: repstring -->
-          <string-repeat condensed double ƒ-bind-data="--data(*.repstring)"></string-repeat> 
+          <string-repeat condensed double header-text="${i18n.t('form.experiment.experiment.repstring.header.text')}" secondary-text="${i18n.t('form.experiment.experiment.repstring.secondary.text')}" ƒ-bind-data="--data(*.repstring)"></string-repeat> 
 
           <!-- field: furo_data_money_input -->
           <furo-data-money-input condensed double ƒ-bind-data="--data(*.furo_data_money_input)"></furo-data-money-input> 
 
           <!-- field: furo_data_file_input -->
-          <string-repeat condensed double ƒ-bind-data="--data(*.furo_data_file_input)"></string-repeat> 
+          <string-repeat condensed double header-text="${i18n.t('form.experiment.experiment.furo_data_file_input.header.text')}" secondary-text="${i18n.t('form.experiment.experiment.furo_data_file_input.secondary.text')}" ƒ-bind-data="--data(*.furo_data_file_input)"></string-repeat> 
 
           <!-- field: update_mask -->
           <furo-data-text-input condensed double ƒ-bind-data="--data(*.update_mask)"></furo-data-text-input> 

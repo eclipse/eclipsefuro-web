@@ -103,7 +103,7 @@ export class ProjectProjectCreateForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: cost_limit -->
-          <furo-data-money-input condensed double ƒ-bind-data="--data(*.cost_limit)" ƒ-focus="--focused"></furo-data-money-input> 
+          <furo-data-money-input align-right ƒ-bind-data="--data(*.cost_limit)" ƒ-focus="--focused"></furo-data-money-input> 
         </furo-form-layouter> 
       </furo-form> 
     `;
