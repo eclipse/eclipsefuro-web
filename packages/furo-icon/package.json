@@ -98,7 +98,7 @@
     }
   },
   "prettier": "@open-wc/prettier-config",
-  "husky": {
+  "_husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
