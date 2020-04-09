@@ -17,19 +17,6 @@ class FuroPanelHead extends FBP(LitElement) {
   }
 
   /**
-   * @private
-   * @return {Object}
-   */
-  static get properties() {
-    return {
-      /**
-       * Description
-       */
-      myBool: { type: Boolean },
-    };
-  }
-
-  /**
    * flow is ready lifecycle method
    */
   _FBPReady() {
@@ -37,6 +24,11 @@ class FuroPanelHead extends FBP(LitElement) {
     // this._FBPTraceWires()
   }
 
+  /**
+   * binds a fieldNode to the internal _field
+   * is listenting to field-value-changed event
+   * @param fieldNode
+   */
   bindData(fieldNode) {
     this._field = fieldNode;
 

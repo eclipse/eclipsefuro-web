@@ -30,6 +30,17 @@ describe('furo-ui-builder-task-task-update-action', () => {
 
   });
 
+  it('should display a title element', (done)=>{
+    const titleElement = panel.shadowRoot.querySelector('furo-panel-head');
+    panel._FBPAddWireHook('--response', (response) =>{
+      setTimeout(()=>{
+        assert.equal(titleElement.shadowRoot.querySelector('h1').innerHTML, '<!---->Rework documentation<!---->');
+      },24);
+      done();
+    });
+    linker.qpIn({"tsk": 1});
+  });
+
   it('should set the correct button states', (done) => {
     const action = panel.shadowRoot.querySelector('task-task-update-action');
     const buttons = action.shadowRoot.querySelectorAll('furo-button');
