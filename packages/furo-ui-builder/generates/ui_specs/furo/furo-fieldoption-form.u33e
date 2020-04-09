@@ -8,7 +8,7 @@
     ],
     [
       "Theme",
-      "@furo/framework/theme.js"
+      "@furo/framework/src/theme.js"
     ],
     [
       "FBP",
@@ -16,13 +16,14 @@
     ],
     [
       "i18n",
-      "@furo/framework/i18n.js",
+      "@furo/framework/src/i18n.js",
       "eslint-disable-next-line no-unused-vars"
     ]
   ],
   "imports": [
     "@furo/data-input",
-    "@furo/form"
+    "@furo/form",
+    "../google.protobuf/google-protobuf-any-repeat.js"
   ],
   "component_name": "furo-fieldoption-form",
   "path": "./generates/ui_specs/furo/furo-fieldoption-form.u33e",
@@ -38,6 +39,12 @@
         "children": {},
         "attributes": {
           "display": "none"
+        }
+      },
+      ":host(.in-repeater)": {
+        "children": {},
+        "attributes": {
+          "border-bottom": "1px solid var(--separator, #FAFAFA)"
         }
       }
     },
@@ -72,10 +79,30 @@
                 "full",
                 "condensed"
               ],
-              "attributes": {},
+              "attributes": {
+                "header-text": "${i18n.t('form.furo.fieldoption.list.header.text')}",
+                "secondary-text": "${i18n.t('form.furo.fieldoption.list.secondary.text')}"
+              },
               "methods": {
                 "bind-data": "--data(*.list)",
                 "focus": "--focused"
+              },
+              "events": {},
+              "children": []
+            },
+            {
+              "component": "bool-map",
+              "description": "field: flags",
+              "flags": [
+                "condensed",
+                "double"
+              ],
+              "attributes": {
+                "header-text": "${i18n.t('form.furo.fieldoption.flags.header.text')}",
+                "secondary-text": "${i18n.t('form.furo.fieldoption.flags.secondary.text')}"
+              },
+              "methods": {
+                "bind-data": "--data(*.flags)"
               },
               "events": {},
               "children": []

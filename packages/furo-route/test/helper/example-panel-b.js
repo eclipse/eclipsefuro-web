@@ -1,8 +1,8 @@
-import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/theme"
-import {FBP} from "@furo/fbp";
-import "@furo/util/furo-pretty-json"
-import {BasePanel} from "../../lib/BasePanel";
+import { html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+
+import '@furo/util/src/furo-pretty-json';
+import { BasePanel } from '../../src/lib/BasePanel.js';
 /**
  * `example-panel-b`
  * todo Describe your element
@@ -12,46 +12,41 @@ import {BasePanel} from "../../lib/BasePanel";
  * @appliesMixin FBP
  */
 class ExamplePanelB extends BasePanel {
-
-  constructor(){
+  constructor() {
     super();
     // register the close
     // todo: do some checks
-    this._FBPAddWireHook("--navNode",(treeNode)=>{
+    this._FBPAddWireHook('--navNode', treeNode => {
       this.treeNode = treeNode;
-      treeNode.addEventListener("close-requested",()=>{
-
+      treeNode.addEventListener('close-requested', () => {
         this.treeNode.selectItem();
 
-        let result = window.confirm("Sie haben ungespeicherte daten, Wirklich schliessen?");
-         if(result){
-           this.removePanel();
-         }
-
+        const result = true; // window.confirm("Sie haben ungespeicherte daten, Wirklich schliessen?");
+        if (result) {
+          this.removePanel();
+        }
       });
     });
   }
 
+  /**
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * Description
+       */
+      name: { type: String },
+    };
+  }
 
   /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-            /**
-             * Description
-             */
-            name: {type: String}
-        };
-    }
-
-  /**
-  * flow is ready lifecycle method
-  */
-  _FBPReady(){
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
   }
 
   /**
@@ -61,19 +56,20 @@ class ExamplePanelB extends BasePanel {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('ExamplePanelB') || css`
+    return (
+      Theme.getThemeForComponent('ExamplePanelB') ||
+      css`
         :host {
-            display: block;
-            background-color: #ebe34b;
+          display: block;
+          background-color: #ebe34b;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `
+      `
+    );
   }
-
-
 
   /**
    * @private
@@ -83,7 +79,7 @@ class ExamplePanelB extends BasePanel {
     // language=HTML
     return html`
       <p>I am a example-panel-b component with name ${this.name}</p>
-      
+
       <furo-pretty-json ƒ-inject-data="--panelActivated"></furo-pretty-json>
       <button @-click="-^close-panel-requested(name)">close</button>
     `;

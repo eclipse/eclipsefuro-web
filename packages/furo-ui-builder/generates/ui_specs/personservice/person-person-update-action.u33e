@@ -12,17 +12,17 @@
     ],
     [
       " Theme ",
-      "@furo/framework/theme.js"
+      "@furo/framework/src/theme.js"
     ],
     [
       " i18n ",
-      "@furo/framework/i18n.js",
+      "@furo/framework/src/i18n.js",
       "eslint-disable-next-line no-unused-vars"
     ]
   ],
   "imports": [
-    "@furo/form/furo-button-bar.js",
-    "@furo/input/furo-button.js"
+    "@furo/form/src/furo-button-bar.js",
+    "@furo/input/src/furo-button.js"
   ],
   "component_name": "person-person-update-action",
   "path": "./generates/ui_specs/personservice/person-person-update-action.u33e",

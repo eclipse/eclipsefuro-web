@@ -11,8 +11,6 @@
     "packages/furo-input/test/*_test.html",
     "packages/furo-logic/test/*_test.html",
     "packages/furo-math/test/*_test.html",
-    "packages/furo-timing/test/*_test.html",
-    "packages/furo-util/test/*_test.html",
     "packages/furo-route/test/*_test.html",
     "packages/furo-data-ui/test/*_test.html",
     "packages/furo-navigation/test/*_test.html",
@@ -49,8 +47,7 @@
         "packages/furo-navigation/*.js",
         "packages/furo-notification/*.js",
         "packages/furo-route/*.js",
-        "packages/furo-timing/*.js",
-        "packages/furo-util/*.js",
+
         "packages/furo-testhelper/data-ui/*.js",
         "packages/furo-ui-builder/build/ui/**/*.js"
       ],

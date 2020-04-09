@@ -8,7 +8,7 @@
     ],
     [
       "Theme",
-      "@furo/framework/theme.js"
+      "@furo/framework/src/theme.js"
     ],
     [
       "FBP",
@@ -16,7 +16,7 @@
     ],
     [
       "i18n",
-      "@furo/framework/i18n.js",
+      "@furo/framework/src/i18n.js",
       "eslint-disable-next-line no-unused-vars"
     ]
   ],
@@ -38,6 +38,12 @@
         "children": {},
         "attributes": {
           "display": "none"
+        }
+      },
+      ":host(.in-repeater)": {
+        "children": {},
+        "attributes": {
+          "border-bottom": "1px solid var(--separator, #FAFAFA)"
         }
       }
     },
@@ -365,7 +371,10 @@
                 "condensed",
                 "double"
               ],
-              "attributes": {},
+              "attributes": {
+                "header-text": "${i18n.t('form.experiment.experiment.repstring.header.text')}",
+                "secondary-text": "${i18n.t('form.experiment.experiment.repstring.secondary.text')}"
+              },
               "methods": {
                 "bind-data": "--data(*.repstring)"
               },
@@ -393,7 +402,10 @@
                 "condensed",
                 "double"
               ],
-              "attributes": {},
+              "attributes": {
+                "header-text": "${i18n.t('form.experiment.experiment.furo_data_file_input.header.text')}",
+                "secondary-text": "${i18n.t('form.experiment.experiment.furo_data_file_input.secondary.text')}"
+              },
               "methods": {
                 "bind-data": "--data(*.furo_data_file_input)"
               },

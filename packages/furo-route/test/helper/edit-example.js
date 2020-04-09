@@ -1,8 +1,8 @@
-import {BasePanel} from "../../lib/BasePanel";
-import {Theme} from "@furo/framework/theme"
-import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { html, css } from 'lit-element';
+import { BasePanel } from '../../src/lib/BasePanel.js';
 
-import "@furo/util/furo-pretty-json"
+import '@furo/util/src/furo-pretty-json';
 /**
  * `edit-example`
  * todo Describe your element
@@ -12,14 +12,6 @@ import "@furo/util/furo-pretty-json"
  * @appliesMixin FBP
  */
 class EditExample extends BasePanel {
-
-  constructor() {
-    super();
-    this._FBPAddWireHook("--navNode", (fieldNode) => {
-
-    })
-  }
-
   /**
    * @private
    * @return {Object}
@@ -29,7 +21,7 @@ class EditExample extends BasePanel {
       /**
        * Description
        */
-      myBool: {type: Boolean}
+      myBool: { type: Boolean },
     };
   }
 
@@ -38,7 +30,6 @@ class EditExample extends BasePanel {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
   }
 
   /**
@@ -48,17 +39,19 @@ class EditExample extends BasePanel {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('EditExample') || css`
+    return (
+      Theme.getThemeForComponent('EditExample') ||
+      css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -69,9 +62,7 @@ class EditExample extends BasePanel {
     // language=HTML
     return html`
       <p>Edit Panel</p>
-      <furo-pretty-json ƒ-inject-data="--navNode(*._value)">
-        
-      </furo-pretty-json>
+      <furo-pretty-json ƒ-inject-data="--navNode(*._value)"> </furo-pretty-json>
     `;
   }
 }

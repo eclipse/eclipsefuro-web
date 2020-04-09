@@ -7,9 +7,9 @@ import {Styling} from "./styling";
 import "../project/view-viz";
 import "../project/man-page";
 import '@furo/layout/furo-vertical-flex';
-import '@furo/route/furo-location';
-import '@furo/route/furo-pages';
-import '@furo/route/furo-app-flow';
+import '@furo/route/src/furo-location';
+import '@furo/route/src/furo-pages';
+import '@furo/route/src/furo-app-flow';
 import '@furo/fbp/flow-bind';
 
 

@@ -8,7 +8,7 @@
     ],
     [
       " Theme ",
-      "@furo/framework/theme.js"
+      "@furo/framework/src/theme.js"
     ],
     [
       " FBP ",
@@ -16,16 +16,16 @@
     ],
     [
       " i18n ",
-      "@furo/framework/i18n.js",
+      "@furo/framework/src/i18n.js",
       "eslint-disable-next-line no-unused-vars"
     ]
   ],
   "imports": [
     "@furo/data-input",
-    "@furo/form/furo-form-layouter.js",
-    "@furo/input/furo-button.js",
-    "@furo/app/furo-card.js",
-    "@furo/layout/furo-horizontal-flex.js"
+    "@furo/form/src/furo-form-layouter.js",
+    "@furo/input/src/furo-button.js",
+    "@furo/app/src/furo-card.js",
+    "@furo/layout/src/furo-horizontal-flex.js"
   ],
   "component_name": "experiment-default-create-widget",
   "path": "./generates/ui_specs/experiment/experiment-default-create-widget.u33e",

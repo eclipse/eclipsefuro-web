@@ -1,4 +1,8 @@
-node_modules
+.furo
 .idea
 coverage
-.npmrc
+build
+dist
+node_modules/
+_specbuild
+__tmp

@@ -8,7 +8,7 @@
     ],
     [
       "Theme",
-      "@furo/framework/theme.js"
+      "@furo/framework/src/theme.js"
     ],
     [
       "FBP",
@@ -16,7 +16,7 @@
     ],
     [
       "i18n",
-      "@furo/framework/i18n.js",
+      "@furo/framework/src/i18n.js",
       "eslint-disable-next-line no-unused-vars"
     ]
   ],
@@ -38,6 +38,12 @@
         "children": {},
         "attributes": {
           "display": "none"
+        }
+      },
+      ":host(.in-repeater)": {
+        "children": {},
+        "attributes": {
+          "border-bottom": "1px solid var(--separator, #FAFAFA)"
         }
       }
     },

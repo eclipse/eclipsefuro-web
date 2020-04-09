@@ -1,5 +1,11 @@
-import {css} from 'lit-element/lib/css-tag.js';
+import { css } from 'lit-element/lib/css-tag.js';
 
 export const DefaultTheme = {
-    "ThemedComponent": css` :host{display: block;height: 100vh;overflow: hidden;}`
+  ThemedComponent: css`
+    :host {
+      display: block;
+      height: 100vh;
+      overflow: hidden;
+    }
+  `,
 };

@@ -1,12 +1,10 @@
-import {css} from 'lit-element';
+import { css } from 'lit-element';
 
 export class Styling {
   static get theme() {
-
     // language=CSS
     return css`
       :host {
-
         /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
         /* https://material.io/design/material-theming/implementing-your-theme.html#color */
         --primary: #ececec;
@@ -40,18 +38,17 @@ export class Styling {
         --medium-emphasis-surface: 0.6;
         --medium-emphasis-primary: 0.74;
 
-                
         /* Input, Forms, Toast*/
-        --error: #C51162;
+        --error: #c51162;
         --on-error: #ffffff;
 
-        --danger: #FA0202;
-        --on-danger: #FAFAFA;
+        --danger: #fa0202;
+        --on-danger: #fafafa;
 
         --success: #129991;
         --on-success: #202124;
 
-        --disabled-color: #B4B5B4;
+        --disabled-color: #b4b5b4;
 
         /* Spacing */
         --spacing-xxs: 4px;
@@ -63,12 +60,9 @@ export class Styling {
         --spacing-xl: 48px;
         --spacing-xxl: 96px;
 
-
         /* project specific */
         --furo-input: #ffc247;
-
       }
-
     `;
   }
 }

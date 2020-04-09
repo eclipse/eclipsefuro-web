@@ -8,24 +8,24 @@
     ],
     [
       " Theme ",
-      "@furo/framework/theme.js"
+      "@furo/framework/src/theme.js"
     ],
     [
       " i18n ",
-      "@furo/framework/i18n.js",
+      "@furo/framework/src/i18n.js",
       "eslint-disable-next-line no-unused-vars"
     ],
     [
       " BasePanel ",
-      "@furo/route/lib/BasePanel.js"
+      "@furo/route/src/lib/BasePanel.js"
     ]
   ],
   "imports": [
-    "@furo/layout/furo-vertical-flex.js",
-    "@furo/layout/furo-panel.js",
-    "@furo/navigation/furo-panel-head.js",
-    "@furo/data/furo-entity-agent.js",
-    "@furo/data/furo-data-object.js",
+    "@furo/layout/src/furo-vertical-flex.js",
+    "@furo/layout/src/furo-panel.js",
+    "@furo/navigation/src/furo-panel-head.js",
+    "@furo/data/src/furo-entity-agent.js",
+    "@furo/data/src/furo-data-object.js",
     "../person/person-person-form.js",
     "./person-person-update-action.js"
   ],

@@ -22,11 +22,11 @@ class HookInitUpdateAction {
 
     u33e.addImportWithMember(" LitElement, html, css ", "lit-element");
     u33e.addImportWithMember(" FBP ", "@furo/fbp");
-    u33e.addImportWithMember(" Theme ", "@furo/framework/theme.js");
-    u33e.addImportWithMember(" i18n ", "@furo/framework/i18n.js", "eslint-disable-next-line no-unused-vars");
+    u33e.addImportWithMember(" Theme ", "@furo/framework/src/theme.js");
+    u33e.addImportWithMember(" i18n ", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
-    u33e.addImport("@furo/form/furo-button-bar.js");
-    u33e.addImport("@furo/input/furo-button.js");
+    u33e.addImport("@furo/form/src/furo-button-bar.js");
+    u33e.addImport("@furo/input/src/furo-button.js");
 
     // styling
     u33e.addStyle(":host")

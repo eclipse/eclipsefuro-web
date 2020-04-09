@@ -1,6 +1,7 @@
 export class Samplectxmenudata {
-  static GetData(){
-    return JSON.parse('\n' +
+  static GetData() {
+    return JSON.parse(
+      '\n' +
         '{\n' +
         '  "icon": null,\n' +
         '  "display_name": null,\n' +
@@ -545,6 +546,7 @@ export class Samplectxmenudata {
         '      "payload": []\n' +
         '    }\n' +
         '  ]\n' +
-        '}\n');
+        '}\n',
+    );
   }
 }

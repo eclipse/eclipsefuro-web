@@ -17,16 +17,16 @@ class HookInitCreateWidget {
     u33e.model.description = SPEC.description;
 
     u33e.addImportWithMember(" LitElement, html, css ", "lit-element");
-    u33e.addImportWithMember(" Theme ", "@furo/framework/theme.js");
+    u33e.addImportWithMember(" Theme ", "@furo/framework/src/theme.js");
     u33e.addImportWithMember(" FBP ", "@furo/fbp");
-    u33e.addImportWithMember(" i18n ", "@furo/framework/i18n.js", "eslint-disable-next-line no-unused-vars");
+    u33e.addImportWithMember(" i18n ", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
 
     u33e.addImport("@furo/data-input");
-    u33e.addImport("@furo/form/furo-form-layouter.js");
-    u33e.addImport("@furo/input/furo-button.js");
-    u33e.addImport("@furo/app/furo-card.js");
-    u33e.addImport("@furo/layout/furo-horizontal-flex.js");
+    u33e.addImport("@furo/form/src/furo-form-layouter.js");
+    u33e.addImport("@furo/input/src/furo-button.js");
+    u33e.addImport("@furo/app/src/furo-card.js");
+    u33e.addImport("@furo/layout/src/furo-horizontal-flex.js");
 
     u33e.addMethod("bindData", "data",
         " Bind your furo-data-object event @-object-ready\n @public\n @param data",

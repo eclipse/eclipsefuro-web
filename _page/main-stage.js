@@ -9,9 +9,9 @@ import "./components/header-toolbar";
 import "@furo/notification/furo-snackbar-display";
 
 import '@furo/layout/furo-vertical-flex';
-import '@furo/route/furo-location';
-import '@furo/route/furo-pages';
-import '@furo/route/furo-app-flow';
+import '@furo/route/src/furo-location';
+import '@furo/route/src/furo-pages';
+import '@furo/route/src/furo-app-flow';
 import '@furo/fbp/flow-bind';
 import '@furo/app/furo-tooltip-display';
 

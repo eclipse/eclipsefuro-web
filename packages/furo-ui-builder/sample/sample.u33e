@@ -3,15 +3,15 @@
   "summary": "Ein Anmeldeformular",
   "import_members": [
     [" LitElement, html, css " , "lit-element"],
-    ["Theme" , "@furo/framework/theme"],
+    ["Theme" , "@furo/framework/src/theme"],
     ["FBP" , "@furo/fbp"]
   ],
   "imports": [
-    "@furo/form/furo-form.js",
-    "@furo/input/furo-button.js",
-    "@furo/input/furo-password-input.js",
-    "@furo/input/furo-text-input.js",
-    "@furo/layout/furo-horizontal-flex.js"
+    "@furo/form/src/furo-form.js",
+    "@furo/input/src/furo-button.js",
+    "@furo/input/src/furo-password-input.js",
+    "@furo/input/src/furo-text-input.js",
+    "@furo/layout/src/furo-horizontal-flex.js"
   ],
   "component_name": "login-form",
   "path": "src/project-components/demo",

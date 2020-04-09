@@ -8,7 +8,7 @@
     ],
     [
       "Theme",
-      "@furo/framework/theme.js"
+      "@furo/framework/src/theme.js"
     ],
     [
       "FBP",
@@ -16,7 +16,7 @@
     ],
     [
       "i18n",
-      "@furo/framework/i18n.js",
+      "@furo/framework/src/i18n.js",
       "eslint-disable-next-line no-unused-vars"
     ]
   ],
@@ -102,6 +102,8 @@
                 "double"
               ],
               "attributes": {
+                "header-text": "${i18n.t('createform.experiment.experiment.furo_data_file_input.header.text')}",
+                "secondary-text": "${i18n.t('createform.experiment.experiment.furo_data_file_input.secondary.text')}",
                 "repeated-component": "string-repeat"
               },
               "methods": {

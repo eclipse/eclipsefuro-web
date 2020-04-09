@@ -26,17 +26,17 @@ class HookInitUpdatePanel {
     u33e.model.description = SPEC.description;
 
     u33e.addImportWithMember(" html, css ", "lit-element");
-    u33e.addImportWithMember(" Theme ", "@furo/framework/theme.js");
+    u33e.addImportWithMember(" Theme ", "@furo/framework/src/theme.js");
 
-    u33e.addImportWithMember(" i18n ", "@furo/framework/i18n.js", "eslint-disable-next-line no-unused-vars");
-    u33e.addImportWithMember(" BasePanel ", "@furo/route/lib/BasePanel.js");
+    u33e.addImportWithMember(" i18n ", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
+    u33e.addImportWithMember(" BasePanel ", "@furo/route/src/lib/BasePanel.js");
 
 
-    u33e.addImport("@furo/layout/furo-vertical-flex.js");
-    u33e.addImport("@furo/layout/furo-panel.js");
-    u33e.addImport("@furo/navigation/furo-panel-head.js");
-    u33e.addImport("@furo/data/furo-entity-agent.js");
-    u33e.addImport("@furo/data/furo-data-object.js");
+    u33e.addImport("@furo/layout/src/furo-vertical-flex.js");
+    u33e.addImport("@furo/layout/src/furo-panel.js");
+    u33e.addImport("@furo/navigation/src/furo-panel-head.js");
+    u33e.addImport("@furo/data/src/furo-entity-agent.js");
+    u33e.addImport("@furo/data/src/furo-data-object.js");
 
 
     let formImport = ctx.getImportPathForComponent((ctx.basename + "-form").toLowerCase());
