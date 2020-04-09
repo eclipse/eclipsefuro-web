@@ -2,6 +2,7 @@
   "name": "furo-base-components",
   "description": "Collection of furo base components",
   "devDependencies": {
+    "husky": "^4.2.3",
     "lerna": "^3.13.1",
     "polymer-cli": "^1.9.11"
   },
