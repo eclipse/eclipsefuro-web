@@ -1,7 +1,7 @@
 {
   "name": "@furo/notification",
   "description": "notification components for furo",
-  "version": "0.10.18",
+  "version": "1.0.0",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-notification",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -30,11 +30,11 @@
   },
   "dependencies": {
     "@furo/fbp": "^4.29.2",
-    "@furo/framework": "^0.15.0",
+    "@furo/framework": "^1.0.0",
     "lit-element": "^2.3.1",
     "lit-html": "^1.1.1",
     "markdown-it": "^9.0.1",
-    "@furo/input": "^0.67.11"
+    "@furo/input": "^1.0.0"
   },
   "devDependencies": {
 

@@ -1,6 +1,6 @@
 {
   "name": "@furo/framework",
-  "version": "0.15.0",
+  "version": "1.0.0",
   "description": "Furo framework libs",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-framework",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@furo/fbp": "^4.29.2",
-    "@furo/specs": "^0.52.0",
+    "@furo/specs": "^1.0.0",
     "axe-core": "^3.5.2",
     "pwa-helpers": "^0.9.1",
     "@commitlint/cli": "^8.3.5",

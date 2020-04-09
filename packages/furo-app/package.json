@@ -1,7 +1,7 @@
 {
   "name": "@furo/app",
   "description": "Layout components for furo",
-  "version": "0.7.11",
+  "version": "1.0.0",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-app",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -31,13 +31,13 @@
   },
   "dependencies": {
     "@furo/fbp": "^4.29.2",
-    "@furo/framework": "^0.15.0",
+    "@furo/framework": "^1.0.0",
     "lit-element": "^2.3.1",
-    "@furo/layout": "^0.43.5"
+    "@furo/layout": "^1.0.0"
   },
   "devDependencies": {
 
-    "@furo/input": "^0.67.13",
+    "@furo/input": "^1.0.0",
     "axe-core": "^3.5.2",
     "pwa-helpers": "^0.9.1",
     "@commitlint/cli": "^8.3.5",

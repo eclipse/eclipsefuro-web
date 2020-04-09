@@ -1,6 +1,6 @@
 {
   "name": "@furo/util",
-  "version": "0.24.6",
+  "version": "1.0.0",
   "description": "package sample",
   "homepage": "https://github.com/veith/template-component-package",
   "repository": "git@github.com:veith/template-component-package.git",
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@furo/fbp": "^4.29.2",
-    "@furo/framework": "^0.15.0",
+    "@furo/framework": "^1.0.0",
     "lit-element": "^2.3.1",
     "lit-html": "^1.1.1",
     "markdown-it": "^9.0.1",
@@ -41,7 +41,7 @@
   "devDependencies": {
 
     "axe-core": "^3.5.2",
-    "@furo/navigation": "^0.46.3",
+    "@furo/navigation": "^1.0.0",
     "pwa-helpers": "^0.9.1",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",

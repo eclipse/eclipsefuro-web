@@ -1,7 +1,7 @@
 {
   "name": "@furo/data-util",
   "description": "Furo data utility components",
-  "version": "0.1.27",
+  "version": "1.0.0",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-data-util",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@furo/fbp": "^4.29.2",
-    "@furo/framework": "^0.15.0",
+    "@furo/framework": "^1.0.0",
     "lit-element": "^2.3.1"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 {
   "name": "@furo/math",
   "description": "Furo math components",
-  "version": "0.2.29",
+  "version": "1.0.0",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-math",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -32,11 +32,11 @@
   "dependencies": {
     "lit-element": "^2.3.1",
     "@furo/fbp": "^4.29.2",
-    "@furo/logic": "^0.5.22"
+    "@furo/logic": "^1.0.0"
   },
   "devDependencies": {
 
-    "@furo/framework": "^0.15.0",
+    "@furo/framework": "^1.0.0",
     "axe-core": "^3.5.2",
     "pwa-helpers": "^0.9.1",
     "@commitlint/cli": "^8.3.5",
