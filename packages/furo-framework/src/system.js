@@ -93,7 +93,7 @@ export class Init {
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const service in Env.api.services[s].services) {
         // prefix the hrefs if they do not start with a host
-        let deeplink = Env.api.services[s].services[service].deeplink;
+        const { deeplink } = Env.api.services[s].services[service];
         if (deeplink.href && deeplink.href.length && deeplink.href.startsWith('/')) {
           deeplink.href = Env.api.prefix + deeplink.href;
         }
@@ -106,8 +106,12 @@ export class Init {
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const field in Env.api.specs[t].fields) {
         // Apply the prefix for the default links in furo.Reference types
-        if (Env.api.specs[t].fields[field].type === "furo.Reference" && Env.api.specs[t].fields[field].meta && Env.api.specs[t].fields[field].meta.default) {
-          let deeplink = Env.api.specs[t].fields[field].meta.default.link;
+        if (
+          Env.api.specs[t].fields[field].type === 'furo.Reference' &&
+          Env.api.specs[t].fields[field].meta &&
+          Env.api.specs[t].fields[field].meta.default
+        ) {
+          const deeplink = Env.api.specs[t].fields[field].meta.default.link;
           if (deeplink.href && deeplink.href.length && deeplink.href.startsWith('/')) {
             deeplink.href = Env.api.prefix + deeplink.href;
           }

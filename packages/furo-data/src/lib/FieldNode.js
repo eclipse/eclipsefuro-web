@@ -561,11 +561,11 @@ export class FieldNode extends EventTreeNode {
           const field = this.__childNodes[index];
           let val;
           if (
-            this._constraints &&
-            this._constraints.required &&
-            this._constraints.required.is === 'true'
+            field._constraints &&
+            field._constraints.required &&
+            field._constraints.required.is === 'true'
           ) {
-            val = this._requiredValue;
+            val = field._requiredValue;
           } else {
             val = field._transmitValue;
           }
@@ -592,33 +592,33 @@ export class FieldNode extends EventTreeNode {
       this._constraints.required &&
       this._constraints.required.is === 'true'
     ) {
-      return this._requiredValue;
+      return this._required_value;
     }
-    if (!this._pristine) {
-      if (this.__childNodes.length > 0) {
-        this.__value = {};
-        // nur reine Daten zurück geben
-        // eslint-disable-next-line guard-for-in,no-restricted-syntax
-        for (const index in this.__childNodes) {
-          const field = this.__childNodes[index];
-          let val;
-          if (
-            this._constraints &&
-            this._constraints.required &&
-            this._constraints.required.is === 'true'
-          ) {
-            val = this._requiredValue;
-          } else {
-            val = field._deltaValue;
-          }
-          if (val !== undefined) {
-            this.__value[field._name] = val;
-          }
+    if (this.__childNodes.length > 0) {
+      this.__value = {};
+      // nur reine Daten zurück geben
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
+      for (const index in this.__childNodes) {
+        const field = this.__childNodes[index];
+        let val;
+        if (
+          field._constraints !== undefined &&
+          field._constraints.required !== undefined &&
+          field._constraints.required.is === 'true'
+        ) {
+          val = field._requiredValue;
+        } else {
+          val = field._deltaValue;
+        }
+        if (val !== undefined) {
+          this.__value[field._name] = val;
         }
       }
-      return this.__value;
     }
-    return undefined;
+    if (!this.__childNodes.length) {
+      return !this._pristine ? this.__value : undefined;
+    }
+    return Object.keys(this.__value).length ? this.__value : undefined;
   }
 
   /**

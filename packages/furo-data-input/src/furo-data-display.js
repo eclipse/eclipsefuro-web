@@ -244,7 +244,7 @@ class FuroDataDisplay extends FBP(LitElement) {
         }
 
         label {
-          color: var(--display-label-color,  #747474);
+          color: var(--display-label-color, #747474);
           font-size: 12px;
           padding: 0 4px;
           font-weight: 400;
