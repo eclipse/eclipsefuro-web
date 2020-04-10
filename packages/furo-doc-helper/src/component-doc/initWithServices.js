@@ -1,3 +1,11 @@
+/**
+ * This is the init file for furoBaseComponents it works only in the bootstraped and hoisted
+ * furoBaseComponents monorepo.
+ *
+ * Use init.js for your components.
+ */
+
+
 // -- Minimal init with icons only
 
 import { Init, Iconset } from '@furo/framework/src/furo.js';
@@ -19,10 +27,10 @@ import './registry.js';
 
 // first import the spec (scr/configs/init.js is a good place)
 import spec from '@furo/navigation/specs/navigation/navigationnode.type.spec.js';
-import { Types } from './data_environment.js';
+import { Services, Types } from '@furo/specs/build/data_environment.js';
 import { ExampleCustomIconset } from './iconset.js';
 
-
+Init.registerApiServices(Services);
 Init.registerApiTypes(Types);
 
 // then add / register the type
