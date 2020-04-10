@@ -5,7 +5,6 @@
  * Use init.js for your components.
  */
 
-
 // -- Minimal init with icons only
 
 import { Init, Iconset } from '@furo/framework/src/furo.js';

@@ -22,7 +22,6 @@ import spec from '@furo/navigation/specs/navigation/navigationnode.type.spec.js'
 import { Types } from './data_environment.js';
 import { ExampleCustomIconset } from './iconset.js';
 
-
 Init.registerApiTypes(Types);
 
 // then add / register the type
