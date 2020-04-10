@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/doc-helper/src/component-doc/init.js';
+import '@furo/doc-helper/src/component-doc/initWithServices.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper/src/component-doc/main-stage.js';
 import './demos/demos.js';
