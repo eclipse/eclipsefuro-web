@@ -38,8 +38,12 @@ SpecDirs.forEach((SpecDir)=>{
  let partialList = Helper.walkSync(SpecDir).filter((filepath) => {
   let filename = path.basename(filepath);
   for(var i = 0; i < config.skip_spec.length; i++) {
-    let pattern = config.skip_spec[i];
+    // only use spec .files
+    if(!filename.endsWith(".spec")){
+      return false;
+    }
 
+    let pattern = config.skip_spec[i];
     let match = filepath.match(new RegExp(pattern));
     if(match !== null){
       console.log("skip:", filename, "with pattern",pattern);
