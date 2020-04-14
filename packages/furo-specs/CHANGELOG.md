@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.2.6...@furo/specs@1.2.7) (2020-04-14)
+
+
+### Bug Fixes
+
+* protobuf/proto-gen-go flag update ([aa4bf99](https://github.com/theNorstroem/FuroBaseComponents/commit/aa4bf99))
+
+
+
+
+
 ## [1.2.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.2.4...@furo/specs@1.2.6) (2020-04-14)
 
 
