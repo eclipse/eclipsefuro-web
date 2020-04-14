@@ -25,7 +25,7 @@ protoc --proto_path=./ \
 -I. \
 {{- range $import := .protoc_I}}
 -I{{$import}} \{{end}}
---go_out=goproto_registration=true,\
+--go_out=\
 {{- range $m := .mod}}
 M{{$m.file}}={{$m.package}},\{{end}}
 {{- range $m := .protoc_M}}
