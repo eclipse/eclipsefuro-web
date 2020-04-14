@@ -1,6 +1,6 @@
 {
   "name": "@furo/framework",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Furo framework libs",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-framework",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
@@ -108,6 +108,5 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "gitHead": "d459cebeeb0c7b72bc86a350a2d31a543963abb6"
+  }
 }

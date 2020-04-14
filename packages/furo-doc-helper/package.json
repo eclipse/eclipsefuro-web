@@ -122,6 +122,5 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "gitHead": "d459cebeeb0c7b72bc86a350a2d31a543963abb6"
+  }
 }

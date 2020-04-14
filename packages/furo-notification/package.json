@@ -1,7 +1,7 @@
 {
   "name": "@furo/notification",
   "description": "notification components for furo",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-notification",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -111,6 +111,5 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "gitHead": "d459cebeeb0c7b72bc86a350a2d31a543963abb6"
+  }
 }
