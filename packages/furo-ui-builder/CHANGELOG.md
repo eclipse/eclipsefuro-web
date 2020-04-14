@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.1.4...@furo/ui-builder@1.1.5) (2020-04-14)
+
+
+### Bug Fixes
+
+* lerna package versions ([631b86e](https://github.com/theNorstroem/FuroBaseComponents/commit/631b86e))
+
+
+
+
+
 ## [1.1.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.1.1...@furo/ui-builder@1.1.4) (2020-04-14)
 
 
