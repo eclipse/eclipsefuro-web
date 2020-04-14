@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.2.7...@furo/specs@1.3.0) (2020-04-14)
+
+
+### Features
+
+* accept all orgs for packages ([41c6071](https://github.com/theNorstroem/FuroBaseComponents/commit/41c6071))
+
+
+
+
+
 ## [1.2.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.2.6...@furo/specs@1.2.7) (2020-04-14)
 
 
