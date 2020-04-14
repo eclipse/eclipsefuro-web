@@ -85,7 +85,7 @@ const pkglist = [
     display_name: pkgjson.name,
     payload: pkgjson,
     icon: 'content-paste',
-    id: pkgjson.name.replace('@furo/', 'furo-'),
+    id: pkgjson.name.replace(/@([^/]*)\//, '$1-'),
     link: {
       href: '',
       method: '',
