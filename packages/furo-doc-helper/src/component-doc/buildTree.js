@@ -85,7 +85,7 @@ const pkglist = [
     display_name: pkgjson.name,
     payload: pkgjson,
     icon: 'content-paste',
-    id: pkgjson.name.replace(/@([^/]*)\//, '$1-'),
+    id: pkgjson.name.replace(/@([^/]*)\//, '$1-'), // accept all npm org like @furo/
     link: {
       href: '',
       method: '',
