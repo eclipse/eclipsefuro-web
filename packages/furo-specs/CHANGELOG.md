@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.3.0...@furo/specs@1.4.0) (2020-04-15)
+
+
+### Bug Fixes
+
+* add type of query to proto template ([39d1b96](https://github.com/theNorstroem/FuroBaseComponents/commit/39d1b96))
+
+
+### Features
+
+* create addable specs with optional directory argument ([901f740](https://github.com/theNorstroem/FuroBaseComponents/commit/901f740))
+
+
+
+
+
 # [1.3.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.2.7...@furo/specs@1.3.0) (2020-04-14)
 
 
