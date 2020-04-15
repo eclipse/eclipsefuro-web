@@ -32,7 +32,7 @@ message {{$key}}{{$serviceName}}Request { {{ $params := regexFindAll  "{[a-zA-Z]
     {{$method.data.request}} data = {{add1 (len $params)}}; {{end}} {{ if $method.query}} {{ $qDict := dict }} {{ $keyList := list }} {{range  $k, $v := $method.query }}{{$_ := set $qDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
 {{range $qIndex, $qKey := sortAlpha $keyList }} {{ $values := pick $qDict $qKey }} {{ $valueTmp := values $values }} {{ $query := index $valueTmp 0 }}
     //{{$query.description}}
-    string {{$qKey}} = {{ if $method.data.request}}{{ add (len $params) (add 2 $qIndex)}}{{else}}{{add (len $params) (add1 $qIndex)}}{{end}};{{end}}{{end}}
+    {{$query.__proto.type}} {{$qKey}} = {{ if $method.data.request}}{{ add (len $params) (add 2 $qIndex)}}{{else}}{{add (len $params) (add1 $qIndex)}}{{end}};{{end}}{{end}}
 }
     {{end}}
 {{end}}
