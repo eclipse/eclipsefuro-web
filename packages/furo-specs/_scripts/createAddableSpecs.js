@@ -19,7 +19,8 @@ const os = require('os');
 const path = require('path');
 const execSync = require('child_process').execSync;
 
-
+const specdir = process.argv[2] || './';
+console.log(specdir)
 function walkSync(dir, filelist = []) {
   fs.readdirSync(dir).forEach(file => {
     filelist = fs.statSync(path.join(dir, file)).isDirectory()
@@ -31,7 +32,7 @@ function walkSync(dir, filelist = []) {
 }
 
 // parse spec directory for specs
-let list = walkSync('./specs').filter((fn) => {
+let list = walkSync(specdir).filter((fn) => {
   return fn.endsWith('.spec')
 });
 

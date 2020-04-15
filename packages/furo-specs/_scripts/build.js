@@ -157,6 +157,7 @@ Servicelist.__bundled.imports = Array.from(Servicelist.__bundled.imports);
 Servicelist.__bundled.config = config.bundled;
 Servicelist.__bundled.package = config.bundled.package_name;
 Servicelist.__bundled.options = config.bundled.proto_options;
+
 let jsonfilename = "./__tmp/_services/" + config.bundled.service_name + ".json";
 fs.writeFileSync(jsonfilename, JSON.stringify(Servicelist.__bundled));
 
