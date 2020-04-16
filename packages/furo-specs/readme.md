@@ -7,7 +7,38 @@ If you have Go installed
 
 if not: https://golang.org/doc/install
 
-## Quickstart
+
+- `go get -u google.golang.org/grpc`  
+
+### GRPC Gateway Installation
+More about  [grpc-gateway](https://grpc-ecosystem.github.io/grpc-gateway/docs/usage.html), gRPC to JSON proxy generator 
+following the gRPC HTTP spec.
+
+
+First you need to install ProtocolBuffers 3.0.0-beta-3 or later.
+```shell script
+
+mkdir tmp
+cd tmp
+git clone https://github.com/google/protobuf
+cd protobuf
+./autogen.sh
+./configure
+make
+make check
+sudo make install
+```
+
+Then, go get -u as usual the following packages:
+````shell script
+go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
+go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+go get -u github.com/golang/protobuf/protoc-gen-go
+
+````
+
+
+## Quickstart template for spec projects
 Use the template repository from https://github.com/theNorstroem/template-furo-spec-project to create a spec project for your specs.
 More about using [template repositorys can be found here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
 
