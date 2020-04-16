@@ -14,10 +14,8 @@ if not: https://golang.org/doc/install
 More about  [grpc-gateway](https://grpc-ecosystem.github.io/grpc-gateway/docs/usage.html), gRPC to JSON proxy generator 
 following the gRPC HTTP spec.
 
-
 First you need to install ProtocolBuffers 3.0.0-beta-3 or later.
 ```shell script
-
 mkdir tmp
 cd tmp
 git clone https://github.com/google/protobuf
