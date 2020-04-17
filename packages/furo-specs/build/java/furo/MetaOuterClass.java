@@ -78,6 +78,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>.furo.FieldMeta meta = 1;</code>
+     * @return Whether the meta field is set.
      */
     boolean hasMeta();
     /**
@@ -86,6 +87,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>.furo.FieldMeta meta = 1;</code>
+     * @return The meta.
      */
     furo.MetaOuterClass.FieldMeta getMeta();
     /**
@@ -104,7 +106,7 @@ public final class MetaOuterClass {
    *
    * Protobuf type {@code furo.MetaField}
    */
-  public  static final class MetaField extends
+  public static final class MetaField extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.MetaField)
       MetaFieldOrBuilder {
@@ -114,6 +116,13 @@ public final class MetaOuterClass {
       super(builder);
     }
     private MetaField() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MetaField();
     }
 
     @java.lang.Override
@@ -210,7 +219,6 @@ public final class MetaOuterClass {
               furo.MetaOuterClass.MetaField.class, furo.MetaOuterClass.MetaField.Builder.class);
     }
 
-    private int bitField0_;
     public static final int CONSTRAINTS_FIELD_NUMBER = 2;
     private static final class ConstraintsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -245,6 +253,7 @@ public final class MetaOuterClass {
      * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
      */
 
+    @java.lang.Override
     public boolean containsConstraints(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -253,6 +262,7 @@ public final class MetaOuterClass {
     /**
      * Use {@link #getConstraintsMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint> getConstraints() {
       return getConstraintsMap();
@@ -264,6 +274,7 @@ public final class MetaOuterClass {
      *
      * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint> getConstraintsMap() {
       return internalGetConstraints().getMap();
@@ -275,6 +286,7 @@ public final class MetaOuterClass {
      *
      * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
      */
+    @java.lang.Override
 
     public furo.MetaOuterClass.FieldConstraint getConstraintsOrDefault(
         java.lang.String key,
@@ -291,6 +303,7 @@ public final class MetaOuterClass {
      *
      * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
      */
+    @java.lang.Override
 
     public furo.MetaOuterClass.FieldConstraint getConstraintsOrThrow(
         java.lang.String key) {
@@ -311,7 +324,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>.furo.FieldMeta meta = 1;</code>
+     * @return Whether the meta field is set.
      */
+    @java.lang.Override
     public boolean hasMeta() {
       return meta_ != null;
     }
@@ -321,7 +336,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>.furo.FieldMeta meta = 1;</code>
+     * @return The meta.
      */
+    @java.lang.Override
     public furo.MetaOuterClass.FieldMeta getMeta() {
       return meta_ == null ? furo.MetaOuterClass.FieldMeta.getDefaultInstance() : meta_;
     }
@@ -332,6 +349,7 @@ public final class MetaOuterClass {
      *
      * <code>.furo.FieldMeta meta = 1;</code>
      */
+    @java.lang.Override
     public furo.MetaOuterClass.FieldMetaOrBuilder getMetaOrBuilder() {
       return getMeta();
     }
@@ -616,7 +634,6 @@ public final class MetaOuterClass {
       public furo.MetaOuterClass.MetaField buildPartial() {
         furo.MetaOuterClass.MetaField result = new furo.MetaOuterClass.MetaField(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.constraints_ = internalGetConstraints();
         result.constraints_.makeImmutable();
         if (metaBuilder_ == null) {
@@ -624,7 +641,6 @@ public final class MetaOuterClass {
         } else {
           result.meta_ = metaBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -742,6 +758,7 @@ public final class MetaOuterClass {
        * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
        */
 
+      @java.lang.Override
       public boolean containsConstraints(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -750,6 +767,7 @@ public final class MetaOuterClass {
       /**
        * Use {@link #getConstraintsMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint> getConstraints() {
         return getConstraintsMap();
@@ -761,6 +779,7 @@ public final class MetaOuterClass {
        *
        * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint> getConstraintsMap() {
         return internalGetConstraints().getMap();
@@ -772,6 +791,7 @@ public final class MetaOuterClass {
        *
        * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
        */
+      @java.lang.Override
 
       public furo.MetaOuterClass.FieldConstraint getConstraintsOrDefault(
           java.lang.String key,
@@ -788,6 +808,7 @@ public final class MetaOuterClass {
        *
        * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
        */
+      @java.lang.Override
 
       public furo.MetaOuterClass.FieldConstraint getConstraintsOrThrow(
           java.lang.String key) {
@@ -868,6 +889,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>.furo.FieldMeta meta = 1;</code>
+       * @return Whether the meta field is set.
        */
       public boolean hasMeta() {
         return metaBuilder_ != null || meta_ != null;
@@ -878,6 +900,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>.furo.FieldMeta meta = 1;</code>
+       * @return The meta.
        */
       public furo.MetaOuterClass.FieldMeta getMeta() {
         if (metaBuilder_ == null) {
@@ -1074,6 +1097,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
@@ -1082,6 +1106,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
@@ -1092,6 +1117,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The id.
      */
     java.lang.String getId();
     /**
@@ -1100,6 +1126,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The bytes for id.
      */
     com.google.protobuf.ByteString
         getIdBytes();
@@ -1110,6 +1137,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>bool selected = 3;</code>
+     * @return The selected.
      */
     boolean getSelected();
   }
@@ -1120,7 +1148,7 @@ public final class MetaOuterClass {
    *
    * Protobuf type {@code furo.Optionitem}
    */
-  public  static final class Optionitem extends
+  public static final class Optionitem extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.Optionitem)
       OptionitemOrBuilder {
@@ -1132,6 +1160,13 @@ public final class MetaOuterClass {
     private Optionitem() {
       displayName_ = "";
       id_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Optionitem();
     }
 
     @java.lang.Override
@@ -1147,7 +1182,6 @@ public final class MetaOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1215,7 +1249,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The displayName.
      */
+    @java.lang.Override
     public java.lang.String getDisplayName() {
       java.lang.Object ref = displayName_;
       if (ref instanceof java.lang.String) {
@@ -1234,7 +1270,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The bytes for displayName.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getDisplayNameBytes() {
       java.lang.Object ref = displayName_;
@@ -1257,7 +1295,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The id.
      */
+    @java.lang.Override
     public java.lang.String getId() {
       java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
@@ -1276,7 +1316,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The bytes for id.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getIdBytes() {
       java.lang.Object ref = id_;
@@ -1299,7 +1341,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>bool selected = 3;</code>
+     * @return The selected.
      */
+    @java.lang.Override
     public boolean getSelected() {
       return selected_;
     }
@@ -1652,6 +1696,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @return The displayName.
        */
       public java.lang.String getDisplayName() {
         java.lang.Object ref = displayName_;
@@ -1671,6 +1716,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @return The bytes for displayName.
        */
       public com.google.protobuf.ByteString
           getDisplayNameBytes() {
@@ -1691,6 +1737,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @param value The displayName to set.
+       * @return This builder for chaining.
        */
       public Builder setDisplayName(
           java.lang.String value) {
@@ -1708,6 +1756,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
         
@@ -1721,6 +1770,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @param value The bytes for displayName to set.
+       * @return This builder for chaining.
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1741,6 +1792,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return The id.
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -1760,6 +1812,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return The bytes for id.
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -1780,6 +1833,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(
           java.lang.String value) {
@@ -1797,6 +1852,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -1810,6 +1866,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -1830,7 +1888,9 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>bool selected = 3;</code>
+       * @return The selected.
        */
+      @java.lang.Override
       public boolean getSelected() {
         return selected_;
       }
@@ -1840,6 +1900,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>bool selected = 3;</code>
+       * @param value The selected to set.
+       * @return This builder for chaining.
        */
       public Builder setSelected(boolean value) {
         
@@ -1853,6 +1915,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>bool selected = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSelected() {
         
@@ -1919,19 +1982,25 @@ public final class MetaOuterClass {
 
     /**
      * <code>repeated string flags = 2;</code>
+     * @return A list containing the flags.
      */
     java.util.List<java.lang.String>
         getFlagsList();
     /**
      * <code>repeated string flags = 2;</code>
+     * @return The count of flags.
      */
     int getFlagsCount();
     /**
      * <code>repeated string flags = 2;</code>
+     * @param index The index of the element to return.
+     * @return The flags at the given index.
      */
     java.lang.String getFlags(int index);
     /**
      * <code>repeated string flags = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the flags at the given index.
      */
     com.google.protobuf.ByteString
         getFlagsBytes(int index);
@@ -1987,7 +2056,7 @@ public final class MetaOuterClass {
    *
    * Protobuf type {@code furo.Fieldoption}
    */
-  public  static final class Fieldoption extends
+  public static final class Fieldoption extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.Fieldoption)
       FieldoptionOrBuilder {
@@ -1999,6 +2068,13 @@ public final class MetaOuterClass {
     private Fieldoption() {
       flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       list_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Fieldoption();
     }
 
     @java.lang.Override
@@ -2085,6 +2161,7 @@ public final class MetaOuterClass {
     private com.google.protobuf.LazyStringList flags_;
     /**
      * <code>repeated string flags = 2;</code>
+     * @return A list containing the flags.
      */
     public com.google.protobuf.ProtocolStringList
         getFlagsList() {
@@ -2092,18 +2169,23 @@ public final class MetaOuterClass {
     }
     /**
      * <code>repeated string flags = 2;</code>
+     * @return The count of flags.
      */
     public int getFlagsCount() {
       return flags_.size();
     }
     /**
      * <code>repeated string flags = 2;</code>
+     * @param index The index of the element to return.
+     * @return The flags at the given index.
      */
     public java.lang.String getFlags(int index) {
       return flags_.get(index);
     }
     /**
      * <code>repeated string flags = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the flags at the given index.
      */
     public com.google.protobuf.ByteString
         getFlagsBytes(int index) {
@@ -2119,6 +2201,7 @@ public final class MetaOuterClass {
      *
      * <code>repeated .google.protobuf.Any list = 1;</code>
      */
+    @java.lang.Override
     public java.util.List<google.protobuf.AnyOuterClass.Any> getListList() {
       return list_;
     }
@@ -2129,6 +2212,7 @@ public final class MetaOuterClass {
      *
      * <code>repeated .google.protobuf.Any list = 1;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends google.protobuf.AnyOuterClass.AnyOrBuilder> 
         getListOrBuilderList() {
       return list_;
@@ -2140,6 +2224,7 @@ public final class MetaOuterClass {
      *
      * <code>repeated .google.protobuf.Any list = 1;</code>
      */
+    @java.lang.Override
     public int getListCount() {
       return list_.size();
     }
@@ -2150,6 +2235,7 @@ public final class MetaOuterClass {
      *
      * <code>repeated .google.protobuf.Any list = 1;</code>
      */
+    @java.lang.Override
     public google.protobuf.AnyOuterClass.Any getList(int index) {
       return list_.get(index);
     }
@@ -2160,6 +2246,7 @@ public final class MetaOuterClass {
      *
      * <code>repeated .google.protobuf.Any list = 1;</code>
      */
+    @java.lang.Override
     public google.protobuf.AnyOuterClass.AnyOrBuilder getListOrBuilder(
         int index) {
       return list_.get(index);
@@ -2554,6 +2641,7 @@ public final class MetaOuterClass {
       }
       /**
        * <code>repeated string flags = 2;</code>
+       * @return A list containing the flags.
        */
       public com.google.protobuf.ProtocolStringList
           getFlagsList() {
@@ -2561,18 +2649,23 @@ public final class MetaOuterClass {
       }
       /**
        * <code>repeated string flags = 2;</code>
+       * @return The count of flags.
        */
       public int getFlagsCount() {
         return flags_.size();
       }
       /**
        * <code>repeated string flags = 2;</code>
+       * @param index The index of the element to return.
+       * @return The flags at the given index.
        */
       public java.lang.String getFlags(int index) {
         return flags_.get(index);
       }
       /**
        * <code>repeated string flags = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the flags at the given index.
        */
       public com.google.protobuf.ByteString
           getFlagsBytes(int index) {
@@ -2580,6 +2673,9 @@ public final class MetaOuterClass {
       }
       /**
        * <code>repeated string flags = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The flags to set.
+       * @return This builder for chaining.
        */
       public Builder setFlags(
           int index, java.lang.String value) {
@@ -2593,6 +2689,8 @@ public final class MetaOuterClass {
       }
       /**
        * <code>repeated string flags = 2;</code>
+       * @param value The flags to add.
+       * @return This builder for chaining.
        */
       public Builder addFlags(
           java.lang.String value) {
@@ -2606,6 +2704,8 @@ public final class MetaOuterClass {
       }
       /**
        * <code>repeated string flags = 2;</code>
+       * @param values The flags to add.
+       * @return This builder for chaining.
        */
       public Builder addAllFlags(
           java.lang.Iterable<java.lang.String> values) {
@@ -2617,6 +2717,7 @@ public final class MetaOuterClass {
       }
       /**
        * <code>repeated string flags = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearFlags() {
         flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -2626,6 +2727,8 @@ public final class MetaOuterClass {
       }
       /**
        * <code>repeated string flags = 2;</code>
+       * @param value The bytes of the flags to add.
+       * @return This builder for chaining.
        */
       public Builder addFlagsBytes(
           com.google.protobuf.ByteString value) {
@@ -3068,7 +3171,7 @@ public final class MetaOuterClass {
    *
    * Protobuf type {@code furo.Meta}
    */
-  public  static final class Meta extends
+  public static final class Meta extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.Meta)
       MetaOrBuilder {
@@ -3078,6 +3181,13 @@ public final class MetaOuterClass {
       super(builder);
     }
     private Meta() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Meta();
     }
 
     @java.lang.Override
@@ -3195,6 +3305,7 @@ public final class MetaOuterClass {
      * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
      */
 
+    @java.lang.Override
     public boolean containsFields(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -3203,6 +3314,7 @@ public final class MetaOuterClass {
     /**
      * Use {@link #getFieldsMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField> getFields() {
       return getFieldsMap();
@@ -3214,6 +3326,7 @@ public final class MetaOuterClass {
      *
      * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField> getFieldsMap() {
       return internalGetFields().getMap();
@@ -3225,6 +3338,7 @@ public final class MetaOuterClass {
      *
      * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
      */
+    @java.lang.Override
 
     public furo.MetaOuterClass.MetaField getFieldsOrDefault(
         java.lang.String key,
@@ -3241,6 +3355,7 @@ public final class MetaOuterClass {
      *
      * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
      */
+    @java.lang.Override
 
     public furo.MetaOuterClass.MetaField getFieldsOrThrow(
         java.lang.String key) {
@@ -3627,6 +3742,7 @@ public final class MetaOuterClass {
        * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
        */
 
+      @java.lang.Override
       public boolean containsFields(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -3635,6 +3751,7 @@ public final class MetaOuterClass {
       /**
        * Use {@link #getFieldsMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField> getFields() {
         return getFieldsMap();
@@ -3646,6 +3763,7 @@ public final class MetaOuterClass {
        *
        * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField> getFieldsMap() {
         return internalGetFields().getMap();
@@ -3657,6 +3775,7 @@ public final class MetaOuterClass {
        *
        * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
        */
+      @java.lang.Override
 
       public furo.MetaOuterClass.MetaField getFieldsOrDefault(
           java.lang.String key,
@@ -3673,6 +3792,7 @@ public final class MetaOuterClass {
        *
        * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
        */
+      @java.lang.Override
 
       public furo.MetaOuterClass.MetaField getFieldsOrThrow(
           java.lang.String key) {
@@ -3806,6 +3926,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string default = 3;</code>
+     * @return The default.
      */
     java.lang.String getDefault();
     /**
@@ -3814,6 +3935,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string default = 3;</code>
+     * @return The bytes for default.
      */
     com.google.protobuf.ByteString
         getDefaultBytes();
@@ -3824,6 +3946,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string hint = 2;</code>
+     * @return The hint.
      */
     java.lang.String getHint();
     /**
@@ -3832,6 +3955,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string hint = 2;</code>
+     * @return The bytes for hint.
      */
     com.google.protobuf.ByteString
         getHintBytes();
@@ -3842,6 +3966,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string label = 1;</code>
+     * @return The label.
      */
     java.lang.String getLabel();
     /**
@@ -3850,6 +3975,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string label = 1;</code>
+     * @return The bytes for label.
      */
     com.google.protobuf.ByteString
         getLabelBytes();
@@ -3860,6 +3986,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>.furo.Fieldoption options = 6;</code>
+     * @return Whether the options field is set.
      */
     boolean hasOptions();
     /**
@@ -3868,6 +3995,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>.furo.Fieldoption options = 6;</code>
+     * @return The options.
      */
     furo.MetaOuterClass.Fieldoption getOptions();
     /**
@@ -3885,6 +4013,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>bool readonly = 4;</code>
+     * @return The readonly.
      */
     boolean getReadonly();
 
@@ -3894,6 +4023,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>bool repeated = 5;</code>
+     * @return The repeated.
      */
     boolean getRepeated();
 
@@ -3903,6 +4033,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.Any typespecific = 7;</code>
+     * @return Whether the typespecific field is set.
      */
     boolean hasTypespecific();
     /**
@@ -3911,6 +4042,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.Any typespecific = 7;</code>
+     * @return The typespecific.
      */
     google.protobuf.AnyOuterClass.Any getTypespecific();
     /**
@@ -3929,7 +4061,7 @@ public final class MetaOuterClass {
    *
    * Protobuf type {@code furo.FieldMeta}
    */
-  public  static final class FieldMeta extends
+  public static final class FieldMeta extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.FieldMeta)
       FieldMetaOrBuilder {
@@ -3945,6 +4077,13 @@ public final class MetaOuterClass {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FieldMeta();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -3957,7 +4096,6 @@ public final class MetaOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -4062,7 +4200,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string default = 3;</code>
+     * @return The default.
      */
+    @java.lang.Override
     public java.lang.String getDefault() {
       java.lang.Object ref = default_;
       if (ref instanceof java.lang.String) {
@@ -4081,7 +4221,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string default = 3;</code>
+     * @return The bytes for default.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getDefaultBytes() {
       java.lang.Object ref = default_;
@@ -4104,7 +4246,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string hint = 2;</code>
+     * @return The hint.
      */
+    @java.lang.Override
     public java.lang.String getHint() {
       java.lang.Object ref = hint_;
       if (ref instanceof java.lang.String) {
@@ -4123,7 +4267,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string hint = 2;</code>
+     * @return The bytes for hint.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getHintBytes() {
       java.lang.Object ref = hint_;
@@ -4146,7 +4292,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string label = 1;</code>
+     * @return The label.
      */
+    @java.lang.Override
     public java.lang.String getLabel() {
       java.lang.Object ref = label_;
       if (ref instanceof java.lang.String) {
@@ -4165,7 +4313,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string label = 1;</code>
+     * @return The bytes for label.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getLabelBytes() {
       java.lang.Object ref = label_;
@@ -4188,7 +4338,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>.furo.Fieldoption options = 6;</code>
+     * @return Whether the options field is set.
      */
+    @java.lang.Override
     public boolean hasOptions() {
       return options_ != null;
     }
@@ -4198,7 +4350,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>.furo.Fieldoption options = 6;</code>
+     * @return The options.
      */
+    @java.lang.Override
     public furo.MetaOuterClass.Fieldoption getOptions() {
       return options_ == null ? furo.MetaOuterClass.Fieldoption.getDefaultInstance() : options_;
     }
@@ -4209,6 +4363,7 @@ public final class MetaOuterClass {
      *
      * <code>.furo.Fieldoption options = 6;</code>
      */
+    @java.lang.Override
     public furo.MetaOuterClass.FieldoptionOrBuilder getOptionsOrBuilder() {
       return getOptions();
     }
@@ -4221,7 +4376,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>bool readonly = 4;</code>
+     * @return The readonly.
      */
+    @java.lang.Override
     public boolean getReadonly() {
       return readonly_;
     }
@@ -4234,7 +4391,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>bool repeated = 5;</code>
+     * @return The repeated.
      */
+    @java.lang.Override
     public boolean getRepeated() {
       return repeated_;
     }
@@ -4247,7 +4406,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.Any typespecific = 7;</code>
+     * @return Whether the typespecific field is set.
      */
+    @java.lang.Override
     public boolean hasTypespecific() {
       return typespecific_ != null;
     }
@@ -4257,7 +4418,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.Any typespecific = 7;</code>
+     * @return The typespecific.
      */
+    @java.lang.Override
     public google.protobuf.AnyOuterClass.Any getTypespecific() {
       return typespecific_ == null ? google.protobuf.AnyOuterClass.Any.getDefaultInstance() : typespecific_;
     }
@@ -4268,6 +4431,7 @@ public final class MetaOuterClass {
      *
      * <code>.google.protobuf.Any typespecific = 7;</code>
      */
+    @java.lang.Override
     public google.protobuf.AnyOuterClass.AnyOrBuilder getTypespecificOrBuilder() {
       return getTypespecific();
     }
@@ -4715,6 +4879,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string default = 3;</code>
+       * @return The default.
        */
       public java.lang.String getDefault() {
         java.lang.Object ref = default_;
@@ -4734,6 +4899,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string default = 3;</code>
+       * @return The bytes for default.
        */
       public com.google.protobuf.ByteString
           getDefaultBytes() {
@@ -4754,6 +4920,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string default = 3;</code>
+       * @param value The default to set.
+       * @return This builder for chaining.
        */
       public Builder setDefault(
           java.lang.String value) {
@@ -4771,6 +4939,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string default = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDefault() {
         
@@ -4784,6 +4953,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string default = 3;</code>
+       * @param value The bytes for default to set.
+       * @return This builder for chaining.
        */
       public Builder setDefaultBytes(
           com.google.protobuf.ByteString value) {
@@ -4804,6 +4975,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string hint = 2;</code>
+       * @return The hint.
        */
       public java.lang.String getHint() {
         java.lang.Object ref = hint_;
@@ -4823,6 +4995,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string hint = 2;</code>
+       * @return The bytes for hint.
        */
       public com.google.protobuf.ByteString
           getHintBytes() {
@@ -4843,6 +5016,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string hint = 2;</code>
+       * @param value The hint to set.
+       * @return This builder for chaining.
        */
       public Builder setHint(
           java.lang.String value) {
@@ -4860,6 +5035,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string hint = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearHint() {
         
@@ -4873,6 +5049,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string hint = 2;</code>
+       * @param value The bytes for hint to set.
+       * @return This builder for chaining.
        */
       public Builder setHintBytes(
           com.google.protobuf.ByteString value) {
@@ -4893,6 +5071,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string label = 1;</code>
+       * @return The label.
        */
       public java.lang.String getLabel() {
         java.lang.Object ref = label_;
@@ -4912,6 +5091,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string label = 1;</code>
+       * @return The bytes for label.
        */
       public com.google.protobuf.ByteString
           getLabelBytes() {
@@ -4932,6 +5112,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string label = 1;</code>
+       * @param value The label to set.
+       * @return This builder for chaining.
        */
       public Builder setLabel(
           java.lang.String value) {
@@ -4949,6 +5131,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string label = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLabel() {
         
@@ -4962,6 +5145,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string label = 1;</code>
+       * @param value The bytes for label to set.
+       * @return This builder for chaining.
        */
       public Builder setLabelBytes(
           com.google.protobuf.ByteString value) {
@@ -4984,6 +5169,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>.furo.Fieldoption options = 6;</code>
+       * @return Whether the options field is set.
        */
       public boolean hasOptions() {
         return optionsBuilder_ != null || options_ != null;
@@ -4994,6 +5180,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>.furo.Fieldoption options = 6;</code>
+       * @return The options.
        */
       public furo.MetaOuterClass.Fieldoption getOptions() {
         if (optionsBuilder_ == null) {
@@ -5135,7 +5322,9 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>bool readonly = 4;</code>
+       * @return The readonly.
        */
+      @java.lang.Override
       public boolean getReadonly() {
         return readonly_;
       }
@@ -5145,6 +5334,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>bool readonly = 4;</code>
+       * @param value The readonly to set.
+       * @return This builder for chaining.
        */
       public Builder setReadonly(boolean value) {
         
@@ -5158,6 +5349,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>bool readonly = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearReadonly() {
         
@@ -5173,7 +5365,9 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>bool repeated = 5;</code>
+       * @return The repeated.
        */
+      @java.lang.Override
       public boolean getRepeated() {
         return repeated_;
       }
@@ -5183,6 +5377,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>bool repeated = 5;</code>
+       * @param value The repeated to set.
+       * @return This builder for chaining.
        */
       public Builder setRepeated(boolean value) {
         
@@ -5196,6 +5392,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>bool repeated = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRepeated() {
         
@@ -5213,6 +5410,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>.google.protobuf.Any typespecific = 7;</code>
+       * @return Whether the typespecific field is set.
        */
       public boolean hasTypespecific() {
         return typespecificBuilder_ != null || typespecific_ != null;
@@ -5223,6 +5421,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>.google.protobuf.Any typespecific = 7;</code>
+       * @return The typespecific.
        */
       public google.protobuf.AnyOuterClass.Any getTypespecific() {
         if (typespecificBuilder_ == null) {
@@ -5419,6 +5618,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string is = 1;</code>
+     * @return The is.
      */
     java.lang.String getIs();
     /**
@@ -5427,6 +5627,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string is = 1;</code>
+     * @return The bytes for is.
      */
     com.google.protobuf.ByteString
         getIsBytes();
@@ -5437,6 +5638,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string message = 2;</code>
+     * @return The message.
      */
     java.lang.String getMessage();
     /**
@@ -5445,6 +5647,7 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string message = 2;</code>
+     * @return The bytes for message.
      */
     com.google.protobuf.ByteString
         getMessageBytes();
@@ -5456,7 +5659,7 @@ public final class MetaOuterClass {
    *
    * Protobuf type {@code furo.FieldConstraint}
    */
-  public  static final class FieldConstraint extends
+  public static final class FieldConstraint extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.FieldConstraint)
       FieldConstraintOrBuilder {
@@ -5468,6 +5671,13 @@ public final class MetaOuterClass {
     private FieldConstraint() {
       is_ = "";
       message_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FieldConstraint();
     }
 
     @java.lang.Override
@@ -5483,7 +5693,6 @@ public final class MetaOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -5546,7 +5755,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string is = 1;</code>
+     * @return The is.
      */
+    @java.lang.Override
     public java.lang.String getIs() {
       java.lang.Object ref = is_;
       if (ref instanceof java.lang.String) {
@@ -5565,7 +5776,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string is = 1;</code>
+     * @return The bytes for is.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getIsBytes() {
       java.lang.Object ref = is_;
@@ -5588,7 +5801,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string message = 2;</code>
+     * @return The message.
      */
+    @java.lang.Override
     public java.lang.String getMessage() {
       java.lang.Object ref = message_;
       if (ref instanceof java.lang.String) {
@@ -5607,7 +5822,9 @@ public final class MetaOuterClass {
      * </pre>
      *
      * <code>string message = 2;</code>
+     * @return The bytes for message.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getMessageBytes() {
       java.lang.Object ref = message_;
@@ -5952,6 +6169,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string is = 1;</code>
+       * @return The is.
        */
       public java.lang.String getIs() {
         java.lang.Object ref = is_;
@@ -5971,6 +6189,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string is = 1;</code>
+       * @return The bytes for is.
        */
       public com.google.protobuf.ByteString
           getIsBytes() {
@@ -5991,6 +6210,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string is = 1;</code>
+       * @param value The is to set.
+       * @return This builder for chaining.
        */
       public Builder setIs(
           java.lang.String value) {
@@ -6008,6 +6229,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string is = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIs() {
         
@@ -6021,6 +6243,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string is = 1;</code>
+       * @param value The bytes for is to set.
+       * @return This builder for chaining.
        */
       public Builder setIsBytes(
           com.google.protobuf.ByteString value) {
@@ -6041,6 +6265,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string message = 2;</code>
+       * @return The message.
        */
       public java.lang.String getMessage() {
         java.lang.Object ref = message_;
@@ -6060,6 +6285,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string message = 2;</code>
+       * @return The bytes for message.
        */
       public com.google.protobuf.ByteString
           getMessageBytes() {
@@ -6080,6 +6306,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string message = 2;</code>
+       * @param value The message to set.
+       * @return This builder for chaining.
        */
       public Builder setMessage(
           java.lang.String value) {
@@ -6097,6 +6325,7 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string message = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearMessage() {
         
@@ -6110,6 +6339,8 @@ public final class MetaOuterClass {
        * </pre>
        *
        * <code>string message = 2;</code>
+       * @param value The bytes for message to set.
+       * @return This builder for chaining.
        */
       public Builder setMessageBytes(
           com.google.protobuf.ByteString value) {
@@ -6243,19 +6474,11 @@ public final class MetaOuterClass {
       "f.Any\".\n\017FieldConstraint\022\n\n\002is\030\001 \001(\t\022\017\n\007" +
       "message\030\002 \001(\tb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           google.protobuf.AnyOuterClass.getDescriptor(),
-        }, assigner);
+        });
     internal_static_furo_MetaField_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_furo_MetaField_fieldAccessorTable = new

@@ -12,7 +12,10 @@
       "projectfilter/projectfilter.proto",
       "google/protobuf/empty.proto"
     ],
-    "targetfile": "projectfilterservice.proto"
+    "targetfile": "projectfilterservice.proto",
+    "options": {
+      "go_package": "/projectfilterservice"
+    }
   },
   "services": {
     "Get": {

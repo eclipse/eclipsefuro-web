@@ -11,7 +11,10 @@
     "imports": [
       "person/person.proto"
     ],
-    "targetfile": "service.proto"
+    "targetfile": "service.proto",
+    "options": {
+      "go_package": "/projectmemberservice"
+    }
   },
   "services": {
     "Unsubscribe": {

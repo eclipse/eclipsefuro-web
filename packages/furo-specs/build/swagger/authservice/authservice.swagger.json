@@ -4,10 +4,6 @@
     "title": "authservice/authservice.proto",
     "version": "version not set"
   },
-  "schemes": [
-    "http",
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
@@ -18,12 +14,18 @@
     "/api/auth": {
       "delete": {
         "summary": "Logout ala delete a auth session",
-        "operationId": "Logout",
+        "operationId": "AuthService_Logout",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -35,12 +37,18 @@
     "/api/auths": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a AuthCollection of AuthEntity that match the input parameters.",
-        "operationId": "ListAuths",
+        "operationId": "AuthService_ListAuths",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/authAuthCollection"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -59,12 +67,18 @@
       },
       "post": {
         "summary": "Creates a new Auth",
-        "operationId": "CreateAuth",
+        "operationId": "AuthService_CreateAuth",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/authAuthEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -86,12 +100,18 @@
     "/api/auths/{uid}": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a AuthEntity which contains a Auth",
-        "operationId": "GetAuth",
+        "operationId": "AuthService_GetAuth",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/authAuthEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -109,12 +129,18 @@
       },
       "patch": {
         "summary": "Updates a Auth, partial updates are supported",
-        "operationId": "UpdateAuth",
+        "operationId": "AuthService_UpdateAuth",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/authAuthEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -344,6 +370,27 @@
         }
       },
       "title": "Any contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
     }
   }
 }

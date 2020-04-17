@@ -352,19 +352,11 @@ public final class AnyProto {
       "\022\210\001\n\020UpdateExperiment\022+.taskmanager.Upda" +
       "teExperimentServiceRequest\032\034.experiment." +
       "ExperimentEntity\")\202\323\344\223\002#2\033/mockdata/expe" +
-      "riments/{exp}:\004dataBM\n\013taskmanagerB\010AnyP" +
-      "rotoP\001Z\013taskmanager\242\002\003GPB\252\002\036Google.Proto" +
-      "buf.WellKnownTypesb\006proto3"
+      "riments/{exp}:\004dataBW\n\013taskmanagerB\010AnyP" +
+      "rotoP\001Z\025__bundled;taskmanager\242\002\003GPB\252\002\036Go" +
+      "ogle.Protobuf.WellKnownTypesb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
@@ -376,7 +368,7 @@ public final class AnyProto {
           project.ProjectOuterClass.getDescriptor(),
           task.TaskOuterClass.getDescriptor(),
           experiment.ExperimentOuterClass.getDescriptor(),
-        }, assigner);
+        });
     internal_static_taskmanager_CreateTreeServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_taskmanager_CreateTreeServiceRequest_fieldAccessorTable = new

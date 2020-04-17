@@ -6,7 +6,7 @@ package taskmanager;
 /**
  * Protobuf type {@code taskmanager.ListTaskServiceRequest}
  */
-public  final class ListTaskServiceRequest extends
+public final class ListTaskServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:taskmanager.ListTaskServiceRequest)
     ListTaskServiceRequestOrBuilder {
@@ -25,6 +25,13 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new ListTaskServiceRequest();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -37,7 +44,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -124,7 +130,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string fields = 1;</code>
+   * @return The fields.
    */
+  @java.lang.Override
   public java.lang.String getFields() {
     java.lang.Object ref = fields_;
     if (ref instanceof java.lang.String) {
@@ -143,7 +151,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string fields = 1;</code>
+   * @return The bytes for fields.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getFieldsBytes() {
     java.lang.Object ref = fields_;
@@ -166,7 +176,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string filter = 2;</code>
+   * @return The filter.
    */
+  @java.lang.Override
   public java.lang.String getFilter() {
     java.lang.Object ref = filter_;
     if (ref instanceof java.lang.String) {
@@ -185,7 +197,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string filter = 2;</code>
+   * @return The bytes for filter.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getFilterBytes() {
     java.lang.Object ref = filter_;
@@ -208,7 +222,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string order_by = 3;</code>
+   * @return The orderBy.
    */
+  @java.lang.Override
   public java.lang.String getOrderBy() {
     java.lang.Object ref = orderBy_;
     if (ref instanceof java.lang.String) {
@@ -227,7 +243,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string order_by = 3;</code>
+   * @return The bytes for orderBy.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getOrderByBytes() {
     java.lang.Object ref = orderBy_;
@@ -252,7 +270,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string page_size = 4;</code>
+   * @return The pageSize.
    */
+  @java.lang.Override
   public java.lang.String getPageSize() {
     java.lang.Object ref = pageSize_;
     if (ref instanceof java.lang.String) {
@@ -273,7 +293,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string page_size = 4;</code>
+   * @return The bytes for pageSize.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getPageSizeBytes() {
     java.lang.Object ref = pageSize_;
@@ -296,7 +318,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string q = 5;</code>
+   * @return The q.
    */
+  @java.lang.Override
   public java.lang.String getQ() {
     java.lang.Object ref = q_;
     if (ref instanceof java.lang.String) {
@@ -315,7 +339,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string q = 5;</code>
+   * @return The bytes for q.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getQBytes() {
     java.lang.Object ref = q_;
@@ -338,7 +364,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string view = 6;</code>
+   * @return The view.
    */
+  @java.lang.Override
   public java.lang.String getView() {
     java.lang.Object ref = view_;
     if (ref instanceof java.lang.String) {
@@ -357,7 +385,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string view = 6;</code>
+   * @return The bytes for view.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getViewBytes() {
     java.lang.Object ref = view_;
@@ -766,6 +796,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string fields = 1;</code>
+     * @return The fields.
      */
     public java.lang.String getFields() {
       java.lang.Object ref = fields_;
@@ -785,6 +816,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string fields = 1;</code>
+     * @return The bytes for fields.
      */
     public com.google.protobuf.ByteString
         getFieldsBytes() {
@@ -805,6 +837,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string fields = 1;</code>
+     * @param value The fields to set.
+     * @return This builder for chaining.
      */
     public Builder setFields(
         java.lang.String value) {
@@ -822,6 +856,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string fields = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearFields() {
       
@@ -835,6 +870,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string fields = 1;</code>
+     * @param value The bytes for fields to set.
+     * @return This builder for chaining.
      */
     public Builder setFieldsBytes(
         com.google.protobuf.ByteString value) {
@@ -855,6 +892,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string filter = 2;</code>
+     * @return The filter.
      */
     public java.lang.String getFilter() {
       java.lang.Object ref = filter_;
@@ -874,6 +912,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string filter = 2;</code>
+     * @return The bytes for filter.
      */
     public com.google.protobuf.ByteString
         getFilterBytes() {
@@ -894,6 +933,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string filter = 2;</code>
+     * @param value The filter to set.
+     * @return This builder for chaining.
      */
     public Builder setFilter(
         java.lang.String value) {
@@ -911,6 +952,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string filter = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearFilter() {
       
@@ -924,6 +966,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string filter = 2;</code>
+     * @param value The bytes for filter to set.
+     * @return This builder for chaining.
      */
     public Builder setFilterBytes(
         com.google.protobuf.ByteString value) {
@@ -944,6 +988,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string order_by = 3;</code>
+     * @return The orderBy.
      */
     public java.lang.String getOrderBy() {
       java.lang.Object ref = orderBy_;
@@ -963,6 +1008,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string order_by = 3;</code>
+     * @return The bytes for orderBy.
      */
     public com.google.protobuf.ByteString
         getOrderByBytes() {
@@ -983,6 +1029,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string order_by = 3;</code>
+     * @param value The orderBy to set.
+     * @return This builder for chaining.
      */
     public Builder setOrderBy(
         java.lang.String value) {
@@ -1000,6 +1048,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string order_by = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearOrderBy() {
       
@@ -1013,6 +1062,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string order_by = 3;</code>
+     * @param value The bytes for orderBy to set.
+     * @return This builder for chaining.
      */
     public Builder setOrderByBytes(
         com.google.protobuf.ByteString value) {
@@ -1035,6 +1086,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string page_size = 4;</code>
+     * @return The pageSize.
      */
     public java.lang.String getPageSize() {
       java.lang.Object ref = pageSize_;
@@ -1056,6 +1108,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string page_size = 4;</code>
+     * @return The bytes for pageSize.
      */
     public com.google.protobuf.ByteString
         getPageSizeBytes() {
@@ -1078,6 +1131,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string page_size = 4;</code>
+     * @param value The pageSize to set.
+     * @return This builder for chaining.
      */
     public Builder setPageSize(
         java.lang.String value) {
@@ -1097,6 +1152,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string page_size = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPageSize() {
       
@@ -1112,6 +1168,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string page_size = 4;</code>
+     * @param value The bytes for pageSize to set.
+     * @return This builder for chaining.
      */
     public Builder setPageSizeBytes(
         com.google.protobuf.ByteString value) {
@@ -1132,6 +1190,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string q = 5;</code>
+     * @return The q.
      */
     public java.lang.String getQ() {
       java.lang.Object ref = q_;
@@ -1151,6 +1210,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string q = 5;</code>
+     * @return The bytes for q.
      */
     public com.google.protobuf.ByteString
         getQBytes() {
@@ -1171,6 +1231,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string q = 5;</code>
+     * @param value The q to set.
+     * @return This builder for chaining.
      */
     public Builder setQ(
         java.lang.String value) {
@@ -1188,6 +1250,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string q = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearQ() {
       
@@ -1201,6 +1264,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string q = 5;</code>
+     * @param value The bytes for q to set.
+     * @return This builder for chaining.
      */
     public Builder setQBytes(
         com.google.protobuf.ByteString value) {
@@ -1221,6 +1286,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string view = 6;</code>
+     * @return The view.
      */
     public java.lang.String getView() {
       java.lang.Object ref = view_;
@@ -1240,6 +1306,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string view = 6;</code>
+     * @return The bytes for view.
      */
     public com.google.protobuf.ByteString
         getViewBytes() {
@@ -1260,6 +1327,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string view = 6;</code>
+     * @param value The view to set.
+     * @return This builder for chaining.
      */
     public Builder setView(
         java.lang.String value) {
@@ -1277,6 +1346,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string view = 6;</code>
+     * @return This builder for chaining.
      */
     public Builder clearView() {
       
@@ -1290,6 +1360,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string view = 6;</code>
+     * @param value The bytes for view to set.
+     * @return This builder for chaining.
      */
     public Builder setViewBytes(
         com.google.protobuf.ByteString value) {

@@ -9,20 +9,24 @@ public interface UpdateTaskServiceRequestOrBuilder extends
 
   /**
    * <code>string tsk = 1;</code>
+   * @return The tsk.
    */
   java.lang.String getTsk();
   /**
    * <code>string tsk = 1;</code>
+   * @return The bytes for tsk.
    */
   com.google.protobuf.ByteString
       getTskBytes();
 
   /**
    * <code>.task.Task data = 2;</code>
+   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.task.Task data = 2;</code>
+   * @return The data.
    */
   task.TaskOuterClass.Task getData();
   /**

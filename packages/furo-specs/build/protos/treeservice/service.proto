@@ -4,6 +4,7 @@ syntax = "proto3";
 package treeservice;
 
 
+    option go_package = "/treeservice";
 
 import "google/api/annotations.proto";
 

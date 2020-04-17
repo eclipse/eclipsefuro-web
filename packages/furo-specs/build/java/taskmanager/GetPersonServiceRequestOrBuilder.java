@@ -9,10 +9,12 @@ public interface GetPersonServiceRequestOrBuilder extends
 
   /**
    * <code>string prs = 1;</code>
+   * @return The prs.
    */
   java.lang.String getPrs();
   /**
    * <code>string prs = 1;</code>
+   * @return The bytes for prs.
    */
   com.google.protobuf.ByteString
       getPrsBytes();

@@ -9,10 +9,12 @@ public interface GetTaskServiceRequestOrBuilder extends
 
   /**
    * <code>string tsk = 1;</code>
+   * @return The tsk.
    */
   java.lang.String getTsk();
   /**
    * <code>string tsk = 1;</code>
+   * @return The bytes for tsk.
    */
   com.google.protobuf.ByteString
       getTskBytes();

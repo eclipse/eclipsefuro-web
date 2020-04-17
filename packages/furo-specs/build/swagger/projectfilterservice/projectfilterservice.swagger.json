@@ -4,10 +4,6 @@
     "title": "projectfilterservice/projectfilterservice.proto",
     "version": "version not set"
   },
-  "schemes": [
-    "http",
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
@@ -18,12 +14,18 @@
     "/mockdata/projects/filter/get.json": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter",
-        "operationId": "GetProjectfilter",
+        "operationId": "ProjectfilterService_GetProjectfilter",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/projectfilterProjectfilterEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -236,6 +238,27 @@
         }
       },
       "title": "Any contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
     },
     "typeDate": {
       "type": "object",

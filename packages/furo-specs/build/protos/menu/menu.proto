@@ -4,7 +4,7 @@ syntax = "proto3";
 package menu;
 
 option java_outer_classname = "MenuApi";
-option java_package = "com.adcubum.marketingdistribution.salessupport.menu";
+option java_package = "com.acme.menu";
 
 import "google/protobuf/any.proto";
 

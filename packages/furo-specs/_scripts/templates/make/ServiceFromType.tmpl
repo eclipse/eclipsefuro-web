@@ -12,7 +12,10 @@
       "{{.name}}/{{.name}}.proto",
       "google/protobuf/empty.proto"
     ],
-    "targetfile": "{{.name}}service.proto"
+    "targetfile": "{{.name}}service.proto",
+    "options": {
+          "go_package": "/{{.__proto.package}}service"
+        }
   },
   "services": {
     "List": {

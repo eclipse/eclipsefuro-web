@@ -9,20 +9,24 @@ public interface UpdatePersonServiceRequestOrBuilder extends
 
   /**
    * <code>string prs = 1;</code>
+   * @return The prs.
    */
   java.lang.String getPrs();
   /**
    * <code>string prs = 1;</code>
+   * @return The bytes for prs.
    */
   com.google.protobuf.ByteString
       getPrsBytes();
 
   /**
    * <code>.person.Person data = 2;</code>
+   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.person.Person data = 2;</code>
+   * @return The data.
    */
   person.PersonOuterClass.Person getData();
   /**

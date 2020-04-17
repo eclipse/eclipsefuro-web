@@ -12,7 +12,10 @@
       "experiment/experiment.proto",
       "google/protobuf/empty.proto"
     ],
-    "targetfile": "service.proto"
+    "targetfile": "service.proto",
+    "options": {
+      "go_package": "/experimentservice"
+    }
   },
   "services": {
     "List": {

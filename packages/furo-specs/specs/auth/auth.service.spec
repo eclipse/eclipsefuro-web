@@ -12,7 +12,10 @@
       "auth/auth.proto",
       "google/protobuf/empty.proto"
     ],
-    "targetfile": "authservice.proto"
+    "targetfile": "authservice.proto",
+    "options": {
+      "go_package": "/authservice"
+    }
   },
   "services": {
     "List": {
