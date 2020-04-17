@@ -9,10 +9,12 @@ public interface ReleaseExperimentServiceRequestOrBuilder extends
 
   /**
    * <code>.experiment.ExperimentEntity data = 1;</code>
+   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.experiment.ExperimentEntity data = 1;</code>
+   * @return The data.
    */
   experiment.ExperimentOuterClass.ExperimentEntity getData();
   /**

@@ -9,10 +9,12 @@ public interface CreateAuthServiceRequestOrBuilder extends
 
   /**
    * <code>.auth.Auth data = 1;</code>
+   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.auth.Auth data = 1;</code>
+   * @return The data.
    */
   auth.AuthOuterClass.Auth getData();
   /**

@@ -4,6 +4,7 @@ syntax = "proto3";
 package projectfilterservice;
 
 
+    option go_package = "/projectfilterservice";
 
 import "google/api/annotations.proto";
 

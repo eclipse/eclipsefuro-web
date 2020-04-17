@@ -4,6 +4,7 @@ syntax = "proto3";
 package personservice;
 
 
+    option go_package = "/personservice";
 
 import "google/api/annotations.proto";
 

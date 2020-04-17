@@ -6,7 +6,7 @@
     "package": "menu",
     "options": {
       "java_outer_classname": "MenuApi",
-      "java_package": "com.adcubum.marketingdistribution.salessupport.menu"
+      "java_package": "com.acme.menu"
     },
     "imports": [
       "google/protobuf/any.proto"

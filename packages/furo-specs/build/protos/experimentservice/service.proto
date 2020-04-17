@@ -4,6 +4,7 @@ syntax = "proto3";
 package experimentservice;
 
 
+    option go_package = "/experimentservice";
 
 import "google/api/annotations.proto";
 

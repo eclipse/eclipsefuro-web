@@ -25,7 +25,7 @@ public final class EmptyOuterClass {
    *
    * Protobuf type {@code google.protobuf.Empty}
    */
-  public  static final class Empty extends
+  public static final class Empty extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:google.protobuf.Empty)
       EmptyOrBuilder {
@@ -35,6 +35,13 @@ public final class EmptyOuterClass {
       super(builder);
     }
     private Empty() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Empty();
     }
 
     @java.lang.Override
@@ -450,18 +457,10 @@ public final class EmptyOuterClass {
       "\n\033google/protobuf/empty.proto\022\017google.pr" +
       "otobuf\"\007\n\005Emptyb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_google_protobuf_Empty_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_google_protobuf_Empty_fieldAccessorTable = new

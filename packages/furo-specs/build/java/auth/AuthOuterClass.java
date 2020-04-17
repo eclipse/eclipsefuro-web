@@ -112,6 +112,7 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
+     * @return Whether the meta field is set.
      */
     boolean hasMeta();
     /**
@@ -120,6 +121,7 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
+     * @return The meta.
      */
     furo.MetaOuterClass.Meta getMeta();
     /**
@@ -138,7 +140,7 @@ public final class AuthOuterClass {
    *
    * Protobuf type {@code auth.AuthCollection}
    */
-  public  static final class AuthCollection extends
+  public static final class AuthCollection extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:auth.AuthCollection)
       AuthCollectionOrBuilder {
@@ -150,6 +152,13 @@ public final class AuthOuterClass {
     private AuthCollection() {
       entities_ = java.util.Collections.emptyList();
       links_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AuthCollection();
     }
 
     @java.lang.Override
@@ -245,7 +254,6 @@ public final class AuthOuterClass {
               auth.AuthOuterClass.AuthCollection.class, auth.AuthOuterClass.AuthCollection.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ENTITIES_FIELD_NUMBER = 4;
     private java.util.List<auth.AuthOuterClass.AuthEntity> entities_;
     /**
@@ -255,6 +263,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .auth.AuthEntity entities = 4;</code>
      */
+    @java.lang.Override
     public java.util.List<auth.AuthOuterClass.AuthEntity> getEntitiesList() {
       return entities_;
     }
@@ -265,6 +274,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .auth.AuthEntity entities = 4;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends auth.AuthOuterClass.AuthEntityOrBuilder> 
         getEntitiesOrBuilderList() {
       return entities_;
@@ -276,6 +286,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .auth.AuthEntity entities = 4;</code>
      */
+    @java.lang.Override
     public int getEntitiesCount() {
       return entities_.size();
     }
@@ -286,6 +297,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .auth.AuthEntity entities = 4;</code>
      */
+    @java.lang.Override
     public auth.AuthOuterClass.AuthEntity getEntities(int index) {
       return entities_.get(index);
     }
@@ -296,6 +308,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .auth.AuthEntity entities = 4;</code>
      */
+    @java.lang.Override
     public auth.AuthOuterClass.AuthEntityOrBuilder getEntitiesOrBuilder(
         int index) {
       return entities_.get(index);
@@ -310,6 +323,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public java.util.List<furo.LinkOuterClass.Link> getLinksList() {
       return links_;
     }
@@ -320,6 +334,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends furo.LinkOuterClass.LinkOrBuilder> 
         getLinksOrBuilderList() {
       return links_;
@@ -331,6 +346,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public int getLinksCount() {
       return links_.size();
     }
@@ -341,6 +357,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public furo.LinkOuterClass.Link getLinks(int index) {
       return links_.get(index);
     }
@@ -351,6 +368,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public furo.LinkOuterClass.LinkOrBuilder getLinksOrBuilder(
         int index) {
       return links_.get(index);
@@ -364,7 +382,9 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
+     * @return Whether the meta field is set.
      */
+    @java.lang.Override
     public boolean hasMeta() {
       return meta_ != null;
     }
@@ -374,7 +394,9 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
+     * @return The meta.
      */
+    @java.lang.Override
     public furo.MetaOuterClass.Meta getMeta() {
       return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
     }
@@ -385,6 +407,7 @@ public final class AuthOuterClass {
      *
      * <code>.furo.Meta meta = 2;</code>
      */
+    @java.lang.Override
     public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
       return getMeta();
     }
@@ -664,7 +687,6 @@ public final class AuthOuterClass {
       public auth.AuthOuterClass.AuthCollection buildPartial() {
         auth.AuthOuterClass.AuthCollection result = new auth.AuthOuterClass.AuthCollection(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (entitiesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             entities_ = java.util.Collections.unmodifiableList(entities_);
@@ -688,7 +710,6 @@ public final class AuthOuterClass {
         } else {
           result.meta_ = metaBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1455,6 +1476,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 2;</code>
+       * @return Whether the meta field is set.
        */
       public boolean hasMeta() {
         return metaBuilder_ != null || meta_ != null;
@@ -1465,6 +1487,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 2;</code>
+       * @return The meta.
        */
       public furo.MetaOuterClass.Meta getMeta() {
         if (metaBuilder_ == null) {
@@ -1661,6 +1684,7 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>.auth.Auth data = 1;</code>
+     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
@@ -1669,6 +1693,7 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>.auth.Auth data = 1;</code>
+     * @return The data.
      */
     auth.AuthOuterClass.Auth getData();
     /**
@@ -1730,6 +1755,7 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
+     * @return Whether the meta field is set.
      */
     boolean hasMeta();
     /**
@@ -1738,6 +1764,7 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
+     * @return The meta.
      */
     furo.MetaOuterClass.Meta getMeta();
     /**
@@ -1756,7 +1783,7 @@ public final class AuthOuterClass {
    *
    * Protobuf type {@code auth.AuthEntity}
    */
-  public  static final class AuthEntity extends
+  public static final class AuthEntity extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:auth.AuthEntity)
       AuthEntityOrBuilder {
@@ -1767,6 +1794,13 @@ public final class AuthOuterClass {
     }
     private AuthEntity() {
       links_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AuthEntity();
     }
 
     @java.lang.Override
@@ -1807,9 +1841,9 @@ public final class AuthOuterClass {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 links_ = new java.util.ArrayList<furo.LinkOuterClass.Link>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000001;
               }
               links_.add(
                   input.readMessage(furo.LinkOuterClass.Link.parser(), extensionRegistry));
@@ -1843,7 +1877,7 @@ public final class AuthOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           links_ = java.util.Collections.unmodifiableList(links_);
         }
         this.unknownFields = unknownFields.build();
@@ -1863,7 +1897,6 @@ public final class AuthOuterClass {
               auth.AuthOuterClass.AuthEntity.class, auth.AuthOuterClass.AuthEntity.Builder.class);
     }
 
-    private int bitField0_;
     public static final int DATA_FIELD_NUMBER = 1;
     private auth.AuthOuterClass.Auth data_;
     /**
@@ -1872,7 +1905,9 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>.auth.Auth data = 1;</code>
+     * @return Whether the data field is set.
      */
+    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
@@ -1882,7 +1917,9 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>.auth.Auth data = 1;</code>
+     * @return The data.
      */
+    @java.lang.Override
     public auth.AuthOuterClass.Auth getData() {
       return data_ == null ? auth.AuthOuterClass.Auth.getDefaultInstance() : data_;
     }
@@ -1893,6 +1930,7 @@ public final class AuthOuterClass {
      *
      * <code>.auth.Auth data = 1;</code>
      */
+    @java.lang.Override
     public auth.AuthOuterClass.AuthOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -1906,6 +1944,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public java.util.List<furo.LinkOuterClass.Link> getLinksList() {
       return links_;
     }
@@ -1916,6 +1955,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends furo.LinkOuterClass.LinkOrBuilder> 
         getLinksOrBuilderList() {
       return links_;
@@ -1927,6 +1967,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public int getLinksCount() {
       return links_.size();
     }
@@ -1937,6 +1978,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public furo.LinkOuterClass.Link getLinks(int index) {
       return links_.get(index);
     }
@@ -1947,6 +1989,7 @@ public final class AuthOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public furo.LinkOuterClass.LinkOrBuilder getLinksOrBuilder(
         int index) {
       return links_.get(index);
@@ -1960,7 +2003,9 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
+     * @return Whether the meta field is set.
      */
+    @java.lang.Override
     public boolean hasMeta() {
       return meta_ != null;
     }
@@ -1970,7 +2015,9 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
+     * @return The meta.
      */
+    @java.lang.Override
     public furo.MetaOuterClass.Meta getMeta() {
       return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
     }
@@ -1981,6 +2028,7 @@ public final class AuthOuterClass {
      *
      * <code>.furo.Meta meta = 3;</code>
      */
+    @java.lang.Override
     public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
       return getMeta();
     }
@@ -2225,7 +2273,7 @@ public final class AuthOuterClass {
         }
         if (linksBuilder_ == null) {
           links_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           linksBuilder_.clear();
         }
@@ -2262,16 +2310,15 @@ public final class AuthOuterClass {
       public auth.AuthOuterClass.AuthEntity buildPartial() {
         auth.AuthOuterClass.AuthEntity result = new auth.AuthOuterClass.AuthEntity(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (dataBuilder_ == null) {
           result.data_ = data_;
         } else {
           result.data_ = dataBuilder_.build();
         }
         if (linksBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             links_ = java.util.Collections.unmodifiableList(links_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.links_ = links_;
         } else {
@@ -2282,7 +2329,6 @@ public final class AuthOuterClass {
         } else {
           result.meta_ = metaBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2338,7 +2384,7 @@ public final class AuthOuterClass {
           if (!other.links_.isEmpty()) {
             if (links_.isEmpty()) {
               links_ = other.links_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureLinksIsMutable();
               links_.addAll(other.links_);
@@ -2351,7 +2397,7 @@ public final class AuthOuterClass {
               linksBuilder_.dispose();
               linksBuilder_ = null;
               links_ = other.links_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               linksBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getLinksFieldBuilder() : null;
@@ -2402,6 +2448,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>.auth.Auth data = 1;</code>
+       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
@@ -2412,6 +2459,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>.auth.Auth data = 1;</code>
+       * @return The data.
        */
       public auth.AuthOuterClass.Auth getData() {
         if (dataBuilder_ == null) {
@@ -2549,9 +2597,9 @@ public final class AuthOuterClass {
       private java.util.List<furo.LinkOuterClass.Link> links_ =
         java.util.Collections.emptyList();
       private void ensureLinksIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           links_ = new java.util.ArrayList<furo.LinkOuterClass.Link>(links_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -2745,7 +2793,7 @@ public final class AuthOuterClass {
       public Builder clearLinks() {
         if (linksBuilder_ == null) {
           links_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           linksBuilder_.clear();
@@ -2850,7 +2898,7 @@ public final class AuthOuterClass {
           linksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               furo.LinkOuterClass.Link, furo.LinkOuterClass.Link.Builder, furo.LinkOuterClass.LinkOrBuilder>(
                   links_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           links_ = null;
@@ -2867,6 +2915,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 3;</code>
+       * @return Whether the meta field is set.
        */
       public boolean hasMeta() {
         return metaBuilder_ != null || meta_ != null;
@@ -2877,6 +2926,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 3;</code>
+       * @return The meta.
        */
       public furo.MetaOuterClass.Meta getMeta() {
         if (metaBuilder_ == null) {
@@ -3073,6 +3123,7 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The id.
      */
     java.lang.String getId();
     /**
@@ -3081,6 +3132,7 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The bytes for id.
      */
     com.google.protobuf.ByteString
         getIdBytes();
@@ -3091,6 +3143,7 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string password = 3;</code>
+     * @return The password.
      */
     java.lang.String getPassword();
     /**
@@ -3099,6 +3152,7 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string password = 3;</code>
+     * @return The bytes for password.
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
@@ -3109,6 +3163,7 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string role = 4;</code>
+     * @return The role.
      */
     java.lang.String getRole();
     /**
@@ -3117,6 +3172,7 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string role = 4;</code>
+     * @return The bytes for role.
      */
     com.google.protobuf.ByteString
         getRoleBytes();
@@ -3127,6 +3183,7 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string username = 2;</code>
+     * @return The username.
      */
     java.lang.String getUsername();
     /**
@@ -3135,6 +3192,7 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string username = 2;</code>
+     * @return The bytes for username.
      */
     com.google.protobuf.ByteString
         getUsernameBytes();
@@ -3146,7 +3204,7 @@ public final class AuthOuterClass {
    *
    * Protobuf type {@code auth.Auth}
    */
-  public  static final class Auth extends
+  public static final class Auth extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:auth.Auth)
       AuthOrBuilder {
@@ -3163,6 +3221,13 @@ public final class AuthOuterClass {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Auth();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -3175,7 +3240,6 @@ public final class AuthOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3250,7 +3314,9 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The id.
      */
+    @java.lang.Override
     public java.lang.String getId() {
       java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
@@ -3269,7 +3335,9 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The bytes for id.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getIdBytes() {
       java.lang.Object ref = id_;
@@ -3292,7 +3360,9 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string password = 3;</code>
+     * @return The password.
      */
+    @java.lang.Override
     public java.lang.String getPassword() {
       java.lang.Object ref = password_;
       if (ref instanceof java.lang.String) {
@@ -3311,7 +3381,9 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string password = 3;</code>
+     * @return The bytes for password.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getPasswordBytes() {
       java.lang.Object ref = password_;
@@ -3334,7 +3406,9 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string role = 4;</code>
+     * @return The role.
      */
+    @java.lang.Override
     public java.lang.String getRole() {
       java.lang.Object ref = role_;
       if (ref instanceof java.lang.String) {
@@ -3353,7 +3427,9 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string role = 4;</code>
+     * @return The bytes for role.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getRoleBytes() {
       java.lang.Object ref = role_;
@@ -3376,7 +3452,9 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string username = 2;</code>
+     * @return The username.
      */
+    @java.lang.Override
     public java.lang.String getUsername() {
       java.lang.Object ref = username_;
       if (ref instanceof java.lang.String) {
@@ -3395,7 +3473,9 @@ public final class AuthOuterClass {
      * </pre>
      *
      * <code>string username = 2;</code>
+     * @return The bytes for username.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getUsernameBytes() {
       java.lang.Object ref = username_;
@@ -3774,6 +3854,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return The id.
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -3793,6 +3874,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return The bytes for id.
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -3813,6 +3895,8 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(
           java.lang.String value) {
@@ -3830,6 +3914,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -3843,6 +3928,8 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -3863,6 +3950,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string password = 3;</code>
+       * @return The password.
        */
       public java.lang.String getPassword() {
         java.lang.Object ref = password_;
@@ -3882,6 +3970,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string password = 3;</code>
+       * @return The bytes for password.
        */
       public com.google.protobuf.ByteString
           getPasswordBytes() {
@@ -3902,6 +3991,8 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string password = 3;</code>
+       * @param value The password to set.
+       * @return This builder for chaining.
        */
       public Builder setPassword(
           java.lang.String value) {
@@ -3919,6 +4010,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string password = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPassword() {
         
@@ -3932,6 +4024,8 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string password = 3;</code>
+       * @param value The bytes for password to set.
+       * @return This builder for chaining.
        */
       public Builder setPasswordBytes(
           com.google.protobuf.ByteString value) {
@@ -3952,6 +4046,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string role = 4;</code>
+       * @return The role.
        */
       public java.lang.String getRole() {
         java.lang.Object ref = role_;
@@ -3971,6 +4066,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string role = 4;</code>
+       * @return The bytes for role.
        */
       public com.google.protobuf.ByteString
           getRoleBytes() {
@@ -3991,6 +4087,8 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string role = 4;</code>
+       * @param value The role to set.
+       * @return This builder for chaining.
        */
       public Builder setRole(
           java.lang.String value) {
@@ -4008,6 +4106,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string role = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRole() {
         
@@ -4021,6 +4120,8 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string role = 4;</code>
+       * @param value The bytes for role to set.
+       * @return This builder for chaining.
        */
       public Builder setRoleBytes(
           com.google.protobuf.ByteString value) {
@@ -4041,6 +4142,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string username = 2;</code>
+       * @return The username.
        */
       public java.lang.String getUsername() {
         java.lang.Object ref = username_;
@@ -4060,6 +4162,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string username = 2;</code>
+       * @return The bytes for username.
        */
       public com.google.protobuf.ByteString
           getUsernameBytes() {
@@ -4080,6 +4183,8 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string username = 2;</code>
+       * @param value The username to set.
+       * @return This builder for chaining.
        */
       public Builder setUsername(
           java.lang.String value) {
@@ -4097,6 +4202,7 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string username = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearUsername() {
         
@@ -4110,6 +4216,8 @@ public final class AuthOuterClass {
        * </pre>
        *
        * <code>string username = 2;</code>
+       * @param value The bytes for username to set.
+       * @return This builder for chaining.
        */
       public Builder setUsernameBytes(
           com.google.protobuf.ByteString value) {
@@ -4209,20 +4317,12 @@ public final class AuthOuterClass {
       "\010password\030\003 \001(\t\022\014\n\004role\030\004 \001(\t\022\020\n\010usernam" +
       "e\030\002 \001(\tb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           furo.MetaOuterClass.getDescriptor(),
           furo.LinkOuterClass.getDescriptor(),
-        }, assigner);
+        });
     internal_static_auth_AuthCollection_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_auth_AuthCollection_fieldAccessorTable = new

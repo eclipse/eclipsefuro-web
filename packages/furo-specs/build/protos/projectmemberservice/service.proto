@@ -4,6 +4,7 @@ syntax = "proto3";
 package projectmemberservice;
 
 
+    option go_package = "/projectmemberservice";
 
 import "google/api/annotations.proto";
 

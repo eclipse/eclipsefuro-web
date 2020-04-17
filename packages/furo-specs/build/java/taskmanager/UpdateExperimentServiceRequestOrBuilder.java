@@ -9,20 +9,24 @@ public interface UpdateExperimentServiceRequestOrBuilder extends
 
   /**
    * <code>string exp = 1;</code>
+   * @return The exp.
    */
   java.lang.String getExp();
   /**
    * <code>string exp = 1;</code>
+   * @return The bytes for exp.
    */
   com.google.protobuf.ByteString
       getExpBytes();
 
   /**
    * <code>.experiment.Experiment data = 2;</code>
+   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.experiment.Experiment data = 2;</code>
+   * @return The data.
    */
   experiment.ExperimentOuterClass.Experiment getData();
   /**

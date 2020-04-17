@@ -37,7 +37,7 @@ func run() error {
 
 	// Services hier einfügen
 	// PersonService
-	err := taskmanager.RegisterBundledServiceHandlerFromEndpoint(ctx, mux, *grpcserver, opts)
+	err := __bundled;taskmanager.RegisterBundledServiceHandlerFromEndpoint(ctx, mux, *grpcserver, opts)
 	if err != nil {
 		return err
 	}

@@ -12,7 +12,10 @@
       "tree/tree.proto",
       "google/protobuf/empty.proto"
     ],
-    "targetfile": "service.proto"
+    "targetfile": "service.proto",
+    "options": {
+      "go_package": "/treeservice"
+    }
   },
   "services": {
     "List": {

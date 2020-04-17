@@ -4,6 +4,7 @@ syntax = "proto3";
 package authservice;
 
 
+    option go_package = "/authservice";
 
 import "google/api/annotations.proto";
 
