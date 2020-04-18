@@ -84,6 +84,15 @@ class FuroAppFlowRouter extends FBP(LitElement) {
        *  - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link
        */
       config: { type: Array },
+
+      /**
+       * attribute url-space-regex
+       * e.g. url-space-regex="^${window.APPROOT}/"
+       */
+      urlSpaceRegex: {
+        type: String,
+        attribute: 'url-space-regex',
+      },
     };
   }
 
