@@ -3,7 +3,7 @@
   "description": "Furo spec tooling",
   "main": "furo-catalog.js",
   "license": "MIT",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "publishConfig": {
     "access": "public"
   }
