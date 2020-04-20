@@ -34,9 +34,7 @@
  * Icons from the default set can be used without the set name:
  * ```html
  * <furo-icon icon="iconName" ></furo-icon>
- *
  *```
- *
  */
 export class Iconset {
   // register an icon set
