@@ -19,7 +19,7 @@
     "@furo/navigation": "^1.3.3",
     "@furo/notification": "^1.3.3",
     "@furo/route": "^1.3.3",
-    "@furo/spec-basetypes": "^1.2.3",
+    "@furo/spec-basetypes": "^1.7.0",
     "@furo/timing": "^1.3.3",
     "@furo/util": "^1.3.3"
   },
