@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.3.2...@furo/framework@1.3.3) (2020-04-20)
+
+
+### Bug Fixes
+
+* line breaks just for lerna ([aa5d78b](https://github.com/theNorstroem/FuroBaseComponents/commit/aa5d78b3ea69cb368eb3c305c8122e53f4e50a99))
+
+
+
+
+
 ## [1.3.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.3.1...@furo/framework@1.3.2) (2020-04-20)
 
 
