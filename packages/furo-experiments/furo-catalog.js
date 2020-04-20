@@ -1,4 +1,4 @@
-import "./furo-capture-audio"
-import "./furo-capture-video"
-import "./furo-speech-recognition"
-import "./furo-apex-chart"
+import "./furo-capture-audio.js"
+import "./furo-capture-video.js"
+import "./furo-speech-recognition.js"
+import "./furo-apex-chart.js"
