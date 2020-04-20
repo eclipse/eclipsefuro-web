@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.4.0...@furo/experiments@1.3.2) (2020-04-20)
+
+
+### Bug Fixes
+
+* check lerna with experiments package ([f3de83f](https://github.com/theNorstroem/FuroBaseComponents/commit/f3de83f))
+
+
+
+
+
 ## [1.3.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.4.0...@furo/experiments@1.3.1) (2020-04-20)
 
 
