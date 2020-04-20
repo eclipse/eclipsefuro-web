@@ -4,7 +4,7 @@
  * to use furo-icon you should
  * first import a svg set of icons and register it to Iconset
  *
- * The [list of the built in icons](?t=demo-FuroIcon-0) can be found here.
+ * The complete [list of the built in icons](?t=demo-FuroIcon-0) can be found here.
  *
  * the set of icons can be defined in a iconSetName.js file which has content like this:
  *

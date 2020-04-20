@@ -2,7 +2,7 @@
 
 This package supplies the icons used in the other components of furo.
 
-If you want to create a iconset by your own, look at the [description in the framework package](https://components.furo.pro/?t=Iconset).
+If you want to create a iconset by your own, look at the examples in the repo.
 
 ## What is inside
 
