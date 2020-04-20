@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.3.0...@furo/ui-builder@1.4.0) (2020-04-20)
+
+**Note:** Version bump only for package @furo/ui-builder
+
+
+
+
+
 # [1.3.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.2.0...@furo/ui-builder@1.3.0) (2020-04-19)
 
 **Note:** Version bump only for package @furo/ui-builder
