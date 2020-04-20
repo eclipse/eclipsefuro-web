@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.3.0...@furo/framework@1.3.1) (2020-04-20)
+
+
+### Bug Fixes
+
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+* wrong links corrected ([c97a530](https://github.com/theNorstroem/FuroBaseComponents/commit/c97a530d08695e14fce081312c7d46c6d9c4ad84))
+* wrong links corrected ([1b1d560](https://github.com/theNorstroem/FuroBaseComponents/commit/1b1d560504db8af282a56e94ef51d329a5c1766d))
+
+
+
+
+
 ## [0.15.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@0.15.1...@furo/framework@0.15.2) (2020-04-03)
 
 **Note:** Version bump only for package @furo/framework

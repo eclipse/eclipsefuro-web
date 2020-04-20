@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/math@1.3.0...@furo/math@1.3.1) (2020-04-20)
+
+
+### Bug Fixes
+
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+
+
+
+
+
 ## [0.2.31](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/math@0.2.30...@furo/math@0.2.31) (2020-04-03)
 
 **Note:** Version bump only for package @furo/math

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.1.0...@furo/fbp@5.1.1) (2020-04-20)
+
+
+### Bug Fixes
+
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+
+
+
+
+
 ## [4.29.2](https://github.com/veith/FuroBaseComponents/compare/@furo/fbp@4.29.1...@furo/fbp@4.29.2) (2020-03-10)
 
 **Note:** Version bump only for package @furo/fbp

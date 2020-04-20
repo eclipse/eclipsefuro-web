@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.3.0...@furo/notification@1.3.1) (2020-04-20)
+
+
+### Bug Fixes
+
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+
+
+
+
+
 ## [0.10.20](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@0.10.19...@furo/notification@0.10.20) (2020-04-03)
 
 **Note:** Version bump only for package @furo/notification

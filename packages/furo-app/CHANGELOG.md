@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.0...@furo/app@1.3.1) (2020-04-20)
+
+
+### Bug Fixes
+
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+
+
+
+
+
 ## [0.7.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@0.7.12...@furo/app@0.7.13) (2020-04-03)
 
 **Note:** Version bump only for package @furo/app

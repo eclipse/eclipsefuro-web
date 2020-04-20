@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.3.1...@furo/doc-helper@1.5.0) (2020-04-20)
+
+
+### Bug Fixes
+
+* lerna package versions ([07404d8](https://github.com/theNorstroem/FuroBaseComponents/commit/07404d876218e7701199173cb32723f575510efc))
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+
+
+### Features
+
+* accept all orgs for packages ([623bcd7](https://github.com/theNorstroem/FuroBaseComponents/commit/623bcd725ce73ce8ba8bb9759384033a5a0d1913))
+
+
+
+
+
 ## [0.19.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@0.19.2...@furo/doc-helper@0.19.3) (2020-04-03)
 
 **Note:** Version bump only for package @furo/doc-helper
