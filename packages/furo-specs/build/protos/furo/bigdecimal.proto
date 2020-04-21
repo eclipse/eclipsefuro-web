@@ -18,3 +18,4 @@ message BigDecimal {
     int32 scale = 2;
 
 }
+

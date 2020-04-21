@@ -13,12 +13,12 @@ import "{{$import}}";{{end}}
 service {{.config.service_name}} {
 {{range $service := .groupedservices}}
 {{$serviceName := camelcase (snakecase $service.name)}}
-// {{$service.description}}
+{{if $service.description}}// {{$service.description | replace "\n" "\n//"}}{{end}}
 {{ $rpcDict := dict }} {{ $keyList := list }} {{range  $k, $v := $service.services }}  {{$_ := set $rpcDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
 {{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
-    // {{$method.description}}
+     {{if $method.description}}// {{$method.description | replace "\n" "\n// "}}{{end}}
     rpc {{if $method.rpc_name}}{{$method.rpc_name}}{{else}}{{$key}}{{$serviceName}}{{end}} ({{$key}}{{$serviceName}}Request) returns ({{$method.data.response}}){
-        //{{$method.deeplink.description}}
+        {{if $method.deeplink.description}}// {{$method.deeplink.description | replace "\n" "\n//"}}{{end}}
         option (google.api.http) = {
             {{ lower $method.deeplink.method}}: "{{$method.deeplink.href}}"{{ if $method.data.request}}
             {{ if or (eq $method.deeplink.method "POST") (eq $method.deeplink.method "PATCH") (eq $method.deeplink.method "PUT")}}body: "data"{{end}}{{end}}
@@ -29,7 +29,7 @@ service {{.config.service_name}} {
 
 {{range $service := .groupedservices}}
 {{$serviceName := camelcase (snakecase $service.name)}}
-// {{$service.description}}
+{{if $service.description}}// {{$service.description | replace "\n" "\n//"}}{{end}}
 {{ $rpcDict := dict }} {{ $keyList := list }} {{range  $k, $v := $service.services }}  {{$_ := set $rpcDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
 
 {{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
@@ -38,7 +38,7 @@ message {{$key}}{{$serviceName}}Request { {{ $params := regexFindAll  "{[a-zA-Z]
     string {{ trimAll "}" (trimAll "{" $value ) }} = {{add 1 $index}};{{$length :=$index}}{{end}}{{ if $method.data.request}}
     {{$method.data.request}} data = {{add1 (len $params)}}; {{end}} {{ if $method.query}} {{ $qDict := dict }} {{ $keyList := list }} {{range  $k, $v := $method.query }}{{$_ := set $qDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
 {{range $qIndex, $qKey := sortAlpha $keyList }} {{ $values := pick $qDict $qKey }} {{ $valueTmp := values $values }} {{ $query := index $valueTmp 0 }}
-    //{{$query.description}}
+    {{if $query.description}}//{{$query.description | replace "\n" "\n//"}}{{end}}
     {{$query.__proto.type}} {{$qKey}} = {{ if $method.data.request}}{{ add (len $params) (add 2 $qIndex)}}{{else}}{{add (len $params) (add1 $qIndex)}}{{end}};{{end}}{{end}}
 }
 {{end}}

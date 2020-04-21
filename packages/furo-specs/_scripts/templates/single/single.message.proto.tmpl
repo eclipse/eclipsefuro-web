@@ -8,9 +8,9 @@ option {{$key}} = {{if  (typeOf $option | eq "bool")}}{{$option}};{{else}}"{{$op
 import "{{$import}}";{{end}}
 
 {{range $message := .types}}
-// {{$message.description}}
+{{if $message.description}}// {{$message.description | replace "\n" "\n// "}}{{end}}
 message {{$message.type}} {  {{ $fieldsDict := dict }} {{ $keyList := list }} {{range  $k, $v := $message.fields}}  {{$_ := set $fieldsDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}{{range $key := sortAlpha $keyList}} {{ $values := pick $fieldsDict $key }} {{ $valueTmp := values $values }} {{ $value := index $valueTmp 0 }} {{$field :=  $key }}
-    // {{$value.description}}
+    {{if $value.description}}// {{$value.description | replace "\n" "\n// "}}{{end}}
     {{if $value.meta.repeated}}repeated {{end}}{{$value.type | noescape }} {{$key}} = {{$value.__proto.number}};
 {{end}}
 }

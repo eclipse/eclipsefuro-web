@@ -18,7 +18,7 @@ service ProjectfilterService {
        
     // The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter
     rpc GetProjectfilter (GetProjectfilterServiceRequest) returns (projectfilter.ProjectfilterEntity){
-        //
+        
         option (google.api.http) = {
             get: "/mockdata/projects/filter/get.json"
         };

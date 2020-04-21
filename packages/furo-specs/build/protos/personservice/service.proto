@@ -18,7 +18,7 @@ service PersonService {
        
     // Creates a new Person
     rpc CreatePerson (CreatePersonServiceRequest) returns (person.PersonEntity){
-        //
+        
         option (google.api.http) = {
             get: "/mockdata/persons/create.json"
             
@@ -26,7 +26,7 @@ service PersonService {
     }   
     // Delete a Person
     rpc DeletePerson (DeletePersonServiceRequest) returns (google.protobuf.Empty){
-        //
+        
         option (google.api.http) = {
             get: "/mockdata/persons/{prs}/delete.json"
             
@@ -34,7 +34,7 @@ service PersonService {
     }   
     // The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person
     rpc GetPerson (GetPersonServiceRequest) returns (person.PersonEntity){
-        //
+        
         option (google.api.http) = {
             get: "/mockdata/persons/{prs}/get.json"
         };
@@ -48,7 +48,7 @@ service PersonService {
     }   
     // Updates a Person, partial updates are supported
     rpc UpdatePerson (UpdatePersonServiceRequest) returns (person.PersonEntity){
-        //
+        
         option (google.api.http) = {
             patch: "/mockdata/persons/{prs}/update.json"
             body: "data"

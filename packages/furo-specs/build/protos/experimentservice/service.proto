@@ -18,7 +18,7 @@ service ExperimentService {
        
     // Creates a new Experiment
     rpc CreateExperiment (CreateExperimentServiceRequest) returns (experiment.ExperimentEntity){
-        //
+        
         option (google.api.http) = {
             post: "/mockdata/experiments"
             body: "data"
@@ -26,7 +26,7 @@ service ExperimentService {
     }   
     // Delete a Experiment
     rpc DeleteExperiment (DeleteExperimentServiceRequest) returns (google.protobuf.Empty){
-        //
+        
         option (google.api.http) = {
             delete: "/mockdata/experiments/{exp}"
             
@@ -34,7 +34,7 @@ service ExperimentService {
     }   
     // The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment
     rpc GetExperiment (GetExperimentServiceRequest) returns (experiment.ExperimentEntity){
-        //
+        
         option (google.api.http) = {
             get: "/mockdata/experiments/{exp}/get.json"
         };
@@ -48,7 +48,7 @@ service ExperimentService {
     }   
     // Releases experiment
     rpc ReleaseExperiment (ReleaseExperimentServiceRequest) returns (google.protobuf.Empty){
-        //
+        
         option (google.api.http) = {
             post: "/mockdata/experiments/1:release"
             body: "data"
@@ -56,7 +56,7 @@ service ExperimentService {
     }   
     // Updates a Experiment, partial updates are supported
     rpc UpdateExperiment (UpdateExperimentServiceRequest) returns (experiment.ExperimentEntity){
-        //
+        
         option (google.api.http) = {
             patch: "/mockdata/experiments/{exp}"
             body: "data"

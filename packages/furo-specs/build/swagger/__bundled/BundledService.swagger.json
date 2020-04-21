@@ -1218,7 +1218,7 @@
           },
           {
             "name": "page_size",
-            "description": "Use this field to specify the maximum number of results to be returned by the server. \nThe server may further constrain the maximum number of results returned in a single page. \nIf the page_size is 0, the server will decide the number of results to be returned. page_size=15.",
+            "description": "Use this field to specify the maximum number of results to be returned by the server. \n   //The server may further constrain the maximum number of results returned in a single page. \n   //If the page_size is 0, the server will decide the number of results to be returned. page_size=15.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -1856,7 +1856,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "description": "Add flags for your field. This can be something like \u0026#34;searchable\u0026#34;. \n//The flags can be used by generators, ui components,..."
         },
         "list": {
           "type": "array",
@@ -2194,7 +2195,7 @@
           "format": "byte"
         }
       },
-      "title": "Any contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
+      "title": "Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
     },
     "protobufFieldMask": {
       "type": "object",

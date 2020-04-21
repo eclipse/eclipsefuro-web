@@ -18,7 +18,7 @@ service ProjectService {
        
     // Creates a new Project
     rpc CreateProject (CreateProjectServiceRequest) returns (project.ProjectEntity){
-        //
+        
         option (google.api.http) = {
             get: "/mockdata/projects/create.json"
             
@@ -26,7 +26,7 @@ service ProjectService {
     }   
     // Delete a Project
     rpc DeleteProject (DeleteProjectServiceRequest) returns (google.protobuf.Empty){
-        //
+        
         option (google.api.http) = {
             get: "/mockdata/projects/{prj}/delete.json"
             
@@ -34,7 +34,7 @@ service ProjectService {
     }   
     // The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project
     rpc GetProject (GetProjectServiceRequest) returns (project.ProjectEntity){
-        //
+        
         option (google.api.http) = {
             get: "/mockdata/projects/{prj}/get.json"
         };
@@ -48,7 +48,7 @@ service ProjectService {
     }   
     // Updates a Project, partial updates are supported
     rpc UpdateProject (UpdateProjectServiceRequest) returns (project.ProjectEntity){
-        //
+        
         option (google.api.http) = {
             get: "/mockdata/projects/{prj}/update.json"
             

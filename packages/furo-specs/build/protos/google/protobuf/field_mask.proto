@@ -12,3 +12,4 @@ message FieldMask {
     repeated string paths = 1;
 
 }
+

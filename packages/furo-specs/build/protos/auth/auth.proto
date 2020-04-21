@@ -42,10 +42,11 @@ message Auth {
     // Das _neue_ Kennwort des Benutzers
     string password = 3;
     
-    // 
+    
     string role = 4;
     
     // The unique username, ussualy an email address
     string username = 2;
 
 }
+

@@ -18,7 +18,7 @@ service TreeService {
        
     // Creates a new Tree
     rpc CreateTree (CreateTreeServiceRequest) returns (tree.TreeEntity){
-        //
+        
         option (google.api.http) = {
             post: "/mockdata/trees"
             body: "data"
@@ -26,7 +26,7 @@ service TreeService {
     }   
     // Delete a Tree
     rpc DeleteTree (DeleteTreeServiceRequest) returns (google.protobuf.Empty){
-        //
+        
         option (google.api.http) = {
             delete: "/mockdata/trees/{tre}"
             
@@ -34,7 +34,7 @@ service TreeService {
     }   
     // The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree
     rpc GetTree (GetTreeServiceRequest) returns (tree.TreeEntity){
-        //
+        
         option (google.api.http) = {
             get: "/mockdata/trees/{tre}/get.json"
         };
@@ -48,7 +48,7 @@ service TreeService {
     }   
     // Updates a Tree, partial updates are supported
     rpc UpdateTree (UpdateTreeServiceRequest) returns (tree.TreeEntity){
-        //
+        
         option (google.api.http) = {
             patch: "/mockdata/trees/{tre}"
             body: "data"

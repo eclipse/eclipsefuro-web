@@ -39,3 +39,4 @@ message Menuitem {
     repeated google.protobuf.Any payload = 9;
 
 }
+
