@@ -1981,23 +1981,47 @@ public final class MetaOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+     * //The flags can be used by generators, ui components,...
+     * 
+     * </pre>
+     *
      * <code>repeated string flags = 2;</code>
      * @return A list containing the flags.
      */
     java.util.List<java.lang.String>
         getFlagsList();
     /**
+     * <pre>
+     * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+     * //The flags can be used by generators, ui components,...
+     * 
+     * </pre>
+     *
      * <code>repeated string flags = 2;</code>
      * @return The count of flags.
      */
     int getFlagsCount();
     /**
+     * <pre>
+     * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+     * //The flags can be used by generators, ui components,...
+     * 
+     * </pre>
+     *
      * <code>repeated string flags = 2;</code>
      * @param index The index of the element to return.
      * @return The flags at the given index.
      */
     java.lang.String getFlags(int index);
     /**
+     * <pre>
+     * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+     * //The flags can be used by generators, ui components,...
+     * 
+     * </pre>
+     *
      * <code>repeated string flags = 2;</code>
      * @param index The index of the value to return.
      * @return The bytes of the flags at the given index.
@@ -2160,6 +2184,12 @@ public final class MetaOuterClass {
     public static final int FLAGS_FIELD_NUMBER = 2;
     private com.google.protobuf.LazyStringList flags_;
     /**
+     * <pre>
+     * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+     * //The flags can be used by generators, ui components,...
+     * 
+     * </pre>
+     *
      * <code>repeated string flags = 2;</code>
      * @return A list containing the flags.
      */
@@ -2168,6 +2198,12 @@ public final class MetaOuterClass {
       return flags_;
     }
     /**
+     * <pre>
+     * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+     * //The flags can be used by generators, ui components,...
+     * 
+     * </pre>
+     *
      * <code>repeated string flags = 2;</code>
      * @return The count of flags.
      */
@@ -2175,6 +2211,12 @@ public final class MetaOuterClass {
       return flags_.size();
     }
     /**
+     * <pre>
+     * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+     * //The flags can be used by generators, ui components,...
+     * 
+     * </pre>
+     *
      * <code>repeated string flags = 2;</code>
      * @param index The index of the element to return.
      * @return The flags at the given index.
@@ -2183,6 +2225,12 @@ public final class MetaOuterClass {
       return flags_.get(index);
     }
     /**
+     * <pre>
+     * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+     * //The flags can be used by generators, ui components,...
+     * 
+     * </pre>
+     *
      * <code>repeated string flags = 2;</code>
      * @param index The index of the value to return.
      * @return The bytes of the flags at the given index.
@@ -2640,6 +2688,12 @@ public final class MetaOuterClass {
          }
       }
       /**
+       * <pre>
+       * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+       * //The flags can be used by generators, ui components,...
+       * 
+       * </pre>
+       *
        * <code>repeated string flags = 2;</code>
        * @return A list containing the flags.
        */
@@ -2648,6 +2702,12 @@ public final class MetaOuterClass {
         return flags_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+       * //The flags can be used by generators, ui components,...
+       * 
+       * </pre>
+       *
        * <code>repeated string flags = 2;</code>
        * @return The count of flags.
        */
@@ -2655,6 +2715,12 @@ public final class MetaOuterClass {
         return flags_.size();
       }
       /**
+       * <pre>
+       * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+       * //The flags can be used by generators, ui components,...
+       * 
+       * </pre>
+       *
        * <code>repeated string flags = 2;</code>
        * @param index The index of the element to return.
        * @return The flags at the given index.
@@ -2663,6 +2729,12 @@ public final class MetaOuterClass {
         return flags_.get(index);
       }
       /**
+       * <pre>
+       * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+       * //The flags can be used by generators, ui components,...
+       * 
+       * </pre>
+       *
        * <code>repeated string flags = 2;</code>
        * @param index The index of the value to return.
        * @return The bytes of the flags at the given index.
@@ -2672,6 +2744,12 @@ public final class MetaOuterClass {
         return flags_.getByteString(index);
       }
       /**
+       * <pre>
+       * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+       * //The flags can be used by generators, ui components,...
+       * 
+       * </pre>
+       *
        * <code>repeated string flags = 2;</code>
        * @param index The index to set the value at.
        * @param value The flags to set.
@@ -2688,6 +2766,12 @@ public final class MetaOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+       * //The flags can be used by generators, ui components,...
+       * 
+       * </pre>
+       *
        * <code>repeated string flags = 2;</code>
        * @param value The flags to add.
        * @return This builder for chaining.
@@ -2703,6 +2787,12 @@ public final class MetaOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+       * //The flags can be used by generators, ui components,...
+       * 
+       * </pre>
+       *
        * <code>repeated string flags = 2;</code>
        * @param values The flags to add.
        * @return This builder for chaining.
@@ -2716,6 +2806,12 @@ public final class MetaOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+       * //The flags can be used by generators, ui components,...
+       * 
+       * </pre>
+       *
        * <code>repeated string flags = 2;</code>
        * @return This builder for chaining.
        */
@@ -2726,6 +2822,12 @@ public final class MetaOuterClass {
         return this;
       }
       /**
+       * <pre>
+       * Add flags for your field. This can be something like &amp;#34;searchable&amp;#34;. 
+       * //The flags can be used by generators, ui components,...
+       * 
+       * </pre>
+       *
        * <code>repeated string flags = 2;</code>
        * @param value The bytes of the flags to add.
        * @return This builder for chaining.

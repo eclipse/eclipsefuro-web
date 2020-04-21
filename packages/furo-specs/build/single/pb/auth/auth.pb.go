@@ -172,8 +172,7 @@ type Auth struct {
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Das _neue_ Kennwort des Benutzers
 	Password string `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty"`
-	//
-	Role string `protobuf:"bytes,4,opt,name=role,proto3" json:"role,omitempty"`
+	Role     string `protobuf:"bytes,4,opt,name=role,proto3" json:"role,omitempty"`
 	// The unique username, ussualy an email address
 	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
 }

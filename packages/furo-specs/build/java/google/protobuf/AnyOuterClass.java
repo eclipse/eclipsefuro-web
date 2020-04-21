@@ -19,19 +19,11 @@ public final class AnyOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <pre>
-     * 
-     * </pre>
-     *
      * <code>string type_url = 1;</code>
      * @return The typeUrl.
      */
     java.lang.String getTypeUrl();
     /**
-     * <pre>
-     * 
-     * </pre>
-     *
      * <code>string type_url = 1;</code>
      * @return The bytes for typeUrl.
      */
@@ -39,10 +31,6 @@ public final class AnyOuterClass {
         getTypeUrlBytes();
 
     /**
-     * <pre>
-     * 
-     * </pre>
-     *
      * <code>bytes value = 2;</code>
      * @return The value.
      */
@@ -51,7 +39,7 @@ public final class AnyOuterClass {
   /**
    * <pre>
    * Any contains an arbitrary serialized protocol buffer message along with a
-   * URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto
+   * // URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto
    * </pre>
    *
    * Protobuf type {@code google.protobuf.Any}
@@ -216,10 +204,6 @@ public final class AnyOuterClass {
     public static final int TYPE_URL_FIELD_NUMBER = 1;
     private volatile java.lang.Object typeUrl_;
     /**
-     * <pre>
-     * 
-     * </pre>
-     *
      * <code>string type_url = 1;</code>
      * @return The typeUrl.
      */
@@ -237,10 +221,6 @@ public final class AnyOuterClass {
       }
     }
     /**
-     * <pre>
-     * 
-     * </pre>
-     *
      * <code>string type_url = 1;</code>
      * @return The bytes for typeUrl.
      */
@@ -262,10 +242,6 @@ public final class AnyOuterClass {
     public static final int VALUE_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString value_;
     /**
-     * <pre>
-     * 
-     * </pre>
-     *
      * <code>bytes value = 2;</code>
      * @return The value.
      */
@@ -442,7 +418,7 @@ public final class AnyOuterClass {
     /**
      * <pre>
      * Any contains an arbitrary serialized protocol buffer message along with a
-     * URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto
+     * // URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto
      * </pre>
      *
      * Protobuf type {@code google.protobuf.Any}
@@ -600,10 +576,6 @@ public final class AnyOuterClass {
 
       private java.lang.Object typeUrl_ = "";
       /**
-       * <pre>
-       * 
-       * </pre>
-       *
        * <code>string type_url = 1;</code>
        * @return The typeUrl.
        */
@@ -620,10 +592,6 @@ public final class AnyOuterClass {
         }
       }
       /**
-       * <pre>
-       * 
-       * </pre>
-       *
        * <code>string type_url = 1;</code>
        * @return The bytes for typeUrl.
        */
@@ -641,10 +609,6 @@ public final class AnyOuterClass {
         }
       }
       /**
-       * <pre>
-       * 
-       * </pre>
-       *
        * <code>string type_url = 1;</code>
        * @param value The typeUrl to set.
        * @return This builder for chaining.
@@ -660,10 +624,6 @@ public final class AnyOuterClass {
         return this;
       }
       /**
-       * <pre>
-       * 
-       * </pre>
-       *
        * <code>string type_url = 1;</code>
        * @return This builder for chaining.
        */
@@ -674,10 +634,6 @@ public final class AnyOuterClass {
         return this;
       }
       /**
-       * <pre>
-       * 
-       * </pre>
-       *
        * <code>string type_url = 1;</code>
        * @param value The bytes for typeUrl to set.
        * @return This builder for chaining.
@@ -696,10 +652,6 @@ public final class AnyOuterClass {
 
       private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <pre>
-       * 
-       * </pre>
-       *
        * <code>bytes value = 2;</code>
        * @return The value.
        */
@@ -708,10 +660,6 @@ public final class AnyOuterClass {
         return value_;
       }
       /**
-       * <pre>
-       * 
-       * </pre>
-       *
        * <code>bytes value = 2;</code>
        * @param value The value to set.
        * @return This builder for chaining.
@@ -726,10 +674,6 @@ public final class AnyOuterClass {
         return this;
       }
       /**
-       * <pre>
-       * 
-       * </pre>
-       *
        * <code>bytes value = 2;</code>
        * @return This builder for chaining.
        */

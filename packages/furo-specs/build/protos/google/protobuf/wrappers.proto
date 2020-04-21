@@ -68,3 +68,4 @@ message DoubleValue {
     double value = 1;
 
 }
+

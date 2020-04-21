@@ -3158,19 +3158,11 @@ public final class AuthOuterClass {
         getPasswordBytes();
 
     /**
-     * <pre>
-     * 
-     * </pre>
-     *
      * <code>string role = 4;</code>
      * @return The role.
      */
     java.lang.String getRole();
     /**
-     * <pre>
-     * 
-     * </pre>
-     *
      * <code>string role = 4;</code>
      * @return The bytes for role.
      */
@@ -3401,10 +3393,6 @@ public final class AuthOuterClass {
     public static final int ROLE_FIELD_NUMBER = 4;
     private volatile java.lang.Object role_;
     /**
-     * <pre>
-     * 
-     * </pre>
-     *
      * <code>string role = 4;</code>
      * @return The role.
      */
@@ -3422,10 +3410,6 @@ public final class AuthOuterClass {
       }
     }
     /**
-     * <pre>
-     * 
-     * </pre>
-     *
      * <code>string role = 4;</code>
      * @return The bytes for role.
      */
@@ -4041,10 +4025,6 @@ public final class AuthOuterClass {
 
       private java.lang.Object role_ = "";
       /**
-       * <pre>
-       * 
-       * </pre>
-       *
        * <code>string role = 4;</code>
        * @return The role.
        */
@@ -4061,10 +4041,6 @@ public final class AuthOuterClass {
         }
       }
       /**
-       * <pre>
-       * 
-       * </pre>
-       *
        * <code>string role = 4;</code>
        * @return The bytes for role.
        */
@@ -4082,10 +4058,6 @@ public final class AuthOuterClass {
         }
       }
       /**
-       * <pre>
-       * 
-       * </pre>
-       *
        * <code>string role = 4;</code>
        * @param value The role to set.
        * @return This builder for chaining.
@@ -4101,10 +4073,6 @@ public final class AuthOuterClass {
         return this;
       }
       /**
-       * <pre>
-       * 
-       * </pre>
-       *
        * <code>string role = 4;</code>
        * @return This builder for chaining.
        */
@@ -4115,10 +4083,6 @@ public final class AuthOuterClass {
         return this;
       }
       /**
-       * <pre>
-       * 
-       * </pre>
-       *
        * <code>string role = 4;</code>
        * @param value The bytes for role to set.
        * @return This builder for chaining.

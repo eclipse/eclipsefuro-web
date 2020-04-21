@@ -17,7 +17,7 @@ service ProjectMembersService {
        
     // Get a collection with PersonEntities
     rpc ListMembers (ListProjectMembersServiceRequest) returns (person.PersonCollection){
-        //
+        
         option (google.api.http) = {
             get: "/api/members"
         };

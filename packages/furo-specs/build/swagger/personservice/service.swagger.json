@@ -285,7 +285,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "description": "Add flags for your field. This can be something like \u0026#34;searchable\u0026#34;. \n//The flags can be used by generators, ui components,..."
         },
         "list": {
           "type": "array",
@@ -446,7 +447,7 @@
           "format": "byte"
         }
       },
-      "title": "Any contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
+      "title": "Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
     },
     "protobufFieldMask": {
       "type": "object",

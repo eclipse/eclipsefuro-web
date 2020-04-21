@@ -18,7 +18,7 @@ service AuthService {
        
     // Creates a new Auth
     rpc CreateAuth (CreateAuthServiceRequest) returns (auth.AuthEntity){
-        //
+        
         option (google.api.http) = {
             post: "/api/auths"
             body: "data"
@@ -26,7 +26,7 @@ service AuthService {
     }   
     // Logout ala delete a auth session
     rpc Logout (DeleteAuthServiceRequest) returns (google.protobuf.Empty){
-        //
+        
         option (google.api.http) = {
             delete: "/api/auth"
             
@@ -34,7 +34,7 @@ service AuthService {
     }   
     // The Get method takes zero or more parameters, and returns a AuthEntity which contains a Auth
     rpc GetAuth (GetAuthServiceRequest) returns (auth.AuthEntity){
-        //
+        
         option (google.api.http) = {
             get: "/api/auths/{uid}"
         };
@@ -48,7 +48,7 @@ service AuthService {
     }   
     // Updates a Auth, partial updates are supported
     rpc UpdateAuth (UpdateAuthServiceRequest) returns (auth.AuthEntity){
-        //
+        
         option (google.api.http) = {
             patch: "/api/auths/{uid}"
             body: "data"
