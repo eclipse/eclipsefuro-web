@@ -4,9 +4,9 @@
 ``` js
 // -- initialize application env, theme, api and icons
 
-import {Init, i18n, Env, Iconset} from "@furo/framework/furo.js";
-import {Theme} from "@furo/framework/theme.js";
-import {Services, Types} from "@furo/spec-restapi/api/api_spec.js"
+import {Init, i18n, Env, Iconset} from "@furo/framework/src/furo.js"
+import {Theme} from "@furo/framework/src/theme.js"
+import {Services, Types} from "@furo/spec-restapi/api/src/api_spec.js
 
 //Attention: Styling is defined in main-stage
 import {Themeset} from "./my_fancy_theme"

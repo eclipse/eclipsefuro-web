@@ -45,7 +45,7 @@ Make sure that your $GOBIN is in your $PATH.
 - npm init
 - Run `npm install --save-dev @furo/specs` to install the tools.
 - Add a `furo.spec.conf.json` to the root folder of your spec project. 
-  An example of a config file can be found in the `~/node_modules/@furo/spec/` folder. 
+  An example of a config file can be found in the `~/node_modules/@furo/spec/src/` folder 
 
 > **TIPP** copy the example file, remove the packages, add your packages.
     
@@ -55,7 +55,7 @@ Make sure that your $GOBIN is in your $PATH.
 To add packages, just add them in the packages section of the conf. 
 Then run 
 ```shell script
-./node_modules/@furo/specs/_scripts/init.js
+./node_modules/@furo/specs/_scripts/src/init.j
 ```
 to generate a initial structure for a spec. 
 This consists of the *minimal type*, a *minimal service definition*, a *default entity spec*
@@ -64,7 +64,7 @@ and a *default collection spec*
 To build the furo data_environment.js, the swagger docs, the golang files for the grpc-gateway and the java interfaces run.
 
 ```shell script
-./node_modules/@furo/specs/_scripts/build.js
+./node_modules/@furo/specs/_scripts/src/build.j
 ```
 
 ## Preinstalled base types
@@ -85,8 +85,8 @@ Following base types are available by default:
  ```json
 { 
   "scripts": {
-    "build": "node ./node_modules/@furo/specs/_scripts/build.js",
-    "init": "node ./node_modules/@furo/specs/_scripts/init.js"
+    "build": "node ./node_modules/@furo/specs/_scripts/src/build.js"
+    "init": "node ./node_modules/@furo/specs/_scripts/src/init.js"
   }
 }
 ```

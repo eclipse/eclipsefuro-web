@@ -46,15 +46,15 @@ return _furoShell.html`
       <furo-icon icon="lightbulb-outline"></furo-icon>
     `}}window.customElements.define("light-bulb",LightBulb);class FuroIntervalPulse extends _furoShell.LitElement{constructor(){super();this.interval=200;this.takt=4;if(this.auto){this.start()}}static get properties(){return{interval:{type:Number},takt:{type:Number},/**
        * Starts interval automatically
-       */auto:Boolean}}start(){let cnt=0;clearInterval(this._intervalObject);this._intervalObject=setInterval(()=>{let pos=cnt++%this.takt,customEvent=new Event("tick",{bubbles:!0});/**
+       */auto:Boolean}}start(){let cnt=0;clearInterval(this._intervalObject);this._intervalObject=setInterval(()=>{cnt+=1;const pos=cnt%this.takt,customEvent=new Event("tick",{bubbles:!0});/**
                                     * Fired when interval is
                                     * detail payload: position
                                     * @event tick
-                                    */customEvent.detail=pos;this.dispatchEvent(customEvent);if(0==pos){/**
+                                    */customEvent.detail=pos;this.dispatchEvent(customEvent);if(0===pos){/**
          * Fired when tock
          * detail payload: position
          * @event tick
-         */let customEvent=new Event("tock",{bubbles:!0});customEvent.detail=pos;this.dispatchEvent(customEvent)}},this.interval)}stop(){clearInterval(this._intervalObject)}}window.customElements.define("furo-interval-pulse",FuroIntervalPulse);class StyleCategorySample extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
+         */const tockEvent=new Event("tock",{bubbles:!0});tockEvent.detail=pos;this.dispatchEvent(tockEvent)}},this.interval)}stop(){clearInterval(this._intervalObject)}}window.customElements.define("furo-interval-pulse",FuroIntervalPulse);class StyleCategorySample extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
      * flow is ready lifecycle method
      */__fbpReady(){super.__fbpReady();//this._FBPTraceWires()
 }static get properties(){return{}}static get styles(){// language=CSS
@@ -285,23 +285,24 @@ this.disableNoRel=!1;this.disableNotValid=!0;this.disablePristine=!0}/**
      * Entity bind to control elements inside the bar.
      *
      * @param entity
-     */bindEntity(entity){if(entity&&entity.data){this._entity=entity;this._entity.addEventListener("this-branch-value-changed",()=>{this._updateElements(this._entity)});this._entity.addEventListener("field-value-changed",()=>{this._updateElements(this._entity)});this._entity.addEventListener("data-injected",()=>{this._updateElements(this._entity)})}else{console.warn("Invalid binding ",entity,this)}}/**
+     */bindEntity(entity){if(entity&&entity.data){this._entity=entity;this._entity.addEventListener("this-branch-value-changed",()=>{this._updateElements(this._entity)});this._entity.addEventListener("field-value-changed",()=>{this._updateElements(this._entity)});this._entity.addEventListener("data-injected",()=>{this._updateElements(this._entity)})}else{// eslint-disable-next-line no-console
+console.warn("Invalid binding ",entity,this)}}/**
      * Disable all elements inside
      * Can be used to disable during pending requests
      * e.g. furo-entity-agent @-request-started until @-response or @-response-error
-     */disableAll(){let elems=this.querySelectorAll("*");elems.forEach(item=>{item.setAttribute("disabled","")})}/**
+     */disableAll(){const elems=this.querySelectorAll("*");elems.forEach(item=>{item.setAttribute("disabled","")})}/**
      * Enables all elements inside if check is true
      * Can be used to enable after a request
-     */enableAll(){if(this._entity&&this._entity.data){this._updateElements(this._entity)}else{let elems=this.querySelectorAll("*");elems.forEach(item=>{item.removeAttribute("disabled")})}}/**
+     */enableAll(){if(this._entity&&this._entity.data){this._updateElements(this._entity)}else{const elems=this.querySelectorAll("*");elems.forEach(item=>{item.removeAttribute("disabled")})}}/**
      * Set the default value if any hide/disable attribute  or
      * rel="" attribute is set
      * @param changedProperties
      * @private
-     */firstUpdated(changedProperties){let nodes=this.querySelectorAll("*");nodes.forEach(item=>{if(null!==item.getAttribute("rel")&&null!==item.getAttribute("hide-no-rel")||null!==item.getAttribute("hide-not-valid")||null!==item.getAttribute("hide-pristine")){item.setAttribute("hidden","")}else if(null!==item.getAttribute("rel")&&null!==item.getAttribute("disable-no-rel")||null!==item.getAttribute("disable-not-valid")||null!==item.getAttribute("disable-pristine")){item.setAttribute("disabled","")}})}/**
+     */firstUpdated(){const nodes=this.querySelectorAll("*");nodes.forEach(item=>{if(null!==item.getAttribute("rel")&&null!==item.getAttribute("hide-no-rel")||null!==item.getAttribute("hide-not-valid")||null!==item.getAttribute("hide-pristine")){item.setAttribute("hidden","")}else if(null!==item.getAttribute("rel")&&null!==item.getAttribute("disable-no-rel")||null!==item.getAttribute("disable-not-valid")||null!==item.getAttribute("disable-pristine")){item.setAttribute("disabled","")}})}/**
      *
      * @param entity
      * @private
-     */_updateElements(entity){let rels=[];entity.links.__childNodes.forEach(item=>{rels.push(item._value.rel)});let nodes=this.querySelectorAll("*");nodes.forEach(item=>{// hidden path
+     */_updateElements(entity){const rels=[];entity.links.__childNodes.forEach(item=>{rels.push(item._value.rel)});const nodes=this.querySelectorAll("*");nodes.forEach(item=>{// hidden path
 if(null!==item.getAttribute("rel")&&0<item.getAttribute("rel").length&&-1===rels.indexOf(item.getAttribute("rel"))&&null!==item.getAttribute("hide-no-rel")){item.setAttribute("hidden","")}// not valid
 else if(null!==item.getAttribute("hide-not-valid")&&!entity._isValid){item.setAttribute("hidden","")}// pristine
 else if(null!==item.getAttribute("hide-pristine")&&entity._pristine){item.setAttribute("hidden","")}else{item.removeAttribute("hidden")}// disable path
@@ -311,30 +312,27 @@ if(null!==item.getAttribute("rel")&&0<item.getAttribute("rel").length&&-1===rels
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroButtonBar")||_furoShell.css`
-            :host {
-                display: block;
-            }
+        :host {
+          display: block;
+        }
 
-            ::slotted(*) {
-                margin: var(--spacing-xs, 8px) var(--spacing-xs, 8px) var(--spacing-xs, 8px) 0;
-            }
+        ::slotted(*) {
+          margin: var(--spacing-xs, 8px) var(--spacing-xs, 8px) var(--spacing-xs, 8px) 0;
+        }
 
-            
-
-            furo-horizontal-flex {
-                flex-wrap: wrap;
-            }
-
-        `}/**
+        furo-horizontal-flex {
+          flex-wrap: wrap;
+        }
+      `}/**
      *
      * @returns {TemplateResult|TemplateResult}
      * @private
      */render(){// language=HTML
 return _furoShell.html`
-            <furo-horizontal-flex>
-                <slot></slot>
-            </furo-horizontal-flex>
-        `}}window.customElements.define("furo-button-bar",FuroButtonBar);class FuroCollapsibleBox extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();/**
+      <furo-horizontal-flex>
+        <slot></slot>
+      </furo-horizontal-flex>
+    `}}window.customElements.define("furo-button-bar",FuroButtonBar);class FuroCollapsibleBox extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();/**
               * @type {boolean}
               */this._open=!1;/**
                          * @type {string}
@@ -347,29 +345,29 @@ return _furoShell.html`
                                       */this.tabindex=0;this.icon=this._open?this.iconOpen:this.iconClosed;// toggle method
 this._FBPAddWireHook("--toggleClicked",()=>{this.toggle()});/**
          * minimal keyboard navigation
-         */this._FBPAddWireHook("--keystrokes",e=>{switch(e.code){case"ArrowRight":this.open();break;case"ArrowLeft":this.close();break;case"Enter":this.toggle();break;}});this._FBPAddWireHook("--blured",()=>{if(this.closeOnBlur){this.close()}})}/**
+         */this._FBPAddWireHook("--keystrokes",e=>{switch(e.code){case"ArrowRight":this.open();break;case"ArrowLeft":this.close();break;case"Enter":this.toggle();break;default:}});this._FBPAddWireHook("--blured",()=>{if(this.closeOnBlur){this.close()}})}/**
      * Opens the Box
      */open(){this._open=!0;this.icon=this._open?this.iconOpen:this.iconClosed;this.requestUpdate()}/**
      * closes the box
      */close(){this._open=!1;this.icon=this._open?this.iconOpen:this.iconClosed;this.requestUpdate()}/**
      * Toggles the box open/close
-     */toggle(){this._open=!this._open;this.icon=this._open?this.iconOpen:this.iconClosed;this.requestUpdate();if(!0==this._open){/**
+     */toggle(){this._open=!this._open;this.icon=this._open?this.iconOpen:this.iconClosed;this.requestUpdate();if(!0===this._open){/**
        * @event opened
        *
        * Fired when collapsible box was opened
        *
        * detail payload: void
-       */let customEvent=new Event("opened",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent)}else{/**
+       */const customEvent=new Event("opened",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent)}else{/**
        * @event closed
        * Fired when collapsible box was closed
        *
        * detail payload: void
-       */let customEvent=new Event("closed",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent)}/**
+       */const customEvent=new Event("closed",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent)}/**
        * @event toggled
        * Fired when collapsible-box was toggled
        * detail payload: Boolean true for open, false for closed
        * @param Boolean true for open, false for closed
-       */let customEvent=new Event("toggled",{composed:!0,bubbles:!1});customEvent.detail=this._open;this.dispatchEvent(customEvent)}firstUpdated(changedProperties){super.firstUpdated(changedProperties);this.icon=this._open?this.iconOpen:this.iconClosed;this.requestUpdate()}/**
+       */const customEvent=new Event("toggled",{composed:!0,bubbles:!1});customEvent.detail=this._open;this.dispatchEvent(customEvent)}firstUpdated(changedProperties){super.firstUpdated(changedProperties);this.icon=this._open?this.iconOpen:this.iconClosed;this.requestUpdate()}/**
      * focus the box (focuses the icon)
      */focus(){this._FBPTriggerWire("--focus");if(this.openOnFocus){this.open()}}/**
      * @private
@@ -377,8 +375,8 @@ this._FBPAddWireHook("--toggleClicked",()=>{this.toggle()});/**
      */static get properties(){return{/**
        * Label der Collapsible
        */label:{type:String},/**
-      * Label der Collapsible
-      */secondaryText:{type:String,attribute:"secondary-text"},/**
+       * Label der Collapsible
+       */secondaryText:{type:String,attribute:"secondary-text"},/**
        * Opens the box on focus
        */openOnFocus:{type:Boolean,attribute:"open-on-focus"},/**
        * Closes the box on blur (icon)
@@ -401,81 +399,83 @@ this._FBPAddWireHook("--toggleClicked",()=>{this.toggle()});/**
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroCollapsibleBox")||_furoShell.css`
-
         :host {
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-            0 1px 5px 0 rgba(0, 0, 0, 0.12),
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
             0 3px 1px -2px rgba(0, 0, 0, 0.2);
-            padding: var(--furo-collapsible-box-padding, 16px);
-            background: var(--furo-collapsible-box-background, white);
-            display: block;
-            margin: var(--furo-collapsible-box-margin, 16px);
-            box-sizing: border-box;
-
+          padding: var(--furo-collapsible-box-padding, 16px);
+          background: var(--furo-collapsible-box-background, white);
+          display: block;
+          margin: var(--furo-collapsible-box-margin, 16px);
+          box-sizing: border-box;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         label {
-            display: block;
-            padding-left: 8px;
-            cursor: pointer;
+          display: block;
+          padding-left: 8px;
+          cursor: pointer;
 
-            font-size: 24px;
-            line-height: 24px;
-            letter-spacing: 0;
-            margin: 0;
-            font-weight: normal;
+          font-size: 24px;
+          line-height: 24px;
+          letter-spacing: 0;
+          margin: 0;
+          font-weight: normal;
         }
 
-        .secondary{
-            padding-left: var(--spacing,24px);
-            font-size: 14px;
-            letter-spacing: 0.1px;
+        .secondary {
+          padding-left: var(--spacing, 24px);
+          font-size: 14px;
+          letter-spacing: 0.1px;
         }
         .content {
-            display: none;
+          display: none;
         }
 
         :host([open]) .content {
-            display: block;
+          display: block;
         }
 
         .head {
-            border-bottom: 1px solid var(--separator-color, gainsboro);;
-
+          border-bottom: 1px solid var(--separator-color, gainsboro);
         }
 
         furo-icon {
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            outline: none;
+          width: 24px;
+          height: 24px;
+          cursor: pointer;
+          outline: none;
         }
 
         furo-icon:focus {
-            color: var(--primary, #CDCDCD)
+          color: var(--primary, #cdcdcd);
         }
-
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
-<furo-horizontal-flex class="head">
-  <furo-icon tabindex="${this.tabindex}" ƒ-focus="--focus" icon="${this.icon}" @-keydown="--keystrokes(*)" @-click="--toggleClicked" @-blur="--blured"></furo-icon>     
-  <label  @-click="--toggleClicked">${this.label}</label>
-  <div flex class="secondary"  @-click="--toggleClicked">${this.secondaryText}</div>
-  <slot name="context"></slot>
-</furo-horizontal-flex>
-<div class="content"><slot></slot></div>
-    `}}window.customElements.define("furo-collapsible-box",FuroCollapsibleBox);class FuroFormLayouter extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.narrow=!1;this.narrower=!1;this.breakpointBig=810;this.breakpointSmall=405}_checkSize(width){if(0<width&&width<this.breakpointBig&&width>this.breakpointSmall){this.setAttribute("narrow","");this.narrow=!0;this.removeAttribute("narrower");this.narrower=!1;this._fireResize()}else if(0<width&&width<=this.breakpointSmall){this.setAttribute("narrower","");this.narrower=!0;this.removeAttribute("narrow");this.narrow=!1;this._fireResize()}else{this.removeAttribute("narrow");this.removeAttribute("narrower");this.narrow=this.narrower=!1}}_fireResize(){this.dispatchEvent(new CustomEvent("layout-changed",{detail:this,bubbles:!0,composed:!0}))}/**
+      <furo-horizontal-flex class="head">
+        <furo-icon
+          tabindex="${this.tabindex}"
+          ƒ-focus="--focus"
+          icon="${this.icon}"
+          @-keydown="--keystrokes(*)"
+          @-click="--toggleClicked"
+          @-blur="--blured"
+        ></furo-icon>
+        <label @-click="--toggleClicked">${this.label}</label>
+        <div flex class="secondary" @-click="--toggleClicked">${this.secondaryText}</div>
+        <slot name="context"></slot>
+      </furo-horizontal-flex>
+      <div class="content"><slot></slot></div>
+    `}}window.customElements.define("furo-collapsible-box",FuroCollapsibleBox);class FuroFormLayouter extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.narrow=!1;this.narrower=!1;this.breakpointBig=810;this.breakpointSmall=405}_checkSize(width){if(0<width&&width<this.breakpointBig&&width>this.breakpointSmall){this.setAttribute("narrow","");this.narrow=!0;this.removeAttribute("narrower");this.narrower=!1;this._fireResize()}else if(0<width&&width<=this.breakpointSmall){this.setAttribute("narrower","");this.narrower=!0;this.removeAttribute("narrow");this.narrow=!1;this._fireResize()}else{this.removeAttribute("narrow");this.removeAttribute("narrower");this.narrower=!1;this.narrow=this.narrower}}_fireResize(){this.dispatchEvent(new CustomEvent("layout-changed",{detail:this,bubbles:!0,composed:!0}))}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-this.updateComplete.then(()=>{if(window.ResizeObserver){const ro=new ResizeObserver(entries=>{for(let entry of entries){this._checkSize(entry.contentRect.width)}});ro.observe(this)}else{// fallback, just listen to the resize event
-setTimeout(()=>{let cr=this.getBoundingClientRect();this._checkSize(cr.width)},1);window.addEventListener("resize",e=>{let cr=this.getBoundingClientRect();this._checkSize(cr.width)})}})}static get properties(){return{/**
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
+this.updateComplete.then(()=>{if(window.ResizeObserver){const ro=new ResizeObserver(entries=>{window.requestAnimationFrame(()=>{for(const entry of entries){this._checkSize(entry.contentRect.width)}})});ro.observe(this)}else{// fallback, just listen to the resize event
+setTimeout(()=>{const cr=this.getBoundingClientRect();this._checkSize(cr.width)},1);window.addEventListener("resize",()=>{const cr=this.getBoundingClientRect();this._checkSize(cr.width)})}})}static get properties(){return{/**
        * Set custom breakpoints max. two values
        * Default: "810,405"
        */breakpointBig:{type:String,attribute:"breakpoint-big",reflect:!0},breakpointSmall:{type:String,attribute:"breakpoint-small",reflect:!0},/**
@@ -486,136 +486,135 @@ setTimeout(()=>{let cr=this.getBoundingClientRect();this._checkSize(cr.width)},1
        * 1 column view (analog breakpoint small)
        */narrowerFix:{type:Boolean,attribute:"narrower-fix",reflect:!0}}}static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroFormLayouter")||_furoShell.css`
-            :host {
-                display: grid;
-                grid-row-gap: 0px;
-                grid-column-gap: 0px;
-                grid-template-columns: repeat(1, 1fr);
-            }
+        :host {
+          display: grid;
+          grid-row-gap: 0px;
+          grid-column-gap: 0px;
+          grid-template-columns: repeat(1, 1fr);
+        }
 
-            :host([hidden]) {
-                display: none;
-            }
+        :host([hidden]) {
+          display: none;
+        }
 
-            ::slotted(*) {
-                width: 100%;
-            }
+        ::slotted(*) {
+          width: 100%;
+        }
 
-            :host([two]) ::slotted(*[double]) {
-                grid-column: span 2 / auto;
-            }
+        :host([two]) ::slotted(*[double]) {
+          grid-column: span 2 / auto;
+        }
 
-            :host([two]) ::slotted(*[newline]) {
-                grid-column-start: 1;
-                grid-column-end: 2;
-            }
-            
-            :host([two]) ::slotted(*[newline][double]) {
-                grid-column: span 2 / auto;
-            }
+        :host([two]) ::slotted(*[newline]) {
+          grid-column-start: 1;
+          grid-column-end: 2;
+        }
 
-            :host([two]) ::slotted(*[full]) {
-                grid-column: span 2 / auto;
-            }
+        :host([two]) ::slotted(*[newline][double]) {
+          grid-column: span 2 / auto;
+        }
 
-            :host([four]) ::slotted(*[double]) {
-                grid-column: span 2  / auto;
-            }
+        :host([two]) ::slotted(*[full]) {
+          grid-column: span 2 / auto;
+        }
 
-            :host([four]) ::slotted(*[newline]) {
-                grid-column-start: 1;
-                grid-column-end: 2;
-            }
-            
-            :host([four]) ::slotted(*[newline][double]) {
-                grid-column-start: 1;
-                grid-column-end: 3;
-            }
+        :host([four]) ::slotted(*[double]) {
+          grid-column: span 2 / auto;
+        }
 
-            :host([four]) ::slotted(*[full]) {
-                grid-column: span 4 / auto;
-            }
-            
-            :host([two]) {
-                grid-template-columns: repeat(2, 1fr);
-                grid-column-gap: var(--spacing);
-            }
+        :host([four]) ::slotted(*[newline]) {
+          grid-column-start: 1;
+          grid-column-end: 2;
+        }
 
-            :host([four]) {
-                grid-template-columns: repeat(4, 1fr);
-                grid-column-gap: var(--spacing);
-            }
+        :host([four]) ::slotted(*[newline][double]) {
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
 
-            :host([narrow]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
+        :host([four]) ::slotted(*[full]) {
+          grid-column: span 4 / auto;
+        }
 
-            :host([narrow]) > ::slotted(*[full]) {
-                grid-column: auto;
-            }
+        :host([two]) {
+          grid-template-columns: repeat(2, 1fr);
+          grid-column-gap: var(--spacing);
+        }
 
-            :host([four][narrow]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
+        :host([four]) {
+          grid-template-columns: repeat(4, 1fr);
+          grid-column-gap: var(--spacing);
+        }
 
-            :host([four][narrow]) > ::slotted(*[double]) {
-                grid-column: auto;
-            }
+        :host([narrow]) {
+          grid-template-columns: repeat(1, 1fr);
+        }
 
-            :host([narrower]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
+        :host([narrow]) > ::slotted(*[full]) {
+          grid-column: auto;
+        }
 
-            :host([narrower]) > ::slotted(*) {
-                grid-column: auto;
-            }
+        :host([four][narrow]) {
+          grid-template-columns: repeat(1, 1fr);
+        }
 
-            :host([narrow-fix]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
+        :host([four][narrow]) > ::slotted(*[double]) {
+          grid-column: auto;
+        }
 
-            :host([four][narrower]) > ::slotted(*) {
-                grid-column: auto;
-            }
+        :host([narrower]) {
+          grid-template-columns: repeat(1, 1fr);
+        }
 
-            :host([four][narrow-fix]) {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        :host([narrower]) > ::slotted(*) {
+          grid-column: auto;
+        }
 
-            :host([four][narrower-fix]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
+        :host([narrow-fix]) {
+          grid-template-columns: repeat(1, 1fr);
+        }
 
-            :host([narrower-fix]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
+        :host([four][narrower]) > ::slotted(*) {
+          grid-column: auto;
+        }
 
-            :host([narrower-fix]) > ::slotted(*) {
-                grid-column: auto;
-            }
+        :host([four][narrow-fix]) {
+          grid-template-columns: repeat(2, 1fr);
+        }
 
-            :host([card]) {
+        :host([four][narrower-fix]) {
+          grid-template-columns: repeat(1, 1fr);
+        }
 
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                0 1px 5px 0 rgba(0, 0, 0, 0.12),
-                0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        :host([narrower-fix]) {
+          grid-template-columns: repeat(1, 1fr);
+        }
 
-                background: var(--furo-card-background, var(--surface, white));
-                padding: var(--furo-card-padding, var(--spacing-xs, 8px));
-                margin: var(--furo-card-margin, 0);
+        :host([narrower-fix]) > ::slotted(*) {
+          grid-column: auto;
+        }
 
+        :host([card]) {
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+            0 3px 1px -2px rgba(0, 0, 0, 0.2);
 
-                border-radius: 4px;
-                font-size: 14px;
-                letter-spacing: 0.1px;
-            }
-        `}/**
+          background: var(--furo-card-background, var(--surface, white));
+          padding: var(--furo-card-padding, var(--spacing-xs, 8px));
+          margin: var(--furo-card-margin, 0);
+
+          border-radius: 4px;
+          font-size: 14px;
+          letter-spacing: 0.1px;
+        }
+      `}/**
      * @private
      * @returns {TemplateResult | TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
-            <slot></slot>
-        `}}window.customElements.define("furo-form-layouter",FuroFormLayouter);class FuroForm extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.hasaction=0<this.querySelectorAll("*[slot=\"action\"]").length;this.hasmedia=0<this.querySelectorAll("*[slot=\"media\"]").length}/**
+      <slot></slot>
+    `}}window.customElements.define("furo-form-layouter",FuroFormLayouter);class FuroForm extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
+this.hasaction=0<this.querySelectorAll("*[slot=\"action\"]").length;// eslint-disable-next-line wc/no-constructor-attributes
+this.hasmedia=0<this.querySelectorAll("*[slot=\"media\"]").length}/**
      * You can show a progress indicator while you have pending requests or work
      * Shows furo-loading-indicator-bar
      */startActivity(){this._FBPTriggerWire("--activityStarted")}/**
@@ -628,130 +627,130 @@ return _furoShell.html`
        * Main title
        */headerText:{type:String,attribute:"header-text"},secondaryText:{type:String,attribute:"secondary-text"},hasaction:{type:Boolean,reflect:!0},hasmedia:{type:Boolean,reflect:!0}}}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires();
 }/**
      * Themable Styles
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroForm")||_furoShell.css`
-      :host {
-        display: block;
-        --furo-button-padding: var(--spacing-xs, 8px);
-        background: var(--furo-form-background, var(--surface, white));
-        padding-bottom: var(--furo-form-padding, var(--spacing-xs, 8px));
-        margin: var(--furo-form-margin, 0);
-        box-sizing: border-box;
-        position: relative;
-        font-size: 14px;
-        letter-spacing: 0.1px;
-        max-width: var(--furo-form-max-width, 90em);
-      }
+        :host {
+          display: block;
+          --furo-button-padding: var(--spacing-xs, 8px);
+          background: var(--furo-form-background, var(--surface, white));
+          padding-bottom: var(--furo-form-padding, var(--spacing-xs, 8px));
+          margin: var(--furo-form-margin, 0);
+          box-sizing: border-box;
+          position: relative;
+          font-size: 14px;
+          letter-spacing: 0.1px;
+          max-width: var(--furo-form-max-width, 90em);
+        }
 
-      furo-loading-indicator-bar {
-        position: absolute;
-        top: 0;
-        width: 100%;
-      }
+        furo-loading-indicator-bar {
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
+        :host([hidden]) {
+          display: none;
+        }
 
-      :host([hasaction]) .content {
-        padding-bottom: 54px;
-      }
+        :host([hasaction]) .content {
+          padding-bottom: 54px;
+        }
 
+        /** no padding-top on .content if header-text is set **/
+        :host([header-text]) .content {
+          padding-top: 0;
+        }
 
-      /** no padding-top on .content if header-text is set **/
-      :host([header-text]) .content {
-        padding-top: 0;
-      }
+        /** set padding-top on .content if media is present **/
+        :host([header-text][hasmedia]) .content {
+          padding-top: var(--furo-form-padding, var(--spacing-s, 16px));
+        }
 
-      /** set padding-top on .content if media is present **/
-      :host([header-text][hasmedia]) .content {
-        padding-top: var(--furo-form-padding, var(--spacing-s, 16px));
-      }
+        .content ::slotted(h1) {
+          font-size: 24px;
+          line-height: 24px;
+          letter-spacing: 0;
+          margin: 0;
+          font-weight: normal;
+          margin-bottom: var(--spacing-xxs, 4px);
+          margin-top: var(--spacing-s, 16px);
+        }
 
+        .content ::slotted(secondary) {
+          color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+          line-height: 22px;
+          font-size: unset;
+          display: block;
+          margin-bottom: var(--spacing-xs, 4px);
+        }
 
-      .content ::slotted(h1) {
-        font-size: 24px;
-        line-height: 24px;
-        letter-spacing: 0;
-        margin: 0;
-        font-weight: normal;
-        margin-bottom: var(--spacing-xxs, 4px);
-        margin-top: var(--spacing-s, 16px);
-      }
+        .content ::slotted(h2) {
+          line-height: 24px;
+          letter-spacing: 0;
+          margin: 0;
+          font-weight: normal;
+          margin-bottom: var(--spacing-xxs, 4px);
+          margin-top: var(--spacing-s, 16px);
+        }
 
-      .content ::slotted(secondary) {
-        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
-        line-height: 22px;
-        font-size: unset;
-        display: block;
-        margin-bottom: var(--spacing-xs, 4px);
-      }
+        .action {
+          position: absolute;
+          bottom: var(--furo-form-padding, var(--spacing-xs, 8px));
+          left: var(--furo-form-padding, 0);
+          right: var(--furo-form-padding, 0);
+        }
 
-      .content ::slotted(h2) {
-        line-height: 24px;
-        letter-spacing: 0;
-        margin: 0;
-        font-weight: normal;
-        margin-bottom: var(--spacing-xxs, 4px);
-        margin-top: var(--spacing-s, 16px);
-      }
+        .head {
+          padding-bottom: var(--spacing-s, 16px);
+        }
 
-      .action {
-        position: absolute;
-        bottom: var(--furo-form-padding, var(--spacing-xs, 8px));
-        left: var(--furo-form-padding, 0);
-        right: var(--furo-form-padding, 0);
+        .head span {
+          font-size: 14px;
+          height: 24px;
+          letter-spacing: 0.1px;
+          color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+          line-height: 20px;
+        }
 
-      }
+        h1 {
+          font-size: 20px;
+          height: 40px;
+          line-height: 56px;
+          margin: 0;
+          font-weight: normal;
+        }
 
-
-      .head {
-        padding-bottom: var(--spacing-s, 16px);
-      }
-
-      .head span {
-        font-size: 14px;
-        height: 24px;
-        letter-spacing: 0.1px;
-        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
-        line-height: 20px;
-      }
-
-      h1 {
-        font-size: 20px;
-        height: 40px;
-        line-height: 56px;
-        margin: 0;
-        font-weight: normal;
-
-      }
-
-
-      .media ::slotted(*) {
-        width: 100%;
-      }
-    `}/**
+        .media ::slotted(*) {
+          width: 100%;
+        }
+      `}/**
      * @private
      * @returns {TemplateResult}
      * @private
      */render(){// language=HTML
 return _furoShell.html`
-      <furo-loading-indicator-bar ƒ-start="--activityStarted" ƒ-stop="--activityStopped"></furo-loading-indicator-bar>
+      <furo-loading-indicator-bar
+        ƒ-start="--activityStarted"
+        ƒ-stop="--activityStopped"
+      ></furo-loading-indicator-bar>
       ${this.headerText?_furoShell.html`
-      <div class="head">
-         <h1>${this.headerText}</h1>
-         ${this.secondaryText?_furoShell.html`<span>${this.secondaryText}</span>`:_furoShell.html``}     
-      </div>`:_furoShell.html``} 
+            <div class="head">
+              <h1>${this.headerText}</h1>
+              ${this.secondaryText?_furoShell.html`
+                    <span>${this.secondaryText}</span>
+                  `:_furoShell.html``}
+            </div>
+          `:_furoShell.html``}
       <div class="media">
-      <slot name="media"></slot>
+        <slot name="media"></slot>
       </div>
       <div class="content">
-      <slot></slot>
+        <slot></slot>
       </div>
       <div class="action">
         <slot name="action"></slot>
@@ -762,24 +761,24 @@ return _furoShell.html`
               */this.label="set the label!"}static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroInputRow")||_furoShell.css`
         :host {
-            display: block;
+          display: block;
         }
 
         div {
-            line-height: 100%;
-            width: var(--input-row-width,140px);
+          line-height: 100%;
+          width: var(--input-row-width, 140px);
         }
 
         ::slotted(*) {
-            resize: horizontal;
+          resize: horizontal;
         }
-    `}render(){// language=HTML
+      `}render(){// language=HTML
 return _furoShell.html`
-            <furo-horizontal-flex>
-                <div>${this.label}</div>
-                <slot></slot>
-            </furo-horizontal-flex>
-        `}static get properties(){return{/**
+      <furo-horizontal-flex>
+        <div>${this.label}</div>
+        <slot></slot>
+      </furo-horizontal-flex>
+    `}static get properties(){return{/**
        * The label for the input row
        */label:{type:String}}}}window.customElements.define("furo-input-row",FuroInputRow);class SampleForm extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
      * flow is ready lifecycle method
@@ -801,30 +800,28 @@ return _furoShell.html`
         </form-field-row>
     `}}window.customElements.define("sample-form",SampleForm);class FuroIconWithLabel extends(0,_furoShell.FBP)(_furoShell.LitElement){static get properties(){return{icon:{type:String}}}static get styles(){// language=CSS
 return[_furoShell.css`
-                :host {
-                    height: 48px;
-                    display: inline-block;
-                    width: 7em;
-                    margin: 1em 0.5em;
-                    text-align: center;
-                }
+        :host {
+          height: 48px;
+          display: inline-block;
+          width: 7em;
+          margin: 1em 0.5em;
+          text-align: center;
+        }
 
-                span{
-                    display: block;
-                    font-size: 8px;
-                }
-                
-                furo-icon{
-                    margin: auto;
-                    display: block;
-                    
-                }
+        span {
+          display: block;
+          font-size: 8px;
+        }
 
-            `]}render(){// language=HTML
+        furo-icon {
+          margin: auto;
+          display: block;
+        }
+      `]}render(){// language=HTML
 return _furoShell.html`
-            <furo-icon icon="${this.icon}"></furo-icon>
-            <span> ${this.icon} </span>
-        `}}window.customElements.define("furo-icon-with-label",FuroIconWithLabel);class IconsDemo extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}static get properties(){return{}}static get styles(){// language=CSS
+      <furo-icon icon="${this.icon}"></furo-icon>
+      <span> ${this.icon} </span>
+    `}}window.customElements.define("furo-icon-with-label",FuroIconWithLabel);class IconsDemo extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}static get properties(){return{}}static get styles(){// language=CSS
 return[_furoShell.css`                
             `]}render(){// language=HTML
 return _furoShell.html`
@@ -1143,9 +1140,9 @@ return _furoShell.html`
                 <furo-icon icon="zoom-out"></furo-icon>
             </furo-vertical-flex>
         </div>
-    `}}window.customElements.define("icons-demo",IconsDemo);class FuroDocPropertiesItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.prop}data(data){this.prop=data;if("protected"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
+    `}}window.customElements.define("icons-demo",IconsDemo);class FuroDocPropertiesItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.prop={}}data(data){this.prop=data;if("protected"===data.privacy){this.setAttribute("hidden","")}if("private"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -1153,39 +1150,41 @@ return _furoShell.html`
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDocPropertiesItem")||_furoShell.css`
         :host {
-            display: block;
-            font-size: 13px;
-            margin-bottom: 36px;
+          display: block;
+          font-size: 13px;
+          margin-bottom: 36px;
         }
-
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-        span.default{
-            color:green;
+        span.default {
+          color: green;
         }
-        span.propname{
-            font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
-            font-weight: 900;
+        span.propname {
+          font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
+          font-weight: 900;
         }
-       
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){this.cname=this.prop.name.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase();// language=HTML
 return _furoShell.html`
-      <span class="propname">${this.cname}</span>   <span class="propname">(${this.prop.name}):</span>  ${this.prop.type} = <span class="default">${this.prop.defaultValue}</span>  <i>${this.prop.inheritedFrom}</i>
+      <span class="propname">${this.cname}</span>
+      <span class="propname">(${this.prop.name}):</span> ${this.prop.type} =
+      <span class="default">${this.prop.defaultValue}</span> <i>${this.prop.inheritedFrom}</i>
       <furo-markdown ƒ-parse-markdown="--data(*.description)">></furo-markdown>
-      
-    `}}window.customElements.define("furo-doc-properties-item",FuroDocPropertiesItem);class FuroDocProperties extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.hidden=!0}/**
+    `}}window.customElements.define("furo-doc-properties-item",FuroDocPropertiesItem);class FuroDocProperties extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
+this.hidden=!0}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
        * hide props if empty
-       */hidden:{type:Boolean,reflect:!0}}}data(data){if(Array.isArray(data)){data=data.sort((a,b)=>{var textA=a.name.toUpperCase(),textB=b.name.toUpperCase();return textA<textB?-1:textA>textB?1:0});this._FBPTriggerWire("--data",data);this.hidden=!1}else{this.hidden=!0}}/**
+       */hidden:{type:Boolean,reflect:!0}}}data(data){if(Array.isArray(data)){// eslint-disable-next-line no-param-reassign
+data=data.sort((a,b)=>{const textA=a.name.toUpperCase(),textB=b.name.toUpperCase();// eslint-disable-next-line no-nested-ternary
+return textA<textB?-1:textA>textB?1:0});this._FBPTriggerWire("--data",data);this.hidden=!1}else{this.hidden=!0}}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -1193,21 +1192,21 @@ return _furoShell.html`
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDocProperties")||_furoShell.css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         h2 {
-            margin-top: 48px;
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: 0.0125em;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
+          margin-top: 48px;
+          font-size: 1.25rem;
+          font-weight: 500;
+          letter-spacing: 0.0125em;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.87);
         }
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
@@ -1215,11 +1214,10 @@ return _furoShell.html`
       <h2>Attributes & Properties</h2>
       <template is="flow-repeat" ƒ-inject-items="--data">
         <furo-doc-properties-item ƒ-data="--item"></furo-doc-properties-item>
-
       </template>
-    `}}window.customElements.define("furo-doc-properties",FuroDocProperties);class FuroDocMethodsItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.method}data(data){this.method=data;if("protected"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
+    `}}window.customElements.define("furo-doc-properties",FuroDocProperties);class FuroDocMethodsItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.method={}}data(data){this.method=data;if("protected"===data.privacy){this.setAttribute("hidden","")}if("private"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -1227,70 +1225,76 @@ return _furoShell.html`
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDocMethodsItem")||_furoShell.css`
         :host {
-            display: block;
-            font-size: 13px;
-            margin-bottom: 36px;
+          display: block;
+          font-size: 13px;
+          margin-bottom: 36px;
         }
 
         strong {
-            font-weight: 700;
-            font-family: "Roboto Mono";
-
+          font-weight: 700;
+          font-family: 'Roboto Mono';
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         span.name {
-            color: green;
+          color: green;
         }
 
         span.paramname {
-            font-family: "Roboto Mono";
-            color: #717171;
+          font-family: 'Roboto Mono';
+          color: #717171;
         }
 
-        span.type, span.return {
-            color: #717171;
-            font-weight: 900;
+        span.type,
+        span.return {
+          color: #717171;
+          font-weight: 900;
         }
-
 
         span.type:after {
-            content: ","
+          content: ',';
         }
-        .inherited{
-            font-style: italic;
-            line-height: 24px;
-            color: #7f7f7f;
+        .inherited {
+          font-style: italic;
+          line-height: 24px;
+          color: #7f7f7f;
         }
-
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 if(!this.method.return){this.method.return={}}this.cname=this.method.name.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase();return _furoShell.html`
-      <strong>${this.cname}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
-      <span class="name" ƒ-.inner-text="--item(*.name)"></span> : 
-      <span class="type" ƒ-.inner-text="--item(*.type)"></span></template>) ⟹ <span class="return">${this.method.return.type}</span>
-      
+      <strong>${this.cname}</strong> (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
+        <span class="name" ƒ-.inner-text="--item(*.name)"></span> :
+        <span class="type" ƒ-.inner-text="--item(*.type)"></span></template
+      >) ⟹ <span class="return">${this.method.return.type}</span>
+
       <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
       <ul>
-      <template is="flow-repeat" ƒ-inject-items="--data(*.params)">
-    <li><span class="paramname" ƒ-.inner-text="--item(*.name)">fd</span> <br>
-    <furo-markdown ƒ-parse-markdown="--item(*.description)">></furo-markdown></li>   
-</template></ul> 
-    `}}window.customElements.define("furo-doc-methods-item",FuroDocMethodsItem);class FuroDocMethods extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.hidden=!0}/**
+        <template is="flow-repeat" ƒ-inject-items="--data(*.params)">
+          <li>
+            <span class="paramname" ƒ-.inner-text="--item(*.name)">fd</span> <br />
+            <furo-markdown ƒ-parse-markdown="--item(*.description)">></furo-markdown>
+          </li>
+        </template>
+      </ul>
+    `}}window.customElements.define("furo-doc-methods-item",FuroDocMethodsItem);class FuroDocMethods extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
+this.hidden=!0}/**
      * @private
      * @return {Object}
      */static get methods(){return{/**
        * hide props if empty
        */hidden:{type:Boolean,reflect:!0}}}data(data){if(Array.isArray(data)){// show public fields only hide inhterite from inheritedFrom: "LitElement"
-data=data.filter(m=>{// todo: filter out inherited stuff like connectedCallback and so
-return"public"===m.privacy&&!m.inheritedFrom});data=data.sort((a,b)=>{var textA=a.name.toUpperCase(),textB=b.name.toUpperCase();return textA<textB?-1:textA>textB?1:0});this._FBPTriggerWire("--data",data);this.removeAttribute("hidden")}else{this.setAttribute("hidden","")}}/**
+// eslint-disable-next-line no-param-reassign
+data=data.filter(m=>// todo: filter out inherited stuff like connectedCallback and so
+"public"===m.privacy&&!m.inheritedFrom);// eslint-disable-next-line no-param-reassign
+data=data.sort((a,b)=>{const textA=a.name.toUpperCase(),textB=b.name.toUpperCase();// eslint-disable-next-line no-nested-ternary
+return textA<textB?-1:textA>textB?1:0});this._FBPTriggerWire("--data",data);this.removeAttribute("hidden")}else{this.setAttribute("hidden","")}}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -1298,21 +1302,21 @@ return"public"===m.privacy&&!m.inheritedFrom});data=data.sort((a,b)=>{var textA=
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDocMethods")||_furoShell.css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         h2 {
-            margin-top: 48px;
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: 0.0125em;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
+          margin-top: 48px;
+          font-size: 1.25rem;
+          font-weight: 500;
+          letter-spacing: 0.0125em;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.87);
         }
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
@@ -1320,11 +1324,10 @@ return _furoShell.html`
       <h2>Methods</h2>
       <template is="flow-repeat" ƒ-inject-items="--data">
         <furo-doc-methods-item ƒ-data="--item"></furo-doc-methods-item>
-
       </template>
-    `}}window.customElements.define("furo-doc-methods",FuroDocMethods);class FuroDocEventsItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.prop}data(data){this.prop=data;if("protected"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
+    `}}window.customElements.define("furo-doc-methods",FuroDocMethods);class FuroDocEventsItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.prop={}}data(data){this.prop=data;if("protected"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -1332,37 +1335,39 @@ return _furoShell.html`
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDocEventsItem")||_furoShell.css`
         :host {
-            display: block;
-            font-size: 13px;
-            margin-bottom: 36px;
+          display: block;
+          font-size: 13px;
+          margin-bottom: 36px;
         }
         strong {
-            font-weight: 700;
-            font-family: "Roboto Mono";
-            
+          font-weight: 700;
+          font-family: 'Roboto Mono';
         }
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-        span.type, span.return {
-            color: #717171;
+        span.type,
+        span.return {
+          color: #717171;
         }
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
-      <strong>${this.prop.name}</strong> : <span class="type">${this.prop.type}</span> 
+      <strong>${this.prop.name}</strong> : <span class="type">${this.prop.type}</span>
       <furo-markdown ƒ-parse-markdown="--data(*.description)">></furo-markdown>
-      
-    `}}window.customElements.define("furo-doc-events-item",FuroDocEventsItem);class FuroDocEvents extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.hidden=!0}/**
+    `}}window.customElements.define("furo-doc-events-item",FuroDocEventsItem);class FuroDocEvents extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
+this.hidden=!0}/**
      * @private
      * @return {Object}
      */static get events(){return{/**
        * hide props if empty
-       */hidden:{type:Boolean,reflect:!0}}}data(data){if(Array.isArray(data)){this._FBPTriggerWire("--data",data);data=data.sort((a,b)=>{var textA=a.name.toUpperCase(),textB=b.name.toUpperCase();return textA<textB?-1:textA>textB?1:0});this.removeAttribute("hidden")}else{this.setAttribute("hidden","")}}/**
+       */hidden:{type:Boolean,reflect:!0}}}data(data){if(Array.isArray(data)){this._FBPTriggerWire("--data",data);// eslint-disable-next-line no-param-reassign
+data=data.sort((a,b)=>{const textA=a.name.toUpperCase(),textB=b.name.toUpperCase();// eslint-disable-next-line no-nested-ternary
+return textA<textB?-1:textA>textB?1:0});this.removeAttribute("hidden")}else{this.setAttribute("hidden","")}}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -1370,23 +1375,21 @@ return _furoShell.html`
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDocEvents")||_furoShell.css`
         :host {
-            display: block;
+          display: block;
         }
 
-        
-
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         h2 {
-            margin-top: 48px;
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: 0.0125em;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
+          margin-top: 48px;
+          font-size: 1.25rem;
+          font-weight: 500;
+          letter-spacing: 0.0125em;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.87);
         }
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
@@ -1394,11 +1397,10 @@ return _furoShell.html`
       <h2>Events</h2>
       <template is="flow-repeat" ƒ-inject-items="--data">
         <furo-doc-events-item ƒ-data="--item"></furo-doc-events-item>
-
       </template>
-    `}}window.customElements.define("furo-doc-events",FuroDocEvents);class FuroDemoLink extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
-    * flow is ready lifecycle method
-    */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+    `}}window.customElements.define("furo-doc-events",FuroDocEvents);class FuroDemoLink extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * flow is ready lifecycle method
+   */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -1406,21 +1408,22 @@ return _furoShell.html`
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDemoLink")||_furoShell.css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `}injectData(data){this.data=data}/**
+      `}injectData(data){this.data=data}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
-      <a href="../demo/${this.data.url}">${this.data.url}</a> <i>${this.data.description}</i>
-    `}}window.customElements.define("furo-demo-link",FuroDemoLink);class FuroDocElement extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.element={}}hide(){this.setAttribute("hidden","")}print(analysisElement){this.element=analysisElement;this._FBPTriggerWire("--data",this.element);if(this.element.demos){this.element.demos.forEach(d=>{d.package=this.element.__package});this._FBPTriggerWire("--demos",this.element.demos)}this.removeAttribute("hidden");this.requestUpdate();this.scrollTop=0}/**
+      <a href="${this.data.docurl}">${this.data.url}</a> <i>${this.data.description}</i>
+    `}}window.customElements.define("furo-demo-link",FuroDemoLink);class FuroDocElement extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.element={}}hide(){this.setAttribute("hidden","")}print(analysisElement){this.element=analysisElement;this._FBPTriggerWire("--data",this.element);if(this.element.demos){this.element.demos.forEach((d,i)=>{// eslint-disable-next-line no-param-reassign
+d.docurl=`?t=demo-${this.element.name}-${i}`});this._FBPTriggerWire("--demos",this.element.demos)}this.removeAttribute("hidden");this.requestUpdate();this.scrollTop=0}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -1428,58 +1431,58 @@ return _furoShell.html`
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDocElement")||_furoShell.css`
         :host {
-            display: block;
-            font-weight: 400;
-            font-size: 14px;
-            max-width: 1024px;
+          display: block;
+          font-weight: 400;
+          font-size: 14px;
+          max-width: 1024px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
-        h1{
-            font-size: 2.8rem;
-            font-weight: 400;
-            line-height: 3.5rem;
-            margin-top: 0;
-            letter-spacing: normal;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        h1 {
+          font-size: 2.8rem;
+          font-weight: 400;
+          line-height: 3.5rem;
+          margin-top: 0;
+          letter-spacing: normal;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         h2.description {
-            margin-top: 20px;
-            margin-bottom: 24px;
-            max-width: 600px;
-            color: #999;
-            border-bottom: none;
+          margin-top: 20px;
+          margin-bottom: 24px;
+          max-width: 600px;
+          color: #999;
+          border-bottom: none;
         }
         h2 {
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: 0.0125em;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
+          font-size: 1.25rem;
+          font-weight: 500;
+          letter-spacing: 0.0125em;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.87);
         }
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
-return _furoShell.html`      
+return _furoShell.html`
       <h1>&lt; ${this.element.tagname} &gt;</h1>
-      <h2 class="description">${this.element.summary}</h2>         
+      <h2 class="description">${this.element.summary}</h2>
       <h2>Description</h2>
       <furo-markdown unsafe ƒ-parse-markdown="--data(*.description)"></furo-markdown>
       <h2>Demos</h2>
       <template is="flow-repeat" ƒ-inject-items="--demos">
-          <furo-demo-link ƒ-inject-data="--item"></furo-demo-link>
+        <furo-demo-link ƒ-inject-data="--item"></furo-demo-link>
       </template>
       <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>
       <furo-doc-events ƒ-data="--data(*.events)"></furo-doc-events>
       <furo-doc-methods ƒ-data="--data(*.methods)"></furo-doc-methods>
-    `}}window.customElements.define("furo-doc-element",FuroDocElement);class FuroDocClassMethodsItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.method}data(data){this.method=data;if("protected"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
+    `}}window.customElements.define("furo-doc-element",FuroDocElement);class FuroDocClassMethodsItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.method={}}data(data){this.method=data;if("protected"===data.privacy){this.setAttribute("hidden","")}this._FBPTriggerWire("--data",data);this.requestUpdate()}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -1487,69 +1490,76 @@ return _furoShell.html`
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDocClassMethodsItem")||_furoShell.css`
         :host {
-            display: block;
-            font-size: 13px;
-            margin-bottom: 36px;
+          display: block;
+          font-size: 13px;
+          margin-bottom: 36px;
         }
 
         strong {
-            font-weight: 700;
-            font-family: "Roboto Mono";
-           
+          font-weight: 700;
+          font-family: 'Roboto Mono';
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         span.name {
-            color: green;
+          color: green;
         }
 
         span.paramname {
-            font-family: "Roboto Mono";
-            color: #717171;
+          font-family: 'Roboto Mono';
+          color: #717171;
         }
 
-        span.type, span.return {
-            color: #717171;
-            font-weight: 900;
+        span.type,
+        span.return {
+          color: #717171;
+          font-weight: 900;
         }
-        
 
         span.type:after {
-            content: ","
+          content: ',';
         }
-        .inherited{
-            font-style: italic;
-            line-height: 24px;
-            color: #7f7f7f;
+        .inherited {
+          font-style: italic;
+          line-height: 24px;
+          color: #7f7f7f;
         }
-
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 if(!this.method.return){this.method.return={}}return _furoShell.html`
-      <strong>${this.method.name}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
-      <span class="name" ƒ-.inner-text="--item(*.name)"></span> : 
-      <span class="type" ƒ-.inner-text="--item(*.type)"></span></template>) ⟹ <span class="return">${this.method.return.type}</span>
-       <span class="inherited"> Inherited from ${this.method.inheritedFrom}</span>
+      <strong>${this.method.name}</strong> (<template
+        is="flow-repeat"
+        ƒ-inject-items="--data(*.params)"
+      >
+        <span class="name" ƒ-.inner-text="--item(*.name)"></span> :
+        <span class="type" ƒ-.inner-text="--item(*.type)"></span></template
+      >) ⟹ <span class="return">${this.method.return.type}</span>
+      <span class="inherited"> Inherited from ${this.method.inheritedFrom}</span>
       <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
       <ul>
-      <template is="flow-repeat" ƒ-inject-items="--data(*.params)">
-    <li><span class="paramname" ƒ-.inner-text="--item(*.name)">fd</span> <br>
-    <furo-markdown ƒ-parse-markdown="--item(*.description)">></furo-markdown></li>   
-</template></ul> 
-    `}}window.customElements.define("furo-doc-class-methods-item",FuroDocClassMethodsItem);class FuroDocClassMethods extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.hidden=!0}/**
+        <template is="flow-repeat" ƒ-inject-items="--data(*.params)">
+          <li>
+            <span class="paramname" ƒ-.inner-text="--item(*.name)">fd</span> <br />
+            <furo-markdown ƒ-parse-markdown="--item(*.description)">></furo-markdown>
+          </li>
+        </template>
+      </ul>
+    `}}window.customElements.define("furo-doc-class-methods-item",FuroDocClassMethodsItem);class FuroDocClassMethods extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
+this.hidden=!0}/**
      * @private
      * @return {Object}
      */static get methods(){return{/**
        * hide props if empty
        */hidden:{type:Boolean,reflect:!0}}}data(data){if(Array.isArray(data)){// show public fields only
-data=data.filter(m=>{return"public"===m.privacy});this._FBPTriggerWire("--data",data);this.removeAttribute("hidden")}else{this.setAttribute("hidden","")}}/**
+// eslint-disable-next-line no-param-reassign
+data=data.filter(m=>"public"===m.privacy);this._FBPTriggerWire("--data",data);this.removeAttribute("hidden")}else{this.setAttribute("hidden","")}}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -1557,20 +1567,20 @@ data=data.filter(m=>{return"public"===m.privacy});this._FBPTriggerWire("--data",
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDocClassMethods")||_furoShell.css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         h2 {
-            font-weight: 400;
-            line-height: 28px;
-            font-size: 20px;
-            margin-top: 48px;
+          font-weight: 400;
+          line-height: 28px;
+          font-size: 20px;
+          margin-top: 48px;
         }
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
@@ -1578,11 +1588,10 @@ return _furoShell.html`
       <h2>Methods</h2>
       <template is="flow-repeat" ƒ-inject-items="--data">
         <furo-doc-class-methods-item ƒ-data="--item"></furo-doc-class-methods-item>
-
       </template>
     `}}window.customElements.define("furo-doc-class-methods",FuroDocClassMethods);class FuroDocClass extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.class={}}hide(){this.setAttribute("hidden","")}print(analysisElement){this.class=analysisElement;this._FBPTriggerWire("--data",this.class);this.removeAttribute("hidden");this.requestUpdate();this.scrollTop=0}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -1590,49 +1599,49 @@ return _furoShell.html`
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDocClass")||_furoShell.css`
         :host {
-            display: block;
-            font-weight: 400;
-            font-size: 14px;
-            max-width: 1024px;
+          display: block;
+          font-weight: 400;
+          font-size: 14px;
+          max-width: 1024px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-        h1{
-            font-size: 2.8rem;
-            font-weight: 400;
-            line-height: 3.5rem;
-            margin-top: 0;
-            letter-spacing: normal;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        h1 {
+          font-size: 2.8rem;
+          font-weight: 400;
+          line-height: 3.5rem;
+          margin-top: 0;
+          letter-spacing: normal;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         h2.description {
-            margin-top: 20px;
-            margin-bottom: 24px;
-            max-width: 600px;
-            color: #999;
-            border-bottom: none;
+          margin-top: 20px;
+          margin-bottom: 24px;
+          max-width: 600px;
+          color: #999;
+          border-bottom: none;
         }
         h2 {
-            font-weight: 400;
-            line-height: 28px;
-            font-size: 20px;
-            margin-top: 48px;
+          font-weight: 400;
+          line-height: 28px;
+          font-size: 20px;
+          margin-top: 48px;
         }
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
       <h1>${this.class.name}</h1>
-      <h2 class="description">${this.class.summary}</h2>  
+      <h2 class="description">${this.class.summary}</h2>
       <h2>Description</h2>
       <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
-      <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>     
+      <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>
       <furo-doc-class-methods ƒ-data="--data(*.methods)"></furo-doc-class-methods>
-    `}}window.customElements.define("furo-doc-class",FuroDocClass);class FuroDocMenuElementItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();//forward click to a
+    `}}window.customElements.define("furo-doc-class",FuroDocClass);class FuroDocMenuElementItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();// forward click to a
 this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}setItem(item){this.item=item;this.selected=item.__selected;if(this.selected){setTimeout(()=>{if(this.scrollIntoViewIfNeeded){this.scrollIntoViewIfNeeded()}},16)}}/**
      * @private
      * @return {Object}
@@ -1640,7 +1649,7 @@ this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}setItem(it
        * Description
        */selected:{type:Boolean,reflect:!0}}}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -1648,35 +1657,34 @@ this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}setItem(it
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDocMenuElementItem")||_furoShell.css`
         :host {
-            display: list-item;
-            padding-left: var(--spacing-s);
-            line-height: 30px;
-            margin-bottom: 4px;
-            color: var(--on-background);
-            letter-spacing: 0.0178571em;
-            font-size: 0.875rem;
-            font-weight: 300;
-            transition: all 0.2s ease 0s;
-            cursor: pointer;
+          display: list-item;
+          padding-left: var(--spacing-s);
+          line-height: 30px;
+          margin-bottom: 4px;
+          color: var(--on-background);
+          letter-spacing: 0.0178571em;
+          font-size: 0.875rem;
+          font-weight: 300;
+          transition: all 0.2s ease 0s;
+          cursor: pointer;
         }
-        
-        :host([hidden]) {
-            display: none;
-        }
-        
 
-        :host(:hover), :host([selected]) {
-            background-color: var(--secondary);
-            border-radius: 4px;
-            color: var(--on-secondary);
+        :host([hidden]) {
+          display: none;
         }
-    `}/**
+
+        :host(:hover),
+        :host([selected]) {
+          background-color: var(--secondary);
+          border-radius: 4px;
+          color: var(--on-secondary);
+        }
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
-<a href="${this.item.tagname}" ƒ-click=":STOP,--click"></a>&lt;${this.item.tagname}&gt;
-      
+      <a href="${this.item.tagname}" ƒ-click=":STOP,--click"></a>&lt;${this.item.tagname}&gt;
     `}}window.customElements.define("furo-doc-menu-element-item",FuroDocMenuElementItem);class FuroDocMenuClassItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}setItem(item){this.item=item;this.selected=item.__selected;if(this.selected){setTimeout(()=>{if(this.scrollIntoViewIfNeeded){this.scrollIntoViewIfNeeded()}},16)}// remove classes without names (ie superclasses)
 if(!this.item.name){this.remove()}}/**
      * @private
@@ -1685,7 +1693,7 @@ if(!this.item.name){this.remove()}}/**
        * Description
        */selected:{type:Boolean,reflect:!0}}}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -1693,102 +1701,97 @@ if(!this.item.name){this.remove()}}/**
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDocMenuClassItem")||_furoShell.css`
         :host {
-            display: list-item;
-            padding-left: var(--spacing-s);
-            line-height: 30px;
-            margin-bottom: 4px;
-            color: var(--on-background);
-            letter-spacing: 0.0178571em;
-            font-size: 0.875rem;
-            font-weight: 300;
-            transition: all 0.2s ease 0s;
-            cursor: pointer;
+          display: list-item;
+          padding-left: var(--spacing-s);
+          line-height: 30px;
+          margin-bottom: 4px;
+          color: var(--on-background);
+          letter-spacing: 0.0178571em;
+          font-size: 0.875rem;
+          font-weight: 300;
+          transition: all 0.2s ease 0s;
+          cursor: pointer;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
-
-        :host(:hover), :host([selected]) {
-            background-color: var(--secondary);
-            border-radius: 4px;
-            color: var(--on-secondary);
+        :host(:hover),
+        :host([selected]) {
+          background-color: var(--secondary);
+          border-radius: 4px;
+          color: var(--on-secondary);
         }
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
       <a href="${this.item.name}" ƒ-click=":STOP,--click"></a>${this.item.name}
-    `}}window.customElements.define("furo-doc-menu-class-item",FuroDocMenuClassItem);class FuroDocMenu extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}analysis(analysis){if(analysis.elements){this._FBPTriggerWire("--elements",analysis.elements)}else{//clear
-this._FBPTriggerWire("--elements",[])}if(analysis.classes){this._FBPTriggerWire("--classes",analysis.classes)}else{//clear
-this._FBPTriggerWire("--classes",[])}if(analysis.mixins){this._FBPTriggerWire("--mixins",analysis.mixins)}else{//clear
+    `}}window.customElements.define("furo-doc-menu-class-item",FuroDocMenuClassItem);class FuroDocMenu extends(0,_furoShell.FBP)(_furoShell.LitElement){analysis(analysis){if(analysis.elements){this._FBPTriggerWire("--elements",analysis.elements)}else{// clear
+this._FBPTriggerWire("--elements",[])}if(analysis.classes){this._FBPTriggerWire("--classes",analysis.classes)}else{// clear
+this._FBPTriggerWire("--classes",[])}if(analysis.mixins){this._FBPTriggerWire("--mixins",analysis.mixins)}else{// clear
 this._FBPTriggerWire("--mixins",[])}// send selected, analysis.__selectedElement is set from furo-doc-fetch-analysis
 if(analysis.__selectedElement){/**
        * @event element
        * Fired when element is selected
        * detail payload: element analysis data
-       */let customEvent=new Event("element",{composed:!0,bubbles:!0});customEvent.detail=analysis.__selectedElement;this.dispatchEvent(customEvent)}// send selected class
+       */const customEvent=new Event("element",{composed:!0,bubbles:!0});customEvent.detail=analysis.__selectedElement;this.dispatchEvent(customEvent)}// send selected class
 if(analysis.__selectedClass){/**
        * @event element
        * Fired when element is selected
        * detail payload: element analysis data
-       */let customEvent=new Event("class",{composed:!0,bubbles:!0});customEvent.detail=analysis.__selectedClass;this.dispatchEvent(customEvent)}// send selected mixin
+       */const customEvent=new Event("class",{composed:!0,bubbles:!0});customEvent.detail=analysis.__selectedClass;this.dispatchEvent(customEvent)}// send selected mixin
 if(analysis.__selectedMixin){/**
        * @event element
        * Fired when element is selected
        * detail payload: element analysis data
-       */let customEvent=new Event("mixin",{composed:!0,bubbles:!0});customEvent.detail=analysis.__selectedMixin;this.dispatchEvent(customEvent)}}/**
+       */const customEvent=new Event("mixin",{composed:!0,bubbles:!0});customEvent.detail=analysis.__selectedMixin;this.dispatchEvent(customEvent)}}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDocMenu")||_furoShell.css`
         :host {
-            display: block;
-            height: 100%;
-            padding-right: var(--spacing-s);
-            background-color: var(--surface);
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing-s);
+          background-color: var(--surface);
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         h3 {
-            position: sticky;
-            top: 0;
-            background-color: var(--surface);
-            z-index: 1;
-            margin-top: 0;
-            color: var(--on-background);
-            letter-spacing: .07272727em;
-            font-size: 12px;
-            font-weight: 500;
-            text-transform: uppercase;
+          position: sticky;
+          top: 0;
+          background-color: var(--surface);
+          z-index: 1;
+          margin-top: 0;
+          color: var(--on-background);
+          letter-spacing: 0.07272727em;
+          font-size: 12px;
+          font-weight: 500;
+          text-transform: uppercase;
         }
-
 
         ul {
-            list-style: none;
-            padding: 0;
+          list-style: none;
+          padding: 0;
         }
-        
-
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
-
       <h3>Elements</h3>
       <ul>
         <template is="flow-repeat" ƒ-inject-items="--elements" identity-path="name">
           <furo-doc-menu-element-item ƒ-set-item="--item"></furo-doc-menu-element-item>
         </template>
       </ul>
-
 
       <h3>Mixins</h3>
       <ul>
@@ -1803,56 +1806,52 @@ return _furoShell.html`
           <furo-doc-menu-class-item ƒ-set-item="--item"></furo-doc-menu-class-item>
         </template>
       </ul>
-
-    `}}window.customElements.define("furo-doc-menu",FuroDocMenu);class FuroDocFetchAnalysis extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}fetchSrc(src){fetch(src).then(res=>res.json()).then(analysis=>{this._analysis=analysis;if(this.__location){this.checkSubroute(this.__location)}}).catch(err=>err)}checkSubroute(location){// enqueue when analysis is not
+    `}}window.customElements.define("furo-doc-menu",FuroDocMenu);class FuroDocFetchAnalysis extends(0,_furoShell.FBP)(_furoShell.LitElement){fetchSrc(src){fetch(src).then(res=>res.json()).then(analysis=>{this._analysis=analysis;if(this.__location){this.checkSubroute(this.__location)}}).catch(err=>err)}checkSubroute(location){// enqueue when analysis is not
 if(!this._analysis){this.__location=location;return}// Subelement deep linking
 // on ../input/component-name we want to select component-name
-if(location.pathSegments[0]){let subElement=location.pathSegments[0];if(this._analysis.elements){this._analysis.elements.forEach(e=>{// needed for linking to the demos
-e.__package=this._path;if(e.tagname===subElement){this._analysis.__selectedElement=e;//disable class
+if(location.pathSegments[0]){const subElement=location.pathSegments[0];if(this._analysis.elements){this._analysis.elements.forEach(e=>{// needed for linking to the demos
+e.__package=this._path;if(e.tagname===subElement){this._analysis.__selectedElement=e;// disable class
 this._analysis.__selectedClass=void 0;this._analysis.__selectedMixin=void 0;e.__selected=!0}else{e.__selected=!1}})}// check classes if available
-if(this._analysis.classes){this._analysis.classes.forEach((e,i)=>{if(e.name===subElement){this._analysis.__selectedClass=e;//disable element
+if(this._analysis.classes){this._analysis.classes.forEach(e=>{if(e.name===subElement){this._analysis.__selectedClass=e;// disable element
 this._analysis.__selectedMixin=void 0;this._analysis.__selectedElement=void 0;e.__selected=!0}else{e.__selected=!1}})}// check mixins if available
-if(this._analysis.mixins){this._analysis.mixins.forEach((e,i)=>{if(e.name===subElement){this._analysis.__selectedMixin=e;//disable element
-this._analysis.__selectedClass=void 0;this._analysis.__selectedElement=void 0;e.__selected=!0}else{e.__selected=!1}})}}else{// select first element on default
-if(this._analysis.elements){this._analysis.__selectedElement=this._analysis.elements[0]}else{// try with classes
-if(this._analysis.classes){this._analysis.__selectedClass=this._analysis.classes[0]}}}/**
+if(this._analysis.mixins){this._analysis.mixins.forEach(e=>{if(e.name===subElement){this._analysis.__selectedMixin=e;// disable element
+this._analysis.__selectedClass=void 0;this._analysis.__selectedElement=void 0;e.__selected=!0}else{e.__selected=!1}})}}else if(this._analysis.elements){[this._analysis.__selectedElement]=this._analysis.elements}else if(this._analysis.classes){[this._analysis.__selectedClass]=this._analysis.classes}/**
        * @event data
        * Fired when analysis loaded
        * detail payload: analysis
-       */let customEvent=new Event("data",{composed:!0,bubbles:!0});customEvent.detail=this._analysis;this.dispatchEvent(customEvent)}/**
+       */const customEvent=new Event("data",{composed:!0,bubbles:!0});customEvent.detail=this._analysis;this.dispatchEvent(customEvent)}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDocFetchAnalysis")||_furoShell.css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `}}window.customElements.define("furo-doc-fetch-analysis",FuroDocFetchAnalysis);class DemoFuroIconList extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+      `}}window.customElements.define("furo-doc-fetch-analysis",FuroDocFetchAnalysis);class DemoFuroIconList extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("DemoFuroIconList")||_furoShell.css`
         :host {
-            display: block;
-            
-            padding-right: var(--spacing);
+          display: block;
+
+          padding-right: var(--spacing);
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         h2 {
-            margin-top: 0;
+          margin-top: 0;
         }
-
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
@@ -1860,7 +1859,7 @@ return _furoShell.html`
       <h2>Iconset baseIcons</h2>
       <p>
       <pre>
-        import {FuroBaseIcons} from "@furo/icon/iconsets/baseIcons";
+        import {FuroBaseIcons} from "@furo/icon/assets/iconsets/baseIcons";
         Iconset.registerIconset("default", FuroBaseIcons);
       </pre></p>
       <div>
@@ -2179,7 +2178,7 @@ return _furoShell.html`
       <h2>Iconset avIcons</h2>
       <p>
       <pre>
-        import {AvIcons} from "@furo/icon/iconsets/avIcons";
+        import {AvIcons} from "@furo/icon/assets/iconsets/avIcons";
         Iconset.registerIconset("av", AvIcons);
       </pre></p>
 
@@ -2271,7 +2270,7 @@ return _furoShell.html`
       <h2>Iconset communicationIcons</h2>
       <p>
       <pre>
-        import {CommunicationIcons} from "@furo/icon/iconsets/communicationIcons";
+        import {CommunicationIcons} from "@furo/icon/assets/iconsets/communicationIcons";
         Iconset.registerIconset("communication", CommunicationIcons);
       </pre></p>
 
@@ -2331,7 +2330,7 @@ return _furoShell.html`
       <h2>Iconset deviceIcons</h2>
       <p>
       <pre>
-        import {DeviceIcons} from "@furo/icon/iconsets/deviceIcons";
+        import {DeviceIcons} from "@furo/icon/assets/iconsets/deviceIcons";
         Iconset.registerIconset("device", DeviceIcons);
       </pre></p>
 
@@ -2420,7 +2419,7 @@ return _furoShell.html`
       <h2>Iconset editorIcons</h2>
       <p>
       <pre>
-        import {EditorIcons} from "@furo/icon/iconsets/editorIcons";
+        import {EditorIcons} from "@furo/icon/assets/iconsets/editorIcons";
         Iconset.registerIconset("editor", EditorIcons);
       </pre></p>
 
@@ -2498,7 +2497,7 @@ return _furoShell.html`
       <h2>Iconset hardwareIcons</h2>
       <p>
       <pre>
-        import {HardwareIcons} from "@furo/icon/iconsets/hardwareIcons";
+        import {HardwareIcons} from "@furo/icon/assets/iconsets/hardwareIcons";
         Iconset.registerIconset("hardware", HardwareIcons);
       </pre></p>
 
@@ -2556,7 +2555,7 @@ return _furoShell.html`
       <h2>Iconset imageIcons</h2>
       <p>
       <pre>
-        import {ImageIcons} from "@furo/icon/iconsets/imageIcons";
+        import {ImageIcons} from "@furo/icon/assets/iconsets/imageIcons";
         Iconset.registerIconset("image", ImageIcons);
       </pre></p>
 
@@ -2721,7 +2720,7 @@ return _furoShell.html`
       <h2>Iconset mapsIcons</h2>
       <p>
       <pre>
-        import {MapsIcons} from "@furo/icon/iconsets/mapsIcons";
+        import {MapsIcons} from "@furo/icon/assets/iconsets/mapsIcons";
         Iconset.registerIconset("maps", MapsIcons);
       </pre></p>
 
@@ -2799,7 +2798,7 @@ return _furoShell.html`
       <h2>Iconset notificationIcons</h2>
       <p>
       <pre>
-        import {NotificationIcons} from "@furo/icon/iconsets/notificationIcons";
+        import {NotificationIcons} from "@furo/icon/assets/iconsets/notificationIcons";
         Iconset.registerIconset("notification", NotificationIcons);
       </pre></p>
 
@@ -2864,7 +2863,7 @@ return _furoShell.html`
       <h2>Iconset placesIcons</h2>
       <p>
       <pre>
-        import {PlacesIcons} from "@furo/icon/iconsets/placesIcons";
+        import {PlacesIcons} from "@furo/icon/assets/iconsets/placesIcons";
         Iconset.registerIconset("places", PlacesIcons);
       </pre></p>
 
@@ -2894,7 +2893,7 @@ return _furoShell.html`
       <h2>Iconset socialIcons</h2>
       <p>
       <pre>
-        import {SocialIcons} from "@furo/icon/iconsets/socialIcons";
+        import {SocialIcons} from "@furo/icon/assets/iconsets/socialIcons";
         Iconset.registerIconset("social", SocialIcons);
       </pre></p>
 
@@ -2995,29 +2994,29 @@ window.addEventListener("connect-to-drawer-requested",e=>{if(e.detail.name===thi
      */set __isFloating(val){this._isFloating=val;if(val){/**
        * @event is-floating
        * Fired when drawer is in floating mode. This event is fired when drawer is closed and opened
-       */let customEvent=new Event("is-floating",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}else{/**
+       */const customEvent=new Event("is-floating",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}else{/**
        * @event is-pinned
        * Fired when drawer is in pinned mode.
-       */let customEvent=new Event("is-pinned",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}}get __isFloating(){return this._isFloating}/**
+       */const customEvent=new Event("is-pinned",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}}get __isFloating(){return this._isFloating}/**
      * open the drawer when it is in float mode
-     */open(){this.isOpen=!0;if(this.__isFloating){let drawer=this.shadowRoot.getElementById("drawer");//drawer.style.transform = "translate3d(0, 0, 0)";
-if(this.isReverse){//drawer.style.transform = "translate3d("+ width +"px, 0, 0)";
-drawer.style.right=0}else{drawer.style.left=0;//drawer.style.transform = "translate3d(-"+ width +"px, 0, 0)";
-}let backdrop=this.shadowRoot.getElementById("backdrop");backdrop.style.opacity=1;backdrop.style.pointerEvents="auto";// unregister movement tracker
-this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);//unregister trackend
+     */open(){this.isOpen=!0;if(this.__isFloating){const drawer=this.shadowRoot.getElementById("drawer");// drawer.style.transform = "translate3d(0, 0, 0)";
+if(this.isReverse){// drawer.style.transform = "translate3d("+ width +"px, 0, 0)";
+drawer.style.right=0}else{drawer.style.left=0;// drawer.style.transform = "translate3d(-"+ width +"px, 0, 0)";
+}const backdrop=this.shadowRoot.getElementById("backdrop");backdrop.style.opacity=1;backdrop.style.pointerEvents="auto";// unregister movement tracker
+this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);// unregister trackend
 this.removeEventListener("mouseup",this.trackEnd,{once:!0});this.removeEventListener("touchend",this.trackEnd,{once:!0})}/**
        * @event drawer-opened
        * Fired when drawer was opened.
-       */let customEvent=new Event("drawer-opened",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}/**
+       */const customEvent=new Event("drawer-opened",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}/**
      * closes the drawer when it is in float mode
-     */close(){this.isOpen=!1;if(this.__isFloating){let drawer=this.shadowRoot.getElementById("drawer"),width=drawer.getBoundingClientRect().width;if(this.isReverse){//drawer.style.transform = "translate3d("+ width +"px, 0, 0)";
-drawer.style.right=-width+"px"}else{drawer.style.left=-width+"px";//drawer.style.transform = "translate3d(-"+ width +"px, 0, 0)";
-}let backdrop=this.shadowRoot.getElementById("backdrop");backdrop.style.opacity=0;backdrop.style.pointerEvents="none";// unregister movement tracker
-this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);//unregister trackend
+     */close(){this.isOpen=!1;if(this.__isFloating){const drawer=this.shadowRoot.getElementById("drawer"),{width}=drawer.getBoundingClientRect();if(this.isReverse){// drawer.style.transform = "translate3d("+ width +"px, 0, 0)";
+drawer.style.right=`${-width}px`}else{drawer.style.left=`${-width}px`;// drawer.style.transform = "translate3d(-"+ width +"px, 0, 0)";
+}const backdrop=this.shadowRoot.getElementById("backdrop");backdrop.style.opacity=0;backdrop.style.pointerEvents="none";// unregister movement tracker
+this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);// unregister trackend
 this.removeEventListener("mouseup",this.trackEnd,{once:!0});this.removeEventListener("touchend",this.trackEnd,{once:!0})}/**
        * @event drawer-closed
        * Fired when drawer was closed.
-       */let customEvent=new Event("drawer-closed",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}/**
+       */const customEvent=new Event("drawer-closed",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}/**
      * let the drawer float
      */floatDrawer(){this.__isFloating=!0}/**
      * disable the floating
@@ -3030,124 +3029,122 @@ this.removeEventListener("mouseup",this.trackEnd,{once:!0});this.removeEventList
      * Put the drawer on the left side (default)
      */putDrawerToLeft(){this.isReverse=!1}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 /**
      * Register hook on wire --backdropClicked to
      * close the menu
-     */this._FBPAddWireHook("--backdropClicked",e=>{this.close()});// register resize listener
-if(!this.permanent){if(window.ResizeObserver){let ro=new ResizeObserver(entries=>{for(let entry of entries){const cr=entry.contentRect;this.__isFloating=cr.width<=this.floatBreakpoint}if(this.__isFloating){this.close()}});ro.observe(this)}else{// fallback, just listen to the resize event
-let cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;window.addEventListener("resize",e=>{let cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;if(this.__isFloating){this.close()}})}}let drawer=this.shadowRoot.getElementById("drawer"),drag=this.shadowRoot.getElementById("drag"),backdrop=this.shadowRoot.getElementById("backdrop"),trackhandler=e=>{// unregister
-this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);if(e instanceof MouseEvent){this.pauseEvent(e)}if(this.__isFloating){let start_x=this._getScreenX(e),start_y=this._getScreenY(e),start_time=performance.now(),width=drawer.getBoundingClientRect().width,trackingEnabled=!1,trackingFixed=!1;drawer.style.transitionDuration="0ms";// Setup a timer
+     */this._FBPAddWireHook("--backdropClicked",()=>{this.close()});// register resize listener
+if(!this.permanent){if(window.ResizeObserver){const ro=new ResizeObserver(entries=>{for(const entry of entries){window.requestAnimationFrame(()=>{const cr=entry.contentRect;this.__isFloating=cr.width<=this.floatBreakpoint})}if(this.__isFloating){this.close()}});ro.observe(this)}else{// fallback, just listen to the resize event
+const cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;window.addEventListener("resize",()=>{// eslint-disable-next-line no-shadow
+const cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;if(this.__isFloating){this.close()}})}}const drawer=this.shadowRoot.getElementById("drawer"),drag=this.shadowRoot.getElementById("drag"),backdrop=this.shadowRoot.getElementById("backdrop"),trackhandler=e=>{// unregister
+this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);if(e instanceof MouseEvent){this.pauseEvent(e)}if(this.__isFloating){const startX=this._getScreenX(e),startY=this._getScreenY(e),startTime=performance.now(),{width}=drawer.getBoundingClientRect();let trackingEnabled=!1,trackingFixed=!1;drawer.style.transitionDuration="0ms";// Setup a timer
 let animationframetimeout;// register move
-this.moveHandler=e=>{// If there's a timer, cancel it
+this.moveHandler=()=>{// If there's a timer, cancel it
 if(requestAnimationFrame){window.cancelAnimationFrame(animationframetimeout)}if(e instanceof MouseEvent){this.pauseEvent(e);// prevent dragging of links in a drawer
-e.preventDefault()}let distance=this._getScreenX(e)-start_x,y=this._getScreenY(e)-start_y;// start tracking if angle is in a 45 deg horizontal
+e.preventDefault()}let distance=this._getScreenX(e)-startX;const y=this._getScreenY(e)-startY;// start tracking if angle is in a 45 deg horizontal
 if(!trackingFixed&&Math.abs(distance)<this._movementDetectionRange&&Math.abs(y)<this._movementDetectionRange){trackingEnabled=Math.abs(y)<Math.abs(distance);return}// Setup the new requestAnimationFrame()
 animationframetimeout=window.requestAnimationFrame(()=>{if(!trackingEnabled){return}trackingFixed=!0;// correct the 10 pixels from tracking enable
 if(!this.isReverse){distance+=this._movementDetectionRange}else{distance-=this._movementDetectionRange}// update drawer position
 let delta=100*distance/width;if(this.isOpen){// limit the dragging, it makes no sense to pull the drawer in to the content area
-if(!this.isReverse&&0<delta||this.isReverse&&0>delta){delta=0}//drawer.style.transform = "translate3d(" + distance + "px, 0, 0)";
-if(this.isReverse){if(0>distance){distance=0}drawer.style.right=-distance+"px"}else{if(0<distance){distance=0}drawer.style.left=distance+"px"}backdrop.style.opacity=Math.floor(100+delta)/100}else{// limit the dragging
-if(100<delta){delta=100;distance=width}if(-100>delta){delta=-100;distance=-width}if(this.isReverse){//drawer.style.transform = "translate3d(" + (100 + delta) + "%, 0, 0)";
-drawer.style.right=-(width+distance)+"px"}else{//drawer.style.transform = "translate3d(" + (delta - 100) + "%, 0, 0)";
-drawer.style.left=distance-width+"px"}// backdrop darkness
+if(!this.isReverse&&0<delta||this.isReverse&&0>delta){delta=0}// drawer.style.transform = "translate3d(" + distance + "px, 0, 0)";
+if(this.isReverse){if(0>distance){distance=0}drawer.style.right=`${-distance}px`}else{if(0<distance){distance=0}drawer.style.left=`${distance}px`}backdrop.style.opacity=Math.floor(100+delta)/100}else{// limit the dragging
+if(100<delta){delta=100;distance=width}if(-100>delta){delta=-100;distance=-width}if(this.isReverse){// drawer.style.transform = "translate3d(" + (100 + delta) + "%, 0, 0)";
+drawer.style.right=`${-(width+distance)}px`}else{// drawer.style.transform = "translate3d(" + (delta - 100) + "%, 0, 0)";
+drawer.style.left=`${distance-width}px`}// backdrop darkness
 backdrop.style.opacity=Math.abs(delta/100)}})};// register move
-this.addEventListener("mousemove",this.moveHandler,!0);//todo: check this: this.addEventListener("touchmove", this.moveHandler, {passive: true});
+this.addEventListener("mousemove",this.moveHandler,!0);// todo: check this: this.addEventListener("touchmove", this.moveHandler, {passive: true});
 // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
-this.addEventListener("touchmove",this.moveHandler,!0);this.trackEnd=e=>{drawer.style.transitionDuration="";// If there's a animation timer, cancel it
-if(requestAnimationFrame){window.cancelAnimationFrame(animationframetimeout)}let end_time=performance.now(),distance=this._getScreenX(e)-start_x,duration=end_time-start_time;// quick movement
+this.addEventListener("touchmove",this.moveHandler,!0);// eslint-disable-next-line no-shadow
+this.trackEnd=e=>{drawer.style.transitionDuration="";// If there's a animation timer, cancel it
+if(requestAnimationFrame){window.cancelAnimationFrame(animationframetimeout)}const endTime=performance.now(),distance=this._getScreenX(e)-startX,duration=endTime-startTime;// quick movement
 if(30<Math.abs(distance)&&200>duration){if(this.isOpen){if(!this.isReverse&&0>distance||this.isReverse&&0<distance){this.close()}}else{this.open()}}else{if(!trackingEnabled){return}// complete the movement, slow
-let delta=100*distance/width;if(-40<delta&&40>delta){// restore initial pos
-if(this.isOpen){this.open()}else{this.close()}}else{if(this.isOpen){this.close()}else{this.open()}}}// unregister
+const delta=100*distance/width;if(-40<delta&&40>delta){// restore initial pos
+if(this.isOpen){this.open()}else{this.close()}}else if(this.isOpen){this.close()}else{this.open()}}// unregister
 this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0)};// unregister movement tracker
-this.addEventListener("mouseup",this.trackEnd,{once:!0});this.addEventListener("touchend",this.trackEnd,{once:!0})}};drawer.addEventListener("trackstart",trackhandler,{passive:!0});drawer.addEventListener("mousedown",trackhandler);drag.addEventListener("trackstart",trackhandler,{passive:!0});drag.addEventListener("mousedown",trackhandler)}pauseEvent(e){if(e.stopPropagation)e.stopPropagation();if(e.preventDefault)e.preventDefault();e.cancelBubble=!0;e.returnValue=!1;return!1}_getScreenX(e){let x;if(e instanceof MouseEvent){x=e.screenX}else{x=e.changedTouches[0].screenX}return x}_getScreenY(e){let y;if(e instanceof MouseEvent){y=e.screenY}else{y=e.changedTouches[0].screenY}return y}/**
+this.addEventListener("mouseup",this.trackEnd,{once:!0});this.addEventListener("touchend",this.trackEnd,{once:!0})}};drawer.addEventListener("trackstart",trackhandler,{passive:!0});drawer.addEventListener("mousedown",trackhandler);drag.addEventListener("trackstart",trackhandler,{passive:!0});drag.addEventListener("mousedown",trackhandler)}// eslint-disable-next-line class-methods-use-this
+pauseEvent(e){if(e.stopPropagation)e.stopPropagation();if(e.preventDefault)e.preventDefault();e.cancelBubble=!0;e.returnValue=!1;return!1}// eslint-disable-next-line class-methods-use-this
+_getScreenX(e){let x;if(e instanceof MouseEvent){x=e.screenX}else{x=e.changedTouches[0].screenX}return x}// eslint-disable-next-line class-methods-use-this
+_getScreenY(e){let y;if(e instanceof MouseEvent){y=e.screenY}else{y=e.changedTouches[0].screenY}return y}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroAppDrawer")||_furoShell.css`
-      :host {
-        display: block;
-        height: 100%;
-        position: relative;
-        overflow: hidden;
-      }
+        :host {
+          display: block;
+          height: 100%;
+          position: relative;
+          overflow: hidden;
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
+        :host([hidden]) {
+          display: none;
+        }
 
-      furo-horizontal-flex {
-        height: 100%;
-      }
+        furo-horizontal-flex {
+          height: 100%;
+        }
 
+        #drawer {
+          border-right: 1px solid var(--separator, rgb(228, 228, 228));
+          transition-duration: 200ms;
+          background: var(--surface-light);
+        }
 
-      #drawer {
-        border-right: 1px solid var(--separator, rgb(228, 228, 228));
-        transition-duration: 200ms;
-        background: var(--surface-light);
-      }
+        ::slotted([scroll]) {
+          height: 100%;
+          overflow-y: auto;
+        }
 
-      ::slotted([scroll]) {
-        height: 100%;
-        overflow-y: auto;
-      }
+        /* disable pointer events, z-index 15 just to be below the drawer */
+        #backdrop {
+          pointer-events: none;
+          transition-duration: 200ms;
+          transition-property: opacity;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          opacity: 0;
+          background: var(--furo-app-drawer-backdrop, rgba(0, 0, 0, 0.5));
+          z-index: 15;
+        }
 
-      /* disable pointer events, z-index 15 just to be below the drawer */
-      #backdrop {
-        pointer-events: none;
-        transition-duration: 200ms;
-        transition-property: opacity;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        opacity: 0;
-        background: var(--furo-app-drawer-backdrop, rgba(0, 0, 0, 0.5));
-        z-index: 15;
-      }
+        #drag {
+          position: absolute;
+          top: 0;
+          width: 18px;
+          bottom: 0;
+          left: 0;
+          z-index: 16;
+        }
 
+        :host([reverse]) #drag {
+          left: unset;
+          right: 0;
+        }
 
-      #drag {
-        position: absolute;
-        top: 0;
-        width: 18px;
-        bottom: 0;
-        left: 0;
-        z-index: 16;
-      }
+        /* put the floating drawer outside the visible area, z-index 16 should be enough layers above 0 */
+        :host([float]) #drawer {
+          position: absolute;
+          z-index: 16;
+          top: 0;
+          left: 0;
+          bottom: 0;
+        }
 
-      :host([reverse]) #drag {
-        left: unset;
-        right: 0;
-      }
-
-      /* put the floating drawer outside the visible area, z-index 16 should be enough layers above 0 */
-      :host([float]) #drawer {
-        position: absolute;
-        z-index: 16;
-        top: 0;
-        left: 0;
-        bottom: 0;
-      }
-
-      /* put drawer to the right side on reverse mode */
-      :host([float][reverse]) #drawer {
-        left: unset;
-        right: 0;
-
-      }
-
-
-
-    `}/**
+        /* put drawer to the right side on reverse mode */
+        :host([float][reverse]) #drawer {
+          left: unset;
+          right: 0;
+        }
+      `}/**
      * @private
      * @returns {TemplateResult}
      * @private
      */render(){// language=HTML
 return _furoShell.html`
-
       <furo-horizontal-flex ?reverse="${this.isReverse}">
         <div id="drawer">
           <slot name="drawer"></slot>

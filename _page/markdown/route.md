@@ -7,9 +7,9 @@ You need the following building blocks:
 
 | component                 | description                       |
 |:--------------------------|:----------------------------------|
-| @furo/route/src/furo-location | observes location and path        | 
-| @furo/data/furo-deep-link      | builds static HATEOAS information based on query params  |
-| @furo/route/src/furo-pages    | can activate views based on the current location |
+| @furo/route/src/furo-location | observes location and path         
+| @furo/data/src/furo-deep-link      | builds static HATEOAS information based on query params  
+| @furo/route/src/furo-pages    | can activate views based on the current location 
 
 ### Deep link (perma link)
 Why perma links?
@@ -38,9 +38,9 @@ For this kind of routing you need the following building blocks:
 
 | component                        | description                       |
 |:---------------------------------|:----------------------------------|
-| @furo/route/src/furo-app-flow-router | app flow manager                  | 
-| @furo/route/src/furo-app-flow        | emits app flow events             |
-| @furo/config/furo-config-loader  | can load config files             |
+| @furo/route/src/furo-app-flow-router | app flow manager                   
+| @furo/route/src/furo-app-flow        | emits app flow events             
+| @furo/config/src/furo-config-loader  | can load config files             
 | flowConfig.json                  | flow config definition file       |
 
 ``` html

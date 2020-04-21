@@ -1,2 +1,2 @@
-import "@furo/input/furo-button"
-import "@furo/input/furo-color-input"
+import "@furo/input/src/furo-button"
+import "@furo/input/src/furo-color-input"

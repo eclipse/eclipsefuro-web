@@ -14,8 +14,8 @@
 > Add the suites to the automated testing, to add additional tests manualy
 ``` json 
   "suites": [
-        "node_modules/@furo/fbp/test/index.html",
-        "node_modules/@furo/route/src/test/index.html"
+        "node_modules/@furo/fbp/test/src/index.html"
+        "node_modules/@furo/route/src/test/src/index.html
     ]
 ```
 
@@ -23,8 +23,8 @@
 > Add all tests to the automated testing (**recomended**)
 ``` json 
   "suites": [
-        "node_modules/@furo/fbp/test/*_test.html",
-        "node_modules/@furo/route/src/test/*_.html"
+        "node_modules/@furo/fbp/test/src/*_test.html"
+        "node_modules/@furo/route/src/test/src/*_.html
     ]
 ```
 
@@ -44,7 +44,7 @@ http://127.0.0.1:8000/packages/furo-fbp/test/wire-hooks_test.html
 
 ```
 
-This link will run the suite for <a href="/packages/furo-fbp/test/" target="_blank">@furo/fbp</a>. <br>
+This link will run the suite for <a href="/packages/furo-fbp/test/" target="_blank">@furo/fbp</src/a>. <br
 You can also run the tests individually, by adding the name of the test to the url: <a
 href="/packages/furo-fbp/test/wire-hooks_test.html" target="_blank">wire-hooks_test.html</a>. Open the
 console

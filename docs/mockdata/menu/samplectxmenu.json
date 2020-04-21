@@ -1,0 +1,545 @@
+{
+  "icon": null,
+  "display_name": null,
+  "disabled": null,
+  "command": null,
+  "action": null,
+  "leading_divider": null,
+  "flags": [],
+  "payload": [],
+  "children": [
+    {
+      "icon": "av:play-circle-outline",
+      "display_name": "main",
+      "disabled": false,
+      "command": null,
+      "action": "action",
+      "leading_divider": false,
+      "children": [],
+      "flags": ["danger","full"],
+      "payload": []
+    },
+    {
+      "icon": null,
+      "display_name": "Delete",
+      "disabled": false,
+      "command": "Del",
+      "action": "delete",
+      "leading_divider": false,
+      "children": [],
+      "flags": [],
+      "payload": []
+    },    {
+      "icon": "android",
+      "display_name": "Line Spacing",
+      "disabled": false,
+      "command": null,
+      "action": null,
+      "leading_divider": false,
+      "children": [
+        {
+          "icon": null,
+          "display_name": "Single",
+          "disabled": false,
+          "command": null,
+          "action": "action",
+          "leading_divider": false,
+          "children": [],
+          "flags": ["danger","full"],
+          "payload": []
+        },
+        {
+          "icon": null,
+          "display_name": "Custom",
+          "disabled": false,
+          "command": null,
+          "action": "delete",
+          "leading_divider": false,
+          "children": [
+            {
+              "icon": "av:play-circle-outline",
+              "display_name": "first sub",
+              "disabled": false,
+              "command": null,
+              "action": "action",
+              "leading_divider": false,
+              "children": [{
+                "icon": "av:play-circle-outline",
+                "display_name": "first sub",
+                "disabled": false,
+                "command": null,
+                "action": "action",
+                "leading_divider": false,
+                "children": [],
+                "flags": ["danger","full"],
+                "payload": []
+              },
+                {
+                  "icon": null,
+                  "display_name": "Delete",
+                  "disabled": false,
+                  "command": "Del",
+                  "action": "delete",
+                  "leading_divider": false,
+                  "children": [],
+                  "flags": [],
+                  "payload": []
+                },
+                {
+                  "icon": null,
+                  "display_name": "With divider and a very very long text as label",
+                  "disabled": false,
+                  "command": "Del",
+                  "action": "delete",
+                  "leading_divider": true,
+                  "children": [],
+                  "flags": [],
+                  "payload": []
+                },{
+                  "icon": "av:play-circle-outline",
+                  "display_name": "first sub",
+                  "disabled": false,
+                  "command": null,
+                  "action": "action",
+                  "leading_divider": false,
+                  "children": [],
+                  "flags": ["danger","full"],
+                  "payload": []
+                },
+                {
+                  "icon": null,
+                  "display_name": "Delete",
+                  "disabled": false,
+                  "command": "Del",
+                  "action": "delete",
+                  "leading_divider": false,
+                  "children": [],
+                  "flags": [],
+                  "payload": []
+                },
+                {
+                  "icon": null,
+                  "display_name": "With divider and a very very long text as label",
+                  "disabled": false,
+                  "command": "Del",
+                  "action": "delete",
+                  "leading_divider": true,
+                  "children": [],
+                  "flags": [],
+                  "payload": []
+                },{
+                  "icon": "av:play-circle-outline",
+                  "display_name": "first sub",
+                  "disabled": false,
+                  "command": null,
+                  "action": "action",
+                  "leading_divider": false,
+                  "children": [],
+                  "flags": ["danger","full"],
+                  "payload": []
+                },
+                {
+                  "icon": null,
+                  "display_name": "Delete",
+                  "disabled": false,
+                  "command": "Del",
+                  "action": "delete",
+                  "leading_divider": false,
+                  "children": [],
+                  "flags": [],
+                  "payload": []
+                },
+                {
+                  "icon": null,
+                  "display_name": "With divider and a very very long text as label",
+                  "disabled": false,
+                  "command": "Del",
+                  "action": "delete",
+                  "leading_divider": true,
+                  "children": [],
+                  "flags": [],
+                  "payload": []
+                }],
+              "flags": ["danger","full"],
+              "payload": []
+            },
+            {
+              "icon": null,
+              "display_name": "Delete",
+              "disabled": false,
+              "command": "Del",
+              "action": "delete",
+              "leading_divider": false,
+              "children": [],
+              "flags": [],
+              "payload": []
+            },
+            {
+              "icon": null,
+              "display_name": "With divider and a very very long text as label",
+              "disabled": false,
+              "command": "Del",
+              "action": "delete",
+              "leading_divider": true,
+              "children": [],
+              "flags": [],
+              "payload": []
+            }
+          ],
+          "flags": [],
+          "payload": []
+        },
+        {
+          "icon": "check",
+          "display_name": "Double",
+          "disabled": false,
+          "command": "Del",
+          "action": "delete",
+          "leading_divider": true,
+          "children": [],
+          "flags": [],
+          "payload": []
+        }
+      ],
+      "flags": [],
+      "payload": []
+    },
+    {
+      "icon": null,
+      "display_name": "With divider",
+      "disabled": false,
+      "command": "Del",
+      "action": "delete",
+      "leading_divider": true,
+      "children": [],
+      "flags": [],
+      "payload": []
+    },
+    {
+      "icon": null,
+      "display_name": "in divider",
+      "disabled": false,
+      "command": "Del",
+      "action": "delete",
+      "leading_divider": false,
+      "children": [],
+      "flags": [],
+      "payload": []
+    },
+    {
+      "icon": "av:play-circle-outline",
+      "display_name": "first sub",
+      "disabled": false,
+      "command": null,
+      "action": "action",
+      "leading_divider": false,
+      "children": [],
+      "flags": ["danger","full"],
+      "payload": []
+    },
+    {
+      "icon": null,
+      "display_name": "Delete",
+      "disabled": false,
+      "command": null,
+      "action": "delete",
+      "leading_divider": true,
+      "children": [
+        {
+          "icon": "av:play-circle-outline",
+          "display_name": "first sub",
+          "disabled": false,
+          "command": null,
+          "action": "action",
+          "leading_divider": false,
+          "children": [{
+            "icon": "av:play-circle-outline",
+            "display_name": "first sub",
+            "disabled": false,
+            "command": null,
+            "action": "action",
+            "leading_divider": false,
+            "children": [],
+            "flags": ["danger","full"],
+            "payload": []
+          },
+            {
+              "icon": null,
+              "display_name": "Delete",
+              "disabled": false,
+              "command": "Del",
+              "action": "delete",
+              "leading_divider": false,
+              "children": [],
+              "flags": [],
+              "payload": []
+            },
+            {
+              "icon": null,
+              "display_name": "With divider and a very very long text as label",
+              "disabled": false,
+              "command": "Del",
+              "action": "delete",
+              "leading_divider": true,
+              "children": [],
+              "flags": [],
+              "payload": []
+            },{
+              "icon": "av:play-circle-outline",
+              "display_name": "first sub",
+              "disabled": false,
+              "command": null,
+              "action": "action",
+              "leading_divider": false,
+              "children": [],
+              "flags": ["danger","full"],
+              "payload": []
+            },
+            {
+              "icon": null,
+              "display_name": "Delete",
+              "disabled": false,
+              "command": "Del",
+              "action": "delete",
+              "leading_divider": false,
+              "children": [],
+              "flags": [],
+              "payload": []
+            },
+            {
+              "icon": null,
+              "display_name": "With divider and a very very long text as label",
+              "disabled": false,
+              "command": "Del",
+              "action": "delete",
+              "leading_divider": true,
+              "children": [],
+              "flags": [],
+              "payload": []
+            },{
+              "icon": "av:play-circle-outline",
+              "display_name": "first sub",
+              "disabled": false,
+              "command": null,
+              "action": "action",
+              "leading_divider": false,
+              "children": [],
+              "flags": ["danger","full"],
+              "payload": []
+            },
+            {
+              "icon": null,
+              "display_name": "Delete",
+              "disabled": false,
+              "command": "Del",
+              "action": "delete",
+              "leading_divider": false,
+              "children": [],
+              "flags": [],
+              "payload": []
+            },
+            {
+              "icon": null,
+              "display_name": "With divider and a very very long text as label",
+              "disabled": false,
+              "command": "Del",
+              "action": "delete",
+              "leading_divider": true,
+              "children": [],
+              "flags": [],
+              "payload": []
+            }],
+          "flags": ["danger","full"],
+          "payload": []
+        },
+        {
+          "icon": null,
+          "display_name": "Delete",
+          "disabled": false,
+          "command": "Del",
+          "action": "delete",
+          "leading_divider": false,
+          "children": [],
+          "flags": [],
+          "payload": []
+        },
+        {
+          "icon": null,
+          "display_name": "With divider and a very very long text as label",
+          "disabled": false,
+          "command": "Del",
+          "action": "delete",
+          "leading_divider": true,
+          "children": [],
+          "flags": [],
+          "payload": []
+        }
+      ],
+      "flags": [],
+      "payload": []
+    },
+    {
+      "icon": null,
+      "display_name": "With divider",
+      "disabled": false,
+      "command": " ⌘d",
+      "action": "delete",
+      "leading_divider": false,
+      "children": [],
+      "flags": [],
+      "payload": []
+    },
+    {
+      "icon": null,
+      "display_name": "noicon delete",
+      "disabled": false,
+      "command": null,
+      "action": "delete",
+      "leading_divider": true,
+      "children": [
+        {
+          "icon": "av:play-circle-outline",
+          "display_name": "first sub",
+          "disabled": false,
+          "command": null,
+          "action": "action",
+          "leading_divider": false,
+          "children": [{
+            "icon": "av:play-circle-outline",
+            "display_name": "first sub",
+            "disabled": false,
+            "command": null,
+            "action": "action",
+            "leading_divider": false,
+            "children": [],
+            "flags": ["danger","full"],
+            "payload": []
+          },
+            {
+              "icon": null,
+              "display_name": "Delete",
+              "disabled": false,
+              "command": "Del",
+              "action": "delete",
+              "leading_divider": false,
+              "children": [],
+              "flags": [],
+              "payload": []
+            },
+            {
+              "icon": null,
+              "display_name": "With divider and a very very long text as label",
+              "disabled": false,
+              "command": "Del",
+              "action": "delete",
+              "leading_divider": true,
+              "children": [],
+              "flags": [],
+              "payload": []
+            },{
+              "icon": "av:play-circle-outline",
+              "display_name": "first sub",
+              "disabled": false,
+              "command": null,
+              "action": "action",
+              "leading_divider": false,
+              "children": [],
+              "flags": ["danger","full"],
+              "payload": []
+            },
+            {
+              "icon": null,
+              "display_name": "Delete",
+              "disabled": false,
+              "command": "Del",
+              "action": "delete",
+              "leading_divider": false,
+              "children": [],
+              "flags": [],
+              "payload": []
+            },
+            {
+              "icon": null,
+              "display_name": "With divider and a very very long text as label",
+              "disabled": false,
+              "command": "Del",
+              "action": "delete",
+              "leading_divider": true,
+              "children": [],
+              "flags": [],
+              "payload": []
+            },{
+              "icon": "av:play-circle-outline",
+              "display_name": "first sub",
+              "disabled": false,
+              "command": null,
+              "action": "action",
+              "leading_divider": false,
+              "children": [],
+              "flags": ["danger","full"],
+              "payload": []
+            },
+            {
+              "icon": null,
+              "display_name": "Delete",
+              "disabled": false,
+              "command": "Del",
+              "action": "delete",
+              "leading_divider": false,
+              "children": [],
+              "flags": [],
+              "payload": []
+            },
+            {
+              "icon": null,
+              "display_name": "With divider and a very very long text as label",
+              "disabled": false,
+              "command": "Del",
+              "action": "delete",
+              "leading_divider": true,
+              "children": [],
+              "flags": [],
+              "payload": []
+            }],
+          "flags": ["danger","full"],
+          "payload": []
+        },
+        {
+          "icon": null,
+          "display_name": "Delete",
+          "disabled": false,
+          "command": "Del",
+          "action": "delete",
+          "leading_divider": false,
+          "children": [],
+          "flags": [],
+          "payload": []
+        },
+        {
+          "icon": null,
+          "display_name": "With divider and a very very long text",
+          "disabled": false,
+          "command": "Del",
+          "action": "delete",
+          "leading_divider": true,
+          "children": [],
+          "flags": [],
+          "payload": []
+        }
+      ],
+      "flags": [],
+      "payload": []
+    },
+    {
+      "icon": "av:play-circle-outline",
+      "display_name": "with icon divider",
+      "disabled": false,
+      "command": "Del",
+      "action": "delete",
+      "leading_divider": true,
+      "children": [],
+      "flags": [],
+      "payload": []
+    }
+  ]
+}

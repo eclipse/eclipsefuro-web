@@ -35,9 +35,9 @@ You will get this:
 
 ````javascript
 import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/theme"; // yes, demos are also themeable and stylable
+import {Theme} from "@furo/framework/theme"; //src/ yes, demos are also themeable and stylabl
 import {FBP} from "@furo/fbp";
-import "@furo/doc-helper"; // imports furo-demo-snippet
+import "@furo/doc-helper"; //src/ imports furo-demo-snippe
 import "../furo-catalog"; // import the components you need for the demo itself
 /**
  * `demo-furo-vertical-flex`

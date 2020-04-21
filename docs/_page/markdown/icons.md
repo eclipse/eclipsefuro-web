@@ -27,7 +27,7 @@ The naming of the icons is the same as in the well known set of **@polymer/iron-
 2. then import and register the custom iconset for the global use
 
 ```js
-    import {Iconset} from "@furo/framework/furo.js";
+    import {Iconset} from "@furo/framework/src/furo.js"
     import {DemoIcons} from "./demo-icons";
     Iconset.registerIconset("demo", DemoIcons);
     
@@ -39,7 +39,7 @@ icon name should be in this format: "iconsetName:iconName"
 ```html
     <!-- import iconset and furo-icon from @furo into you element -->
     
-    import '@furo/icon/furo-icon';
+    import '@furo/icon/src/furo-icon'
     
     <!--  use the imported custom name 'wb-sunny' from custom iconset 'demo' -->
     

@@ -1,55 +1,4 @@
-define(["exports","require"],function(_exports,_require){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.$attrDefault=attr;_exports.$documentWaitDefault=documentWait;_exports.parser=_exports.$parserDefault=parser;_exports.find=_exports.$selectorDefault=baseFind;_exports.addClass=addClass;_exports.addMethodNames=addMethodNames;_exports.adopt$1=_exports.adopt=adopt;_exports.after=after;_exports.applyCss=applyCss;_exports.applyStyle=applyStyle;_exports.applyStylePlaceHolder=applyStylePlaceHolder;_exports.array=array;_exports.assignNewId$1=_exports.assignNewId=assignNewId;_exports.back=back;_exports.backward=backward;_exports.bbox=bbox;_exports.before=before;_exports.camelCase=camelCase;_exports.capitalize=capitalize;_exports.classes=classes;_exports.clear=clear;_exports.create$1=_exports.create=create;_exports.createScopeStyle=createScopeStyle;_exports.css$1=css$1;_exports.ctm=ctm;_exports.cx=cx;_exports.cy=cy;_exports.data=data;_exports.degrees=degrees;_exports.detectMixin=detectMixin;_exports.dispatch$1=_exports.dispatch=dispatch;_exports.eid$1=_exports.eid=eid;_exports.elementHasBuiltCss=elementHasBuiltCss;_exports.elementsAreInvalid=elementsAreInvalid;_exports.extend$1=_exports.extend=extend;_exports.filter=filter;_exports.find$1=find;_exports.findMatchingParen=findMatchingParen;_exports.findOne=findOne;_exports.forEachRule=forEachRule;_exports.forget=forget;_exports.forward=forward;_exports.from=from;_exports.front=front;_exports.gatherStyleText=gatherStyleText;_exports.getBuildComment=getBuildComment;_exports.getClass$1=_exports.getClass=getClass;_exports.getComputedStyleValue=getComputedStyleValue;_exports.getCssBuild=getCssBuild;_exports.getIsExtends=getIsExtends;_exports.getMethodNames=getMethodNames;_exports.getMethodsFor=getMethodsFor;_exports.getOrigin=getOrigin;_exports.getWindow=getWindow;_exports.hasClass=hasClass;_exports.height=height;_exports.height$1=height$1;_exports.hide=hide;_exports.insertAfter=insertAfter;_exports.insertBefore=insertBefore;_exports.insertNodeIntoTemplate=insertNodeIntoTemplate;_exports.invalidate=invalidate;_exports.invalidateTemplate=invalidateTemplate;_exports.invent$1=_exports.invent=invent;_exports.isKeyframesSelector=isKeyframesSelector;_exports.isOptimalCssBuild=isOptimalCssBuild;_exports.isTargetedBuild=isTargetedBuild;_exports.isUnscopedStyle=isUnscopedStyle;_exports.isValid=isValid;_exports.isValidating=isValidating;_exports.length=length;_exports.makeInstance$1=_exports.makeInstance=makeInstance;_exports.makeMorphable$1=_exports.makeMorphable=makeMorphable;_exports.map=map;_exports.matrixify=matrixify;_exports.memory=memory;_exports.mockAdopt$1=_exports.mockAdopt=mockAdopt;_exports.move=move;_exports.next=next;_exports.nodeOrNew$1=_exports.nodeOrNew=nodeOrNew;_exports.noop=noop;_exports.off$1=_exports.off=off;_exports.on$1=_exports.on=on;_exports.parse=parse;_exports.pathRegReplace=pathRegReplace;_exports.plain=plain;_exports.plot=plot;_exports.point=point;_exports.position=position;_exports.prev=prev;_exports.processUnscopedStyle=processUnscopedStyle;_exports.processVariableAndFallback=processVariableAndFallback;_exports.property$1=_exports.property=property;_exports.proportionalSize=proportionalSize;_exports.query$1=_exports.query=query;_exports.queryAll$1=_exports.queryAll=queryAll;_exports.radians=radians;_exports.rbox=rbox;_exports.register$1=_exports.register=register;_exports.registerAttrHook=registerAttrHook;_exports.registerMethods=registerMethods;_exports.registerMorphableType$1=_exports.registerMorphableType=registerMorphableType;_exports.registerWindow$1=_exports.registerWindow=registerWindow;_exports.remember=remember;_exports.removeClass=removeClass;_exports.removeCustomPropAssignment=removeCustomPropAssignment;_exports.removeNodesFromTemplate=removeNodesFromTemplate;_exports.restoreWindow=restoreWindow;_exports.rulesForStyle=rulesForStyle;_exports.rx=rx;_exports.ry=ry;_exports.saveWindow=saveWindow;_exports.screenCTM=screenCTM;_exports.setElementClassRaw=setElementClassRaw;_exports.show=show;_exports.siblings=siblings;_exports.size=size;_exports.splitSelectorList=splitSelectorList;_exports.startValidating=startValidating;_exports.startValidatingTemplate=startValidatingTemplate;_exports.stringify=stringify;_exports.templateFactory$1=_exports.templateFactory=templateFactory;_exports.templateIsValid=templateIsValid;_exports.templateIsValidating=templateIsValidating;_exports.to=to;_exports.toCssText=toCssText;_exports.toParent=toParent;_exports.toRoot=toRoot;_exports.toggleClass=toggleClass;_exports.transform=transform;_exports.unCamelCase=unCamelCase;_exports.untransform=untransform;_exports.updateNativeProperties=updateNativeProperties;_exports.visible=visible;_exports.width=width;_exports.width$1=width$1;_exports.withWindow=withWindow;_exports.wrapWithAttrCheck$1=_exports.wrapWithAttrCheck=wrapWithAttrCheck;_exports.x=x;_exports.x$1=x$1;_exports.y=y;_exports.y$1=y$1;_exports.Runner=_exports.$RunnerDefault=_exports.$Runner=_exports.Rect=_exports.$RectDefault=_exports.$Rect=_exports.Queue=_exports.$QueueDefault=_exports.$Queue=_exports.Polyline=_exports.$PolylineDefault=_exports.$Polyline=_exports.Polygon=_exports.$PolygonDefault=_exports.$Polygon=_exports.Point=_exports.$PointDefault=_exports.PointArray=_exports.$PointArrayDefault=_exports.$PointArray=_exports.$Point=_exports.Pattern=_exports.$PatternDefault=_exports.$Pattern=_exports.Path=_exports.$PathDefault=_exports.PathArray=_exports.$PathArrayDefault=_exports.$PathArray=_exports.$Path=_exports.Morphable=_exports.$MorphableDefault=_exports.$Morphable=_exports.Matrix=_exports.$MatrixDefault=_exports.$Matrix=_exports.Mask=_exports.$MaskDefault=_exports.$Mask=_exports.Marker=_exports.$MarkerDefault=_exports.$Marker=_exports.List=_exports.$ListDefault=_exports.$List=_exports.Line=_exports.$LineDefault=_exports.$Line=_exports.Image=_exports.$ImageDefault=_exports.$Image=_exports.Gradient=_exports.$GradientDefault=_exports.$Gradient=_exports.G=_exports.$GDefault=_exports.$G=_exports.ForeignObject=_exports.$ForeignObjectDefault=_exports.$ForeignObject=_exports.EventTarget=_exports.$EventTargetDefault=_exports.$EventTarget=_exports.Ellipse=_exports.$EllipseDefault=_exports.$Ellipse=_exports.Element=_exports.$ElementDefault=_exports.$Element=_exports.Dom=_exports.$DomDefault=_exports.$Dom=_exports.Defs=_exports.$DefsDefault=_exports.$Defs=_exports.$Controller=_exports.Container=_exports.$ContainerDefault=_exports.$Container=_exports.Color=_exports.$ColorDefault=_exports.$Color=_exports.ClipPath=_exports.$ClipPathDefault=_exports.$ClipPath=_exports.Circle=_exports.$CircleDefault=_exports.$Circle=_exports.Box=_exports.$BoxDefault=_exports.$Box=_exports.$BaseDefault=_exports.$Base=_exports.$ArrayPolyfill=_exports.Animator=_exports.$AnimatorDefault=_exports.$Animator=_exports.A=_exports.$ADefault=_exports.$A=void 0;_exports.$signaturePadM=_exports.$shadyRender=_exports.$selector=_exports.$render=_exports.regex=_exports.$regex=_exports.$poly=_exports.$pointed=_exports.$placesIcons=_exports.$parts=_exports.$part=_exports.$parser=_exports.$notificationIcons=_exports.namespaces=_exports.$namespaces=_exports.$modifyTemplate=_exports.$methods=_exports.$memory=_exports.$mapsIcons=_exports.$main=_exports.$litHtml=_exports.$litElement=_exports.$imageIcons=_exports.$iconset$1=_exports.$iconset=_exports.$i18n=_exports.$helper=_exports.$hardwareIcons=_exports.$gradiented=_exports.$furoSignPad=_exports.$furoAppBarTop=_exports.$furo=_exports.$fbp=_exports.$event=_exports.$environment=_exports.$editorIcons=_exports.$dom=_exports.$documentWait=_exports.$directive=_exports.$deviceIcons=_exports.defaults=_exports.$defaults=_exports.$defaultTemplateProcessor=_exports.$decorators=_exports.$dataEnvironment=_exports.$data=_exports.$customStyleInterfaceDefault=_exports.$customStyleInterface=_exports.$cssTag=_exports.$cssParse=_exports.$css=_exports.$communicationIcons=_exports.$commonUtils=_exports.$commonRegex=_exports.$class=_exports.$circled=_exports.$baseIcons=_exports.$avIcons=_exports.$attr=_exports.$arrange=_exports.$applyShimUtils=_exports.$applyShimDefault=_exports.$applyShim$1=_exports.$adopter=_exports.Use=_exports.$UseDefault=_exports.$Use=_exports.Tspan=_exports.$TspanDefault=_exports.$Tspan=_exports.Timeline=_exports.$TimelineDefault=_exports.$Timeline=_exports.TextPath=_exports.$TextPathDefault=_exports.$TextPath=_exports.Text=_exports.$TextDefault=_exports.$Text=_exports.Symbol=_exports.$SymbolDefault=_exports.$Symbol=_exports.Svg=_exports.$SvgDefault=_exports.$Svg=_exports.Style=_exports.$StyleDefault=_exports.$Style=_exports.Stop=_exports.$StopDefault=_exports.$Stop=_exports.Shape=_exports.$ShapeDefault=_exports.$Shape=_exports.Number=_exports.$SVGNumberDefault=_exports.$SVGNumber=_exports.Array=_exports.$SVGArrayDefault=_exports.$SVGArray=void 0;_exports.TemplateInstance$1=_exports.TemplateInstance=_exports.Template$1=_exports.Template=_exports.Sys$1=_exports.Sys=_exports.Styling$1=_exports.Styling=_exports.StyleNode=_exports.Stepper=_exports.Spring$1=_exports.Spring=_exports.SocialIcons=_exports.Services=_exports.SVGTemplateResult$2=_exports.SVGTemplateResult$1=_exports.SVGTemplateResult=_exports.SVG=_exports.PropertyPart$1=_exports.PropertyPart=_exports.PropertyCommitter$1=_exports.PropertyCommitter=_exports.PlacesIcons=_exports.PID$1=_exports.PID=_exports.ObjectBag$1=_exports.ObjectBag=_exports.NotificationIcons=_exports.NonMorphable$1=_exports.NonMorphable=_exports.NodePart$1=_exports.NodePart=_exports.MorphArray=_exports.MapsIcons=_exports.MIXIN_MATCH=_exports.MEDIA_MATCH=_exports.LitElement=_exports.Init$1=_exports.Init=_exports.ImageIcons=_exports.Iconset$1=_exports.Iconset=_exports.IS_VAR=_exports.Helper=_exports.HardwareIcons=_exports.HOST_SUFFIX=_exports.HOST_PREFIX=_exports.FuroSignPad=_exports.FuroDocIcons=_exports.FuroBaseIcons=_exports.FuroAppBarTop=_exports.FBP=_exports.EventPart$1=_exports.EventPart=_exports.Env$1=_exports.Env=_exports.EditorIcons=_exports.Ease$1=_exports.Ease=_exports.DeviceIcons=_exports.DefaultTemplateProcessor$1=_exports.DefaultTemplateProcessor=_exports.CustomStyleProvider=_exports.CustomStyleInterfaceInterface=_exports.Controller$1=_exports.Controller=_exports.CommunicationIcons=_exports.CSSResult$1=_exports.CSSResult=_exports.BooleanAttributePart$1=_exports.BooleanAttributePart=_exports.BRACKETED=_exports.AvIcons=_exports.AttributePart$1=_exports.AttributePart=_exports.AttributeCommitter$1=_exports.AttributeCommitter=_exports.ANIMATION_MATCH=_exports.$window=_exports.utils=_exports.$utils=_exports.$updatingElement=_exports.$unscopedStyleHandler=_exports.$unsafeHtml=_exports.$transform=_exports.$theme=_exports.$textable=_exports.$templateResult=_exports.$templateMapDefault=_exports.$templateMap=_exports.$templateInstance=_exports.$templateFactory=_exports.$template=_exports.$system=_exports.$styling$1=_exports.$styling=_exports.$styleUtil=_exports.$styleSettings=_exports.$socialIcons=_exports.$signaturePadMDefault=void 0;_exports.timeline=_exports.templateCaches$1=_exports.templateCaches=_exports.svgjs=_exports.svg$2=_exports.svg$1=_exports.svg=_exports.supportsAdoptingStyleSheets$1=_exports.supportsAdoptingStyleSheets=_exports.subClassArray=_exports.scopingAttribute=_exports.root$1=_exports.root=_exports.rgb=_exports.reparentNodes$1=_exports.reparentNodes=_exports.render$1=_exports.render$2=_exports.render=_exports.removeNodes$1=_exports.removeNodes=_exports.reference=_exports.pathLetters=_exports.parts$1=_exports.parts=_exports.numbersWithDots=_exports.numberAndUnit=_exports.ns=_exports.nothing$1=_exports.nothing=_exports.notEqual$1=_exports.notEqual=_exports.nodeMarker=_exports.noChange$1=_exports.noChange=_exports.nativeShadow=_exports.nativeCssVariables=_exports.markerRegex=_exports.marker=_exports.lastAttributeNameRegex=_exports.isTemplatePartActive$1=_exports.isTemplatePartActive=_exports.isRgb=_exports.isPrimitive$1=_exports.isPrimitive=_exports.isPercent=_exports.isPathLetter=_exports.isNumber=_exports.isIterable$1=_exports.isIterable=_exports.isImage=_exports.isHex=_exports.isDirective$1=_exports.isDirective=_exports.isCss=_exports.isCEPolyfill=_exports.isBlank=_exports.i18n$1=_exports.i18n=_exports.hyphen=_exports.html$2=_exports.html$1=_exports.html=_exports.hex=_exports.globals=_exports.eventOptions$1=_exports.eventOptions=_exports.easing$1=_exports.easing=_exports.dots=_exports.disableRuntime=_exports.directive$1=_exports.directive=_exports.delimiter=_exports.defaultTemplateProcessor$1=_exports.defaultTemplateProcessor=_exports.defaultConverter$1=_exports.defaultConverter=_exports.customElement$1=_exports.customElement=_exports.cssBuild=_exports.css$2=_exports.css=_exports.createMarker$1=_exports.createMarker=_exports.boundAttributeSuffix=_exports.attrs=_exports.VAR_CONSUMED=_exports.VAR_ASSIGN=_exports.UpdatingElement$1=_exports.UpdatingElement=_exports.Types=_exports.TransformBag$1=_exports.TransformBag=_exports.Theme$1=_exports.Theme=_exports.TemplateResult$3=_exports.TemplateResult$2=_exports.TemplateResult$1=_exports.TemplateResult=void 0;_exports.xmlns=_exports.xlink=_exports.wrap=_exports.whitespace=_exports.unsafeHTML=_exports.unsafeCSS$1=_exports.unsafeCSS=_exports.types=_exports.transforms=void 0;_require=babelHelpers.interopRequireWildcard(_require);function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){keys.push.apply(keys,Object.getOwnPropertySymbols(object))}if(enumerableOnly)keys=keys.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable});return keys}function _objectSpread(target){for(var i=1,source;i<arguments.length;i++){source=null!=arguments[i]?arguments[i]:{};if(i%2){ownKeys(source,!0).forEach(function(key){babelHelpers.defineProperty(target,key,source[key])})}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source))}else{ownKeys(source).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key))})}}return target}const FuroDocIcons={github:"<g><path d=\"M12,2C6.48,2,2,6.59,2,12.25c0,4.53,2.87,8.37,6.84,9.73c0.5,0.09,0.68-0.22,0.68-0.49c0-0.24-0.01-0.89-0.01-1.74c-2.78,0.62-3.37-1.37-3.37-1.37c-0.45-1.18-1.11-1.5-1.11-1.5c-0.91-0.64,0.07-0.62,0.07-0.62c1,0.07,1.53,1.06,1.53,1.06c0.89,1.57,2.34,1.11,2.91,0.85c0.09-0.66,0.35-1.11,0.63-1.37c-2.22-0.26-4.56-1.14-4.56-5.07c0-1.12,0.39-2.03,1.03-2.75c-0.1-0.26-0.45-1.3,0.1-2.71c0,0,0.84-0.28,2.75,1.05c0.8-0.23,1.65-0.34,2.5-0.34c0.85,0,1.7,0.12,2.5,0.34c1.91-1.33,2.75-1.05,2.75-1.05c0.55,1.41,0.2,2.45,0.1,2.71c0.64,0.72,1.03,1.63,1.03,2.75c0,3.94-2.34,4.81-4.57,5.06c0.36,0.32,0.68,0.94,0.68,1.9c0,1.37-0.01,2.48-0.01,2.81c0,0.27,0.18,0.59,0.69,0.49c3.97-1.36,6.83-5.2,6.83-9.73C22,6.59,17.52,2,12,2\"></path></g>"};_exports.FuroDocIcons=FuroDocIcons;var iconset={FuroDocIcons:FuroDocIcons};/**
-    * @license
-    * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
-    * This code may only be used under the BSD style license found at
-    * http://polymer.github.io/LICENSE.txt
-    * The complete set of authors may be found at
-    * http://polymer.github.io/AUTHORS.txt
-    * The complete set of contributors may be found at
-    * http://polymer.github.io/CONTRIBUTORS.txt
-    * Code distributed by Google as part of the polymer project is also
-    * subject to an additional IP rights grant found at
-    * http://polymer.github.io/PATENTS.txt
-    */_exports.$iconset=iconset;const directives=new WeakMap,directive=f=>(...args)=>{const d=f(...args);directives.set(d,!0);return d};/**
-                                   * Brands a function as a directive factory function so that lit-html will call
-                                   * the function during template rendering, rather than passing as a value.
-                                   *
-                                   * A _directive_ is a function that takes a Part as an argument. It has the
-                                   * signature: `(part: Part) => void`.
-                                   *
-                                   * A directive _factory_ is a function that takes arguments for data and
-                                   * configuration and returns a directive. Users of directive usually refer to
-                                   * the directive factory as the directive. For example, "The repeat directive".
-                                   *
-                                   * Usually a template author will invoke a directive factory in their template
-                                   * with relevant arguments, which will then return a directive function.
-                                   *
-                                   * Here's an example of using the `repeat()` directive factory that takes an
-                                   * array and a function to render an item:
-                                   *
-                                   * ```js
-                                   * html`<ul><${repeat(items, (item) => html`<li>${item}</li>`)}</ul>`
-                                   * ```
-                                   *
-                                   * When `repeat` is invoked, it returns a directive function that closes over
-                                   * `items` and the template function. When the outer template is rendered, the
-                                   * return directive function is called with the Part for the expression.
-                                   * `repeat` then performs it's custom logic to render multiple items.
-                                   *
-                                   * @param f The directive factory function. Must be a function that returns a
-                                   * function of the signature `(part: Part) => void`. The returned function will
-                                   * be called with the part object.
-                                   *
-                                   * @example
-                                   *
-                                   * import {directive, html} from 'lit-html';
-                                   *
-                                   * const immutable = directive((v) => (part) => {
-                                   *   if (part.value !== v) {
-                                   *     part.setValue(v)
-                                   *   }
-                                   * });
-                                   */_exports.directive$1=_exports.directive=directive;const isDirective=o=>{return"function"===typeof o&&directives.has(o)};_exports.isDirective$1=_exports.isDirective=isDirective;var directive$1={directive:directive,isDirective:isDirective};/**
+define(["exports","require"],function(_exports,_require){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.$attrDefault=attr;_exports.$documentWaitDefault=documentWait;_exports.parser=_exports.$parserDefault=parser;_exports.find=_exports.$selectorDefault=baseFind;_exports.addClass=addClass;_exports.addMethodNames=addMethodNames;_exports.adopt$1=_exports.adopt=adopt;_exports.after=after;_exports.applyCss=applyCss;_exports.applyStyle=applyStyle;_exports.applyStylePlaceHolder=applyStylePlaceHolder;_exports.array=array;_exports.assignNewId$1=_exports.assignNewId=assignNewId;_exports.back=back;_exports.backward=backward;_exports.bbox=bbox;_exports.before=before;_exports.camelCase=camelCase;_exports.capitalize=capitalize;_exports.classes=classes;_exports.clear=clear;_exports.create$1=_exports.create=create;_exports.createScopeStyle=createScopeStyle;_exports.css$1=css$1;_exports.ctm=ctm;_exports.cx=cx;_exports.cy=cy;_exports.data=data;_exports.degrees=degrees;_exports.detectMixin=detectMixin;_exports.dispatch$1=_exports.dispatch=dispatch;_exports.eid$1=_exports.eid=eid;_exports.elementHasBuiltCss=elementHasBuiltCss;_exports.elementsAreInvalid=elementsAreInvalid;_exports.eventOptions$1=_exports.eventOptions=eventOptions;_exports.extend$1=_exports.extend=extend;_exports.filter=filter;_exports.find$1=find;_exports.findMatchingParen=findMatchingParen;_exports.findOne=findOne;_exports.forEachRule=forEachRule;_exports.forget=forget;_exports.forward=forward;_exports.from=from;_exports.front=front;_exports.gatherStyleText=gatherStyleText;_exports.getBuildComment=getBuildComment;_exports.getClass$1=_exports.getClass=getClass;_exports.getComputedStyleValue=getComputedStyleValue;_exports.getCssBuild=getCssBuild;_exports.getIsExtends=getIsExtends;_exports.getMethodNames=getMethodNames;_exports.getMethodsFor=getMethodsFor;_exports.getOrigin=getOrigin;_exports.getWindow=getWindow;_exports.hasClass=hasClass;_exports.height=height;_exports.height$1=height$1;_exports.hide=hide;_exports.insertAfter=insertAfter;_exports.insertBefore=insertBefore;_exports.insertNodeIntoTemplate=insertNodeIntoTemplate;_exports.internalProperty$1=_exports.internalProperty=internalProperty;_exports.invalidate=invalidate;_exports.invalidateTemplate=invalidateTemplate;_exports.invent$1=_exports.invent=invent;_exports.isKeyframesSelector=isKeyframesSelector;_exports.isOptimalCssBuild=isOptimalCssBuild;_exports.isTargetedBuild=isTargetedBuild;_exports.isUnscopedStyle=isUnscopedStyle;_exports.isValid=isValid;_exports.isValidating=isValidating;_exports.length=length;_exports.makeInstance$1=_exports.makeInstance=makeInstance;_exports.makeMorphable$1=_exports.makeMorphable=makeMorphable;_exports.map=map;_exports.matrixify=matrixify;_exports.memory=memory;_exports.mockAdopt$1=_exports.mockAdopt=mockAdopt;_exports.move=move;_exports.next=next;_exports.nodeOrNew$1=_exports.nodeOrNew=nodeOrNew;_exports.noop=noop;_exports.off$1=_exports.off=off;_exports.on$1=_exports.on=on;_exports.parse=parse;_exports.pathRegReplace=pathRegReplace;_exports.plain=plain;_exports.plot=plot;_exports.point=point;_exports.position=position;_exports.prev=prev;_exports.processUnscopedStyle=processUnscopedStyle;_exports.processVariableAndFallback=processVariableAndFallback;_exports.property$1=_exports.property=property;_exports.proportionalSize=proportionalSize;_exports.query$1=_exports.query=query;_exports.queryAll$1=_exports.queryAll=queryAll;_exports.queryAssignedNodes$1=_exports.queryAssignedNodes=queryAssignedNodes;_exports.queryAsync$1=_exports.queryAsync=queryAsync;_exports.radians=radians;_exports.rbox=rbox;_exports.register$1=_exports.register=register;_exports.registerAttrHook=registerAttrHook;_exports.registerMethods=registerMethods;_exports.registerMorphableType$1=_exports.registerMorphableType=registerMorphableType;_exports.registerWindow$1=_exports.registerWindow=registerWindow;_exports.remember=remember;_exports.removeClass=removeClass;_exports.removeCustomPropAssignment=removeCustomPropAssignment;_exports.removeNodesFromTemplate=removeNodesFromTemplate;_exports.restoreWindow=restoreWindow;_exports.rulesForStyle=rulesForStyle;_exports.rx=rx;_exports.ry=ry;_exports.saveWindow=saveWindow;_exports.screenCTM=screenCTM;_exports.setElementClassRaw=setElementClassRaw;_exports.show=show;_exports.siblings=siblings;_exports.size=size;_exports.splitSelectorList=splitSelectorList;_exports.startValidating=startValidating;_exports.startValidatingTemplate=startValidatingTemplate;_exports.stringify=stringify;_exports.templateFactory$1=_exports.templateFactory=templateFactory;_exports.templateIsValid=templateIsValid;_exports.templateIsValidating=templateIsValidating;_exports.to=to;_exports.toCssText=toCssText;_exports.toParent=toParent;_exports.toRoot=toRoot;_exports.toggleClass=toggleClass;_exports.transform=transform;_exports.unCamelCase=unCamelCase;_exports.untransform=untransform;_exports.updateNativeProperties=updateNativeProperties;_exports.visible=visible;_exports.width=width;_exports.width$1=width$1;_exports.withWindow=withWindow;_exports.wrapWithAttrCheck$1=_exports.wrapWithAttrCheck=wrapWithAttrCheck;_exports.x=x;_exports.x$1=x$1;_exports.y=y;_exports.y$1=y$1;_exports.Runner=_exports.$RunnerDefault=_exports.$Runner=_exports.Rect=_exports.$RectDefault=_exports.$Rect=_exports.Queue=_exports.$QueueDefault=_exports.$Queue=_exports.Polyline=_exports.$PolylineDefault=_exports.$Polyline=_exports.Polygon=_exports.$PolygonDefault=_exports.$Polygon=_exports.Point=_exports.$PointDefault=_exports.PointArray=_exports.$PointArrayDefault=_exports.$PointArray=_exports.$Point=_exports.Pattern=_exports.$PatternDefault=_exports.$Pattern=_exports.Path=_exports.$PathDefault=_exports.PathArray=_exports.$PathArrayDefault=_exports.$PathArray=_exports.$Path=_exports.Morphable=_exports.$MorphableDefault=_exports.$Morphable=_exports.Matrix=_exports.$MatrixDefault=_exports.$Matrix=_exports.Mask=_exports.$MaskDefault=_exports.$Mask=_exports.Marker=_exports.$MarkerDefault=_exports.$Marker=_exports.List=_exports.$ListDefault=_exports.$List=_exports.Line=_exports.$LineDefault=_exports.$Line=_exports.Image=_exports.$ImageDefault=_exports.$Image=_exports.Gradient=_exports.$GradientDefault=_exports.$Gradient=_exports.G=_exports.$GDefault=_exports.$G=_exports.ForeignObject=_exports.$ForeignObjectDefault=_exports.$ForeignObject=_exports.EventTarget=_exports.$EventTargetDefault=_exports.$EventTarget=_exports.Ellipse=_exports.$EllipseDefault=_exports.$Ellipse=_exports.Element=_exports.$ElementDefault=_exports.$Element=_exports.Dom=_exports.$DomDefault=_exports.$Dom=_exports.Defs=_exports.$DefsDefault=_exports.$Defs=_exports.$Controller=_exports.Container=_exports.$ContainerDefault=_exports.$Container=_exports.Color=_exports.$ColorDefault=_exports.$Color=_exports.ClipPath=_exports.$ClipPathDefault=_exports.$ClipPath=_exports.Circle=_exports.$CircleDefault=_exports.$Circle=_exports.Box=_exports.$BoxDefault=_exports.$Box=_exports.$BaseDefault=_exports.$Base=_exports.$ArrayPolyfill=_exports.Animator=_exports.$AnimatorDefault=_exports.$Animator=_exports.A=_exports.$ADefault=_exports.$A=void 0;_exports.$signaturePadM=_exports.$shadyRender=_exports.$selector=_exports.$render=_exports.regex=_exports.$regex=_exports.$poly=_exports.$pointed=_exports.$placesIcons=_exports.$parts=_exports.$part=_exports.$parser=_exports.$notificationIcons=_exports.namespaces=_exports.$namespaces=_exports.$modifyTemplate=_exports.$methods=_exports.$memory=_exports.$mapsIcons=_exports.$main=_exports.$litHtml=_exports.$litElement=_exports.$imageIcons=_exports.$iconset$1=_exports.$iconset=_exports.$i18n=_exports.$helper=_exports.$hardwareIcons=_exports.$gradiented=_exports.$furoSignPad=_exports.$furoAppBarTop=_exports.$furo=_exports.$fbp=_exports.$event=_exports.$environment=_exports.$editorIcons=_exports.$dom=_exports.$documentWait=_exports.$directive=_exports.$deviceIcons=_exports.defaults=_exports.$defaults=_exports.$defaultTemplateProcessor=_exports.$decorators=_exports.$dataEnvironment=_exports.$data=_exports.$customStyleInterfaceDefault=_exports.$customStyleInterface=_exports.$cssTag=_exports.$cssParse=_exports.$css=_exports.$communicationIcons=_exports.$commonUtils=_exports.$commonRegex=_exports.$class=_exports.$circled=_exports.$baseIcons=_exports.$avIcons=_exports.$attr=_exports.$arrange=_exports.$applyShimUtils=_exports.$applyShimDefault=_exports.$applyShim$1=_exports.$adopter=_exports.Use=_exports.$UseDefault=_exports.$Use=_exports.Tspan=_exports.$TspanDefault=_exports.$Tspan=_exports.Timeline=_exports.$TimelineDefault=_exports.$Timeline=_exports.TextPath=_exports.$TextPathDefault=_exports.$TextPath=_exports.Text=_exports.$TextDefault=_exports.$Text=_exports.Symbol=_exports.$SymbolDefault=_exports.$Symbol=_exports.Svg=_exports.$SvgDefault=_exports.$Svg=_exports.Style=_exports.$StyleDefault=_exports.$Style=_exports.Stop=_exports.$StopDefault=_exports.$Stop=_exports.Shape=_exports.$ShapeDefault=_exports.$Shape=_exports.Number=_exports.$SVGNumberDefault=_exports.$SVGNumber=_exports.Array=_exports.$SVGArrayDefault=_exports.$SVGArray=void 0;_exports.TemplateInstance$1=_exports.TemplateInstance=_exports.Template$1=_exports.Template=_exports.Sys$1=_exports.Sys=_exports.Styling$1=_exports.Styling=_exports.StyleNode=_exports.Stepper=_exports.Spring$1=_exports.Spring=_exports.SocialIcons=_exports.Services=_exports.SVGTemplateResult$2=_exports.SVGTemplateResult$1=_exports.SVGTemplateResult=_exports.SVG=_exports.PropertyPart$1=_exports.PropertyPart=_exports.PropertyCommitter$1=_exports.PropertyCommitter=_exports.PlacesIcons=_exports.PID$1=_exports.PID=_exports.ObjectBag$1=_exports.ObjectBag=_exports.NotificationIcons=_exports.NonMorphable$1=_exports.NonMorphable=_exports.NodePart$1=_exports.NodePart=_exports.MorphArray=_exports.MapsIcons=_exports.MIXIN_MATCH=_exports.MEDIA_MATCH=_exports.LitElement=_exports.Init$1=_exports.Init=_exports.ImageIcons=_exports.Iconset$1=_exports.Iconset=_exports.IS_VAR=_exports.Helper=_exports.HardwareIcons=_exports.HOST_SUFFIX=_exports.HOST_PREFIX=_exports.FuroSignPad=_exports.FuroDocIcons=_exports.FuroBaseIcons=_exports.FuroAppBarTop=_exports.FBP=_exports.EventPart$1=_exports.EventPart=_exports.Env$1=_exports.Env=_exports.EditorIcons=_exports.Ease$1=_exports.Ease=_exports.DeviceIcons=_exports.DefaultTemplateProcessor$1=_exports.DefaultTemplateProcessor=_exports.CustomStyleProvider=_exports.CustomStyleInterfaceInterface=_exports.Controller$1=_exports.Controller=_exports.CommunicationIcons=_exports.CSSResult$1=_exports.CSSResult=_exports.BooleanAttributePart$1=_exports.BooleanAttributePart=_exports.BRACKETED=_exports.AvIcons=_exports.AttributePart$1=_exports.AttributePart=_exports.AttributeCommitter$1=_exports.AttributeCommitter=_exports.ANIMATION_MATCH=_exports.$window=_exports.utils=_exports.$utils=_exports.$updatingElement=_exports.$unscopedStyleHandler=_exports.$unsafeHtml=_exports.$transform=_exports.$theme=_exports.$textable=_exports.$templateResult=_exports.$templateMapDefault=_exports.$templateMap=_exports.$templateInstance=_exports.$templateFactory=_exports.$template=_exports.$system=_exports.$styling$1=_exports.$styling=_exports.$styleUtil=_exports.$styleSettings=_exports.$socialIcons=_exports.$signaturePadMDefault=void 0;_exports.types=_exports.transforms=_exports.timeline=_exports.templateCaches$1=_exports.templateCaches=_exports.svgjs=_exports.svg$2=_exports.svg$1=_exports.svg=_exports.supportsAdoptingStyleSheets$1=_exports.supportsAdoptingStyleSheets=_exports.subClassArray=_exports.scopingAttribute=_exports.root$1=_exports.root=_exports.rgb=_exports.reparentNodes$1=_exports.reparentNodes=_exports.render$1=_exports.render$2=_exports.render=_exports.removeNodes$1=_exports.removeNodes=_exports.reference=_exports.pathLetters=_exports.parts$1=_exports.parts=_exports.numbersWithDots=_exports.numberAndUnit=_exports.ns=_exports.nothing$1=_exports.nothing=_exports.notEqual$1=_exports.notEqual=_exports.nodeMarker=_exports.noChange$1=_exports.noChange=_exports.nativeShadow=_exports.nativeCssVariables=_exports.markerRegex=_exports.marker=_exports.lastAttributeNameRegex=_exports.isTemplatePartActive$1=_exports.isTemplatePartActive=_exports.isRgb=_exports.isPrimitive$1=_exports.isPrimitive=_exports.isPercent=_exports.isPathLetter=_exports.isNumber=_exports.isIterable$1=_exports.isIterable=_exports.isImage=_exports.isHex=_exports.isDirective$1=_exports.isDirective=_exports.isCss=_exports.isCEPolyfill=_exports.isBlank=_exports.i18n$1=_exports.i18n=_exports.hyphen=_exports.html$2=_exports.html$1=_exports.html=_exports.hex=_exports.globals=_exports.easing$1=_exports.easing=_exports.dots=_exports.disableRuntime=_exports.directive$1=_exports.directive=_exports.delimiter=_exports.defaultTemplateProcessor$1=_exports.defaultTemplateProcessor=_exports.defaultConverter$1=_exports.defaultConverter=_exports.customElement$1=_exports.customElement=_exports.cssBuild=_exports.css$2=_exports.css=_exports.createMarker$1=_exports.createMarker=_exports.boundAttributeSuffix=_exports.attrs=_exports.VAR_CONSUMED=_exports.VAR_ASSIGN=_exports.UpdatingElement$1=_exports.UpdatingElement=_exports.Types=_exports.TransformBag$1=_exports.TransformBag=_exports.Theme$1=_exports.Theme=_exports.TemplateResult$3=_exports.TemplateResult$2=_exports.TemplateResult$1=_exports.TemplateResult=void 0;_exports.xmlns=_exports.xlink=_exports.wrap=_exports.whitespace=_exports.unsafeHTML=_exports.unsafeCSS$1=_exports.unsafeCSS=void 0;_require=babelHelpers.interopRequireWildcard(_require);function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){keys.push.apply(keys,Object.getOwnPropertySymbols(object))}if(enumerableOnly)keys=keys.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable});return keys}function _objectSpread(target){for(var i=1,source;i<arguments.length;i++){source=null!=arguments[i]?arguments[i]:{};if(i%2){ownKeys(source,!0).forEach(function(key){babelHelpers.defineProperty(target,key,source[key])})}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source))}else{ownKeys(source).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key))})}}return target}const FuroDocIcons={github:"<g><path d=\"M12,2C6.48,2,2,6.59,2,12.25c0,4.53,2.87,8.37,6.84,9.73c0.5,0.09,0.68-0.22,0.68-0.49c0-0.24-0.01-0.89-0.01-1.74c-2.78,0.62-3.37-1.37-3.37-1.37c-0.45-1.18-1.11-1.5-1.11-1.5c-0.91-0.64,0.07-0.62,0.07-0.62c1,0.07,1.53,1.06,1.53,1.06c0.89,1.57,2.34,1.11,2.91,0.85c0.09-0.66,0.35-1.11,0.63-1.37c-2.22-0.26-4.56-1.14-4.56-5.07c0-1.12,0.39-2.03,1.03-2.75c-0.1-0.26-0.45-1.3,0.1-2.71c0,0,0.84-0.28,2.75,1.05c0.8-0.23,1.65-0.34,2.5-0.34c0.85,0,1.7,0.12,2.5,0.34c1.91-1.33,2.75-1.05,2.75-1.05c0.55,1.41,0.2,2.45,0.1,2.71c0.64,0.72,1.03,1.63,1.03,2.75c0,3.94-2.34,4.81-4.57,5.06c0.36,0.32,0.68,0.94,0.68,1.9c0,1.37-0.01,2.48-0.01,2.81c0,0.27,0.18,0.59,0.69,0.49c3.97-1.36,6.83-5.2,6.83-9.73C22,6.59,17.52,2,12,2\"></path></g>"};_exports.FuroDocIcons=FuroDocIcons;var iconset={FuroDocIcons:FuroDocIcons};/**
     * @license
     * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
     * This code may only be used under the BSD style license found at
@@ -63,31 +12,14 @@ define(["exports","require"],function(_exports,_require){"use strict";Object.def
     * http://polymer.github.io/PATENTS.txt
     */ /**
         * True if the custom elements polyfill is in use.
-        */_exports.$directive=directive$1;const isCEPolyfill=window.customElements!==void 0&&window.customElements.polyfillWrapFlushCallback!==void 0;/**
-                                                                                                                                   * Reparents nodes, starting from `start` (inclusive) to `end` (exclusive),
-                                                                                                                                   * into another container (could be the same container), before `before`. If
-                                                                                                                                   * `before` is null, it appends the nodes to the container.
-                                                                                                                                   */_exports.isCEPolyfill=isCEPolyfill;const reparentNodes=(container,start,end=null,before=null)=>{while(start!==end){const n=start.nextSibling;container.insertBefore(start,before);start=n}};/**
+        */_exports.$iconset=iconset;const isCEPolyfill="undefined"!==typeof window&&null!=window.customElements&&window.customElements.polyfillWrapFlushCallback!==void 0;/**
+                                                                                                                                                              * Reparents nodes, starting from `start` (inclusive) to `end` (exclusive),
+                                                                                                                                                              * into another container (could be the same container), before `before`. If
+                                                                                                                                                              * `before` is null, it appends the nodes to the container.
+                                                                                                                                                              */_exports.isCEPolyfill=isCEPolyfill;const reparentNodes=(container,start,end=null,before=null)=>{while(start!==end){const n=start.nextSibling;container.insertBefore(start,before);start=n}};/**
     * Removes nodes, starting from `start` (inclusive) to `end` (exclusive), from
     * `container`.
     */_exports.reparentNodes$1=_exports.reparentNodes=reparentNodes;const removeNodes=(container,start,end=null)=>{while(start!==end){const n=start.nextSibling;container.removeChild(start);start=n}};_exports.removeNodes$1=_exports.removeNodes=removeNodes;var dom={isCEPolyfill:isCEPolyfill,reparentNodes:reparentNodes,removeNodes:removeNodes};/**
-    * @license
-    * Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
-    * This code may only be used under the BSD style license found at
-    * http://polymer.github.io/LICENSE.txt
-    * The complete set of authors may be found at
-    * http://polymer.github.io/AUTHORS.txt
-    * The complete set of contributors may be found at
-    * http://polymer.github.io/CONTRIBUTORS.txt
-    * Code distributed by Google as part of the polymer project is also
-    * subject to an additional IP rights grant found at
-    * http://polymer.github.io/PATENTS.txt
-    */ /**
-        * A sentinel value that signals that a value was handled by a directive and
-        * should not be written to the DOM.
-        */_exports.$dom=dom;const noChange={};/**
-                             * A sentinel value that signals a NodePart to fully clear its content.
-                             */_exports.noChange$1=_exports.noChange=noChange;const nothing={};_exports.nothing$1=_exports.nothing=nothing;var part={noChange:noChange,nothing:nothing};/**
     * @license
     * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
     * This code may only be used under the BSD style license found at
@@ -102,13 +34,13 @@ define(["exports","require"],function(_exports,_require){"use strict";Object.def
     */ /**
         * An expression marker with embedded unique key to avoid collision with
         * possible text in templates.
-        */_exports.$part=part;const marker=`{{lit-${(Math.random()+"").slice(2)}}}`;/**
+        */_exports.$dom=dom;const marker=`{{lit-${(Math.random()+"").slice(2)}}}`;/**
                                                                     * An expression marker used text-positions, multi-binding attributes, and
                                                                     * attributes with markup-like text values.
                                                                     */_exports.marker=marker;const nodeMarker=`<!--${marker}-->`;_exports.nodeMarker=nodeMarker;const markerRegex=new RegExp(`${marker}|${nodeMarker}`);/**
                                                                    * Suffix appended to all bound attribute names.
                                                                    */_exports.markerRegex=markerRegex;const boundAttributeSuffix="$lit$";/**
-                                              * An updateable Template that tracks the location of dynamic parts.
+                                              * An updatable Template that tracks the location of dynamic parts.
                                               */_exports.boundAttributeSuffix=boundAttributeSuffix;class Template{constructor(result,element){this.parts=[];this.element=element;const nodesToRemove=[],stack=[],walker=document.createTreeWalker(element.content,133/* NodeFilter.SHOW_{ELEMENT|COMMENT|TEXT} */,null,!1);// Keeps track of the last index associated with a part. We try to delete
 // unnecessary nodes, but we never want to associate two different parts
 // to the same index. They must have a constant node between.
@@ -167,7 +99,105 @@ const createMarker=()=>document.createComment("");/**
                                                                *    * Any character except space, ('), ("), "<", ">", "=", (`), or
                                                                *    * (") then any non-("), or
                                                                *    * (') then any non-(')
-                                                               */_exports.createMarker$1=_exports.createMarker=createMarker;const lastAttributeNameRegex=/([ \x09\x0a\x0c\x0d])([^\0-\x1F\x7F-\x9F "'>=/]+)([ \x09\x0a\x0c\x0d]*=[ \x09\x0a\x0c\x0d]*(?:[^ \x09\x0a\x0c\x0d"'`<>=]*|"[^"]*|'[^']*))$/;_exports.lastAttributeNameRegex=lastAttributeNameRegex;var template={marker:marker,nodeMarker:nodeMarker,markerRegex:markerRegex,boundAttributeSuffix:boundAttributeSuffix,Template:Template,isTemplatePartActive:isTemplatePartActive,createMarker:createMarker,lastAttributeNameRegex:lastAttributeNameRegex};_exports.$template=template;class TemplateInstance{constructor(template,processor,options){this.__parts=[];this.template=template;this.processor=processor;this.options=options}update(values){let i=0;for(const part of this.__parts){if(part!==void 0){part.setValue(values[i])}i++}for(const part of this.__parts){if(part!==void 0){part.commit()}}}_clone(){// There are a number of steps in the lifecycle of a template instance's
+                                                               */_exports.createMarker$1=_exports.createMarker=createMarker;const lastAttributeNameRegex=// eslint-disable-next-line no-control-regex
+/([ \x09\x0a\x0c\x0d])([^\0-\x1F\x7F-\x9F "'>=/]+)([ \x09\x0a\x0c\x0d]*=[ \x09\x0a\x0c\x0d]*(?:[^ \x09\x0a\x0c\x0d"'`<>=]*|"[^"]*|'[^']*))$/;_exports.lastAttributeNameRegex=lastAttributeNameRegex;var template={marker:marker,nodeMarker:nodeMarker,markerRegex:markerRegex,boundAttributeSuffix:boundAttributeSuffix,Template:Template,isTemplatePartActive:isTemplatePartActive,createMarker:createMarker,lastAttributeNameRegex:lastAttributeNameRegex};_exports.$template=template;const walkerNodeFilter=133/* NodeFilter.SHOW_{ELEMENT|COMMENT|TEXT} */;/**
+                                                                            * Removes the list of nodes from a Template safely. In addition to removing
+                                                                            * nodes from the Template, the Template part indices are updated to match
+                                                                            * the mutated Template DOM.
+                                                                            *
+                                                                            * As the template is walked the removal state is tracked and
+                                                                            * part indices are adjusted as needed.
+                                                                            *
+                                                                            * div
+                                                                            *   div#1 (remove) <-- start removing (removing node is div#1)
+                                                                            *     div
+                                                                            *       div#2 (remove)  <-- continue removing (removing node is still div#1)
+                                                                            *         div
+                                                                            * div <-- stop removing since previous sibling is the removing node (div#1,
+                                                                            * removed 4 nodes)
+                                                                            */function removeNodesFromTemplate(template,nodesToRemove){const{element:{content},parts}=template,walker=document.createTreeWalker(content,walkerNodeFilter,null,!1);let partIndex=nextActiveIndexInTemplateParts(parts),part=parts[partIndex],nodeIndex=-1,removeCount=0;const nodesToRemoveInTemplate=[];let currentRemovingNode=null;while(walker.nextNode()){nodeIndex++;const node=walker.currentNode;// End removal if stepped past the removing node
+if(node.previousSibling===currentRemovingNode){currentRemovingNode=null}// A node to remove was found in the template
+if(nodesToRemove.has(node)){nodesToRemoveInTemplate.push(node);// Track node we're removing
+if(null===currentRemovingNode){currentRemovingNode=node}}// When removing, increment count by which to adjust subsequent part indices
+if(null!==currentRemovingNode){removeCount++}while(part!==void 0&&part.index===nodeIndex){// If part is in a removed node deactivate it by setting index to -1 or
+// adjust the index as needed.
+part.index=null!==currentRemovingNode?-1:part.index-removeCount;// go to the next active part.
+partIndex=nextActiveIndexInTemplateParts(parts,partIndex);part=parts[partIndex]}}nodesToRemoveInTemplate.forEach(n=>n.parentNode.removeChild(n))}const countNodes=node=>{let count=11===node.nodeType/* Node.DOCUMENT_FRAGMENT_NODE */?0:1;const walker=document.createTreeWalker(node,walkerNodeFilter,null,!1);while(walker.nextNode()){count++}return count},nextActiveIndexInTemplateParts=(parts,startIndex=-1)=>{for(let i=startIndex+1;i<parts.length;i++){const part=parts[i];if(isTemplatePartActive(part)){return i}}return-1};/**
+    * Inserts the given node into the Template, optionally before the given
+    * refNode. In addition to inserting the node into the Template, the Template
+    * part indices are updated to match the mutated Template DOM.
+    */function insertNodeIntoTemplate(template,node,refNode=null){const{element:{content},parts}=template;// If there's no refNode, then put node at end of template.
+// No part indices need to be shifted in this case.
+if(null===refNode||refNode===void 0){content.appendChild(node);return}const walker=document.createTreeWalker(content,walkerNodeFilter,null,!1);let partIndex=nextActiveIndexInTemplateParts(parts),insertCount=0,walkerIndex=-1;while(walker.nextNode()){walkerIndex++;const walkerNode=walker.currentNode;if(walkerNode===refNode){insertCount=countNodes(node);refNode.parentNode.insertBefore(node,refNode)}while(-1!==partIndex&&parts[partIndex].index===walkerIndex){// If we've inserted the node, simply adjust all subsequent parts
+if(0<insertCount){while(-1!==partIndex){parts[partIndex].index+=insertCount;partIndex=nextActiveIndexInTemplateParts(parts,partIndex)}return}partIndex=nextActiveIndexInTemplateParts(parts,partIndex)}}}var modifyTemplate={removeNodesFromTemplate:removeNodesFromTemplate,insertNodeIntoTemplate:insertNodeIntoTemplate};/**
+    * @license
+    * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+    * This code may only be used under the BSD style license found at
+    * http://polymer.github.io/LICENSE.txt
+    * The complete set of authors may be found at
+    * http://polymer.github.io/AUTHORS.txt
+    * The complete set of contributors may be found at
+    * http://polymer.github.io/CONTRIBUTORS.txt
+    * Code distributed by Google as part of the polymer project is also
+    * subject to an additional IP rights grant found at
+    * http://polymer.github.io/PATENTS.txt
+    */_exports.$modifyTemplate=modifyTemplate;const directives=new WeakMap,directive=f=>(...args)=>{const d=f(...args);directives.set(d,!0);return d};/**
+                                   * Brands a function as a directive factory function so that lit-html will call
+                                   * the function during template rendering, rather than passing as a value.
+                                   *
+                                   * A _directive_ is a function that takes a Part as an argument. It has the
+                                   * signature: `(part: Part) => void`.
+                                   *
+                                   * A directive _factory_ is a function that takes arguments for data and
+                                   * configuration and returns a directive. Users of directive usually refer to
+                                   * the directive factory as the directive. For example, "The repeat directive".
+                                   *
+                                   * Usually a template author will invoke a directive factory in their template
+                                   * with relevant arguments, which will then return a directive function.
+                                   *
+                                   * Here's an example of using the `repeat()` directive factory that takes an
+                                   * array and a function to render an item:
+                                   *
+                                   * ```js
+                                   * html`<ul><${repeat(items, (item) => html`<li>${item}</li>`)}</ul>`
+                                   * ```
+                                   *
+                                   * When `repeat` is invoked, it returns a directive function that closes over
+                                   * `items` and the template function. When the outer template is rendered, the
+                                   * return directive function is called with the Part for the expression.
+                                   * `repeat` then performs it's custom logic to render multiple items.
+                                   *
+                                   * @param f The directive factory function. Must be a function that returns a
+                                   * function of the signature `(part: Part) => void`. The returned function will
+                                   * be called with the part object.
+                                   *
+                                   * @example
+                                   *
+                                   * import {directive, html} from 'lit-html';
+                                   *
+                                   * const immutable = directive((v) => (part) => {
+                                   *   if (part.value !== v) {
+                                   *     part.setValue(v)
+                                   *   }
+                                   * });
+                                   */_exports.directive$1=_exports.directive=directive;const isDirective=o=>{return"function"===typeof o&&directives.has(o)};_exports.isDirective$1=_exports.isDirective=isDirective;var directive$1={directive:directive,isDirective:isDirective};/**
+    * @license
+    * Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
+    * This code may only be used under the BSD style license found at
+    * http://polymer.github.io/LICENSE.txt
+    * The complete set of authors may be found at
+    * http://polymer.github.io/AUTHORS.txt
+    * The complete set of contributors may be found at
+    * http://polymer.github.io/CONTRIBUTORS.txt
+    * Code distributed by Google as part of the polymer project is also
+    * subject to an additional IP rights grant found at
+    * http://polymer.github.io/PATENTS.txt
+    */ /**
+        * A sentinel value that signals that a value was handled by a directive and
+        * should not be written to the DOM.
+        */_exports.$directive=directive$1;const noChange={};/**
+                             * A sentinel value that signals a NodePart to fully clear its content.
+                             */_exports.noChange$1=_exports.noChange=noChange;const nothing={};_exports.nothing$1=_exports.nothing=nothing;var part={noChange:noChange,nothing:nothing};_exports.$part=part;class TemplateInstance{constructor(template,processor,options){this.__parts=[];this.template=template;this.processor=processor;this.options=options}update(values){let i=0;for(const part of this.__parts){if(part!==void 0){part.setValue(values[i])}i++}for(const part of this.__parts){if(part!==void 0){part.commit()}}}_clone(){// There are a number of steps in the lifecycle of a template instance's
 // DOM fragment:
 //  1. Clone - create the instance fragment
 //  2. Adopt - adopt into the main document
@@ -187,7 +217,7 @@ const createMarker=()=>document.createComment("");/**
 // Given these constraints, with full custom elements support we would
 // prefer the order: Clone, Process, Adopt, Upgrade, Update, Connect
 //
-// But Safari dooes not implement CustomElementRegistry#upgrade, so we
+// But Safari does not implement CustomElementRegistry#upgrade, so we
 // can not implement that order and still have upgrade-before-update and
 // upgrade disconnected fragments. So we instead sacrifice the
 // process-before-upgrade constraint, since in Custom Elements v1 elements
@@ -213,12 +243,15 @@ while(nodeIndex<part.index){nodeIndex++;if("TEMPLATE"===node.nodeName){stack.pus
 // - There is a template in the stack
 // - The walker will find a nextNode outside the template
 walker.currentNode=stack.pop();node=walker.nextNode()}}// We've arrived at our part's node.
-if("node"===part.type){const part=this.processor.handleTextExpression(this.options);part.insertAfterNode(node.previousSibling);this.__parts.push(part)}else{this.__parts.push(...this.processor.handleAttributeExpressions(node,part.name,part.strings,this.options))}partIndex++}if(isCEPolyfill){document.adoptNode(fragment);customElements.upgrade(fragment)}return fragment}}_exports.TemplateInstance$1=_exports.TemplateInstance=TemplateInstance;var templateInstance={TemplateInstance:TemplateInstance};_exports.$templateInstance=templateInstance;class TemplateResult{constructor(strings,values,type,processor){this.strings=strings;this.values=values;this.type=type;this.processor=processor}/**
+if("node"===part.type){const part=this.processor.handleTextExpression(this.options);part.insertAfterNode(node.previousSibling);this.__parts.push(part)}else{this.__parts.push(...this.processor.handleAttributeExpressions(node,part.name,part.strings,this.options))}partIndex++}if(isCEPolyfill){document.adoptNode(fragment);customElements.upgrade(fragment)}return fragment}}_exports.TemplateInstance$1=_exports.TemplateInstance=TemplateInstance;var templateInstance={TemplateInstance:TemplateInstance};_exports.$templateInstance=templateInstance;const commentMarker=` ${marker} `;/**
+                                      * The return type of `html`, which holds a Template and the values from
+                                      * interpolated expressions.
+                                      */class TemplateResult{constructor(strings,values,type,processor){this.strings=strings;this.values=values;this.type=type;this.processor=processor}/**
      * Returns a string of HTML used to create a `<template>` element.
      */getHTML(){const l=this.strings.length-1;let html="",isCommentBinding=!1;for(let i=0;i<l;i++){const s=this.strings[i],commentOpen=s.lastIndexOf("<!--");// For each binding we want to determine the kind of marker to insert
 // into the template source before it's parsed by the browser's HTML
 // parser. The marker type is based on whether the expression is in an
-// attribute, text, or comment poisition.
+// attribute, text, or comment position.
 //   * For node-position bindings we insert a comment with the marker
 //     sentinel as its text content, like <!--{{lit-guid}}-->.
 //   * For attribute bindings we insert just the marker sentinel for the
@@ -235,15 +268,15 @@ if("node"===part.type){const part=this.processor.handleTextExpression(this.optio
 // We're in comment position if we have a comment open with no following
 // comment close. Because <-- can appear in an attribute value there can
 // be false positives.
-isCommentBinding=(-1<commentOpen||isCommentBinding)&&-1===s.indexOf("-->",commentOpen+1);// Check to see if we have an attribute-like sequence preceeding the
+isCommentBinding=(-1<commentOpen||isCommentBinding)&&-1===s.indexOf("-->",commentOpen+1);// Check to see if we have an attribute-like sequence preceding the
 // expression. This can match "name=value" like structures in text,
 // comments, and attribute values, so there can be false-positives.
 const attributeMatch=lastAttributeNameRegex.exec(s);if(null===attributeMatch){// We're only in this branch if we don't have a attribute-like
-// preceeding sequence. For comments, this guards against unusual
+// preceding sequence. For comments, this guards against unusual
 // attribute values like <div foo="<!--${'bar'}">. Cases like
 // <!-- foo=${'bar'}--> are handled correctly in the attribute branch
 // below.
-html+=s+(isCommentBinding?marker:nodeMarker)}else{// For attributes we use just a marker sentinel, and also append a
+html+=s+(isCommentBinding?commentMarker:nodeMarker)}else{// For attributes we use just a marker sentinel, and also append a
 // $lit$ suffix to the name to opt-out of attribute-specific parsing
 // that IE and Edge do for style and certain SVG attributes.
 html+=s.substr(0,attributeMatch.index)+attributeMatch[1]+attributeMatch[2]+boundAttributeSuffix+attributeMatch[3]+marker}}html+=this.strings[l];return html}getTemplateElement(){const template=document.createElement("template");template.innerHTML=this.getHTML();return template}}/**
@@ -252,10 +285,10 @@ html+=s.substr(0,attributeMatch.index)+attributeMatch[1]+attributeMatch[2]+bound
    * This class wraps HTML in an `<svg>` tag in order to parse its contents in the
    * SVG namespace, then modifies the template to remove the `<svg>` tag so that
    * clones only container the original fragment.
-   */_exports.TemplateResult$3=_exports.TemplateResult$2=_exports.TemplateResult$1=_exports.TemplateResult=TemplateResult;class SVGTemplateResult extends TemplateResult{getHTML(){return`<svg>${super.getHTML()}</svg>`}getTemplateElement(){const template=super.getTemplateElement(),content=template.content,svgElement=content.firstChild;content.removeChild(svgElement);reparentNodes(content,svgElement.firstChild);return template}}_exports.SVGTemplateResult$2=_exports.SVGTemplateResult$1=_exports.SVGTemplateResult=SVGTemplateResult;var templateResult={TemplateResult:TemplateResult,SVGTemplateResult:SVGTemplateResult};_exports.$templateResult=templateResult;const isPrimitive=value=>{return null===value||!("object"===typeof value||"function"===typeof value)};_exports.isPrimitive$1=_exports.isPrimitive=isPrimitive;const isIterable=value=>{return Array.isArray(value)||// tslint:disable-next-line:no-any
+   */_exports.TemplateResult$3=_exports.TemplateResult$2=_exports.TemplateResult$1=_exports.TemplateResult=TemplateResult;class SVGTemplateResult extends TemplateResult{getHTML(){return`<svg>${super.getHTML()}</svg>`}getTemplateElement(){const template=super.getTemplateElement(),content=template.content,svgElement=content.firstChild;content.removeChild(svgElement);reparentNodes(content,svgElement.firstChild);return template}}_exports.SVGTemplateResult$2=_exports.SVGTemplateResult$1=_exports.SVGTemplateResult=SVGTemplateResult;var templateResult={TemplateResult:TemplateResult,SVGTemplateResult:SVGTemplateResult};_exports.$templateResult=templateResult;const isPrimitive=value=>{return null===value||!("object"===typeof value||"function"===typeof value)};_exports.isPrimitive$1=_exports.isPrimitive=isPrimitive;const isIterable=value=>{return Array.isArray(value)||// eslint-disable-next-line @typescript-eslint/no-explicit-any
 !!(value&&value[Symbol.iterator])};/**
     * Writes attribute values to the DOM for a group of AttributeParts bound to a
-    * single attibute. The value is only set once even if there are multiple parts
+    * single attribute. The value is only set once even if there are multiple parts
     * for an attribute.
     */_exports.isIterable$1=_exports.isIterable=isIterable;class AttributeCommitter{constructor(element,name,strings){this.dirty=!0;this.element=element;this.name=name;this.strings=strings;this.parts=[];for(let i=0;i<strings.length-1;i++){this.parts[i]=this._createPart()}}/**
      * Creates a single part. Override this to create a differnt type of part.
@@ -289,7 +322,7 @@ if(!isDirective(value)){this.committer.dirty=!0}}}commit(){while(isDirective(thi
      * Inserts this part after the `ref` part.
      *
      * This part must be empty, as its contents are not automatically moved.
-     */insertAfterPart(ref){ref.__insert(this.startNode=createMarker());this.endNode=ref.endNode;ref.endNode=this.startNode}setValue(value){this.__pendingValue=value}commit(){while(isDirective(this.__pendingValue)){const directive=this.__pendingValue;this.__pendingValue=noChange;directive(this)}const value=this.__pendingValue;if(value===noChange){return}if(isPrimitive(value)){if(value!==this.value){this.__commitText(value)}}else if(value instanceof TemplateResult){this.__commitTemplateResult(value)}else if(value instanceof Node){this.__commitNode(value)}else if(isIterable(value)){this.__commitIterable(value)}else if(value===nothing){this.value=nothing;this.clear()}else{// Fallback, will render the string representation
+     */insertAfterPart(ref){ref.__insert(this.startNode=createMarker());this.endNode=ref.endNode;ref.endNode=this.startNode}setValue(value){this.__pendingValue=value}commit(){if(null===this.startNode.parentNode){return}while(isDirective(this.__pendingValue)){const directive=this.__pendingValue;this.__pendingValue=noChange;directive(this)}const value=this.__pendingValue;if(value===noChange){return}if(isPrimitive(value)){if(value!==this.value){this.__commitText(value)}}else if(value instanceof TemplateResult){this.__commitTemplateResult(value)}else if(value instanceof Node){this.__commitNode(value)}else if(isIterable(value)){this.__commitIterable(value)}else if(value===nothing){this.value=nothing;this.clear()}else{// Fallback, will render the string representation
 this.__commitText(value)}}__insert(node){this.endNode.parentNode.insertBefore(node,this.endNode)}__commitNode(value){if(this.value===value){return}this.clear();this.__insert(value);this.value=value}__commitText(value){const node=this.startNode.nextSibling;value=null==value?"":value;// If `value` isn't already a string, we explicitly convert it here in case
 // it can't be implicitly converted - i.e. it's a symbol.
 const valueAsString="string"===typeof value?value:value+"";if(node===this.endNode.previousSibling&&3===node.nodeType/* Node.TEXT_NODE */){// If we only have a single text node between the markers, we can just
@@ -327,28 +360,20 @@ itemParts.length=partIndex;this.clear(itemPart&&itemPart.endNode)}}clear(startNo
    * assigned to the property under control. If there are string literals or
    * multiple expressions, then the strings are expressions are interpolated into
    * a string first.
-   */_exports.BooleanAttributePart$1=_exports.BooleanAttributePart=BooleanAttributePart;class PropertyCommitter extends AttributeCommitter{constructor(element,name,strings){super(element,name,strings);this.single=2===strings.length&&""===strings[0]&&""===strings[1]}_createPart(){return new PropertyPart(this)}_getValue(){if(this.single){return this.parts[0].value}return super._getValue()}commit(){if(this.dirty){this.dirty=!1;// tslint:disable-next-line:no-any
+   */_exports.BooleanAttributePart$1=_exports.BooleanAttributePart=BooleanAttributePart;class PropertyCommitter extends AttributeCommitter{constructor(element,name,strings){super(element,name,strings);this.single=2===strings.length&&""===strings[0]&&""===strings[1]}_createPart(){return new PropertyPart(this)}_getValue(){if(this.single){return this.parts[0].value}return super._getValue()}commit(){if(this.dirty){this.dirty=!1;// eslint-disable-next-line @typescript-eslint/no-explicit-any
 this.element[this.name]=this._getValue()}}}_exports.PropertyCommitter$1=_exports.PropertyCommitter=PropertyCommitter;class PropertyPart extends AttributePart{}// Detect event listener options support. If the `capture` property is read
-// from the options object, then options are supported. If not, then the thrid
+// from the options object, then options are supported. If not, then the third
 // argument to add/removeEventListener is interpreted as the boolean capture
 // value so we should only pass the `capture` property.
-_exports.PropertyPart$1=_exports.PropertyPart=PropertyPart;let eventOptionsSupported=!1;try{const options={get capture(){eventOptionsSupported=!0;return!1}};// tslint:disable-next-line:no-any
-window.addEventListener("test",options,options);// tslint:disable-next-line:no-any
-window.removeEventListener("test",options,options)}catch(_e){}class EventPart{constructor(element,eventName,eventContext){this.value=void 0;this.__pendingValue=void 0;this.element=element;this.eventName=eventName;this.eventContext=eventContext;this.__boundHandleEvent=e=>this.handleEvent(e)}setValue(value){this.__pendingValue=value}commit(){while(isDirective(this.__pendingValue)){const directive=this.__pendingValue;this.__pendingValue=noChange;directive(this)}if(this.__pendingValue===noChange){return}const newListener=this.__pendingValue,oldListener=this.value,shouldRemoveListener=null==newListener||null!=oldListener&&(newListener.capture!==oldListener.capture||newListener.once!==oldListener.once||newListener.passive!==oldListener.passive),shouldAddListener=null!=newListener&&(null==oldListener||shouldRemoveListener);if(shouldRemoveListener){this.element.removeEventListener(this.eventName,this.__boundHandleEvent,this.__options)}if(shouldAddListener){this.__options=getOptions(newListener);this.element.addEventListener(this.eventName,this.__boundHandleEvent,this.__options)}this.value=newListener;this.__pendingValue=noChange}handleEvent(event){if("function"===typeof this.value){this.value.call(this.eventContext||this.element,event)}else{this.value.handleEvent(event)}}}// We copy options because of the inconsistent behavior of browsers when reading
+_exports.PropertyPart$1=_exports.PropertyPart=PropertyPart;let eventOptionsSupported=!1;// Wrap into an IIFE because MS Edge <= v41 does not support having try/catch
+// blocks right into the body of a module
+(()=>{try{const options={get capture(){eventOptionsSupported=!0;return!1}};// eslint-disable-next-line @typescript-eslint/no-explicit-any
+window.addEventListener("test",options,options);// eslint-disable-next-line @typescript-eslint/no-explicit-any
+window.removeEventListener("test",options,options)}catch(_e){// event options not supported
+}})();class EventPart{constructor(element,eventName,eventContext){this.value=void 0;this.__pendingValue=void 0;this.element=element;this.eventName=eventName;this.eventContext=eventContext;this.__boundHandleEvent=e=>this.handleEvent(e)}setValue(value){this.__pendingValue=value}commit(){while(isDirective(this.__pendingValue)){const directive=this.__pendingValue;this.__pendingValue=noChange;directive(this)}if(this.__pendingValue===noChange){return}const newListener=this.__pendingValue,oldListener=this.value,shouldRemoveListener=null==newListener||null!=oldListener&&(newListener.capture!==oldListener.capture||newListener.once!==oldListener.once||newListener.passive!==oldListener.passive),shouldAddListener=null!=newListener&&(null==oldListener||shouldRemoveListener);if(shouldRemoveListener){this.element.removeEventListener(this.eventName,this.__boundHandleEvent,this.__options)}if(shouldAddListener){this.__options=getOptions(newListener);this.element.addEventListener(this.eventName,this.__boundHandleEvent,this.__options)}this.value=newListener;this.__pendingValue=noChange}handleEvent(event){if("function"===typeof this.value){this.value.call(this.eventContext||this.element,event)}else{this.value.handleEvent(event)}}}// We copy options because of the inconsistent behavior of browsers when reading
 // the third argument of add/removeEventListener. IE11 doesn't support options
 // at all. Chrome 41 only reads `capture` if the argument is an object.
-_exports.EventPart$1=_exports.EventPart=EventPart;const getOptions=o=>o&&(eventOptionsSupported?{capture:o.capture,passive:o.passive,once:o.once}:o.capture);var parts={isPrimitive:isPrimitive,isIterable:isIterable,AttributeCommitter:AttributeCommitter,AttributePart:AttributePart,NodePart:NodePart,BooleanAttributePart:BooleanAttributePart,PropertyCommitter:PropertyCommitter,PropertyPart:PropertyPart,EventPart:EventPart};_exports.$parts=parts;class DefaultTemplateProcessor{/**
-   * Create parts for an attribute-position binding, given the event, attribute
-   * name, and string literals.
-   *
-   * @param element The element containing the binding
-   * @param name  The attribute name
-   * @param strings The string literals. There are always at least two strings,
-   *   event for fully-controlled bindings with a single expression.
-   */handleAttributeExpressions(element,name,strings,options){const prefix=name[0];if("."===prefix){const committer=new PropertyCommitter(element,name.slice(1),strings);return committer.parts}if("@"===prefix){return[new EventPart(element,name.slice(1),options.eventContext)]}if("?"===prefix){return[new BooleanAttributePart(element,name.slice(1),strings)]}const committer=new AttributeCommitter(element,name,strings);return committer.parts}/**
-     * Create parts for a text-position binding.
-     * @param templateFactory
-     */handleTextExpression(options){return new NodePart(options)}}_exports.DefaultTemplateProcessor$1=_exports.DefaultTemplateProcessor=DefaultTemplateProcessor;const defaultTemplateProcessor=new DefaultTemplateProcessor;_exports.defaultTemplateProcessor$1=_exports.defaultTemplateProcessor=defaultTemplateProcessor;var defaultTemplateProcessor$1={DefaultTemplateProcessor:DefaultTemplateProcessor,defaultTemplateProcessor:defaultTemplateProcessor};_exports.$defaultTemplateProcessor=defaultTemplateProcessor$1;function templateFactory(result){let templateCache=templateCaches.get(result.type);if(templateCache===void 0){templateCache={stringsArray:new WeakMap,keyString:new Map};templateCaches.set(result.type,templateCache)}let template=templateCache.stringsArray.get(result.strings);if(template!==void 0){return template}// If the TemplateStringsArray is new, generate a key from the strings
+_exports.EventPart$1=_exports.EventPart=EventPart;const getOptions=o=>o&&(eventOptionsSupported?{capture:o.capture,passive:o.passive,once:o.once}:o.capture);var parts={isPrimitive:isPrimitive,isIterable:isIterable,AttributeCommitter:AttributeCommitter,AttributePart:AttributePart,NodePart:NodePart,BooleanAttributePart:BooleanAttributePart,PropertyCommitter:PropertyCommitter,PropertyPart:PropertyPart,EventPart:EventPart};_exports.$parts=parts;function templateFactory(result){let templateCache=templateCaches.get(result.type);if(templateCache===void 0){templateCache={stringsArray:new WeakMap,keyString:new Map};templateCaches.set(result.type,templateCache)}let template=templateCache.stringsArray.get(result.strings);if(template!==void 0){return template}// If the TemplateStringsArray is new, generate a key from the strings
 // This key is shared between all templates with identical content
 const key=result.strings.join(marker);// Check if we already have a Template for this key
 template=templateCache.keyString.get(key);if(template===void 0){// If we have not seen this key before, create a new Template
@@ -368,44 +393,26 @@ templateCache.stringsArray.set(result.strings,template);return template}const te
                                      * @param options RenderOptions for the entire render tree rendered to this
                                      *     container. Render options must *not* change between renders to the same
                                      *     container, as those changes will not effect previously rendered DOM.
-                                     */_exports.parts$1=_exports.parts=parts$1;const render=(result,container,options)=>{let part=parts$1.get(container);if(part===void 0){removeNodes(container,container.firstChild);parts$1.set(container,part=new NodePart(Object.assign({templateFactory},options)));part.appendInto(container)}part.setValue(result);part.commit()};_exports.render$2=_exports.render=render;var render$1={parts:parts$1,render:render};// This line will be used in regexes to search for lit-html usage.
+                                     */_exports.parts$1=_exports.parts=parts$1;const render=(result,container,options)=>{let part=parts$1.get(container);if(part===void 0){removeNodes(container,container.firstChild);parts$1.set(container,part=new NodePart(Object.assign({templateFactory},options)));part.appendInto(container)}part.setValue(result);part.commit()};_exports.render$2=_exports.render=render;var render$1={parts:parts$1,render:render};_exports.$render=render$1;class DefaultTemplateProcessor{/**
+   * Create parts for an attribute-position binding, given the event, attribute
+   * name, and string literals.
+   *
+   * @param element The element containing the binding
+   * @param name  The attribute name
+   * @param strings The string literals. There are always at least two strings,
+   *   event for fully-controlled bindings with a single expression.
+   */handleAttributeExpressions(element,name,strings,options){const prefix=name[0];if("."===prefix){const committer=new PropertyCommitter(element,name.slice(1),strings);return committer.parts}if("@"===prefix){return[new EventPart(element,name.slice(1),options.eventContext)]}if("?"===prefix){return[new BooleanAttributePart(element,name.slice(1),strings)]}const committer=new AttributeCommitter(element,name,strings);return committer.parts}/**
+     * Create parts for a text-position binding.
+     * @param templateFactory
+     */handleTextExpression(options){return new NodePart(options)}}_exports.DefaultTemplateProcessor$1=_exports.DefaultTemplateProcessor=DefaultTemplateProcessor;const defaultTemplateProcessor=new DefaultTemplateProcessor;_exports.defaultTemplateProcessor$1=_exports.defaultTemplateProcessor=defaultTemplateProcessor;var defaultTemplateProcessor$1={DefaultTemplateProcessor:DefaultTemplateProcessor,defaultTemplateProcessor:defaultTemplateProcessor};// This line will be used in regexes to search for lit-html usage.
 // TODO(justinfagnani): inject version number at build time
-_exports.$render=render$1;(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.1.1");/**
-                                                                                * Interprets a template literal as an HTML template that can efficiently
-                                                                                * render to and update a container.
-                                                                                */const html=(strings,...values)=>new TemplateResult(strings,values,"html",defaultTemplateProcessor);/**
+_exports.$defaultTemplateProcessor=defaultTemplateProcessor$1;if("undefined"!==typeof window){(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.2.1")}/**
+   * Interprets a template literal as an HTML template that can efficiently
+   * render to and update a container.
+   */const html=(strings,...values)=>new TemplateResult(strings,values,"html",defaultTemplateProcessor);/**
                                                                                                                     * Interprets a template literal as an SVG template that can efficiently
                                                                                                                     * render to and update a container.
-                                                                                                                    */_exports.html$2=_exports.html$1=_exports.html=html;const svg=(strings,...values)=>new SVGTemplateResult(strings,values,"svg",defaultTemplateProcessor);_exports.svg$2=_exports.svg$1=_exports.svg=svg;var litHtml={html:html,svg:svg,DefaultTemplateProcessor:DefaultTemplateProcessor,defaultTemplateProcessor:defaultTemplateProcessor,directive:directive,isDirective:isDirective,removeNodes:removeNodes,reparentNodes:reparentNodes,noChange:noChange,nothing:nothing,AttributeCommitter:AttributeCommitter,AttributePart:AttributePart,BooleanAttributePart:BooleanAttributePart,EventPart:EventPart,isIterable:isIterable,isPrimitive:isPrimitive,NodePart:NodePart,PropertyCommitter:PropertyCommitter,PropertyPart:PropertyPart,parts:parts$1,render:render,templateCaches:templateCaches,templateFactory:templateFactory,TemplateInstance:TemplateInstance,SVGTemplateResult:SVGTemplateResult,TemplateResult:TemplateResult,createMarker:createMarker,isTemplatePartActive:isTemplatePartActive,Template:Template};_exports.$litHtml=litHtml;const walkerNodeFilter=133/* NodeFilter.SHOW_{ELEMENT|COMMENT|TEXT} */;/**
-                                                                            * Removes the list of nodes from a Template safely. In addition to removing
-                                                                            * nodes from the Template, the Template part indices are updated to match
-                                                                            * the mutated Template DOM.
-                                                                            *
-                                                                            * As the template is walked the removal state is tracked and
-                                                                            * part indices are adjusted as needed.
-                                                                            *
-                                                                            * div
-                                                                            *   div#1 (remove) <-- start removing (removing node is div#1)
-                                                                            *     div
-                                                                            *       div#2 (remove)  <-- continue removing (removing node is still div#1)
-                                                                            *         div
-                                                                            * div <-- stop removing since previous sibling is the removing node (div#1,
-                                                                            * removed 4 nodes)
-                                                                            */function removeNodesFromTemplate(template,nodesToRemove){const{element:{content},parts}=template,walker=document.createTreeWalker(content,walkerNodeFilter,null,!1);let partIndex=nextActiveIndexInTemplateParts(parts),part=parts[partIndex],nodeIndex=-1,removeCount=0;const nodesToRemoveInTemplate=[];let currentRemovingNode=null;while(walker.nextNode()){nodeIndex++;const node=walker.currentNode;// End removal if stepped past the removing node
-if(node.previousSibling===currentRemovingNode){currentRemovingNode=null}// A node to remove was found in the template
-if(nodesToRemove.has(node)){nodesToRemoveInTemplate.push(node);// Track node we're removing
-if(null===currentRemovingNode){currentRemovingNode=node}}// When removing, increment count by which to adjust subsequent part indices
-if(null!==currentRemovingNode){removeCount++}while(part!==void 0&&part.index===nodeIndex){// If part is in a removed node deactivate it by setting index to -1 or
-// adjust the index as needed.
-part.index=null!==currentRemovingNode?-1:part.index-removeCount;// go to the next active part.
-partIndex=nextActiveIndexInTemplateParts(parts,partIndex);part=parts[partIndex]}}nodesToRemoveInTemplate.forEach(n=>n.parentNode.removeChild(n))}const countNodes=node=>{let count=11===node.nodeType/* Node.DOCUMENT_FRAGMENT_NODE */?0:1;const walker=document.createTreeWalker(node,walkerNodeFilter,null,!1);while(walker.nextNode()){count++}return count},nextActiveIndexInTemplateParts=(parts,startIndex=-1)=>{for(let i=startIndex+1;i<parts.length;i++){const part=parts[i];if(isTemplatePartActive(part)){return i}}return-1};/**
-    * Inserts the given node into the Template, optionally before the given
-    * refNode. In addition to inserting the node into the Template, the Template
-    * part indices are updated to match the mutated Template DOM.
-    */function insertNodeIntoTemplate(template,node,refNode=null){const{element:{content},parts}=template;// If there's no refNode, then put node at end of template.
-// No part indices need to be shifted in this case.
-if(null===refNode||refNode===void 0){content.appendChild(node);return}const walker=document.createTreeWalker(content,walkerNodeFilter,null,!1);let partIndex=nextActiveIndexInTemplateParts(parts),insertCount=0,walkerIndex=-1;while(walker.nextNode()){walkerIndex++;const walkerNode=walker.currentNode;if(walkerNode===refNode){insertCount=countNodes(node);refNode.parentNode.insertBefore(node,refNode)}while(-1!==partIndex&&parts[partIndex].index===walkerIndex){// If we've inserted the node, simply adjust all subsequent parts
-if(0<insertCount){while(-1!==partIndex){parts[partIndex].index+=insertCount;partIndex=nextActiveIndexInTemplateParts(parts,partIndex)}return}partIndex=nextActiveIndexInTemplateParts(parts,partIndex)}}}var modifyTemplate={removeNodesFromTemplate:removeNodesFromTemplate,insertNodeIntoTemplate:insertNodeIntoTemplate};_exports.$modifyTemplate=modifyTemplate;const getTemplateCacheKey=(type,scopeName)=>`${type}--${scopeName}`;let compatibleShadyCSSVersion=!0;if("undefined"===typeof window.ShadyCSS){compatibleShadyCSSVersion=!1}else if("undefined"===typeof window.ShadyCSS.prepareTemplateDom){console.warn(`Incompatible ShadyCSS version detected. `+`Please update to at least @webcomponents/webcomponentsjs@2.0.2 and `+`@webcomponents/shadycss@1.3.1.`);compatibleShadyCSSVersion=!1}/**
+                                                                                                                    */_exports.html$2=_exports.html$1=_exports.html=html;const svg=(strings,...values)=>new SVGTemplateResult(strings,values,"svg",defaultTemplateProcessor);_exports.svg$2=_exports.svg$1=_exports.svg=svg;var litHtml={html:html,svg:svg,DefaultTemplateProcessor:DefaultTemplateProcessor,defaultTemplateProcessor:defaultTemplateProcessor,directive:directive,isDirective:isDirective,removeNodes:removeNodes,reparentNodes:reparentNodes,noChange:noChange,nothing:nothing,AttributeCommitter:AttributeCommitter,AttributePart:AttributePart,BooleanAttributePart:BooleanAttributePart,EventPart:EventPart,isIterable:isIterable,isPrimitive:isPrimitive,NodePart:NodePart,PropertyCommitter:PropertyCommitter,PropertyPart:PropertyPart,parts:parts$1,render:render,templateCaches:templateCaches,templateFactory:templateFactory,TemplateInstance:TemplateInstance,SVGTemplateResult:SVGTemplateResult,TemplateResult:TemplateResult,createMarker:createMarker,isTemplatePartActive:isTemplatePartActive,Template:Template};_exports.$litHtml=litHtml;const getTemplateCacheKey=(type,scopeName)=>`${type}--${scopeName}`;let compatibleShadyCSSVersion=!0;if("undefined"===typeof window.ShadyCSS){compatibleShadyCSSVersion=!1}else if("undefined"===typeof window.ShadyCSS.prepareTemplateDom){console.warn(`Incompatible ShadyCSS version detected. `+`Please update to at least @webcomponents/webcomponentsjs@2.0.2 and `+`@webcomponents/shadycss@1.3.1.`);compatibleShadyCSSVersion=!1}/**
    * Template factory which scopes template DOM using ShadyCSS.
    * @param scopeName {string}
    */const shadyTemplateFactory=scopeName=>result=>{const cacheKey=getTemplateCacheKey(result.type,scopeName);let templateCache=templateCaches.get(cacheKey);if(templateCache===void 0){templateCache={stringsArray:new WeakMap,keyString:new Map};templateCaches.set(cacheKey,templateCache)}let template=templateCache.stringsArray.get(result.strings);if(template!==void 0){return template}const key=result.strings.join(marker);template=templateCache.keyString.get(key);if(template===void 0){const element=result.getTemplateElement();if(compatibleShadyCSSVersion){window.ShadyCSS.prepareTemplateDom(element,scopeName)}template=new Template(result,element);templateCache.keyString.set(key,template)}templateCache.stringsArray.set(result.strings,template);return template},TEMPLATE_TYPES=["html","svg"],removeStylesFromLitTemplates=scopeName=>{TEMPLATE_TYPES.forEach(type=>{const templates=templateCaches.get(getTemplateCacheKey(type,scopeName));if(templates!==void 0){templates.keyString.forEach(template=>{const{element:{content}}=template,styles=new Set;// IE 11 doesn't support the iterable param Set constructor
@@ -488,14 +495,16 @@ return null==value?value:JSON.stringify(value);}return value},fromAttribute(valu
     * Change function that returns true if `value` is different from `oldValue`.
     * This method is used as the default for a property's `hasChanged` function.
     */_exports.defaultConverter$1=_exports.defaultConverter=defaultConverter;const notEqual=(value,old)=>{// This ensures (old==NaN, value==NaN) always returns false
-return old!==value&&(old===old||value===value)};_exports.notEqual$1=_exports.notEqual=notEqual;const defaultPropertyDeclaration={attribute:!0,type:String,converter:defaultConverter,reflect:!1,hasChanged:notEqual},microtaskPromise=Promise.resolve(!0),STATE_HAS_UPDATED=1,STATE_UPDATE_REQUESTED=1<<2,STATE_IS_REFLECTING_TO_ATTRIBUTE=1<<3,STATE_IS_REFLECTING_TO_PROPERTY=1<<4,STATE_HAS_CONNECTED=1<<5,finalized="finalized";/**
+return old!==value&&(old===old||value===value)};_exports.notEqual$1=_exports.notEqual=notEqual;const defaultPropertyDeclaration={attribute:!0,type:String,converter:defaultConverter,reflect:!1,hasChanged:notEqual},STATE_HAS_UPDATED=1,STATE_UPDATE_REQUESTED=1<<2,STATE_IS_REFLECTING_TO_ATTRIBUTE=1<<3,STATE_IS_REFLECTING_TO_PROPERTY=1<<4,finalized="finalized";/**
                                 * Base element class which manages element properties and attributes. When
                                 * properties change, the `update` method is asynchronously called. This method
                                 * should be supplied by subclassers to render updates as desired.
-                                */class UpdatingElement extends HTMLElement{constructor(){super();this._updateState=0;this._instanceProperties=void 0;this._updatePromise=microtaskPromise;this._hasConnectedResolver=void 0;/**
-                                             * Map with keys for any properties that have changed since the last
-                                             * update cycle with previous values.
-                                             */this._changedProperties=new Map;/**
+                                */class UpdatingElement extends HTMLElement{constructor(){super();this._updateState=0;this._instanceProperties=void 0;// Initialize to an unresolved Promise so we can make sure the element has
+// connected before first update.
+this._updatePromise=new Promise(res=>this._enableUpdatingResolver=res);/**
+                                                                                   * Map with keys for any properties that have changed since the last
+                                                                                   * update cycle with previous values.
+                                                                                   */this._changedProperties=new Map;/**
                                           * Map with keys of properties that should be reflected when updated.
                                           */this._reflectingProperties=void 0;this.initialize()}/**
      * Returns a list of attributes corresponding to the registered properties.
@@ -510,10 +519,25 @@ this._classProperties.forEach((v,p)=>{const attr=this._attributeNameForProperty(
      */ /** @nocollapse */static _ensureClassProperties(){// ensure private storage for property declarations.
 if(!this.hasOwnProperty(JSCompiler_renameProperty("_classProperties",this))){this._classProperties=new Map;// NOTE: Workaround IE11 not supporting Map constructor argument.
 const superProperties=Object.getPrototypeOf(this)._classProperties;if(superProperties!==void 0){superProperties.forEach((v,k)=>this._classProperties.set(k,v))}}}/**
-     * Creates a property accessor on the element prototype if one does not exist.
+     * Creates a property accessor on the element prototype if one does not exist
+     * and stores a PropertyDeclaration for the property with the given options.
      * The property setter calls the property's `hasChanged` property option
      * or uses a strict identity check to determine whether or not to request
      * an update.
+     *
+     * This method may be overridden to customize properties; however,
+     * when doing so, it's important to call `super.createProperty` to ensure
+     * the property is setup correctly. This method calls
+     * `getPropertyDescriptor` internally to get a descriptor to install.
+     * To customize what properties do when they are get or set, override
+     * `getPropertyDescriptor`. To customize the options for a property,
+     * implement `createProperty` like this:
+     *
+     * static createProperty(name, options) {
+     *   options = Object.assign(options, {myOption: true});
+     *   super.createProperty(name, options);
+     * }
+     *
      * @nocollapse
      */static createProperty(name,options=defaultPropertyDeclaration){// Note, since this can be called by the `@property` decorator which
 // is called before `finalize`, we ensure storage exists for property
@@ -523,8 +547,42 @@ this._ensureClassProperties();this._classProperties.set(name,options);// Do not 
 // Instead, we expect users to call `requestUpdate` themselves from
 // user-defined accessors. Note that if the super has an accessor we will
 // still overwrite it
-if(options.noAccessor||this.prototype.hasOwnProperty(name)){return}const key="symbol"===typeof name?Symbol():`__${name}`;Object.defineProperty(this.prototype,name,{// tslint:disable-next-line:no-any no symbol in index
-get(){return this[key]},set(value){const oldValue=this[name];this[key]=value;this._requestUpdate(name,oldValue)},configurable:!0,enumerable:!0})}/**
+if(options.noAccessor||this.prototype.hasOwnProperty(name)){return}const key="symbol"===typeof name?Symbol():`__${name}`,descriptor=this.getPropertyDescriptor(name,key,options);if(descriptor!==void 0){Object.defineProperty(this.prototype,name,descriptor)}}/**
+     * Returns a property descriptor to be defined on the given named property.
+     * If no descriptor is returned, the property will not become an accessor.
+     * For example,
+     *
+     *   class MyElement extends LitElement {
+     *     static getPropertyDescriptor(name, key, options) {
+     *       const defaultDescriptor =
+     *           super.getPropertyDescriptor(name, key, options);
+     *       const setter = defaultDescriptor.set;
+     *       return {
+     *         get: defaultDescriptor.get,
+     *         set(value) {
+     *           setter.call(this, value);
+     *           // custom action.
+     *         },
+     *         configurable: true,
+     *         enumerable: true
+     *       }
+     *     }
+     *   }
+     *
+     * @nocollapse
+     */static getPropertyDescriptor(name,key,_options){return{// tslint:disable-next-line:no-any no symbol in index
+get(){return this[key]},set(value){const oldValue=this[name];this[key]=value;this._requestUpdate(name,oldValue)},configurable:!0,enumerable:!0}}/**
+     * Returns the property options associated with the given property.
+     * These options are defined with a PropertyDeclaration via the `properties`
+     * object or the `@property` decorator and are registered in
+     * `createProperty(...)`.
+     *
+     * Note, this method should be considered "final" and not overridden. To
+     * customize the options for a given property, override `createProperty`.
+     *
+     * @nocollapse
+     * @final
+     */static getPropertyOptions(name){return this._classProperties&&this._classProperties.get(name)||defaultPropertyDeclaration}/**
      * Creates property accessors for registered properties and ensures
      * any superclasses are also finalized.
      * @nocollapse
@@ -582,11 +640,9 @@ this.constructor._classProperties.forEach((_v,p)=>{if(this.hasOwnProperty(p)){co
      */_applyInstanceProperties(){// Use forEach so this works even if for/of loops are compiled to for loops
 // expecting arrays
 // tslint:disable-next-line:no-any
-this._instanceProperties.forEach((v,p)=>this[p]=v);this._instanceProperties=void 0}connectedCallback(){this._updateState=this._updateState|STATE_HAS_CONNECTED;// Ensure first connection completes an update. Updates cannot complete
-// before connection and if one is pending connection the
-// `_hasConnectionResolver` will exist. If so, resolve it to complete the
-// update, otherwise requestUpdate.
-if(this._hasConnectedResolver){this._hasConnectedResolver();this._hasConnectedResolver=void 0}}/**
+this._instanceProperties.forEach((v,p)=>this[p]=v);this._instanceProperties=void 0}connectedCallback(){// Ensure first connection completes an update. Updates cannot complete
+// before connection.
+this.enableUpdating()}enableUpdating(){if(this._enableUpdatingResolver!==void 0){this._enableUpdatingResolver();this._enableUpdatingResolver=void 0}}/**
      * Allows for `super.disconnectedCallback()` in extensions while
      * reserving the possibility of making non-breaking feature additions
      * when disconnecting at some point in the future.
@@ -604,7 +660,10 @@ if(attrValue===void 0){return}// Track if the property is being reflected to avo
 this._updateState=this._updateState|STATE_IS_REFLECTING_TO_ATTRIBUTE;if(null==attrValue){this.removeAttribute(attr)}else{this.setAttribute(attr,attrValue)}// mark state not reflecting
 this._updateState=this._updateState&~STATE_IS_REFLECTING_TO_ATTRIBUTE}}_attributeToProperty(name,value){// Use tracking info to avoid deserializing attribute value if it was
 // just set from a property setter.
-if(this._updateState&STATE_IS_REFLECTING_TO_ATTRIBUTE){return}const ctor=this.constructor,propName=ctor._attributeToPropertyMap.get(name);if(propName!==void 0){const options=ctor._classProperties.get(propName)||defaultPropertyDeclaration;// mark state reflecting
+if(this._updateState&STATE_IS_REFLECTING_TO_ATTRIBUTE){return}const ctor=this.constructor,propName=ctor._attributeToPropertyMap.get(name);// Note, hint this as an `AttributeMap` so closure clearly understands
+// the type; it has issues with tracking types through statics
+// tslint:disable-next-line:no-unnecessary-type-assertion
+if(propName!==void 0){const options=ctor.getPropertyOptions(propName);// mark state reflecting
 this._updateState=this._updateState|STATE_IS_REFLECTING_TO_PROPERTY;this[propName]=// tslint:disable-next-line:no-any
 ctor._propertyValueFromAttribute(value,options);// mark state not reflecting
 this._updateState=this._updateState&~STATE_IS_REFLECTING_TO_PROPERTY}}/**
@@ -612,12 +671,12 @@ this._updateState=this._updateState&~STATE_IS_REFLECTING_TO_PROPERTY}}/**
      * `updateComplete` promise. This promise can be overridden and is therefore
      * not free to access.
      */_requestUpdate(name,oldValue){let shouldRequestUpdate=!0;// If we have a property key, perform property update steps.
-if(name!==void 0){const ctor=this.constructor,options=ctor._classProperties.get(name)||defaultPropertyDeclaration;if(ctor._valueHasChanged(this[name],oldValue,options.hasChanged)){if(!this._changedProperties.has(name)){this._changedProperties.set(name,oldValue)}// Add to reflecting properties set.
+if(name!==void 0){const ctor=this.constructor,options=ctor.getPropertyOptions(name);if(ctor._valueHasChanged(this[name],oldValue,options.hasChanged)){if(!this._changedProperties.has(name)){this._changedProperties.set(name,oldValue)}// Add to reflecting properties set.
 // Note, it's important that every change has a chance to add the
 // property to `_reflectingProperties`. This ensures setting
 // attribute + property reflects correctly.
 if(!0===options.reflect&&!(this._updateState&STATE_IS_REFLECTING_TO_PROPERTY)){if(this._reflectingProperties===void 0){this._reflectingProperties=new Map}this._reflectingProperties.set(name,options)}}else{// Abort the request if the property should not be considered changed.
-shouldRequestUpdate=!1}}if(!this._hasRequestedUpdate&&shouldRequestUpdate){this._enqueueUpdate()}}/**
+shouldRequestUpdate=!1}}if(!this._hasRequestedUpdate&&shouldRequestUpdate){this._updatePromise=this._enqueueUpdate()}}/**
      * Requests an update which is processed asynchronously. This should
      * be called when an element should update based on some state not triggered
      * by setting a property. In this case, pass no arguments. It should also be
@@ -631,16 +690,14 @@ shouldRequestUpdate=!1}}if(!this._hasRequestedUpdate&&shouldRequestUpdate){this.
      * @returns {Promise} A Promise that is resolved when the update completes.
      */requestUpdate(name,oldValue){this._requestUpdate(name,oldValue);return this.updateComplete}/**
      * Sets up the element to asynchronously update.
-     */_enqueueUpdate(){var _this2=this;return babelHelpers.asyncToGenerator(function*(){// Mark state updating...
-_this2._updateState=_this2._updateState|STATE_UPDATE_REQUESTED;let resolve,reject;const previousUpdatePromise=_this2._updatePromise;_this2._updatePromise=new Promise((res,rej)=>{resolve=res;reject=rej});try{// Ensure any previous update has resolved before updating.
+     */_enqueueUpdate(){var _this2=this;return babelHelpers.asyncToGenerator(function*(){_this2._updateState=_this2._updateState|STATE_UPDATE_REQUESTED;try{// Ensure any previous update has resolved before updating.
 // This `await` also ensures that property changes are batched.
-yield previousUpdatePromise}catch(e){}// Ignore any previous errors. We only care that the previous cycle is
+yield _this2._updatePromise}catch(e){// Ignore any previous errors. We only care that the previous cycle is
 // done. Any error should have been handled in the previous update.
-// Make sure the element has connected before updating.
-if(!_this2._hasConnected){yield new Promise(res=>_this2._hasConnectedResolver=res)}try{const result=_this2.performUpdate();// If `performUpdate` returns a Promise, we await it. This is done to
+}const result=_this2.performUpdate();// If `performUpdate` returns a Promise, we await it. This is done to
 // enable coordinating updates with a scheduler. Note, the result is
 // checked to avoid delaying an additional microtask unless we need to.
-if(null!=result){yield result}}catch(e){reject(e)}resolve(!_this2._hasRequestedUpdate)})()}get _hasConnected(){return this._updateState&STATE_HAS_CONNECTED}get _hasRequestedUpdate(){return this._updateState&STATE_UPDATE_REQUESTED}get hasUpdated(){return this._updateState&STATE_HAS_UPDATED}/**
+if(null!=result){yield result}return!_this2._hasRequestedUpdate})()}get _hasRequestedUpdate(){return this._updateState&STATE_UPDATE_REQUESTED}get hasUpdated(){return this._updateState&STATE_HAS_UPDATED}/**
      * Performs an element update. Note, if an exception is thrown during the
      * update, `firstUpdated` and `updated` will not be called.
      *
@@ -656,10 +713,10 @@ if(null!=result){yield result}}catch(e){reject(e)}resolve(!_this2._hasRequestedU
      * }
      * ```
      */performUpdate(){// Mixin instance properties once, if they exist.
-if(this._instanceProperties){this._applyInstanceProperties()}let shouldUpdate=!1;const changedProperties=this._changedProperties;try{shouldUpdate=this.shouldUpdate(changedProperties);if(shouldUpdate){this.update(changedProperties)}}catch(e){// Prevent `firstUpdated` and `updated` from running when there's an
+if(this._instanceProperties){this._applyInstanceProperties()}let shouldUpdate=!1;const changedProperties=this._changedProperties;try{shouldUpdate=this.shouldUpdate(changedProperties);if(shouldUpdate){this.update(changedProperties)}else{this._markUpdated()}}catch(e){// Prevent `firstUpdated` and `updated` from running when there's an
 // update exception.
-shouldUpdate=!1;throw e}finally{// Ensure element can accept additional updates after an exception.
-this._markUpdated()}if(shouldUpdate){if(!(this._updateState&STATE_HAS_UPDATED)){this._updateState=this._updateState|STATE_HAS_UPDATED;this.firstUpdated(changedProperties)}this.updated(changedProperties)}}_markUpdated(){this._changedProperties=new Map;this._updateState=this._updateState&~STATE_UPDATE_REQUESTED}/**
+shouldUpdate=!1;// Ensure element can accept additional updates after an exception.
+this._markUpdated();throw e}if(shouldUpdate){if(!(this._updateState&STATE_HAS_UPDATED)){this._updateState=this._updateState|STATE_HAS_UPDATED;this.firstUpdated(changedProperties)}this.updated(changedProperties)}}_markUpdated(){this._changedProperties=new Map;this._updateState=this._updateState&~STATE_UPDATE_REQUESTED}/**
      * Returns a Promise that resolves when the element has completed updating.
      * The Promise value is a boolean that is `true` if the element completed the
      * update without triggering another update. The Promise result is `false` if
@@ -693,24 +750,24 @@ this._markUpdated()}if(shouldUpdate){if(!(this._updateState&STATE_HAS_UPDATED)){
      * an update. By default, this method always returns `true`, but this can be
      * customized to control when to update.
      *
-     * * @param _changedProperties Map of changed properties with old values
+     * @param _changedProperties Map of changed properties with old values
      */shouldUpdate(_changedProperties){return!0}/**
      * Updates the element. This method reflects property values to attributes.
      * It can be overridden to render and keep updated element DOM.
      * Setting properties inside this method will *not* trigger
      * another update.
      *
-     * * @param _changedProperties Map of changed properties with old values
+     * @param _changedProperties Map of changed properties with old values
      */update(_changedProperties){if(this._reflectingProperties!==void 0&&0<this._reflectingProperties.size){// Use forEach so this works even if for/of loops are compiled to for
 // loops expecting arrays
-this._reflectingProperties.forEach((v,k)=>this._propertyToAttribute(k,this[k],v));this._reflectingProperties=void 0}}/**
+this._reflectingProperties.forEach((v,k)=>this._propertyToAttribute(k,this[k],v));this._reflectingProperties=void 0}this._markUpdated()}/**
      * Invoked whenever the element is updated. Implement to perform
      * post-updating tasks via DOM APIs, for example, focusing an element.
      *
      * Setting properties inside this method will trigger the element to update
      * again after this update cycle completes.
      *
-     * * @param _changedProperties Map of changed properties with old values
+     * @param _changedProperties Map of changed properties with old values
      */updated(_changedProperties){}/**
                                   * Invoked when the element is first updated. Implement to perform one time
                                   * work on the element after update.
@@ -718,7 +775,7 @@ this._reflectingProperties.forEach((v,k)=>this._propertyToAttribute(k,this[k],v)
                                   * Setting properties inside this method will trigger the element to update
                                   * again after this update cycle completes.
                                   *
-                                  * * @param _changedProperties Map of changed properties with old values
+                                  * @param _changedProperties Map of changed properties with old values
                                   */firstUpdated(_changedProperties){}}_exports.UpdatingElement$1=_exports.UpdatingElement=UpdatingElement;_a=finalized;/**
                  * Marks class as having finished creating properties.
                  */UpdatingElement[_a]=!0;var updatingElement={defaultConverter:defaultConverter,notEqual:notEqual,UpdatingElement:UpdatingElement};/**
@@ -743,7 +800,7 @@ return clazz},standardCustomElement=(tagName,descriptor)=>{const{kind,elements}=
 finisher(clazz){window.customElements.define(tagName,clazz)}}},customElement=tagName=>classOrDescriptor=>"function"===typeof classOrDescriptor?legacyCustomElement(tagName,classOrDescriptor):standardCustomElement(tagName,classOrDescriptor);_exports.customElement$1=_exports.customElement=customElement;const standardProperty=(options,element)=>{// When decorating an accessor, pass it through and add property metadata.
 // Note, the `hasOwnProperty` check in `createProperty` ensures we don't
 // stomp over the user's accessor.
-if("method"===element.kind&&element.descriptor&&!("value"in element.descriptor)){return Object.assign({},element,{finisher(clazz){clazz.createProperty(element.key,options)}})}else{// createProperty() takes care of defining the property, but we still
+if("method"===element.kind&&element.descriptor&&!("value"in element.descriptor)){return Object.assign(Object.assign({},element),{finisher(clazz){clazz.createProperty(element.key,options)}})}else{// createProperty() takes care of defining the property, but we still
 // must return some kind of descriptor, so return a descriptor for an
 // unused prototype field. The finisher calls createProperty().
 return{kind:"field",key:Symbol(),placement:"own",descriptor:{},// When @babel/plugin-proposal-decorators implements initializers,
@@ -760,27 +817,148 @@ initializer(){if("function"===typeof element.initializer){this[element.key]=elem
     * corresponding attribute value. A `PropertyDeclaration` may optionally be
     * supplied to configure property features.
     *
+    * This decorator should only be used for public fields. Private or protected
+    * fields should use the internalProperty decorator.
+    *
+    * @example
+    *
+    *     class MyElement {
+    *       @property({ type: Boolean })
+    *       clicked = false;
+    *     }
+    *
     * @ExportDecoratedItems
     */function property(options){// tslint:disable-next-line:no-any decorator
 return(protoOrDescriptor,name)=>name!==void 0?legacyProperty(options,protoOrDescriptor,name):standardProperty(options,protoOrDescriptor)}/**
+   * Declares a private or protected property that still triggers updates to the
+   * element when it changes.
+   *
+   * Properties declared this way must not be used from HTML or HTML templating
+   * systems, they're solely for properties internal to the element. These
+   * properties may be renamed by optimization tools like closure compiler.
+   */function internalProperty(options){return property({attribute:!1,hasChanged:null===options||void 0===options?void 0:options.hasChanged})}/**
    * A property decorator that converts a class property into a getter that
    * executes a querySelector on the element's renderRoot.
    *
-   * @ExportDecoratedItems
+   * @param selector A DOMString containing one or more selectors to match.
+   *
+   * See: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+   *
+   * @example
+   *
+   *     class MyElement {
+   *       @query('#first')
+   *       first;
+   *
+   *       render() {
+   *         return html`
+   *           <div id="first"></div>
+   *           <div id="second"></div>
+   *         `;
+   *       }
+   *     }
+   *
    */function query(selector){return(protoOrDescriptor,// tslint:disable-next-line:no-any decorator
-name)=>{const descriptor={get(){return this.renderRoot.querySelector(selector)},enumerable:!0,configurable:!0};return name!==void 0?legacyQuery(descriptor,protoOrDescriptor,name):standardQuery(descriptor,protoOrDescriptor)}}/**
+name)=>{const descriptor={get(){return this.renderRoot.querySelector(selector)},enumerable:!0,configurable:!0};return name!==void 0?legacyQuery(descriptor,protoOrDescriptor,name):standardQuery(descriptor,protoOrDescriptor)}}// Note, in the future, we may extend this decorator to support the use case
+// where the queried element may need to do work to become ready to interact
+// with (e.g. load some implementation code). If so, we might elect to
+// add a second argument defining a function that can be run to make the
+// queried element loaded/updated/ready.
+/**
+ * A property decorator that converts a class property into a getter that
+ * returns a promise that resolves to the result of a querySelector on the
+ * element's renderRoot done after the element's `updateComplete` promise
+ * resolves. When the queried property may change with element state, this
+ * decorator can be used instead of requiring users to await the
+ * `updateComplete` before accessing the property.
+ *
+ * @param selector A DOMString containing one or more selectors to match.
+ *
+ * See: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+ *
+ * @example
+ *
+ *     class MyElement {
+ *       @queryAsync('#first')
+ *       first;
+ *
+ *       render() {
+ *         return html`
+ *           <div id="first"></div>
+ *           <div id="second"></div>
+ *         `;
+ *       }
+ *     }
+ *
+ *     // external usage
+ *     async doSomethingWithFirst() {
+ *      (await aMyElement.first).doSomething();
+ *     }
+ */function queryAsync(selector){return(protoOrDescriptor,// tslint:disable-next-line:no-any decorator
+name)=>{const descriptor={get(){var _this3=this;return babelHelpers.asyncToGenerator(function*(){yield _this3.updateComplete;return _this3.renderRoot.querySelector(selector)})()},enumerable:!0,configurable:!0};return name!==void 0?legacyQuery(descriptor,protoOrDescriptor,name):standardQuery(descriptor,protoOrDescriptor)}}/**
    * A property decorator that converts a class property into a getter
    * that executes a querySelectorAll on the element's renderRoot.
    *
-   * @ExportDecoratedItems
+   * @param selector A DOMString containing one or more selectors to match.
+   *
+   * See:
+   * https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
+   *
+   * @example
+   *
+   *     class MyElement {
+   *       @queryAll('div')
+   *       divs;
+   *
+   *       render() {
+   *         return html`
+   *           <div id="first"></div>
+   *           <div id="second"></div>
+   *         `;
+   *       }
+   *     }
    */function queryAll(selector){return(protoOrDescriptor,// tslint:disable-next-line:no-any decorator
-name)=>{const descriptor={get(){return this.renderRoot.querySelectorAll(selector)},enumerable:!0,configurable:!0};return name!==void 0?legacyQuery(descriptor,protoOrDescriptor,name):standardQuery(descriptor,protoOrDescriptor)}}const legacyQuery=(descriptor,proto,name)=>{Object.defineProperty(proto,name,descriptor)},standardQuery=(descriptor,element)=>({kind:"method",placement:"prototype",key:element.key,descriptor}),standardEventOptions=(options,element)=>{return Object.assign({},element,{finisher(clazz){Object.assign(clazz.prototype[element.key],options)}})},legacyEventOptions=// tslint:disable-next-line:no-any legacy decorator
-(options,proto,name)=>{Object.assign(proto[name],options)},eventOptions=options=>// Return value typed as any to prevent TypeScript from complaining that
+name)=>{const descriptor={get(){return this.renderRoot.querySelectorAll(selector)},enumerable:!0,configurable:!0};return name!==void 0?legacyQuery(descriptor,protoOrDescriptor,name):standardQuery(descriptor,protoOrDescriptor)}}const legacyQuery=(descriptor,proto,name)=>{Object.defineProperty(proto,name,descriptor)},standardQuery=(descriptor,element)=>({kind:"method",placement:"prototype",key:element.key,descriptor}),standardEventOptions=(options,element)=>{return Object.assign(Object.assign({},element),{finisher(clazz){Object.assign(clazz.prototype[element.key],options)}})},legacyEventOptions=// tslint:disable-next-line:no-any legacy decorator
+(options,proto,name)=>{Object.assign(proto[name],options)};/**
+    * Adds event listener options to a method used as an event listener in a
+    * lit-html template.
+    *
+    * @param options An object that specifies event listener options as accepted by
+    * `EventTarget#addEventListener` and `EventTarget#removeEventListener`.
+    *
+    * Current browsers support the `capture`, `passive`, and `once` options. See:
+    * https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters
+    *
+    * @example
+    *
+    *     class MyElement {
+    *       clicked = false;
+    *
+    *       render() {
+    *         return html`
+    *           <div @click=${this._onClick}`>
+    *             <button></button>
+    *           </div>
+    *         `;
+    *       }
+    *
+    *       @eventOptions({capture: true})
+    *       _onClick(e) {
+    *         this.clicked = true;
+    *       }
+    *     }
+    */function eventOptions(options){// Return value typed as any to prevent TypeScript from complaining that
 // standard decorator function signature does not match TypeScript decorator
 // signature
 // TODO(kschaaf): unclear why it was only failing on this decorator and not
 // the others
-(protoOrDescriptor,name)=>name!==void 0?legacyEventOptions(options,protoOrDescriptor,name):standardEventOptions(options,protoOrDescriptor);_exports.eventOptions$1=_exports.eventOptions=eventOptions;var decorators={customElement:customElement,property:property,query:query,queryAll:queryAll,eventOptions:eventOptions};/**
+return(protoOrDescriptor,name)=>name!==void 0?legacyEventOptions(options,protoOrDescriptor,name):standardEventOptions(options,protoOrDescriptor)}/**
+   * A property decorator that converts a class property into a getter that
+   * returns the `assignedNodes` of the given named `slot`. Note, the type of
+   * this property should be annotated as `NodeListOf<HTMLElement>`.
+   *
+   */function queryAssignedNodes(slotName="",flatten=!1){return(protoOrDescriptor,// tslint:disable-next-line:no-any decorator
+name)=>{const descriptor={get(){const selector=`slot${slotName?`[name=${slotName}]`:""}`,slot=this.renderRoot.querySelector(selector);return slot&&slot.assignedNodes({flatten})},enumerable:!0,configurable:!0};return name!==void 0?legacyQuery(descriptor,protoOrDescriptor,name):standardQuery(descriptor,protoOrDescriptor)}}var decorators={customElement:customElement,property:property,internalProperty:internalProperty,query:query,queryAsync:queryAsync,queryAll:queryAll,eventOptions:eventOptions,queryAssignedNodes:queryAssignedNodes};/**
    @license
    Copyright (c) 2019 The Polymer Project Authors. All rights reserved.
    This code may only be used under the BSD style license found at
@@ -808,32 +986,35 @@ if(supportsAdoptingStyleSheets){this._styleSheet=new CSSStyleSheet;this._styleSh
     */_exports.css$2=_exports.css=css;var cssTag={supportsAdoptingStyleSheets:supportsAdoptingStyleSheets,CSSResult:CSSResult,unsafeCSS:unsafeCSS,css:css};// IMPORTANT: do not change the property name or the assignment expression.
 // This line will be used in regexes to search for LitElement usage.
 // TODO(justinfagnani): inject version number at build time
-_exports.$cssTag=cssTag;(window.litElementVersions||(window.litElementVersions=[])).push("2.2.1");/**
-                                                                                      * Minimal implementation of Array.prototype.flat
-                                                                                      * @param arr the array to flatten
-                                                                                      * @param result the accumlated result
-                                                                                      */function arrayFlat(styles,result=[]){for(let i=0,length=styles.length;i<length;i++){const value=styles[i];if(Array.isArray(value)){arrayFlat(value,result)}else{result.push(value)}}return result}/** Deeply flattens styles array. Uses native flat if available. */const flattenStyles=styles=>styles.flat?styles.flat(1/0):arrayFlat(styles);class LitElement extends UpdatingElement{/** @nocollapse */static finalize(){// The Closure JS Compiler does not always preserve the correct "this"
-// when calling static super methods (b/137460243), so explicitly bind.
-super.finalize.call(this);// Prepare styling that is stamped at first render time. Styling
-// is built from user provided `styles` or is inherited from the superclass.
-this._styles=this.hasOwnProperty(JSCompiler_renameProperty("styles",this))?this._getUniqueStyles():this._styles||[]}/** @nocollapse */static _getUniqueStyles(){// Take care not to call `this.styles` multiple times since this generates
-// new CSSResults each time.
+_exports.$cssTag=cssTag;(window.litElementVersions||(window.litElementVersions=[])).push("2.3.1");/**
+                                                                                      * Sentinal value used to avoid calling lit-html's render function when
+                                                                                      * subclasses do not implement `render`
+                                                                                      */const renderNotImplemented={};class LitElement extends UpdatingElement{/**
+   * Return the array of styles to apply to the element.
+   * Override this method to integrate into a style management system.
+   *
+   * @nocollapse
+   */static getStyles(){return this.styles}/** @nocollapse */static _getUniqueStyles(){// Only gather styles once per class
+if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this))){return}// Take care not to call `this.getStyles()` multiple times since this
+// generates new CSSResults each time.
 // TODO(sorvell): Since we do not cache CSSResults by input, any
 // shared styles will generate new stylesheet objects, which is wasteful.
 // This should be addressed when a browser ships constructable
 // stylesheets.
-const userStyles=this.styles,styles=[];if(Array.isArray(userStyles)){const flatStyles=flattenStyles(userStyles),styleSet=flatStyles.reduceRight((set,s)=>{set.add(s);// on IE set.add does not return the set.
-return set},new Set);// As a performance optimization to avoid duplicated styling that can
-// occur especially when composing via subclassing, de-duplicate styles
-// preserving the last item in the list. The last item is kept to
-// try to preserve cascade order with the assumption that it's most
-// important that last added styles override previous styles.
-// Array.from does not work on Set in IE
-styleSet.forEach(v=>styles.unshift(v))}else if(userStyles){styles.push(userStyles)}return styles}/**
+const userStyles=this.getStyles();if(userStyles===void 0){this._styles=[]}else if(Array.isArray(userStyles)){// De-duplicate styles preserving the _last_ instance in the set.
+// This is a performance optimization to avoid duplicated styles that can
+// occur especially when composing via subclassing.
+// The last item is kept to try to preserve the cascade order with the
+// assumption that it's most important that last added styles override
+// previous styles.
+const addStyles=(styles,set)=>styles.reduceRight((set,s)=>// Note: On IE set.add() does not return the set
+Array.isArray(s)?addStyles(s,set):(set.add(s),set),set),set=addStyles(userStyles,new Set),styles=[];// Array.from does not work on Set in IE, otherwise return
+// Array.from(addStyles(userStyles, new Set<CSSResult>())).reverse()
+set.forEach(v=>styles.unshift(v));this._styles=styles}else{this._styles=[userStyles]}}/**
      * Performs element initialization. By default this calls `createRenderRoot`
      * to create the element `renderRoot` node and captures any pre-set values for
      * registered properties.
-     */initialize(){super.initialize();this.renderRoot=this.createRenderRoot();// Note, if renderRoot is not a shadowRoot, styles would/could apply to the
+     */initialize(){super.initialize();this.constructor._getUniqueStyles();this.renderRoot=this.createRenderRoot();// Note, if renderRoot is not a shadowRoot, styles would/could apply to the
 // element's getRootNode(). While this could be done, we're choosing not to
 // support this now since it would require different logic around de-duping.
 if(window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot){this.adoptStyles()}}/**
@@ -863,28 +1044,106 @@ if(this.hasUpdated&&window.ShadyCSS!==void 0){window.ShadyCSS.styleElement(this)
      * Updates the element. This method reflects property values to attributes
      * and calls `render` to render DOM via lit-html. Setting properties inside
      * this method will *not* trigger another update.
-     * * @param _changedProperties Map of changed properties with old values
-     */update(changedProperties){super.update(changedProperties);const templateResult=this.render();if(templateResult instanceof TemplateResult){this.constructor.render(templateResult,this.renderRoot,{scopeName:this.localName,eventContext:this})}// When native Shadow DOM is used but adoptedStyles are not supported,
+     * @param _changedProperties Map of changed properties with old values
+     */update(changedProperties){// Setting properties in `render` should not trigger an update. Since
+// updates are allowed after super.update, it's important to call `render`
+// before that.
+const templateResult=this.render();super.update(changedProperties);// If render is not implemented by the component, don't call lit-html render
+if(templateResult!==renderNotImplemented){this.constructor.render(templateResult,this.renderRoot,{scopeName:this.localName,eventContext:this})}// When native Shadow DOM is used but adoptedStyles are not supported,
 // insert styling after rendering to ensure adoptedStyles have highest
 // priority.
 if(this._needsShimAdoptedStyleSheets){this._needsShimAdoptedStyleSheets=!1;this.constructor._styles.forEach(s=>{const style=document.createElement("style");style.textContent=s.cssText;this.renderRoot.appendChild(style)})}}/**
-     * Invoked on each update to perform rendering tasks. This method must return
-     * a lit-html TemplateResult. Setting properties inside this method will *not*
-     * trigger the element to update.
-     */render(){}}/**
+     * Invoked on each update to perform rendering tasks. This method may return
+     * any value renderable by lit-html's NodePart - typically a TemplateResult.
+     * Setting properties inside this method will *not* trigger the element to
+     * update.
+     */render(){return renderNotImplemented}}/**
    * Ensure this class is marked as `finalized` as an optimization ensuring
    * it will not needlessly try to `finalize`.
    *
    * Note this property name is a string to prevent breaking Closure JS Compiler
    * optimizations. See updating-element.ts for more information.
    */_exports.LitElement=LitElement;LitElement.finalized=!0;/**
-                                 * Render method used to render the lit-html TemplateResult to the element's
-                                 * DOM.
-                                 * @param {TemplateResult} Template to render.
-                                 * @param {Element|DocumentFragment} Node into which to render.
-                                 * @param {String} Element name.
+                                 * Render method used to render the value to the element's DOM.
+                                 * @param result The value to render.
+                                 * @param container Node into which to render.
+                                 * @param options Element name.
                                  * @nocollapse
-                                 */LitElement.render=render$2;var litElement={LitElement:LitElement,defaultConverter:defaultConverter,notEqual:notEqual,UpdatingElement:UpdatingElement,customElement:customElement,property:property,query:query,queryAll:queryAll,eventOptions:eventOptions,html:html,svg:svg,TemplateResult:TemplateResult,SVGTemplateResult:SVGTemplateResult,supportsAdoptingStyleSheets:supportsAdoptingStyleSheets,CSSResult:CSSResult,unsafeCSS:unsafeCSS,css:css};_exports.$litElement=litElement;class Theme{/**
+                                 */LitElement.render=render$2;var litElement={LitElement:LitElement,defaultConverter:defaultConverter,notEqual:notEqual,UpdatingElement:UpdatingElement,customElement:customElement,property:property,internalProperty:internalProperty,query:query,queryAsync:queryAsync,queryAll:queryAll,eventOptions:eventOptions,queryAssignedNodes:queryAssignedNodes,html:html,svg:svg,TemplateResult:TemplateResult,SVGTemplateResult:SVGTemplateResult,supportsAdoptingStyleSheets:supportsAdoptingStyleSheets,CSSResult:CSSResult,unsafeCSS:unsafeCSS,css:css};/**
+    * We differ themeing and styling. *Themes* are in regular a rewrite of the components css and can contain style vars. We do not use mixins as long they are not "standard". *Styles* are used to set style vars like `--primary-color`. They give you the possibility to configure your themes in a simple way. Components which are using theming, give you *full control* over the css.
+    *
+    * It is recommended to keep the original style vars when writing a theme set, this gives you the possibility to change themes, without the need to style them again.
+    *
+    * ## register a themeset
+    * You have to register the desired themeset, before your app starts. Otherwise the default themeset will be applied.
+    * The best way is to do it in your `index.html`.
+    *
+    * ```
+    *<script type="module">
+    *import {Init,Sys, Theme} from "@furo/framework";
+    *import {MyThemeset} from "./custom/themeset"
+    *Theme.registerThemeset(MyThemeset);
+    *...
+    *```
+   
+    *
+    *## Apply themeing your components
+    *Applying a theme to a component can be achieved by:
+    *
+    *```
+    *import {Theme} from "@furo/framework/src/theme"
+    *
+    *
+    * // @private
+    * // @return {CSSResult}
+    *static get styles() {
+    *
+    *return Theme.getThemeForComponent(this.name) || css`
+    *    :host {
+    *        height: 100%;
+    *    }
+    *    side-navigation {
+    *        background-color: var(--nav-color);
+    *    }
+    *`
+    *}
+    *
+    *```
+    *
+    *to apply theming to your main app:
+    *
+    *```js
+    *import {Theme} from "@furo/framework/src/theme"
+    *
+    *
+    *
+    * // @private
+    * // @return {CSSResult}
+    * static get styles() {
+    *    let theme = Theme.getThemeForComponent(this.name);
+    *    if (theme) {
+    *        return [theme, Styling.theme]
+    *    } else {
+    *        // language=CSS
+    *        return [css`
+    *            :host {
+    *                display: block;
+    *                height: 100vh;
+    *                overflow: hidden;
+    *            }
+    *        `, Styling.theme]
+    *    }
+    * }
+    *
+    *```
+    *
+    *## Writing a themeset
+    *
+    * If you want to know, how to write a themeset, just visit the [Guide](https://furo.pro/guide/md/theming/) or look at the
+    * [example](https://github.com/veith/FuroBaseComponents/blob/master/packages/furo-framework/themes/default_theme.js).
+    *
+    *
+    */_exports.$litElement=litElement;class Theme{/**
    * Get the theme for the component if it exists
    * @param componentName
    * @return {*}
@@ -923,122 +1182,164 @@ if(this._needsShimAdoptedStyleSheets){this._needsShimAdoptedStyleSheets=!1;this.
     * @summary Please read the guide for a better understanding
     * @polymer
     * @mixinFunction FBP
-    */_exports.$theme=theme;const FBP=superClass=>{/**
-   * @polymerMixinClass
-   */return class extends superClass{constructor(){super();this.__FBPEventlistener=[];this.__wirebundle={};this.__wireQueue=[]}//  Auto append fbp for Polymer
-_attachDom(dom){this._appendFBP(dom);super._attachDom(dom)}// Auto append fbp for lit elements
-firstUpdated(changedProperties){// ensure to append only once
+    */_exports.$theme=theme;const FBP=superClass=>/**
+                                  * @polymerMixinClass
+                                  */class extends superClass{constructor(){super();this.__FBPEventlistener=[];this.__wirebundle={};this.__wireQueue=[]}// Auto append fbp for lit elements
+firstUpdated(){// ensure to append only once
 if(!this.__fbpAppended){this._appendFBP(this.shadowRoot);this.__fbpAppended=!0}super.firstUpdated()}/**
-       * Triggers a wire
-       * @param wire (String) Name of the wire like --buttonClicked
-       * @param detailData (*) data to pass
-       * @public
-       */_FBPTriggerWire(wire,detailData){if(this.__fbp_ready){if(this.__wirebundle[wire]){this.__wirebundle[wire].map(receiver=>{// check for hooks
-if("function"===typeof receiver){receiver(detailData)}else{if("function"===typeof receiver.element[receiver.method]){let response;// array spreaden
-if(Array.isArray(detailData)&&1<receiver.element[receiver.method].length){response=receiver.element[receiver.method].apply(receiver.element,detailData)}else{let data=detailData;if(receiver.path){data=this._pathGet(detailData,receiver.path)}response=receiver.element[receiver.method](data)}// @-ƒ-function auslösen
-let customEvent=new Event("\u0192-"+receiver.attrName,{composed:!1,bubbles:!1});customEvent.detail=response;receiver.element.dispatchEvent(customEvent)}else if(receiver.property){let data=detailData;if(receiver.path){data=this._pathGet(detailData,receiver.path)}receiver.element[receiver.property]=data}else{console.warn(receiver.method+" is neither a listener nor a function of "+receiver.element.nodeName,receiver.element)}}})}}else{this.__enqueueTrigger(wire,detailData)}}/**
-       *
-       * @param wire (String) Name of the wire
-       * @param cb (function) Callback function cb(detailData)
-       * @param [before] (Boolean) append before the components are triggered, default is false
-       * @returns {number} Index of hook
-       * @public
-       */_FBPAddWireHook(wire,cb,before){before=before||!1;if(this.__wirebundle[wire]){if(before){this.__wirebundle[wire].unshift(cb);return 0}else{let l=this.__wirebundle[wire].push(cb);return l-1}}else{this.__wirebundle[wire]=[cb];return 1}}/**
-       * Log all triggered wires for this component. This function may help you at debugging.
-       * Select your element in the dev console and call `$0._FBPTraceWires()`
-       *
-       *
-       * @public
-       */_FBPTraceWires(){let self=this;for(let wire in this.__wirebundle){this._FBPAddWireHook(wire,e=>{var ua=navigator.userAgent.toLowerCase();let agent=!0;if(-1!=ua.indexOf("safari")){if(-1<ua.indexOf("chrome")){agent=!0;// Chrome
+     * Triggers a wire
+     * @param wire (String) Name of the wire like --buttonClicked
+     * @param detailData (*) data to pass
+     * @public
+     */_FBPTriggerWire(wire,detailData){if(this.__fbp_ready){if(this.__wirebundle[wire]){this.__wirebundle[wire].forEach(receiver=>{// check for hooks
+if("function"===typeof receiver){receiver(detailData)}else if("function"===typeof receiver.element[receiver.method]){let response;// array spreaden
+if(Array.isArray(detailData)&&1<receiver.element[receiver.method].length){// eslint-disable-next-line prefer-spread
+response=receiver.element[receiver.method].apply(receiver.element,detailData)}else{let data=detailData;if(receiver.path){data=this._pathGet(detailData,receiver.path)}response=receiver.element[receiver.method](data)}// @-ƒ-function auslösen
+const customEvent=new Event(`ƒ-${receiver.attrName}`,{composed:!1,bubbles:!1});customEvent.detail=response;receiver.element.dispatchEvent(customEvent)}else if(receiver.property){let data=detailData;if(receiver.path){data=this._pathGet(detailData,receiver.path)}// eslint-disable-next-line no-param-reassign
+receiver.element[receiver.property]=data}else{// eslint-disable-next-line no-console
+console.warn(`${receiver.method} is neither a listener nor a function of ${receiver.element.nodeName}`,receiver.element)}})}}else{this.__enqueueTrigger(wire,detailData)}}/**
+     *
+     * @param wire (String) Name of the wire
+     * @param cb (function) Callback function cb(detailData)
+     * @param [before] (Boolean) append before the components are triggered, default is false
+     * @returns {number} Index of hook
+     * @public
+     */_FBPAddWireHook(wire,cb,before){// eslint-disable-next-line no-param-reassign
+before=before||!1;if(this.__wirebundle[wire]){if(before){this.__wirebundle[wire].unshift(cb);return 0}const l=this.__wirebundle[wire].push(cb);return l-1}this.__wirebundle[wire]=[cb];return 1}/**
+     * Log all triggered wires for this component. This function may help you at debugging.
+     * Select your element in the dev console and call `$0._FBPTraceWires()`
+     *
+     *
+     * @public
+     */_FBPTraceWires(){const self=this;// eslint-disable-next-line guard-for-in,no-restricted-syntax
+for(const wire in this.__wirebundle){this._FBPAddWireHook(wire,e=>{const ua=navigator.userAgent.toLowerCase();let agent=!0;if(-1!==ua.indexOf("safari")){if(-1<ua.indexOf("chrome")){agent=!0;// Chrome
 }else{agent=!1;// Safari
-}}if(agent){console.group("Trace for",this.nodeName+": "+wire);console.table([{host:self,wire:wire,data:e}]);console.groupCollapsed("Data");console.log(e);console.groupEnd();console.groupCollapsed("Target Elements");console.table(self.__wirebundle[wire]);console.groupEnd();console.groupCollapsed("Call Stack");console.log(new Error().stack);console.groupEnd();console.groupEnd()}},!0)}}/**
-       * Get information for the triggered wire. This function may help you at debugging.
-       * Select your element in the dev console and call `$0._FBPDebug('--dataReceived')`
-       *
-       * @param wire
-       * @param openDebugger opens the debugger console, so you can inspect your component.
-       * @public
-       */_FBPDebug(wire,openDebugger){let self=this;this._FBPAddWireHook(wire,e=>{if(openDebugger){debugger}else{var ua=navigator.userAgent.toLowerCase();let agent=!0;if(-1!=ua.indexOf("safari")){if(-1<ua.indexOf("chrome")){agent=!0;// Chrome
+}}if(agent){// eslint-disable-next-line no-console
+console.group("Trace for",`${this.nodeName}: ${wire}`);// eslint-disable-next-line no-console
+console.table([{host:self,wire,data:e}]);// eslint-disable-next-line no-console
+console.groupCollapsed("Data");// eslint-disable-next-line no-console
+console.log(e);// eslint-disable-next-line no-console
+console.groupEnd();// eslint-disable-next-line no-console
+console.groupCollapsed("Target Elements");// eslint-disable-next-line no-console
+console.table(self.__wirebundle[wire]);// eslint-disable-next-line no-console
+console.groupEnd();// eslint-disable-next-line no-console
+console.groupCollapsed("Call Stack");// eslint-disable-next-line no-console
+console.log(new Error().stack);// eslint-disable-next-line no-console
+console.groupEnd();// eslint-disable-next-line no-console
+console.groupEnd()}},!0)}}/**
+     * Get information for the triggered wire. This function may help you at debugging.
+     * Select your element in the dev console and call `$0._FBPDebug('--dataReceived')`
+     *
+     * @param wire
+     * @param openDebugger opens the debugger console, so you can inspect your component.
+     * @public
+     */_FBPDebug(wire,openDebugger){const self=this;this._FBPAddWireHook(wire,e=>{if(openDebugger){// eslint-disable-next-line no-debugger
+debugger}else{const ua=navigator.userAgent.toLowerCase();let agent=!0;if(-1!==ua.indexOf("safari")){if(-1<ua.indexOf("chrome")){agent=!0;// Chrome
 }else{agent=!1;// Safari
-}}if(agent){console.group("Debug",this.nodeName+": "+wire);console.group("Target Elements");console.table(self.__wirebundle[wire]);console.groupEnd();console.groupCollapsed("Data");console.log(e);console.groupEnd();console.groupCollapsed("Call Stack");console.log(new Error().stack);console.groupEnd();console.groupEnd()}}},!0)}__toCamelCase(str){return str.replace(/-([a-z])/g,function(g){return g[1].toUpperCase()})}/**
-       * parses the dom for flowbased programming tags
-       * @param dom dom node
-       * @private
-       */_appendFBP(dom){let self=this,wirebundle=this.__wirebundle,nl=dom.querySelectorAll("*"),l=nl.length-1;for(var x=l;0<=x;--x){let element=nl[x];// template is=flow-repeat..
-if("TEMPLATE"===element.tagName){if("flow-repeat"===element.getAttribute("is")){let original=element,replacement=document.createElement("flow-repeat"),l=original.attributes.length;// Create a replacement tag of the desired type
-for(let i=0;i<l;++i){var nodeName=original.attributes.item(i).nodeName,nodeValue=original.attributes.item(i).nodeValue;replacement.setAttribute(nodeName,nodeValue)}// Persist contents
-let tpl=document.createElement("template");tpl.content.append(original.content);replacement.appendChild(tpl);// Switch!
-original.parentNode.replaceChild(replacement,original);element=replacement}}for(let i=0;i<element.attributes.length;i++){// collect data receiver
+}}if(agent){// eslint-disable-next-line no-console
+console.group("Debug",`${this.nodeName}: ${wire}`);// eslint-disable-next-line no-console
+console.group("Target Elements");// eslint-disable-next-line no-console
+console.table(self.__wirebundle[wire]);// eslint-disable-next-line no-console
+console.groupEnd();// eslint-disable-next-line no-console
+console.groupCollapsed("Data");// eslint-disable-next-line no-console
+console.log(e);// eslint-disable-next-line no-console
+console.groupEnd();// eslint-disable-next-line no-console
+console.groupCollapsed("Call Stack");// eslint-disable-next-line no-console
+console.log(new Error().stack);// eslint-disable-next-line no-console
+console.groupEnd();// eslint-disable-next-line no-console
+console.groupEnd()}}},!0)}// eslint-disable-next-line class-methods-use-this
+__toCamelCase(str){return str.replace(/-([a-z])/g,g=>g[1].toUpperCase())}/**
+     * parses the dom for flowbased programming tags
+     * @param dom dom node
+     * @private
+     */_appendFBP(dom){const self=this,wirebundle=this.__wirebundle,nl=dom.querySelectorAll("*"),l=nl.length-1;// eslint-disable-next-line no-plusplus
+for(let x=l,element;0<=x;--x){element=nl[x];// template is=flow-repeat..
+if("TEMPLATE"===element.tagName){if("flow-repeat"===element.getAttribute("is")){const original=element,replacement=document.createElement("flow-repeat"),attrcount=original.attributes.length;// Create a replacement tag of the desired type
+// eslint-disable-next-line no-plusplus
+for(let i=0;i<attrcount;++i){const{nodeName}=original.attributes.item(i),{nodeValue}=original.attributes.item(i);replacement.setAttribute(nodeName,nodeValue)}// Persist contents
+const tpl=document.createElement("template");tpl.content.append(original.content);replacement.appendChild(tpl);// Switch!
+original.parentNode.replaceChild(replacement,original);element=replacement}}for(let i=0;i<element.attributes.length;i+=1){// collect data receiver
 if(element.attributes[i].name.startsWith("\u0192-.")){// split multiple wires
-element.attributes[i].value.split(",").map(w=>{let r=this.__resolveWireAndPath(w);// create empty if not exist
-if(!wirebundle[r.receivingWire]){wirebundle[r.receivingWire]=[]}wirebundle[r.receivingWire].push({element:element,property:this.__toCamelCase(element.attributes[i].name.substr(3)),path:r.path})});continue}// collect receiving tags
+element.attributes[i].value.split(",").forEach(w=>{const r=this.__resolveWireAndPath(w);// create empty if not exist
+if(!wirebundle[r.receivingWire]){wirebundle[r.receivingWire]=[]}wirebundle[r.receivingWire].push({element,property:this.__toCamelCase(element.attributes[i].name.substr(3)),path:r.path})});// eslint-disable-next-line no-continue
+continue}// collect receiving tags
 if(element.attributes[i].name.startsWith("\u0192-")){// collect receiver
-element.attributes[i].value.split(",").map(w=>{let r=this.__resolveWireAndPath(w);// create empty if not exist
-if(!wirebundle[r.receivingWire]){wirebundle[r.receivingWire]=[]}wirebundle[r.receivingWire].push({element:element,method:this.__toCamelCase(element.attributes[i].name.substr(2)),attrName:element.attributes[i].name.substr(2),path:r.path})});continue}// collect sending tags
-if(element.attributes[i].name.startsWith("@-")){let eventname=element.attributes[i].name.substr(2),wire,fwires=element.attributes[i].value;fwires.split(",").map(fwire=>{let trimmedWire=fwire.trim(),type="call";if(trimmedWire.startsWith("((")){wire=trimmedWire.substring(2,trimmedWire.length-2);type="setValue"}else if(trimmedWire.startsWith("-^")){wire=trimmedWire.substring(2);type="fireOnHost"}else if(trimmedWire.startsWith("^")){wire=trimmedWire.substring(1);type="fire";if(trimmedWire.startsWith("^^")){wire=trimmedWire.substring(2);type="fireBubble"}}else if(":STOP"===trimmedWire){type="stop";wire="stop"}else if(":PREVENTDEFAULT"===trimmedWire){type="preventdefault";wire="preventdefault"}else{wire=trimmedWire;type="call"}registerEvent(eventname,type,wire,element)});continue}}}/**
-         * register event on current element
-         * @param eventname
-         * @param type
-         * @param wire
-         */function registerEvent(eventname,type,wire,element){// find properties in wire
-element.__atf={};let match=wire.match(/([a-z0-9\-_*\.]+)/gi);// store @-ƒ-attributes existence
-for(let i=0;i<element.attributes.length;i++){element.__atf[element.attributes[i].name]=!0}let handler={// prevent default and stop propagation
-stop:function(e){e.stopPropagation()},preventdefault:function(e){e.preventDefault()},call:function(e){/**
-             * Prüfe ob die Funktion mit einem Wert aus dem Host oder mit den Details des Events ausgeführt werden soll.
-             * --wire(hostName) ==> wirft this.hostName in die Funktion sonst wird e.detail verwendet
-             *
-             */let effectiveWire=wire,detailData=e.detail;if(null!==match&&1<match.length){// --wireName(*) sends the raw event
+element.attributes[i].value.split(",").forEach(w=>{const r=this.__resolveWireAndPath(w);// create empty if not exist
+if(!wirebundle[r.receivingWire]){wirebundle[r.receivingWire]=[]}wirebundle[r.receivingWire].push({element,method:this.__toCamelCase(element.attributes[i].name.substr(2)),attrName:element.attributes[i].name.substr(2),path:r.path})});// eslint-disable-next-line no-continue
+continue}// collect sending tags
+if(element.attributes[i].name.startsWith("@-")){const eventname=element.attributes[i].name.substr(2);let wire;const fwires=element.attributes[i].value;fwires.split(",").forEach(fwire=>{const trimmedWire=fwire.trim();let type="call";if(trimmedWire.startsWith("((")){wire=trimmedWire.substring(2,trimmedWire.length-2);type="setValue"}else if(trimmedWire.startsWith("-^")){wire=trimmedWire.substring(2);type="fireOnHost"}else if(trimmedWire.startsWith("^")){wire=trimmedWire.substring(1);type="fire";if(trimmedWire.startsWith("^^")){wire=trimmedWire.substring(2);type="fireBubble"}}else if(":STOP"===trimmedWire){type="stop";wire="stop"}else if(":PREVENTDEFAULT"===trimmedWire){type="preventdefault";wire="preventdefault"}else{wire=trimmedWire;type="call"}// eslint-disable-next-line no-use-before-define
+registerEvent(eventname,type,wire,element)});// eslint-disable-next-line no-continue
+continue}}}/**
+       * register event on current element
+       * @param eventname
+       * @param type
+       * @param wire
+       */function registerEvent(eventname,type,wire,element){// find properties in wire
+// eslint-disable-next-line no-param-reassign
+element.__atf={};// eslint-disable-next-line no-useless-escape
+const match=wire.match(/([a-z0-9\-_*\.]+)/gi);// store @-ƒ-attributes existence
+for(let i=0;i<element.attributes.length;i+=1){// eslint-disable-next-line no-param-reassign
+element.__atf[element.attributes[i].name]=!0}const handler={// prevent default and stop propagation
+stop(e){e.stopPropagation()},preventdefault(e){e.preventDefault()},call(e){/**
+           * Prüfe ob die Funktion mit einem Wert aus dem Host oder mit den Details des Events ausgeführt werden soll.
+           * --wire(hostName) ==> wirft this.hostName in die Funktion sonst wird e.detail verwendet
+           *
+           */let effectiveWire=wire,detailData=e.detail;if(null!==match&&1<match.length){// --wireName(*) sends the raw event
 // --wireName(*.mouseX) sends property mouseX of the event
 if(match[1].startsWith("*")){if(1===match[1].length){// send raw event
 detailData=e}else{// send event subprop with *.notDetail.xxx
 detailData=self._pathGet(e,match[1].substr(2,match[1].length))}}else{// send host property
-detailData=self._pathGet(self,match[1])}effectiveWire=match[0]}self._FBPTriggerWire(effectiveWire,detailData)},fire:function(e){if(null!==match&&1<match.length){let prop=match[1],theEvent=match[0],customEvent=new Event(theEvent,{composed:!1,bubbles:!0});// send details with *.sub or *
-if(prop.startsWith("*")){if(1===prop.length){customEvent.detail=e}else{customEvent.detail=self._pathGet(e,prop.substr(2))}}else{customEvent.detail=self._pathGet(self,prop)}e.currentTarget.dispatchEvent(customEvent)}else{let customEvent=new Event(wire,{composed:!1,bubbles:!0});customEvent.detail=e.detail;e.currentTarget.dispatchEvent(customEvent)}},fireOnHost:function(e){if(null!==match&&1<match.length){let prop=match[1],theEvent=match[0],customEvent=new Event(theEvent,{composed:!1,bubbles:!0});// send details with *.sub or *
-if(prop.startsWith("*")){if(1===prop.length){customEvent.detail=e}else{customEvent.detail=self._pathGet(e,prop.substr(2))}}else{customEvent.detail=self._pathGet(self,prop)}self.dispatchEvent(customEvent)}else{let customEvent=new Event(wire,{composed:!1,bubbles:!0});customEvent.detail=e.detail;self.dispatchEvent(customEvent)}},fireBubble:function(e){if(null!==match&&1<match.length){let prop=match[1],theEvent=match[0],customEvent=new Event(theEvent,{composed:!0,bubbles:!0});// send details with *.sub or *
-if(prop.startsWith("*")){if(1===prop.length){customEvent.detail=e}else{customEvent.detail=self._pathGet(e,prop.substr(2))}}else{customEvent.detail=self._pathGet(self,prop)}e.currentTarget.dispatchEvent(customEvent)}else{let customEvent=new Event(wire,{composed:!0,bubbles:!0});customEvent.detail=e.detail;e.currentTarget.dispatchEvent(customEvent)}},setValue:function(e){self._pathSet(self,wire,e.detail);//self.set(wire, e.detail, self);
-}};element.addEventListener(eventname,handler[type]);self.__FBPEventlistener.push({element:element,event:eventname,handler:handler[type]})}// queueing for _FBPTriggerWire
-if(!this.__fbp_ready){this._FBPReady();let l=this.__wireQueue.length;for(let i=0,t;i<l;i++){t=this.__wireQueue.shift();this._FBPTriggerWire(t.w,t.d)}}}/**
-       * Livecycle method
-       * This method is called, when the wires are ready.
-       * And triggers the --FBPready wire. This does *not* respect a lit updateComplete
-       */_FBPReady(){this.__fbp_ready=!0;this._FBPTriggerWire("--FBPready")}__enqueueTrigger(wire,detailData){this.__wireQueue.push({w:wire,d:detailData})}__resolveWireAndPath(w){// finde --wire(*.xx.yy)  => group1 = --wire  group2 = xx.yy
-let match=w.trim().match(/(^[^\(]*)\(?\*?\.?([^\)]*)/),receivingWire=match[1],path=match[2];return{receivingWire,path}}disconnectedCallback(){// clear wires first
-this.__wirebundle={};this.__wireQueue=[];/* remove event listeners*/this.__FBPEventlistener.forEach(function(e){e.element.removeEventListener(e.event,e.handler)});if(super.disconnectedCallback){super.disconnectedCallback()}}/**
-       * Reads a value from a path.  If any sub-property in the path is `undefined`,
-       * this method returns `undefined` (will never throw.
-       *
-       * @param {Object} root Object from which to dereference path from
-       * @param {string | !Array<string|number>} path Path to read
-       * @return {*} Value at path, or `undefined` if the path could not be
-       *  fully dereferenced.
-       */_pathGet(root,path){let prop=root,parts=this._split(path);// Loop over path parts[0..n-1] and dereference
-for(let i=0;i<parts.length;i++){if(!prop){return}let part=parts[i];prop=prop[part]}return prop}/**
-       * Sets a value to a path.  If any sub-property in the path is `undefined`,
-       * this method will no-op.
-       *
-       * @param {Object} root Object from which to dereference path from
-       * @param {string | !Array<string|number>} path Path to set
-       * @param {*} value Value to set to path
-       * @return {string | undefined} The normalized version of the input path
-       */_pathSet(root,path,value){let prop=root,parts=this._split(path),last=parts[parts.length-1];// used for @-event="((prop.sub))"
+detailData=self._pathGet(self,match[1])}// eslint-disable-next-line prefer-destructuring
+effectiveWire=match[0]}self._FBPTriggerWire(effectiveWire,detailData)},fire(e){if(null!==match&&1<match.length){const prop=match[1],theEvent=match[0],customEvent=new Event(theEvent,{composed:!1,bubbles:!0});// send details with *.sub or *
+if(prop.startsWith("*")){customEvent.detail=self._pathGet(e.detail,prop.substr(2))}else{customEvent.detail=self._pathGet(self,prop)}e.currentTarget.dispatchEvent(customEvent)}else{const customEvent=new Event(wire,{composed:!1,bubbles:!0});customEvent.detail=e.detail;e.currentTarget.dispatchEvent(customEvent)}},fireOnHost(e){if(null!==match&&1<match.length){const prop=match[1],theEvent=match[0],customEvent=new Event(theEvent,{composed:!1,bubbles:!0});// send details with *.sub or *
+if(prop.startsWith("*")){customEvent.detail=self._pathGet(e.detail,prop.substr(2))}else{customEvent.detail=self._pathGet(self,prop)}self.dispatchEvent(customEvent)}else{const customEvent=new Event(wire,{composed:!1,bubbles:!0});customEvent.detail=e.detail;self.dispatchEvent(customEvent)}},fireBubble(e){if(null!==match&&1<match.length){const prop=match[1],theEvent=match[0],customEvent=new Event(theEvent,{composed:!0,bubbles:!0});// send details with *.sub or *
+if(prop.startsWith("*")){customEvent.detail=self._pathGet(e.detail,prop.substr(2))}else{customEvent.detail=self._pathGet(self,prop)}e.currentTarget.dispatchEvent(customEvent)}else{const customEvent=new Event(wire,{composed:!0,bubbles:!0});customEvent.detail=e.detail;e.currentTarget.dispatchEvent(customEvent)}},setValue(e){self._pathSet(self,wire,e.detail);// self.set(wire, e.detail, self);
+}};element.addEventListener(eventname,handler[type]);self.__FBPEventlistener.push({element,event:eventname,handler:handler[type]})}// queueing for _FBPTriggerWire
+if(!this.__fbp_ready){this._FBPReady();const queuelength=this.__wireQueue.length;for(let i=0;i<queuelength;i+=1){const t=this.__wireQueue.shift();this._FBPTriggerWire(t.w,t.d)}}}/**
+     * Livecycle method
+     * This method is called, when the wires are ready.
+     * And triggers the --FBPready wire. This does *not* respect a lit updateComplete
+     */_FBPReady(){this.__fbp_ready=!0;this._FBPTriggerWire("--FBPready")}__enqueueTrigger(wire,detailData){this.__wireQueue.push({w:wire,d:detailData})}// eslint-disable-next-line class-methods-use-this
+__resolveWireAndPath(w){// finde --wire(*.xx.yy)  => group1 = --wire  group2 = xx.yy
+// eslint-disable-next-line no-useless-escape
+const match=w.trim().match(/(^[^\(]*)\(?\*?\.?([^\)]*)/),receivingWire=match[1],path=match[2];return{receivingWire,path}}disconnectedCallback(){// clear wires first
+this.__wirebundle={};this.__wireQueue=[];/* remove event listeners */this.__FBPEventlistener.forEach(e=>{e.element.removeEventListener(e.event,e.handler)});if(super.disconnectedCallback){super.disconnectedCallback()}}/**
+     * Reads a value from a path.  If any sub-property in the path is `undefined`,
+     * this method returns `undefined` (will never throw.
+     *
+     * @param {Object} root Object from which to dereference path from
+     * @param {string | !Array<string|number>} path Path to read
+     * @return {*} Value at path, or `undefined` if the path could not be
+     *  fully dereferenced.
+     */_pathGet(root,path){let prop=root;const parts=this._split(path);// Loop over path parts[0..n-1] and dereference
+for(let i=0;i<parts.length;i+=1){if(!prop){return!1}const part=parts[i];prop=prop[part]}return prop}/**
+     * Sets a value to a path.  If any sub-property in the path is `undefined`,
+     * this method will no-op.
+     *
+     * @param {Object} root Object from which to dereference path from
+     * @param {string | !Array<string|number>} path Path to set
+     * @param {*} value Value to set to path
+     * @return {string | boolean} The normalized version of the input path, return false if no prop
+     */_pathSet(root,path,value){let prop=root;const parts=this._split(path),last=parts[parts.length-1];// used for @-event="((prop.sub))"
 if(1<parts.length){// Loop over path parts[0..n-2] and dereference
-for(let i=0,part;i<parts.length-1;i++){part=parts[i];prop=prop[part];if(!prop){return}}// Set value to object at end of path
+for(let i=0;i<parts.length-1;i+=1){const part=parts[i];prop=prop[part];if(!prop){return!1}}// Set value to object at end of path
 prop[last]=value}else{// Simple property set
 prop[path]=value}return parts.join(".")}/**
-       * Splits a path into an array of property names. Accepts either arrays
-       * of path parts or strings.
-       *
-       * Example:
-       *
-       * ```
-       * split(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']
-       * split('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']
-       * ```
-       *
-       * @param {string | !Array<string|number>} path Input path
-       * @return {!Array<string>} Array of path parts
-       * @suppress {checkTypes}
-       */_split(path){return path.toString().split(".")}}};_exports.FBP=FBP;var fbp={FBP:FBP};_exports.$fbp=fbp;class FooterBar extends FBP(LitElement){/**
+     * Splits a path into an array of property names. Accepts either arrays
+     * of path parts or strings.
+     *
+     * Example:
+     *
+     * ```
+     * split(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']
+     * split('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']
+     * ```
+     *
+     * @param {string | !Array<string|number>} path Input path
+     * @return {!Array<string>} Array of path parts
+     * @suppress {checkTypes}
+     */ // eslint-disable-next-line class-methods-use-this
+_split(path){return path.toString().split(".")}};_exports.FBP=FBP;var fbp={FBP:FBP};_exports.$fbp=fbp;class FooterBar extends FBP(LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -1060,7 +1361,8 @@ return Theme.getThemeForComponent("FooterBar")||css`
      */render(){// language=HTML
 return html`
       
-    `}}window.customElements.define("footer-bar",FooterBar);class FuroEmptySpacer extends LitElement{constructor(){super();this.flex=!0;this.hidden=!1}static get properties(){return{/**
+    `}}window.customElements.define("footer-bar",FooterBar);class FuroEmptySpacer extends LitElement{constructor(){super();this.flex=!0;// eslint-disable-next-line wc/no-constructor-attributes
+this.hidden=!1}static get properties(){return{/**
        * Attribute flex for furo-horizontal-flex and furo-vertical-flex
        */flex:{type:Boolean,reflect:!0},/**
        * Set to true to hide the spacer
@@ -1071,13 +1373,13 @@ return html`
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroEmptySpacer")||css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `}/**
+      `}/**
      * @private
      * @returns {*}
      */render(){// language=HTML
@@ -1087,100 +1389,99 @@ return html``}}window.customElements.define("furo-empty-spacer",FuroEmptySpacer)
    * @return {CSSResult}
    */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroHorizontalFlex")||css`
-        
         :host {
-            width: 100%;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
+          width: 100%;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: row;
+          -webkit-flex-direction: row;
+          flex-direction: row;
         }
 
         :host([reverse]) {
-            -ms-flex-direction: row-reverse;
-            -webkit-flex-direction: row-reverse;
-            flex-direction: row-reverse;
+          -ms-flex-direction: row-reverse;
+          -webkit-flex-direction: row-reverse;
+          flex-direction: row-reverse;
         }
 
         ::slotted(*[flex]) {
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
         }
         :host([hidden]) {
-            display: none;
-        }
-        
-        
-        :host([space]) ::slotted(*:not(:first-child)) {
-            margin-left:   var(--spacing-xs, 8px);
-        }      
-        
-        :host([space]) ::slotted(*:not(:last-child)) {
-            margin-right:  var(--spacing-xs, 8px);
+          display: none;
         }
 
+        :host([space]) ::slotted(*:not(:first-child)) {
+          margin-left: var(--spacing-xs, 8px);
+        }
+
+        :host([space]) ::slotted(*:not(:last-child)) {
+          margin-right: var(--spacing-xs, 8px);
+        }
 
         :host([bigspace]) ::slotted(*:not(:first-child)) {
-            margin-left:   var(--spacing, 8px);
+          margin-left: var(--spacing, 8px);
         }
 
         :host([bigspace]) ::slotted(*:not(:last-child)) {
-            margin-right:  var(--spacing, 24px);
+          margin-right: var(--spacing, 24px);
         }
-
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
-return html`        
-            <slot></slot>
-        `}}window.customElements.define("furo-horizontal-flex",FuroHorizontalFlex);class FuroRipple extends LitElement{constructor(){super();this.noink=!1}connectedCallback(){this.parentNode.addEventListener("click",e=>{if(!this.noink){this.trigger()}})}/**
+return html`
+      <slot></slot>
+    `}}window.customElements.define("furo-horizontal-flex",FuroHorizontalFlex);class FuroRipple extends LitElement{constructor(){super();this.noink=!1}connectedCallback(){this.parentNode.addEventListener("click",()=>{if(!this.noink){this.trigger()}})}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroRipple")||css`
-            :host {
-                pointer-events: none;
-                position: absolute;
-                overflow: hidden;
-                transform: translate3d(0, 0, 0);
-                height: 100%;
-                width: 100%;
-                top: 0;
-                left: 0;
-                display: block;
-            }
+        :host {
+          pointer-events: none;
+          position: absolute;
+          overflow: hidden;
+          transform: translate3d(0, 0, 0);
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          display: block;
+        }
 
-            :host:after {
-                content: "";
-                display: block;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                pointer-events: none;
-                background-image: radial-gradient(circle, var(--furo-ripple-bg-color, #000) 10%, transparent 10.01%);
-                background-repeat: no-repeat;
-                background-position: 50%;
-                transform: scale(10, 10);
-                opacity: 0;
-                transition: transform .5s, opacity 1s;
-            }
+        :host:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          pointer-events: none;
+          background-image: radial-gradient(
+            circle,
+            var(--furo-ripple-bg-color, #000) 10%,
+            transparent 10.01%
+          );
+          background-repeat: no-repeat;
+          background-position: 50%;
+          transform: scale(10, 10);
+          opacity: 0;
+          transition: transform 0.5s, opacity 1s;
+        }
 
-            :host([_active]):after {
-                transform: scale(0, 0);
-                opacity: .2;
-                transition: 0s;
-            }
-
-        `}/**
+        :host([_active]):after {
+          transform: scale(0, 0);
+          opacity: 0.2;
+          transition: 0s;
+        }
+      `}/**
      *@private
      */static get properties(){return{/**
        * Disables the click, only ripples with `trigger()`
@@ -1192,53 +1493,55 @@ return Theme.getThemeForComponent("FuroRipple")||css`
    * @return {CSSResult}
    */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroVerticalScroller")||css`
-          :host {
-              display: block;
-              height: 100%;
-              overflow-y: auto;
-          }
-  
-          :host([hidden]) {
-              display: none;
-          }
+        :host {
+          display: block;
+          height: 100%;
+          overflow-y: auto;
+        }
 
-          /** the background of the bar itself. **/
-          ::-webkit-scrollbar {
-              width: 8px;
-              background-color: var(--surface, white);
-          }
+        :host([hidden]) {
+          display: none;
+        }
 
-          /** the directional buttons on the scrollbar. **/
-          ::-webkit-scrollbar-button {
-              background-color: var(--on-surface, black);
-          }
+        /** the background of the bar itself. **/
+        ::-webkit-scrollbar {
+          width: 8px;
+          background-color: var(--surface, white);
+        }
 
-          /** the empty space “below” the progress bar. **/
-          ::-webkit-scrollbar-track {
-          }
+        /** the directional buttons on the scrollbar. **/
+        ::-webkit-scrollbar-button {
+          background-color: var(--on-surface, black);
+        }
 
-          /** the top-most layer of the the progress bar not covered by the thumb. **/
-          ::-webkit-scrollbar-track-piece {
-          }
+        /** the empty space “below” the progress bar. **/
+        ::-webkit-scrollbar-track {
+        }
 
-          /** the draggable scrolling element resizes depending on the size of the scrollable element. **/
-          ::-webkit-scrollbar-thumb {
-              background-color: var(--on-surface, black);
-              border-radius: 10px;
-          }
+        /** the top-most layer of the the progress bar not covered by the thumb. **/
+        ::-webkit-scrollbar-track-piece {
+        }
 
-          /** the bottom corner of the scrollable element, where two scrollbar meet. **/
-          ::-webkit-scrollbar-corner {
-          }
+        /** the draggable scrolling element resizes depending on the size of the scrollable element. **/
+        ::-webkit-scrollbar-thumb {
+          background-color: var(--on-surface, black);
+          border-radius: 10px;
+        }
 
-          /** the draggable resizing handle that appears above the scrollbar-corner at the bottom corner of some elements. **/
-          ::-webkit-resizer {
-          }
+        /** the bottom corner of the scrollable element, where two scrollbar meet. **/
+        ::-webkit-scrollbar-corner {
+        }
+
+        /** the draggable resizing handle that appears above the scrollbar-corner at the bottom corner of some elements. **/
+        ::-webkit-resizer {
+        }
       `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
-return html`<slot></slot>`}}window.customElements.define("furo-vertical-scroller",FuroVerticalScroller);class FuroSplitView extends FBP(LitElement){static get properties(){return{/**
+return html`
+      <slot></slot>
+    `}}window.customElements.define("furo-vertical-scroller",FuroVerticalScroller);class FuroSplitView extends FBP(LitElement){static get properties(){return{/**
        * flip the left and right side
        */reverse:{type:Boolean}}}/**
      *
@@ -1247,136 +1550,226 @@ return html`<slot></slot>`}}window.customElements.define("furo-vertical-scroller
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroSplitView")||css`
         :host {
-            display: block;
-            height: inherit;
+          display: block;
+          height: inherit;
         }
         :host([hidden]) {
-            display: none;
+          display: none;
         }
         .master {
-            height: inherit;
-            width: var(--split-master-width, 270px);
-            min-width: var(--split-master-width, 270px);
-            
+          height: inherit;
+          width: var(--split-master-width, 270px);
+          min-width: var(--split-master-width, 270px);
         }
 
         .detail {
-            height: 100%;
-            position: relative;
+          height: 100%;
+          position: relative;
         }
 
         furo-horizontal-flex {
-            height: 100%;
+          height: 100%;
         }
-        ::slotted([scroll]){
-            height: 100%;
-            overflow-y: auto;
+        ::slotted([scroll]) {
+          height: 100%;
+          overflow-y: auto;
         }
-       
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
-return html`             
+return html`
       <furo-horizontal-flex ?reverse="${this.reverse}">
         <div class="master">
           <slot name="master"></slot>
         </div>
         <div flex class="detail">
           <slot></slot>
-        </div> 
-      </furo-horizontal-flex>     
+        </div>
+      </furo-horizontal-flex>
     `}}window.customElements.define("furo-split-view",FuroSplitView);class FuroVerticalFlex extends LitElement{/**
    *
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroVerticalFlex")||css`        
+return Theme.getThemeForComponent("FuroVerticalFlex")||css`
         :host {
-            display: block;
-            height: 100%;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: column;
-            -webkit-flex-direction: column;
-            flex-direction: column;
+          display: block;
+          height: 100%;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: column;
+          -webkit-flex-direction: column;
+          flex-direction: column;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         :host([reverse]) {
-            -ms-flex-direction: column-reverse;
-            -webkit-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+          -ms-flex-direction: column-reverse;
+          -webkit-flex-direction: column-reverse;
+          flex-direction: column-reverse;
         }
-        
+
         ::slotted(*[flex]) {
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
         }
-        ::slotted([scroll]){
-            height: 100%;
-            overflow-y: auto;
+        ::slotted([scroll]) {
+          height: 100%;
+          overflow-y: auto;
         }
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
-return html`        
+return html`
       <slot></slot>
     `}}window.customElements.define("furo-vertical-flex",FuroVerticalFlex);class FuroPanel extends FBP(LitElement){constructor(){super();// Initialize properties
 this.bordered=!1;this.marginM=!1;this.marginL=!1}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }static get properties(){return{/**
        * Gives the panel a border
        */bordered:{type:Boolean,reflect:!0},/**
        * Changes margin to spacing-m
        */marginM:{type:Boolean,reflect:!0,attribute:"margin-m"},marginL:{type:Boolean,reflect:!0,attribute:"margin-l"}}}static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroPanel")||css`
-                :host {
-                    display: block;
-                    margin: var(--furo-panel-margin, 0 var(--spacing-s) 0 var(--spacing-s));
-                }
+        :host {
+          display: block;
+          margin: var(--furo-panel-margin, 0 var(--spacing-s) 0 var(--spacing-s));
+        }
 
-                :host([hidden]) {
-                    display: none;
-                }
+        :host([hidden]) {
+          display: none;
+        }
 
-                :host([margin-m]) {
-                    margin: var(--furo-panel-margin-m, 0 var(--spacing-m) 0 var(--spacing-m));
-                }
+        :host([margin-m]) {
+          margin: var(--furo-panel-margin-m, 0 var(--spacing-m) 0 var(--spacing-m));
+        }
 
-                :host([margin-l]) {
-                    margin: var(--furo-panel-margin-l, 0 var(--spacing-l) 0 var(--spacing-l));
-                }
-                
-                :host([no-margin]) {
-                    margin: 0;
-                }
-                
-                :host([bordered]) {
-                    border-radius: 4px;
-                    border: 1px solid var(--primary, black);
-                }
-                
-                ::slotted(*){
-                    margin: var(--spacing-s, 16px);
-                }
+        :host([margin-l]) {
+          margin: var(--furo-panel-margin-l, 0 var(--spacing-l) 0 var(--spacing-l));
+        }
+
+        :host([no-margin]) {
+          margin: 0;
+        }
+
+        :host([bordered]) {
+          border-radius: 4px;
+          border: 1px solid var(--primary, black);
+        }
+
+        ::slotted(*) {
+          margin: var(--spacing-s, 16px);
+        }
       `}/**
      * @private
      * @returns {TemplateResult|TemplateResult}
      */render(){// language=HTML
 return html`
       <slot></slot>
+    `}}window.customElements.define("furo-panel",FuroPanel);class FuroResizer extends FBP(LitElement){/**
+   * @private
+   * @return {Object}
+   */static get properties(){return{/**
+       * add a handle to the left side
+       */lefthandle:{type:Boolean},/**
+       * add a handle to the right side
+       */righthandle:{type:Boolean},/**
+       * remember the size after resizing.
+       * Give the id for the rememberer, you can use the id on different views
+       */remember:{type:String},/**
+       * Set the maximal width of the resizer
+       */maxwidth:{type:Number},/**
+       * Set the minimal width of the resizer
+       */minwidth:{type:Number}}}constructor(props){super(props);/**
+                   * remove the listeners
+                   * @private
+                   */this._unregister=()=>{window.removeEventListener("mousemove",this._movementHandler);window.removeEventListener("mouseup",this._unregister);// set cursor to avoid flickering
+this.parentNode.style.cursor=""};/**
+        * capture the mouse movement and resize the width
+        * @param e MouseEvent
+        * @private
+        */this._movementHandler=e=>{const delta=(e.screenX-this._positions.x)*this._handleLRM;// todo request animation frame
+let width=this._startwidth+delta;if(this.minwidth&&width+3<this.minwidth){width=this.minwidth;this._unregister()}if(this.maxwidth&&width-3>this.maxwidth){width=this.maxwidth;this._unregister()}this.resizer.style.width=`${width}px`;if(this.remember){sessionStorage.setItem(this.remember,width)}};/**
+        * register the left handler
+        * @param e
+        * @private
+        */this._startTrackingLeft=e=>{this._handleLRM=-1;this._startTracking(e)};/**
+        * register the right handler
+        * @param e
+        * @private
+        */this._startTrackingRight=e=>{this._handleLRM=1;this._startTracking(e)};/**
+        * Start mouse move tracking
+        * @param e
+        * @private
+        */this._startTracking=e=>{e.preventDefault();window.addEventListener("mousemove",this._movementHandler);window.addEventListener("mouseup",this._unregister);this._positions.x=e.screenX;this._startwidth=this.getBoundingClientRect().width;// set cursor to avoid flickering
+this.parentNode.style.cursor="col-resize"};/**
+        * removes remember and set to the initial size
+        */this.resetSize=()=>{if(this.initialWidthSetByStyle){this.resizer.style.width=`${this.initialWidthSetByStyle}`}else{this.resizer.style.removeProperty("width")}if(this.remember){sessionStorage.removeItem(this.remember)}}}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
+this._positions={};this.lefthandle=this.shadowRoot.getElementById("lefthandle");this.lefthandle.addEventListener("mousedown",this._startTrackingLeft);this.lefthandle.addEventListener("dblclick",this.resetSize);this.righthandle=this.shadowRoot.getElementById("righthandle");this.righthandle.addEventListener("mousedown",this._startTrackingRight);this.righthandle.addEventListener("dblclick",this.resetSize);this.resizer=this;this.initialWidthSetByStyle=this.resizer.style.width;// restore remembered value
+if(this.remember){const width=sessionStorage.getItem(this.remember);if(width){this.resizer.style.width=`${width}px`}}}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent("FuroResizer")||css`
+        :host {
+          display: block;
+          position: relative;
+        }
 
-    `}}window.customElements.define("furo-panel",FuroPanel);class HeaderToolbar extends FBP(LitElement){constructor(){super();this.selected="home"}/**
+        :host([hidden]) {
+          display: none;
+        }
+
+        #lefthandle {
+          position: absolute;
+          left: -3px;
+          width: 6px;
+          top: 0;
+          bottom: 0;
+          cursor: col-resize;
+          display: none;
+        }
+
+        #righthandle {
+          position: absolute;
+          right: -3px;
+          width: 6px;
+          top: 0;
+          bottom: 0;
+          cursor: col-resize;
+          display: none;
+        }
+
+        :host([lefthandle]) #lefthandle {
+          display: block;
+        }
+
+        :host([righthandle]) #righthandle {
+          display: block;
+        }
+      `}/**
+     * @private
+     * @returns {TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html`
+      <div id="lefthandle"></div>
+      <slot></slot>
+      <div id="righthandle"></div>
+    `}}window.customElements.define("furo-resizer",FuroResizer);class HeaderToolbar extends FBP(LitElement){constructor(){super();this.selected="home"}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
 this._FBPAddWireHook("--pathChanged",e=>{if(e.pathSegments[0]){this.selected=e.pathSegments[0]}})}/**
@@ -1446,26 +1839,60 @@ return html`
                                                                 * - the acceptLanguage, which is used by the data components
                                                                 *
                                                                 */class Env{}// default Env
-_exports.Env$1=_exports.Env=Env;Env._acceptLanguage=window.navigator.languages.map((e,i)=>{if(0===i){e=e.substr(0,2)};return e+";q="+Math.max(.1,1-(i+1)/10)});Env._acceptLanguage.unshift(window.navigator.language);Env.api={headers:[["Accept-Language",Env._acceptLanguage.join(",")]],services:{},specs:{}};Env.locale=window.navigator.language;var environment={Env:Env};_exports.$environment=environment;class i18n{static registerResBundle(bundle){this.resbundle=bundle}static t(key){if(i18n.resbundle===void 0){console.warn("There is no resouce bundle registered. Please register with i18.registerResBundle(RESBUNDLE).");return key}let b=i18n.resbundle[Env.locale];if(b===void 0){console.warn("No resource bundle with locale "+Env.locale+" exists.");return key+"**"}const res=key.split(".").reduce((acc,part)=>acc&&acc[part],b);return res!==void 0?res:key+"**"}static n(key,num){return key+"*"+num}}_exports.i18n$1=_exports.i18n=i18n;var i18n$1={i18n:i18n};_exports.$i18n=i18n$1;class Init{static registerEnv(section,data){Env[section]=data}static registerApiServices(services){Env.api.services=services}static registerApiTypes(types){Env.api.specs=types}/**
+// eslint-disable-next-line no-param-reassign
+_exports.Env$1=_exports.Env=Env;Env._acceptLanguage=window.navigator.languages.map((e,i)=>{if(0===i){// eslint-disable-next-line no-param-reassign
+e=e.substr(0,2)}return`${e};q=${Math.max(.1,1-(i+1)/10)}`});Env._acceptLanguage.unshift(window.navigator.language);Env.api={headers:[["Accept-Language",Env._acceptLanguage.join(",")]],services:{},specs:{}};Env.locale=window.navigator.language;var environment={Env:Env};_exports.$environment=environment;class i18n{static registerResBundle(bundle){this.resbundle=bundle}static t(key){if(i18n.resbundle===void 0){// eslint-disable-next-line no-console
+console.warn("There is no resouce bundle registered. Please register with i18.registerResBundle(RESBUNDLE).");return key}const b=i18n.resbundle[Env.locale];if(b===void 0){// eslint-disable-next-line no-console
+console.warn(`No resource bundle with locale ${Env.locale} exists.`);return`${key}**`}const res=key.split(".").reduce((acc,part)=>acc&&acc[part],b);return res!==void 0?res:`${key}**`}static n(key,num){return`${key}*${num}`}}_exports.i18n$1=_exports.i18n=i18n;var i18n$1={i18n:i18n};// eslint-disable-next-line max-classes-per-file
+_exports.$i18n=i18n$1;class Init{static registerEnv(section,data){Env[section]=data}static registerApiServices(services){Env.api.services=services}static registerApiTypes(types){Env.api.specs=types}/**
+     * Add a single type spec to the registry
      *
-     * @param locale
-     */static translateStaticTypeMessages(locale){// read from original spec to apply locale
-if(this._raw_spec){Env.api.specs=JSON.parse(this._raw_spec)}else{this._raw_spec=JSON.stringify(Env.api.specs)}for(let type in Env.api.specs){for(let field in Env.api.specs[type].fields){// translate static meta messages
+     * Attention: If the name already exist, the old entry is overwritten.
+     * @param typename
+     * @param spec
+     */static addApiTypeSpec(typename,spec){Env.api.specs[typename]=spec}/**
+     * Add a single service spec to the registry
+     *
+     * Attention: If the name already exist, the old entry is overwritten.
+     * @param servicename
+     * @param spec
+     */static addApiServiceSpec(servicename,spec){Env.api.services[servicename]=spec}/**
+     * Apply the prefix to all service deeplinks and to all furo.Reference types with defaults
+     * @param prefix
+     */static applyCustomApiPrefixToServicesAndTypes(){// Apply the prefix to all hrefs in the services which not start with a folder or host (all /xxx)
+// eslint-disable-next-line guard-for-in,no-restricted-syntax
+for(const s in Env.api.services){// eslint-disable-next-line guard-for-in,no-restricted-syntax
+for(const service in Env.api.services[s].services){// prefix the hrefs if they do not start with a host
+const{deeplink}=Env.api.services[s].services[service];if(deeplink.href&&deeplink.href.length&&deeplink.href.startsWith("/")){deeplink.href=Env.api.prefix+deeplink.href}}}// Apply prefix for the types. Currently furo.Reference is the only affected field
+// eslint-disable-next-line guard-for-in,no-restricted-syntax
+for(const t in Env.api.specs){// eslint-disable-next-line guard-for-in,no-restricted-syntax
+for(const field in Env.api.specs[t].fields){// Apply the prefix for the default links in furo.Reference types
+if("furo.Reference"===Env.api.specs[t].fields[field].type&&Env.api.specs[t].fields[field].meta&&Env.api.specs[t].fields[field].meta.default){const deeplink=Env.api.specs[t].fields[field].meta.default.link;if(deeplink.href&&deeplink.href.length&&deeplink.href.startsWith("/")){deeplink.href=Env.api.prefix+deeplink.href}}}}}/**
+     * Translates spec content like meta.label, hints
+     */static translateStaticTypeMessages(){// read from original spec to apply locale
+if(this._raw_spec){Env.api.specs=JSON.parse(this._raw_spec)}else{this._raw_spec=JSON.stringify(Env.api.specs)}// eslint-disable-next-line guard-for-in,no-restricted-syntax
+for(const type in Env.api.specs){// eslint-disable-next-line guard-for-in,no-restricted-syntax
+for(const field in Env.api.specs[type].fields){// translate static meta messages
 if(Env.api.specs[type].fields[field].meta){// translate static label text
 if(Env.api.specs[type].fields[field].meta.label){Env.api.specs[type].fields[field].meta.label=i18n.t(Env.api.specs[type].fields[field].meta.label)}// translate static hint text
 if(Env.api.specs[type].fields[field].meta.hint){Env.api.specs[type].fields[field].meta.hint=i18n.t(Env.api.specs[type].fields[field].meta.hint)}// translate option list if set
-if(Env.api.specs[type].fields[field].meta.options&&Env.api.specs[type].fields[field].meta.options.list&&Array.isArray(Env.api.specs[type].fields[field].meta.options.list)){let size=Env.api.specs[type].fields[field].meta.options.list.length;while(size--){// additional check if list object has property display_name
-if(Env.api.specs[type].fields[field].meta.options.list[size].display_name){Env.api.specs[type].fields[field].meta.options.list[size].display_name=i18n.t(Env.api.specs[type].fields[field].meta.options.list[size].display_name)}}}}if(Env.api.specs[type].fields[field].constraints){for(let attr in Env.api.specs[type].fields[field].constraints){if(Env.api.specs[type].fields[field].constraints.hasOwnProperty(attr)){if(Env.api.specs[type].fields[field].constraints[attr].message){Env.api.specs[type].fields[field].constraints[attr].message=i18n.t(Env.api.specs[type].fields[field].constraints[attr].message)}}}}}}}}/**
+if(Env.api.specs[type].fields[field].meta.options&&Env.api.specs[type].fields[field].meta.options.list&&Array.isArray(Env.api.specs[type].fields[field].meta.options.list)){let size=Env.api.specs[type].fields[field].meta.options.list.length;// eslint-disable-next-line no-cond-assign,no-plusplus
+while(size--){// additional check if list object has property display_name
+if(Env.api.specs[type].fields[field].meta.options.list[size].display_name){Env.api.specs[type].fields[field].meta.options.list[size].display_name=i18n.t(Env.api.specs[type].fields[field].meta.options.list[size].display_name)}}}}if(Env.api.specs[type].fields[field].constraints){// eslint-disable-next-line guard-for-in,no-restricted-syntax
+for(const attr in Env.api.specs[type].fields[field].constraints){// eslint-disable-next-line no-prototype-builtins
+if(Env.api.specs[type].fields[field].constraints.hasOwnProperty(attr)){if(Env.api.specs[type].fields[field].constraints[attr].message){Env.api.specs[type].fields[field].constraints[attr].message=i18n.t(Env.api.specs[type].fields[field].constraints[attr].message)}}}}}}}}/**
    * Sys allows you to set the locale
    *
-   */_exports.Init$1=_exports.Init=Init;class Sys{static setLocale(locale){//todo: checks
-console.log("Set locale from",Env.locale);Env.locale=locale;Init.translateStaticTypeMessages(Env.locale);console.log("to",Env.locale)}}_exports.Sys$1=_exports.Sys=Sys;var system={Init:Init,Sys:Sys};/**
+   */_exports.Init$1=_exports.Init=Init;class Sys{static setLocale(locale){// todo: checks
+// eslint-disable-next-line no-console
+console.log("Set locale from",Env.locale);Env.locale=locale;Init.translateStaticTypeMessages(Env.locale);// eslint-disable-next-line no-console
+console.log("to",Env.locale)}}_exports.Sys$1=_exports.Sys=Sys;var system={Init:Init,Sys:Sys};/**
     * `Iconset` class , works together with `furo-icon`
     *
     * to use furo-icon you should
     * first import a svg set of icons and register it to Iconset
     *
-    * The [list of icons](/api/layout/demo/demo-furo-icon-list) can be found here.
+    * The complete [list of the built in icons](?t=demo-FuroIcon-0) can be found here.
     *
     * the set of icons can be defined in a iconSetName.js file which has content like this:
     *
@@ -1481,7 +1908,7 @@ console.log("Set locale from",Env.locale);Env.locale=locale;Init.translateStatic
     *
     * ```javascript
     * import {iconSetName} from "./iconSetName";
-    * import {Iconset} from "@furo/framework/furo.js";
+    * import {Iconset} from "@furo/framework/src/furo.js";
     * Iconset.registerIconset( "iconSetName", iconSetName);
     *```
     *
@@ -1499,7 +1926,7 @@ console.log("Set locale from",Env.locale);Env.locale=locale;Init.translateStatic
     */_exports.$system=system;class Iconset{// register an icon set
 static registerIconset(setName,icons){this[setName]=icons}// get icon svg via icon set name and icon name
 static get(setName,iconName){// default fallback icon `report problem`
-let icon="<g></g>";if(this[setName]&&this[setName][iconName]){icon=this[setName][iconName]}return icon}}_exports.Iconset$1=_exports.Iconset=Iconset;var iconset$1={Iconset:Iconset};_exports.$iconset$1=iconset$1;var furo={Env:Env,i18n:i18n,Init:Init,Sys:Sys,Theme:Theme,Iconset:Iconset};_exports.$furo=furo;const Services={TreeService:{name:"TreeService",description:"service specs for the tree api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"treeservice",imports:["tree/tree.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",rpc_name:"ListTrees",data:{request:null,response:"tree.TreeCollection"},query:{q:{description:"Query term to search a tree",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/trees",method:"GET"}},Create:{description:"Creates a new Tree",rpc_name:"CreateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/trees",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",rpc_name:"GetTree",data:{request:null,response:"tree.TreeEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/trees/{tre}/get.json",method:"GET"}},Update:{description:"Updates a Tree, partial updates are supported",rpc_name:"UpdateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/trees/{tre}",method:"PATCH"}},Delete:{description:"Delete a Tree",rpc_name:"DeleteTree",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/trees/{tre}",method:"DELETE"}}}},ProjectfilterService:{name:"ProjectfilterService",description:"service specs for the projectfilter api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectfilterservice",imports:["projectfilter/projectfilter.proto","google/protobuf/empty.proto"],targetfile:"projectfilterservice.proto"},services:{Get:{description:"The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter",rpc_name:"GetProjectfilter",data:{request:null,response:"projectfilter.ProjectfilterEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/filter/get.json",method:"GET"}}}},AuthService:{name:"AuthService",description:"service specs for the auth api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"authservice",imports:["auth/auth.proto","google/protobuf/empty.proto"],targetfile:"authservice.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a AuthCollection of AuthEntity that match the input parameters.",rpc_name:"ListAuths",data:{request:null,response:"auth.AuthCollection"},query:{q:{description:"Query term to search a auth",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/api/auths",method:"GET"}},Create:{description:"Creates a new Auth",rpc_name:"CreateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"create",href:"/api/auths",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a AuthEntity which contains a Auth",rpc_name:"GetAuth",data:{request:null,response:"auth.AuthEntity"},query:{},deeplink:{rel:"self",href:"/api/auths/{uid}",method:"GET"}},Update:{description:"Updates a Auth, partial updates are supported",rpc_name:"UpdateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"update",href:"/api/auths/{uid}",method:"PATCH"}},Delete:{description:"Logout ala delete a auth session",rpc_name:"Logout",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/api/auth",method:"DELETE"}}}},PersonService:{name:"PersonService",description:"service specs for the person api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"personservice",imports:["person/person.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",rpc_name:"ListPersons",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a person",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/persons/list.json",method:"GET"}},Create:{description:"Creates a new Person",rpc_name:"CreatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/persons/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",rpc_name:"GetPerson",data:{request:null,response:"person.PersonEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/persons/{prs}/get.json",method:"GET"}},Update:{description:"Updates a Person, partial updates are supported",rpc_name:"UpdatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/persons/{prs}/update.json",method:"PATCH"}},Delete:{description:"Delete a Person",rpc_name:"DeletePerson",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/persons/{prs}/delete.json",method:"GET"}}}},ProjectService:{name:"ProjectService",description:"service specs for the project api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectservice",imports:["project/project.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",rpc_name:"ListProjects",data:{request:null,response:"project.ProjectCollection"},filter:{},query:{q:{description:"Query term to search a project",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/projects/list.json",method:"GET"}},Create:{description:"Creates a new Project",rpc_name:"CreateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/projects/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",rpc_name:"GetProject",data:{request:null,response:"project.ProjectEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/{prj}/get.json",method:"GET"}},Update:{description:"Updates a Project, partial updates are supported",rpc_name:"UpdateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/projects/{prj}/update.json",method:"GET"}},Delete:{description:"Delete a Project",rpc_name:"DeleteProject",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/projects/{prj}/delete.json",method:"GET"}}}},ProjectMembersService:{name:"ProjectMembersService",description:"The members of a project",version:"1.0.0",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectmemberservice",imports:["person/person.proto"],targetfile:"service.proto"},services:{Unsubscribe:{description:"Custom method to unsubscribe a member, complete PersonEntity is expected",rdpc_name:"UnsubscribeMember",data:{request:"person.PersonEntity",response:"person.PersonCollection"},query:{},deeplink:{description:"{prs} stands for person",rel:"unsubscibe",href:"/api/projects/{prj}/members/{prs}:unsubscribe",method:"POST"}},List:{description:"Get a collection with PersonEntities",rpc_name:"ListMembers",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a member",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{rel:"list",href:"/api/members",method:"GET"}}}},TaskService:{name:"TaskService",description:"service specs for the task api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"taskservice",imports:["task/task.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",rpc_name:"ListTasks",data:{request:null,response:"task.TaskCollection"},query:{q:{description:"Query term to search a {{.name}}",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}},fields:{description:"Partial representation (comma separated list of field names), ?fields=",type:"string",meta:{label:"Fields",hint:"Comma separated list of field names"},__proto:{type:"string"}},order_by:{description:"Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar",type:"string",meta:{label:"Sorting Order",hint:"The default sorting order is ascending"},__proto:{type:"string"}},filter:{description:"The response message will be filtered by the fields before being sent back to the client, filter=[['id','eq','1']]",type:"string",meta:{label:"Filter",hint:""},__proto:{type:"string"}},page_size:{description:"Use this field to specify the maximum number of results to be returned by the server. \n    //The server may further constrain the maximum number of results returned in a single page. \n    //If the page_size is 0, the server will decide the number of results to be returned. page_size=15",type:"string",meta:{label:"Page Size",hint:"If the page_size is 0, the server will decide the number of results to be returned."},__proto:{type:"string"}},view:{description:"allows the client to specify which view of the resource it wants to receive in the response. view=BASIC",type:"string",meta:{label:"View",hint:"Should be a enum type. MUST be named view"},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/tasks/list.json",method:"GET"}},Create:{description:"Creates a new Task",rpc_name:"CreateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/tasks/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",rpc_name:"GetTask",data:{request:null,response:"task.TaskEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/tasks/{tsk}/get.json",method:"GET"}},Update:{description:"Updates a Task, partial updates are not supported",rpc_name:"UpdateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/tasks/{tsk}/update.json",method:"GET"}},Delete:{description:"Delete a Task",rpc_name:"DeleteTask",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/tasks/{tsk}/delete.json",method:"GET"}}}},ExperimentService:{name:"ExperimentService",description:"service specs for the experiment api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"experimentservice",imports:["experiment/experiment.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",rpc_name:"ListExperiments",data:{request:null,response:"experiment.ExperimentCollection"},query:{q:{description:"Query term to search a experiment",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/experiments",method:"GET"}},Create:{description:"Creates a new Experiment",rpc_name:"CreateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/experiments",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",rpc_name:"GetExperiment",data:{request:null,response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/experiments/{exp}/get.json",method:"GET"}},Update:{description:"Updates a Experiment, partial updates are supported",rpc_name:"UpdateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/experiments/{exp}",method:"PATCH"}},Delete:{description:"Delete a Experiment",rpc_name:"DeleteExperiment",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/experiments/{exp}",method:"DELETE"}},Release:{description:"Releases experiment",rpc_name:"ReleaseExperiment",data:{request:"experiment.ExperimentEntity",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"release",href:"/mockdata/experiments/1:release",method:"POST"}}}}};_exports.Services=Services;const Types={"tree.Tree":{name:"tree",type:"Tree",description:"Navigation tree type with recursive navigation nodes",__proto:{package:"tree",imports:[],targetfile:"tree.proto"},fields:{id:{description:"Id of the tree",type:"string",__proto:{number:1}},display_name:{description:"String representation of the tree",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the tree",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},root:{description:"Rootnode of the tree",type:"tree.Navigationnode",meta:{},__proto:{number:10}}}},"tree.TreeEntity":{name:"tree_entity",type:"TreeEntity",description:"TreeEntity with Tree",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{data:{description:"contains a tree.Tree",type:"tree.Tree",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"tree.Navigationnode":{name:"navigationnode",type:"Navigationnode",description:"Item of the navigationtree",__proto:{package:"tree",imports:["furo/link.proto"],targetfile:"tree.proto"},fields:{id:{description:"Id of the node",type:"string",__proto:{number:1}},display_name:{description:"String representation of the node",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},icon:{description:"icon of the node",type:"string",__proto:{number:5}},panel:{description:"Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)",type:"string",meta:{readonly:!0,"tree-search-index":!1},__proto:{number:6}},key_words:{description:"key words of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:7}},has_error:{description:"if node has error",type:"bool",__proto:{number:8}},open:{description:"node is open or not",type:"bool",__proto:{number:9}},link:{description:"Deeplink information of this node",type:"furo.Link",__proto:{number:10}},is_group_label:{description:"This node is a group label",type:"bool",meta:{default:!1},__proto:{number:11}},children:{description:"Children of this node",type:"tree.Navigationnode",meta:{repeated:!0},__proto:{number:12}}}},"tree.TreeCollection":{name:"tree_collection",type:"TreeCollection",description:"TreeCollection with repeated TreeEntity",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a tree.TreeEntity repeated",type:"tree.TreeEntity",meta:{repeated:!0},__proto:{number:4}}}},"projectfilter.ProjectfilterEntity":{name:"projectfilter_entity",type:"ProjectfilterEntity",description:"ProjectfilterEntity with Projectfilter",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{data:{description:"contains a projectfilter.Projectfilter",type:"projectfilter.Projectfilter",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"projectfilter.Projectfilter":{name:"projectfilter",type:"Projectfilter",description:"Options for possible filter values",__proto:{package:"projectfilter",options:{},imports:["google/type/date.proto","google/type/money.proto","furo/reference.proto"],targetfile:"projectfilter.proto"},fields:{description:{description:"Filter preset for field description from resource projects",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:1}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:2}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:3}},members:{description:"List of possible project members",type:"furo.Reference",meta:{label:"Choose person",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}}},constraints:{},__proto:{number:4}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{},__proto:{number:5}}}},"projectfilter.ProjectfilterCollection":{name:"projectfilter_collection",type:"ProjectfilterCollection",description:"ProjectfilterCollection with repeated ProjectfilterEntity",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a projectfilter.ProjectfilterEntity repeated",type:"projectfilter.ProjectfilterEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthCollection":{name:"auth_collection",type:"AuthCollection",description:"AuthCollection with repeated AuthEntity",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a auth.AuthEntity repeated",type:"auth.AuthEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthEntity":{name:"auth_entity",type:"AuthEntity",description:"AuthEntity with Auth",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{data:{description:"contains a auth.Auth",type:"auth.Auth",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"auth.Auth":{name:"auth",type:"Auth",description:"autogenerated",__proto:{package:"auth",options:{},imports:[],targetfile:"auth.proto"},fields:{id:{description:"Identity of Auth",type:"string",meta:{label:"Id",default:"",hint:""},constraints:{},__proto:{number:1}},username:{type:"string",description:"The unique username, ussualy an email address",meta:{label:"Username",hint:""},constraints:{},__proto:{number:2}},password:{type:"string",description:"Das _neue_ Kennwort des Benutzers",meta:{label:"Password",hint:"Look under your keyboard"},constraints:{},__proto:{number:3}},role:{type:"string",description:"",meta:{label:"Role",hint:""},constraints:{},__proto:{number:4}}}},"person.Person":{name:"person",type:"Person",description:"Person message type",__proto:{package:"person",imports:["google/protobuf/field_mask.proto"],targetfile:"person.proto"},fields:{id:{description:"Identity of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},name:{description:"Name of a person",type:"string",meta:{label:"Name",default:"",hint:""},constraints:{required:{is:"true",message:"you must enter a name"}},__proto:{number:3}},first_name:{description:"First name of a person",type:"string",meta:{label:"First name",default:"",hint:""},constraints:{},__proto:{number:4},__ui:{component:"furo-data-text-input"}},phone_nr:{description:"Internal phone number",type:"string",meta:{label:"Phone No",default:"",hint:""},constraints:{},__proto:{number:5}},skills:{description:"List of main skills of a person",type:"string",meta:{label:"Skills",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:7}}}},"person.PersonCollection":{name:"person_collection",type:"PersonCollection",description:"PersonCollection with repeated PersonEntity",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a person.PersonEntity repeated",type:"person.PersonEntity",meta:{repeated:!0},__proto:{number:4}}}},"person.PersonEntity":{name:"person_entity",type:"PersonEntity",description:"PersonEntity with Person",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{data:{description:"contains a person.Person",type:"person.Person",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.ProjectCollection":{name:"project_collection",type:"ProjectCollection",description:"ProjectCollection with repeated ProjectEntity",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a project.ProjectEntity repeated",type:"project.ProjectEntity",meta:{repeated:!0},__proto:{number:4}}}},"project.ProjectEntity":{name:"project_entity",type:"ProjectEntity",description:"ProjectEntity with Project",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{data:{description:"contains a project.Project",type:"project.Project",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.Project":{name:"project",type:"Project",description:"Project description",__proto:{package:"project",imports:["google/protobuf/field_mask.proto","google/type/money.proto","google/type/date.proto","person/person.proto"],targetfile:"project.proto"},fields:{id:{description:"Identity of a project",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a project",type:"string",meta:{label:"Project",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:3}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:4}},description:{description:"Short project description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:5}},members:{description:"List of project members",type:"person.Person",meta:{label:"Project members",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:25e3,message:"max 25000"}},__ui:{component:"",flags:["align-right"]},__proto:{number:7}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:8}}}},"task.TaskEntity":{name:"task_entity",type:"TaskEntity",description:"TaskEntity with Task",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{data:{description:"contains a task.Task",type:"task.Task",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"task.TaskCollection":{name:"task_collection",type:"TaskCollection",description:"TaskCollection with repeated TaskEntity",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a task.TaskEntity repeated",type:"task.TaskEntity",meta:{repeated:!0},__proto:{number:4}}}},"task.Task":{name:"task",type:"Task",description:"Task data description",__proto:{package:"task",imports:["furo/reference.proto"],targetfile:"task.proto"},fields:{id:{description:"Identity of a task",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a task",type:"string",meta:{label:"task.display_name.label",default:"",hint:"task.display_name.hint",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short task description",type:"string",meta:{label:"task.desc.label",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:180,message:"task.desc.maxlength"}},__proto:{number:3}},estimated_time:{description:"Estimated time in days",type:"int32",meta:{label:"Est. days",default:"",hint:""},constraints:{},__proto:{number:4}},owner:{description:"Owner of a task",type:"furo.Reference",meta:{label:"person.type.sex.label",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}},hint:"",no_result_hint:"",options:{list:[{id:"unknown",display_name:"person.type.sex.unknown.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"},{id:"female",display_name:"person.type.sex.female.label",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"male",display_name:"person.type.sex.male.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:5}},subtasks:{description:"List of subtasks",type:"task.Task",meta:{label:"Subtask",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}}}},"experiment.ExperimentEntity":{name:"experiment_entity",type:"ExperimentEntity",description:"ExperimentEntity with Experiment",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{data:{description:"contains a experiment.Experiment",type:"experiment.Experiment",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Constraints":{name:"experiment",type:"Constraints",description:"Test the Constraints",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},max:{is:"12",message:"maximal 12"}},__proto:{number:2}},number:{description:"Short experiment description",type:"int32",meta:{label:"Valid values are 6,9,12",default:1,hint:""},constraints:{min:{is:"6",message:"Minimal number 6"},max:{is:"12",message:"maximal 12"},step:{is:"3",message:"step 3"}},__proto:{number:3}},text:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},min:{is:"6",message:"minimal 6"},max:{is:"12",message:"maximal 12"}},__proto:{number:4}}}},"experiment.Experiment":{name:"experiment",type:"Experiment",description:"experiment spec for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto","google/type/money.proto","google/protobuf/field_mask.proto","furo/property.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:3}},furo_data_checkbox_input:{description:"field for furo_data_checkbox_input for testing",type:"bool",meta:{label:"checkbox_input",default:"",hint:"Hint",readonly:!1},constraints:{},__proto:{number:4}},furo_data_text_input:{description:"field for furo_data_text_input for testing",type:"string",meta:{label:"text_input",hint:"hint",readonly:!1},constraints:{required:{is:"true",message:"is required"},min:{is:3,message:"at least 3 characters"},max:{is:15,message:"15 characters maximum"},pattern:{is:"^a.*",message:"must start with a"}},__proto:{number:5}},furo_data_textarea_input:{description:"field for furo_data_textarea_input for testing",type:"string",meta:{label:"textarea_input",hint:"hint",readonly:!1,rows:3,cols:100},constraints:{},__proto:{number:6}},furo_data_time_input:{description:"field for furo-data-time-input for testing",type:"string",meta:{label:"time-input",hint:"hint",readonly:!1},constraints:{min:{is:"05:00",message:"From 05:00"},max:{is:"19:00",message:"to 19:00"},step:{is:"5",message:"step 5"}},__proto:{number:7}},furo_data_range_input:{description:"field for furo-data-range-input for testing",type:"string",meta:{label:"range-input",hint:"hint",readonly:!1},constraints:{min:{is:20,message:"From 20"},max:{is:50,message:"to 50"},step:{is:"2.5",message:"step 2.5"}},__proto:{number:8}},furo_data_number_input:{description:"field for furo-data-number-input for testing",type:"float",meta:{label:"number-input",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"from 1"},max:{is:555,message:"to 555"},step:{is:"3",message:"step 3"}},__proto:{number:9}},furo_data_color_input:{description:"field for furo-data-color-input for testing",type:"string",meta:{label:"color-input",hint:"hint",readonly:!1},constraints:{},__proto:{number:10}},furo_data_password_input:{description:"field for furo-data-password-input for testing",type:"string",meta:{label:"password-input",hint:"hint",readonly:!1},constraints:{min:{is:6,message:"min 6"},max:{is:15,message:"max 15"}},__proto:{number:11}},furo_data_search_input:{description:"field for furo-search-input for testing",type:"string",meta:{label:" search",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"min 1"},max:{is:15,message:"max 15"},pattern:{is:"a.*",message:"must start with a"}},__proto:{number:12}},furo_data_date_input:{description:"field for furo-data-date-input for testing",type:"string",meta:{label:"date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"5",message:"step 5"}},__proto:{number:13}},furo_data_bool_icon:{description:"field for furo-data-bool-icon for testing",type:"bool",meta:{label:"bool-icon input",hint:"hint",readonly:!1},constraints:{},__proto:{number:14}},the_any_type:{description:"field for testing any",type:"google.protobuf.Any",meta:{label:"can be anything",hint:"hint",readonly:!1},constraints:{},__proto:{number:15}},type_with_options:{description:"field for testing static options",type:"string",meta:{label:"String options",hint:"Choose one",options:{list:[{id:"option_1",display_name:"option_1",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_2",display_name:"option_2",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_3",display_name:"option_3",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:16}},type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields",repeated:!0},constraints:{},__proto:{number:17}},furo_data_date_input_google:{description:"field for furo-data-date-input for testing",type:"google.type.Date",meta:{label:"gogole-date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"2",message:"step 2"}},__proto:{number:18}},single_type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields"},constraints:{},__proto:{number:19}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:20}},furo_data_money_input:{description:"field for testing money type",type:"google.type.Money",meta:{readonly:!1,label:"Amount",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{required:{is:"true",message:"is required"},min:{is:0,message:"amount can not be negative"},max:{is:999999,message:"amount maximal 999999"},step:{is:.01,message:"step 0.01"}},__proto:{number:21}},furo_data_file_input:{description:"field for testing file type",type:"string",meta:{readonly:!1,repeated:!0,label:"Choose a file"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:22}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:23}}}},"experiment.Default":{name:"experiment",type:"Default",description:"Test the default value",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:3}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:4}}}},"experiment.Readonly":{name:"readonly",type:"Readonly",description:"Readonly spec for testing",__proto:{package:"experiment",targetfile:"experiment.proto",imports:["furo/property.proto","project/project.proto"],options:null},fields:{project:{type:"project.Project",description:"Identity of a experiment",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Id",hint:"",default:"",readonly:!0,repeated:!1,options:{list:[]}},constraints:null},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Recursive":{name:"recursive",type:"Recursive",description:"recursive type for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:2}},recursion:{description:"The recursion",type:"experiment.Recursive",meta:{label:"Recursio"},constraints:{},__proto:{number:3}}}},"experiment.ExperimentCollection":{name:"experiment_collection",type:"ExperimentCollection",description:"ExperimentCollection with repeated ExperimentEntity",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a experiment.ExperimentEntity repeated",type:"experiment.ExperimentEntity",meta:{repeated:!0},__proto:{number:4}}}},"furo.Reference":{name:"reference",type:"Reference",description:"reference",__proto:{package:"furo",imports:["furo/link.proto"],targetfile:"reference.proto"},fields:{display_name:{description:"String representation of the reference",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"Id of the reference",type:"string",__proto:{number:2}},link:{description:"Hateoas link",type:"furo.Link",__proto:{number:3}}}},"furo.MetaField":{name:"metafield",type:"MetaField",description:"fields of meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{meta:{description:"meta information of a field",type:"furo.FieldMeta",__proto:{number:1}},constraints:{description:"constraints for a field",type:"map<string,furo.FieldConstraint>",__proto:{number:2}}}},"furo.StringOptionProperty":{name:"string_option_property",type:"StringOptionProperty",description:"String type to use in property",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{display_name:{description:"String representation of val",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"The value, Id is used to make working with data-inputs easier",type:"string",__proto:{number:2}}}},"furo.Optionitem":{name:"optionitem",type:"Optionitem",description:"Items for fieldoption.list",__proto:{package:"furo",targetfile:"meta.proto",imports:[],options:null},fields:{id:{type:"string",description:"Id",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Id",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},display_name:{type:"string",description:"String representation",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Display name",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},selected:{type:"bool",description:"is the item selected",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Selected",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null}}},"furo.NumberProperty":{name:"number_property",type:"NumberProperty",description:"Number type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"data part",type:"float",__proto:{number:1}}}},"furo.Fieldoption":{name:"fieldoption",type:"Fieldoption",description:"Metas for a field",__proto:{package:"furo",targetfile:"meta.proto",imports:["google/protobuf/any.proto"],options:null},fields:{list:{type:"google.protobuf.Any",description:"a list with options, use furo.optionitem or your own",__proto:{number:1},__ui:{component:"",flags:["full","condensed"],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:null}},constraints:null},flags:{type:"string",description:"Add flags for your field. This can be something like \"searchable\". \n//The flags can be used by generators, ui components,...\n",__proto:{number:2},__ui:{component:null,flags:[],no_init:!1,no_skip:!1},meta:{label:"flags",hint:"optional flags",default:null,readonly:!1,repeated:!0,options:{list:[],flags:null},typespecific:null},constraints:null}}},"furo.StringProperty":{name:"string_property",type:"StringProperty",description:"String type to use in property",__proto:{package:"furo",imports:["furo/meta.proto"],targetfile:"property.proto"},fields:{data:{description:"data part",type:"string",__proto:{number:1}}}},"furo.Meta":{name:"meta",type:"Meta",description:"meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{fields:{description:"fields of meta info",type:"map<string, furo.MetaField>",__proto:{number:1}}}},"furo.IntegerProperty":{name:"integer_property",type:"IntegerProperty",description:"Integer type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"Integer data part",type:"int32",constraints:{step:{is:1}},__proto:{number:1}}}},"furo.Link":{name:"link",type:"Link",description:"link",__proto:{package:"furo",imports:[],targetfile:"link.proto"},fields:{rel:{description:"the relationship",type:"string",__proto:{number:1}},method:{description:"method of curl",type:"string",__proto:{number:2}},href:{description:"link",type:"string",__proto:{number:3}},type:{description:"mime type",type:"string",__proto:{number:4}},service:{description:"name of the service which can handle this link",type:"string",__proto:{number:5}}}},"furo.FieldMeta":{name:"fieldmeta",type:"FieldMeta",description:"Metas for a field",__proto:{package:"furo",options:{},imports:["google/protobuf/any.proto"],targetfile:"meta.proto"},fields:{label:{description:"The label",type:"string",meta:{label:"Label",hint:"Also used for input-fields"},__proto:{number:1}},hint:{description:"A hint",type:"string",meta:{label:"Hint",hint:"Also used for input-fields"},__proto:{number:2}},default:{description:"The default value as JSON string",type:"string",meta:{label:"Default value"},__proto:{number:3}},readonly:{description:"readonly",type:"bool",meta:{label:"readonly"},__proto:{number:4}},repeated:{description:"repeated",type:"bool",meta:{label:"repeated"},__proto:{number:5}},options:{description:"Fieldoptions",type:"furo.Fieldoption",meta:{label:"options"},__proto:{number:6}},typespecific:{description:"Put in type specific metas for your fields here",type:"google.protobuf.Any",meta:{label:"typespecific meta"},__proto:{number:7},__ui:{no_init:!0}}}},"furo.FieldConstraint":{name:"fieldconstraint",type:"FieldConstraint",description:"a single fieldconstraint",__proto:{package:"furo",options:{},imports:[],targetfile:"meta.proto"},fields:{is:{description:"the constraint value as string, even it is a number",type:"string",meta:{label:"is",hint:"the constraint value as string, even it is a number"},__proto:{number:1}},message:{description:"The message to display on constraint violation",type:"string",meta:{label:"message"},__proto:{number:2}}}},"furo.BigDecimal":{name:"big_decimal",type:"BigDecimal",description:"A BigDecimal is defined by two values: an arbitrary precision integer and a 32-bit integer scale. The value of the BigDecimal is defined to be unscaledValue*10^{-scale}.",__proto:{package:"furo",imports:[],targetfile:"bigdecimal.proto"},fields:{display_name:{description:"String representation of BigDecimal entity",type:"string",meta:{readonly:!0},constraints:{},options:[],__proto:{number:1}},scale:{description:"If zero or positive, the scale is the number of digits to the right of the decimal point. If negative, the unscaled value of the number is multiplied by ten to the power of the negation of the scale. For example, a scale of -3 means the unscaled value is multiplied by 1000.",type:"int32",meta:{},constraints:{},options:[],__proto:{number:2}},int_val:{description:"The integer value of the BigDecimal",type:"int64",meta:{},constraints:{},options:[],__proto:{number:3}}}},"furo.Property":{name:"property",type:"Property",description:"Type to define property values with type information",__proto:{package:"furo",imports:["google/protobuf/any.proto"],targetfile:"property.proto"},fields:{id:{description:"Id of the property",type:"string",meta:{label:"Id"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"String representation of the property",type:"string",meta:{label:"Property",readonly:!0},constraints:{},__proto:{number:2}},data:{description:"data part of the property",type:"google.protobuf.Any",constraints:{},__proto:{number:3}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:4}},code:{description:"property code for additional settings",type:"string",__proto:{number:5}}}},"google.type.Money":{name:"money",type:"Money",description:"Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto",__proto:{package:"google.type",imports:[],targetfile:"money.proto"},fields:{display_name:{description:"String representation of money entity",type:"string",meta:{default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:1}},currency_code:{description:"The 3-letter currency code defined in ISO 4217.",type:"string",meta:{label:"W\xE4hrungscode",default:"",hint:""},constraints:{},options:[],__proto:{number:2}},units:{description:"The whole units of the amount.",type:"int64",meta:{label:"Ganzahliger W\xE4hrungsbetrag",default:"",hint:""},constraints:{},options:[],__proto:{number:3}},nanos:{description:"Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",type:"int64",meta:{label:"Nanos",default:"",hint:""},constraints:{},options:[],__proto:{number:4}}}},"google.type.Date":{name:"date",type:"Date",description:"Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto ",__proto:{package:"google.type",imports:[],targetfile:"date.proto"},fields:{display_name:{description:"Localized String representation of date",type:"string",meta:{label:"Datum",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:4}},year:{description:"Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:1}},month:{description:"Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:2}},day:{description:"Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:3}}}},"google.protobuf.StringValue":{name:"stringvalue",type:"StringValue",description:"Wrapper message for `string`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `StringValue` is JSON string",type:"string",__proto:{number:1}}}},"google.protobuf.FieldMask":{name:"field_mask",type:"FieldMask",description:"A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"field_mask.proto"},fields:{paths:{description:"The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable.",type:"string",meta:{repeated:!0},__proto:{number:1}}}},"google.protobuf.Int64Value":{name:"int64value",type:"Int64Value",description:"Wrapper message for `int64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int64Value` is JSON string",type:"int64",__proto:{number:1}}}},"google.protobuf.Empty":{name:"empty",type:"Empty",description:"https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto",__proto:{package:"google.protobuf",imports:[],targetfile:"empty.proto",options:{}},fields:{}},"google.protobuf.Int32Value":{name:"int32value",type:"Int32Value",description:"Wrapper message for `int32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int32Value` is JSON number",type:"int32",__proto:{number:1},constraints:{min:{is:"\u22122147483648",message:"out of range"},max:{is:"2147483647",message:"out of range"}}}}},"google.protobuf.BoolValue":{name:"boolvalue",type:"BoolValue",description:"Wrapper message for `bool`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BoolValue` is JSON `true` and `false`",type:"bool",__proto:{number:1}}}},"google.protobuf.FloatValue":{name:"floatvalue",type:"FloatValue",description:"Wrapper message for `float`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `FloatValue` is JSON number",type:"float",__proto:{number:1}}}},"google.protobuf.BytesValue":{name:"bytesvalue",type:"BytesValue",description:"Wrapper message for `bytes`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BytesValue` is JSON string",type:"bytes",__proto:{number:1}}}},"google.protobuf.Any":{name:"any",type:"Any",description:"Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"any.proto"},fields:{type_url:{type:"string",__proto:{number:1}},value:{type:"bytes",__proto:{number:2}}}},"google.protobuf.UInt32Value":{name:"uint32value",type:"UInt32Value",description:"Wrapper message for `uint32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt32Value` is JSON number",type:"uint32",__proto:{number:1}}}},"google.protobuf.UInt64Value":{name:"uint64value",type:"UInt64Value",description:"Wrapper message for `uint64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt64Value` is JSON string",type:"uint64",__proto:{number:1}}}},"google.protobuf.DoubleValue":{name:"doublevalue",type:"DoubleValue",description:"Wrapper message for `double`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `DoubleValue` is JSON number",type:"double",__proto:{number:1}}}}};_exports.Types=Types;var data_environment={Services:Services,Types:Types};/**
+let icon="<g></g>";if(this[setName]&&this[setName][iconName]){icon=this[setName][iconName]}return icon}}_exports.Iconset$1=_exports.Iconset=Iconset;var iconset$1={Iconset:Iconset};_exports.$iconset$1=iconset$1;var furo={Env:Env,i18n:i18n,Init:Init,Sys:Sys,Theme:Theme,Iconset:Iconset};_exports.$furo=furo;const Services={TreeService:{name:"TreeService",description:"service specs for the tree api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"treeservice",imports:["tree/tree.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/treeservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",rpc_name:"ListTrees",data:{request:null,response:"tree.TreeCollection"},query:{q:{description:"Query term to search a tree",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/trees",method:"GET"}},Create:{description:"Creates a new Tree",rpc_name:"CreateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/trees",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",rpc_name:"GetTree",data:{request:null,response:"tree.TreeEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/trees/{tre}/get.json",method:"GET"}},Update:{description:"Updates a Tree, partial updates are supported",rpc_name:"UpdateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/trees/{tre}",method:"PATCH"}},Delete:{description:"Delete a Tree",rpc_name:"DeleteTree",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/trees/{tre}",method:"DELETE"}}}},ProjectfilterService:{name:"ProjectfilterService",description:"service specs for the projectfilter api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectfilterservice",imports:["projectfilter/projectfilter.proto","google/protobuf/empty.proto"],targetfile:"projectfilterservice.proto",options:{go_package:"/projectfilterservice"}},services:{Get:{description:"The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter",rpc_name:"GetProjectfilter",data:{request:null,response:"projectfilter.ProjectfilterEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/filter/get.json",method:"GET"}}}},AuthService:{name:"AuthService",description:"service specs for the auth api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"authservice",imports:["auth/auth.proto","google/protobuf/empty.proto"],targetfile:"authservice.proto",options:{go_package:"/authservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a AuthCollection of AuthEntity that match the input parameters.",rpc_name:"ListAuths",data:{request:null,response:"auth.AuthCollection"},query:{q:{description:"Query term to search a auth",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/api/auths",method:"GET"}},Create:{description:"Creates a new Auth",rpc_name:"CreateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"create",href:"/api/auths",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a AuthEntity which contains a Auth",rpc_name:"GetAuth",data:{request:null,response:"auth.AuthEntity"},query:{},deeplink:{rel:"self",href:"/api/auths/{uid}",method:"GET"}},Update:{description:"Updates a Auth, partial updates are supported",rpc_name:"UpdateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"update",href:"/api/auths/{uid}",method:"PATCH"}},Delete:{description:"Logout ala delete a auth session",rpc_name:"Logout",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/api/auth",method:"DELETE"}}}},PersonService:{name:"PersonService",description:"service specs for the person api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"personservice",imports:["person/person.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/personservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",rpc_name:"ListPersons",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a person",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/persons/list.json",method:"GET"}},Create:{description:"Creates a new Person",rpc_name:"CreatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/persons/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",rpc_name:"GetPerson",data:{request:null,response:"person.PersonEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/persons/{prs}/get.json",method:"GET"}},Update:{description:"Updates a Person, partial updates are supported",rpc_name:"UpdatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/persons/{prs}/update.json",method:"PATCH"}},Delete:{description:"Delete a Person",rpc_name:"DeletePerson",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/persons/{prs}/delete.json",method:"GET"}}}},ProjectService:{name:"ProjectService",description:"service specs for the project api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectservice",imports:["project/project.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/projectservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",rpc_name:"ListProjects",data:{request:null,response:"project.ProjectCollection"},filter:{},query:{q:{description:"Query term to search a project",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/projects/list.json",method:"GET"}},Create:{description:"Creates a new Project",rpc_name:"CreateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/projects/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",rpc_name:"GetProject",data:{request:null,response:"project.ProjectEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/{prj}/get.json",method:"GET"}},Update:{description:"Updates a Project, partial updates are supported",rpc_name:"UpdateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/projects/{prj}/update.json",method:"GET"}},Delete:{description:"Delete a Project",rpc_name:"DeleteProject",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/projects/{prj}/delete.json",method:"GET"}}}},ProjectMembersService:{name:"ProjectMembersService",description:"The members of a project",version:"1.0.0",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectmemberservice",imports:["person/person.proto"],targetfile:"service.proto",options:{go_package:"/projectmemberservice"}},services:{Unsubscribe:{description:"Custom method to unsubscribe a member, complete PersonEntity is expected",rdpc_name:"UnsubscribeMember",data:{request:"person.PersonEntity",response:"person.PersonCollection"},query:{},deeplink:{description:"{prs} stands for person",rel:"unsubscibe",href:"/api/projects/{prj}/members/{prs}:unsubscribe",method:"POST"}},List:{description:"Get a collection with PersonEntities",rpc_name:"ListMembers",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a member",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{rel:"list",href:"/api/members",method:"GET"}}}},TaskService:{name:"TaskService",description:"service specs for the task api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"taskservice",imports:["task/task.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/taskservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",rpc_name:"ListTasks",data:{request:null,response:"task.TaskCollection"},query:{q:{description:"Query term to search a {{.name}}",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}},fields:{description:"Partial representation (comma separated list of field names), ?fields=",type:"string",meta:{label:"Fields",hint:"Comma separated list of field names"},__proto:{type:"string"}},order_by:{description:"Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar",type:"string",meta:{label:"Sorting Order",hint:"The default sorting order is ascending"},__proto:{type:"string"}},filter:{description:"The response message will be filtered by the fields before being sent back to the client, filter=[['id','eq','1']]",type:"string",meta:{label:"Filter",hint:""},__proto:{type:"string"}},page_size:{description:"Use this field to specify the maximum number of results to be returned by the server. \n    //The server may further constrain the maximum number of results returned in a single page. \n    //If the page_size is 0, the server will decide the number of results to be returned. page_size=15",type:"string",meta:{label:"Page Size",hint:"If the page_size is 0, the server will decide the number of results to be returned."},__proto:{type:"string"}},view:{description:"allows the client to specify which view of the resource it wants to receive in the response. view=BASIC",type:"string",meta:{label:"View",hint:"Should be a enum type. MUST be named view"},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/tasks/list.json",method:"GET"}},Create:{description:"Creates a new Task",rpc_name:"CreateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/tasks/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",rpc_name:"GetTask",data:{request:null,response:"task.TaskEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/tasks/{tsk}/get.json",method:"GET"}},Update:{description:"Updates a Task, partial updates are not supported",rpc_name:"UpdateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/tasks/{tsk}/update.json",method:"GET"}},Delete:{description:"Delete a Task",rpc_name:"DeleteTask",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/tasks/{tsk}/delete.json",method:"GET"}}}},ExperimentService:{name:"ExperimentService",description:"service specs for the experiment api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"experimentservice",imports:["experiment/experiment.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/experimentservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",rpc_name:"ListExperiments",data:{request:null,response:"experiment.ExperimentCollection"},query:{q:{description:"Query term to search a experiment",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/experiments",method:"GET"}},Create:{description:"Creates a new Experiment",rpc_name:"CreateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/experiments",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",rpc_name:"GetExperiment",data:{request:null,response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/experiments/{exp}/get.json",method:"GET"}},Update:{description:"Updates a Experiment, partial updates are supported",rpc_name:"UpdateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/experiments/{exp}",method:"PATCH"}},Delete:{description:"Delete a Experiment",rpc_name:"DeleteExperiment",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/experiments/{exp}",method:"DELETE"}},Release:{description:"Releases experiment",rpc_name:"ReleaseExperiment",data:{request:"experiment.ExperimentEntity",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"release",href:"/mockdata/experiments/1:release",method:"POST"}}}}};_exports.Services=Services;const Types={"tree.Tree":{name:"tree",type:"Tree",description:"Navigation tree type with recursive navigation nodes",__proto:{package:"tree",imports:[],targetfile:"tree.proto"},fields:{id:{description:"Id of the tree",type:"string",__proto:{number:1}},display_name:{description:"String representation of the tree",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the tree",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},root:{description:"Rootnode of the tree",type:"tree.Navigationnode",meta:{},__proto:{number:10}}}},"tree.TreeEntity":{name:"tree_entity",type:"TreeEntity",description:"TreeEntity with Tree",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{data:{description:"contains a tree.Tree",type:"tree.Tree",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"tree.Navigationnode":{name:"navigationnode",type:"Navigationnode",description:"Item of the navigationtree",__proto:{package:"tree",imports:["furo/link.proto"],targetfile:"tree.proto"},fields:{id:{description:"Id of the node",type:"string",__proto:{number:1}},display_name:{description:"String representation of the node",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},icon:{description:"icon of the node",type:"string",__proto:{number:5}},panel:{description:"Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)",type:"string",meta:{readonly:!0,"tree-search-index":!1},__proto:{number:6}},key_words:{description:"key words of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:7}},has_error:{description:"if node has error",type:"bool",__proto:{number:8}},open:{description:"node is open or not",type:"bool",__proto:{number:9}},link:{description:"Deeplink information of this node",type:"furo.Link",__proto:{number:10}},is_group_label:{description:"This node is a group label",type:"bool",meta:{default:!1},__proto:{number:11}},children:{description:"Children of this node",type:"tree.Navigationnode",meta:{repeated:!0},__proto:{number:12}}}},"tree.TreeCollection":{name:"tree_collection",type:"TreeCollection",description:"TreeCollection with repeated TreeEntity",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a tree.TreeEntity repeated",type:"tree.TreeEntity",meta:{repeated:!0},__proto:{number:4}}}},"projectfilter.ProjectfilterEntity":{name:"projectfilter_entity",type:"ProjectfilterEntity",description:"ProjectfilterEntity with Projectfilter",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{data:{description:"contains a projectfilter.Projectfilter",type:"projectfilter.Projectfilter",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"projectfilter.Projectfilter":{name:"projectfilter",type:"Projectfilter",description:"Options for possible filter values",__proto:{package:"projectfilter",options:{},imports:["google/type/date.proto","google/type/money.proto","furo/reference.proto"],targetfile:"projectfilter.proto"},fields:{description:{description:"Filter preset for field description from resource projects",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:1}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:2}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:3}},members:{description:"List of possible project members",type:"furo.Reference",meta:{label:"Choose person",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}}},constraints:{},__proto:{number:4}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{},__proto:{number:5}}}},"projectfilter.ProjectfilterCollection":{name:"projectfilter_collection",type:"ProjectfilterCollection",description:"ProjectfilterCollection with repeated ProjectfilterEntity",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a projectfilter.ProjectfilterEntity repeated",type:"projectfilter.ProjectfilterEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthCollection":{name:"auth_collection",type:"AuthCollection",description:"AuthCollection with repeated AuthEntity",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a auth.AuthEntity repeated",type:"auth.AuthEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthEntity":{name:"auth_entity",type:"AuthEntity",description:"AuthEntity with Auth",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{data:{description:"contains a auth.Auth",type:"auth.Auth",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"auth.Auth":{name:"auth",type:"Auth",description:"autogenerated",__proto:{package:"auth",options:{},imports:[],targetfile:"auth.proto"},fields:{id:{description:"Identity of Auth",type:"string",meta:{label:"Id",default:"",hint:""},constraints:{},__proto:{number:1}},username:{type:"string",description:"The unique username, ussualy an email address",meta:{label:"Username",hint:""},constraints:{},__proto:{number:2}},password:{type:"string",description:"Das _neue_ Kennwort des Benutzers",meta:{label:"Password",hint:"Look under your keyboard"},constraints:{},__proto:{number:3}},role:{type:"string",description:"",meta:{label:"Role",hint:""},constraints:{},__proto:{number:4}}}},"person.Person":{name:"person",type:"Person",description:"Person message type",__proto:{package:"person",imports:["google/protobuf/field_mask.proto"],targetfile:"person.proto"},fields:{id:{description:"Identity of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},name:{description:"Name of a person",type:"string",meta:{label:"Name",default:"",hint:""},constraints:{required:{is:"true",message:"you must enter a name"}},__proto:{number:3}},first_name:{description:"First name of a person",type:"string",meta:{label:"First name",default:"",hint:""},constraints:{},__proto:{number:4},__ui:{component:"furo-data-text-input"}},phone_nr:{description:"Internal phone number",type:"string",meta:{label:"Phone No",default:"",hint:""},constraints:{},__proto:{number:5}},skills:{description:"List of main skills of a person",type:"string",meta:{label:"Skills",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:7}}}},"person.PersonCollection":{name:"person_collection",type:"PersonCollection",description:"PersonCollection with repeated PersonEntity",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a person.PersonEntity repeated",type:"person.PersonEntity",meta:{repeated:!0},__proto:{number:4}}}},"person.PersonEntity":{name:"person_entity",type:"PersonEntity",description:"PersonEntity with Person",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{data:{description:"contains a person.Person",type:"person.Person",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.ProjectCollection":{name:"project_collection",type:"ProjectCollection",description:"ProjectCollection with repeated ProjectEntity",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a project.ProjectEntity repeated",type:"project.ProjectEntity",meta:{repeated:!0},__proto:{number:4}}}},"project.ProjectEntity":{name:"project_entity",type:"ProjectEntity",description:"ProjectEntity with Project",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{data:{description:"contains a project.Project",type:"project.Project",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.Project":{name:"project",type:"Project",description:"Project description",__proto:{package:"project",imports:["google/protobuf/field_mask.proto","google/type/money.proto","google/type/date.proto","person/person.proto"],targetfile:"project.proto"},fields:{id:{description:"Identity of a project",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a project",type:"string",meta:{label:"Project",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:3}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:4}},description:{description:"Short project description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:5}},members:{description:"List of project members",type:"person.Person",meta:{label:"Project members",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:25e3,message:"max 25000"}},__ui:{component:"",flags:["align-right"]},__proto:{number:7}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:8}}}},"menu.Menuitem":{name:"menuitem",type:"Menuitem",description:"Item of a contextual menu",__proto:{package:"menu",options:{java_outer_classname:"MenuApi",java_package:"com.acme.menu"},imports:["google/protobuf/any.proto"],targetfile:"menu.proto"},fields:{icon:{description:"Leading icon of the menu",type:"string",__proto:{number:1}},display_name:{description:"String representation of the menu item. Menu item text",type:"string",meta:{readonly:!0},__proto:{number:2}},disabled:{description:"Display actions as disabled when they can only be used sometimes, under certain conditions. They should be displayed as disabled rather than removing them.",type:"bool",meta:{default:!1},__proto:{number:3}},command:{description:"Keyboard command hint",type:"string",meta:{},__proto:{number:4}},action:{description:"String representation of the menu item action",type:"string",meta:{},__proto:{number:5}},leading_divider:{description:"Item has a leading divider line",type:"bool",meta:{default:!1},__proto:{number:6}},children:{description:"Children of this item",type:"menu.Menuitem",meta:{repeated:!0},__proto:{number:7}},flags:{description:"Attribute flags e.g. important, negative, positive",type:"string",meta:{readonly:!0,repeated:!0},__proto:{number:8}},payload:{description:"Optional payload",type:"google.protobuf.Any",meta:{readonly:!0,repeated:!0},__proto:{number:9}}}},"task.TaskEntity":{name:"task_entity",type:"TaskEntity",description:"TaskEntity with Task",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{data:{description:"contains a task.Task",type:"task.Task",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"task.TaskCollection":{name:"task_collection",type:"TaskCollection",description:"TaskCollection with repeated TaskEntity",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a task.TaskEntity repeated",type:"task.TaskEntity",meta:{repeated:!0},__proto:{number:4}}}},"task.Task":{name:"task",type:"Task",description:"Task data description",__proto:{package:"task",imports:["furo/reference.proto"],targetfile:"task.proto"},fields:{id:{description:"Identity of a task",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a task",type:"string",meta:{label:"task.display_name.label",default:"",hint:"task.display_name.hint",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short task description",type:"string",meta:{label:"task.desc.label",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:180,message:"task.desc.maxlength"}},__proto:{number:3}},estimated_time:{description:"Estimated time in days",type:"int32",meta:{label:"Est. days",default:"",hint:""},constraints:{},__proto:{number:4}},owner:{description:"Owner of a task",type:"furo.Reference",meta:{label:"person.type.sex.label",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}},hint:"",no_result_hint:"",options:{list:[{id:"unknown",display_name:"person.type.sex.unknown.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"},{id:"female",display_name:"person.type.sex.female.label",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"male",display_name:"person.type.sex.male.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:5}},subtasks:{description:"List of subtasks",type:"task.Task",meta:{label:"Subtask",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}}}},"experiment.ExperimentEntity":{name:"experiment_entity",type:"ExperimentEntity",description:"ExperimentEntity with Experiment",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{data:{description:"contains a experiment.Experiment",type:"experiment.Experiment",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Constraints":{name:"experiment",type:"Constraints",description:"Test the Constraints",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},max:{is:"12",message:"maximal 12"}},__proto:{number:2}},number:{description:"Short experiment description",type:"int32",meta:{label:"Valid values are 6,9,12",default:1,hint:""},constraints:{min:{is:"6",message:"Minimal number 6"},max:{is:"12",message:"maximal 12"},step:{is:"3",message:"step 3"}},__proto:{number:3}},text:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},min:{is:"6",message:"minimal 6"},max:{is:"12",message:"maximal 12"}},__proto:{number:4}}}},"experiment.Experiment":{name:"experiment",type:"Experiment",description:"experiment spec for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto","google/type/money.proto","google/protobuf/field_mask.proto","furo/property.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"Default Description",hint:""},constraints:{},__proto:{number:3}},furo_data_checkbox_input:{description:"field for furo_data_checkbox_input for testing",type:"bool",meta:{label:"checkbox_input",default:"",hint:"Hint",readonly:!1},constraints:{},__proto:{number:4}},furo_data_text_input:{description:"field for furo_data_text_input for testing",type:"string",meta:{label:"text_input",hint:"hint",readonly:!1},constraints:{required:{is:"true",message:"is required"},min:{is:3,message:"at least 3 characters"},max:{is:15,message:"15 characters maximum"},pattern:{is:"^a.*",message:"must start with a"}},__proto:{number:5}},furo_data_textarea_input:{description:"field for furo_data_textarea_input for testing",type:"string",meta:{label:"textarea_input",hint:"hint",readonly:!1,rows:3,cols:100},constraints:{},__proto:{number:6}},furo_data_time_input:{description:"field for furo-data-time-input for testing",type:"string",meta:{label:"time-input",hint:"hint",readonly:!1},constraints:{min:{is:"05:00",message:"From 05:00"},max:{is:"19:00",message:"to 19:00"},step:{is:"5",message:"step 5"}},__proto:{number:7}},furo_data_range_input:{description:"field for furo-data-range-input for testing",type:"string",meta:{label:"range-input",hint:"hint",readonly:!1},constraints:{min:{is:20,message:"From 20"},max:{is:50,message:"to 50"},step:{is:"2.5",message:"step 2.5"}},__proto:{number:8}},furo_data_number_input:{description:"field for furo-data-number-input for testing",type:"float",meta:{label:"number-input",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"from 1"},max:{is:555,message:"to 555"},step:{is:"3",message:"step 3"}},__proto:{number:9}},furo_data_color_input:{description:"field for furo-data-color-input for testing",type:"string",meta:{label:"color-input",hint:"hint",readonly:!1},constraints:{},__proto:{number:10}},furo_data_password_input:{description:"field for furo-data-password-input for testing",type:"string",meta:{label:"password-input",hint:"hint",readonly:!1},constraints:{min:{is:6,message:"min 6"},max:{is:15,message:"max 15"}},__proto:{number:11}},furo_data_search_input:{description:"field for furo-search-input for testing",type:"string",meta:{label:" search",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"min 1"},max:{is:15,message:"max 15"},pattern:{is:"a.*",message:"must start with a"}},__proto:{number:12}},furo_data_date_input:{description:"field for furo-data-date-input for testing",type:"string",meta:{label:"date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"5",message:"step 5"}},__proto:{number:13}},furo_data_bool_icon:{description:"field for furo-data-bool-icon for testing",type:"bool",meta:{label:"bool-icon input",hint:"hint",readonly:!1},constraints:{},__proto:{number:14}},the_any_type:{description:"field for testing any",type:"google.protobuf.Any",meta:{label:"can be anything",hint:"hint",readonly:!1},constraints:{},__proto:{number:15}},type_with_options:{description:"field for testing static options",type:"string",meta:{label:"String options",hint:"Choose one",options:{list:[{id:"option_1",display_name:"option_1",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_2",display_name:"option_2",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_3",display_name:"option_3",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:16}},type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields",repeated:!0},constraints:{},__proto:{number:17}},furo_data_date_input_google:{description:"field for furo-data-date-input for testing",type:"google.type.Date",meta:{label:"gogole-date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"2",message:"step 2"}},__proto:{number:18}},single_type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields"},constraints:{},__proto:{number:19}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:20}},furo_data_money_input:{description:"field for testing money type",type:"google.type.Money",meta:{readonly:!1,label:"Amount",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{required:{is:"true",message:"is required"},min:{is:0,message:"amount can not be negative"},max:{is:999999,message:"amount maximal 999999"},step:{is:.01,message:"step 0.01"}},__proto:{number:21}},furo_data_file_input:{description:"field for testing file type",type:"string",meta:{readonly:!1,repeated:!0,label:"Choose a file"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:22}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:23}}}},"experiment.Default":{name:"experiment",type:"Default",description:"Test the default value",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:3}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:4}},furo_data_checkbox_input:{description:"field for furo_data_checkbox_input for testing",type:"bool",meta:{label:"checkbox_input",default:"",hint:"Hint",readonly:!1},constraints:{},__proto:{number:5}}}},"experiment.Readonly":{name:"readonly",type:"Readonly",description:"Readonly spec for testing",__proto:{package:"experiment",targetfile:"experiment.proto",imports:["furo/property.proto","project/project.proto"],options:null},fields:{project:{type:"project.Project",description:"Identity of a experiment",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Id",hint:"",default:"",readonly:!0,repeated:!1,options:{list:[]}},constraints:null},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Recursive":{name:"recursive",type:"Recursive",description:"recursive type for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:2}},recursion:{description:"The recursion",type:"experiment.Recursive",meta:{label:"Recursio"},constraints:{},__proto:{number:3}}}},"experiment.ExperimentCollection":{name:"experiment_collection",type:"ExperimentCollection",description:"ExperimentCollection with repeated ExperimentEntity",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a experiment.ExperimentEntity repeated",type:"experiment.ExperimentEntity",meta:{repeated:!0},__proto:{number:4}}}},"furo.Reference":{name:"reference",type:"Reference",description:"reference",__proto:{package:"furo",imports:["furo/link.proto"],targetfile:"reference.proto"},fields:{display_name:{description:"String representation of the reference",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"Id of the reference",type:"string",__proto:{number:2}},link:{description:"Hateoas link",type:"furo.Link",__proto:{number:3}}}},"furo.MetaField":{name:"metafield",type:"MetaField",description:"fields of meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{meta:{description:"meta information of a field",type:"furo.FieldMeta",__proto:{number:1}},constraints:{description:"constraints for a field",type:"map<string,furo.FieldConstraint>",__proto:{number:2}}}},"furo.StringOptionProperty":{name:"string_option_property",type:"StringOptionProperty",description:"String type to use in property",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{display_name:{description:"String representation of val",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"The value, Id is used to make working with data-inputs easier",type:"string",__proto:{number:2}}}},"furo.Optionitem":{name:"optionitem",type:"Optionitem",description:"Items for fieldoption.list",__proto:{package:"furo",targetfile:"meta.proto",imports:[],options:null},fields:{id:{type:"string",description:"Id",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Id",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},display_name:{type:"string",description:"String representation",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Display name",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},selected:{type:"bool",description:"is the item selected",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Selected",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null}}},"furo.NumberProperty":{name:"number_property",type:"NumberProperty",description:"Number type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"data part",type:"float",__proto:{number:1}}}},"furo.Fieldoption":{name:"fieldoption",type:"Fieldoption",description:"Metas for a field",__proto:{package:"furo",targetfile:"meta.proto",imports:["google/protobuf/any.proto"],options:null},fields:{list:{type:"google.protobuf.Any",description:"a list with options, use furo.optionitem or your own",__proto:{number:1},__ui:{component:"",flags:["full","condensed"],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:null}},constraints:null},flags:{type:"string",description:"Add flags for your field. This can be something like \"searchable\". \n//The flags can be used by generators, ui components,...\n",__proto:{number:2},__ui:{component:null,flags:[],no_init:!1,no_skip:!1},meta:{label:"flags",hint:"optional flags",default:null,readonly:!1,repeated:!0,options:{list:[],flags:null},typespecific:null},constraints:null}}},"furo.StringProperty":{name:"string_property",type:"StringProperty",description:"String type to use in property",__proto:{package:"furo",imports:["furo/meta.proto"],targetfile:"property.proto"},fields:{data:{description:"data part",type:"string",__proto:{number:1}}}},"furo.Meta":{name:"meta",type:"Meta",description:"meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{fields:{description:"fields of meta info",type:"map<string, furo.MetaField>",__proto:{number:1}}}},"furo.IntegerProperty":{name:"integer_property",type:"IntegerProperty",description:"Integer type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"Integer data part",type:"int32",constraints:{step:{is:1}},__proto:{number:1}}}},"furo.Link":{name:"link",type:"Link",description:"link",__proto:{package:"furo",imports:[],targetfile:"link.proto"},fields:{rel:{description:"the relationship",type:"string",__proto:{number:1}},method:{description:"method of curl",type:"string",__proto:{number:2}},href:{description:"link",type:"string",__proto:{number:3}},type:{description:"mime type",type:"string",__proto:{number:4}},service:{description:"name of the service which can handle this link",type:"string",__proto:{number:5}}}},"furo.FieldMeta":{name:"fieldmeta",type:"FieldMeta",description:"Metas for a field",__proto:{package:"furo",options:{},imports:["google/protobuf/any.proto"],targetfile:"meta.proto"},fields:{label:{description:"The label",type:"string",meta:{label:"Label",hint:"Also used for input-fields"},__proto:{number:1}},hint:{description:"A hint",type:"string",meta:{label:"Hint",hint:"Also used for input-fields"},__proto:{number:2}},default:{description:"The default value as JSON string",type:"string",meta:{label:"Default value"},__proto:{number:3}},readonly:{description:"readonly",type:"bool",meta:{label:"readonly"},__proto:{number:4}},repeated:{description:"repeated",type:"bool",meta:{label:"repeated"},__proto:{number:5}},options:{description:"Fieldoptions",type:"furo.Fieldoption",meta:{label:"options"},__proto:{number:6}},typespecific:{description:"Put in type specific metas for your fields here",type:"google.protobuf.Any",meta:{label:"typespecific meta"},__proto:{number:7},__ui:{no_init:!0}}}},"furo.FieldConstraint":{name:"fieldconstraint",type:"FieldConstraint",description:"a single fieldconstraint",__proto:{package:"furo",options:{},imports:[],targetfile:"meta.proto"},fields:{is:{description:"the constraint value as string, even it is a number",type:"string",meta:{label:"is",hint:"the constraint value as string, even it is a number"},__proto:{number:1}},message:{description:"The message to display on constraint violation",type:"string",meta:{label:"message"},__proto:{number:2}}}},"furo.BigDecimal":{name:"big_decimal",type:"BigDecimal",description:"A BigDecimal is defined by two values: an arbitrary precision integer and a 32-bit integer scale. The value of the BigDecimal is defined to be unscaledValue*10^{-scale}.",__proto:{package:"furo",imports:[],targetfile:"bigdecimal.proto"},fields:{display_name:{description:"String representation of BigDecimal entity",type:"string",meta:{readonly:!0},constraints:{},options:[],__proto:{number:1}},scale:{description:"If zero or positive, the scale is the number of digits to the right of the decimal point. If negative, the unscaled value of the number is multiplied by ten to the power of the negation of the scale. For example, a scale of -3 means the unscaled value is multiplied by 1000.",type:"int32",meta:{},constraints:{},options:[],__proto:{number:2}},int_val:{description:"The integer value of the BigDecimal",type:"int64",meta:{},constraints:{},options:[],__proto:{number:3}}}},"furo.Property":{name:"property",type:"Property",description:"Type to define property values with type information",__proto:{package:"furo",imports:["google/protobuf/any.proto"],targetfile:"property.proto"},fields:{id:{description:"Id of the property",type:"string",meta:{label:"Id"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"String representation of the property",type:"string",meta:{label:"Property",readonly:!0},constraints:{},__proto:{number:2}},data:{description:"data part of the property",type:"google.protobuf.Any",constraints:{},__proto:{number:3}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:4}},code:{description:"property code for additional settings",type:"string",__proto:{number:5}}}},"google.type.Money":{name:"money",type:"Money",description:"Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto",__proto:{package:"google.type",imports:[],targetfile:"money.proto"},fields:{display_name:{description:"String representation of money entity",type:"string",meta:{default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:1}},currency_code:{description:"The 3-letter currency code defined in ISO 4217.",type:"string",meta:{label:"W\xE4hrungscode",default:"",hint:""},constraints:{},options:[],__proto:{number:2}},units:{description:"The whole units of the amount.",type:"int64",meta:{label:"Ganzahliger W\xE4hrungsbetrag",default:"",hint:""},constraints:{},options:[],__proto:{number:3}},nanos:{description:"Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",type:"int64",meta:{label:"Nanos",default:"",hint:""},constraints:{},options:[],__proto:{number:4}}}},"google.type.Date":{name:"date",type:"Date",description:"Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto ",__proto:{package:"google.type",imports:[],targetfile:"date.proto"},fields:{display_name:{description:"Localized String representation of date",type:"string",meta:{label:"Datum",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:4}},year:{description:"Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:1}},month:{description:"Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:2}},day:{description:"Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:3}}}},"google.protobuf.StringValue":{name:"stringvalue",type:"StringValue",description:"Wrapper message for `string`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `StringValue` is JSON string",type:"string",__proto:{number:1}}}},"google.protobuf.FieldMask":{name:"field_mask",type:"FieldMask",description:"A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"field_mask.proto"},fields:{paths:{description:"The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable.",type:"string",meta:{repeated:!0},__proto:{number:1}}}},"google.protobuf.Int64Value":{name:"int64value",type:"Int64Value",description:"Wrapper message for `int64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int64Value` is JSON string",type:"int64",__proto:{number:1}}}},"google.protobuf.Empty":{name:"empty",type:"Empty",description:"https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto",__proto:{package:"google.protobuf",imports:[],targetfile:"empty.proto",options:{}},fields:{}},"google.protobuf.Int32Value":{name:"int32value",type:"Int32Value",description:"Wrapper message for `int32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int32Value` is JSON number",type:"int32",__proto:{number:1},constraints:{min:{is:"\u22122147483648",message:"out of range"},max:{is:"2147483647",message:"out of range"}}}}},"google.protobuf.BoolValue":{name:"boolvalue",type:"BoolValue",description:"Wrapper message for `bool`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BoolValue` is JSON `true` and `false`",type:"bool",__proto:{number:1}}}},"google.protobuf.FloatValue":{name:"floatvalue",type:"FloatValue",description:"Wrapper message for `float`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `FloatValue` is JSON number",type:"float",__proto:{number:1}}}},"google.protobuf.BytesValue":{name:"bytesvalue",type:"BytesValue",description:"Wrapper message for `bytes`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BytesValue` is JSON string",type:"bytes",__proto:{number:1}}}},"google.protobuf.Any":{name:"any",type:"Any",description:"Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"any.proto"},fields:{type_url:{type:"string",__proto:{number:1}},value:{type:"bytes",__proto:{number:2}}}},"google.protobuf.UInt32Value":{name:"uint32value",type:"UInt32Value",description:"Wrapper message for `uint32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt32Value` is JSON number",type:"uint32",__proto:{number:1}}}},"google.protobuf.UInt64Value":{name:"uint64value",type:"UInt64Value",description:"Wrapper message for `uint64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt64Value` is JSON string",type:"uint64",__proto:{number:1}}}},"google.protobuf.DoubleValue":{name:"doublevalue",type:"DoubleValue",description:"Wrapper message for `double`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `DoubleValue` is JSON number",type:"double",__proto:{number:1}}}}};_exports.Types=Types;var data_environment={Services:Services,Types:Types};/**
     * Furo Base Icons
     * This is a set of the 24x24 icons from https://github.com/google/material-design-icons.
     *
@@ -1608,12 +2035,12 @@ const nativeCssVariables=/** @type {boolean} */nativeCssVariables_;_exports.nati
  */function clean(cssText){return cssText.replace(RX.comments,"").replace(RX.port,"")}// super simple {...} lexer that returns a node tree
 /**
  * @param {string} text
- * @return {StyleNode}
+ * @return {!StyleNode}
  */function lex(text){let root=new StyleNode;root.start=0;root.end=text.length;let n=root;for(let i=0,l=text.length;i<l;i++){if(text[i]===OPEN_BRACE){if(!n.rules){n.rules=[]}let p=n,previous=p.rules[p.rules.length-1]||null;n=new StyleNode;n.start=i+1;n.parent=p;n.previous=previous;p.rules.push(n)}else if(text[i]===CLOSE_BRACE){n.end=i+1;n=n.parent||root}}return root}// add selectors/cssText to node tree
 /**
  * @param {StyleNode} node
  * @param {string} text
- * @return {StyleNode}
+ * @return {!StyleNode}
  */function parseCss(node,text){let t=text.substring(node.start,node.end-1);node.parsedCssText=node.cssText=t.trim();if(node.parent){let ss=node.previous?node.previous.end:node.parent.start;t=text.substring(ss,node.start-1);t=_expandUnicodeEscapes(t);t=t.replace(RX.multipleSpaces," ");// TODO(sorvell): ad hoc; make selector include only after last ;
 // helps with mixin syntax
 t=t.substring(t.lastIndexOf(";")+1);let s=node.parsedSelector=node.selector=t.trim();node.atRule=0===s.indexOf(AT_START);// note, support a subset of rule types...
@@ -1663,7 +2090,7 @@ if(cssText){if(node.selector){text+=node.selector+" "+OPEN_BRACE+"\n"}text+=cssT
                                                    *
                                                    * @param {!HTMLStyleElement} style
                                                    * @return {undefined}
-                                                   */function processUnscopedStyle(style){const text=style.textContent;if(!styleTextSet.has(text)){styleTextSet.add(text);const newStyle=style.cloneNode(!0);document.head.appendChild(newStyle)}}/**
+                                                   */function processUnscopedStyle(style){const text=style.textContent;if(!styleTextSet.has(text)){styleTextSet.add(text);const newStyle=document.createElement("style");newStyle.setAttribute("shady-unscoped","");newStyle.textContent=text;document.head.appendChild(newStyle)}}/**
    * Check if a style is supposed to be unscoped
    * @param {!HTMLStyleElement} style
    * @return {boolean} true if the style has the unscoping attribute
@@ -1700,7 +2127,7 @@ if(!window.matchMedia(matchMedia[1]).matches){skipRules=!0}}}}if(type===types.ST
  */function applyCss(cssText,moniker,target,contextNode){let style=createScopeStyle(cssText,moniker);applyStyle(style,target,contextNode);return style}/**
    * @param {string} cssText
    * @param {string} moniker
-   * @return {HTMLStyleElement}
+   * @return {!HTMLStyleElement}
    */function createScopeStyle(cssText,moniker){let style=/** @type {HTMLStyleElement} */document.createElement("style");if(moniker){style.setAttribute("scope",moniker)}style.textContent=cssText;return style}/**
    * Track the position of the last added style for placing placeholders
    * @type {Node}
@@ -2300,7 +2727,7 @@ return css`
    * `furo-icon`
    *
    * to use furo icon you should
-   * first import a svg set of icons and register it to @furo/framework/iconset
+   * first import a svg set of icons and register it to @furo/framework/src/iconset
    *
    *
    *
@@ -2313,7 +2740,7 @@ return css`
    *     };
    * then import the iconset and register it
    * import {iconSetName} from "./iconSetName";
-   * import {Iconset} from "@furo/framework/furo.js";
+   * import {Iconset} from "@furo/framework/src/furo.js";
    * Iconset.registerIconset( "iconSetName", iconSetName);
    *```
    *
@@ -2345,43 +2772,51 @@ return css`
      *
      */static get styles(){// language=CSS
 return css`
-            :host {
-                display: inline-block;
-                vertical-align: middle;
-                fill: var(--furo-icon-fill-color, currentcolor);
-                stroke: var(--furo-icon-stroke-color, none);
-                width: var(--furo-icon-width, 24px);
-                height: var(--furo-icon-height, 24px);
-                
-                position: relative;
-                justify-content: center;
-            }
+      :host {
+        display: inline-block;
+        vertical-align: middle;
+        fill: var(--furo-icon-fill-color, currentcolor);
+        stroke: var(--furo-icon-stroke-color, none);
+        width: var(--furo-icon-width, 24px);
+        height: var(--furo-icon-height, 24px);
 
-            :host([hidden]) {
-                display: none;
-            }
-        `}/**
+        position: relative;
+        justify-content: center;
+      }
+
+      :host([hidden]) {
+        display: none;
+      }
+    `}/**
      *@private
      */static get properties(){return{icon:{type:String},viewBox:{type:String,attribute:"view-box"},focusable:{type:Boolean},preserveAspectRatio:{type:String,attribute:"preserve-aspect-ratio"},style:{type:String}}}/**
      * @private
-     * @param changedProperties
-     */updated(changedProperties){if(this.icon!==void 0){let w=this.icon.split(":");// set iconset to default when no iconset name is given
-if(w[1]===void 0){w[1]=w[0];w[0]="default"}this.shadowRoot.getElementById("furo-icon-svg").innerHTML=Iconset.get(w[0],w[1])}}/**
+     */updated(){if(this.icon!==void 0){const w=this.icon.split(":");// set iconset to default when no iconset name is given
+if(w[1]===void 0){// eslint-disable-next-line prefer-destructuring
+w[1]=w[0];w[0]="default"}this.shadowRoot.getElementById("furo-icon-svg").innerHTML=Iconset.get(w[0],w[1])}}/**
      * @private
      * @returns {TemplateResult}
-     */render(){return html`<svg id="furo-icon-svg" viewBox=${this.viewBox} preserveAspectRatio=${this.preserveAspectRatio} focusable=${this.focusable} style=${this.svgstyle}></svg>`}}customElements.define("furo-icon",FuroIcon);class FuroIconButton extends FBP(LitElement){constructor(){super()}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
+     */render(){return html`
+      <svg
+        id="furo-icon-svg"
+        viewBox=${this.viewBox}
+        preserveAspectRatio=${this.preserveAspectRatio}
+        focusable=${this.focusable}
+        style=${this.svgstyle}
+      ></svg>
+    `}}customElements.define("furo-icon",FuroIcon);class FuroIconButton extends FBP(LitElement){/**
+   * @private
+   * @return {Object}
+   */static get properties(){return{/**
        * The icon
        */icon:{type:String},/**
        * Focus the element automatically
        */autofocus:{type:Boolean,reflect:!0}}}/**
      * Set the focus to the button
      * @param e
-     */focus(e){this._FBPTriggerWire("--focus")}/**
+     */focus(){this._FBPTriggerWire("--focus")}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -2389,90 +2824,95 @@ if(w[1]===void 0){w[1]=w[0];w[0]="default"}this.shadowRoot.getElementById("furo-
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroIconButton")||css`
         :host {
-            display: inline-block;
-            position: relative;
-            width: 48px;
-            height: 48px;
-            box-sizing: border-box;
+          display: inline-block;
+          position: relative;
+          width: 48px;
+          height: 48px;
+          box-sizing: border-box;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         :host([disabled]) {
-            color: var(--disabled, inherit);
+          color: var(--disabled, inherit);
         }
 
         button {
-            cursor: pointer;
-            background: none;
-            outline: none;
-            border: none;
-            color: inherit;
-            padding: 12px;
-            width: 48px;
-            height: 48px;
-            box-sizing: border-box;
-            display: block;
-            background-color: transparent;
+          cursor: pointer;
+          background: none;
+          outline: none;
+          border: none;
+          color: inherit;
+          padding: 12px;
+          width: 48px;
+          height: 48px;
+          box-sizing: border-box;
+          display: block;
+          background-color: transparent;
         }
 
-        furo-ripple{
-            border-radius: 50%;
-            margin: 4px;
-            width: 40px;
-            height: 40px;
+        furo-ripple {
+          border-radius: 50%;
+          margin: 4px;
+          width: 40px;
+          height: 40px;
         }
-        
-        .bg{
-            border-radius: 50%;
-            position: absolute;
-            top:4px;
-            left:4px;
-            bottom: 4px;
-            right: 4px;
+
+        .bg {
+          border-radius: 50%;
+          position: absolute;
+          top: 4px;
+          left: 4px;
+          bottom: 4px;
+          right: 4px;
         }
         :host(:focus-within) .bg {
-            background-color: var(--surface-light);
-            opacity: 0.2;
+          background-color: var(--surface-light);
+          opacity: 0.2;
         }
-        :host(:hover) .bg{
-            background-color: var(--surface-dark);
-            opacity: 0.2;
+        :host(:hover) .bg {
+          background-color: var(--surface-dark);
+          opacity: 0.2;
         }
-
-
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      * @private
      */render(){// language=HTML
 return html`
-     <div class="bg"></div>
-      <button ƒ-focus="--focus" aria-label="${this.icon}" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?danger=${this.danger}>
+      <div class="bg"></div>
+      <button
+        ƒ-focus="--focus"
+        aria-label="${this.icon}"
+        ?autofocus=${this.autofocus}
+        ?disabled=${this.disabled}
+        ?danger=${this.danger}
+      >
         <furo-icon icon="${this.icon}"></furo-icon>
-         <furo-ripple></furo-ripple>      
+        <furo-ripple></furo-ripple>
       </button>
-    `}}window.customElements.define("furo-icon-button",FuroIconButton);class FuroLoadingIndicatorBar extends FBP(LitElement){constructor(){super();this.setAttribute("hidden","")}/**
+    `}}window.customElements.define("furo-icon-button",FuroIconButton);class FuroLoadingIndicatorBar extends FBP(LitElement){constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
+this.setAttribute("hidden","")}/**
      *
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroLoadingIndicatorBar")||css`
         :host {
-            display: block;
-            width: 100%;
-            height: 4px;
-            pointer-events: none;
-            opacity: 0.8;
-            background-color: var(--secondary);
-            animation: colorchange 5s infinite;
-            @apply --loading-indicator-mixin;
+          display: block;
+          width: 100%;
+          height: 4px;
+          pointer-events: none;
+          opacity: 0.8;
+          background-color: var(--secondary);
+          animation: colorchange 5s infinite;
+          @apply --loading-indicator-mixin;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         @keyframes colorchange {
@@ -2492,7 +2932,7 @@ return Theme.getThemeForComponent("FuroLoadingIndicatorBar")||css`
             background: var(--secondary, red);
           }
         }
-    `}start(){this.removeAttribute("hidden")}stop(){this.setAttribute("hidden","")}/**
+      `}start(){this.removeAttribute("hidden")}stop(){this.setAttribute("hidden","")}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
@@ -2506,22 +2946,22 @@ return html`
      * Hides furo-loading-indicator-bar
      */stopActivity(){this._FBPTriggerWire("--activityStopped")}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires();
 if(this.drawer){/**
        * @event connect-to-drawer-requested
        * Fired when drawer name is set
        * detail payload: {name}
-       */let customEvent=new Event("connect-to-drawer-requested",{composed:!0,bubbles:!0});customEvent.detail={name:this.drawer};this.dispatchEvent(customEvent);this._drawer=customEvent.detail.drawer;if(this._drawer){// add regular event listener to the drawer
+       */const customEvent=new Event("connect-to-drawer-requested",{composed:!0,bubbles:!0});customEvent.detail={name:this.drawer};this.dispatchEvent(customEvent);this._drawer=customEvent.detail.drawer;if(this._drawer){// add regular event listener to the drawer
 this._drawer.addEventListener("is-floating",()=>{this.showNavigationIcon()});this._drawer.addEventListener("is-pinned",()=>{this.hideNavigationIcon()});if(this._drawer.__isFloating){this.showNavigationIcon()}else{this.hideNavigationIcon()}}}/**
        * Register hook on wire --navigationClicked to
        * open the drawer
-       */this._FBPAddWireHook("--navigationClicked",e=>{if("menu"===this._navigationIcon){this._drawer.open();/**
+       */this._FBPAddWireHook("--navigationClicked",()=>{if("menu"===this._navigationIcon){this._drawer.open();/**
                               * @event navigation-clicked
                               * Fired when navigation icon is clicked
                               */ /**
                                   * @event navigation-menu-clicked
                                   * Fired when icon is menu and navigation is clicked
-                                  */let customEvent=new Event("navigation-menu-clicked",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}})}/**
+                                  */const customEvent=new Event("navigation-menu-clicked",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}})}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -2534,76 +2974,81 @@ this._drawer.addEventListener("is-floating",()=>{this.showNavigationIcon()});thi
    * @return {CSSResult}
    */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroAppBarTop")||css`
-      :host {
-        display: block;
-        position: relative;
-        color: var(--on-primary);
-        background: linear-gradient(315deg, var(--furo-app-bar-top-background-light, var(--primary-light, #7f7f7f)) 0%, var(--furo-app-bar-top-background-dark, var(--primary-dark, #aFAFAF)) 100%);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
-        transition: all var(--transition-duration, 200ms) cubic-bezier(.25, .8, .25, 1);
-        font-size: 20px;
-        z-index: 1;
-      }
+        :host {
+          display: block;
+          position: relative;
+          color: var(--on-primary);
+          background: linear-gradient(
+            315deg,
+            var(--furo-app-bar-top-background-light, var(--primary-light, #7f7f7f)) 0%,
+            var(--furo-app-bar-top-background-dark, var(--primary-dark, #afafaf)) 100%
+          );
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+          transition: all var(--transition-duration, 200ms) cubic-bezier(0.25, 0.8, 0.25, 1);
+          font-size: 20px;
+          z-index: 1;
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
+        :host([hidden]) {
+          display: none;
+        }
 
-      furo-horizontal-flex {
-        height: 56px;
-        line-height: 56px;
-      }
+        furo-horizontal-flex {
+          height: 56px;
+          line-height: 56px;
+        }
 
+        ::slotted(.small),
+        ::slotted(.small) {
+          font-weight: 100;
+        }
 
-      ::slotted(.small), ::slotted(.small) {
-        font-weight: 100;
-      }
+        ::slotted(*) {
+          margin-left: var(--spacing-s, 16px);
+          margin-right: var(--spacing-s, 16px);
+        }
 
-      ::slotted(*) {
-        margin-left: var(--spacing-s, 16px);
-        margin-right: var(--spacing-s, 16px);
-      }
+        ::slotted(furo-icon-button),
+        furo-icon-button.navigation {
+          cursor: pointer;
+          margin: var(--spacing-xxs, 4px) 0;
+        }
 
-      ::slotted(furo-icon-button), furo-icon-button.navigation {
-        cursor: pointer;
-        margin: var(--spacing-xxs, 4px) 0;
-      }
+        furo-icon-button.navigation {
+          display: none;
+        }
 
-      furo-icon-button.navigation {
-        display: none;
-      }
+        :host([navigation]) furo-icon-button.navigation,
+        :host([navigation-icon]) furo-icon-button.navigation {
+          display: block;
+          margin-right: var(--spacing-xs, 8px);
+        }
 
-      :host([navigation]) furo-icon-button.navigation, :host([navigation-icon]) furo-icon-button.navigation {
-        display: block;
-        margin-right: var(--spacing-xs, 8px);
-      }
+        furo-loading-indicator-bar {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+        }
 
+        .extended {
+          display: none;
+          height: 72px;
+          line-height: 32px;
+          padding-left: 56px;
+        }
 
-      furo-loading-indicator-bar {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-      }
+        /* pos bottom 20 with line-height 32 will result in 28px distance to the bottom (https://material.io/components/app-bars-top/#specs)  */
+        .extended ::slotted(*) {
+          position: absolute;
+          bottom: 20px;
+          right: 96px;
+          left: 56px;
+        }
 
-      .extended {
-        display: none;
-        height: 72px;
-        line-height: 32px;
-        padding-left: 56px;
-      }
-
-      /* pos bottom 20 with line-height 32 will result in 28px distance to the bottom (https://material.io/components/app-bars-top/#specs)  */
-      .extended ::slotted(*) {
-        position: absolute;
-        bottom: 20px;
-        right: 96px;
-        left: 56px;
-      }
-
-      :host([extended]) .extended {
-        display: block;
-      }
-    `}showNavigationIcon(){this.setAttribute("navigation","")}hideNavigationIcon(){this.removeAttribute("navigation")}/**
+        :host([extended]) .extended {
+          display: block;
+        }
+      `}showNavigationIcon(){this.setAttribute("navigation","")}hideNavigationIcon(){this.removeAttribute("navigation")}/**
      * @event navigation-clicked
      * Fired when the navigation icon was clicked
      */ /**
@@ -2612,13 +3057,20 @@ return Theme.getThemeForComponent("FuroAppBarTop")||css`
          */render(){// language=HTML
 return html`
       <furo-horizontal-flex>
-      <furo-icon-button class="navigation" icon="${this._navigationIcon}" @-click="^^navigation-clicked, --navigationClicked"></furo-icon-button>       
-        <slot></slot>       
+        <furo-icon-button
+          class="navigation"
+          icon="${this._navigationIcon}"
+          @-click="^^navigation-clicked, --navigationClicked"
+        ></furo-icon-button>
+        <slot></slot>
       </furo-horizontal-flex>
-       <furo-horizontal-flex class="extended">
-      <slot name="extended"></slot>
+      <furo-horizontal-flex class="extended">
+        <slot name="extended"></slot>
       </furo-horizontal-flex>
-      <furo-loading-indicator-bar ƒ-start="--activityStarted" ƒ-stop="--activityStopped"></furo-loading-indicator-bar>
+      <furo-loading-indicator-bar
+        ƒ-start="--activityStarted"
+        ƒ-stop="--activityStopped"
+      ></furo-loading-indicator-bar>
     `}}_exports.FuroAppBarTop=FuroAppBarTop;window.customElements.define("furo-app-bar-top",FuroAppBarTop);var furoAppBarTop={FuroAppBarTop:FuroAppBarTop};_exports.$furoAppBarTop=furoAppBarTop;class ViewHome extends FBP(LitElement){constructor(){super()}/**
      * @private
      * @return {Object}
@@ -2744,8 +3196,8 @@ return html`
             </furo-app-bar-top>
             <div scroll flex class="content">
                 <p class="hero-title">フロー</p>
-                <p class="hero-caption">Version 0.xx.xx</p>
-                <p class="hero-caption">An enterprise grade framework for creating fast, lightweight web apps
+                <p class="hero-caption">Version 1.x.x</p>
+                <p class="hero-caption">An enterprise grade "framework" for creating fast, lightweight web apps
                     with web components</p>
                 <a class="hero-link" href="/guide/md/overview/">Get Started</a>
 
@@ -2792,16 +3244,15 @@ return html`
                     </div>
                     <div class="panel" flex>
                         <h2 class="caption">Tool Chain</h2>
-                        <p>Furo itself uses the <a
-                                href="https://polymer-library.polymer-project.org/3.0/docs/tools/polymer-cli">polymer-cli</a>
+                        <p>Furo itself uses the <a href="https://open-wc.org/">open-wc</a>
                             toolchain by default. </p>
-                        <p>If you like <a href="https://webpack.js.org/">webpack</a> or <a href="https://open-wc.org/">open-wc</a>,
+                        <p>If you like <a href="https://webpack.js.org/">webpack</a> more,
                             feel free to change it.</p>
                     </div>
                   <div class="panel" flex>
                         <h2 class="caption">Dont Like Frameworks?</h2>
-                        <p>You can use the components from furo without having the "framework".</p>
-                        <p>You can also use the <strong>fbp</strong> without having the "framework" </p>
+                        <p>You can use the furo base components standalone.</p>
+                        <p>You can also use the <strong><a href="https://furo.pro/guide/md/overview/">fbp</a></strong> without having the base components</p>
                         
                     </div>
 
@@ -2877,7 +3328,7 @@ return html`
         `}}window.customElements.define("view-home",ViewHome);class FuroButton extends FBP(LitElement){constructor(){super();this.label=this.innerText;this.disabled=!1;this.danger=!1}/**
      * Set the focus to the button
      * @param e
-     */focus(e){this._FBPTriggerWire("--focus")}/**
+     */focus(){this._FBPTriggerWire("--focus")}/**
      * Disables the button
      */disable(){this.disabled=!0}/**
      * Enables the button
@@ -2913,220 +3364,235 @@ return html`
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroButton")||css`
         :host {
-            display: inline-block;
-            position: relative;
-            font-size: 16px;
-            box-sizing: border-box;
-            min-width: 64px;
-            white-space: nowrap;
+          display: inline-block;
+          position: relative;
+          font-size: 16px;
+          box-sizing: border-box;
+          min-width: 64px;
+          white-space: nowrap;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         * {
-            transition: all 100ms ease-in;
+          transition: all 100ms ease-in;
         }
 
         button {
-            font-family: "Roboto", "Noto", sans-serif;
-            border-radius: 4px;
-            border: 1px solid transparent;
-            width: 100%;
-            cursor: pointer;
-            color: var(--on-surface);
-            padding: 0  var(--furo-button-padding, var(--spacing-s, 16px));;
-            text-transform: uppercase;
-            font-size: 14px;
-            font-weight: 500;
-            outline: none;
-            line-height: 34px;
-            background-color: transparent;
-            box-sizing: border-box;
-            
-          
+          font-family: 'Roboto', 'Noto', sans-serif;
+          border-radius: 4px;
+          border: 1px solid transparent;
+          width: 100%;
+          cursor: pointer;
+          color: var(--on-surface);
+          padding: 0 var(--furo-button-padding, var(--spacing-s, 16px));
+          text-transform: uppercase;
+          font-size: 14px;
+          font-weight: 500;
+          outline: none;
+          line-height: 34px;
+          background-color: transparent;
+          box-sizing: border-box;
         }
 
         :host([unelevated]) button {
-            background-color: var(--surface, #f7f7f7);
-            color: var(--on-surface, #333333);
+          background-color: var(--surface, #f7f7f7);
+          color: var(--on-surface, #333333);
         }
 
-        :host([disabled]) button[disabled], :host([disabled]) button[disabled]:hover {
-            color: var(--disabled, #eeeeee);
-            cursor: not-allowed;
+        :host([disabled]) button[disabled],
+        :host([disabled]) button[disabled]:hover {
+          color: var(--disabled, #eeeeee);
+          cursor: not-allowed;
         }
 
-        :host([raised][disabled]) button[disabled] ,:host([raised][disabled]) button[disabled]:hover,  :host([unelevated][disabled]) button[disabled] ,:host([unelevated][disabled]) button[disabled]:hover ,  :host([outline][disabled]) button[disabled] ,:host([outline][disabled]) button[disabled]:hover {
-            background-color: var(--disabled, #eeeeee);
-            color: var(--on-disabled, #333333);
-            border-color:var(--disabled, #eeeeee);
-            cursor: not-allowed;
+        :host([raised][disabled]) button[disabled],
+        :host([raised][disabled]) button[disabled]:hover,
+        :host([unelevated][disabled]) button[disabled],
+        :host([unelevated][disabled]) button[disabled]:hover,
+        :host([outline][disabled]) button[disabled],
+        :host([outline][disabled]) button[disabled]:hover {
+          background-color: var(--disabled, #eeeeee);
+          color: var(--on-disabled, #333333);
+          border-color: var(--disabled, #eeeeee);
+          cursor: not-allowed;
         }
 
-        
         :host([primary]) button {
-            color: var(--primary);
+          color: var(--primary);
         }
-        :host([raised][primary]) button, :host([unelevated][primary]) button {
-            background-color: var(--primary);
-            color: var(--on-primary);
+        :host([raised][primary]) button,
+        :host([unelevated][primary]) button {
+          background-color: var(--primary);
+          color: var(--on-primary);
         }
         :host([outline][primary]) button {
-            background-color: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
+          background-color: transparent;
+          color: var(--primary);
+          border: 1px solid var(--primary);
         }
-        :host([raised][primary]) button:focus, :host([unelevated][primary]) button:focus{
-            background-color: var(--primary-light);
+        :host([raised][primary]) button:focus,
+        :host([unelevated][primary]) button:focus {
+          background-color: var(--primary-light);
         }
-        :host([raised][primary]) button:hover, :host([unelevated][primary]) button:hover{
-            background-color: var(--primary-dark);
+        :host([raised][primary]) button:hover,
+        :host([unelevated][primary]) button:hover {
+          background-color: var(--primary-dark);
         }
-        :host([primary]) button:focus{
-            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
+        :host([primary]) button:focus {
+          background-color: var(--focus-color, var(--surface-light, #f3f3f3));
         }
-        :host([primary]) button:hover{
-            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
+        :host([primary]) button:hover {
+          background-color: var(--hover-color, var(--surface-dark, #f1f1f1));
         }
-
-
 
         :host([accent]) button {
-            color: var(--accent);
+          color: var(--accent);
         }
-        :host([raised][accent]) button, :host([unelevated][accent]) button {
-            background-color: var(--accent);
-            color: var(--on-accent);
+        :host([raised][accent]) button,
+        :host([unelevated][accent]) button {
+          background-color: var(--accent);
+          color: var(--on-accent);
         }
         :host([outline][accent]) button {
-            background-color: transparent;
-            color: var(--accent);
-            border: 1px solid var(--accent);
+          background-color: transparent;
+          color: var(--accent);
+          border: 1px solid var(--accent);
         }
-        :host([raised][accent]) button:focus, :host([unelevated][accent]) button:focus{
-            background-color: var(--accent-light);
+        :host([raised][accent]) button:focus,
+        :host([unelevated][accent]) button:focus {
+          background-color: var(--accent-light);
         }
-        :host([raised][accent]) button:hover, :host([unelevated][accent]) button:hover{
-            background-color: var(--accent-dark);
+        :host([raised][accent]) button:hover,
+        :host([unelevated][accent]) button:hover {
+          background-color: var(--accent-dark);
         }
-        :host([accent]) button:focus{
-            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
+        :host([accent]) button:focus {
+          background-color: var(--focus-color, var(--surface-light, #f3f3f3));
         }
-        :host([accent]) button:hover{
-            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
+        :host([accent]) button:hover {
+          background-color: var(--hover-color, var(--surface-dark, #f1f1f1));
         }
-
 
         :host([secondary]) button {
-            color: var(--secondary);
+          color: var(--secondary);
         }
-        :host([raised][secondary]) button, :host([unelevated][secondary]) button {
-            background-color: var(--secondary);
-            color: var(--on-secondary);
+        :host([raised][secondary]) button,
+        :host([unelevated][secondary]) button {
+          background-color: var(--secondary);
+          color: var(--on-secondary);
         }
         :host([outline][secondary]) button {
-            background-color: transparent;
-            color: var(--secondary);
-            border: 1px solid var(--secondary);
+          background-color: transparent;
+          color: var(--secondary);
+          border: 1px solid var(--secondary);
         }
-        :host([raised][secondary]) button:focus, :host([unelevated][secondary]) button:focus{
-            background-color: var(--secondary-light);
+        :host([raised][secondary]) button:focus,
+        :host([unelevated][secondary]) button:focus {
+          background-color: var(--secondary-light);
         }
-        :host([raised][secondary]) button:hover, :host([unelevated][secondary]) button:hover{
-            background-color: var(--secondary-dark);
+        :host([raised][secondary]) button:hover,
+        :host([unelevated][secondary]) button:hover {
+          background-color: var(--secondary-dark);
         }
-        :host([secondary]) button:focus{
-            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
+        :host([secondary]) button:focus {
+          background-color: var(--focus-color, var(--surface-light, #f3f3f3));
         }
-        :host([secondary]) button:hover{
-            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
+        :host([secondary]) button:hover {
+          background-color: var(--hover-color, var(--surface-dark, #f1f1f1));
         }
-
-        
-        
-
 
         :host([danger]) button {
-            color: var(--danger, #ff0000);
+          color: var(--danger, #ff0000);
         }
 
-        :host([raised][danger]) button, :host([unelevated][danger]) button {
-            background-color: var(--danger, #ff0000);
-            color: var(--on-danger, #FFFFFF);
+        :host([raised][danger]) button,
+        :host([unelevated][danger]) button {
+          background-color: var(--danger, #ff0000);
+          color: var(--on-danger, #ffffff);
         }
- 
 
         :host([outline][danger]) button {
-            background-color: transparent;
-            color: var(--danger);
-            border: 1px solid var(--danger);
+          background-color: transparent;
+          color: var(--danger);
+          border: 1px solid var(--danger);
         }
 
-        :host([raised][danger]) button:focus, :host([unelevated][danger]) button:focus{
-            background-color: var(--danger-light, #FFFFFF);
-          
+        :host([raised][danger]) button:focus,
+        :host([unelevated][danger]) button:focus {
+          background-color: var(--danger-light, #ffffff);
         }
-        :host([raised][danger]) button:hover, :host([unelevated][danger]) button:hover{
-            background-color: var(--danger-dark);
-            
+        :host([raised][danger]) button:hover,
+        :host([unelevated][danger]) button:hover {
+          background-color: var(--danger-dark);
         }
-        :host([danger]) button:focus{
-            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
+        :host([danger]) button:focus {
+          background-color: var(--focus-color, var(--surface-light, #f3f3f3));
         }
-        :host([danger]) button:hover{
-            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
+        :host([danger]) button:hover {
+          background-color: var(--hover-color, var(--surface-dark, #f1f1f1));
         }
-
 
         :host([outline]) button {
-            background-color: transparent;
-            color: var(--on-surface);
-            border: 1px solid var(--on-surface);
+          background-color: transparent;
+          color: var(--on-surface);
+          border: 1px solid var(--on-surface);
         }
 
         button:active {
-            box-shadow: none;
+          box-shadow: none;
         }
-   
-        
-        button:focus, :host([unelevated]) button:focus, :host([outline]) button:focus{
-            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
+
+        button:focus,
+        :host([unelevated]) button:focus,
+        :host([outline]) button:focus {
+          background-color: var(--focus-color, var(--surface-light, #f3f3f3));
         }
-        button:hover, :host([unelevated]) button:hover, :host([outline]) button:hover{
-            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
+        button:hover,
+        :host([unelevated]) button:hover,
+        :host([outline]) button:hover {
+          background-color: var(--hover-color, var(--surface-dark, #f1f1f1));
         }
 
         :host([raised]) button:focus {
-            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12),
+            0 3px 5px -1px rgba(0, 0, 0, 0.4);
         }
 
         :host([raised]) button {
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+            0 3px 1px -2px rgba(0, 0, 0, 0.2);
         }
 
         :host([raised]) button:active {
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+            0 3px 1px -2px rgba(0, 0, 0, 0.2);
         }
 
-
         furo-icon {
-            width: 18px;
-            height: 18px;
-            margin: 0 8px 0 12px;
+          width: 18px;
+          height: 18px;
+          margin: 0 8px 0 12px;
         }
 
         :host([icon]) button {
-            padding: 0 16px 0 0;
+          padding: 0 16px 0 0;
         }
-
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return html`
-      <button @-keypressed="--buttonPressed" ƒ-focus="--focus" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?danger=${this.danger}><furo-icon ?hidden="${!this.icon}" icon="${this.icon}"></furo-icon>${this.label}       
+      <button
+        @-keypressed="--buttonPressed"
+        ƒ-focus="--focus"
+        ?autofocus=${this.autofocus}
+        ?disabled=${this.disabled}
+        ?danger=${this.danger}
+      >
+        <furo-icon ?hidden="${!this.icon}" icon="${this.icon}"></furo-icon>${this.label}
         <furo-ripple ƒ-trigger="--buttonPressed"></furo-ripple>
       </button>
     `}}window.customElements.define("furo-button",FuroButton);/**
@@ -3139,25 +3605,29 @@ return html`
    * @param attribute
    * @param value
    * @private
-   */static UpdateInputAttribute(caller,attribute,value){caller.updateComplete.then(d=>{if(!caller._theInputElement){caller._theInputElement=caller.shadowRoot.getElementById("input")}if(null!==value){caller._theInputElement.setAttribute(attribute,value)}else{// remove the attribute on null value
-caller._theInputElement.removeAttribute(attribute)}})}/**
+   */static UpdateInputAttribute(caller,attribute,value){caller.updateComplete.then(()=>{if(!caller._theInputElement){// eslint-disable-next-line no-param-reassign
+caller._theInputElement=caller.shadowRoot.getElementById("input")}if(null!==value){caller._theInputElement.setAttribute(attribute,value)}else{// remove the attribute on null value
+caller._theInputElement.removeAttribute(attribute)}caller.dispatchEvent(new CustomEvent("input-attr-updated",{detail:value,bubbles:!0,composed:!0}))})}/**
      * send event value-changed with event detail value
      * when input invalid send extra input-invalid event with event detail validity object
      * @param caller
      * @param e
-     */static triggerValueChanged(caller,e){let input=e.composedPath()[0];caller.valid=input.validity.valid;caller._float=!!input.value;caller.value=input.value;/**
+     */static triggerValueChanged(caller,e){const input=e.composedPath()[0];// eslint-disable-next-line no-param-reassign
+caller.valid=input.validity.valid;// eslint-disable-next-line no-param-reassign
+caller._float=!!input.value;// eslint-disable-next-line no-param-reassign
+caller.value=input.value;/**
                                  * @event value-cleared
                                  * Fired when value has changed to EMPTY_STRING from inside the component
                                  * detail paylod: empty
-                                 */if(0===caller.value.length){let customEvent=new Event("value-cleared",{composed:!0,bubbles:!0});caller.dispatchEvent(customEvent)}/**
+                                 */if(0===caller.value.length){const customEvent=new Event("value-cleared",{composed:!0,bubbles:!0});caller.dispatchEvent(customEvent)}/**
        * @event value-changed
        * Fired when value has changed from inside the component
        * detail payload: {String} the text value
-       */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=caller.value;caller.dispatchEvent(customEvent);if(!input.validity.valid){/**
+       */const customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=caller.value;caller.dispatchEvent(customEvent);if(!input.validity.valid){/**
        * @event input-invalid
        * Fired when input value is invalid
        * detail payload: {Object} the validity object of input
-       */let customEvent=new Event("input-invalid",{composed:!0,bubbles:!1});customEvent.detail=input.validity;caller.dispatchEvent(customEvent)}}}_exports.Helper=Helper;var helper={Helper:Helper};_exports.$helper=helper;class FuroColorInput extends FBP(LitElement){/**
+       */const invalidInputEvent=new Event("input-invalid",{composed:!0,bubbles:!1});invalidInputEvent.detail=input.validity;caller.dispatchEvent(invalidInputEvent)}}}_exports.Helper=Helper;var helper={Helper:Helper};_exports.$helper=helper;class FuroColorInput extends FBP(LitElement){/**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
    *
@@ -3233,318 +3703,336 @@ caller._theInputElement.removeAttribute(attribute)}})}/**
 return Theme.getThemeForComponent("FuroColorInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 10px 0 15px 0;
-            height: 56px;
-            width: 124px;
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+          margin: 10px 0 15px 0;
+          height: 56px;
+          width: 124px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            height: 56px;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
+          position: relative;
+          padding: 0 12px;
+          box-sizing: border-box;
+          height: 56px;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
         }
 
         input {
-            position: absolute;
-            top: 16px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            line-height: 24px;
-            width: calc(100% - 72px);
-            color: inherit;
-            outline: none;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
+          position: absolute;
+          top: 16px;
+          border: none;
+          background: none;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          line-height: 24px;
+          width: calc(100% - 72px);
+          color: inherit;
+          outline: none;
+          font-family: 'Roboto', 'Noto', sans-serif;
+          font-kerning: auto;
+          font-size: 16px;
+          font-stretch: 100%;
+          font-style: normal;
         }
 
         :host([filled]) .wrapper {
-            background-color: var(--surface-light, #FEFEFE);
+          background-color: var(--surface-light, #fefefe);
         }
 
         :host([filled]) .wrapper:hover {
-            background-color: var(--surface, #FCFCFC);
+          background-color: var(--surface, #fcfcfc);
         }
 
         :host([filled]:focus-within) .wrapper {
-            background-color: var(--surface-dark, #FEA222);
+          background-color: var(--surface-dark, #fea222);
         }
 
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-color: var(--input-hover-color, #333333);
+        :host(:not([filled]):hover) .left-border,
+        :host(:not([filled]):hover) .right-border,
+        :host(:not([filled]):hover) label {
+          border-color: var(--input-hover-color, #333333);
         }
-
 
         .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
+          pointer-events: none;
+          position: absolute;
+          box-sizing: border-box;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 56px;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: row;
+          -webkit-flex-direction: row;
+          flex-direction: row;
         }
 
         .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
+          width: 8px;
+          box-sizing: border-box;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-right: none;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
         }
-
 
         :host(:not([filled])) label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            line-height: 56px;
+          padding: 0 4px;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-right: none;
+          border-top: none;
+          line-height: 56px;
         }
-
 
         :host(:not([filled])) label span {
-            position: relative;
-            font-size: 12px;
-            top: -28px;
-            left: 0;
+          position: relative;
+          font-size: 12px;
+          top: -28px;
+          left: 0;
         }
-
 
         .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
         }
 
-
         .ripple-line {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 54px;
-            border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top: 54px;
+          border: none;
+          border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
 
         :host([filled]) .ripple-line {
-            display: block;
+          display: block;
         }
 
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
+        :host([filled]) .right-border,
+        :host([filled]) .left-border {
+          display: none;
         }
-
 
         :host([filled]) label {
-            padding: 0 12px;
-            line-height: 56px;
-            border: none;
+          padding: 0 12px;
+          line-height: 56px;
+          border: none;
         }
 
         :host([filled]) label span {
-            font-size: 12px;
-            font-weight: 400;
-            top: -20px;
-            position: relative;
+          font-size: 12px;
+          font-weight: 400;
+          top: -20px;
+          position: relative;
         }
-
 
         * {
-            transition: all 200ms ease-out;
+          transition: all 200ms ease-out;
         }
 
-        .hint, .errortext {
-            position: absolute;
-            bottom: -19px;
-            font-size: 12px;
-            color: transparent;
-            padding-left: 12px;
-            white-space: nowrap;
-            pointer-events: none;
+        .hint,
+        .errortext {
+          position: absolute;
+          bottom: -19px;
+          font-size: 12px;
+          color: transparent;
+          padding-left: 12px;
+          white-space: nowrap;
+          pointer-events: none;
         }
 
         :host(:focus-within) .hint {
-            color: var(--input-hint-color, #999999);
-            transition: all 550ms ease-in;
+          color: var(--input-hint-color, #999999);
+          transition: all 550ms ease-in;
         }
 
-
         :host([error]) .errortext {
-            display: block;
+          display: block;
         }
 
         .errortext {
-            color: var(--input-error-text-color, var(--error, red));
-            display: none;
+          color: var(--input-error-text-color, var(--error, red));
+          display: none;
         }
-
 
         label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+          color: var(--input-hint-color, var(--disabled, #dedede));
         }
 
-        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        :host(:focus-within) label,
+        :host(:focus-within:not([filled])) label {
+          color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+          border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
         }
-
 
         :host(:focus-within) .ripple-line {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+        :host(:not([filled]):focus-within) .left-border,
+        :host(:not([filled]):focus-within) .right-border,
+        :host(:not([filled]):focus-within) label {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-color: var(--input-error-text-color, var(--error, red));
-            border-width: 2px;
+        :host([error]:focus-within) .left-border,
+        :host([error]:focus-within) .right-border,
+        :host([error]:focus-within) label,
+        :host([error]:focus-within) .ripple-line {
+          border-color: var(--input-error-text-color, var(--error, red));
+          border-width: 2px;
         }
 
         :host([error]:focus-within) label {
-            color: var(--input-error-text-color, var(--error, red));
+          color: var(--input-error-text-color, var(--error, red));
         }
 
         :host([error]:focus-within) .hint {
-            display: none;
+          display: none;
         }
 
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        :host([error]) .ripple-line,
+        :host([error]) .left-border,
+        :host([error]) .right-border,
+        :host([error]) label {
+          border-color: var(--input-error-activation-indicator-color, var(--error, red));
         }
 
         furo-icon {
-            display: none;
-            top: 16px;
+          display: none;
+          top: 16px;
         }
 
         furo-icon.lead {
-            position: absolute;
+          position: absolute;
 
-            left: 8px;
+          left: 8px;
         }
 
         furo-icon.trail {
-            position: absolute;
-            right: 8px;
+          position: absolute;
+          right: 8px;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
+        :host([leading-icon]:not([leading-icon='undefined'])) furo-icon.lead,
+        :host([trailing-icon]:not([trailing-icon='undefined'])) furo-icon.trail {
+          display: block;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
-            padding-left: 36px;
+        :host([leading-icon]:not([leading-icon='undefined'])) .wrapper {
+          padding-left: 36px;
         }
 
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
-            padding-right: 36px;
+        :host([trailing-icon]:not([trailing-icon='undefined'])) .wrapper {
+          padding-right: 36px;
         }
 
         :host(:focus-within:not([valid])) label {
-            color: var(--input-error-text-color, var(--error, red));
+          color: var(--input-error-text-color, var(--error, red));
         }
 
-        :host([condensed]) input{
-            top:10px;
-            font-size: 14px;
+        :host([condensed]) input {
+          top: 10px;
+          font-size: 14px;
         }
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
-            line-height: 40px;
-            font-size: 14px;
+        :host([condensed]:not([filled])) label,
+        :host([filled][condensed]) label {
+          line-height: 40px;
+          font-size: 14px;
         }
 
         :host([condensed][filled]) input {
-            top: 12px;
+          top: 12px;
         }
 
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
-            height: 40px;
+        :host([condensed]) .borderlabel,
+        :host([condensed]) .wrapper {
+          height: 40px;
         }
 
         :host([condensed]) furo-icon {
-            top: 10px;
+          top: 10px;
         }
 
         :host([condensed]) .ripple-line {
-            top: 38px;
+          top: 38px;
         }
 
-        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-            top: -12px;
-            
+        :host([condensed][filled]) label[float] span,
+        :host([filled][condensed]:focus-within) label span {
+          top: -12px;
         }
 
         :host([condensed]) label span {
-            top: -20px;
-            
+          top: -20px;
         }
 
         :host([condensed]) {
-            height: 40px;
+          height: 40px;
         }
-
-    `}/**
+      `}/**
      *
      * @return {TemplateResult | TemplateResult}
      * @private
      */render(){// language=HTML
-return html` 
+return html`
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly}
-       ?disabled=${this.disabled}              
-       type="color" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
-       
-       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
+        <furo-icon
+          class="lead"
+          icon="${this.leadingIcon}"
+          @-click="^^leading-icon-clicked(value)"
+        ></furo-icon>
+        <input
+          id="input"
+          ?autofocus=${this.autofocus}
+          ?readonly=${this.readonly}
+          ?disabled=${this.disabled}
+          type="color"
+          ƒ-.value="--value"
+          @-input="--inputInput(*)"
+          ƒ-focus="--focus"
+        />
+
+        <furo-icon
+          class="trail"
+          icon="${this.trailingIcon}"
+          @-click="^^trailing-icon-clicked(value)"
+        ></furo-icon>
       </div>
       <div class="borderlabel">
-      <div class="left-border"></div>
-      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
-      <div class="right-border"></div>
+        <div class="left-border"></div>
+        <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+        <div class="right-border"></div>
       </div>
-      
-      <div class="ripple-line"></div>           
+
+      <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
- 
-    `}}window.customElements.define("furo-color-input",FuroColorInput);class FuroCheckbox extends FBP(LitElement){constructor(){super()}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.checked=input.checked;this.value=input.checked});this._FBPAddWireHook("--focusReceived",e=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",e=>{this.focused=!1})}/**
+    `}}window.customElements.define("furo-color-input",FuroColorInput);class FuroCheckbox extends FBP(LitElement){_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{const input=e.composedPath()[0];this.checked=input.checked;this.value=input.checked});this._FBPAddWireHook("--focusReceived",()=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",()=>{this.focused=!1})}/**
      * Sets the focus on the checkbox.
      */focus(){this._FBPTriggerWire("--focus")}/**
      * check the checkbox
@@ -3561,15 +4049,15 @@ return html`
                         * @event value-changed
                         * Fired when value has changed from inside the component
                         * detail payload: {String} the text value
-                        */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent);if(this.checked){/**
+                        */const customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent);if(this.checked){/**
        * @event checked
        * Fired when the checkbox is checked
        * detail payload: {String} the text value
-       */let customEvent=new Event("checked",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}else{/**
+       */const checkedEvent=new Event("checked",{composed:!0,bubbles:!0});checkedEvent.detail=this.value;this.dispatchEvent(checkedEvent)}else{/**
        * @event unchecked
        * Fired when the checkbox is unchecked
        * detail payload: {String} the text value
-       */let customEvent=new Event("unchecked",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}}get value(){return this._value}static get properties(){return{/**
+       */const uncheckedEvent=new Event("unchecked",{composed:!0,bubbles:!0});uncheckedEvent.detail=this.value;this.dispatchEvent(uncheckedEvent)}}get value(){return this._value}static get properties(){return{/**
        * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
        * This is different from the native attribute `value` of the input checkbox
        */value:{type:Boolean},/**
@@ -3586,190 +4074,264 @@ return html`
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroCheckbox")||css`
-            /* https://material.io/design/components/text-fields.html#theming */
-            :host {
-                display: inline-block;
-                position: relative;
-                box-sizing: border-box;
-            }
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+        }
 
-            :host([hidden]) {
-                display: none;
-            }
+        :host([hidden]) {
+          display: none;
+        }
 
-            /* The wrapper */
-            .wrapper {
-                display: block;
-                position: relative;
-                cursor: pointer;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                height: 40px;
-                width: 40px;
-                border-radius: 50%;
-                box-sizing: border-box;
+        /* The wrapper */
+        .wrapper {
+          display: block;
+          position: relative;
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;
+          box-sizing: border-box;
+        }
 
-            }
+        input[type='checkbox' i] {
+          margin: 0;
+        }
 
-            input[type="checkbox" i] {
-                margin: 0;
-            }
+        /* input checkbox*/
+        .wrapper input {
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          cursor: pointer;
+          height: 40px;
+          width: 40px;
+          z-index: 1;
+          box-sizing: border-box;
+        }
 
-            /* input checkbox*/
-            .wrapper input {
-                position: absolute;
-                top: 0;
-                left: 0;
-                opacity: 0;
-                cursor: pointer;
-                height: 40px;
-                width: 40px;
-                z-index: 1;
-                box-sizing: border-box;
+        .checkbox-background {
+          position: absolute;
+          top: 11px;
+          left: 11px;
+          height: 18px;
+          width: 18px;
+          background-color: var(--input-checkbox-unselected-bg-color, var(--background, #eeeeee));
+          border: solid 2px;
+          border-color: var(
+            --input-checkbox-unselected-border-color,
+            var(--on-background, #212121)
+          );
+          box-sizing: border-box;
+          border-color: var(--on-surface, #808080);
+        }
 
-            }
+        .wrapper:hover input ~ .checkbox-background {
+          background-color: rgba(
+            var(
+              --input-checkbox-unselected-hover-bg-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-hover, 0.04)
+          );
+        }
 
-            .checkbox-background {
-                position: absolute;
-                top: 11px;
-                left: 11px;
-                height: 18px;
-                width: 18px;
-                background-color: var(--input-checkbox-unselected-bg-color, var(--background, #eeeeee));
-                border: solid 2px;
-                border-color: var(--input-checkbox-unselected-border-color, var(--on-background, #212121));
-                box-sizing: border-box;
-                border-color: var(--on-surface, #808080);
-            }
-            
-            .wrapper:hover input ~ .checkbox-background {
-                background-color: rgba( var(--input-checkbox-unselected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
-              
-            }
+        /* unselected checkbox when pressing */
+        .wrapper:active {
+          background-color: rgba(
+            var(
+              --input-checkbox-unselected-active-bg-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-active, 0.1)
+          );
+        }
 
-            /* unselected checkbox when pressing */
-            .wrapper:active {
-                background-color: rgba( var(--input-checkbox-unselected-active-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-active, 0.10) ) ;
+        .wrapper:active input ~ .checkbox-background {
+          background-color: rgba(
+            var(
+              --input-checkbox-unselected-active-bg-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-active, 0.1)
+          );
+        }
 
-            }
-            
-            .wrapper:active input ~ .checkbox-background {
-                background-color: rgba( var(--input-checkbox-unselected-active-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-active, 0.10) ) ;
-            }
+        /* unselected checkbox when focusing */
+        .wrapper[focused] {
+          background-color: rgba(
+            var(
+              --input-checkbox-unselected-focus-bg-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-focus, 0.12)
+          );
+        }
 
-            /* unselected checkbox when focusing */
-            .wrapper[focused] {
-                background-color: rgba( var(--input-checkbox-unselected-focus-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-focus, 0.12) ) ;
+        /* unselected checkbox when hovering */
+        .wrapper:hover {
+          background-color: rgba(
+            var(
+              --input-checkbox-unselected-hover-bg-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-hover, 0.04)
+          );
+        }
 
-            }
+        /* selected checkbox  */
+        .wrapper[checked] input ~ .checkbox-background {
+          background-color: var(--input-checkbox-selected-bg-color, var(--primary, #6200fd));
+          border-color: var(--input-checkbox-selected-bg-color, var(--primary, #6200fd));
+        }
 
-            /* unselected checkbox when hovering */
-            .wrapper:hover {
-                background-color: rgba( var(--input-checkbox-unselected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
-            }
+        /* selected checkbox when pressing */
+        .wrapper[checked]:active {
+          background-color: rgba(
+            var(--input-checkbox-selected-active-bg-color-rgb, var(--primary-rgb, 76, 175, 80)),
+            var(--state-active, 0.1)
+          );
+        }
 
+        /* selected checkbox when focusing */
+        .wrapper[checked][focused] {
+          background-color: rgba(
+            var(--input-checkbox-selected-focus-bg-color-rgb, var(--primary-rgb, 76, 175, 80)),
+            var(--state-focus, 0.12)
+          );
+        }
 
-            /* selected checkbox  */
-            .wrapper[checked] input ~ .checkbox-background {
-                background-color: var(--input-checkbox-selected-bg-color, var(--primary, #6200FD));
-                border-color: var(--input-checkbox-selected-bg-color, var(--primary, #6200FD));
-            }
-            
-            /* selected checkbox when pressing */
-            .wrapper[checked]:active {
-                background-color: rgba( var(--input-checkbox-selected-active-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-active, 0.10) ) ;
-            }
+        .wrapper[checked][focused] input ~ .checkbox-background {
+        }
+        /* selected checkbox when hovering */
+        .wrapper[checked]:hover {
+          background-color: rgba(
+            var(--input-checkbox-selected-hover-bg-color-rgb, var(--primary-rgb, 76, 175, 80)),
+            var(--state-hover, 0.04)
+          );
+        }
 
-            /* selected checkbox when focusing */
-            .wrapper[checked][focused] {
-                background-color: rgba( var(--input-checkbox-selected-focus-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-focus, 0.12) ) ;
-            }
+        /* disabled checkbox selected */
+        .wrapper[checked][disabled] input:disabled:checked ~ .checkbox-background {
+          background-color: rgba(
+            var(
+              --input-checkbox-disabled-selected-bg-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-disabled, 0.38)
+          );
+          border-color: rgba(
+            var(
+              --input-checkbox-disabled-selected-border-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-disabled, 0.38)
+          );
+        }
 
-            .wrapper[checked][focused] input ~ .checkbox-background {
-            }
-            /* selected checkbox when hovering */
-            .wrapper[checked]:hover {
-                background-color: rgba( var(--input-checkbox-selected-hover-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-hover, 0.04) ) ;
-            }
+        /* disabled checkbox unselected */
+        .wrapper input:disabled ~ .checkbox-background {
+          background-color: rgba(
+            var(
+              --input-checkbox-disabled-unselected-bg-color-rgb,
+              var(--background-rgb, 238, 238, 238)
+            ),
+            var(--state-disabled, 0.38)
+          );
+          border-color: rgba(
+            var(
+              --input-checkbox-disabled-unselected-border-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-disabled, 0.38)
+          );
+        }
 
-            
-            /* disabled checkbox selected */
-            .wrapper[checked][disabled] input:disabled:checked ~ .checkbox-background {
+        .checkbox-background:after {
+          content: '';
+          position: absolute;
+          display: none;
+        }
 
-                background-color: rgba( var(--input-checkbox-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
-                border-color: rgba( var(--input-checkbox-disabled-selected-border-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+        input:disabled {
+          cursor: default;
+        }
 
-            }
+        /* disabled checkbox when hovering */
+        .wrapper[disabled]:hover {
+          background: transparent;
+        }
 
-            /* disabled checkbox unselected */
-            .wrapper input:disabled ~ .checkbox-background {
-                background-color: rgba( var(--input-checkbox-disabled-unselected-bg-color-rgb, var(--background-rgb, 238, 238, 238)), var(--state-disabled, 0.38) ) ;
-                border-color: rgba( var(--input-checkbox-disabled-unselected-border-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
-            }
+        .wrapper[checked] .checkbox-background:after {
+          display: block;
+        }
 
-            .checkbox-background:after {
-                content: "";
-                position: absolute;
-                display: none;
-            }
+        .wrapper .checkbox-background:after {
+          left: 3px;
+          top: -1px;
+          width: 5px;
+          height: 11px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
 
-            input:disabled {
-                cursor: default;
-            }
+        :host([condensed]) .wrapper,
+        :host([condensed]) .wrapper input {
+          width: 32px;
+          height: 32px;
+        }
 
-            /* disabled checkbox when hovering */
-            .wrapper[disabled]:hover {
-                background: transparent;
-            }
+        :host([condensed]) .checkbox-background {
+          top: 7px;
+          left: 7px;
+        }
 
-            .wrapper[checked] .checkbox-background:after {
-                display: block;
-            }
-
-            .wrapper .checkbox-background:after {
-                left: 3px;
-                top: -1px;
-                width: 5px;
-                height: 11px;
-                border: solid white;
-                border-width: 0 2px 2px 0;
-                -webkit-transform: rotate(45deg);
-                -ms-transform: rotate(45deg);
-                transform: rotate(45deg);
-            }
-
-            :host([condensed]) .wrapper , :host([condensed]) .wrapper  input{
-                width: 32px;
-                height: 32px;
-            } 
-            
-            :host([condensed]) .checkbox-background {
-                top: 7px;
-                left: 7px;
-            }
-            
-            furo-ripple{
-                border-radius: 50%;
-            }
-        `}/**
+        furo-ripple {
+          border-radius: 50%;
+        }
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){return html`
-          <div id="wrapper" class="wrapper" ?focused=${this.focused} ?checked=${this.checked} ?disabled=${this.disabled}>
-              <input id="input" type="checkbox" ?checked=${this.checked}  ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
-                     ƒ-focus="--focus" @-input="--inputInput(*)" @-focusout="--focusOutReceived" @-focus="--focusReceived" @-blur="-^blur"  >
-              <span class="checkbox-background"></span>
-              <furo-ripple></furo-ripple>
-          </div>
-        `}}customElements.define("furo-checkbox",FuroCheckbox);class FuroCheckboxInput extends FBP(LitElement){/**
+      <div
+        id="wrapper"
+        class="wrapper"
+        ?focused=${this.focused}
+        ?checked=${this.checked}
+        ?disabled=${this.disabled}
+      >
+        <input
+          id="input"
+          type="checkbox"
+          ?checked=${this.checked}
+          ?autofocus=${this.autofocus}
+          ?disabled=${this.disabled}
+          ƒ-focus="--focus"
+          @-input="--inputInput(*)"
+          @-focusout="--focusOutReceived"
+          @-focus="--focusReceived"
+          @-blur="-^blur"
+        />
+        <span class="checkbox-background"></span>
+        <furo-ripple></furo-ripple>
+      </div>
+    `}}customElements.define("furo-checkbox",FuroCheckbox);class FuroCheckboxInput extends FBP(LitElement){/**
    * @event ALL_BUBBLING_EVENTS_FROM_furo-checkbox
    *
    * All bubbling events from [furo-checkbox](furo-checkbox) will be fired, because furo-checkbox-input uses furo-checkbox internally.
    *
    */constructor(){super();this.valid=!0;this.addEventListener("value-changed",e=>{this._value=e.detail})}_FBPReady(){super._FBPReady();// init value , when undefined then false
-this._value=!!this.value;this._FBPAddWireHook("--toggle",_=>{if(!this.disabled){this.toggle()}})}set value(v){this._value=v;this._FBPTriggerWire("--value",!!v)}get value(){return this._value}set checked(v){if(v){this.check()}else{this.uncheck()}}static get properties(){return{/**
+this._value=!!this.value;this._FBPAddWireHook("--toggle",()=>{if(!this.disabled){this.toggle()}})}set value(v){this._value=v;this._FBPTriggerWire("--value",!!v)}get value(){return this._value}set checked(v){if(v){this.check()}else{this.uncheck()}}static get properties(){return{/**
        * set this to true to indicate errors
        */error:{type:Boolean,reflect:!0},/**
        * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
@@ -3828,169 +4390,177 @@ this._value=!!this.value;this._FBPAddWireHook("--toggle",_=>{if(!this.disabled){
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroCheckboxInput")||css`
-            /* https://material.io/design/components/text-fields.html#theming */
-            :host {
-                display: inline-block;
-                position: relative;
-                box-sizing: border-box;
-                margin: 10px 0 15px 0;
-                height: 56px;
-                width: 300px;
-            }
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+          margin: 10px 0 15px 0;
+          height: 56px;
+          width: 300px;
+        }
 
-            :host([condensed]) {
-                margin-top: 12px;
-            }
+        :host([condensed]) {
+          margin-top: 12px;
+        }
 
-            :host([hidden]) {
-                display: none;
-            }
+        :host([hidden]) {
+          display: none;
+        }
 
-            .wrapper {
-                position: relative;
-                padding: 0;
-                box-sizing: border-box;
-                height: 56px;
-            }
-            
-            label {
-                line-height: 56px;
-            }
+        .wrapper {
+          position: relative;
+          padding: 0;
+          box-sizing: border-box;
+          height: 56px;
+        }
 
-            .ripple-line {
-                display: none;
-                position: absolute;
-                width: 100%;
-                height: 1px;
-                top: 54px;
-                border: none;
-                border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            }
-            
-            * {
-                transition: all 200ms ease-out;
-            }
+        label {
+          line-height: 56px;
+        }
 
-            .hint, .errortext {
-                position: absolute;
-                bottom: -0;
-                font-size: 12px;
-                color: transparent;
-                padding-left: 42px;
-                white-space: nowrap;
-                pointer-events: none;
-            }
+        .ripple-line {
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top: 54px;
+          border: none;
+          border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
 
-            :host(:focus-within) .hint {
-                color: var(--input-hint-color, #999999);
-                transition: all 550ms ease-in;
-            }
+        * {
+          transition: all 200ms ease-out;
+        }
 
-            :host([error]) .errortext {
-                display: block;
-            }
+        .hint,
+        .errortext {
+          position: absolute;
+          bottom: -0;
+          font-size: 12px;
+          color: transparent;
+          padding-left: 42px;
+          white-space: nowrap;
+          pointer-events: none;
+        }
 
-            .errortext {
-                color: var(--input-error-text-color, var(--error, red));
-                display: none;
-            }
+        :host(:focus-within) .hint {
+          color: var(--input-hint-color, #999999);
+          transition: all 550ms ease-in;
+        }
 
-            label {
-                font-size: 16px;
-                color: inherit;
-                cursor: pointer;
-            }
+        :host([error]) .errortext {
+          display: block;
+        }
 
-            :host(:focus-within) label, :host(:focus-within) label {
-                color: var(--input-active-label-color, var(--primary, #3f51b5));
-                border-color: var(--input-active-label-color, var(--primary, #3f51b5));
-            }
+        .errortext {
+          color: var(--input-error-text-color, var(--error, red));
+          display: none;
+        }
 
-            :host(:focus-within) .ripple-line {
-                border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-                border-width: 2px;
-            }
+        label {
+          font-size: 16px;
+          color: inherit;
+          cursor: pointer;
+        }
 
-            :host:focus-within) label {
-                border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-                border-width: 2px;
-            }
+        :host(:focus-within) label,
+        :host(:focus-within) label {
+          color: var(--input-active-label-color, var(--primary, #3f51b5));
+          border-color: var(--input-active-label-color, var(--primary, #3f51b5));
+        }
 
-            :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-                border-color: var(--input-error-text-color, var(--error, red));
-                border-width: 2px;
-            }
+        :host(:focus-within) .ripple-line {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
+        }
 
-            :host([error]:focus-within) label {
-                color: var(--input-error-text-color, var(--error, red));
-            }
+        :host:focus-within) label {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
+        }
 
-            :host([error]:focus-within) .hint {
-                display: none;
-            }
+        :host([error]:focus-within) label,
+        :host([error]:focus-within) .ripple-line {
+          border-color: var(--input-error-text-color, var(--error, red));
+          border-width: 2px;
+        }
 
-            :host([error]) .ripple-line, :host([error]) label {
-                border-color: var(--input-error-activation-indicator-color, var(--error, red));
-            }
+        :host([error]:focus-within) label {
+          color: var(--input-error-text-color, var(--error, red));
+        }
 
-            :host(:focus-within:not([valid])) label {
-                color: var(--input-error-text-color, var(--error, red));
-            }
+        :host([error]:focus-within) .hint {
+          display: none;
+        }
 
-            :host([condensed]) label, :host([condensed]) label {
-                line-height: 40px;
-                font-size: 14px;
-            }
+        :host([error]) .ripple-line,
+        :host([error]) label {
+          border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
 
-            :host([condensed]) input {
-                top: 12px;
-            }
+        :host(:focus-within:not([valid])) label {
+          color: var(--input-error-text-color, var(--error, red));
+        }
 
-            :host([condensed]) .wrapper {
-                height: 40px;
-            }
+        :host([condensed]) label,
+        :host([condensed]) label {
+          line-height: 40px;
+          font-size: 14px;
+        }
 
-            :host([condensed]) .ripple-line {
-                top: 38px;
-            }
+        :host([condensed]) input {
+          top: 12px;
+        }
 
-            :host([condensed]) {
-                height: 40px;
-            }
+        :host([condensed]) .wrapper {
+          height: 40px;
+        }
 
-            furo-checkbox {
-                position: absolute;
-                top: 8px;
-            }
+        :host([condensed]) .ripple-line {
+          top: 38px;
+        }
 
-            label {
-                position: absolute;
-                top: 0px;
-                left: 42px;
-                right: 0;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                overflow: hidden;
-            }
+        :host([condensed]) {
+          height: 40px;
+        }
 
-            :host([condensed]) furo-checkbox {
-                top: 3px;
-            }
-        `}render(){// language=HTML
-return html` 
+        furo-checkbox {
+          position: absolute;
+          top: 8px;
+        }
+
+        label {
+          position: absolute;
+          top: 0px;
+          left: 42px;
+          right: 0;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        :host([condensed]) furo-checkbox {
+          top: 3px;
+        }
+      `}render(){// language=HTML
+return html`
       <div class="wrapper">
-      
-        <furo-checkbox type="checkbox" id="input"  ?autofocus=${this.autofocus} 
-          ?disabled=${this.disabled||this.readonly}  ?condensed=${this.condensed}
-          ƒ-set-value="--value" ƒ-focus="--focus"></furo-checkbox>
-        <label for="input"  @-click="--toggle,--focus">${this.label}</label>
-        
+        <furo-checkbox
+          type="checkbox"
+          id="input"
+          ?autofocus=${this.autofocus}
+          ?disabled=${this.disabled||this.readonly}
+          ?condensed=${this.condensed}
+          ƒ-set-value="--value"
+          ƒ-focus="--focus"
+        ></furo-checkbox>
+        <label for="input" @-click="--toggle,--focus">${this.label}</label>
       </div>
-      
-      <div class="ripple-line"></div>           
+
+      <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
- 
     `}}window.customElements.define("furo-checkbox-input",FuroCheckboxInput);class FuroDateInput extends FBP(LitElement){/**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
@@ -4094,325 +4664,336 @@ return html`
 return Theme.getThemeForComponent("FuroDateInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 10px 0 15px 0;
-            height: 56px;
-            width: 174px;
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+          margin: 10px 0 15px 0;
+          height: 56px;
+          width: 174px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            height: 56px;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
+          position: relative;
+          padding: 0 12px;
+          box-sizing: border-box;
+          height: 56px;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
         }
 
         .iwrap {
-            position: relative;
+          position: relative;
         }
 
-
         input {
-            position: absolute;
-            top: 16px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            line-height: 24px;
-            color: inherit;
-            outline: none;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
+          position: absolute;
+          top: 16px;
+          border: none;
+          background: none;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          line-height: 24px;
+          color: inherit;
+          outline: none;
+          font-family: 'Roboto', 'Noto', sans-serif;
+          font-kerning: auto;
+          font-size: 16px;
+          font-stretch: 100%;
+          font-style: normal;
         }
 
         :host([filled]) .wrapper {
-            background-color: var(--surface-light, #FEFEFE);
+          background-color: var(--surface-light, #fefefe);
         }
 
         :host([filled]) .wrapper:hover {
-            background-color: var(--surface, #FCFCFC);
+          background-color: var(--surface, #fcfcfc);
         }
 
         :host([filled]:focus-within) .wrapper {
-            background-color: var(--surface-dark, #FEA222);
+          background-color: var(--surface-dark, #fea222);
         }
 
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-color: var(--input-hover-color, #333333);
+        :host(:not([filled]):hover) .left-border,
+        :host(:not([filled]):hover) .right-border,
+        :host(:not([filled]):hover) label {
+          border-color: var(--input-hover-color, #333333);
         }
-
 
         .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
+          pointer-events: none;
+          position: absolute;
+          box-sizing: border-box;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 56px;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: row;
+          -webkit-flex-direction: row;
+          flex-direction: row;
         }
 
         .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
+          width: 8px;
+          box-sizing: border-box;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-right: none;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
         }
-
 
         :host(:not([filled])) label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            line-height: 56px;
+          padding: 0 4px;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-right: none;
+          border-top: none;
+          line-height: 56px;
         }
-
 
         :host(:not([filled])) label span {
-            position: relative;
-            font-size: 12px;
-            top: -28px;
-            left: 0;
+          position: relative;
+          font-size: 12px;
+          top: -28px;
+          left: 0;
         }
-
 
         .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
         }
 
-
         .ripple-line {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 54px;
-            border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top: 54px;
+          border: none;
+          border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
 
         :host([filled]) .ripple-line {
-            display: block;
+          display: block;
         }
 
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
+        :host([filled]) .right-border,
+        :host([filled]) .left-border {
+          display: none;
         }
-
 
         :host([filled]) label {
-            padding: 0 12px;
-            line-height: 56px;
-            border: none;
+          padding: 0 12px;
+          line-height: 56px;
+          border: none;
         }
 
         :host([filled]) label span {
-            font-size: 12px;
-            font-weight: 400;
-            top: -20px;
-            position: relative;
+          font-size: 12px;
+          font-weight: 400;
+          top: -20px;
+          position: relative;
         }
-
 
         * {
-            transition: all 200ms ease-out;
+          transition: all 200ms ease-out;
         }
 
-        .hint, .errortext {
-            position: absolute;
-            bottom: -19px;
-            font-size: 12px;
-            color: transparent;
-            padding-left: 12px;
-            white-space: nowrap;
-            pointer-events: none;
+        .hint,
+        .errortext {
+          position: absolute;
+          bottom: -19px;
+          font-size: 12px;
+          color: transparent;
+          padding-left: 12px;
+          white-space: nowrap;
+          pointer-events: none;
         }
 
         :host(:focus-within) .hint {
-            color: var(--input-hint-color, #999999);
-            transition: all 550ms ease-in;
+          color: var(--input-hint-color, #999999);
+          transition: all 550ms ease-in;
         }
 
-
         :host([error]) .errortext {
-            display: block;
+          display: block;
         }
 
         .errortext {
-            color: var(--input-error-text-color, var(--error, red));
-            display: none;
+          color: var(--input-error-text-color, var(--error, red));
+          display: none;
         }
-
 
         label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+          color: var(--input-hint-color, var(--disabled, #dedede));
         }
 
-        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        :host(:focus-within) label,
+        :host(:focus-within:not([filled])) label {
+          color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+          border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
         }
-
 
         :host(:focus-within) .ripple-line {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+        :host(:not([filled]):focus-within) .left-border,
+        :host(:not([filled]):focus-within) .right-border,
+        :host(:not([filled]):focus-within) label {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-color: var(--input-error-text-color, var(--error, red));
-            border-width: 2px;
+        :host([error]:focus-within) .left-border,
+        :host([error]:focus-within) .right-border,
+        :host([error]:focus-within) label,
+        :host([error]:focus-within) .ripple-line {
+          border-color: var(--input-error-text-color, var(--error, red));
+          border-width: 2px;
         }
 
         :host([error]:focus-within) label {
-            color: var(--input-error-text-color, var(--error, red));
+          color: var(--input-error-text-color, var(--error, red));
         }
 
         :host([error]:focus-within) .hint {
-            display: none;
+          display: none;
         }
 
-
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        :host([error]) .ripple-line,
+        :host([error]) .left-border,
+        :host([error]) .right-border,
+        :host([error]) label {
+          border-color: var(--input-error-activation-indicator-color, var(--error, red));
         }
 
         furo-icon {
-            display: none;
-            top: 16px;
+          display: none;
+          top: 16px;
         }
 
         furo-icon.lead {
-            position: absolute;
+          position: absolute;
 
-            left: 8px;
+          left: 8px;
         }
 
         furo-icon.trail {
-            position: absolute;
-            right: 8px;
+          position: absolute;
+          right: 8px;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
+        :host([leading-icon]:not([leading-icon='undefined'])) furo-icon.lead,
+        :host([trailing-icon]:not([trailing-icon='undefined'])) furo-icon.trail {
+          display: block;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
-            padding-left: 36px;
+        :host([leading-icon]:not([leading-icon='undefined'])) .wrapper {
+          padding-left: 36px;
         }
 
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
-            padding-right: 36px;
+        :host([trailing-icon]:not([trailing-icon='undefined'])) .wrapper {
+          padding-right: 36px;
         }
 
         :host(:focus-within:not([valid])) label {
-            color: var(--input-error-text-color, var(--error, red));
+          color: var(--input-error-text-color, var(--error, red));
         }
 
         :host([condensed]) input {
-            top: 11px;
-            font-size: 14px;
+          top: 11px;
+          font-size: 14px;
         }
 
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
-            line-height: 40px;
-            font-size: 14px;
+        :host([condensed]:not([filled])) label,
+        :host([filled][condensed]) label {
+          line-height: 40px;
+          font-size: 14px;
         }
 
         :host([condensed][filled]) input {
-            top: 12px;
+          top: 12px;
         }
 
-        :host([condensed]) .borderlabel , :host([condensed]) .wrapper{
-            height: 40px;
+        :host([condensed]) .borderlabel,
+        :host([condensed]) .wrapper {
+          height: 40px;
         }
 
         :host([condensed]) furo-icon {
-            top: 10px;
+          top: 10px;
         }
 
         :host([condensed]) .ripple-line {
-            top: 38px;
+          top: 38px;
         }
 
-       
-
         :host([condensed]) label span {
-            top:-20px;
-            
+          top: -20px;
         }
 
         :host([condensed]) {
-            height: 40px;
+          height: 40px;
         }
-
-    `}/**
+      `}/**
      *
      * @return {TemplateResult | TemplateResult}
      * @private
      */render(){// language=HTML
-return html` 
+return html`
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
-       <div class="iwrap">
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} 
-       ?disabled=${this.disabled} 
-       type="date"     
-       ƒ-.value="--value" 
-       @-input="--inputInput(*)"   
-       ƒ-focus="--focus">
-       </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
+        <furo-icon
+          class="lead"
+          icon="${this.leadingIcon}"
+          @-click="^^leading-icon-clicked(value)"
+        ></furo-icon>
+        <div class="iwrap">
+          <input
+            id="input"
+            ?autofocus=${this.autofocus}
+            ?readonly=${this.readonly}
+            ?disabled=${this.disabled}
+            type="date"
+            ƒ-.value="--value"
+            @-input="--inputInput(*)"
+            ƒ-focus="--focus"
+          />
+        </div>
+        <furo-icon
+          class="trail"
+          icon="${this.trailingIcon}"
+          @-click="^^trailing-icon-clicked(value)"
+        ></furo-icon>
       </div>
       <div class="borderlabel">
-      <div class="left-border"></div>
-      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
-      <div class="right-border"></div>
+        <div class="left-border"></div>
+        <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+        <div class="right-border"></div>
       </div>
-      
-      <div class="ripple-line"></div>           
+
+      <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
- 
     `}}window.customElements.define("furo-date-input",FuroDateInput);class FuroNumberInput extends FBP(LitElement){/**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
@@ -4516,353 +5097,377 @@ return html`
 return Theme.getThemeForComponent("FuroNumberInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 10px 0 15px 0;
-            height: 56px;
-            width: 190px;
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+          margin: 10px 0 15px 0;
+          height: 56px;
+          width: 190px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            height: 56px;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
+          position: relative;
+          padding: 0 12px;
+          box-sizing: border-box;
+          height: 56px;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
         }
 
         .iwrap {
-            position: relative;
+          position: relative;
         }
-
-
 
         input {
-            position: absolute;
-            top: 16px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            line-height: 24px;
-            color: inherit;
-            outline: none;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
-            outline: none;
+          position: absolute;
+          top: 16px;
+          border: none;
+          background: none;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          line-height: 24px;
+          color: inherit;
+          outline: none;
+          font-family: 'Roboto', 'Noto', sans-serif;
+          font-kerning: auto;
+          font-size: 16px;
+          font-stretch: 100%;
+          font-style: normal;
+          outline: none;
         }
-        
+
         input:required {
-          box-shadow:none;
+          box-shadow: none;
         }
         input:invalid {
-          box-shadow:none;
+          box-shadow: none;
         }
 
         :host([filled]) .wrapper {
-            background-color: var(--surface-light, #FEFEFE);
+          background-color: var(--surface-light, #fefefe);
         }
 
         :host([filled]) .wrapper:hover {
-            background-color: var(--surface, #FCFCFC);
+          background-color: var(--surface, #fcfcfc);
         }
 
         :host([filled]:focus-within) .wrapper {
-            background-color: var(--surface-dark, #FEA222);
+          background-color: var(--surface-dark, #fea222);
         }
 
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-color: var(--input-hover-color, #333333);
+        :host(:not([filled]):hover) .left-border,
+        :host(:not([filled]):hover) .right-border,
+        :host(:not([filled]):hover) label {
+          border-color: var(--input-hover-color, #333333);
         }
-
 
         .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
+          pointer-events: none;
+          position: absolute;
+          box-sizing: border-box;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 56px;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: row;
+          -webkit-flex-direction: row;
+          flex-direction: row;
         }
 
         .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
+          width: 8px;
+          box-sizing: border-box;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-right: none;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
         }
 
         :host(:not([filled])) label span {
-            top: 0;
-            position: relative;
+          top: 0;
+          position: relative;
         }
 
         :host(:not([filled])) label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
-            line-height: 56px;
+          padding: 0 4px;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-right: none;
+          line-height: 56px;
         }
 
-        :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
-            border-top: none;
+        :host(:not([filled])) label[float],
+        :host(:not([filled]):focus-within) label {
+          border-top: none;
         }
 
-        :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
-            font-size: 12px;
-            top: -28px;
-            left:0;
-            position: relative;
+        :host(:not([filled])) label[float] span,
+        :host(:not([filled]):focus-within) label span {
+          font-size: 12px;
+          top: -28px;
+          left: 0;
+          position: relative;
         }
-
 
         .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
         }
 
-
         .ripple-line {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 54px;
-            border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top: 54px;
+          border: none;
+          border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
 
         :host([filled]) .ripple-line {
-            display: block;
+          display: block;
         }
 
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
+        :host([filled]) .right-border,
+        :host([filled]) .left-border {
+          display: none;
         }
 
         :host([filled]) label {
-            border: none;
+          border: none;
         }
 
-
         :host([filled]) label {
-            padding: 0 12px;
-            line-height: 56px;
+          padding: 0 12px;
+          line-height: 56px;
         }
 
         :host([filled]) label span {
-            position: relative;
-            top: 0;
+          position: relative;
+          top: 0;
         }
 
-        :host([filled]) label[float] span, :host(:focus-within) label span {
-            font-size: 12px;
-            font-weight: 400;
-            top: -20px;
-            position: relative;
+        :host([filled]) label[float] span,
+        :host(:focus-within) label span {
+          font-size: 12px;
+          font-weight: 400;
+          top: -20px;
+          position: relative;
         }
-
 
         * {
-            transition: all 200ms ease-out;
+          transition: all 200ms ease-out;
         }
 
-        .hint, .errortext {
-            position: absolute;
-            bottom: -19px;
-            font-size: 12px;
-            color: transparent;
-            padding-left: 12px;
-            white-space: nowrap;
-            pointer-events: none;
+        .hint,
+        .errortext {
+          position: absolute;
+          bottom: -19px;
+          font-size: 12px;
+          color: transparent;
+          padding-left: 12px;
+          white-space: nowrap;
+          pointer-events: none;
         }
 
         :host(:focus-within) .hint {
-            color: var(--input-hint-color, #999999);
-            transition: all 550ms ease-in;
+          color: var(--input-hint-color, #999999);
+          transition: all 550ms ease-in;
         }
 
-
         :host([error]) .errortext {
-            display: block;
+          display: block;
         }
 
         .errortext {
-            color: var(--input-error-text-color, var(--error, red));
-            display: none;
+          color: var(--input-error-text-color, var(--error, red));
+          display: none;
         }
-
 
         label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+          color: var(--input-hint-color, var(--disabled, #dedede));
         }
 
-        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        :host(:focus-within) label,
+        :host(:focus-within:not([filled])) label {
+          color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+          border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
         }
-
 
         :host(:focus-within) .ripple-line {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+        :host(:not([filled]):focus-within) .left-border,
+        :host(:not([filled]):focus-within) .right-border,
+        :host(:not([filled]):focus-within) label {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-color: var(--input-error-text-color, var(--error, red));
-            border-width: 2px;
+        :host([error]:focus-within) .left-border,
+        :host([error]:focus-within) .right-border,
+        :host([error]:focus-within) label,
+        :host([error]:focus-within) .ripple-line {
+          border-color: var(--input-error-text-color, var(--error, red));
+          border-width: 2px;
         }
 
         :host([error]:focus-within) label {
-            color: var(--input-error-text-color, var(--error, red));
+          color: var(--input-error-text-color, var(--error, red));
         }
 
         :host([error]:focus-within) .hint {
-            display: none;
+          display: none;
         }
 
-
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        :host([error]) .ripple-line,
+        :host([error]) .left-border,
+        :host([error]) .right-border,
+        :host([error]) label {
+          border-color: var(--input-error-activation-indicator-color, var(--error, red));
         }
 
         furo-icon {
-            display: none;
-            top:16px;
+          display: none;
+          top: 16px;
         }
-        furo-icon.lead{
-            position: absolute;
-            
-            left:8px;
+        furo-icon.lead {
+          position: absolute;
+
+          left: 8px;
         }
-        furo-icon.trail{
-            position: absolute;
-            right:8px;
+        furo-icon.trail {
+          position: absolute;
+          right: 8px;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
+        :host([leading-icon]:not([leading-icon='undefined'])) furo-icon.lead,
+        :host([trailing-icon]:not([trailing-icon='undefined'])) furo-icon.trail {
+          display: block;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
-            left: 24px;
+        :host([leading-icon]:not([leading-icon='undefined'])) label:not([float]) span {
+          left: 24px;
         }
 
-        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span{
-            left: 0;
+        :host(:focus-within[leading-icon]:not([leading-icon='undefined'])) label span {
+          left: 0;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper{
-            padding-left: 36px;
+        :host([leading-icon]:not([leading-icon='undefined'])) .wrapper {
+          padding-left: 36px;
         }
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper{
-            padding-right: 36px;
+        :host([trailing-icon]:not([trailing-icon='undefined'])) .wrapper {
+          padding-right: 36px;
         }
-        :host(:focus-within:not([valid])) label{
-            color: var(--input-error-text-color, var(--error, red));
+        :host(:focus-within:not([valid])) label {
+          color: var(--input-error-text-color, var(--error, red));
         }
-        :host([condensed]) input{
-            top:12px;
-            font-size: 14px;
+        :host([condensed]) input {
+          top: 12px;
+          font-size: 14px;
         }
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
-            line-height: 40px;
-            font-size: 14px;
+        :host([condensed]:not([filled])) label,
+        :host([filled][condensed]) label {
+          line-height: 40px;
+          font-size: 14px;
         }
-        :host([condensed][filled]) input{
-            top: 12px;
+        :host([condensed][filled]) input {
+          top: 12px;
         }
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper{
-            height: 40px;
-        }  
-        
-        :host([condensed])  furo-icon {
-            top:10px;
+        :host([condensed]) .borderlabel,
+        :host([condensed]) .wrapper {
+          height: 40px;
         }
-        
+
+        :host([condensed]) furo-icon {
+          top: 10px;
+        }
+
         :host([condensed]) .ripple-line {
-            top: 38px;
+          top: 38px;
         }
 
-        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-            top:-12px;
-            
-        } 
-        :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-            top:-20px;
-            
-        } 
-        
-        :host([condensed]){
-            height: 40px;
+        :host([condensed][filled]) label[float] span,
+        :host([filled][condensed]:focus-within) label span {
+          top: -12px;
+        }
+        :host([condensed]) label[float] span,
+        :host([condensed]:focus-within) label span {
+          top: -20px;
         }
 
-    `}/**
+        :host([condensed]) {
+          height: 40px;
+        }
+      `}/**
      *
      * @return {TemplateResult | TemplateResult}
      * @private
      */render(){// language=HTML
-return html` 
+return html`
       <div class="wrapper">
-      
-           <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>
-           <div class="iwrap">    
-               <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} 
-                   ?disabled=${this.disabled} 
-                   type="number"       
-                   step="any"                  
-                   ?required=${this.required} 
-                   ƒ-.value="--value" 
-                   @-input="--inputInput(*)"   
-                   ƒ-focus="--focus">
-           </div>
-           <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
+        <furo-icon
+          class="lead"
+          icon="${this.leadingIcon}"
+          @-click="^^leading-icon-clicked(value)"
+        ></furo-icon>
+        <div class="iwrap">
+          <input
+            id="input"
+            ?autofocus=${this.autofocus}
+            ?readonly=${this.readonly}
+            ?disabled=${this.disabled}
+            type="number"
+            step="any"
+            ?required=${this.required}
+            ƒ-.value="--value"
+            @-input="--inputInput(*)"
+            ƒ-focus="--focus"
+          />
+        </div>
+        <furo-icon
+          class="trail"
+          icon="${this.trailingIcon}"
+          @-click="^^trailing-icon-clicked(value)"
+        ></furo-icon>
       </div>
       <div class="borderlabel">
-      <div class="left-border"></div>
-      <label ?float="${this._float||this.float}" for="input"><span>${this.label} ${this.required?html`*`:html``}</span></label>
-      <div class="right-border"></div>
+        <div class="left-border"></div>
+        <label ?float="${this._float||this.float}" for="input"
+          ><span
+            >${this.label}
+            ${this.required?html`
+                  *
+                `:html``}</span
+          ></label
+        >
+        <div class="right-border"></div>
       </div>
-      
-      <div class="ripple-line"></div>           
+
+      <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-
     `}}window.customElements.define("furo-number-input",FuroNumberInput);class FuroPasswordInput extends FBP(LitElement){/**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
@@ -4954,11 +5559,11 @@ return html`
      * Sets the focus on the field.
      */focus(){this._FBPTriggerWire("--focus")}/**
      * toggles the visibility of the password
-     */toggleVisibility(){let f=this.shadowRoot.querySelector("input"),t=f.getAttribute("type");if("text"===t){this.makeInvisible()}else{this.makeVisible()}}/**
+     */toggleVisibility(){const f=this.shadowRoot.querySelector("input"),t=f.getAttribute("type");if("text"===t){this.makeInvisible()}else{this.makeVisible()}}/**
      * Makes the password visible.
-     */makeVisible(){let f=this.shadowRoot.querySelector("input");f.setAttribute("type","text")}/**
+     */makeVisible(){const f=this.shadowRoot.querySelector("input");f.setAttribute("type","text")}/**
      * Makes the password invisible again (this is the default).
-     */makeInvisible(){let f=this.shadowRoot.querySelector("input");f.setAttribute("type","password")}/**
+     */makeInvisible(){const f=this.shadowRoot.querySelector("input");f.setAttribute("type","password")}/**
      * Sets the field to readonly
      */disable(){this.disabled=!0}/**
      * Makes the field writable.
@@ -4970,349 +5575,369 @@ return html`
 return Theme.getThemeForComponent("FuroPasswordInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 10px 0 15px 0;
-            height: 56px;
-            width: 190px;
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+          margin: 10px 0 15px 0;
+          height: 56px;
+          width: 190px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            height: 56px;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
+          position: relative;
+          padding: 0 12px;
+          box-sizing: border-box;
+          height: 56px;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
         }
 
         .iwrap {
-            position: relative;
+          position: relative;
         }
-
-
 
         input {
-            position: absolute;
-            top: 16px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            line-height: 24px;
-            color: inherit;
-            outline: none;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
-            outline: none;
+          position: absolute;
+          top: 16px;
+          border: none;
+          background: none;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          line-height: 24px;
+          color: inherit;
+          outline: none;
+          font-family: 'Roboto', 'Noto', sans-serif;
+          font-kerning: auto;
+          font-size: 16px;
+          font-stretch: 100%;
+          font-style: normal;
+          outline: none;
         }
         input:required {
-          box-shadow:none;
+          box-shadow: none;
         }
         input:invalid {
-          box-shadow:none;
+          box-shadow: none;
         }
 
         :host([filled]) .wrapper {
-            background-color: var(--surface-light, #FEFEFE);
+          background-color: var(--surface-light, #fefefe);
         }
 
         :host([filled]) .wrapper:hover {
-            background-color: var(--surface, #FCFCFC);
+          background-color: var(--surface, #fcfcfc);
         }
 
         :host([filled]:focus-within) .wrapper {
-            background-color: var(--surface-dark, #FEA222);
+          background-color: var(--surface-dark, #fea222);
         }
 
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-color: var(--input-hover-color, #333333);
+        :host(:not([filled]):hover) .left-border,
+        :host(:not([filled]):hover) .right-border,
+        :host(:not([filled]):hover) label {
+          border-color: var(--input-hover-color, #333333);
         }
-
 
         .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
+          pointer-events: none;
+          position: absolute;
+          box-sizing: border-box;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 56px;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: row;
+          -webkit-flex-direction: row;
+          flex-direction: row;
         }
 
         .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
+          width: 8px;
+          box-sizing: border-box;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-right: none;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
         }
 
         :host(:not([filled])) label span {
-            top: 0;
-            position: relative;
+          top: 0;
+          position: relative;
         }
 
         :host(:not([filled])) label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
-            line-height: 56px;
+          padding: 0 4px;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-right: none;
+          line-height: 56px;
         }
 
-        :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
-            border-top: none;
+        :host(:not([filled])) label[float],
+        :host(:not([filled]):focus-within) label {
+          border-top: none;
         }
 
-        :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
-            font-size: 12px;
-            top: -28px;
-            left:0;
-            position: relative;
+        :host(:not([filled])) label[float] span,
+        :host(:not([filled]):focus-within) label span {
+          font-size: 12px;
+          top: -28px;
+          left: 0;
+          position: relative;
         }
-
 
         .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
         }
 
-
         .ripple-line {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 54px;
-            border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top: 54px;
+          border: none;
+          border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
 
         :host([filled]) .ripple-line {
-            display: block;
+          display: block;
         }
 
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
+        :host([filled]) .right-border,
+        :host([filled]) .left-border {
+          display: none;
         }
 
         :host([filled]) label {
-            border: none;
+          border: none;
         }
 
-
         :host([filled]) label {
-            padding: 0 12px;
-            line-height: 56px;
+          padding: 0 12px;
+          line-height: 56px;
         }
 
         :host([filled]) label span {
-            position: relative;
-            top: 0;
+          position: relative;
+          top: 0;
         }
 
-        :host([filled]) label[float] span, :host(:focus-within) label span {
-            font-size: 12px;
-            font-weight: 400;
-            top: -20px;
-            position: relative;
+        :host([filled]) label[float] span,
+        :host(:focus-within) label span {
+          font-size: 12px;
+          font-weight: 400;
+          top: -20px;
+          position: relative;
         }
-
 
         * {
-            transition: all 200ms ease-out;
+          transition: all 200ms ease-out;
         }
 
-        .hint, .errortext {
-            position: absolute;
-            bottom: -19px;
-            font-size: 12px;
-            color: transparent;
-            padding-left: 12px;
-            white-space: nowrap;
-            pointer-events: none;
+        .hint,
+        .errortext {
+          position: absolute;
+          bottom: -19px;
+          font-size: 12px;
+          color: transparent;
+          padding-left: 12px;
+          white-space: nowrap;
+          pointer-events: none;
         }
 
         :host(:focus-within) .hint {
-            color: var(--input-hint-color, #999999);
-            transition: all 550ms ease-in;
+          color: var(--input-hint-color, #999999);
+          transition: all 550ms ease-in;
         }
 
-
         :host([error]) .errortext {
-            display: block;
+          display: block;
         }
 
         .errortext {
-            color: var(--input-error-text-color, var(--error, red));
-            display: none;
+          color: var(--input-error-text-color, var(--error, red));
+          display: none;
         }
-
 
         label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+          color: var(--input-hint-color, var(--disabled, #dedede));
         }
 
-        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        :host(:focus-within) label,
+        :host(:focus-within:not([filled])) label {
+          color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+          border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
         }
-
 
         :host(:focus-within) .ripple-line {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+        :host(:not([filled]):focus-within) .left-border,
+        :host(:not([filled]):focus-within) .right-border,
+        :host(:not([filled]):focus-within) label {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-color: var(--input-error-text-color, var(--error, red));
-            border-width: 2px;
+        :host([error]:focus-within) .left-border,
+        :host([error]:focus-within) .right-border,
+        :host([error]:focus-within) label,
+        :host([error]:focus-within) .ripple-line {
+          border-color: var(--input-error-text-color, var(--error, red));
+          border-width: 2px;
         }
 
         :host([error]:focus-within) label {
-            color: var(--input-error-text-color, var(--error, red));
+          color: var(--input-error-text-color, var(--error, red));
         }
 
         :host([error]:focus-within) .hint {
-            display: none;
+          display: none;
         }
 
-
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        :host([error]) .ripple-line,
+        :host([error]) .left-border,
+        :host([error]) .right-border,
+        :host([error]) label {
+          border-color: var(--input-error-activation-indicator-color, var(--error, red));
         }
 
         furo-icon {
-            display: none;
-            top:16px;
+          display: none;
+          top: 16px;
         }
-        furo-icon.lead{
-            position: absolute;
-            
-            left:8px;
+        furo-icon.lead {
+          position: absolute;
+
+          left: 8px;
         }
-        furo-icon.trail{
-            position: absolute;
-            right:8px;
+        furo-icon.trail {
+          position: absolute;
+          right: 8px;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
+        :host([leading-icon]:not([leading-icon='undefined'])) furo-icon.lead,
+        :host([trailing-icon]:not([trailing-icon='undefined'])) furo-icon.trail {
+          display: block;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
-            left: 24px;
+        :host([leading-icon]:not([leading-icon='undefined'])) label:not([float]) span {
+          left: 24px;
         }
 
-        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span{
-            left: 0;
+        :host(:focus-within[leading-icon]:not([leading-icon='undefined'])) label span {
+          left: 0;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper{
-            padding-left: 36px;
+        :host([leading-icon]:not([leading-icon='undefined'])) .wrapper {
+          padding-left: 36px;
         }
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper{
-            padding-right: 36px;
+        :host([trailing-icon]:not([trailing-icon='undefined'])) .wrapper {
+          padding-right: 36px;
         }
-        :host(:focus-within:not([valid])) label{
-            color: var(--input-error-text-color, var(--error, red));
+        :host(:focus-within:not([valid])) label {
+          color: var(--input-error-text-color, var(--error, red));
         }
 
+        :host([condensed]) input {
+          top: 10px;
+          font-size: 14px;
+        }
+        :host([condensed]:not([filled])) label,
+        :host([filled][condensed]) label {
+          line-height: 40px;
+          font-size: 14px;
+        }
+        :host([condensed][filled]) input {
+          top: 12px;
+        }
+        :host([condensed]) .borderlabel,
+        :host([condensed]) .wrapper {
+          height: 40px;
+        }
 
-        :host([condensed]) input{
-            top:10px;
-            font-size: 14px;
+        :host([condensed]) furo-icon {
+          top: 10px;
         }
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
-            line-height: 40px;
-            font-size: 14px;
-        }
-        :host([condensed][filled]) input{
-            top: 12px;
-        }
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper{
-            height: 40px;
-        }  
-        
-        :host([condensed])  furo-icon {
-            top:10px;
-        }
-        
+
         :host([condensed]) .ripple-line {
-            top: 38px;
+          top: 38px;
         }
 
-        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-            top: -12px;
-            
-        } 
-        :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-            top:-20px;
-            
-        } 
-        
-        :host([condensed]){
-            height: 40px;
+        :host([condensed][filled]) label[float] span,
+        :host([filled][condensed]:focus-within) label span {
+          top: -12px;
+        }
+        :host([condensed]) label[float] span,
+        :host([condensed]:focus-within) label span {
+          top: -20px;
         }
 
-    `}/**
+        :host([condensed]) {
+          height: 40px;
+        }
+      `}/**
      *
      * @return {TemplateResult | TemplateResult}
      * @private
      */render(){// language=HTML
-return html` 
+return html`
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
-       <div class="iwrap">
-       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} 
-       ?disabled=${this.disabled} 
-       type="password" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
-       </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
+        <furo-icon
+          class="lead"
+          icon="${this.leadingIcon}"
+          @-click="^^leading-icon-clicked(value)"
+        ></furo-icon>
+        <div class="iwrap">
+          <input
+            id="input"
+            ?autofocus=${this.autofocus}
+            ?readonly=${this.readonly}
+            ?disabled=${this.disabled}
+            type="password"
+            ƒ-.value="--value"
+            @-input="--inputInput(*)"
+            ƒ-focus="--focus"
+          />
+        </div>
+        <furo-icon
+          class="trail"
+          icon="${this.trailingIcon}"
+          @-click="^^trailing-icon-clicked(value)"
+        ></furo-icon>
       </div>
       <div class="borderlabel">
-      <div class="left-border"></div>
-      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
-      <div class="right-border"></div>
+        <div class="left-border"></div>
+        <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+        <div class="right-border"></div>
       </div>
-      
-      <div class="ripple-line"></div>           
+
+      <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
- 
-    `}}window.customElements.define("furo-password-input",FuroPasswordInput);class FuroRadioButton extends FBP(LitElement){constructor(){super()}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.checked=input.checked;this.value=input.checked});this._FBPAddWireHook("--focusReceived",e=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",e=>{this.focused=!1})}/**
+    `}}window.customElements.define("furo-password-input",FuroPasswordInput);class FuroRadioButton extends FBP(LitElement){_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{const input=e.composedPath()[0];this.checked=input.checked;this.value=input.checked});this._FBPAddWireHook("--focusReceived",()=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",()=>{this.focused=!1})}/**
      * Sets the focus on the radiobutton.
      */focus(){this._FBPTriggerWire("--focus")}/**
      * check the radiobutton
@@ -5329,15 +5954,15 @@ return html`
                         * @event value-changed
                         * Fired when value has changed from inside the component
                         * detail payload: {String} the text value
-                        */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent);if(this.checked){/**
+                        */const customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent);if(this.checked){/**
        * @event checked
        * Fired when the radio-button is checked
        * detail payload: {String} the text value
-       */let customEvent=new Event("checked",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}else{/**
+       */const checkedEvent=new Event("checked",{composed:!0,bubbles:!0});checkedEvent.detail=this.value;this.dispatchEvent(checkedEvent)}else{/**
        * @event unchecked
        * Fired when the radio-button is unchecked
        * detail payload: {String} the text value
-       */let customEvent=new Event("unchecked",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}}get value(){return this._value}static get properties(){return{/**
+       */const uncheckedEvent=new Event("unchecked",{composed:!0,bubbles:!0});uncheckedEvent.detail=this.value;this.dispatchEvent(uncheckedEvent)}}get value(){return this._value}static get properties(){return{/**
        * The value of radio-button with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
        * This is different from the native attribute `value` of the input radiob-utton
        */value:{type:Boolean},/**
@@ -5354,178 +5979,234 @@ return html`
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroRadioButton")||css`
-            /* https://material.io/design/components/text-fields.html#theming */
-            :host {
-                display: inline-block;
-                position: relative;
-                box-sizing: border-box;
-            }
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+        }
 
-            :host([hidden]) {
-                display: none;
-            }
+        :host([hidden]) {
+          display: none;
+        }
 
-            /* The wrapper */
-            .wrapper {
-                display: block;
-                position: relative;
-                cursor: pointer;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                height: 40px;
-                width: 40px;
-                border-radius: 50%;
-                box-sizing: border-box;
+        /* The wrapper */
+        .wrapper {
+          display: block;
+          position: relative;
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;
+          box-sizing: border-box;
+        }
 
-            }
+        input[type='radiobutton' i] {
+          margin: 0;
+        }
 
-            input[type="radiobutton" i] {
-                margin: 0;
-            }
+        /* input radiobutton*/
+        .wrapper input {
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          cursor: pointer;
+          height: 36px;
+          width: 36px;
+          z-index: 1;
+          box-sizing: border-box;
+        }
 
-            /* input radiobutton*/
-            .wrapper input {
-                position: absolute;
-                top: 0;
-                left: 0;
-                opacity: 0;
-                cursor: pointer;
-                height: 36px;
-                width: 36px;
-                z-index: 1;
-                box-sizing: border-box;
+        .radiobutton-background {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          height: 20px;
+          width: 20px;
+          background-color: var(--input-radiobutton-unselected-bg-color, var(--surface, #ffffff));
+          border: solid 2px;
+          border-color: var(--input-radiobutton-unselected-border-color, var(--separator, #7e7e7e));
+          box-sizing: border-box;
+          border-radius: 50%;
+        }
 
-            }
+        /* unselected radiobutton when hovering */
+        .wrapper:hover {
+          background-color: var(
+            --input-radiobutton-unselected-hover-bg-color,
+            var(--surface-light, #f5f5f5)
+          );
+        }
 
-            .radiobutton-background {
-                position: absolute;
-                top: 10px;
-                left: 10px;
-                height: 20px;
-                width: 20px;
-                background-color: var(--input-radiobutton-unselected-bg-color, var(--surface, #ffffff));
-                border: solid 2px;
-                border-color: var(--input-radiobutton-unselected-border-color, var(--separator, #7E7E7E));
-                box-sizing: border-box;
-                border-radius: 50%;
-            }
+        .wrapper:hover input ~ .radiobutton-background {
+          background-color: var(
+            --input-radiobutton-unselected-hover-bg-color,
+            var(--surface-light, #f5f5f5)
+          );
+        }
 
-            /* unselected radiobutton when hovering */
-            .wrapper:hover {
-                background-color: var(--input-radiobutton-unselected-hover-bg-color, var(--surface-light, #F5F5F5));
-            }
+        /* unselected radiobutton when focusing */
+        .wrapper[focused] {
+          background-color: var(
+            --input-radiobutton-unselected-focus-bg-color,
+            var(--surface-dark, #dddddd)
+          );
+        }
 
-            .wrapper:hover input ~ .radiobutton-background {
-                background-color: var(--input-radiobutton-unselected-hover-bg-color, var(--surface-light, #F5F5F5));
-            }
+        /* unselected radiobutton when pressing */
+        .wrapper:active {
+          background-color: var(
+            --input-radiobutton-unselected-active-bg-color,
+            var(--surface-dark, #c0c0c0)
+          );
+        }
 
-            /* unselected radiobutton when focusing */
-            .wrapper[focused] {
-                background-color: var(--input-radiobutton-unselected-focus-bg-color, var(--surface-dark, #DDDDDD));
-            }
+        .wrapper:active input ~ .radiobutton-background {
+          background-color: var(
+            --input-radiobutton-unselected-active-bg-color,
+            var(--surface-dark, #c0c0c0)
+          );
+        }
 
-            /* unselected radiobutton when pressing */
-            .wrapper:active {
-                background-color: var(--input-radiobutton-unselected-active-bg-color, var(--surface-dark, #C0C0C0));
-            }
+        /* selected radiobutton  */
+        .wrapper[checked] input ~ .radiobutton-background {
+          background-color: var(
+            --input-radiobutton-selected-bg-color,
+            var(--primary-light, #6200fd)
+          );
+          border-color: var(--input-radiobutton-selected-bg-color, var(--primary-light, #6200fd));
+        }
 
-            .wrapper:active input ~ .radiobutton-background {
-                background-color: var(--input-radiobutton-unselected-active-bg-color, var(--surface-dark, #C0C0C0));
-            }
+        /* selected radiobutton when focusing */
+        .wrapper[checked][focused] {
+          background-color: var(
+            --input-radiobutton-selected-hover-bg-color,
+            var(--primary-variant, #d5c6e9)
+          );
+        }
 
-            /* selected radiobutton  */
-            .wrapper[checked] input ~ .radiobutton-background {
-                background-color: var(--input-radiobutton-selected-bg-color, var(--primary-light, #6200FD));
-                border-color: var(--input-radiobutton-selected-bg-color, var(--primary-light, #6200FD));
-            }
+        .wrapper[checked][focused] input ~ .radiobutton-background {
+          background-color: var(
+            --input-radiobutton-selected-focus-bg-color,
+            var(--primary-light, #6200fd)
+          );
+        }
 
-            /* selected radiobutton when focusing */
-            .wrapper[checked][focused] {
-                background-color: var(--input-radiobutton-selected-hover-bg-color, var(--primary-variant, #D5C6E9));
-            }
+        /* selected radiobutton when hovering */
+        .wrapper[checked]:hover {
+          background-color: var(
+            --input-radiobutton-selected-hover-bg-color,
+            var(--primary-variant, #e4dbe6)
+          );
+        }
 
-            .wrapper[checked][focused] input ~ .radiobutton-background {
-                background-color: var(--input-radiobutton-selected-focus-bg-color, var(--primary-light, #6200FD));
-            }
+        /* disabled radiobutton selected */
+        .wrapper[checked][disabled] input:disabled:checked ~ .radiobutton-background {
+          background-color: var(
+            --input-radiobutton-disabled-selected-bg-color,
+            var(--disable, #b9b9b9)
+          );
+          border-color: var(
+            --input-radiobutton-disabled-selected-border-color,
+            var(--disable, #b9b9b9)
+          );
+        }
 
-            /* selected radiobutton when hovering */
-            .wrapper[checked]:hover {
-                background-color: var(--input-radiobutton-selected-hover-bg-color, var(--primary-variant, #E4DBE6));
-            }
+        /* disabled radiobutton unselected */
+        .wrapper input:disabled ~ .radiobutton-background {
+          background-color: var(
+            --input-radiobutton-disabled-unselected-bg-color,
+            var(--surface, #ffffff)
+          );
+          border-color: var(
+            --input-radiobutton-disabled-unselected-border-color,
+            var(--surface, #aaaaaa)
+          );
+        }
 
-            /* disabled radiobutton selected */
-            .wrapper[checked][disabled] input:disabled:checked ~ .radiobutton-background {
-                background-color: var(--input-radiobutton-disabled-selected-bg-color, var(--disable, #B9B9B9));
-                border-color: var(--input-radiobutton-disabled-selected-border-color, var(--disable, #B9B9B9));
-            }
+        .radiobutton-background:after {
+          content: '';
+          position: absolute;
+          display: none;
+        }
 
-            /* disabled radiobutton unselected */
-            .wrapper input:disabled ~ .radiobutton-background {
-                background-color: var(--input-radiobutton-disabled-unselected-bg-color, var(--surface, #ffffff));
-                border-color: var(--input-radiobutton-disabled-unselected-border-color, var(--surface, #aaaaaa));
-            }
+        input:disabled {
+          cursor: default;
+        }
 
-            .radiobutton-background:after {
-                content: "";
-                position: absolute;
-                display: none;
-            }
+        /* disabled radiobutton when hovering */
+        .wrapper[disabled]:hover {
+          background-color: var(
+            --input-radiobutton-disabled-hover-bg-color,
+            var(--surface, #ffffff)
+          );
+          background: transparent;
+        }
 
-            input:disabled {
-                cursor: default;
-            }
+        .wrapper[checked] .radiobutton-background:after {
+          display: block;
+        }
 
-            /* disabled radiobutton when hovering */
-            .wrapper[disabled]:hover {
-                background-color: var(--input-radiobutton-disabled-hover-bg-color, var(--surface, #ffffff));
-                background: transparent;
-            }
+        .wrapper .radiobutton-background:after {
+          width: 12px;
+          height: 12px;
+          border: solid white;
+          border-width: 2px;
+          border-radius: 50%;
+        }
 
-            .wrapper[checked] .radiobutton-background:after {
-                display: block;
-            }
+        :host([condensed]) .wrapper,
+        :host([condensed]) .wrapper input {
+          width: 32px;
+          height: 32px;
+        }
 
-            .wrapper .radiobutton-background:after {
+        :host([condensed]) .radiobutton-background {
+          top: 6px;
+          left: 6px;
+        }
 
-                width: 12px;
-                height: 12px;
-                border: solid white;
-                border-width: 2px;
-                border-radius: 50%;
-            }
-
-            :host([condensed]) .wrapper , :host([condensed]) .wrapper  input{
-                width: 32px;
-                height: 32px;
-            } 
-            
-            :host([condensed]) .radiobutton-background {
-                top: 6px;
-                left: 6px;
-            }
-      
-            furo-ripple{
-                border-radius: 50%;
-            }
-        `}/**
+        furo-ripple {
+          border-radius: 50%;
+        }
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){return html`
-          <div id="wrapper" class="wrapper" ?focused=${this.focused} ?checked=${this.checked} ?disabled=${this.disabled}>
-              <input id="input" type="radio" ?checked=${this.checked}  ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
-                     ƒ-focus="--focus" @-input="--inputInput(*)" @-focusout="--focusOutReceived" @-focus="--focusReceived" @-blur="-^blur"  >
-              <span class="radiobutton-background"></span>
-              <furo-ripple></furo-ripple>
-          </div>
-        `}}customElements.define("furo-radio-button",FuroRadioButton);class FuroRadioButtonInput extends FBP(LitElement){/**
+      <div
+        id="wrapper"
+        class="wrapper"
+        ?focused=${this.focused}
+        ?checked=${this.checked}
+        ?disabled=${this.disabled}
+      >
+        <input
+          id="input"
+          type="radio"
+          ?checked=${this.checked}
+          ?autofocus=${this.autofocus}
+          ?disabled=${this.disabled}
+          ƒ-focus="--focus"
+          @-input="--inputInput(*)"
+          @-focusout="--focusOutReceived"
+          @-focus="--focusReceived"
+          @-blur="-^blur"
+        />
+        <span class="radiobutton-background"></span>
+        <furo-ripple></furo-ripple>
+      </div>
+    `}}customElements.define("furo-radio-button",FuroRadioButton);class FuroRadioButtonInput extends FBP(LitElement){/**
    * @event ALL_BUBBLING_EVENTS_FROM_furo-radio-button
    *
    * All bubbling events from [furo-radio-button](furo-radio-button) will be fired, because furo-radio-button-input uses furo-radio-button internally.
    *
    */constructor(){super();this.valid=!0;this.addEventListener("value-changed",e=>{this._value=e.detail})}_FBPReady(){super._FBPReady();// init value , when undefined then false
-this._value=!!this.value;this._FBPAddWireHook("--clicked",_=>{// only toggle when the radio button unchecked
+this._value=!!this.value;this._FBPAddWireHook("--clicked",()=>{// only toggle when the radio button unchecked
 if(!this.disabled&&!this.value){this.toggle()}})}set value(v){this._value=v;this._FBPTriggerWire("--value",!!v)}get value(){return this._value}set checked(v){if(v){this.check()}else{this.uncheck()}}static get properties(){return{/**
        * set this to true to indicate errors
        */error:{type:Boolean,reflect:!0},/**
@@ -5585,169 +6266,177 @@ if(!this.disabled&&!this.value){this.toggle()}})}set value(v){this._value=v;this
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroRadioButtonInput")||css`
-            /* https://material.io/design/components/text-fields.html#theming */
-            :host {
-                display: inline-block;
-                position: relative;
-                box-sizing: border-box;
-                margin: 0;
-                height: 56px;
-                width: 300px;
-                margin: 10px 0 15px 0;
-            }
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+          margin: 0;
+          height: 56px;
+          width: 300px;
+          margin: 10px 0 15px 0;
+        }
 
-            :host([hidden]) {
-                display: none;
-            }
-            
-            :host([condensed]) {
-                margin-top: 12px;
-            }
-            
-            .wrapper {
-                position: relative;
-                padding: 0;
-                box-sizing: border-box;
-                height: 56px;
-            }
-            
-            label {
-                line-height: 56px;
-            }
+        :host([hidden]) {
+          display: none;
+        }
 
-            .ripple-line {
-                display: none;
-                position: absolute;
-                width: 100%;
-                height: 1px;
-                top: 54px;
-                border: none;
-                border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            }
-            
-            * {
-                transition: all 200ms ease-out;
-            }
+        :host([condensed]) {
+          margin-top: 12px;
+        }
 
-            .hint, .errortext {
-                position: absolute;
-                bottom: -0;
-                font-size: 12px;
-                color: transparent;
-                padding-left: 42px;
-                white-space: nowrap;
-                pointer-events: none;
-            }
+        .wrapper {
+          position: relative;
+          padding: 0;
+          box-sizing: border-box;
+          height: 56px;
+        }
 
-            :host(:focus-within) .hint {
-                color: var(--input-hint-color, #999999);
-                transition: all 550ms ease-in;
-            }
+        label {
+          line-height: 56px;
+        }
 
-            :host([error]) .errortext {
-                display: block;
-            }
+        .ripple-line {
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top: 54px;
+          border: none;
+          border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
 
-            .errortext {
-                color: var(--input-error-text-color, var(--error, red));
-                display: none;
-            }
+        * {
+          transition: all 200ms ease-out;
+        }
 
-            label {
-                font-size: 16px;
-                color: inherit;
-                cursor: pointer;
-            }
+        .hint,
+        .errortext {
+          position: absolute;
+          bottom: -0;
+          font-size: 12px;
+          color: transparent;
+          padding-left: 42px;
+          white-space: nowrap;
+          pointer-events: none;
+        }
 
-            :host(:focus-within) label, :host(:focus-within) label {
-                color: var(--input-active-label-color, var(--primary, #3f51b5));
-                border-color: var(--input-active-label-color, var(--primary, #3f51b5));
-            }
+        :host(:focus-within) .hint {
+          color: var(--input-hint-color, #999999);
+          transition: all 550ms ease-in;
+        }
 
-            :host(:focus-within) .ripple-line {
-                border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-                border-width: 2px;
-            }
+        :host([error]) .errortext {
+          display: block;
+        }
 
-            :host:focus-within) label {
-                border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-                border-width: 2px;
-            }
+        .errortext {
+          color: var(--input-error-text-color, var(--error, red));
+          display: none;
+        }
 
-            :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-                border-color: var(--input-error-text-color, var(--error, red));
-                border-width: 2px;
-            }
+        label {
+          font-size: 16px;
+          color: inherit;
+          cursor: pointer;
+        }
 
-            :host([error]:focus-within) label {
-                color: var(--input-error-text-color, var(--error, red));
-            }
+        :host(:focus-within) label,
+        :host(:focus-within) label {
+          color: var(--input-active-label-color, var(--primary, #3f51b5));
+          border-color: var(--input-active-label-color, var(--primary, #3f51b5));
+        }
 
-            :host([error]:focus-within) .hint {
-                display: none;
-            }
+        :host(:focus-within) .ripple-line {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
+        }
 
-            :host([error]) .ripple-line, :host([error]) label {
-                border-color: var(--input-error-activation-indicator-color, var(--error, red));
-            }
+        :host:focus-within) label {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
+        }
 
-            :host(:focus-within:not([valid])) label {
-                color: var(--input-error-text-color, var(--error, red));
-            }
+        :host([error]:focus-within) label,
+        :host([error]:focus-within) .ripple-line {
+          border-color: var(--input-error-text-color, var(--error, red));
+          border-width: 2px;
+        }
 
-            :host([condensed]) label, :host([condensed]) label {
-                line-height: 40px;
-            }
+        :host([error]:focus-within) label {
+          color: var(--input-error-text-color, var(--error, red));
+        }
 
-            :host([condensed]) input {
-                top: 12px;
-            }
+        :host([error]:focus-within) .hint {
+          display: none;
+        }
 
-            :host([condensed]) .wrapper {
-                height: 40px;
-            }
+        :host([error]) .ripple-line,
+        :host([error]) label {
+          border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
 
-            :host([condensed]) .ripple-line {
-                top: 38px;
-            }
+        :host(:focus-within:not([valid])) label {
+          color: var(--input-error-text-color, var(--error, red));
+        }
 
-            :host([condensed]) {
-                height: 40px;
-            }
+        :host([condensed]) label,
+        :host([condensed]) label {
+          line-height: 40px;
+        }
 
-            furo-radio-button {
-                position: absolute;
-                top: 8px;
-            }
+        :host([condensed]) input {
+          top: 12px;
+        }
 
-            label {
-                position: absolute;
-                top: 0px;
-                left: 42px;
-                right: 0;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                overflow: hidden;
-            }
+        :host([condensed]) .wrapper {
+          height: 40px;
+        }
 
-            :host([condensed]) furo-radio-button {
-                top: 3px;
-            }
+        :host([condensed]) .ripple-line {
+          top: 38px;
+        }
 
-        `}render(){// language=HTML
-return html` 
+        :host([condensed]) {
+          height: 40px;
+        }
+
+        furo-radio-button {
+          position: absolute;
+          top: 8px;
+        }
+
+        label {
+          position: absolute;
+          top: 0px;
+          left: 42px;
+          right: 0;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        :host([condensed]) furo-radio-button {
+          top: 3px;
+        }
+      `}render(){// language=HTML
+return html`
       <div class="wrapper">
-      
-        <furo-radio-button type="radio-button" id="input"  ?autofocus=${this.autofocus} ?disabled=${this.disabled||this.readonly}  ?condensed=${this.condensed}
-          ƒ-set-value="--value" ƒ-focus="--focus"></furo-radio-button>
-        <label for="input"  @-click="--clicked,--focus">${this.label}</label>
-        
+        <furo-radio-button
+          type="radio-button"
+          id="input"
+          ?autofocus=${this.autofocus}
+          ?disabled=${this.disabled||this.readonly}
+          ?condensed=${this.condensed}
+          ƒ-set-value="--value"
+          ƒ-focus="--focus"
+        ></furo-radio-button>
+        <label for="input" @-click="--clicked,--focus">${this.label}</label>
       </div>
-      
-      <div class="ripple-line"></div>           
+
+      <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
- 
     `}}window.customElements.define("furo-radio-button-input",FuroRadioButtonInput);class FuroRangeInput extends FBP(LitElement){/**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
@@ -5775,10 +6464,10 @@ return html`
      *
      * @param value
      */set step(value){Helper.UpdateInputAttribute(this,"step",value)}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}/**
-     * Sets the field to readonly
-     */disable(){this.readonly=!0}/**
+     * Disables the field
+     */disable(){this.disabled=!0;this.readonly=!0}/**
      * Makes the field writable.
-     */enable(){this.readonly=!1}static get properties(){return{/**
+     */enable(){this.disabled=!1;this.readonly=!1}static get properties(){return{/**
        * set this to true to indicate errors
        */error:{type:Boolean,reflect:!0},/**
        * The start value. Changes will be notified with the `@-value-changed` event
@@ -5841,10 +6530,6 @@ return html`
      */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
      * Sets the focus on the field.
      */focus(){this._FBPTriggerWire("--focus")}/**
-     * Disables the field
-     */disable(){this.disabled=!0}/**
-     * Makes the field writable.
-     */enable(){this.disabled=!1}/**
      *
      * @private
      * @return {CSSResult}
@@ -5852,325 +6537,339 @@ return html`
 return Theme.getThemeForComponent("FuroRangeInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 10px 0 15px 0;
-            height: 56px;
-            width: 190px;
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+          margin: 10px 0 15px 0;
+          height: 56px;
+          width: 190px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            height: 56px;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
+          position: relative;
+          padding: 0 12px;
+          box-sizing: border-box;
+          height: 56px;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
         }
 
         .iwrap {
-            position: relative;
+          position: relative;
         }
 
         input {
-            position: absolute;
-            top: 21px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-            width: 100%;
-            line-height: 24px;
-            color: inherit;
-            outline: none;
-            font-family: "Roboto", "Noto", sans-serif;
+          position: absolute;
+          top: 21px;
+          border: none;
+          background: none;
+          box-sizing: border-box;
+          padding: 0;
+          margin: 0;
+          width: 100%;
+          line-height: 24px;
+          color: inherit;
+          outline: none;
+          font-family: 'Roboto', 'Noto', sans-serif;
         }
         input:required {
-          box-shadow:none;
+          box-shadow: none;
         }
         input:invalid {
-          box-shadow:none;
+          box-shadow: none;
         }
 
         :host([filled]) .wrapper {
-            background-color: var(--surface-light, #FEFEFE);
+          background-color: var(--surface-light, #fefefe);
         }
 
         :host([filled]) .wrapper:hover {
-            background-color: var(--surface, #FCFCFC);
+          background-color: var(--surface, #fcfcfc);
         }
 
         :host([filled]:focus-within) .wrapper {
-            background-color: var(--surface-dark, #FEA222);
+          background-color: var(--surface-dark, #fea222);
         }
 
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-color: var(--input-hover-color, #333333);
+        :host(:not([filled]):hover) .left-border,
+        :host(:not([filled]):hover) .right-border,
+        :host(:not([filled]):hover) label {
+          border-color: var(--input-hover-color, #333333);
         }
-
 
         .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
+          pointer-events: none;
+          position: absolute;
+          box-sizing: border-box;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 56px;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: row;
+          -webkit-flex-direction: row;
+          flex-direction: row;
         }
 
         .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
+          width: 8px;
+          box-sizing: border-box;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-right: none;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
         }
-
 
         :host(:not([filled])) label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            line-height: 56px;
+          padding: 0 4px;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-right: none;
+          border-top: none;
+          line-height: 56px;
         }
-
 
         :host(:not([filled])) label span {
-            position: relative;
-            font-size: 12px;
-            top: -28px;
-            left: 0;
+          position: relative;
+          font-size: 12px;
+          top: -28px;
+          left: 0;
         }
-
 
         .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
         }
 
-
         .ripple-line {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 54px;
-            border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top: 54px;
+          border: none;
+          border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
 
         :host([filled]) .ripple-line {
-            display: block;
+          display: block;
         }
 
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
+        :host([filled]) .right-border,
+        :host([filled]) .left-border {
+          display: none;
         }
-
 
         :host([filled]) label {
-            padding: 0 12px;
-            line-height: 56px;
-            border: none;
+          padding: 0 12px;
+          line-height: 56px;
+          border: none;
         }
 
         :host([filled]) label span {
-            font-size: 12px;
-            font-weight: 400;
-            top: -20px;
-            position: relative;
+          font-size: 12px;
+          font-weight: 400;
+          top: -20px;
+          position: relative;
         }
-
 
         * {
-            transition: all 200ms ease-out;
+          transition: all 200ms ease-out;
         }
 
-        .hint, .errortext {
-            position: absolute;
-            bottom: -19px;
-            font-size: 12px;
-            color: transparent;
-            padding-left: 12px;
-            white-space: nowrap;
-            pointer-events: none;
+        .hint,
+        .errortext {
+          position: absolute;
+          bottom: -19px;
+          font-size: 12px;
+          color: transparent;
+          padding-left: 12px;
+          white-space: nowrap;
+          pointer-events: none;
         }
 
         :host(:focus-within) .hint {
-            color: var(--input-hint-color, #999999);
-            transition: all 550ms ease-in;
+          color: var(--input-hint-color, #999999);
+          transition: all 550ms ease-in;
         }
 
-
         :host([error]) .errortext {
-            display: block;
+          display: block;
         }
 
         .errortext {
-            color: var(--input-error-text-color, var(--error, red));
-            display: none;
+          color: var(--input-error-text-color, var(--error, red));
+          display: none;
         }
-
 
         label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+          color: var(--input-hint-color, var(--disabled, #dedede));
         }
 
-        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        :host(:focus-within) label,
+        :host(:focus-within:not([filled])) label {
+          color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+          border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
         }
-
 
         :host(:focus-within) .ripple-line {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+        :host(:not([filled]):focus-within) .left-border,
+        :host(:not([filled]):focus-within) .right-border,
+        :host(:not([filled]):focus-within) label {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-color: var(--input-error-text-color, var(--error, red));
-            border-width: 2px;
+        :host([error]:focus-within) .left-border,
+        :host([error]:focus-within) .right-border,
+        :host([error]:focus-within) label,
+        :host([error]:focus-within) .ripple-line {
+          border-color: var(--input-error-text-color, var(--error, red));
+          border-width: 2px;
         }
 
         :host([error]:focus-within) label {
-            color: var(--input-error-text-color, var(--error, red));
+          color: var(--input-error-text-color, var(--error, red));
         }
         :host([error]:focus-within) .hint {
-            display: none;
+          display: none;
         }
 
-
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        :host([error]) .ripple-line,
+        :host([error]) .left-border,
+        :host([error]) .right-border,
+        :host([error]) label {
+          border-color: var(--input-error-activation-indicator-color, var(--error, red));
         }
 
         furo-icon {
-            display: none;
-            top: 16px;
+          display: none;
+          top: 16px;
         }
 
         furo-icon.lead {
-            position: absolute;
+          position: absolute;
 
-            left: 8px;
+          left: 8px;
         }
 
         furo-icon.trail {
-            position: absolute;
-            right: 8px;
+          position: absolute;
+          right: 8px;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
+        :host([leading-icon]:not([leading-icon='undefined'])) furo-icon.lead,
+        :host([trailing-icon]:not([trailing-icon='undefined'])) furo-icon.trail {
+          display: block;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
-            padding-left: 36px;
+        :host([leading-icon]:not([leading-icon='undefined'])) .wrapper {
+          padding-left: 36px;
         }
 
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
-            padding-right: 36px;
+        :host([trailing-icon]:not([trailing-icon='undefined'])) .wrapper {
+          padding-right: 36px;
         }
 
         :host(:focus-within:not([valid])) label {
-            color: var(--input-error-text-color, var(--error, red));
+          color: var(--input-error-text-color, var(--error, red));
         }
 
         :host([condensed]) input {
-            top: 15px;
-            font-size: 14px;
+          top: 15px;
+          font-size: 14px;
         }
 
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
-            line-height: 40px;
-            font-size: 14px;
+        :host([condensed]:not([filled])) label,
+        :host([filled][condensed]) label {
+          line-height: 40px;
+          font-size: 14px;
         }
-        :host([condensed][filled]) input{
-            top: 12px;
+        :host([condensed][filled]) input {
+          top: 12px;
         }
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
-            height: 40px;
+        :host([condensed]) .borderlabel,
+        :host([condensed]) .wrapper {
+          height: 40px;
         }
 
         :host([condensed]) furo-icon {
-            top: 10px;
+          top: 10px;
         }
 
         :host([condensed]) .ripple-line {
-            top: 38px;
+          top: 38px;
         }
 
         :host([condensed][filled]) label span {
-            top: -12px;
-            
+          top: -12px;
         }
 
         :host([condensed]) label span {
-            top: -20px;
-            
+          top: -20px;
         }
 
         :host([condensed]) {
-            height: 40px;
+          height: 40px;
         }
-
-    `}/**
+      `}/**
      *
      * @return {TemplateResult | TemplateResult}
      * @private
      */render(){// language=HTML
-return html` 
+return html`
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
-       <div class="iwrap">
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled}
-       type="range"      
-       ƒ-.value="--value" 
-       @-input="--inputInput(*)"   
-       ƒ-focus="--focus">
-       </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
+        <furo-icon
+          class="lead"
+          icon="${this.leadingIcon}"
+          @-click="^^leading-icon-clicked(value)"
+        ></furo-icon>
+        <div class="iwrap">
+          <input
+            id="input"
+            ?autofocus=${this.autofocus}
+            ?readonly=${this.readonly}
+            ?disabled=${this.disabled}
+            type="range"
+            ƒ-.value="--value"
+            @-input="--inputInput(*)"
+            ƒ-focus="--focus"
+          />
+        </div>
+        <furo-icon
+          class="trail"
+          icon="${this.trailingIcon}"
+          @-click="^^trailing-icon-clicked(value)"
+        ></furo-icon>
       </div>
       <div class="borderlabel">
-      <div class="left-border"></div>
-      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
-      <div class="right-border"></div>
+        <div class="left-border"></div>
+        <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+        <div class="right-border"></div>
       </div>
-      
-      <div class="ripple-line"></div>           
+
+      <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
- 
     `}}window.customElements.define("furo-range-input",FuroRangeInput);class FuroSearchInput extends FBP(LitElement){/**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
@@ -6271,359 +6970,389 @@ return html`
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroSearchInput")||css`
-      /* https://material.io/design/components/text-fields.html#theming */
-      :host {
-        display: inline-block;
-        position: relative;
-        box-sizing: border-box;
-        margin: 10px 0 15px 0;
-        height: 56px;
-        width: 190px;
-      }
-
-      :host([hidden]) {
-        display: none;
-      }
-
-      .wrapper {
-        position: relative;
-        padding: 0 12px;
-        box-sizing: border-box;
-        height: 56px;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-      }
-
-      .iwrap {
-        position: relative;
-      }
-
-
-      input {
-        position: absolute;
-        top: 16px;
-        border: none;
-        background: none;
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        line-height: 24px;
-        color: inherit;
-        outline: none;
-        font-family: "Roboto", "Noto", sans-serif;
-        font-kerning: auto;
-        font-size: 16px;
-        font-stretch: 100%;
-        font-style: normal;
-        -webkit-appearance: textfield;
-      }
-
-      input:required {
-        box-shadow: none;
-      }
-
-      input:invalid {
-        box-shadow: none;
-      }
-
-      :host([filled]) .wrapper {
-        background-color: var(--surface-light, #FEFEFE);
-      }
-
-      :host([filled]) .wrapper:hover {
-        background-color: var(--surface, #FCFCFC);
-      }
-
-      :host([filled]:focus-within) .wrapper {
-        background-color: var(--surface-dark, #FEA222);
-      }
-
-      :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-        border-color: var(--input-hover-color, #333333);
-      }
-
-
-      .borderlabel {
-        pointer-events: none;
-        position: absolute;
-        box-sizing: border-box;
-        top: 0;
-        right: 0;
-        left: 0;
-        height: 56px;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -ms-flex-direction: row;
-        -webkit-flex-direction: row;
-        flex-direction: row;
-      }
-
-      .left-border {
-        width: 8px;
-        box-sizing: border-box;
-        pointer-events: none;
-        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-        border-right: none;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-      }
-
-      :host(:not([filled])) label span {
-        top: 0;
-        position: relative;
-      }
-
-      :host(:not([filled])) label {
-        padding: 0 4px;
-        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-        border-left: none;
-        border-right: none;
-        line-height: 56px;
-      }
-
-      :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
-        border-top: none;
-      }
-
-      :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
-        font-size: 12px;
-        top: -28px;
-        left: 0;
-        position: relative;
-      }
-
-
-      .right-border {
-        pointer-events: none;
-        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-        border-left: none;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-        -ms-flex: 1 1 0.000000001px;
-        -webkit-flex: 1;
-        flex: 1;
-        -webkit-flex-basis: 0.000000001px;
-        flex-basis: 0.000000001px;
-      }
-
-
-      .ripple-line {
-        display: none;
-        position: absolute;
-        width: 100%;
-        height: 1px;
-        top: 54px;
-        border: none;
-        border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-      }
-
-      :host([filled]) .ripple-line {
-        display: block;
-      }
-
-      :host([filled]) .right-border, :host([filled]) .left-border {
-        display: none;
-      }
-
-      :host([filled]) label {
-        border: none;
-      }
-
-
-      :host([filled]) label {
-        padding: 0 12px;
-        line-height: 56px;
-      }
-
-      :host([filled]) label span {
-        position: relative;
-        top: 0;
-      }
-
-      :host([filled]) label[float] span, :host(:focus-within) label span {
-        font-size: 12px;
-        font-weight: 400;
-        top: -20px;
-        position: relative;
-      }
-
-
-      * {
-        transition: all 200ms ease-out;
-      }
-
-      .hint, .errortext {
-        position: absolute;
-        bottom: -19px;
-        font-size: 12px;
-        color: transparent;
-        padding-left: 12px;
-        white-space: nowrap;
-        pointer-events: none;
-      }
-
-      :host(:focus-within) .hint {
-        color: var(--input-hint-color, #999999);
-        transition: all 550ms ease-in;
-      }
-
-
-      :host([error]) .errortext {
-        display: block;
-      }
-
-      .errortext {
-        color: var(--input-error-text-color, var(--error, red));
-        display: none;
-      }
-
-
-      label {
-        color: var(--input-hint-color, var(--disabled, #DEDEDE));
-      }
-
-      :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-        color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-        border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-      }
-
-
-      :host(:focus-within) .ripple-line {
-        border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-        border-width: 2px;
-      }
-
-      :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-        border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-        border-width: 2px;
-      }
-
-      :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-        border-color: var(--input-error-text-color, var(--error, red));
-        border-width: 2px;
-      }
-
-      :host([error]:focus-within) label {
-        color: var(--input-error-text-color, var(--error, red));
-      }
-
-      :host([error]:focus-within) .hint {
-        display: none;
-      }
-
-
-      :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-        border-color: var(--input-error-activation-indicator-color, var(--error, red));
-      }
-
-      furo-icon {
-        display: none;
-        top: 16px;
-      }
-
-      furo-icon.lead {
-        position: absolute;
-
-        left: 8px;
-      }
-
-      furo-icon.trail {
-        position: absolute;
-        right: 8px;
-      }
-
-      :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-        display: block;
-      }
-
-      :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
-        left: 24px;
-      }
-
-      :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span {
-        left: 0;
-      }
-
-      :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
-        padding-left: 36px;
-      }
-
-      :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
-        padding-right: 36px;
-      }
-
-      :host(:focus-within:not([valid])) label {
-        color: var(--input-error-text-color, var(--error, red));
-      }
-
-      :host([condensed]) input {
-        top: 12px;
-        font-size: 14px;
-      }
-
-      :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
-        line-height: 40px;
-        font-size: 14px;
-      }
-
-      :host([condensed][filled]) input {
-        top: 12px;
-      }
-
-      :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
-        height: 40px;
-      }
-
-      :host([condensed]) furo-icon {
-        top: 10px;
-      }
-
-      :host([condensed]) .ripple-line {
-        top: 38px;
-      }
-
-      :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-        top: -12px;
-
-      }
-
-      :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-        top: -20px;
-
-      }
-
-      :host([condensed]) {
-        height: 40px;
-      }
-
-    `}/**
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+          margin: 10px 0 15px 0;
+          height: 56px;
+          width: 190px;
+        }
+
+        :host([hidden]) {
+          display: none;
+        }
+
+        .wrapper {
+          position: relative;
+          padding: 0 12px;
+          box-sizing: border-box;
+          height: 56px;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+        }
+
+        .iwrap {
+          position: relative;
+        }
+
+        input {
+          position: absolute;
+          top: 16px;
+          border: none;
+          background: none;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          line-height: 24px;
+          color: inherit;
+          outline: none;
+          font-family: 'Roboto', 'Noto', sans-serif;
+          font-kerning: auto;
+          font-size: 16px;
+          font-stretch: 100%;
+          font-style: normal;
+          -webkit-appearance: textfield;
+        }
+
+        input:required {
+          box-shadow: none;
+        }
+
+        input:invalid {
+          box-shadow: none;
+        }
+
+        :host([filled]) .wrapper {
+          background-color: var(--surface-light, #fefefe);
+        }
+
+        :host([filled]) .wrapper:hover {
+          background-color: var(--surface, #fcfcfc);
+        }
+
+        :host([filled]:focus-within) .wrapper {
+          background-color: var(--surface-dark, #fea222);
+        }
+
+        :host(:not([filled]):hover) .left-border,
+        :host(:not([filled]):hover) .right-border,
+        :host(:not([filled]):hover) label {
+          border-color: var(--input-hover-color, #333333);
+        }
+
+        .borderlabel {
+          pointer-events: none;
+          position: absolute;
+          box-sizing: border-box;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 56px;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: row;
+          -webkit-flex-direction: row;
+          flex-direction: row;
+        }
+
+        .left-border {
+          width: 8px;
+          box-sizing: border-box;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-right: none;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+        }
+
+        :host(:not([filled])) label span {
+          top: 0;
+          position: relative;
+        }
+
+        :host(:not([filled])) label {
+          padding: 0 4px;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-right: none;
+          line-height: 56px;
+        }
+
+        :host(:not([filled])) label[float],
+        :host(:not([filled]):focus-within) label {
+          border-top: none;
+        }
+
+        :host(:not([filled])) label[float] span,
+        :host(:not([filled]):focus-within) label span {
+          font-size: 12px;
+          top: -28px;
+          left: 0;
+          position: relative;
+        }
+
+        .right-border {
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
+        }
+
+        .ripple-line {
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top: 54px;
+          border: none;
+          border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
+
+        :host([filled]) .ripple-line {
+          display: block;
+        }
+
+        :host([filled]) .right-border,
+        :host([filled]) .left-border {
+          display: none;
+        }
+
+        :host([filled]) label {
+          border: none;
+        }
+
+        :host([filled]) label {
+          padding: 0 12px;
+          line-height: 56px;
+        }
+
+        :host([filled]) label span {
+          position: relative;
+          top: 0;
+        }
+
+        :host([filled]) label[float] span,
+        :host(:focus-within) label span {
+          font-size: 12px;
+          font-weight: 400;
+          top: -20px;
+          position: relative;
+        }
+
+        * {
+          transition: all 200ms ease-out;
+        }
+
+        .hint,
+        .errortext {
+          position: absolute;
+          bottom: -19px;
+          font-size: 12px;
+          color: transparent;
+          padding-left: 12px;
+          white-space: nowrap;
+          pointer-events: none;
+        }
+
+        :host(:focus-within) .hint {
+          color: var(--input-hint-color, #999999);
+          transition: all 550ms ease-in;
+        }
+
+        :host([error]) .errortext {
+          display: block;
+        }
+
+        .errortext {
+          color: var(--input-error-text-color, var(--error, red));
+          display: none;
+        }
+
+        label {
+          color: var(--input-hint-color, var(--disabled, #dedede));
+        }
+
+        :host(:focus-within) label,
+        :host(:focus-within:not([filled])) label {
+          color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+          border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        }
+
+        :host(:focus-within) .ripple-line {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
+        }
+
+        :host(:not([filled]):focus-within) .left-border,
+        :host(:not([filled]):focus-within) .right-border,
+        :host(:not([filled]):focus-within) label {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
+        }
+
+        :host([error]:focus-within) .left-border,
+        :host([error]:focus-within) .right-border,
+        :host([error]:focus-within) label,
+        :host([error]:focus-within) .ripple-line {
+          border-color: var(--input-error-text-color, var(--error, red));
+          border-width: 2px;
+        }
+
+        :host([error]:focus-within) label {
+          color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([error]:focus-within) .hint {
+          display: none;
+        }
+
+        :host([error]) .ripple-line,
+        :host([error]) .left-border,
+        :host([error]) .right-border,
+        :host([error]) label {
+          border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
+
+        furo-icon {
+          display: none;
+          top: 16px;
+        }
+
+        furo-icon.lead {
+          position: absolute;
+
+          left: 8px;
+        }
+
+        furo-icon.trail {
+          position: absolute;
+          right: 8px;
+        }
+
+        :host([leading-icon]:not([leading-icon='undefined'])) furo-icon.lead,
+        :host([trailing-icon]:not([trailing-icon='undefined'])) furo-icon.trail {
+          display: block;
+        }
+
+        :host([leading-icon]:not([leading-icon='undefined'])) label:not([float]) span {
+          left: 24px;
+        }
+
+        :host(:focus-within[leading-icon]:not([leading-icon='undefined'])) label span {
+          left: 0;
+        }
+
+        :host([leading-icon]:not([leading-icon='undefined'])) .wrapper {
+          padding-left: 36px;
+        }
+
+        :host([trailing-icon]:not([trailing-icon='undefined'])) .wrapper {
+          padding-right: 36px;
+        }
+
+        :host(:focus-within:not([valid])) label {
+          color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([condensed]) input {
+          top: 12px;
+          font-size: 14px;
+        }
+
+        :host([condensed]:not([filled])) label,
+        :host([filled][condensed]) label {
+          line-height: 40px;
+          font-size: 14px;
+        }
+
+        :host([condensed][filled]) input {
+          top: 12px;
+        }
+
+        :host([condensed]) .borderlabel,
+        :host([condensed]) .wrapper {
+          height: 40px;
+        }
+
+        :host([condensed]) furo-icon {
+          top: 10px;
+        }
+
+        :host([condensed]) .ripple-line {
+          top: 38px;
+        }
+
+        :host([condensed][filled]) label[float] span,
+        :host([filled][condensed]:focus-within) label span {
+          top: -12px;
+        }
+
+        :host([condensed]) label[float] span,
+        :host([condensed]:focus-within) label span {
+          top: -20px;
+        }
+
+        :host([condensed]) {
+          height: 40px;
+        }
+      `}/**
      *
      * @return {TemplateResult | TemplateResult}
      * @private
      */render(){// language=HTML
-return html` 
+return html`
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
-       <div class="iwrap">
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled}   
-       type="search" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
-       </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
+        <furo-icon
+          class="lead"
+          icon="${this.leadingIcon}"
+          @-click="^^leading-icon-clicked(value)"
+        ></furo-icon>
+        <div class="iwrap">
+          <input
+            id="input"
+            ?autofocus=${this.autofocus}
+            ?readonly=${this.readonly}
+            ?disabled=${this.disabled}
+            type="search"
+            ƒ-.value="--value"
+            @-input="--inputInput(*)"
+            ƒ-focus="--focus"
+          />
+        </div>
+        <furo-icon
+          class="trail"
+          icon="${this.trailingIcon}"
+          @-click="^^trailing-icon-clicked(value)"
+        ></furo-icon>
       </div>
       <div class="borderlabel">
-      <div class="left-border"></div>
-      <label ?float="${this._float||this.float}" for="input"><span>${this.label} ${this.required?html`*`:html``}</span></label>
-      <div class="right-border"></div>
+        <div class="left-border"></div>
+        <label ?float="${this._float||this.float}" for="input"
+          ><span
+            >${this.label}
+            ${this.required?html`
+                  *
+                `:html``}</span
+          ></label
+        >
+        <div class="right-border"></div>
       </div>
-      
-      <div class="ripple-line"></div>           
+
+      <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
- 
     `}}window.customElements.define("furo-search-input",FuroSearchInput);// empty fbp element handler to have fbp scope
-class EmptyFBPNode extends FBP(HTMLElement){}window.customElements.define("empty-fbp-node",EmptyFBPNode);class FlowRepeat extends FBP(HTMLElement){constructor(){super();this.template;this._insertedItems=[]}/**
+class EmptyFBPNode extends FBP(HTMLElement){}window.customElements.define("empty-fbp-node",EmptyFBPNode);class FlowRepeat extends FBP(HTMLElement){constructor(){super();this.template=void 0;this._insertedItems=[]}/**
      * Clear the list
      */clear(){this.injectItems([])}/**
      * Triggers the wire --itemSelected on selected item and --itemDeSelected on last selected Item
@@ -6635,29 +7364,32 @@ if(this.selectedIndex!==void 0){this.deselect(this.selectedIndex)}this._inserted
      */selectNextIndex(){let i=this.selectedIndex+1;// loop around
 if(!this._insertedItems[i]){i=0}this.select(i)}selectPreviousIndex(){let i=this.selectedIndex-1;// loop around
 if(0>i){i=this._insertedItems.length-1}this.select(i)}triggerSelected(data){this.triggerIndex(this.selectedIndex,data)}// trigger all nodes
-triggerAll(data){for(let i=0;i<this._insertedItems.length;i++){this.triggerIndex(i,data)}}/**
+triggerAll(data){for(let i=0;i<this._insertedItems.length;i+=1){this.triggerIndex(i,data)}}/**
      * Triggers the wire --itemDeSelected on last selected item
-     */deselect(){if(this.selectedIndex!==void 0&&this._insertedItems[this.selectedIndex]){this._insertedItems[this.selectedIndex].virtualElement._FBPTriggerWire("--itemDeSelected");this.selectedIndex=void 0}}_findFirstHost(parent){if(parent&&parent.host){return parent.host}if(null===parent){return null}return this._findFirstHost(parent.parentNode)}injectItems(items){if(!Array.isArray(items)){console.info("Items is not an array ",items,this);// make the list empty
+     */deselect(){if(this.selectedIndex!==void 0&&this._insertedItems[this.selectedIndex]){this._insertedItems[this.selectedIndex].virtualElement._FBPTriggerWire("--itemDeSelected");this.selectedIndex=void 0}}_findFirstHost(parent){if(parent&&parent.host){return parent.host}if(null===parent){return null}return this._findFirstHost(parent.parentNode)}injectItems(items){if(!Array.isArray(items)){// eslint-disable-next-line no-console
+console.info("Items is not an array ",items,this);// make the list empty
+// eslint-disable-next-line no-param-reassign
 items=[]}this._firstHost=this._findFirstHost(this.parentNode);items.forEach((e,i,a)=>{let identity=!1;if(this.identityPath){identity=this.identityPath.split(".").reduce((acc,part)=>acc&&acc[part],e)}let elem;// wenn das element noch nicht existiert
-if(!this._insertedItems[i]){elem=this._buildDomNode(identity,i);elem._FBPTriggerWire("--init",e)}else{// wenn die identität abweicht
-if(!1===this._insertedItems[i].identity||this._insertedItems[i].identity!==identity){elem=this._buildDomNode(identity,i);// Schiebe alle elemente des Knotens vor das erste kind des nächsten möglichen knoten
-let reference=this;if(this._insertedItems[i+1]&&this._insertedItems[i+1].children[0]){reference=this._insertedItems[i+1].children[0]}// move the nodes
-this._insertedItems[i].children.map(attachedElem=>{this.parentNode.insertBefore(attachedElem,reference)});elem._FBPTriggerWire("--init",e)}else{elem=this._insertedItems[i].virtualElement}}// set item and index value on created element
+if(!this._insertedItems[i]){elem=this._buildDomNode(identity,i);elem._FBPTriggerWire("--init",e)}else if(!1===this._insertedItems[i].identity||this._insertedItems[i].identity!==identity){elem=this._buildDomNode(identity,i);// Schiebe alle elemente des Knotens vor das erste kind des nächsten möglichen knoten
+let reference=this;if(this._insertedItems[i+1]&&this._insertedItems[i+1].children[0]){[reference]=this._insertedItems[i+1].children}// move the nodes
+this._insertedItems[i].children.forEach(attachedElem=>{this.parentNode.insertBefore(attachedElem,reference)});elem._FBPTriggerWire("--init",e)}else{elem=this._insertedItems[i].virtualElement}// set item and index value on created element
 elem.item=e;elem.index=i;// trigger wires
 elem._FBPTriggerWire(this._internalWire,{item:e,index:i});if(0===i){elem._FBPTriggerWire("--firstItem",e)}if(i===a.length-1){elem._FBPTriggerWire("--lastItem",e)}elem._FBPTriggerWire("--item",e);elem._FBPTriggerWire("--host",this._firstHost);elem._FBPTriggerWire("--index",i)});// überzählige elemente aus dem dom entfernen
-this._insertedItems.slice(items.length,this._insertedItems.length).map(handle=>{handle.children.map(attachedElem=>{attachedElem.remove()})});// überzählige elemente aus dem array entfernen
+this._insertedItems.slice(items.length,this._insertedItems.length).forEach(handle=>{handle.children.forEach(attachedElem=>{attachedElem.remove()})});// überzählige elemente aus dem array entfernen
 this._insertedItems.splice(items.length);if(0<items.length){/**
        * @event items-in-dom
        * Fired when items are attached to the dom
        * detail payload: {Number} Number of items
-       */setTimeout(()=>{let customEvent=new Event("items-in-dom",{composed:!0,bubbles:!1});customEvent.detail=items.length;this.dispatchEvent(customEvent)},0)}}_buildDomNode(identity,i){// build hidden elem
-let elem;elem=document.createElement("empty-fbp-node");elem.attachShadow({mode:"open"});elem.shadowRoot.appendChild(this.template.cloneNode(!0));elem._appendFBP(elem.shadowRoot);let handle={virtualElement:elem,children:[].slice.call(elem.shadowRoot.children),identity:identity};// remove old entries
-if(this._insertedItems[i]){this._insertedItems[i].children.map(attachedElem=>{attachedElem.remove()})}this._insertedItems[i]=handle;this.parentNode.insertBefore(elem.shadowRoot.firstElementChild,this);return elem}connectedCallback(){this.style.display="none";// Create a shadow root to the element.
-let t=this.querySelector("template");if(t&&t.content){this.template=t.content}/**
+       */setTimeout(()=>{const customEvent=new Event("items-in-dom",{composed:!0,bubbles:!1});customEvent.detail=items.length;this.dispatchEvent(customEvent)},0)}}_buildDomNode(identity,i){// build hidden elem
+const elem=document.createElement("empty-fbp-node");elem.attachShadow({mode:"open"});// this is sometimes needed when template is="flow-repeat" is used.
+if(this.template===void 0){const t=this.querySelector("template");if(t&&t.content){this.template=t.content}}elem.shadowRoot.appendChild(this.template.cloneNode(!0));elem._appendFBP(elem.shadowRoot);const handle={virtualElement:elem,children:[].slice.call(elem.shadowRoot.children),identity};// remove old entries
+if(this._insertedItems[i]){this._insertedItems[i].children.forEach(attachedElem=>{attachedElem.remove()})}this._insertedItems[i]=handle;this.parentNode.insertBefore(elem.shadowRoot.firstElementChild,this);return elem}connectedCallback(){this.style.display="none";// Create a shadow root to the element.
+const t=this.querySelector("template");if(t&&t.content){this.template=t.content}/**
        * Identity path of a single item.
        * Use this if you have a field which identifies the item.
        * @type {*string}
-       */this.identityPath=this.getAttribute("identity-path")||!1;this._internalWire=this.getAttribute("internal-wire")||"--itemInjected"}triggerFirst(e){if(this._insertedItems[0]){this._insertedItems[0].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[0].virtualElement._FBPTriggerWire("--triggerFirst",e)}}triggerLast(e){if(this._insertedItems[this._insertedItems.length-1]){this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--triggerLast",e)}}triggerIndex(i,data){if(this._insertedItems[i]){this._insertedItems[i].virtualElement._FBPTriggerWire("--trigger",data);this._insertedItems[i].virtualElement._FBPTriggerWire("--triggerIndex",data)}else{console.warn("Out of index",this)}}}window.customElements.define("flow-repeat",FlowRepeat);class FuroSelectInput extends FBP(LitElement){/**
+       */this.identityPath=this.getAttribute("identity-path")||!1;this._internalWire=this.getAttribute("internal-wire")||"--itemInjected"}triggerFirst(e){if(this._insertedItems[0]){this._insertedItems[0].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[0].virtualElement._FBPTriggerWire("--triggerFirst",e)}}triggerLast(e){if(this._insertedItems[this._insertedItems.length-1]){this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--triggerLast",e)}}triggerIndex(i,data){if(this._insertedItems[i]){this._insertedItems[i].virtualElement._FBPTriggerWire("--trigger",data);this._insertedItems[i].virtualElement._FBPTriggerWire("--triggerIndex",data)}else{// eslint-disable-next-line no-console
+console.warn("Out of index",this)}}}window.customElements.define("flow-repeat",FlowRepeat);class FuroSelectInput extends FBP(LitElement){/**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
    *
@@ -6741,7 +7473,8 @@ let t=this.querySelector("template");if(t&&t.content){this.template=t.content}/*
      */disable(){this.disabled=!0}/**
      * Makes the field writable.
      */enable(){this.disabled=!1}set options(collection){// convert array list to id, label structure
-if("string"===typeof collection[0]){collection=collection.map(item=>{return{id:item,label:item}})}let arr=collection.map(e=>{if(e.selected){this.value=e.id.toString()}return{id:e.id,label:e.label,selected:this.value===e.id.toString()||e.selected||!1}});if(!this.value){this.value=arr[0].id}this._FBPTriggerWire("--selection",arr)}set list(v){let arr=v.split(",").map(function(item){return item.trim()});this.options=arr}/**
+if("string"===typeof collection[0]){// eslint-disable-next-line no-param-reassign
+collection=collection.map(item=>({id:item,label:item}))}const arr=collection.map(e=>{if(e.selected){this.value=e.id.toString()}return{id:e.id,label:e.label,selected:this.value===e.id.toString()||e.selected||!1}});if(!this.value){this.value=arr[0].id}this._FBPTriggerWire("--selection",arr)}set list(v){const arr=v.split(",").map(item=>item.trim());this.options=arr}/**
      *
      * @private
      * @return {CSSResult}
@@ -6749,345 +7482,366 @@ if("string"===typeof collection[0]){collection=collection.map(item=>{return{id:i
 return Theme.getThemeForComponent("FuroSelectInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 10px 0 15px 0;
-            height: 56px;
-            font-family: "Roboto", "Noto", sans-serif;
-            width: 190px;
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+          margin: 10px 0 15px 0;
+          height: 56px;
+          font-family: 'Roboto', 'Noto', sans-serif;
+          width: 190px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            height: 56px;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
+          position: relative;
+          padding: 0 12px;
+          box-sizing: border-box;
+          height: 56px;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
         }
-
 
         .iwrap {
-            position: relative;
+          position: relative;
         }
 
-        .expand{
-            position: absolute;
-            right: 0;
-            display: block;
-            pointer-events: none;
-            cursor: pointer;
+        .expand {
+          position: absolute;
+          right: 0;
+          display: block;
+          pointer-events: none;
+          cursor: pointer;
         }
         select {
-            cursor: pointer;
-            position: absolute;
-            top: 16px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            line-height: 24px;
-            color: inherit;
-            outline: none;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
-            -moz-appearance: none;
-            -webkit-appearance: none;
-            appearance: none;
+          cursor: pointer;
+          position: absolute;
+          top: 16px;
+          border: none;
+          background: none;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          line-height: 24px;
+          color: inherit;
+          outline: none;
+          font-family: 'Roboto', 'Noto', sans-serif;
+          font-kerning: auto;
+          font-size: 16px;
+          font-stretch: 100%;
+          font-style: normal;
+          -moz-appearance: none;
+          -webkit-appearance: none;
+          appearance: none;
         }
 
-
         :host([filled]) .wrapper {
-            background-color: var(--surface-light, #FEFEFE);
+          background-color: var(--surface-light, #fefefe);
         }
 
         :host([filled]) .wrapper:hover {
-            background-color: var(--surface, #FCFCFC);
+          background-color: var(--surface, #fcfcfc);
         }
 
         :host([filled]:focus-within) .wrapper {
-            background-color: var(--surface-dark, #FEA222);
+          background-color: var(--surface-dark, #fea222);
         }
 
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-color: var(--input-hover-color, #333333);
+        :host(:not([filled]):hover) .left-border,
+        :host(:not([filled]):hover) .right-border,
+        :host(:not([filled]):hover) label {
+          border-color: var(--input-hover-color, #333333);
         }
-
 
         .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
+          pointer-events: none;
+          position: absolute;
+          box-sizing: border-box;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 56px;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: row;
+          -webkit-flex-direction: row;
+          flex-direction: row;
         }
 
         .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
+          width: 8px;
+          box-sizing: border-box;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-right: none;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
         }
-
 
         :host(:not([filled])) label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            line-height: 56px;
+          padding: 0 4px;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-right: none;
+          border-top: none;
+          line-height: 56px;
         }
-
 
         :host(:not([filled])) label span {
-            position: relative;
-            font-size: 12px;
-            top: -28px;
-            left: 0;
+          position: relative;
+          font-size: 12px;
+          top: -28px;
+          left: 0;
         }
-
 
         .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
         }
 
-
         .ripple-line {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 56px;
-            border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top: 56px;
+          border: none;
+          border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
 
         :host([filled]) .ripple-line {
-            display: block;
+          display: block;
         }
 
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
+        :host([filled]) .right-border,
+        :host([filled]) .left-border {
+          display: none;
         }
-
 
         :host([filled]) label {
-            padding: 0 12px;
-            line-height: 56px;
-            border: none;
+          padding: 0 12px;
+          line-height: 56px;
+          border: none;
         }
 
         :host([filled]) label span {
-            font-size: 12px;
-            font-weight: 400;
-            top: -20px;
-            position: relative;
+          font-size: 12px;
+          font-weight: 400;
+          top: -20px;
+          position: relative;
         }
-
 
         * {
-            transition: all 200ms ease-out;
+          transition: all 200ms ease-out;
         }
 
-        .hint, .errortext {
-            position: absolute;
-            bottom: -19px;
-            font-size: 12px;
-            color: transparent;
-            padding-left: 12px;
-            white-space: nowrap;
-            pointer-events: none;
+        .hint,
+        .errortext {
+          position: absolute;
+          bottom: -19px;
+          font-size: 12px;
+          color: transparent;
+          padding-left: 12px;
+          white-space: nowrap;
+          pointer-events: none;
         }
 
         :host(:focus-within) .hint {
-            color: var(--input-hint-color, #999999);
-            transition: all 550ms ease-in;
+          color: var(--input-hint-color, #999999);
+          transition: all 550ms ease-in;
         }
 
-
         :host([error]) .errortext {
-            display: block;
+          display: block;
         }
 
         .errortext {
-            color: var(--input-error-text-color, var(--error, red));
-            display: none;
+          color: var(--input-error-text-color, var(--error, red));
+          display: none;
         }
-
 
         label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+          color: var(--input-hint-color, var(--disabled, #dedede));
         }
 
-        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        :host(:focus-within) label,
+        :host(:focus-within:not([filled])) label {
+          color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+          border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
         }
-
 
         :host(:focus-within) .ripple-line {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+        :host(:not([filled]):focus-within) .left-border,
+        :host(:not([filled]):focus-within) .right-border,
+        :host(:not([filled]):focus-within) label {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-color: var(--input-error-text-color, var(--error, red));
-            border-width: 2px;
+        :host([error]:focus-within) .left-border,
+        :host([error]:focus-within) .right-border,
+        :host([error]:focus-within) label,
+        :host([error]:focus-within) .ripple-line {
+          border-color: var(--input-error-text-color, var(--error, red));
+          border-width: 2px;
         }
 
         :host([error]:focus-within) label {
-            color: var(--input-error-text-color, var(--error, red));
+          color: var(--input-error-text-color, var(--error, red));
         }
 
         :host([error]:focus-within) .hint {
-            display: none;
+          display: none;
         }
 
-
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        :host([error]) .ripple-line,
+        :host([error]) .left-border,
+        :host([error]) .right-border,
+        :host([error]) label {
+          border-color: var(--input-error-activation-indicator-color, var(--error, red));
         }
 
         furo-icon {
-            display: none;
-            top: 16px;
+          display: none;
+          top: 16px;
         }
 
         furo-icon.lead {
-            position: absolute;
+          position: absolute;
 
-            left: 8px;
+          left: 8px;
         }
 
         furo-icon.trail {
-            position: absolute;
-            right: 8px;
+          position: absolute;
+          right: 8px;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
+        :host([leading-icon]:not([leading-icon='undefined'])) furo-icon.lead,
+        :host([trailing-icon]:not([trailing-icon='undefined'])) furo-icon.trail {
+          display: block;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
-            padding-left: 36px;
+        :host([leading-icon]:not([leading-icon='undefined'])) .wrapper {
+          padding-left: 36px;
         }
 
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
-            padding-right: 36px;
+        :host([trailing-icon]:not([trailing-icon='undefined'])) .wrapper {
+          padding-right: 36px;
         }
 
         :host(:focus-within:not([valid])) label {
-            color: var(--input-error-text-color, var(--error, red));
+          color: var(--input-error-text-color, var(--error, red));
         }
 
         :host([condensed]) select {
-            top: 12px;
+          top: 12px;
         }
 
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
-            line-height: 40px;
+        :host([condensed]:not([filled])) label,
+        :host([filled][condensed]) label {
+          line-height: 40px;
         }
 
         :host([condensed]) select {
-            font-size: 14px;
+          font-size: 14px;
         }
 
         :host([condensed][filled]) select {
-            top: 12px;
+          top: 12px;
         }
 
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
-            height: 40px;
+        :host([condensed]) .borderlabel,
+        :host([condensed]) .wrapper {
+          height: 40px;
         }
 
         :host([condensed]) furo-icon {
-            top: 10px;
+          top: 10px;
         }
 
         :host([condensed]) .ripple-line {
-            top: 36px;
+          top: 36px;
         }
 
-        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-            top: -12px;
-
+        :host([condensed][filled]) label[float] span,
+        :host([filled][condensed]:focus-within) label span {
+          top: -12px;
         }
 
         :host([condensed]) label span {
-            top: -20px;
-
+          top: -20px;
         }
 
-        :host([condensed]) .hint, :host([condensed]) .errortext {
-
+        :host([condensed]) .hint,
+        :host([condensed]) .errortext {
         }
 
         :host([condensed]) {
-            height: 40px;
+          height: 40px;
         }
-
-    `}/**
+      `}/**
      *
      * @return {TemplateResult | TemplateResult}
      * @private
      */render(){// language=HTML
-return html` 
+return html`
       <div class="wrapper">
-      
-       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>
-       <div class="iwrap">    
-           <select id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  @-change="--inputInput(*)" ƒ-.value="--value" ƒ-focus="--focus">        
+        <furo-icon
+          class="lead"
+          icon="${this.leadingIcon}"
+          @-click="^^leading-icon-clicked(value)"
+        ></furo-icon>
+        <div class="iwrap">
+          <select
+            id="input"
+            ?autofocus=${this.autofocus}
+            ?disabled=${this.disabled}
+            @-change="--inputInput(*)"
+            ƒ-.value="--value"
+            ƒ-focus="--focus"
+          >
             <template is="flow-repeat" ƒ-inject-items="--selection">
-                <option ƒ-.value="--item(*.id)" ƒ-.selected="--item(*.selected)" ƒ-.inner-text="--item(*.label)"></option>
+              <option
+                ƒ-.value="--item(*.id)"
+                ƒ-.selected="--item(*.selected)"
+                ƒ-.inner-text="--item(*.label)"
+              ></option>
             </template>
-           </select>
-        <furo-icon class="expand" icon="expand-more"></furo-icon>
-       </div>     
-       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
+          </select>
+          <furo-icon class="expand" icon="expand-more"></furo-icon>
+        </div>
+        <furo-icon
+          class="trail"
+          icon="${this.trailingIcon}"
+          @-click="^^trailing-icon-clicked(value)"
+        ></furo-icon>
       </div>
       <div class="borderlabel">
-      <div class="left-border"></div>
-      ${this.label?html`<label float for="input"><span>${this.label}</span></label>`:html``} 
-      <div class="right-border"></div>
+        <div class="left-border"></div>
+        ${this.label?html`
+              <label float for="input"><span>${this.label}</span></label>
+            `:html``}
+        <div class="right-border"></div>
       </div>
-      
-      <div class="ripple-line"></div>           
+
+      <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
     `}}window.customElements.define("furo-select-input",FuroSelectInput);/*!
@@ -7095,7 +7849,7 @@ return html`
                                                                      * (c) 2018 Szymon Nowak | Released under the MIT license
                                                                      */class Point{constructor(x,y,time){this.x=x;this.y=y;this.time=time||Date.now()}distanceTo(start){return Math.sqrt(Math.pow(this.x-start.x,2)+Math.pow(this.y-start.y,2))}equals(other){return this.x===other.x&&this.y===other.y&&this.time===other.time}velocityFrom(start){return this.time!==start.time?this.distanceTo(start)/(this.time-start.time):0}}class Bezier{constructor(startPoint,control2,control1,endPoint,startWidth,endWidth){this.startPoint=startPoint;this.control2=control2;this.control1=control1;this.endPoint=endPoint;this.startWidth=startWidth;this.endWidth=endWidth}static fromPoints(points,widths){const c2=this.calculateControlPoints(points[0],points[1],points[2]).c2,c3=this.calculateControlPoints(points[1],points[2],points[3]).c1;return new Bezier(points[1],c2,c3,points[2],widths.start,widths.end)}static calculateControlPoints(s1,s2,s3){const dx1=s1.x-s2.x,dy1=s1.y-s2.y,dx2=s2.x-s3.x,dy2=s2.y-s3.y,m1={x:(s1.x+s2.x)/2,y:(s1.y+s2.y)/2},m2={x:(s2.x+s3.x)/2,y:(s2.y+s3.y)/2},l1=Math.sqrt(dx1*dx1+dy1*dy1),l2=Math.sqrt(dx2*dx2+dy2*dy2),dxm=m1.x-m2.x,dym=m1.y-m2.y,k=l2/(l1+l2),cm={x:m2.x+dxm*k,y:m2.y+dym*k},tx=s2.x-cm.x,ty=s2.y-cm.y;return{c1:new Point(m1.x+tx,m1.y+ty),c2:new Point(m2.x+tx,m2.y+ty)}}length(){const steps=10;let length=0,px,py;for(let i=0;i<=steps;i+=1){const t=i/steps,cx=this.point(t,this.startPoint.x,this.control1.x,this.control2.x,this.endPoint.x),cy=this.point(t,this.startPoint.y,this.control1.y,this.control2.y,this.endPoint.y);if(0<i){const xdiff=cx-px,ydiff=cy-py;length+=Math.sqrt(xdiff*xdiff+ydiff*ydiff)}px=cx;py=cy}return length}point(t,start,c1,c2,end){return start*(1-t)*(1-t)*(1-t)+3*c1*(1-t)*(1-t)*t+3*c2*(1-t)*t*t+end*t*t*t}}function throttle(fn,wait=250){let previous=0,timeout=null,result,storedContext,storedArgs;const later=()=>{previous=Date.now();timeout=null;result=fn.apply(storedContext,storedArgs);if(!timeout){storedContext=null;storedArgs=[]}};return function(...args){const now=Date.now(),remaining=wait-(now-previous);storedContext=this;storedArgs=args;if(0>=remaining||remaining>wait){if(timeout){clearTimeout(timeout);timeout=null}previous=now;result=fn.apply(storedContext,storedArgs);if(!timeout){storedContext=null;storedArgs=[]}}else if(!timeout){timeout=window.setTimeout(later,remaining)}return result}}class SignaturePad{constructor(canvas,options={}){this.canvas=canvas;this.options=options;this._handleMouseDown=event=>{if(1===event.which){this._mouseButtonDown=!0;this._strokeBegin(event)}};this._handleMouseMove=event=>{if(this._mouseButtonDown){this._strokeMoveUpdate(event)}};this._handleMouseUp=event=>{if(1===event.which&&this._mouseButtonDown){this._mouseButtonDown=!1;this._strokeEnd(event)}};this._handleTouchStart=event=>{event.preventDefault();if(1===event.targetTouches.length){const touch=event.changedTouches[0];this._strokeBegin(touch)}};this._handleTouchMove=event=>{event.preventDefault();const touch=event.targetTouches[0];this._strokeMoveUpdate(touch)};this._handleTouchEnd=event=>{const wasCanvasTouched=event.target===this.canvas;if(wasCanvasTouched){event.preventDefault();const touch=event.changedTouches[0];this._strokeEnd(touch)}};this.velocityFilterWeight=options.velocityFilterWeight||.7;this.minWidth=options.minWidth||.5;this.maxWidth=options.maxWidth||2.5;this.throttle="throttle"in options?options.throttle:16;this.minDistance="minDistance"in options?options.minDistance:5;if(this.throttle){this._strokeMoveUpdate=throttle(SignaturePad.prototype._strokeUpdate,this.throttle)}else{this._strokeMoveUpdate=SignaturePad.prototype._strokeUpdate}this.dotSize=options.dotSize||function(){return(this.minWidth+this.maxWidth)/2};this.penColor=options.penColor||"black";this.backgroundColor=options.backgroundColor||"rgba(0,0,0,0)";this.onBegin=options.onBegin;this.onEnd=options.onEnd;this._ctx=canvas.getContext("2d");this.clear();this.on()}clear(){const ctx=this._ctx,canvas=this.canvas;ctx.fillStyle=this.backgroundColor;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillRect(0,0,canvas.width,canvas.height);this._data=[];this._reset();this._isEmpty=!0}fromDataURL(dataUrl,options={},callback){const image=new Image,ratio=options.ratio||window.devicePixelRatio||1,width=options.width||this.canvas.width/ratio,height=options.height||this.canvas.height/ratio;this._reset();image.onload=()=>{this._ctx.drawImage(image,0,0,width,height);if(callback){callback()}};image.onerror=error=>{if(callback){callback(error)}};image.src=dataUrl;this._isEmpty=!1}toDataURL(type="image/png",encoderOptions){switch(type){case"image/svg+xml":return this._toSVG();default:return this.canvas.toDataURL(type,encoderOptions);}}on(){this.canvas.style.touchAction="none";this.canvas.style.msTouchAction="none";if(window.PointerEvent){this._handlePointerEvents()}else{this._handleMouseEvents();if("ontouchstart"in window){this._handleTouchEvents()}}}off(){this.canvas.style.touchAction="auto";this.canvas.style.msTouchAction="auto";this.canvas.removeEventListener("pointerdown",this._handleMouseDown);this.canvas.removeEventListener("pointermove",this._handleMouseMove);document.removeEventListener("pointerup",this._handleMouseUp);this.canvas.removeEventListener("mousedown",this._handleMouseDown);this.canvas.removeEventListener("mousemove",this._handleMouseMove);document.removeEventListener("mouseup",this._handleMouseUp);this.canvas.removeEventListener("touchstart",this._handleTouchStart);this.canvas.removeEventListener("touchmove",this._handleTouchMove);this.canvas.removeEventListener("touchend",this._handleTouchEnd)}isEmpty(){return this._isEmpty}fromData(pointGroups){this.clear();this._fromData(pointGroups,({color,curve})=>this._drawCurve({color,curve}),({color,point})=>this._drawDot({color,point}));this._data=pointGroups}toData(){return this._data}_strokeBegin(event){const newPointGroup={color:this.penColor,points:[]};this._data.push(newPointGroup);this._reset();this._strokeUpdate(event);if("function"===typeof this.onBegin){this.onBegin(event)}}_strokeUpdate(event){const x=event.clientX,y=event.clientY,point=this._createPoint(x,y),lastPointGroup=this._data[this._data.length-1],lastPoints=lastPointGroup.points,lastPoint=0<lastPoints.length&&lastPoints[lastPoints.length-1],isLastPointTooClose=lastPoint?point.distanceTo(lastPoint)<=this.minDistance:!1,color=lastPointGroup.color;if(!lastPoint||!(lastPoint&&isLastPointTooClose)){const curve=this._addPoint(point);if(!lastPoint){this._drawDot({color,point})}else if(curve){this._drawCurve({color,curve})}lastPoints.push({time:point.time,x:point.x,y:point.y})}}_strokeEnd(event){this._strokeUpdate(event);if("function"===typeof this.onEnd){this.onEnd(event)}}_handlePointerEvents(){this._mouseButtonDown=!1;this.canvas.addEventListener("pointerdown",this._handleMouseDown);this.canvas.addEventListener("pointermove",this._handleMouseMove);document.addEventListener("pointerup",this._handleMouseUp)}_handleMouseEvents(){this._mouseButtonDown=!1;this.canvas.addEventListener("mousedown",this._handleMouseDown);this.canvas.addEventListener("mousemove",this._handleMouseMove);document.addEventListener("mouseup",this._handleMouseUp)}_handleTouchEvents(){this.canvas.addEventListener("touchstart",this._handleTouchStart);this.canvas.addEventListener("touchmove",this._handleTouchMove);this.canvas.addEventListener("touchend",this._handleTouchEnd)}_reset(){this._lastPoints=[];this._lastVelocity=0;this._lastWidth=(this.minWidth+this.maxWidth)/2;this._ctx.fillStyle=this.penColor}_createPoint(x,y){const rect=this.canvas.getBoundingClientRect();return new Point(x-rect.left,y-rect.top,new Date().getTime())}_addPoint(point){const{_lastPoints}=this;_lastPoints.push(point);if(2<_lastPoints.length){if(3===_lastPoints.length){_lastPoints.unshift(_lastPoints[0])}const widths=this._calculateCurveWidths(_lastPoints[1],_lastPoints[2]),curve=Bezier.fromPoints(_lastPoints,widths);_lastPoints.shift();return curve}return null}_calculateCurveWidths(startPoint,endPoint){const velocity=this.velocityFilterWeight*endPoint.velocityFrom(startPoint)+(1-this.velocityFilterWeight)*this._lastVelocity,newWidth=this._strokeWidth(velocity),widths={end:newWidth,start:this._lastWidth};this._lastVelocity=velocity;this._lastWidth=newWidth;return widths}_strokeWidth(velocity){return Math.max(this.maxWidth/(velocity+1),this.minWidth)}_drawCurveSegment(x,y,width){const ctx=this._ctx;ctx.moveTo(x,y);ctx.arc(x,y,width,0,2*Math.PI,!1);this._isEmpty=!1}_drawCurve({color,curve}){const ctx=this._ctx,widthDelta=curve.endWidth-curve.startWidth,drawSteps=2*Math.floor(curve.length());ctx.beginPath();ctx.fillStyle=color;for(let i=0;i<drawSteps;i+=1){const t=i/drawSteps,tt=t*t,ttt=tt*t,u=1-t,uu=u*u,uuu=uu*u;let x=uuu*curve.startPoint.x;x+=3*uu*t*curve.control1.x;x+=3*u*tt*curve.control2.x;x+=ttt*curve.endPoint.x;let y=uuu*curve.startPoint.y;y+=3*uu*t*curve.control1.y;y+=3*u*tt*curve.control2.y;y+=ttt*curve.endPoint.y;const width=curve.startWidth+ttt*widthDelta;this._drawCurveSegment(x,y,width)}ctx.closePath();ctx.fill()}_drawDot({color,point}){const ctx=this._ctx,width="function"===typeof this.dotSize?this.dotSize():this.dotSize;ctx.beginPath();this._drawCurveSegment(point.x,point.y,width);ctx.closePath();ctx.fillStyle=color;ctx.fill()}_fromData(pointGroups,drawCurve,drawDot){for(const group of pointGroups){const{color,points}=group;if(1<points.length){for(let j=0;j<points.length;j+=1){const basicPoint=points[j],point=new Point(basicPoint.x,basicPoint.y,basicPoint.time);this.penColor=color;if(0===j){this._reset()}const curve=this._addPoint(point);if(curve){drawCurve({color,curve})}}}else{this._reset();drawDot({color,point:points[0]})}}}_toSVG(){const pointGroups=this._data,ratio=Math.max(window.devicePixelRatio||1,1),minX=0,minY=0,maxX=this.canvas.width/ratio,maxY=this.canvas.height/ratio,svg=document.createElementNS("http://www.w3.org/2000/svg","svg");svg.setAttribute("width",this.canvas.width.toString());svg.setAttribute("height",this.canvas.height.toString());this._fromData(pointGroups,({color,curve})=>{const path=document.createElement("path");if(!isNaN(curve.control1.x)&&!isNaN(curve.control1.y)&&!isNaN(curve.control2.x)&&!isNaN(curve.control2.y)){const attr=`M ${curve.startPoint.x.toFixed(3)},${curve.startPoint.y.toFixed(3)} `+`C ${curve.control1.x.toFixed(3)},${curve.control1.y.toFixed(3)} `+`${curve.control2.x.toFixed(3)},${curve.control2.y.toFixed(3)} `+`${curve.endPoint.x.toFixed(3)},${curve.endPoint.y.toFixed(3)}`;path.setAttribute("d",attr);path.setAttribute("stroke-width",(2.25*curve.endWidth).toFixed(3));path.setAttribute("stroke",color);path.setAttribute("fill","none");path.setAttribute("stroke-linecap","round");svg.appendChild(path)}},({color,point})=>{const circle=document.createElement("circle"),dotSize="function"===typeof this.dotSize?this.dotSize():this.dotSize;circle.setAttribute("r",dotSize.toString());circle.setAttribute("cx",point.x.toString());circle.setAttribute("cy",point.y.toString());circle.setAttribute("fill",color);svg.appendChild(circle)});const prefix="data:image/svg+xml;base64,",header="<svg"+" xmlns=\"http://www.w3.org/2000/svg\""+" xmlns:xlink=\"http://www.w3.org/1999/xlink\""+` viewBox="${minX} ${minY} ${maxX} ${maxY}"`+` width="${maxX}"`+` height="${maxY}"`+">";let body=svg.innerHTML;if(body===void 0){const dummy=document.createElement("dummy"),nodes=svg.childNodes;dummy.innerHTML="";for(let i=0;i<nodes.length;i+=1){dummy.appendChild(nodes[i].cloneNode(!0))}body=dummy.innerHTML}const footer="</svg>",data=header+body+footer;return prefix+btoa(data)}}_exports.$signaturePadMDefault=SignaturePad;var signature_pad_m={default:SignaturePad};_exports.$signaturePadM=signature_pad_m;class FuroSignPad extends FBP(LitElement){/**
    * flow is ready lifecycle method
-   */_FBPReady(){super._FBPReady();this.canvas=this.shadowRoot.querySelector("canvas");this.signaturePad=new SignaturePad(this.canvas,{onBegin:this._onBegin.bind(this),onEnd:this._onEnd.bind(this)});setTimeout(()=>{this.resize();if(this.getAttribute("image")){this.setImage(this.getAttribute("image"))}},1);this.signaturePad.clear()}resize(){if(this.canvas){var ratio=1;this.canvas.width=this.canvas.offsetWidth*ratio;this.canvas.height=this.canvas.offsetHeight*ratio;this.canvas.getContext("2d").scale(ratio,ratio)}}/**
+   */_FBPReady(){super._FBPReady();this.canvas=this.shadowRoot.querySelector("canvas");this.signaturePad=new SignaturePad(this.canvas,{onBegin:this._onBegin.bind(this),onEnd:this._onEnd.bind(this)});setTimeout(()=>{this.resize();if(this.getAttribute("image")){this.setImage(this.getAttribute("image"))}},1);this.signaturePad.clear()}resize(){if(this.canvas){const ratio=1;this.canvas.width=this.canvas.offsetWidth*ratio;this.canvas.height=this.canvas.offsetHeight*ratio;this.canvas.getContext("2d").scale(ratio,ratio)}}/**
      *
      * @private
      * @return {CSSResult}
@@ -7108,7 +7862,6 @@ return css`
         width: 300px;
         cursor: pointer;
         position: relative;
-        
       }
 
       canvas {
@@ -7132,7 +7885,6 @@ return css`
 return html`
       <canvas></canvas>
       <div class="dots"></div>
-
     `}/**
     unlock() {
       this.signaturePad.on();
@@ -7142,7 +7894,7 @@ return html`
     }
     */_setEmpty(b){this.empty=b}_setActive(b){this.active=b}/**
      * Clears the image
-     */clear(){this.signaturePad.clear();this.encodeImage()}setImage(encodedImage){var img=new Image;img.src=encodedImage;let ctx=this.canvas.getContext("2d");img.onload=function(){ctx.drawImage(img,0,0);// Or at whatever offset you like
+     */clear(){this.signaturePad.clear();this.encodeImage()}setImage(encodedImage){const img=new Image;img.src=encodedImage;const ctx=this.canvas.getContext("2d");img.onload=()=>{ctx.drawImage(img,0,0);// Or at whatever offset you like
 };img.src=encodedImage}/**
      * Encodes the image using the type and encodingOptions (quality) defined.
      * The encoded image is available in the `image` property.
@@ -7151,7 +7903,9 @@ return html`
                                                   * Fired when sign gets new painting
                                                   *
                                                   * detail payload: base encoded image
-                                                  */let customEvent=new Event("sign-updated",{composed:!0,bubbles:!0});customEvent.detail=this.image;this.dispatchEvent(customEvent);return this.image}_onBegin(event){this._setActive(!0)}_onEnd(event){this._setActive(!1);this.encodeImage()}_dotSizeChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.dotSize=newValue}_minWidthChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.minWidth=newValue}_maxWidthChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.maxWidth=newValue}_backgroundColorChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.backgroundColor=newValue}_penColorChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.penColor=newValue}_velocityFilterWeightChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.velocityFilterWeight=newValue}_onEncodingChanged(type,encoderOptions){if(this.signaturePad){this.encodeImage()}}}_exports.FuroSignPad=FuroSignPad;window.customElements.define("furo-sign-pad",FuroSignPad);var furoSignPad={FuroSignPad:FuroSignPad};_exports.$furoSignPad=furoSignPad;class FuroTextInput extends FBP(LitElement){/**
+                                                  */const customEvent=new Event("sign-updated",{composed:!0,bubbles:!0});customEvent.detail=this.image;this.dispatchEvent(customEvent);return this.image}_onBegin(){this._setActive(!0)}_onEnd(){this._setActive(!1);this.encodeImage()}_dotSizeChanged(newValue){if(!this.signaturePad)return;this.signaturePad.dotSize=newValue}_minWidthChanged(newValue){if(!this.signaturePad)return;this.signaturePad.minWidth=newValue}_maxWidthChanged(newValue){if(!this.signaturePad)return;this.signaturePad.maxWidth=newValue}_backgroundColorChanged(newValue){if(!this.signaturePad)return;this.signaturePad.backgroundColor=newValue}_penColorChanged(newValue){if(!this.signaturePad)return;this.signaturePad.penColor=newValue}_velocityFilterWeightChanged(newValue){if(!this.signaturePad)return;this.signaturePad.velocityFilterWeight=newValue}// todo implement type and encoderOptions
+// eslint-disable-next-line no-unused-vars
+_onEncodingChanged(type,encoderOptions){if(this.signaturePad){this.encodeImage()}}}_exports.FuroSignPad=FuroSignPad;window.customElements.define("furo-sign-pad",FuroSignPad);var furoSignPad={FuroSignPad:FuroSignPad};_exports.$furoSignPad=furoSignPad;class FuroTextInput extends FBP(LitElement){/**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
    *
@@ -7251,355 +8005,387 @@ return html`
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroTextInput")||css`
-      /* https://material.io/design/components/text-fields.html#theming */
-      :host {
-        display: inline-block;
-        position: relative;
-        box-sizing: border-box;
-        margin: 10px 0 15px 0;
-        height: 56px;
-        width: 190px;
-      }
-
-      :host([hidden]) {
-        display: none;
-      }
-
-      .wrapper {
-        position: relative;
-        padding: 0 12px;
-        box-sizing: border-box;
-        height: 56px;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-      }
-
-      .iwrap {
-        position: relative;
-      }
-
-
-      input {
-        position: absolute;
-        top: 16px;
-        border: none;
-        background: none;
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        line-height: 24px;
-        color: inherit;
-        outline: none;
-        font-family: "Roboto", "Noto", sans-serif;
-        font-kerning: auto;
-        font-size: 16px;
-        font-stretch: 100%;
-        font-style: normal;
-      }
-
-      input:required {
-        box-shadow: none;
-      }
-
-      input:invalid {
-        box-shadow: none;
-      }
-
-      :host([filled]) .wrapper {
-        background-color: var(--surface-light, #FEFEFE);
-      }
-
-      :host([filled]) .wrapper:hover {
-        background-color: var(--surface, #FCFCFC);
-      }
-
-      :host([filled]:focus-within) .wrapper {
-        background-color: var(--surface-dark, #FEA222);
-      }
-
-      :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-        border-color: var(--input-hover-color, #333333);
-      }
-
-
-      .borderlabel {
-        pointer-events: none;
-        position: absolute;
-        box-sizing: border-box;
-        top: 0;
-        right: 0;
-        left: 0;
-        height: 56px;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -ms-flex-direction: row;
-        -webkit-flex-direction: row;
-        flex-direction: row;
-      }
-
-      .left-border {
-        width: 8px;
-        box-sizing: border-box;
-        pointer-events: none;
-        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-        border-right: none;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-      }
-
-      :host(:not([filled])) label span {
-        top: 0;
-        position: relative;
-      }
-
-      :host(:not([filled])) label {
-        padding: 0 4px;
-        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-        border-left: none;
-        border-right: none;
-        line-height: 56px;
-      }
-
-      :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
-        border-top: none;
-      }
-
-      :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
-        font-size: 12px;
-        top: -28px;
-        left: 0;
-        position: relative;
-      }
-
-
-      .right-border {
-        pointer-events: none;
-        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-        border-left: none;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-        -ms-flex: 1 1 0.000000001px;
-        -webkit-flex: 1;
-        flex: 1;
-        -webkit-flex-basis: 0.000000001px;
-        flex-basis: 0.000000001px;
-      }
-
-
-      .ripple-line {
-        display: none;
-        position: absolute;
-        width: 100%;
-        height: 1px;
-        top: 54px;
-        border: none;
-        border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-      }
-
-      :host([filled]) .ripple-line {
-        display: block;
-      }
-
-      :host([filled]) .right-border, :host([filled]) .left-border {
-        display: none;
-      }
-
-      :host([filled]) label {
-        border: none;
-      }
-
-
-      :host([filled]) label {
-        padding: 0 12px;
-        line-height: 56px;
-      }
-
-      :host([filled]) label span {
-        position: relative;
-        top: 0;
-      }
-
-      :host([filled]) label[float] span, :host(:focus-within) label span {
-        font-size: 12px;
-        font-weight: 400;
-        top: -20px;
-        position: relative;
-      }
-
-
-      * {
-        transition: all 200ms ease-out;
-      }
-
-      .hint, .errortext {
-        position: absolute;
-        bottom: -19px;
-        font-size: 12px;
-        color: transparent;
-        padding-left: 12px;
-        white-space: nowrap;
-        pointer-events: none;
-      }
-
-      :host(:focus-within) .hint {
-        color: var(--input-hint-color, #999999);
-        transition: all 550ms ease-in;
-      }
-
-
-      :host([error]) .errortext {
-        display: block;
-      }
-
-      .errortext {
-        color: var(--input-error-text-color, var(--error, red));
-        display: none;
-      }
-
-
-      label {
-        color: var(--input-hint-color, var(--disabled, #DEDEDE));
-      }
-
-      :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-        color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-        border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-      }
-
-
-      :host(:focus-within) .ripple-line {
-        border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-        border-width: 2px;
-      }
-
-      :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-        border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-        border-width: 2px;
-      }
-
-      :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-        border-color: var(--input-error-text-color, var(--error, red));
-        border-width: 2px;
-      }
-
-      :host([error]:focus-within) label {
-        color: var(--input-error-text-color, var(--error, red));
-      }
-
-      :host([error]:focus-within) .hint {
-        display: none;
-      }
-
-      :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-        border-color: var(--input-error-activation-indicator-color, var(--error, red));
-      }
-
-      furo-icon {
-        display: none;
-        top: 16px;
-      }
-
-      furo-icon.lead {
-        position: absolute;
-
-        left: 8px;
-      }
-
-      furo-icon.trail {
-        position: absolute;
-        right: 8px;
-      }
-
-      :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-        display: block;
-      }
-
-      :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
-        left: 24px;
-      }
-
-      :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span {
-        left: 0;
-      }
-
-      :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
-        padding-left: 36px;
-      }
-
-      :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
-        padding-right: 36px;
-      }
-
-      :host(:focus-within:not([valid])) label {
-        color: var(--input-error-text-color, var(--error, red));
-      }
-
-
-      :host([condensed]) input {
-        top: 12px;
-        font-size: 14px;
-      }
-
-      :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
-        line-height: 40px;
-        font-size: 14px;
-      }
-
-      :host([condensed][filled]) input {
-        top: 12px;
-      }
-
-      :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
-        height: 40px;
-      }
-
-      :host([condensed]) furo-icon {
-        top: 10px;
-      }
-
-      :host([condensed]) .ripple-line {
-        top: 38px;
-      }
-
-      :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-        top: -12px;
-
-      }
-
-      :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-        top: -20px;
-      }
-
-      :host([condensed]) {
-        height: 40px;
-      }
-
-    `}/**
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+          margin: 10px 0 15px 0;
+          height: 56px;
+          width: 190px;
+        }
+
+        :host([hidden]) {
+          display: none;
+        }
+
+        .wrapper {
+          position: relative;
+          padding: 0 12px;
+          box-sizing: border-box;
+          height: 56px;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+        }
+
+        .iwrap {
+          position: relative;
+        }
+
+        input {
+          position: absolute;
+          top: 16px;
+          border: none;
+          background: none;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          line-height: 24px;
+          color: inherit;
+          outline: none;
+          font-family: 'Roboto', 'Noto', sans-serif;
+          font-kerning: auto;
+          font-size: 16px;
+          font-stretch: 100%;
+          font-style: normal;
+        }
+
+        input:required {
+          box-shadow: none;
+        }
+
+        input:invalid {
+          box-shadow: none;
+        }
+
+        :host([filled]) .wrapper {
+          background-color: var(--surface-light, #fefefe);
+        }
+
+        :host([filled]) .wrapper:hover {
+          background-color: var(--surface, #fcfcfc);
+        }
+
+        :host([filled]:focus-within) .wrapper {
+          background-color: var(--surface-dark, #fea222);
+        }
+
+        :host(:not([filled]):hover) .left-border,
+        :host(:not([filled]):hover) .right-border,
+        :host(:not([filled]):hover) label {
+          border-color: var(--input-hover-color, #333333);
+        }
+
+        .borderlabel {
+          pointer-events: none;
+          position: absolute;
+          box-sizing: border-box;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 56px;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: row;
+          -webkit-flex-direction: row;
+          flex-direction: row;
+        }
+
+        .left-border {
+          width: 8px;
+          box-sizing: border-box;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-right: none;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+        }
+
+        :host(:not([filled])) label span {
+          top: 0;
+          position: relative;
+        }
+
+        :host(:not([filled])) label {
+          padding: 0 4px;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-right: none;
+          line-height: 56px;
+        }
+
+        :host(:not([filled])) label[float],
+        :host(:not([filled]):focus-within) label {
+          border-top: none;
+        }
+
+        :host(:not([filled])) label[float] span,
+        :host(:not([filled]):focus-within) label span {
+          font-size: 12px;
+          top: -28px;
+          left: 0;
+          position: relative;
+        }
+
+        .right-border {
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
+        }
+
+        .ripple-line {
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top: 54px;
+          border: none;
+          border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
+
+        :host([filled]) .ripple-line {
+          display: block;
+        }
+
+        :host([filled]) .right-border,
+        :host([filled]) .left-border {
+          display: none;
+        }
+
+        :host([filled]) label {
+          border: none;
+        }
+
+        :host([filled]) label {
+          padding: 0 12px;
+          line-height: 56px;
+        }
+
+        :host([filled]) label span {
+          position: relative;
+          top: 0;
+        }
+
+        :host([filled]) label[float] span,
+        :host(:focus-within) label span {
+          font-size: 12px;
+          font-weight: 400;
+          top: -20px;
+          position: relative;
+        }
+
+        * {
+          transition: all 200ms ease-out;
+        }
+
+        .hint,
+        .errortext {
+          position: absolute;
+          bottom: -19px;
+          font-size: 12px;
+          color: transparent;
+          padding-left: 12px;
+          white-space: nowrap;
+          pointer-events: none;
+        }
+
+        :host(:focus-within) .hint {
+          color: var(--input-hint-color, #999999);
+          transition: all 550ms ease-in;
+        }
+
+        :host([error]) .errortext {
+          display: block;
+        }
+
+        .errortext {
+          color: var(--input-error-text-color, var(--error, red));
+          display: none;
+        }
+
+        label {
+          color: var(--input-hint-color, var(--disabled, #dedede));
+        }
+
+        :host(:focus-within) label,
+        :host(:focus-within:not([filled])) label {
+          color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+          border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        }
+
+        :host(:focus-within) .ripple-line {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
+        }
+
+        :host(:not([filled]):focus-within) .left-border,
+        :host(:not([filled]):focus-within) .right-border,
+        :host(:not([filled]):focus-within) label {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
+        }
+
+        :host([error]:focus-within) .left-border,
+        :host([error]:focus-within) .right-border,
+        :host([error]:focus-within) label,
+        :host([error]:focus-within) .ripple-line {
+          border-color: var(--input-error-text-color, var(--error, red));
+          border-width: 2px;
+        }
+
+        :host([error]:focus-within) label {
+          color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([error]:focus-within) .hint {
+          display: none;
+        }
+
+        :host([error]) .ripple-line,
+        :host([error]) .left-border,
+        :host([error]) .right-border,
+        :host([error]) label {
+          border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
+
+        furo-icon {
+          display: none;
+          top: 16px;
+        }
+
+        furo-icon.lead {
+          position: absolute;
+
+          left: 8px;
+        }
+
+        furo-icon.trail {
+          position: absolute;
+          right: 8px;
+        }
+
+        :host([leading-icon]:not([leading-icon='undefined'])) furo-icon.lead,
+        :host([trailing-icon]:not([trailing-icon='undefined'])) furo-icon.trail {
+          display: block;
+        }
+
+        :host([leading-icon]:not([leading-icon='undefined'])) label:not([float]) span {
+          left: 24px;
+        }
+
+        :host(:focus-within[leading-icon]:not([leading-icon='undefined'])) label span {
+          left: 0;
+        }
+
+        :host([leading-icon]:not([leading-icon='undefined'])) .wrapper {
+          padding-left: 36px;
+        }
+
+        :host([trailing-icon]:not([trailing-icon='undefined'])) .wrapper {
+          padding-right: 36px;
+        }
+
+        :host(:focus-within:not([valid])) label {
+          color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([condensed]) input {
+          top: 12px;
+          font-size: 14px;
+        }
+
+        :host([condensed]:not([filled])) label,
+        :host([filled][condensed]) label {
+          line-height: 40px;
+          font-size: 14px;
+        }
+
+        :host([condensed][filled]) input {
+          top: 12px;
+        }
+
+        :host([condensed]) .borderlabel,
+        :host([condensed]) .wrapper {
+          height: 40px;
+        }
+
+        :host([condensed]) furo-icon {
+          top: 10px;
+        }
+
+        :host([condensed]) .ripple-line {
+          top: 38px;
+        }
+
+        :host([condensed][filled]) label[float] span,
+        :host([filled][condensed]:focus-within) label span {
+          top: -12px;
+        }
+
+        :host([condensed]) label[float] span,
+        :host([condensed]:focus-within) label span {
+          top: -20px;
+        }
+
+        :host([condensed]) {
+          height: 40px;
+        }
+      `}/**
      * toto add option to hide `*` when the field is required
      * @return {TemplateResult | TemplateResult}
      * @private
      */render(){// language=HTML
-return html` 
+return html`
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
-       <div class="iwrap">
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled} ?required=${this.required} 
-        type="text" ƒ-.value="--value" @-input="--inputInput(*)" ƒ-focus="--focus">
-       </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
+        <furo-icon
+          class="lead"
+          icon="${this.leadingIcon}"
+          @-click="^^leading-icon-clicked(value)"
+        ></furo-icon>
+        <div class="iwrap">
+          <input
+            id="input"
+            ?autofocus=${this.autofocus}
+            ?readonly=${this.readonly}
+            ?disabled=${this.disabled}
+            ?required=${this.required}
+            type="text"
+            ƒ-.value="--value"
+            @-input="--inputInput(*)"
+            ƒ-focus="--focus"
+          />
+        </div>
+        <furo-icon
+          class="trail"
+          icon="${this.trailingIcon}"
+          @-click="^^trailing-icon-clicked(value)"
+        ></furo-icon>
       </div>
       <div class="borderlabel">
-      <div class="left-border"></div>
-      <label ?float="${this._float||this.float}" for="input"><span>${this.label} ${this.required?html`*`:html``}</span></label>
-      <div class="right-border"></div>
+        <div class="left-border"></div>
+        <label ?float="${this._float||this.float}" for="input"
+          ><span
+            >${this.label}
+            ${this.required?html`
+                  *
+                `:html``}</span
+          ></label
+        >
+        <div class="right-border"></div>
       </div>
-      
-      <div class="ripple-line"></div>           
+
+      <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
- 
     `}}window.customElements.define("furo-text-input",FuroTextInput);class FuroTextareaInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the min => minlength attr
      * @param value
@@ -7679,261 +8465,274 @@ return html`
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroTextareaInput")||css`
         :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 10px 0 15px 0;
-            min-height: 56px;
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+          margin: 10px 0 15px 0;
+          min-height: 56px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
+          position: relative;
+          padding: 0 12px;
+          box-sizing: border-box;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
         }
-
-        
 
         textarea {
-            
-            display: block;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            width: 100%;
-            margin: 16px 0;
-            padding: 0;
-            line-height: 24px;
-            color: inherit;
-            outline: none;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
+          display: block;
+          border: none;
+          background: none;
+          box-sizing: border-box;
+          width: 100%;
+          margin: 16px 0;
+          padding: 0;
+          line-height: 24px;
+          color: inherit;
+          outline: none;
+          font-family: 'Roboto', 'Noto', sans-serif;
+          font-kerning: auto;
+          font-size: 16px;
+          font-stretch: 100%;
+          font-style: normal;
         }
-  
-        
+
         :host([filled]) .wrapper {
-            background-color: var(--surface-light, #FEFEFE);
+          background-color: var(--surface-light, #fefefe);
         }
 
         :host([filled]) .wrapper:hover {
-            background-color: var(--surface, #FCFCFC);
+          background-color: var(--surface, #fcfcfc);
         }
 
         :host([filled]:focus-within) .wrapper {
-            background-color: var(--surface-dark, #FEA222);
+          background-color: var(--surface-dark, #fea222);
         }
 
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-color: var(--input-hover-color, #333333);
+        :host(:not([filled]):hover) .left-border,
+        :host(:not([filled]):hover) .right-border,
+        :host(:not([filled]):hover) label {
+          border-color: var(--input-hover-color, #333333);
         }
-
 
         .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 100%;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
+          pointer-events: none;
+          position: absolute;
+          box-sizing: border-box;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 100%;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: row;
+          -webkit-flex-direction: row;
+          flex-direction: row;
         }
 
         .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
+          width: 8px;
+          box-sizing: border-box;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-right: none;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
         }
 
         :host(:not([filled])) label span {
-            top: 0;
-            position: relative;
+          top: 0;
+          position: relative;
         }
 
         :host(:not([filled])) label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
-            line-height: 56px;
+          padding: 0 4px;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-right: none;
+          line-height: 56px;
         }
 
-        :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
-            border-top: none;
+        :host(:not([filled])) label[float],
+        :host(:not([filled]):focus-within) label {
+          border-top: none;
         }
 
-        :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
-            font-size: 12px;
-            top: -28px;
-            left: 0;
-            position: relative;
+        :host(:not([filled])) label[float] span,
+        :host(:not([filled]):focus-within) label span {
+          font-size: 12px;
+          top: -28px;
+          left: 0;
+          position: relative;
         }
-
 
         .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
         }
 
-
         .ripple-line {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 54px;
-            border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top: 54px;
+          border: none;
+          border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
 
         :host([filled]) .ripple-line {
-            display: block;
+          display: block;
         }
 
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
+        :host([filled]) .right-border,
+        :host([filled]) .left-border {
+          display: none;
         }
 
         :host([filled]) label {
-            border: none;
+          border: none;
         }
 
-
         :host([filled]) label {
-            padding: 0 12px;
-            line-height: 56px;
+          padding: 0 12px;
+          line-height: 56px;
         }
 
         :host([filled]) label span {
-            position: relative;
-            top: 0;
+          position: relative;
+          top: 0;
         }
 
-        :host([filled]) label[float] span, :host(:focus-within) label span {
-            font-size: 12px;
-            font-weight: 400;
-            top: -20px;
-            position: relative;
+        :host([filled]) label[float] span,
+        :host(:focus-within) label span {
+          font-size: 12px;
+          font-weight: 400;
+          top: -20px;
+          position: relative;
         }
-
 
         * {
-            transition: all 200ms ease-out;
+          transition: all 200ms ease-out;
         }
 
-        .hint, .errortext {
-            position: absolute;
-            bottom: -19px;
-            font-size: 12px;
-            color: transparent;
-            padding-left: 12px;
-            white-space: nowrap;
-            pointer-events: none;
+        .hint,
+        .errortext {
+          position: absolute;
+          bottom: -19px;
+          font-size: 12px;
+          color: transparent;
+          padding-left: 12px;
+          white-space: nowrap;
+          pointer-events: none;
         }
 
         :host(:focus-within) .hint {
-            color: var(--input-hint-color, #999999);
-            transition: all 550ms ease-in;
+          color: var(--input-hint-color, #999999);
+          transition: all 550ms ease-in;
         }
 
-
         :host([error]) .errortext {
-            display: block;
+          display: block;
         }
 
         .errortext {
-            color: var(--input-error-text-color, var(--error, red));
-            display: none;
+          color: var(--input-error-text-color, var(--error, red));
+          display: none;
         }
-
 
         label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+          color: var(--input-hint-color, var(--disabled, #dedede));
         }
 
-        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        :host(:focus-within) label,
+        :host(:focus-within:not([filled])) label {
+          color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+          border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
         }
-
 
         :host(:focus-within) .ripple-line {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+        :host(:not([filled]):focus-within) .left-border,
+        :host(:not([filled]):focus-within) .right-border,
+        :host(:not([filled]):focus-within) label {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-color: var(--input-error-text-color, var(--error, red));
-            border-width: 2px;
+        :host([error]:focus-within) .left-border,
+        :host([error]:focus-within) .right-border,
+        :host([error]:focus-within) label,
+        :host([error]:focus-within) .ripple-line {
+          border-color: var(--input-error-text-color, var(--error, red));
+          border-width: 2px;
         }
 
         :host([error]:focus-within) label {
-            color: var(--input-error-text-color, var(--error, red));
+          color: var(--input-error-text-color, var(--error, red));
         }
 
         :host([error]:focus-within) .hint {
-            display: none;
+          display: none;
         }
 
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        :host([error]) .ripple-line,
+        :host([error]) .left-border,
+        :host([error]) .right-border,
+        :host([error]) label {
+          border-color: var(--input-error-activation-indicator-color, var(--error, red));
         }
-
-        
-
-        
 
         :host(:focus-within:not([valid])) label {
-            color: var(--input-error-text-color, var(--error, red));
+          color: var(--input-error-text-color, var(--error, red));
         }
-
-    `}/**
+      `}/**
      *
      * @return {TemplateResult | TemplateResult}
      * @private
      */render(){// language=HTML
-return html` 
-       <div class="wrapper">           
-         <textarea id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled}
-        ƒ-.value="--value"  @-input="--inputInput(*)"   ƒ-focus="--focus"></textarea>          
+return html`
+      <div class="wrapper">
+        <textarea
+          id="input"
+          ?autofocus=${this.autofocus}
+          ?readonly=${this.readonly}
+          ?disabled=${this.disabled}
+          ƒ-.value="--value"
+          @-input="--inputInput(*)"
+          ƒ-focus="--focus"
+        ></textarea>
       </div>
       <div class="borderlabel">
-      <div class="left-border"></div>
-      <label ?float="${this._float||this.float}" for="input"><span>${this.label} ${this.required?html`*`:html``}</span></label>
-      <div class="right-border"></div>
+        <div class="left-border"></div>
+        <label ?float="${this._float||this.float}" for="input"
+          ><span
+            >${this.label}
+            ${this.required?html`
+                  *
+                `:html``}</span
+          ></label
+        >
+        <div class="right-border"></div>
       </div>
-      <div class="ripple-line"></div>           
+      <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
     `}}window.customElements.define("furo-textarea-input",FuroTextareaInput);class FuroTimeInput extends FBP(LitElement){/**
@@ -8038,328 +8837,341 @@ return html`
 return Theme.getThemeForComponent("FuroTimeInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 10px 0 15px 0;
-            height: 56px;
-            width: 104px;
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+          margin: 10px 0 15px 0;
+          height: 56px;
+          width: 104px;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            height: 56px;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
+          position: relative;
+          padding: 0 12px;
+          box-sizing: border-box;
+          height: 56px;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
         }
 
         .iwrap {
-            position: relative;
+          position: relative;
         }
-       
 
         input {
-            position: absolute;
-            top: 16px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            line-height: 24px;
-            color: inherit;
-            outline: none;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
+          position: absolute;
+          top: 16px;
+          border: none;
+          background: none;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          line-height: 24px;
+          color: inherit;
+          outline: none;
+          font-family: 'Roboto', 'Noto', sans-serif;
+          font-kerning: auto;
+          font-size: 16px;
+          font-stretch: 100%;
+          font-style: normal;
         }
-        
+
         input:required {
-          box-shadow:none;
+          box-shadow: none;
         }
         input:invalid {
-          box-shadow:none;
+          box-shadow: none;
         }
 
         :host([filled]) .wrapper {
-            background-color: var(--surface-light, #FEFEFE);
+          background-color: var(--surface-light, #fefefe);
         }
 
         :host([filled]) .wrapper:hover {
-            background-color: var(--surface, #FCFCFC);
+          background-color: var(--surface, #fcfcfc);
         }
 
         :host([filled]:focus-within) .wrapper {
-            background-color: var(--surface-dark, #FEA222);
+          background-color: var(--surface-dark, #fea222);
         }
 
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-color: var(--input-hover-color, #333333);
+        :host(:not([filled]):hover) .left-border,
+        :host(:not([filled]):hover) .right-border,
+        :host(:not([filled]):hover) label {
+          border-color: var(--input-hover-color, #333333);
         }
-
 
         .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
+          pointer-events: none;
+          position: absolute;
+          box-sizing: border-box;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 56px;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -ms-flex-direction: row;
+          -webkit-flex-direction: row;
+          flex-direction: row;
         }
 
         .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
+          width: 8px;
+          box-sizing: border-box;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-right: none;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
         }
-
 
         :host(:not([filled])) label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
-            border-top: none;
-            line-height: 56px;
+          padding: 0 4px;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-right: none;
+          border-top: none;
+          line-height: 56px;
         }
-
 
         :host(:not([filled])) label span {
-            position: relative;
-            font-size: 12px;
-            top: -28px;
-            left:0;
+          position: relative;
+          font-size: 12px;
+          top: -28px;
+          left: 0;
         }
-
 
         .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
+          pointer-events: none;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          border-left: none;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          -ms-flex: 1 1 0.000000001px;
+          -webkit-flex: 1;
+          flex: 1;
+          -webkit-flex-basis: 0.000000001px;
+          flex-basis: 0.000000001px;
         }
 
-
         .ripple-line {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 54px;
-            border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top: 54px;
+          border: none;
+          border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
 
         :host([filled]) .ripple-line {
-            display: block;
+          display: block;
         }
 
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
+        :host([filled]) .right-border,
+        :host([filled]) .left-border {
+          display: none;
         }
-
 
         :host([filled]) label {
-            padding: 0 12px;
-            line-height: 56px;
-            border: none;
+          padding: 0 12px;
+          line-height: 56px;
+          border: none;
         }
 
         :host([filled]) label span {
-            font-size: 12px;
-            font-weight: 400;
-            top: -20px;
-            position: relative;
+          font-size: 12px;
+          font-weight: 400;
+          top: -20px;
+          position: relative;
         }
-
 
         * {
-            transition: all 200ms ease-out;
+          transition: all 200ms ease-out;
         }
 
-        .hint, .errortext {
-            position: absolute;
-            bottom: -19px;
-            font-size: 12px;
-            color: transparent;
-            padding-left: 12px;
-            white-space: nowrap;
-            pointer-events: none;
+        .hint,
+        .errortext {
+          position: absolute;
+          bottom: -19px;
+          font-size: 12px;
+          color: transparent;
+          padding-left: 12px;
+          white-space: nowrap;
+          pointer-events: none;
         }
 
         :host(:focus-within) .hint {
-            color: var(--input-hint-color, #999999);
-            transition: all 550ms ease-in;
+          color: var(--input-hint-color, #999999);
+          transition: all 550ms ease-in;
         }
 
-
         :host([error]) .errortext {
-            display: block;
+          display: block;
         }
 
         .errortext {
-            color: var(--input-error-text-color, var(--error, red));
-            display: none;
+          color: var(--input-error-text-color, var(--error, red));
+          display: none;
         }
-
 
         label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+          color: var(--input-hint-color, var(--disabled, #dedede));
         }
 
-        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        :host(:focus-within) label,
+        :host(:focus-within:not([filled])) label {
+          color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+          border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
         }
-
 
         :host(:focus-within) .ripple-line {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
+        :host(:not([filled]):focus-within) .left-border,
+        :host(:not([filled]):focus-within) .right-border,
+        :host(:not([filled]):focus-within) label {
+          border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+          border-width: 2px;
         }
 
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-color: var(--input-error-text-color, var(--error, red));
-            border-width: 2px;
+        :host([error]:focus-within) .left-border,
+        :host([error]:focus-within) .right-border,
+        :host([error]:focus-within) label,
+        :host([error]:focus-within) .ripple-line {
+          border-color: var(--input-error-text-color, var(--error, red));
+          border-width: 2px;
         }
 
         :host([error]:focus-within) label {
-            color: var(--input-error-text-color, var(--error, red));
+          color: var(--input-error-text-color, var(--error, red));
         }
 
         :host([error]:focus-within) .hint {
-            display: none;
+          display: none;
         }
 
-
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        :host([error]) .ripple-line,
+        :host([error]) .left-border,
+        :host([error]) .right-border,
+        :host([error]) label {
+          border-color: var(--input-error-activation-indicator-color, var(--error, red));
         }
 
         furo-icon {
-            display: none;
-            top:16px;
+          display: none;
+          top: 16px;
         }
-        furo-icon.lead{
-            position: absolute;
-            
-            left:8px;
+        furo-icon.lead {
+          position: absolute;
+
+          left: 8px;
         }
-        furo-icon.trail{
-            position: absolute;
-            right:8px;
+        furo-icon.trail {
+          position: absolute;
+          right: 8px;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
+        :host([leading-icon]:not([leading-icon='undefined'])) furo-icon.lead,
+        :host([trailing-icon]:not([trailing-icon='undefined'])) furo-icon.trail {
+          display: block;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper{
-            padding-left: 36px;
+        :host([leading-icon]:not([leading-icon='undefined'])) .wrapper {
+          padding-left: 36px;
         }
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper{
-            padding-right: 36px;
+        :host([trailing-icon]:not([trailing-icon='undefined'])) .wrapper {
+          padding-right: 36px;
         }
-        :host(:focus-within:not([valid])) label{
-            color: var(--input-error-text-color, var(--error, red));
+        :host(:focus-within:not([valid])) label {
+          color: var(--input-error-text-color, var(--error, red));
         }
 
+        :host([condensed]) input {
+          top: 12px;
+          font-size: 14px;
+        }
+        :host([condensed]:not([filled])) label,
+        :host([filled][condensed]) label {
+          line-height: 40px;
+          font-size: 14px;
+        }
+        :host([condensed][filled]) input {
+          top: 12px;
+        }
+        :host([condensed]) .borderlabel,
+        :host([condensed]) .wrapper {
+          height: 40px;
+        }
 
-        :host([condensed]) input{
-            top:12px;
-            font-size: 14px;
+        :host([condensed]) furo-icon {
+          top: 10px;
         }
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
-            line-height: 40px;
-            font-size: 14px;
-        }
-        :host([condensed][filled]) input{
-            top: 12px;
-        }
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper{
-            height: 40px;
-        }  
-        
-        :host([condensed])  furo-icon {
-            top:10px;
-        }
-        
+
         :host([condensed]) .ripple-line {
-            top: 38px;
+          top: 38px;
         }
 
-        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-            top: -12px;
-            
+        :host([condensed][filled]) label[float] span,
+        :host([filled][condensed]:focus-within) label span {
+          top: -12px;
         }
         :host([condensed]) label span {
-            top:-20px;
-            
-        }
-        
-        :host([condensed]){
-            height: 40px;
+          top: -20px;
         }
 
-    `}/**
+        :host([condensed]) {
+          height: 40px;
+        }
+      `}/**
      *
      * @return {TemplateResult | TemplateResult}
      * @private
      */render(){// language=HTML
-return html` 
+return html`
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>   
-       <div class="iwrap"> 
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled}
-           type="time"       
-           ƒ-.value="--value" 
-           @-input="--inputInput(*)"   
-           ƒ-focus="--focus">
-       </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
+        <furo-icon
+          class="lead"
+          icon="${this.leadingIcon}"
+          @-click="^^leading-icon-clicked(value)"
+        ></furo-icon>
+        <div class="iwrap">
+          <input
+            id="input"
+            ?autofocus=${this.autofocus}
+            ?readonly=${this.readonly}
+            ?disabled=${this.disabled}
+            type="time"
+            ƒ-.value="--value"
+            @-input="--inputInput(*)"
+            ƒ-focus="--focus"
+          />
+        </div>
+        <furo-icon
+          class="trail"
+          icon="${this.trailingIcon}"
+          @-click="^^trailing-icon-clicked(value)"
+        ></furo-icon>
       </div>
       <div class="borderlabel">
-      <div class="left-border"></div>
-      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
-      <div class="right-border"></div>
+        <div class="left-border"></div>
+        <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+        <div class="right-border"></div>
       </div>
-      
-      <div class="ripple-line"></div>           
+
+      <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
- 
-    `}}window.customElements.define("furo-time-input",FuroTimeInput);class FuroChip extends FBP(LitElement){constructor(){super()}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.selected=input.checked;this.value=input.checked});this.addEventListener("click",e=>{e.stopPropagation();this.toggle()});this._FBPAddWireHook("--focusReceived",e=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",e=>{this.focused=!1})}/**
+    `}}window.customElements.define("furo-time-input",FuroTimeInput);class FuroChip extends FBP(LitElement){_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{const input=e.composedPath()[0];this.selected=input.checked;this.value=input.checked});this.addEventListener("click",e=>{e.stopPropagation();this.toggle()});this._FBPAddWireHook("--focusReceived",()=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",()=>{this.focused=!1})}/**
      * Sets the focus on the chip.
      */focus(){this._FBPTriggerWire("--focus")}/**
      * select the chip
@@ -8376,15 +9188,15 @@ return html`
                         * @event value-changed
                         * Fired when value has changed from inside the component
                         * detail payload: {String} the text value
-                        */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent);if(this.selected){/**
+                        */const customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent);if(this.selected){/**
        * @event selected
        * Fired when the chip is selected
        * detail payload: {String} the text value
-       */let customEvent=new Event("selected",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}else{/**
+       */const selectedEvent=new Event("selected",{composed:!0,bubbles:!0});selectedEvent.detail=this.value;this.dispatchEvent(selectedEvent)}else{/**
        * @event unselected
        * Fired when the chip is unselected
        * detail payload: {String} the text value
-       */let customEvent=new Event("unselected",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}}get value(){return this._value}static get properties(){return{/**
+       */const unselectedEvent=new Event("unselected",{composed:!0,bubbles:!0});unselectedEvent.detail=this.value;this.dispatchEvent(unselectedEvent)}}get value(){return this._value}static get properties(){return{/**
        * The value of chip with true (selected) or false (unselected). Changes will be notified with the `@-value-changed` event
        * This is different from the native attribute `value` of the input chip
        */value:{type:Boolean},/**
@@ -8409,160 +9221,214 @@ return html`
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroChoiceChip")||css`
-            /* https://material.io/components/chips/#choice-chips*/
-            
-            :host([hidden]) {
-                display: none;
-            }
+        /* https://material.io/components/chips/#choice-chips*/
 
-            /* The wrapper */
-            :host {
-                width: auto;
-                position: relative;
-                box-sizing: border-box;
-                cursor: pointer;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                height: 40px;
-                border-radius: 20px;
-                background-color: var(--input-chip-unselected--bg-color, var(--background, #eeeeee));
-                padding: 8px;
-                display: inline-block;
+        :host([hidden]) {
+          display: none;
+        }
 
-            }
-            /* input chip*/
-            :host input {
-                z-index: -1;
-                position: absolute;
-                height: 0;
-                width: 0;
-            }
+        /* The wrapper */
+        :host {
+          width: auto;
+          position: relative;
+          box-sizing: border-box;
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          height: 40px;
+          border-radius: 20px;
+          background-color: var(--input-chip-unselected--bg-color, var(--background, #eeeeee));
+          padding: 8px;
+          display: inline-block;
+        }
+        /* input chip*/
+        :host input {
+          z-index: -1;
+          position: absolute;
+          height: 0;
+          width: 0;
+        }
 
-            :host([outlined]){
-                background-color: var(--input-chip-outlined-unselected--bg-color, #ffffff);
-                border: solid 1px;
-            }
+        :host([outlined]) {
+          background-color: var(--input-chip-outlined-unselected--bg-color, #ffffff);
+          border: solid 1px;
+        }
 
-            /* selected choice chip  */
-            :host([selected]){
-                background-color: var(--input-chip-selected-bg-color, var(--primary, #4caf4f));
-                color: var(--input-chip-selected-color, var(--on-primary, #ffffff));
-            }
+        /* selected choice chip  */
+        :host([selected]) {
+          background-color: var(--input-chip-selected-bg-color, var(--primary, #4caf4f));
+          color: var(--input-chip-selected-color, var(--on-primary, #ffffff));
+        }
 
-            :host([outlined][selected]){
-                background-color: rgba( var(--input-chip-outlined-selected-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-active, 0.10) ) ;
-                color: var(--input-chip-outlined-selected-text-color, var(--primary, #4caf50));
-                border: solid 1px;
-                border-color: var(--input-chip-outlined-selected-border-color, var(--on-background, #000000))
-            }
-            
-            :host([outlined][selected]:hover) {
-                background-color: rgba( var(--input-chip-outlined-selected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
-            }
-            
-            /* outlined selected choice chip when hovering */
-            :host([selected]:hover) {
-                background-color: var(--input-chip-selected-hover-bg-color, var(--primary, #4caf4f));
-            }
-            
-            /* hover */
-            :host(:hover){
-                background-color: rgba( var(--input-chip-unselected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
-            }
+        :host([outlined][selected]) {
+          background-color: rgba(
+            var(--input-chip-outlined-selected-bg-color-rgb, var(--primary-rgb, 76, 175, 80)),
+            var(--state-active, 0.1)
+          );
+          color: var(--input-chip-outlined-selected-text-color, var(--primary, #4caf50));
+          border: solid 1px;
+          border-color: var(
+            --input-chip-outlined-selected-border-color,
+            var(--on-background, #000000)
+          );
+        }
 
-            /* unselected chip when pressing */
-            :host:active {
-                background-color: rgba( var(--input-chip-unselected-active-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-active, 0.10) ) ;
-            }
+        :host([outlined][selected]:hover) {
+          background-color: rgba(
+            var(
+              --input-chip-outlined-selected-hover-bg-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-hover, 0.04)
+          );
+        }
 
-            /* unselected chip when focusing */
-            :host([focused]) {
-                background-color: rgba( var(--input-chip-unselected-focus-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-focus, 0.12) ) ;
-            }
+        /* outlined selected choice chip when hovering */
+        :host([selected]:hover) {
+          background-color: var(--input-chip-selected-hover-bg-color, var(--primary, #4caf4f));
+        }
 
-            /* unselected chip when pressing */
-            :host([selected]):active {
-                background-color: rgba( var(--input-chip-selected-active-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-active, 0.10) ) ;
-            }
+        /* hover */
+        :host(:hover) {
+          background-color: rgba(
+            var(--input-chip-unselected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)),
+            var(--state-hover, 0.04)
+          );
+        }
 
-            /* selected chip when focusing */
-            :host([selected][focused]) {
-                background-color: rgba( var(--input-chip-selected-focus-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-focus, 0.12) ) ;
-            }
-            
-            /* disabled chip selected */
-            :host([selected][disabled]){
-                color: var(--input-chip-selected-color, var(--on-primary, #ffffff));
-                background-color: rgba( var(--input-chip-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
-            }
+        /* unselected chip when pressing */
+        :host:active {
+          background-color: rgba(
+            var(--input-chip-unselected-active-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)),
+            var(--state-active, 0.1)
+          );
+        }
 
-            /* disabled chip selected */
-            :host([outlined][selected][disabled]){
-                color: var(--input-chip-selected-color, var(--on-primary, #ffffff));
-                background-color: rgba( var(--input-chip-outlined-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
-            }
+        /* unselected chip when focusing */
+        :host([focused]) {
+          background-color: rgba(
+            var(--input-chip-unselected-focus-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)),
+            var(--state-focus, 0.12)
+          );
+        }
 
+        /* unselected chip when pressing */
+        :host([selected]):active {
+          background-color: rgba(
+            var(--input-chip-selected-active-bg-color-rgb, var(--primary-rgb, 76, 175, 80)),
+            var(--state-active, 0.1)
+          );
+        }
 
-            :host([disabled]) {
-                cursor: default;
-                background-color: rgba( var(--input-chip-disabled-selected-bg-color-rgb, var(--background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
-            }
-            /* disabled chip should have no ripple effect */
-            :host([disabled]) furo-ripple{
-               display: none;
-            }
+        /* selected chip when focusing */
+        :host([selected][focused]) {
+          background-color: rgba(
+            var(--input-chip-selected-focus-bg-color-rgb, var(--primary-rgb, 76, 175, 80)),
+            var(--state-focus, 0.12)
+          );
+        }
 
-            /* disabled chip should have no hover effect */
-            :host([selected][disabled]:hover){
-                background-color: rgba( var(--input-chip-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
-            }
-            
-            
-            /* disabled chip should have no hover effect */
-            :host([disabled]:hover){
-                background-color: rgba( var(--input-chip-disabled-selected-bg-color-rgb, var(--background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
-            }
+        /* disabled chip selected */
+        :host([selected][disabled]) {
+          color: var(--input-chip-selected-color, var(--on-primary, #ffffff));
+          background-color: rgba(
+            var(--input-chip-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)),
+            var(--state-disabled, 0.38)
+          );
+        }
 
-            
-            :host([condensed]) {
-                height: 32px;
-                padding: 4px;
-                border-radius: 16px;
+        /* disabled chip selected */
+        :host([outlined][selected][disabled]) {
+          color: var(--input-chip-selected-color, var(--on-primary, #ffffff));
+          background-color: rgba(
+            var(
+              --input-chip-outlined-disabled-selected-bg-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-disabled, 0.38)
+          );
+        }
 
-            }
-            furo-ripple{
-                border-radius: 20px;
-            }
-      
-            span {
-                margin: 0 8px;
-                line-height: 24px;
-            }
-      
-            furo-icon {
-                margin-top:  -4px ;
-            }
-      
-            .lead {
-                margin-right: -4px;
-            }
+        :host([disabled]) {
+          cursor: default;
+          background-color: rgba(
+            var(--input-chip-disabled-selected-bg-color-rgb, var(--background-rgb, 33, 33, 33)),
+            var(--state-disabled, 0.38)
+          );
+        }
+        /* disabled chip should have no ripple effect */
+        :host([disabled]) furo-ripple {
+          display: none;
+        }
 
-            .trail {
-                margin-left: -4px;
-            }
-        `}/**
+        /* disabled chip should have no hover effect */
+        :host([selected][disabled]:hover) {
+          background-color: rgba(
+            var(--input-chip-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)),
+            var(--state-disabled, 0.38)
+          );
+        }
+
+        /* disabled chip should have no hover effect */
+        :host([disabled]:hover) {
+          background-color: rgba(
+            var(--input-chip-disabled-selected-bg-color-rgb, var(--background-rgb, 33, 33, 33)),
+            var(--state-disabled, 0.38)
+          );
+        }
+
+        :host([condensed]) {
+          height: 32px;
+          padding: 4px;
+          border-radius: 16px;
+        }
+        furo-ripple {
+          border-radius: 20px;
+        }
+
+        span {
+          margin: 0 8px;
+          line-height: 24px;
+        }
+
+        furo-icon {
+          margin-top: -4px;
+        }
+
+        .lead {
+          margin-right: -4px;
+        }
+
+        .trail {
+          margin-left: -4px;
+        }
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){return html`
-          ${this.leadingIcon?html` <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon> `:html``}
-          <input id="input" type="checkbox" ?checked=${this.selected}  ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
-                 ƒ-focus="--focus" @-input="--inputInput(*)" @-focusout="--focusOutReceived" @-focus="--focusReceived" @-blur="-^blur"  >
-          <span>${this.text}</span>
-          ${this.trailingIcon?html` <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>`:html``}
-          <furo-ripple></furo-ripple>
-        `}}customElements.define("furo-chip",FuroChip);class FuroInputChip extends FBP(LitElement){constructor(){super()}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.checked=input.checked;this.value=input.checked});this._FBPAddWireHook("--focusReceived",e=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",e=>{this.focused=!1})}/**
+      ${this.leadingIcon?html`
+            <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
+          `:html``}
+      <input
+        id="input"
+        type="checkbox"
+        ?checked=${this.selected}
+        ?autofocus=${this.autofocus}
+        ?disabled=${this.disabled}
+        ƒ-focus="--focus"
+        @-input="--inputInput(*)"
+        @-focusout="--focusOutReceived"
+        @-focus="--focusReceived"
+        @-blur="-^blur"
+      />
+      <span>${this.text}</span>
+      ${this.trailingIcon?html`
+            <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+          `:html``}
+      <furo-ripple></furo-ripple>
+    `}}customElements.define("furo-chip",FuroChip);class FuroInputChip extends FBP(LitElement){_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{const input=e.composedPath()[0];this.checked=input.checked;this.value=input.checked});this._FBPAddWireHook("--focusReceived",()=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",()=>{this.focused=!1})}/**
      * Sets the focus on the checkbox.
      */focus(){this._FBPTriggerWire("--focus")}/**
      * check the checkbox
@@ -8579,15 +9445,15 @@ return Theme.getThemeForComponent("FuroChoiceChip")||css`
                         * @event value-changed
                         * Fired when value has changed from inside the component
                         * detail payload: {String} the text value
-                        */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent);if(this.checked){/**
+                        */const customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent);if(this.checked){/**
        * @event checked
        * Fired when the checkbox is checked
        * detail payload: {String} the text value
-       */let customEvent=new Event("checked",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}else{/**
+       */const checkedEvent=new Event("checked",{composed:!0,bubbles:!0});checkedEvent.detail=this.value;this.dispatchEvent(checkedEvent)}else{/**
        * @event unchecked
        * Fired when the checkbox is unchecked
        * detail payload: {String} the text value
-       */let customEvent=new Event("unchecked",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}}get value(){return this._value}static get properties(){return{/**
+       */const uncheckedEvent=new Event("unchecked",{composed:!0,bubbles:!0});uncheckedEvent.detail=this.value;this.dispatchEvent(uncheckedEvent)}}get value(){return this._value}static get properties(){return{/**
        * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
        * This is different from the native attribute `value` of the input checkbox
        */value:{type:Boolean},/**
@@ -8604,166 +9470,240 @@ return Theme.getThemeForComponent("FuroChoiceChip")||css`
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroInputChip")||css`
-            /* https://material.io/design/components/text-fields.html#theming */
-            :host {
-                display: inline-block;
-                position: relative;
-                box-sizing: border-box;
-                display: flex;
-            }
+        /* https://material.io/design/components/text-fields.html#theming */
+        :host {
+          display: inline-block;
+          position: relative;
+          box-sizing: border-box;
+          display: flex;
+        }
 
-            :host([hidden]) {
-                display: none;
-            }
+        :host([hidden]) {
+          display: none;
+        }
 
-            /* The wrapper */
-            .wrapper {
-                display: block;
-                position: relative;
-                cursor: pointer;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                height: 40px;
-                border-radius: 20px;
-                box-sizing: border-box;
-                display: flex;
-                background-color: var(--input-checkbox-unselected-bg-color, var(--background, #eeeeee));
-                padding: 8px;
+        /* The wrapper */
+        .wrapper {
+          display: block;
+          position: relative;
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          height: 40px;
+          border-radius: 20px;
+          box-sizing: border-box;
+          display: flex;
+          background-color: var(--input-checkbox-unselected-bg-color, var(--background, #eeeeee));
+          padding: 8px;
+        }
 
-            }
+        input[type='checkbox' i] {
+          margin: 0;
+        }
 
-            input[type="checkbox" i] {
-                margin: 0;
-            }
+        /* input checkbox*/
+        .wrapper input {
+          display: none;
+        }
 
-            /* input checkbox*/
-            .wrapper input {
-                display: none;
-            }
+        .chip-background {
+          position: absolute;
+          top: 11px;
+          left: 11px;
+          height: 18px;
+          width: 18px;
+          background-color: var(--input-checkbox-unselected-bg-color, var(--background, #eeeeee));
+          border: solid 2px;
+          border-color: var(
+            --input-checkbox-unselected-border-color,
+            var(--on-background, #212121)
+          );
+          box-sizing: border-box;
+          display: flex;
+        }
 
-            .chip-background {
-                position: absolute;
-                top: 11px;
-                left: 11px;
-                height: 18px;
-                width: 18px;
-                background-color: var(--input-checkbox-unselected-bg-color, var(--background, #eeeeee));
-                border: solid 2px;
-                border-color: var(--input-checkbox-unselected-border-color, var(--on-background, #212121));
-                box-sizing: border-box;
-                display: flex;
-            }
-            
-            .wrapper:hover input ~ .chip-background {
-                background-color: rgba( var(--input-checkbox-unselected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
-            }
+        .wrapper:hover input ~ .chip-background {
+          background-color: rgba(
+            var(
+              --input-checkbox-unselected-hover-bg-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-hover, 0.04)
+          );
+        }
 
-            /* unselected checkbox when pressing */
-            .wrapper:active {
-                background-color: rgba( var(--input-checkbox-unselected-active-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-active, 0.10) ) ;
+        /* unselected checkbox when pressing */
+        .wrapper:active {
+          background-color: rgba(
+            var(
+              --input-checkbox-unselected-active-bg-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-active, 0.1)
+          );
+        }
 
-            }
-            
-            .wrapper:active input ~ .chip-background {
-                background-color: rgba( var(--input-checkbox-unselected-active-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-active, 0.10) ) ;
-            }
+        .wrapper:active input ~ .chip-background {
+          background-color: rgba(
+            var(
+              --input-checkbox-unselected-active-bg-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-active, 0.1)
+          );
+        }
 
-            /* unselected checkbox when focusing */
-            .wrapper[focused] {
-                background-color: rgba( var(--input-checkbox-unselected-focus-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-focus, 0.12) ) ;
+        /* unselected checkbox when focusing */
+        .wrapper[focused] {
+          background-color: rgba(
+            var(
+              --input-checkbox-unselected-focus-bg-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-focus, 0.12)
+          );
+        }
 
-            }
+        /* unselected checkbox when hovering */
+        .wrapper:hover {
+          background-color: rgba(
+            var(
+              --input-checkbox-unselected-hover-bg-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-hover, 0.04)
+          );
+        }
 
-            /* unselected checkbox when hovering */
-            .wrapper:hover {
-                background-color: rgba( var(--input-checkbox-unselected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
-            }
+        /* selected checkbox  */
+        .wrapper[checked] {
+          background-color: var(--input-checkbox-selected-bg-color, var(--primary, #6200fd));
+        }
 
+        /* selected checkbox when pressing */
+        .wrapper[checked]:active {
+          background-color: rgba(
+            var(--input-checkbox-selected-active-bg-color-rgb, var(--primary-rgb, 76, 175, 80)),
+            var(--state-active, 0.1)
+          );
+        }
 
-            /* selected checkbox  */
-            .wrapper[checked]{
-                background-color: var(--input-checkbox-selected-bg-color, var(--primary, #6200FD));
-            }
-            
-            /* selected checkbox when pressing */
-            .wrapper[checked]:active {
-                background-color: rgba( var(--input-checkbox-selected-active-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-active, 0.10) ) ;
-            }
+        /* selected checkbox when focusing */
+        .wrapper[checked][focused] {
+          background-color: rgba(
+            var(--input-checkbox-selected-focus-bg-color-rgb, var(--primary-rgb, 76, 175, 80)),
+            var(--state-focus, 0.12)
+          );
+        }
 
-            /* selected checkbox when focusing */
-            .wrapper[checked][focused] {
-                background-color: rgba( var(--input-checkbox-selected-focus-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-focus, 0.12) ) ;
-            }
+        .wrapper[checked][focused] input ~ .chip-background {
+        }
+        /* selected checkbox when hovering */
+        .wrapper[checked]:hover {
+          background-color: rgba(
+            var(--input-checkbox-selected-hover-bg-color-rgb, var(--primary-rgb, 76, 175, 80)),
+            var(--state-hover, 0.04)
+          );
+        }
 
-            .wrapper[checked][focused] input ~ .chip-background {
-            }
-            /* selected checkbox when hovering */
-            .wrapper[checked]:hover {
-                background-color: rgba( var(--input-checkbox-selected-hover-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-hover, 0.04) ) ;
-            }
+        /* disabled checkbox selected */
+        .wrapper[checked][disabled] input:disabled:checked ~ .chip-background {
+          background-color: rgba(
+            var(
+              --input-checkbox-disabled-selected-bg-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-disabled, 0.38)
+          );
+          border-color: rgba(
+            var(
+              --input-checkbox-disabled-selected-border-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-disabled, 0.38)
+          );
+        }
 
-            
-            /* disabled checkbox selected */
-            .wrapper[checked][disabled] input:disabled:checked ~ .chip-background {
+        /* disabled checkbox unselected */
+        .wrapper input:disabled ~ .chip-background {
+          background-color: rgba(
+            var(
+              --input-checkbox-disabled-unselected-bg-color-rgb,
+              var(--background-rgb, 238, 238, 238)
+            ),
+            var(--state-disabled, 0.38)
+          );
+          border-color: rgba(
+            var(
+              --input-checkbox-disabled-unselected-border-color-rgb,
+              var(--on-background-rgb, 33, 33, 33)
+            ),
+            var(--state-disabled, 0.38)
+          );
+        }
 
-                background-color: rgba( var(--input-checkbox-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
-                border-color: rgba( var(--input-checkbox-disabled-selected-border-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+        .chip-background:after {
+          content: '';
+          position: absolute;
+          display: none;
+        }
 
-            }
+        input:disabled {
+          cursor: default;
+        }
 
-            /* disabled checkbox unselected */
-            .wrapper input:disabled ~ .chip-background {
-                background-color: rgba( var(--input-checkbox-disabled-unselected-bg-color-rgb, var(--background-rgb, 238, 238, 238)), var(--state-disabled, 0.38) ) ;
-                border-color: rgba( var(--input-checkbox-disabled-unselected-border-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
-            }
+        /* disabled checkbox when hovering */
+        .wrapper[disabled]:hover {
+          background: transparent;
+        }
 
-            .chip-background:after {
-                content: "";
-                position: absolute;
-                display: none;
-            }
+        :host([condensed]) .wrapper,
+        :host([condensed]) .wrapper input {
+          height: 32px;
+          padding: 4px;
+          border-radius: 16px;
+        }
 
-            input:disabled {
-                cursor: default;
-            }
+        furo-ripple {
+          border-radius: 50%;
+        }
 
-            /* disabled checkbox when hovering */
-            .wrapper[disabled]:hover {
-                background: transparent;
-            }
-
-            :host([condensed]) .wrapper , :host([condensed]) .wrapper  input{
-                height: 32px;
-                padding: 4px;
-                border-radius: 16px;
-
-            } 
-            
-            furo-ripple{
-                border-radius: 50%;
-            }
-      
-            span {
-                margin: 0 5px;
-            }
-        `}/**
+        span {
+          margin: 0 5px;
+        }
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){return html`
-          <div id="wrapper" class="wrapper" ?focused=${this.focused} ?checked=${this.checked} ?disabled=${this.disabled}>
-          
-              <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+      <div
+        id="wrapper"
+        class="wrapper"
+        ?focused=${this.focused}
+        ?checked=${this.checked}
+        ?disabled=${this.disabled}
+      >
+        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
 
-              <input id="input" type="checkbox" ?checked=${this.checked}  ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
-                     ƒ-focus="--focus" @-input="--inputInput(*)" @-focusout="--focusOutReceived" @-focus="--focusReceived" @-blur="-^blur"  >
-              <span>${this.text}</span>
-              <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+        <input
+          id="input"
+          type="checkbox"
+          ?checked=${this.checked}
+          ?autofocus=${this.autofocus}
+          ?disabled=${this.disabled}
+          ƒ-focus="--focus"
+          @-input="--inputInput(*)"
+          @-focusout="--focusOutReceived"
+          @-focus="--focusReceived"
+          @-blur="-^blur"
+        />
+        <span>${this.text}</span>
+        <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
 
-              <furo-ripple></furo-ripple>
-          </div>
-        `}}customElements.define("furo-input-chip",FuroInputChip);class FuroFileDialog extends FBP(LitElement){constructor(){super();this.multiple=!1;this.capture=""}/**
+        <furo-ripple></furo-ripple>
+      </div>
+    `}}customElements.define("furo-input-chip",FuroInputChip);class FuroFileDialog extends FBP(LitElement){constructor(){super();this.multiple=!1;this.capture=""}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();// this._FBPTraceWires();
 }static get properties(){return{/**
@@ -8785,28 +9725,27 @@ return Theme.getThemeForComponent("FuroInputChip")||css`
        * the user agent may fall back to its preferred default mode.
        */capture:{type:String,attribute:!0,reflect:!0}}}static get styles(){// language=CSS
 return css`
-            :host {
-                display: block;
-                
-            }
+      :host {
+        display: block;
+      }
 
-            :host([hidden]) {
-                display: none;
-            }
+      :host([hidden]) {
+        display: none;
+      }
 
-            .inputfile {
-                width: 0.1px;
-                height: 0.1px;
-                opacity: 0;
-                overflow: hidden;
-                position: absolute;
-                z-index: -1;
-            }
+      .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+      }
 
-            label{
-                display: none;
-            }
-        `}/**
+      label {
+        display: none;
+      }
+    `}/**
      * Updater for the accept attr, the prop alone with accept="${this.accept}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -8818,25 +9757,29 @@ return css`
      * @returns {TemplateResult|TemplateResult}
      */render(){// language=HTML
 return html`
-      <input type="file" class="inputfile"
-             tabindex="-1"
-             ?accept=${this.accept}
-             ?multiple=${this.multiple} 
-             ?capture="${this.capture}"
-             id="input" name="input"
-             @-change="^^input-changed(*.target)">
-             
+      <input
+        type="file"
+        class="inputfile"
+        tabindex="-1"
+        ?accept=${this.accept}
+        ?multiple=${this.multiple}
+        ?capture="${this.capture}"
+        id="input"
+        name="input"
+        @-change="^^input-changed(*.target)"
+      />
+
       <label for="input" ƒ-click="--open"></label>
     `}}window.customElements.define("furo-file-dialog",FuroFileDialog);class FuroSnackbarDisplay extends FBP(LitElement){constructor(){super();this._stack=[];this.displayObj={labelText:"",actonButtonText:"",snackbar:{}}}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();this._snackbar=this.shadowRoot.getElementById("snackbar");this._FBPAddWireHook("--actionClicked",e=>{if(this.displayObj.snackbar){this.displayObj.snackbar._action()}this._close()});this._FBPAddWireHook("--closeClicked",e=>{if(this.displayObj.snackbar){this.displayObj.snackbar._dismiss()}this._close()});/**
+     */_FBPReady(){super._FBPReady();this._snackbar=this.shadowRoot.getElementById("snackbar");this._FBPAddWireHook("--actionClicked",()=>{if(this.displayObj.snackbar){this.displayObj.snackbar._action()}this._close()});this._FBPAddWireHook("--closeClicked",()=>{if(this.displayObj.snackbar){this.displayObj.snackbar._dismiss()}this._close()});/**
          * listen to keyboard events
-         */document.addEventListener("keydown",event=>{let key=event.key||event.keyCode;if("Escape"===key||"Esc"===key||27===key){if(this.displayObj.closeOnEscape){this._close()}}});// when display not wired with show method, listening open event from window
-if(!this._isWiredWithShow()){window.addEventListener("open-furo-snackbar-requested",e=>{this.show(e.detail)})}}/**
+         */document.addEventListener("keydown",event=>{const key=event.key||event.keyCode;if("Escape"===key||"Esc"===key||27===key){if(this.displayObj.closeOnEscape){this._close()}}});// when display not wired with show method, listening open event from window
+if(!this._isWiredWithShow()){window.addEventListener("open-furo-snackbar-requested",e=>{e.stopPropagation();this.show(e.detail)})}}/**
      * check if the display element is wired with show method "ƒ-show="--xxx"
      * @returns {boolean}
      * @private
-     */_isWiredWithShow(){let isWired=!1,l=this.attributes.length;for(let i=0,nodeName;i<l;++i){nodeName=this.attributes.item(i).nodeName;if("\u0192-show"==nodeName){isWired=!0;break}}return isWired}/**
+     */_isWiredWithShow(){let isWired=!1;const l=this.attributes.length;for(let i=0;i<l;i+=1){const{nodeName}=this.attributes.item(i);if("\u0192-show"===nodeName){isWired=!0;break}}return isWired}/**
      * @private
      * @returns {CSSResult}
      */static get styles(){return css`
@@ -8926,38 +9869,51 @@ if(!this._isWiredWithShow()){window.addEventListener("open-furo-snackbar-request
      *
      * @param s {Object} snackbar
      * @private
-     */_pushToStack(s){let obj={labelText:s.labelText,icon:s.icon,actionButtonText:s.actionButtonText,snackbar:s,stacked:s.stacked,positionLeft:s.positionLeft,positionRight:s.positionRight,size:s.size,maxSize:s.maxSize,closeOnEscape:s.closeOnEscape};this._stack.push(obj)}/**
+     */_pushToStack(s){const obj={labelText:s.labelText,icon:s.icon,actionButtonText:s.actionButtonText,snackbar:s,stacked:s.stacked,positionLeft:s.positionLeft,positionRight:s.positionRight,size:s.size,maxSize:s.maxSize,closeOnEscape:s.closeOnEscape};this._stack.push(obj)}/**
      *
      * @private
-     */_show(){if(0<this._stack.length){this.displayObj=this._stack[0];this._snackbar.classList.remove("hide");this._fadeIn(this.shadowRoot.getElementById("snackbar"));this.requestUpdate();this.displayObj.snackbar.isOpen=!0;this.displayObj.isOpen=!0;let timeoutInMs=this.displayObj.snackbar.timeoutInMs;if(0<timeoutInMs){let self=this;this._timer=setInterval(function(){clearInterval(self._timer);self._snackbar.classList.add("hide");self._stack.shift();self.displayObj.snackbar._close();if(0<self._stack.length){self._show()}else{self.displayObj.snackbar.isOpen=!1;self.displayObj.isOpen=!1}},timeoutInMs)}else{this._stack.shift()}}}/**
+     */_show(){if(0<this._stack.length){[this.displayObj]=this._stack;this._snackbar.classList.remove("hide");FuroSnackbarDisplay._fadeIn(this.shadowRoot.getElementById("snackbar"));this.requestUpdate();this.displayObj.snackbar.isOpen=!0;this.displayObj.isOpen=!0;const{timeoutInMs}=this.displayObj.snackbar;if(0<timeoutInMs){const self=this;this._timer=setInterval(()=>{clearInterval(self._timer);self._snackbar.classList.add("hide");self._stack.shift();self.displayObj.snackbar._close();if(0<self._stack.length){self._show()}else{self.displayObj.snackbar.isOpen=!1;self.displayObj.isOpen=!1}},timeoutInMs)}else{this._stack.shift()}}}/**
      * close the CURRENT snackbar
      */_close(){clearInterval(this._timer);if(1<this._stack.length){this._snackbar.classList.add("hide");this._stack.shift();if(0<this._stack.length){this._show()}else{this.displayObj.snackbar.isOpen=!1;this.displayObj.isOpen=!1}}else{this._stack.shift();this._snackbar.classList.add("hide");this.displayObj.snackbar.isOpen=!1;this.displayObj.isOpen=!1}}/**
      *
      * @param element
      * @private
-     */_fadeIn(element){let op=.1,timer=setInterval(function(){if(1<=op){clearInterval(timer)}element.style.opacity=op;element.style.filter="alpha(opacity="+100*op+")";op+=.2*op},10);// initial opacity
-}/**
+     */static _fadeIn(element){let op=.1;// initial opacity
+const timer=setInterval(()=>{if(1<=op){clearInterval(timer)}// eslint-disable-next-line no-param-reassign
+element.style.opacity=op;// eslint-disable-next-line no-param-reassign
+element.style.filter=`alpha(opacity=${100*op})`;op+=.2*op},10)}/**
      * @private
      * @returns {TemplateResult}
      */render(){return html`
-       <div class="wrapper"  ?left="${this.displayObj.positionLeft}"  ?right="${this.displayObj.positionRight}">
-        <div id="snackbar" class="hide" 
-             ?stacked="${this.displayObj.stacked}"
-             style="width:${this.displayObj.size}; max-width:${this.displayObj.maxSize}" >
-            <div class="label"><span>${this.displayObj.labelText}</span></div>
-            <div class="button">
-              <furo-button label="${this.displayObj.actionButtonText}" @-click="--actionClicked"></furo-button>
-              <furo-button icon="${this.displayObj.icon}" @-click="--closeClicked"></furo-button>
-            </div>
+      <div
+        class="wrapper"
+        ?left="${this.displayObj.positionLeft}"
+        ?right="${this.displayObj.positionRight}"
+      >
+        <div
+          id="snackbar"
+          class="hide"
+          ?stacked="${this.displayObj.stacked}"
+          style="width:${this.displayObj.size}; max-width:${this.displayObj.maxSize}"
+        >
+          <div class="label"><span>${this.displayObj.labelText}</span></div>
+          <div class="button">
+            <furo-button
+              label="${this.displayObj.actionButtonText}"
+              @-click="--actionClicked"
+            ></furo-button>
+            <furo-button icon="${this.displayObj.icon}" @-click="--closeClicked"></furo-button>
+          </div>
         </div>
       </div>
-        `}}customElements.define("furo-snackbar-display",FuroSnackbarDisplay);/**
+    `}}customElements.define("furo-snackbar-display",FuroSnackbarDisplay);/**
                                                                       * `furo-location`
                                                                       *  Somethin like iron-location
                                                                       *
                                                                       * @summary url watcher
                                                                       * @customElement
-                                                                      */class FuroLocation extends HTMLElement{constructor(){super();this.style.display="none";this._location={host:window.location.host};/**
+                                                                      */class FuroLocation extends HTMLElement{constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
+this.style.display="none";this._location={host:window.location.host};/**
         * A regexp that defines the set of URLs that should be considered part
         * of this web app.
         *
@@ -8973,7 +9929,8 @@ if(!this._isWiredWithShow()){window.addEventListener("open-furo-snackbar-request
         * folders with a link.
         *
         * @type {string|RegExp}
-        */this.urlSpaceRegex=this.getAttribute("url-space-regex")||"";/**
+        */ // eslint-disable-next-line wc/no-constructor-attributes
+this.urlSpaceRegex=this.getAttribute("url-space-regex")||"";/**
                                                                       * If the user was on a URL for less than `dwellTime` milliseconds, it
                                                                       * won't be added to the browser's history, but instead will be replaced
                                                                       * by the next entry.
@@ -8981,7 +9938,8 @@ if(!this._isWiredWithShow()){window.addEventListener("open-furo-snackbar-request
                                                                       * This is to prevent large numbers of entries from clogging up the user's
                                                                       * browser history. Disable by setting to a negative number.
                                                                       * @type {number} in milliseconds
-                                                                      */this.dwellTime=this.getAttribute("dwell-time")||2e3;this._registerHandler()}// listen to changes of the url space regex
+                                                                      */ // eslint-disable-next-line wc/no-constructor-attributes
+this.dwellTime=this.getAttribute("dwell-time")||2e3;this._registerHandler()}// listen to changes of the url space regex
 static get observedAttributes(){return["url-space-regex"]}attributeChangedCallback(name,oldValue,newValue){this.urlSpaceRegex=newValue}/**
      * @private
      */connectedCallback(){document.body.addEventListener("click",this._clickHandler,!0);document.body.addEventListener("__furoLocationChanged",this._locationChangeNotyfier,!0);window.addEventListener("popstate",this._locationChangeNotyfier,!0);window.addEventListener("popstate",this._locationChangeNotyfier,!0);this._lastChangedAt=window.performance.now()-(this.dwellTime-200);// initial notyfier
@@ -8989,52 +9947,60 @@ setTimeout(()=>{this._locationChangeNotyfier({detail:this._lastChangedAt})},0)}/
      * @private
      */disconnectedCallback(){document.body.removeEventListener("click",this._clickHandler,!0);document.body.removeEventListener("__furoLocationChanged",this._locationChangeNotyfier,!0);window.removeEventListener("popstate",this._locationChangeNotyfier,!0);window.removeEventListener("popstate",this._locationChangeNotyfier,!0)}// create a valid href string from this._location
 _getHrefFromLocation(){// path, query hash
-let href=this._location.path;if(0<this._location.query.length){href+="?"+this._location.query}if(0<this._location.hash.length){href+="#"+this._location.hash}return href}/**
+let href=this._location.path;if(0<this._location.query.length){href+=`?${this._location.query}`}if(0<this._location.hash.length){href+=`#${this._location.hash}`}return href}/**
      * @private
      */_registerHandler(){this._locationChangeNotyfier=e=>{this._lastChangedAt=e.detail;let sendHashChanged=!1,sendQueryChanged=!1,sendPathChanged=!1;// ignore links outside urlSpaceRegex
 if(""!==this.urlSpaceRegex){if(null===window.location.pathname.match(this.urlSpaceRegex)){return}}// register empty objects for later usage
 this._location.query={};this._location.hash={};// path-changed
 // cut of urlSpaceRegex
-let newPath=window.decodeURIComponent(window.location.pathname).replace(new RegExp(this.urlSpaceRegex),"");if(this._location.path!==newPath){this._location.path=newPath;// path segments
-this._location.pathSegments=[];let m,rgx=new RegExp(/\/([^/]*)/gi);while(null!==(m=rgx.exec(newPath))){this._location.pathSegments.push(m[1])}sendPathChanged=!0}// hash-changed
-let newHash=window.decodeURIComponent(window.location.hash.slice(1));if(this._location.hashstring!==newHash){this._location.hashstring=newHash;this._location.hash={};if(0<newHash.length){newHash.split("&").forEach(qstr=>{let p=qstr.split("=");this._location.hash[p[0]]=p[1]})}sendHashChanged=!0}// query-changed
-let newQuery=window.location.search.slice(1);if(this._location.querystring!==newQuery){this._location.querystring=newQuery;this._location.query={};if(0<newQuery.length){newQuery.split("&").forEach(qstr=>{let p=qstr.split("=");this._location.query[p[0]]=p[1]})}sendQueryChanged=!0}if(sendPathChanged){/**
+const newPath=window.decodeURIComponent(window.location.pathname).replace(new RegExp(this.urlSpaceRegex),"");if(this._location.path!==newPath){this._location.path=newPath;// path segments
+this._location.pathSegments=[];let m;const rgx=new RegExp(/\/([^/]*)/gi);// eslint-disable-next-line no-cond-assign
+while(null!==(m=rgx.exec(newPath))){this._location.pathSegments.push(m[1])}sendPathChanged=!0}// hash-changed
+const newHash=window.decodeURIComponent(window.location.hash.slice(1));if(this._location.hashstring!==newHash){this._location.hashstring=newHash;this._location.hash={};if(0<newHash.length){newHash.split("&").forEach(qstr=>{const p=qstr.split("=");// eslint-disable-next-line prefer-destructuring
+this._location.hash[p[0]]=p[1]})}sendHashChanged=!0}// query-changed
+const newQuery=window.location.search.slice(1);if(this._location.querystring!==newQuery){this._location.querystring=newQuery;this._location.query={};if(0<newQuery.length){newQuery.split("&").forEach(qstr=>{const p=qstr.split("=");// eslint-disable-next-line prefer-destructuring
+this._location.query[p[0]]=p[1]})}sendQueryChanged=!0}if(sendPathChanged){/**
          * @event location-path-changed
          * Fired when Path portion of the location changed
          * detail payload: {string} path
-         */let customEvent=new Event("location-path-changed",{composed:!0,bubbles:!1});customEvent.detail=this._location;this.dispatchEvent(customEvent)}if(sendHashChanged){/**
+         */const customEvent=new Event("location-path-changed",{composed:!0,bubbles:!1});customEvent.detail=this._location;this.dispatchEvent(customEvent)}if(sendHashChanged){/**
          * @event location-hash-changed
          * Fired when Hash portion of the location changed
          * detail payload: {string} hash
-         */let customEvent=new Event("location-hash-changed",{composed:!0,bubbles:!1});customEvent.detail=this._location;this.dispatchEvent(customEvent)}if(sendQueryChanged){/**
+         */const customEvent=new Event("location-hash-changed",{composed:!0,bubbles:!1});customEvent.detail=this._location;this.dispatchEvent(customEvent)}if(sendQueryChanged){/**
          * @event location-query-changed
          * Fired when Query portion of the location changed
          * detail payload: {Object} Location object
-         */let customEvent=new Event("location-query-changed",{composed:!0,bubbles:!1});customEvent.detail=this._location;this.dispatchEvent(customEvent)}// location-changed
+         */const customEvent=new Event("location-query-changed",{composed:!0,bubbles:!1});customEvent.detail=this._location;this.dispatchEvent(customEvent)}// location-changed
 /**
        * @event location-changed
        * Fired when something in the location changed
        * detail payload: {object} location
-       */let customEvent=new Event("location-changed",{composed:!0,bubbles:!1});customEvent.detail=this._location;this.dispatchEvent(customEvent)};/**
+       */const customEvent=new Event("location-changed",{composed:!0,bubbles:!1});customEvent.detail=this._location;this.dispatchEvent(customEvent)};/**
         * clicks abfangen
         * @param e
         * @private
-        */this._clickHandler=e=>{let target=this._findAtagInPath(e.composedPath());// only handle clicks on <a href="..
+        */this._clickHandler=e=>{const target=this._findAtagInPath(e.composedPath());// only handle clicks on <a href="..
 if("A"!==target.tagName){return}// do not interfere with links to other hosts
 if(target.host!==this._location.host){return}// ignore links outside urlSpaceRegex
 if(""!==this.urlSpaceRegex){if(null===target.pathname.match(this.urlSpaceRegex)){return}}// update history only once
-if(!e.__historyUpdated){e.__historyUpdated=!0;let now=window.performance.now(),shouldReplace=this._lastChangedAt+this.dwellTime>now;this._lastChangedAt=now;if(shouldReplace){window.history.replaceState({},"",target.href)}else{window.history.pushState({},"",target.href)}this._notifyFuroLocationChanged()}// prevent from full reload
+if(!e.__historyUpdated){e.__historyUpdated=!0;const now=window.performance.now(),shouldReplace=this._lastChangedAt+this.dwellTime>now;this._lastChangedAt=now;if(shouldReplace){window.history.replaceState({},"",target.href)}else{window.history.pushState({},"",target.href)}this._notifyFuroLocationChanged()}// prevent from full reload
 e.preventDefault()}}/**
      * look for A tags in a path array from click events
      * @private
      * @param path
      * @return {boolean|*}
      */_findAtagInPath(path){// if we reach body, we are to deep
-if("BODY"===path[0].tagName){return!1}if("A"===path[0].tagName){return path[0]}const[head,...tail]=path;return this._findAtagInPath(tail)}/**
+if("BODY"===path[0].tagName){return!1}if("A"===path[0].tagName){return path[0]}const[,...tail]=path;return this._findAtagInPath(tail)}/**
      * Internal notyfication
      * @private
-     */_notifyFuroLocationChanged(){let now=window.performance.now(),customEvent=new Event("__furoLocationChanged",{composed:!0,bubbles:!0});customEvent.detail=now;this.dispatchEvent(customEvent)}}window.customElements.define("furo-location",FuroLocation);class FuroPages extends LitElement{constructor(){super();this._fallback=this.getAttribute("default");this._default=this.querySelector("*[name="+this._fallback+"]");this._attrForSelected=this.getAttribute("attr-for-selected")||"selected";this._lastQP=[];this._lastHash=[];this._lastPageName="";// set all to hidden
-let l=this.children.length-1;for(l;0<=l;l--){this.children[l].setAttribute("hidden","")}}firstUpdated(_changedProperties){super.firstUpdated(_changedProperties);setTimeout(()=>{// Activate Default
+     */_notifyFuroLocationChanged(){const now=window.performance.now(),customEvent=new Event("__furoLocationChanged",{composed:!0,bubbles:!0});customEvent.detail=now;this.dispatchEvent(customEvent)}}window.customElements.define("furo-location",FuroLocation);class FuroPages extends LitElement{constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
+this._fallback=this.getAttribute("default");// eslint-disable-next-line wc/no-constructor-attributes
+this._default=this.querySelector(`*[name=${this._fallback}]`);// eslint-disable-next-line wc/no-constructor-attributes
+this._attrForSelected=this.getAttribute("attr-for-selected")||"selected";this._lastQP=[];this._lastHash=[];this._lastPageName="";// set all to hidden
+// eslint-disable-next-line wc/no-constructor-attributes
+let l=this.children.length-1;for(l;0<=l;l-=1){// eslint-disable-next-line wc/no-constructor-attributes
+this.children[l].setAttribute("hidden","")}}firstUpdated(_changedProperties){super.firstUpdated(_changedProperties);setTimeout(()=>{// Activate Default
 if(!this._lastPageName){this.activatePage(this._fallback)}},1)}/**
      * Activate a page by name
      * @param String pageName
@@ -9046,20 +10012,21 @@ if(!this._lastPageName){this.activatePage(this._fallback)}},1)}/**
      * Inject the location Object from furo-location
      *
      * @param location
-     */injectLocation(location){let page=location.pathSegments[0]||this._fallback;if(this._lastPage&&page!==this._lastPageName){if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageDeActivated")}this._lastPage.setAttribute("hidden","");this._lastPage.removeAttribute(this._attrForSelected)}this._lastPage=this.querySelector(`*[name="${page}"]`);if(!this._lastPage){// 404
-this._lastPage=this.querySelector("*[name=\"404\"]");if(this._lastPage){}else{this._lastPage=this._default}}if(this._lastPage){if(page!==this._lastPageName){this._lastPage.removeAttribute("hidden");this._lastPage.setAttribute(this._attrForSelected,"");this._lastPageName=page;if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageActivated",location)}}// QP
+     */injectLocation(location){const page=location.pathSegments[0]||this._fallback;if(this._lastPage&&page!==this._lastPageName){if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageDeActivated")}this._lastPage.setAttribute("hidden","");this._lastPage.removeAttribute(this._attrForSelected)}this._lastPage=this.querySelector(`*[name="${page}"]`);if(!this._lastPage){// 404
+this._lastPage=this.querySelector("*[name=\"404\"]");if(!this._lastPage){this._lastPage=this._default}}if(this._lastPage){if(page!==this._lastPageName){this._lastPage.removeAttribute("hidden");this._lastPage.setAttribute(this._attrForSelected,"");this._lastPageName=page;if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageActivated",location)}}// QP
 if(this._lastQP[page]!==location.querystring){this._lastQP[page]=location.querystring;// fire --pageParamsChanged if we have a fbp component
 if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageQueryChanged",location)}}// Hash
 if(this._lastHash[page]!==location.hashstring){this._lastHash[page]=location.hashstring;// fire --pageParamsChanged if we have a fbp component
-if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageHashChanged",location)}}return this._lastPage}else{console.warn("default page not found and 404 page not found")}}/**
+if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageHashChanged",location)}}return this._lastPage}// eslint-disable-next-line no-console
+console.warn("default page not found and 404 page not found");return!1}/**
      *
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return css`
-        :host {
-            display: block;
-        }
+      :host {
+        display: block;
+      }
     `}/**
      * @private
      * @returns {TemplateResult}
@@ -9072,20 +10039,25 @@ return html`
    * @summary Application Flow => routing
    * @customElement
    * @appliesMixin FBP
-   */class FuroAppFlow extends LitElement{constructor(){super();this.style.display="none"}static get properties(){return{/**
+   */class FuroAppFlow extends LitElement{constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
+this.style.display="none"}static get properties(){return{/**
        * Name of your app-flow event object
        *
        * i.e. 'task-clicked', 'wizard-step1-completed',...
        */event:{type:String}}}setQp(qp){this._qp=qp}static set qp(qp){this._qp=qp}trigger(){this.emit(this._qp)}/**
      * fire the app-flow event
      * @param {object|QueryParams} QueryParam Object
-     */emit(queryParams){var data=new TypeAppFlow(this.event);for(let param in queryParams){data.data[param]=queryParams[param]}/**
+     */emit(queryParams){const data=new TypeAppFlow(this.event);// eslint-disable-next-line guard-for-in,no-restricted-syntax
+for(const param in queryParams){data.data[param]=queryParams[param]}/**
        * @event app-flow
        *
        * App-flow event with app-flow object will be fired when you trigger the `emit` function.
        * detail payload: data
-       */let customEvent=new Event("app-flow",{composed:!0,bubbles:!0});customEvent.detail=data;this.dispatchEvent(customEvent);return customEvent}}window.customElements.define("furo-app-flow",FuroAppFlow);class FlowBind extends FBP(HTMLElement){constructor(){super();this.attachShadow({mode:"open"});let t=this.querySelector("template");this.template=t.content;let elem=document.createElement("empty-fbp-node");elem.attachShadow({mode:"open"});elem.shadowRoot.appendChild(this.template.cloneNode(!0));elem._appendFBP(elem.shadowRoot);this._host=elem;this.parentNode.appendChild(elem.shadowRoot)}}window.customElements.define("flow-bind",FlowBind);class FuroTooltipDisplay extends FBP(LitElement){constructor(){super();// return **this** to component which want to connect
-window.addEventListener("hide-tooltip-requested",e=>{if(this.show){clearTimeout(this.to);this.show=!1}});window.addEventListener("show-tooltip-requested",e=>{let cr=e.detail.cr,x=cr.left+cr.width/2,y=cr.bottom+16,max_y=window.innerHeight-48;if(y>max_y){y=cr.top-32}this.style.top=y+"px";this.start=!0;this.label=e.detail.label;clearTimeout(this.to);setTimeout(()=>{let mycr=this.getBoundingClientRect(),max=window.innerWidth-8;this.style.left=Math.min(max-mycr.width,Math.max(8,x-mycr.width/2))+"px";this.show=!0;this.to=setTimeout(()=>{// hide if shown
+       */const customEvent=new Event("app-flow",{composed:!0,bubbles:!0});customEvent.detail=data;this.dispatchEvent(customEvent);return customEvent}}window.customElements.define("furo-app-flow",FuroAppFlow);class FlowBind extends FBP(HTMLElement){constructor(){super();this.attachShadow({mode:"open"});// eslint-disable-next-line wc/no-constructor-attributes
+const t=this.querySelector("template");this.template=t.content;const elem=document.createElement("empty-fbp-node");elem.attachShadow({mode:"open"});elem.shadowRoot.appendChild(this.template.cloneNode(!0));elem._appendFBP(elem.shadowRoot);this._host=elem;this.parentNode.appendChild(elem.shadowRoot)}}window.customElements.define("flow-bind",FlowBind);class FuroTooltipDisplay extends FBP(LitElement){constructor(){super();// return **this** to component which want to connect
+window.addEventListener("hide-tooltip-requested",()=>{if(this.show){clearTimeout(this.to);this.show=!1}});window.addEventListener("show-tooltip-requested",e=>{const{cr}=e.detail,x=cr.left+cr.width/2;let y=cr.bottom+16;const maxY=window.innerHeight-48;if(y>maxY){y=cr.top-32}// eslint-disable-next-line wc/no-constructor-attributes
+this.style.top=`${y}px`;this.start=!0;this.label=e.detail.label;clearTimeout(this.to);setTimeout(()=>{const mycr=this.getBoundingClientRect(),max=window.innerWidth-8;// eslint-disable-next-line wc/no-constructor-attributes
+this.style.left=`${Math.min(max-mycr.width,Math.max(8,x-mycr.width/2))}px`;this.show=!0;this.to=setTimeout(()=>{// hide if shown
 if(this.show){this.show=!1}},e.detail.duration);this.requestUpdate()},10)})}/**
      * @private
      * @return {Object}
@@ -9093,42 +10065,41 @@ if(this.show){this.show=!1}},e.detail.duration);this.requestUpdate()},10)})}/**
        * Description
        */start:{type:Boolean,reflect:!0},show:{type:Boolean,reflect:!0}}}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroTooltipDisplay")||css`
-      :host {
-        position: absolute;
-        display: none;
-        top:0;
-        left: 0;
-        transition: opacity 300ms;
-        opacity: 0;
-        background-color: #6d6d6d;
-        color: white;
-        height: 24px;
-        padding: 0 8px;
-        border-radius: 4px;
-        font-size: 12px;
-        line-height: 24px;
-        z-index: 10;
-        white-space: nowrap;
-      }
+        :host {
+          position: absolute;
+          display: none;
+          top: 0;
+          left: 0;
+          transition: opacity 300ms;
+          opacity: 0;
+          background-color: #6d6d6d;
+          color: white;
+          height: 24px;
+          padding: 0 8px;
+          border-radius: 4px;
+          font-size: 12px;
+          line-height: 24px;
+          z-index: 10;
+          white-space: nowrap;
+        }
 
-      :host([start]) {
-        display: block;
-        opacity: 0;
-      }
+        :host([start]) {
+          display: block;
+          opacity: 0;
+        }
 
-      :host([show]) {
-        opacity: 1;
-        display: block;
-
-      }
-    `}/**
+        :host([show]) {
+          opacity: 1;
+          display: block;
+        }
+      `}/**
      * @private
      * @returns {TemplateResult}
      * @private
@@ -9199,7 +10170,6 @@ return html`
         `}}window.customElements.define("furo-shell",FuroShell);class Styling$1{static get theme(){// language=CSS
 return css`
       :host {
-
         /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
         /* https://material.io/design/material-theming/implementing-your-theme.html#color */
         --primary-light: #4ccd50;
@@ -9211,30 +10181,30 @@ return css`
 
         --secondary-light: #fdd756;
         --secondary: #fecf2f;
-        --secondary-rgb: 254,207,47;
+        --secondary-rgb: 254, 207, 47;
         --secondary-dark: #ffc911;
         --secondary-variant: #faedc1;
         --on-secondary: #212121;
 
         --accent-light: #ecf3ca;
         --accent: #cce35b;
-        --accent-rgb: 204,227,91;
+        --accent-rgb: 204, 227, 91;
         --accent-dark: #bada18;
         --on-accent: #212121;
 
         --background: #eeeeee;
         --background-rgb: 238, 238, 238;
         --on-background: #212121;
-        --on-background-rgb: 33,33,33;
+        --on-background-rgb: 33, 33, 33;
 
         --surface-light: #f3f3f3;
         --surface-light-rgb: 243, 243, 243;
-        --surface: #FEFEFE;
+        --surface: #fefefe;
         --surface-rgb: 254, 254, 254;
         --surface-dark: #f0f0f0;
         --on-surface: #212121;
         --on-surface-rgb: 33, 33, 33;
-        --separator: #E4E4E4;
+        --separator: #e4e4e4;
 
         /* States */
         --state-hover: 0.04;
@@ -9244,13 +10214,12 @@ return css`
         --state-focus: 0.12;
         --state-focused-hover: 0.18;
         --state-selected-focus: 0.2;
-        --state-selected-focused-hover:0.24;
+        --state-selected-focused-hover: 0.24;
         --state-disabled: 0.38;
 
         /* Emphasis, used for secondary text,... */
         --medium-emphasis-surface: 0.6;
         --medium-emphasis-primary: 0.74;
-
 
         /* Input, Forms, Toast*/
         --error: #ea1c24;
@@ -9267,7 +10236,6 @@ return css`
         --disabled: #c3c4c3;
         --on-disabled: #585858;
 
-
         /* Spacing */
         --spacing-xxs: 4px;
         --spacing-xs: 8px;
@@ -9277,9 +10245,7 @@ return css`
         --spacing-l: 32px;
         --spacing-xl: 48px;
         --spacing-xxl: 96px;
-
       }
-
     `}}_exports.Styling$1=Styling$1;var styling$1={Styling:Styling$1};/*! markdown-it 9.1.0 https://github.com//markdown-it/markdown-it @license MIT */_exports.$styling$1=styling$1;(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.markdownit=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){// HTML5 entities map: { name -> utf16string }
 //
 'use strict';/*eslint quotes:0*/module.exports=require("entities/maps/entities.json")},{"entities/maps/entities.json":52}],2:[function(require,module,exports){// List of valid html blocks names, accorting to commonmark spec
@@ -11219,7 +12185,7 @@ root.punycode=punycode}})(this)}).call(this,"undefined"!==typeof global?global:"
 :"undefined"!==typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self// if in worker
 :{}// if in node js
 ,Prism$1=function(_self){// Private helper vars
-var lang=/\blang(?:uage)?-([\w-]+)\b/i,uniqueId=0,_={manual:_self.Prism&&_self.Prism.manual,disableWorkerMessageHandler:_self.Prism&&_self.Prism.disableWorkerMessageHandler,util:{encode:function(tokens){if(tokens instanceof Token){return new Token(tokens.type,_.util.encode(tokens.content),tokens.alias)}else if(Array.isArray(tokens)){return tokens.map(_.util.encode)}else{return tokens.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")}},type:function(o){return Object.prototype.toString.call(o).slice(8,-1)},objId:function(obj){if(!obj.__id){Object.defineProperty(obj,"__id",{value:++uniqueId})}return obj.__id},// Deep clone a language definition (e.g. to extend it)
+var lang=/\blang(?:uage)?-([\w-]+)\b/i,uniqueId=0,_={manual:_self.Prism&&_self.Prism.manual,disableWorkerMessageHandler:_self.Prism&&_self.Prism.disableWorkerMessageHandler,util:{encode:function encode(tokens){if(tokens instanceof Token){return new Token(tokens.type,encode(tokens.content),tokens.alias)}else if(Array.isArray(tokens)){return tokens.map(encode)}else{return tokens.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")}},type:function(o){return Object.prototype.toString.call(o).slice(8,-1)},objId:function(obj){if(!obj.__id){Object.defineProperty(obj,"__id",{value:++uniqueId})}return obj.__id},// Deep clone a language definition (e.g. to extend it)
 clone:function deepClone(o,visited){var clone,id,type=_.util.type(o);visited=visited||{};switch(type){case"Object":id=_.util.objId(o);if(visited[id]){return visited[id]}clone={};visited[id]=clone;for(var key in o){if(o.hasOwnProperty(key)){clone[key]=deepClone(o[key],visited)}}return clone;case"Array":id=_.util.objId(o);if(visited[id]){return visited[id]}clone=[];visited[id]=clone;o.forEach(function(v,i){clone[i]=deepClone(v,visited)});return clone;default:return o;}},/**
        * Returns the Prism language of the given element set by a `language-xxxx` or `lang-xxxx` class.
        *
@@ -11256,17 +12222,54 @@ _.languages.DFS(_.languages,function(key,value){if(value===old&&key!=inside){thi
 DFS:function DFS(o,callback,type,visited){visited=visited||{};var objId=_.util.objId;for(var i in o){if(o.hasOwnProperty(i)){callback.call(o,i,o[i],type||i);var property=o[i],propertyType=_.util.type(property);if("Object"===propertyType&&!visited[objId(property)]){visited[objId(property)]=!0;DFS(property,callback,null,visited)}else if("Array"===propertyType&&!visited[objId(property)]){visited[objId(property)]=!0;DFS(property,callback,i,visited)}}}}},plugins:{},highlightAll:function(async,callback){_.highlightAllUnder(document,async,callback)},highlightAllUnder:function(container,async,callback){var env={callback:callback,container:container,selector:"code[class*=\"language-\"], [class*=\"language-\"] code, code[class*=\"lang-\"], [class*=\"lang-\"] code"};_.hooks.run("before-highlightall",env);env.elements=Array.prototype.slice.apply(env.container.querySelectorAll(env.selector));_.hooks.run("before-all-elements-highlight",env);for(var i=0,element;element=env.elements[i++];){_.highlightElement(element,!0===async,env.callback)}},highlightElement:function(element,async,callback){// Find language
 var language=_.util.getLanguage(element),grammar=_.languages[language];// Set language on the element, if not present
 element.className=element.className.replace(lang,"").replace(/\s+/g," ")+" language-"+language;// Set language on the parent, for styling
-var parent=element.parentNode;if(parent&&"pre"===parent.nodeName.toLowerCase()){parent.className=parent.className.replace(lang,"").replace(/\s+/g," ")+" language-"+language}var code=element.textContent,env={element:element,language:language,grammar:grammar,code:code};function insertHighlightedCode(highlightedCode){env.highlightedCode=highlightedCode;_.hooks.run("before-insert",env);env.element.innerHTML=env.highlightedCode;_.hooks.run("after-highlight",env);_.hooks.run("complete",env);callback&&callback.call(env.element)}_.hooks.run("before-sanity-check",env);if(!env.code){_.hooks.run("complete",env);callback&&callback.call(env.element);return}_.hooks.run("before-highlight",env);if(!env.grammar){insertHighlightedCode(_.util.encode(env.code));return}if(async&&_self.Worker){var worker=new Worker(_.filename);worker.onmessage=function(evt){insertHighlightedCode(evt.data)};worker.postMessage(JSON.stringify({language:env.language,code:env.code,immediateClose:!0}))}else{insertHighlightedCode(_.highlight(env.code,env.grammar,env.language))}},highlight:function(text,grammar,language){var env={code:text,grammar:grammar,language:language};_.hooks.run("before-tokenize",env);env.tokens=_.tokenize(env.code,env.grammar);_.hooks.run("after-tokenize",env);return Token.stringify(_.util.encode(env.tokens),env.language)},matchGrammar:function(text,strarr,grammar,index,startPos,oneshot,target){for(var token in grammar){if(!grammar.hasOwnProperty(token)||!grammar[token]){continue}var patterns=grammar[token];patterns=Array.isArray(patterns)?patterns:[patterns];for(var j=0;j<patterns.length;++j){if(target&&target==token+","+j){return}var pattern=patterns[j],inside=pattern.inside,lookbehind=!!pattern.lookbehind,greedy=!!pattern.greedy,lookbehindLength=0,alias=pattern.alias;if(greedy&&!pattern.pattern.global){// Without the global flag, lastIndex won't work
-var flags=pattern.pattern.toString().match(/[imsuy]*$/)[0];pattern.pattern=RegExp(pattern.pattern.source,flags+"g")}pattern=pattern.pattern||pattern;// Don’t cache length as it changes during the loop
-for(var i=index,pos=startPos,str;i<strarr.length;pos+=strarr[i].length,++i){str=strarr[i];if(strarr.length>text.length){// Something went terribly wrong, ABORT, ABORT!
-return}if(str instanceof Token){continue}if(greedy&&i!=strarr.length-1){pattern.lastIndex=pos;var match=pattern.exec(text);if(!match){break}for(var from=match.index+(lookbehind&&match[1]?match[1].length:0),to=match.index+match[0].length,k=i,p=pos,len=strarr.length;k<len&&(p<to||!strarr[k].type&&!strarr[k-1].greedy);++k){p+=strarr[k].length;// Move the index i to the element in strarr that is closest to from
-if(from>=p){++i;pos=p}}// If strarr[i] is a Token, then the match starts inside another Token, which is invalid
-if(strarr[i]instanceof Token){continue}// Number of tokens to delete and replace with the new match
-delNum=k-i;str=text.slice(pos,p);match.index-=pos}else{pattern.lastIndex=0;var match=pattern.exec(str),delNum=1}if(!match){if(oneshot){break}continue}if(lookbehind){lookbehindLength=match[1]?match[1].length:0}var from=match.index+lookbehindLength,match=match[0].slice(lookbehindLength),to=from+match.length,before=str.slice(0,from),after=str.slice(to),args=[i,delNum];if(before){++i;pos+=before.length;args.push(before)}var wrapped=new Token(token,inside?_.tokenize(match,inside):match,alias,match,greedy);args.push(wrapped);if(after){args.push(after)}Array.prototype.splice.apply(strarr,args);if(1!=delNum)_.matchGrammar(text,strarr,grammar,i,pos,!0,token+","+j);if(oneshot)break}}}},tokenize:function(text,grammar){var strarr=[text],rest=grammar.rest;if(rest){for(var token in rest){grammar[token]=rest[token]}delete grammar.rest}_.matchGrammar(text,strarr,grammar,0,0,!1);return strarr},hooks:{all:{},add:function(name,callback){var hooks=_.hooks.all;hooks[name]=hooks[name]||[];hooks[name].push(callback)},run:function(name,env){var callbacks=_.hooks.all[name];if(!callbacks||!callbacks.length){return}for(var i=0,callback;callback=callbacks[i++];){callback(env)}}},Token:Token};_self.Prism=_;function Token(type,content,alias,matchedStr,greedy){this.type=type;this.content=content;this.alias=alias;// Copy of the full string this token was created from
-this.length=0|(matchedStr||"").length;this.greedy=!!greedy}Token.stringify=function(o,language){if("string"==typeof o){return o}if(Array.isArray(o)){return o.map(function(element){return Token.stringify(element,language)}).join("")}var env={type:o.type,content:Token.stringify(o.content,language),tag:"span",classes:["token",o.type],attributes:{},language:language};if(o.alias){var aliases=Array.isArray(o.alias)?o.alias:[o.alias];Array.prototype.push.apply(env.classes,aliases)}_.hooks.run("wrap",env);var attributes=Object.keys(env.attributes).map(function(name){return name+"=\""+(env.attributes[name]||"").replace(/"/g,"&quot;")+"\""}).join(" ");return"<"+env.tag+" class=\""+env.classes.join(" ")+"\""+(attributes?" "+attributes:"")+">"+env.content+"</"+env.tag+">"};if(!_self.document){if(!_self.addEventListener){// in Node.js
+var parent=element.parentNode;if(parent&&"pre"===parent.nodeName.toLowerCase()){parent.className=parent.className.replace(lang,"").replace(/\s+/g," ")+" language-"+language}var code=element.textContent,env={element:element,language:language,grammar:grammar,code:code};function insertHighlightedCode(highlightedCode){env.highlightedCode=highlightedCode;_.hooks.run("before-insert",env);env.element.innerHTML=env.highlightedCode;_.hooks.run("after-highlight",env);_.hooks.run("complete",env);callback&&callback.call(env.element)}_.hooks.run("before-sanity-check",env);if(!env.code){_.hooks.run("complete",env);callback&&callback.call(env.element);return}_.hooks.run("before-highlight",env);if(!env.grammar){insertHighlightedCode(_.util.encode(env.code));return}if(async&&_self.Worker){var worker=new Worker(_.filename);worker.onmessage=function(evt){insertHighlightedCode(evt.data)};worker.postMessage(JSON.stringify({language:env.language,code:env.code,immediateClose:!0}))}else{insertHighlightedCode(_.highlight(env.code,env.grammar,env.language))}},highlight:function(text,grammar,language){var env={code:text,grammar:grammar,language:language};_.hooks.run("before-tokenize",env);env.tokens=_.tokenize(env.code,env.grammar);_.hooks.run("after-tokenize",env);return Token.stringify(_.util.encode(env.tokens),env.language)},tokenize:function(text,grammar){var rest=grammar.rest;if(rest){for(var token in rest){grammar[token]=rest[token]}delete grammar.rest}var tokenList=new LinkedList;addAfter(tokenList,tokenList.head,text);matchGrammar(text,tokenList,grammar,tokenList.head,0);return toArray(tokenList)},hooks:{all:{},add:function(name,callback){var hooks=_.hooks.all;hooks[name]=hooks[name]||[];hooks[name].push(callback)},run:function(name,env){var callbacks=_.hooks.all[name];if(!callbacks||!callbacks.length){return}for(var i=0,callback;callback=callbacks[i++];){callback(env)}}},Token:Token};_self.Prism=_;function Token(type,content,alias,matchedStr,greedy){this.type=type;this.content=content;this.alias=alias;// Copy of the full string this token was created from
+this.length=0|(matchedStr||"").length;this.greedy=!!greedy}Token.stringify=function stringify(o,language){if("string"==typeof o){return o}if(Array.isArray(o)){var s="";o.forEach(function(e){s+=stringify(e,language)});return s}var env={type:o.type,content:stringify(o.content,language),tag:"span",classes:["token",o.type],attributes:{},language:language},aliases=o.alias;if(aliases){if(Array.isArray(aliases)){Array.prototype.push.apply(env.classes,aliases)}else{env.classes.push(aliases)}}_.hooks.run("wrap",env);var attributes="";for(var name in env.attributes){attributes+=" "+name+"=\""+(env.attributes[name]||"").replace(/"/g,"&quot;")+"\""}return"<"+env.tag+" class=\""+env.classes.join(" ")+"\""+attributes+">"+env.content+"</"+env.tag+">"};/**
+      * @param {string} text
+      * @param {LinkedList<string | Token>} tokenList
+      * @param {any} grammar
+      * @param {LinkedListNode<string | Token>} startNode
+      * @param {number} startPos
+      * @param {boolean} [oneshot=false]
+      * @param {string} [target]
+      */function matchGrammar(text,tokenList,grammar,startNode,startPos,oneshot,target){for(var token in grammar){if(!grammar.hasOwnProperty(token)||!grammar[token]){continue}var patterns=grammar[token];patterns=Array.isArray(patterns)?patterns:[patterns];for(var j=0;j<patterns.length;++j){if(target&&target==token+","+j){return}var pattern=patterns[j],inside=pattern.inside,lookbehind=!!pattern.lookbehind,greedy=!!pattern.greedy,lookbehindLength=0,alias=pattern.alias;if(greedy&&!pattern.pattern.global){// Without the global flag, lastIndex won't work
+var flags=pattern.pattern.toString().match(/[imsuy]*$/)[0];pattern.pattern=RegExp(pattern.pattern.source,flags+"g")}pattern=pattern.pattern||pattern;for(// iterate the token list and keep track of the current token/string position
+var currentNode=startNode.next,pos=startPos,str;currentNode!==tokenList.tail;pos+=currentNode.value.length,currentNode=currentNode.next){str=currentNode.value;if(tokenList.length>text.length){// Something went terribly wrong, ABORT, ABORT!
+return}if(str instanceof Token){continue}var removeCount=1;// this is the to parameter of removeBetween
+if(greedy&&currentNode!=tokenList.tail.prev){pattern.lastIndex=pos;var match=pattern.exec(text);if(!match){break}var from=match.index+(lookbehind&&match[1]?match[1].length:0),to=match.index+match[0].length,p=pos;// find the node that contains the match
+p+=currentNode.value.length;while(from>=p){currentNode=currentNode.next;p+=currentNode.value.length}// adjust pos (and p)
+p-=currentNode.value.length;pos=p;// the current node is a Token, then the match starts inside another Token, which is invalid
+if(currentNode.value instanceof Token){continue}// find the last node which is affected by this match
+for(var k=currentNode;k!==tokenList.tail&&(p<to||"string"===typeof k.value&&!k.prev.value.greedy);k=k.next){removeCount++;p+=k.value.length}removeCount--;// replace with the new match
+str=text.slice(pos,p);match.index-=pos}else{pattern.lastIndex=0;var match=pattern.exec(str)}if(!match){if(oneshot){break}continue}if(lookbehind){lookbehindLength=match[1]?match[1].length:0}var from=match.index+lookbehindLength,match=match[0].slice(lookbehindLength),to=from+match.length,before=str.slice(0,from),after=str.slice(to),removeFrom=currentNode.prev;if(before){removeFrom=addAfter(tokenList,removeFrom,before);pos+=before.length}removeRange(tokenList,removeFrom,removeCount);var wrapped=new Token(token,inside?_.tokenize(match,inside):match,alias,match,greedy);currentNode=addAfter(tokenList,removeFrom,wrapped);if(after){addAfter(tokenList,currentNode,after)}if(1<removeCount)matchGrammar(text,tokenList,grammar,currentNode.prev,pos,!0,token+","+j);if(oneshot)break}}}}/**
+     * @typedef LinkedListNode
+     * @property {T} value
+     * @property {LinkedListNode<T> | null} prev The previous node.
+     * @property {LinkedListNode<T> | null} next The next node.
+     * @template T
+     */ /**
+         * @template T
+         */function LinkedList(){/** @type {LinkedListNode<T>} */var head={value:null,prev:null,next:null},tail={value:null,prev:head,next:null};/** @type {LinkedListNode<T>} */head.next=tail;/** @type {LinkedListNode<T>} */this.head=head;/** @type {LinkedListNode<T>} */this.tail=tail;this.length=0}/**
+     * Adds a new node with the given value to the list.
+     * @param {LinkedList<T>} list
+     * @param {LinkedListNode<T>} node
+     * @param {T} value
+     * @returns {LinkedListNode<T>} The added node.
+     * @template T
+     */function addAfter(list,node,value){// assumes that node != list.tail && values.length >= 0
+var next=node.next,newNode={value:value,prev:node,next:next};node.next=newNode;next.prev=newNode;list.length++;return newNode}/**
+     * Removes `count` nodes after the given node. The given node will not be removed.
+     * @param {LinkedList<T>} list
+     * @param {LinkedListNode<T>} node
+     * @param {number} count
+     * @template T
+     */function removeRange(list,node,count){for(var next=node.next,i=0;i<count&&next!==list.tail;i++){next=next.next}node.next=next;next.prev=node;list.length-=i}/**
+     * @param {LinkedList<T>} list
+     * @returns {T[]}
+     * @template T
+     */function toArray(list){var array=[],node=list.head.next;while(node!==list.tail){array.push(node.value);node=node.next}return array}if(!_self.document){if(!_self.addEventListener){// in Node.js
 return _}if(!_.disableWorkerMessageHandler){// In worker
 _self.addEventListener("message",function(evt){var message=JSON.parse(evt.data),lang=message.language,code=message.code,immediateClose=message.immediateClose;_self.postMessage(_.highlight(code,_.languages[lang],lang));if(immediateClose){_self.close()}},!1)}return _}//Get current script and highlight
-var script=_.util.currentScript();if(script){_.filename=script.src;if(script.hasAttribute("data-manual")){_.manual=!0}}if(!_.manual){function highlightAutomaticallyCallback(){if(!_.manual){_.highlightAll()}}// If the document state is "loading", then we'll use DOMContentLoaded.
+var script=_.util.currentScript();if(script){_.filename=script.src;if(script.hasAttribute("data-manual")){_.manual=!0}}function highlightAutomaticallyCallback(){if(!_.manual){_.highlightAll()}}if(!_.manual){// If the document state is "loading", then we'll use DOMContentLoaded.
 // If the document state is "interactive" and the prism.js script is deferred, then we'll also use the
 // DOMContentLoaded event because there might be some plugins or languages which have also been deferred and they
 // might take longer one animation frame to execute which can create a race condition where only some plugins have
@@ -11290,10 +12293,10 @@ Prism$1.hooks.add("wrap",function(env){if("entity"===env.type){env.attributes.ti
    * @param {string} lang The language key.
    * @example
    * addInlined('style', 'css');
-   */value:function addInlined(tagName,lang){var includedCdataInside={};includedCdataInside["language-"+lang]={pattern:/(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,lookbehind:!0,inside:Prism$1.languages[lang]};includedCdataInside.cdata=/^<!\[CDATA\[|\]\]>$/i;var inside={"included-cdata":{pattern:/<!\[CDATA\[[\s\S]*?\]\]>/i,inside:includedCdataInside}};inside["language-"+lang]={pattern:/[\s\S]+/,inside:Prism$1.languages[lang]};var def={};def[tagName]={pattern:RegExp(/(<__[\s\S]*?>)(?:<!\[CDATA\[[\s\S]*?\]\]>\s*|[\s\S])*?(?=<\/__>)/.source.replace(/__/g,tagName),"i"),lookbehind:!0,greedy:!0,inside:inside};Prism$1.languages.insertBefore("markup","cdata",def)}});Prism$1.languages.xml=Prism$1.languages.extend("markup",{});Prism$1.languages.html=Prism$1.languages.markup;Prism$1.languages.mathml=Prism$1.languages.markup;Prism$1.languages.svg=Prism$1.languages.markup;/* **********************************************
+   */value:function addInlined(tagName,lang){var includedCdataInside={};includedCdataInside["language-"+lang]={pattern:/(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,lookbehind:!0,inside:Prism$1.languages[lang]};includedCdataInside.cdata=/^<!\[CDATA\[|\]\]>$/i;var inside={"included-cdata":{pattern:/<!\[CDATA\[[\s\S]*?\]\]>/i,inside:includedCdataInside}};inside["language-"+lang]={pattern:/[\s\S]+/,inside:Prism$1.languages[lang]};var def={};def[tagName]={pattern:RegExp(/(<__[\s\S]*?>)(?:<!\[CDATA\[[\s\S]*?\]\]>\s*|[\s\S])*?(?=<\/__>)/.source.replace(/__/g,function(){return tagName}),"i"),lookbehind:!0,greedy:!0,inside:inside};Prism$1.languages.insertBefore("markup","cdata",def)}});Prism$1.languages.xml=Prism$1.languages.extend("markup",{});Prism$1.languages.html=Prism$1.languages.markup;Prism$1.languages.mathml=Prism$1.languages.markup;Prism$1.languages.svg=Prism$1.languages.markup;/* **********************************************
                                                    Begin prism-css.js
-                                                  ********************************************** */(function(Prism){var string=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;Prism.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:/@[\w-]+[\s\S]*?(?:;|(?=\s*\{))/,inside:{rule:/@[\w-]+/ // See rest below
-}},url:{pattern:RegExp("url\\((?:"+string.source+"|[^\n\r()]*)\\)","i"),inside:{function:/^url/i,punctuation:/^\(|\)$/}},selector:RegExp("[^{}\\s](?:[^{};\"']|"+string.source+")*?(?=\\s*\\{)"),string:{pattern:string,greedy:!0},property:/[-_a-z\xA0-\uFFFF][-\w\xA0-\uFFFF]*(?=\s*:)/i,important:/!important\b/i,function:/[-a-z0-9]+(?=\()/i,punctuation:/[(){};:,]/};Prism.languages.css.atrule.inside.rest=Prism.languages.css;var markup=Prism.languages.markup;if(markup){markup.tag.addInlined("style","css");Prism.languages.insertBefore("inside","attr-value",{"style-attr":{pattern:/\s*style=("|')(?:\\[\s\S]|(?!\1)[^\\])*\1/i,inside:{"attr-name":{pattern:/^\s*style/i,inside:markup.tag.inside},punctuation:/^\s*=\s*['"]|['"]\s*$/,"attr-value":{pattern:/.+/i,inside:Prism.languages.css}},alias:"language-css"}},markup.tag)}})(Prism$1);/* **********************************************
+                                                  ********************************************** */(function(Prism){var string=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;Prism.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:/@[\w-]+[\s\S]*?(?:;|(?=\s*\{))/,inside:{rule:/^@[\w-]+/,"selector-function-argument":{pattern:/(\bselector\s*\((?!\s*\))\s*)(?:[^()]|\((?:[^()]|\([^()]*\))*\))+?(?=\s*\))/,lookbehind:!0,alias:"selector"// See rest below
+}}},url:{pattern:RegExp("url\\((?:"+string.source+"|[^\n\r()]*)\\)","i"),greedy:!0,inside:{function:/^url/i,punctuation:/^\(|\)$/}},selector:RegExp("[^{}\\s](?:[^{};\"']|"+string.source+")*?(?=\\s*\\{)"),string:{pattern:string,greedy:!0},property:/[-_a-z\xA0-\uFFFF][-\w\xA0-\uFFFF]*(?=\s*:)/i,important:/!important\b/i,function:/[-a-z0-9]+(?=\()/i,punctuation:/[(){};:,]/};Prism.languages.css.atrule.inside.rest=Prism.languages.css;var markup=Prism.languages.markup;if(markup){markup.tag.addInlined("style","css");Prism.languages.insertBefore("inside","attr-value",{"style-attr":{pattern:/\s*style=("|')(?:\\[\s\S]|(?!\1)[^\\])*\1/i,inside:{"attr-name":{pattern:/^\s*style/i,inside:markup.tag.inside},punctuation:/^\s*=\s*['"]|['"]\s*$/,"attr-value":{pattern:/.+/i,inside:Prism.languages.css}},alias:"language-css"}},markup.tag)}})(Prism$1);/* **********************************************
                 Begin prism-clike.js
              ********************************************** */Prism$1.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,boolean:/\b(?:true|false)\b/,function:/\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,punctuation:/[{}[\];(),.:]/};/* **********************************************
         Begin prism-javascript.js
@@ -11334,11 +12337,14 @@ const fragment=document.importNode(template.content,!0);part.setValue(fragment);
      */fetchMd(src){return fetch(src).then(res=>res.text()).then(markdown=>{this.markdown=markdown})}/**
      * Parse markdown string to html content
      * @param markdown
-     */parseMarkdown(markdown){if("string"==typeof markdown){this.markdown=markdown}}/**
+     */parseMarkdown(markdown){if("string"===typeof markdown){this.markdown=markdown}}/**
      * parse markdown string to html content
      * @param markdown
      * @return {TemplateResult | TemplateResult}
-     */_parseMarkdown(markdown){let md=window.markdownit({html:this.unsafe,linkify:!0,typographer:!0});return html`${unsafeHTML(md.render(markdown))}`}updated(){// code highlighter
+     */_parseMarkdown(markdown){const md=window.markdownit({html:this.unsafe,linkify:!0,typographer:!0});return html`
+      ${unsafeHTML(md.render(markdown))}
+    `}updated(){// code highlighter
+// eslint-disable-next-line no-undef
 Prism.highlightAllUnder(this.shadowRoot)}/**
      * Themable Styles
      * @private
@@ -11346,41 +12352,40 @@ Prism.highlightAllUnder(this.shadowRoot)}/**
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroMarkdown")||css`
         :host {
-            display: block;
-            background-color: var(--surface, white);
-            color: var(--on-surface, black);
+          display: block;
+          background-color: var(--surface, white);
+          color: var(--on-surface, black);
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
 
         img {
-            max-width: 100%;
+          max-width: 100%;
         }
 
-
         h1 {
-            font-size: 2.8rem;
-            font-weight: 400;
-            line-height: 3.5rem;
-            letter-spacing: normal;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            margin-top: 0;
+          font-size: 2.8rem;
+          font-weight: 400;
+          line-height: 3.5rem;
+          letter-spacing: normal;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-top: 0;
         }
 
         h2 {
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: 0.0125em;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
+          font-size: 1.25rem;
+          font-weight: 500;
+          letter-spacing: 0.0125em;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.87);
         }
 
         blockquote {
-            border-left: 3px solid var(--blockquote);
-            margin-left: 0;
-            padding-left: var(--spacing);
+          border-left: 3px solid var(--blockquote);
+          margin-left: 0;
+          padding-left: var(--spacing);
         }
 
         /**
@@ -11388,81 +12393,85 @@ return Theme.getThemeForComponent("FuroMarkdown")||css`
      * Based on dabblet (http://dabblet.com)
      * @author Lea Verou
      */
-        code[class*="language-"],
-        pre[class*="language-"] {
-            color: black;
-            background: none;
-            text-shadow: 0 1px white;
-            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-            font-size: 1em;
-            text-align: left;
-            white-space: pre;
-            word-spacing: normal;
-            word-break: normal;
-            word-wrap: normal;
-            line-height: 1.5;
+        code[class*='language-'],
+        pre[class*='language-'] {
+          color: black;
+          background: none;
+          text-shadow: 0 1px white;
+          font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          font-size: 1em;
+          text-align: left;
+          white-space: pre;
+          word-spacing: normal;
+          word-break: normal;
+          word-wrap: normal;
+          line-height: 1.5;
 
-            -moz-tab-size: 4;
-            -o-tab-size: 4;
-            tab-size: 4;
+          -moz-tab-size: 4;
+          -o-tab-size: 4;
+          tab-size: 4;
 
-            -webkit-hyphens: none;
-            -moz-hyphens: none;
-            -ms-hyphens: none;
-            hyphens: none;
+          -webkit-hyphens: none;
+          -moz-hyphens: none;
+          -ms-hyphens: none;
+          hyphens: none;
         }
 
-        pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
-        code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
-            text-shadow: none;
-            background: #b3d4fc;
+        pre[class*='language-']::-moz-selection,
+        pre[class*='language-'] ::-moz-selection,
+        code[class*='language-']::-moz-selection,
+        code[class*='language-'] ::-moz-selection {
+          text-shadow: none;
+          background: #b3d4fc;
         }
 
-        pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
-        code[class*="language-"]::selection, code[class*="language-"] ::selection {
-            text-shadow: none;
-            background: #b3d4fc;
+        pre[class*='language-']::selection,
+        pre[class*='language-'] ::selection,
+        code[class*='language-']::selection,
+        code[class*='language-'] ::selection {
+          text-shadow: none;
+          background: #b3d4fc;
         }
 
         @media print {
-            code[class*="language-"],
-            pre[class*="language-"] {
-                text-shadow: none;
-            }
+          code[class*='language-'],
+          pre[class*='language-'] {
+            text-shadow: none;
+          }
         }
 
         /* Code blocks */
-        pre[class*="language-"] {
-            padding: 1em;
-            margin: 0;
-            overflow: auto;
+        pre[class*='language-'] {
+          padding: 1em;
+          margin: 0;
+          overflow: auto;
         }
 
-        :not(pre) > code[class*="language-"],
-        pre[class*="language-"] {
-            background: #f5f2f0;
+        :not(pre) > code[class*='language-'],
+        pre[class*='language-'] {
+          background: #f5f2f0;
         }
 
         /* Inline code */
-        :not(pre) > code[class*="language-"] {
-            padding: .1em;
-            border-radius: .3em;
-            white-space: normal;
+        :not(pre) > code[class*='language-'] {
+          padding: 0.1em;
+          border-radius: 0.3em;
+          white-space: normal;
         }
 
         .token.comment,
         .token.prolog,
         .token.doctype,
         .token.cdata {
-            color: slategray;
+          color: slategray;
         }
 
         .token.punctuation {
-            color: #999;
+          color: #999;
         }
 
         .namespace {
-            opacity: .7;
+          opacity: 0.7;
         }
 
         .token.property,
@@ -11472,7 +12481,7 @@ return Theme.getThemeForComponent("FuroMarkdown")||css`
         .token.constant,
         .token.symbol,
         .token.deleted {
-            color: #905;
+          color: #905;
         }
 
         .token.selector,
@@ -11481,7 +12490,7 @@ return Theme.getThemeForComponent("FuroMarkdown")||css`
         .token.char,
         .token.builtin,
         .token.inserted {
-            color: #690;
+          color: #690;
         }
 
         .token.operator,
@@ -11489,44 +12498,42 @@ return Theme.getThemeForComponent("FuroMarkdown")||css`
         .token.url,
         .language-css .token.string,
         .style .token.string {
-            color: #9a6e3a;
-            background: hsla(0, 0%, 100%, .5);
+          color: #9a6e3a;
+          background: hsla(0, 0%, 100%, 0.5);
         }
 
         .token.atrule,
         .token.attr-value,
         .token.keyword {
-            color: #07a;
+          color: #07a;
         }
 
         .token.function,
         .token.class-name {
-            color: #DD4A68;
+          color: #dd4a68;
         }
 
         .token.regex,
         .token.important,
         .token.variable {
-            color: #e90;
+          color: #e90;
         }
 
         .token.important,
         .token.bold {
-            font-weight: bold;
+          font-weight: bold;
         }
 
         .token.italic {
-            font-style: italic;
+          font-style: italic;
         }
 
         .token.entity {
-            cursor: help;
+          cursor: help;
         }
-
-
-
-    `}render(){return html`    
-      ${this.markdownRendered}`}}window.customElements.define("furo-markdown",FuroMarkdown);(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.dagre=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){/*
+      `}render(){return html`
+      ${this.markdownRendered}
+    `}}window.customElements.define("furo-markdown",FuroMarkdown);(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.dagre=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){/*
       Copyright (c) 2012-2014 Chris Pettitt
       
       Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -15458,217 +16465,222 @@ if(2>lastTouches.length){if(doPanning&&oneFingerPan){panStart.call(this,ev)}retu
 if(doPanning&&oneFingerPan){panStop.call(this,ev)}// We call it so late, so the user is still able to scroll / reload the page via gesture
 // In case oneFingerPan is not active
 ev.preventDefault();if(this.dispatch("pinchZoomStart",{event:ev}).defaultPrevented){return}this.off("touchstart.panZoom",pinchZoomStart);zoomInProgress=!0;on(document,"touchmove.panZoom",pinchZoom,this,{passive:!1});on(document,"touchend.panZoom",pinchZoomStop,this,{passive:!1})},pinchZoomStop=function pinchZoomStop(ev){ev.preventDefault();var currentTouches=normalizeEvent(ev);if(1<currentTouches.length){return}zoomInProgress=!1;this.dispatch("pinchZoomEnd",{event:ev});off(document,"touchmove.panZoom",pinchZoom);off(document,"touchend.panZoom",pinchZoomStop);this.on("touchstart.panZoom",pinchZoomStart);if(currentTouches.length&&doPanning&&oneFingerPan){panStart.call(this,ev)}},pinchZoom=function pinchZoom(ev){ev.preventDefault();var currentTouches=normalizeEvent(ev),zoom=this.zoom(),lastDelta=Math.sqrt(Math.pow(lastTouches[0].clientX-lastTouches[1].clientX,2)+Math.pow(lastTouches[0].clientY-lastTouches[1].clientY,2)),currentDelta=Math.sqrt(Math.pow(currentTouches[0].clientX-currentTouches[1].clientX,2)+Math.pow(currentTouches[0].clientY-currentTouches[1].clientY,2)),zoomAmount=lastDelta/currentDelta;if(zoom<zoomMin&&1<zoomAmount||zoom>zoomMax&&1>zoomAmount){zoomAmount=1}var currentFocus={x:currentTouches[0].clientX+.5*(currentTouches[1].clientX-currentTouches[0].clientX),y:currentTouches[0].clientY+.5*(currentTouches[1].clientY-currentTouches[0].clientY)},lastFocus={x:lastTouches[0].clientX+.5*(lastTouches[1].clientX-lastTouches[0].clientX),y:lastTouches[0].clientY+.5*(lastTouches[1].clientY-lastTouches[0].clientY)},p=this.point(currentFocus.x,currentFocus.y),focusP=this.point(2*currentFocus.x-lastFocus.x,2*currentFocus.y-lastFocus.y),box=new Box(this.viewbox()).transform(new Matrix().translate(-focusP.x,-focusP.y).scale(zoomAmount,0,0).translate(p.x,p.y));restrictToMargins(box);this.viewbox(box);lastTouches=currentTouches;this.dispatch("zoom",{box:box,focus:focusP})},panStart=function panStart(ev){var isMouse=-1<ev.type.indexOf("mouse");// In case panStart is called with touch, ev.button is undefined
-if(isMouse&&ev.button!==panButton&&ev.which!==panButton+1){return}ev.preventDefault();this.off("mousedown.panZoom",panStart);lastTouches=normalizeEvent(ev);if(zoomInProgress)return;this.dispatch("panStart",{event:ev});lastP={x:lastTouches[0].clientX,y:lastTouches[0].clientY};on(document,"touchmove.panZoom mousemove.panZoom",panning,this,{passive:!1});on(document,"touchend.panZoom mouseup.panZoom",panStop,this,{passive:!1})},panStop=function panStop(ev){ev.preventDefault();off(document,"touchmove.panZoom mousemove.panZoom",panning);off(document,"touchend.panZoom mouseup.panZoom",panStop);this.on("mousedown.panZoom",panStart);this.dispatch("panEnd",{event:ev})},panning=function panning(ev){ev.preventDefault();var currentTouches=normalizeEvent(ev),currentP={x:currentTouches[0].clientX,y:currentTouches[0].clientY},p1=this.point(currentP.x,currentP.y),p2=this.point(lastP.x,lastP.y),deltaP=[p2.x-p1.x,p2.y-p1.y];if(!deltaP[0]&&!deltaP[1]){return}var box=new Box(this.viewbox()).transform(new Matrix().translate(deltaP[0],deltaP[1]));lastP=currentP;restrictToMargins(box);if(this.dispatch("panning",{box:box,event:ev}).defaultPrevented){return}this.viewbox(box)};if(doWheelZoom){this.on("wheel.panZoom",wheelZoom,this,{passive:!1})}if(doPinchZoom){this.on("touchstart.panZoom",pinchZoomStart,this,{passive:!1})}if(doPanning){this.on("mousedown.panZoom",panStart,this,{passive:!1})}return this}});class FuroGraphRenderer extends FBP(LitElement){constructor(){super()}draw(graph){var sizes=graph.graph(),graphWidth=sizes.width,graphHeight=sizes.height;// remove old image on redraw
-let i=this.shadowRoot.querySelector("svg");if(i){i.remove()}var canvas=SVG().addTo(this.shadowRoot).panZoom({zoomMin:.1,zoomMax:10,zoomFactor:.115});canvas.viewbox(0,0,graphWidth,graphHeight);this.canvas=canvas;let nodes=graph.nodes();nodes.forEach(v=>{let node=graph.node(v);// boxes for the components
-if("component"===node.type){let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2).fill("none");box.radius(5);box.addClass(node.type);// set tooltip if exist
-if(""!==node.node.description){//add info
-box.addClass("withdescription");box.mouseover(e=>{let elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:node.node.description/**
-                                            * @event show-tooltip-requested
-                                            * Fired when
-                                            * detail payload:
-                                            */},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}/*
+if(isMouse&&ev.button!==panButton&&ev.which!==panButton+1){return}ev.preventDefault();this.off("mousedown.panZoom",panStart);lastTouches=normalizeEvent(ev);if(zoomInProgress)return;this.dispatch("panStart",{event:ev});lastP={x:lastTouches[0].clientX,y:lastTouches[0].clientY};on(document,"touchmove.panZoom mousemove.panZoom",panning,this,{passive:!1});on(document,"touchend.panZoom mouseup.panZoom",panStop,this,{passive:!1})},panStop=function panStop(ev){ev.preventDefault();off(document,"touchmove.panZoom mousemove.panZoom",panning);off(document,"touchend.panZoom mouseup.panZoom",panStop);this.on("mousedown.panZoom",panStart);this.dispatch("panEnd",{event:ev})},panning=function panning(ev){ev.preventDefault();var currentTouches=normalizeEvent(ev),currentP={x:currentTouches[0].clientX,y:currentTouches[0].clientY},p1=this.point(currentP.x,currentP.y),p2=this.point(lastP.x,lastP.y),deltaP=[p2.x-p1.x,p2.y-p1.y];if(!deltaP[0]&&!deltaP[1]){return}var box=new Box(this.viewbox()).transform(new Matrix().translate(deltaP[0],deltaP[1]));lastP=currentP;restrictToMargins(box);if(this.dispatch("panning",{box:box,event:ev}).defaultPrevented){return}this.viewbox(box)};if(doWheelZoom){this.on("wheel.panZoom",wheelZoom,this,{passive:!1})}if(doPinchZoom){this.on("touchstart.panZoom",pinchZoomStart,this,{passive:!1})}if(doPanning){this.on("mousedown.panZoom",panStart,this,{passive:!1})}return this}});class FuroGraphRenderer extends FBP(LitElement){draw(graph){const sizes=graph.graph(),graphWidth=sizes.width,graphHeight=sizes.height,i=this.shadowRoot.querySelector("svg");if(i){i.remove()}const canvas=SVG().addTo(this.shadowRoot).panZoom({zoomMin:.1,zoomMax:10,zoomFactor:.115});canvas.viewbox(0,0,graphWidth,graphHeight);this.canvas=canvas;const nodes=graph.nodes();nodes.forEach(v=>{const node=graph.node(v);// boxes for the components
+if("component"===node.type){const box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2).fill("none");box.radius(5);box.addClass(node.type);// set tooltip if exist
+if(""!==node.node.description){// add info
+box.addClass("withdescription");box.mouseover(()=>{const elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:node.node.description},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});/**
+                * @event show-tooltip-requested
+                * Fired when
+                * detail payload:
+                */customEvent.detail=elem;this.dispatchEvent(customEvent)})}/*
           box.click((e) => {
             console.log(node.node)
           })
             */}});// draw the lines
-graph.edges().forEach(e=>{let edge=graph.edge(e);if("center"!==edge.type){let points=edge.points.map(p=>{return[p.x,p.y]}),line=canvas.polyline(points).addClass("line");line.addClass(edge.type);// send tooltip event for nodes with values in the attr
+graph.edges().forEach(e=>{const edge=graph.edge(e);if("center"!==edge.type){const points=edge.points.map(p=>[p.x,p.y]),line=canvas.polyline(points).addClass("line");line.addClass(edge.type);// send tooltip event for nodes with values in the attr
 // debounce tooltip on lines
-let timout,toRegistred=!1;line.mouseover(e=>{if(!toRegistred){toRegistred=!0;timout=setTimeout(()=>{let elem={duration:5e3,cr:{top:e.clientY-10,bottom:e.clientY+10,x:e.clientX,y:e.clientY,left:e.clientX-10,width:20,height:20},label:edge.wirename},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});/**
+let timout,toRegistred=!1;line.mouseover(()=>{if(!toRegistred){toRegistred=!0;timout=setTimeout(()=>{const elem={duration:5e3,cr:{top:e.clientY-10,bottom:e.clientY+10,x:e.clientX,y:e.clientY,left:e.clientX-10,width:20,height:20},label:edge.wirename},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});/**
                   * @event show-tooltip-requested
                   * Fired on mouseover of a attr node
                   */customEvent.detail=elem;this.dispatchEvent(customEvent)},60)}});// clear the timeout
-line.mouseout(e=>{clearTimeout(timout);toRegistred=!1})}});// component Labels over the edges
-nodes.forEach(v=>{let node=graph.node(v);if("component"===node.type){let background=canvas.rect(10,25).move(node.x-node.width/2,node.y-node.height/2).addClass("boxlabelbg");background.radius(5);if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+25,node.y-node.height/2+2);// width is taken from the image, so wait a moment.
+line.mouseout(()=>{clearTimeout(timout);toRegistred=!1})}});// component Labels over the edges
+nodes.forEach(v=>{const node=graph.node(v);if("component"===node.type){const background=canvas.rect(10,25).move(node.x-node.width/2,node.y-node.height/2).addClass("boxlabelbg");background.radius(5);if(node.label){const text=canvas.text(node.label).move(node.x-node.width/2+25,node.y-node.height/2+2);// width is taken from the image, so wait a moment.
 setTimeout(()=>{background.width(text.length()+50)},90);// send tooltip event for nodes with values in the attr
-text.mouseover(e=>{let elem={duration:5e3,cr:text.node.getBoundingClientRect(),label:node.label},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}}});nodes.forEach(v=>{let node=graph.node(v);if("attribute"===node.type){// add receiving circle
-//if(node.attr._type === "method"){
+text.mouseover(()=>{const elem={duration:5e3,cr:text.node.getBoundingClientRect(),label:node.label},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}}});nodes.forEach(v=>{const node=graph.node(v);if("attribute"===node.type){// add receiving circle
+// if(node.attr._type === "method"){
 //  let r = canvas.circle(12, 12).move((node.x - node.width / 2) -6, (node.y - node.height / 2)+6).addClass('line');
-//}
+// }
 let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass(node.type);box.addClass(node.attr._type);// add green bar to the left
-if("method"===node.attr._type){let box=canvas.rect(10,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("methodindicator")}// add blue bar to the right
-if("event"===node.attr._type){let box=canvas.rect(10,node.height).move(node.x+node.width/2-10,node.y-node.height/2);box.radius(3);box.addClass("eventindicator")}// add classes for ^^bubbling, -^host, ^nonbubbling, ƒ-.property
+if("method"===node.attr._type){box=canvas.rect(10,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("methodindicator")}// add blue bar to the right
+if("event"===node.attr._type){box=canvas.rect(10,node.height).move(node.x+node.width/2-10,node.y-node.height/2);box.radius(3);box.addClass("eventindicator")}// add classes for ^^bubbling, -^host, ^nonbubbling, ƒ-.property
 // for bool like flex
 if(!node.attr.value){box.addClass("flag");// add black bar to the left
-let indicator=canvas.rect(10,node.height).move(node.x-node.width/2,node.y-node.height/2);indicator.radius(3);indicator.addClass("flagindicator");// send tooltip event for nodes with values in the attr
-box.mouseover(e=>{let elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:"Flag: "+node.label},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}else{// send tooltip event for nodes with values in the attr
-box.mouseover(e=>{let elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:node.label+" = "+node.attr.value/**
-                                                           * @event show-tooltip-requested
-                                                           * Fired on mouseover of a attr node
-                                                           */},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}}if("notarget"===node.type){let circle=canvas.circle(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2).fill("red");// send tooltip event
-circle.mouseover(e=>{let elem={duration:5e3,cr:circle.node.getBoundingClientRect(),label:node.wirename},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("nosource"===node.type){let circle=canvas.circle(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2).fill("orange");// send tooltip event
-circle.mouseover(e=>{let elem={duration:5e3,cr:circle.node.getBoundingClientRect(),label:node.wirename},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("park"===node.type){let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("park");if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}// send tooltip event
-box.mouseover(e=>{let elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:"park to var "+node.label},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("bubbling"===node.type){let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("bubbling");if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}// send tooltip event
-box.mouseover(e=>{let elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:"bubbling event "+node.label},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("nonbubbling"===node.type){let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("nonbubbling");if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}// send tooltip event
-box.mouseover(e=>{let elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:"event "+node.label},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("hostevent"===node.type){let box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("hostevent");if(node.label){let text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}// send tooltip event
-box.mouseover(e=>{let elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:node.label},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}})}/**
+const indicator=canvas.rect(10,node.height).move(node.x-node.width/2,node.y-node.height/2);indicator.radius(3);indicator.addClass("flagindicator");// send tooltip event for nodes with values in the attr
+box.mouseover(()=>{const elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:`Flag: ${node.label}`},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}else{// send tooltip event for nodes with values in the attr
+box.mouseover(()=>{const elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:`${node.label} = ${node.attr.value}`},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});/**
+                * @event show-tooltip-requested
+                * Fired on mouseover of a attr node
+                */customEvent.detail=elem;this.dispatchEvent(customEvent)})}if(node.label){// eslint-disable-next-line no-unused-vars
+const text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}}if("notarget"===node.type){const circle=canvas.circle(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2).fill("red");// send tooltip event
+circle.mouseover(()=>{const elem={duration:5e3,cr:circle.node.getBoundingClientRect(),label:node.wirename},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("nosource"===node.type){const circle=canvas.circle(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2).fill("orange");// send tooltip event
+circle.mouseover(()=>{const elem={duration:5e3,cr:circle.node.getBoundingClientRect(),label:node.wirename},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("park"===node.type){const box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("park");if(node.label){// eslint-disable-next-line no-unused-vars
+const text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}// send tooltip event
+box.mouseover(()=>{const elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:`park to var ${node.label}`},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("bubbling"===node.type){const box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("bubbling");if(node.label){// eslint-disable-next-line no-unused-vars
+const text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}// send tooltip event
+box.mouseover(()=>{const elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:`bubbling event ${node.label}`},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("nonbubbling"===node.type){const box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("nonbubbling");if(node.label){// eslint-disable-next-line no-unused-vars
+const text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}// send tooltip event
+box.mouseover(()=>{const elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:`event ${node.label}`},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}if("hostevent"===node.type){const box=canvas.rect(node.width,node.height).move(node.x-node.width/2,node.y-node.height/2);box.radius(3);box.addClass("hostevent");if(node.label){// eslint-disable-next-line no-unused-vars
+const text=canvas.text(node.label).move(node.x-node.width/2+15,node.y-node.height/2+5)}// send tooltip event
+box.mouseover(()=>{const elem={duration:5e3,cr:box.node.getBoundingClientRect(),label:node.label},customEvent=new Event("show-tooltip-requested",{composed:!0,bubbles:!0});customEvent.detail=elem;this.dispatchEvent(customEvent)})}})}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroGraphRenderer")||css`
-      :host {
-        display: block;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
+        :host {
+          display: block;
+          height: 100%;
+          width: 100%;
+          overflow: hidden;
+        }
 
-      }
+        :host([hidden]) {
+          display: none;
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
+        svg {
+          width: 100%;
+          height: 100%;
+        }
 
-      svg {
-        width: 100%;
-        height: 100%;
-      }
+        .component {
+          fill: #f6f6f6;
+          stroke: #67686a;
+          stroke-width: 2;
+        }
 
-      .component {
-        fill: #f6f6f6;
-        stroke: #67686a;
-        stroke-width: 2;
-      }
+        .boxlabelbg {
+          fill: white;
+          stroke: #67686a;
+          stroke-width: 2;
+        }
 
-      .boxlabelbg {
-        fill: white;
-        stroke: #67686a;
-        stroke-width: 2;
-      }
+        .component.withdescription {
+          stroke-dasharray: 20 4;
+        }
 
-      .component.withdescription {
-        stroke-dasharray: 20 4;
-      }
+        .attribute {
+          fill: white;
+          stroke: #ffb65b;
+          stroke-width: 2;
+        }
 
-      .attribute {
-        fill: white;
-        stroke: #ffb65b;
-        stroke-width: 2;
-      }
+        .attribute.method {
+          stroke: #4caf50;
+        }
 
-      .attribute.method {
-        stroke: #4caf50;
-      }
+        .methodindicator {
+          stroke: #4caf50;
+          fill: #4caf50;
+        }
 
-      .methodindicator {
-        stroke: #4caf50;
-        fill: #4caf50;
-      }
+        .eventindicator {
+          stroke: #02a8f4;
+          fill: #02a8f4;
+        }
 
-      .eventindicator {
-        stroke: #02a8f4;
-        fill: #02a8f4;
-      }
+        .attribute.event {
+          stroke: #02a8f4;
+        }
 
+        .attribute.flag {
+          stroke: #686868;
+        }
 
-      .attribute.event {
-        stroke: #02a8f4;
-      }
+        .flagindicator {
+          stroke: #686868;
+          fill: #686868;
+        }
 
-      .attribute.flag {
-        stroke: #686868;
-      }
+        .park {
+          stroke: #686868;
+          fill: none;
+          stroke-width: 3;
+        }
 
-      .flagindicator {
-        stroke: #686868;
-        fill: #686868;
-      }
+        .bubbling,
+        .hostevent,
+        .nonbubbling {
+          stroke: #fa4600;
+          fill: none;
+          stroke-width: 3;
+        }
 
-      .park {
-        stroke: #686868;
-        fill: none;
-        stroke-width: 3;
-      }
+        .line.event {
+          stroke: #fa4600;
+          fill: none;
+          stroke-width: 4;
+        }
 
-      .bubbling, .hostevent, .nonbubbling {
-        stroke: #fa4600;
-        fill: none;
-        stroke-width: 3;
-      }
+        .line {
+          stroke: #02a8f4;
+          fill: none;
+          stroke-width: 4;
+        }
 
+        .line.park {
+          stroke: #070707;
+          fill: none;
+          stroke-width: 4;
+        }
 
-      .line.event {
-        stroke: #fa4600;
-        fill: none;
-        stroke-width: 4;
-      }
-
-      .line {
-        stroke: #02a8f4;
-        fill: none;
-        stroke-width: 4;
-      }
-
-      .line.park {
-        stroke: #070707;
-        fill: none;
-        stroke-width: 4;
-      }
-
-
-      .line:hover {
-        stroke: #f4c633;
-      }
-
-    `}}window.customElements.define("furo-graph-renderer",FuroGraphRenderer);class FuroShowFlow extends FBP(LitElement){/**
+        .line:hover {
+          stroke: #f4c633;
+        }
+      `}}window.customElements.define("furo-graph-renderer",FuroGraphRenderer);class FuroShowFlow extends FBP(LitElement){/**
    * Parse html content
    * @param {string} source
-   */parseHtml(source){let tpl=document.createElement("div");tpl.innerHTML=source;this.parseTemplate(tpl)}/**
+   */parseHtml(source){const tpl=document.createElement("div");tpl.innerHTML=source;this.parseTemplate(tpl)}/**
      * Parse a dom node
      * @param {dom} dom node
-     */parseTemplate(template){this.graph=new dagre.graphlib.Graph({multigraph:!1,compound:!0});// graph settings
-this.graph.setGraph({rankdir:"LR",align:"UL",ranksep:50,nodesep:20,edgesep:40,marginx:40,marginy:40});this._collectedWires={methods:[],events:[]};this._recursiveParse(template,"");this._setWireEdges();dagre.layout(this.graph);this._FBPTriggerWire("--graph",this.graph)}_setWireEdges(){// extract the wire parts from all attributes
-let sendingWires={},receivingWires={};this._collectedWires.events.forEach(attr=>{let rawwires=attr.value.split(",");rawwires.forEach(w=>{let match=w.trim().match(/^([^\(\^][a-z\-_]+)/gi);if(null!==match){if(sendingWires[match[0]]===void 0){sendingWires[match[0]]=[]}sendingWires[match[0]].push(attr)}// park a value
-if(w.trim().startsWith("((")){this.graph.setNode("park-"+w.trim(),{width:200,height:30,type:"park",label:w.trim()});this.graph.setEdge(attr._graphID,"park-"+w.trim(),{weight:1,type:"park"})}// bubbling nonbubbling a value
-if(w.trim().startsWith("^")){let eventtype=w.trim().startsWith("^^")?"bubbling":"nonbubbling";this.graph.setNode(attr._graphID+"-"+w.trim(),{width:200,height:30,type:eventtype,label:w.trim()});this.graph.setEdge(attr._graphID,attr._graphID+"-"+w.trim(),{weight:1,type:"event"})}// bubbling nonbubbling a value
-if(w.trim().startsWith("-^")){this.graph.setNode(attr._graphID+"-"+w.trim(),{width:200,height:30,type:"hostevent",label:w.trim()});this.graph.setEdge(attr._graphID,attr._graphID+"-"+w.trim(),{weight:1,type:"event"})}})});this._collectedWires.methods.forEach(attr=>{let rawwires=attr.value.split(",");rawwires.forEach(w=>{let match=w.trim().match(/^([^\(\(][a-z\-_]+)/gi);if(null!==match){if(receivingWires[match[0]]===void 0){receivingWires[match[0]]=[]}receivingWires[match[0]].push(attr)}})});// setEdges for every sendingWire element with receivingWire element
-for(let wire in sendingWires){sendingWires[wire].forEach(source=>{if(receivingWires[wire]){receivingWires[wire].forEach(target=>{this.graph.setEdge(source._graphID,target._graphID,{weight:1,source:source,target:target,wirename:wire})})}else{// no target element
+     */parseTemplate(template){// eslint-disable-next-line no-undef
+this.graph=new dagre.graphlib.Graph({multigraph:!1,compound:!0});// graph settings
+this.graph.setGraph({rankdir:"LR",align:"UL",ranksep:50,nodesep:20,edgesep:40,marginx:40,marginy:40});this._collectedWires={methods:[],events:[]};this._recursiveParse(template,"");this._setWireEdges();// eslint-disable-next-line no-undef
+dagre.layout(this.graph);this._FBPTriggerWire("--graph",this.graph)}_setWireEdges(){// extract the wire parts from all attributes
+const sendingWires={},receivingWires={};this._collectedWires.events.forEach(attr=>{const rawwires=attr.value.split(",");rawwires.forEach(w=>{// eslint-disable-next-line no-useless-escape
+const match=w.trim().match(/^([^\(\^][a-z\-_]+)/gi);if(null!==match){if(sendingWires[match[0]]===void 0){sendingWires[match[0]]=[]}sendingWires[match[0]].push(attr)}// park a value
+if(w.trim().startsWith("((")){this.graph.setNode(`park-${w.trim()}`,{width:200,height:30,type:"park",label:w.trim()});this.graph.setEdge(attr._graphID,`park-${w.trim()}`,{weight:1,type:"park"})}// bubbling nonbubbling a value
+if(w.trim().startsWith("^")){const eventtype=w.trim().startsWith("^^")?"bubbling":"nonbubbling";this.graph.setNode(`${attr._graphID}-${w.trim()}`,{width:200,height:30,type:eventtype,label:w.trim()});this.graph.setEdge(attr._graphID,`${attr._graphID}-${w.trim()}`,{weight:1,type:"event"})}// bubbling nonbubbling a value
+if(w.trim().startsWith("-^")){this.graph.setNode(`${attr._graphID}-${w.trim()}`,{width:200,height:30,type:"hostevent",label:w.trim()});this.graph.setEdge(attr._graphID,`${attr._graphID}-${w.trim()}`,{weight:1,type:"event"})}})});this._collectedWires.methods.forEach(attr=>{const rawwires=attr.value.split(",");rawwires.forEach(w=>{// eslint-disable-next-line no-useless-escape
+const match=w.trim().match(/^([^\(\(][a-z\-_]+)/gi);if(null!==match){if(receivingWires[match[0]]===void 0){receivingWires[match[0]]=[]}receivingWires[match[0]].push(attr)}})});// setEdges for every sendingWire element with receivingWire element
+// eslint-disable-next-line guard-for-in,no-restricted-syntax
+for(const wire in sendingWires){sendingWires[wire].forEach(source=>{if(receivingWires[wire]){receivingWires[wire].forEach(target=>{this.graph.setEdge(source._graphID,target._graphID,{weight:1,source,target,wirename:wire})})}else{// no target element
 // add node and set edge
-this.graph.setNode(source._graphID+"-notarget",{width:30,height:30,type:"notarget",source:source,wirename:wire});this.graph.setEdge(source._graphID,source._graphID+"-notarget",{weight:1,source:source,wirename:wire})}})}// find edges without source (for things like --pageActivated)
-for(let wire in receivingWires){receivingWires[wire].forEach(source=>{if(!sendingWires[wire]){// no target element
+this.graph.setNode(`${source._graphID}-notarget`,{width:30,height:30,type:"notarget",source,wirename:wire});this.graph.setEdge(source._graphID,`${source._graphID}-notarget`,{weight:1,source,wirename:wire})}})}// find edges without source (for things like --pageActivated)
+// eslint-disable-next-line guard-for-in,no-restricted-syntax
+for(const wire in receivingWires){receivingWires[wire].forEach(source=>{if(!sendingWires[wire]){// no target element
 // add node and set edge
-this.graph.setNode(source._graphID+"-nosource",{width:30,height:30,type:"nosource",source:source,wirename:wire});this.graph.setParent(source._graphID+"-nosource",source.parentComponentID);this.graph.setEdge(source._graphID+"-nosource",source._graphID,{weight:1,source:source,wirename:wire})}})}}_recursiveParse(node,parentNode){// todo switch to childNodes ignore TEXT_NODE and store COMMENT_NODE (8) to the next ELEMENT_NODE (1)
+this.graph.setNode(`${source._graphID}-nosource`,{width:30,height:30,type:"nosource",source,wirename:wire});this.graph.setParent(`${source._graphID}-nosource`,source.parentComponentID);this.graph.setEdge(`${source._graphID}-nosource`,source._graphID,{weight:1,source,wirename:wire})}})}}_recursiveParse(node,parentNode){// todo switch to childNodes ignore TEXT_NODE and store COMMENT_NODE (8) to the next ELEMENT_NODE (1)
 // https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
 if(node.childNodes&&0<node.childNodes.length){// start with empty
-let description="";Array.from(node.childNodes).forEach((e,i)=>{if(8===e.nodeType){description=e.textContent}if(1===e.nodeType){let nodeID=parentNode+"."+e.tagName+"-"+i;e._graphID=nodeID;e.description=description;// clear description for next loop
-description="";this.graph.setNode(nodeID,{label:e.tagName,width:440,height:100,type:"component",node:e});if(""!==parentNode){//set parent
+let description="";Array.from(node.childNodes).forEach((e,i)=>{if(8===e.nodeType){description=e.textContent}if(1===e.nodeType){const nodeID=`${parentNode}.${e.tagName}-${i}`;e._graphID=nodeID;e.description=description;// clear description for next loop
+description="";this.graph.setNode(nodeID,{label:e.tagName,width:440,height:100,type:"component",node:e});if(""!==parentNode){// set parent
 this.graph.setParent(nodeID,parentNode)}// Attributes
-Array.from(e.attributes).forEach(attr=>{let attrNodeID=nodeID+"-"+attr.name;attr._graphID=attrNodeID;attr.parentComponentID=nodeID;this.graph.setNode(attrNodeID,{label:attr.name,width:200,height:30,type:"attribute",attr:attr,value:attr.value});this.graph.setParent(attrNodeID,nodeID);// add center node
-this.graph.setNode(nodeID+"-center",{type:"center"});this.graph.setParent(nodeID+"-center",nodeID);// collect the event wires
-if(attr.name.startsWith("@-")){this._collectedWires.events.push(attr);attr._type="event";//einen edge setzen um @ immer rechts zu haben
-this.graph.setEdge(nodeID+"-center",attrNodeID,{type:"center",weight:15})}else{//einen edge setzen um ƒ und alle anderen immer links zu haben
-this.graph.setEdge(attrNodeID,nodeID+"-center",{type:"center",weight:15})}// collect the method wires
-if(attr.name.startsWith("\u0192-")){this._collectedWires.methods.push(attr);attr._type="method"}});this._recursiveParse(e,nodeID)}})}}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
-       * Description
-       */myBool:{type:Boolean}}}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-}/**
+Array.from(e.attributes).forEach(attr=>{const attrNodeID=`${nodeID}-${attr.name}`;// eslint-disable-next-line no-param-reassign
+attr._graphID=attrNodeID;// eslint-disable-next-line no-param-reassign
+attr.parentComponentID=nodeID;this.graph.setNode(attrNodeID,{label:attr.name,width:200,height:30,type:"attribute",attr,value:attr.value});this.graph.setParent(attrNodeID,nodeID);// add center node
+this.graph.setNode(`${nodeID}-center`,{type:"center"});this.graph.setParent(`${nodeID}-center`,nodeID);// collect the event wires
+if(attr.name.startsWith("@-")){this._collectedWires.events.push(attr);// eslint-disable-next-line no-param-reassign
+attr._type="event";// einen edge setzen um @ immer rechts zu haben
+this.graph.setEdge(`${nodeID}-center`,attrNodeID,{type:"center",weight:15})}else{// einen edge setzen um ƒ und alle anderen immer links zu haben
+this.graph.setEdge(attrNodeID,`${nodeID}-center`,{type:"center",weight:15})}// collect the method wires
+if(attr.name.startsWith("\u0192-")){this._collectedWires.methods.push(attr);// eslint-disable-next-line no-param-reassign
+attr._type="method"}});this._recursiveParse(e,nodeID)}})}}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroShowFlow")||css`
         :host {
-            display: block;
-            height: 100%;
+          display: block;
+          height: 100%;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return html`
       <furo-graph-renderer ƒ-draw="--graph"></furo-graph-renderer>
-    `}}window.customElements.define("furo-show-flow",FuroShowFlow);class FuroDemoSnippet extends FBP(LitElement){constructor(){super();let t=this.querySelector("template");this.template=t.content;this.markdown="```html\n"+t.innerHTML+"\n```";this.icon="fullscreen";this.addEventListener("source",e=>{this.source=!0;this.demo=!1;this.flow=!1;this._FBPTriggerWire("--markdown",this.markdown);let md=this.shadowRoot.querySelector("furo-markdown");md.style.width=this.offsetWidth+"px"});this.addEventListener("demo",e=>{this.source=!1;this.demo=!0;this.flow=!1});this.addEventListener("flow",e=>{this.source=!1;this.demo=!1;this.flow=!0;this._FBPTriggerWire("--template",this.template)})}firstUpdated(v){super.firstUpdated(v);let md=this.shadowRoot.querySelector("furo-markdown");md.style.width=this.offsetWidth+"px"}/**
+    `}}window.customElements.define("furo-show-flow",FuroShowFlow);class FuroDemoSnippet extends FBP(LitElement){constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
+const t=this.querySelector("template");this.template=t.content;this.markdown=`\`\`\`html\n${t.innerHTML}\n\`\`\``;this.icon="fullscreen";this.addEventListener("source",()=>{this.source=!0;this.demo=!1;this.flow=!1;this._FBPTriggerWire("--markdown",this.markdown);// eslint-disable-next-line wc/no-constructor-attributes
+const md=this.shadowRoot.querySelector("furo-markdown");md.style.width=`${this.offsetWidth}px`});this.addEventListener("demo",()=>{this.source=!1;this.demo=!0;this.flow=!1});this.addEventListener("flow",()=>{this.source=!1;this.demo=!1;this.flow=!0;this._FBPTriggerWire("--template",this.template)})}firstUpdated(v){super.firstUpdated(v);const md=this.shadowRoot.querySelector("furo-markdown");md.style.width=`${this.offsetWidth}px`}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -15676,131 +16688,131 @@ return html`
        */source:{type:Boolean,reflect:!0},demo:{type:Boolean,reflect:!0},flow:{type:Boolean,reflect:!0},fullscreen:{type:Boolean,reflect:!0},noDemo:{type:Boolean,reflect:!0,attribute:"no-demo"}}}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();// check if demo is disabled
-let demo=this.shadowRoot.querySelector("#demo");if(!this.noDemo){let elem=document.createElement("empty-fbp-node");elem.attachShadow({mode:"open"});elem.shadowRoot.appendChild(this.template.cloneNode(!0));elem._appendFBP(elem.shadowRoot);elem._FBPTraceWires();demo.appendChild(elem.shadowRoot)}else{demo.innerText="Demo is disabled"}if(!this.source&&!this.flow){this.demo=!0}if(this.source){this._FBPTriggerWire("--markdown",this.markdown)}if(this.flow){this._FBPTriggerWire("--template",this.template)}/**
+const demo=this.shadowRoot.querySelector("#demo");if(!this.noDemo){const elem=document.createElement("empty-fbp-node");elem.attachShadow({mode:"open"});elem.shadowRoot.appendChild(this.template.cloneNode(!0));elem._appendFBP(elem.shadowRoot);elem._FBPTraceWires();demo.appendChild(elem.shadowRoot)}else{demo.innerText="Demo is disabled"}if(!this.source&&!this.flow){this.demo=!0}if(this.source){this._FBPTriggerWire("--markdown",this.markdown)}if(this.flow){this._FBPTriggerWire("--template",this.template)}/**
        * Register hook on wire --fullscreen to
        * toggle fullscreen of the demo
-       */this._FBPAddWireHook("--fullscreen",e=>{if(!this.fullscreen){this.requestFullscreen();this.fullscreen=!0;this.icon="fullscreen-exit";this.requestUpdate()}else{document.exitFullscreen();this.fullscreen=!1;this.icon="fullscreen";this.requestUpdate()}})}/**
+       */this._FBPAddWireHook("--fullscreen",()=>{if(!this.fullscreen){this.requestFullscreen();this.fullscreen=!0;this.icon="fullscreen-exit";this.requestUpdate()}else{document.exitFullscreen();this.fullscreen=!1;this.icon="fullscreen";this.requestUpdate()}})}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
-     */static get styles(){let theme=Theme.getThemeForComponent("FuroDemoSnippet");if(theme){return[theme,Styling$1.theme]}else{// language=CSS
+     */static get styles(){const theme=Theme.getThemeForComponent("FuroDemoSnippet");if(theme){return[theme,Styling$1.theme]}// language=CSS
 return[css`
-          :host {
-              display: block;
-              height: 320px;
-              box-sizing: border-box;
-              overflow: hidden;
-              background-color: var(--surface);
-          }
+        :host {
+          display: block;
+          height: 320px;
+          box-sizing: border-box;
+          overflow: hidden;
+          background-color: var(--surface);
+        }
 
-          :host([hidden]) {
-              display: none;
-          }
+        :host([hidden]) {
+          display: none;
+        }
 
+        :host([fullscreen]) .nav {
+          background-color: var(--surface-light);
+          padding: 16px;
+        }
 
-          :host([fullscreen]) .nav{
-              background-color: var(--surface-light);
-              padding: 16px;
-          }
-          
-          :host([fullscreen]) .nav span {
-              border-bottom-color: var(--surface-light);
-          }
-          
-          :host([fullscreen]) {
-          
-              height: 100vh;
-          }
+        :host([fullscreen]) .nav span {
+          border-bottom-color: var(--surface-light);
+        }
 
-          furo-markdown {
-              background-color: var(--surface-light);
-              height: 100%;
-              overflow: auto;
-          }
-          furo-show-flow{
-              background-color: var(--surface-light);
-          }
-          #demo, #flow {
-              height: 100%;
-          }
-          #demo{
-              padding: var(--spacing-s);
-              box-sizing: border-box;
-          }
+        :host([fullscreen]) {
+          height: 100vh;
+        }
 
-          :host(:not([demo])) #demo {
-              display: none;
-          }
+        furo-markdown {
+          background-color: var(--surface-light);
+          height: 100%;
+          overflow: auto;
+        }
+        furo-show-flow {
+          background-color: var(--surface-light);
+        }
+        #demo,
+        #flow {
+          height: 100%;
+        }
+        #demo {
+          padding: var(--spacing-s);
+          box-sizing: border-box;
+        }
 
-          :host(:not([flow])) #flow {
-              display: none;
-          }
+        :host(:not([demo])) #demo {
+          display: none;
+        }
 
-          :host(:not([source])) > furo-markdown {
-              display: none;
-          }
+        :host(:not([flow])) #flow {
+          display: none;
+        }
 
-          div.flexbody {
-              height: inherit;
-              overflow: hidden;
-          }
+        :host(:not([source])) > furo-markdown {
+          display: none;
+        }
 
-          span {
-              cursor: pointer;
-          }
+        div.flexbody {
+          height: inherit;
+          overflow: hidden;
+        }
 
-          .nav {
-              background-color: var(--surface-light, white);
-              color: var(--on-surfcae);
-             
-          }
+        span {
+          cursor: pointer;
+        }
 
-          
-          .nav span {
-              display: inline-block;
-              border-bottom: 1px solid var(--surface-light, white);
-              cursor: pointer;
-          }
+        .nav {
+          background-color: var(--surface-light, white);
+          color: var(--on-surfcae);
+        }
 
-          .nav furo-icon{
-              cursor: pointer;
-          }
-          :host([flow]) .flow {
-              font-weight: 800;
-              border-bottom: 1px solid var(--on-primary);
-          }
+        .nav span {
+          display: inline-block;
+          border-bottom: 1px solid var(--surface-light, white);
+          cursor: pointer;
+        }
 
-          :host([demo]) .demo {
-              font-weight: 800;
-              border-bottom: 1px solid var(--on-primary);
-          }
+        .nav furo-icon {
+          cursor: pointer;
+        }
+        :host([flow]) .flow {
+          font-weight: 800;
+          border-bottom: 1px solid var(--on-primary);
+        }
 
-          :host([no-demo]) .demo {
-              display: none;
-          }
+        :host([demo]) .demo {
+          font-weight: 800;
+          border-bottom: 1px solid var(--on-primary);
+        }
 
-          :host([source]) .source {
-              font-weight: 800;
-              border-bottom: 1px solid var(--on-primary);
-          }
+        :host([no-demo]) .demo {
+          display: none;
+        }
 
-      `,Styling$1.theme]}}/**
+        :host([source]) .source {
+          font-weight: 800;
+          border-bottom: 1px solid var(--on-primary);
+        }
+      `,Styling$1.theme]}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return html`
-
       <furo-vertical-flex>
-        <div class="nav"><span class="demo" @-click="-^demo">demo</span> | <span class="source" @-click="-^source">source</span>
-          | <span class="flow" @-click="-^flow">flow</span> | <furo-icon style="float:right" @-click="--fullscreen" icon="${this.icon}"></furo-icon></div>
-        
+        <div class="nav">
+          <span class="demo" @-click="-^demo">demo</span> |
+          <span class="source" @-click="-^source">source</span> |
+          <span class="flow" @-click="-^flow">flow</span> |
+          <furo-icon style="float:right" @-click="--fullscreen" icon="${this.icon}"></furo-icon>
+        </div>
+
         <div flex class="flexbody">
           <div id="demo" flex></div>
           <furo-show-flow id="flow" ƒ-parse-template="--template"></furo-show-flow>
           <furo-markdown id="source" ƒ-parse-markdown="--markdown"></furo-markdown>
         </div>
       </furo-vertical-flex>
-    `}}window.customElements.define("furo-demo-snippet",FuroDemoSnippet);class SideNavigationItem extends FBP(LitElement){constructor(){super();this.basePath=this.getAttribute("base-path");//forward click to a
+    `}}window.customElements.define("furo-demo-snippet",FuroDemoSnippet);class SideNavigationItem extends FBP(LitElement){constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
+this.basePath=this.getAttribute("base-path");// forward click to a
 this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}injectItem(item){this.item=item;this.requestUpdate()}/**
      * @private
      * @return {Object}
@@ -15808,7 +16820,7 @@ this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}injectItem
        * Description
        */myBool:{type:Boolean}}}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -15816,72 +16828,72 @@ this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}injectItem
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("SideNavigationItem")||css`
         :host {
-            display: list-item;
-            min-height: 40px;
-            line-height: 40px;
-            margin-bottom: 4px;
-            color: var(--on-surface);
-            letter-spacing: .01785714em;
-            font-size: .875rem;
-            font-weight: 500;
-            padding: 0 var(--spacing-xs);
-            transition: all 0.2s;
+          display: list-item;
+          min-height: 40px;
+          line-height: 40px;
+          margin-bottom: 4px;
+          color: var(--on-surface);
+          letter-spacing: 0.01785714em;
+          font-size: 0.875rem;
+          font-weight: 500;
+          padding: 0 var(--spacing-xs);
+          transition: all 0.2s;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-
 
         :host(:hover) {
-            background-color: var(--secondary);
-            border-radius: 4px;
-            color: var(--on-secondary);
-            cursor: pointer;
+          background-color: var(--secondary);
+          border-radius: 4px;
+          color: var(--on-secondary);
+          cursor: pointer;
         }
 
-
-        a[disabled], a[disabled] li {
-            color: var(--disabled-color);
-            cursor: not-allowed;
-            pointer-events: none;
+        a[disabled],
+        a[disabled] li {
+          color: var(--disabled-color);
+          cursor: not-allowed;
+          pointer-events: none;
         }
 
-        a[disabled]:hover, a[disabled] li:hover {
-            color: var(--disabled-color);
-            background-color: transparent;
-            cursor: not-allowed;
+        a[disabled]:hover,
+        a[disabled] li:hover {
+          color: var(--disabled-color);
+          background-color: transparent;
+          cursor: not-allowed;
         }
 
         span {
-            display: inline-block;
+          display: inline-block;
 
-            vertical-align: top;
-            width: 176px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+          vertical-align: top;
+          width: 176px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         a {
-            text-decoration: none;
-            outline: none;
+          text-decoration: none;
+          outline: none;
         }
 
         furo-icon {
-            margin-right: var(--spacing);
+          margin-right: var(--spacing);
         }
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
-return html`        
-      
-        <a tabindex="-1" href="${this.basePath}${this.item.href}" ƒ-click=":STOP,--click"></a><span>     
-<furo-icon icon="${this.item.icon}"></furo-icon>${this.item.label}</span>
-    `}}window.customElements.define("side-navigation-item",SideNavigationItem);class SideNavigationGroup extends FBP(LitElement){constructor(){super();this.basePath=this.getAttribute("base-path")}injectItem(group){this.item=group;this._FBPTriggerWire("--items",group.items)}/**
-    * flow is ready lifecycle method
-    */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+return html`
+      <a tabindex="-1" href="${this.basePath}${this.item.href}" ƒ-click=":STOP,--click"></a
+      ><span> <furo-icon icon="${this.item.icon}"></furo-icon>${this.item.label}</span>
+    `}}window.customElements.define("side-navigation-item",SideNavigationItem);class SideNavigationGroup extends FBP(LitElement){constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
+this.basePath=this.getAttribute("base-path")}injectItem(group){this.item=group;this._FBPTriggerWire("--items",group.items)}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires()
 }/**
      * Themable Styles
      * @private
@@ -15889,35 +16901,33 @@ return html`
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("SideNavigationGroup")||css`
         :host {
-            display: block;
-            padding-bottom: var(--spacing);
+          display: block;
+          padding-bottom: var(--spacing);
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-        
+
         div.label {
-            background-color: var(--surface, white);
-            z-index: 1;
-            color: var(--on-surface, black);
-            letter-spacing: .07272727em;
-            font-size: 12px;   
-            font-weight: 500;
-            text-transform: uppercase;
+          background-color: var(--surface, white);
+          z-index: 1;
+          color: var(--on-surface, black);
+          letter-spacing: 0.07272727em;
+          font-size: 12px;
+          font-weight: 500;
+          text-transform: uppercase;
         }
 
         ul {
-            list-style: none;
-            margin: 0;
-            padding: var(--spacing-s) 0;
-            border-bottom-width: 1px;
-            border-bottom-style: solid;
-            border-bottom-color:  rgba(0, 0, 0, .12);
+          list-style: none;
+          margin: 0;
+          padding: var(--spacing-s) 0;
+          border-bottom-width: 1px;
+          border-bottom-style: solid;
+          border-bottom-color: rgba(0, 0, 0, 0.12);
         }
-        
-
-    `}/**
+      `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
@@ -15925,28 +16935,33 @@ return html`
       <div class="label">${this.item.group}</div>
       <ul>
         <template is="flow-repeat" ƒ-inject-items="--items">
-          <side-navigation-item base-path="${this.basePath}" ƒ-inject-item="--item"></side-navigation-item>
+          <side-navigation-item
+            base-path="${this.basePath}"
+            ƒ-inject-item="--item"
+          ></side-navigation-item>
         </template>
       </ul>
-       
-    `}}window.customElements.define("side-navigation-group",SideNavigationGroup);class SideNavigation extends FBP(LitElement){constructor(){super();this.basePath=this.getAttribute("base-path")}injectNavConfig(items){this._FBPTriggerWire("--groups",items)}/**
+    `}}window.customElements.define("side-navigation-group",SideNavigationGroup);class SideNavigation extends FBP(LitElement){constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
+this.basePath=this.getAttribute("base-path")}injectNavConfig(items){this._FBPTriggerWire("--groups",items)}/**
      *
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("SideNavigation")||css`
-          :host {
-              display: block;
-              background-color: var(--surface, white);
-              padding: var(--spacing);
-          }
-
+        :host {
+          display: block;
+          background-color: var(--surface, white);
+          padding: var(--spacing);
+        }
       `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return html`
       <template is="flow-repeat" ƒ-inject-items="--groups">
-        <side-navigation-group base-path="${this.basePath}" ƒ-inject-item="--item"></side-navigation-group>
+        <side-navigation-group
+          base-path="${this.basePath}"
+          ƒ-inject-item="--item"
+        ></side-navigation-group>
       </template>
     `}}window.customElements.define("side-navigation",SideNavigation)});

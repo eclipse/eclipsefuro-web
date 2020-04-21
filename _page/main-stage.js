@@ -1,19 +1,19 @@
 import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
-import {Theme} from "@furo/framework/theme"
+import {Theme} from "@furo/framework/src/theme.js"
 import {Styling} from "./styling";
 
 
 import "./home/view-home";
 import "./components/header-toolbar";
-import "@furo/notification/furo-snackbar-display";
+import "@furo/notification/src/furo-snackbar-display"
 
-import '@furo/layout/furo-vertical-flex';
-import '@furo/route/src/furo-location';
-import '@furo/route/src/furo-pages';
-import '@furo/route/src/furo-app-flow';
-import '@furo/fbp/flow-bind';
-import '@furo/app/furo-tooltip-display';
+import '@furo/layout/src/furo-vertical-flex'
+import '@furo/route/src/furo-location'
+import '@furo/route/src/furo-pages'
+import '@furo/route/src/furo-app-flow'
+import '@furo/fbp/src/flow-bind'
+import '@furo/app/src/furo-tooltip-display'
 
 
 /**

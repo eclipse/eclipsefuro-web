@@ -1,9 +1,9 @@
 import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/theme"
+import {Theme} from "@furo/framework/src/theme.js"
 import {FBP} from "@furo/fbp";
 import "../components/footer-bar"
-import '@furo/app/furo-app-bar-top';
-import '@furo/layout/furo-vertical-flex';
+import '@furo/app/src/furo-app-bar-top'
+import '@furo/layout/src/furo-vertical-flex'
 
 /**
  * `view-home`
@@ -166,8 +166,8 @@ class ViewHome extends FBP(LitElement) {
             </furo-app-bar-top>
             <div scroll flex class="content">
                 <p class="hero-title">フロー</p>
-                <p class="hero-caption">Version 0.xx.xx</p>
-                <p class="hero-caption">An enterprise grade framework for creating fast, lightweight web apps
+                <p class="hero-caption">Version 1.x.x</p>
+                <p class="hero-caption">An enterprise grade "framework" for creating fast, lightweight web apps
                     with web components</p>
                 <a class="hero-link" href="/guide/md/overview/">Get Started</a>
 
@@ -214,16 +214,15 @@ class ViewHome extends FBP(LitElement) {
                     </div>
                     <div class="panel" flex>
                         <h2 class="caption">Tool Chain</h2>
-                        <p>Furo itself uses the <a
-                                href="https://polymer-library.polymer-project.org/3.0/docs/tools/polymer-cli">polymer-cli</a>
+                        <p>Furo itself uses the <a href="https://open-wc.org/">open-wc</a>
                             toolchain by default. </p>
-                        <p>If you like <a href="https://webpack.js.org/">webpack</a> or <a href="https://open-wc.org/">open-wc</a>,
+                        <p>If you like <a href="https://webpack.js.org/">webpack</a> more,
                             feel free to change it.</p>
                     </div>
                   <div class="panel" flex>
                         <h2 class="caption">Dont Like Frameworks?</h2>
-                        <p>You can use the components from furo without having the "framework".</p>
-                        <p>You can also use the <strong>fbp</strong> without having the "framework" </p>
+                        <p>You can use the furo base components standalone.</p>
+                        <p>You can also use the <strong><a href="https://furo.pro/guide/md/overview/">fbp</a></strong> without having the base components</p>
                         
                     </div>
 

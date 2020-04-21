@@ -1,12 +1,12 @@
 import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/theme"
+import {Theme} from "@furo/framework/src/theme.js"
 import {FBP} from "@furo/fbp";
 import {nav} from "./nav_config";
 
-import "@furo/doc-helper/side-navigation"
-import "@furo/doc-helper/furo-demo-snippet"
-import '@furo/app/furo-app-drawer';
-import '@furo/app/furo-app-bar-top';
+import "@furo/doc-helper/src/side-navigation"
+import "@furo/doc-helper/src/furo-demo-snippet"
+import '@furo/app/src/furo-app-drawer'
+import '@furo/app/src/furo-app-bar-top'
 //pages
 import "./panel-md-loader";
 import "./demoimports";

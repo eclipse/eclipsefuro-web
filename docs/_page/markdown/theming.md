@@ -40,7 +40,7 @@ Theme.registerThemeset(MyThemeset);
      
 ``` javascript
 //import theming
-  import {Theme} from "@furo/framework/theme"
+  import {Theme} from "@furo/framework/src/theme.js"
       
   /**
    *
