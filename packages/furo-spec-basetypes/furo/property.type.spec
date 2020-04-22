@@ -59,6 +59,26 @@
       "__proto": {
         "number": 5
       }
+    },
+    "flags": {
+      "description": "Optional attribute flags e.g. is-overwritable",
+      "type": "string",
+      "meta": {
+        "readonly": true,
+        "repeated": true
+      },
+      "__proto": {
+        "number": 6
+      }
+    },
+    "is_overwritten": {
+      "description": "Optional flag indicating that the property differs from the original value",
+      "type": "bool",
+      "meta": {},
+      "constraints": {},
+      "__proto": {
+        "number": 7
+      }
     }
   }
 }
