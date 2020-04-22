@@ -37,7 +37,13 @@
                 }
               },
               "meta": {
-                "label": "Vertragsbeginn"
+                "label": "Vertragsbeginn",
+                "readonly": true
+              }
+            },
+            "meta": {
+              "meta": {
+                "readonly": true
               }
             }
           }
@@ -55,9 +61,16 @@
         "meta": {
           "fields": {
             "data.data": {
+              "constraints": {
+                "required": {
+                  "is": "true",
+                  "message": "Bitte ausfüllen!"
+                }
+              },
               "meta": {
                 "label": "Float",
-                "hint": "Type in int"
+                "hint": "Type in int",
+                "readonly": true
               }
             }
           }
@@ -177,6 +190,20 @@
       "currency_code": "CHF",
       "units": 3333,
       "nanos": 75100000
+    }
+  },
+  "meta": {
+    "fields": {
+      "data.furo_data_color_input": {
+        "meta": {
+          "readonly": true
+        }
+      },
+      "data.type_property": {
+        "meta": {
+          "label": "Label from response"
+        }
+      }
     }
   },
   "links": [
