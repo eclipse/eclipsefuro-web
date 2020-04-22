@@ -24,7 +24,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string action = 5;</code>
-     * @return The action.
      */
     java.lang.String getAction();
     /**
@@ -33,7 +32,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string action = 5;</code>
-     * @return The bytes for action.
      */
     com.google.protobuf.ByteString
         getActionBytes();
@@ -88,7 +86,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string command = 4;</code>
-     * @return The command.
      */
     java.lang.String getCommand();
     /**
@@ -97,7 +94,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string command = 4;</code>
-     * @return The bytes for command.
      */
     com.google.protobuf.ByteString
         getCommandBytes();
@@ -108,7 +104,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>bool disabled = 3;</code>
-     * @return The disabled.
      */
     boolean getDisabled();
 
@@ -118,7 +113,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string display_name = 2;</code>
-     * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
@@ -127,7 +121,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string display_name = 2;</code>
-     * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
@@ -138,7 +131,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>repeated string flags = 8;</code>
-     * @return A list containing the flags.
      */
     java.util.List<java.lang.String>
         getFlagsList();
@@ -148,7 +140,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>repeated string flags = 8;</code>
-     * @return The count of flags.
      */
     int getFlagsCount();
     /**
@@ -157,8 +148,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>repeated string flags = 8;</code>
-     * @param index The index of the element to return.
-     * @return The flags at the given index.
      */
     java.lang.String getFlags(int index);
     /**
@@ -167,8 +156,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>repeated string flags = 8;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the flags at the given index.
      */
     com.google.protobuf.ByteString
         getFlagsBytes(int index);
@@ -179,7 +166,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string icon = 1;</code>
-     * @return The icon.
      */
     java.lang.String getIcon();
     /**
@@ -188,7 +174,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string icon = 1;</code>
-     * @return The bytes for icon.
      */
     com.google.protobuf.ByteString
         getIconBytes();
@@ -199,7 +184,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>bool leading_divider = 6;</code>
-     * @return The leadingDivider.
      */
     boolean getLeadingDivider();
 
@@ -254,7 +238,7 @@ public final class MenuApi {
    *
    * Protobuf type {@code menu.Menuitem}
    */
-  public static final class Menuitem extends
+  public  static final class Menuitem extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:menu.Menuitem)
       MenuitemOrBuilder {
@@ -271,13 +255,6 @@ public final class MenuApi {
       flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       icon_ = "";
       payload_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Menuitem();
     }
 
     @java.lang.Override
@@ -339,9 +316,9 @@ public final class MenuApi {
               break;
             }
             case 58: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 children_ = new java.util.ArrayList<com.acme.menu.MenuApi.Menuitem>();
-                mutable_bitField0_ |= 0x00000001;
+                mutable_bitField0_ |= 0x00000002;
               }
               children_.add(
                   input.readMessage(com.acme.menu.MenuApi.Menuitem.parser(), extensionRegistry));
@@ -349,17 +326,17 @@ public final class MenuApi {
             }
             case 66: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
                 flags_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000020;
               }
               flags_.add(s);
               break;
             }
             case 74: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000100) != 0)) {
                 payload_ = new java.util.ArrayList<google.protobuf.AnyOuterClass.Any>();
-                mutable_bitField0_ |= 0x00000004;
+                mutable_bitField0_ |= 0x00000100;
               }
               payload_.add(
                   input.readMessage(google.protobuf.AnyOuterClass.Any.parser(), extensionRegistry));
@@ -380,13 +357,13 @@ public final class MenuApi {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           children_ = java.util.Collections.unmodifiableList(children_);
         }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        if (((mutable_bitField0_ & 0x00000020) != 0)) {
           flags_ = flags_.getUnmodifiableView();
         }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
+        if (((mutable_bitField0_ & 0x00000100) != 0)) {
           payload_ = java.util.Collections.unmodifiableList(payload_);
         }
         this.unknownFields = unknownFields.build();
@@ -406,6 +383,7 @@ public final class MenuApi {
               com.acme.menu.MenuApi.Menuitem.class, com.acme.menu.MenuApi.Menuitem.Builder.class);
     }
 
+    private int bitField0_;
     public static final int ACTION_FIELD_NUMBER = 5;
     private volatile java.lang.Object action_;
     /**
@@ -414,9 +392,7 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string action = 5;</code>
-     * @return The action.
      */
-    @java.lang.Override
     public java.lang.String getAction() {
       java.lang.Object ref = action_;
       if (ref instanceof java.lang.String) {
@@ -435,9 +411,7 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string action = 5;</code>
-     * @return The bytes for action.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getActionBytes() {
       java.lang.Object ref = action_;
@@ -461,7 +435,6 @@ public final class MenuApi {
      *
      * <code>repeated .menu.Menuitem children = 7;</code>
      */
-    @java.lang.Override
     public java.util.List<com.acme.menu.MenuApi.Menuitem> getChildrenList() {
       return children_;
     }
@@ -472,7 +445,6 @@ public final class MenuApi {
      *
      * <code>repeated .menu.Menuitem children = 7;</code>
      */
-    @java.lang.Override
     public java.util.List<? extends com.acme.menu.MenuApi.MenuitemOrBuilder> 
         getChildrenOrBuilderList() {
       return children_;
@@ -484,7 +456,6 @@ public final class MenuApi {
      *
      * <code>repeated .menu.Menuitem children = 7;</code>
      */
-    @java.lang.Override
     public int getChildrenCount() {
       return children_.size();
     }
@@ -495,7 +466,6 @@ public final class MenuApi {
      *
      * <code>repeated .menu.Menuitem children = 7;</code>
      */
-    @java.lang.Override
     public com.acme.menu.MenuApi.Menuitem getChildren(int index) {
       return children_.get(index);
     }
@@ -506,7 +476,6 @@ public final class MenuApi {
      *
      * <code>repeated .menu.Menuitem children = 7;</code>
      */
-    @java.lang.Override
     public com.acme.menu.MenuApi.MenuitemOrBuilder getChildrenOrBuilder(
         int index) {
       return children_.get(index);
@@ -520,9 +489,7 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string command = 4;</code>
-     * @return The command.
      */
-    @java.lang.Override
     public java.lang.String getCommand() {
       java.lang.Object ref = command_;
       if (ref instanceof java.lang.String) {
@@ -541,9 +508,7 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string command = 4;</code>
-     * @return The bytes for command.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getCommandBytes() {
       java.lang.Object ref = command_;
@@ -566,9 +531,7 @@ public final class MenuApi {
      * </pre>
      *
      * <code>bool disabled = 3;</code>
-     * @return The disabled.
      */
-    @java.lang.Override
     public boolean getDisabled() {
       return disabled_;
     }
@@ -581,9 +544,7 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string display_name = 2;</code>
-     * @return The displayName.
      */
-    @java.lang.Override
     public java.lang.String getDisplayName() {
       java.lang.Object ref = displayName_;
       if (ref instanceof java.lang.String) {
@@ -602,9 +563,7 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string display_name = 2;</code>
-     * @return The bytes for displayName.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getDisplayNameBytes() {
       java.lang.Object ref = displayName_;
@@ -627,7 +586,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>repeated string flags = 8;</code>
-     * @return A list containing the flags.
      */
     public com.google.protobuf.ProtocolStringList
         getFlagsList() {
@@ -639,7 +597,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>repeated string flags = 8;</code>
-     * @return The count of flags.
      */
     public int getFlagsCount() {
       return flags_.size();
@@ -650,8 +607,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>repeated string flags = 8;</code>
-     * @param index The index of the element to return.
-     * @return The flags at the given index.
      */
     public java.lang.String getFlags(int index) {
       return flags_.get(index);
@@ -662,8 +617,6 @@ public final class MenuApi {
      * </pre>
      *
      * <code>repeated string flags = 8;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the flags at the given index.
      */
     public com.google.protobuf.ByteString
         getFlagsBytes(int index) {
@@ -678,9 +631,7 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string icon = 1;</code>
-     * @return The icon.
      */
-    @java.lang.Override
     public java.lang.String getIcon() {
       java.lang.Object ref = icon_;
       if (ref instanceof java.lang.String) {
@@ -699,9 +650,7 @@ public final class MenuApi {
      * </pre>
      *
      * <code>string icon = 1;</code>
-     * @return The bytes for icon.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getIconBytes() {
       java.lang.Object ref = icon_;
@@ -724,9 +673,7 @@ public final class MenuApi {
      * </pre>
      *
      * <code>bool leading_divider = 6;</code>
-     * @return The leadingDivider.
      */
-    @java.lang.Override
     public boolean getLeadingDivider() {
       return leadingDivider_;
     }
@@ -740,7 +687,6 @@ public final class MenuApi {
      *
      * <code>repeated .google.protobuf.Any payload = 9;</code>
      */
-    @java.lang.Override
     public java.util.List<google.protobuf.AnyOuterClass.Any> getPayloadList() {
       return payload_;
     }
@@ -751,7 +697,6 @@ public final class MenuApi {
      *
      * <code>repeated .google.protobuf.Any payload = 9;</code>
      */
-    @java.lang.Override
     public java.util.List<? extends google.protobuf.AnyOuterClass.AnyOrBuilder> 
         getPayloadOrBuilderList() {
       return payload_;
@@ -763,7 +708,6 @@ public final class MenuApi {
      *
      * <code>repeated .google.protobuf.Any payload = 9;</code>
      */
-    @java.lang.Override
     public int getPayloadCount() {
       return payload_.size();
     }
@@ -774,7 +718,6 @@ public final class MenuApi {
      *
      * <code>repeated .google.protobuf.Any payload = 9;</code>
      */
-    @java.lang.Override
     public google.protobuf.AnyOuterClass.Any getPayload(int index) {
       return payload_.get(index);
     }
@@ -785,7 +728,6 @@ public final class MenuApi {
      *
      * <code>repeated .google.protobuf.Any payload = 9;</code>
      */
-    @java.lang.Override
     public google.protobuf.AnyOuterClass.AnyOrBuilder getPayloadOrBuilder(
         int index) {
       return payload_.get(index);
@@ -1090,7 +1032,7 @@ public final class MenuApi {
 
         if (childrenBuilder_ == null) {
           children_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           childrenBuilder_.clear();
         }
@@ -1101,14 +1043,14 @@ public final class MenuApi {
         displayName_ = "";
 
         flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
         icon_ = "";
 
         leadingDivider_ = false;
 
         if (payloadBuilder_ == null) {
           payload_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000100);
         } else {
           payloadBuilder_.clear();
         }
@@ -1139,11 +1081,12 @@ public final class MenuApi {
       public com.acme.menu.MenuApi.Menuitem buildPartial() {
         com.acme.menu.MenuApi.Menuitem result = new com.acme.menu.MenuApi.Menuitem(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.action_ = action_;
         if (childrenBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             children_ = java.util.Collections.unmodifiableList(children_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.children_ = children_;
         } else {
@@ -1152,22 +1095,23 @@ public final class MenuApi {
         result.command_ = command_;
         result.disabled_ = disabled_;
         result.displayName_ = displayName_;
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           flags_ = flags_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.flags_ = flags_;
         result.icon_ = icon_;
         result.leadingDivider_ = leadingDivider_;
         if (payloadBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000100) != 0)) {
             payload_ = java.util.Collections.unmodifiableList(payload_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000100);
           }
           result.payload_ = payload_;
         } else {
           result.payload_ = payloadBuilder_.build();
         }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1224,7 +1168,7 @@ public final class MenuApi {
           if (!other.children_.isEmpty()) {
             if (children_.isEmpty()) {
               children_ = other.children_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureChildrenIsMutable();
               children_.addAll(other.children_);
@@ -1237,7 +1181,7 @@ public final class MenuApi {
               childrenBuilder_.dispose();
               childrenBuilder_ = null;
               children_ = other.children_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               childrenBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getChildrenFieldBuilder() : null;
@@ -1260,7 +1204,7 @@ public final class MenuApi {
         if (!other.flags_.isEmpty()) {
           if (flags_.isEmpty()) {
             flags_ = other.flags_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureFlagsIsMutable();
             flags_.addAll(other.flags_);
@@ -1278,7 +1222,7 @@ public final class MenuApi {
           if (!other.payload_.isEmpty()) {
             if (payload_.isEmpty()) {
               payload_ = other.payload_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000100);
             } else {
               ensurePayloadIsMutable();
               payload_.addAll(other.payload_);
@@ -1291,7 +1235,7 @@ public final class MenuApi {
               payloadBuilder_.dispose();
               payloadBuilder_ = null;
               payload_ = other.payload_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000100);
               payloadBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getPayloadFieldBuilder() : null;
@@ -1337,7 +1281,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string action = 5;</code>
-       * @return The action.
        */
       public java.lang.String getAction() {
         java.lang.Object ref = action_;
@@ -1357,7 +1300,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string action = 5;</code>
-       * @return The bytes for action.
        */
       public com.google.protobuf.ByteString
           getActionBytes() {
@@ -1378,8 +1320,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string action = 5;</code>
-       * @param value The action to set.
-       * @return This builder for chaining.
        */
       public Builder setAction(
           java.lang.String value) {
@@ -1397,7 +1337,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string action = 5;</code>
-       * @return This builder for chaining.
        */
       public Builder clearAction() {
         
@@ -1411,8 +1350,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string action = 5;</code>
-       * @param value The bytes for action to set.
-       * @return This builder for chaining.
        */
       public Builder setActionBytes(
           com.google.protobuf.ByteString value) {
@@ -1429,9 +1366,9 @@ public final class MenuApi {
       private java.util.List<com.acme.menu.MenuApi.Menuitem> children_ =
         java.util.Collections.emptyList();
       private void ensureChildrenIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           children_ = new java.util.ArrayList<com.acme.menu.MenuApi.Menuitem>(children_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -1625,7 +1562,7 @@ public final class MenuApi {
       public Builder clearChildren() {
         if (childrenBuilder_ == null) {
           children_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           childrenBuilder_.clear();
@@ -1730,7 +1667,7 @@ public final class MenuApi {
           childrenBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.acme.menu.MenuApi.Menuitem, com.acme.menu.MenuApi.Menuitem.Builder, com.acme.menu.MenuApi.MenuitemOrBuilder>(
                   children_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           children_ = null;
@@ -1745,7 +1682,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string command = 4;</code>
-       * @return The command.
        */
       public java.lang.String getCommand() {
         java.lang.Object ref = command_;
@@ -1765,7 +1701,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string command = 4;</code>
-       * @return The bytes for command.
        */
       public com.google.protobuf.ByteString
           getCommandBytes() {
@@ -1786,8 +1721,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string command = 4;</code>
-       * @param value The command to set.
-       * @return This builder for chaining.
        */
       public Builder setCommand(
           java.lang.String value) {
@@ -1805,7 +1738,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string command = 4;</code>
-       * @return This builder for chaining.
        */
       public Builder clearCommand() {
         
@@ -1819,8 +1751,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string command = 4;</code>
-       * @param value The bytes for command to set.
-       * @return This builder for chaining.
        */
       public Builder setCommandBytes(
           com.google.protobuf.ByteString value) {
@@ -1841,9 +1771,7 @@ public final class MenuApi {
        * </pre>
        *
        * <code>bool disabled = 3;</code>
-       * @return The disabled.
        */
-      @java.lang.Override
       public boolean getDisabled() {
         return disabled_;
       }
@@ -1853,8 +1781,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>bool disabled = 3;</code>
-       * @param value The disabled to set.
-       * @return This builder for chaining.
        */
       public Builder setDisabled(boolean value) {
         
@@ -1868,7 +1794,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>bool disabled = 3;</code>
-       * @return This builder for chaining.
        */
       public Builder clearDisabled() {
         
@@ -1884,7 +1809,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @return The displayName.
        */
       public java.lang.String getDisplayName() {
         java.lang.Object ref = displayName_;
@@ -1904,7 +1828,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @return The bytes for displayName.
        */
       public com.google.protobuf.ByteString
           getDisplayNameBytes() {
@@ -1925,8 +1848,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @param value The displayName to set.
-       * @return This builder for chaining.
        */
       public Builder setDisplayName(
           java.lang.String value) {
@@ -1944,7 +1865,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
         
@@ -1958,8 +1878,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @param value The bytes for displayName to set.
-       * @return This builder for chaining.
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1975,9 +1893,9 @@ public final class MenuApi {
 
       private com.google.protobuf.LazyStringList flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureFlagsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000020) != 0)) {
           flags_ = new com.google.protobuf.LazyStringArrayList(flags_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000020;
          }
       }
       /**
@@ -1986,7 +1904,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>repeated string flags = 8;</code>
-       * @return A list containing the flags.
        */
       public com.google.protobuf.ProtocolStringList
           getFlagsList() {
@@ -1998,7 +1915,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>repeated string flags = 8;</code>
-       * @return The count of flags.
        */
       public int getFlagsCount() {
         return flags_.size();
@@ -2009,8 +1925,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>repeated string flags = 8;</code>
-       * @param index The index of the element to return.
-       * @return The flags at the given index.
        */
       public java.lang.String getFlags(int index) {
         return flags_.get(index);
@@ -2021,8 +1935,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>repeated string flags = 8;</code>
-       * @param index The index of the value to return.
-       * @return The bytes of the flags at the given index.
        */
       public com.google.protobuf.ByteString
           getFlagsBytes(int index) {
@@ -2034,9 +1946,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>repeated string flags = 8;</code>
-       * @param index The index to set the value at.
-       * @param value The flags to set.
-       * @return This builder for chaining.
        */
       public Builder setFlags(
           int index, java.lang.String value) {
@@ -2054,8 +1963,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>repeated string flags = 8;</code>
-       * @param value The flags to add.
-       * @return This builder for chaining.
        */
       public Builder addFlags(
           java.lang.String value) {
@@ -2073,8 +1980,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>repeated string flags = 8;</code>
-       * @param values The flags to add.
-       * @return This builder for chaining.
        */
       public Builder addAllFlags(
           java.lang.Iterable<java.lang.String> values) {
@@ -2090,11 +1995,10 @@ public final class MenuApi {
        * </pre>
        *
        * <code>repeated string flags = 8;</code>
-       * @return This builder for chaining.
        */
       public Builder clearFlags() {
         flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -2104,8 +2008,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>repeated string flags = 8;</code>
-       * @param value The bytes of the flags to add.
-       * @return This builder for chaining.
        */
       public Builder addFlagsBytes(
           com.google.protobuf.ByteString value) {
@@ -2126,7 +2028,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string icon = 1;</code>
-       * @return The icon.
        */
       public java.lang.String getIcon() {
         java.lang.Object ref = icon_;
@@ -2146,7 +2047,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string icon = 1;</code>
-       * @return The bytes for icon.
        */
       public com.google.protobuf.ByteString
           getIconBytes() {
@@ -2167,8 +2067,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string icon = 1;</code>
-       * @param value The icon to set.
-       * @return This builder for chaining.
        */
       public Builder setIcon(
           java.lang.String value) {
@@ -2186,7 +2084,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string icon = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearIcon() {
         
@@ -2200,8 +2097,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>string icon = 1;</code>
-       * @param value The bytes for icon to set.
-       * @return This builder for chaining.
        */
       public Builder setIconBytes(
           com.google.protobuf.ByteString value) {
@@ -2222,9 +2117,7 @@ public final class MenuApi {
        * </pre>
        *
        * <code>bool leading_divider = 6;</code>
-       * @return The leadingDivider.
        */
-      @java.lang.Override
       public boolean getLeadingDivider() {
         return leadingDivider_;
       }
@@ -2234,8 +2127,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>bool leading_divider = 6;</code>
-       * @param value The leadingDivider to set.
-       * @return This builder for chaining.
        */
       public Builder setLeadingDivider(boolean value) {
         
@@ -2249,7 +2140,6 @@ public final class MenuApi {
        * </pre>
        *
        * <code>bool leading_divider = 6;</code>
-       * @return This builder for chaining.
        */
       public Builder clearLeadingDivider() {
         
@@ -2261,9 +2151,9 @@ public final class MenuApi {
       private java.util.List<google.protobuf.AnyOuterClass.Any> payload_ =
         java.util.Collections.emptyList();
       private void ensurePayloadIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000100) != 0)) {
           payload_ = new java.util.ArrayList<google.protobuf.AnyOuterClass.Any>(payload_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000100;
          }
       }
 
@@ -2457,7 +2347,7 @@ public final class MenuApi {
       public Builder clearPayload() {
         if (payloadBuilder_ == null) {
           payload_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000100);
           onChanged();
         } else {
           payloadBuilder_.clear();
@@ -2562,7 +2452,7 @@ public final class MenuApi {
           payloadBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               google.protobuf.AnyOuterClass.Any, google.protobuf.AnyOuterClass.Any.Builder, google.protobuf.AnyOuterClass.AnyOrBuilder>(
                   payload_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000100) != 0),
                   getParentForChildren(),
                   isClean());
           payload_ = null;
@@ -2645,11 +2535,19 @@ public final class MenuApi {
       "\0132\024.google.protobuf.AnyB\030\n\rcom.acme.menu" +
       "B\007MenuApib\006proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           google.protobuf.AnyOuterClass.getDescriptor(),
-        });
+        }, assigner);
     internal_static_menu_Menuitem_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_menu_Menuitem_fieldAccessorTable = new

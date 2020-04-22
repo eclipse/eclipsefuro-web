@@ -6,7 +6,7 @@ package taskmanager;
 /**
  * Protobuf type {@code taskmanager.UpdateExperimentServiceRequest}
  */
-public final class UpdateExperimentServiceRequest extends
+public  final class UpdateExperimentServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:taskmanager.UpdateExperimentServiceRequest)
     UpdateExperimentServiceRequestOrBuilder {
@@ -17,13 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private UpdateExperimentServiceRequest() {
     exp_ = "";
-  }
-
-  @java.lang.Override
-  @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
-    return new UpdateExperimentServiceRequest();
   }
 
   @java.lang.Override
@@ -39,6 +32,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -104,9 +98,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object exp_;
   /**
    * <code>string exp = 1;</code>
-   * @return The exp.
    */
-  @java.lang.Override
   public java.lang.String getExp() {
     java.lang.Object ref = exp_;
     if (ref instanceof java.lang.String) {
@@ -121,9 +113,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string exp = 1;</code>
-   * @return The bytes for exp.
    */
-  @java.lang.Override
   public com.google.protobuf.ByteString
       getExpBytes() {
     java.lang.Object ref = exp_;
@@ -142,24 +132,19 @@ private static final long serialVersionUID = 0L;
   private experiment.ExperimentOuterClass.Experiment data_;
   /**
    * <code>.experiment.Experiment data = 2;</code>
-   * @return Whether the data field is set.
    */
-  @java.lang.Override
   public boolean hasData() {
     return data_ != null;
   }
   /**
    * <code>.experiment.Experiment data = 2;</code>
-   * @return The data.
    */
-  @java.lang.Override
   public experiment.ExperimentOuterClass.Experiment getData() {
     return data_ == null ? experiment.ExperimentOuterClass.Experiment.getDefaultInstance() : data_;
   }
   /**
    * <code>.experiment.Experiment data = 2;</code>
    */
-  @java.lang.Override
   public experiment.ExperimentOuterClass.ExperimentOrBuilder getDataOrBuilder() {
     return getData();
   }
@@ -499,7 +484,6 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object exp_ = "";
     /**
      * <code>string exp = 1;</code>
-     * @return The exp.
      */
     public java.lang.String getExp() {
       java.lang.Object ref = exp_;
@@ -515,7 +499,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string exp = 1;</code>
-     * @return The bytes for exp.
      */
     public com.google.protobuf.ByteString
         getExpBytes() {
@@ -532,8 +515,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string exp = 1;</code>
-     * @param value The exp to set.
-     * @return This builder for chaining.
      */
     public Builder setExp(
         java.lang.String value) {
@@ -547,7 +528,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string exp = 1;</code>
-     * @return This builder for chaining.
      */
     public Builder clearExp() {
       
@@ -557,8 +537,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string exp = 1;</code>
-     * @param value The bytes for exp to set.
-     * @return This builder for chaining.
      */
     public Builder setExpBytes(
         com.google.protobuf.ByteString value) {
@@ -577,14 +555,12 @@ private static final long serialVersionUID = 0L;
         experiment.ExperimentOuterClass.Experiment, experiment.ExperimentOuterClass.Experiment.Builder, experiment.ExperimentOuterClass.ExperimentOrBuilder> dataBuilder_;
     /**
      * <code>.experiment.Experiment data = 2;</code>
-     * @return Whether the data field is set.
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
     }
     /**
      * <code>.experiment.Experiment data = 2;</code>
-     * @return The data.
      */
     public experiment.ExperimentOuterClass.Experiment getData() {
       if (dataBuilder_ == null) {
