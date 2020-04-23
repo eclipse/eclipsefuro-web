@@ -32,8 +32,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
      *
      * @type {string|RegExp}
      */
-    // eslint-disable-next-line wc/no-constructor-attributes
-    this.urlSpaceRegex = this.getAttribute('url-space-regex') || '/';
+    this.urlSpaceRegex = '/';
   }
 
   /**
