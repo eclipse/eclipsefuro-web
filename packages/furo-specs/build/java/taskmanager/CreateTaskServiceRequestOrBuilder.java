@@ -9,12 +9,10 @@ public interface CreateTaskServiceRequestOrBuilder extends
 
   /**
    * <code>.task.Task data = 1;</code>
-   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.task.Task data = 1;</code>
-   * @return The data.
    */
   task.TaskOuterClass.Task getData();
   /**

@@ -24,7 +24,6 @@ public final class DateOuterClass {
      * </pre>
      *
      * <code>int32 day = 3;</code>
-     * @return The day.
      */
     int getDay();
 
@@ -34,7 +33,6 @@ public final class DateOuterClass {
      * </pre>
      *
      * <code>string display_name = 4;</code>
-     * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
@@ -43,7 +41,6 @@ public final class DateOuterClass {
      * </pre>
      *
      * <code>string display_name = 4;</code>
-     * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
@@ -54,7 +51,6 @@ public final class DateOuterClass {
      * </pre>
      *
      * <code>int32 month = 2;</code>
-     * @return The month.
      */
     int getMonth();
 
@@ -64,7 +60,6 @@ public final class DateOuterClass {
      * </pre>
      *
      * <code>int32 year = 1;</code>
-     * @return The year.
      */
     int getYear();
   }
@@ -75,7 +70,7 @@ public final class DateOuterClass {
    *
    * Protobuf type {@code google.type.Date}
    */
-  public static final class Date extends
+  public  static final class Date extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:google.type.Date)
       DateOrBuilder {
@@ -86,13 +81,6 @@ public final class DateOuterClass {
     }
     private Date() {
       displayName_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Date();
     }
 
     @java.lang.Override
@@ -108,6 +96,7 @@ public final class DateOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -179,9 +168,7 @@ public final class DateOuterClass {
      * </pre>
      *
      * <code>int32 day = 3;</code>
-     * @return The day.
      */
-    @java.lang.Override
     public int getDay() {
       return day_;
     }
@@ -194,9 +181,7 @@ public final class DateOuterClass {
      * </pre>
      *
      * <code>string display_name = 4;</code>
-     * @return The displayName.
      */
-    @java.lang.Override
     public java.lang.String getDisplayName() {
       java.lang.Object ref = displayName_;
       if (ref instanceof java.lang.String) {
@@ -215,9 +200,7 @@ public final class DateOuterClass {
      * </pre>
      *
      * <code>string display_name = 4;</code>
-     * @return The bytes for displayName.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getDisplayNameBytes() {
       java.lang.Object ref = displayName_;
@@ -240,9 +223,7 @@ public final class DateOuterClass {
      * </pre>
      *
      * <code>int32 month = 2;</code>
-     * @return The month.
      */
-    @java.lang.Override
     public int getMonth() {
       return month_;
     }
@@ -255,9 +236,7 @@ public final class DateOuterClass {
      * </pre>
      *
      * <code>int32 year = 1;</code>
-     * @return The year.
      */
-    @java.lang.Override
     public int getYear() {
       return year_;
     }
@@ -626,9 +605,7 @@ public final class DateOuterClass {
        * </pre>
        *
        * <code>int32 day = 3;</code>
-       * @return The day.
        */
-      @java.lang.Override
       public int getDay() {
         return day_;
       }
@@ -638,8 +615,6 @@ public final class DateOuterClass {
        * </pre>
        *
        * <code>int32 day = 3;</code>
-       * @param value The day to set.
-       * @return This builder for chaining.
        */
       public Builder setDay(int value) {
         
@@ -653,7 +628,6 @@ public final class DateOuterClass {
        * </pre>
        *
        * <code>int32 day = 3;</code>
-       * @return This builder for chaining.
        */
       public Builder clearDay() {
         
@@ -669,7 +643,6 @@ public final class DateOuterClass {
        * </pre>
        *
        * <code>string display_name = 4;</code>
-       * @return The displayName.
        */
       public java.lang.String getDisplayName() {
         java.lang.Object ref = displayName_;
@@ -689,7 +662,6 @@ public final class DateOuterClass {
        * </pre>
        *
        * <code>string display_name = 4;</code>
-       * @return The bytes for displayName.
        */
       public com.google.protobuf.ByteString
           getDisplayNameBytes() {
@@ -710,8 +682,6 @@ public final class DateOuterClass {
        * </pre>
        *
        * <code>string display_name = 4;</code>
-       * @param value The displayName to set.
-       * @return This builder for chaining.
        */
       public Builder setDisplayName(
           java.lang.String value) {
@@ -729,7 +699,6 @@ public final class DateOuterClass {
        * </pre>
        *
        * <code>string display_name = 4;</code>
-       * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
         
@@ -743,8 +712,6 @@ public final class DateOuterClass {
        * </pre>
        *
        * <code>string display_name = 4;</code>
-       * @param value The bytes for displayName to set.
-       * @return This builder for chaining.
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
@@ -765,9 +732,7 @@ public final class DateOuterClass {
        * </pre>
        *
        * <code>int32 month = 2;</code>
-       * @return The month.
        */
-      @java.lang.Override
       public int getMonth() {
         return month_;
       }
@@ -777,8 +742,6 @@ public final class DateOuterClass {
        * </pre>
        *
        * <code>int32 month = 2;</code>
-       * @param value The month to set.
-       * @return This builder for chaining.
        */
       public Builder setMonth(int value) {
         
@@ -792,7 +755,6 @@ public final class DateOuterClass {
        * </pre>
        *
        * <code>int32 month = 2;</code>
-       * @return This builder for chaining.
        */
       public Builder clearMonth() {
         
@@ -808,9 +770,7 @@ public final class DateOuterClass {
        * </pre>
        *
        * <code>int32 year = 1;</code>
-       * @return The year.
        */
-      @java.lang.Override
       public int getYear() {
         return year_;
       }
@@ -820,8 +780,6 @@ public final class DateOuterClass {
        * </pre>
        *
        * <code>int32 year = 1;</code>
-       * @param value The year to set.
-       * @return This builder for chaining.
        */
       public Builder setYear(int value) {
         
@@ -835,7 +793,6 @@ public final class DateOuterClass {
        * </pre>
        *
        * <code>int32 year = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearYear() {
         
@@ -914,10 +871,18 @@ public final class DateOuterClass {
       "\004Date\022\013\n\003day\030\003 \001(\005\022\024\n\014display_name\030\004 \001(\t" +
       "\022\r\n\005month\030\002 \001(\005\022\014\n\004year\030\001 \001(\005b\006proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
+        }, assigner);
     internal_static_google_type_Date_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_google_type_Date_fieldAccessorTable = new

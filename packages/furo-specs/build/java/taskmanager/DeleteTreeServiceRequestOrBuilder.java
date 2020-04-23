@@ -9,24 +9,20 @@ public interface DeleteTreeServiceRequestOrBuilder extends
 
   /**
    * <code>string tre = 1;</code>
-   * @return The tre.
    */
   java.lang.String getTre();
   /**
    * <code>string tre = 1;</code>
-   * @return The bytes for tre.
    */
   com.google.protobuf.ByteString
       getTreBytes();
 
   /**
    * <code>.google.protobuf.Empty data = 2;</code>
-   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.google.protobuf.Empty data = 2;</code>
-   * @return The data.
    */
   google.protobuf.EmptyOuterClass.Empty getData();
   /**
