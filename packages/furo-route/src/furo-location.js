@@ -31,7 +31,7 @@ class FuroLocation extends HTMLElement {
      *
      * @type {string|RegExp}
      */
-     this.urlSpaceRegex =   '';
+    this.urlSpaceRegex = '';
 
     /**
      * If the user was on a URL for less than `dwellTime` milliseconds, it
@@ -71,9 +71,8 @@ class FuroLocation extends HTMLElement {
         type: String,
         attribute: 'url-space-regex',
       },
-    }
+    };
   }
-
 
   /**
    * @private
