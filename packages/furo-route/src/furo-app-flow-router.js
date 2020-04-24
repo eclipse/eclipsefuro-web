@@ -19,20 +19,12 @@ class FuroAppFlowRouter extends FBP(LitElement) {
     super();
     // eslint-disable-next-line wc/no-constructor-attributes
     this.style.display = 'none';
+
     /**
-     * A regexp that defines the set of URLs that should be considered part
-     * of this web app.
-     *
-     * Clicking on a link that matches this regex won't result in a full page
-     * navigation, but will instead just update the URL state in place.
-     *
-     * This regexp is given everything after the origin in an absolute
-     * URL. So to match just URLs that start with /app/ do:
-     *     url-space-regex="^/app/"
-     *
-     * @type {string|RegExp}
+     * default value of urlSpaceRegex. this value can be rewritten via `url-space-regex` attribute
      */
-    this.urlSpaceRegex = '/';
+    // eslint-disable-next-line wc/no-constructor-attributes
+    this.urlSpaceRegex = '';
   }
 
   /**
@@ -86,7 +78,17 @@ class FuroAppFlowRouter extends FBP(LitElement) {
 
       /**
        * attribute url-space-regex
-       * e.g. url-space-regex="^${window.APPROOT}/"
+       * A regexp that defines the set of URLs that should be considered part
+       * of this web app.
+       *
+       * Clicking on a link that matches this regex won't result in a full page
+       * navigation, but will instead just update the URL state in place.
+       *
+       * This regexp is given everything after the origin in an absolute
+       * URL. So to match just URLs that start with /app do:
+       *     url-space-regex="^/app"
+       *
+       * @type {string|RegExp}
        */
       urlSpaceRegex: {
         type: String,
@@ -101,9 +103,13 @@ class FuroAppFlowRouter extends FBP(LitElement) {
    * @return {boolean}
    */
   trigger(flowEvent) {
-    const currentPath = window.location.pathname.replace(new RegExp(this.urlSpaceRegex), '');
+    // should be able to handle with or without slash at the end of paths. ("/app/" or "/app")
+    const currentPath = window.location.pathname
+      .replace(new RegExp(this.urlSpaceRegex), '')
+      .replace('/', '');
     const match = window.location.pathname.match(new RegExp(this.urlSpaceRegex));
-    const prefix = match[0] || '/';
+    // slash should be added to rewrite location
+    const prefix = match[0] + '/' || '/';
     const selection =
       this._configObject[currentPath + flowEvent.event] ||
       this._configObject[`*${flowEvent.event}`];
