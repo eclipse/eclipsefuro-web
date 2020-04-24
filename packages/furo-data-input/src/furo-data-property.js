@@ -179,6 +179,20 @@ class FuroDataProperty extends FBP(LitElement) {
         e = document.createElement(this.typemap[type]);
       }
 
+      /**
+       * Append all additional flags
+       */
+      if (propertyField.flags && propertyField.flags.repeats.length) {
+        const len = propertyField.flags.repeats.length;
+        // eslint-disable-next-line no-plusplus
+        for (let f = 0; f < len; ++f) {
+          const flag = propertyField.flags.repeats[f]._value;
+          if (!flag.startsWith('@') && !flag.startsWith('ƒ')) {
+            e.setAttribute(flag, '');
+          }
+        }
+      }
+
       // Grab all of the original's attributes, and pass them to the replacement
       const l = this.attributes.length;
       // eslint-disable-next-line no-plusplus

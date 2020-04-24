@@ -9,12 +9,10 @@ public interface DeleteAuthServiceRequestOrBuilder extends
 
   /**
    * <code>.google.protobuf.Empty data = 1;</code>
-   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.google.protobuf.Empty data = 1;</code>
-   * @return The data.
    */
   google.protobuf.EmptyOuterClass.Empty getData();
   /**

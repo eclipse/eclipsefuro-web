@@ -69,6 +69,7 @@ class DemoFuroDataDateInput extends FBP(LitElement) {
               <furo-data-date-input
                 leading-icon="fingerprint"
                 label="with step"
+                required
                 step="30"
                 ƒ-bind-data="--entity(*.furo_data_date_input)"
                 @-value-changed="--dateChanged"

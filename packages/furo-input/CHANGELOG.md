@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.3.4...@furo/input@1.3.5) (2020-04-22)
+
+
+### Bug Fixes
+
+* required furo-date-input and furo-reference-search marked as required with * ([26ae4e0](https://github.com/theNorstroem/FuroBaseComponents/commit/26ae4e0e886d827e1769c605efb0466badc01abb))
+
+
+
+
+
 ## [1.3.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.3.3...@furo/input@1.3.4) (2020-04-21)
 
 **Note:** Version bump only for package @furo/input

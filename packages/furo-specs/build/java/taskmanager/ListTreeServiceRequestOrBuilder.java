@@ -13,7 +13,6 @@ public interface ListTreeServiceRequestOrBuilder extends
    * </pre>
    *
    * <code>string q = 1;</code>
-   * @return The q.
    */
   java.lang.String getQ();
   /**
@@ -22,7 +21,6 @@ public interface ListTreeServiceRequestOrBuilder extends
    * </pre>
    *
    * <code>string q = 1;</code>
-   * @return The bytes for q.
    */
   com.google.protobuf.ByteString
       getQBytes();

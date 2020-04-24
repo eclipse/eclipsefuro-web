@@ -144,6 +144,13 @@ class FuroDateInput extends FBP(LitElement) {
         type: String,
       },
       /**
+       * The required attribute, the value true means this field must be filled in
+       *
+       */
+      required: {
+        type: Boolean,
+      },
+      /**
        * The latest date to accept, in the syntax described under Date value format
        *
        * A string indicating the latest date to accept, specified in the same [date value format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#Date_value_format). If the specified string isn't a valid date, no maximum value is set.
@@ -638,7 +645,15 @@ class FuroDateInput extends FBP(LitElement) {
       </div>
       <div class="borderlabel">
         <div class="left-border"></div>
-        <label ?float="${this._float || this.float}" for="input"><span>${this.label}</span></label>
+        <label ?float="${this._float || this.float}" for="input"
+          ><span
+            >${this.label}${this.required
+              ? html`
+                  *
+                `
+              : html``}</span
+          ></label
+        >
         <div class="right-border"></div>
       </div>
 

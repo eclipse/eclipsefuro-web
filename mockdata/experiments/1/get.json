@@ -25,6 +25,7 @@
           "@type": "type.googleapis.com/furo.StringProperty",
           "data": "01032020"
         },
+        "flags": ["is-overwritable", "my-prop"],
         "display_name": "Vertragsbeginn",
         "id": "246d79a0-0a15-43c5-b18f-ac8a4a449df1",
         "meta": {

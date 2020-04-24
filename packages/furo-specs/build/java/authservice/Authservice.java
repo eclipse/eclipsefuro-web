@@ -20,12 +20,10 @@ public final class Authservice {
 
     /**
      * <code>.auth.Auth data = 1;</code>
-     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
      * <code>.auth.Auth data = 1;</code>
-     * @return The data.
      */
     auth.AuthOuterClass.Auth getData();
     /**
@@ -36,7 +34,7 @@ public final class Authservice {
   /**
    * Protobuf type {@code authservice.CreateAuthServiceRequest}
    */
-  public static final class CreateAuthServiceRequest extends
+  public  static final class CreateAuthServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:authservice.CreateAuthServiceRequest)
       CreateAuthServiceRequestOrBuilder {
@@ -46,13 +44,6 @@ public final class Authservice {
       super(builder);
     }
     private CreateAuthServiceRequest() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new CreateAuthServiceRequest();
     }
 
     @java.lang.Override
@@ -68,6 +59,7 @@ public final class Authservice {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -127,24 +119,19 @@ public final class Authservice {
     private auth.AuthOuterClass.Auth data_;
     /**
      * <code>.auth.Auth data = 1;</code>
-     * @return Whether the data field is set.
      */
-    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
     /**
      * <code>.auth.Auth data = 1;</code>
-     * @return The data.
      */
-    @java.lang.Override
     public auth.AuthOuterClass.Auth getData() {
       return data_ == null ? auth.AuthOuterClass.Auth.getDefaultInstance() : data_;
     }
     /**
      * <code>.auth.Auth data = 1;</code>
      */
-    @java.lang.Override
     public auth.AuthOuterClass.AuthOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -469,14 +456,12 @@ public final class Authservice {
           auth.AuthOuterClass.Auth, auth.AuthOuterClass.Auth.Builder, auth.AuthOuterClass.AuthOrBuilder> dataBuilder_;
       /**
        * <code>.auth.Auth data = 1;</code>
-       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
       }
       /**
        * <code>.auth.Auth data = 1;</code>
-       * @return The data.
        */
       public auth.AuthOuterClass.Auth getData() {
         if (dataBuilder_ == null) {
@@ -641,12 +626,10 @@ public final class Authservice {
 
     /**
      * <code>.google.protobuf.Empty data = 1;</code>
-     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
      * <code>.google.protobuf.Empty data = 1;</code>
-     * @return The data.
      */
     google.protobuf.EmptyOuterClass.Empty getData();
     /**
@@ -657,7 +640,7 @@ public final class Authservice {
   /**
    * Protobuf type {@code authservice.DeleteAuthServiceRequest}
    */
-  public static final class DeleteAuthServiceRequest extends
+  public  static final class DeleteAuthServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:authservice.DeleteAuthServiceRequest)
       DeleteAuthServiceRequestOrBuilder {
@@ -667,13 +650,6 @@ public final class Authservice {
       super(builder);
     }
     private DeleteAuthServiceRequest() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new DeleteAuthServiceRequest();
     }
 
     @java.lang.Override
@@ -689,6 +665,7 @@ public final class Authservice {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -748,24 +725,19 @@ public final class Authservice {
     private google.protobuf.EmptyOuterClass.Empty data_;
     /**
      * <code>.google.protobuf.Empty data = 1;</code>
-     * @return Whether the data field is set.
      */
-    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
     /**
      * <code>.google.protobuf.Empty data = 1;</code>
-     * @return The data.
      */
-    @java.lang.Override
     public google.protobuf.EmptyOuterClass.Empty getData() {
       return data_ == null ? google.protobuf.EmptyOuterClass.Empty.getDefaultInstance() : data_;
     }
     /**
      * <code>.google.protobuf.Empty data = 1;</code>
      */
-    @java.lang.Override
     public google.protobuf.EmptyOuterClass.EmptyOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -1090,14 +1062,12 @@ public final class Authservice {
           google.protobuf.EmptyOuterClass.Empty, google.protobuf.EmptyOuterClass.Empty.Builder, google.protobuf.EmptyOuterClass.EmptyOrBuilder> dataBuilder_;
       /**
        * <code>.google.protobuf.Empty data = 1;</code>
-       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
       }
       /**
        * <code>.google.protobuf.Empty data = 1;</code>
-       * @return The data.
        */
       public google.protobuf.EmptyOuterClass.Empty getData() {
         if (dataBuilder_ == null) {
@@ -1262,12 +1232,10 @@ public final class Authservice {
 
     /**
      * <code>string uid = 1;</code>
-     * @return The uid.
      */
     java.lang.String getUid();
     /**
      * <code>string uid = 1;</code>
-     * @return The bytes for uid.
      */
     com.google.protobuf.ByteString
         getUidBytes();
@@ -1275,7 +1243,7 @@ public final class Authservice {
   /**
    * Protobuf type {@code authservice.GetAuthServiceRequest}
    */
-  public static final class GetAuthServiceRequest extends
+  public  static final class GetAuthServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:authservice.GetAuthServiceRequest)
       GetAuthServiceRequestOrBuilder {
@@ -1286,13 +1254,6 @@ public final class Authservice {
     }
     private GetAuthServiceRequest() {
       uid_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new GetAuthServiceRequest();
     }
 
     @java.lang.Override
@@ -1308,6 +1269,7 @@ public final class Authservice {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1360,9 +1322,7 @@ public final class Authservice {
     private volatile java.lang.Object uid_;
     /**
      * <code>string uid = 1;</code>
-     * @return The uid.
      */
-    @java.lang.Override
     public java.lang.String getUid() {
       java.lang.Object ref = uid_;
       if (ref instanceof java.lang.String) {
@@ -1377,9 +1337,7 @@ public final class Authservice {
     }
     /**
      * <code>string uid = 1;</code>
-     * @return The bytes for uid.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getUidBytes() {
       java.lang.Object ref = uid_;
@@ -1699,7 +1657,6 @@ public final class Authservice {
       private java.lang.Object uid_ = "";
       /**
        * <code>string uid = 1;</code>
-       * @return The uid.
        */
       public java.lang.String getUid() {
         java.lang.Object ref = uid_;
@@ -1715,7 +1672,6 @@ public final class Authservice {
       }
       /**
        * <code>string uid = 1;</code>
-       * @return The bytes for uid.
        */
       public com.google.protobuf.ByteString
           getUidBytes() {
@@ -1732,8 +1688,6 @@ public final class Authservice {
       }
       /**
        * <code>string uid = 1;</code>
-       * @param value The uid to set.
-       * @return This builder for chaining.
        */
       public Builder setUid(
           java.lang.String value) {
@@ -1747,7 +1701,6 @@ public final class Authservice {
       }
       /**
        * <code>string uid = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearUid() {
         
@@ -1757,8 +1710,6 @@ public final class Authservice {
       }
       /**
        * <code>string uid = 1;</code>
-       * @param value The bytes for uid to set.
-       * @return This builder for chaining.
        */
       public Builder setUidBytes(
           com.google.protobuf.ByteString value) {
@@ -1834,7 +1785,6 @@ public final class Authservice {
      * </pre>
      *
      * <code>string q = 1;</code>
-     * @return The q.
      */
     java.lang.String getQ();
     /**
@@ -1843,7 +1793,6 @@ public final class Authservice {
      * </pre>
      *
      * <code>string q = 1;</code>
-     * @return The bytes for q.
      */
     com.google.protobuf.ByteString
         getQBytes();
@@ -1851,7 +1800,7 @@ public final class Authservice {
   /**
    * Protobuf type {@code authservice.ListAuthServiceRequest}
    */
-  public static final class ListAuthServiceRequest extends
+  public  static final class ListAuthServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:authservice.ListAuthServiceRequest)
       ListAuthServiceRequestOrBuilder {
@@ -1862,13 +1811,6 @@ public final class Authservice {
     }
     private ListAuthServiceRequest() {
       q_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ListAuthServiceRequest();
     }
 
     @java.lang.Override
@@ -1884,6 +1826,7 @@ public final class Authservice {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1940,9 +1883,7 @@ public final class Authservice {
      * </pre>
      *
      * <code>string q = 1;</code>
-     * @return The q.
      */
-    @java.lang.Override
     public java.lang.String getQ() {
       java.lang.Object ref = q_;
       if (ref instanceof java.lang.String) {
@@ -1961,9 +1902,7 @@ public final class Authservice {
      * </pre>
      *
      * <code>string q = 1;</code>
-     * @return The bytes for q.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getQBytes() {
       java.lang.Object ref = q_;
@@ -2287,7 +2226,6 @@ public final class Authservice {
        * </pre>
        *
        * <code>string q = 1;</code>
-       * @return The q.
        */
       public java.lang.String getQ() {
         java.lang.Object ref = q_;
@@ -2307,7 +2245,6 @@ public final class Authservice {
        * </pre>
        *
        * <code>string q = 1;</code>
-       * @return The bytes for q.
        */
       public com.google.protobuf.ByteString
           getQBytes() {
@@ -2328,8 +2265,6 @@ public final class Authservice {
        * </pre>
        *
        * <code>string q = 1;</code>
-       * @param value The q to set.
-       * @return This builder for chaining.
        */
       public Builder setQ(
           java.lang.String value) {
@@ -2347,7 +2282,6 @@ public final class Authservice {
        * </pre>
        *
        * <code>string q = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearQ() {
         
@@ -2361,8 +2295,6 @@ public final class Authservice {
        * </pre>
        *
        * <code>string q = 1;</code>
-       * @param value The bytes for q to set.
-       * @return This builder for chaining.
        */
       public Builder setQBytes(
           com.google.protobuf.ByteString value) {
@@ -2434,24 +2366,20 @@ public final class Authservice {
 
     /**
      * <code>string uid = 1;</code>
-     * @return The uid.
      */
     java.lang.String getUid();
     /**
      * <code>string uid = 1;</code>
-     * @return The bytes for uid.
      */
     com.google.protobuf.ByteString
         getUidBytes();
 
     /**
      * <code>.auth.Auth data = 2;</code>
-     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
      * <code>.auth.Auth data = 2;</code>
-     * @return The data.
      */
     auth.AuthOuterClass.Auth getData();
     /**
@@ -2462,7 +2390,7 @@ public final class Authservice {
   /**
    * Protobuf type {@code authservice.UpdateAuthServiceRequest}
    */
-  public static final class UpdateAuthServiceRequest extends
+  public  static final class UpdateAuthServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:authservice.UpdateAuthServiceRequest)
       UpdateAuthServiceRequestOrBuilder {
@@ -2473,13 +2401,6 @@ public final class Authservice {
     }
     private UpdateAuthServiceRequest() {
       uid_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new UpdateAuthServiceRequest();
     }
 
     @java.lang.Override
@@ -2495,6 +2416,7 @@ public final class Authservice {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2560,9 +2482,7 @@ public final class Authservice {
     private volatile java.lang.Object uid_;
     /**
      * <code>string uid = 1;</code>
-     * @return The uid.
      */
-    @java.lang.Override
     public java.lang.String getUid() {
       java.lang.Object ref = uid_;
       if (ref instanceof java.lang.String) {
@@ -2577,9 +2497,7 @@ public final class Authservice {
     }
     /**
      * <code>string uid = 1;</code>
-     * @return The bytes for uid.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getUidBytes() {
       java.lang.Object ref = uid_;
@@ -2598,24 +2516,19 @@ public final class Authservice {
     private auth.AuthOuterClass.Auth data_;
     /**
      * <code>.auth.Auth data = 2;</code>
-     * @return Whether the data field is set.
      */
-    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
     /**
      * <code>.auth.Auth data = 2;</code>
-     * @return The data.
      */
-    @java.lang.Override
     public auth.AuthOuterClass.Auth getData() {
       return data_ == null ? auth.AuthOuterClass.Auth.getDefaultInstance() : data_;
     }
     /**
      * <code>.auth.Auth data = 2;</code>
      */
-    @java.lang.Override
     public auth.AuthOuterClass.AuthOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -2955,7 +2868,6 @@ public final class Authservice {
       private java.lang.Object uid_ = "";
       /**
        * <code>string uid = 1;</code>
-       * @return The uid.
        */
       public java.lang.String getUid() {
         java.lang.Object ref = uid_;
@@ -2971,7 +2883,6 @@ public final class Authservice {
       }
       /**
        * <code>string uid = 1;</code>
-       * @return The bytes for uid.
        */
       public com.google.protobuf.ByteString
           getUidBytes() {
@@ -2988,8 +2899,6 @@ public final class Authservice {
       }
       /**
        * <code>string uid = 1;</code>
-       * @param value The uid to set.
-       * @return This builder for chaining.
        */
       public Builder setUid(
           java.lang.String value) {
@@ -3003,7 +2912,6 @@ public final class Authservice {
       }
       /**
        * <code>string uid = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearUid() {
         
@@ -3013,8 +2921,6 @@ public final class Authservice {
       }
       /**
        * <code>string uid = 1;</code>
-       * @param value The bytes for uid to set.
-       * @return This builder for chaining.
        */
       public Builder setUidBytes(
           com.google.protobuf.ByteString value) {
@@ -3033,14 +2939,12 @@ public final class Authservice {
           auth.AuthOuterClass.Auth, auth.AuthOuterClass.Auth.Builder, auth.AuthOuterClass.AuthOrBuilder> dataBuilder_;
       /**
        * <code>.auth.Auth data = 2;</code>
-       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
       }
       /**
        * <code>.auth.Auth data = 2;</code>
-       * @return The data.
        */
       public auth.AuthOuterClass.Auth getData() {
         if (dataBuilder_ == null) {
@@ -3257,13 +3161,21 @@ public final class Authservice {
       "y\"\036\202\323\344\223\002\0302\020/api/auths/{uid}:\004dataB\016Z\014/au" +
       "thserviceb\006proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
           auth.AuthOuterClass.getDescriptor(),
           google.protobuf.EmptyOuterClass.getDescriptor(),
-        });
+        }, assigner);
     internal_static_authservice_CreateAuthServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_authservice_CreateAuthServiceRequest_fieldAccessorTable = new

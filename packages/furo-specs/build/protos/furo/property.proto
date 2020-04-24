@@ -40,7 +40,7 @@ message IntegerProperty {
 }
 
 // Type to define property values with type information
-message Property {                            
+message Property {                                    
     // property code for additional settings
     string code = 5;
     
@@ -50,8 +50,14 @@ message Property {
     // String representation of the property
     string display_name = 2;
     
+    // Optional attribute flags e.g. is-overwritable
+    repeated string flags = 6;
+    
     // Id of the property
     string id = 1;
+    
+    // Optional flag indicating that the property differs from the original value
+    bool is_overwritten = 7;
     
     // Meta for the response
     Meta meta = 4;

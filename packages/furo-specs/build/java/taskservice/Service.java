@@ -20,12 +20,10 @@ public final class Service {
 
     /**
      * <code>.task.Task data = 1;</code>
-     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
      * <code>.task.Task data = 1;</code>
-     * @return The data.
      */
     task.TaskOuterClass.Task getData();
     /**
@@ -36,7 +34,7 @@ public final class Service {
   /**
    * Protobuf type {@code taskservice.CreateTaskServiceRequest}
    */
-  public static final class CreateTaskServiceRequest extends
+  public  static final class CreateTaskServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:taskservice.CreateTaskServiceRequest)
       CreateTaskServiceRequestOrBuilder {
@@ -46,13 +44,6 @@ public final class Service {
       super(builder);
     }
     private CreateTaskServiceRequest() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new CreateTaskServiceRequest();
     }
 
     @java.lang.Override
@@ -68,6 +59,7 @@ public final class Service {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -127,24 +119,19 @@ public final class Service {
     private task.TaskOuterClass.Task data_;
     /**
      * <code>.task.Task data = 1;</code>
-     * @return Whether the data field is set.
      */
-    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
     /**
      * <code>.task.Task data = 1;</code>
-     * @return The data.
      */
-    @java.lang.Override
     public task.TaskOuterClass.Task getData() {
       return data_ == null ? task.TaskOuterClass.Task.getDefaultInstance() : data_;
     }
     /**
      * <code>.task.Task data = 1;</code>
      */
-    @java.lang.Override
     public task.TaskOuterClass.TaskOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -469,14 +456,12 @@ public final class Service {
           task.TaskOuterClass.Task, task.TaskOuterClass.Task.Builder, task.TaskOuterClass.TaskOrBuilder> dataBuilder_;
       /**
        * <code>.task.Task data = 1;</code>
-       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
       }
       /**
        * <code>.task.Task data = 1;</code>
-       * @return The data.
        */
       public task.TaskOuterClass.Task getData() {
         if (dataBuilder_ == null) {
@@ -641,24 +626,20 @@ public final class Service {
 
     /**
      * <code>string tsk = 1;</code>
-     * @return The tsk.
      */
     java.lang.String getTsk();
     /**
      * <code>string tsk = 1;</code>
-     * @return The bytes for tsk.
      */
     com.google.protobuf.ByteString
         getTskBytes();
 
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
-     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
-     * @return The data.
      */
     google.protobuf.EmptyOuterClass.Empty getData();
     /**
@@ -669,7 +650,7 @@ public final class Service {
   /**
    * Protobuf type {@code taskservice.DeleteTaskServiceRequest}
    */
-  public static final class DeleteTaskServiceRequest extends
+  public  static final class DeleteTaskServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:taskservice.DeleteTaskServiceRequest)
       DeleteTaskServiceRequestOrBuilder {
@@ -680,13 +661,6 @@ public final class Service {
     }
     private DeleteTaskServiceRequest() {
       tsk_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new DeleteTaskServiceRequest();
     }
 
     @java.lang.Override
@@ -702,6 +676,7 @@ public final class Service {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -767,9 +742,7 @@ public final class Service {
     private volatile java.lang.Object tsk_;
     /**
      * <code>string tsk = 1;</code>
-     * @return The tsk.
      */
-    @java.lang.Override
     public java.lang.String getTsk() {
       java.lang.Object ref = tsk_;
       if (ref instanceof java.lang.String) {
@@ -784,9 +757,7 @@ public final class Service {
     }
     /**
      * <code>string tsk = 1;</code>
-     * @return The bytes for tsk.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getTskBytes() {
       java.lang.Object ref = tsk_;
@@ -805,24 +776,19 @@ public final class Service {
     private google.protobuf.EmptyOuterClass.Empty data_;
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
-     * @return Whether the data field is set.
      */
-    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
-     * @return The data.
      */
-    @java.lang.Override
     public google.protobuf.EmptyOuterClass.Empty getData() {
       return data_ == null ? google.protobuf.EmptyOuterClass.Empty.getDefaultInstance() : data_;
     }
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
      */
-    @java.lang.Override
     public google.protobuf.EmptyOuterClass.EmptyOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -1162,7 +1128,6 @@ public final class Service {
       private java.lang.Object tsk_ = "";
       /**
        * <code>string tsk = 1;</code>
-       * @return The tsk.
        */
       public java.lang.String getTsk() {
         java.lang.Object ref = tsk_;
@@ -1178,7 +1143,6 @@ public final class Service {
       }
       /**
        * <code>string tsk = 1;</code>
-       * @return The bytes for tsk.
        */
       public com.google.protobuf.ByteString
           getTskBytes() {
@@ -1195,8 +1159,6 @@ public final class Service {
       }
       /**
        * <code>string tsk = 1;</code>
-       * @param value The tsk to set.
-       * @return This builder for chaining.
        */
       public Builder setTsk(
           java.lang.String value) {
@@ -1210,7 +1172,6 @@ public final class Service {
       }
       /**
        * <code>string tsk = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearTsk() {
         
@@ -1220,8 +1181,6 @@ public final class Service {
       }
       /**
        * <code>string tsk = 1;</code>
-       * @param value The bytes for tsk to set.
-       * @return This builder for chaining.
        */
       public Builder setTskBytes(
           com.google.protobuf.ByteString value) {
@@ -1240,14 +1199,12 @@ public final class Service {
           google.protobuf.EmptyOuterClass.Empty, google.protobuf.EmptyOuterClass.Empty.Builder, google.protobuf.EmptyOuterClass.EmptyOrBuilder> dataBuilder_;
       /**
        * <code>.google.protobuf.Empty data = 2;</code>
-       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
       }
       /**
        * <code>.google.protobuf.Empty data = 2;</code>
-       * @return The data.
        */
       public google.protobuf.EmptyOuterClass.Empty getData() {
         if (dataBuilder_ == null) {
@@ -1412,12 +1369,10 @@ public final class Service {
 
     /**
      * <code>string tsk = 1;</code>
-     * @return The tsk.
      */
     java.lang.String getTsk();
     /**
      * <code>string tsk = 1;</code>
-     * @return The bytes for tsk.
      */
     com.google.protobuf.ByteString
         getTskBytes();
@@ -1425,7 +1380,7 @@ public final class Service {
   /**
    * Protobuf type {@code taskservice.GetTaskServiceRequest}
    */
-  public static final class GetTaskServiceRequest extends
+  public  static final class GetTaskServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:taskservice.GetTaskServiceRequest)
       GetTaskServiceRequestOrBuilder {
@@ -1436,13 +1391,6 @@ public final class Service {
     }
     private GetTaskServiceRequest() {
       tsk_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new GetTaskServiceRequest();
     }
 
     @java.lang.Override
@@ -1458,6 +1406,7 @@ public final class Service {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1510,9 +1459,7 @@ public final class Service {
     private volatile java.lang.Object tsk_;
     /**
      * <code>string tsk = 1;</code>
-     * @return The tsk.
      */
-    @java.lang.Override
     public java.lang.String getTsk() {
       java.lang.Object ref = tsk_;
       if (ref instanceof java.lang.String) {
@@ -1527,9 +1474,7 @@ public final class Service {
     }
     /**
      * <code>string tsk = 1;</code>
-     * @return The bytes for tsk.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getTskBytes() {
       java.lang.Object ref = tsk_;
@@ -1849,7 +1794,6 @@ public final class Service {
       private java.lang.Object tsk_ = "";
       /**
        * <code>string tsk = 1;</code>
-       * @return The tsk.
        */
       public java.lang.String getTsk() {
         java.lang.Object ref = tsk_;
@@ -1865,7 +1809,6 @@ public final class Service {
       }
       /**
        * <code>string tsk = 1;</code>
-       * @return The bytes for tsk.
        */
       public com.google.protobuf.ByteString
           getTskBytes() {
@@ -1882,8 +1825,6 @@ public final class Service {
       }
       /**
        * <code>string tsk = 1;</code>
-       * @param value The tsk to set.
-       * @return This builder for chaining.
        */
       public Builder setTsk(
           java.lang.String value) {
@@ -1897,7 +1838,6 @@ public final class Service {
       }
       /**
        * <code>string tsk = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearTsk() {
         
@@ -1907,8 +1847,6 @@ public final class Service {
       }
       /**
        * <code>string tsk = 1;</code>
-       * @param value The bytes for tsk to set.
-       * @return This builder for chaining.
        */
       public Builder setTskBytes(
           com.google.protobuf.ByteString value) {
@@ -1984,7 +1922,6 @@ public final class Service {
      * </pre>
      *
      * <code>string fields = 1;</code>
-     * @return The fields.
      */
     java.lang.String getFields();
     /**
@@ -1993,7 +1930,6 @@ public final class Service {
      * </pre>
      *
      * <code>string fields = 1;</code>
-     * @return The bytes for fields.
      */
     com.google.protobuf.ByteString
         getFieldsBytes();
@@ -2004,7 +1940,6 @@ public final class Service {
      * </pre>
      *
      * <code>string filter = 2;</code>
-     * @return The filter.
      */
     java.lang.String getFilter();
     /**
@@ -2013,7 +1948,6 @@ public final class Service {
      * </pre>
      *
      * <code>string filter = 2;</code>
-     * @return The bytes for filter.
      */
     com.google.protobuf.ByteString
         getFilterBytes();
@@ -2024,7 +1958,6 @@ public final class Service {
      * </pre>
      *
      * <code>string order_by = 3;</code>
-     * @return The orderBy.
      */
     java.lang.String getOrderBy();
     /**
@@ -2033,7 +1966,6 @@ public final class Service {
      * </pre>
      *
      * <code>string order_by = 3;</code>
-     * @return The bytes for orderBy.
      */
     com.google.protobuf.ByteString
         getOrderByBytes();
@@ -2046,7 +1978,6 @@ public final class Service {
      * </pre>
      *
      * <code>string page_size = 4;</code>
-     * @return The pageSize.
      */
     java.lang.String getPageSize();
     /**
@@ -2057,7 +1988,6 @@ public final class Service {
      * </pre>
      *
      * <code>string page_size = 4;</code>
-     * @return The bytes for pageSize.
      */
     com.google.protobuf.ByteString
         getPageSizeBytes();
@@ -2068,7 +1998,6 @@ public final class Service {
      * </pre>
      *
      * <code>string q = 5;</code>
-     * @return The q.
      */
     java.lang.String getQ();
     /**
@@ -2077,7 +2006,6 @@ public final class Service {
      * </pre>
      *
      * <code>string q = 5;</code>
-     * @return The bytes for q.
      */
     com.google.protobuf.ByteString
         getQBytes();
@@ -2088,7 +2016,6 @@ public final class Service {
      * </pre>
      *
      * <code>string view = 6;</code>
-     * @return The view.
      */
     java.lang.String getView();
     /**
@@ -2097,7 +2024,6 @@ public final class Service {
      * </pre>
      *
      * <code>string view = 6;</code>
-     * @return The bytes for view.
      */
     com.google.protobuf.ByteString
         getViewBytes();
@@ -2105,7 +2031,7 @@ public final class Service {
   /**
    * Protobuf type {@code taskservice.ListTaskServiceRequest}
    */
-  public static final class ListTaskServiceRequest extends
+  public  static final class ListTaskServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:taskservice.ListTaskServiceRequest)
       ListTaskServiceRequestOrBuilder {
@@ -2124,13 +2050,6 @@ public final class Service {
     }
 
     @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ListTaskServiceRequest();
-    }
-
-    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2143,6 +2062,7 @@ public final class Service {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2229,9 +2149,7 @@ public final class Service {
      * </pre>
      *
      * <code>string fields = 1;</code>
-     * @return The fields.
      */
-    @java.lang.Override
     public java.lang.String getFields() {
       java.lang.Object ref = fields_;
       if (ref instanceof java.lang.String) {
@@ -2250,9 +2168,7 @@ public final class Service {
      * </pre>
      *
      * <code>string fields = 1;</code>
-     * @return The bytes for fields.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getFieldsBytes() {
       java.lang.Object ref = fields_;
@@ -2275,9 +2191,7 @@ public final class Service {
      * </pre>
      *
      * <code>string filter = 2;</code>
-     * @return The filter.
      */
-    @java.lang.Override
     public java.lang.String getFilter() {
       java.lang.Object ref = filter_;
       if (ref instanceof java.lang.String) {
@@ -2296,9 +2210,7 @@ public final class Service {
      * </pre>
      *
      * <code>string filter = 2;</code>
-     * @return The bytes for filter.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getFilterBytes() {
       java.lang.Object ref = filter_;
@@ -2321,9 +2233,7 @@ public final class Service {
      * </pre>
      *
      * <code>string order_by = 3;</code>
-     * @return The orderBy.
      */
-    @java.lang.Override
     public java.lang.String getOrderBy() {
       java.lang.Object ref = orderBy_;
       if (ref instanceof java.lang.String) {
@@ -2342,9 +2252,7 @@ public final class Service {
      * </pre>
      *
      * <code>string order_by = 3;</code>
-     * @return The bytes for orderBy.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getOrderByBytes() {
       java.lang.Object ref = orderBy_;
@@ -2369,9 +2277,7 @@ public final class Service {
      * </pre>
      *
      * <code>string page_size = 4;</code>
-     * @return The pageSize.
      */
-    @java.lang.Override
     public java.lang.String getPageSize() {
       java.lang.Object ref = pageSize_;
       if (ref instanceof java.lang.String) {
@@ -2392,9 +2298,7 @@ public final class Service {
      * </pre>
      *
      * <code>string page_size = 4;</code>
-     * @return The bytes for pageSize.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getPageSizeBytes() {
       java.lang.Object ref = pageSize_;
@@ -2417,9 +2321,7 @@ public final class Service {
      * </pre>
      *
      * <code>string q = 5;</code>
-     * @return The q.
      */
-    @java.lang.Override
     public java.lang.String getQ() {
       java.lang.Object ref = q_;
       if (ref instanceof java.lang.String) {
@@ -2438,9 +2340,7 @@ public final class Service {
      * </pre>
      *
      * <code>string q = 5;</code>
-     * @return The bytes for q.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getQBytes() {
       java.lang.Object ref = q_;
@@ -2463,9 +2363,7 @@ public final class Service {
      * </pre>
      *
      * <code>string view = 6;</code>
-     * @return The view.
      */
-    @java.lang.Override
     public java.lang.String getView() {
       java.lang.Object ref = view_;
       if (ref instanceof java.lang.String) {
@@ -2484,9 +2382,7 @@ public final class Service {
      * </pre>
      *
      * <code>string view = 6;</code>
-     * @return The bytes for view.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getViewBytes() {
       java.lang.Object ref = view_;
@@ -2895,7 +2791,6 @@ public final class Service {
        * </pre>
        *
        * <code>string fields = 1;</code>
-       * @return The fields.
        */
       public java.lang.String getFields() {
         java.lang.Object ref = fields_;
@@ -2915,7 +2810,6 @@ public final class Service {
        * </pre>
        *
        * <code>string fields = 1;</code>
-       * @return The bytes for fields.
        */
       public com.google.protobuf.ByteString
           getFieldsBytes() {
@@ -2936,8 +2830,6 @@ public final class Service {
        * </pre>
        *
        * <code>string fields = 1;</code>
-       * @param value The fields to set.
-       * @return This builder for chaining.
        */
       public Builder setFields(
           java.lang.String value) {
@@ -2955,7 +2847,6 @@ public final class Service {
        * </pre>
        *
        * <code>string fields = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearFields() {
         
@@ -2969,8 +2860,6 @@ public final class Service {
        * </pre>
        *
        * <code>string fields = 1;</code>
-       * @param value The bytes for fields to set.
-       * @return This builder for chaining.
        */
       public Builder setFieldsBytes(
           com.google.protobuf.ByteString value) {
@@ -2991,7 +2880,6 @@ public final class Service {
        * </pre>
        *
        * <code>string filter = 2;</code>
-       * @return The filter.
        */
       public java.lang.String getFilter() {
         java.lang.Object ref = filter_;
@@ -3011,7 +2899,6 @@ public final class Service {
        * </pre>
        *
        * <code>string filter = 2;</code>
-       * @return The bytes for filter.
        */
       public com.google.protobuf.ByteString
           getFilterBytes() {
@@ -3032,8 +2919,6 @@ public final class Service {
        * </pre>
        *
        * <code>string filter = 2;</code>
-       * @param value The filter to set.
-       * @return This builder for chaining.
        */
       public Builder setFilter(
           java.lang.String value) {
@@ -3051,7 +2936,6 @@ public final class Service {
        * </pre>
        *
        * <code>string filter = 2;</code>
-       * @return This builder for chaining.
        */
       public Builder clearFilter() {
         
@@ -3065,8 +2949,6 @@ public final class Service {
        * </pre>
        *
        * <code>string filter = 2;</code>
-       * @param value The bytes for filter to set.
-       * @return This builder for chaining.
        */
       public Builder setFilterBytes(
           com.google.protobuf.ByteString value) {
@@ -3087,7 +2969,6 @@ public final class Service {
        * </pre>
        *
        * <code>string order_by = 3;</code>
-       * @return The orderBy.
        */
       public java.lang.String getOrderBy() {
         java.lang.Object ref = orderBy_;
@@ -3107,7 +2988,6 @@ public final class Service {
        * </pre>
        *
        * <code>string order_by = 3;</code>
-       * @return The bytes for orderBy.
        */
       public com.google.protobuf.ByteString
           getOrderByBytes() {
@@ -3128,8 +3008,6 @@ public final class Service {
        * </pre>
        *
        * <code>string order_by = 3;</code>
-       * @param value The orderBy to set.
-       * @return This builder for chaining.
        */
       public Builder setOrderBy(
           java.lang.String value) {
@@ -3147,7 +3025,6 @@ public final class Service {
        * </pre>
        *
        * <code>string order_by = 3;</code>
-       * @return This builder for chaining.
        */
       public Builder clearOrderBy() {
         
@@ -3161,8 +3038,6 @@ public final class Service {
        * </pre>
        *
        * <code>string order_by = 3;</code>
-       * @param value The bytes for orderBy to set.
-       * @return This builder for chaining.
        */
       public Builder setOrderByBytes(
           com.google.protobuf.ByteString value) {
@@ -3185,7 +3060,6 @@ public final class Service {
        * </pre>
        *
        * <code>string page_size = 4;</code>
-       * @return The pageSize.
        */
       public java.lang.String getPageSize() {
         java.lang.Object ref = pageSize_;
@@ -3207,7 +3081,6 @@ public final class Service {
        * </pre>
        *
        * <code>string page_size = 4;</code>
-       * @return The bytes for pageSize.
        */
       public com.google.protobuf.ByteString
           getPageSizeBytes() {
@@ -3230,8 +3103,6 @@ public final class Service {
        * </pre>
        *
        * <code>string page_size = 4;</code>
-       * @param value The pageSize to set.
-       * @return This builder for chaining.
        */
       public Builder setPageSize(
           java.lang.String value) {
@@ -3251,7 +3122,6 @@ public final class Service {
        * </pre>
        *
        * <code>string page_size = 4;</code>
-       * @return This builder for chaining.
        */
       public Builder clearPageSize() {
         
@@ -3267,8 +3137,6 @@ public final class Service {
        * </pre>
        *
        * <code>string page_size = 4;</code>
-       * @param value The bytes for pageSize to set.
-       * @return This builder for chaining.
        */
       public Builder setPageSizeBytes(
           com.google.protobuf.ByteString value) {
@@ -3289,7 +3157,6 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 5;</code>
-       * @return The q.
        */
       public java.lang.String getQ() {
         java.lang.Object ref = q_;
@@ -3309,7 +3176,6 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 5;</code>
-       * @return The bytes for q.
        */
       public com.google.protobuf.ByteString
           getQBytes() {
@@ -3330,8 +3196,6 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 5;</code>
-       * @param value The q to set.
-       * @return This builder for chaining.
        */
       public Builder setQ(
           java.lang.String value) {
@@ -3349,7 +3213,6 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 5;</code>
-       * @return This builder for chaining.
        */
       public Builder clearQ() {
         
@@ -3363,8 +3226,6 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 5;</code>
-       * @param value The bytes for q to set.
-       * @return This builder for chaining.
        */
       public Builder setQBytes(
           com.google.protobuf.ByteString value) {
@@ -3385,7 +3246,6 @@ public final class Service {
        * </pre>
        *
        * <code>string view = 6;</code>
-       * @return The view.
        */
       public java.lang.String getView() {
         java.lang.Object ref = view_;
@@ -3405,7 +3265,6 @@ public final class Service {
        * </pre>
        *
        * <code>string view = 6;</code>
-       * @return The bytes for view.
        */
       public com.google.protobuf.ByteString
           getViewBytes() {
@@ -3426,8 +3285,6 @@ public final class Service {
        * </pre>
        *
        * <code>string view = 6;</code>
-       * @param value The view to set.
-       * @return This builder for chaining.
        */
       public Builder setView(
           java.lang.String value) {
@@ -3445,7 +3302,6 @@ public final class Service {
        * </pre>
        *
        * <code>string view = 6;</code>
-       * @return This builder for chaining.
        */
       public Builder clearView() {
         
@@ -3459,8 +3315,6 @@ public final class Service {
        * </pre>
        *
        * <code>string view = 6;</code>
-       * @param value The bytes for view to set.
-       * @return This builder for chaining.
        */
       public Builder setViewBytes(
           com.google.protobuf.ByteString value) {
@@ -3532,24 +3386,20 @@ public final class Service {
 
     /**
      * <code>string tsk = 1;</code>
-     * @return The tsk.
      */
     java.lang.String getTsk();
     /**
      * <code>string tsk = 1;</code>
-     * @return The bytes for tsk.
      */
     com.google.protobuf.ByteString
         getTskBytes();
 
     /**
      * <code>.task.Task data = 2;</code>
-     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
      * <code>.task.Task data = 2;</code>
-     * @return The data.
      */
     task.TaskOuterClass.Task getData();
     /**
@@ -3560,7 +3410,7 @@ public final class Service {
   /**
    * Protobuf type {@code taskservice.UpdateTaskServiceRequest}
    */
-  public static final class UpdateTaskServiceRequest extends
+  public  static final class UpdateTaskServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:taskservice.UpdateTaskServiceRequest)
       UpdateTaskServiceRequestOrBuilder {
@@ -3571,13 +3421,6 @@ public final class Service {
     }
     private UpdateTaskServiceRequest() {
       tsk_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new UpdateTaskServiceRequest();
     }
 
     @java.lang.Override
@@ -3593,6 +3436,7 @@ public final class Service {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3658,9 +3502,7 @@ public final class Service {
     private volatile java.lang.Object tsk_;
     /**
      * <code>string tsk = 1;</code>
-     * @return The tsk.
      */
-    @java.lang.Override
     public java.lang.String getTsk() {
       java.lang.Object ref = tsk_;
       if (ref instanceof java.lang.String) {
@@ -3675,9 +3517,7 @@ public final class Service {
     }
     /**
      * <code>string tsk = 1;</code>
-     * @return The bytes for tsk.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getTskBytes() {
       java.lang.Object ref = tsk_;
@@ -3696,24 +3536,19 @@ public final class Service {
     private task.TaskOuterClass.Task data_;
     /**
      * <code>.task.Task data = 2;</code>
-     * @return Whether the data field is set.
      */
-    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
     /**
      * <code>.task.Task data = 2;</code>
-     * @return The data.
      */
-    @java.lang.Override
     public task.TaskOuterClass.Task getData() {
       return data_ == null ? task.TaskOuterClass.Task.getDefaultInstance() : data_;
     }
     /**
      * <code>.task.Task data = 2;</code>
      */
-    @java.lang.Override
     public task.TaskOuterClass.TaskOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -4053,7 +3888,6 @@ public final class Service {
       private java.lang.Object tsk_ = "";
       /**
        * <code>string tsk = 1;</code>
-       * @return The tsk.
        */
       public java.lang.String getTsk() {
         java.lang.Object ref = tsk_;
@@ -4069,7 +3903,6 @@ public final class Service {
       }
       /**
        * <code>string tsk = 1;</code>
-       * @return The bytes for tsk.
        */
       public com.google.protobuf.ByteString
           getTskBytes() {
@@ -4086,8 +3919,6 @@ public final class Service {
       }
       /**
        * <code>string tsk = 1;</code>
-       * @param value The tsk to set.
-       * @return This builder for chaining.
        */
       public Builder setTsk(
           java.lang.String value) {
@@ -4101,7 +3932,6 @@ public final class Service {
       }
       /**
        * <code>string tsk = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearTsk() {
         
@@ -4111,8 +3941,6 @@ public final class Service {
       }
       /**
        * <code>string tsk = 1;</code>
-       * @param value The bytes for tsk to set.
-       * @return This builder for chaining.
        */
       public Builder setTskBytes(
           com.google.protobuf.ByteString value) {
@@ -4131,14 +3959,12 @@ public final class Service {
           task.TaskOuterClass.Task, task.TaskOuterClass.Task.Builder, task.TaskOuterClass.TaskOrBuilder> dataBuilder_;
       /**
        * <code>.task.Task data = 2;</code>
-       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
       }
       /**
        * <code>.task.Task data = 2;</code>
-       * @return The data.
        */
       public task.TaskOuterClass.Task getData() {
         if (dataBuilder_ == null) {
@@ -4359,13 +4185,21 @@ public final class Service {
       "y\")\202\323\344\223\002#\022!/mockdata/tasks/{tsk}/update." +
       "jsonB\016Z\014/taskserviceb\006proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
           task.TaskOuterClass.getDescriptor(),
           google.protobuf.EmptyOuterClass.getDescriptor(),
-        });
+        }, assigner);
     internal_static_taskservice_CreateTaskServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_taskservice_CreateTaskServiceRequest_fieldAccessorTable = new

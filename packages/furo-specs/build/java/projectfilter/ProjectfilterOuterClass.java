@@ -24,7 +24,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.projectfilter.Projectfilter data = 1;</code>
-     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
@@ -33,7 +32,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.projectfilter.Projectfilter data = 1;</code>
-     * @return The data.
      */
     projectfilter.ProjectfilterOuterClass.Projectfilter getData();
     /**
@@ -95,7 +93,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
-     * @return Whether the meta field is set.
      */
     boolean hasMeta();
     /**
@@ -104,7 +101,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
-     * @return The meta.
      */
     furo.MetaOuterClass.Meta getMeta();
     /**
@@ -123,7 +119,7 @@ public final class ProjectfilterOuterClass {
    *
    * Protobuf type {@code projectfilter.ProjectfilterEntity}
    */
-  public static final class ProjectfilterEntity extends
+  public  static final class ProjectfilterEntity extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:projectfilter.ProjectfilterEntity)
       ProjectfilterEntityOrBuilder {
@@ -134,13 +130,6 @@ public final class ProjectfilterOuterClass {
     }
     private ProjectfilterEntity() {
       links_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ProjectfilterEntity();
     }
 
     @java.lang.Override
@@ -181,9 +170,9 @@ public final class ProjectfilterOuterClass {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 links_ = new java.util.ArrayList<furo.LinkOuterClass.Link>();
-                mutable_bitField0_ |= 0x00000001;
+                mutable_bitField0_ |= 0x00000002;
               }
               links_.add(
                   input.readMessage(furo.LinkOuterClass.Link.parser(), extensionRegistry));
@@ -217,7 +206,7 @@ public final class ProjectfilterOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           links_ = java.util.Collections.unmodifiableList(links_);
         }
         this.unknownFields = unknownFields.build();
@@ -237,6 +226,7 @@ public final class ProjectfilterOuterClass {
               projectfilter.ProjectfilterOuterClass.ProjectfilterEntity.class, projectfilter.ProjectfilterOuterClass.ProjectfilterEntity.Builder.class);
     }
 
+    private int bitField0_;
     public static final int DATA_FIELD_NUMBER = 1;
     private projectfilter.ProjectfilterOuterClass.Projectfilter data_;
     /**
@@ -245,9 +235,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.projectfilter.Projectfilter data = 1;</code>
-     * @return Whether the data field is set.
      */
-    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
@@ -257,9 +245,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.projectfilter.Projectfilter data = 1;</code>
-     * @return The data.
      */
-    @java.lang.Override
     public projectfilter.ProjectfilterOuterClass.Projectfilter getData() {
       return data_ == null ? projectfilter.ProjectfilterOuterClass.Projectfilter.getDefaultInstance() : data_;
     }
@@ -270,7 +256,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>.projectfilter.Projectfilter data = 1;</code>
      */
-    @java.lang.Override
     public projectfilter.ProjectfilterOuterClass.ProjectfilterOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -284,7 +269,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public java.util.List<furo.LinkOuterClass.Link> getLinksList() {
       return links_;
     }
@@ -295,7 +279,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public java.util.List<? extends furo.LinkOuterClass.LinkOrBuilder> 
         getLinksOrBuilderList() {
       return links_;
@@ -307,7 +290,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public int getLinksCount() {
       return links_.size();
     }
@@ -318,7 +300,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public furo.LinkOuterClass.Link getLinks(int index) {
       return links_.get(index);
     }
@@ -329,7 +310,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public furo.LinkOuterClass.LinkOrBuilder getLinksOrBuilder(
         int index) {
       return links_.get(index);
@@ -343,9 +323,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
-     * @return Whether the meta field is set.
      */
-    @java.lang.Override
     public boolean hasMeta() {
       return meta_ != null;
     }
@@ -355,9 +333,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
-     * @return The meta.
      */
-    @java.lang.Override
     public furo.MetaOuterClass.Meta getMeta() {
       return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
     }
@@ -368,7 +344,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>.furo.Meta meta = 3;</code>
      */
-    @java.lang.Override
     public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
       return getMeta();
     }
@@ -613,7 +588,7 @@ public final class ProjectfilterOuterClass {
         }
         if (linksBuilder_ == null) {
           links_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           linksBuilder_.clear();
         }
@@ -650,15 +625,16 @@ public final class ProjectfilterOuterClass {
       public projectfilter.ProjectfilterOuterClass.ProjectfilterEntity buildPartial() {
         projectfilter.ProjectfilterOuterClass.ProjectfilterEntity result = new projectfilter.ProjectfilterOuterClass.ProjectfilterEntity(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (dataBuilder_ == null) {
           result.data_ = data_;
         } else {
           result.data_ = dataBuilder_.build();
         }
         if (linksBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             links_ = java.util.Collections.unmodifiableList(links_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.links_ = links_;
         } else {
@@ -669,6 +645,7 @@ public final class ProjectfilterOuterClass {
         } else {
           result.meta_ = metaBuilder_.build();
         }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -724,7 +701,7 @@ public final class ProjectfilterOuterClass {
           if (!other.links_.isEmpty()) {
             if (links_.isEmpty()) {
               links_ = other.links_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureLinksIsMutable();
               links_.addAll(other.links_);
@@ -737,7 +714,7 @@ public final class ProjectfilterOuterClass {
               linksBuilder_.dispose();
               linksBuilder_ = null;
               links_ = other.links_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               linksBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getLinksFieldBuilder() : null;
@@ -788,7 +765,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>.projectfilter.Projectfilter data = 1;</code>
-       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
@@ -799,7 +775,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>.projectfilter.Projectfilter data = 1;</code>
-       * @return The data.
        */
       public projectfilter.ProjectfilterOuterClass.Projectfilter getData() {
         if (dataBuilder_ == null) {
@@ -937,9 +912,9 @@ public final class ProjectfilterOuterClass {
       private java.util.List<furo.LinkOuterClass.Link> links_ =
         java.util.Collections.emptyList();
       private void ensureLinksIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           links_ = new java.util.ArrayList<furo.LinkOuterClass.Link>(links_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -1133,7 +1108,7 @@ public final class ProjectfilterOuterClass {
       public Builder clearLinks() {
         if (linksBuilder_ == null) {
           links_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           linksBuilder_.clear();
@@ -1238,7 +1213,7 @@ public final class ProjectfilterOuterClass {
           linksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               furo.LinkOuterClass.Link, furo.LinkOuterClass.Link.Builder, furo.LinkOuterClass.LinkOrBuilder>(
                   links_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           links_ = null;
@@ -1255,7 +1230,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 3;</code>
-       * @return Whether the meta field is set.
        */
       public boolean hasMeta() {
         return metaBuilder_ != null || meta_ != null;
@@ -1266,7 +1240,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 3;</code>
-       * @return The meta.
        */
       public furo.MetaOuterClass.Meta getMeta() {
         if (metaBuilder_ == null) {
@@ -1463,7 +1436,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.google.type.Money cost_limit = 5;</code>
-     * @return Whether the costLimit field is set.
      */
     boolean hasCostLimit();
     /**
@@ -1472,7 +1444,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.google.type.Money cost_limit = 5;</code>
-     * @return The costLimit.
      */
     google.type.MoneyOuterClass.Money getCostLimit();
     /**
@@ -1490,7 +1461,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>string description = 1;</code>
-     * @return The description.
      */
     java.lang.String getDescription();
     /**
@@ -1499,7 +1469,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>string description = 1;</code>
-     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
@@ -1510,7 +1479,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.google.type.Date end = 3;</code>
-     * @return Whether the end field is set.
      */
     boolean hasEnd();
     /**
@@ -1519,7 +1487,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.google.type.Date end = 3;</code>
-     * @return The end.
      */
     google.type.DateOuterClass.Date getEnd();
     /**
@@ -1537,7 +1504,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.furo.Reference members = 4;</code>
-     * @return Whether the members field is set.
      */
     boolean hasMembers();
     /**
@@ -1546,7 +1512,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.furo.Reference members = 4;</code>
-     * @return The members.
      */
     furo.ReferenceOuterClass.Reference getMembers();
     /**
@@ -1564,7 +1529,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.google.type.Date start = 2;</code>
-     * @return Whether the start field is set.
      */
     boolean hasStart();
     /**
@@ -1573,7 +1537,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.google.type.Date start = 2;</code>
-     * @return The start.
      */
     google.type.DateOuterClass.Date getStart();
     /**
@@ -1592,7 +1555,7 @@ public final class ProjectfilterOuterClass {
    *
    * Protobuf type {@code projectfilter.Projectfilter}
    */
-  public static final class Projectfilter extends
+  public  static final class Projectfilter extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:projectfilter.Projectfilter)
       ProjectfilterOrBuilder {
@@ -1603,13 +1566,6 @@ public final class ProjectfilterOuterClass {
     }
     private Projectfilter() {
       description_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Projectfilter();
     }
 
     @java.lang.Override
@@ -1625,6 +1581,7 @@ public final class ProjectfilterOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1733,9 +1690,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.google.type.Money cost_limit = 5;</code>
-     * @return Whether the costLimit field is set.
      */
-    @java.lang.Override
     public boolean hasCostLimit() {
       return costLimit_ != null;
     }
@@ -1745,9 +1700,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.google.type.Money cost_limit = 5;</code>
-     * @return The costLimit.
      */
-    @java.lang.Override
     public google.type.MoneyOuterClass.Money getCostLimit() {
       return costLimit_ == null ? google.type.MoneyOuterClass.Money.getDefaultInstance() : costLimit_;
     }
@@ -1758,7 +1711,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>.google.type.Money cost_limit = 5;</code>
      */
-    @java.lang.Override
     public google.type.MoneyOuterClass.MoneyOrBuilder getCostLimitOrBuilder() {
       return getCostLimit();
     }
@@ -1771,9 +1723,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>string description = 1;</code>
-     * @return The description.
      */
-    @java.lang.Override
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
       if (ref instanceof java.lang.String) {
@@ -1792,9 +1742,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>string description = 1;</code>
-     * @return The bytes for description.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
       java.lang.Object ref = description_;
@@ -1817,9 +1765,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.google.type.Date end = 3;</code>
-     * @return Whether the end field is set.
      */
-    @java.lang.Override
     public boolean hasEnd() {
       return end_ != null;
     }
@@ -1829,9 +1775,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.google.type.Date end = 3;</code>
-     * @return The end.
      */
-    @java.lang.Override
     public google.type.DateOuterClass.Date getEnd() {
       return end_ == null ? google.type.DateOuterClass.Date.getDefaultInstance() : end_;
     }
@@ -1842,7 +1786,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>.google.type.Date end = 3;</code>
      */
-    @java.lang.Override
     public google.type.DateOuterClass.DateOrBuilder getEndOrBuilder() {
       return getEnd();
     }
@@ -1855,9 +1798,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.furo.Reference members = 4;</code>
-     * @return Whether the members field is set.
      */
-    @java.lang.Override
     public boolean hasMembers() {
       return members_ != null;
     }
@@ -1867,9 +1808,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.furo.Reference members = 4;</code>
-     * @return The members.
      */
-    @java.lang.Override
     public furo.ReferenceOuterClass.Reference getMembers() {
       return members_ == null ? furo.ReferenceOuterClass.Reference.getDefaultInstance() : members_;
     }
@@ -1880,7 +1819,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>.furo.Reference members = 4;</code>
      */
-    @java.lang.Override
     public furo.ReferenceOuterClass.ReferenceOrBuilder getMembersOrBuilder() {
       return getMembers();
     }
@@ -1893,9 +1831,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.google.type.Date start = 2;</code>
-     * @return Whether the start field is set.
      */
-    @java.lang.Override
     public boolean hasStart() {
       return start_ != null;
     }
@@ -1905,9 +1841,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.google.type.Date start = 2;</code>
-     * @return The start.
      */
-    @java.lang.Override
     public google.type.DateOuterClass.Date getStart() {
       return start_ == null ? google.type.DateOuterClass.Date.getDefaultInstance() : start_;
     }
@@ -1918,7 +1852,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>.google.type.Date start = 2;</code>
      */
-    @java.lang.Override
     public google.type.DateOuterClass.DateOrBuilder getStartOrBuilder() {
       return getStart();
     }
@@ -2358,7 +2291,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>.google.type.Money cost_limit = 5;</code>
-       * @return Whether the costLimit field is set.
        */
       public boolean hasCostLimit() {
         return costLimitBuilder_ != null || costLimit_ != null;
@@ -2369,7 +2301,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>.google.type.Money cost_limit = 5;</code>
-       * @return The costLimit.
        */
       public google.type.MoneyOuterClass.Money getCostLimit() {
         if (costLimitBuilder_ == null) {
@@ -2511,7 +2442,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>string description = 1;</code>
-       * @return The description.
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -2531,7 +2461,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>string description = 1;</code>
-       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -2552,8 +2481,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>string description = 1;</code>
-       * @param value The description to set.
-       * @return This builder for chaining.
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -2571,7 +2498,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>string description = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearDescription() {
         
@@ -2585,8 +2511,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>string description = 1;</code>
-       * @param value The bytes for description to set.
-       * @return This builder for chaining.
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -2609,7 +2533,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>.google.type.Date end = 3;</code>
-       * @return Whether the end field is set.
        */
       public boolean hasEnd() {
         return endBuilder_ != null || end_ != null;
@@ -2620,7 +2543,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>.google.type.Date end = 3;</code>
-       * @return The end.
        */
       public google.type.DateOuterClass.Date getEnd() {
         if (endBuilder_ == null) {
@@ -2764,7 +2686,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>.furo.Reference members = 4;</code>
-       * @return Whether the members field is set.
        */
       public boolean hasMembers() {
         return membersBuilder_ != null || members_ != null;
@@ -2775,7 +2696,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>.furo.Reference members = 4;</code>
-       * @return The members.
        */
       public furo.ReferenceOuterClass.Reference getMembers() {
         if (membersBuilder_ == null) {
@@ -2919,7 +2839,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>.google.type.Date start = 2;</code>
-       * @return Whether the start field is set.
        */
       public boolean hasStart() {
         return startBuilder_ != null || start_ != null;
@@ -2930,7 +2849,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>.google.type.Date start = 2;</code>
-       * @return The start.
        */
       public google.type.DateOuterClass.Date getStart() {
         if (startBuilder_ == null) {
@@ -3215,7 +3133,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
-     * @return Whether the meta field is set.
      */
     boolean hasMeta();
     /**
@@ -3224,7 +3141,6 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
-     * @return The meta.
      */
     furo.MetaOuterClass.Meta getMeta();
     /**
@@ -3243,7 +3159,7 @@ public final class ProjectfilterOuterClass {
    *
    * Protobuf type {@code projectfilter.ProjectfilterCollection}
    */
-  public static final class ProjectfilterCollection extends
+  public  static final class ProjectfilterCollection extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:projectfilter.ProjectfilterCollection)
       ProjectfilterCollectionOrBuilder {
@@ -3255,13 +3171,6 @@ public final class ProjectfilterOuterClass {
     private ProjectfilterCollection() {
       entities_ = java.util.Collections.emptyList();
       links_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ProjectfilterCollection();
     }
 
     @java.lang.Override
@@ -3357,6 +3266,7 @@ public final class ProjectfilterOuterClass {
               projectfilter.ProjectfilterOuterClass.ProjectfilterCollection.class, projectfilter.ProjectfilterOuterClass.ProjectfilterCollection.Builder.class);
     }
 
+    private int bitField0_;
     public static final int ENTITIES_FIELD_NUMBER = 4;
     private java.util.List<projectfilter.ProjectfilterOuterClass.ProjectfilterEntity> entities_;
     /**
@@ -3366,7 +3276,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .projectfilter.ProjectfilterEntity entities = 4;</code>
      */
-    @java.lang.Override
     public java.util.List<projectfilter.ProjectfilterOuterClass.ProjectfilterEntity> getEntitiesList() {
       return entities_;
     }
@@ -3377,7 +3286,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .projectfilter.ProjectfilterEntity entities = 4;</code>
      */
-    @java.lang.Override
     public java.util.List<? extends projectfilter.ProjectfilterOuterClass.ProjectfilterEntityOrBuilder> 
         getEntitiesOrBuilderList() {
       return entities_;
@@ -3389,7 +3297,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .projectfilter.ProjectfilterEntity entities = 4;</code>
      */
-    @java.lang.Override
     public int getEntitiesCount() {
       return entities_.size();
     }
@@ -3400,7 +3307,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .projectfilter.ProjectfilterEntity entities = 4;</code>
      */
-    @java.lang.Override
     public projectfilter.ProjectfilterOuterClass.ProjectfilterEntity getEntities(int index) {
       return entities_.get(index);
     }
@@ -3411,7 +3317,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .projectfilter.ProjectfilterEntity entities = 4;</code>
      */
-    @java.lang.Override
     public projectfilter.ProjectfilterOuterClass.ProjectfilterEntityOrBuilder getEntitiesOrBuilder(
         int index) {
       return entities_.get(index);
@@ -3426,7 +3331,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
-    @java.lang.Override
     public java.util.List<furo.LinkOuterClass.Link> getLinksList() {
       return links_;
     }
@@ -3437,7 +3341,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
-    @java.lang.Override
     public java.util.List<? extends furo.LinkOuterClass.LinkOrBuilder> 
         getLinksOrBuilderList() {
       return links_;
@@ -3449,7 +3352,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
-    @java.lang.Override
     public int getLinksCount() {
       return links_.size();
     }
@@ -3460,7 +3362,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
-    @java.lang.Override
     public furo.LinkOuterClass.Link getLinks(int index) {
       return links_.get(index);
     }
@@ -3471,7 +3372,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
-    @java.lang.Override
     public furo.LinkOuterClass.LinkOrBuilder getLinksOrBuilder(
         int index) {
       return links_.get(index);
@@ -3485,9 +3385,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
-     * @return Whether the meta field is set.
      */
-    @java.lang.Override
     public boolean hasMeta() {
       return meta_ != null;
     }
@@ -3497,9 +3395,7 @@ public final class ProjectfilterOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
-     * @return The meta.
      */
-    @java.lang.Override
     public furo.MetaOuterClass.Meta getMeta() {
       return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
     }
@@ -3510,7 +3406,6 @@ public final class ProjectfilterOuterClass {
      *
      * <code>.furo.Meta meta = 2;</code>
      */
-    @java.lang.Override
     public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
       return getMeta();
     }
@@ -3790,6 +3685,7 @@ public final class ProjectfilterOuterClass {
       public projectfilter.ProjectfilterOuterClass.ProjectfilterCollection buildPartial() {
         projectfilter.ProjectfilterOuterClass.ProjectfilterCollection result = new projectfilter.ProjectfilterOuterClass.ProjectfilterCollection(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (entitiesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             entities_ = java.util.Collections.unmodifiableList(entities_);
@@ -3813,6 +3709,7 @@ public final class ProjectfilterOuterClass {
         } else {
           result.meta_ = metaBuilder_.build();
         }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -4579,7 +4476,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 2;</code>
-       * @return Whether the meta field is set.
        */
       public boolean hasMeta() {
         return metaBuilder_ != null || meta_ != null;
@@ -4590,7 +4486,6 @@ public final class ProjectfilterOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 2;</code>
-       * @return The meta.
        */
       public furo.MetaOuterClass.Meta getMeta() {
         if (metaBuilder_ == null) {
@@ -4817,7 +4712,15 @@ public final class ProjectfilterOuterClass {
       "jectfilterEntity\022\031\n\005links\030\003 \003(\0132\n.furo.L" +
       "ink\022\030\n\004meta\030\002 \001(\0132\n.furo.Metab\006proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           furo.MetaOuterClass.getDescriptor(),
@@ -4825,7 +4728,7 @@ public final class ProjectfilterOuterClass {
           google.type.DateOuterClass.getDescriptor(),
           google.type.MoneyOuterClass.getDescriptor(),
           furo.ReferenceOuterClass.getDescriptor(),
-        });
+        }, assigner);
     internal_static_projectfilter_ProjectfilterEntity_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_projectfilter_ProjectfilterEntity_fieldAccessorTable = new

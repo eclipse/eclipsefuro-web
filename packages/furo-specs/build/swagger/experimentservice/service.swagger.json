@@ -4,6 +4,10 @@
     "title": "experimentservice/service.proto",
     "version": "version not set"
   },
+  "schemes": [
+    "http",
+    "https"
+  ],
   "consumes": [
     "application/json"
   ],
@@ -14,18 +18,12 @@
     "/mockdata/experiments": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",
-        "operationId": "ExperimentService_ListExperiments",
+        "operationId": "ListExperiments",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/experimentExperimentCollection"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -44,18 +42,12 @@
       },
       "post": {
         "summary": "Creates a new Experiment",
-        "operationId": "ExperimentService_CreateExperiment",
+        "operationId": "CreateExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/experimentExperimentEntity"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -77,18 +69,12 @@
     "/mockdata/experiments/1:release": {
       "post": {
         "summary": "Releases experiment",
-        "operationId": "ExperimentService_ReleaseExperiment",
+        "operationId": "ReleaseExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -110,18 +96,12 @@
     "/mockdata/experiments/{exp}": {
       "delete": {
         "summary": "Delete a Experiment",
-        "operationId": "ExperimentService_DeleteExperiment",
+        "operationId": "DeleteExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -139,18 +119,12 @@
       },
       "patch": {
         "summary": "Updates a Experiment, partial updates are supported",
-        "operationId": "ExperimentService_UpdateExperiment",
+        "operationId": "UpdateExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/experimentExperimentEntity"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -178,18 +152,12 @@
     "/mockdata/experiments/{exp}/get.json": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",
-        "operationId": "ExperimentService_GetExperiment",
+        "operationId": "GetExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/experimentExperimentEntity"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -504,9 +472,21 @@
           "type": "string",
           "title": "String representation of the property"
         },
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional attribute flags e.g. is-overwritable"
+        },
         "id": {
           "type": "string",
           "title": "Id of the property"
+        },
+        "is_overwritten": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "Optional flag indicating that the property differs from the original value"
         },
         "meta": {
           "$ref": "#/definitions/furoMeta",
@@ -540,27 +520,6 @@
         }
       },
       "title": "A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto"
-    },
-    "runtimeError": {
-      "type": "object",
-      "properties": {
-        "error": {
-          "type": "string"
-        },
-        "code": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "message": {
-          "type": "string"
-        },
-        "details": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protobufAny"
-          }
-        }
-      }
     },
     "typeDate": {
       "type": "object",

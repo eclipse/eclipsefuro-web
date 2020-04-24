@@ -6,7 +6,7 @@ package taskmanager;
 /**
  * Protobuf type {@code taskmanager.GetAuthServiceRequest}
  */
-public final class GetAuthServiceRequest extends
+public  final class GetAuthServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:taskmanager.GetAuthServiceRequest)
     GetAuthServiceRequestOrBuilder {
@@ -17,13 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private GetAuthServiceRequest() {
     uid_ = "";
-  }
-
-  @java.lang.Override
-  @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
-    return new GetAuthServiceRequest();
   }
 
   @java.lang.Override
@@ -39,6 +32,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -91,9 +85,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object uid_;
   /**
    * <code>string uid = 1;</code>
-   * @return The uid.
    */
-  @java.lang.Override
   public java.lang.String getUid() {
     java.lang.Object ref = uid_;
     if (ref instanceof java.lang.String) {
@@ -108,9 +100,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string uid = 1;</code>
-   * @return The bytes for uid.
    */
-  @java.lang.Override
   public com.google.protobuf.ByteString
       getUidBytes() {
     java.lang.Object ref = uid_;
@@ -430,7 +420,6 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object uid_ = "";
     /**
      * <code>string uid = 1;</code>
-     * @return The uid.
      */
     public java.lang.String getUid() {
       java.lang.Object ref = uid_;
@@ -446,7 +435,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string uid = 1;</code>
-     * @return The bytes for uid.
      */
     public com.google.protobuf.ByteString
         getUidBytes() {
@@ -463,8 +451,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string uid = 1;</code>
-     * @param value The uid to set.
-     * @return This builder for chaining.
      */
     public Builder setUid(
         java.lang.String value) {
@@ -478,7 +464,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string uid = 1;</code>
-     * @return This builder for chaining.
      */
     public Builder clearUid() {
       
@@ -488,8 +473,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string uid = 1;</code>
-     * @param value The bytes for uid to set.
-     * @return This builder for chaining.
      */
     public Builder setUidBytes(
         com.google.protobuf.ByteString value) {

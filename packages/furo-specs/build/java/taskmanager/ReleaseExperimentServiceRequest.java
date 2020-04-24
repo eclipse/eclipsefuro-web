@@ -6,7 +6,7 @@ package taskmanager;
 /**
  * Protobuf type {@code taskmanager.ReleaseExperimentServiceRequest}
  */
-public final class ReleaseExperimentServiceRequest extends
+public  final class ReleaseExperimentServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:taskmanager.ReleaseExperimentServiceRequest)
     ReleaseExperimentServiceRequestOrBuilder {
@@ -16,13 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ReleaseExperimentServiceRequest() {
-  }
-
-  @java.lang.Override
-  @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
-    return new ReleaseExperimentServiceRequest();
   }
 
   @java.lang.Override
@@ -38,6 +31,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -97,24 +91,19 @@ private static final long serialVersionUID = 0L;
   private experiment.ExperimentOuterClass.ExperimentEntity data_;
   /**
    * <code>.experiment.ExperimentEntity data = 1;</code>
-   * @return Whether the data field is set.
    */
-  @java.lang.Override
   public boolean hasData() {
     return data_ != null;
   }
   /**
    * <code>.experiment.ExperimentEntity data = 1;</code>
-   * @return The data.
    */
-  @java.lang.Override
   public experiment.ExperimentOuterClass.ExperimentEntity getData() {
     return data_ == null ? experiment.ExperimentOuterClass.ExperimentEntity.getDefaultInstance() : data_;
   }
   /**
    * <code>.experiment.ExperimentEntity data = 1;</code>
    */
-  @java.lang.Override
   public experiment.ExperimentOuterClass.ExperimentEntityOrBuilder getDataOrBuilder() {
     return getData();
   }
@@ -439,14 +428,12 @@ private static final long serialVersionUID = 0L;
         experiment.ExperimentOuterClass.ExperimentEntity, experiment.ExperimentOuterClass.ExperimentEntity.Builder, experiment.ExperimentOuterClass.ExperimentEntityOrBuilder> dataBuilder_;
     /**
      * <code>.experiment.ExperimentEntity data = 1;</code>
-     * @return Whether the data field is set.
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
     }
     /**
      * <code>.experiment.ExperimentEntity data = 1;</code>
-     * @return The data.
      */
     public experiment.ExperimentOuterClass.ExperimentEntity getData() {
       if (dataBuilder_ == null) {

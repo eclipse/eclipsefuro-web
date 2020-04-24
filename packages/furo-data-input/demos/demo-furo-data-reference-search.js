@@ -62,6 +62,7 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
               <furo-data-reference-search
                 condensed
                 ƒ-bind-data="--entityReady(*.owner)"
+                required
                 max-items-to-display="2"
                 max-results-hint="only 2 items displayed..."
                 @-search="--term"

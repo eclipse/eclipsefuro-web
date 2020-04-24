@@ -24,7 +24,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string display_name = 1;</code>
-     * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
@@ -33,7 +32,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string display_name = 1;</code>
-     * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
@@ -44,7 +42,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string id = 2;</code>
-     * @return The id.
      */
     java.lang.String getId();
     /**
@@ -53,7 +50,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string id = 2;</code>
-     * @return The bytes for id.
      */
     com.google.protobuf.ByteString
         getIdBytes();
@@ -65,7 +61,7 @@ public final class PropertyOuterClass {
    *
    * Protobuf type {@code furo.StringOptionProperty}
    */
-  public static final class StringOptionProperty extends
+  public  static final class StringOptionProperty extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.StringOptionProperty)
       StringOptionPropertyOrBuilder {
@@ -77,13 +73,6 @@ public final class PropertyOuterClass {
     private StringOptionProperty() {
       displayName_ = "";
       id_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new StringOptionProperty();
     }
 
     @java.lang.Override
@@ -99,6 +88,7 @@ public final class PropertyOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -161,9 +151,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string display_name = 1;</code>
-     * @return The displayName.
      */
-    @java.lang.Override
     public java.lang.String getDisplayName() {
       java.lang.Object ref = displayName_;
       if (ref instanceof java.lang.String) {
@@ -182,9 +170,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string display_name = 1;</code>
-     * @return The bytes for displayName.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getDisplayNameBytes() {
       java.lang.Object ref = displayName_;
@@ -207,9 +193,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string id = 2;</code>
-     * @return The id.
      */
-    @java.lang.Override
     public java.lang.String getId() {
       java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
@@ -228,9 +212,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string id = 2;</code>
-     * @return The bytes for id.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getIdBytes() {
       java.lang.Object ref = id_;
@@ -575,7 +557,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @return The displayName.
        */
       public java.lang.String getDisplayName() {
         java.lang.Object ref = displayName_;
@@ -595,7 +576,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @return The bytes for displayName.
        */
       public com.google.protobuf.ByteString
           getDisplayNameBytes() {
@@ -616,8 +596,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @param value The displayName to set.
-       * @return This builder for chaining.
        */
       public Builder setDisplayName(
           java.lang.String value) {
@@ -635,7 +613,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
         
@@ -649,8 +626,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @param value The bytes for displayName to set.
-       * @return This builder for chaining.
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
@@ -671,7 +646,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string id = 2;</code>
-       * @return The id.
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -691,7 +665,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string id = 2;</code>
-       * @return The bytes for id.
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -712,8 +685,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string id = 2;</code>
-       * @param value The id to set.
-       * @return This builder for chaining.
        */
       public Builder setId(
           java.lang.String value) {
@@ -731,7 +702,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string id = 2;</code>
-       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -745,8 +715,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string id = 2;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -822,7 +790,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>float data = 1;</code>
-     * @return The data.
      */
     float getData();
   }
@@ -833,7 +800,7 @@ public final class PropertyOuterClass {
    *
    * Protobuf type {@code furo.NumberProperty}
    */
-  public static final class NumberProperty extends
+  public  static final class NumberProperty extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.NumberProperty)
       NumberPropertyOrBuilder {
@@ -843,13 +810,6 @@ public final class PropertyOuterClass {
       super(builder);
     }
     private NumberProperty() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new NumberProperty();
     }
 
     @java.lang.Override
@@ -865,6 +825,7 @@ public final class PropertyOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -920,9 +881,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>float data = 1;</code>
-     * @return The data.
      */
-    @java.lang.Override
     public float getData() {
       return data_;
     }
@@ -1242,9 +1201,7 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>float data = 1;</code>
-       * @return The data.
        */
-      @java.lang.Override
       public float getData() {
         return data_;
       }
@@ -1254,8 +1211,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>float data = 1;</code>
-       * @param value The data to set.
-       * @return This builder for chaining.
        */
       public Builder setData(float value) {
         
@@ -1269,7 +1224,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>float data = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearData() {
         
@@ -1340,7 +1294,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string data = 1;</code>
-     * @return The data.
      */
     java.lang.String getData();
     /**
@@ -1349,7 +1302,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string data = 1;</code>
-     * @return The bytes for data.
      */
     com.google.protobuf.ByteString
         getDataBytes();
@@ -1361,7 +1313,7 @@ public final class PropertyOuterClass {
    *
    * Protobuf type {@code furo.StringProperty}
    */
-  public static final class StringProperty extends
+  public  static final class StringProperty extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.StringProperty)
       StringPropertyOrBuilder {
@@ -1372,13 +1324,6 @@ public final class PropertyOuterClass {
     }
     private StringProperty() {
       data_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new StringProperty();
     }
 
     @java.lang.Override
@@ -1394,6 +1339,7 @@ public final class PropertyOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1450,9 +1396,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string data = 1;</code>
-     * @return The data.
      */
-    @java.lang.Override
     public java.lang.String getData() {
       java.lang.Object ref = data_;
       if (ref instanceof java.lang.String) {
@@ -1471,9 +1415,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string data = 1;</code>
-     * @return The bytes for data.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getDataBytes() {
       java.lang.Object ref = data_;
@@ -1801,7 +1743,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string data = 1;</code>
-       * @return The data.
        */
       public java.lang.String getData() {
         java.lang.Object ref = data_;
@@ -1821,7 +1762,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string data = 1;</code>
-       * @return The bytes for data.
        */
       public com.google.protobuf.ByteString
           getDataBytes() {
@@ -1842,8 +1782,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string data = 1;</code>
-       * @param value The data to set.
-       * @return This builder for chaining.
        */
       public Builder setData(
           java.lang.String value) {
@@ -1861,7 +1799,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string data = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearData() {
         
@@ -1875,8 +1812,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string data = 1;</code>
-       * @param value The bytes for data to set.
-       * @return This builder for chaining.
        */
       public Builder setDataBytes(
           com.google.protobuf.ByteString value) {
@@ -1952,7 +1887,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>int32 data = 1;</code>
-     * @return The data.
      */
     int getData();
   }
@@ -1963,7 +1897,7 @@ public final class PropertyOuterClass {
    *
    * Protobuf type {@code furo.IntegerProperty}
    */
-  public static final class IntegerProperty extends
+  public  static final class IntegerProperty extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.IntegerProperty)
       IntegerPropertyOrBuilder {
@@ -1973,13 +1907,6 @@ public final class PropertyOuterClass {
       super(builder);
     }
     private IntegerProperty() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new IntegerProperty();
     }
 
     @java.lang.Override
@@ -1995,6 +1922,7 @@ public final class PropertyOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2050,9 +1978,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>int32 data = 1;</code>
-     * @return The data.
      */
-    @java.lang.Override
     public int getData() {
       return data_;
     }
@@ -2370,9 +2296,7 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>int32 data = 1;</code>
-       * @return The data.
        */
-      @java.lang.Override
       public int getData() {
         return data_;
       }
@@ -2382,8 +2306,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>int32 data = 1;</code>
-       * @param value The data to set.
-       * @return This builder for chaining.
        */
       public Builder setData(int value) {
         
@@ -2397,7 +2319,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>int32 data = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearData() {
         
@@ -2468,7 +2389,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string code = 5;</code>
-     * @return The code.
      */
     java.lang.String getCode();
     /**
@@ -2477,7 +2397,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string code = 5;</code>
-     * @return The bytes for code.
      */
     com.google.protobuf.ByteString
         getCodeBytes();
@@ -2488,7 +2407,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.Any data = 3;</code>
-     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
@@ -2497,7 +2415,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.Any data = 3;</code>
-     * @return The data.
      */
     google.protobuf.AnyOuterClass.Any getData();
     /**
@@ -2515,7 +2432,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
-     * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
@@ -2524,10 +2440,44 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
-     * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
+
+    /**
+     * <pre>
+     * Optional attribute flags e.g. is-overwritable
+     * </pre>
+     *
+     * <code>repeated string flags = 6;</code>
+     */
+    java.util.List<java.lang.String>
+        getFlagsList();
+    /**
+     * <pre>
+     * Optional attribute flags e.g. is-overwritable
+     * </pre>
+     *
+     * <code>repeated string flags = 6;</code>
+     */
+    int getFlagsCount();
+    /**
+     * <pre>
+     * Optional attribute flags e.g. is-overwritable
+     * </pre>
+     *
+     * <code>repeated string flags = 6;</code>
+     */
+    java.lang.String getFlags(int index);
+    /**
+     * <pre>
+     * Optional attribute flags e.g. is-overwritable
+     * </pre>
+     *
+     * <code>repeated string flags = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getFlagsBytes(int index);
 
     /**
      * <pre>
@@ -2535,7 +2485,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
-     * @return The id.
      */
     java.lang.String getId();
     /**
@@ -2544,10 +2493,18 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
-     * @return The bytes for id.
      */
     com.google.protobuf.ByteString
         getIdBytes();
+
+    /**
+     * <pre>
+     * Optional flag indicating that the property differs from the original value
+     * </pre>
+     *
+     * <code>bool is_overwritten = 7;</code>
+     */
+    boolean getIsOverwritten();
 
     /**
      * <pre>
@@ -2555,7 +2512,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 4;</code>
-     * @return Whether the meta field is set.
      */
     boolean hasMeta();
     /**
@@ -2564,7 +2520,6 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 4;</code>
-     * @return The meta.
      */
     furo.MetaOuterClass.Meta getMeta();
     /**
@@ -2583,7 +2538,7 @@ public final class PropertyOuterClass {
    *
    * Protobuf type {@code furo.Property}
    */
-  public static final class Property extends
+  public  static final class Property extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.Property)
       PropertyOrBuilder {
@@ -2595,14 +2550,8 @@ public final class PropertyOuterClass {
     private Property() {
       code_ = "";
       displayName_ = "";
+      flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       id_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Property();
     }
 
     @java.lang.Override
@@ -2618,6 +2567,7 @@ public final class PropertyOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2672,6 +2622,20 @@ public final class PropertyOuterClass {
               code_ = s;
               break;
             }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+                flags_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              flags_.add(s);
+              break;
+            }
+            case 56: {
+
+              isOverwritten_ = input.readBool();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -2687,6 +2651,9 @@ public final class PropertyOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000008) != 0)) {
+          flags_ = flags_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -2704,6 +2671,7 @@ public final class PropertyOuterClass {
               furo.PropertyOuterClass.Property.class, furo.PropertyOuterClass.Property.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CODE_FIELD_NUMBER = 5;
     private volatile java.lang.Object code_;
     /**
@@ -2712,9 +2680,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string code = 5;</code>
-     * @return The code.
      */
-    @java.lang.Override
     public java.lang.String getCode() {
       java.lang.Object ref = code_;
       if (ref instanceof java.lang.String) {
@@ -2733,9 +2699,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string code = 5;</code>
-     * @return The bytes for code.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getCodeBytes() {
       java.lang.Object ref = code_;
@@ -2758,9 +2722,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.Any data = 3;</code>
-     * @return Whether the data field is set.
      */
-    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
@@ -2770,9 +2732,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.Any data = 3;</code>
-     * @return The data.
      */
-    @java.lang.Override
     public google.protobuf.AnyOuterClass.Any getData() {
       return data_ == null ? google.protobuf.AnyOuterClass.Any.getDefaultInstance() : data_;
     }
@@ -2783,7 +2743,6 @@ public final class PropertyOuterClass {
      *
      * <code>.google.protobuf.Any data = 3;</code>
      */
-    @java.lang.Override
     public google.protobuf.AnyOuterClass.AnyOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -2796,9 +2755,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
-     * @return The displayName.
      */
-    @java.lang.Override
     public java.lang.String getDisplayName() {
       java.lang.Object ref = displayName_;
       if (ref instanceof java.lang.String) {
@@ -2817,9 +2774,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
-     * @return The bytes for displayName.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getDisplayNameBytes() {
       java.lang.Object ref = displayName_;
@@ -2834,6 +2789,51 @@ public final class PropertyOuterClass {
       }
     }
 
+    public static final int FLAGS_FIELD_NUMBER = 6;
+    private com.google.protobuf.LazyStringList flags_;
+    /**
+     * <pre>
+     * Optional attribute flags e.g. is-overwritable
+     * </pre>
+     *
+     * <code>repeated string flags = 6;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getFlagsList() {
+      return flags_;
+    }
+    /**
+     * <pre>
+     * Optional attribute flags e.g. is-overwritable
+     * </pre>
+     *
+     * <code>repeated string flags = 6;</code>
+     */
+    public int getFlagsCount() {
+      return flags_.size();
+    }
+    /**
+     * <pre>
+     * Optional attribute flags e.g. is-overwritable
+     * </pre>
+     *
+     * <code>repeated string flags = 6;</code>
+     */
+    public java.lang.String getFlags(int index) {
+      return flags_.get(index);
+    }
+    /**
+     * <pre>
+     * Optional attribute flags e.g. is-overwritable
+     * </pre>
+     *
+     * <code>repeated string flags = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFlagsBytes(int index) {
+      return flags_.getByteString(index);
+    }
+
     public static final int ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object id_;
     /**
@@ -2842,9 +2842,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
-     * @return The id.
      */
-    @java.lang.Override
     public java.lang.String getId() {
       java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
@@ -2863,9 +2861,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
-     * @return The bytes for id.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getIdBytes() {
       java.lang.Object ref = id_;
@@ -2880,6 +2876,19 @@ public final class PropertyOuterClass {
       }
     }
 
+    public static final int IS_OVERWRITTEN_FIELD_NUMBER = 7;
+    private boolean isOverwritten_;
+    /**
+     * <pre>
+     * Optional flag indicating that the property differs from the original value
+     * </pre>
+     *
+     * <code>bool is_overwritten = 7;</code>
+     */
+    public boolean getIsOverwritten() {
+      return isOverwritten_;
+    }
+
     public static final int META_FIELD_NUMBER = 4;
     private furo.MetaOuterClass.Meta meta_;
     /**
@@ -2888,9 +2897,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 4;</code>
-     * @return Whether the meta field is set.
      */
-    @java.lang.Override
     public boolean hasMeta() {
       return meta_ != null;
     }
@@ -2900,9 +2907,7 @@ public final class PropertyOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 4;</code>
-     * @return The meta.
      */
-    @java.lang.Override
     public furo.MetaOuterClass.Meta getMeta() {
       return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
     }
@@ -2913,7 +2918,6 @@ public final class PropertyOuterClass {
      *
      * <code>.furo.Meta meta = 4;</code>
      */
-    @java.lang.Override
     public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
       return getMeta();
     }
@@ -2947,6 +2951,12 @@ public final class PropertyOuterClass {
       if (!getCodeBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, code_);
       }
+      for (int i = 0; i < flags_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, flags_.getRaw(i));
+      }
+      if (isOverwritten_ != false) {
+        output.writeBool(7, isOverwritten_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2973,6 +2983,18 @@ public final class PropertyOuterClass {
       if (!getCodeBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, code_);
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < flags_.size(); i++) {
+          dataSize += computeStringSizeNoTag(flags_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getFlagsList().size();
+      }
+      if (isOverwritten_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(7, isOverwritten_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2997,8 +3019,12 @@ public final class PropertyOuterClass {
       }
       if (!getDisplayName()
           .equals(other.getDisplayName())) return false;
+      if (!getFlagsList()
+          .equals(other.getFlagsList())) return false;
       if (!getId()
           .equals(other.getId())) return false;
+      if (getIsOverwritten()
+          != other.getIsOverwritten()) return false;
       if (hasMeta() != other.hasMeta()) return false;
       if (hasMeta()) {
         if (!getMeta()
@@ -3023,8 +3049,15 @@ public final class PropertyOuterClass {
       }
       hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getDisplayName().hashCode();
+      if (getFlagsCount() > 0) {
+        hash = (37 * hash) + FLAGS_FIELD_NUMBER;
+        hash = (53 * hash) + getFlagsList().hashCode();
+      }
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + IS_OVERWRITTEN_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsOverwritten());
       if (hasMeta()) {
         hash = (37 * hash) + META_FIELD_NUMBER;
         hash = (53 * hash) + getMeta().hashCode();
@@ -3176,7 +3209,11 @@ public final class PropertyOuterClass {
         }
         displayName_ = "";
 
+        flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         id_ = "";
+
+        isOverwritten_ = false;
 
         if (metaBuilder_ == null) {
           meta_ = null;
@@ -3210,6 +3247,8 @@ public final class PropertyOuterClass {
       @java.lang.Override
       public furo.PropertyOuterClass.Property buildPartial() {
         furo.PropertyOuterClass.Property result = new furo.PropertyOuterClass.Property(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.code_ = code_;
         if (dataBuilder_ == null) {
           result.data_ = data_;
@@ -3217,12 +3256,19 @@ public final class PropertyOuterClass {
           result.data_ = dataBuilder_.build();
         }
         result.displayName_ = displayName_;
+        if (((bitField0_ & 0x00000008) != 0)) {
+          flags_ = flags_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.flags_ = flags_;
         result.id_ = id_;
+        result.isOverwritten_ = isOverwritten_;
         if (metaBuilder_ == null) {
           result.meta_ = meta_;
         } else {
           result.meta_ = metaBuilder_.build();
         }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -3282,9 +3328,22 @@ public final class PropertyOuterClass {
           displayName_ = other.displayName_;
           onChanged();
         }
+        if (!other.flags_.isEmpty()) {
+          if (flags_.isEmpty()) {
+            flags_ = other.flags_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureFlagsIsMutable();
+            flags_.addAll(other.flags_);
+          }
+          onChanged();
+        }
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
           onChanged();
+        }
+        if (other.getIsOverwritten() != false) {
+          setIsOverwritten(other.getIsOverwritten());
         }
         if (other.hasMeta()) {
           mergeMeta(other.getMeta());
@@ -3317,6 +3376,7 @@ public final class PropertyOuterClass {
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object code_ = "";
       /**
@@ -3325,7 +3385,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string code = 5;</code>
-       * @return The code.
        */
       public java.lang.String getCode() {
         java.lang.Object ref = code_;
@@ -3345,7 +3404,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string code = 5;</code>
-       * @return The bytes for code.
        */
       public com.google.protobuf.ByteString
           getCodeBytes() {
@@ -3366,8 +3424,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string code = 5;</code>
-       * @param value The code to set.
-       * @return This builder for chaining.
        */
       public Builder setCode(
           java.lang.String value) {
@@ -3385,7 +3441,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string code = 5;</code>
-       * @return This builder for chaining.
        */
       public Builder clearCode() {
         
@@ -3399,8 +3454,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string code = 5;</code>
-       * @param value The bytes for code to set.
-       * @return This builder for chaining.
        */
       public Builder setCodeBytes(
           com.google.protobuf.ByteString value) {
@@ -3423,7 +3476,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>.google.protobuf.Any data = 3;</code>
-       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
@@ -3434,7 +3486,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>.google.protobuf.Any data = 3;</code>
-       * @return The data.
        */
       public google.protobuf.AnyOuterClass.Any getData() {
         if (dataBuilder_ == null) {
@@ -3576,7 +3627,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @return The displayName.
        */
       public java.lang.String getDisplayName() {
         java.lang.Object ref = displayName_;
@@ -3596,7 +3646,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @return The bytes for displayName.
        */
       public com.google.protobuf.ByteString
           getDisplayNameBytes() {
@@ -3617,8 +3666,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @param value The displayName to set.
-       * @return This builder for chaining.
        */
       public Builder setDisplayName(
           java.lang.String value) {
@@ -3636,7 +3683,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
         
@@ -3650,8 +3696,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @param value The bytes for displayName to set.
-       * @return This builder for chaining.
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
@@ -3665,6 +3709,136 @@ public final class PropertyOuterClass {
         return this;
       }
 
+      private com.google.protobuf.LazyStringList flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureFlagsIsMutable() {
+        if (!((bitField0_ & 0x00000008) != 0)) {
+          flags_ = new com.google.protobuf.LazyStringArrayList(flags_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <pre>
+       * Optional attribute flags e.g. is-overwritable
+       * </pre>
+       *
+       * <code>repeated string flags = 6;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getFlagsList() {
+        return flags_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Optional attribute flags e.g. is-overwritable
+       * </pre>
+       *
+       * <code>repeated string flags = 6;</code>
+       */
+      public int getFlagsCount() {
+        return flags_.size();
+      }
+      /**
+       * <pre>
+       * Optional attribute flags e.g. is-overwritable
+       * </pre>
+       *
+       * <code>repeated string flags = 6;</code>
+       */
+      public java.lang.String getFlags(int index) {
+        return flags_.get(index);
+      }
+      /**
+       * <pre>
+       * Optional attribute flags e.g. is-overwritable
+       * </pre>
+       *
+       * <code>repeated string flags = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFlagsBytes(int index) {
+        return flags_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Optional attribute flags e.g. is-overwritable
+       * </pre>
+       *
+       * <code>repeated string flags = 6;</code>
+       */
+      public Builder setFlags(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFlagsIsMutable();
+        flags_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional attribute flags e.g. is-overwritable
+       * </pre>
+       *
+       * <code>repeated string flags = 6;</code>
+       */
+      public Builder addFlags(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFlagsIsMutable();
+        flags_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional attribute flags e.g. is-overwritable
+       * </pre>
+       *
+       * <code>repeated string flags = 6;</code>
+       */
+      public Builder addAllFlags(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureFlagsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, flags_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional attribute flags e.g. is-overwritable
+       * </pre>
+       *
+       * <code>repeated string flags = 6;</code>
+       */
+      public Builder clearFlags() {
+        flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional attribute flags e.g. is-overwritable
+       * </pre>
+       *
+       * <code>repeated string flags = 6;</code>
+       */
+      public Builder addFlagsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureFlagsIsMutable();
+        flags_.add(value);
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object id_ = "";
       /**
        * <pre>
@@ -3672,7 +3846,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @return The id.
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -3692,7 +3865,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @return The bytes for id.
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -3713,8 +3885,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @param value The id to set.
-       * @return This builder for chaining.
        */
       public Builder setId(
           java.lang.String value) {
@@ -3732,7 +3902,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -3746,8 +3915,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -3761,6 +3928,44 @@ public final class PropertyOuterClass {
         return this;
       }
 
+      private boolean isOverwritten_ ;
+      /**
+       * <pre>
+       * Optional flag indicating that the property differs from the original value
+       * </pre>
+       *
+       * <code>bool is_overwritten = 7;</code>
+       */
+      public boolean getIsOverwritten() {
+        return isOverwritten_;
+      }
+      /**
+       * <pre>
+       * Optional flag indicating that the property differs from the original value
+       * </pre>
+       *
+       * <code>bool is_overwritten = 7;</code>
+       */
+      public Builder setIsOverwritten(boolean value) {
+        
+        isOverwritten_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional flag indicating that the property differs from the original value
+       * </pre>
+       *
+       * <code>bool is_overwritten = 7;</code>
+       */
+      public Builder clearIsOverwritten() {
+        
+        isOverwritten_ = false;
+        onChanged();
+        return this;
+      }
+
       private furo.MetaOuterClass.Meta meta_;
       private com.google.protobuf.SingleFieldBuilderV3<
           furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> metaBuilder_;
@@ -3770,7 +3975,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 4;</code>
-       * @return Whether the meta field is set.
        */
       public boolean hasMeta() {
         return metaBuilder_ != null || meta_ != null;
@@ -3781,7 +3985,6 @@ public final class PropertyOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 4;</code>
-       * @return The meta.
        */
       public furo.MetaOuterClass.Meta getMeta() {
         if (metaBuilder_ == null) {
@@ -4007,17 +4210,26 @@ public final class PropertyOuterClass {
       "gOptionProperty\022\024\n\014display_name\030\001 \001(\t\022\n\n" +
       "\002id\030\002 \001(\t\"\036\n\016NumberProperty\022\014\n\004data\030\001 \001(" +
       "\002\"\036\n\016StringProperty\022\014\n\004data\030\001 \001(\t\"\037\n\017Int" +
-      "egerProperty\022\014\n\004data\030\001 \001(\005\"x\n\010Property\022\014" +
-      "\n\004code\030\005 \001(\t\022\"\n\004data\030\003 \001(\0132\024.google.prot" +
-      "obuf.Any\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001" +
-      "(\t\022\030\n\004meta\030\004 \001(\0132\n.furo.Metab\006proto3"
+      "egerProperty\022\014\n\004data\030\001 \001(\005\"\237\001\n\010Property\022" +
+      "\014\n\004code\030\005 \001(\t\022\"\n\004data\030\003 \001(\0132\024.google.pro" +
+      "tobuf.Any\022\024\n\014display_name\030\002 \001(\t\022\r\n\005flags" +
+      "\030\006 \003(\t\022\n\n\002id\030\001 \001(\t\022\026\n\016is_overwritten\030\007 \001" +
+      "(\010\022\030\n\004meta\030\004 \001(\0132\n.furo.Metab\006proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           furo.MetaOuterClass.getDescriptor(),
           google.protobuf.AnyOuterClass.getDescriptor(),
-        });
+        }, assigner);
     internal_static_furo_StringOptionProperty_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_furo_StringOptionProperty_fieldAccessorTable = new
@@ -4047,7 +4259,7 @@ public final class PropertyOuterClass {
     internal_static_furo_Property_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_furo_Property_descriptor,
-        new java.lang.String[] { "Code", "Data", "DisplayName", "Id", "Meta", });
+        new java.lang.String[] { "Code", "Data", "DisplayName", "Flags", "Id", "IsOverwritten", "Meta", });
     furo.MetaOuterClass.getDescriptor();
     google.protobuf.AnyOuterClass.getDescriptor();
   }

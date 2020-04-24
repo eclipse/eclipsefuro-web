@@ -555,6 +555,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
         trailing-icon="search"
         ?autofocus=${this.autofocus}
         ?condensed=${this.condensed}
+        ?required=${this._required}
         ƒ-set-value="--value"
         @-value-changed="^^searchInput"
         @-value-cleared="--cleared"
