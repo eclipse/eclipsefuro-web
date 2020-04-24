@@ -21,7 +21,7 @@ some json files, you can add the types and services to your application by doing
 
 ```javascript
 // first import the spec (scr/configs/init.js is a good place)
-import spec from '@furo/data-navigation/specs/navigation/navigationnode.type.spec.js'
+import spec from '@furo/navigation/specs/navigation/navigationnode.type.spec.js'
 
 // then add / register the type
 Init.addApiTypeSpec("navigation.Navigationnode", spec)
