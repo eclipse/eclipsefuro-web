@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.3.5...@furo/navigation@1.4.0) (2020-04-24)
+
+
+### Features
+
+* navigationnode signature with flags ([ee7d395](https://github.com/theNorstroem/FuroBaseComponents/commit/ee7d395d8cb9cfeb3f73574d7c338fab6087d92b))
+
+
+
+
+
 ## [1.3.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.3.4...@furo/navigation@1.3.5) (2020-04-22)
 
 **Note:** Version bump only for package @furo/navigation
