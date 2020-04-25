@@ -31,8 +31,7 @@ class FuroLocation extends HTMLElement {
      *
      * @type {string|RegExp}
      */
-    // eslint-disable-next-line wc/no-constructor-attributes
-    this.urlSpaceRegex = this.getAttribute('url-space-regex') || '';
+    this.urlSpaceRegex = '';
 
     /**
      * If the user was on a URL for less than `dwellTime` milliseconds, it
@@ -49,13 +48,30 @@ class FuroLocation extends HTMLElement {
     this._registerHandler();
   }
 
-  // listen to changes of the url space regex
-  static get observedAttributes() {
-    return ['url-space-regex'];
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    this.urlSpaceRegex = newValue;
+  static get properties() {
+    return {
+      /**
+       * A regexp that defines the set of URLs that should be considered part
+       * of this web app.
+       *
+       * Clicking on a link that matches this regex won't result in a full page
+       * navigation, but will instead just update the URL state in place.
+       *
+       * This regexp is given everything after the origin in an absolute
+       * URL. So to match just URLs that start with /app/ do:
+       *     url-space-regex="^/app/"
+       *
+       * If you plan to work in sub directories, you may set **url-space-regex="^${window.APPROOT}/additional/path"**.
+       * Keep in mind to put a "url-space-regex" on every furo-location. Otherwise you can not switch between apps in different
+       * folders with a link.
+       *
+       * @type {string} RegExp
+       */
+      urlSpaceRegex: {
+        type: String,
+        attribute: 'url-space-regex',
+      },
+    };
   }
 
   /**

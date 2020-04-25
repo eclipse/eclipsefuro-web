@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.3.5...@furo/route@1.3.6) (2020-04-24)
+
+
+### Bug Fixes
+
+* app-flow-router and furo-location with properties instead of observers ([eef5132](https://github.com/theNorstroem/FuroBaseComponents/commit/eef51322b6a5da6ae2ed70403ebdbb4bd70d87fa))
+* revert wrong branch ([02aeea1](https://github.com/theNorstroem/FuroBaseComponents/commit/02aeea1f92b2a7a0f1ce3eaa6fd7a05a328259e6))
+
+
+
+
+
 ## [1.3.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.3.4...@furo/route@1.3.5) (2020-04-22)
 
 **Note:** Version bump only for package @furo/route

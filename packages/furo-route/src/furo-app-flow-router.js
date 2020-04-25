@@ -109,7 +109,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
       .replace('/', '');
     const match = window.location.pathname.match(new RegExp(this.urlSpaceRegex));
     // slash should be added to rewrite location
-    const prefix = match[0] + '/' || '/';
+    const prefix = `${match[0]}/` || '/';
     const selection =
       this._configObject[currentPath + flowEvent.event] ||
       this._configObject[`*${flowEvent.event}`];

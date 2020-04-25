@@ -1,7 +1,7 @@
 {
   "name": "@furo/navigation",
   "description": "Furo navigation components",
-  "version": "1.3.5",
+  "version": "1.4.0",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-navigation",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -28,19 +28,19 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/fbp": "^5.1.4",
-    "@furo/framework": "^1.3.4",
+    "@furo/fbp": "^5.1.5",
+    "@furo/framework": "^1.3.5",
     "lit-element": "^2.3.1",
     "lit-html": "^1.1.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data": "^1.3.5",
-    "@furo/data-input": "^1.3.5",
-    "@furo/form": "^1.3.5",
-    "@furo/icon": "^1.3.4",
-    "@furo/layout": "^1.3.4",
+    "@furo/data": "^1.3.6",
+    "@furo/data-input": "^1.3.6",
+    "@furo/form": "^1.3.6",
+    "@furo/icon": "^1.3.5",
+    "@furo/layout": "^1.3.5",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

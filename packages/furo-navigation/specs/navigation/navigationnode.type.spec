@@ -105,6 +105,17 @@
         "number": 12
       }
     },
+    "flags": {
+      "description": "Attribute flags e.g. important, negative, positive. Can be used for custom annotations for styling, logic,...",
+      "type": "string",
+      "meta": {
+        "readonly": true,
+        "repeated": true
+      },
+      "__proto": {
+        "number": 13
+      }
+    },
     "payload": {
       "description": "Optional payload",
       "type": "google.protobuf.Any",
@@ -112,7 +123,7 @@
         "readonly": true
       },
       "__proto": {
-        "number": 13
+        "number": 14
       }
     }
 

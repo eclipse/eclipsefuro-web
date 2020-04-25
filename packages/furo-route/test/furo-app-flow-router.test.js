@@ -25,7 +25,7 @@ describe('furo-app-flow-router', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-app-flow-router url-space-regex="^/app/" ƒ-trigger="--f"></furo-app-flow-router>
+          <furo-app-flow-router url-space-regex="^/app" ƒ-trigger="--f"></furo-app-flow-router>
           <furo-app-flow @-app-flow="--f"></furo-app-flow>
         </template>
       </test-bind>
@@ -82,7 +82,19 @@ describe('furo-app-flow-router', () => {
   });
 
   it('should work witout regex', () => {
-    router.urlSpaceRegex = '/';
+    router.urlSpaceRegex = '^';
+    flow.event = 'exit';
+    flow.emit({});
+    assert.equal(window.location.pathname, '/viewB');
+
+    flow.emit({});
+    assert.equal(window.location.pathname, '/viewBexit');
+
+    flow.emit({});
+    assert.equal(window.location.pathname, '/viewB');
+  });
+  it('should work with empty regex', () => {
+    router.urlSpaceRegex = '';
     flow.event = 'exit';
     flow.emit({});
     assert.equal(window.location.pathname, '/viewB');
