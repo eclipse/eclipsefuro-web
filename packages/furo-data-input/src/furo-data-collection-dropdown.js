@@ -574,6 +574,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
         ?error="${this.error}"
         ?float="${this.float}"
         ?condensed="${this.condensed}"
+        ?required=${this._required}
         ƒ-set-options="--selection"
         @-value-changed="--valueChanged"
         ƒ-set-value="--value"

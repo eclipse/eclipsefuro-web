@@ -184,6 +184,13 @@ class FuroSelectInput extends FBP(LitElement) {
       _errortext: {
         type: String,
       },
+      /**
+       * The required attribute, the value true means this field must be filled in
+       *
+       */
+      required: {
+        type: Boolean,
+      },
     };
   }
 
@@ -672,7 +679,15 @@ class FuroSelectInput extends FBP(LitElement) {
         <div class="left-border"></div>
         ${this.label
           ? html`
-              <label float for="input"><span>${this.label}</span></label>
+              <label float for="input"
+                ><span
+                  >${this.label}${this.required
+                    ? html`
+                        *
+                      `
+                    : html``}</span
+                ></label
+              >
             `
           : html``}
         <div class="right-border"></div>
