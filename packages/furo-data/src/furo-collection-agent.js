@@ -278,8 +278,8 @@ class FuroCollectionAgent extends FBP(LitElement) {
     }
     // Daten
     const headers = new Headers(this._ApiEnvironment.headers);
-    headers.append('Content-Type', `application/${link.type}+json`);
-    headers.append('Content-Type', 'application/json');
+    const TYPE = link.type ? `application/${link.type}+json` : 'application/json';
+    headers.append('Content-Type', `${TYPE}; charset=utf-8`);
 
     const params = {};
     const r = link.href.split('?');
