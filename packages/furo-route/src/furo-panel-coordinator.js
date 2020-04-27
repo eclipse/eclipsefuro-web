@@ -134,8 +134,11 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     this._loadedPanels = this._loadedPanels.filter(value => value !== nodeName);
 
     if (this._openPanels.length > 0) {
-      // select item with same index
-      this._openPanels[this._openPanels.length - 1].selectItem();
+      // only when there is no selected navigation node
+      if(this._openPanels.every(node => node._isSelected === false)) {
+        // select item with same index
+        this._openPanels[this._openPanels.length - 1].selectItem();
+      }
     } else {
       // enable default page
       this._furoPage.activatePage('overview');
