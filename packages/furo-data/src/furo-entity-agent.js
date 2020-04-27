@@ -182,7 +182,6 @@ class FuroEntityAgent extends FBP(LitElement) {
    */
   // eslint-disable-next-line no-unused-vars
   _makeRequest(link, dataObject, abortController) {
-    // TODO: @maltenorstroem Check abortController or remove it
     this._FBPTriggerWire('--beforeRequestStart');
 
     /**
@@ -197,16 +196,17 @@ class FuroEntityAgent extends FBP(LitElement) {
      * @type {AbortController}
      * @private
      */
-    this._abortController = new AbortController();
+    this._abortController = abortController || new AbortController();
     const { signal } = this._abortController;
 
     // create Request object with headers and body
     const headers = new Headers(this._ApiEnvironment.headers);
-    headers.append('Content-Type', `application/${link.type}+json`);
+    const TYPE = link.type ? `application/${link.type}+json` : 'application/json';
+    headers.append('Content-Type', TYPE);
 
-    if (link.method.toLowerCase() !== 'put') {
-      headers.append('Content-Type', 'application/json');
-    }
+    // if (link.method.toLowerCase() !== 'put') {
+    //   headers.append('Content-Type', 'application/json');
+    // }
     return new Request(link.href, {
       signal,
       method: link.method,
