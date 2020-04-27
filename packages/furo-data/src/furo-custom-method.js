@@ -105,7 +105,7 @@ class FuroCustomMethod extends FBP(LitElement) {
     // Daten
     const headers = new Headers(this._ApiEnvironment.headers);
     const TYPE = link.type ? `application/${link.type}+json` : 'application/json';
-    headers.append('Content-Type', TYPE);
+    headers.append('Content-Type', `${TYPE}; charset=utf-8`);
 
     return new Request(link.href, {
       signal,
