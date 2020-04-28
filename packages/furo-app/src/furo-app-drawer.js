@@ -31,6 +31,7 @@ class FuroAppDrawer extends FBP(LitElement) {
         e.detail.drawer = this;
       }
     });
+
   }
 
   /**
@@ -200,7 +201,6 @@ class FuroAppDrawer extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-
     // this._FBPTraceWires()
     /**
      * Register hook on wire --backdropClicked to
@@ -209,6 +209,7 @@ class FuroAppDrawer extends FBP(LitElement) {
     this._FBPAddWireHook('--backdropClicked', () => {
       this.close();
     });
+
 
     // register resize listener
     if (!this.permanent) {
@@ -240,6 +241,11 @@ class FuroAppDrawer extends FBP(LitElement) {
         });
       }
     }
+
+
+    // initial size
+    const cr = this.getBoundingClientRect();
+    this.__isFloating = cr.width <= this.floatBreakpoint;
 
     const drawer = this.shadowRoot.getElementById('drawer');
     const drag = this.shadowRoot.getElementById('drag');
