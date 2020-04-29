@@ -186,10 +186,10 @@ class FuroDataDisplay extends FBP(LitElement) {
           font-style: normal;
         }
 
-        .text:hover{
+        .text:hover {
           overflow: visible;
           white-space: normal;
-          background-color:  var(--ellipsis-hover-background, white);
+          background-color: var(--ellipsis-hover-background, white);
           z-index: 2;
         }
 
