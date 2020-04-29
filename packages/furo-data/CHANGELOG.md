@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.7...@furo/data@1.3.8) (2020-04-29)
+
+
+### Bug Fixes
+
+* FieldNode required constraint validator should not be triggered if FieldNode has readonly-is-true flag ([b428ccb](https://github.com/theNorstroem/FuroBaseComponents/commit/b428ccb1f8062fdc87135eb8c966d1ee071e47e4))
+* No readonly fields are validated. ([c9b01e9](https://github.com/theNorstroem/FuroBaseComponents/commit/c9b01e9a76b58d8819748558d531c96a682dd812))
+
+
+
+
+
 ## [1.3.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.6...@furo/data@1.3.7) (2020-04-29)
 
 

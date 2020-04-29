@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.3.7...@furo/route@1.3.8) (2020-04-29)
+
+
+### Bug Fixes
+
+* furo-page should remove `hidden` for the current page when the current page is also the lastpage ([5e3aa5a](https://github.com/theNorstroem/FuroBaseComponents/commit/5e3aa5a65ec5e731fbcd345489891ee6058566c3))
+* prevent multi `close-request` eventlistening on filednode in base-panel ([8d8dacf](https://github.com/theNorstroem/FuroBaseComponents/commit/8d8dacf5815b97fc67473661b73bc1b93e53deec))
+
+
+
+
+
 ## [1.3.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.3.6...@furo/route@1.3.7) (2020-04-29)
 
 

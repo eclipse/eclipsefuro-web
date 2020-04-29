@@ -1,6 +1,6 @@
 {
   "name": "@furo/timing",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "description": "Furo timing components",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-timing",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
@@ -28,18 +28,18 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/fbp": "^5.1.5",
-    "@furo/framework": "^1.3.5",
+    "@furo/fbp": "^5.1.6",
+    "@furo/framework": "^1.3.6",
     "lit-element": "^2.3.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data": "^1.3.7",
-    "@furo/data-input": "^1.3.7",
-    "@furo/input": "^1.3.7",
-    "@furo/layout": "^1.3.5",
-    "@furo/util": "^1.3.7",
+    "@furo/data": "^1.3.8",
+    "@furo/data-input": "^1.4.0",
+    "@furo/input": "^1.3.8",
+    "@furo/layout": "^1.3.6",
+    "@furo/util": "^1.3.8",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

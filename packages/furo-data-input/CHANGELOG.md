@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.3.7...@furo/data-input@1.4.0) (2020-04-29)
+
+
+### Features
+
+* Big texts in furo-data-display shows an ellipsis now. If you hover the shortened text, the full text is shown. ([821a860](https://github.com/theNorstroem/FuroBaseComponents/commit/821a86075ad28f4af75caf0a201a28bee0c072f2))
+
+
+
+
+
 ## [1.3.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.3.6...@furo/data-input@1.3.7) (2020-04-29)
 
 
