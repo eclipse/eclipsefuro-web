@@ -1493,6 +1493,31 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
+     * Well Known Type Money
+     * </pre>
+     *
+     * <code>.google.type.Money money = 6;</code>
+     */
+    boolean hasMoney();
+    /**
+     * <pre>
+     * Well Known Type Money
+     * </pre>
+     *
+     * <code>.google.type.Money money = 6;</code>
+     */
+    google.type.MoneyOuterClass.Money getMoney();
+    /**
+     * <pre>
+     * Well Known Type Money
+     * </pre>
+     *
+     * <code>.google.type.Money money = 6;</code>
+     */
+    google.type.MoneyOuterClass.MoneyOrBuilder getMoneyOrBuilder();
+
+    /**
+     * <pre>
      * Short experiment description
      * </pre>
      *
@@ -1596,6 +1621,19 @@ public final class ExperimentOuterClass {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(date_);
                 date_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 50: {
+              google.type.MoneyOuterClass.Money.Builder subBuilder = null;
+              if (money_ != null) {
+                subBuilder = money_.toBuilder();
+              }
+              money_ = input.readMessage(google.type.MoneyOuterClass.Money.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(money_);
+                money_ = subBuilder.buildPartial();
               }
 
               break;
@@ -1749,6 +1787,39 @@ public final class ExperimentOuterClass {
       }
     }
 
+    public static final int MONEY_FIELD_NUMBER = 6;
+    private google.type.MoneyOuterClass.Money money_;
+    /**
+     * <pre>
+     * Well Known Type Money
+     * </pre>
+     *
+     * <code>.google.type.Money money = 6;</code>
+     */
+    public boolean hasMoney() {
+      return money_ != null;
+    }
+    /**
+     * <pre>
+     * Well Known Type Money
+     * </pre>
+     *
+     * <code>.google.type.Money money = 6;</code>
+     */
+    public google.type.MoneyOuterClass.Money getMoney() {
+      return money_ == null ? google.type.MoneyOuterClass.Money.getDefaultInstance() : money_;
+    }
+    /**
+     * <pre>
+     * Well Known Type Money
+     * </pre>
+     *
+     * <code>.google.type.Money money = 6;</code>
+     */
+    public google.type.MoneyOuterClass.MoneyOrBuilder getMoneyOrBuilder() {
+      return getMoney();
+    }
+
     public static final int NUMBER_FIELD_NUMBER = 3;
     private int number_;
     /**
@@ -1833,6 +1904,9 @@ public final class ExperimentOuterClass {
       if (date_ != null) {
         output.writeMessage(5, getDate());
       }
+      if (money_ != null) {
+        output.writeMessage(6, getMoney());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1859,6 +1933,10 @@ public final class ExperimentOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getDate());
       }
+      if (money_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getMoney());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1883,6 +1961,11 @@ public final class ExperimentOuterClass {
           .equals(other.getDisplayName())) return false;
       if (!getId()
           .equals(other.getId())) return false;
+      if (hasMoney() != other.hasMoney()) return false;
+      if (hasMoney()) {
+        if (!getMoney()
+            .equals(other.getMoney())) return false;
+      }
       if (getNumber()
           != other.getNumber()) return false;
       if (!getText()
@@ -1906,6 +1989,10 @@ public final class ExperimentOuterClass {
       hash = (53 * hash) + getDisplayName().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
+      if (hasMoney()) {
+        hash = (37 * hash) + MONEY_FIELD_NUMBER;
+        hash = (53 * hash) + getMoney().hashCode();
+      }
       hash = (37 * hash) + NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + getNumber();
       hash = (37 * hash) + TEXT_FIELD_NUMBER;
@@ -2057,6 +2144,12 @@ public final class ExperimentOuterClass {
 
         id_ = "";
 
+        if (moneyBuilder_ == null) {
+          money_ = null;
+        } else {
+          money_ = null;
+          moneyBuilder_ = null;
+        }
         number_ = 0;
 
         text_ = "";
@@ -2094,6 +2187,11 @@ public final class ExperimentOuterClass {
         }
         result.displayName_ = displayName_;
         result.id_ = id_;
+        if (moneyBuilder_ == null) {
+          result.money_ = money_;
+        } else {
+          result.money_ = moneyBuilder_.build();
+        }
         result.number_ = number_;
         result.text_ = text_;
         onBuilt();
@@ -2154,6 +2252,9 @@ public final class ExperimentOuterClass {
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
           onChanged();
+        }
+        if (other.hasMoney()) {
+          mergeMoney(other.getMoney());
         }
         if (other.getNumber() != 0) {
           setNumber(other.getNumber());
@@ -2520,6 +2621,159 @@ public final class ExperimentOuterClass {
         id_ = value;
         onChanged();
         return this;
+      }
+
+      private google.type.MoneyOuterClass.Money money_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.type.MoneyOuterClass.Money, google.type.MoneyOuterClass.Money.Builder, google.type.MoneyOuterClass.MoneyOrBuilder> moneyBuilder_;
+      /**
+       * <pre>
+       * Well Known Type Money
+       * </pre>
+       *
+       * <code>.google.type.Money money = 6;</code>
+       */
+      public boolean hasMoney() {
+        return moneyBuilder_ != null || money_ != null;
+      }
+      /**
+       * <pre>
+       * Well Known Type Money
+       * </pre>
+       *
+       * <code>.google.type.Money money = 6;</code>
+       */
+      public google.type.MoneyOuterClass.Money getMoney() {
+        if (moneyBuilder_ == null) {
+          return money_ == null ? google.type.MoneyOuterClass.Money.getDefaultInstance() : money_;
+        } else {
+          return moneyBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Well Known Type Money
+       * </pre>
+       *
+       * <code>.google.type.Money money = 6;</code>
+       */
+      public Builder setMoney(google.type.MoneyOuterClass.Money value) {
+        if (moneyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          money_ = value;
+          onChanged();
+        } else {
+          moneyBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Well Known Type Money
+       * </pre>
+       *
+       * <code>.google.type.Money money = 6;</code>
+       */
+      public Builder setMoney(
+          google.type.MoneyOuterClass.Money.Builder builderForValue) {
+        if (moneyBuilder_ == null) {
+          money_ = builderForValue.build();
+          onChanged();
+        } else {
+          moneyBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Well Known Type Money
+       * </pre>
+       *
+       * <code>.google.type.Money money = 6;</code>
+       */
+      public Builder mergeMoney(google.type.MoneyOuterClass.Money value) {
+        if (moneyBuilder_ == null) {
+          if (money_ != null) {
+            money_ =
+              google.type.MoneyOuterClass.Money.newBuilder(money_).mergeFrom(value).buildPartial();
+          } else {
+            money_ = value;
+          }
+          onChanged();
+        } else {
+          moneyBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Well Known Type Money
+       * </pre>
+       *
+       * <code>.google.type.Money money = 6;</code>
+       */
+      public Builder clearMoney() {
+        if (moneyBuilder_ == null) {
+          money_ = null;
+          onChanged();
+        } else {
+          money_ = null;
+          moneyBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Well Known Type Money
+       * </pre>
+       *
+       * <code>.google.type.Money money = 6;</code>
+       */
+      public google.type.MoneyOuterClass.Money.Builder getMoneyBuilder() {
+        
+        onChanged();
+        return getMoneyFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Well Known Type Money
+       * </pre>
+       *
+       * <code>.google.type.Money money = 6;</code>
+       */
+      public google.type.MoneyOuterClass.MoneyOrBuilder getMoneyOrBuilder() {
+        if (moneyBuilder_ != null) {
+          return moneyBuilder_.getMessageOrBuilder();
+        } else {
+          return money_ == null ?
+              google.type.MoneyOuterClass.Money.getDefaultInstance() : money_;
+        }
+      }
+      /**
+       * <pre>
+       * Well Known Type Money
+       * </pre>
+       *
+       * <code>.google.type.Money money = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.type.MoneyOuterClass.Money, google.type.MoneyOuterClass.Money.Builder, google.type.MoneyOuterClass.MoneyOrBuilder> 
+          getMoneyFieldBuilder() {
+        if (moneyBuilder_ == null) {
+          moneyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              google.type.MoneyOuterClass.Money, google.type.MoneyOuterClass.Money.Builder, google.type.MoneyOuterClass.MoneyOrBuilder>(
+                  getMoney(),
+                  getParentForChildren(),
+                  isClean());
+          money_ = null;
+        }
+        return moneyBuilder_;
       }
 
       private int number_ ;
@@ -12636,40 +12890,40 @@ public final class ExperimentOuterClass {
       ".proto\032\025project/project.proto\"m\n\020Experim" +
       "entEntity\022$\n\004data\030\001 \001(\0132\026.experiment.Exp" +
       "eriment\022\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004me" +
-      "ta\030\003 \001(\0132\n.furo.Meta\"n\n\013Constraints\022\037\n\004d" +
-      "ate\030\005 \001(\0132\021.google.type.Date\022\024\n\014display_" +
-      "name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\016\n\006number\030\003 \001(\005\022\014" +
-      "\n\004text\030\004 \001(\t\"\207\006\n\nExperiment\022\023\n\013descripti" +
-      "on\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\033\n\023furo_d" +
-      "ata_bool_icon\030\016 \001(\010\022 \n\030furo_data_checkbo" +
-      "x_input\030\004 \001(\010\022\035\n\025furo_data_color_input\030\n" +
-      " \001(\t\022\034\n\024furo_data_date_input\030\r \001(\t\0226\n\033fu" +
-      "ro_data_date_input_google\030\022 \001(\0132\021.google" +
-      ".type.Date\022\034\n\024furo_data_file_input\030\026 \003(\t" +
-      "\0221\n\025furo_data_money_input\030\025 \001(\0132\022.google" +
-      ".type.Money\022\036\n\026furo_data_number_input\030\t " +
-      "\001(\002\022 \n\030furo_data_password_input\030\013 \001(\t\022\035\n" +
-      "\025furo_data_range_input\030\010 \001(\t\022\036\n\026furo_dat" +
-      "a_search_input\030\014 \001(\t\022\034\n\024furo_data_text_i" +
-      "nput\030\005 \001(\t\022 \n\030furo_data_textarea_input\030\006" +
-      " \001(\t\022\034\n\024furo_data_time_input\030\007 \001(\t\022\n\n\002id" +
-      "\030\001 \001(\t\022\021\n\trepstring\030\024 \003(\t\022,\n\024single_type" +
-      "_property\030\023 \001(\0132\016.furo.Property\022*\n\014the_a" +
-      "ny_type\030\017 \001(\0132\024.google.protobuf.Any\022%\n\rt" +
-      "ype_property\030\021 \003(\0132\016.furo.Property\022\031\n\021ty" +
-      "pe_with_options\030\020 \001(\t\022/\n\013update_mask\030\027 \001" +
-      "(\0132\032.google.protobuf.FieldMask\"u\n\007Defaul" +
-      "t\022\023\n\013description\030\003 \001(\t\022\024\n\014display_name\030\002" +
-      " \001(\t\022 \n\030furo_data_checkbox_input\030\005 \001(\010\022\n" +
-      "\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"G\n\010Readonl" +
-      "y\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\022!\n\007project\030\001" +
-      " \001(\0132\020.project.Project\"W\n\tRecursive\022\024\n\014d" +
-      "isplay_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(\n\trecursi" +
-      "on\030\003 \001(\0132\025.experiment.Recursive\"{\n\024Exper" +
-      "imentCollection\022.\n\010entities\030\004 \003(\0132\034.expe" +
-      "riment.ExperimentEntity\022\031\n\005links\030\003 \003(\0132\n" +
-      ".furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Metab\006pr" +
-      "oto3"
+      "ta\030\003 \001(\0132\n.furo.Meta\"\221\001\n\013Constraints\022\037\n\004" +
+      "date\030\005 \001(\0132\021.google.type.Date\022\024\n\014display" +
+      "_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022!\n\005money\030\006 \001(\0132\022" +
+      ".google.type.Money\022\016\n\006number\030\003 \001(\005\022\014\n\004te" +
+      "xt\030\004 \001(\t\"\207\006\n\nExperiment\022\023\n\013description\030\003" +
+      " \001(\t\022\024\n\014display_name\030\002 \001(\t\022\033\n\023furo_data_" +
+      "bool_icon\030\016 \001(\010\022 \n\030furo_data_checkbox_in" +
+      "put\030\004 \001(\010\022\035\n\025furo_data_color_input\030\n \001(\t" +
+      "\022\034\n\024furo_data_date_input\030\r \001(\t\0226\n\033furo_d" +
+      "ata_date_input_google\030\022 \001(\0132\021.google.typ" +
+      "e.Date\022\034\n\024furo_data_file_input\030\026 \003(\t\0221\n\025" +
+      "furo_data_money_input\030\025 \001(\0132\022.google.typ" +
+      "e.Money\022\036\n\026furo_data_number_input\030\t \001(\002\022" +
+      " \n\030furo_data_password_input\030\013 \001(\t\022\035\n\025fur" +
+      "o_data_range_input\030\010 \001(\t\022\036\n\026furo_data_se" +
+      "arch_input\030\014 \001(\t\022\034\n\024furo_data_text_input" +
+      "\030\005 \001(\t\022 \n\030furo_data_textarea_input\030\006 \001(\t" +
+      "\022\034\n\024furo_data_time_input\030\007 \001(\t\022\n\n\002id\030\001 \001" +
+      "(\t\022\021\n\trepstring\030\024 \003(\t\022,\n\024single_type_pro" +
+      "perty\030\023 \001(\0132\016.furo.Property\022*\n\014the_any_t" +
+      "ype\030\017 \001(\0132\024.google.protobuf.Any\022%\n\rtype_" +
+      "property\030\021 \003(\0132\016.furo.Property\022\031\n\021type_w" +
+      "ith_options\030\020 \001(\t\022/\n\013update_mask\030\027 \001(\0132\032" +
+      ".google.protobuf.FieldMask\"u\n\007Default\022\023\n" +
+      "\013description\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t" +
+      "\022 \n\030furo_data_checkbox_input\030\005 \001(\010\022\n\n\002id" +
+      "\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"G\n\010Readonly\022\030\n" +
+      "\004meta\030\003 \001(\0132\n.furo.Meta\022!\n\007project\030\001 \001(\013" +
+      "2\020.project.Project\"W\n\tRecursive\022\024\n\014displ" +
+      "ay_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(\n\trecursion\030\003" +
+      " \001(\0132\025.experiment.Recursive\"{\n\024Experimen" +
+      "tCollection\022.\n\010entities\030\004 \003(\0132\034.experime" +
+      "nt.ExperimentEntity\022\031\n\005links\030\003 \003(\0132\n.fur" +
+      "o.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -12702,7 +12956,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Constraints_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Constraints_descriptor,
-        new java.lang.String[] { "Date", "DisplayName", "Id", "Number", "Text", });
+        new java.lang.String[] { "Date", "DisplayName", "Id", "Money", "Number", "Text", });
     internal_static_experiment_Experiment_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_experiment_Experiment_fieldAccessorTable = new

@@ -61,7 +61,7 @@ describe('furo-api-fetch', () => {
   });
 
   it('status codes from 300 up should fire error events', done => {
-    const request = new Request('http://httpbin.org/status/400', { method: 'GET' });
+    const request = new Request('https://httpstat.us/400', { method: 'GET' });
     element.addEventListener('response-error-raw', r => {
       assert.equal(r.detail.ok, false);
       assert.equal(r.detail.status, 400);

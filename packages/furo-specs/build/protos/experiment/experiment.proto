@@ -28,7 +28,7 @@ message ExperimentEntity {
 }
 
 // Test the Constraints
-message Constraints {                            
+message Constraints {                                
     // Well Known Type Date
     google.type.Date date = 5;
     
@@ -37,6 +37,9 @@ message Constraints {
     
     // Identity of a experiment
     string id = 1;
+    
+    // Well Known Type Money
+    google.type.Money money = 6;
     
     // Short experiment description
     int32 number = 3;

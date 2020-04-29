@@ -6,7 +6,8 @@
     "package": "experiment",
     "imports": [
       "google/protobuf/any.proto",
-      "google/type/date.proto"
+      "google/type/date.proto",
+      "google/type/money.proto"
     ],
     "targetfile": "experiment.proto"
   },
@@ -128,10 +129,39 @@
         "required": {
           "is": "true",
           "message":"is required"
+        },
+        "min": {
+          "is": "2020-01-01",
+          "message":"min 01.01.2020"
         }
       },
       "__proto": {
         "number": 5
+      }
+    },
+    "money": {
+      "description": "Well Known Type Money",
+      "type": "google.type.Money",
+      "meta": {
+        "label": "Money",
+        "default": {
+          "currency": "CHF"
+        },
+        "hint": "",
+        "readonly": false
+      },
+      "constraints": {
+        "required": {
+          "is": "true",
+          "message":"is required"
+        },
+        "min": {
+          "is": "1200.50",
+          "message":"min amount 1200.50"
+        }
+      },
+      "__proto": {
+        "number": 6
       }
     }
   }

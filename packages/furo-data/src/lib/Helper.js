@@ -53,4 +53,32 @@ export class Helper {
         return false;
     }
   }
+
+  /**
+   * checks if a type is scalar
+   * @param type
+   * @return {boolean}
+   */
+  static isScalarType(type) {
+    switch (type) {
+      case 'string':
+      case 'bytes':
+      case 'bool':
+      case 'float':
+      case 'double':
+      case 'int32':
+      case 'int64':
+      case 'uint32':
+      case 'uint64':
+      case 'sint32':
+      case 'sint64':
+      case 'fixed32':
+      case 'fixed64':
+      case 'sfixed32':
+      case 'sfixed64':
+        return true;
+      default:
+        return false;
+    }
+  }
 }

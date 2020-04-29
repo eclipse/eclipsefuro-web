@@ -115,7 +115,7 @@ describe('furo-data-text-input', () => {
         'data-changed',
         () => {
           secondTextInput._FBPAddWireHook('--value', val => {
-            assert.equal(val, 'hallo test');
+            assert.equal(val, 'hallo test with loads of text to show the overflow. hallo test with loads of text to show the overflow.');
             done();
           });
         },
