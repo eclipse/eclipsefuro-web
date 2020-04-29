@@ -9,6 +9,14 @@ import { Helper } from './lib/helper.js';
  * `furo-data-display`
  *  Displays a data field. If the type is a complex type (like google.type.Date), the display_name field is used.
  *
+ *  * ### Styling
+ * The following custom properties and mixins are available for styling:
+ *
+ * Custom property | Description | Default  | Fallback
+ * ----------------|-------------|----------|----------
+ * `--ellipsis-hover-background` | background color of the hovered text | white | white
+ *
+ *
  * @summary Displays a data field
  * @customElement
  * @demo demo-furo-data-display
@@ -164,6 +172,9 @@ class FuroDataDisplay extends FBP(LitElement) {
           box-sizing: border-box;
           margin: 0;
           padding: 0;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
           width: 100%;
           line-height: 24px;
           color: inherit;
@@ -173,6 +184,13 @@ class FuroDataDisplay extends FBP(LitElement) {
           font-size: 16px;
           font-stretch: 100%;
           font-style: normal;
+        }
+
+        .text:hover{
+          overflow: visible;
+          white-space: normal;
+          background-color:  var(--ellipsis-hover-background, white);
+          z-index: 2;
         }
 
         furo-icon {
