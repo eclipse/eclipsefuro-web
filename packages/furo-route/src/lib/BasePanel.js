@@ -24,7 +24,7 @@ export class BasePanel extends FBP(LitElement) {
      */
     this._FBPAddWireHook('--navNode', fieldNode => {
       this.treeNode = fieldNode;
-      if(!fieldNode.__eventListener["close-requested"]) {
+      if (!fieldNode.__eventListener['close-requested']) {
         fieldNode.addEventListener('close-requested', e => {
           if (this.onCloseRequest(e)) {
             this.closePanel();
