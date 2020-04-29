@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.6...@furo/data@1.3.7) (2020-04-29)
+
+
+### Bug Fixes
+
+* charset utf-8 added to all agents ([dd8fc85](https://github.com/theNorstroem/FuroBaseComponents/commit/dd8fc85aa5f86f6aed6ba27cd84ea489238ac9cf))
+* content-type should one once applied according to https://tools.ietf.org/html/rfc7231#section-3.1.1.5 ([0b0a01c](https://github.com/theNorstroem/FuroBaseComponents/commit/0b0a01cdcd91946a41b4472af505a899fc9c9c6b)), closes [/tools.ietf.org/html/rfc7231#section-3](https://github.com//tools.ietf.org/html/rfc7231/issues/section-3)
+* custom-method should have the same behaviour ([9c7cfad](https://github.com/theNorstroem/FuroBaseComponents/commit/9c7cfadd5715472f2a70fddd7d1be1f1ca234adc))
+
+
+
+
+
 ## [1.3.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.5...@furo/data@1.3.6) (2020-04-24)
 
 **Note:** Version bump only for package @furo/data

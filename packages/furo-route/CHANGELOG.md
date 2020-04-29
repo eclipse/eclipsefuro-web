@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.3.6...@furo/route@1.3.7) (2020-04-29)
+
+
+### Bug Fixes
+
+* prevent multi selection in navigation tree ([65742d9](https://github.com/theNorstroem/FuroBaseComponents/commit/65742d991f230582fdd3223a2a62a8a58b295e3a))
+
+
+
+
+
 ## [1.3.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.3.5...@furo/route@1.3.6) (2020-04-24)
 
 
