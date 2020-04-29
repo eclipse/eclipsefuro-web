@@ -1432,6 +1432,31 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
+     * Well Known Type Date
+     * </pre>
+     *
+     * <code>.google.type.Date date = 5;</code>
+     */
+    boolean hasDate();
+    /**
+     * <pre>
+     * Well Known Type Date
+     * </pre>
+     *
+     * <code>.google.type.Date date = 5;</code>
+     */
+    google.type.DateOuterClass.Date getDate();
+    /**
+     * <pre>
+     * Well Known Type Date
+     * </pre>
+     *
+     * <code>.google.type.Date date = 5;</code>
+     */
+    google.type.DateOuterClass.DateOrBuilder getDateOrBuilder();
+
+    /**
+     * <pre>
      * Localized String representation of a experiment
      * </pre>
      *
@@ -1562,6 +1587,19 @@ public final class ExperimentOuterClass {
               text_ = s;
               break;
             }
+            case 42: {
+              google.type.DateOuterClass.Date.Builder subBuilder = null;
+              if (date_ != null) {
+                subBuilder = date_.toBuilder();
+              }
+              date_ = input.readMessage(google.type.DateOuterClass.Date.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(date_);
+                date_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1592,6 +1630,39 @@ public final class ExperimentOuterClass {
       return experiment.ExperimentOuterClass.internal_static_experiment_Constraints_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               experiment.ExperimentOuterClass.Constraints.class, experiment.ExperimentOuterClass.Constraints.Builder.class);
+    }
+
+    public static final int DATE_FIELD_NUMBER = 5;
+    private google.type.DateOuterClass.Date date_;
+    /**
+     * <pre>
+     * Well Known Type Date
+     * </pre>
+     *
+     * <code>.google.type.Date date = 5;</code>
+     */
+    public boolean hasDate() {
+      return date_ != null;
+    }
+    /**
+     * <pre>
+     * Well Known Type Date
+     * </pre>
+     *
+     * <code>.google.type.Date date = 5;</code>
+     */
+    public google.type.DateOuterClass.Date getDate() {
+      return date_ == null ? google.type.DateOuterClass.Date.getDefaultInstance() : date_;
+    }
+    /**
+     * <pre>
+     * Well Known Type Date
+     * </pre>
+     *
+     * <code>.google.type.Date date = 5;</code>
+     */
+    public google.type.DateOuterClass.DateOrBuilder getDateOrBuilder() {
+      return getDate();
     }
 
     public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
@@ -1759,6 +1830,9 @@ public final class ExperimentOuterClass {
       if (!getTextBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, text_);
       }
+      if (date_ != null) {
+        output.writeMessage(5, getDate());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1781,6 +1855,10 @@ public final class ExperimentOuterClass {
       if (!getTextBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, text_);
       }
+      if (date_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getDate());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1796,6 +1874,11 @@ public final class ExperimentOuterClass {
       }
       experiment.ExperimentOuterClass.Constraints other = (experiment.ExperimentOuterClass.Constraints) obj;
 
+      if (hasDate() != other.hasDate()) return false;
+      if (hasDate()) {
+        if (!getDate()
+            .equals(other.getDate())) return false;
+      }
       if (!getDisplayName()
           .equals(other.getDisplayName())) return false;
       if (!getId()
@@ -1815,6 +1898,10 @@ public final class ExperimentOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasDate()) {
+        hash = (37 * hash) + DATE_FIELD_NUMBER;
+        hash = (53 * hash) + getDate().hashCode();
+      }
       hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getDisplayName().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
@@ -1960,6 +2047,12 @@ public final class ExperimentOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        if (dateBuilder_ == null) {
+          date_ = null;
+        } else {
+          date_ = null;
+          dateBuilder_ = null;
+        }
         displayName_ = "";
 
         id_ = "";
@@ -1994,6 +2087,11 @@ public final class ExperimentOuterClass {
       @java.lang.Override
       public experiment.ExperimentOuterClass.Constraints buildPartial() {
         experiment.ExperimentOuterClass.Constraints result = new experiment.ExperimentOuterClass.Constraints(this);
+        if (dateBuilder_ == null) {
+          result.date_ = date_;
+        } else {
+          result.date_ = dateBuilder_.build();
+        }
         result.displayName_ = displayName_;
         result.id_ = id_;
         result.number_ = number_;
@@ -2046,6 +2144,9 @@ public final class ExperimentOuterClass {
 
       public Builder mergeFrom(experiment.ExperimentOuterClass.Constraints other) {
         if (other == experiment.ExperimentOuterClass.Constraints.getDefaultInstance()) return this;
+        if (other.hasDate()) {
+          mergeDate(other.getDate());
+        }
         if (!other.getDisplayName().isEmpty()) {
           displayName_ = other.displayName_;
           onChanged();
@@ -2088,6 +2189,159 @@ public final class ExperimentOuterClass {
           }
         }
         return this;
+      }
+
+      private google.type.DateOuterClass.Date date_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.type.DateOuterClass.Date, google.type.DateOuterClass.Date.Builder, google.type.DateOuterClass.DateOrBuilder> dateBuilder_;
+      /**
+       * <pre>
+       * Well Known Type Date
+       * </pre>
+       *
+       * <code>.google.type.Date date = 5;</code>
+       */
+      public boolean hasDate() {
+        return dateBuilder_ != null || date_ != null;
+      }
+      /**
+       * <pre>
+       * Well Known Type Date
+       * </pre>
+       *
+       * <code>.google.type.Date date = 5;</code>
+       */
+      public google.type.DateOuterClass.Date getDate() {
+        if (dateBuilder_ == null) {
+          return date_ == null ? google.type.DateOuterClass.Date.getDefaultInstance() : date_;
+        } else {
+          return dateBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Well Known Type Date
+       * </pre>
+       *
+       * <code>.google.type.Date date = 5;</code>
+       */
+      public Builder setDate(google.type.DateOuterClass.Date value) {
+        if (dateBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          date_ = value;
+          onChanged();
+        } else {
+          dateBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Well Known Type Date
+       * </pre>
+       *
+       * <code>.google.type.Date date = 5;</code>
+       */
+      public Builder setDate(
+          google.type.DateOuterClass.Date.Builder builderForValue) {
+        if (dateBuilder_ == null) {
+          date_ = builderForValue.build();
+          onChanged();
+        } else {
+          dateBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Well Known Type Date
+       * </pre>
+       *
+       * <code>.google.type.Date date = 5;</code>
+       */
+      public Builder mergeDate(google.type.DateOuterClass.Date value) {
+        if (dateBuilder_ == null) {
+          if (date_ != null) {
+            date_ =
+              google.type.DateOuterClass.Date.newBuilder(date_).mergeFrom(value).buildPartial();
+          } else {
+            date_ = value;
+          }
+          onChanged();
+        } else {
+          dateBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Well Known Type Date
+       * </pre>
+       *
+       * <code>.google.type.Date date = 5;</code>
+       */
+      public Builder clearDate() {
+        if (dateBuilder_ == null) {
+          date_ = null;
+          onChanged();
+        } else {
+          date_ = null;
+          dateBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Well Known Type Date
+       * </pre>
+       *
+       * <code>.google.type.Date date = 5;</code>
+       */
+      public google.type.DateOuterClass.Date.Builder getDateBuilder() {
+        
+        onChanged();
+        return getDateFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Well Known Type Date
+       * </pre>
+       *
+       * <code>.google.type.Date date = 5;</code>
+       */
+      public google.type.DateOuterClass.DateOrBuilder getDateOrBuilder() {
+        if (dateBuilder_ != null) {
+          return dateBuilder_.getMessageOrBuilder();
+        } else {
+          return date_ == null ?
+              google.type.DateOuterClass.Date.getDefaultInstance() : date_;
+        }
+      }
+      /**
+       * <pre>
+       * Well Known Type Date
+       * </pre>
+       *
+       * <code>.google.type.Date date = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.type.DateOuterClass.Date, google.type.DateOuterClass.Date.Builder, google.type.DateOuterClass.DateOrBuilder> 
+          getDateFieldBuilder() {
+        if (dateBuilder_ == null) {
+          dateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              google.type.DateOuterClass.Date, google.type.DateOuterClass.Date.Builder, google.type.DateOuterClass.DateOrBuilder>(
+                  getDate(),
+                  getParentForChildren(),
+                  isClean());
+          date_ = null;
+        }
+        return dateBuilder_;
       }
 
       private java.lang.Object displayName_ = "";
@@ -12382,39 +12636,40 @@ public final class ExperimentOuterClass {
       ".proto\032\025project/project.proto\"m\n\020Experim" +
       "entEntity\022$\n\004data\030\001 \001(\0132\026.experiment.Exp" +
       "eriment\022\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004me" +
-      "ta\030\003 \001(\0132\n.furo.Meta\"M\n\013Constraints\022\024\n\014d" +
-      "isplay_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\016\n\006number\030" +
-      "\003 \001(\005\022\014\n\004text\030\004 \001(\t\"\207\006\n\nExperiment\022\023\n\013de" +
-      "scription\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\033\n" +
-      "\023furo_data_bool_icon\030\016 \001(\010\022 \n\030furo_data_" +
-      "checkbox_input\030\004 \001(\010\022\035\n\025furo_data_color_" +
-      "input\030\n \001(\t\022\034\n\024furo_data_date_input\030\r \001(" +
-      "\t\0226\n\033furo_data_date_input_google\030\022 \001(\0132\021" +
-      ".google.type.Date\022\034\n\024furo_data_file_inpu" +
-      "t\030\026 \003(\t\0221\n\025furo_data_money_input\030\025 \001(\0132\022" +
-      ".google.type.Money\022\036\n\026furo_data_number_i" +
-      "nput\030\t \001(\002\022 \n\030furo_data_password_input\030\013" +
-      " \001(\t\022\035\n\025furo_data_range_input\030\010 \001(\t\022\036\n\026f" +
-      "uro_data_search_input\030\014 \001(\t\022\034\n\024furo_data" +
-      "_text_input\030\005 \001(\t\022 \n\030furo_data_textarea_" +
-      "input\030\006 \001(\t\022\034\n\024furo_data_time_input\030\007 \001(" +
-      "\t\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\024 \003(\t\022,\n\024sing" +
-      "le_type_property\030\023 \001(\0132\016.furo.Property\022*" +
-      "\n\014the_any_type\030\017 \001(\0132\024.google.protobuf.A" +
-      "ny\022%\n\rtype_property\030\021 \003(\0132\016.furo.Propert" +
-      "y\022\031\n\021type_with_options\030\020 \001(\t\022/\n\013update_m" +
-      "ask\030\027 \001(\0132\032.google.protobuf.FieldMask\"u\n" +
-      "\007Default\022\023\n\013description\030\003 \001(\t\022\024\n\014display" +
-      "_name\030\002 \001(\t\022 \n\030furo_data_checkbox_input\030" +
-      "\005 \001(\010\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"G\n\010" +
-      "Readonly\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\022!\n\007pr" +
-      "oject\030\001 \001(\0132\020.project.Project\"W\n\tRecursi" +
-      "ve\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(\n\t" +
-      "recursion\030\003 \001(\0132\025.experiment.Recursive\"{" +
-      "\n\024ExperimentCollection\022.\n\010entities\030\004 \003(\013" +
-      "2\034.experiment.ExperimentEntity\022\031\n\005links\030" +
-      "\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.M" +
-      "etab\006proto3"
+      "ta\030\003 \001(\0132\n.furo.Meta\"n\n\013Constraints\022\037\n\004d" +
+      "ate\030\005 \001(\0132\021.google.type.Date\022\024\n\014display_" +
+      "name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\016\n\006number\030\003 \001(\005\022\014" +
+      "\n\004text\030\004 \001(\t\"\207\006\n\nExperiment\022\023\n\013descripti" +
+      "on\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\033\n\023furo_d" +
+      "ata_bool_icon\030\016 \001(\010\022 \n\030furo_data_checkbo" +
+      "x_input\030\004 \001(\010\022\035\n\025furo_data_color_input\030\n" +
+      " \001(\t\022\034\n\024furo_data_date_input\030\r \001(\t\0226\n\033fu" +
+      "ro_data_date_input_google\030\022 \001(\0132\021.google" +
+      ".type.Date\022\034\n\024furo_data_file_input\030\026 \003(\t" +
+      "\0221\n\025furo_data_money_input\030\025 \001(\0132\022.google" +
+      ".type.Money\022\036\n\026furo_data_number_input\030\t " +
+      "\001(\002\022 \n\030furo_data_password_input\030\013 \001(\t\022\035\n" +
+      "\025furo_data_range_input\030\010 \001(\t\022\036\n\026furo_dat" +
+      "a_search_input\030\014 \001(\t\022\034\n\024furo_data_text_i" +
+      "nput\030\005 \001(\t\022 \n\030furo_data_textarea_input\030\006" +
+      " \001(\t\022\034\n\024furo_data_time_input\030\007 \001(\t\022\n\n\002id" +
+      "\030\001 \001(\t\022\021\n\trepstring\030\024 \003(\t\022,\n\024single_type" +
+      "_property\030\023 \001(\0132\016.furo.Property\022*\n\014the_a" +
+      "ny_type\030\017 \001(\0132\024.google.protobuf.Any\022%\n\rt" +
+      "ype_property\030\021 \003(\0132\016.furo.Property\022\031\n\021ty" +
+      "pe_with_options\030\020 \001(\t\022/\n\013update_mask\030\027 \001" +
+      "(\0132\032.google.protobuf.FieldMask\"u\n\007Defaul" +
+      "t\022\023\n\013description\030\003 \001(\t\022\024\n\014display_name\030\002" +
+      " \001(\t\022 \n\030furo_data_checkbox_input\030\005 \001(\010\022\n" +
+      "\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"G\n\010Readonl" +
+      "y\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\022!\n\007project\030\001" +
+      " \001(\0132\020.project.Project\"W\n\tRecursive\022\024\n\014d" +
+      "isplay_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(\n\trecursi" +
+      "on\030\003 \001(\0132\025.experiment.Recursive\"{\n\024Exper" +
+      "imentCollection\022.\n\010entities\030\004 \003(\0132\034.expe" +
+      "riment.ExperimentEntity\022\031\n\005links\030\003 \003(\0132\n" +
+      ".furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Metab\006pr" +
+      "oto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -12447,7 +12702,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Constraints_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Constraints_descriptor,
-        new java.lang.String[] { "DisplayName", "Id", "Number", "Text", });
+        new java.lang.String[] { "Date", "DisplayName", "Id", "Number", "Text", });
     internal_static_experiment_Experiment_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_experiment_Experiment_fieldAccessorTable = new

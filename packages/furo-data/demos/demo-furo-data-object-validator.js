@@ -3,7 +3,7 @@ import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
-
+import '@furo/form/src/furo-form-layouter.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-catalog.js';
 import './helper/furo-data-object-form.js';
@@ -51,7 +51,7 @@ class DemoFuroDataObjectValidator extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-            <furo-horizontal-flex>
+            <furo-form-layouter>
               <furo-data-text-input ƒ-bind-data="--entity(*.text)"></furo-data-text-input>
               <furo-data-text-input autofocus ƒ-bind-data="--entity(*.text)"></furo-data-text-input>
               <furo-data-number-input
@@ -62,14 +62,14 @@ class DemoFuroDataObjectValidator extends FBP(LitElement) {
                 autofocus
                 ƒ-bind-data="--entity(*.number)"
               ></furo-data-number-input>
-
-              <furo-data-object
-                type="experiment.Constraints"
-                @-object-ready="--entity"
-                ƒ-validate-all-fields="--clicked"
-                ƒ-inject-raw="--response(*.data)"
-              ></furo-data-object>
-            </furo-horizontal-flex>
+              <furo-data-date-input ƒ-bind-data="--entity(*.date)"></furo-data-date-input>
+            </furo-form-layouter>
+            <furo-data-object
+              type="experiment.Constraints"
+              @-object-ready="--entity"
+              ƒ-validate-all-fields="--clicked"
+              ƒ-inject-raw="--response(*.data)"
+            ></furo-data-object>
             <furo-button raised label="validate object" @-click="--clicked"></furo-button>
           </template>
         </furo-demo-snippet>

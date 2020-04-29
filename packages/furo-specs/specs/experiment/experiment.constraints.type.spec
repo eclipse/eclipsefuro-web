@@ -5,7 +5,8 @@
   "__proto": {
     "package": "experiment",
     "imports": [
-      "google/protobuf/any.proto"
+      "google/protobuf/any.proto",
+      "google/type/date.proto"
     ],
     "targetfile": "experiment.proto"
   },
@@ -112,6 +113,25 @@
       },
       "__proto": {
         "number": 4
+      }
+    },
+    "date": {
+      "description": "Well Known Type Date",
+      "type": "google.type.Date",
+      "meta": {
+        "label": "Date",
+        "default": "",
+        "hint": "",
+        "readonly": false
+      },
+      "constraints": {
+        "required": {
+          "is": "true",
+          "message":"is required"
+        }
+      },
+      "__proto": {
+        "number": 5
       }
     }
   }
