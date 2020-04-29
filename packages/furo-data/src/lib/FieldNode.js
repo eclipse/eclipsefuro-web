@@ -353,14 +353,16 @@ export class FieldNode extends EventTreeNode {
          * the min constraint
          */
         case 'required':
-          if (numericType) {
-            if (validity && this._value == null) {
+          if (!(this._meta && this._meta.readonly && this._meta.readonly === true)) {
+            if (numericType) {
+              if (validity && this._value == null) {
+                this._validity = { constraint: constraintName, description: constraint.message };
+                validity = false;
+              }
+            } else if (validity && (this._value == null || this._value.length === 0)) {
               this._validity = { constraint: constraintName, description: constraint.message };
               validity = false;
             }
-          } else if (validity && (this._value == null || this._value.length === 0)) {
-            this._validity = { constraint: constraintName, description: constraint.message };
-            validity = false;
           }
           break;
         default:

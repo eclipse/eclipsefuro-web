@@ -28,7 +28,10 @@ message ExperimentEntity {
 }
 
 // Test the Constraints
-message Constraints {                        
+message Constraints {                            
+    // Well Known Type Date
+    google.type.Date date = 5;
+    
     // Localized String representation of a experiment
     string display_name = 2;
     
