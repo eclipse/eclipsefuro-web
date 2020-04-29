@@ -94,8 +94,7 @@ class FuroPages extends LitElement {
       }
     }
     if (this._lastPage) {
-
-      if(this._lastPage.hasAttribute('hidden')) {
+      if (this._lastPage.hasAttribute('hidden')) {
         this._lastPage.removeAttribute('hidden');
       }
       this._lastPage.setAttribute(this._attrForSelected, '');

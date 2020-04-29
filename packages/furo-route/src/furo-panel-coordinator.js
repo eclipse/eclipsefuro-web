@@ -135,7 +135,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
 
     if (this._openPanels.length > 0) {
       // only when there is no selected navigation node
-      if(this._openPanels.every(node => node._isSelected === false)) {
+      if (this._openPanels.every(node => node._isSelected === false)) {
         // select item with same index
         this._openPanels[this._openPanels.length - 1].selectItem();
       }
