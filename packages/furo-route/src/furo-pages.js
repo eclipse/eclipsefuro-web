@@ -94,14 +94,14 @@ class FuroPages extends LitElement {
       }
     }
     if (this._lastPage) {
-      if (page !== this._lastPageName) {
+      if (this._lastPage.hasAttribute('hidden')) {
         this._lastPage.removeAttribute('hidden');
-        this._lastPage.setAttribute(this._attrForSelected, '');
+      }
+      this._lastPage.setAttribute(this._attrForSelected, '');
 
-        this._lastPageName = page;
-        if (this._lastPage._FBPTriggerWire !== undefined) {
-          this._lastPage._FBPTriggerWire('--pageActivated', location);
-        }
+      this._lastPageName = page;
+      if (this._lastPage._FBPTriggerWire !== undefined) {
+        this._lastPage._FBPTriggerWire('--pageActivated', location);
       }
 
       // QP

@@ -31,7 +31,6 @@ class FuroAppDrawer extends FBP(LitElement) {
         e.detail.drawer = this;
       }
     });
-
   }
 
   /**
@@ -210,7 +209,6 @@ class FuroAppDrawer extends FBP(LitElement) {
       this.close();
     });
 
-
     // register resize listener
     if (!this.permanent) {
       if (window.ResizeObserver) {
@@ -242,7 +240,6 @@ class FuroAppDrawer extends FBP(LitElement) {
       }
     }
 
-
     // initial size
     const cr = this.getBoundingClientRect();
     this.__isFloating = cr.width <= this.floatBreakpoint;
@@ -251,10 +248,9 @@ class FuroAppDrawer extends FBP(LitElement) {
     /**
      * Set the transition effect after the first render. Otherwise we get a flickering effect
      */
-    setTimeout(()=>{
-      drawer.style.transitionDuration = "200ms";
-    },201);
-
+    setTimeout(() => {
+      drawer.style.transitionDuration = '200ms';
+    }, 201);
 
     const drag = this.shadowRoot.getElementById('drag');
     const backdrop = this.shadowRoot.getElementById('backdrop');
