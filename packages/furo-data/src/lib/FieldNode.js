@@ -286,74 +286,79 @@ export class FieldNode extends EventTreeNode {
   // check the validity against spec and meta
   _checkConstraints() {
     let validity = true;
-    // todo: decide if we should check for type conformity like uint32 is positive and not bigger then 32bit
-    // validate only if they are constraints
-    // eslint-disable-next-line guard-for-in,no-restricted-syntax
-    for (const constraintName in this._constraints) {
-      const constraint = this._constraints[constraintName];
-      const numericType = Helper.isNumericType(this._spec.type);
-      switch (constraintName.toLowerCase()) {
-        /**
-         * the min constraint
-         */
-        case 'min':
-          if (numericType) {
-            if (validity && this._value < parseFloat(constraint.is)) {
-              this._validity = { constraint: constraintName, description: constraint.message };
-              validity = false;
-            }
-          } else if (validity && this._value.length < constraint.is) {
-            this._validity = { constraint: constraintName, description: constraint.message };
-            validity = false;
-          }
-          break;
-        /**
-         * the max constraint
-         */
-        case 'max':
-          if (numericType) {
-            if (validity && this._value > parseFloat(constraint.is)) {
-              this._validity = { constraint: constraintName, description: constraint.message };
-              validity = false;
-            }
-          } else if (validity && this._value.length > constraint.is) {
-            this._validity = { constraint: constraintName, description: constraint.message };
-            validity = false;
-          }
-          break;
-        /**
-         * step
-         */
-        case 'step':
-          if (numericType) {
-            // step check is (value - min)%is == 0
-            const modulo = parseFloat(constraint.is);
-            let min = 0;
-            if (this._constraints.min && this._constraints.min.is) {
-              min = parseFloat(this._constraints.min.is);
-            }
+    // DO NOT validate readonly fields
+    if (!(this._meta && this._meta.readonly && this._meta.readonly === true)) {
+      // todo: decide if we should check for type conformity like uint32 is positive and not bigger then 32bit
+      // validate only if they are constraints
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
+      for (const constraintName in this._constraints) {
+        const constraint = this._constraints[constraintName];
+        const numericType = Helper.isNumericType(this._spec.type);
 
-            if (validity && (min - this._value) % modulo !== 0) {
+        switch (constraintName.toLowerCase()) {
+          /**
+           * the min constraint
+           */
+          case 'min':
+            if (numericType) {
+              if (validity && this._value < parseFloat(constraint.is)) {
+                this._validity = { constraint: constraintName, description: constraint.message };
+                validity = false;
+              }
+            } else if (validity && this._value.length < constraint.is) {
               this._validity = { constraint: constraintName, description: constraint.message };
               validity = false;
             }
-          }
-          break;
-        /**
-         * the pattern constraint
-         */
-        case 'pattern':
-          if (validity && (this._value == null || !this._value.match(new RegExp(constraint.is)))) {
-            this._validity = { constraint: constraintName, description: constraint.message };
-            validity = false;
-          }
-          break;
+            break;
+          /**
+           * the max constraint
+           */
+          case 'max':
+            if (numericType) {
+              if (validity && this._value > parseFloat(constraint.is)) {
+                this._validity = { constraint: constraintName, description: constraint.message };
+                validity = false;
+              }
+            } else if (validity && this._value.length > constraint.is) {
+              this._validity = { constraint: constraintName, description: constraint.message };
+              validity = false;
+            }
+            break;
+          /**
+           * step
+           */
+          case 'step':
+            if (numericType) {
+              // step check is (value - min)%is == 0
+              const modulo = parseFloat(constraint.is);
+              let min = 0;
+              if (this._constraints.min && this._constraints.min.is) {
+                min = parseFloat(this._constraints.min.is);
+              }
 
-        /**
-         * the min constraint
-         */
-        case 'required':
-          if (!(this._meta && this._meta.readonly && this._meta.readonly === true)) {
+              if (validity && (min - this._value) % modulo !== 0) {
+                this._validity = { constraint: constraintName, description: constraint.message };
+                validity = false;
+              }
+            }
+            break;
+          /**
+           * the pattern constraint
+           */
+          case 'pattern':
+            if (
+              validity &&
+              (this._value == null || !this._value.match(new RegExp(constraint.is)))
+            ) {
+              this._validity = { constraint: constraintName, description: constraint.message };
+              validity = false;
+            }
+            break;
+
+          /**
+           * the min constraint
+           */
+          case 'required':
             if (numericType) {
               if (validity && this._value == null) {
                 this._validity = { constraint: constraintName, description: constraint.message };
@@ -363,12 +368,11 @@ export class FieldNode extends EventTreeNode {
               this._validity = { constraint: constraintName, description: constraint.message };
               validity = false;
             }
-          }
-          break;
-        default:
+            break;
+          default:
+        }
       }
     }
-
     if (!validity) {
       this._isValid = false;
       this.dispatchNodeEvent(new NodeEvent('field-became-invalid', this));

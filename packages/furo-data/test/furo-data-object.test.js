@@ -42,21 +42,21 @@ describe('furo-data-object', () => {
     // valid on init
     assert.equal(EntityRoot._isValid, true, 'init');
 
-    EntityRoot.display_name._value = 'dddddd34567834567';
+    EntityRoot.text._value = 'dddddd34567834567';
     assert.equal(EntityRoot._isValid, false, 'max pattern');
 
-    EntityRoot.display_name._value = 'adddddwerftgzhjuert';
+    EntityRoot.text._value = 'adddddwerftgzhjuert';
     assert.equal(EntityRoot._isValid, false, 'max');
 
-    EntityRoot.display_name._value = 'bbbb';
+    EntityRoot.text._value = 'bbbb';
     assert.equal(EntityRoot._isValid, false, 'pattern');
 
-    EntityRoot.display_name._value = '';
+    EntityRoot.text._value = '';
     assert.equal(EntityRoot._isValid, false, 'required');
-    assert.equal(EntityRoot.display_name._validity.constraint, 'required', 'required');
-    EntityRoot.display_name._value = 'aha';
+    assert.equal(EntityRoot.text._validity.constraint, 'required', 'required');
+    EntityRoot.text._value = 'aha aha';
 
-    assert.equal(EntityRoot._isValid, true, 'aha should be true');
+    assert.equal(EntityRoot._isValid, true, 'aha aha should be true');
 
     done();
   });
