@@ -56,17 +56,12 @@ export class ValidatorGoogleTypeDate {
           case 'step':
             {
               const date = ValidatorGoogleTypeDate.createDateFromType(field);
-              const msToDayDividend = 8.64e+7;
+              const msToDayDividend = 8.64e7;
               // step check is (value - min)%is == 0
               const modulo = Number.parseInt(constraint.is, 10);
-              let minDate = 0;
-              if (field._constraints.min && field._constraints.min.is) {
-                minDate = new Date(field._constraints.min.is);
-                minDate.setHours(0, 0, 0, 0);
-              }
+              const minDate = ValidatorGoogleTypeDate.createDateFromConstraint(field._constraints);
 
-              console.log((date - minDate) / msToDayDividend);
-              if ((date - minDate) / msToDayDividend % modulo !== 0) {
+              if (((date - minDate) / msToDayDividend) % modulo !== 0) {
                 const NODE = {};
                 NODE.message = constraint.message;
                 NODE.name = constraintName;
@@ -117,18 +112,35 @@ export class ValidatorGoogleTypeDate {
   }
 
   /**
-   * creates a JS Date from google.type.Date struct
+   * creates a JS UTC Date from google.type.Date struct
    * @private
    * @param field
    * @returns {Date}
    */
   static createDateFromType(field) {
-    const checkDate = new Date(
-      field.year._value ? field.year._value : 0,
-      field.month._value ? field.month._value - 1 : 0,
-      field.day._value ? field.day._value : 0,
+    return new Date(
+      Date.UTC(
+        field.year._value ? field.year._value : 0,
+        field.month._value ? field.month._value - 1 : 0,
+        field.day._value ? field.day._value : 0,
+        0,
+        0,
+        0,
+        0,
+      ),
     );
-    checkDate.setHours(0, 0, 0, 0);
-    return checkDate;
+  }
+
+  /**
+   * creates a JS midnight UTC Date from furo/specs constraints
+   * @private
+   * @param field
+   * @returns {Date}
+   */
+  static createDateFromConstraint(constraints) {
+    if (constraints.min && constraints.min.is) {
+      return new Date(`${constraints.min.is}T00:00:00Z`);
+    }
+    return 0;
   }
 }
