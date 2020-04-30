@@ -4,9 +4,9 @@ import '../src/furo-catalog.js'
 import '@furo/fbp/src/testhelper/test-bind.js' // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/testhelper/initEnv.js'
-import { ValidatorNumericTypes} from '../src/lib/ValidatorNumericTypes.js';
+import { ValidatorGoogleTypeDate} from '../src/lib/ValidatorGoogleTypeDate.js';
 
-describe('ValidatorNumbericTypes', () => {
+describe('ValidatorGoogleTypeDate', () => {
   let element
   let host
 
@@ -25,44 +25,42 @@ describe('ValidatorNumbericTypes', () => {
     await element.updateComplete
   })
 
-  it('should check min constraint', done => {
+  it('should check required constraint', done => {
     /**
      * Constraints are set like:
-     * "min":  "is": "6",
-     * "step": "is": "3",
-     * "max":  "is": "12",
+     * "min":  "is": "2020-01-01",
+     * "max":  "is": "9999-12-31",
+     * "step":  "is": "30",
+     * "required": "is": true
      */
     element.setAttribute('type', 'experiment.Constraints')
     const EntityRoot = element.data
 
-    EntityRoot.number._value = 3;
-    ValidatorNumericTypes.validateConstraints(EntityRoot.number).then(()=>{
+    ValidatorGoogleTypeDate.validateConstraints(EntityRoot.date).then(()=>{
 
     }, (error)=>{
-      assert.equal(error.name, 'min', 'min')
-      assert.equal(error.message, 'Minimal number 6**')
+      assert.equal(error.message, 'is required**', 'required')
+      assert.equal(error.name, 'required', 'required')
       done()
     })
 
   })
 
   it('should check max constraint', done => {
-    /**
-     * Constraints are set like:
-     * "min":  "is": "6",
-     * "step": "is": "3",
-     * "max":  "is": "12",
-     */
     element.setAttribute('type', 'experiment.Constraints')
     const EntityRoot = element.data
 
-    EntityRoot.number._value = 36;
-    ValidatorNumericTypes.validateConstraints(EntityRoot.number).then(()=>{
+    EntityRoot.date._value = {"day": 1, "month": 1, "year": 99999};
+    setTimeout(()=>{
+      ValidatorGoogleTypeDate.validateConstraints(EntityRoot.date).then(()=>{
 
-    }, (error)=>{
-      assert.equal(error.name, 'max', 'max')
-      done()
-    })
+      }, (error)=>{
+        assert.equal(error.message, 'max 31.12.9999**', 'max')
+        assert.equal(error.name, 'max', 'max')
+        done()
+      })
+    },20)
+
 
   })
 

@@ -22,8 +22,10 @@ export class ValidatorGoogleTypeDate {
           /**
            * the min constraint
            */
-          case 'min':
-            if (ValidatorGoogleTypeDate.createDateFromType(field) < Date.parse(constraint.is)) {
+          case 'min': {
+            const minDate = new Date(constraint.is);
+            minDate.setHours(0, 0, 0, 0);
+            if (ValidatorGoogleTypeDate.createDateFromType(field) < minDate) {
               const NODE = {};
               NODE.message = constraint.message;
               NODE.name = constraintName;
@@ -31,11 +33,15 @@ export class ValidatorGoogleTypeDate {
               reject(NODE);
             }
             break;
+          }
           /**
            * the max constraint
            */
-          case 'max':
-            if (ValidatorGoogleTypeDate.createDateFromType(field) > Date.parse(constraint.is)) {
+          case 'max': {
+            const maxDate = new Date(constraint.is);
+            maxDate.setHours(0, 0, 0, 0);
+
+            if (ValidatorGoogleTypeDate.createDateFromType(field) > maxDate) {
               const NODE = {};
               NODE.message = constraint.message;
               NODE.name = constraintName;
@@ -43,10 +49,31 @@ export class ValidatorGoogleTypeDate {
               reject(NODE);
             }
             break;
+          }
           /**
            * step
            */
           case 'step':
+            {
+              const date = ValidatorGoogleTypeDate.createDateFromType(field);
+              const msToDayDividend = 8.64e+7;
+              // step check is (value - min)%is == 0
+              const modulo = Number.parseInt(constraint.is, 10);
+              let minDate = 0;
+              if (field._constraints.min && field._constraints.min.is) {
+                minDate = new Date(field._constraints.min.is);
+                minDate.setHours(0, 0, 0, 0);
+              }
+
+              console.log((date - minDate) / msToDayDividend);
+              if ((date - minDate) / msToDayDividend % modulo !== 0) {
+                const NODE = {};
+                NODE.message = constraint.message;
+                NODE.name = constraintName;
+                NODE.node = field;
+                reject(NODE);
+              }
+            }
             break;
           /**
            * the pattern constraint
@@ -101,6 +128,7 @@ export class ValidatorGoogleTypeDate {
       field.month._value ? field.month._value - 1 : 0,
       field.day._value ? field.day._value : 0,
     );
+    checkDate.setHours(0, 0, 0, 0);
     return checkDate;
   }
 }
