@@ -84,7 +84,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       obj.units = Number(arr[0]);
       if (arr[1]) {
         // eslint-disable-next-line no-param-reassign
-        obj.nanos = Number(`0.${arr[1]}`) * 100000000;
+        obj.nanos = Number.parseInt(Number(`0.${arr[1]}`) * 100000000,10);
       } else {
         // eslint-disable-next-line no-param-reassign
         obj.nanos = 0;

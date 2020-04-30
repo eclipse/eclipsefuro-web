@@ -2,6 +2,10 @@ import { EventTreeNode, NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 // eslint-disable-next-line import/no-cycle
 import { RepeaterNode } from './RepeaterNode.js';
 import { Helper } from './Helper.js';
+import { ValidatorNumericTypes } from './ValidatorNumericTypes.js';
+import { ValidatorDefaultTypes } from './ValidatorDefaultTypes.js';
+import { ValidatorGoogleTypeDate } from './ValidatorGoogleTypeDate.js';
+import { ValidatorGoogleTypeMoney } from './ValidatorGoogleTypeMoney.js';
 
 export class FieldNode extends EventTreeNode {
   constructor(parentNode, fieldSpec, fieldName) {
@@ -285,99 +289,43 @@ export class FieldNode extends EventTreeNode {
 
   // check the validity against spec and meta
   _checkConstraints() {
-    let validity = true;
+    const validity = true;
+
+    const success = field => {
+      field._clearInvalidity();
+    };
+
+    const failure = error => {
+      const field = error.node;
+      field._isValid = false;
+      field._validity = { constraint: error.name, description: error.message };
+      field.dispatchNodeEvent(new NodeEvent('field-became-invalid', field));
+    };
+
     // DO NOT validate readonly fields
     if (!(this._meta && this._meta.readonly && this._meta.readonly === true)) {
-      // todo: decide if we should check for type conformity like uint32 is positive and not bigger then 32bit
-      // validate only if they are constraints
-      // eslint-disable-next-line guard-for-in,no-restricted-syntax
-      for (const constraintName in this._constraints) {
-        const constraint = this._constraints[constraintName];
-        const numericType = Helper.isNumericType(this._spec.type);
+      const isNumericType = Helper.isNumericType(this._spec.type);
+      const isScalarType = Helper.isScalarType(this._spec.type);
 
-        switch (constraintName.toLowerCase()) {
-          /**
-           * the min constraint
-           */
-          case 'min':
-            if (numericType) {
-              if (validity && this._value < parseFloat(constraint.is)) {
-                this._validity = { constraint: constraintName, description: constraint.message };
-                validity = false;
-              }
-            } else if (validity && this._value.length < constraint.is) {
-              this._validity = { constraint: constraintName, description: constraint.message };
-              validity = false;
-            }
+      if (isScalarType) {
+        if (isNumericType) {
+          ValidatorNumericTypes.validateConstraints(this).then(success, failure);
+        } else {
+          ValidatorDefaultTypes.validateConstraints(this).then(success, failure);
+        }
+      } else {
+        // complex special type path
+        switch (this._spec.type) {
+          case 'google.type.Date':
+            ValidatorGoogleTypeDate.validateConstraints(this).then(success, failure);
             break;
-          /**
-           * the max constraint
-           */
-          case 'max':
-            if (numericType) {
-              if (validity && this._value > parseFloat(constraint.is)) {
-                this._validity = { constraint: constraintName, description: constraint.message };
-                validity = false;
-              }
-            } else if (validity && this._value.length > constraint.is) {
-              this._validity = { constraint: constraintName, description: constraint.message };
-              validity = false;
-            }
-            break;
-          /**
-           * step
-           */
-          case 'step':
-            if (numericType) {
-              // step check is (value - min)%is == 0
-              const modulo = parseFloat(constraint.is);
-              let min = 0;
-              if (this._constraints.min && this._constraints.min.is) {
-                min = parseFloat(this._constraints.min.is);
-              }
-
-              if (validity && (min - this._value) % modulo !== 0) {
-                this._validity = { constraint: constraintName, description: constraint.message };
-                validity = false;
-              }
-            }
-            break;
-          /**
-           * the pattern constraint
-           */
-          case 'pattern':
-            if (
-              validity &&
-              (this._value == null || !this._value.match(new RegExp(constraint.is)))
-            ) {
-              this._validity = { constraint: constraintName, description: constraint.message };
-              validity = false;
-            }
-            break;
-
-          /**
-           * the min constraint
-           */
-          case 'required':
-            if (numericType) {
-              if (validity && this._value == null) {
-                this._validity = { constraint: constraintName, description: constraint.message };
-                validity = false;
-              }
-            } else if (validity && (this._value == null || this._value.length === 0)) {
-              this._validity = { constraint: constraintName, description: constraint.message };
-              validity = false;
-            }
+          case 'google.type.Money':
+            ValidatorGoogleTypeMoney.validateConstraints(this).then(success, failure);
             break;
           default:
+            break;
         }
       }
-    }
-    if (!validity) {
-      this._isValid = false;
-      this.dispatchNodeEvent(new NodeEvent('field-became-invalid', this));
-    } else {
-      this._clearInvalidity();
     }
     return validity;
   }

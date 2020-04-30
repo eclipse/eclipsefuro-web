@@ -93,7 +93,10 @@ describe('furo-entity-agent', () => {
     dataObject.setAttribute('type', 'experiment.ExperimentEntity');
 
     entityAgent.addEventListener('save-success', r => {
-      assert.equal(r.detail.json.furo_data_text_input, 'hallo test');
+      assert.equal(
+        r.detail.json.furo_data_text_input,
+        'hallo test with loads of text to show the overflow. hallo test with loads of text to show the overflow.',
+      );
       assert.equal(r.detail.json.furo_data_money_input.currency_code, 'CHF');
       assert.equal(r.detail.json.furo_data_money_input.units, 3333);
       assert.equal(r.detail.json.furo_data_money_input.nanos, 75100000);

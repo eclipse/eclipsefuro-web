@@ -51,7 +51,7 @@ class DemoFuroDataObjectValidator extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-            <furo-form-layouter>
+            <furo-form-layouter two>
               <furo-data-text-input ƒ-bind-data="--entity(*.text)"></furo-data-text-input>
               <furo-data-text-input autofocus ƒ-bind-data="--entity(*.text)"></furo-data-text-input>
               <furo-data-number-input
@@ -63,6 +63,7 @@ class DemoFuroDataObjectValidator extends FBP(LitElement) {
                 ƒ-bind-data="--entity(*.number)"
               ></furo-data-number-input>
               <furo-data-date-input ƒ-bind-data="--entity(*.date)"></furo-data-date-input>
+              <furo-data-money-input ƒ-bind-data="--entity(*.money)"></furo-data-money-input>
             </furo-form-layouter>
             <furo-data-object
               type="experiment.Constraints"
