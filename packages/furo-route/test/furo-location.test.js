@@ -12,7 +12,7 @@ describe('furo-location', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-location></furo-location>
+          <furo-location url-space-regex="^"></furo-location>
         </template>
       </test-bind>
     `);
@@ -26,6 +26,18 @@ describe('furo-location', () => {
   it('should be a furo-location', done => {
     // keep this test on top, so you can recognize a wrong asignment
     assert.equal(element.nodeName.toLowerCase(), 'furo-location');
+    done();
+  });
+
+  it('urlSpaceRegex should be able to setted via attribute', done => {
+    // keep this test on top, so you can recognize a wrong asignment
+    assert.equal(element.urlSpaceRegex, '^');
+    done();
+  });
+
+  it(' should get href from location', done => {
+    // keep this test on top, so you can recognize a wrong asignment
+    assert.notEqual(element._getHrefFromLocation(), '');
     done();
   });
 

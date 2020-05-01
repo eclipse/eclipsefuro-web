@@ -1,3 +1,5 @@
+import { LitElement } from 'lit-element';
+
 /**
  * `furo-location`
  *  Somethin like iron-location
@@ -5,7 +7,7 @@
  * @summary url watcher
  * @customElement
  */
-class FuroLocation extends HTMLElement {
+class FuroLocation extends LitElement {
   constructor() {
     super();
     // eslint-disable-next-line wc/no-constructor-attributes
@@ -78,6 +80,9 @@ class FuroLocation extends HTMLElement {
    * @private
    */
   connectedCallback() {
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
+
     document.body.addEventListener('click', this._clickHandler, true);
     document.body.addEventListener('__furoLocationChanged', this._locationChangeNotyfier, true);
     window.addEventListener('popstate', this._locationChangeNotyfier, true);
