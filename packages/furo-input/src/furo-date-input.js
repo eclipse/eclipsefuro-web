@@ -90,7 +90,13 @@ class FuroDateInput extends FBP(LitElement) {
     this._value = this.value || '';
 
     this._FBPAddWireHook('--inputInput', e => {
-      Helper.triggerValueChanged(this, e);
+      // fix for e.g. by date "01.01.2000" you just want to modify the day and begin to tap 0.
+      // at this moment the value of input in wire `--inputInput` is empty.(a bug in date input?)
+      // this value has to be prevented to be send to object. because this empty value will be set to input again via `--value`.
+      // then the hole date is cleared.
+      if (e.composedPath()[0].value) {
+        Helper.triggerValueChanged(this, e);
+      }
     });
   }
 
