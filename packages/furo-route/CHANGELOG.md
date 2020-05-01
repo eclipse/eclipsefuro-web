@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.3.8...@furo/route@1.3.9) (2020-05-01)
+
+
+### Bug Fixes
+
+* prettier location test ([75b6f75](https://github.com/theNorstroem/FuroBaseComponents/commit/75b6f75347b9199b57803d5c8c7c252f00bb3c46))
+* use litElement in furo location ([12b6199](https://github.com/theNorstroem/FuroBaseComponents/commit/12b61990dbc75c70a5b535fe6e97d4265dc05cb4))
+
+
+
+
+
 ## [1.3.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.3.7...@furo/route@1.3.8) (2020-04-29)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.4.0...@furo/data-input@1.4.1) (2020-05-01)
+
+
+### Bug Fixes
+
+* date-input fixed. prettier furo-data-money-input ([620e82b](https://github.com/theNorstroem/FuroBaseComponents/commit/620e82b3ad4fbdef492293ecfd871e6e3ffbc181))
+
+
+
+
+
 # [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.3.7...@furo/data-input@1.4.0) (2020-04-29)
 
 
