@@ -6,6 +6,9 @@ import '@furo/doc-helper';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-catalog.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/app/src/furo-card.js';
+
 import './helper/furo-data-object-form.js';
 
 /**
@@ -58,7 +61,7 @@ class DemoFuroDataObject extends FBP(LitElement) {
           <template>
             <!-- Styles in furo-card are just for the demo -->
             <furo-card
-              style="width: 300px; margin: 30px"
+              style="width: 420px; margin: 30px"
               header-text="Some data"
               secondary-text="Save is not implemented"
             >
