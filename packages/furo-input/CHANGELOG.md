@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.3.9...@furo/input@1.3.10) (2020-05-12)
+
+
+### Bug Fixes
+
+* date-input should clear the value after clicking the clear button ([ced4fbf](https://github.com/theNorstroem/FuroBaseComponents/commit/ced4fbf372544f66ad89218722bcdaeff5545c9c))
+
+
+
+
+
 ## [1.3.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.3.8...@furo/input@1.3.9) (2020-05-01)
 
 

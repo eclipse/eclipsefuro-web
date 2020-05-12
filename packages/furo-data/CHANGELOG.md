@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.9...@furo/data@1.3.10) (2020-05-12)
+
+
+### Bug Fixes
+
+* it's possible to set meta from response on top level. E.g. meta on field data ([8dfcf24](https://github.com/theNorstroem/FuroBaseComponents/commit/8dfcf243dca3cf44eb9e8d007e2cccf2d911d7e5))
+
+
+
+
+
 ## [1.3.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.8...@furo/data@1.3.9) (2020-05-01)
 
 **Note:** Version bump only for package @furo/data
