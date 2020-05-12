@@ -98,6 +98,12 @@ class FuroDateInput extends FBP(LitElement) {
         Helper.triggerValueChanged(this, e);
       }
     });
+
+    // update value by focusout. This can guarantee that the clear-button works.
+    // because by `--inputInput` the empty data was not sent to value. see the code obove
+    this._FBPAddWireHook('--focusOutReceived', e => {
+      Helper.triggerValueChanged(this, e);
+    });
   }
 
   set _value(v) {
@@ -640,6 +646,7 @@ class FuroDateInput extends FBP(LitElement) {
             type="date"
             ƒ-.value="--value"
             @-input="--inputInput(*)"
+            @-focusout="--focusOutReceived(*)"
             ƒ-focus="--focus"
           />
         </div>
