@@ -344,7 +344,14 @@ export class FieldNode extends EventTreeNode {
         // eslint-disable-next-line no-restricted-syntax
         for (const m in mc.meta) {
           // update the metas
-          if (this[field]) {
+          if (this._name === field){
+            this._meta[m] = mc.meta[m];
+            // broadcast readonly changes for all ancestors
+            if (m === 'readonly') {
+              this.broadcastEvent(new NodeEvent('parent-readonly-meta-set', this, true));
+            }
+          }
+          else if (this[field]) {
             this[field]._meta[m] = mc.meta[m];
             // broadcast readonly changes for all ancestors
             if (m === 'readonly') {
@@ -359,7 +366,10 @@ export class FieldNode extends EventTreeNode {
         // eslint-disable-next-line no-restricted-syntax
         for (const c in mc.constraints) {
           // update the constraints
-          if (this[field]) {
+          if (this._name === field){
+            this._constraints[c] = mc.constraints[c];
+          }
+          else if (this[field]) {
             this[field]._constraints[c] = mc.constraints[c];
           } else {
             // eslint-disable-next-line no-console
@@ -373,7 +383,14 @@ export class FieldNode extends EventTreeNode {
          * Fired when field metas, constraints or options changed
          * detail payload:
          */
-        this[field].dispatchNodeEvent(new NodeEvent('this-metas-changed', this[field], false));
+        if (this._name === field) {
+          // eslint-disable-next-line no-plusplus
+          for (let i = 0; i < this.__childNodes.length; i++) {
+            this.__childNodes[i].dispatchNodeEvent(new NodeEvent('this-metas-changed', this.__childNodes[i], false));
+          }
+        }else {
+          this[field].dispatchNodeEvent(new NodeEvent('this-metas-changed', this[field], false));
+        }
 
         // exit here, it does not go deeper
         return;

@@ -58,12 +58,18 @@ class DemoFuroEntityAgent extends FBP(LitElement) {
               ƒ-qp-in="--qp"
             ></furo-deep-link>
             <!-- Styles in furo-card are just for the demo -->
-            <furo-card style="width: 300px; margin: 30px" header-text="Some data" secondary-text="">
+            <furo-card style="width: 420px; margin: 30px" header-text="Some data" secondary-text="">
               <furo-data-text-input
-                ƒ-bind-data="--dataObject(*.display_name)"
+                ƒ-bind-data="--dataObject(*.data.display_name)"
               ></furo-data-text-input>
-              <furo-data-date-input ƒ-bind-data="--dataObject(*.start)"></furo-data-date-input>
-              <furo-data-date-input ƒ-bind-data="--dataObject(*.end)"></furo-data-date-input>
+              <furo-data-text-input
+                ƒ-bind-data="--dataObject(*.data.description)"
+              ></furo-data-text-input>
+              <furo-data-money-input
+                ƒ-bind-data="--dataObject(*.data.cost_limit)"
+              ></furo-data-money-input>
+              <furo-data-date-input ƒ-bind-data="--dataObject(*.data.start)"></furo-data-date-input>
+              <furo-data-date-input ƒ-bind-data="--dataObject(*.data.end)"></furo-data-date-input>
               <furo-horizontal-flex slot="action">
                 <produce-qp-data @-data="--qp" qpescaped="%7B%22prj%22%3A1%7D"></produce-qp-data>
               </furo-horizontal-flex>
@@ -74,13 +80,12 @@ class DemoFuroEntityAgent extends FBP(LitElement) {
               service="ProjectService"
               ƒ-hts-in="--hts"
               load-on-hts-in
-              ƒ-load="--getClicked"
               @-response="--response"
             ></furo-entity-agent>
             <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->
             <furo-data-object
-              type="project.Project"
-              ƒ-inject-raw="--response(*.data)"
+              type="project.ProjectEntity"
+              ƒ-inject-raw="--response"
               @-object-ready="--dataObject"
             ></furo-data-object>
           </template>

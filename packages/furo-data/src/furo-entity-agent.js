@@ -581,8 +581,8 @@ class FuroEntityAgent extends FBP(LitElement) {
         ƒ-invoke-request="--triggerLoad"
         ƒ-abort-request="--abortDemanded"
         @-response="--responseParsed, --requestFinished, ^^req-success"
-        @-response-error="^^req-failed"
-        @-parse-error="^^req-failed"
+        @-response-error="^^req-failed, --requestFinished"
+        @-parse-error="^^req-failed, --requestFinished"
         @-fatal-error="--requestFinished"
       >
       </furo-api-fetch>

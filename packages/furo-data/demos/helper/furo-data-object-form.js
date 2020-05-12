@@ -74,7 +74,6 @@ class FuroDataObjectForm extends FBP(LitElement) {
         <furo-data-date-input ƒ-bind-data="--dataObject(*.fields.start)"></furo-data-date-input>
         <furo-data-date-input ƒ-bind-data="--dataObject(*.fields.end)"></furo-data-date-input>
       </furo-form-layouter>
-      Thank you
     `;
   }
 }

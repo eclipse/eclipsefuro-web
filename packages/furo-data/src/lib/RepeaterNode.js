@@ -88,6 +88,19 @@ export class RepeaterNode extends EventTreeNode {
       this._validationDisabled = false;
     });
 
+    this.addEventListener('parent-readonly-meta-set', () => {
+      // check parent readonly meta and inherit if true
+      if (
+        (parentNode && parentNode._meta && parentNode._meta.readonly) ||
+        (this._meta && this._meta.readonly) ||
+        (this._spec.meta && this._spec.meta.readonly)
+      ) {
+        this._meta.readonly = true;
+      } else {
+        this._meta.readonly = false;
+      }
+    });
+
     // store __initial_value _value for resetting the field
     this.__initialValue = JSON.stringify(this._value);
   }

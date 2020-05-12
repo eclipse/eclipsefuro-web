@@ -239,7 +239,11 @@ export class DataObject extends EventTreeNode {
       const f = fieldname.split('.');
       const target = f[0];
       const subMetaAndConstraints = { fields: {} };
-      subMetaAndConstraints.fields[f.slice(1).join('.')] = mc;
+      if (f.length === 1) {
+        subMetaAndConstraints.fields[target] = mc;
+      } else {
+        subMetaAndConstraints.fields[f.slice(1).join('.')] = mc;
+      }
       this[target].__updateMetaAndConstraints(subMetaAndConstraints);
     }
   }
