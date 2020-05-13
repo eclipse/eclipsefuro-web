@@ -385,9 +385,7 @@ export class FieldNode extends EventTreeNode {
          */
         if (this._name === field) {
           // eslint-disable-next-line no-plusplus
-          for (let i = 0; i < this.__childNodes.length; i++) {
-            this.__childNodes[i].dispatchNodeEvent(new NodeEvent('this-metas-changed', this.__childNodes[i], false));
-          }
+          this._triggerDeepNodeEvent('this-metas-changed');
         }else {
           this[field].dispatchNodeEvent(new NodeEvent('this-metas-changed', this[field], false));
         }
@@ -400,6 +398,25 @@ export class FieldNode extends EventTreeNode {
       subMetaAndConstraints.fields[f.slice(1).join('.')] = mc;
 
       this[target].__updateMetaAndConstraints(subMetaAndConstraints);
+    }
+  }
+
+  /**
+   * fires a NodeEvent recursively
+   * starting point is caller
+   * @param event
+   * @private
+   */
+  _triggerDeepNodeEvent(event){
+    if (this.__childNodes.length > 0) {
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
+      for (const index in this.__childNodes) {
+        const field = this.__childNodes[index];
+        field._triggerDeepNodeEvent(event);
+      }
+    }
+    if (event && event.length){
+      this.dispatchNodeEvent(new NodeEvent(event, this, false));
     }
   }
 

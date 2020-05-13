@@ -200,22 +200,112 @@ describe('furo-data-readonly-inheritence', () => {
           service: 'ProjectService',
         },
       ],
+    }).then(()=>{
+      const EntityRoot = element.data.data;
+
+      assert.equal(EntityRoot._isValid, true);
+      assert.equal(EntityRoot.members._meta.readonly, true);
+      assert.equal(EntityRoot.members.repeats[0].phone_nr._meta.readonly, true);
+      assert.equal(EntityRoot.members.repeats[1].phone_nr._meta.readonly, true);
+
+      done();
     });
-    const EntityRoot = element.data.data;
 
-    assert.equal(EntityRoot._isValid, true);
-    assert.equal(EntityRoot.members._meta.readonly, true);
-    assert.equal(EntityRoot.members.repeats[0].phone_nr._meta.readonly, true);
-    assert.equal(EntityRoot.members.repeats[1].phone_nr._meta.readonly, true);
-
-    done();
   });
 
   it('should set readonly for the whole object', done => {
-
     element.setAttribute('type', 'project.ProjectEntity');
 
-    element.addEventListener('data-injected', ()=>{
+    element.injectRaw({
+      "data": {
+        "id": "1",
+        "cost_limit": {
+          "currency_code": "CHF",
+          "display_name": "CHF 150'000.00",
+          "nanos": 150000,
+          "units": 0
+        },
+        "description": "Furo Foundation",
+        "display_name": "Furo Foundation, CHF 150'000.00",
+        "end": {
+          "day": 31,
+          "display_name": "31.12.2020",
+          "month": 12,
+          "year": 2020
+        },
+        "members": [
+          {
+            "display_name": "John Doe, +41783332244",
+            "first_name": "John",
+            "id": "1",
+            "name": "Doe",
+            "phone_nr": "+41783332244",
+            "skills": []
+          }
+        ],
+        "start": {
+          "day": 1,
+          "display_name": "01.07.2019",
+          "month": 7,
+          "year": 2019
+        }
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "readonly": true
+            }
+          },
+          "data.description": {
+            "meta": {
+              "label": "ID label from response",
+              "options": {
+                "list": [
+                  {
+                    "@type": "type.googleapis.com/furo.Optionitem",
+                    "id": "1",
+                    "display_name": "A"
+                  },
+                  {
+                    "@type": "type.googleapis.com/furo.Optionitem",
+                    "id": "2",
+                    "display_name": "B",
+                    "selected": true
+                  }
+                ]
+              }
+            },
+            "constraints": {
+              "min": {
+                "is": 5,
+                "message": "minimal number"
+              },
+              "max": {
+                "is": 20,
+                "message": "Vierzehn sind genug"
+              }
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "href": "/mockdata/projects/1/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "project.ProjectEntity",
+          "service": "ProjectService"
+        },
+        {
+          "href": "/mockdata/projects/1/update.json",
+          "method": "UPDATE",
+          "rel": "update",
+          "type": "project.ProjectEntity",
+          "service": "ProjectService"
+        }
+      ]
+    }).then(()=>{
       const EntityRoot = element.data;
       assert.equal(EntityRoot.data._meta.readonly, true);
       assert.equal(EntityRoot.data._isValid, true);
@@ -230,97 +320,7 @@ describe('furo-data-readonly-inheritence', () => {
       assert.equal(EntityRoot.data.end.day._meta.readonly, true);
       done();
     });
-    element.injectRaw({
-        "data": {
-          "id": "1",
-          "cost_limit": {
-            "currency_code": "CHF",
-            "display_name": "CHF 150'000.00",
-            "nanos": 150000,
-            "units": 0
-          },
-          "description": "Furo Foundation",
-          "display_name": "Furo Foundation, CHF 150'000.00",
-          "end": {
-            "day": 31,
-            "display_name": "31.12.2020",
-            "month": 12,
-            "year": 2020
-          },
-          "members": [
-            {
-              "display_name": "John Doe, +41783332244",
-              "first_name": "John",
-              "id": "1",
-              "name": "Doe",
-              "phone_nr": "+41783332244",
-              "skills": []
-            }
-          ],
-          "start": {
-            "day": 1,
-            "display_name": "01.07.2019",
-            "month": 7,
-            "year": 2019
-          }
-        },
-        "meta": {
-          "fields": {
-            "data": {
-              "meta": {
-                "readonly": true
-              }
-            },
-            "data.description": {
-              "meta": {
-                "label": "ID label from response",
-                "options": {
-                  "list": [
-                    {
-                      "@type": "type.googleapis.com/furo.Optionitem",
-                      "id": "1",
-                      "display_name": "A"
-                    },
-                    {
-                      "@type": "type.googleapis.com/furo.Optionitem",
-                      "id": "2",
-                      "display_name": "B",
-                      "selected": true
-                    }
-                  ]
-                }
-              },
-              "constraints": {
-                "min": {
-                  "is": 5,
-                  "message": "minimal number"
-                },
-                "max": {
-                  "is": 20,
-                  "message": "Vierzehn sind genug"
-                }
-              }
-            }
-          }
-        },
-        "links": [
-          {
-            "href": "/mockdata/projects/1/get.json",
-            "method": "GET",
-            "rel": "self",
-            "type": "project.ProjectEntity",
-            "service": "ProjectService"
-          },
-          {
-            "href": "/mockdata/projects/1/update.json",
-            "method": "UPDATE",
-            "rel": "update",
-            "type": "project.ProjectEntity",
-            "service": "ProjectService"
-          }
-        ]
-      }
-    );
 
   });
+
 });
