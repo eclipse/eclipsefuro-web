@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.4.2...@furo/data-input@1.4.3) (2020-05-13)
+
+
+### Bug Fixes
+
+* meta changes should be notified to all subfields ([5e0de87](https://github.com/theNorstroem/FuroBaseComponents/commit/5e0de875efe4858b988616fcfd8a2217097b1716))
+
+
+
+
+
 ## [1.4.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.4.1...@furo/data-input@1.4.2) (2020-05-12)
 
 **Note:** Version bump only for package @furo/data-input

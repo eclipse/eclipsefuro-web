@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.10...@furo/data@1.3.11) (2020-05-13)
+
+
+### Bug Fixes
+
+* meta changes should be notified to all subfields ([5e0de87](https://github.com/theNorstroem/FuroBaseComponents/commit/5e0de875efe4858b988616fcfd8a2217097b1716))
+
+
+
+
+
 ## [1.3.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.9...@furo/data@1.3.10) (2020-05-12)
 
 
