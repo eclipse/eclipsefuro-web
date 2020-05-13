@@ -295,6 +295,17 @@ export class RepeaterNode extends EventTreeNode {
   }
 
   /**
+   * delegates the trigger to all repeats
+   * @param event
+   * @private
+   */
+  _triggerDeepNodeEvent(event){
+    this.__childNodes.forEach(f => {
+      f._triggerDeepNodeEvent(event);
+    });
+  }
+
+  /**
    * Deletes a repeated item by index
    * @param index
    */
