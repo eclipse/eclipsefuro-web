@@ -225,7 +225,7 @@ export class FieldNode extends EventTreeNode {
        * if we have meta on this layer, we should update the siblings
        */
       if (furoMetaDetected) {
-        this.__updateMetaAndConstraints(furoMetaDetected);
+        this.__updateMetaAndConstraints(furoMetaDetected,0);
       }
     } else {
       // update the primitive type
@@ -330,7 +330,7 @@ export class FieldNode extends EventTreeNode {
     return validity;
   }
 
-  __updateMetaAndConstraints(metaAndConstraints) {
+  __updateMetaAndConstraints(metaAndConstraints, level) {
     // on this layer you can only pass the constraint to the children
     // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
     // a field which is targeted we delegate the sub request to  this field
@@ -343,8 +343,8 @@ export class FieldNode extends EventTreeNode {
         const field = f[0];
         // eslint-disable-next-line no-restricted-syntax
         for (const m in mc.meta) {
-          // update the metas
-          if (this._name === field){
+          // update the metas, the level should be checked. because the field can be data.data
+          if (this._name === field && !level){
             this._meta[m] = mc.meta[m];
             // broadcast readonly changes for all ancestors
             if (m === 'readonly') {
@@ -366,7 +366,7 @@ export class FieldNode extends EventTreeNode {
         // eslint-disable-next-line no-restricted-syntax
         for (const c in mc.constraints) {
           // update the constraints
-          if (this._name === field){
+          if (this._name === field && !level){
             this._constraints[c] = mc.constraints[c];
           }
           else if (this[field]) {
@@ -383,10 +383,10 @@ export class FieldNode extends EventTreeNode {
          * Fired when field metas, constraints or options changed
          * detail payload:
          */
-        if (this._name === field) {
+        if (this._name === field && !level) {
           // eslint-disable-next-line no-plusplus
           this._triggerDeepNodeEvent('this-metas-changed');
-        }else {
+        }else if (this[field]) {
           this[field].dispatchNodeEvent(new NodeEvent('this-metas-changed', this[field], false));
         }
 
@@ -396,8 +396,9 @@ export class FieldNode extends EventTreeNode {
       const target = f[0];
       const subMetaAndConstraints = { fields: {} };
       subMetaAndConstraints.fields[f.slice(1).join('.')] = mc;
-
-      this[target].__updateMetaAndConstraints(subMetaAndConstraints);
+      // eslint-disable-next-line no-param-reassign
+      level +=1;
+      this[target].__updateMetaAndConstraints(subMetaAndConstraints, level);
     }
   }
 
