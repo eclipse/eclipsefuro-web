@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.11...@furo/data@1.3.12) (2020-05-15)
+
+
+### Bug Fixes
+
+* field node should also work with the meta with `data.data` in repeated field ([6c0930b](https://github.com/theNorstroem/FuroBaseComponents/commit/6c0930b94b5183385cf6a2a89547f3086d0176c9))
+
+
+
+
+
 ## [1.3.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.10...@furo/data@1.3.11) (2020-05-13)
 
 
