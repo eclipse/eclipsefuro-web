@@ -190,18 +190,11 @@ class FuroEntityAgent extends FBP(LitElement) {
      */
     const data = this._prepareRequestPaylod(link, dataObject);
 
-    /**
-     * The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
-     * https://developer.mozilla.org/en-US/docs/Web/API/AbortController
-     * @type {AbortController}
-     * @private
-     */
-    this._abortController = abortController || new AbortController();
-    const { signal } = this._abortController;
-
     // create Request object with headers and body
     const headers = new Headers(this._ApiEnvironment.headers);
-    headers.append('Content-Type', 'application/json; charset=utf-8');
+    if (data) {
+      headers.append('Content-Type', 'application/json; charset=utf-8');
+    }
 
     const REL_NAME =
       link.rel.toLowerCase() === 'self'
@@ -211,6 +204,15 @@ class FuroEntityAgent extends FBP(LitElement) {
       this._ApiEnvironment.services[link.service].services[REL_NAME].data.response
     }+json, application/json;q=0.9`;
     headers.append('Accept', `${ACCEPT}`);
+
+    /**
+     * The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
+     * https://developer.mozilla.org/en-US/docs/Web/API/AbortController
+     * @type {AbortController}
+     * @private
+     */
+    this._abortController = abortController || new AbortController();
+    const { signal } = this._abortController;
 
     return new Request(link.href, {
       signal,
