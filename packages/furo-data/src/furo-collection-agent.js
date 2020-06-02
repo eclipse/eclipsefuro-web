@@ -273,13 +273,22 @@ class FuroCollectionAgent extends FBP(LitElement) {
     this._FBPTriggerWire('--beforeRequestStart');
 
     let data;
+    // create Request object with headers and body
+    const headers = new Headers(this._ApiEnvironment.headers);
+
     if (body) {
       data = JSON.stringify(body);
+      headers.append('Content-Type', 'application/json; charset=utf-8');
     }
-    // Daten
-    const headers = new Headers(this._ApiEnvironment.headers);
-    const TYPE = link.type ? `application/${link.type}+json` : 'application/json';
-    headers.append('Content-Type', `${TYPE}; charset=utf-8`);
+
+    const REL_NAME =
+      ['prev', 'first', 'next', 'last'].indexOf(link.rel.toLowerCase()) >= 0
+        ? 'Get'
+        : link.rel.charAt(0).toUpperCase() + link.rel.slice(1).toLocaleLowerCase();
+    const ACCEPT = `application/${
+      this._ApiEnvironment.services[link.service].services[REL_NAME].data.response
+    }+json, application/json;q=0.9`;
+    headers.append('Accept', `${ACCEPT}`);
 
     const params = {};
     const r = link.href.split('?');

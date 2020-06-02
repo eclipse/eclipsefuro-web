@@ -81,6 +81,10 @@ class FuroCustomMethod extends FBP(LitElement) {
     this._FBPTriggerWire('--beforeRequestStart');
     let data;
     const body = {};
+
+    // create Request object with headers and body
+    const headers = new Headers(this._ApiEnvironment.headers);
+
     // check if dataObject is set and create body object
     if (dataObject) {
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
@@ -92,7 +96,18 @@ class FuroCustomMethod extends FBP(LitElement) {
         }
       }
       data = JSON.stringify(body);
+      headers.append('Content-Type', 'application/json; charset=utf-8');
     }
+
+    const REL_NAME =
+      link.rel.toLowerCase() === 'self'
+        ? 'Get'
+        : link.rel.charAt(0).toUpperCase() + link.rel.slice(1).toLocaleLowerCase();
+    const ACCEPT = `application/${
+      this._ApiEnvironment.services[link.service].services[REL_NAME].data.response
+    }+json, application/json;q=0.9`;
+    headers.append('Accept', `${ACCEPT}`);
+
     /**
      * The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
      * https://developer.mozilla.org/en-US/docs/Web/API/AbortController
@@ -101,11 +116,6 @@ class FuroCustomMethod extends FBP(LitElement) {
      */
     this._abortController = new AbortController();
     const { signal } = this._abortController;
-
-    // Daten
-    const headers = new Headers(this._ApiEnvironment.headers);
-    const TYPE = link.type ? `application/${link.type}+json` : 'application/json';
-    headers.append('Content-Type', `${TYPE}; charset=utf-8`);
 
     return new Request(link.href, {
       signal,

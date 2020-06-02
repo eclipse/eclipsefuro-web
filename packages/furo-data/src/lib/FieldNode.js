@@ -225,7 +225,7 @@ export class FieldNode extends EventTreeNode {
        * if we have meta on this layer, we should update the siblings
        */
       if (furoMetaDetected) {
-        this.__updateMetaAndConstraints(furoMetaDetected,0);
+        this.__updateMetaAndConstraints(furoMetaDetected, 0);
       }
     } else {
       // update the primitive type
@@ -344,14 +344,13 @@ export class FieldNode extends EventTreeNode {
         // eslint-disable-next-line no-restricted-syntax
         for (const m in mc.meta) {
           // update the metas, the level should be checked. because the field can be data.data
-          if (this._name === field && !level){
+          if (this._name === field && !level) {
             this._meta[m] = mc.meta[m];
             // broadcast readonly changes for all ancestors
             if (m === 'readonly') {
               this.broadcastEvent(new NodeEvent('parent-readonly-meta-set', this, true));
             }
-          }
-          else if (this[field]) {
+          } else if (this[field]) {
             this[field]._meta[m] = mc.meta[m];
             // broadcast readonly changes for all ancestors
             if (m === 'readonly') {
@@ -366,10 +365,9 @@ export class FieldNode extends EventTreeNode {
         // eslint-disable-next-line no-restricted-syntax
         for (const c in mc.constraints) {
           // update the constraints
-          if (this._name === field && !level){
+          if (this._name === field && !level) {
             this._constraints[c] = mc.constraints[c];
-          }
-          else if (this[field]) {
+          } else if (this[field]) {
             this[field]._constraints[c] = mc.constraints[c];
           } else {
             // eslint-disable-next-line no-console
@@ -386,7 +384,7 @@ export class FieldNode extends EventTreeNode {
         if (this._name === field && !level) {
           // eslint-disable-next-line no-plusplus
           this._triggerDeepNodeEvent('this-metas-changed');
-        }else if (this[field]) {
+        } else if (this[field]) {
           this[field].dispatchNodeEvent(new NodeEvent('this-metas-changed', this[field], false));
         }
 
@@ -397,7 +395,7 @@ export class FieldNode extends EventTreeNode {
       const subMetaAndConstraints = { fields: {} };
       subMetaAndConstraints.fields[f.slice(1).join('.')] = mc;
       // eslint-disable-next-line no-param-reassign
-      level +=1;
+      level += 1;
       this[target].__updateMetaAndConstraints(subMetaAndConstraints, level);
     }
   }
@@ -408,7 +406,7 @@ export class FieldNode extends EventTreeNode {
    * @param event
    * @private
    */
-  _triggerDeepNodeEvent(event){
+  _triggerDeepNodeEvent(event) {
     if (this.__childNodes.length > 0) {
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const index in this.__childNodes) {
@@ -416,7 +414,7 @@ export class FieldNode extends EventTreeNode {
         field._triggerDeepNodeEvent(event);
       }
     }
-    if (event && event.length){
+    if (event && event.length) {
       this.dispatchNodeEvent(new NodeEvent(event, this, false));
     }
   }
