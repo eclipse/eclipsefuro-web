@@ -201,12 +201,17 @@ class FuroEntityAgent extends FBP(LitElement) {
 
     // create Request object with headers and body
     const headers = new Headers(this._ApiEnvironment.headers);
-    const TYPE = link.type ? `application/${link.type}+json` : 'application/json';
-    headers.append('Content-Type', `${TYPE}; charset=utf-8`);
+    headers.append('Content-Type', 'application/json; charset=utf-8');
 
-    // if (link.method.toLowerCase() !== 'put') {
-    //   headers.append('Content-Type', 'application/json');
-    // }
+    const REL_NAME =
+      link.rel.toLowerCase() === 'self'
+        ? 'Get'
+        : link.rel.charAt(0).toUpperCase() + link.rel.slice(1).toLocaleLowerCase();
+    const ACCEPT = `application/${
+      this._ApiEnvironment.services[link.service].services[REL_NAME].data.response
+    }+json, application/json;q=0.9`;
+    headers.append('Accept', `${ACCEPT}`);
+
     return new Request(link.href, {
       signal,
       method: link.method,
