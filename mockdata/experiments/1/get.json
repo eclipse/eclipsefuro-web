@@ -250,5 +250,75 @@
       "type": "experiment.ExperimentEntity",
       "service": "ExperimentService"
     }
-  ]
+  ],
+  "meta": {
+    "fields": {
+      "data.furo_data_checkbox_input": {
+        "meta": {
+          "label": "checkbox label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_text_input": {
+        "meta": {
+          "label": "text input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_number_input": {
+        "meta": {
+          "label": "number input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_time_input": {
+        "meta": {
+          "label": "time input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_color_input": {
+        "meta": {
+          "label": "color input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_textarea_input": {
+        "meta": {
+          "label": "textarea input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_date_input": {
+        "meta": {
+          "label": "date input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_date_input_google": {
+        "meta": {
+          "label": "google date input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_range_input": {
+        "meta": {
+          "label": "range input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_bool_icon": {
+        "meta": {
+          "label": "bool input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_money_input": {
+        "meta": {
+          "label": "money input label via meta",
+          "readonly": true
+        }
+      }
+    }
+  }
 }

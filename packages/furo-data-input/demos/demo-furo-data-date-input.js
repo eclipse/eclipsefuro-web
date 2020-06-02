@@ -53,7 +53,7 @@ class DemoFuroDataDateInput extends FBP(LitElement) {
           <h2>Demo furo-data-date-input</h2>
           <p>
             Bind the field from furo-data-object with
-            <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>. The labels, hints,
+            <strong>ƒ-bind-data="--entityReady(*.data.fields.fieldname)"</strong>. The labels, hints,
             defaults are comming from the furo-data-object specs.
           </p>
           <p>As you can see, the "data-binding" is done by the furo-data-object.</p>
@@ -63,7 +63,7 @@ class DemoFuroDataDateInput extends FBP(LitElement) {
             <furo-form-layouter four>
               <furo-data-date-input
                 autofocus
-                ƒ-bind-data="--entity(*.furo_data_date_input)"
+                ƒ-bind-data="--entity(*.data.furo_data_date_input)"
                 hint="Hint should come from spec and overflows"
               ></furo-data-date-input>
               <furo-data-date-input
@@ -71,7 +71,7 @@ class DemoFuroDataDateInput extends FBP(LitElement) {
                 label="with step"
                 required
                 step="30"
-                ƒ-bind-data="--entity(*.furo_data_date_input)"
+                ƒ-bind-data="--entity(*.data.furo_data_date_input)"
                 @-value-changed="--dateChanged"
                 hint="but that should be ok"
               ></furo-data-date-input>
@@ -80,31 +80,31 @@ class DemoFuroDataDateInput extends FBP(LitElement) {
                 label="min max"
                 min="2012-01-01"
                 max="2025-12-08"
-                ƒ-bind-data="--entity(*.furo_data_date_input)"
+                ƒ-bind-data="--entity(*.data.furo_data_date_input)"
               ></furo-data-date-input>
               <furo-data-date-input
                 disabled
                 label="with step"
                 step="7"
-                ƒ-bind-data="--entity(*.furo_data_date_input)"
+                ƒ-bind-data="--entity(*.data.furo_data_date_input)"
               ></furo-data-date-input>
 
               <furo-data-date-input
-                ƒ-bind-data="--entity(*.furo_data_date_input_google)"
+                ƒ-bind-data="--entity(*.data.furo_data_date_input_google)"
               ></furo-data-date-input>
               <furo-data-date-input
                 step="any"
                 min="0001-01-01"
-                ƒ-bind-data="--entity(*.furo_data_date_input_google)"
+                ƒ-bind-data="--entity(*.data.furo_data_date_input_google)"
               ></furo-data-date-input>
             </furo-form-layouter>
 
             <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
 
             <furo-data-object
-              type="experiment.Experiment"
+              type="experiment.ExperimentEntity"
               @-object-ready="--entity"
-              ƒ-inject-raw="--response(*.data)"
+              ƒ-inject-raw="--response"
             ></furo-data-object>
             <furo-deep-link
               service="ExperimentService"

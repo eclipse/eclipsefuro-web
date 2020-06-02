@@ -19,12 +19,12 @@ describe('furo-data-bool-icon', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-data-bool-icon ƒ-bind-data="--entity(*.furo_data_bool_icon)"></furo-data-bool-icon>
+          <furo-data-bool-icon ƒ-bind-data="--entity(*.data.furo_data_bool_icon)"></furo-data-bool-icon>
 
           <furo-data-object
-            type="experiment.Experiment"
+            type="experiment.ExperimentEntity"
             @-object-ready="--entity"
-            ƒ-inject-raw="--response(*.data)"
+            ƒ-inject-raw="--response"
           ></furo-data-object>
           <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
           <furo-entity-agent

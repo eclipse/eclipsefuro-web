@@ -20,20 +20,20 @@ describe('furo-data-time-input', () => {
       <test-bind>
         <template>
           <furo-data-time-input
-            ƒ-bind-data="--entity(*.furo_data_time_input)"
+            ƒ-bind-data="--entity(*.data.furo_data_time_input)"
           ></furo-data-time-input>
           <furo-data-time-input
             hint="FromTPL"
             label="FromTPL"
-            ƒ-bind-data="--entity(*.id)"
+            ƒ-bind-data="--entity(*.data.id)"
             @-value-changed="--textChanged"
           ></furo-data-time-input>
           <furo-data-time-input ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-time-input>
 
           <furo-data-object
-            type="experiment.Experiment"
+            type="experiment.ExperimentEntity"
             @-object-ready="--entity"
-            ƒ-inject-raw="--response(*.data)"
+            ƒ-inject-raw="--response"
           ></furo-data-object>
 
           <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
@@ -150,5 +150,25 @@ describe('furo-data-time-input', () => {
       });
       dataTimeInput.field._setInvalid(err);
     }, 20);
+  });
+
+  it('should set meta via response meta', done => {
+    console.log('those tests are base on the mockdata/experiment/1/get.json');
+
+    host._FBPAddWireHook('--hts', () => {
+      dataObject.addEventListener(
+        'data-injected',
+        () => {
+
+          setTimeout(() => {
+            assert.equal(dataTimeInput._theInputElement.getAttribute('disabled'), '');
+            assert.equal(dataTimeInput._theInputElement.getAttribute('label'), 'time input label via meta');
+            done();
+          }, 5);
+        },
+        { once: true },
+      );
+    });
+    deeplink.qpIn({ exp: 1 });
   });
 });

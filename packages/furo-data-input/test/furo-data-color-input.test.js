@@ -75,4 +75,24 @@ describe('furo-data-color-input', () => {
     });
     deeplink.qpIn({ exp: 1 });
   });
+
+  it('should set meta via response meta', done => {
+    console.log('those tests are base on the mockdata/experiment/1/get.json');
+
+    host._FBPAddWireHook('--hts', () => {
+      entityObject.addEventListener(
+        'data-injected',
+        () => {
+
+          setTimeout(() => {
+            assert.equal(dataInput._theInputElement.getAttribute('disabled'), '');
+            assert.equal(dataInput._theInputElement.getAttribute('label'), 'color input label via meta');
+            done();
+          }, 5);
+        },
+        { once: true },
+      );
+    });
+    deeplink.qpIn({ exp: 1 });
+  });
 });

@@ -117,4 +117,25 @@ describe('furo-data-money-input', () => {
       dataInput.shadowRoot.getElementById('select').dispatchEvent(customEvent);
     }, 0);
   });
+
+  it('should set meta via response meta', done => {
+    console.log('those tests are base on the mockdata/experiment/1/get.json');
+
+    host._FBPAddWireHook('--hts', () => {
+      entityObject.addEventListener(
+        'data-injected',
+        () => {
+
+          setTimeout(() => {
+            console.log(dataInput.shadowRoot.getElementById("input"))
+            assert.equal(dataInput.shadowRoot.getElementById("input").getAttribute('disabled'), '');
+            assert.equal(dataInput.shadowRoot.getElementById("select").getAttribute('disabled'), '');
+            done();
+          }, 55);
+        },
+        { once: true },
+      );
+    });
+    deeplink.qpIn({ exp: 1 });
+  });
 });

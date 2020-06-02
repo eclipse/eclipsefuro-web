@@ -21,19 +21,19 @@ describe('furo-data-checkbox-input', () => {
       <test-bind>
         <template>
           <furo-data-checkbox-input
-            ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+            ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
           ></furo-data-checkbox-input>
           <furo-data-checkbox-input
             hint="FromTPL"
             label="FromTPL"
-            ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+            ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
             @-value-changed="--valueChanged"
           ></furo-data-checkbox-input>
 
           <furo-data-object
-            type="experiment.Experiment"
+            type="experiment.ExperimentEntity"
             @-object-ready="--entity"
-            ƒ-inject-raw="--response(*.data)"
+            ƒ-inject-raw="--response"
           ></furo-data-object>
           <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
           <furo-entity-agent
@@ -112,4 +112,27 @@ describe('furo-data-checkbox-input', () => {
     });
     deeplink.qpIn({ exp: 1 });
   });
+
+  it('should set meta via response meta', done => {
+    console.log('those tests are base on the mockdata/experiment/1/get.json');
+
+    host._FBPAddWireHook('--hts', () => {
+      entityObject.addEventListener(
+        'data-injected',
+        () => {
+
+          setTimeout(() => {
+            console.log(dataCheckboxInput._theInputElement);
+
+            assert.equal(dataCheckboxInput._theInputElement.getAttribute('label'), 'checkbox label via meta');
+            assert.equal(dataCheckboxInput._theInputElement.getAttribute('disabled'), '');
+            done();
+          }, 0);
+        },
+        { once: true },
+      );
+    });
+    deeplink.qpIn({ exp: 1 });
+  });
+
 });

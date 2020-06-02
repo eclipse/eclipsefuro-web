@@ -19,12 +19,12 @@ describe('furo-data-number-input', () => {
       <test-bind>
         <template>
           <furo-data-number-input
-            ƒ-bind-data="--entityReady(*.furo_data_number_input)"
+            ƒ-bind-data="--entityReady(*.data.furo_data_number_input)"
           ></furo-data-number-input>
           <furo-data-number-input
             hint="FromTPL"
             label="FromTPL"
-            ƒ-bind-data="--entityReady(*.furo_data_number_input)"
+            ƒ-bind-data="--entityReady(*.data.furo_data_number_input)"
             required
             readonly
             @-value-changed="--textChanged"
@@ -32,9 +32,9 @@ describe('furo-data-number-input', () => {
           <furo-data-number-input ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-number-input>
 
           <furo-data-object
-            type="experiment.Experiment"
+            type="experiment.ExperimentEntity"
             @-object-ready="--entityReady"
-            ƒ-inject-raw="--response(*.data)"
+            ƒ-inject-raw="--response"
           ></furo-data-object>
 
           <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
