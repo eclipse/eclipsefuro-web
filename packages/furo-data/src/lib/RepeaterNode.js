@@ -299,7 +299,7 @@ export class RepeaterNode extends EventTreeNode {
    * @param event
    * @private
    */
-  _triggerDeepNodeEvent(event){
+  _triggerDeepNodeEvent(event) {
     this.__childNodes.forEach(f => {
       f._triggerDeepNodeEvent(event);
     });
