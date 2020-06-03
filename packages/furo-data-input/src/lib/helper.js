@@ -70,6 +70,7 @@ export class Helper {
     // update meta and constraints when they change
     caller.field.addEventListener('this-metas-changed', () => {
       CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);
+      caller.requestUpdate();
     });
 
     caller.field.addEventListener('field-became-invalid', () => {

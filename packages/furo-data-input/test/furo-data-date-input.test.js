@@ -18,19 +18,19 @@ describe('furo-data-date-input', () => {
       <test-bind>
         <template>
           <furo-data-date-input
-            ƒ-bind-data="--entityReady(*.furo_data_date_input)"
+            ƒ-bind-data="--entityReady(*.data.furo_data_date_input)"
           ></furo-data-date-input>
           <furo-data-date-input
             hint="FromTPL"
             label="FromTPL"
-            ƒ-bind-data="--entityReady(*.furo_data_date_input_google)"
+            ƒ-bind-data="--entityReady(*.data.furo_data_date_input_google)"
             @-value-changed="--textChanged"
           ></furo-data-date-input>
 
           <furo-data-object
-            type="experiment.Experiment"
+            type="experiment.ExperimentEntity"
             @-object-ready="--entityReady"
-            ƒ-inject-raw="--response(*.data)"
+            ƒ-inject-raw="--response"
           ></furo-data-object>
 
           <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
@@ -113,5 +113,26 @@ describe('furo-data-date-input', () => {
       });
       dataDateInput.field._setInvalid(err);
     }, 15);
+  });
+
+  it('should set meta via response meta', done => {
+    console.log('those tests are base on the mockdata/experiment/1/get.json');
+
+    host._FBPAddWireHook('--hts', () => {
+      dataObject.addEventListener(
+        'data-injected',
+        () => {
+
+          setTimeout(() => {
+            assert.equal(dataDateInput._theInputElement.getAttribute('disabled'), '');
+            assert.equal(secondDateInput._theInputElement.getAttribute('disabled'), '');
+            assert.equal(dataDateInput._theInputElement.getAttribute('label'), 'date input label via meta');
+            done();
+          }, 5);
+        },
+        { once: true },
+      );
+    });
+    deeplink.qpIn({ exp: 1 });
   });
 });

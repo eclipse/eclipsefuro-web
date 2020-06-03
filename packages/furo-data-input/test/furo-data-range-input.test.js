@@ -18,20 +18,20 @@ describe('furo-data-range-input', () => {
       <test-bind>
         <template>
           <furo-data-range-input
-            ƒ-bind-data="--entity(*.furo_data_range_input)"
+            ƒ-bind-data="--entity(*.data.furo_data_range_input)"
           ></furo-data-range-input>
           <furo-data-range-input
             hint="FromTPL"
             label="FromTPL"
-            ƒ-bind-data="--entity(*.furo_data_range_input)"
+            ƒ-bind-data="--entity(*.data.furo_data_range_input)"
             @-value-changed="--textChanged"
           ></furo-data-range-input>
           <furo-data-range-input ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-range-input>
 
           <furo-data-object
-            type="experiment.Experiment"
+            type="experiment.ExperimentEntity"
             @-object-ready="--entity"
-            ƒ-inject-raw="--response(*.data)"
+            ƒ-inject-raw="--response"
           ></furo-data-object>
 
           <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
@@ -144,5 +144,25 @@ describe('furo-data-range-input', () => {
       });
       dataRangeInput.field._setInvalid(err);
     }, 20);
+  });
+
+  it('should set meta via response meta', done => {
+    console.log('those tests are base on the mockdata/experiment/1/get.json');
+
+    host._FBPAddWireHook('--hts', () => {
+      dataObject.addEventListener(
+        'data-injected',
+        () => {
+
+          setTimeout(() => {
+            assert.equal(dataRangeInput._theInputElement.getAttribute('disabled'), '');
+            assert.equal(dataRangeInput._theInputElement.getAttribute('label'), 'range input label via meta');
+            done();
+          }, 5);
+        },
+        { once: true },
+      );
+    });
+    deeplink.qpIn({ exp: 1 });
   });
 });

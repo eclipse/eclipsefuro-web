@@ -138,14 +138,6 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     Helper.UpdateInputAttribute(this, 'label', value);
   }
 
-  /**
-   * Updater for the readonly attr
-   * @param value
-   */
-  set _readonly(value) {
-    Helper.UpdateInputAttribute(this, 'readonly', value);
-  }
-
   static get properties() {
     return {
       /**

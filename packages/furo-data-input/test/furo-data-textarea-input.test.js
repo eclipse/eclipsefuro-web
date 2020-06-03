@@ -18,12 +18,12 @@ describe('furo-data-textarea-input', () => {
       <test-bind>
         <template>
           <furo-data-textarea-input
-            ƒ-bind-data="--entity(*.furo_data_textarea_input)"
+            ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
           ></furo-data-textarea-input>
           <furo-data-textarea-input
             hint="FromTPL"
             label="FromTPL"
-            ƒ-bind-data="--entity(*.furo_data_textarea_input)"
+            ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
             @-value-changed="--textareaChanged"
           ></furo-data-textarea-input>
 
@@ -32,9 +32,9 @@ describe('furo-data-textarea-input', () => {
           ></furo-data-textarea-input>
 
           <furo-data-object
-            type="experiment.Experiment"
+            type="experiment.ExperimentEntity"
             @-object-ready="--entity"
-            ƒ-inject-raw="--response(*.data)"
+            ƒ-inject-raw="--response"
           ></furo-data-object>
 
           <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
@@ -124,5 +124,26 @@ describe('furo-data-textarea-input', () => {
 
       dataTextareaInput._FBPTriggerWire('--valueChanged', 'newTextarea');
     }, 10);
+  });
+
+
+  it('should set meta via response meta', done => {
+    console.log('those tests are base on the mockdata/experiment/1/get.json');
+
+    host._FBPAddWireHook('--hts', () => {
+      entityObject.addEventListener(
+        'data-injected',
+        () => {
+
+          setTimeout(() => {
+            assert.equal(dataTextareaInput._theInputElement.getAttribute('label'), 'textarea input label via meta');
+            assert.equal(dataTextareaInput._theInputElement.getAttribute('disabled'), '');
+            done();
+          }, 50);
+        },
+        { once: true },
+      );
+    });
+    deeplink.qpIn({ exp: 1 });
   });
 });

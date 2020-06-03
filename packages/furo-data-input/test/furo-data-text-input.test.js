@@ -20,21 +20,21 @@ describe('furo-data-text-input', () => {
       <test-bind>
         <template>
           <furo-data-text-input
-            ƒ-bind-data="--entity(*.furo_data_text_input)"
+            ƒ-bind-data="--entity(*.data.furo_data_text_input)"
           ></furo-data-text-input>
           <furo-data-text-input
             hint="FromTPL"
             label="FromTPL"
-            ƒ-bind-data="--entity(*.furo_data_text_input)"
+            ƒ-bind-data="--entity(*.data.furo_data_text_input)"
             readonly
             required
             @-value-changed="--textChanged"
           ></furo-data-text-input>
 
           <furo-data-object
-            type="experiment.Experiment"
+            type="experiment.ExperimentEntity"
             @-object-ready="--entity"
-            ƒ-inject-raw="--response(*.data)"
+            ƒ-inject-raw="--response"
           ></furo-data-object>
 
           <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
@@ -177,5 +177,25 @@ describe('furo-data-text-input', () => {
       });
       dataTextInput.field._setInvalid(err);
     }, 10);
+  });
+
+  it('should set meta via response meta', done => {
+    console.log('those tests are base on the mockdata/experiment/1/get.json');
+
+    host._FBPAddWireHook('--hts', () => {
+      dataObject.addEventListener(
+        'data-injected',
+        () => {
+
+          setTimeout(() => {
+            assert.equal(dataTextInput._theInputElement.getAttribute('disabled'), '');
+            assert.equal(dataTextInput._theInputElement.getAttribute('label'), 'text input label via meta');
+            done();
+          }, 5);
+        },
+        { once: true },
+      );
+    });
+    deeplink.qpIn({ exp: 1 });
   });
 });
