@@ -45,7 +45,7 @@
     },
     "flags": {
       "type": "string",
-      "description": "Flags for the value, something like isNull, suggestion, informative,...",
+      "description": "Flags for the value, something like unspecified, empty, confidential, absent,...",
       "__proto": {
         "number": 2
       },
@@ -70,7 +70,7 @@
     },
     "attributes": {
       "type": "map<string,string>",
-      "description": "Attributes for a value, something like value-state:error",
+      "description": "Attributes for a value, something like confidential-msg:you are not allowed to see this value ",
       "__proto": {
         "number": 3
       },
