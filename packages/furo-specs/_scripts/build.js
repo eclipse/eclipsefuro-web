@@ -74,12 +74,23 @@ speclist.types.forEach((filename) => {
     }
   }
 
+  // empty object for the oneofs
+  spec.oneof_fields = {};
   // remove package internal type calls like person.Person => Person
 
   for (let f in spec.fields) {
     let field = spec.fields[f];
     //types, proto.types and map_to
     field.type = field.type.replace(Typelist[target].package + ".", "");
+
+    // collect the oneofs
+    if(field.__proto.oneof){
+      // create oneof in spec if it does not exixst
+      if(!spec.oneof_fields[field.__proto.oneof]){
+        spec.oneof_fields[field.__proto.oneof] = {};
+      }
+      spec.oneof_fields[field.__proto.oneof][f] = field;
+    }
   }
 
   Typelist[target].types.push(spec);
