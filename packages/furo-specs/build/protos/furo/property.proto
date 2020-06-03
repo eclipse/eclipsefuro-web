@@ -6,61 +6,54 @@ package furo;
 
 import "furo/meta.proto";
 import "google/protobuf/any.proto";
-
-
 // String type to use in property
-message StringOptionProperty {                
-    // String representation of val
-    string display_name = 1;
-    
-    // The value, Id is used to make working with data-inputs easier
-    string id = 2;
+message StringOptionProperty {          
+  // String representation of val
+  string display_name = 1;
+  
+  // The value, Id is used to make working with data-inputs easier
+  string id = 2;
 
 }
-
 // Number type with embedded meta
-message NumberProperty {            
-    // data part
-    float data = 1;
+message NumberProperty {        
+  // data part
+  float data = 1;
 
 }
-
 // String type to use in property
-message StringProperty {            
-    // data part
-    string data = 1;
+message StringProperty {        
+  // data part
+  string data = 1;
 
 }
-
 // Integer type with embedded meta
-message IntegerProperty {            
-    // Integer data part
-    int32 data = 1;
+message IntegerProperty {        
+  // Integer data part
+  int32 data = 1;
 
 }
-
 // Type to define property values with type information
-message Property {                                    
-    // property code for additional settings
-    string code = 5;
-    
-    // data part of the property
-    google.protobuf.Any data = 3;
-    
-    // String representation of the property
-    string display_name = 2;
-    
-    // Optional attribute flags e.g. is-overwritable
-    repeated string flags = 6;
-    
-    // Id of the property
-    string id = 1;
-    
-    // Optional flag indicating that the property differs from the original value
-    bool is_overwritten = 7;
-    
-    // Meta for the response
-    Meta meta = 4;
+message Property {                    
+  // property code for additional settings
+  string code = 5;
+  
+  // data part of the property
+  google.protobuf.Any data = 3;
+  
+  // String representation of the property
+  string display_name = 2;
+  
+  // Optional attribute flags e.g. is-overwritable
+  repeated string flags = 6;
+  
+  // Id of the property
+  string id = 1;
+  
+  // Optional flag indicating that the property differs from the original value
+  bool is_overwritten = 7;
+  
+  // Meta for the response
+  Meta meta = 4;
 
 }
-

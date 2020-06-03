@@ -6,7 +6,7 @@ package taskmanager;
 /**
  * Protobuf type {@code taskmanager.DeleteAuthServiceRequest}
  */
-public  final class DeleteAuthServiceRequest extends
+public final class DeleteAuthServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:taskmanager.DeleteAuthServiceRequest)
     DeleteAuthServiceRequestOrBuilder {
@@ -16,6 +16,13 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private DeleteAuthServiceRequest() {
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new DeleteAuthServiceRequest();
   }
 
   @java.lang.Override
@@ -31,7 +38,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -91,19 +97,24 @@ private static final long serialVersionUID = 0L;
   private google.protobuf.EmptyOuterClass.Empty data_;
   /**
    * <code>.google.protobuf.Empty data = 1;</code>
+   * @return Whether the data field is set.
    */
+  @java.lang.Override
   public boolean hasData() {
     return data_ != null;
   }
   /**
    * <code>.google.protobuf.Empty data = 1;</code>
+   * @return The data.
    */
+  @java.lang.Override
   public google.protobuf.EmptyOuterClass.Empty getData() {
     return data_ == null ? google.protobuf.EmptyOuterClass.Empty.getDefaultInstance() : data_;
   }
   /**
    * <code>.google.protobuf.Empty data = 1;</code>
    */
+  @java.lang.Override
   public google.protobuf.EmptyOuterClass.EmptyOrBuilder getDataOrBuilder() {
     return getData();
   }
@@ -428,12 +439,14 @@ private static final long serialVersionUID = 0L;
         google.protobuf.EmptyOuterClass.Empty, google.protobuf.EmptyOuterClass.Empty.Builder, google.protobuf.EmptyOuterClass.EmptyOrBuilder> dataBuilder_;
     /**
      * <code>.google.protobuf.Empty data = 1;</code>
+     * @return Whether the data field is set.
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
     }
     /**
      * <code>.google.protobuf.Empty data = 1;</code>
+     * @return The data.
      */
     public google.protobuf.EmptyOuterClass.Empty getData() {
       if (dataBuilder_ == null) {

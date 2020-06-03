@@ -6,7 +6,7 @@ package taskmanager;
 /**
  * Protobuf type {@code taskmanager.UpdateTreeServiceRequest}
  */
-public  final class UpdateTreeServiceRequest extends
+public final class UpdateTreeServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:taskmanager.UpdateTreeServiceRequest)
     UpdateTreeServiceRequestOrBuilder {
@@ -17,6 +17,13 @@ private static final long serialVersionUID = 0L;
   }
   private UpdateTreeServiceRequest() {
     tre_ = "";
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new UpdateTreeServiceRequest();
   }
 
   @java.lang.Override
@@ -32,7 +39,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -98,7 +104,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object tre_;
   /**
    * <code>string tre = 1;</code>
+   * @return The tre.
    */
+  @java.lang.Override
   public java.lang.String getTre() {
     java.lang.Object ref = tre_;
     if (ref instanceof java.lang.String) {
@@ -113,7 +121,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string tre = 1;</code>
+   * @return The bytes for tre.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTreBytes() {
     java.lang.Object ref = tre_;
@@ -132,19 +142,24 @@ private static final long serialVersionUID = 0L;
   private tree.TreeOuterClass.Tree data_;
   /**
    * <code>.tree.Tree data = 2;</code>
+   * @return Whether the data field is set.
    */
+  @java.lang.Override
   public boolean hasData() {
     return data_ != null;
   }
   /**
    * <code>.tree.Tree data = 2;</code>
+   * @return The data.
    */
+  @java.lang.Override
   public tree.TreeOuterClass.Tree getData() {
     return data_ == null ? tree.TreeOuterClass.Tree.getDefaultInstance() : data_;
   }
   /**
    * <code>.tree.Tree data = 2;</code>
    */
+  @java.lang.Override
   public tree.TreeOuterClass.TreeOrBuilder getDataOrBuilder() {
     return getData();
   }
@@ -484,6 +499,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object tre_ = "";
     /**
      * <code>string tre = 1;</code>
+     * @return The tre.
      */
     public java.lang.String getTre() {
       java.lang.Object ref = tre_;
@@ -499,6 +515,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tre = 1;</code>
+     * @return The bytes for tre.
      */
     public com.google.protobuf.ByteString
         getTreBytes() {
@@ -515,6 +532,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tre = 1;</code>
+     * @param value The tre to set.
+     * @return This builder for chaining.
      */
     public Builder setTre(
         java.lang.String value) {
@@ -528,6 +547,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tre = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTre() {
       
@@ -537,6 +557,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tre = 1;</code>
+     * @param value The bytes for tre to set.
+     * @return This builder for chaining.
      */
     public Builder setTreBytes(
         com.google.protobuf.ByteString value) {
@@ -555,12 +577,14 @@ private static final long serialVersionUID = 0L;
         tree.TreeOuterClass.Tree, tree.TreeOuterClass.Tree.Builder, tree.TreeOuterClass.TreeOrBuilder> dataBuilder_;
     /**
      * <code>.tree.Tree data = 2;</code>
+     * @return Whether the data field is set.
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
     }
     /**
      * <code>.tree.Tree data = 2;</code>
+     * @return The data.
      */
     public tree.TreeOuterClass.Tree getData() {
       if (dataBuilder_ == null) {

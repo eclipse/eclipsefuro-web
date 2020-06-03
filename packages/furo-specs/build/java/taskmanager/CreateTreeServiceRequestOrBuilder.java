@@ -9,10 +9,12 @@ public interface CreateTreeServiceRequestOrBuilder extends
 
   /**
    * <code>.tree.Tree data = 1;</code>
+   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.tree.Tree data = 1;</code>
+   * @return The data.
    */
   tree.TreeOuterClass.Tree getData();
   /**

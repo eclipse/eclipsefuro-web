@@ -4,10 +4,6 @@
     "title": "projectmemberservice/service.proto",
     "version": "version not set"
   },
-  "schemes": [
-    "http",
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
@@ -18,12 +14,18 @@
     "/api/members": {
       "get": {
         "summary": "Get a collection with PersonEntities",
-        "operationId": "ListMembers",
+        "operationId": "ProjectMembersService_ListMembers",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/personPersonCollection"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -44,12 +46,18 @@
     "/api/projects/{prj}/members/{prs}:unsubscribe": {
       "post": {
         "summary": "Custom method to unsubscribe a member, complete PersonEntity is expected",
-        "operationId": "UnsubscribeProjectMembersService",
+        "operationId": "ProjectMembersService_UnsubscribeProjectMembersService",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/personPersonCollection"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -315,6 +323,27 @@
         }
       },
       "title": "A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto"
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
     }
   }
 }

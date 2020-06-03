@@ -6,7 +6,7 @@ package taskmanager;
 /**
  * Protobuf type {@code taskmanager.GetProjectfilterServiceRequest}
  */
-public  final class GetProjectfilterServiceRequest extends
+public final class GetProjectfilterServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:taskmanager.GetProjectfilterServiceRequest)
     GetProjectfilterServiceRequestOrBuilder {
@@ -16,6 +16,13 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GetProjectfilterServiceRequest() {
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new GetProjectfilterServiceRequest();
   }
 
   @java.lang.Override

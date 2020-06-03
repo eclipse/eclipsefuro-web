@@ -7,56 +7,51 @@ package person;
 import "google/protobuf/field_mask.proto";
 import "furo/meta.proto";
 import "furo/link.proto";
-
-
 // Person message type
-message Person {                                    
-    // Localized String representation of a person
-    string display_name = 2;
-    
-    // First name of a person
-    string first_name = 4;
-    
-    // Identity of a person
-    string id = 1;
-    
-    // Name of a person
-    string name = 3;
-    
-    // Internal phone number
-    string phone_nr = 5;
-    
-    // List of main skills of a person
-    repeated string skills = 6;
-    
-    // Contains a field_mask which fields of the targeted resource are going to be updated
-    google.protobuf.FieldMask update_mask = 7;
+message Person {                    
+  // Localized String representation of a person
+  string display_name = 2;
+  
+  // First name of a person
+  string first_name = 4;
+  
+  // Identity of a person
+  string id = 1;
+  
+  // Name of a person
+  string name = 3;
+  
+  // Internal phone number
+  string phone_nr = 5;
+  
+  // List of main skills of a person
+  repeated string skills = 6;
+  
+  // Contains a field_mask which fields of the targeted resource are going to be updated
+  google.protobuf.FieldMask update_mask = 7;
 
 }
-
 // PersonCollection with repeated PersonEntity
-message PersonCollection {                    
-    // Contains a person.PersonEntity repeated
-    repeated PersonEntity entities = 4;
-    
-    // Hateoas links
-    repeated furo.Link links = 3;
-    
-    // Meta for the response
-    furo.Meta meta = 2;
+message PersonCollection {            
+  // Contains a person.PersonEntity repeated
+  repeated PersonEntity entities = 4;
+  
+  // Hateoas links
+  repeated furo.Link links = 3;
+  
+  // Meta for the response
+  furo.Meta meta = 2;
 
 }
-
 // PersonEntity with Person
-message PersonEntity {                    
-    // contains a person.Person
-    Person data = 1;
-    
-    // Hateoas links
-    repeated furo.Link links = 2;
-    
-    // Meta for the response
-    furo.Meta meta = 3;
+message PersonEntity {            
+  // contains a person.Person
+  Person data = 1;
+  
+  // Hateoas links
+  repeated furo.Link links = 2;
+  
+  // Meta for the response
+  furo.Meta meta = 3;
 
 }
-

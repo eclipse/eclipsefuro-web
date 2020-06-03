@@ -20,16 +20,19 @@ public final class AnyOuterClass {
 
     /**
      * <code>string type_url = 1;</code>
+     * @return The typeUrl.
      */
     java.lang.String getTypeUrl();
     /**
      * <code>string type_url = 1;</code>
+     * @return The bytes for typeUrl.
      */
     com.google.protobuf.ByteString
         getTypeUrlBytes();
 
     /**
      * <code>bytes value = 2;</code>
+     * @return The value.
      */
     com.google.protobuf.ByteString getValue();
   }
@@ -41,7 +44,7 @@ public final class AnyOuterClass {
    *
    * Protobuf type {@code google.protobuf.Any}
    */
-  public  static final class Any extends
+  public static final class Any extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:google.protobuf.Any)
       AnyOrBuilder {
@@ -53,6 +56,13 @@ public final class AnyOuterClass {
     private Any() {
       typeUrl_ = "";
       value_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Any();
     }
 
     @java.lang.Override
@@ -68,7 +78,6 @@ public final class AnyOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -174,12 +183,16 @@ public final class AnyOuterClass {
     public <T extends com.google.protobuf.Message> T unpack(
         java.lang.Class<T> clazz)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      if (!is(clazz)) {
+      boolean invalidClazz = false;
+      if (cachedUnpackValue != null) {
+        if (cachedUnpackValue.getClass() == clazz) {
+          return (T) cachedUnpackValue;
+        }
+        invalidClazz = true;
+      }
+      if (invalidClazz || !is(clazz)) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             "Type of the Any message does not match the given class.");
-      }
-      if (cachedUnpackValue != null) {
-        return (T) cachedUnpackValue;
       }
       T defaultInstance =
           com.google.protobuf.Internal.getDefaultInstance(clazz);
@@ -192,7 +205,9 @@ public final class AnyOuterClass {
     private volatile java.lang.Object typeUrl_;
     /**
      * <code>string type_url = 1;</code>
+     * @return The typeUrl.
      */
+    @java.lang.Override
     public java.lang.String getTypeUrl() {
       java.lang.Object ref = typeUrl_;
       if (ref instanceof java.lang.String) {
@@ -207,7 +222,9 @@ public final class AnyOuterClass {
     }
     /**
      * <code>string type_url = 1;</code>
+     * @return The bytes for typeUrl.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getTypeUrlBytes() {
       java.lang.Object ref = typeUrl_;
@@ -226,7 +243,9 @@ public final class AnyOuterClass {
     private com.google.protobuf.ByteString value_;
     /**
      * <code>bytes value = 2;</code>
+     * @return The value.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getValue() {
       return value_;
     }
@@ -558,6 +577,7 @@ public final class AnyOuterClass {
       private java.lang.Object typeUrl_ = "";
       /**
        * <code>string type_url = 1;</code>
+       * @return The typeUrl.
        */
       public java.lang.String getTypeUrl() {
         java.lang.Object ref = typeUrl_;
@@ -573,6 +593,7 @@ public final class AnyOuterClass {
       }
       /**
        * <code>string type_url = 1;</code>
+       * @return The bytes for typeUrl.
        */
       public com.google.protobuf.ByteString
           getTypeUrlBytes() {
@@ -589,6 +610,8 @@ public final class AnyOuterClass {
       }
       /**
        * <code>string type_url = 1;</code>
+       * @param value The typeUrl to set.
+       * @return This builder for chaining.
        */
       public Builder setTypeUrl(
           java.lang.String value) {
@@ -602,6 +625,7 @@ public final class AnyOuterClass {
       }
       /**
        * <code>string type_url = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTypeUrl() {
         
@@ -611,6 +635,8 @@ public final class AnyOuterClass {
       }
       /**
        * <code>string type_url = 1;</code>
+       * @param value The bytes for typeUrl to set.
+       * @return This builder for chaining.
        */
       public Builder setTypeUrlBytes(
           com.google.protobuf.ByteString value) {
@@ -627,12 +653,16 @@ public final class AnyOuterClass {
       private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes value = 2;</code>
+       * @return The value.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getValue() {
         return value_;
       }
       /**
        * <code>bytes value = 2;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -645,6 +675,7 @@ public final class AnyOuterClass {
       }
       /**
        * <code>bytes value = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -723,18 +754,10 @@ public final class AnyOuterClass {
       "obuf\"&\n\003Any\022\020\n\010type_url\030\001 \001(\t\022\r\n\005value\030\002" +
       " \001(\014b\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_google_protobuf_Any_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_google_protobuf_Any_fieldAccessorTable = new

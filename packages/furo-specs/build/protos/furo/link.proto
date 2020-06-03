@@ -4,24 +4,21 @@ syntax = "proto3";
 package furo;
 
 
-
-
 // link
-message Link {                            
-    // link
-    string href = 3;
-    
-    // method of curl
-    string method = 2;
-    
-    // the relationship
-    string rel = 1;
-    
-    // name of the service which can handle this link
-    string service = 5;
-    
-    // mime type
-    string type = 4;
+message Link {                
+  // link
+  string href = 3;
+  
+  // method of curl
+  string method = 2;
+  
+  // the relationship
+  string rel = 1;
+  
+  // name of the service which can handle this link
+  string service = 5;
+  
+  // mime type
+  string type = 4;
 
 }
-

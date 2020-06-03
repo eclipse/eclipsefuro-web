@@ -4,18 +4,15 @@ syntax = "proto3";
 package furo;
 
 
-
-
 // A BigDecimal is defined by two values: an arbitrary precision integer and a 32-bit integer scale. The value of the BigDecimal is defined to be unscaledValue*10^{-scale}.
-message BigDecimal {                    
-    // String representation of BigDecimal entity
-    string display_name = 1;
-    
-    // The integer value of the BigDecimal
-    int64 int_val = 3;
-    
-    // If zero or positive, the scale is the number of digits to the right of the decimal point. If negative, the unscaled value of the number is multiplied by ten to the power of the negation of the scale. For example, a scale of -3 means the unscaled value is multiplied by 1000.
-    int32 scale = 2;
+message BigDecimal {            
+  // String representation of BigDecimal entity
+  string display_name = 1;
+  
+  // The integer value of the BigDecimal
+  int64 int_val = 3;
+  
+  // If zero or positive, the scale is the number of digits to the right of the decimal point. If negative, the unscaled value of the number is multiplied by ten to the power of the negation of the scale. For example, a scale of -3 means the unscaled value is multiplied by 1000.
+  int32 scale = 2;
 
 }
-
