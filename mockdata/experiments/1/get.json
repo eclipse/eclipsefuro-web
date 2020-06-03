@@ -316,7 +316,7 @@
       "data.furo_data_money_input": {
         "meta": {
           "label": "money input label via meta",
-          "readonly": true
+          "readonly": false
         }
       }
     }

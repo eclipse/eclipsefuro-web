@@ -128,8 +128,8 @@ describe('furo-data-money-input', () => {
 
           setTimeout(() => {
             console.log(dataInput.shadowRoot.getElementById("input"))
-            assert.equal(dataInput.shadowRoot.getElementById("input").getAttribute('disabled'), '');
-            assert.equal(dataInput.shadowRoot.getElementById("select").getAttribute('disabled'), '');
+            assert.equal(dataInput.shadowRoot.getElementById("input").getAttribute('disabled'), null);
+            assert.equal(dataInput.shadowRoot.getElementById("select").getAttribute('disabled'), null);
             done();
           }, 55);
         },
