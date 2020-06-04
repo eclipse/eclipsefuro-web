@@ -9,24 +9,20 @@ public interface UpdateAuthServiceRequestOrBuilder extends
 
   /**
    * <code>string uid = 1;</code>
-   * @return The uid.
    */
   java.lang.String getUid();
   /**
    * <code>string uid = 1;</code>
-   * @return The bytes for uid.
    */
   com.google.protobuf.ByteString
       getUidBytes();
 
   /**
    * <code>.auth.Auth data = 2;</code>
-   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.auth.Auth data = 2;</code>
-   * @return The data.
    */
   auth.AuthOuterClass.Auth getData();
   /**

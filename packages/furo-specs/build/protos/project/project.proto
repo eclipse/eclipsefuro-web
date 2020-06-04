@@ -6,7 +6,7 @@ package project;
 
 import "furo/meta.proto";
 import "furo/link.proto";
-import "google/protobuf/field_mask.proto";
+import "google/protobuf/types/known/field_mask.proto";
 import "google/type/money.proto";
 import "google/type/date.proto";
 import "person/person.proto";
@@ -58,6 +58,6 @@ message Project {
   google.type.Date start = 3;
   
   // Contains a field_mask which fields of the targeted resource are going to be updated
-  google.protobuf.FieldMask update_mask = 8;
+  google.protobuf.types.known.FieldMask update_mask = 8;
 
 }

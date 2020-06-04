@@ -9,12 +9,10 @@ public interface CreateProjectServiceRequestOrBuilder extends
 
   /**
    * <code>.project.Project data = 1;</code>
-   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.project.Project data = 1;</code>
-   * @return The data.
    */
   project.ProjectOuterClass.Project getData();
   /**

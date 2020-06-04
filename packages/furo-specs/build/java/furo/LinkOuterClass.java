@@ -24,7 +24,6 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string href = 3;</code>
-     * @return The href.
      */
     java.lang.String getHref();
     /**
@@ -33,7 +32,6 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string href = 3;</code>
-     * @return The bytes for href.
      */
     com.google.protobuf.ByteString
         getHrefBytes();
@@ -44,7 +42,6 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string method = 2;</code>
-     * @return The method.
      */
     java.lang.String getMethod();
     /**
@@ -53,7 +50,6 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string method = 2;</code>
-     * @return The bytes for method.
      */
     com.google.protobuf.ByteString
         getMethodBytes();
@@ -64,7 +60,6 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string rel = 1;</code>
-     * @return The rel.
      */
     java.lang.String getRel();
     /**
@@ -73,7 +68,6 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string rel = 1;</code>
-     * @return The bytes for rel.
      */
     com.google.protobuf.ByteString
         getRelBytes();
@@ -84,7 +78,6 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string service = 5;</code>
-     * @return The service.
      */
     java.lang.String getService();
     /**
@@ -93,7 +86,6 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string service = 5;</code>
-     * @return The bytes for service.
      */
     com.google.protobuf.ByteString
         getServiceBytes();
@@ -104,7 +96,6 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string type = 4;</code>
-     * @return The type.
      */
     java.lang.String getType();
     /**
@@ -113,7 +104,6 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string type = 4;</code>
-     * @return The bytes for type.
      */
     com.google.protobuf.ByteString
         getTypeBytes();
@@ -125,7 +115,7 @@ public final class LinkOuterClass {
    *
    * Protobuf type {@code furo.Link}
    */
-  public static final class Link extends
+  public  static final class Link extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.Link)
       LinkOrBuilder {
@@ -143,13 +133,6 @@ public final class LinkOuterClass {
     }
 
     @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Link();
-    }
-
-    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -162,6 +145,7 @@ public final class LinkOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -242,9 +226,7 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string href = 3;</code>
-     * @return The href.
      */
-    @java.lang.Override
     public java.lang.String getHref() {
       java.lang.Object ref = href_;
       if (ref instanceof java.lang.String) {
@@ -263,9 +245,7 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string href = 3;</code>
-     * @return The bytes for href.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getHrefBytes() {
       java.lang.Object ref = href_;
@@ -288,9 +268,7 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string method = 2;</code>
-     * @return The method.
      */
-    @java.lang.Override
     public java.lang.String getMethod() {
       java.lang.Object ref = method_;
       if (ref instanceof java.lang.String) {
@@ -309,9 +287,7 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string method = 2;</code>
-     * @return The bytes for method.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getMethodBytes() {
       java.lang.Object ref = method_;
@@ -334,9 +310,7 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string rel = 1;</code>
-     * @return The rel.
      */
-    @java.lang.Override
     public java.lang.String getRel() {
       java.lang.Object ref = rel_;
       if (ref instanceof java.lang.String) {
@@ -355,9 +329,7 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string rel = 1;</code>
-     * @return The bytes for rel.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getRelBytes() {
       java.lang.Object ref = rel_;
@@ -380,9 +352,7 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string service = 5;</code>
-     * @return The service.
      */
-    @java.lang.Override
     public java.lang.String getService() {
       java.lang.Object ref = service_;
       if (ref instanceof java.lang.String) {
@@ -401,9 +371,7 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string service = 5;</code>
-     * @return The bytes for service.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getServiceBytes() {
       java.lang.Object ref = service_;
@@ -426,9 +394,7 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string type = 4;</code>
-     * @return The type.
      */
-    @java.lang.Override
     public java.lang.String getType() {
       java.lang.Object ref = type_;
       if (ref instanceof java.lang.String) {
@@ -447,9 +413,7 @@ public final class LinkOuterClass {
      * </pre>
      *
      * <code>string type = 4;</code>
-     * @return The bytes for type.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getTypeBytes() {
       java.lang.Object ref = type_;
@@ -845,7 +809,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string href = 3;</code>
-       * @return The href.
        */
       public java.lang.String getHref() {
         java.lang.Object ref = href_;
@@ -865,7 +828,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string href = 3;</code>
-       * @return The bytes for href.
        */
       public com.google.protobuf.ByteString
           getHrefBytes() {
@@ -886,8 +848,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string href = 3;</code>
-       * @param value The href to set.
-       * @return This builder for chaining.
        */
       public Builder setHref(
           java.lang.String value) {
@@ -905,7 +865,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string href = 3;</code>
-       * @return This builder for chaining.
        */
       public Builder clearHref() {
         
@@ -919,8 +878,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string href = 3;</code>
-       * @param value The bytes for href to set.
-       * @return This builder for chaining.
        */
       public Builder setHrefBytes(
           com.google.protobuf.ByteString value) {
@@ -941,7 +898,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string method = 2;</code>
-       * @return The method.
        */
       public java.lang.String getMethod() {
         java.lang.Object ref = method_;
@@ -961,7 +917,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string method = 2;</code>
-       * @return The bytes for method.
        */
       public com.google.protobuf.ByteString
           getMethodBytes() {
@@ -982,8 +937,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string method = 2;</code>
-       * @param value The method to set.
-       * @return This builder for chaining.
        */
       public Builder setMethod(
           java.lang.String value) {
@@ -1001,7 +954,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string method = 2;</code>
-       * @return This builder for chaining.
        */
       public Builder clearMethod() {
         
@@ -1015,8 +967,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string method = 2;</code>
-       * @param value The bytes for method to set.
-       * @return This builder for chaining.
        */
       public Builder setMethodBytes(
           com.google.protobuf.ByteString value) {
@@ -1037,7 +987,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string rel = 1;</code>
-       * @return The rel.
        */
       public java.lang.String getRel() {
         java.lang.Object ref = rel_;
@@ -1057,7 +1006,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string rel = 1;</code>
-       * @return The bytes for rel.
        */
       public com.google.protobuf.ByteString
           getRelBytes() {
@@ -1078,8 +1026,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string rel = 1;</code>
-       * @param value The rel to set.
-       * @return This builder for chaining.
        */
       public Builder setRel(
           java.lang.String value) {
@@ -1097,7 +1043,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string rel = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearRel() {
         
@@ -1111,8 +1056,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string rel = 1;</code>
-       * @param value The bytes for rel to set.
-       * @return This builder for chaining.
        */
       public Builder setRelBytes(
           com.google.protobuf.ByteString value) {
@@ -1133,7 +1076,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string service = 5;</code>
-       * @return The service.
        */
       public java.lang.String getService() {
         java.lang.Object ref = service_;
@@ -1153,7 +1095,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string service = 5;</code>
-       * @return The bytes for service.
        */
       public com.google.protobuf.ByteString
           getServiceBytes() {
@@ -1174,8 +1115,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string service = 5;</code>
-       * @param value The service to set.
-       * @return This builder for chaining.
        */
       public Builder setService(
           java.lang.String value) {
@@ -1193,7 +1132,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string service = 5;</code>
-       * @return This builder for chaining.
        */
       public Builder clearService() {
         
@@ -1207,8 +1145,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string service = 5;</code>
-       * @param value The bytes for service to set.
-       * @return This builder for chaining.
        */
       public Builder setServiceBytes(
           com.google.protobuf.ByteString value) {
@@ -1229,7 +1165,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string type = 4;</code>
-       * @return The type.
        */
       public java.lang.String getType() {
         java.lang.Object ref = type_;
@@ -1249,7 +1184,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string type = 4;</code>
-       * @return The bytes for type.
        */
       public com.google.protobuf.ByteString
           getTypeBytes() {
@@ -1270,8 +1204,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string type = 4;</code>
-       * @param value The type to set.
-       * @return This builder for chaining.
        */
       public Builder setType(
           java.lang.String value) {
@@ -1289,7 +1221,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string type = 4;</code>
-       * @return This builder for chaining.
        */
       public Builder clearType() {
         
@@ -1303,8 +1234,6 @@ public final class LinkOuterClass {
        * </pre>
        *
        * <code>string type = 4;</code>
-       * @param value The bytes for type to set.
-       * @return This builder for chaining.
        */
       public Builder setTypeBytes(
           com.google.protobuf.ByteString value) {
@@ -1388,10 +1317,18 @@ public final class LinkOuterClass {
       "\003 \001(\t\022\016\n\006method\030\002 \001(\t\022\013\n\003rel\030\001 \001(\t\022\017\n\007se" +
       "rvice\030\005 \001(\t\022\014\n\004type\030\004 \001(\tb\006proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
+        }, assigner);
     internal_static_furo_Link_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_furo_Link_fieldAccessorTable = new

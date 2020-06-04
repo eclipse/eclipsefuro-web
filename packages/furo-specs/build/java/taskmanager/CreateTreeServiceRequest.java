@@ -6,7 +6,7 @@ package taskmanager;
 /**
  * Protobuf type {@code taskmanager.CreateTreeServiceRequest}
  */
-public final class CreateTreeServiceRequest extends
+public  final class CreateTreeServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:taskmanager.CreateTreeServiceRequest)
     CreateTreeServiceRequestOrBuilder {
@@ -16,13 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private CreateTreeServiceRequest() {
-  }
-
-  @java.lang.Override
-  @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
-    return new CreateTreeServiceRequest();
   }
 
   @java.lang.Override
@@ -38,6 +31,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -97,24 +91,19 @@ private static final long serialVersionUID = 0L;
   private tree.TreeOuterClass.Tree data_;
   /**
    * <code>.tree.Tree data = 1;</code>
-   * @return Whether the data field is set.
    */
-  @java.lang.Override
   public boolean hasData() {
     return data_ != null;
   }
   /**
    * <code>.tree.Tree data = 1;</code>
-   * @return The data.
    */
-  @java.lang.Override
   public tree.TreeOuterClass.Tree getData() {
     return data_ == null ? tree.TreeOuterClass.Tree.getDefaultInstance() : data_;
   }
   /**
    * <code>.tree.Tree data = 1;</code>
    */
-  @java.lang.Override
   public tree.TreeOuterClass.TreeOrBuilder getDataOrBuilder() {
     return getData();
   }
@@ -439,14 +428,12 @@ private static final long serialVersionUID = 0L;
         tree.TreeOuterClass.Tree, tree.TreeOuterClass.Tree.Builder, tree.TreeOuterClass.TreeOrBuilder> dataBuilder_;
     /**
      * <code>.tree.Tree data = 1;</code>
-     * @return Whether the data field is set.
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
     }
     /**
      * <code>.tree.Tree data = 1;</code>
-     * @return The data.
      */
     public tree.TreeOuterClass.Tree getData() {
       if (dataBuilder_ == null) {

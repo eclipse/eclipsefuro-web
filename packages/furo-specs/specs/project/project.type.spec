@@ -5,7 +5,7 @@
   "__proto": {
     "package": "project",
     "imports": [
-      "google/protobuf/field_mask.proto",
+      "google/protobuf/types/known/field_mask.proto",
       "google/type/money.proto",
       "google/type/date.proto",
       "person/person.proto"
@@ -123,7 +123,7 @@
     },
     "update_mask": {
       "description": "Contains a field_mask which fields of the targeted resource are going to be updated",
-      "type": "google.protobuf.FieldMask",
+      "type": "google.protobuf.types.known.FieldMask",
       "meta": {},
       "constraints": {},
       "__proto": {

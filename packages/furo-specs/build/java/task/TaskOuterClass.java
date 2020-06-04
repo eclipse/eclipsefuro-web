@@ -24,7 +24,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.task.Task data = 1;</code>
-     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
@@ -33,7 +32,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.task.Task data = 1;</code>
-     * @return The data.
      */
     task.TaskOuterClass.Task getData();
     /**
@@ -95,7 +93,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
-     * @return Whether the meta field is set.
      */
     boolean hasMeta();
     /**
@@ -104,7 +101,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
-     * @return The meta.
      */
     furo.MetaOuterClass.Meta getMeta();
     /**
@@ -123,7 +119,7 @@ public final class TaskOuterClass {
    *
    * Protobuf type {@code task.TaskEntity}
    */
-  public static final class TaskEntity extends
+  public  static final class TaskEntity extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:task.TaskEntity)
       TaskEntityOrBuilder {
@@ -134,13 +130,6 @@ public final class TaskOuterClass {
     }
     private TaskEntity() {
       links_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new TaskEntity();
     }
 
     @java.lang.Override
@@ -181,9 +170,9 @@ public final class TaskOuterClass {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 links_ = new java.util.ArrayList<furo.LinkOuterClass.Link>();
-                mutable_bitField0_ |= 0x00000001;
+                mutable_bitField0_ |= 0x00000002;
               }
               links_.add(
                   input.readMessage(furo.LinkOuterClass.Link.parser(), extensionRegistry));
@@ -217,7 +206,7 @@ public final class TaskOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           links_ = java.util.Collections.unmodifiableList(links_);
         }
         this.unknownFields = unknownFields.build();
@@ -237,6 +226,7 @@ public final class TaskOuterClass {
               task.TaskOuterClass.TaskEntity.class, task.TaskOuterClass.TaskEntity.Builder.class);
     }
 
+    private int bitField0_;
     public static final int DATA_FIELD_NUMBER = 1;
     private task.TaskOuterClass.Task data_;
     /**
@@ -245,9 +235,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.task.Task data = 1;</code>
-     * @return Whether the data field is set.
      */
-    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
@@ -257,9 +245,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.task.Task data = 1;</code>
-     * @return The data.
      */
-    @java.lang.Override
     public task.TaskOuterClass.Task getData() {
       return data_ == null ? task.TaskOuterClass.Task.getDefaultInstance() : data_;
     }
@@ -270,7 +256,6 @@ public final class TaskOuterClass {
      *
      * <code>.task.Task data = 1;</code>
      */
-    @java.lang.Override
     public task.TaskOuterClass.TaskOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -284,7 +269,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public java.util.List<furo.LinkOuterClass.Link> getLinksList() {
       return links_;
     }
@@ -295,7 +279,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public java.util.List<? extends furo.LinkOuterClass.LinkOrBuilder> 
         getLinksOrBuilderList() {
       return links_;
@@ -307,7 +290,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public int getLinksCount() {
       return links_.size();
     }
@@ -318,7 +300,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public furo.LinkOuterClass.Link getLinks(int index) {
       return links_.get(index);
     }
@@ -329,7 +310,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public furo.LinkOuterClass.LinkOrBuilder getLinksOrBuilder(
         int index) {
       return links_.get(index);
@@ -343,9 +323,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
-     * @return Whether the meta field is set.
      */
-    @java.lang.Override
     public boolean hasMeta() {
       return meta_ != null;
     }
@@ -355,9 +333,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
-     * @return The meta.
      */
-    @java.lang.Override
     public furo.MetaOuterClass.Meta getMeta() {
       return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
     }
@@ -368,7 +344,6 @@ public final class TaskOuterClass {
      *
      * <code>.furo.Meta meta = 3;</code>
      */
-    @java.lang.Override
     public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
       return getMeta();
     }
@@ -613,7 +588,7 @@ public final class TaskOuterClass {
         }
         if (linksBuilder_ == null) {
           links_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           linksBuilder_.clear();
         }
@@ -650,15 +625,16 @@ public final class TaskOuterClass {
       public task.TaskOuterClass.TaskEntity buildPartial() {
         task.TaskOuterClass.TaskEntity result = new task.TaskOuterClass.TaskEntity(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (dataBuilder_ == null) {
           result.data_ = data_;
         } else {
           result.data_ = dataBuilder_.build();
         }
         if (linksBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             links_ = java.util.Collections.unmodifiableList(links_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.links_ = links_;
         } else {
@@ -669,6 +645,7 @@ public final class TaskOuterClass {
         } else {
           result.meta_ = metaBuilder_.build();
         }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -724,7 +701,7 @@ public final class TaskOuterClass {
           if (!other.links_.isEmpty()) {
             if (links_.isEmpty()) {
               links_ = other.links_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureLinksIsMutable();
               links_.addAll(other.links_);
@@ -737,7 +714,7 @@ public final class TaskOuterClass {
               linksBuilder_.dispose();
               linksBuilder_ = null;
               links_ = other.links_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               linksBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getLinksFieldBuilder() : null;
@@ -788,7 +765,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>.task.Task data = 1;</code>
-       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
@@ -799,7 +775,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>.task.Task data = 1;</code>
-       * @return The data.
        */
       public task.TaskOuterClass.Task getData() {
         if (dataBuilder_ == null) {
@@ -937,9 +912,9 @@ public final class TaskOuterClass {
       private java.util.List<furo.LinkOuterClass.Link> links_ =
         java.util.Collections.emptyList();
       private void ensureLinksIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           links_ = new java.util.ArrayList<furo.LinkOuterClass.Link>(links_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -1133,7 +1108,7 @@ public final class TaskOuterClass {
       public Builder clearLinks() {
         if (linksBuilder_ == null) {
           links_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           linksBuilder_.clear();
@@ -1238,7 +1213,7 @@ public final class TaskOuterClass {
           linksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               furo.LinkOuterClass.Link, furo.LinkOuterClass.Link.Builder, furo.LinkOuterClass.LinkOrBuilder>(
                   links_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           links_ = null;
@@ -1255,7 +1230,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 3;</code>
-       * @return Whether the meta field is set.
        */
       public boolean hasMeta() {
         return metaBuilder_ != null || meta_ != null;
@@ -1266,7 +1240,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 3;</code>
-       * @return The meta.
        */
       public furo.MetaOuterClass.Meta getMeta() {
         if (metaBuilder_ == null) {
@@ -1551,7 +1524,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
-     * @return Whether the meta field is set.
      */
     boolean hasMeta();
     /**
@@ -1560,7 +1532,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
-     * @return The meta.
      */
     furo.MetaOuterClass.Meta getMeta();
     /**
@@ -1579,7 +1550,7 @@ public final class TaskOuterClass {
    *
    * Protobuf type {@code task.TaskCollection}
    */
-  public static final class TaskCollection extends
+  public  static final class TaskCollection extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:task.TaskCollection)
       TaskCollectionOrBuilder {
@@ -1591,13 +1562,6 @@ public final class TaskOuterClass {
     private TaskCollection() {
       entities_ = java.util.Collections.emptyList();
       links_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new TaskCollection();
     }
 
     @java.lang.Override
@@ -1693,6 +1657,7 @@ public final class TaskOuterClass {
               task.TaskOuterClass.TaskCollection.class, task.TaskOuterClass.TaskCollection.Builder.class);
     }
 
+    private int bitField0_;
     public static final int ENTITIES_FIELD_NUMBER = 4;
     private java.util.List<task.TaskOuterClass.TaskEntity> entities_;
     /**
@@ -1702,7 +1667,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .task.TaskEntity entities = 4;</code>
      */
-    @java.lang.Override
     public java.util.List<task.TaskOuterClass.TaskEntity> getEntitiesList() {
       return entities_;
     }
@@ -1713,7 +1677,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .task.TaskEntity entities = 4;</code>
      */
-    @java.lang.Override
     public java.util.List<? extends task.TaskOuterClass.TaskEntityOrBuilder> 
         getEntitiesOrBuilderList() {
       return entities_;
@@ -1725,7 +1688,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .task.TaskEntity entities = 4;</code>
      */
-    @java.lang.Override
     public int getEntitiesCount() {
       return entities_.size();
     }
@@ -1736,7 +1698,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .task.TaskEntity entities = 4;</code>
      */
-    @java.lang.Override
     public task.TaskOuterClass.TaskEntity getEntities(int index) {
       return entities_.get(index);
     }
@@ -1747,7 +1708,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .task.TaskEntity entities = 4;</code>
      */
-    @java.lang.Override
     public task.TaskOuterClass.TaskEntityOrBuilder getEntitiesOrBuilder(
         int index) {
       return entities_.get(index);
@@ -1762,7 +1722,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
-    @java.lang.Override
     public java.util.List<furo.LinkOuterClass.Link> getLinksList() {
       return links_;
     }
@@ -1773,7 +1732,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
-    @java.lang.Override
     public java.util.List<? extends furo.LinkOuterClass.LinkOrBuilder> 
         getLinksOrBuilderList() {
       return links_;
@@ -1785,7 +1743,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
-    @java.lang.Override
     public int getLinksCount() {
       return links_.size();
     }
@@ -1796,7 +1753,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
-    @java.lang.Override
     public furo.LinkOuterClass.Link getLinks(int index) {
       return links_.get(index);
     }
@@ -1807,7 +1763,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
-    @java.lang.Override
     public furo.LinkOuterClass.LinkOrBuilder getLinksOrBuilder(
         int index) {
       return links_.get(index);
@@ -1821,9 +1776,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
-     * @return Whether the meta field is set.
      */
-    @java.lang.Override
     public boolean hasMeta() {
       return meta_ != null;
     }
@@ -1833,9 +1786,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
-     * @return The meta.
      */
-    @java.lang.Override
     public furo.MetaOuterClass.Meta getMeta() {
       return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
     }
@@ -1846,7 +1797,6 @@ public final class TaskOuterClass {
      *
      * <code>.furo.Meta meta = 2;</code>
      */
-    @java.lang.Override
     public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
       return getMeta();
     }
@@ -2126,6 +2076,7 @@ public final class TaskOuterClass {
       public task.TaskOuterClass.TaskCollection buildPartial() {
         task.TaskOuterClass.TaskCollection result = new task.TaskOuterClass.TaskCollection(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (entitiesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             entities_ = java.util.Collections.unmodifiableList(entities_);
@@ -2149,6 +2100,7 @@ public final class TaskOuterClass {
         } else {
           result.meta_ = metaBuilder_.build();
         }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2915,7 +2867,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 2;</code>
-       * @return Whether the meta field is set.
        */
       public boolean hasMeta() {
         return metaBuilder_ != null || meta_ != null;
@@ -2926,7 +2877,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 2;</code>
-       * @return The meta.
        */
       public furo.MetaOuterClass.Meta getMeta() {
         if (metaBuilder_ == null) {
@@ -3123,7 +3073,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>string description = 3;</code>
-     * @return The description.
      */
     java.lang.String getDescription();
     /**
@@ -3132,7 +3081,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>string description = 3;</code>
-     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
@@ -3143,7 +3091,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
-     * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
@@ -3152,7 +3099,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
-     * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
@@ -3163,7 +3109,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>int32 estimated_time = 4;</code>
-     * @return The estimatedTime.
      */
     int getEstimatedTime();
 
@@ -3173,7 +3118,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
-     * @return The id.
      */
     java.lang.String getId();
     /**
@@ -3182,7 +3126,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
-     * @return The bytes for id.
      */
     com.google.protobuf.ByteString
         getIdBytes();
@@ -3193,7 +3136,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.furo.Reference owner = 5;</code>
-     * @return Whether the owner field is set.
      */
     boolean hasOwner();
     /**
@@ -3202,7 +3144,6 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.furo.Reference owner = 5;</code>
-     * @return The owner.
      */
     furo.ReferenceOuterClass.Reference getOwner();
     /**
@@ -3265,7 +3206,7 @@ public final class TaskOuterClass {
    *
    * Protobuf type {@code task.Task}
    */
-  public static final class Task extends
+  public  static final class Task extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:task.Task)
       TaskOrBuilder {
@@ -3279,13 +3220,6 @@ public final class TaskOuterClass {
       displayName_ = "";
       id_ = "";
       subtasks_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Task();
     }
 
     @java.lang.Override
@@ -3349,9 +3283,9 @@ public final class TaskOuterClass {
               break;
             }
             case 50: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
                 subtasks_ = new java.util.ArrayList<task.TaskOuterClass.Task>();
-                mutable_bitField0_ |= 0x00000001;
+                mutable_bitField0_ |= 0x00000020;
               }
               subtasks_.add(
                   input.readMessage(task.TaskOuterClass.Task.parser(), extensionRegistry));
@@ -3372,7 +3306,7 @@ public final class TaskOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        if (((mutable_bitField0_ & 0x00000020) != 0)) {
           subtasks_ = java.util.Collections.unmodifiableList(subtasks_);
         }
         this.unknownFields = unknownFields.build();
@@ -3392,6 +3326,7 @@ public final class TaskOuterClass {
               task.TaskOuterClass.Task.class, task.TaskOuterClass.Task.Builder.class);
     }
 
+    private int bitField0_;
     public static final int DESCRIPTION_FIELD_NUMBER = 3;
     private volatile java.lang.Object description_;
     /**
@@ -3400,9 +3335,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>string description = 3;</code>
-     * @return The description.
      */
-    @java.lang.Override
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
       if (ref instanceof java.lang.String) {
@@ -3421,9 +3354,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>string description = 3;</code>
-     * @return The bytes for description.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
       java.lang.Object ref = description_;
@@ -3446,9 +3377,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
-     * @return The displayName.
      */
-    @java.lang.Override
     public java.lang.String getDisplayName() {
       java.lang.Object ref = displayName_;
       if (ref instanceof java.lang.String) {
@@ -3467,9 +3396,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
-     * @return The bytes for displayName.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getDisplayNameBytes() {
       java.lang.Object ref = displayName_;
@@ -3492,9 +3419,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>int32 estimated_time = 4;</code>
-     * @return The estimatedTime.
      */
-    @java.lang.Override
     public int getEstimatedTime() {
       return estimatedTime_;
     }
@@ -3507,9 +3432,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
-     * @return The id.
      */
-    @java.lang.Override
     public java.lang.String getId() {
       java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
@@ -3528,9 +3451,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
-     * @return The bytes for id.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getIdBytes() {
       java.lang.Object ref = id_;
@@ -3553,9 +3474,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.furo.Reference owner = 5;</code>
-     * @return Whether the owner field is set.
      */
-    @java.lang.Override
     public boolean hasOwner() {
       return owner_ != null;
     }
@@ -3565,9 +3484,7 @@ public final class TaskOuterClass {
      * </pre>
      *
      * <code>.furo.Reference owner = 5;</code>
-     * @return The owner.
      */
-    @java.lang.Override
     public furo.ReferenceOuterClass.Reference getOwner() {
       return owner_ == null ? furo.ReferenceOuterClass.Reference.getDefaultInstance() : owner_;
     }
@@ -3578,7 +3495,6 @@ public final class TaskOuterClass {
      *
      * <code>.furo.Reference owner = 5;</code>
      */
-    @java.lang.Override
     public furo.ReferenceOuterClass.ReferenceOrBuilder getOwnerOrBuilder() {
       return getOwner();
     }
@@ -3592,7 +3508,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .task.Task subtasks = 6;</code>
      */
-    @java.lang.Override
     public java.util.List<task.TaskOuterClass.Task> getSubtasksList() {
       return subtasks_;
     }
@@ -3603,7 +3518,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .task.Task subtasks = 6;</code>
      */
-    @java.lang.Override
     public java.util.List<? extends task.TaskOuterClass.TaskOrBuilder> 
         getSubtasksOrBuilderList() {
       return subtasks_;
@@ -3615,7 +3529,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .task.Task subtasks = 6;</code>
      */
-    @java.lang.Override
     public int getSubtasksCount() {
       return subtasks_.size();
     }
@@ -3626,7 +3539,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .task.Task subtasks = 6;</code>
      */
-    @java.lang.Override
     public task.TaskOuterClass.Task getSubtasks(int index) {
       return subtasks_.get(index);
     }
@@ -3637,7 +3549,6 @@ public final class TaskOuterClass {
      *
      * <code>repeated .task.Task subtasks = 6;</code>
      */
-    @java.lang.Override
     public task.TaskOuterClass.TaskOrBuilder getSubtasksOrBuilder(
         int index) {
       return subtasks_.get(index);
@@ -3916,7 +3827,7 @@ public final class TaskOuterClass {
         }
         if (subtasksBuilder_ == null) {
           subtasks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           subtasksBuilder_.clear();
         }
@@ -3947,6 +3858,7 @@ public final class TaskOuterClass {
       public task.TaskOuterClass.Task buildPartial() {
         task.TaskOuterClass.Task result = new task.TaskOuterClass.Task(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.description_ = description_;
         result.displayName_ = displayName_;
         result.estimatedTime_ = estimatedTime_;
@@ -3957,14 +3869,15 @@ public final class TaskOuterClass {
           result.owner_ = ownerBuilder_.build();
         }
         if (subtasksBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000020) != 0)) {
             subtasks_ = java.util.Collections.unmodifiableList(subtasks_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           }
           result.subtasks_ = subtasks_;
         } else {
           result.subtasks_ = subtasksBuilder_.build();
         }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -4035,7 +3948,7 @@ public final class TaskOuterClass {
           if (!other.subtasks_.isEmpty()) {
             if (subtasks_.isEmpty()) {
               subtasks_ = other.subtasks_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000020);
             } else {
               ensureSubtasksIsMutable();
               subtasks_.addAll(other.subtasks_);
@@ -4048,7 +3961,7 @@ public final class TaskOuterClass {
               subtasksBuilder_.dispose();
               subtasksBuilder_ = null;
               subtasks_ = other.subtasks_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000020);
               subtasksBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getSubtasksFieldBuilder() : null;
@@ -4094,7 +4007,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string description = 3;</code>
-       * @return The description.
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -4114,7 +4026,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string description = 3;</code>
-       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -4135,8 +4046,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string description = 3;</code>
-       * @param value The description to set.
-       * @return This builder for chaining.
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -4154,7 +4063,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string description = 3;</code>
-       * @return This builder for chaining.
        */
       public Builder clearDescription() {
         
@@ -4168,8 +4076,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string description = 3;</code>
-       * @param value The bytes for description to set.
-       * @return This builder for chaining.
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -4190,7 +4096,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @return The displayName.
        */
       public java.lang.String getDisplayName() {
         java.lang.Object ref = displayName_;
@@ -4210,7 +4115,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @return The bytes for displayName.
        */
       public com.google.protobuf.ByteString
           getDisplayNameBytes() {
@@ -4231,8 +4135,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @param value The displayName to set.
-       * @return This builder for chaining.
        */
       public Builder setDisplayName(
           java.lang.String value) {
@@ -4250,7 +4152,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
         
@@ -4264,8 +4165,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
-       * @param value The bytes for displayName to set.
-       * @return This builder for chaining.
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
@@ -4286,9 +4185,7 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>int32 estimated_time = 4;</code>
-       * @return The estimatedTime.
        */
-      @java.lang.Override
       public int getEstimatedTime() {
         return estimatedTime_;
       }
@@ -4298,8 +4195,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>int32 estimated_time = 4;</code>
-       * @param value The estimatedTime to set.
-       * @return This builder for chaining.
        */
       public Builder setEstimatedTime(int value) {
         
@@ -4313,7 +4208,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>int32 estimated_time = 4;</code>
-       * @return This builder for chaining.
        */
       public Builder clearEstimatedTime() {
         
@@ -4329,7 +4223,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @return The id.
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -4349,7 +4242,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @return The bytes for id.
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -4370,8 +4262,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @param value The id to set.
-       * @return This builder for chaining.
        */
       public Builder setId(
           java.lang.String value) {
@@ -4389,7 +4279,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -4403,8 +4292,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -4427,7 +4314,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>.furo.Reference owner = 5;</code>
-       * @return Whether the owner field is set.
        */
       public boolean hasOwner() {
         return ownerBuilder_ != null || owner_ != null;
@@ -4438,7 +4324,6 @@ public final class TaskOuterClass {
        * </pre>
        *
        * <code>.furo.Reference owner = 5;</code>
-       * @return The owner.
        */
       public furo.ReferenceOuterClass.Reference getOwner() {
         if (ownerBuilder_ == null) {
@@ -4576,9 +4461,9 @@ public final class TaskOuterClass {
       private java.util.List<task.TaskOuterClass.Task> subtasks_ =
         java.util.Collections.emptyList();
       private void ensureSubtasksIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000020) != 0)) {
           subtasks_ = new java.util.ArrayList<task.TaskOuterClass.Task>(subtasks_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000020;
          }
       }
 
@@ -4772,7 +4657,7 @@ public final class TaskOuterClass {
       public Builder clearSubtasks() {
         if (subtasksBuilder_ == null) {
           subtasks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
           onChanged();
         } else {
           subtasksBuilder_.clear();
@@ -4877,7 +4762,7 @@ public final class TaskOuterClass {
           subtasksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               task.TaskOuterClass.Task, task.TaskOuterClass.Task.Builder, task.TaskOuterClass.TaskOrBuilder>(
                   subtasks_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000020) != 0),
                   getParentForChildren(),
                   isClean());
           subtasks_ = null;
@@ -4973,13 +4858,21 @@ public final class TaskOuterClass {
       "d\030\001 \001(\t\022\036\n\005owner\030\005 \001(\0132\017.furo.Reference\022" +
       "\034\n\010subtasks\030\006 \003(\0132\n.task.Taskb\006proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           furo.MetaOuterClass.getDescriptor(),
           furo.LinkOuterClass.getDescriptor(),
           furo.ReferenceOuterClass.getDescriptor(),
-        });
+        }, assigner);
     internal_static_task_TaskEntity_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_task_TaskEntity_fieldAccessorTable = new

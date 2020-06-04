@@ -47,8 +47,6 @@
   ],
   "protoc_M": [
     "google/protobuf/any.proto=github.com/golang/protobuf/ptypes/any",
-    "google/protobuf/empty.proto=github.com/golang/protobuf/ptypes/empty",
-    "google/protobuf/wrappers.proto=github.com/golang/protobuf/ptypes/wrappers",
-    "google/protobuf/field_mask.proto=google.golang.org/genproto/protobuf/field_mask"
+    "google/protobuf/empty.proto=github.com/golang/protobuf/ptypes/empty"
   ]
 }

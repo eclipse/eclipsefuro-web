@@ -3,7 +3,7 @@
   "type": "FieldMask",
   "description": "A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto",
   "__proto": {
-    "package": "google.protobuf",
+    "package": "google.protobuf.types.known",
     "options": {
     },
     "imports": [],

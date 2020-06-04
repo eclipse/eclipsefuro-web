@@ -24,7 +24,6 @@ public final class MoneyOuterClass {
      * </pre>
      *
      * <code>string currency_code = 2;</code>
-     * @return The currencyCode.
      */
     java.lang.String getCurrencyCode();
     /**
@@ -33,7 +32,6 @@ public final class MoneyOuterClass {
      * </pre>
      *
      * <code>string currency_code = 2;</code>
-     * @return The bytes for currencyCode.
      */
     com.google.protobuf.ByteString
         getCurrencyCodeBytes();
@@ -44,7 +42,6 @@ public final class MoneyOuterClass {
      * </pre>
      *
      * <code>string display_name = 1;</code>
-     * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
@@ -53,7 +50,6 @@ public final class MoneyOuterClass {
      * </pre>
      *
      * <code>string display_name = 1;</code>
-     * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
@@ -64,7 +60,6 @@ public final class MoneyOuterClass {
      * </pre>
      *
      * <code>int64 nanos = 4;</code>
-     * @return The nanos.
      */
     long getNanos();
 
@@ -74,7 +69,6 @@ public final class MoneyOuterClass {
      * </pre>
      *
      * <code>int64 units = 3;</code>
-     * @return The units.
      */
     long getUnits();
   }
@@ -85,7 +79,7 @@ public final class MoneyOuterClass {
    *
    * Protobuf type {@code google.type.Money}
    */
-  public static final class Money extends
+  public  static final class Money extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:google.type.Money)
       MoneyOrBuilder {
@@ -97,13 +91,6 @@ public final class MoneyOuterClass {
     private Money() {
       currencyCode_ = "";
       displayName_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Money();
     }
 
     @java.lang.Override
@@ -119,6 +106,7 @@ public final class MoneyOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -191,9 +179,7 @@ public final class MoneyOuterClass {
      * </pre>
      *
      * <code>string currency_code = 2;</code>
-     * @return The currencyCode.
      */
-    @java.lang.Override
     public java.lang.String getCurrencyCode() {
       java.lang.Object ref = currencyCode_;
       if (ref instanceof java.lang.String) {
@@ -212,9 +198,7 @@ public final class MoneyOuterClass {
      * </pre>
      *
      * <code>string currency_code = 2;</code>
-     * @return The bytes for currencyCode.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getCurrencyCodeBytes() {
       java.lang.Object ref = currencyCode_;
@@ -237,9 +221,7 @@ public final class MoneyOuterClass {
      * </pre>
      *
      * <code>string display_name = 1;</code>
-     * @return The displayName.
      */
-    @java.lang.Override
     public java.lang.String getDisplayName() {
       java.lang.Object ref = displayName_;
       if (ref instanceof java.lang.String) {
@@ -258,9 +240,7 @@ public final class MoneyOuterClass {
      * </pre>
      *
      * <code>string display_name = 1;</code>
-     * @return The bytes for displayName.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getDisplayNameBytes() {
       java.lang.Object ref = displayName_;
@@ -283,9 +263,7 @@ public final class MoneyOuterClass {
      * </pre>
      *
      * <code>int64 nanos = 4;</code>
-     * @return The nanos.
      */
-    @java.lang.Override
     public long getNanos() {
       return nanos_;
     }
@@ -298,9 +276,7 @@ public final class MoneyOuterClass {
      * </pre>
      *
      * <code>int64 units = 3;</code>
-     * @return The units.
      */
-    @java.lang.Override
     public long getUnits() {
       return units_;
     }
@@ -671,7 +647,6 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>string currency_code = 2;</code>
-       * @return The currencyCode.
        */
       public java.lang.String getCurrencyCode() {
         java.lang.Object ref = currencyCode_;
@@ -691,7 +666,6 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>string currency_code = 2;</code>
-       * @return The bytes for currencyCode.
        */
       public com.google.protobuf.ByteString
           getCurrencyCodeBytes() {
@@ -712,8 +686,6 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>string currency_code = 2;</code>
-       * @param value The currencyCode to set.
-       * @return This builder for chaining.
        */
       public Builder setCurrencyCode(
           java.lang.String value) {
@@ -731,7 +703,6 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>string currency_code = 2;</code>
-       * @return This builder for chaining.
        */
       public Builder clearCurrencyCode() {
         
@@ -745,8 +716,6 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>string currency_code = 2;</code>
-       * @param value The bytes for currencyCode to set.
-       * @return This builder for chaining.
        */
       public Builder setCurrencyCodeBytes(
           com.google.protobuf.ByteString value) {
@@ -767,7 +736,6 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @return The displayName.
        */
       public java.lang.String getDisplayName() {
         java.lang.Object ref = displayName_;
@@ -787,7 +755,6 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @return The bytes for displayName.
        */
       public com.google.protobuf.ByteString
           getDisplayNameBytes() {
@@ -808,8 +775,6 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @param value The displayName to set.
-       * @return This builder for chaining.
        */
       public Builder setDisplayName(
           java.lang.String value) {
@@ -827,7 +792,6 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
         
@@ -841,8 +805,6 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @param value The bytes for displayName to set.
-       * @return This builder for chaining.
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
@@ -863,9 +825,7 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>int64 nanos = 4;</code>
-       * @return The nanos.
        */
-      @java.lang.Override
       public long getNanos() {
         return nanos_;
       }
@@ -875,8 +835,6 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>int64 nanos = 4;</code>
-       * @param value The nanos to set.
-       * @return This builder for chaining.
        */
       public Builder setNanos(long value) {
         
@@ -890,7 +848,6 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>int64 nanos = 4;</code>
-       * @return This builder for chaining.
        */
       public Builder clearNanos() {
         
@@ -906,9 +863,7 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>int64 units = 3;</code>
-       * @return The units.
        */
-      @java.lang.Override
       public long getUnits() {
         return units_;
       }
@@ -918,8 +873,6 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>int64 units = 3;</code>
-       * @param value The units to set.
-       * @return This builder for chaining.
        */
       public Builder setUnits(long value) {
         
@@ -933,7 +886,6 @@ public final class MoneyOuterClass {
        * </pre>
        *
        * <code>int64 units = 3;</code>
-       * @return This builder for chaining.
        */
       public Builder clearUnits() {
         
@@ -1013,10 +965,18 @@ public final class MoneyOuterClass {
       "y_name\030\001 \001(\t\022\r\n\005nanos\030\004 \001(\003\022\r\n\005units\030\003 \001" +
       "(\003b\006proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
+        }, assigner);
     internal_static_google_type_Money_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_google_type_Money_fieldAccessorTable = new
