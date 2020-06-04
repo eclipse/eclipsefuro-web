@@ -21,7 +21,7 @@ public final class Projectfilterservice {
   /**
    * Protobuf type {@code projectfilterservice.GetProjectfilterServiceRequest}
    */
-  public static final class GetProjectfilterServiceRequest extends
+  public  static final class GetProjectfilterServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:projectfilterservice.GetProjectfilterServiceRequest)
       GetProjectfilterServiceRequestOrBuilder {
@@ -31,13 +31,6 @@ public final class Projectfilterservice {
       super(builder);
     }
     private GetProjectfilterServiceRequest() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new GetProjectfilterServiceRequest();
     }
 
     @java.lang.Override
@@ -458,13 +451,21 @@ public final class Projectfilterservice {
       "cts/filter/get.jsonB\027Z\025/projectfilterser" +
       "viceb\006proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
           projectfilter.ProjectfilterOuterClass.getDescriptor(),
           google.protobuf.EmptyOuterClass.getDescriptor(),
-        });
+        }, assigner);
     internal_static_projectfilterservice_GetProjectfilterServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_projectfilterservice_GetProjectfilterServiceRequest_fieldAccessorTable = new

@@ -6,7 +6,7 @@ package taskmanager;
 /**
  * Protobuf type {@code taskmanager.CreatePersonServiceRequest}
  */
-public final class CreatePersonServiceRequest extends
+public  final class CreatePersonServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:taskmanager.CreatePersonServiceRequest)
     CreatePersonServiceRequestOrBuilder {
@@ -16,13 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private CreatePersonServiceRequest() {
-  }
-
-  @java.lang.Override
-  @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
-    return new CreatePersonServiceRequest();
   }
 
   @java.lang.Override
@@ -38,6 +31,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -97,24 +91,19 @@ private static final long serialVersionUID = 0L;
   private person.PersonOuterClass.Person data_;
   /**
    * <code>.person.Person data = 1;</code>
-   * @return Whether the data field is set.
    */
-  @java.lang.Override
   public boolean hasData() {
     return data_ != null;
   }
   /**
    * <code>.person.Person data = 1;</code>
-   * @return The data.
    */
-  @java.lang.Override
   public person.PersonOuterClass.Person getData() {
     return data_ == null ? person.PersonOuterClass.Person.getDefaultInstance() : data_;
   }
   /**
    * <code>.person.Person data = 1;</code>
    */
-  @java.lang.Override
   public person.PersonOuterClass.PersonOrBuilder getDataOrBuilder() {
     return getData();
   }
@@ -439,14 +428,12 @@ private static final long serialVersionUID = 0L;
         person.PersonOuterClass.Person, person.PersonOuterClass.Person.Builder, person.PersonOuterClass.PersonOrBuilder> dataBuilder_;
     /**
      * <code>.person.Person data = 1;</code>
-     * @return Whether the data field is set.
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
     }
     /**
      * <code>.person.Person data = 1;</code>
-     * @return The data.
      */
     public person.PersonOuterClass.Person getData() {
       if (dataBuilder_ == null) {

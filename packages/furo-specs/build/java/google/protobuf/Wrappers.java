@@ -24,7 +24,6 @@ public final class Wrappers {
      * </pre>
      *
      * <code>string value = 1;</code>
-     * @return The value.
      */
     java.lang.String getValue();
     /**
@@ -33,7 +32,6 @@ public final class Wrappers {
      * </pre>
      *
      * <code>string value = 1;</code>
-     * @return The bytes for value.
      */
     com.google.protobuf.ByteString
         getValueBytes();
@@ -45,7 +43,7 @@ public final class Wrappers {
    *
    * Protobuf type {@code google.protobuf.StringValue}
    */
-  public static final class StringValue extends
+  public  static final class StringValue extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:google.protobuf.StringValue)
       StringValueOrBuilder {
@@ -56,13 +54,6 @@ public final class Wrappers {
     }
     private StringValue() {
       value_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new StringValue();
     }
 
     @java.lang.Override
@@ -78,6 +69,7 @@ public final class Wrappers {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -134,9 +126,7 @@ public final class Wrappers {
      * </pre>
      *
      * <code>string value = 1;</code>
-     * @return The value.
      */
-    @java.lang.Override
     public java.lang.String getValue() {
       java.lang.Object ref = value_;
       if (ref instanceof java.lang.String) {
@@ -155,9 +145,7 @@ public final class Wrappers {
      * </pre>
      *
      * <code>string value = 1;</code>
-     * @return The bytes for value.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getValueBytes() {
       java.lang.Object ref = value_;
@@ -485,7 +473,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>string value = 1;</code>
-       * @return The value.
        */
       public java.lang.String getValue() {
         java.lang.Object ref = value_;
@@ -505,7 +492,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>string value = 1;</code>
-       * @return The bytes for value.
        */
       public com.google.protobuf.ByteString
           getValueBytes() {
@@ -526,8 +512,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>string value = 1;</code>
-       * @param value The value to set.
-       * @return This builder for chaining.
        */
       public Builder setValue(
           java.lang.String value) {
@@ -545,7 +529,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>string value = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -559,8 +542,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>string value = 1;</code>
-       * @param value The bytes for value to set.
-       * @return This builder for chaining.
        */
       public Builder setValueBytes(
           com.google.protobuf.ByteString value) {
@@ -640,7 +621,6 @@ public final class Wrappers {
      * </pre>
      *
      * <code>int64 value = 1;</code>
-     * @return The value.
      */
     long getValue();
   }
@@ -651,7 +631,7 @@ public final class Wrappers {
    *
    * Protobuf type {@code google.protobuf.Int64Value}
    */
-  public static final class Int64Value extends
+  public  static final class Int64Value extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:google.protobuf.Int64Value)
       Int64ValueOrBuilder {
@@ -661,13 +641,6 @@ public final class Wrappers {
       super(builder);
     }
     private Int64Value() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Int64Value();
     }
 
     @java.lang.Override
@@ -683,6 +656,7 @@ public final class Wrappers {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -738,9 +712,7 @@ public final class Wrappers {
      * </pre>
      *
      * <code>int64 value = 1;</code>
-     * @return The value.
      */
-    @java.lang.Override
     public long getValue() {
       return value_;
     }
@@ -1059,9 +1031,7 @@ public final class Wrappers {
        * </pre>
        *
        * <code>int64 value = 1;</code>
-       * @return The value.
        */
-      @java.lang.Override
       public long getValue() {
         return value_;
       }
@@ -1071,8 +1041,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>int64 value = 1;</code>
-       * @param value The value to set.
-       * @return This builder for chaining.
        */
       public Builder setValue(long value) {
         
@@ -1086,7 +1054,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>int64 value = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -1161,7 +1128,6 @@ public final class Wrappers {
      * </pre>
      *
      * <code>int32 value = 1;</code>
-     * @return The value.
      */
     int getValue();
   }
@@ -1172,7 +1138,7 @@ public final class Wrappers {
    *
    * Protobuf type {@code google.protobuf.Int32Value}
    */
-  public static final class Int32Value extends
+  public  static final class Int32Value extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:google.protobuf.Int32Value)
       Int32ValueOrBuilder {
@@ -1182,13 +1148,6 @@ public final class Wrappers {
       super(builder);
     }
     private Int32Value() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Int32Value();
     }
 
     @java.lang.Override
@@ -1204,6 +1163,7 @@ public final class Wrappers {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1259,9 +1219,7 @@ public final class Wrappers {
      * </pre>
      *
      * <code>int32 value = 1;</code>
-     * @return The value.
      */
-    @java.lang.Override
     public int getValue() {
       return value_;
     }
@@ -1579,9 +1537,7 @@ public final class Wrappers {
        * </pre>
        *
        * <code>int32 value = 1;</code>
-       * @return The value.
        */
-      @java.lang.Override
       public int getValue() {
         return value_;
       }
@@ -1591,8 +1547,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>int32 value = 1;</code>
-       * @param value The value to set.
-       * @return This builder for chaining.
        */
       public Builder setValue(int value) {
         
@@ -1606,7 +1560,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>int32 value = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -1681,7 +1634,6 @@ public final class Wrappers {
      * </pre>
      *
      * <code>bool value = 1;</code>
-     * @return The value.
      */
     boolean getValue();
   }
@@ -1692,7 +1644,7 @@ public final class Wrappers {
    *
    * Protobuf type {@code google.protobuf.BoolValue}
    */
-  public static final class BoolValue extends
+  public  static final class BoolValue extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:google.protobuf.BoolValue)
       BoolValueOrBuilder {
@@ -1702,13 +1654,6 @@ public final class Wrappers {
       super(builder);
     }
     private BoolValue() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new BoolValue();
     }
 
     @java.lang.Override
@@ -1724,6 +1669,7 @@ public final class Wrappers {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1779,9 +1725,7 @@ public final class Wrappers {
      * </pre>
      *
      * <code>bool value = 1;</code>
-     * @return The value.
      */
-    @java.lang.Override
     public boolean getValue() {
       return value_;
     }
@@ -2100,9 +2044,7 @@ public final class Wrappers {
        * </pre>
        *
        * <code>bool value = 1;</code>
-       * @return The value.
        */
-      @java.lang.Override
       public boolean getValue() {
         return value_;
       }
@@ -2112,8 +2054,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>bool value = 1;</code>
-       * @param value The value to set.
-       * @return This builder for chaining.
        */
       public Builder setValue(boolean value) {
         
@@ -2127,7 +2067,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>bool value = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -2202,7 +2141,6 @@ public final class Wrappers {
      * </pre>
      *
      * <code>float value = 1;</code>
-     * @return The value.
      */
     float getValue();
   }
@@ -2213,7 +2151,7 @@ public final class Wrappers {
    *
    * Protobuf type {@code google.protobuf.FloatValue}
    */
-  public static final class FloatValue extends
+  public  static final class FloatValue extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:google.protobuf.FloatValue)
       FloatValueOrBuilder {
@@ -2223,13 +2161,6 @@ public final class Wrappers {
       super(builder);
     }
     private FloatValue() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new FloatValue();
     }
 
     @java.lang.Override
@@ -2245,6 +2176,7 @@ public final class Wrappers {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2300,9 +2232,7 @@ public final class Wrappers {
      * </pre>
      *
      * <code>float value = 1;</code>
-     * @return The value.
      */
-    @java.lang.Override
     public float getValue() {
       return value_;
     }
@@ -2622,9 +2552,7 @@ public final class Wrappers {
        * </pre>
        *
        * <code>float value = 1;</code>
-       * @return The value.
        */
-      @java.lang.Override
       public float getValue() {
         return value_;
       }
@@ -2634,8 +2562,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>float value = 1;</code>
-       * @param value The value to set.
-       * @return This builder for chaining.
        */
       public Builder setValue(float value) {
         
@@ -2649,7 +2575,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>float value = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -2724,7 +2649,6 @@ public final class Wrappers {
      * </pre>
      *
      * <code>bytes value = 1;</code>
-     * @return The value.
      */
     com.google.protobuf.ByteString getValue();
   }
@@ -2735,7 +2659,7 @@ public final class Wrappers {
    *
    * Protobuf type {@code google.protobuf.BytesValue}
    */
-  public static final class BytesValue extends
+  public  static final class BytesValue extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:google.protobuf.BytesValue)
       BytesValueOrBuilder {
@@ -2746,13 +2670,6 @@ public final class Wrappers {
     }
     private BytesValue() {
       value_ = com.google.protobuf.ByteString.EMPTY;
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new BytesValue();
     }
 
     @java.lang.Override
@@ -2768,6 +2685,7 @@ public final class Wrappers {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2823,9 +2741,7 @@ public final class Wrappers {
      * </pre>
      *
      * <code>bytes value = 1;</code>
-     * @return The value.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString getValue() {
       return value_;
     }
@@ -3143,9 +3059,7 @@ public final class Wrappers {
        * </pre>
        *
        * <code>bytes value = 1;</code>
-       * @return The value.
        */
-      @java.lang.Override
       public com.google.protobuf.ByteString getValue() {
         return value_;
       }
@@ -3155,8 +3069,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>bytes value = 1;</code>
-       * @param value The value to set.
-       * @return This builder for chaining.
        */
       public Builder setValue(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -3173,7 +3085,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>bytes value = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -3248,7 +3159,6 @@ public final class Wrappers {
      * </pre>
      *
      * <code>uint32 value = 1;</code>
-     * @return The value.
      */
     int getValue();
   }
@@ -3259,7 +3169,7 @@ public final class Wrappers {
    *
    * Protobuf type {@code google.protobuf.UInt32Value}
    */
-  public static final class UInt32Value extends
+  public  static final class UInt32Value extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:google.protobuf.UInt32Value)
       UInt32ValueOrBuilder {
@@ -3269,13 +3179,6 @@ public final class Wrappers {
       super(builder);
     }
     private UInt32Value() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new UInt32Value();
     }
 
     @java.lang.Override
@@ -3291,6 +3194,7 @@ public final class Wrappers {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3346,9 +3250,7 @@ public final class Wrappers {
      * </pre>
      *
      * <code>uint32 value = 1;</code>
-     * @return The value.
      */
-    @java.lang.Override
     public int getValue() {
       return value_;
     }
@@ -3666,9 +3568,7 @@ public final class Wrappers {
        * </pre>
        *
        * <code>uint32 value = 1;</code>
-       * @return The value.
        */
-      @java.lang.Override
       public int getValue() {
         return value_;
       }
@@ -3678,8 +3578,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>uint32 value = 1;</code>
-       * @param value The value to set.
-       * @return This builder for chaining.
        */
       public Builder setValue(int value) {
         
@@ -3693,7 +3591,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>uint32 value = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -3768,7 +3665,6 @@ public final class Wrappers {
      * </pre>
      *
      * <code>uint64 value = 1;</code>
-     * @return The value.
      */
     long getValue();
   }
@@ -3779,7 +3675,7 @@ public final class Wrappers {
    *
    * Protobuf type {@code google.protobuf.UInt64Value}
    */
-  public static final class UInt64Value extends
+  public  static final class UInt64Value extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:google.protobuf.UInt64Value)
       UInt64ValueOrBuilder {
@@ -3789,13 +3685,6 @@ public final class Wrappers {
       super(builder);
     }
     private UInt64Value() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new UInt64Value();
     }
 
     @java.lang.Override
@@ -3811,6 +3700,7 @@ public final class Wrappers {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3866,9 +3756,7 @@ public final class Wrappers {
      * </pre>
      *
      * <code>uint64 value = 1;</code>
-     * @return The value.
      */
-    @java.lang.Override
     public long getValue() {
       return value_;
     }
@@ -4187,9 +4075,7 @@ public final class Wrappers {
        * </pre>
        *
        * <code>uint64 value = 1;</code>
-       * @return The value.
        */
-      @java.lang.Override
       public long getValue() {
         return value_;
       }
@@ -4199,8 +4085,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>uint64 value = 1;</code>
-       * @param value The value to set.
-       * @return This builder for chaining.
        */
       public Builder setValue(long value) {
         
@@ -4214,7 +4098,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>uint64 value = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -4289,7 +4172,6 @@ public final class Wrappers {
      * </pre>
      *
      * <code>double value = 1;</code>
-     * @return The value.
      */
     double getValue();
   }
@@ -4300,7 +4182,7 @@ public final class Wrappers {
    *
    * Protobuf type {@code google.protobuf.DoubleValue}
    */
-  public static final class DoubleValue extends
+  public  static final class DoubleValue extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:google.protobuf.DoubleValue)
       DoubleValueOrBuilder {
@@ -4310,13 +4192,6 @@ public final class Wrappers {
       super(builder);
     }
     private DoubleValue() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new DoubleValue();
     }
 
     @java.lang.Override
@@ -4332,6 +4207,7 @@ public final class Wrappers {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -4387,9 +4263,7 @@ public final class Wrappers {
      * </pre>
      *
      * <code>double value = 1;</code>
-     * @return The value.
      */
-    @java.lang.Override
     public double getValue() {
       return value_;
     }
@@ -4709,9 +4583,7 @@ public final class Wrappers {
        * </pre>
        *
        * <code>double value = 1;</code>
-       * @return The value.
        */
-      @java.lang.Override
       public double getValue() {
         return value_;
       }
@@ -4721,8 +4593,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>double value = 1;</code>
-       * @param value The value to set.
-       * @return This builder for chaining.
        */
       public Builder setValue(double value) {
         
@@ -4736,7 +4606,6 @@ public final class Wrappers {
        * </pre>
        *
        * <code>double value = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -4865,10 +4734,18 @@ public final class Wrappers {
       "\001(\004\"\034\n\013DoubleValue\022\r\n\005value\030\001 \001(\001b\006proto" +
       "3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
+        }, assigner);
     internal_static_google_protobuf_StringValue_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_google_protobuf_StringValue_fieldAccessorTable = new

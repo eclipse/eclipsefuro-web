@@ -13,7 +13,6 @@ public interface ListTaskServiceRequestOrBuilder extends
    * </pre>
    *
    * <code>string fields = 1;</code>
-   * @return The fields.
    */
   java.lang.String getFields();
   /**
@@ -22,7 +21,6 @@ public interface ListTaskServiceRequestOrBuilder extends
    * </pre>
    *
    * <code>string fields = 1;</code>
-   * @return The bytes for fields.
    */
   com.google.protobuf.ByteString
       getFieldsBytes();
@@ -33,7 +31,6 @@ public interface ListTaskServiceRequestOrBuilder extends
    * </pre>
    *
    * <code>string filter = 2;</code>
-   * @return The filter.
    */
   java.lang.String getFilter();
   /**
@@ -42,7 +39,6 @@ public interface ListTaskServiceRequestOrBuilder extends
    * </pre>
    *
    * <code>string filter = 2;</code>
-   * @return The bytes for filter.
    */
   com.google.protobuf.ByteString
       getFilterBytes();
@@ -53,7 +49,6 @@ public interface ListTaskServiceRequestOrBuilder extends
    * </pre>
    *
    * <code>string order_by = 3;</code>
-   * @return The orderBy.
    */
   java.lang.String getOrderBy();
   /**
@@ -62,7 +57,6 @@ public interface ListTaskServiceRequestOrBuilder extends
    * </pre>
    *
    * <code>string order_by = 3;</code>
-   * @return The bytes for orderBy.
    */
   com.google.protobuf.ByteString
       getOrderByBytes();
@@ -75,7 +69,6 @@ public interface ListTaskServiceRequestOrBuilder extends
    * </pre>
    *
    * <code>string page_size = 4;</code>
-   * @return The pageSize.
    */
   java.lang.String getPageSize();
   /**
@@ -86,7 +79,6 @@ public interface ListTaskServiceRequestOrBuilder extends
    * </pre>
    *
    * <code>string page_size = 4;</code>
-   * @return The bytes for pageSize.
    */
   com.google.protobuf.ByteString
       getPageSizeBytes();
@@ -97,7 +89,6 @@ public interface ListTaskServiceRequestOrBuilder extends
    * </pre>
    *
    * <code>string q = 5;</code>
-   * @return The q.
    */
   java.lang.String getQ();
   /**
@@ -106,7 +97,6 @@ public interface ListTaskServiceRequestOrBuilder extends
    * </pre>
    *
    * <code>string q = 5;</code>
-   * @return The bytes for q.
    */
   com.google.protobuf.ByteString
       getQBytes();
@@ -117,7 +107,6 @@ public interface ListTaskServiceRequestOrBuilder extends
    * </pre>
    *
    * <code>string view = 6;</code>
-   * @return The view.
    */
   java.lang.String getView();
   /**
@@ -126,7 +115,6 @@ public interface ListTaskServiceRequestOrBuilder extends
    * </pre>
    *
    * <code>string view = 6;</code>
-   * @return The bytes for view.
    */
   com.google.protobuf.ByteString
       getViewBytes();

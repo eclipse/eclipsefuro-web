@@ -9,12 +9,10 @@ public interface GetTreeServiceRequestOrBuilder extends
 
   /**
    * <code>string tre = 1;</code>
-   * @return The tre.
    */
   java.lang.String getTre();
   /**
    * <code>string tre = 1;</code>
-   * @return The bytes for tre.
    */
   com.google.protobuf.ByteString
       getTreBytes();

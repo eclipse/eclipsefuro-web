@@ -4,7 +4,7 @@ syntax = "proto3";
 package person;
 
 
-import "google/protobuf/field_mask.proto";
+import "google/protobuf/types/known/field_mask.proto";
 import "furo/meta.proto";
 import "furo/link.proto";
 // Person message type
@@ -28,7 +28,7 @@ message Person {
   repeated string skills = 6;
   
   // Contains a field_mask which fields of the targeted resource are going to be updated
-  google.protobuf.FieldMask update_mask = 7;
+  google.protobuf.types.known.FieldMask update_mask = 7;
 
 }
 // PersonCollection with repeated PersonEntity
