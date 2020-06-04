@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.9.4...@furo/specs@1.10.0) (2020-06-04)
+
+
+### Bug Fixes
+
+* file has moved	from: "google.golang.org/genproto/protobuf/field_mask" to: "google.golang.org/protobuf/types/known/fieldmaskpb" ([f826cc6](https://github.com/theNorstroem/FuroBaseComponents/commit/f826cc6e0461627b27bd2570d888b99ba5b7a561))
+* proto file paths with more than one subfolder should work ([d279bf6](https://github.com/theNorstroem/FuroBaseComponents/commit/d279bf6130ed27a2f76d3b45388c9a13f7770b6b))
+* some more files ([4b0d4b4](https://github.com/theNorstroem/FuroBaseComponents/commit/4b0d4b457999fc31e4ce2848c32b1cca0ed300d9))
+* use the type of the query param instead the __proto subtype ([ed2ab30](https://github.com/theNorstroem/FuroBaseComponents/commit/ed2ab3021206e4eaebce53085e7fcc6c64993939))
+
+
+### Features
+
+* generate oneofs according to the spec ([3b6b9d8](https://github.com/theNorstroem/FuroBaseComponents/commit/3b6b9d8c03ff8f3936473f5397a7c130165c4ecf))
+* generate oneofs according to the spec ([6f917f6](https://github.com/theNorstroem/FuroBaseComponents/commit/6f917f61c87f0a7045fbaace86dc664d558d96ee))
+
+
+
+
+
 ## [1.9.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.9.3...@furo/specs@1.9.4) (2020-05-01)
 
 **Note:** Version bump only for package @furo/specs

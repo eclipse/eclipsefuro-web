@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/spec-basetypes@1.8.0...@furo/spec-basetypes@1.8.1) (2020-06-04)
+
+
+### Bug Fixes
+
+* file has moved	from: "google.golang.org/genproto/protobuf/field_mask" to: "google.golang.org/protobuf/types/known/fieldmaskpb" ([f826cc6](https://github.com/theNorstroem/FuroBaseComponents/commit/f826cc6e0461627b27bd2570d888b99ba5b7a561))
+
+
+
+
+
 # [1.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/spec-basetypes@1.7.0...@furo/spec-basetypes@1.8.0) (2020-04-22)
 
 

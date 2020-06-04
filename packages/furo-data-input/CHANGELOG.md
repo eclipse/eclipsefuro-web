@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.4.4...@furo/data-input@1.4.5) (2020-06-04)
+
+
+### Bug Fixes
+
+* modify mock data for entity agent tests. ([1a2c933](https://github.com/theNorstroem/FuroBaseComponents/commit/1a2c9331be95eb44c43e72e616de2606231eef91))
+* the meta of data input fields should be updated according to the meta data from the response. missing tests are added。 ([6cf961e](https://github.com/theNorstroem/FuroBaseComponents/commit/6cf961e6b22299d5654cc3d0b94a03dfa18cd8b1))
+
+
+
+
+
 ## [1.4.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.4.3...@furo/data-input@1.4.4) (2020-05-15)
 
 **Note:** Version bump only for package @furo/data-input

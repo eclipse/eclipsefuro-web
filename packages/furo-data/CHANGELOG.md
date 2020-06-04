@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.12...@furo/data@1.3.13) (2020-06-04)
+
+
+### Bug Fixes
+
+* correct handling of request headers accept and content-type ([14ede22](https://github.com/theNorstroem/FuroBaseComponents/commit/14ede22e96bf3a00cc56c002011c0434aae6937d))
+* request header content-type should be provided, if a body is sent ([3090a0a](https://github.com/theNorstroem/FuroBaseComponents/commit/3090a0aed4491239d6a0635c28ee14afc2f35721))
+
+
+
+
+
 ## [1.3.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.11...@furo/data@1.3.12) (2020-05-15)
 
 
