@@ -6,7 +6,7 @@ package taskmanager;
 /**
  * Protobuf type {@code taskmanager.UpdateTaskServiceRequest}
  */
-public  final class UpdateTaskServiceRequest extends
+public final class UpdateTaskServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:taskmanager.UpdateTaskServiceRequest)
     UpdateTaskServiceRequestOrBuilder {
@@ -17,6 +17,13 @@ private static final long serialVersionUID = 0L;
   }
   private UpdateTaskServiceRequest() {
     tsk_ = "";
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new UpdateTaskServiceRequest();
   }
 
   @java.lang.Override
@@ -32,7 +39,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -98,7 +104,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object tsk_;
   /**
    * <code>string tsk = 1;</code>
+   * @return The tsk.
    */
+  @java.lang.Override
   public java.lang.String getTsk() {
     java.lang.Object ref = tsk_;
     if (ref instanceof java.lang.String) {
@@ -113,7 +121,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string tsk = 1;</code>
+   * @return The bytes for tsk.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTskBytes() {
     java.lang.Object ref = tsk_;
@@ -132,19 +142,24 @@ private static final long serialVersionUID = 0L;
   private task.TaskOuterClass.Task data_;
   /**
    * <code>.task.Task data = 2;</code>
+   * @return Whether the data field is set.
    */
+  @java.lang.Override
   public boolean hasData() {
     return data_ != null;
   }
   /**
    * <code>.task.Task data = 2;</code>
+   * @return The data.
    */
+  @java.lang.Override
   public task.TaskOuterClass.Task getData() {
     return data_ == null ? task.TaskOuterClass.Task.getDefaultInstance() : data_;
   }
   /**
    * <code>.task.Task data = 2;</code>
    */
+  @java.lang.Override
   public task.TaskOuterClass.TaskOrBuilder getDataOrBuilder() {
     return getData();
   }
@@ -484,6 +499,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object tsk_ = "";
     /**
      * <code>string tsk = 1;</code>
+     * @return The tsk.
      */
     public java.lang.String getTsk() {
       java.lang.Object ref = tsk_;
@@ -499,6 +515,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tsk = 1;</code>
+     * @return The bytes for tsk.
      */
     public com.google.protobuf.ByteString
         getTskBytes() {
@@ -515,6 +532,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tsk = 1;</code>
+     * @param value The tsk to set.
+     * @return This builder for chaining.
      */
     public Builder setTsk(
         java.lang.String value) {
@@ -528,6 +547,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tsk = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTsk() {
       
@@ -537,6 +557,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tsk = 1;</code>
+     * @param value The bytes for tsk to set.
+     * @return This builder for chaining.
      */
     public Builder setTskBytes(
         com.google.protobuf.ByteString value) {
@@ -555,12 +577,14 @@ private static final long serialVersionUID = 0L;
         task.TaskOuterClass.Task, task.TaskOuterClass.Task.Builder, task.TaskOuterClass.TaskOrBuilder> dataBuilder_;
     /**
      * <code>.task.Task data = 2;</code>
+     * @return Whether the data field is set.
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
     }
     /**
      * <code>.task.Task data = 2;</code>
+     * @return The data.
      */
     public task.TaskOuterClass.Task getData() {
       if (dataBuilder_ == null) {

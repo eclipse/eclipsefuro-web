@@ -4,10 +4,6 @@
     "title": "projectservice/service.proto",
     "version": "version not set"
   },
-  "schemes": [
-    "http",
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
@@ -18,12 +14,18 @@
     "/mockdata/projects/create.json": {
       "get": {
         "summary": "Creates a new Project",
-        "operationId": "CreateProject",
+        "operationId": "ProjectService_CreateProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/projectProjectEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -161,12 +163,18 @@
     "/mockdata/projects/list.json": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",
-        "operationId": "ListProjects",
+        "operationId": "ProjectService_ListProjects",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/projectProjectCollection"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -187,12 +195,18 @@
     "/mockdata/projects/{prj}/delete.json": {
       "get": {
         "summary": "Delete a Project",
-        "operationId": "DeleteProject",
+        "operationId": "ProjectService_DeleteProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -212,12 +226,18 @@
     "/mockdata/projects/{prj}/get.json": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
-        "operationId": "GetProject",
+        "operationId": "ProjectService_GetProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/projectProjectEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -237,12 +257,18 @@
     "/mockdata/projects/{prj}/update.json": {
       "get": {
         "summary": "Updates a Project, partial updates are supported",
-        "operationId": "UpdateProject",
+        "operationId": "ProjectService_UpdateProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/projectProjectEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -659,6 +685,27 @@
         }
       },
       "title": "A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto"
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
     },
     "typeDate": {
       "type": "object",

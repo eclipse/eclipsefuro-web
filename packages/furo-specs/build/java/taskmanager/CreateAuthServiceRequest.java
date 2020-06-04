@@ -6,7 +6,7 @@ package taskmanager;
 /**
  * Protobuf type {@code taskmanager.CreateAuthServiceRequest}
  */
-public  final class CreateAuthServiceRequest extends
+public final class CreateAuthServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:taskmanager.CreateAuthServiceRequest)
     CreateAuthServiceRequestOrBuilder {
@@ -16,6 +16,13 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private CreateAuthServiceRequest() {
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new CreateAuthServiceRequest();
   }
 
   @java.lang.Override
@@ -31,7 +38,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -91,19 +97,24 @@ private static final long serialVersionUID = 0L;
   private auth.AuthOuterClass.Auth data_;
   /**
    * <code>.auth.Auth data = 1;</code>
+   * @return Whether the data field is set.
    */
+  @java.lang.Override
   public boolean hasData() {
     return data_ != null;
   }
   /**
    * <code>.auth.Auth data = 1;</code>
+   * @return The data.
    */
+  @java.lang.Override
   public auth.AuthOuterClass.Auth getData() {
     return data_ == null ? auth.AuthOuterClass.Auth.getDefaultInstance() : data_;
   }
   /**
    * <code>.auth.Auth data = 1;</code>
    */
+  @java.lang.Override
   public auth.AuthOuterClass.AuthOrBuilder getDataOrBuilder() {
     return getData();
   }
@@ -428,12 +439,14 @@ private static final long serialVersionUID = 0L;
         auth.AuthOuterClass.Auth, auth.AuthOuterClass.Auth.Builder, auth.AuthOuterClass.AuthOrBuilder> dataBuilder_;
     /**
      * <code>.auth.Auth data = 1;</code>
+     * @return Whether the data field is set.
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
     }
     /**
      * <code>.auth.Auth data = 1;</code>
+     * @return The data.
      */
     public auth.AuthOuterClass.Auth getData() {
       if (dataBuilder_ == null) {

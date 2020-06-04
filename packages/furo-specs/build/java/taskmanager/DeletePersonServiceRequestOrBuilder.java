@@ -9,20 +9,24 @@ public interface DeletePersonServiceRequestOrBuilder extends
 
   /**
    * <code>string prs = 1;</code>
+   * @return The prs.
    */
   java.lang.String getPrs();
   /**
    * <code>string prs = 1;</code>
+   * @return The bytes for prs.
    */
   com.google.protobuf.ByteString
       getPrsBytes();
 
   /**
    * <code>.google.protobuf.Empty data = 2;</code>
+   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.google.protobuf.Empty data = 2;</code>
+   * @return The data.
    */
   google.protobuf.EmptyOuterClass.Empty getData();
   /**
