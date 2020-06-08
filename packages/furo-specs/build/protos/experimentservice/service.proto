@@ -14,13 +14,21 @@ import "google/protobuf/empty.proto";
 
 
 // service specs for the experiment api
-service ExperimentService {                           
+service ExperimentService {                               
        
     // Creates a new Experiment
     rpc CreateExperiment (CreateExperimentServiceRequest) returns (experiment.ExperimentEntity){
         
         option (google.api.http) = {
             post: "/mockdata/experiments"
+            body: "data"
+        };
+    }   
+    // create an experiment template
+    rpc CreateTemplateExperiment (CreateTemplateExperimentServiceRequest) returns (experiment.Experiment){
+        
+        option (google.api.http) = {
+            post: "/mockdata/experiments:createtemplate"
             body: "data"
         };
     }   
@@ -68,6 +76,11 @@ service ExperimentService {
 message CreateExperimentServiceRequest { 
 
     experiment.Experiment data = 1;  
+}
+       
+message CreateTemplateExperimentServiceRequest { 
+
+    google.protobuf.Empty data = 1;  
 }
        
 message DeleteExperimentServiceRequest { 

@@ -363,6 +363,33 @@
         ]
       }
     },
+    "/mockdata/experiments:createtemplate": {
+      "post": {
+        "summary": "create an experiment template",
+        "operationId": "CreateTemplateExperiment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/experimentExperiment"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {}
+            }
+          }
+        ],
+        "tags": [
+          "BundledService"
+        ]
+      }
+    },
     "/mockdata/persons/create.json": {
       "get": {
         "summary": "Creates a new Person",
@@ -419,8 +446,7 @@
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "collectionFormat": "multi"
+            }
           },
           {
             "name": "data.update_mask.paths",
@@ -430,8 +456,7 @@
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "collectionFormat": "multi"
+            }
           }
         ],
         "tags": [
@@ -682,8 +707,7 @@
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "collectionFormat": "multi"
+            }
           }
         ],
         "tags": [
@@ -924,8 +948,7 @@
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "collectionFormat": "multi"
+            }
           }
         ],
         "tags": [

@@ -11,8 +11,6 @@ import (
 	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
-	codes "google.golang.org/grpc/codes"
-	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -359,26 +357,6 @@ type AuthServiceServer interface {
 	ListAuths(context.Context, *ListAuthServiceRequest) (*auth.AuthCollection, error)
 	// Updates a Auth, partial updates are supported
 	UpdateAuth(context.Context, *UpdateAuthServiceRequest) (*auth.AuthEntity, error)
-}
-
-// UnimplementedAuthServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedAuthServiceServer struct {
-}
-
-func (*UnimplementedAuthServiceServer) CreateAuth(ctx context.Context, req *CreateAuthServiceRequest) (*auth.AuthEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateAuth not implemented")
-}
-func (*UnimplementedAuthServiceServer) Logout(ctx context.Context, req *DeleteAuthServiceRequest) (*empty.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Logout not implemented")
-}
-func (*UnimplementedAuthServiceServer) GetAuth(ctx context.Context, req *GetAuthServiceRequest) (*auth.AuthEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAuth not implemented")
-}
-func (*UnimplementedAuthServiceServer) ListAuths(ctx context.Context, req *ListAuthServiceRequest) (*auth.AuthCollection, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListAuths not implemented")
-}
-func (*UnimplementedAuthServiceServer) UpdateAuth(ctx context.Context, req *UpdateAuthServiceRequest) (*auth.AuthEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateAuth not implemented")
 }
 
 func RegisterAuthServiceServer(s *grpc.Server, srv AuthServiceServer) {

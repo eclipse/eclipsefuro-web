@@ -281,14 +281,21 @@ class FuroCollectionAgent extends FBP(LitElement) {
       headers.append('Content-Type', 'application/json; charset=utf-8');
     }
 
-    const REL_NAME =
-      ['prev', 'first', 'next', 'last'].indexOf(link.rel.toLowerCase()) >= 0
-        ? 'Get'
-        : link.rel.charAt(0).toUpperCase() + link.rel.slice(1).toLocaleLowerCase();
-    const ACCEPT = `application/${
-      this._ApiEnvironment.services[link.service].services[REL_NAME].data.response
-    }+json, application/json;q=0.9`;
-    headers.append('Accept', `${ACCEPT}`);
+    const REL_NAME = link.rel.toLowerCase() === 'self' ? 'get' : link.rel.toLowerCase();
+
+    let serviceResponse;
+    for (const [key, service] of Object.entries(
+      this._ApiEnvironment.services[link.service].services,
+    )) {
+      if (key.toLowerCase() === REL_NAME) {
+        serviceResponse = service.data.response;
+      }
+    }
+
+    if (serviceResponse) {
+      const ACCEPT = `application/${serviceResponse}+json, application/json;q=0.9`;
+      headers.append('Accept', `${ACCEPT}`);
+    }
 
     const params = {};
     const r = link.href.split('?');

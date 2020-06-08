@@ -9,27 +9,24 @@ It translates gRPC into RESTful JSON APIs.
 package taskmanager
 
 import (
-	"context"
 	"io"
 	"net/http"
 
-	"github.com/golang/protobuf/descriptor"
 	"github.com/golang/protobuf/proto"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/utilities"
+	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/grpclog"
 	"google.golang.org/grpc/status"
 )
 
-// Suppress "imported and not used" errors
 var _ codes.Code
 var _ io.Reader
 var _ status.Status
 var _ = runtime.String
 var _ = utilities.NewDoubleArray
-var _ = descriptor.ForMessage
 
 func request_BundledService_CreateTree_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreateTreeServiceRequest
@@ -44,23 +41,6 @@ func request_BundledService_CreateTree_0(ctx context.Context, marshaler runtime.
 	}
 
 	msg, err := client.CreateTree(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_CreateTree_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateTreeServiceRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq.Data); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := server.CreateTree(ctx, &protoReq)
 	return msg, metadata, err
 
 }
@@ -91,45 +71,11 @@ func request_BundledService_DeleteTree_0(ctx context.Context, marshaler runtime.
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tre", err)
 	}
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_DeleteTree_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.DeleteTree(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_DeleteTree_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteTreeServiceRequest
-	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["tre"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "tre")
-	}
-
-	protoReq.Tre, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tre", err)
-	}
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_DeleteTree_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.DeleteTree(ctx, &protoReq)
+	msg, err := client.DeleteTree(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -161,33 +107,6 @@ func request_BundledService_GetTree_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_BundledService_GetTree_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetTreeServiceRequest
-	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["tre"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "tre")
-	}
-
-	protoReq.Tre, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tre", err)
-	}
-
-	msg, err := server.GetTree(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
 var (
 	filter_BundledService_ListTrees_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
@@ -196,27 +115,11 @@ func request_BundledService_ListTrees_0(ctx context.Context, marshaler runtime.M
 	var protoReq ListTreeServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_ListTrees_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.ListTrees(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_ListTrees_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListTreeServiceRequest
-	var metadata runtime.ServerMetadata
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_ListTrees_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.ListTrees(ctx, &protoReq)
+	msg, err := client.ListTrees(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -256,55 +159,11 @@ func request_BundledService_UpdateTree_0(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_BundledService_UpdateTree_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateTreeServiceRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq.Data); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["tre"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "tre")
-	}
-
-	protoReq.Tre, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tre", err)
-	}
-
-	msg, err := server.UpdateTree(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
 func request_BundledService_GetProjectfilter_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetProjectfilterServiceRequest
 	var metadata runtime.ServerMetadata
 
 	msg, err := client.GetProjectfilter(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_GetProjectfilter_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetProjectfilterServiceRequest
-	var metadata runtime.ServerMetadata
-
-	msg, err := server.GetProjectfilter(ctx, &protoReq)
 	return msg, metadata, err
 
 }
@@ -326,23 +185,6 @@ func request_BundledService_CreateAuth_0(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_BundledService_CreateAuth_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateAuthServiceRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq.Data); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := server.CreateAuth(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
 var (
 	filter_BundledService_Logout_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
@@ -351,27 +193,11 @@ func request_BundledService_Logout_0(ctx context.Context, marshaler runtime.Mars
 	var protoReq DeleteAuthServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_Logout_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.Logout(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_Logout_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteAuthServiceRequest
-	var metadata runtime.ServerMetadata
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_Logout_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.Logout(ctx, &protoReq)
+	msg, err := client.Logout(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -403,33 +229,6 @@ func request_BundledService_GetAuth_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_BundledService_GetAuth_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetAuthServiceRequest
-	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["uid"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uid")
-	}
-
-	protoReq.Uid, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uid", err)
-	}
-
-	msg, err := server.GetAuth(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
 var (
 	filter_BundledService_ListAuths_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
@@ -438,27 +237,11 @@ func request_BundledService_ListAuths_0(ctx context.Context, marshaler runtime.M
 	var protoReq ListAuthServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_ListAuths_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.ListAuths(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_ListAuths_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListAuthServiceRequest
-	var metadata runtime.ServerMetadata
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_ListAuths_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.ListAuths(ctx, &protoReq)
+	msg, err := client.ListAuths(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -498,41 +281,6 @@ func request_BundledService_UpdateAuth_0(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_BundledService_UpdateAuth_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateAuthServiceRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq.Data); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["uid"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "uid")
-	}
-
-	protoReq.Uid, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "uid", err)
-	}
-
-	msg, err := server.UpdateAuth(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
 var (
 	filter_BundledService_CreatePerson_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
@@ -541,27 +289,11 @@ func request_BundledService_CreatePerson_0(ctx context.Context, marshaler runtim
 	var protoReq CreatePersonServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_CreatePerson_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.CreatePerson(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_CreatePerson_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreatePersonServiceRequest
-	var metadata runtime.ServerMetadata
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_CreatePerson_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.CreatePerson(ctx, &protoReq)
+	msg, err := client.CreatePerson(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -592,45 +324,11 @@ func request_BundledService_DeletePerson_0(ctx context.Context, marshaler runtim
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prs", err)
 	}
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_DeletePerson_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.DeletePerson(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_DeletePerson_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeletePersonServiceRequest
-	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["prs"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "prs")
-	}
-
-	protoReq.Prs, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prs", err)
-	}
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_DeletePerson_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.DeletePerson(ctx, &protoReq)
+	msg, err := client.DeletePerson(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -662,33 +360,6 @@ func request_BundledService_GetPerson_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func local_request_BundledService_GetPerson_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetPersonServiceRequest
-	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["prs"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "prs")
-	}
-
-	protoReq.Prs, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prs", err)
-	}
-
-	msg, err := server.GetPerson(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
 var (
 	filter_BundledService_ListPersons_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
@@ -697,27 +368,11 @@ func request_BundledService_ListPersons_0(ctx context.Context, marshaler runtime
 	var protoReq ListPersonServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_ListPersons_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.ListPersons(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_ListPersons_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListPersonServiceRequest
-	var metadata runtime.ServerMetadata
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_ListPersons_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.ListPersons(ctx, &protoReq)
+	msg, err := client.ListPersons(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -757,41 +412,6 @@ func request_BundledService_UpdatePerson_0(ctx context.Context, marshaler runtim
 
 }
 
-func local_request_BundledService_UpdatePerson_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdatePersonServiceRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq.Data); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["prs"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "prs")
-	}
-
-	protoReq.Prs, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prs", err)
-	}
-
-	msg, err := server.UpdatePerson(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
 var (
 	filter_BundledService_CreateProject_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
@@ -800,27 +420,11 @@ func request_BundledService_CreateProject_0(ctx context.Context, marshaler runti
 	var protoReq CreateProjectServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_CreateProject_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.CreateProject(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_CreateProject_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateProjectServiceRequest
-	var metadata runtime.ServerMetadata
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_CreateProject_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.CreateProject(ctx, &protoReq)
+	msg, err := client.CreateProject(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -851,45 +455,11 @@ func request_BundledService_DeleteProject_0(ctx context.Context, marshaler runti
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prj", err)
 	}
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_DeleteProject_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.DeleteProject(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_DeleteProject_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteProjectServiceRequest
-	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["prj"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "prj")
-	}
-
-	protoReq.Prj, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prj", err)
-	}
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_DeleteProject_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.DeleteProject(ctx, &protoReq)
+	msg, err := client.DeleteProject(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -921,33 +491,6 @@ func request_BundledService_GetProject_0(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_BundledService_GetProject_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetProjectServiceRequest
-	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["prj"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "prj")
-	}
-
-	protoReq.Prj, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prj", err)
-	}
-
-	msg, err := server.GetProject(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
 var (
 	filter_BundledService_ListProjects_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
@@ -956,27 +499,11 @@ func request_BundledService_ListProjects_0(ctx context.Context, marshaler runtim
 	var protoReq ListProjectServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_ListProjects_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.ListProjects(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_ListProjects_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListProjectServiceRequest
-	var metadata runtime.ServerMetadata
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_ListProjects_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.ListProjects(ctx, &protoReq)
+	msg, err := client.ListProjects(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -1007,45 +534,11 @@ func request_BundledService_UpdateProject_0(ctx context.Context, marshaler runti
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prj", err)
 	}
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_UpdateProject_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.UpdateProject(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_UpdateProject_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateProjectServiceRequest
-	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["prj"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "prj")
-	}
-
-	protoReq.Prj, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prj", err)
-	}
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_UpdateProject_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.UpdateProject(ctx, &protoReq)
+	msg, err := client.UpdateProject(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -1058,27 +551,11 @@ func request_BundledService_ListMembers_0(ctx context.Context, marshaler runtime
 	var protoReq ListProjectMembersServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_ListMembers_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.ListMembers(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_ListMembers_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListProjectMembersServiceRequest
-	var metadata runtime.ServerMetadata
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_ListMembers_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.ListMembers(ctx, &protoReq)
+	msg, err := client.ListMembers(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -1129,52 +606,6 @@ func request_BundledService_UnsubscribeProjectMembersService_0(ctx context.Conte
 
 }
 
-func local_request_BundledService_UnsubscribeProjectMembersService_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UnsubscribeProjectMembersServiceRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq.Data); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["prj"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "prj")
-	}
-
-	protoReq.Prj, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prj", err)
-	}
-
-	val, ok = pathParams["prs"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "prs")
-	}
-
-	protoReq.Prs, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prs", err)
-	}
-
-	msg, err := server.UnsubscribeProjectMembersService(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
 var (
 	filter_BundledService_CreateTask_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
@@ -1183,27 +614,11 @@ func request_BundledService_CreateTask_0(ctx context.Context, marshaler runtime.
 	var protoReq CreateTaskServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_CreateTask_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.CreateTask(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_CreateTask_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateTaskServiceRequest
-	var metadata runtime.ServerMetadata
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_CreateTask_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.CreateTask(ctx, &protoReq)
+	msg, err := client.CreateTask(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -1234,45 +649,11 @@ func request_BundledService_DeleteTask_0(ctx context.Context, marshaler runtime.
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tsk", err)
 	}
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_DeleteTask_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.DeleteTask(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_DeleteTask_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteTaskServiceRequest
-	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["tsk"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "tsk")
-	}
-
-	protoReq.Tsk, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tsk", err)
-	}
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_DeleteTask_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.DeleteTask(ctx, &protoReq)
+	msg, err := client.DeleteTask(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -1304,33 +685,6 @@ func request_BundledService_GetTask_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_BundledService_GetTask_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetTaskServiceRequest
-	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["tsk"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "tsk")
-	}
-
-	protoReq.Tsk, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tsk", err)
-	}
-
-	msg, err := server.GetTask(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
 var (
 	filter_BundledService_ListTasks_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
@@ -1339,27 +693,11 @@ func request_BundledService_ListTasks_0(ctx context.Context, marshaler runtime.M
 	var protoReq ListTaskServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_ListTasks_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.ListTasks(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_ListTasks_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListTaskServiceRequest
-	var metadata runtime.ServerMetadata
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_ListTasks_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.ListTasks(ctx, &protoReq)
+	msg, err := client.ListTasks(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -1390,45 +728,11 @@ func request_BundledService_UpdateTask_0(ctx context.Context, marshaler runtime.
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tsk", err)
 	}
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_UpdateTask_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.UpdateTask(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_UpdateTask_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateTaskServiceRequest
-	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["tsk"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "tsk")
-	}
-
-	protoReq.Tsk, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tsk", err)
-	}
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_UpdateTask_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.UpdateTask(ctx, &protoReq)
+	msg, err := client.UpdateTask(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -1450,8 +754,8 @@ func request_BundledService_CreateExperiment_0(ctx context.Context, marshaler ru
 
 }
 
-func local_request_BundledService_CreateExperiment_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CreateExperimentServiceRequest
+func request_BundledService_CreateTemplateExperiment_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq CreateTemplateExperimentServiceRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -1462,7 +766,7 @@ func local_request_BundledService_CreateExperiment_0(ctx context.Context, marsha
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.CreateExperiment(ctx, &protoReq)
+	msg, err := client.CreateTemplateExperiment(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -1493,45 +797,11 @@ func request_BundledService_DeleteExperiment_0(ctx context.Context, marshaler ru
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "exp", err)
 	}
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_DeleteExperiment_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.DeleteExperiment(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_DeleteExperiment_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteExperimentServiceRequest
-	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["exp"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "exp")
-	}
-
-	protoReq.Exp, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "exp", err)
-	}
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_DeleteExperiment_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.DeleteExperiment(ctx, &protoReq)
+	msg, err := client.DeleteExperiment(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -1563,33 +833,6 @@ func request_BundledService_GetExperiment_0(ctx context.Context, marshaler runti
 
 }
 
-func local_request_BundledService_GetExperiment_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetExperimentServiceRequest
-	var metadata runtime.ServerMetadata
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["exp"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "exp")
-	}
-
-	protoReq.Exp, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "exp", err)
-	}
-
-	msg, err := server.GetExperiment(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
 var (
 	filter_BundledService_ListExperiments_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
@@ -1598,27 +841,11 @@ func request_BundledService_ListExperiments_0(ctx context.Context, marshaler run
 	var protoReq ListExperimentServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_BundledService_ListExperiments_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.ListExperiments(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_ListExperiments_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListExperimentServiceRequest
-	var metadata runtime.ServerMetadata
-
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_ListExperiments_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.ListExperiments(ctx, &protoReq)
+	msg, err := client.ListExperiments(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -1636,23 +863,6 @@ func request_BundledService_ReleaseExperiment_0(ctx context.Context, marshaler r
 	}
 
 	msg, err := client.ReleaseExperiment(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_BundledService_ReleaseExperiment_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ReleaseExperimentServiceRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq.Data); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := server.ReleaseExperiment(ctx, &protoReq)
 	return msg, metadata, err
 
 }
@@ -1690,729 +900,6 @@ func request_BundledService_UpdateExperiment_0(ctx context.Context, marshaler ru
 	msg, err := client.UpdateExperiment(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
-}
-
-func local_request_BundledService_UpdateExperiment_0(ctx context.Context, marshaler runtime.Marshaler, server BundledServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UpdateExperimentServiceRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq.Data); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	var (
-		val string
-		ok  bool
-		err error
-		_   = err
-	)
-
-	val, ok = pathParams["exp"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "exp")
-	}
-
-	protoReq.Exp, err = runtime.String(val)
-
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "exp", err)
-	}
-
-	msg, err := server.UpdateExperiment(ctx, &protoReq)
-	return msg, metadata, err
-
-}
-
-// RegisterBundledServiceHandlerServer registers the http handlers for service BundledService to "mux".
-// UnaryRPC     :call BundledServiceServer directly.
-// StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
-func RegisterBundledServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server BundledServiceServer) error {
-
-	mux.Handle("POST", pattern_BundledService_CreateTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_CreateTree_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_CreateTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("DELETE", pattern_BundledService_DeleteTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_DeleteTree_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_DeleteTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_GetTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_GetTree_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_GetTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_ListTrees_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_ListTrees_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_ListTrees_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("PATCH", pattern_BundledService_UpdateTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_UpdateTree_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_UpdateTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_GetProjectfilter_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_GetProjectfilter_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_GetProjectfilter_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("POST", pattern_BundledService_CreateAuth_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_CreateAuth_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_CreateAuth_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("DELETE", pattern_BundledService_Logout_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_Logout_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_Logout_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_GetAuth_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_GetAuth_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_GetAuth_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_ListAuths_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_ListAuths_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_ListAuths_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("PATCH", pattern_BundledService_UpdateAuth_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_UpdateAuth_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_UpdateAuth_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_CreatePerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_CreatePerson_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_CreatePerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_DeletePerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_DeletePerson_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_DeletePerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_GetPerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_GetPerson_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_GetPerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_ListPersons_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_ListPersons_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_ListPersons_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("PATCH", pattern_BundledService_UpdatePerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_UpdatePerson_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_UpdatePerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_CreateProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_CreateProject_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_CreateProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_DeleteProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_DeleteProject_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_DeleteProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_GetProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_GetProject_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_GetProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_ListProjects_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_ListProjects_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_ListProjects_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_UpdateProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_UpdateProject_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_UpdateProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_ListMembers_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_ListMembers_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_ListMembers_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("POST", pattern_BundledService_UnsubscribeProjectMembersService_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_UnsubscribeProjectMembersService_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_UnsubscribeProjectMembersService_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_CreateTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_CreateTask_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_CreateTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_DeleteTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_DeleteTask_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_DeleteTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_GetTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_GetTask_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_GetTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_ListTasks_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_ListTasks_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_ListTasks_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_UpdateTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_UpdateTask_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_UpdateTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("POST", pattern_BundledService_CreateExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_CreateExperiment_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_CreateExperiment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("DELETE", pattern_BundledService_DeleteExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_DeleteExperiment_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_DeleteExperiment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_GetExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_GetExperiment_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_GetExperiment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_BundledService_ListExperiments_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_ListExperiments_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_ListExperiments_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("POST", pattern_BundledService_ReleaseExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_ReleaseExperiment_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_ReleaseExperiment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("PATCH", pattern_BundledService_UpdateExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_BundledService_UpdateExperiment_0(rctx, inboundMarshaler, server, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_BundledService_UpdateExperiment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	return nil
 }
 
 // RegisterBundledServiceHandlerFromEndpoint is same as RegisterBundledServiceHandler but
@@ -3033,6 +1520,26 @@ func RegisterBundledServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 
 	})
 
+	mux.Handle("POST", pattern_BundledService_CreateTemplateExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_BundledService_CreateTemplateExperiment_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_BundledService_CreateTemplateExperiment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("DELETE", pattern_BundledService_DeleteExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -3137,73 +1644,75 @@ func RegisterBundledServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 }
 
 var (
-	pattern_BundledService_CreateTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "trees"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_CreateTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "trees"}, ""))
 
-	pattern_BundledService_DeleteTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "trees", "tre"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_DeleteTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "trees", "tre"}, ""))
 
-	pattern_BundledService_GetTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "trees", "tre", "get.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_GetTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "trees", "tre", "get.json"}, ""))
 
-	pattern_BundledService_ListTrees_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "trees"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_ListTrees_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "trees"}, ""))
 
-	pattern_BundledService_UpdateTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "trees", "tre"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_UpdateTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "trees", "tre"}, ""))
 
-	pattern_BundledService_GetProjectfilter_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"mockdata", "projects", "filter", "get.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_GetProjectfilter_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"mockdata", "projects", "filter", "get.json"}, ""))
 
-	pattern_BundledService_CreateAuth_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "auths"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_CreateAuth_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "auths"}, ""))
 
-	pattern_BundledService_Logout_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "auth"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_Logout_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "auth"}, ""))
 
-	pattern_BundledService_GetAuth_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "auths", "uid"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_GetAuth_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "auths", "uid"}, ""))
 
-	pattern_BundledService_ListAuths_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "auths"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_ListAuths_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "auths"}, ""))
 
-	pattern_BundledService_UpdateAuth_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "auths", "uid"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_UpdateAuth_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "auths", "uid"}, ""))
 
-	pattern_BundledService_CreatePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "persons", "create.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_CreatePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "persons", "create.json"}, ""))
 
-	pattern_BundledService_DeletePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "persons", "prs", "delete.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_DeletePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "persons", "prs", "delete.json"}, ""))
 
-	pattern_BundledService_GetPerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "persons", "prs", "get.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_GetPerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "persons", "prs", "get.json"}, ""))
 
-	pattern_BundledService_ListPersons_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "persons", "list.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_ListPersons_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "persons", "list.json"}, ""))
 
-	pattern_BundledService_UpdatePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "persons", "prs", "update.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_UpdatePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "persons", "prs", "update.json"}, ""))
 
-	pattern_BundledService_CreateProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "projects", "create.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_CreateProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "projects", "create.json"}, ""))
 
-	pattern_BundledService_DeleteProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "projects", "prj", "delete.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_DeleteProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "projects", "prj", "delete.json"}, ""))
 
-	pattern_BundledService_GetProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "projects", "prj", "get.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_GetProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "projects", "prj", "get.json"}, ""))
 
-	pattern_BundledService_ListProjects_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "projects", "list.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_ListProjects_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "projects", "list.json"}, ""))
 
-	pattern_BundledService_UpdateProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "projects", "prj", "update.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_UpdateProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "projects", "prj", "update.json"}, ""))
 
-	pattern_BundledService_ListMembers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "members"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_ListMembers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "members"}, ""))
 
-	pattern_BundledService_UnsubscribeProjectMembersService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "projects", "prj", "members", "prs"}, "unsubscribe", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_UnsubscribeProjectMembersService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "projects", "prj", "members", "prs"}, "unsubscribe"))
 
-	pattern_BundledService_CreateTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "tasks", "create.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_CreateTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "tasks", "create.json"}, ""))
 
-	pattern_BundledService_DeleteTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "tasks", "tsk", "delete.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_DeleteTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "tasks", "tsk", "delete.json"}, ""))
 
-	pattern_BundledService_GetTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "tasks", "tsk", "get.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_GetTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "tasks", "tsk", "get.json"}, ""))
 
-	pattern_BundledService_ListTasks_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "tasks", "list.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_ListTasks_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "tasks", "list.json"}, ""))
 
-	pattern_BundledService_UpdateTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "tasks", "tsk", "update.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_UpdateTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "tasks", "tsk", "update.json"}, ""))
 
-	pattern_BundledService_CreateExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "experiments"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_CreateExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "experiments"}, ""))
 
-	pattern_BundledService_DeleteExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "experiments", "exp"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_CreateTemplateExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "experiments"}, "createtemplate"))
 
-	pattern_BundledService_GetExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "experiments", "exp", "get.json"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_DeleteExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "experiments", "exp"}, ""))
 
-	pattern_BundledService_ListExperiments_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "experiments"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_GetExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "experiments", "exp", "get.json"}, ""))
 
-	pattern_BundledService_ReleaseExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "experiments", "1"}, "release", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_ListExperiments_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "experiments"}, ""))
 
-	pattern_BundledService_UpdateExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "experiments", "exp"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_BundledService_ReleaseExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "experiments", "1"}, "release"))
+
+	pattern_BundledService_UpdateExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "experiments", "exp"}, ""))
 )
 
 var (
@@ -3264,6 +1773,8 @@ var (
 	forward_BundledService_UpdateTask_0 = runtime.ForwardResponseMessage
 
 	forward_BundledService_CreateExperiment_0 = runtime.ForwardResponseMessage
+
+	forward_BundledService_CreateTemplateExperiment_0 = runtime.ForwardResponseMessage
 
 	forward_BundledService_DeleteExperiment_0 = runtime.ForwardResponseMessage
 

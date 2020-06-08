@@ -116,6 +116,20 @@
         "href": "/mockdata/experiments/1:release",
         "method": "POST"
       }
+    },
+    "CreateTemplate": {
+      "description": "create an experiment template",
+      "rpc_name": "CreateTemplateExperiment",
+      "data": {
+        "request": "google.protobuf.Empty",
+        "response": "experiment.Experiment"
+      },
+      "query": {},
+      "deeplink": {
+        "rel": "createtemplate",
+        "href": "/mockdata/experiments:createtemplate",
+        "method": "POST"
+      }
     }
   }
 }
