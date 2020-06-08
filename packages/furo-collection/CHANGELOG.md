@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.15](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.14...@furo/collection@1.3.15) (2020-06-08)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
 ## [1.3.14](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.13...@furo/collection@1.3.14) (2020-06-04)
 
 **Note:** Version bump only for package @furo/collection

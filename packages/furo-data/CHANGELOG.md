@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.14](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.13...@furo/data@1.3.14) (2020-06-08)
+
+
+### Bug Fixes
+
+* agents and custom method should work with camel-case method name ([67779b6](https://github.com/theNorstroem/FuroBaseComponents/commit/67779b695caadf57dfccd31768bb16b8097ccfe6))
+* mapping pre, next, last, firs list method to get in collection agent ([cd80278](https://github.com/theNorstroem/FuroBaseComponents/commit/cd80278ecfa37e3010ef096c9fb13745a640fbba))
+* remove self mapping in collection agent. ([89beec3](https://github.com/theNorstroem/FuroBaseComponents/commit/89beec3c34b29d1d46ef192841586831edfd0925))
+
+
+
+
+
 ## [1.3.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.12...@furo/data@1.3.13) (2020-06-04)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.10.0...@furo/specs@1.10.1) (2020-06-08)
+
+
+### Bug Fixes
+
+* agents and custom method should work with camel-case method name ([67779b6](https://github.com/theNorstroem/FuroBaseComponents/commit/67779b695caadf57dfccd31768bb16b8097ccfe6))
+
+
+
+
+
 # [1.10.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.9.4...@furo/specs@1.10.0) (2020-06-04)
 
 
