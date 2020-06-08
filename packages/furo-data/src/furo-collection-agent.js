@@ -282,7 +282,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
     }
 
     const REL_NAME =
-      ['prev', 'first', 'next', 'last', 'self'].indexOf(link.rel.toLowerCase()) >= 0
+      ['prev', 'first', 'next', 'last'].indexOf(link.rel.toLowerCase()) >= 0
         ? 'get'
         : link.rel.toLowerCase();
 
