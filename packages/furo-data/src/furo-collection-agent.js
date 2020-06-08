@@ -281,7 +281,10 @@ class FuroCollectionAgent extends FBP(LitElement) {
       headers.append('Content-Type', 'application/json; charset=utf-8');
     }
 
-    const REL_NAME = link.rel.toLowerCase() === 'self' ? 'get' : link.rel.toLowerCase();
+    const REL_NAME =
+      ['prev', 'first', 'next', 'last', 'self'].indexOf(link.rel.toLowerCase()) >= 0
+        ? 'get'
+        : link.rel.toLowerCase();
 
     let serviceResponse;
     for (const [key, service] of Object.entries(
