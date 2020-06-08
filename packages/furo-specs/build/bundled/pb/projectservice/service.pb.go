@@ -11,8 +11,6 @@ import (
 	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
-	codes "google.golang.org/grpc/codes"
-	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -369,26 +367,6 @@ type ProjectServiceServer interface {
 	ListProjects(context.Context, *ListProjectServiceRequest) (*project.ProjectCollection, error)
 	// Updates a Project, partial updates are supported
 	UpdateProject(context.Context, *UpdateProjectServiceRequest) (*project.ProjectEntity, error)
-}
-
-// UnimplementedProjectServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedProjectServiceServer struct {
-}
-
-func (*UnimplementedProjectServiceServer) CreateProject(ctx context.Context, req *CreateProjectServiceRequest) (*project.ProjectEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateProject not implemented")
-}
-func (*UnimplementedProjectServiceServer) DeleteProject(ctx context.Context, req *DeleteProjectServiceRequest) (*empty.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteProject not implemented")
-}
-func (*UnimplementedProjectServiceServer) GetProject(ctx context.Context, req *GetProjectServiceRequest) (*project.ProjectEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetProject not implemented")
-}
-func (*UnimplementedProjectServiceServer) ListProjects(ctx context.Context, req *ListProjectServiceRequest) (*project.ProjectCollection, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListProjects not implemented")
-}
-func (*UnimplementedProjectServiceServer) UpdateProject(ctx context.Context, req *UpdateProjectServiceRequest) (*project.ProjectEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateProject not implemented")
 }
 
 func RegisterProjectServiceServer(s *grpc.Server, srv ProjectServiceServer) {

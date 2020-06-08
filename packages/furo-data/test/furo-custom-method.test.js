@@ -181,4 +181,34 @@ describe('furo-custom-method', () => {
 
     customMethod.trigger();
   });
+
+  it('Accept header should be set ', () => {
+    customMethod.setAttribute('service', 'ExperimentService');
+    customMethod.setAttribute('method', 'createtemplate');
+    dataObject.setAttribute('type', 'experiment.ExperimentEntity');
+
+
+    customMethod.addEventListener('hts-updated', () => {
+
+      const request = customMethod._makeRequest({
+        href: 'https://httpbin.org/anything',
+        method: 'Post',
+        rel: 'createtemplate',
+        type: 'experiment.ExperimentEntity',
+        service: 'ExperimentService',
+      });
+      assert.equal(request.headers.get("Accept"), 'application/experiment.Experiment+json, application/json;q=0.9');
+
+    });
+
+    customMethod.htsIn([
+      {
+        href: 'https://httpbin.org/anything',
+        method: 'Post',
+        rel: 'createtemplate',
+        type: 'experiment.ExperimentEntity',
+        service: 'ExperimentService',
+      }
+    ]);
+  });
 });

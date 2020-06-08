@@ -273,13 +273,21 @@ service BundledService {
 
 
 // service specs for the experiment api
-                          
+                              
    
      // Creates a new Experiment
     rpc CreateExperiment (CreateExperimentServiceRequest) returns (experiment.ExperimentEntity){
         
         option (google.api.http) = {
             post: "/mockdata/experiments"
+            body: "data"
+        };
+    }   
+     // create an experiment template
+    rpc CreateTemplateExperiment (CreateTemplateExperimentServiceRequest) returns (experiment.Experiment){
+        
+        option (google.api.http) = {
+            post: "/mockdata/experiments:createtemplate"
             body: "data"
         };
     }   
@@ -543,12 +551,17 @@ message UpdateTaskServiceRequest {
 
 
 // service specs for the experiment api
-                          
+                              
 
    
 message CreateExperimentServiceRequest { 
 
     experiment.Experiment data = 1;  
+}
+   
+message CreateTemplateExperimentServiceRequest { 
+
+    google.protobuf.Empty data = 1;  
 }
    
 message DeleteExperimentServiceRequest { 

@@ -160,6 +160,11 @@ public final class AnyProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_taskmanager_CreateExperimentServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_taskmanager_CreateTemplateExperimentServiceRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_taskmanager_CreateTemplateExperimentServiceRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_taskmanager_DeleteExperimentServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -243,7 +248,9 @@ public final class AnyProto {
       "teTaskServiceRequest\022\013\n\003tsk\030\001 \001(\t\022\030\n\004dat" +
       "a\030\002 \001(\0132\n.task.Task\"F\n\036CreateExperimentS" +
       "erviceRequest\022$\n\004data\030\001 \001(\0132\026.experiment" +
-      ".Experiment\"S\n\036DeleteExperimentServiceRe" +
+      ".Experiment\"N\n&CreateTemplateExperimentS" +
+      "erviceRequest\022$\n\004data\030\001 \001(\0132\026.google.pro" +
+      "tobuf.Empty\"S\n\036DeleteExperimentServiceRe" +
       "quest\022\013\n\003exp\030\001 \001(\t\022$\n\004data\030\002 \001(\0132\026.googl" +
       "e.protobuf.Empty\"*\n\033GetExperimentService" +
       "Request\022\013\n\003exp\030\001 \001(\t\")\n\034ListExperimentSe" +
@@ -251,7 +258,7 @@ public final class AnyProto {
       "mentServiceRequest\022*\n\004data\030\001 \001(\0132\034.exper" +
       "iment.ExperimentEntity\"S\n\036UpdateExperime" +
       "ntServiceRequest\022\013\n\003exp\030\001 \001(\t\022$\n\004data\030\002 " +
-      "\001(\0132\026.experiment.Experiment2\275\037\n\016BundledS" +
+      "\001(\0132\026.experiment.Experiment2\333 \n\016BundledS" +
       "ervice\022d\n\nCreateTree\022%.taskmanager.Creat" +
       "eTreeServiceRequest\032\020.tree.TreeEntity\"\035\202" +
       "\323\344\223\002\027\"\017/mockdata/trees:\004data\022j\n\nDeleteTr" +
@@ -335,26 +342,30 @@ public final class AnyProto {
       "s/{tsk}/update.json\022\202\001\n\020CreateExperiment" +
       "\022+.taskmanager.CreateExperimentServiceRe" +
       "quest\032\034.experiment.ExperimentEntity\"#\202\323\344" +
-      "\223\002\035\"\025/mockdata/experiments:\004data\022|\n\020Dele" +
-      "teExperiment\022+.taskmanager.DeleteExperim" +
-      "entServiceRequest\032\026.google.protobuf.Empt" +
-      "y\"#\202\323\344\223\002\035*\033/mockdata/experiments/{exp}\022\205" +
-      "\001\n\rGetExperiment\022(.taskmanager.GetExperi" +
-      "mentServiceRequest\032\034.experiment.Experime" +
-      "ntEntity\",\202\323\344\223\002&\022$/mockdata/experiments/" +
-      "{exp}/get.json\022}\n\017ListExperiments\022).task" +
-      "manager.ListExperimentServiceRequest\032 .e" +
-      "xperiment.ExperimentCollection\"\035\202\323\344\223\002\027\022\025" +
-      "/mockdata/experiments\022\210\001\n\021ReleaseExperim" +
-      "ent\022,.taskmanager.ReleaseExperimentServi" +
-      "ceRequest\032\026.google.protobuf.Empty\"-\202\323\344\223\002" +
-      "\'\"\037/mockdata/experiments/1:release:\004data" +
-      "\022\210\001\n\020UpdateExperiment\022+.taskmanager.Upda" +
-      "teExperimentServiceRequest\032\034.experiment." +
-      "ExperimentEntity\")\202\323\344\223\002#2\033/mockdata/expe" +
-      "riments/{exp}:\004dataBW\n\013taskmanagerB\010AnyP" +
-      "rotoP\001Z\025__bundled;taskmanager\242\002\003GPB\252\002\036Go" +
-      "ogle.Protobuf.WellKnownTypesb\006proto3"
+      "\223\002\035\"\025/mockdata/experiments:\004data\022\233\001\n\030Cre" +
+      "ateTemplateExperiment\0223.taskmanager.Crea" +
+      "teTemplateExperimentServiceRequest\032\026.exp" +
+      "eriment.Experiment\"2\202\323\344\223\002,\"$/mockdata/ex" +
+      "periments:createtemplate:\004data\022|\n\020Delete" +
+      "Experiment\022+.taskmanager.DeleteExperimen" +
+      "tServiceRequest\032\026.google.protobuf.Empty\"" +
+      "#\202\323\344\223\002\035*\033/mockdata/experiments/{exp}\022\205\001\n" +
+      "\rGetExperiment\022(.taskmanager.GetExperime" +
+      "ntServiceRequest\032\034.experiment.Experiment" +
+      "Entity\",\202\323\344\223\002&\022$/mockdata/experiments/{e" +
+      "xp}/get.json\022}\n\017ListExperiments\022).taskma" +
+      "nager.ListExperimentServiceRequest\032 .exp" +
+      "eriment.ExperimentCollection\"\035\202\323\344\223\002\027\022\025/m" +
+      "ockdata/experiments\022\210\001\n\021ReleaseExperimen" +
+      "t\022,.taskmanager.ReleaseExperimentService" +
+      "Request\032\026.google.protobuf.Empty\"-\202\323\344\223\002\'\"" +
+      "\037/mockdata/experiments/1:release:\004data\022\210" +
+      "\001\n\020UpdateExperiment\022+.taskmanager.Update" +
+      "ExperimentServiceRequest\032\034.experiment.Ex" +
+      "perimentEntity\")\202\323\344\223\002#2\033/mockdata/experi" +
+      "ments/{exp}:\004dataBW\n\013taskmanagerB\010AnyPro" +
+      "toP\001Z\025__bundled;taskmanager\242\002\003GPB\252\002\036Goog" +
+      "le.Protobuf.WellKnownTypesb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -551,32 +562,38 @@ public final class AnyProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_taskmanager_CreateExperimentServiceRequest_descriptor,
         new java.lang.String[] { "Data", });
-    internal_static_taskmanager_DeleteExperimentServiceRequest_descriptor =
+    internal_static_taskmanager_CreateTemplateExperimentServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(29);
+    internal_static_taskmanager_CreateTemplateExperimentServiceRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_taskmanager_CreateTemplateExperimentServiceRequest_descriptor,
+        new java.lang.String[] { "Data", });
+    internal_static_taskmanager_DeleteExperimentServiceRequest_descriptor =
+      getDescriptor().getMessageTypes().get(30);
     internal_static_taskmanager_DeleteExperimentServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_taskmanager_DeleteExperimentServiceRequest_descriptor,
         new java.lang.String[] { "Exp", "Data", });
     internal_static_taskmanager_GetExperimentServiceRequest_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_taskmanager_GetExperimentServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_taskmanager_GetExperimentServiceRequest_descriptor,
         new java.lang.String[] { "Exp", });
     internal_static_taskmanager_ListExperimentServiceRequest_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_taskmanager_ListExperimentServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_taskmanager_ListExperimentServiceRequest_descriptor,
         new java.lang.String[] { "Q", });
     internal_static_taskmanager_ReleaseExperimentServiceRequest_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_taskmanager_ReleaseExperimentServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_taskmanager_ReleaseExperimentServiceRequest_descriptor,
         new java.lang.String[] { "Data", });
     internal_static_taskmanager_UpdateExperimentServiceRequest_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_taskmanager_UpdateExperimentServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_taskmanager_UpdateExperimentServiceRequest_descriptor,

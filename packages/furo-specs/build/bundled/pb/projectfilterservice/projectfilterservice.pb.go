@@ -11,8 +11,6 @@ import (
 	_ "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
-	codes "google.golang.org/grpc/codes"
-	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -121,14 +119,6 @@ func (c *projectfilterServiceClient) GetProjectfilter(ctx context.Context, in *G
 type ProjectfilterServiceServer interface {
 	// The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter
 	GetProjectfilter(context.Context, *GetProjectfilterServiceRequest) (*projectfilter.ProjectfilterEntity, error)
-}
-
-// UnimplementedProjectfilterServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedProjectfilterServiceServer struct {
-}
-
-func (*UnimplementedProjectfilterServiceServer) GetProjectfilter(ctx context.Context, req *GetProjectfilterServiceRequest) (*projectfilter.ProjectfilterEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetProjectfilter not implemented")
 }
 
 func RegisterProjectfilterServiceServer(s *grpc.Server, srv ProjectfilterServiceServer) {
