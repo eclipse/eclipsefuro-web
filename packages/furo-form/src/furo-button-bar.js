@@ -61,6 +61,12 @@ class FuroButtonBar extends LitElement {
       this._entity.addEventListener('this-branch-value-changed', () => {
         this._updateElements(this._entity);
       });
+      this._entity.addEventListener('data-object-became-valid', () => {
+        this._updateElements(this._entity);
+      });
+      this._entity.addEventListener('data-object-became-invalid', () => {
+        this._updateElements(this._entity);
+      });
       this._entity.addEventListener('field-value-changed', () => {
         this._updateElements(this._entity);
       });
