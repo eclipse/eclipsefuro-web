@@ -40,6 +40,7 @@ describe('furo-button-bar', () => {
             ></furo-button>
             <furo-button label="always visible" @-click=""></furo-button>
             <furo-button label="hide if pristine" hide-pristine @-click=""></furo-button>
+            <furo-button label="hide if invalid" hide-not-valid @-click=""></furo-button>
           </furo-button-bar>
 
           <furo-deep-link service="TaskService" @-hts-out="--hts"> </furo-deep-link>
@@ -112,7 +113,7 @@ describe('furo-button-bar', () => {
         }
       });
       // should have button 'self' and button 'always visible'
-      assert.equal(count, 1);
+      assert.equal(count, 2);
       done();
     });
     qp.qpIn({ tsk: 1 });
@@ -131,7 +132,7 @@ describe('furo-button-bar', () => {
           count += 1;
         }
       });
-      assert.equal(count, 4);
+      assert.equal(count, 5);
       done();
     });
     qp.qpIn({ tsk: 1 });
@@ -176,6 +177,20 @@ describe('furo-button-bar', () => {
       assert.equal(cntHidden, 3);
       done();
     });
+    qp.qpIn({ tsk: 2 });
+  });
+
+  it('should hide when object invalid and button has attribute hide-not-valid ', done => {
+    agent.loadOnHtsIn = true;
+
+    agent.addEventListener('response', () => {
+      dao.data._isValid=false;
+      element._updateElements(dao.data);
+      const slotted = element.shadowRoot.firstElementChild.children[0].assignedElements()[4];
+      assert.equal(slotted.getAttribute('hidden'), '');
+      done();
+    });
+
     qp.qpIn({ tsk: 2 });
   });
 });
