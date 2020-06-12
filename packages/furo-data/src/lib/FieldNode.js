@@ -273,16 +273,38 @@ export class FieldNode extends EventTreeNode {
             // eslint-disable-next-line no-param-reassign
             n._value = [];
           } else {
+            // todo:  maybe set to undefined if no spec default is given
             // eslint-disable-next-line no-param-reassign
             n._value = {};
           }
         } else {
           // skalar value
+          // todo:  maybe set to undefined if no spec default is given
           // eslint-disable-next-line no-param-reassign
           n._value = Helper.defaultForType(n._spec.type);
         }
       }
     });
+
+
+    if(this && this._spec && this._spec.__proto && this._spec.__proto.oneof){
+    // clear oneof siblings
+    const oneofGorup = this._spec.__proto.oneof;
+    // avoid recursion with __oneofrecusion
+    if ( oneofGorup !== "" && !this.__oneofrecusion) {
+
+      this.__parentNode.__childNodes.forEach(sibling => {
+        if(sibling !== this && sibling._spec.__proto.oneof === oneofGorup){
+            // eslint-disable-next-line no-param-reassign
+            sibling.__oneofrecusion = true;
+            // eslint-disable-next-line no-param-reassign
+            sibling._value = undefined;
+            // eslint-disable-next-line no-param-reassign
+            sibling.__oneofrecusion = false;
+        }
+      });
+    }
+    }
 
     this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
   }
