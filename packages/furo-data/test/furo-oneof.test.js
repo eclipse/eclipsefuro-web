@@ -55,11 +55,11 @@ describe('furo data oneof', () => {
 
     done();
   });
-  it('should handle complex types for oneof', (done) => {
+  it('should handle complex types for oneof', done => {
     element.setAttribute('type', 'experiment.Oneof');
     const EntityRoot = element.data;
     assert.equal(EntityRoot.update_mask._value.paths.length, 0);
-    EntityRoot.other_mask._value = {paths:[2]};
+    EntityRoot.other_mask._value = { paths: [2] };
     assert.equal(EntityRoot.other_mask._value.paths.length, 1);
     assert.equal(element.json.other_mask.paths.length, 1);
     assert.equal(element.json.update_mask, null);
@@ -69,7 +69,7 @@ describe('furo data oneof', () => {
     const jsonval = EntityRoot.getJson();
 
     // eslint-disable-next-line no-prototype-builtins
-    assert.equal(JSON.parse(JSON.stringify(jsonval)).hasOwnProperty("update_mask"), false);
+    assert.equal(JSON.parse(JSON.stringify(jsonval)).hasOwnProperty('update_mask'), false);
     done();
   });
 });
