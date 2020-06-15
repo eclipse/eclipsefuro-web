@@ -169,13 +169,13 @@ message ExperimentCollection {
 
 }
 // oneof experiment spec for testing
-message Oneof {                          
+message Oneof {                            
   // field for testing file type
   repeated string furo_data_file_input = 22;
     
   // Identity of a experiment
   string id = 1;
-  
+    
   oneof aaa {
     // Localized String representation of a experiment
     string display_name = 2;
@@ -188,7 +188,9 @@ message Oneof {
     // field for furo_data_text_input for testing
     string furo_data_text_input = 5;
   }
-  oneof useless {
+  oneof complex {
+    // for oneof test purposes only
+    google.protobuf.FieldMask other_mask = 24;
     // Contains a field_mask which fields of the targeted resource are going to be updated
     google.protobuf.FieldMask update_mask = 23;
   }

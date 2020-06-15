@@ -128,7 +128,17 @@
       "constraints": {},
       "__proto": {
         "number": 23,
-        "oneof": "useless"
+        "oneof": "complex"
+      }
+    },
+    "other_mask": {
+      "description": "for oneof test purposes only",
+      "type": "google.protobuf.FieldMask",
+      "meta": {},
+      "constraints": {},
+      "__proto": {
+        "number": 24,
+        "oneof": "complex"
       }
     }
 

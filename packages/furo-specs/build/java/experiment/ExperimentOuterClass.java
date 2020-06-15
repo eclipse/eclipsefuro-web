@@ -13530,6 +13530,33 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
+     * for oneof test purposes only
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+     * @return Whether the otherMask field is set.
+     */
+    boolean hasOtherMask();
+    /**
+     * <pre>
+     * for oneof test purposes only
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+     * @return The otherMask.
+     */
+    google.protobuf.FieldMaskOuterClass.FieldMask getOtherMask();
+    /**
+     * <pre>
+     * for oneof test purposes only
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+     */
+    google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getOtherMaskOrBuilder();
+
+    /**
+     * <pre>
      * Contains a field_mask which fields of the targeted resource are going to be updated
      * </pre>
      *
@@ -13559,7 +13586,7 @@ public final class ExperimentOuterClass {
 
     public experiment.ExperimentOuterClass.Oneof.BbbCase getBbbCase();
 
-    public experiment.ExperimentOuterClass.Oneof.UselessCase getUselessCase();
+    public experiment.ExperimentOuterClass.Oneof.ComplexCase getComplexCase();
   }
   /**
    * <pre>
@@ -13653,16 +13680,30 @@ public final class ExperimentOuterClass {
             }
             case 186: {
               google.protobuf.FieldMaskOuterClass.FieldMask.Builder subBuilder = null;
-              if (uselessCase_ == 23) {
-                subBuilder = ((google.protobuf.FieldMaskOuterClass.FieldMask) useless_).toBuilder();
+              if (complexCase_ == 23) {
+                subBuilder = ((google.protobuf.FieldMaskOuterClass.FieldMask) complex_).toBuilder();
               }
-              useless_ =
+              complex_ =
                   input.readMessage(google.protobuf.FieldMaskOuterClass.FieldMask.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((google.protobuf.FieldMaskOuterClass.FieldMask) useless_);
-                useless_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((google.protobuf.FieldMaskOuterClass.FieldMask) complex_);
+                complex_ = subBuilder.buildPartial();
               }
-              uselessCase_ = 23;
+              complexCase_ = 23;
+              break;
+            }
+            case 194: {
+              google.protobuf.FieldMaskOuterClass.FieldMask.Builder subBuilder = null;
+              if (complexCase_ == 24) {
+                subBuilder = ((google.protobuf.FieldMaskOuterClass.FieldMask) complex_).toBuilder();
+              }
+              complex_ =
+                  input.readMessage(google.protobuf.FieldMaskOuterClass.FieldMask.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((google.protobuf.FieldMaskOuterClass.FieldMask) complex_);
+                complex_ = subBuilder.buildPartial();
+              }
+              complexCase_ = 24;
               break;
             }
             default: {
@@ -13782,15 +13823,16 @@ public final class ExperimentOuterClass {
           bbbCase_);
     }
 
-    private int uselessCase_ = 0;
-    private java.lang.Object useless_;
-    public enum UselessCase
+    private int complexCase_ = 0;
+    private java.lang.Object complex_;
+    public enum ComplexCase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      OTHER_MASK(24),
       UPDATE_MASK(23),
-      USELESS_NOT_SET(0);
+      COMPLEX_NOT_SET(0);
       private final int value;
-      private UselessCase(int value) {
+      private ComplexCase(int value) {
         this.value = value;
       }
       /**
@@ -13799,14 +13841,15 @@ public final class ExperimentOuterClass {
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static UselessCase valueOf(int value) {
+      public static ComplexCase valueOf(int value) {
         return forNumber(value);
       }
 
-      public static UselessCase forNumber(int value) {
+      public static ComplexCase forNumber(int value) {
         switch (value) {
+          case 24: return OTHER_MASK;
           case 23: return UPDATE_MASK;
-          case 0: return USELESS_NOT_SET;
+          case 0: return COMPLEX_NOT_SET;
           default: return null;
         }
       }
@@ -13815,10 +13858,10 @@ public final class ExperimentOuterClass {
       }
     };
 
-    public UselessCase
-    getUselessCase() {
-      return UselessCase.forNumber(
-          uselessCase_);
+    public ComplexCase
+    getComplexCase() {
+      return ComplexCase.forNumber(
+          complexCase_);
     }
 
     public static final int FURO_DATA_FILE_INPUT_FIELD_NUMBER = 22;
@@ -14094,6 +14137,49 @@ public final class ExperimentOuterClass {
       }
     }
 
+    public static final int OTHER_MASK_FIELD_NUMBER = 24;
+    /**
+     * <pre>
+     * for oneof test purposes only
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+     * @return Whether the otherMask field is set.
+     */
+    @java.lang.Override
+    public boolean hasOtherMask() {
+      return complexCase_ == 24;
+    }
+    /**
+     * <pre>
+     * for oneof test purposes only
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+     * @return The otherMask.
+     */
+    @java.lang.Override
+    public google.protobuf.FieldMaskOuterClass.FieldMask getOtherMask() {
+      if (complexCase_ == 24) {
+         return (google.protobuf.FieldMaskOuterClass.FieldMask) complex_;
+      }
+      return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
+    }
+    /**
+     * <pre>
+     * for oneof test purposes only
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+     */
+    @java.lang.Override
+    public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getOtherMaskOrBuilder() {
+      if (complexCase_ == 24) {
+         return (google.protobuf.FieldMaskOuterClass.FieldMask) complex_;
+      }
+      return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
+    }
+
     public static final int UPDATE_MASK_FIELD_NUMBER = 23;
     /**
      * <pre>
@@ -14105,7 +14191,7 @@ public final class ExperimentOuterClass {
      */
     @java.lang.Override
     public boolean hasUpdateMask() {
-      return uselessCase_ == 23;
+      return complexCase_ == 23;
     }
     /**
      * <pre>
@@ -14117,8 +14203,8 @@ public final class ExperimentOuterClass {
      */
     @java.lang.Override
     public google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask() {
-      if (uselessCase_ == 23) {
-         return (google.protobuf.FieldMaskOuterClass.FieldMask) useless_;
+      if (complexCase_ == 23) {
+         return (google.protobuf.FieldMaskOuterClass.FieldMask) complex_;
       }
       return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
     }
@@ -14131,8 +14217,8 @@ public final class ExperimentOuterClass {
      */
     @java.lang.Override
     public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-      if (uselessCase_ == 23) {
-         return (google.protobuf.FieldMaskOuterClass.FieldMask) useless_;
+      if (complexCase_ == 23) {
+         return (google.protobuf.FieldMaskOuterClass.FieldMask) complex_;
       }
       return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
     }
@@ -14170,8 +14256,11 @@ public final class ExperimentOuterClass {
       for (int i = 0; i < furoDataFileInput_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 22, furoDataFileInput_.getRaw(i));
       }
-      if (uselessCase_ == 23) {
-        output.writeMessage(23, (google.protobuf.FieldMaskOuterClass.FieldMask) useless_);
+      if (complexCase_ == 23) {
+        output.writeMessage(23, (google.protobuf.FieldMaskOuterClass.FieldMask) complex_);
+      }
+      if (complexCase_ == 24) {
+        output.writeMessage(24, (google.protobuf.FieldMaskOuterClass.FieldMask) complex_);
       }
       unknownFields.writeTo(output);
     }
@@ -14207,9 +14296,13 @@ public final class ExperimentOuterClass {
         size += dataSize;
         size += 2 * getFuroDataFileInputList().size();
       }
-      if (uselessCase_ == 23) {
+      if (complexCase_ == 23) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(23, (google.protobuf.FieldMaskOuterClass.FieldMask) useless_);
+          .computeMessageSize(23, (google.protobuf.FieldMaskOuterClass.FieldMask) complex_);
+      }
+      if (complexCase_ == 24) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(24, (google.protobuf.FieldMaskOuterClass.FieldMask) complex_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14256,8 +14349,12 @@ public final class ExperimentOuterClass {
         case 0:
         default:
       }
-      if (!getUselessCase().equals(other.getUselessCase())) return false;
-      switch (uselessCase_) {
+      if (!getComplexCase().equals(other.getComplexCase())) return false;
+      switch (complexCase_) {
+        case 24:
+          if (!getOtherMask()
+              .equals(other.getOtherMask())) return false;
+          break;
         case 23:
           if (!getUpdateMask()
               .equals(other.getUpdateMask())) return false;
@@ -14307,7 +14404,11 @@ public final class ExperimentOuterClass {
         case 0:
         default:
       }
-      switch (uselessCase_) {
+      switch (complexCase_) {
+        case 24:
+          hash = (37 * hash) + OTHER_MASK_FIELD_NUMBER;
+          hash = (53 * hash) + getOtherMask().hashCode();
+          break;
         case 23:
           hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
           hash = (53 * hash) + getUpdateMask().hashCode();
@@ -14460,8 +14561,8 @@ public final class ExperimentOuterClass {
         aaa_ = null;
         bbbCase_ = 0;
         bbb_ = null;
-        uselessCase_ = 0;
-        useless_ = null;
+        complexCase_ = 0;
+        complex_ = null;
         return this;
       }
 
@@ -14507,16 +14608,23 @@ public final class ExperimentOuterClass {
         if (bbbCase_ == 5) {
           result.bbb_ = bbb_;
         }
-        if (uselessCase_ == 23) {
-          if (updateMaskBuilder_ == null) {
-            result.useless_ = useless_;
+        if (complexCase_ == 24) {
+          if (otherMaskBuilder_ == null) {
+            result.complex_ = complex_;
           } else {
-            result.useless_ = updateMaskBuilder_.build();
+            result.complex_ = otherMaskBuilder_.build();
+          }
+        }
+        if (complexCase_ == 23) {
+          if (updateMaskBuilder_ == null) {
+            result.complex_ = complex_;
+          } else {
+            result.complex_ = updateMaskBuilder_.build();
           }
         }
         result.aaaCase_ = aaaCase_;
         result.bbbCase_ = bbbCase_;
-        result.uselessCase_ = uselessCase_;
+        result.complexCase_ = complexCase_;
         onBuilt();
         return result;
       }
@@ -14611,12 +14719,16 @@ public final class ExperimentOuterClass {
             break;
           }
         }
-        switch (other.getUselessCase()) {
+        switch (other.getComplexCase()) {
+          case OTHER_MASK: {
+            mergeOtherMask(other.getOtherMask());
+            break;
+          }
           case UPDATE_MASK: {
             mergeUpdateMask(other.getUpdateMask());
             break;
           }
-          case USELESS_NOT_SET: {
+          case COMPLEX_NOT_SET: {
             break;
           }
         }
@@ -14678,17 +14790,17 @@ public final class ExperimentOuterClass {
         return this;
       }
 
-      private int uselessCase_ = 0;
-      private java.lang.Object useless_;
-      public UselessCase
-          getUselessCase() {
-        return UselessCase.forNumber(
-            uselessCase_);
+      private int complexCase_ = 0;
+      private java.lang.Object complex_;
+      public ComplexCase
+          getComplexCase() {
+        return ComplexCase.forNumber(
+            complexCase_);
       }
 
-      public Builder clearUseless() {
-        uselessCase_ = 0;
-        useless_ = null;
+      public Builder clearComplex() {
+        complexCase_ = 0;
+        complex_ = null;
         onChanged();
         return this;
       }
@@ -15311,6 +15423,183 @@ public final class ExperimentOuterClass {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
+          google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> otherMaskBuilder_;
+      /**
+       * <pre>
+       * for oneof test purposes only
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+       * @return Whether the otherMask field is set.
+       */
+      @java.lang.Override
+      public boolean hasOtherMask() {
+        return complexCase_ == 24;
+      }
+      /**
+       * <pre>
+       * for oneof test purposes only
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+       * @return The otherMask.
+       */
+      @java.lang.Override
+      public google.protobuf.FieldMaskOuterClass.FieldMask getOtherMask() {
+        if (otherMaskBuilder_ == null) {
+          if (complexCase_ == 24) {
+            return (google.protobuf.FieldMaskOuterClass.FieldMask) complex_;
+          }
+          return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
+        } else {
+          if (complexCase_ == 24) {
+            return otherMaskBuilder_.getMessage();
+          }
+          return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * for oneof test purposes only
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+       */
+      public Builder setOtherMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
+        if (otherMaskBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          complex_ = value;
+          onChanged();
+        } else {
+          otherMaskBuilder_.setMessage(value);
+        }
+        complexCase_ = 24;
+        return this;
+      }
+      /**
+       * <pre>
+       * for oneof test purposes only
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+       */
+      public Builder setOtherMask(
+          google.protobuf.FieldMaskOuterClass.FieldMask.Builder builderForValue) {
+        if (otherMaskBuilder_ == null) {
+          complex_ = builderForValue.build();
+          onChanged();
+        } else {
+          otherMaskBuilder_.setMessage(builderForValue.build());
+        }
+        complexCase_ = 24;
+        return this;
+      }
+      /**
+       * <pre>
+       * for oneof test purposes only
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+       */
+      public Builder mergeOtherMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
+        if (otherMaskBuilder_ == null) {
+          if (complexCase_ == 24 &&
+              complex_ != google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance()) {
+            complex_ = google.protobuf.FieldMaskOuterClass.FieldMask.newBuilder((google.protobuf.FieldMaskOuterClass.FieldMask) complex_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            complex_ = value;
+          }
+          onChanged();
+        } else {
+          if (complexCase_ == 24) {
+            otherMaskBuilder_.mergeFrom(value);
+          }
+          otherMaskBuilder_.setMessage(value);
+        }
+        complexCase_ = 24;
+        return this;
+      }
+      /**
+       * <pre>
+       * for oneof test purposes only
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+       */
+      public Builder clearOtherMask() {
+        if (otherMaskBuilder_ == null) {
+          if (complexCase_ == 24) {
+            complexCase_ = 0;
+            complex_ = null;
+            onChanged();
+          }
+        } else {
+          if (complexCase_ == 24) {
+            complexCase_ = 0;
+            complex_ = null;
+          }
+          otherMaskBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * for oneof test purposes only
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+       */
+      public google.protobuf.FieldMaskOuterClass.FieldMask.Builder getOtherMaskBuilder() {
+        return getOtherMaskFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * for oneof test purposes only
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+       */
+      @java.lang.Override
+      public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getOtherMaskOrBuilder() {
+        if ((complexCase_ == 24) && (otherMaskBuilder_ != null)) {
+          return otherMaskBuilder_.getMessageOrBuilder();
+        } else {
+          if (complexCase_ == 24) {
+            return (google.protobuf.FieldMaskOuterClass.FieldMask) complex_;
+          }
+          return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * for oneof test purposes only
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask other_mask = 24;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> 
+          getOtherMaskFieldBuilder() {
+        if (otherMaskBuilder_ == null) {
+          if (!(complexCase_ == 24)) {
+            complex_ = google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
+          }
+          otherMaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder>(
+                  (google.protobuf.FieldMaskOuterClass.FieldMask) complex_,
+                  getParentForChildren(),
+                  isClean());
+          complex_ = null;
+        }
+        complexCase_ = 24;
+        onChanged();;
+        return otherMaskBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
           google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> updateMaskBuilder_;
       /**
        * <pre>
@@ -15322,7 +15611,7 @@ public final class ExperimentOuterClass {
        */
       @java.lang.Override
       public boolean hasUpdateMask() {
-        return uselessCase_ == 23;
+        return complexCase_ == 23;
       }
       /**
        * <pre>
@@ -15335,12 +15624,12 @@ public final class ExperimentOuterClass {
       @java.lang.Override
       public google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask() {
         if (updateMaskBuilder_ == null) {
-          if (uselessCase_ == 23) {
-            return (google.protobuf.FieldMaskOuterClass.FieldMask) useless_;
+          if (complexCase_ == 23) {
+            return (google.protobuf.FieldMaskOuterClass.FieldMask) complex_;
           }
           return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
         } else {
-          if (uselessCase_ == 23) {
+          if (complexCase_ == 23) {
             return updateMaskBuilder_.getMessage();
           }
           return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
@@ -15358,12 +15647,12 @@ public final class ExperimentOuterClass {
           if (value == null) {
             throw new NullPointerException();
           }
-          useless_ = value;
+          complex_ = value;
           onChanged();
         } else {
           updateMaskBuilder_.setMessage(value);
         }
-        uselessCase_ = 23;
+        complexCase_ = 23;
         return this;
       }
       /**
@@ -15376,12 +15665,12 @@ public final class ExperimentOuterClass {
       public Builder setUpdateMask(
           google.protobuf.FieldMaskOuterClass.FieldMask.Builder builderForValue) {
         if (updateMaskBuilder_ == null) {
-          useless_ = builderForValue.build();
+          complex_ = builderForValue.build();
           onChanged();
         } else {
           updateMaskBuilder_.setMessage(builderForValue.build());
         }
-        uselessCase_ = 23;
+        complexCase_ = 23;
         return this;
       }
       /**
@@ -15393,21 +15682,21 @@ public final class ExperimentOuterClass {
        */
       public Builder mergeUpdateMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
         if (updateMaskBuilder_ == null) {
-          if (uselessCase_ == 23 &&
-              useless_ != google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance()) {
-            useless_ = google.protobuf.FieldMaskOuterClass.FieldMask.newBuilder((google.protobuf.FieldMaskOuterClass.FieldMask) useless_)
+          if (complexCase_ == 23 &&
+              complex_ != google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance()) {
+            complex_ = google.protobuf.FieldMaskOuterClass.FieldMask.newBuilder((google.protobuf.FieldMaskOuterClass.FieldMask) complex_)
                 .mergeFrom(value).buildPartial();
           } else {
-            useless_ = value;
+            complex_ = value;
           }
           onChanged();
         } else {
-          if (uselessCase_ == 23) {
+          if (complexCase_ == 23) {
             updateMaskBuilder_.mergeFrom(value);
           }
           updateMaskBuilder_.setMessage(value);
         }
-        uselessCase_ = 23;
+        complexCase_ = 23;
         return this;
       }
       /**
@@ -15419,15 +15708,15 @@ public final class ExperimentOuterClass {
        */
       public Builder clearUpdateMask() {
         if (updateMaskBuilder_ == null) {
-          if (uselessCase_ == 23) {
-            uselessCase_ = 0;
-            useless_ = null;
+          if (complexCase_ == 23) {
+            complexCase_ = 0;
+            complex_ = null;
             onChanged();
           }
         } else {
-          if (uselessCase_ == 23) {
-            uselessCase_ = 0;
-            useless_ = null;
+          if (complexCase_ == 23) {
+            complexCase_ = 0;
+            complex_ = null;
           }
           updateMaskBuilder_.clear();
         }
@@ -15452,11 +15741,11 @@ public final class ExperimentOuterClass {
        */
       @java.lang.Override
       public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-        if ((uselessCase_ == 23) && (updateMaskBuilder_ != null)) {
+        if ((complexCase_ == 23) && (updateMaskBuilder_ != null)) {
           return updateMaskBuilder_.getMessageOrBuilder();
         } else {
-          if (uselessCase_ == 23) {
-            return (google.protobuf.FieldMaskOuterClass.FieldMask) useless_;
+          if (complexCase_ == 23) {
+            return (google.protobuf.FieldMaskOuterClass.FieldMask) complex_;
           }
           return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
         }
@@ -15472,17 +15761,17 @@ public final class ExperimentOuterClass {
           google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> 
           getUpdateMaskFieldBuilder() {
         if (updateMaskBuilder_ == null) {
-          if (!(uselessCase_ == 23)) {
-            useless_ = google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
+          if (!(complexCase_ == 23)) {
+            complex_ = google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
           }
           updateMaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder>(
-                  (google.protobuf.FieldMaskOuterClass.FieldMask) useless_,
+                  (google.protobuf.FieldMaskOuterClass.FieldMask) complex_,
                   getParentForChildren(),
                   isClean());
-          useless_ = null;
+          complex_ = null;
         }
-        uselessCase_ = 23;
+        complexCase_ = 23;
         onChanged();;
         return updateMaskBuilder_;
       }
@@ -15629,14 +15918,15 @@ public final class ExperimentOuterClass {
       " \001(\0132\025.experiment.Recursive\"{\n\024Experimen" +
       "tCollection\022.\n\010entities\030\004 \003(\0132\034.experime" +
       "nt.ExperimentEntity\022\031\n\005links\030\003 \003(\0132\n.fur" +
-      "o.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Meta\"\360\001\n\005One" +
+      "o.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Meta\"\242\002\n\005One" +
       "of\022\034\n\024furo_data_file_input\030\026 \003(\t\022\n\n\002id\030\001" +
       " \001(\t\022\026\n\014display_name\030\002 \001(\tH\000\022\"\n\030furo_dat" +
       "a_checkbox_input\030\004 \001(\010H\000\022\025\n\013description\030" +
       "\003 \001(\tH\001\022\036\n\024furo_data_text_input\030\005 \001(\tH\001\022" +
-      "1\n\013update_mask\030\027 \001(\0132\032.google.protobuf.F" +
-      "ieldMaskH\002B\005\n\003aaaB\005\n\003bbbB\t\n\007uselessb\006pro" +
-      "to3"
+      "0\n\nother_mask\030\030 \001(\0132\032.google.protobuf.Fi" +
+      "eldMaskH\002\0221\n\013update_mask\030\027 \001(\0132\032.google." +
+      "protobuf.FieldMaskH\002B\005\n\003aaaB\005\n\003bbbB\t\n\007co" +
+      "mplexb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15697,7 +15987,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Oneof_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Oneof_descriptor,
-        new java.lang.String[] { "FuroDataFileInput", "Id", "DisplayName", "FuroDataCheckboxInput", "Description", "FuroDataTextInput", "UpdateMask", "Aaa", "Bbb", "Useless", });
+        new java.lang.String[] { "FuroDataFileInput", "Id", "DisplayName", "FuroDataCheckboxInput", "Description", "FuroDataTextInput", "OtherMask", "UpdateMask", "Aaa", "Bbb", "Complex", });
     furo.MetaOuterClass.getDescriptor();
     furo.LinkOuterClass.getDescriptor();
     google.protobuf.AnyOuterClass.getDescriptor();
