@@ -55,4 +55,20 @@ describe('furo data oneof', () => {
 
     done();
   });
+  it('should handle complex types for oneof', (done) => {
+    element.setAttribute('type', 'experiment.Oneof');
+    const EntityRoot = element.data;
+    assert.equal(EntityRoot.update_mask._value.paths.length, 0);
+    EntityRoot.other_mask._value = {paths:[2]};
+    assert.equal(EntityRoot.other_mask._value.paths.length, 1);
+    assert.equal(element.json.other_mask.paths.length, 1);
+    assert.equal(element.json.update_mask, null);
+
+    assert.equal(EntityRoot.update_mask._value, null);
+
+    const jsonval = EntityRoot.getJson();
+
+    assert.equal(JSON.stringify(jsonval.update_mask), 'null');
+    done();
+  });
 });
