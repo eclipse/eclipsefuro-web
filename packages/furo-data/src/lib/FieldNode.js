@@ -309,8 +309,13 @@ export class FieldNode extends EventTreeNode {
             sibling._pristine = false;
             // eslint-disable-next-line no-param-reassign
             sibling.__oneofrecusion = false;
+
+            // send an event to notify that this field was cleared
+            // eslint-disable-next-line no-param-reassign
+            sibling.dispatchNodeEvent(new NodeEvent('oneof-field-cleared', sibling, false));
           }
         });
+        this.dispatchNodeEvent(new NodeEvent('oneof-field-changed', this, false));
       }
     }
 
