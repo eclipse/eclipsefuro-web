@@ -127,7 +127,8 @@
       "meta": {},
       "constraints": {},
       "__proto": {
-        "number": 23
+        "number": 23,
+        "oneof": "useless"
       }
     }
 

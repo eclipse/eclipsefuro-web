@@ -176,9 +176,6 @@ message Oneof {
   // Identity of a experiment
   string id = 1;
   
-  // Contains a field_mask which fields of the targeted resource are going to be updated
-  google.protobuf.FieldMask update_mask = 23;
-
   oneof aaa {
     // Localized String representation of a experiment
     string display_name = 2;
@@ -190,5 +187,9 @@ message Oneof {
     string description = 3;
     // field for furo_data_text_input for testing
     string furo_data_text_input = 5;
+  }
+  oneof useless {
+    // Contains a field_mask which fields of the targeted resource are going to be updated
+    google.protobuf.FieldMask update_mask = 23;
   }
 }

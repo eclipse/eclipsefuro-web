@@ -34,27 +34,25 @@ describe('furo data oneof', () => {
     element.setAttribute('type', 'experiment.Oneof');
     const EntityRoot = element.data;
 
-      assert.equal(EntityRoot.display_name._spec.__proto.oneof, "aaa", 'in aaa group');
-      assert.equal(EntityRoot.furo_data_checkbox_input._spec.__proto.oneof, "aaa", 'in aaa group');
-      assert.equal(EntityRoot.description._spec.__proto.oneof, "bbb", 'in bbb group');
-      assert.equal(EntityRoot.furo_data_text_input._spec.__proto.oneof, "bbb", 'in bbb group');
-      done();
+    assert.equal(EntityRoot.display_name._spec.__proto.oneof, 'aaa', 'in aaa group');
+    assert.equal(EntityRoot.furo_data_checkbox_input._spec.__proto.oneof, 'aaa', 'in aaa group');
+    assert.equal(EntityRoot.description._spec.__proto.oneof, 'bbb', 'in bbb group');
+    assert.equal(EntityRoot.furo_data_text_input._spec.__proto.oneof, 'bbb', 'in bbb group');
+    done();
   });
 
-  it('should clear the siblings when setting one of the oneof fields in a group', (done) => {
+  it('should clear the siblings when setting one of the oneof fields in a group', done => {
     element.setAttribute('type', 'experiment.Oneof');
     const EntityRoot = element.data;
     assert.equal(EntityRoot.display_name._value, null);
     assert.equal(EntityRoot.furo_data_checkbox_input._value, null);
 
     EntityRoot.furo_data_checkbox_input._value = true;
-    EntityRoot.display_name._value = "Some Text";
+    EntityRoot.display_name._value = 'Some Text';
     EntityRoot.furo_data_checkbox_input._value = false;
     assert.equal(EntityRoot.display_name._value, null);
     assert.equal(EntityRoot.furo_data_checkbox_input._value, false);
 
     done();
   });
-
-
 });

@@ -286,24 +286,22 @@ export class FieldNode extends EventTreeNode {
       }
     });
 
-
-    if(this && this._spec && this._spec.__proto && this._spec.__proto.oneof){
-    // clear oneof siblings
-    const oneofGorup = this._spec.__proto.oneof;
-    // avoid recursion with __oneofrecusion
-    if ( oneofGorup !== "" && !this.__oneofrecusion) {
-
-      this.__parentNode.__childNodes.forEach(sibling => {
-        if(sibling !== this && sibling._spec.__proto.oneof === oneofGorup){
+    if (this && this._spec && this._spec.__proto && this._spec.__proto.oneof) {
+      // clear oneof siblings
+      const oneofGorup = this._spec.__proto.oneof;
+      // avoid recursion with __oneofrecusion
+      if (oneofGorup !== '' && !this.__oneofrecusion) {
+        this.__parentNode.__childNodes.forEach(sibling => {
+          if (sibling !== this && sibling._spec.__proto.oneof === oneofGorup) {
             // eslint-disable-next-line no-param-reassign
             sibling.__oneofrecusion = true;
             // eslint-disable-next-line no-param-reassign
             sibling._value = undefined;
             // eslint-disable-next-line no-param-reassign
             sibling.__oneofrecusion = false;
-        }
-      });
-    }
+          }
+        });
+      }
     }
 
     this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));

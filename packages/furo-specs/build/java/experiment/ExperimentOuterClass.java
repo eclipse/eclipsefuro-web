@@ -13460,33 +13460,6 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
-     * Contains a field_mask which fields of the targeted resource are going to be updated
-     * </pre>
-     *
-     * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-     * @return Whether the updateMask field is set.
-     */
-    boolean hasUpdateMask();
-    /**
-     * <pre>
-     * Contains a field_mask which fields of the targeted resource are going to be updated
-     * </pre>
-     *
-     * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-     * @return The updateMask.
-     */
-    google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask();
-    /**
-     * <pre>
-     * Contains a field_mask which fields of the targeted resource are going to be updated
-     * </pre>
-     *
-     * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-     */
-    google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder();
-
-    /**
-     * <pre>
      * Localized String representation of a experiment
      * </pre>
      *
@@ -13555,9 +13528,38 @@ public final class ExperimentOuterClass {
     com.google.protobuf.ByteString
         getFuroDataTextInputBytes();
 
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+     * @return Whether the updateMask field is set.
+     */
+    boolean hasUpdateMask();
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+     * @return The updateMask.
+     */
+    google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask();
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+     */
+    google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder();
+
     public experiment.ExperimentOuterClass.Oneof.AaaCase getAaaCase();
 
     public experiment.ExperimentOuterClass.Oneof.BbbCase getBbbCase();
+
+    public experiment.ExperimentOuterClass.Oneof.UselessCase getUselessCase();
   }
   /**
    * <pre>
@@ -13651,15 +13653,16 @@ public final class ExperimentOuterClass {
             }
             case 186: {
               google.protobuf.FieldMaskOuterClass.FieldMask.Builder subBuilder = null;
-              if (updateMask_ != null) {
-                subBuilder = updateMask_.toBuilder();
+              if (uselessCase_ == 23) {
+                subBuilder = ((google.protobuf.FieldMaskOuterClass.FieldMask) useless_).toBuilder();
               }
-              updateMask_ = input.readMessage(google.protobuf.FieldMaskOuterClass.FieldMask.parser(), extensionRegistry);
+              useless_ =
+                  input.readMessage(google.protobuf.FieldMaskOuterClass.FieldMask.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(updateMask_);
-                updateMask_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((google.protobuf.FieldMaskOuterClass.FieldMask) useless_);
+                useless_ = subBuilder.buildPartial();
               }
-
+              uselessCase_ = 23;
               break;
             }
             default: {
@@ -13779,6 +13782,45 @@ public final class ExperimentOuterClass {
           bbbCase_);
     }
 
+    private int uselessCase_ = 0;
+    private java.lang.Object useless_;
+    public enum UselessCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      UPDATE_MASK(23),
+      USELESS_NOT_SET(0);
+      private final int value;
+      private UselessCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static UselessCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static UselessCase forNumber(int value) {
+        switch (value) {
+          case 23: return UPDATE_MASK;
+          case 0: return USELESS_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public UselessCase
+    getUselessCase() {
+      return UselessCase.forNumber(
+          uselessCase_);
+    }
+
     public static final int FURO_DATA_FILE_INPUT_FIELD_NUMBER = 22;
     private com.google.protobuf.LazyStringList furoDataFileInput_;
     /**
@@ -13874,44 +13916,6 @@ public final class ExperimentOuterClass {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
-    }
-
-    public static final int UPDATE_MASK_FIELD_NUMBER = 23;
-    private google.protobuf.FieldMaskOuterClass.FieldMask updateMask_;
-    /**
-     * <pre>
-     * Contains a field_mask which fields of the targeted resource are going to be updated
-     * </pre>
-     *
-     * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-     * @return Whether the updateMask field is set.
-     */
-    @java.lang.Override
-    public boolean hasUpdateMask() {
-      return updateMask_ != null;
-    }
-    /**
-     * <pre>
-     * Contains a field_mask which fields of the targeted resource are going to be updated
-     * </pre>
-     *
-     * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-     * @return The updateMask.
-     */
-    @java.lang.Override
-    public google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask() {
-      return updateMask_ == null ? google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
-    }
-    /**
-     * <pre>
-     * Contains a field_mask which fields of the targeted resource are going to be updated
-     * </pre>
-     *
-     * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-     */
-    @java.lang.Override
-    public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-      return getUpdateMask();
     }
 
     public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
@@ -14090,6 +14094,49 @@ public final class ExperimentOuterClass {
       }
     }
 
+    public static final int UPDATE_MASK_FIELD_NUMBER = 23;
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+     * @return Whether the updateMask field is set.
+     */
+    @java.lang.Override
+    public boolean hasUpdateMask() {
+      return uselessCase_ == 23;
+    }
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+     * @return The updateMask.
+     */
+    @java.lang.Override
+    public google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask() {
+      if (uselessCase_ == 23) {
+         return (google.protobuf.FieldMaskOuterClass.FieldMask) useless_;
+      }
+      return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
+    }
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+     */
+    @java.lang.Override
+    public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+      if (uselessCase_ == 23) {
+         return (google.protobuf.FieldMaskOuterClass.FieldMask) useless_;
+      }
+      return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -14123,8 +14170,8 @@ public final class ExperimentOuterClass {
       for (int i = 0; i < furoDataFileInput_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 22, furoDataFileInput_.getRaw(i));
       }
-      if (updateMask_ != null) {
-        output.writeMessage(23, getUpdateMask());
+      if (uselessCase_ == 23) {
+        output.writeMessage(23, (google.protobuf.FieldMaskOuterClass.FieldMask) useless_);
       }
       unknownFields.writeTo(output);
     }
@@ -14160,9 +14207,9 @@ public final class ExperimentOuterClass {
         size += dataSize;
         size += 2 * getFuroDataFileInputList().size();
       }
-      if (updateMask_ != null) {
+      if (uselessCase_ == 23) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(23, getUpdateMask());
+          .computeMessageSize(23, (google.protobuf.FieldMaskOuterClass.FieldMask) useless_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14183,11 +14230,6 @@ public final class ExperimentOuterClass {
           .equals(other.getFuroDataFileInputList())) return false;
       if (!getId()
           .equals(other.getId())) return false;
-      if (hasUpdateMask() != other.hasUpdateMask()) return false;
-      if (hasUpdateMask()) {
-        if (!getUpdateMask()
-            .equals(other.getUpdateMask())) return false;
-      }
       if (!getAaaCase().equals(other.getAaaCase())) return false;
       switch (aaaCase_) {
         case 2:
@@ -14214,6 +14256,15 @@ public final class ExperimentOuterClass {
         case 0:
         default:
       }
+      if (!getUselessCase().equals(other.getUselessCase())) return false;
+      switch (uselessCase_) {
+        case 23:
+          if (!getUpdateMask()
+              .equals(other.getUpdateMask())) return false;
+          break;
+        case 0:
+        default:
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -14231,10 +14282,6 @@ public final class ExperimentOuterClass {
       }
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
-      if (hasUpdateMask()) {
-        hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
-        hash = (53 * hash) + getUpdateMask().hashCode();
-      }
       switch (aaaCase_) {
         case 2:
           hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
@@ -14256,6 +14303,14 @@ public final class ExperimentOuterClass {
         case 5:
           hash = (37 * hash) + FURO_DATA_TEXT_INPUT_FIELD_NUMBER;
           hash = (53 * hash) + getFuroDataTextInput().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      switch (uselessCase_) {
+        case 23:
+          hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
+          hash = (53 * hash) + getUpdateMask().hashCode();
           break;
         case 0:
         default:
@@ -14401,16 +14456,12 @@ public final class ExperimentOuterClass {
         bitField0_ = (bitField0_ & ~0x00000001);
         id_ = "";
 
-        if (updateMaskBuilder_ == null) {
-          updateMask_ = null;
-        } else {
-          updateMask_ = null;
-          updateMaskBuilder_ = null;
-        }
         aaaCase_ = 0;
         aaa_ = null;
         bbbCase_ = 0;
         bbb_ = null;
+        uselessCase_ = 0;
+        useless_ = null;
         return this;
       }
 
@@ -14444,11 +14495,6 @@ public final class ExperimentOuterClass {
         }
         result.furoDataFileInput_ = furoDataFileInput_;
         result.id_ = id_;
-        if (updateMaskBuilder_ == null) {
-          result.updateMask_ = updateMask_;
-        } else {
-          result.updateMask_ = updateMaskBuilder_.build();
-        }
         if (aaaCase_ == 2) {
           result.aaa_ = aaa_;
         }
@@ -14461,8 +14507,16 @@ public final class ExperimentOuterClass {
         if (bbbCase_ == 5) {
           result.bbb_ = bbb_;
         }
+        if (uselessCase_ == 23) {
+          if (updateMaskBuilder_ == null) {
+            result.useless_ = useless_;
+          } else {
+            result.useless_ = updateMaskBuilder_.build();
+          }
+        }
         result.aaaCase_ = aaaCase_;
         result.bbbCase_ = bbbCase_;
+        result.uselessCase_ = uselessCase_;
         onBuilt();
         return result;
       }
@@ -14525,9 +14579,6 @@ public final class ExperimentOuterClass {
           id_ = other.id_;
           onChanged();
         }
-        if (other.hasUpdateMask()) {
-          mergeUpdateMask(other.getUpdateMask());
-        }
         switch (other.getAaaCase()) {
           case DISPLAY_NAME: {
             aaaCase_ = 2;
@@ -14557,6 +14608,15 @@ public final class ExperimentOuterClass {
             break;
           }
           case BBB_NOT_SET: {
+            break;
+          }
+        }
+        switch (other.getUselessCase()) {
+          case UPDATE_MASK: {
+            mergeUpdateMask(other.getUpdateMask());
+            break;
+          }
+          case USELESS_NOT_SET: {
             break;
           }
         }
@@ -14614,6 +14674,21 @@ public final class ExperimentOuterClass {
       public Builder clearBbb() {
         bbbCase_ = 0;
         bbb_ = null;
+        onChanged();
+        return this;
+      }
+
+      private int uselessCase_ = 0;
+      private java.lang.Object useless_;
+      public UselessCase
+          getUselessCase() {
+        return UselessCase.forNumber(
+            uselessCase_);
+      }
+
+      public Builder clearUseless() {
+        uselessCase_ = 0;
+        useless_ = null;
         onChanged();
         return this;
       }
@@ -14860,161 +14935,6 @@ public final class ExperimentOuterClass {
         id_ = value;
         onChanged();
         return this;
-      }
-
-      private google.protobuf.FieldMaskOuterClass.FieldMask updateMask_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> updateMaskBuilder_;
-      /**
-       * <pre>
-       * Contains a field_mask which fields of the targeted resource are going to be updated
-       * </pre>
-       *
-       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-       * @return Whether the updateMask field is set.
-       */
-      public boolean hasUpdateMask() {
-        return updateMaskBuilder_ != null || updateMask_ != null;
-      }
-      /**
-       * <pre>
-       * Contains a field_mask which fields of the targeted resource are going to be updated
-       * </pre>
-       *
-       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-       * @return The updateMask.
-       */
-      public google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask() {
-        if (updateMaskBuilder_ == null) {
-          return updateMask_ == null ? google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
-        } else {
-          return updateMaskBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * Contains a field_mask which fields of the targeted resource are going to be updated
-       * </pre>
-       *
-       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-       */
-      public Builder setUpdateMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
-        if (updateMaskBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          updateMask_ = value;
-          onChanged();
-        } else {
-          updateMaskBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * Contains a field_mask which fields of the targeted resource are going to be updated
-       * </pre>
-       *
-       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-       */
-      public Builder setUpdateMask(
-          google.protobuf.FieldMaskOuterClass.FieldMask.Builder builderForValue) {
-        if (updateMaskBuilder_ == null) {
-          updateMask_ = builderForValue.build();
-          onChanged();
-        } else {
-          updateMaskBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * Contains a field_mask which fields of the targeted resource are going to be updated
-       * </pre>
-       *
-       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-       */
-      public Builder mergeUpdateMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
-        if (updateMaskBuilder_ == null) {
-          if (updateMask_ != null) {
-            updateMask_ =
-              google.protobuf.FieldMaskOuterClass.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
-          } else {
-            updateMask_ = value;
-          }
-          onChanged();
-        } else {
-          updateMaskBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * Contains a field_mask which fields of the targeted resource are going to be updated
-       * </pre>
-       *
-       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-       */
-      public Builder clearUpdateMask() {
-        if (updateMaskBuilder_ == null) {
-          updateMask_ = null;
-          onChanged();
-        } else {
-          updateMask_ = null;
-          updateMaskBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * Contains a field_mask which fields of the targeted resource are going to be updated
-       * </pre>
-       *
-       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-       */
-      public google.protobuf.FieldMaskOuterClass.FieldMask.Builder getUpdateMaskBuilder() {
-        
-        onChanged();
-        return getUpdateMaskFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * Contains a field_mask which fields of the targeted resource are going to be updated
-       * </pre>
-       *
-       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-       */
-      public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-        if (updateMaskBuilder_ != null) {
-          return updateMaskBuilder_.getMessageOrBuilder();
-        } else {
-          return updateMask_ == null ?
-              google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
-        }
-      }
-      /**
-       * <pre>
-       * Contains a field_mask which fields of the targeted resource are going to be updated
-       * </pre>
-       *
-       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> 
-          getUpdateMaskFieldBuilder() {
-        if (updateMaskBuilder_ == null) {
-          updateMaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder>(
-                  getUpdateMask(),
-                  getParentForChildren(),
-                  isClean());
-          updateMask_ = null;
-        }
-        return updateMaskBuilder_;
       }
 
       /**
@@ -15389,6 +15309,183 @@ public final class ExperimentOuterClass {
         onChanged();
         return this;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> updateMaskBuilder_;
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+       * @return Whether the updateMask field is set.
+       */
+      @java.lang.Override
+      public boolean hasUpdateMask() {
+        return uselessCase_ == 23;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+       * @return The updateMask.
+       */
+      @java.lang.Override
+      public google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask() {
+        if (updateMaskBuilder_ == null) {
+          if (uselessCase_ == 23) {
+            return (google.protobuf.FieldMaskOuterClass.FieldMask) useless_;
+          }
+          return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
+        } else {
+          if (uselessCase_ == 23) {
+            return updateMaskBuilder_.getMessage();
+          }
+          return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+       */
+      public Builder setUpdateMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
+        if (updateMaskBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          useless_ = value;
+          onChanged();
+        } else {
+          updateMaskBuilder_.setMessage(value);
+        }
+        uselessCase_ = 23;
+        return this;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+       */
+      public Builder setUpdateMask(
+          google.protobuf.FieldMaskOuterClass.FieldMask.Builder builderForValue) {
+        if (updateMaskBuilder_ == null) {
+          useless_ = builderForValue.build();
+          onChanged();
+        } else {
+          updateMaskBuilder_.setMessage(builderForValue.build());
+        }
+        uselessCase_ = 23;
+        return this;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+       */
+      public Builder mergeUpdateMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
+        if (updateMaskBuilder_ == null) {
+          if (uselessCase_ == 23 &&
+              useless_ != google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance()) {
+            useless_ = google.protobuf.FieldMaskOuterClass.FieldMask.newBuilder((google.protobuf.FieldMaskOuterClass.FieldMask) useless_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            useless_ = value;
+          }
+          onChanged();
+        } else {
+          if (uselessCase_ == 23) {
+            updateMaskBuilder_.mergeFrom(value);
+          }
+          updateMaskBuilder_.setMessage(value);
+        }
+        uselessCase_ = 23;
+        return this;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+       */
+      public Builder clearUpdateMask() {
+        if (updateMaskBuilder_ == null) {
+          if (uselessCase_ == 23) {
+            uselessCase_ = 0;
+            useless_ = null;
+            onChanged();
+          }
+        } else {
+          if (uselessCase_ == 23) {
+            uselessCase_ = 0;
+            useless_ = null;
+          }
+          updateMaskBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+       */
+      public google.protobuf.FieldMaskOuterClass.FieldMask.Builder getUpdateMaskBuilder() {
+        return getUpdateMaskFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+       */
+      @java.lang.Override
+      public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+        if ((uselessCase_ == 23) && (updateMaskBuilder_ != null)) {
+          return updateMaskBuilder_.getMessageOrBuilder();
+        } else {
+          if (uselessCase_ == 23) {
+            return (google.protobuf.FieldMaskOuterClass.FieldMask) useless_;
+          }
+          return google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 23;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> 
+          getUpdateMaskFieldBuilder() {
+        if (updateMaskBuilder_ == null) {
+          if (!(uselessCase_ == 23)) {
+            useless_ = google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance();
+          }
+          updateMaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder>(
+                  (google.protobuf.FieldMaskOuterClass.FieldMask) useless_,
+                  getParentForChildren(),
+                  isClean());
+          useless_ = null;
+        }
+        uselessCase_ = 23;
+        onChanged();;
+        return updateMaskBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -15532,13 +15629,14 @@ public final class ExperimentOuterClass {
       " \001(\0132\025.experiment.Recursive\"{\n\024Experimen" +
       "tCollection\022.\n\010entities\030\004 \003(\0132\034.experime" +
       "nt.ExperimentEntity\022\031\n\005links\030\003 \003(\0132\n.fur" +
-      "o.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Meta\"\343\001\n\005One" +
+      "o.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Meta\"\360\001\n\005One" +
       "of\022\034\n\024furo_data_file_input\030\026 \003(\t\022\n\n\002id\030\001" +
-      " \001(\t\022/\n\013update_mask\030\027 \001(\0132\032.google.proto" +
-      "buf.FieldMask\022\026\n\014display_name\030\002 \001(\tH\000\022\"\n" +
-      "\030furo_data_checkbox_input\030\004 \001(\010H\000\022\025\n\013des" +
-      "cription\030\003 \001(\tH\001\022\036\n\024furo_data_text_input" +
-      "\030\005 \001(\tH\001B\005\n\003aaaB\005\n\003bbbb\006proto3"
+      " \001(\t\022\026\n\014display_name\030\002 \001(\tH\000\022\"\n\030furo_dat" +
+      "a_checkbox_input\030\004 \001(\010H\000\022\025\n\013description\030" +
+      "\003 \001(\tH\001\022\036\n\024furo_data_text_input\030\005 \001(\tH\001\022" +
+      "1\n\013update_mask\030\027 \001(\0132\032.google.protobuf.F" +
+      "ieldMaskH\002B\005\n\003aaaB\005\n\003bbbB\t\n\007uselessb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15599,7 +15697,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Oneof_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Oneof_descriptor,
-        new java.lang.String[] { "FuroDataFileInput", "Id", "UpdateMask", "DisplayName", "FuroDataCheckboxInput", "Description", "FuroDataTextInput", "Aaa", "Bbb", });
+        new java.lang.String[] { "FuroDataFileInput", "Id", "DisplayName", "FuroDataCheckboxInput", "Description", "FuroDataTextInput", "UpdateMask", "Aaa", "Bbb", "Useless", });
     furo.MetaOuterClass.getDescriptor();
     furo.LinkOuterClass.getDescriptor();
     google.protobuf.AnyOuterClass.getDescriptor();
