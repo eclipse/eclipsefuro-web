@@ -7,6 +7,29 @@ import { ValidatorDefaultTypes } from './ValidatorDefaultTypes.js';
 import { ValidatorGoogleTypeDate } from './ValidatorGoogleTypeDate.js';
 import { ValidatorGoogleTypeMoney } from './ValidatorGoogleTypeMoney.js';
 
+/**
+ *
+ * ## internal events
+ * - *this-field-became-invalid*, when a field gets invalid
+ * - *field-became-invalid* **bubbles**, when a field gets invalid
+ * - *this-field-became-valid*, when a field gets valid
+ * - *field-became-valid* **bubbles**, when a field gets valid
+ * - *this-field-value-changed*, when the value of a field changed
+ * - *field-value-changed* **bubbles**, when the value of a field changed
+ * - *this-metas-changed*, when the metas of a field changed
+ * - *metas-changed* **bubbles**, when the meta of a field changed
+ * - *oneof-field-cleared*, when a field in a oneof group was cleared
+ * - *oneof-field-changed*, when a field in a oneof group was changed
+ * - *this-node-field-added*, when a sub field was added to a field
+ * - *node-field-added* **bubbles**, when a sub field was added to a field
+ * - *this-node-field-deleted*, when a sub field was added to a field
+ * - *node-field-deleted* **bubbles**, when a sub field was added to a field
+
+ *
+ * ## internal broadcasted events
+ * - *parent-readonly-meta-set*, when readonly was set on a parent field
+ *
+ */
 export class FieldNode extends EventTreeNode {
   constructor(parentNode, fieldSpec, fieldName) {
     super(parentNode);
