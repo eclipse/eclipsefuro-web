@@ -68,7 +68,8 @@ describe('furo data oneof', () => {
 
     const jsonval = EntityRoot.getJson();
 
-    assert.equal(JSON.stringify(jsonval.update_mask), 'null');
+    // eslint-disable-next-line no-prototype-builtins
+    assert.equal(JSON.parse(JSON.stringify(jsonval)).hasOwnProperty("update_mask"), false);
     done();
   });
 });

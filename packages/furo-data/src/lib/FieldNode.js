@@ -298,9 +298,9 @@ export class FieldNode extends EventTreeNode {
             // eslint-disable-next-line no-param-reassign
             sibling._oldvalue = this._value;
             // eslint-disable-next-line no-param-reassign
-            sibling.__value = null;
+            sibling.__value = undefined;
             // eslint-disable-next-line no-param-reassign
-            sibling._value = null;
+            sibling._value = undefined;
             if (sibling.__childNodes.length > 0) {
               // eslint-disable-next-line no-param-reassign
               sibling.__childNodes = [];
