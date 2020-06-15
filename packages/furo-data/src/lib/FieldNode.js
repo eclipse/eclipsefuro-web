@@ -296,7 +296,17 @@ export class FieldNode extends EventTreeNode {
             // eslint-disable-next-line no-param-reassign
             sibling.__oneofrecusion = true;
             // eslint-disable-next-line no-param-reassign
-            sibling._value = undefined;
+            sibling._oldvalue = this._value;
+            // eslint-disable-next-line no-param-reassign
+            sibling.__value = null;
+            // eslint-disable-next-line no-param-reassign
+            sibling._value = null;
+            if (sibling.__childNodes.length > 0) {
+              // eslint-disable-next-line no-param-reassign
+              sibling.__childNodes = [];
+            }
+            // eslint-disable-next-line no-param-reassign
+            sibling._pristine = false;
             // eslint-disable-next-line no-param-reassign
             sibling.__oneofrecusion = false;
           }
