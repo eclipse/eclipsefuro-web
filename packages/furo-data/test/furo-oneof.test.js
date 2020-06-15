@@ -90,4 +90,23 @@ describe('furo data oneof', () => {
     assert.equal(EntityRoot.other_mask._value, null);
     done();
   });
+
+  it('should notify the clearing of a oneof field', (done) => {
+    element.setAttribute('type', 'experiment.Oneof');
+    const EntityRoot = element.data;
+    EntityRoot.update_mask.addEventListener('oneof-field-cleared', () => {
+      done();
+    });
+    EntityRoot.other_mask._value = { paths: [2] };
+
+  });
+  it('should notify the change of a oneof field', (done) => {
+    element.setAttribute('type', 'experiment.Oneof');
+    const EntityRoot = element.data;
+    EntityRoot.other_mask.addEventListener('oneof-field-changed', () => {
+      done();
+    });
+    EntityRoot.other_mask._value = { paths: [2] };
+
+  });
 });
