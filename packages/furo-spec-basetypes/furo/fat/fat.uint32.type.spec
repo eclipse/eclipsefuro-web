@@ -1,7 +1,7 @@
 {
-  "name": "int32",
-  "type": "Int32",
-  "description": "Furo annotated type wrapper message for `int32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",
+  "name": "uint32",
+  "type": "Uint32",
+  "description": "Furo annotated type wrapper message for `uint32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",
   "__proto": {
     "package": "furo.fat",
     "targetfile": "fat.proto",
@@ -10,8 +10,8 @@
   },
   "fields": {
     "value": {
-      "type": "int32",
-      "description": "The JSON representation for `Int32Value` is JSON number",
+      "type": "uint32",
+      "description": "The JSON representation for `Uint32Value` is JSON number",
       "__proto": {
         "number": 1
       },
@@ -34,11 +34,11 @@
       },
       "constraints": {
         "min": {
-          "is": "−2147483648",
+          "is": "0",
           "message": "out of range"
         },
         "max": {
-          "is": "2147483647",
+          "is": "4294967295",
           "message": "out of range"
         }
       }
