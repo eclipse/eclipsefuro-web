@@ -10,7 +10,7 @@
   },
   "fields": {
     "labels": {
-      "type": "empty",
+      "type": "string",
       "description": "Labels / flags for the value, something like unspecified, empty, confidential, absent,... Can be used for AI, UI, Business Logic,...",
       "__proto": {
         "number": 2
