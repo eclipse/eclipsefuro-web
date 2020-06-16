@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/spec-basetypes@1.8.1...@furo/spec-basetypes@1.9.0) (2020-06-16)
+
+
+### Features
+
+* fat any, bool, bytes and empty added ([dccc4b0](https://github.com/theNorstroem/FuroBaseComponents/commit/dccc4b0e87de8969a3a22d4f43fedece23555ffb))
+* fat double added ([e554e22](https://github.com/theNorstroem/FuroBaseComponents/commit/e554e2234c9c39680b26aeb90191510dfaff2733))
+* fat float added ([9a59c0c](https://github.com/theNorstroem/FuroBaseComponents/commit/9a59c0c25da51f3bab6dc0718c7c5f1f16533d49))
+* fat int64 added ([1e5e7ab](https://github.com/theNorstroem/FuroBaseComponents/commit/1e5e7ab7f6f096e2ec16e7e0664426c195951459))
+* fat string added ([acd4d56](https://github.com/theNorstroem/FuroBaseComponents/commit/acd4d56268690811bcd9fbe23caf63695038e00e))
+* fat uint32 added ([ede82bf](https://github.com/theNorstroem/FuroBaseComponents/commit/ede82bffb2ff400e5beab8bfff859aea63ed516a))
+* fat uint64 added ([9937038](https://github.com/theNorstroem/FuroBaseComponents/commit/9937038302a3e70711519d4b9b22a47d60bff2e5))
+* initial furo annotated type int32 ([7296c5f](https://github.com/theNorstroem/FuroBaseComponents/commit/7296c5f97447ae56a0699f9e2825c8cdd079e948))
+
+
+
+
+
 ## [1.8.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/spec-basetypes@1.8.0...@furo/spec-basetypes@1.8.1) (2020-06-04)
 
 

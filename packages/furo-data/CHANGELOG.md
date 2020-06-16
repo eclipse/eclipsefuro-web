@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.14...@furo/data@1.4.0) (2020-06-16)
+
+
+### Features
+
+* complex objects ([14307ca](https://github.com/theNorstroem/FuroBaseComponents/commit/14307ca1151293374c4bc9d98103bab6e7ef6bcd))
+* data-object with oneof support ([f6cf2cb](https://github.com/theNorstroem/FuroBaseComponents/commit/f6cf2cb87b7dee77737f6a81a0a6b2c280a8c678))
+* do not send values from oneof group ([18463c2](https://github.com/theNorstroem/FuroBaseComponents/commit/18463c246ebc4af95d55f931b9255724b7f92776))
+* do not send values from oneof group ([391de4e](https://github.com/theNorstroem/FuroBaseComponents/commit/391de4e3b43323470fe96fe50fa3ba621cc2e094))
+
+
+
+
+
 ## [1.3.14](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.13...@furo/data@1.3.14) (2020-06-08)
 
 
