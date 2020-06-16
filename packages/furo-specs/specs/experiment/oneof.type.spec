@@ -8,7 +8,7 @@
       "google/protobuf/any.proto",
       "google/type/date.proto",
       "google/type/money.proto",
-      "google/protobuf/types/known/field_mask.proto",
+      "google/protobuf/field_mask.proto",
       "furo/property.proto"
     ],
     "targetfile": "experiment.proto"
@@ -127,7 +127,18 @@
       "meta": {},
       "constraints": {},
       "__proto": {
-        "number": 23
+        "number": 23,
+        "oneof": "complex"
+      }
+    },
+    "other_mask": {
+      "description": "for oneof test purposes only",
+      "type": "google.protobuf.FieldMask",
+      "meta": {},
+      "constraints": {},
+      "__proto": {
+        "number": 24,
+        "oneof": "complex"
       }
     }
 

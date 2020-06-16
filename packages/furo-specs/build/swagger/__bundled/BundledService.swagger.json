@@ -4,10 +4,6 @@
     "title": "__bundled/BundledService.proto",
     "version": "version not set"
   },
-  "schemes": [
-    "http",
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
@@ -18,12 +14,18 @@
     "/api/auth": {
       "delete": {
         "summary": "Logout ala delete a auth session",
-        "operationId": "Logout",
+        "operationId": "BundledService_Logout",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -35,12 +37,18 @@
     "/api/auths": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a AuthCollection of AuthEntity that match the input parameters.",
-        "operationId": "ListAuths",
+        "operationId": "BundledService_ListAuths",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/authAuthCollection"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -59,12 +67,18 @@
       },
       "post": {
         "summary": "Creates a new Auth",
-        "operationId": "CreateAuth",
+        "operationId": "BundledService_CreateAuth",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/authAuthEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -86,12 +100,18 @@
     "/api/auths/{uid}": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a AuthEntity which contains a Auth",
-        "operationId": "GetAuth",
+        "operationId": "BundledService_GetAuth",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/authAuthEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -109,12 +129,18 @@
       },
       "patch": {
         "summary": "Updates a Auth, partial updates are supported",
-        "operationId": "UpdateAuth",
+        "operationId": "BundledService_UpdateAuth",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/authAuthEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -142,12 +168,18 @@
     "/api/members": {
       "get": {
         "summary": "Get a collection with PersonEntities",
-        "operationId": "ListMembers",
+        "operationId": "BundledService_ListMembers",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/personPersonCollection"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -168,12 +200,18 @@
     "/api/projects/{prj}/members/{prs}:unsubscribe": {
       "post": {
         "summary": "Custom method to unsubscribe a member, complete PersonEntity is expected",
-        "operationId": "UnsubscribeProjectMembersService",
+        "operationId": "BundledService_UnsubscribeProjectMembersService",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/personPersonCollection"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -207,12 +245,18 @@
     "/mockdata/experiments": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",
-        "operationId": "ListExperiments",
+        "operationId": "BundledService_ListExperiments",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/experimentExperimentCollection"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -231,12 +275,18 @@
       },
       "post": {
         "summary": "Creates a new Experiment",
-        "operationId": "CreateExperiment",
+        "operationId": "BundledService_CreateExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/experimentExperimentEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -258,12 +308,18 @@
     "/mockdata/experiments/1:release": {
       "post": {
         "summary": "Releases experiment",
-        "operationId": "ReleaseExperiment",
+        "operationId": "BundledService_ReleaseExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -285,12 +341,18 @@
     "/mockdata/experiments/{exp}": {
       "delete": {
         "summary": "Delete a Experiment",
-        "operationId": "DeleteExperiment",
+        "operationId": "BundledService_DeleteExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -308,12 +370,18 @@
       },
       "patch": {
         "summary": "Updates a Experiment, partial updates are supported",
-        "operationId": "UpdateExperiment",
+        "operationId": "BundledService_UpdateExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/experimentExperimentEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -341,12 +409,18 @@
     "/mockdata/experiments/{exp}/get.json": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",
-        "operationId": "GetExperiment",
+        "operationId": "BundledService_GetExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/experimentExperimentEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -366,12 +440,18 @@
     "/mockdata/experiments:createtemplate": {
       "post": {
         "summary": "create an experiment template",
-        "operationId": "CreateTemplateExperiment",
+        "operationId": "BundledService_CreateTemplateExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/experimentExperiment"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -393,12 +473,18 @@
     "/mockdata/persons/create.json": {
       "get": {
         "summary": "Creates a new Person",
-        "operationId": "CreatePerson",
+        "operationId": "BundledService_CreatePerson",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/personPersonEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -446,7 +532,8 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "collectionFormat": "multi"
           },
           {
             "name": "data.update_mask.paths",
@@ -456,7 +543,8 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [
@@ -467,12 +555,18 @@
     "/mockdata/persons/list.json": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",
-        "operationId": "ListPersons",
+        "operationId": "BundledService_ListPersons",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/personPersonCollection"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -493,12 +587,18 @@
     "/mockdata/persons/{prs}/delete.json": {
       "get": {
         "summary": "Delete a Person",
-        "operationId": "DeletePerson",
+        "operationId": "BundledService_DeletePerson",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -518,12 +618,18 @@
     "/mockdata/persons/{prs}/get.json": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",
-        "operationId": "GetPerson",
+        "operationId": "BundledService_GetPerson",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/personPersonEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -543,12 +649,18 @@
     "/mockdata/persons/{prs}/update.json": {
       "patch": {
         "summary": "Updates a Person, partial updates are supported",
-        "operationId": "UpdatePerson",
+        "operationId": "BundledService_UpdatePerson",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/personPersonEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -576,12 +688,18 @@
     "/mockdata/projects/create.json": {
       "get": {
         "summary": "Creates a new Project",
-        "operationId": "CreateProject",
+        "operationId": "BundledService_CreateProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/projectProjectEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -707,7 +825,8 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [
@@ -718,12 +837,18 @@
     "/mockdata/projects/filter/get.json": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter",
-        "operationId": "GetProjectfilter",
+        "operationId": "BundledService_GetProjectfilter",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/projectfilterProjectfilterEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -735,12 +860,18 @@
     "/mockdata/projects/list.json": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",
-        "operationId": "ListProjects",
+        "operationId": "BundledService_ListProjects",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/projectProjectCollection"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -761,12 +892,18 @@
     "/mockdata/projects/{prj}/delete.json": {
       "get": {
         "summary": "Delete a Project",
-        "operationId": "DeleteProject",
+        "operationId": "BundledService_DeleteProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -786,12 +923,18 @@
     "/mockdata/projects/{prj}/get.json": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
-        "operationId": "GetProject",
+        "operationId": "BundledService_GetProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/projectProjectEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -811,12 +954,18 @@
     "/mockdata/projects/{prj}/update.json": {
       "get": {
         "summary": "Updates a Project, partial updates are supported",
-        "operationId": "UpdateProject",
+        "operationId": "BundledService_UpdateProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/projectProjectEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -948,7 +1097,8 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [
@@ -959,12 +1109,18 @@
     "/mockdata/tasks/create.json": {
       "get": {
         "summary": "Creates a new Task",
-        "operationId": "CreateTask",
+        "operationId": "BundledService_CreateTask",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskTaskEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -1056,12 +1212,18 @@
     "/mockdata/tasks/list.json": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",
-        "operationId": "ListTasks",
+        "operationId": "BundledService_ListTasks",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskTaskCollection"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -1117,12 +1279,18 @@
     "/mockdata/tasks/{tsk}/delete.json": {
       "get": {
         "summary": "Delete a Task",
-        "operationId": "DeleteTask",
+        "operationId": "BundledService_DeleteTask",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -1142,12 +1310,18 @@
     "/mockdata/tasks/{tsk}/get.json": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",
-        "operationId": "GetTask",
+        "operationId": "BundledService_GetTask",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskTaskEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -1167,12 +1341,18 @@
     "/mockdata/tasks/{tsk}/update.json": {
       "get": {
         "summary": "Updates a Task, partial updates are not supported",
-        "operationId": "UpdateTask",
+        "operationId": "BundledService_UpdateTask",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskTaskEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -1270,12 +1450,18 @@
     "/mockdata/trees": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",
-        "operationId": "ListTrees",
+        "operationId": "BundledService_ListTrees",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/treeTreeCollection"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -1294,12 +1480,18 @@
       },
       "post": {
         "summary": "Creates a new Tree",
-        "operationId": "CreateTree",
+        "operationId": "BundledService_CreateTree",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/treeTreeEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -1321,12 +1513,18 @@
     "/mockdata/trees/{tre}": {
       "delete": {
         "summary": "Delete a Tree",
-        "operationId": "DeleteTree",
+        "operationId": "BundledService_DeleteTree",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -1344,12 +1542,18 @@
       },
       "patch": {
         "summary": "Updates a Tree, partial updates are supported",
-        "operationId": "UpdateTree",
+        "operationId": "BundledService_UpdateTree",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/treeTreeEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -1377,12 +1581,18 @@
     "/mockdata/trees/{tre}/get.json": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",
-        "operationId": "GetTree",
+        "operationId": "BundledService_GetTree",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/treeTreeEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -1571,7 +1781,7 @@
           "title": "field for testing static options"
         },
         "update_mask": {
-          "$ref": "#/definitions/knownFieldMask",
+          "$ref": "#/definitions/typesknownFieldMask",
           "title": "Contains a field_mask which fields of the targeted resource are going to be updated"
         }
       },
@@ -1804,19 +2014,6 @@
       },
       "title": "reference"
     },
-    "knownFieldMask": {
-      "type": "object",
-      "properties": {
-        "paths": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable."
-        }
-      },
-      "title": "A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto"
-    },
     "personPerson": {
       "type": "object",
       "properties": {
@@ -1848,7 +2045,7 @@
           "title": "List of main skills of a person"
         },
         "update_mask": {
-          "$ref": "#/definitions/knownFieldMask",
+          "$ref": "#/definitions/typesknownFieldMask",
           "title": "Contains a field_mask which fields of the targeted resource are going to be updated"
         }
       },
@@ -1934,7 +2131,7 @@
           "title": "Start date of the project"
         },
         "update_mask": {
-          "$ref": "#/definitions/knownFieldMask",
+          "$ref": "#/definitions/typesknownFieldMask",
           "title": "Contains a field_mask which fields of the targeted resource are going to be updated"
         }
       },
@@ -2044,6 +2241,27 @@
         }
       },
       "title": "Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
     },
     "taskTask": {
       "type": "object",
@@ -2303,6 +2521,19 @@
         }
       },
       "title": "Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto"
+    },
+    "typesknownFieldMask": {
+      "type": "object",
+      "properties": {
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable."
+        }
+      },
+      "title": "A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto"
     }
   }
 }

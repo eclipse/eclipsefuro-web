@@ -4,26 +4,25 @@
 package taskmanager;
 
 /**
- * Protobuf type {@code taskmanager.UpdateExperimentServiceRequest}
+ * Protobuf type {@code taskmanager.CreateTemplateExperimentServiceRequest}
  */
-public final class UpdateExperimentServiceRequest extends
+public final class CreateTemplateExperimentServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:taskmanager.UpdateExperimentServiceRequest)
-    UpdateExperimentServiceRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:taskmanager.CreateTemplateExperimentServiceRequest)
+    CreateTemplateExperimentServiceRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use UpdateExperimentServiceRequest.newBuilder() to construct.
-  private UpdateExperimentServiceRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use CreateTemplateExperimentServiceRequest.newBuilder() to construct.
+  private CreateTemplateExperimentServiceRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private UpdateExperimentServiceRequest() {
-    exp_ = "";
+  private CreateTemplateExperimentServiceRequest() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new UpdateExperimentServiceRequest();
+    return new CreateTemplateExperimentServiceRequest();
   }
 
   @java.lang.Override
@@ -31,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateExperimentServiceRequest(
+  private CreateTemplateExperimentServiceRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -50,17 +49,11 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            exp_ = s;
-            break;
-          }
-          case 18: {
-            experiment.ExperimentOuterClass.Experiment.Builder subBuilder = null;
+            google.protobuf.EmptyOuterClass.Empty.Builder subBuilder = null;
             if (data_ != null) {
               subBuilder = data_.toBuilder();
             }
-            data_ = input.readMessage(experiment.ExperimentOuterClass.Experiment.parser(), extensionRegistry);
+            data_ = input.readMessage(google.protobuf.EmptyOuterClass.Empty.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(data_);
               data_ = subBuilder.buildPartial();
@@ -89,59 +82,21 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return taskmanager.AnyProto.internal_static_taskmanager_UpdateExperimentServiceRequest_descriptor;
+    return taskmanager.AnyProto.internal_static_taskmanager_CreateTemplateExperimentServiceRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return taskmanager.AnyProto.internal_static_taskmanager_UpdateExperimentServiceRequest_fieldAccessorTable
+    return taskmanager.AnyProto.internal_static_taskmanager_CreateTemplateExperimentServiceRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            taskmanager.UpdateExperimentServiceRequest.class, taskmanager.UpdateExperimentServiceRequest.Builder.class);
+            taskmanager.CreateTemplateExperimentServiceRequest.class, taskmanager.CreateTemplateExperimentServiceRequest.Builder.class);
   }
 
-  public static final int EXP_FIELD_NUMBER = 1;
-  private volatile java.lang.Object exp_;
+  public static final int DATA_FIELD_NUMBER = 1;
+  private google.protobuf.EmptyOuterClass.Empty data_;
   /**
-   * <code>string exp = 1;</code>
-   * @return The exp.
-   */
-  @java.lang.Override
-  public java.lang.String getExp() {
-    java.lang.Object ref = exp_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      exp_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string exp = 1;</code>
-   * @return The bytes for exp.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getExpBytes() {
-    java.lang.Object ref = exp_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      exp_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int DATA_FIELD_NUMBER = 2;
-  private experiment.ExperimentOuterClass.Experiment data_;
-  /**
-   * <code>.experiment.Experiment data = 2;</code>
+   * <code>.google.protobuf.Empty data = 1;</code>
    * @return Whether the data field is set.
    */
   @java.lang.Override
@@ -149,18 +104,18 @@ private static final long serialVersionUID = 0L;
     return data_ != null;
   }
   /**
-   * <code>.experiment.Experiment data = 2;</code>
+   * <code>.google.protobuf.Empty data = 1;</code>
    * @return The data.
    */
   @java.lang.Override
-  public experiment.ExperimentOuterClass.Experiment getData() {
-    return data_ == null ? experiment.ExperimentOuterClass.Experiment.getDefaultInstance() : data_;
+  public google.protobuf.EmptyOuterClass.Empty getData() {
+    return data_ == null ? google.protobuf.EmptyOuterClass.Empty.getDefaultInstance() : data_;
   }
   /**
-   * <code>.experiment.Experiment data = 2;</code>
+   * <code>.google.protobuf.Empty data = 1;</code>
    */
   @java.lang.Override
-  public experiment.ExperimentOuterClass.ExperimentOrBuilder getDataOrBuilder() {
+  public google.protobuf.EmptyOuterClass.EmptyOrBuilder getDataOrBuilder() {
     return getData();
   }
 
@@ -178,11 +133,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getExpBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, exp_);
-    }
     if (data_ != null) {
-      output.writeMessage(2, getData());
+      output.writeMessage(1, getData());
     }
     unknownFields.writeTo(output);
   }
@@ -193,12 +145,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getExpBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, exp_);
-    }
     if (data_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getData());
+        .computeMessageSize(1, getData());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -210,13 +159,11 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof taskmanager.UpdateExperimentServiceRequest)) {
+    if (!(obj instanceof taskmanager.CreateTemplateExperimentServiceRequest)) {
       return super.equals(obj);
     }
-    taskmanager.UpdateExperimentServiceRequest other = (taskmanager.UpdateExperimentServiceRequest) obj;
+    taskmanager.CreateTemplateExperimentServiceRequest other = (taskmanager.CreateTemplateExperimentServiceRequest) obj;
 
-    if (!getExp()
-        .equals(other.getExp())) return false;
     if (hasData() != other.hasData()) return false;
     if (hasData()) {
       if (!getData()
@@ -233,8 +180,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + EXP_FIELD_NUMBER;
-    hash = (53 * hash) + getExp().hashCode();
     if (hasData()) {
       hash = (37 * hash) + DATA_FIELD_NUMBER;
       hash = (53 * hash) + getData().hashCode();
@@ -244,69 +189,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static taskmanager.UpdateExperimentServiceRequest parseFrom(
+  public static taskmanager.CreateTemplateExperimentServiceRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static taskmanager.UpdateExperimentServiceRequest parseFrom(
+  public static taskmanager.CreateTemplateExperimentServiceRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static taskmanager.UpdateExperimentServiceRequest parseFrom(
+  public static taskmanager.CreateTemplateExperimentServiceRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static taskmanager.UpdateExperimentServiceRequest parseFrom(
+  public static taskmanager.CreateTemplateExperimentServiceRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static taskmanager.UpdateExperimentServiceRequest parseFrom(byte[] data)
+  public static taskmanager.CreateTemplateExperimentServiceRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static taskmanager.UpdateExperimentServiceRequest parseFrom(
+  public static taskmanager.CreateTemplateExperimentServiceRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static taskmanager.UpdateExperimentServiceRequest parseFrom(java.io.InputStream input)
+  public static taskmanager.CreateTemplateExperimentServiceRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static taskmanager.UpdateExperimentServiceRequest parseFrom(
+  public static taskmanager.CreateTemplateExperimentServiceRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static taskmanager.UpdateExperimentServiceRequest parseDelimitedFrom(java.io.InputStream input)
+  public static taskmanager.CreateTemplateExperimentServiceRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static taskmanager.UpdateExperimentServiceRequest parseDelimitedFrom(
+  public static taskmanager.CreateTemplateExperimentServiceRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static taskmanager.UpdateExperimentServiceRequest parseFrom(
+  public static taskmanager.CreateTemplateExperimentServiceRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static taskmanager.UpdateExperimentServiceRequest parseFrom(
+  public static taskmanager.CreateTemplateExperimentServiceRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -319,7 +264,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(taskmanager.UpdateExperimentServiceRequest prototype) {
+  public static Builder newBuilder(taskmanager.CreateTemplateExperimentServiceRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -335,26 +280,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code taskmanager.UpdateExperimentServiceRequest}
+   * Protobuf type {@code taskmanager.CreateTemplateExperimentServiceRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:taskmanager.UpdateExperimentServiceRequest)
-      taskmanager.UpdateExperimentServiceRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:taskmanager.CreateTemplateExperimentServiceRequest)
+      taskmanager.CreateTemplateExperimentServiceRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return taskmanager.AnyProto.internal_static_taskmanager_UpdateExperimentServiceRequest_descriptor;
+      return taskmanager.AnyProto.internal_static_taskmanager_CreateTemplateExperimentServiceRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return taskmanager.AnyProto.internal_static_taskmanager_UpdateExperimentServiceRequest_fieldAccessorTable
+      return taskmanager.AnyProto.internal_static_taskmanager_CreateTemplateExperimentServiceRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              taskmanager.UpdateExperimentServiceRequest.class, taskmanager.UpdateExperimentServiceRequest.Builder.class);
+              taskmanager.CreateTemplateExperimentServiceRequest.class, taskmanager.CreateTemplateExperimentServiceRequest.Builder.class);
     }
 
-    // Construct using taskmanager.UpdateExperimentServiceRequest.newBuilder()
+    // Construct using taskmanager.CreateTemplateExperimentServiceRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -372,8 +317,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      exp_ = "";
-
       if (dataBuilder_ == null) {
         data_ = null;
       } else {
@@ -386,17 +329,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return taskmanager.AnyProto.internal_static_taskmanager_UpdateExperimentServiceRequest_descriptor;
+      return taskmanager.AnyProto.internal_static_taskmanager_CreateTemplateExperimentServiceRequest_descriptor;
     }
 
     @java.lang.Override
-    public taskmanager.UpdateExperimentServiceRequest getDefaultInstanceForType() {
-      return taskmanager.UpdateExperimentServiceRequest.getDefaultInstance();
+    public taskmanager.CreateTemplateExperimentServiceRequest getDefaultInstanceForType() {
+      return taskmanager.CreateTemplateExperimentServiceRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public taskmanager.UpdateExperimentServiceRequest build() {
-      taskmanager.UpdateExperimentServiceRequest result = buildPartial();
+    public taskmanager.CreateTemplateExperimentServiceRequest build() {
+      taskmanager.CreateTemplateExperimentServiceRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -404,9 +347,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public taskmanager.UpdateExperimentServiceRequest buildPartial() {
-      taskmanager.UpdateExperimentServiceRequest result = new taskmanager.UpdateExperimentServiceRequest(this);
-      result.exp_ = exp_;
+    public taskmanager.CreateTemplateExperimentServiceRequest buildPartial() {
+      taskmanager.CreateTemplateExperimentServiceRequest result = new taskmanager.CreateTemplateExperimentServiceRequest(this);
       if (dataBuilder_ == null) {
         result.data_ = data_;
       } else {
@@ -450,20 +392,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof taskmanager.UpdateExperimentServiceRequest) {
-        return mergeFrom((taskmanager.UpdateExperimentServiceRequest)other);
+      if (other instanceof taskmanager.CreateTemplateExperimentServiceRequest) {
+        return mergeFrom((taskmanager.CreateTemplateExperimentServiceRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(taskmanager.UpdateExperimentServiceRequest other) {
-      if (other == taskmanager.UpdateExperimentServiceRequest.getDefaultInstance()) return this;
-      if (!other.getExp().isEmpty()) {
-        exp_ = other.exp_;
-        onChanged();
-      }
+    public Builder mergeFrom(taskmanager.CreateTemplateExperimentServiceRequest other) {
+      if (other == taskmanager.CreateTemplateExperimentServiceRequest.getDefaultInstance()) return this;
       if (other.hasData()) {
         mergeData(other.getData());
       }
@@ -482,11 +420,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      taskmanager.UpdateExperimentServiceRequest parsedMessage = null;
+      taskmanager.CreateTemplateExperimentServiceRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (taskmanager.UpdateExperimentServiceRequest) e.getUnfinishedMessage();
+        parsedMessage = (taskmanager.CreateTemplateExperimentServiceRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -496,107 +434,31 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object exp_ = "";
-    /**
-     * <code>string exp = 1;</code>
-     * @return The exp.
-     */
-    public java.lang.String getExp() {
-      java.lang.Object ref = exp_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        exp_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string exp = 1;</code>
-     * @return The bytes for exp.
-     */
-    public com.google.protobuf.ByteString
-        getExpBytes() {
-      java.lang.Object ref = exp_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        exp_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string exp = 1;</code>
-     * @param value The exp to set.
-     * @return This builder for chaining.
-     */
-    public Builder setExp(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      exp_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string exp = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearExp() {
-      
-      exp_ = getDefaultInstance().getExp();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string exp = 1;</code>
-     * @param value The bytes for exp to set.
-     * @return This builder for chaining.
-     */
-    public Builder setExpBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      exp_ = value;
-      onChanged();
-      return this;
-    }
-
-    private experiment.ExperimentOuterClass.Experiment data_;
+    private google.protobuf.EmptyOuterClass.Empty data_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        experiment.ExperimentOuterClass.Experiment, experiment.ExperimentOuterClass.Experiment.Builder, experiment.ExperimentOuterClass.ExperimentOrBuilder> dataBuilder_;
+        google.protobuf.EmptyOuterClass.Empty, google.protobuf.EmptyOuterClass.Empty.Builder, google.protobuf.EmptyOuterClass.EmptyOrBuilder> dataBuilder_;
     /**
-     * <code>.experiment.Experiment data = 2;</code>
+     * <code>.google.protobuf.Empty data = 1;</code>
      * @return Whether the data field is set.
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
     }
     /**
-     * <code>.experiment.Experiment data = 2;</code>
+     * <code>.google.protobuf.Empty data = 1;</code>
      * @return The data.
      */
-    public experiment.ExperimentOuterClass.Experiment getData() {
+    public google.protobuf.EmptyOuterClass.Empty getData() {
       if (dataBuilder_ == null) {
-        return data_ == null ? experiment.ExperimentOuterClass.Experiment.getDefaultInstance() : data_;
+        return data_ == null ? google.protobuf.EmptyOuterClass.Empty.getDefaultInstance() : data_;
       } else {
         return dataBuilder_.getMessage();
       }
     }
     /**
-     * <code>.experiment.Experiment data = 2;</code>
+     * <code>.google.protobuf.Empty data = 1;</code>
      */
-    public Builder setData(experiment.ExperimentOuterClass.Experiment value) {
+    public Builder setData(google.protobuf.EmptyOuterClass.Empty value) {
       if (dataBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -610,10 +472,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.experiment.Experiment data = 2;</code>
+     * <code>.google.protobuf.Empty data = 1;</code>
      */
     public Builder setData(
-        experiment.ExperimentOuterClass.Experiment.Builder builderForValue) {
+        google.protobuf.EmptyOuterClass.Empty.Builder builderForValue) {
       if (dataBuilder_ == null) {
         data_ = builderForValue.build();
         onChanged();
@@ -624,13 +486,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.experiment.Experiment data = 2;</code>
+     * <code>.google.protobuf.Empty data = 1;</code>
      */
-    public Builder mergeData(experiment.ExperimentOuterClass.Experiment value) {
+    public Builder mergeData(google.protobuf.EmptyOuterClass.Empty value) {
       if (dataBuilder_ == null) {
         if (data_ != null) {
           data_ =
-            experiment.ExperimentOuterClass.Experiment.newBuilder(data_).mergeFrom(value).buildPartial();
+            google.protobuf.EmptyOuterClass.Empty.newBuilder(data_).mergeFrom(value).buildPartial();
         } else {
           data_ = value;
         }
@@ -642,7 +504,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.experiment.Experiment data = 2;</code>
+     * <code>.google.protobuf.Empty data = 1;</code>
      */
     public Builder clearData() {
       if (dataBuilder_ == null) {
@@ -656,33 +518,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.experiment.Experiment data = 2;</code>
+     * <code>.google.protobuf.Empty data = 1;</code>
      */
-    public experiment.ExperimentOuterClass.Experiment.Builder getDataBuilder() {
+    public google.protobuf.EmptyOuterClass.Empty.Builder getDataBuilder() {
       
       onChanged();
       return getDataFieldBuilder().getBuilder();
     }
     /**
-     * <code>.experiment.Experiment data = 2;</code>
+     * <code>.google.protobuf.Empty data = 1;</code>
      */
-    public experiment.ExperimentOuterClass.ExperimentOrBuilder getDataOrBuilder() {
+    public google.protobuf.EmptyOuterClass.EmptyOrBuilder getDataOrBuilder() {
       if (dataBuilder_ != null) {
         return dataBuilder_.getMessageOrBuilder();
       } else {
         return data_ == null ?
-            experiment.ExperimentOuterClass.Experiment.getDefaultInstance() : data_;
+            google.protobuf.EmptyOuterClass.Empty.getDefaultInstance() : data_;
       }
     }
     /**
-     * <code>.experiment.Experiment data = 2;</code>
+     * <code>.google.protobuf.Empty data = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        experiment.ExperimentOuterClass.Experiment, experiment.ExperimentOuterClass.Experiment.Builder, experiment.ExperimentOuterClass.ExperimentOrBuilder> 
+        google.protobuf.EmptyOuterClass.Empty, google.protobuf.EmptyOuterClass.Empty.Builder, google.protobuf.EmptyOuterClass.EmptyOrBuilder> 
         getDataFieldBuilder() {
       if (dataBuilder_ == null) {
         dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            experiment.ExperimentOuterClass.Experiment, experiment.ExperimentOuterClass.Experiment.Builder, experiment.ExperimentOuterClass.ExperimentOrBuilder>(
+            google.protobuf.EmptyOuterClass.Empty, google.protobuf.EmptyOuterClass.Empty.Builder, google.protobuf.EmptyOuterClass.EmptyOrBuilder>(
                 getData(),
                 getParentForChildren(),
                 isClean());
@@ -703,41 +565,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:taskmanager.UpdateExperimentServiceRequest)
+    // @@protoc_insertion_point(builder_scope:taskmanager.CreateTemplateExperimentServiceRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:taskmanager.UpdateExperimentServiceRequest)
-  private static final taskmanager.UpdateExperimentServiceRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:taskmanager.CreateTemplateExperimentServiceRequest)
+  private static final taskmanager.CreateTemplateExperimentServiceRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new taskmanager.UpdateExperimentServiceRequest();
+    DEFAULT_INSTANCE = new taskmanager.CreateTemplateExperimentServiceRequest();
   }
 
-  public static taskmanager.UpdateExperimentServiceRequest getDefaultInstance() {
+  public static taskmanager.CreateTemplateExperimentServiceRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<UpdateExperimentServiceRequest>
-      PARSER = new com.google.protobuf.AbstractParser<UpdateExperimentServiceRequest>() {
+  private static final com.google.protobuf.Parser<CreateTemplateExperimentServiceRequest>
+      PARSER = new com.google.protobuf.AbstractParser<CreateTemplateExperimentServiceRequest>() {
     @java.lang.Override
-    public UpdateExperimentServiceRequest parsePartialFrom(
+    public CreateTemplateExperimentServiceRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateExperimentServiceRequest(input, extensionRegistry);
+      return new CreateTemplateExperimentServiceRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<UpdateExperimentServiceRequest> parser() {
+  public static com.google.protobuf.Parser<CreateTemplateExperimentServiceRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<UpdateExperimentServiceRequest> getParserForType() {
+  public com.google.protobuf.Parser<CreateTemplateExperimentServiceRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public taskmanager.UpdateExperimentServiceRequest getDefaultInstanceForType() {
+  public taskmanager.CreateTemplateExperimentServiceRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

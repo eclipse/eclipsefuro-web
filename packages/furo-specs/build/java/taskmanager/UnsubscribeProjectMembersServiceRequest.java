@@ -6,7 +6,7 @@ package taskmanager;
 /**
  * Protobuf type {@code taskmanager.UnsubscribeProjectMembersServiceRequest}
  */
-public  final class UnsubscribeProjectMembersServiceRequest extends
+public final class UnsubscribeProjectMembersServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:taskmanager.UnsubscribeProjectMembersServiceRequest)
     UnsubscribeProjectMembersServiceRequestOrBuilder {
@@ -18,6 +18,13 @@ private static final long serialVersionUID = 0L;
   private UnsubscribeProjectMembersServiceRequest() {
     prj_ = "";
     prs_ = "";
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new UnsubscribeProjectMembersServiceRequest();
   }
 
   @java.lang.Override
@@ -33,7 +40,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -105,7 +111,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object prj_;
   /**
    * <code>string prj = 1;</code>
+   * @return The prj.
    */
+  @java.lang.Override
   public java.lang.String getPrj() {
     java.lang.Object ref = prj_;
     if (ref instanceof java.lang.String) {
@@ -120,7 +128,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string prj = 1;</code>
+   * @return The bytes for prj.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getPrjBytes() {
     java.lang.Object ref = prj_;
@@ -139,7 +149,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object prs_;
   /**
    * <code>string prs = 2;</code>
+   * @return The prs.
    */
+  @java.lang.Override
   public java.lang.String getPrs() {
     java.lang.Object ref = prs_;
     if (ref instanceof java.lang.String) {
@@ -154,7 +166,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string prs = 2;</code>
+   * @return The bytes for prs.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getPrsBytes() {
     java.lang.Object ref = prs_;
@@ -173,19 +187,24 @@ private static final long serialVersionUID = 0L;
   private person.PersonOuterClass.PersonEntity data_;
   /**
    * <code>.person.PersonEntity data = 3;</code>
+   * @return Whether the data field is set.
    */
+  @java.lang.Override
   public boolean hasData() {
     return data_ != null;
   }
   /**
    * <code>.person.PersonEntity data = 3;</code>
+   * @return The data.
    */
+  @java.lang.Override
   public person.PersonOuterClass.PersonEntity getData() {
     return data_ == null ? person.PersonOuterClass.PersonEntity.getDefaultInstance() : data_;
   }
   /**
    * <code>.person.PersonEntity data = 3;</code>
    */
+  @java.lang.Override
   public person.PersonOuterClass.PersonEntityOrBuilder getDataOrBuilder() {
     return getData();
   }
@@ -542,6 +561,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object prj_ = "";
     /**
      * <code>string prj = 1;</code>
+     * @return The prj.
      */
     public java.lang.String getPrj() {
       java.lang.Object ref = prj_;
@@ -557,6 +577,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string prj = 1;</code>
+     * @return The bytes for prj.
      */
     public com.google.protobuf.ByteString
         getPrjBytes() {
@@ -573,6 +594,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string prj = 1;</code>
+     * @param value The prj to set.
+     * @return This builder for chaining.
      */
     public Builder setPrj(
         java.lang.String value) {
@@ -586,6 +609,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string prj = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPrj() {
       
@@ -595,6 +619,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string prj = 1;</code>
+     * @param value The bytes for prj to set.
+     * @return This builder for chaining.
      */
     public Builder setPrjBytes(
         com.google.protobuf.ByteString value) {
@@ -611,6 +637,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object prs_ = "";
     /**
      * <code>string prs = 2;</code>
+     * @return The prs.
      */
     public java.lang.String getPrs() {
       java.lang.Object ref = prs_;
@@ -626,6 +653,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string prs = 2;</code>
+     * @return The bytes for prs.
      */
     public com.google.protobuf.ByteString
         getPrsBytes() {
@@ -642,6 +670,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string prs = 2;</code>
+     * @param value The prs to set.
+     * @return This builder for chaining.
      */
     public Builder setPrs(
         java.lang.String value) {
@@ -655,6 +685,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string prs = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPrs() {
       
@@ -664,6 +695,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string prs = 2;</code>
+     * @param value The bytes for prs to set.
+     * @return This builder for chaining.
      */
     public Builder setPrsBytes(
         com.google.protobuf.ByteString value) {
@@ -682,12 +715,14 @@ private static final long serialVersionUID = 0L;
         person.PersonOuterClass.PersonEntity, person.PersonOuterClass.PersonEntity.Builder, person.PersonOuterClass.PersonEntityOrBuilder> dataBuilder_;
     /**
      * <code>.person.PersonEntity data = 3;</code>
+     * @return Whether the data field is set.
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
     }
     /**
      * <code>.person.PersonEntity data = 3;</code>
+     * @return The data.
      */
     public person.PersonOuterClass.PersonEntity getData() {
       if (dataBuilder_ == null) {

@@ -12,6 +12,7 @@ import "google/type/money.proto";
 import "google/protobuf/types/known/field_mask.proto";
 import "furo/property.proto";
 import "project/project.proto";
+import "google/protobuf/field_mask.proto";
 // ExperimentEntity with Experiment
 message ExperimentEntity {            
   // contains a experiment.Experiment
@@ -169,16 +170,13 @@ message ExperimentCollection {
 
 }
 // oneof experiment spec for testing
-message Oneof {                          
+message Oneof {                            
   // field for testing file type
   repeated string furo_data_file_input = 22;
     
   // Identity of a experiment
   string id = 1;
-  
-  // Contains a field_mask which fields of the targeted resource are going to be updated
-  google.protobuf.types.known.FieldMask update_mask = 23;
-
+    
   oneof aaa {
     // Localized String representation of a experiment
     string display_name = 2;
@@ -190,5 +188,11 @@ message Oneof {
     string description = 3;
     // field for furo_data_text_input for testing
     string furo_data_text_input = 5;
+  }
+  oneof complex {
+    // for oneof test purposes only
+    google.protobuf.FieldMask other_mask = 24;
+    // Contains a field_mask which fields of the targeted resource are going to be updated
+    google.protobuf.types.known.FieldMask update_mask = 23;
   }
 }

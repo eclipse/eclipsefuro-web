@@ -3,8 +3,8 @@
 
 package taskmanager;
 
-public interface DeleteAuthServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:taskmanager.DeleteAuthServiceRequest)
+public interface CreateTemplateExperimentServiceRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:taskmanager.CreateTemplateExperimentServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

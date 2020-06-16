@@ -7,6 +7,29 @@ import { ValidatorDefaultTypes } from './ValidatorDefaultTypes.js';
 import { ValidatorGoogleTypeDate } from './ValidatorGoogleTypeDate.js';
 import { ValidatorGoogleTypeMoney } from './ValidatorGoogleTypeMoney.js';
 
+/**
+ *
+ * ## internal events
+ * - *this-field-became-invalid*, when a field gets invalid
+ * - *field-became-invalid* **bubbles**, when a field gets invalid
+ * - *this-field-became-valid*, when a field gets valid
+ * - *field-became-valid* **bubbles**, when a field gets valid
+ * - *this-field-value-changed*, when the value of a field changed
+ * - *field-value-changed* **bubbles**, when the value of a field changed
+ * - *this-metas-changed*, when the metas of a field changed
+ * - *metas-changed* **bubbles**, when the meta of a field changed
+ * - *oneof-field-cleared*, when a field in a oneof group was cleared
+ * - *oneof-field-changed*, when a field in a oneof group was changed
+ * - *this-node-field-added*, when a sub field was added to a field
+ * - *node-field-added* **bubbles**, when a sub field was added to a field
+ * - *this-node-field-deleted*, when a sub field was added to a field
+ * - *node-field-deleted* **bubbles**, when a sub field was added to a field
+
+ *
+ * ## internal broadcasted events
+ * - *parent-readonly-meta-set*, when readonly was set on a parent field
+ *
+ */
 export class FieldNode extends EventTreeNode {
   constructor(parentNode, fieldSpec, fieldName) {
     super(parentNode);
@@ -273,16 +296,51 @@ export class FieldNode extends EventTreeNode {
             // eslint-disable-next-line no-param-reassign
             n._value = [];
           } else {
+            // todo:  maybe set to undefined if no spec default is given
             // eslint-disable-next-line no-param-reassign
             n._value = {};
           }
         } else {
           // skalar value
+          // todo:  maybe set to undefined if no spec default is given
           // eslint-disable-next-line no-param-reassign
           n._value = Helper.defaultForType(n._spec.type);
         }
       }
     });
+
+    if (this && this._spec && this._spec.__proto && this._spec.__proto.oneof) {
+      // clear oneof siblings
+      const oneofGorup = this._spec.__proto.oneof;
+      // avoid recursion with __oneofrecusion
+      if (oneofGorup !== '' && !this.__oneofrecusion) {
+        this.__parentNode.__childNodes.forEach(sibling => {
+          if (sibling !== this && sibling._spec.__proto.oneof === oneofGorup) {
+            // eslint-disable-next-line no-param-reassign
+            sibling.__oneofrecusion = true;
+            // eslint-disable-next-line no-param-reassign
+            sibling._oldvalue = this._value;
+            // eslint-disable-next-line no-param-reassign
+            sibling.__value = undefined;
+            // eslint-disable-next-line no-param-reassign
+            sibling._value = undefined;
+            if (sibling.__childNodes.length > 0) {
+              // eslint-disable-next-line no-param-reassign
+              sibling.__childNodes = [];
+            }
+            // eslint-disable-next-line no-param-reassign
+            sibling._pristine = false;
+            // eslint-disable-next-line no-param-reassign
+            sibling.__oneofrecusion = false;
+
+            // send an event to notify that this field was cleared
+            // eslint-disable-next-line no-param-reassign
+            sibling.dispatchNodeEvent(new NodeEvent('oneof-field-cleared', sibling, false));
+          }
+        });
+        this.dispatchNodeEvent(new NodeEvent('oneof-field-changed', this, false));
+      }
+    }
 
     this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
   }
