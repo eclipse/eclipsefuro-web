@@ -1,7 +1,7 @@
 {
-  "name": "int32",
-  "type": "Int32",
-  "description": "Furo annotated type wrapper message for `int32`.",
+  "name": "double",
+  "type": "Double",
+  "description": "Furo annotated type wrapper message for `double`. The range constraints are set to Number.MIN_SAFE_INTEGER - Number.MAX_SAFE_INTEGER because of browser limitations",
   "__proto": {
     "package": "furo.fat",
     "targetfile": "fat.proto",
@@ -10,8 +10,8 @@
   },
   "fields": {
     "value": {
-      "type": "int32",
-      "description": "The JSON representation for `Int32Value` is JSON number",
+      "type": "double",
+      "description": "The JSON representation for `DoubleValue` is JSON number, range is set to Number.MIN_SAFE_INTEGER - Number.MAX_SAFE_INTEGER",
       "__proto": {
         "number": 1
       },
@@ -34,11 +34,11 @@
       },
       "constraints": {
         "min": {
-          "is": "−2147483648",
+          "is": "-9007199254740991",
           "message": "out of range"
         },
         "max": {
-          "is": "2147483647",
+          "is": "9007199254740991",
           "message": "out of range"
         }
       }
