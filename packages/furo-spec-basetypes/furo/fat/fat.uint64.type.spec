@@ -1,7 +1,7 @@
 {
-  "name": "int64",
-  "type": "Int64",
-  "description": "Furo annotated type wrapper message for `int64`. The range constraints are set to Number.MIN_SAFE_INTEGER - Number.MAX_SAFE_INTEGER because of browser limitations",
+  "name": "uint64",
+  "type": "Uint64",
+  "description": "Furo annotated type wrapper message for `uint64`.  The range constraints are set to Number.MAX_SAFE_INTEGER because of browser limitations",
   "__proto": {
     "package": "furo.fat",
     "targetfile": "fat.proto",
@@ -10,8 +10,8 @@
   },
   "fields": {
     "value": {
-      "type": "int64",
-      "description": "The JSON representation for `Int64Value` is JSON number, range is set to Number.MIN_SAFE_INTEGER - Number.MAX_SAFE_INTEGER",
+      "type": "uint64",
+      "description": "The JSON representation for `Uint64Value` is JSON number, range is set to 0 - Number.MAX_SAFE_INTEGER",
       "__proto": {
         "number": 1
       },
@@ -34,7 +34,7 @@
       },
       "constraints": {
         "min": {
-          "is": "-9007199254740991",
+          "is": "0",
           "message": "out of range"
         },
         "max": {
