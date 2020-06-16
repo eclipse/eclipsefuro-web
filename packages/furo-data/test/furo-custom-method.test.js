@@ -187,9 +187,7 @@ describe('furo-custom-method', () => {
     customMethod.setAttribute('method', 'createtemplate');
     dataObject.setAttribute('type', 'experiment.ExperimentEntity');
 
-
     customMethod.addEventListener('hts-updated', () => {
-
       const request = customMethod._makeRequest({
         href: 'https://httpbin.org/anything',
         method: 'Post',
@@ -197,8 +195,10 @@ describe('furo-custom-method', () => {
         type: 'experiment.ExperimentEntity',
         service: 'ExperimentService',
       });
-      assert.equal(request.headers.get("Accept"), 'application/experiment.Experiment+json, application/json;q=0.9');
-
+      assert.equal(
+        request.headers.get('Accept'),
+        'application/experiment.Experiment+json, application/json;q=0.9',
+      );
     });
 
     customMethod.htsIn([
@@ -208,7 +208,7 @@ describe('furo-custom-method', () => {
         rel: 'createtemplate',
         type: 'experiment.ExperimentEntity',
         service: 'ExperimentService',
-      }
+      },
     ]);
   });
 });

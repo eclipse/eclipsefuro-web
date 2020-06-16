@@ -74,7 +74,7 @@ describe('furo data oneof', () => {
     done();
   });
 
-  it('should be possible to set a complex in a group and then another', (done) => {
+  it('should be possible to set a complex in a group and then another', done => {
     element.setAttribute('type', 'experiment.Oneof');
     const EntityRoot = element.data;
     assert.equal(EntityRoot.update_mask._value.paths.length, 0);
@@ -91,22 +91,20 @@ describe('furo data oneof', () => {
     done();
   });
 
-  it('should notify the clearing of a oneof field', (done) => {
+  it('should notify the clearing of a oneof field', done => {
     element.setAttribute('type', 'experiment.Oneof');
     const EntityRoot = element.data;
     EntityRoot.update_mask.addEventListener('oneof-field-cleared', () => {
       done();
     });
     EntityRoot.other_mask._value = { paths: [2] };
-
   });
-  it('should notify the change of a oneof field', (done) => {
+  it('should notify the change of a oneof field', done => {
     element.setAttribute('type', 'experiment.Oneof');
     const EntityRoot = element.data;
     EntityRoot.other_mask.addEventListener('oneof-field-changed', () => {
       done();
     });
     EntityRoot.other_mask._value = { paths: [2] };
-
   });
 });
