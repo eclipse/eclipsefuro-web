@@ -9,10 +9,12 @@ public interface GetExperimentServiceRequestOrBuilder extends
 
   /**
    * <code>string exp = 1;</code>
+   * @return The exp.
    */
   java.lang.String getExp();
   /**
    * <code>string exp = 1;</code>
+   * @return The bytes for exp.
    */
   com.google.protobuf.ByteString
       getExpBytes();

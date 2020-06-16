@@ -24,6 +24,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string description = 4;</code>
+     * @return The description.
      */
     java.lang.String getDescription();
     /**
@@ -32,6 +33,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string description = 4;</code>
+     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
@@ -42,6 +44,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
@@ -50,6 +53,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
@@ -60,6 +64,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The id.
      */
     java.lang.String getId();
     /**
@@ -68,6 +73,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The bytes for id.
      */
     com.google.protobuf.ByteString
         getIdBytes();
@@ -78,6 +84,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.tree.Navigationnode root = 10;</code>
+     * @return Whether the root field is set.
      */
     boolean hasRoot();
     /**
@@ -86,6 +93,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.tree.Navigationnode root = 10;</code>
+     * @return The root.
      */
     tree.TreeOuterClass.Navigationnode getRoot();
     /**
@@ -103,6 +111,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string secondary_text = 3;</code>
+     * @return The secondaryText.
      */
     java.lang.String getSecondaryText();
     /**
@@ -111,6 +120,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string secondary_text = 3;</code>
+     * @return The bytes for secondaryText.
      */
     com.google.protobuf.ByteString
         getSecondaryTextBytes();
@@ -122,7 +132,7 @@ public final class TreeOuterClass {
    *
    * Protobuf type {@code tree.Tree}
    */
-  public  static final class Tree extends
+  public static final class Tree extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:tree.Tree)
       TreeOrBuilder {
@@ -139,6 +149,13 @@ public final class TreeOuterClass {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Tree();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -151,7 +168,6 @@ public final class TreeOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -239,7 +255,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string description = 4;</code>
+     * @return The description.
      */
+    @java.lang.Override
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
       if (ref instanceof java.lang.String) {
@@ -258,7 +276,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string description = 4;</code>
+     * @return The bytes for description.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
       java.lang.Object ref = description_;
@@ -281,7 +301,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The displayName.
      */
+    @java.lang.Override
     public java.lang.String getDisplayName() {
       java.lang.Object ref = displayName_;
       if (ref instanceof java.lang.String) {
@@ -300,7 +322,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The bytes for displayName.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getDisplayNameBytes() {
       java.lang.Object ref = displayName_;
@@ -323,7 +347,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The id.
      */
+    @java.lang.Override
     public java.lang.String getId() {
       java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
@@ -342,7 +368,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The bytes for id.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getIdBytes() {
       java.lang.Object ref = id_;
@@ -365,7 +393,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.tree.Navigationnode root = 10;</code>
+     * @return Whether the root field is set.
      */
+    @java.lang.Override
     public boolean hasRoot() {
       return root_ != null;
     }
@@ -375,7 +405,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.tree.Navigationnode root = 10;</code>
+     * @return The root.
      */
+    @java.lang.Override
     public tree.TreeOuterClass.Navigationnode getRoot() {
       return root_ == null ? tree.TreeOuterClass.Navigationnode.getDefaultInstance() : root_;
     }
@@ -386,6 +418,7 @@ public final class TreeOuterClass {
      *
      * <code>.tree.Navigationnode root = 10;</code>
      */
+    @java.lang.Override
     public tree.TreeOuterClass.NavigationnodeOrBuilder getRootOrBuilder() {
       return getRoot();
     }
@@ -398,7 +431,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string secondary_text = 3;</code>
+     * @return The secondaryText.
      */
+    @java.lang.Override
     public java.lang.String getSecondaryText() {
       java.lang.Object ref = secondaryText_;
       if (ref instanceof java.lang.String) {
@@ -417,7 +452,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string secondary_text = 3;</code>
+     * @return The bytes for secondaryText.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getSecondaryTextBytes() {
       java.lang.Object ref = secondaryText_;
@@ -826,6 +863,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string description = 4;</code>
+       * @return The description.
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -845,6 +883,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string description = 4;</code>
+       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -865,6 +904,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string description = 4;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -882,6 +923,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string description = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDescription() {
         
@@ -895,6 +937,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string description = 4;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -915,6 +959,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @return The displayName.
        */
       public java.lang.String getDisplayName() {
         java.lang.Object ref = displayName_;
@@ -934,6 +979,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @return The bytes for displayName.
        */
       public com.google.protobuf.ByteString
           getDisplayNameBytes() {
@@ -954,6 +1000,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @param value The displayName to set.
+       * @return This builder for chaining.
        */
       public Builder setDisplayName(
           java.lang.String value) {
@@ -971,6 +1019,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
         
@@ -984,6 +1033,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @param value The bytes for displayName to set.
+       * @return This builder for chaining.
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1004,6 +1055,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return The id.
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -1023,6 +1075,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return The bytes for id.
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -1043,6 +1096,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(
           java.lang.String value) {
@@ -1060,6 +1115,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -1073,6 +1129,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -1095,6 +1153,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>.tree.Navigationnode root = 10;</code>
+       * @return Whether the root field is set.
        */
       public boolean hasRoot() {
         return rootBuilder_ != null || root_ != null;
@@ -1105,6 +1164,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>.tree.Navigationnode root = 10;</code>
+       * @return The root.
        */
       public tree.TreeOuterClass.Navigationnode getRoot() {
         if (rootBuilder_ == null) {
@@ -1246,6 +1306,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string secondary_text = 3;</code>
+       * @return The secondaryText.
        */
       public java.lang.String getSecondaryText() {
         java.lang.Object ref = secondaryText_;
@@ -1265,6 +1326,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string secondary_text = 3;</code>
+       * @return The bytes for secondaryText.
        */
       public com.google.protobuf.ByteString
           getSecondaryTextBytes() {
@@ -1285,6 +1347,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string secondary_text = 3;</code>
+       * @param value The secondaryText to set.
+       * @return This builder for chaining.
        */
       public Builder setSecondaryText(
           java.lang.String value) {
@@ -1302,6 +1366,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string secondary_text = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSecondaryText() {
         
@@ -1315,6 +1380,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string secondary_text = 3;</code>
+       * @param value The bytes for secondaryText to set.
+       * @return This builder for chaining.
        */
       public Builder setSecondaryTextBytes(
           com.google.protobuf.ByteString value) {
@@ -1390,6 +1457,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.tree.Tree data = 1;</code>
+     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
@@ -1398,6 +1466,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.tree.Tree data = 1;</code>
+     * @return The data.
      */
     tree.TreeOuterClass.Tree getData();
     /**
@@ -1459,6 +1528,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
+     * @return Whether the meta field is set.
      */
     boolean hasMeta();
     /**
@@ -1467,6 +1537,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
+     * @return The meta.
      */
     furo.MetaOuterClass.Meta getMeta();
     /**
@@ -1485,7 +1556,7 @@ public final class TreeOuterClass {
    *
    * Protobuf type {@code tree.TreeEntity}
    */
-  public  static final class TreeEntity extends
+  public static final class TreeEntity extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:tree.TreeEntity)
       TreeEntityOrBuilder {
@@ -1496,6 +1567,13 @@ public final class TreeOuterClass {
     }
     private TreeEntity() {
       links_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TreeEntity();
     }
 
     @java.lang.Override
@@ -1536,9 +1614,9 @@ public final class TreeOuterClass {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 links_ = new java.util.ArrayList<furo.LinkOuterClass.Link>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000001;
               }
               links_.add(
                   input.readMessage(furo.LinkOuterClass.Link.parser(), extensionRegistry));
@@ -1572,7 +1650,7 @@ public final class TreeOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           links_ = java.util.Collections.unmodifiableList(links_);
         }
         this.unknownFields = unknownFields.build();
@@ -1592,7 +1670,6 @@ public final class TreeOuterClass {
               tree.TreeOuterClass.TreeEntity.class, tree.TreeOuterClass.TreeEntity.Builder.class);
     }
 
-    private int bitField0_;
     public static final int DATA_FIELD_NUMBER = 1;
     private tree.TreeOuterClass.Tree data_;
     /**
@@ -1601,7 +1678,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.tree.Tree data = 1;</code>
+     * @return Whether the data field is set.
      */
+    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
@@ -1611,7 +1690,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.tree.Tree data = 1;</code>
+     * @return The data.
      */
+    @java.lang.Override
     public tree.TreeOuterClass.Tree getData() {
       return data_ == null ? tree.TreeOuterClass.Tree.getDefaultInstance() : data_;
     }
@@ -1622,6 +1703,7 @@ public final class TreeOuterClass {
      *
      * <code>.tree.Tree data = 1;</code>
      */
+    @java.lang.Override
     public tree.TreeOuterClass.TreeOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -1635,6 +1717,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public java.util.List<furo.LinkOuterClass.Link> getLinksList() {
       return links_;
     }
@@ -1645,6 +1728,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends furo.LinkOuterClass.LinkOrBuilder> 
         getLinksOrBuilderList() {
       return links_;
@@ -1656,6 +1740,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public int getLinksCount() {
       return links_.size();
     }
@@ -1666,6 +1751,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public furo.LinkOuterClass.Link getLinks(int index) {
       return links_.get(index);
     }
@@ -1676,6 +1762,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
+    @java.lang.Override
     public furo.LinkOuterClass.LinkOrBuilder getLinksOrBuilder(
         int index) {
       return links_.get(index);
@@ -1689,7 +1776,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
+     * @return Whether the meta field is set.
      */
+    @java.lang.Override
     public boolean hasMeta() {
       return meta_ != null;
     }
@@ -1699,7 +1788,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
+     * @return The meta.
      */
+    @java.lang.Override
     public furo.MetaOuterClass.Meta getMeta() {
       return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
     }
@@ -1710,6 +1801,7 @@ public final class TreeOuterClass {
      *
      * <code>.furo.Meta meta = 3;</code>
      */
+    @java.lang.Override
     public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
       return getMeta();
     }
@@ -1954,7 +2046,7 @@ public final class TreeOuterClass {
         }
         if (linksBuilder_ == null) {
           links_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           linksBuilder_.clear();
         }
@@ -1991,16 +2083,15 @@ public final class TreeOuterClass {
       public tree.TreeOuterClass.TreeEntity buildPartial() {
         tree.TreeOuterClass.TreeEntity result = new tree.TreeOuterClass.TreeEntity(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (dataBuilder_ == null) {
           result.data_ = data_;
         } else {
           result.data_ = dataBuilder_.build();
         }
         if (linksBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             links_ = java.util.Collections.unmodifiableList(links_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.links_ = links_;
         } else {
@@ -2011,7 +2102,6 @@ public final class TreeOuterClass {
         } else {
           result.meta_ = metaBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2067,7 +2157,7 @@ public final class TreeOuterClass {
           if (!other.links_.isEmpty()) {
             if (links_.isEmpty()) {
               links_ = other.links_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureLinksIsMutable();
               links_.addAll(other.links_);
@@ -2080,7 +2170,7 @@ public final class TreeOuterClass {
               linksBuilder_.dispose();
               linksBuilder_ = null;
               links_ = other.links_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               linksBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getLinksFieldBuilder() : null;
@@ -2131,6 +2221,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>.tree.Tree data = 1;</code>
+       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
@@ -2141,6 +2232,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>.tree.Tree data = 1;</code>
+       * @return The data.
        */
       public tree.TreeOuterClass.Tree getData() {
         if (dataBuilder_ == null) {
@@ -2278,9 +2370,9 @@ public final class TreeOuterClass {
       private java.util.List<furo.LinkOuterClass.Link> links_ =
         java.util.Collections.emptyList();
       private void ensureLinksIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           links_ = new java.util.ArrayList<furo.LinkOuterClass.Link>(links_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -2474,7 +2566,7 @@ public final class TreeOuterClass {
       public Builder clearLinks() {
         if (linksBuilder_ == null) {
           links_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           linksBuilder_.clear();
@@ -2579,7 +2671,7 @@ public final class TreeOuterClass {
           linksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               furo.LinkOuterClass.Link, furo.LinkOuterClass.Link.Builder, furo.LinkOuterClass.LinkOrBuilder>(
                   links_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           links_ = null;
@@ -2596,6 +2688,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 3;</code>
+       * @return Whether the meta field is set.
        */
       public boolean hasMeta() {
         return metaBuilder_ != null || meta_ != null;
@@ -2606,6 +2699,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 3;</code>
+       * @return The meta.
        */
       public furo.MetaOuterClass.Meta getMeta() {
         if (metaBuilder_ == null) {
@@ -2846,6 +2940,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string description = 4;</code>
+     * @return The description.
      */
     java.lang.String getDescription();
     /**
@@ -2854,6 +2949,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string description = 4;</code>
+     * @return The bytes for description.
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
@@ -2864,6 +2960,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
@@ -2872,6 +2969,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
@@ -2882,6 +2980,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>bool has_error = 8;</code>
+     * @return The hasError.
      */
     boolean getHasError();
 
@@ -2891,6 +2990,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string icon = 5;</code>
+     * @return The icon.
      */
     java.lang.String getIcon();
     /**
@@ -2899,6 +2999,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string icon = 5;</code>
+     * @return The bytes for icon.
      */
     com.google.protobuf.ByteString
         getIconBytes();
@@ -2909,6 +3010,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The id.
      */
     java.lang.String getId();
     /**
@@ -2917,6 +3019,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The bytes for id.
      */
     com.google.protobuf.ByteString
         getIdBytes();
@@ -2927,6 +3030,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>bool is_group_label = 11;</code>
+     * @return The isGroupLabel.
      */
     boolean getIsGroupLabel();
 
@@ -2936,6 +3040,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string key_words = 7;</code>
+     * @return The keyWords.
      */
     java.lang.String getKeyWords();
     /**
@@ -2944,6 +3049,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string key_words = 7;</code>
+     * @return The bytes for keyWords.
      */
     com.google.protobuf.ByteString
         getKeyWordsBytes();
@@ -2954,6 +3060,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.furo.Link link = 10;</code>
+     * @return Whether the link field is set.
      */
     boolean hasLink();
     /**
@@ -2962,6 +3069,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.furo.Link link = 10;</code>
+     * @return The link.
      */
     furo.LinkOuterClass.Link getLink();
     /**
@@ -2979,6 +3087,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>bool open = 9;</code>
+     * @return The open.
      */
     boolean getOpen();
 
@@ -2988,6 +3097,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string panel = 6;</code>
+     * @return The panel.
      */
     java.lang.String getPanel();
     /**
@@ -2996,6 +3106,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string panel = 6;</code>
+     * @return The bytes for panel.
      */
     com.google.protobuf.ByteString
         getPanelBytes();
@@ -3006,6 +3117,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string secondary_text = 3;</code>
+     * @return The secondaryText.
      */
     java.lang.String getSecondaryText();
     /**
@@ -3014,6 +3126,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string secondary_text = 3;</code>
+     * @return The bytes for secondaryText.
      */
     com.google.protobuf.ByteString
         getSecondaryTextBytes();
@@ -3025,7 +3138,7 @@ public final class TreeOuterClass {
    *
    * Protobuf type {@code tree.Navigationnode}
    */
-  public  static final class Navigationnode extends
+  public static final class Navigationnode extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:tree.Navigationnode)
       NavigationnodeOrBuilder {
@@ -3043,6 +3156,13 @@ public final class TreeOuterClass {
       keyWords_ = "";
       panel_ = "";
       secondaryText_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Navigationnode();
     }
 
     @java.lang.Override
@@ -3183,7 +3303,6 @@ public final class TreeOuterClass {
               tree.TreeOuterClass.Navigationnode.class, tree.TreeOuterClass.Navigationnode.Builder.class);
     }
 
-    private int bitField0_;
     public static final int CHILDREN_FIELD_NUMBER = 12;
     private java.util.List<tree.TreeOuterClass.Navigationnode> children_;
     /**
@@ -3193,6 +3312,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .tree.Navigationnode children = 12;</code>
      */
+    @java.lang.Override
     public java.util.List<tree.TreeOuterClass.Navigationnode> getChildrenList() {
       return children_;
     }
@@ -3203,6 +3323,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .tree.Navigationnode children = 12;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends tree.TreeOuterClass.NavigationnodeOrBuilder> 
         getChildrenOrBuilderList() {
       return children_;
@@ -3214,6 +3335,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .tree.Navigationnode children = 12;</code>
      */
+    @java.lang.Override
     public int getChildrenCount() {
       return children_.size();
     }
@@ -3224,6 +3346,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .tree.Navigationnode children = 12;</code>
      */
+    @java.lang.Override
     public tree.TreeOuterClass.Navigationnode getChildren(int index) {
       return children_.get(index);
     }
@@ -3234,6 +3357,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .tree.Navigationnode children = 12;</code>
      */
+    @java.lang.Override
     public tree.TreeOuterClass.NavigationnodeOrBuilder getChildrenOrBuilder(
         int index) {
       return children_.get(index);
@@ -3247,7 +3371,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string description = 4;</code>
+     * @return The description.
      */
+    @java.lang.Override
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
       if (ref instanceof java.lang.String) {
@@ -3266,7 +3392,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string description = 4;</code>
+     * @return The bytes for description.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
       java.lang.Object ref = description_;
@@ -3289,7 +3417,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The displayName.
      */
+    @java.lang.Override
     public java.lang.String getDisplayName() {
       java.lang.Object ref = displayName_;
       if (ref instanceof java.lang.String) {
@@ -3308,7 +3438,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string display_name = 2;</code>
+     * @return The bytes for displayName.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getDisplayNameBytes() {
       java.lang.Object ref = displayName_;
@@ -3331,7 +3463,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>bool has_error = 8;</code>
+     * @return The hasError.
      */
+    @java.lang.Override
     public boolean getHasError() {
       return hasError_;
     }
@@ -3344,7 +3478,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string icon = 5;</code>
+     * @return The icon.
      */
+    @java.lang.Override
     public java.lang.String getIcon() {
       java.lang.Object ref = icon_;
       if (ref instanceof java.lang.String) {
@@ -3363,7 +3499,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string icon = 5;</code>
+     * @return The bytes for icon.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getIconBytes() {
       java.lang.Object ref = icon_;
@@ -3386,7 +3524,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The id.
      */
+    @java.lang.Override
     public java.lang.String getId() {
       java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
@@ -3405,7 +3545,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The bytes for id.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getIdBytes() {
       java.lang.Object ref = id_;
@@ -3428,7 +3570,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>bool is_group_label = 11;</code>
+     * @return The isGroupLabel.
      */
+    @java.lang.Override
     public boolean getIsGroupLabel() {
       return isGroupLabel_;
     }
@@ -3441,7 +3585,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string key_words = 7;</code>
+     * @return The keyWords.
      */
+    @java.lang.Override
     public java.lang.String getKeyWords() {
       java.lang.Object ref = keyWords_;
       if (ref instanceof java.lang.String) {
@@ -3460,7 +3606,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string key_words = 7;</code>
+     * @return The bytes for keyWords.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getKeyWordsBytes() {
       java.lang.Object ref = keyWords_;
@@ -3483,7 +3631,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.furo.Link link = 10;</code>
+     * @return Whether the link field is set.
      */
+    @java.lang.Override
     public boolean hasLink() {
       return link_ != null;
     }
@@ -3493,7 +3643,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.furo.Link link = 10;</code>
+     * @return The link.
      */
+    @java.lang.Override
     public furo.LinkOuterClass.Link getLink() {
       return link_ == null ? furo.LinkOuterClass.Link.getDefaultInstance() : link_;
     }
@@ -3504,6 +3656,7 @@ public final class TreeOuterClass {
      *
      * <code>.furo.Link link = 10;</code>
      */
+    @java.lang.Override
     public furo.LinkOuterClass.LinkOrBuilder getLinkOrBuilder() {
       return getLink();
     }
@@ -3516,7 +3669,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>bool open = 9;</code>
+     * @return The open.
      */
+    @java.lang.Override
     public boolean getOpen() {
       return open_;
     }
@@ -3529,7 +3684,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string panel = 6;</code>
+     * @return The panel.
      */
+    @java.lang.Override
     public java.lang.String getPanel() {
       java.lang.Object ref = panel_;
       if (ref instanceof java.lang.String) {
@@ -3548,7 +3705,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string panel = 6;</code>
+     * @return The bytes for panel.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getPanelBytes() {
       java.lang.Object ref = panel_;
@@ -3571,7 +3730,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string secondary_text = 3;</code>
+     * @return The secondaryText.
      */
+    @java.lang.Override
     public java.lang.String getSecondaryText() {
       java.lang.Object ref = secondaryText_;
       if (ref instanceof java.lang.String) {
@@ -3590,7 +3751,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>string secondary_text = 3;</code>
+     * @return The bytes for secondaryText.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getSecondaryTextBytes() {
       java.lang.Object ref = secondaryText_;
@@ -3986,7 +4149,6 @@ public final class TreeOuterClass {
       public tree.TreeOuterClass.Navigationnode buildPartial() {
         tree.TreeOuterClass.Navigationnode result = new tree.TreeOuterClass.Navigationnode(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (childrenBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             children_ = java.util.Collections.unmodifiableList(children_);
@@ -4011,7 +4173,6 @@ public final class TreeOuterClass {
         result.open_ = open_;
         result.panel_ = panel_;
         result.secondaryText_ = secondaryText_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -4475,6 +4636,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string description = 4;</code>
+       * @return The description.
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -4494,6 +4656,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string description = 4;</code>
+       * @return The bytes for description.
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -4514,6 +4677,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string description = 4;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -4531,6 +4696,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string description = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDescription() {
         
@@ -4544,6 +4710,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string description = 4;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -4564,6 +4732,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @return The displayName.
        */
       public java.lang.String getDisplayName() {
         java.lang.Object ref = displayName_;
@@ -4583,6 +4752,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @return The bytes for displayName.
        */
       public com.google.protobuf.ByteString
           getDisplayNameBytes() {
@@ -4603,6 +4773,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @param value The displayName to set.
+       * @return This builder for chaining.
        */
       public Builder setDisplayName(
           java.lang.String value) {
@@ -4620,6 +4792,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
         
@@ -4633,6 +4806,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string display_name = 2;</code>
+       * @param value The bytes for displayName to set.
+       * @return This builder for chaining.
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
@@ -4653,7 +4828,9 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>bool has_error = 8;</code>
+       * @return The hasError.
        */
+      @java.lang.Override
       public boolean getHasError() {
         return hasError_;
       }
@@ -4663,6 +4840,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>bool has_error = 8;</code>
+       * @param value The hasError to set.
+       * @return This builder for chaining.
        */
       public Builder setHasError(boolean value) {
         
@@ -4676,6 +4855,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>bool has_error = 8;</code>
+       * @return This builder for chaining.
        */
       public Builder clearHasError() {
         
@@ -4691,6 +4871,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string icon = 5;</code>
+       * @return The icon.
        */
       public java.lang.String getIcon() {
         java.lang.Object ref = icon_;
@@ -4710,6 +4891,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string icon = 5;</code>
+       * @return The bytes for icon.
        */
       public com.google.protobuf.ByteString
           getIconBytes() {
@@ -4730,6 +4912,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string icon = 5;</code>
+       * @param value The icon to set.
+       * @return This builder for chaining.
        */
       public Builder setIcon(
           java.lang.String value) {
@@ -4747,6 +4931,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string icon = 5;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIcon() {
         
@@ -4760,6 +4945,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string icon = 5;</code>
+       * @param value The bytes for icon to set.
+       * @return This builder for chaining.
        */
       public Builder setIconBytes(
           com.google.protobuf.ByteString value) {
@@ -4780,6 +4967,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return The id.
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -4799,6 +4987,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return The bytes for id.
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -4819,6 +5008,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(
           java.lang.String value) {
@@ -4836,6 +5027,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -4849,6 +5041,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -4869,7 +5063,9 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>bool is_group_label = 11;</code>
+       * @return The isGroupLabel.
        */
+      @java.lang.Override
       public boolean getIsGroupLabel() {
         return isGroupLabel_;
       }
@@ -4879,6 +5075,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>bool is_group_label = 11;</code>
+       * @param value The isGroupLabel to set.
+       * @return This builder for chaining.
        */
       public Builder setIsGroupLabel(boolean value) {
         
@@ -4892,6 +5090,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>bool is_group_label = 11;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIsGroupLabel() {
         
@@ -4907,6 +5106,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string key_words = 7;</code>
+       * @return The keyWords.
        */
       public java.lang.String getKeyWords() {
         java.lang.Object ref = keyWords_;
@@ -4926,6 +5126,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string key_words = 7;</code>
+       * @return The bytes for keyWords.
        */
       public com.google.protobuf.ByteString
           getKeyWordsBytes() {
@@ -4946,6 +5147,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string key_words = 7;</code>
+       * @param value The keyWords to set.
+       * @return This builder for chaining.
        */
       public Builder setKeyWords(
           java.lang.String value) {
@@ -4963,6 +5166,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string key_words = 7;</code>
+       * @return This builder for chaining.
        */
       public Builder clearKeyWords() {
         
@@ -4976,6 +5180,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string key_words = 7;</code>
+       * @param value The bytes for keyWords to set.
+       * @return This builder for chaining.
        */
       public Builder setKeyWordsBytes(
           com.google.protobuf.ByteString value) {
@@ -4998,6 +5204,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>.furo.Link link = 10;</code>
+       * @return Whether the link field is set.
        */
       public boolean hasLink() {
         return linkBuilder_ != null || link_ != null;
@@ -5008,6 +5215,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>.furo.Link link = 10;</code>
+       * @return The link.
        */
       public furo.LinkOuterClass.Link getLink() {
         if (linkBuilder_ == null) {
@@ -5149,7 +5357,9 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>bool open = 9;</code>
+       * @return The open.
        */
+      @java.lang.Override
       public boolean getOpen() {
         return open_;
       }
@@ -5159,6 +5369,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>bool open = 9;</code>
+       * @param value The open to set.
+       * @return This builder for chaining.
        */
       public Builder setOpen(boolean value) {
         
@@ -5172,6 +5384,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>bool open = 9;</code>
+       * @return This builder for chaining.
        */
       public Builder clearOpen() {
         
@@ -5187,6 +5400,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string panel = 6;</code>
+       * @return The panel.
        */
       public java.lang.String getPanel() {
         java.lang.Object ref = panel_;
@@ -5206,6 +5420,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string panel = 6;</code>
+       * @return The bytes for panel.
        */
       public com.google.protobuf.ByteString
           getPanelBytes() {
@@ -5226,6 +5441,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string panel = 6;</code>
+       * @param value The panel to set.
+       * @return This builder for chaining.
        */
       public Builder setPanel(
           java.lang.String value) {
@@ -5243,6 +5460,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string panel = 6;</code>
+       * @return This builder for chaining.
        */
       public Builder clearPanel() {
         
@@ -5256,6 +5474,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string panel = 6;</code>
+       * @param value The bytes for panel to set.
+       * @return This builder for chaining.
        */
       public Builder setPanelBytes(
           com.google.protobuf.ByteString value) {
@@ -5276,6 +5496,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string secondary_text = 3;</code>
+       * @return The secondaryText.
        */
       public java.lang.String getSecondaryText() {
         java.lang.Object ref = secondaryText_;
@@ -5295,6 +5516,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string secondary_text = 3;</code>
+       * @return The bytes for secondaryText.
        */
       public com.google.protobuf.ByteString
           getSecondaryTextBytes() {
@@ -5315,6 +5537,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string secondary_text = 3;</code>
+       * @param value The secondaryText to set.
+       * @return This builder for chaining.
        */
       public Builder setSecondaryText(
           java.lang.String value) {
@@ -5332,6 +5556,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string secondary_text = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearSecondaryText() {
         
@@ -5345,6 +5570,8 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>string secondary_text = 3;</code>
+       * @param value The bytes for secondaryText to set.
+       * @return This builder for chaining.
        */
       public Builder setSecondaryTextBytes(
           com.google.protobuf.ByteString value) {
@@ -5508,6 +5735,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
+     * @return Whether the meta field is set.
      */
     boolean hasMeta();
     /**
@@ -5516,6 +5744,7 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
+     * @return The meta.
      */
     furo.MetaOuterClass.Meta getMeta();
     /**
@@ -5534,7 +5763,7 @@ public final class TreeOuterClass {
    *
    * Protobuf type {@code tree.TreeCollection}
    */
-  public  static final class TreeCollection extends
+  public static final class TreeCollection extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:tree.TreeCollection)
       TreeCollectionOrBuilder {
@@ -5546,6 +5775,13 @@ public final class TreeOuterClass {
     private TreeCollection() {
       entities_ = java.util.Collections.emptyList();
       links_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TreeCollection();
     }
 
     @java.lang.Override
@@ -5641,7 +5877,6 @@ public final class TreeOuterClass {
               tree.TreeOuterClass.TreeCollection.class, tree.TreeOuterClass.TreeCollection.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ENTITIES_FIELD_NUMBER = 4;
     private java.util.List<tree.TreeOuterClass.TreeEntity> entities_;
     /**
@@ -5651,6 +5886,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .tree.TreeEntity entities = 4;</code>
      */
+    @java.lang.Override
     public java.util.List<tree.TreeOuterClass.TreeEntity> getEntitiesList() {
       return entities_;
     }
@@ -5661,6 +5897,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .tree.TreeEntity entities = 4;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends tree.TreeOuterClass.TreeEntityOrBuilder> 
         getEntitiesOrBuilderList() {
       return entities_;
@@ -5672,6 +5909,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .tree.TreeEntity entities = 4;</code>
      */
+    @java.lang.Override
     public int getEntitiesCount() {
       return entities_.size();
     }
@@ -5682,6 +5920,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .tree.TreeEntity entities = 4;</code>
      */
+    @java.lang.Override
     public tree.TreeOuterClass.TreeEntity getEntities(int index) {
       return entities_.get(index);
     }
@@ -5692,6 +5931,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .tree.TreeEntity entities = 4;</code>
      */
+    @java.lang.Override
     public tree.TreeOuterClass.TreeEntityOrBuilder getEntitiesOrBuilder(
         int index) {
       return entities_.get(index);
@@ -5706,6 +5946,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public java.util.List<furo.LinkOuterClass.Link> getLinksList() {
       return links_;
     }
@@ -5716,6 +5957,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends furo.LinkOuterClass.LinkOrBuilder> 
         getLinksOrBuilderList() {
       return links_;
@@ -5727,6 +5969,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public int getLinksCount() {
       return links_.size();
     }
@@ -5737,6 +5980,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public furo.LinkOuterClass.Link getLinks(int index) {
       return links_.get(index);
     }
@@ -5747,6 +5991,7 @@ public final class TreeOuterClass {
      *
      * <code>repeated .furo.Link links = 3;</code>
      */
+    @java.lang.Override
     public furo.LinkOuterClass.LinkOrBuilder getLinksOrBuilder(
         int index) {
       return links_.get(index);
@@ -5760,7 +6005,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
+     * @return Whether the meta field is set.
      */
+    @java.lang.Override
     public boolean hasMeta() {
       return meta_ != null;
     }
@@ -5770,7 +6017,9 @@ public final class TreeOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 2;</code>
+     * @return The meta.
      */
+    @java.lang.Override
     public furo.MetaOuterClass.Meta getMeta() {
       return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
     }
@@ -5781,6 +6030,7 @@ public final class TreeOuterClass {
      *
      * <code>.furo.Meta meta = 2;</code>
      */
+    @java.lang.Override
     public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
       return getMeta();
     }
@@ -6060,7 +6310,6 @@ public final class TreeOuterClass {
       public tree.TreeOuterClass.TreeCollection buildPartial() {
         tree.TreeOuterClass.TreeCollection result = new tree.TreeOuterClass.TreeCollection(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (entitiesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             entities_ = java.util.Collections.unmodifiableList(entities_);
@@ -6084,7 +6333,6 @@ public final class TreeOuterClass {
         } else {
           result.meta_ = metaBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -6851,6 +7099,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 2;</code>
+       * @return Whether the meta field is set.
        */
       public boolean hasMeta() {
         return metaBuilder_ != null || meta_ != null;
@@ -6861,6 +7110,7 @@ public final class TreeOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 2;</code>
+       * @return The meta.
        */
       public furo.MetaOuterClass.Meta getMeta() {
         if (metaBuilder_ == null) {
@@ -7094,20 +7344,12 @@ public final class TreeOuterClass {
       "links\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n." +
       "furo.Metab\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           furo.MetaOuterClass.getDescriptor(),
           furo.LinkOuterClass.getDescriptor(),
-        }, assigner);
+        });
     internal_static_tree_Tree_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_tree_Tree_fieldAccessorTable = new

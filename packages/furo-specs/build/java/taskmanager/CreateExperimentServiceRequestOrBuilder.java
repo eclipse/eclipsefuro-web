@@ -9,10 +9,12 @@ public interface CreateExperimentServiceRequestOrBuilder extends
 
   /**
    * <code>.experiment.Experiment data = 1;</code>
+   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.experiment.Experiment data = 1;</code>
+   * @return The data.
    */
   experiment.ExperimentOuterClass.Experiment getData();
   /**

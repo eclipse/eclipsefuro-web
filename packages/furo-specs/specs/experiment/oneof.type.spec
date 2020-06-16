@@ -8,7 +8,7 @@
       "google/protobuf/any.proto",
       "google/type/date.proto",
       "google/type/money.proto",
-      "google/protobuf/types/known/field_mask.proto",
+      "google/protobuf/field_mask.proto",
       "furo/property.proto"
     ],
     "targetfile": "experiment.proto"

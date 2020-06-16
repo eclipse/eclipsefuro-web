@@ -9,9 +9,10 @@ import "furo/link.proto";
 import "google/protobuf/any.proto";
 import "google/type/date.proto";
 import "google/type/money.proto";
-import "google/protobuf/field_mask.proto";
+import "google/protobuf/types/known/field_mask.proto";
 import "furo/property.proto";
 import "project/project.proto";
+import "google/protobuf/field_mask.proto";
 // ExperimentEntity with Experiment
 message ExperimentEntity {            
   // contains a experiment.Experiment
@@ -114,7 +115,7 @@ message Experiment {
   string type_with_options = 16;
   
   // Contains a field_mask which fields of the targeted resource are going to be updated
-  google.protobuf.FieldMask update_mask = 23;
+  google.protobuf.types.known.FieldMask update_mask = 23;
 
 }
 // Test the default value
@@ -192,6 +193,6 @@ message Oneof {
     // for oneof test purposes only
     google.protobuf.FieldMask other_mask = 24;
     // Contains a field_mask which fields of the targeted resource are going to be updated
-    google.protobuf.FieldMask update_mask = 23;
+    google.protobuf.types.known.FieldMask update_mask = 23;
   }
 }

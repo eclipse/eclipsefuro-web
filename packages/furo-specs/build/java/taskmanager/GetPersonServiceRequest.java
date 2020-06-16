@@ -6,7 +6,7 @@ package taskmanager;
 /**
  * Protobuf type {@code taskmanager.GetPersonServiceRequest}
  */
-public  final class GetPersonServiceRequest extends
+public final class GetPersonServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:taskmanager.GetPersonServiceRequest)
     GetPersonServiceRequestOrBuilder {
@@ -17,6 +17,13 @@ private static final long serialVersionUID = 0L;
   }
   private GetPersonServiceRequest() {
     prs_ = "";
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new GetPersonServiceRequest();
   }
 
   @java.lang.Override
@@ -32,7 +39,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -85,7 +91,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object prs_;
   /**
    * <code>string prs = 1;</code>
+   * @return The prs.
    */
+  @java.lang.Override
   public java.lang.String getPrs() {
     java.lang.Object ref = prs_;
     if (ref instanceof java.lang.String) {
@@ -100,7 +108,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string prs = 1;</code>
+   * @return The bytes for prs.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getPrsBytes() {
     java.lang.Object ref = prs_;
@@ -420,6 +430,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object prs_ = "";
     /**
      * <code>string prs = 1;</code>
+     * @return The prs.
      */
     public java.lang.String getPrs() {
       java.lang.Object ref = prs_;
@@ -435,6 +446,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string prs = 1;</code>
+     * @return The bytes for prs.
      */
     public com.google.protobuf.ByteString
         getPrsBytes() {
@@ -451,6 +463,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string prs = 1;</code>
+     * @param value The prs to set.
+     * @return This builder for chaining.
      */
     public Builder setPrs(
         java.lang.String value) {
@@ -464,6 +478,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string prs = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPrs() {
       
@@ -473,6 +488,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string prs = 1;</code>
+     * @param value The bytes for prs to set.
+     * @return This builder for chaining.
      */
     public Builder setPrsBytes(
         com.google.protobuf.ByteString value) {
