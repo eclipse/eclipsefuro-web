@@ -208,7 +208,7 @@
   },
   "links": [
     {
-      "href": "http://httpbin.org/anything",
+      "href": "https://httpbin.org/anything",
       "method": "POST",
       "rel": "create",
       "type": "experiment.ExperimentEntity",

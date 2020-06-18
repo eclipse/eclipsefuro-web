@@ -237,14 +237,14 @@
       "service": "ExperimentService"
     },
     {
-      "href": "http://httpbin.org/anything",
+      "href": "https://httpbin.org/anything",
       "method": "PATCH",
       "rel": "update",
       "type": "experiment.ExperimentEntity",
       "service": "ExperimentService"
     },
     {
-      "href": "http://httpbin.org/anything",
+      "href": "https://httpbin.org/anything",
       "method": "POST",
       "rel": "create",
       "type": "experiment.ExperimentEntity",

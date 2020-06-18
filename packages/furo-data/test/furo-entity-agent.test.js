@@ -26,14 +26,6 @@ describe('furo-entity-agent', () => {
     await entityAgent.updateComplete;
     await dataObject.updateComplete;
   });
-
-  it('should be a furo-entity-agent', done => {
-    // keep this test on top, so you can recognize a wrong asignment
-    assert.equal(entityAgent.nodeName.toLowerCase(), 'furo-entity-agent');
-    assert.equal(dataObject.nodeName.toLowerCase(), 'furo-data-object');
-    done();
-  });
-
   it('request payload should only have writeable or required properties inside', done => {
     entityAgent.loadOnHtsIn = true;
     entityAgent.setAttribute('service', 'ExperimentService');
@@ -78,7 +70,7 @@ describe('furo-entity-agent', () => {
         service: 'ExperimentService',
       },
       {
-        href: 'http://httpbin.org/anything',
+        href: 'https://httpbin.org/anything',
         method: 'POST',
         rel: 'create',
         type: 'experiment.ExperimentEntity',
@@ -86,6 +78,14 @@ describe('furo-entity-agent', () => {
       },
     ]);
   });
+  it('should be a furo-entity-agent', done => {
+    // keep this test on top, so you can recognize a wrong asignment
+    assert.equal(entityAgent.nodeName.toLowerCase(), 'furo-entity-agent');
+    assert.equal(dataObject.nodeName.toLowerCase(), 'furo-data-object');
+    done();
+  });
+
+
 
   it('Required fields must always be fully transmitted.', done => {
     entityAgent.loadOnHtsIn = true;
@@ -124,6 +124,13 @@ describe('furo-entity-agent', () => {
         href: '/mockdata/experiments/1/get.json',
         method: 'GET',
         rel: 'self',
+        type: 'experiment.ExperimentEntity',
+        service: 'ExperimentService',
+      },
+      {
+        href: 'http://httpbin.org/anything',
+        method: 'POST',
+        rel: 'create',
         type: 'experiment.ExperimentEntity',
         service: 'ExperimentService',
       },
@@ -184,7 +191,7 @@ describe('furo-entity-agent', () => {
         service: 'ExperimentService',
       },
       {
-        href: 'http://httpbin.org/anything',
+        href: 'https://httpbin.org/anything',
         method: 'PATCH',
         rel: 'update',
         type: 'experiment.ExperimentEntity',
@@ -214,7 +221,7 @@ describe('furo-entity-agent', () => {
         service: 'TaskService',
       },
       {
-        href: 'http://httpbin.org/anything',
+        href: 'https://httpbin.org/anything',
         method: 'PUT',
         rel: 'update',
         type: 'task.TaskEntity',
@@ -297,7 +304,7 @@ describe('furo-entity-agent', () => {
     });
     entityAgent.htsIn([
       {
-        href: 'http://httpbin.org/anything',
+        href: 'https://httpbin.org/anything',
         method: 'DELETE',
         rel: 'delete',
         type: 'task.TaskEntity',
@@ -332,7 +339,7 @@ describe('furo-entity-agent', () => {
     });
     entityAgent.htsIn([
       {
-        href: 'http://httpbin.org/anything',
+        href: 'https://httpbin.org/anything',
         method: 'PUT',
         rel: 'update',
         type: 'task.TaskEntity',
@@ -351,7 +358,7 @@ describe('furo-entity-agent', () => {
     });
     entityAgent.htsIn([
       {
-        href: 'http://httpbin.org/anything',
+        href: 'https://httpbin.org/anything',
         method: 'POST',
         rel: 'create',
         type: 'task.TaskEntity',
@@ -373,7 +380,7 @@ describe('furo-entity-agent', () => {
     });
     entityAgent.htsIn([
       {
-        href: 'http://httpbin.org/anything',
+        href: 'https://httpbin.org/anything',
         method: 'POST',
         rel: 'create',
         type: 'task.TaskEntity',
@@ -403,7 +410,7 @@ describe('furo-entity-agent', () => {
         service: 'TaskService',
       },
       {
-        href: 'http://httpbin.org/anything',
+        href: 'https://httpbin.org/anything',
         method: 'PUT',
         rel: 'update',
         type: 'task.TaskEntity',
@@ -435,7 +442,7 @@ describe('furo-entity-agent', () => {
         service: 'TaskService',
       },
       {
-        href: 'http://httpbin.org/anything',
+        href: 'https://httpbin.org/anything',
         method: 'PATCH',
         rel: 'update',
         type: 'task.TaskEntity',

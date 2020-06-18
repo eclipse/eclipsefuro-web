@@ -131,14 +131,6 @@ export class DataObject extends EventTreeNode {
    * Returns a json representation of your Data Object
    * @return {*}
    */
-  get value() {
-    return this.getJson();
-  }
-
-  /**
-   * Returns a json representation of your Data Object
-   * @return {*}
-   */
   getJson() {
     const data = {};
     // nur reine Daten zurück geben

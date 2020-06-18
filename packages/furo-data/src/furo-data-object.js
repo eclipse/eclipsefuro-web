@@ -122,7 +122,7 @@ export class FuroDataObject extends LitElement {
    * get the data from the data object as raw json
    */
   get json() {
-    return this.data.value;
+    return this.data._value;
   }
 
   /**
