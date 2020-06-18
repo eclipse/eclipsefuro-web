@@ -60,7 +60,7 @@ describe('furo-api-fetch', () => {
     element.abortRequest(controller);
   });
 
-  it('status codes from 300 up should fire error events', done => {
+  it('status codes from 300 up should fire error events, 400 default event', done => {
     const request = new Request('https://httpstat.us/400', { method: 'GET' });
     element.addEventListener('response-error-raw', r => {
       assert.equal(r.detail.ok, false);
@@ -71,7 +71,7 @@ describe('furo-api-fetch', () => {
     element.invokeRequest(request);
   });
 
-  it('status codes from 300 up should fire error events', done => {
+  it('status codes from 300 up should fire error events, 500', done => {
     const request = new Request('https://httpstat.us/500', { method: 'GET' });
     element.addEventListener('response-error', r => {
       assert.equal(r.detail, '500 Internal Server Error');
@@ -80,7 +80,7 @@ describe('furo-api-fetch', () => {
     element.invokeRequest(request);
   });
 
-  it('status codes from 300 up should fire error events', done => {
+  it('status codes from 300 up should fire error events, 400 specific event', done => {
     const request = new Request('https://httpstat.us/400', { method: 'GET' });
     element.addEventListener('response-error-400', r => {
       assert.equal(r.detail, '400 Bad Request');
