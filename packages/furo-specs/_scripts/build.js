@@ -98,6 +98,10 @@ speclist.types.forEach((filename) => {
     sh(config.hooks.type_completed, [path.normalize(filename),path.normalize(target)]);
   }
 });
+
+
+
+
 // obj to create the protocHelper.sh
 let protoc = {mod: [], protoc_I: config.protoc_I, protoc_M: config.protoc_M, config: config};
 for (let target in Typelist) {
