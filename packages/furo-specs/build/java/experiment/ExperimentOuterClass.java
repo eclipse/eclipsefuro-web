@@ -13582,6 +13582,16 @@ public final class ExperimentOuterClass {
      */
     google.protobuf.types.known.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder();
 
+    /**
+     * <pre>
+     * skalar in a group of complex
+     * </pre>
+     *
+     * <code>bool value = 25;</code>
+     * @return The value.
+     */
+    boolean getValue();
+
     public experiment.ExperimentOuterClass.Oneof.AaaCase getAaaCase();
 
     public experiment.ExperimentOuterClass.Oneof.BbbCase getBbbCase();
@@ -13704,6 +13714,11 @@ public final class ExperimentOuterClass {
                 complex_ = subBuilder.buildPartial();
               }
               complexCase_ = 24;
+              break;
+            }
+            case 200: {
+              complexCase_ = 25;
+              complex_ = input.readBool();
               break;
             }
             default: {
@@ -13830,6 +13845,7 @@ public final class ExperimentOuterClass {
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       OTHER_MASK(24),
       UPDATE_MASK(23),
+      VALUE(25),
       COMPLEX_NOT_SET(0);
       private final int value;
       private ComplexCase(int value) {
@@ -13849,6 +13865,7 @@ public final class ExperimentOuterClass {
         switch (value) {
           case 24: return OTHER_MASK;
           case 23: return UPDATE_MASK;
+          case 25: return VALUE;
           case 0: return COMPLEX_NOT_SET;
           default: return null;
         }
@@ -14223,6 +14240,23 @@ public final class ExperimentOuterClass {
       return google.protobuf.types.known.FieldMaskOuterClass.FieldMask.getDefaultInstance();
     }
 
+    public static final int VALUE_FIELD_NUMBER = 25;
+    /**
+     * <pre>
+     * skalar in a group of complex
+     * </pre>
+     *
+     * <code>bool value = 25;</code>
+     * @return The value.
+     */
+    @java.lang.Override
+    public boolean getValue() {
+      if (complexCase_ == 25) {
+        return (java.lang.Boolean) complex_;
+      }
+      return false;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -14261,6 +14295,10 @@ public final class ExperimentOuterClass {
       }
       if (complexCase_ == 24) {
         output.writeMessage(24, (com.google.protobuf.FieldMask) complex_);
+      }
+      if (complexCase_ == 25) {
+        output.writeBool(
+            25, (boolean)((java.lang.Boolean) complex_));
       }
       unknownFields.writeTo(output);
     }
@@ -14303,6 +14341,11 @@ public final class ExperimentOuterClass {
       if (complexCase_ == 24) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(24, (com.google.protobuf.FieldMask) complex_);
+      }
+      if (complexCase_ == 25) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(
+              25, (boolean)((java.lang.Boolean) complex_));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14359,6 +14402,10 @@ public final class ExperimentOuterClass {
           if (!getUpdateMask()
               .equals(other.getUpdateMask())) return false;
           break;
+        case 25:
+          if (getValue()
+              != other.getValue()) return false;
+          break;
         case 0:
         default:
       }
@@ -14412,6 +14459,11 @@ public final class ExperimentOuterClass {
         case 23:
           hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
           hash = (53 * hash) + getUpdateMask().hashCode();
+          break;
+        case 25:
+          hash = (37 * hash) + VALUE_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+              getValue());
           break;
         case 0:
         default:
@@ -14622,6 +14674,9 @@ public final class ExperimentOuterClass {
             result.complex_ = updateMaskBuilder_.build();
           }
         }
+        if (complexCase_ == 25) {
+          result.complex_ = complex_;
+        }
         result.aaaCase_ = aaaCase_;
         result.bbbCase_ = bbbCase_;
         result.complexCase_ = complexCase_;
@@ -14726,6 +14781,10 @@ public final class ExperimentOuterClass {
           }
           case UPDATE_MASK: {
             mergeUpdateMask(other.getUpdateMask());
+            break;
+          }
+          case VALUE: {
+            setValue(other.getValue());
             break;
           }
           case COMPLEX_NOT_SET: {
@@ -15775,6 +15834,52 @@ public final class ExperimentOuterClass {
         onChanged();;
         return updateMaskBuilder_;
       }
+
+      /**
+       * <pre>
+       * skalar in a group of complex
+       * </pre>
+       *
+       * <code>bool value = 25;</code>
+       * @return The value.
+       */
+      public boolean getValue() {
+        if (complexCase_ == 25) {
+          return (java.lang.Boolean) complex_;
+        }
+        return false;
+      }
+      /**
+       * <pre>
+       * skalar in a group of complex
+       * </pre>
+       *
+       * <code>bool value = 25;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValue(boolean value) {
+        complexCase_ = 25;
+        complex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * skalar in a group of complex
+       * </pre>
+       *
+       * <code>bool value = 25;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValue() {
+        if (complexCase_ == 25) {
+          complexCase_ = 0;
+          complex_ = null;
+          onChanged();
+        }
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -15920,15 +16025,15 @@ public final class ExperimentOuterClass {
       "rsive\"{\n\024ExperimentCollection\022.\n\010entitie" +
       "s\030\004 \003(\0132\034.experiment.ExperimentEntity\022\031\n" +
       "\005links\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n" +
-      ".furo.Meta\"\256\002\n\005Oneof\022\034\n\024furo_data_file_i" +
+      ".furo.Meta\"\277\002\n\005Oneof\022\034\n\024furo_data_file_i" +
       "nput\030\026 \003(\t\022\n\n\002id\030\001 \001(\t\022\026\n\014display_name\030\002" +
       " \001(\tH\000\022\"\n\030furo_data_checkbox_input\030\004 \001(\010" +
       "H\000\022\025\n\013description\030\003 \001(\tH\001\022\036\n\024furo_data_t" +
       "ext_input\030\005 \001(\tH\001\0220\n\nother_mask\030\030 \001(\0132\032." +
       "google.protobuf.FieldMaskH\002\022=\n\013update_ma" +
       "sk\030\027 \001(\0132&.google.protobuf.types.known.F" +
-      "ieldMaskH\002B\005\n\003aaaB\005\n\003bbbB\t\n\007complexb\006pro" +
-      "to3"
+      "ieldMaskH\002\022\017\n\005value\030\031 \001(\010H\002B\005\n\003aaaB\005\n\003bb" +
+      "bB\t\n\007complexb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15990,7 +16095,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Oneof_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Oneof_descriptor,
-        new java.lang.String[] { "FuroDataFileInput", "Id", "DisplayName", "FuroDataCheckboxInput", "Description", "FuroDataTextInput", "OtherMask", "UpdateMask", "Aaa", "Bbb", "Complex", });
+        new java.lang.String[] { "FuroDataFileInput", "Id", "DisplayName", "FuroDataCheckboxInput", "Description", "FuroDataTextInput", "OtherMask", "UpdateMask", "Value", "Aaa", "Bbb", "Complex", });
     furo.MetaOuterClass.getDescriptor();
     furo.LinkOuterClass.getDescriptor();
     google.protobuf.AnyOuterClass.getDescriptor();

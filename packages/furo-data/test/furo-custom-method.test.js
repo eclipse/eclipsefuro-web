@@ -83,7 +83,7 @@ describe('furo-custom-method', () => {
     dataObject.addEventListener('object-ready', () => {
       dataObject.data.data.description._value = 'updated desc';
 
-      customMethod.triggerWithBody(dataObject.data.value.data);
+      customMethod.triggerWithBody(dataObject.data._value.data);
     });
   });
 
@@ -146,12 +146,12 @@ describe('furo-custom-method', () => {
     dataObject.addEventListener('object-ready', () => {
       dataObject.data.data.description._value = 'updated desc';
 
-      customMethod.triggerWithBody(dataObject.data.value.data);
-      customMethod.triggerWithBody(dataObject.data.value.data);
-      customMethod.triggerWithBody(dataObject.data.value.data);
-      customMethod.triggerWithBody(dataObject.data.value.data);
-      customMethod.triggerWithBody(dataObject.data.value.data);
-      customMethod.triggerWithBody(dataObject.data.value.data);
+      customMethod.triggerWithBody(dataObject.data._value.data);
+      customMethod.triggerWithBody(dataObject.data._value.data);
+      customMethod.triggerWithBody(dataObject.data._value.data);
+      customMethod.triggerWithBody(dataObject.data._value.data);
+      customMethod.triggerWithBody(dataObject.data._value.data);
+      customMethod.triggerWithBody(dataObject.data._value.data);
     });
   });
 

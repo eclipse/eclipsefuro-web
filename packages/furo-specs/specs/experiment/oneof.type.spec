@@ -83,7 +83,7 @@
       "constraints": {
         "required": {
           "is": "true",
-          "message":"is required"
+          "message": "is required"
         },
         "min": {
           "is": 3,
@@ -114,7 +114,7 @@
       "constraints": {
         "required": {
           "is": "true",
-          "message":"is required"
+          "message": "is required"
         }
       },
       "__proto": {
@@ -140,7 +140,16 @@
         "number": 24,
         "oneof": "complex"
       }
+    },
+    "value": {
+      "description": "skalar in a group of complex",
+      "type": "bool",
+      "meta": {},
+      "constraints": {},
+      "__proto": {
+        "number": 25,
+        "oneof": "complex"
+      }
     }
-
   }
 }

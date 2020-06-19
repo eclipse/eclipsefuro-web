@@ -31,18 +31,18 @@ describe('furo-api-fetch', () => {
   });
 
   it('invoke request should fire events', done => {
-    const request = new Request('http://httpbin.org/get', { method: 'GET' });
+    const request = new Request('https://httpbin.org/get', { method: 'GET' });
     element.addEventListener('request-started', r => {
-      assert.equal(r.detail.url, 'http://httpbin.org/get');
+      assert.equal(r.detail.url, 'https://httpbin.org/get');
       done();
     });
     element.invokeRequest(request);
   });
 
   it('successful request should fire events', done => {
-    const request = new Request('http://httpbin.org/get', { method: 'GET' });
+    const request = new Request('https://httpbin.org/get', { method: 'GET' });
     element.addEventListener('response-raw', r => {
-      assert.equal(r.detail.url, 'http://httpbin.org/get');
+      assert.equal(r.detail.url, 'https://httpbin.org/get');
       done();
     });
     element.invokeRequest(request);
@@ -51,16 +51,16 @@ describe('furo-api-fetch', () => {
   it('aborted request should fire events', done => {
     const controller = new AbortController();
     const { signal } = controller;
-    const request = new Request('http://httpbin.org/get', { signal, method: 'GET' });
+    const request = new Request('https://httpbin.org/get', { signal, method: 'GET' });
     element.addEventListener('request-aborted', r => {
-      assert.equal(r.detail.url, 'http://httpbin.org/get');
+      assert.equal(r.detail.url, 'https://httpbin.org/get');
       done();
     });
     element.invokeRequest(request);
     element.abortRequest(controller);
   });
 
-  it('status codes from 300 up should fire error events', done => {
+  it('status codes from 300 up should fire error events, 400 default event', done => {
     const request = new Request('https://httpstat.us/400', { method: 'GET' });
     element.addEventListener('response-error-raw', r => {
       assert.equal(r.detail.ok, false);
@@ -71,7 +71,7 @@ describe('furo-api-fetch', () => {
     element.invokeRequest(request);
   });
 
-  it('status codes from 300 up should fire error events', done => {
+  it('status codes from 300 up should fire error events, 500', done => {
     const request = new Request('https://httpstat.us/500', { method: 'GET' });
     element.addEventListener('response-error', r => {
       assert.equal(r.detail, '500 Internal Server Error');
@@ -80,7 +80,7 @@ describe('furo-api-fetch', () => {
     element.invokeRequest(request);
   });
 
-  it('status codes from 300 up should fire error events', done => {
+  it('status codes from 300 up should fire error events, 400 specific event', done => {
     const request = new Request('https://httpstat.us/400', { method: 'GET' });
     element.addEventListener('response-error-400', r => {
       assert.equal(r.detail, '400 Bad Request');
@@ -93,7 +93,7 @@ describe('furo-api-fetch', () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    const request = new Request('http://httpbin.org/json', {
+    const request = new Request('https://httpbin.org/json', {
       method: 'GET',
       headers,
     });
@@ -108,7 +108,7 @@ describe('furo-api-fetch', () => {
     const headers = new Headers();
     headers.append('Content-Type', 'image/jpeg');
 
-    const request = new Request('http://httpbin.org/image/jpeg', {
+    const request = new Request('https://httpbin.org/image/jpeg', {
       method: 'GET',
       headers,
     });
@@ -130,7 +130,7 @@ describe('furo-api-fetch', () => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/octet-stream');
 
-    const request = new Request('http://httpbin.org/bytes/100', {
+    const request = new Request('https://httpbin.org/bytes/100', {
       method: 'GET',
       headers,
     });
@@ -145,7 +145,7 @@ describe('furo-api-fetch', () => {
     const headers = new Headers();
     headers.append('Content-Type', 'text/plain');
 
-    const request = new Request('http://httpbin.org/robots.txt', {
+    const request = new Request('https://httpbin.org/robots.txt', {
       method: 'GET',
       headers,
     });

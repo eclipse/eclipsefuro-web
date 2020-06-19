@@ -52,7 +52,7 @@ describe('furo-entity-agent fieldmask', () => {
     });
     entityAgent.htsIn([
       {
-        href: 'http://httpbin.org/anything',
+        href: 'https://httpbin.org/anything',
         method: 'PATCH',
         rel: 'update',
         type: 'project.ProjectEntity',
@@ -81,7 +81,7 @@ describe('furo-entity-agent fieldmask', () => {
     });
     entityAgent.htsIn([
       {
-        href: 'http://httpbin.org/anything',
+        href: 'https://httpbin.org/anything',
         method: 'PATCH',
         rel: 'update',
         type: 'person.PersonEntity',
