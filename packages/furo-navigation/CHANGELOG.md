@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.4.9...@furo/navigation@1.5.0) (2020-06-22)
+
+
+### Features
+
+* delayed scrolling to selected or focused tree item ([543ffd2](https://github.com/theNorstroem/FuroBaseComponents/commit/543ffd2128c860a50be0e25eb8bedd86089770c6))
+* delayed scrolling to selected or focused tree item ([f345cc5](https://github.com/theNorstroem/FuroBaseComponents/commit/f345cc5e84f0c62ff5704a20c21fa9c50907826e))
+
+
+
+
+
 ## [1.4.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.4.8...@furo/navigation@1.4.9) (2020-06-16)
 
 **Note:** Version bump only for package @furo/navigation

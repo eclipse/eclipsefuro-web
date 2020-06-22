@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.4.0...@furo/data@1.4.1) (2020-06-22)
+
+
+### Bug Fixes
+
+* fields named "value" on root objects ([bc68ba6](https://github.com/theNorstroem/FuroBaseComponents/commit/bc68ba6915757a0f6ec7882940445786a814353c))
+* test flow changed ([ce96835](https://github.com/theNorstroem/FuroBaseComponents/commit/ce96835cb76250424e58cbb66a9a8d45d7f62c01))
+
+
+
+
+
 # [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.3.14...@furo/data@1.4.0) (2020-06-16)
 
 

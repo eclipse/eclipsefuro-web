@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.14](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.3.13...@furo/input@1.3.14) (2020-06-22)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
 ## [1.3.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.3.12...@furo/input@1.3.13) (2020-06-16)
 
 **Note:** Version bump only for package @furo/input
