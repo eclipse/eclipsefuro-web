@@ -199,22 +199,23 @@ export class FuroTreeItem extends FBP(LitElement) {
       this.focused = false;
     });
 
-    this.fieldNode.addEventListener('this-node-focused', () => {
-      this.focused = true;
-      // this.scrollIntoViewIfNeeded();
-      if (this.scrollIntoViewIfNeeded) {
-        this.scrollIntoViewIfNeeded();
-      }
-    });
+    this.__addNodeFocusedListener();
 
-    this.fieldNode.addEventListener('this-node-selected', () => {
-      this.selected = true;
-      this.fieldNode._isSelected = true;
-      if (this.scrollIntoViewIfNeeded) {
-        this.scrollIntoViewIfNeeded();
-      }
-    });
+    this.__addNodeSelectedListener();
 
+    this.__addSearchListeners();
+
+    // This item is  in the search results
+    this.fieldNode.addEventListener('field-value-changed', () => {
+      this.requestUpdate();
+    });
+  }
+
+  /**
+   * add listeners for search matches and non matches
+   * @private
+   */
+  __addSearchListeners() {
     // This item is not or no more in the search results
     this.fieldNode.addEventListener('search-didnt-match', () => {
       this.searchmatch = false;
@@ -224,10 +225,35 @@ export class FuroTreeItem extends FBP(LitElement) {
     this.fieldNode.addEventListener('search-matched', () => {
       this.searchmatch = true;
     });
+  }
 
-    // This item is  in the search results
-    this.fieldNode.addEventListener('field-value-changed', () => {
-      this.requestUpdate();
+  __addNodeSelectedListener() {
+    this.fieldNode.addEventListener('this-node-selected', () => {
+      this.selected = true;
+      this.fieldNode._isSelected = true;
+      if (this.scrollIntoViewIfNeeded) {
+        // workaround for trees with long render cycles. But this behaviour feels better then direct scrolling, so why not
+        setTimeout(() => {
+          this.scrollIntoViewIfNeeded();
+        }, 160);
+      }
+    });
+  }
+
+  /**
+   * bring the focused element in the visible part of the screen (scroll)
+   * @private
+   */
+  __addNodeFocusedListener() {
+    this.fieldNode.addEventListener('this-node-focused', () => {
+      this.focused = true;
+      // this.scrollIntoViewIfNeeded();
+      if (this.scrollIntoViewIfNeeded) {
+        // workaround for trees with long render cycles. But this behaviour feels better then direct scrolling, so why not
+        setTimeout(() => {
+          this.scrollIntoViewIfNeeded();
+        }, 160);
+      }
     });
   }
 
