@@ -203,7 +203,11 @@ export class FuroTreeItem extends FBP(LitElement) {
       this.focused = true;
       // this.scrollIntoViewIfNeeded();
       if (this.scrollIntoViewIfNeeded) {
+        // workaround for trees with long render cycles. But this behaviour feels better then direct scrolling, so why not
+        setTimeout(()=>{
         this.scrollIntoViewIfNeeded();
+        },160)
+
       }
     });
 
@@ -211,7 +215,11 @@ export class FuroTreeItem extends FBP(LitElement) {
       this.selected = true;
       this.fieldNode._isSelected = true;
       if (this.scrollIntoViewIfNeeded) {
+        // workaround for trees with long render cycles. But this behaviour feels better then direct scrolling, so why not
+        setTimeout(()=>{
         this.scrollIntoViewIfNeeded();
+        },160)
+
       }
     });
 
