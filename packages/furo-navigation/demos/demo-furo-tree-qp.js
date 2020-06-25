@@ -59,11 +59,21 @@ class DemoFuroTreeQp extends FBP(LitElement) {
             <furo-button @-click="--focusClicked" label="focus"></furo-button>
             <furo-button @-click="--expandAll" label="expand all"></furo-button>
             <furo-button @-click="--collapseAll" label="collapse all"></furo-button>
+            <furo-button @-click="--scrollSelected" label="scroll to selected"></furo-button>
+            <furo-button @-click="--focusFirst" label="focus first node"></furo-button>
+            <furo-button @-click="--focusLast" label="focus last node"></furo-button>
+            <furo-button @-click="--focusParent" label="focus parent node"></furo-button>
+            <furo-button @-click="--selectFocused" label="select focused node"></furo-button>
+            
 
             <furo-split-view style="height: 500px;">
               <furo-tree
                 slot="master"
                 ƒ-focus="--focusClicked"
+                ƒ-focus-first="--focusFirst"
+                ƒ-focus-last="--focusLast"
+                ƒ-select-focused="--selectFocused"
+                ƒ-focus-parent="--focusParent"
                 ƒ-bind-data="--entityObj(*.data)"
                 qp="panel"
                 ƒ-location-in="--qp"
@@ -71,6 +81,7 @@ class DemoFuroTreeQp extends FBP(LitElement) {
                 @-qp-change-requested="--qpchangerequest"
                 ƒ-select-next="--next"
                 ƒ-select-prev="--prev"
+                ƒ-scroll-to-selected="--scrollSelected"
                 ƒ-add-sub-node="--addSub"
                 ƒ-expand-node-recursive="--expandNode"
                 ƒ-expand-all="--expandAll"

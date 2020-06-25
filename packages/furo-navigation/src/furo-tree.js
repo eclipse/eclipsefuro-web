@@ -64,7 +64,7 @@ export class FuroTree extends FBP(LitElement) {
     if (!this._focusedField.isBranch() && this._focusedField.open._value) {
       this._focusedField.toggleOpenClose();
     } else {
-      this._focusHome();
+      this.focusParent();
     }
   }
 
@@ -144,7 +144,10 @@ export class FuroTree extends FBP(LitElement) {
     });
   }
 
-  _focusHome() {
+  /**
+   * Focuses the parent tree node without selecting it.
+   */
+  focusParent() {
     const parent = this._focusedField.getParentElement();
     if (parent.triggerFocus) {
       parent.triggerFocus();
@@ -152,7 +155,7 @@ export class FuroTree extends FBP(LitElement) {
   }
 
   /**
-   * focus the previous item
+   * focus the previous visible node.
    */
   focusPrevious() {
     let prev;
@@ -339,14 +342,18 @@ export class FuroTree extends FBP(LitElement) {
   }
 
   /**
-   * Focuses the first element
+   * Focuses the first node in the tree without selecting it.
+   *
+   * Use selectFocused to select the focused node.
    */
   focusFirst() {
     this._flatTree[0].triggerFocus();
   }
 
   /**
-   * Focuses the last element
+   * Focuses the last node in the tree without selecting it.
+   *
+   * Use selectFocused to select the focused node.
    */
   focusLast() {
     this.__visibleTree = this._flatTree.filter(node => !node._isHidden);
@@ -354,7 +361,7 @@ export class FuroTree extends FBP(LitElement) {
   }
 
   /**
-   * focuss the next item
+   * focuses the next visible tree node.
    */
   focusNext() {
     let next;
@@ -437,7 +444,7 @@ export class FuroTree extends FBP(LitElement) {
   }
 
   /**
-   * focuses the element
+   * focuses the tree itself.
    */
   focus() {
     super.focus();
@@ -650,6 +657,13 @@ export class FuroTree extends FBP(LitElement) {
       // eslint-disable-next-line no-param-reassign
       treeNode.secondary_text._value = this.secondaryText;
     }
+  }
+
+  /**
+   * Scrolls to the currently selected tree item.
+   */
+  scrollToSelected() {
+    this._focusedField.triggerFocus();
   }
 
   _init() {
