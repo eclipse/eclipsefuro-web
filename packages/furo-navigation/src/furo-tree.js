@@ -146,6 +146,8 @@ export class FuroTree extends FBP(LitElement) {
 
   /**
    * Focuses the parent tree node without selecting it.
+   *
+   * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusParent() {
     const parent = this._focusedField.getParentElement();
@@ -156,6 +158,8 @@ export class FuroTree extends FBP(LitElement) {
 
   /**
    * focus the previous visible node.
+   *
+   * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusPrevious() {
     let prev;
@@ -345,6 +349,8 @@ export class FuroTree extends FBP(LitElement) {
    * Focuses the first node in the tree without selecting it.
    *
    * Use selectFocused to select the focused node.
+   *
+   * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusFirst() {
     this._flatTree[0].triggerFocus();
@@ -354,6 +360,8 @@ export class FuroTree extends FBP(LitElement) {
    * Focuses the last node in the tree without selecting it.
    *
    * Use selectFocused to select the focused node.
+   *
+   * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusLast() {
     this.__visibleTree = this._flatTree.filter(node => !node._isHidden);
@@ -362,6 +370,8 @@ export class FuroTree extends FBP(LitElement) {
 
   /**
    * focuses the next visible tree node.
+   *
+   * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusNext() {
     let next;
@@ -444,7 +454,7 @@ export class FuroTree extends FBP(LitElement) {
   }
 
   /**
-   * focuses the tree itself.
+   * focuses the tree itself. You can use this in combination with keyboard navigation (furo-navigation-pad)
    */
   focus() {
     super.focus();
@@ -660,9 +670,11 @@ export class FuroTree extends FBP(LitElement) {
   }
 
   /**
-   * Scrolls to the currently selected tree item.
+   * Focuses the currently selected tree item.
+   *
+   * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
-  scrollToSelected() {
+  focusSelected() {
     this._focusedField.triggerFocus();
   }
 

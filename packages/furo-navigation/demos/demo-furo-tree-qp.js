@@ -64,15 +64,16 @@ class DemoFuroTreeQp extends FBP(LitElement) {
             <furo-button @-click="--focusLast" label="focus last node"></furo-button>
             <furo-button @-click="--focusParent" label="focus parent node"></furo-button>
             <furo-button @-click="--selectFocused" label="select focused node"></furo-button>
-
+            
             <furo-split-view style="height: 500px;">
               <furo-tree
                 slot="master"
                 ƒ-focus="--focusClicked"
+                ƒ-focus-selected="--scrollSelected"
                 ƒ-focus-first="--focusFirst"
                 ƒ-focus-last="--focusLast"
-                ƒ-select-focused="--selectFocused"
                 ƒ-focus-parent="--focusParent"
+                ƒ-select-focused="--selectFocused"
                 ƒ-bind-data="--entityObj(*.data)"
                 qp="panel"
                 ƒ-location-in="--qp"
@@ -80,13 +81,16 @@ class DemoFuroTreeQp extends FBP(LitElement) {
                 @-qp-change-requested="--qpchangerequest"
                 ƒ-select-next="--next"
                 ƒ-select-prev="--prev"
-                ƒ-scroll-to-selected="--scrollSelected"
                 ƒ-add-sub-node="--addSub"
                 ƒ-expand-node-recursive="--expandNode"
                 ƒ-expand-all="--expandAll"
                 ƒ-collapse-all="--collapseAll"
                 ƒ-delete-node="--deleteNode"
-              ></furo-tree>
+                ƒ-trigger-navigation="--navigation"
+              >
+                <!-- add the furo-navigation-pad for keyboard navigation --> 
+                <furo-navigation-pad @-navigated="--navigation"></furo-navigation-pad>
+              </furo-tree>
 
               <tree-demo-form
                 ƒ-bind-data="--nodeSelected"
