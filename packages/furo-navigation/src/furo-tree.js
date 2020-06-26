@@ -64,7 +64,7 @@ export class FuroTree extends FBP(LitElement) {
     if (!this._focusedField.isBranch() && this._focusedField.open._value) {
       this._focusedField.toggleOpenClose();
     } else {
-      this._focusHome();
+      this.focusParent();
     }
   }
 
@@ -144,7 +144,12 @@ export class FuroTree extends FBP(LitElement) {
     });
   }
 
-  _focusHome() {
+  /**
+   * Focuses the parent tree node without selecting it.
+   *
+   * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
+   */
+  focusParent() {
     const parent = this._focusedField.getParentElement();
     if (parent.triggerFocus) {
       parent.triggerFocus();
@@ -152,7 +157,9 @@ export class FuroTree extends FBP(LitElement) {
   }
 
   /**
-   * focus the previous item
+   * focus the previous visible node.
+   *
+   * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusPrevious() {
     let prev;
@@ -339,14 +346,22 @@ export class FuroTree extends FBP(LitElement) {
   }
 
   /**
-   * Focuses the first element
+   * Focuses the first node in the tree without selecting it.
+   *
+   * Use selectFocused to select the focused node.
+   *
+   * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusFirst() {
     this._flatTree[0].triggerFocus();
   }
 
   /**
-   * Focuses the last element
+   * Focuses the last node in the tree without selecting it.
+   *
+   * Use selectFocused to select the focused node.
+   *
+   * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusLast() {
     this.__visibleTree = this._flatTree.filter(node => !node._isHidden);
@@ -354,7 +369,9 @@ export class FuroTree extends FBP(LitElement) {
   }
 
   /**
-   * focuss the next item
+   * focuses the next visible tree node.
+   *
+   * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusNext() {
     let next;
@@ -437,7 +454,7 @@ export class FuroTree extends FBP(LitElement) {
   }
 
   /**
-   * focuses the element
+   * focuses the tree itself. You can use this in combination with keyboard navigation (furo-navigation-pad)
    */
   focus() {
     super.focus();
@@ -650,6 +667,15 @@ export class FuroTree extends FBP(LitElement) {
       // eslint-disable-next-line no-param-reassign
       treeNode.secondary_text._value = this.secondaryText;
     }
+  }
+
+  /**
+   * Focuses the currently selected tree item.
+   *
+   * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
+   */
+  focusSelected() {
+    this._focusedField.triggerFocus();
   }
 
   _init() {
