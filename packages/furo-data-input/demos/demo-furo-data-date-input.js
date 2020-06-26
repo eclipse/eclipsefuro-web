@@ -53,8 +53,8 @@ class DemoFuroDataDateInput extends FBP(LitElement) {
           <h2>Demo furo-data-date-input</h2>
           <p>
             Bind the field from furo-data-object with
-            <strong>ƒ-bind-data="--entityReady(*.data.fields.fieldname)"</strong>. The labels, hints,
-            defaults are comming from the furo-data-object specs.
+            <strong>ƒ-bind-data="--entityReady(*.data.fields.fieldname)"</strong>. The labels,
+            hints, defaults are comming from the furo-data-object specs.
           </p>
           <p>As you can see, the "data-binding" is done by the furo-data-object.</p>
         </div>

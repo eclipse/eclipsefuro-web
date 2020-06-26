@@ -120,11 +120,13 @@ describe('furo-data-checkbox-input', () => {
       entityObject.addEventListener(
         'data-injected',
         () => {
-
           setTimeout(() => {
             console.log(dataCheckboxInput._theInputElement);
 
-            assert.equal(dataCheckboxInput._theInputElement.getAttribute('label'), 'checkbox label via meta');
+            assert.equal(
+              dataCheckboxInput._theInputElement.getAttribute('label'),
+              'checkbox label via meta',
+            );
             assert.equal(dataCheckboxInput._theInputElement.getAttribute('disabled'), '');
             done();
           }, 0);
@@ -134,5 +136,4 @@ describe('furo-data-checkbox-input', () => {
     });
     deeplink.qpIn({ exp: 1 });
   });
-
 });

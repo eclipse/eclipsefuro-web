@@ -83,10 +83,12 @@ describe('furo-data-color-input', () => {
       entityObject.addEventListener(
         'data-injected',
         () => {
-
           setTimeout(() => {
             assert.equal(dataInput._theInputElement.getAttribute('disabled'), '');
-            assert.equal(dataInput._theInputElement.getAttribute('label'), 'color input label via meta');
+            assert.equal(
+              dataInput._theInputElement.getAttribute('label'),
+              'color input label via meta',
+            );
             done();
           }, 5);
         },

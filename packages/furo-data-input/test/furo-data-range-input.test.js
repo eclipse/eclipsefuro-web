@@ -153,10 +153,12 @@ describe('furo-data-range-input', () => {
       dataObject.addEventListener(
         'data-injected',
         () => {
-
           setTimeout(() => {
             assert.equal(dataRangeInput._theInputElement.getAttribute('disabled'), '');
-            assert.equal(dataRangeInput._theInputElement.getAttribute('label'), 'range input label via meta');
+            assert.equal(
+              dataRangeInput._theInputElement.getAttribute('label'),
+              'range input label via meta',
+            );
             done();
           }, 5);
         },

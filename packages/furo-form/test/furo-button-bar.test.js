@@ -184,7 +184,7 @@ describe('furo-button-bar', () => {
     agent.loadOnHtsIn = true;
 
     agent.addEventListener('response', () => {
-      dao.data._isValid=false;
+      dao.data._isValid = false;
       element._updateElements(dao.data);
       const slotted = element.shadowRoot.firstElementChild.children[0].assignedElements()[4];
       assert.equal(slotted.getAttribute('hidden'), '');

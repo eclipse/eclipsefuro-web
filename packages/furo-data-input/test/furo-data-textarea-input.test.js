@@ -126,7 +126,6 @@ describe('furo-data-textarea-input', () => {
     }, 10);
   });
 
-
   it('should set meta via response meta', done => {
     console.log('those tests are base on the mockdata/experiment/1/get.json');
 
@@ -134,9 +133,11 @@ describe('furo-data-textarea-input', () => {
       entityObject.addEventListener(
         'data-injected',
         () => {
-
           setTimeout(() => {
-            assert.equal(dataTextareaInput._theInputElement.getAttribute('label'), 'textarea input label via meta');
+            assert.equal(
+              dataTextareaInput._theInputElement.getAttribute('label'),
+              'textarea input label via meta',
+            );
             assert.equal(dataTextareaInput._theInputElement.getAttribute('disabled'), '');
             done();
           }, 50);

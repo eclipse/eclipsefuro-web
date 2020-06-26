@@ -19,7 +19,9 @@ describe('furo-data-bool-icon', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-data-bool-icon ƒ-bind-data="--entity(*.data.furo_data_bool_icon)"></furo-data-bool-icon>
+          <furo-data-bool-icon
+            ƒ-bind-data="--entity(*.data.furo_data_bool_icon)"
+          ></furo-data-bool-icon>
 
           <furo-data-object
             type="experiment.ExperimentEntity"

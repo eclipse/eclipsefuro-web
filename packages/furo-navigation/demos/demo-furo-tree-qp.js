@@ -64,7 +64,7 @@ class DemoFuroTreeQp extends FBP(LitElement) {
             <furo-button @-click="--focusLast" label="focus last node"></furo-button>
             <furo-button @-click="--focusParent" label="focus parent node"></furo-button>
             <furo-button @-click="--selectFocused" label="select focused node"></furo-button>
-            
+
             <furo-split-view style="height: 500px;">
               <furo-tree
                 slot="master"
@@ -88,7 +88,7 @@ class DemoFuroTreeQp extends FBP(LitElement) {
                 ƒ-delete-node="--deleteNode"
                 ƒ-trigger-navigation="--navigation"
               >
-                <!-- add the furo-navigation-pad for keyboard navigation --> 
+                <!-- add the furo-navigation-pad for keyboard navigation -->
                 <furo-navigation-pad @-navigated="--navigation"></furo-navigation-pad>
               </furo-tree>
 

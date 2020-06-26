@@ -159,10 +159,12 @@ describe('furo-data-time-input', () => {
       dataObject.addEventListener(
         'data-injected',
         () => {
-
           setTimeout(() => {
             assert.equal(dataTimeInput._theInputElement.getAttribute('disabled'), '');
-            assert.equal(dataTimeInput._theInputElement.getAttribute('label'), 'time input label via meta');
+            assert.equal(
+              dataTimeInput._theInputElement.getAttribute('label'),
+              'time input label via meta',
+            );
             done();
           }, 5);
         },

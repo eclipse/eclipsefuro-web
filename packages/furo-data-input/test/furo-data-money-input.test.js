@@ -125,11 +125,16 @@ describe('furo-data-money-input', () => {
       entityObject.addEventListener(
         'data-injected',
         () => {
-
           setTimeout(() => {
-            console.log(dataInput.shadowRoot.getElementById("input"))
-            assert.equal(dataInput.shadowRoot.getElementById("input").getAttribute('disabled'), null);
-            assert.equal(dataInput.shadowRoot.getElementById("select").getAttribute('disabled'), null);
+            console.log(dataInput.shadowRoot.getElementById('input'));
+            assert.equal(
+              dataInput.shadowRoot.getElementById('input').getAttribute('disabled'),
+              null,
+            );
+            assert.equal(
+              dataInput.shadowRoot.getElementById('select').getAttribute('disabled'),
+              null,
+            );
             done();
           }, 55);
         },

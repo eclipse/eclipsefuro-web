@@ -122,11 +122,13 @@ describe('furo-data-date-input', () => {
       dataObject.addEventListener(
         'data-injected',
         () => {
-
           setTimeout(() => {
             assert.equal(dataDateInput._theInputElement.getAttribute('disabled'), '');
             assert.equal(secondDateInput._theInputElement.getAttribute('disabled'), '');
-            assert.equal(dataDateInput._theInputElement.getAttribute('label'), 'date input label via meta');
+            assert.equal(
+              dataDateInput._theInputElement.getAttribute('label'),
+              'date input label via meta',
+            );
             done();
           }, 5);
         },

@@ -115,7 +115,10 @@ describe('furo-data-text-input', () => {
         'data-changed',
         () => {
           secondTextInput._FBPAddWireHook('--value', val => {
-            assert.equal(val, 'hallo test with loads of text to show the overflow. hallo test with loads of text to show the overflow.');
+            assert.equal(
+              val,
+              'hallo test with loads of text to show the overflow. hallo test with loads of text to show the overflow.',
+            );
             done();
           });
         },
@@ -186,10 +189,12 @@ describe('furo-data-text-input', () => {
       dataObject.addEventListener(
         'data-injected',
         () => {
-
           setTimeout(() => {
             assert.equal(dataTextInput._theInputElement.getAttribute('disabled'), '');
-            assert.equal(dataTextInput._theInputElement.getAttribute('label'), 'text input label via meta');
+            assert.equal(
+              dataTextInput._theInputElement.getAttribute('label'),
+              'text input label via meta',
+            );
             done();
           }, 5);
         },
