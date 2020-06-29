@@ -1,6 +1,6 @@
 {
   "name": "@furo/util",
-  "version": "1.3.16",
+  "version": "1.3.17",
   "description": "package sample",
   "homepage": "https://github.com/veith/template-component-package",
   "repository": "git@github.com:veith/template-component-package.git",
@@ -29,8 +29,8 @@
     "test:bs": "../../node_modules/.bin/karma start karma.bs.config.js --compatibility all --coverage"
   },
   "dependencies": {
-    "@furo/fbp": "^5.1.11",
-    "@furo/framework": "^1.3.11",
+    "@furo/fbp": "^5.1.12",
+    "@furo/framework": "^1.3.12",
     "lit-element": "^2.3.1",
     "lit-html": "^1.1.1",
     "markdown-it": "^9.0.1",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/navigation": "^1.5.0",
+    "@furo/navigation": "^1.6.0",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

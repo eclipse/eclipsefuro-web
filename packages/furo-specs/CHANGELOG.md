@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.10.3...@furo/specs@1.11.0) (2020-06-29)
+
+
+### Features
+
+* remove proto type in query for type spec im ServiceFromType.tmpl ([c0a1c99](https://github.com/theNorstroem/FuroBaseComponents/commit/c0a1c99445fd22b0be7dc7451641967096337a82))
+
+
+
+
+
 ## [1.10.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.10.2...@furo/specs@1.10.3) (2020-06-22)
 
 **Note:** Version bump only for package @furo/specs

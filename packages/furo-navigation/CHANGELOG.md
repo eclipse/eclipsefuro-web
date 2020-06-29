@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.5.0...@furo/navigation@1.6.0) (2020-06-29)
+
+
+### Features
+
+* expose focus methods ([33c4438](https://github.com/theNorstroem/FuroBaseComponents/commit/33c443801882b370ff2f41f0f50cb7a536b0ba43))
+* expose focus methods ([babd0d6](https://github.com/theNorstroem/FuroBaseComponents/commit/babd0d61f979b25576ae22e893f8414f25de60f6))
+
+
+
+
+
 # [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.4.9...@furo/navigation@1.5.0) (2020-06-22)
 
 
