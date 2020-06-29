@@ -675,7 +675,7 @@ export class FuroTree extends FBP(LitElement) {
    * The tree item will also scrollIntoViewIfNeeded() (on all platforms which support this method).
    */
   focusSelected() {
-    this._focusedField.triggerFocus();
+    this._selectedField.triggerFocus();
   }
 
   _init() {
