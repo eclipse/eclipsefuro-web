@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.0...@furo/navigation@1.6.1) (2020-06-29)
+
+
+### Bug Fixes
+
+* scroll to selected typo ([ff03686](https://github.com/theNorstroem/FuroBaseComponents/commit/ff03686e618cde6644d6a0b197eebf42f4201d88))
+
+
+
+
+
 # [1.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.5.0...@furo/navigation@1.6.0) (2020-06-29)
 
 
