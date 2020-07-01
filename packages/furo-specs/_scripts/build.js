@@ -105,6 +105,7 @@ speclist.types.forEach((filename) => {
 if (speclist.enums) {
   speclist.enums.forEach((filename) => {
     let spec = JSON.parse(fs.readFileSync(filename));
+    spec.type = spec.name;
     // client needs unmodified
     ClientEnv.types.push(JSON.parse(JSON.stringify(spec)));
     let target = spec.__proto.package.split('.').join('/') + '/' + spec.__proto.targetfile;

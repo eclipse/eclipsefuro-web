@@ -8,8 +8,8 @@
     "allow_alias": false
   },
   "values": {
-    "UNKNOWN": 0,
-    "RUNNING": 1,
-    "COMPLETE": 2
+    "DEFAULT": 0,
+    "YOURS": 1,
+    "THEIRS": 2
   }
 }
