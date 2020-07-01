@@ -2,7 +2,7 @@
   "name": "Corpus",
   "description": "enum sample with aliases",
   "__proto": {
-    "package": "experiment",
+    "package": "enum",
     "options": {},
     "targetfile": "corpus.enum.proto",
     "allow_alias": true
