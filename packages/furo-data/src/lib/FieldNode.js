@@ -216,7 +216,7 @@ export class FieldNode extends EventTreeNode {
   }
 
   set _value(val) {
-    // create vendor type if this field is a recusion an was not generated
+    // create vendor type if this field is a recursion an was not generated
     if (this._isRecursion && val) {
       this._createVendorType(this._spec.type);
     }

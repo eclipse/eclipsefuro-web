@@ -107,4 +107,35 @@ describe('furo-select-input', () => {
   it('instantiating furo-select-input with default properties works', () => {
     assert.equal(element.tagName.toLowerCase(), 'furo-select-input');
   });
+
+  it('should support multiple and size attributes', done => {
+    element.multiple = true;
+    element.size = 5;
+
+    setTimeout(()=>{
+      assert.equal(element.shadowRoot.querySelector("select").multiple, true);
+      assert.equal(element.shadowRoot.querySelector("select").size, 5);
+      done();
+    },10);
+  });
+
+  it('should support multiple selection', done => {
+    element.multiple = true;
+    element.setOptions([
+      { id: 23, label: 'AAA', selected: true },
+      { id: 66, label: 'DDA', selected: false },
+      { id: 667, label: 'DDB', selected: true },
+      { id: 668, label: 'DDC', selected: false },
+    ]);
+
+    setTimeout(()=>{
+      const arrValue = [];
+      element.selectOptions.forEach(o=>{
+        if(o.selected){
+          arrValue.push(o.id);
+        }
+      });
+      done();
+    },20)
+  });
 });

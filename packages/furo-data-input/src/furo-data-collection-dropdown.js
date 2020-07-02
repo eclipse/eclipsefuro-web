@@ -37,6 +37,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-data-collection-dropdown inject collection demo
  * @demo demo-furo-data-collection-dropdown-bind-entity bind entity without inject demo
  * @demo demo-furo-data-collection-reference-dropdown combine with reference dropdown demo
+ * @demo demo-furo-data-collection-dropdown-multiple collection dropdown demo with multiple selection
  * @mixes FBP
  */
 class FuroDataCollectionDropdown extends FBP(LitElement) {
@@ -61,11 +62,38 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
 
     this._FBPAddWireHook('--valueChanged', val => {
       if (this.field) {
-        // by valid input reset meta and constraints
-        this._fieldNodeToUpdate._value = val;
+        if (!this.multipleSelection) {
+          // by valid input reset meta and constraints
+          this._fieldNodeToUpdate._value = val;
 
-        if (this.subfield) {
-          this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(val);
+          if (this.subfield) {
+            this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(val);
+          }
+        } else {
+          const data = [];
+          const arrSubfieldChains = this.subfield.split('.');
+          // create value data according to the structure of subfield
+          if (Array.isArray(val)) {
+            val.forEach(v => {
+              const tmp = {};
+              for (let i = arrSubfieldChains.length - 1; i > -1; i -= 1) {
+                tmp[i] = {};
+                if (i === arrSubfieldChains.length - 1) {
+                  tmp[i][arrSubfieldChains[i]] = v;
+                } else {
+                  tmp[i][arrSubfieldChains[i]] = tmp[i + 1];
+                }
+              }
+              data.push(tmp[0]);
+            });
+          }
+          // add write lock to avoid triggering _updateField via fieldnode changed event
+          this._writeLock = true;
+          this._fieldNodeToUpdate._value = data;
+          // shut down write protection
+          setTimeout(() => {
+            this._writeLock = false;
+          }, 100);
         }
       }
       this._notifiySelectedItem(val);
@@ -99,19 +127,27 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
      * @event item-selected
      * Fired when a item from the dropdown was selected
      *
-     * detail payload: the original item object
+     * detail payload: the original item object or the array of original item objects by multiple options
      */
     const customEvent = new Event('item-selected', { composed: true, bubbles: true });
     // find item from list
     let selectedItem;
 
-    for (let i = this._dropdownList.length - 1; i >= 0; i -= 1) {
-      if (this._dropdownList[i].id === val) {
-        selectedItem = this._dropdownList[i]._original;
-        break;
+    if (this.multipleSelection) {
+      selectedItem = [];
+      for (let i = this._dropdownList.length - 1; i >= 0; i -= 1) {
+        if (val.includes(this._dropdownList[i].id)) {
+          selectedItem.push(this._dropdownList[i]._original);
+        }
+      }
+    } else {
+      for (let i = this._dropdownList.length - 1; i >= 0; i -= 1) {
+        if (this._dropdownList[i].id === val) {
+          selectedItem = this._dropdownList[i]._original;
+          break;
+        }
       }
     }
-
     customEvent.detail = selectedItem;
     this.dispatchEvent(customEvent);
   }
@@ -198,6 +234,8 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
         if (this._fieldNodeToUpdate) {
           this._fieldNodeToUpdate._value = selectedItem;
         }
+      } else if (this.multipleSelection) {
+        this._notifiySelectedItem(this._parseRepeatedData(this._fieldNodeToUpdate._value));
       } else {
         this._notifiySelectedItem(this._fieldNodeToUpdate._value);
       }
@@ -316,6 +354,24 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       _dropdownList: {
         type: Array,
       },
+      /**
+       * multiple selection mark
+       */
+      multipleSelection: {
+        type: Boolean,
+      },
+      /**
+       * the size of multiple selection
+       */
+      size: {
+        type: Number,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field is not writeable for a while.
+       */
+      _writeLock: {
+        type: Boolean,
+      },
     };
   }
 
@@ -341,12 +397,20 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   bindData(fieldNode) {
     Helper.BindData(this, fieldNode);
 
+    // use multiple select for repeated node
+    if (fieldNode._meta && fieldNode._meta.repeated) {
+      this.multipleSelection = true;
+      if (!this.subfield) {
+        this.subfield = 'id';
+      }
+    }
+
     // by complex type set `id` as `subfield` as default
     if (this._checkIsComplexType(fieldNode) && !this.subfield) {
       this.subfield = 'id';
     }
 
-    if (this.subfield) {
+    if (this.subfield && !this.multipleSelection) {
       this._fieldNodeToUpdate = this.field[this.subfield];
 
       if (this.subfieldDisplay) {
@@ -386,9 +450,37 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     return isComplex;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   _updateField() {
-    this._FBPTriggerWire('--value', this._fieldNodeToUpdate._value);
+    if (this.multipleSelection) {
+      if (!this._writeLock) {
+        this._FBPTriggerWire('--value', this._parseRepeatedData(this._fieldNodeToUpdate._value));
+      }
+    } else {
+      this._FBPTriggerWire('--value', this._fieldNodeToUpdate._value);
+    }
     this.requestUpdate();
+  }
+
+  /**
+   * change the value data of repeated field to an array according to the defined subfield likes `data.id`
+   * @param data
+   * @returns {[]}
+   * @private
+   */
+  _parseRepeatedData(data) {
+    const arrValue = [];
+    const arrSubfieldChains = this.subfield.split('.');
+    if (Array.isArray(data)) {
+      data.forEach(element => {
+        let tmpValue = element;
+        arrSubfieldChains.forEach(s => {
+          tmpValue = tmpValue[s];
+        });
+        arrValue.push(tmpValue);
+      });
+    }
+    return arrValue;
   }
 
   /**
@@ -575,6 +667,8 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
         ?float="${this.float}"
         ?condensed="${this.condensed}"
         ?required=${this._required}
+        ?multiple="${this.multipleSelection}"
+        size="${this.size}"
         ƒ-set-options="--selection"
         @-value-changed="--valueChanged"
         ƒ-set-value="--value"

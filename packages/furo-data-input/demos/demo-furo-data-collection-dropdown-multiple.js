@@ -13,12 +13,12 @@ import '@furo/data/src/furo-entity-agent';
 import '@furo/form/src/furo-form-layouter.js';
 
 /**
- * `demo-furo-data-collection-dropdown`
+ * `demo-furo-data-collection-dropdown-multiple`
  *
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
+class DemoFuroDataCollectionDropdownMultiple extends FBP(LitElement) {
   /**
    * Themable Styles
    * @private
@@ -27,7 +27,7 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DemoFuroDataCollectionDropdown') ||
+      Theme.getThemeForComponent('DemoFuroDataCollectionDropdownMultiple') ||
       css`
         :host {
           display: block;
@@ -51,7 +51,7 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
     return html`
       <furo-vertical-flex>
         <div>
-          <h2>Demo furo-data-collection-dropdown</h2>
+          <h2>Demo furo-data-collection-dropdown with multiple selection</h2>
           <p>
             this demo show you how to bind a type to collection dropdown and how inject the
             collection data
@@ -61,40 +61,13 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
           <template>
             <furo-form-layouter two>
               <furo-data-collection-dropdown
-                hint="hint override"
-                leading-icon="mail"
-                trailing-icon="fingerprint"
-                label="Use phone as display"
-                subfield="id"
-                subfield-display="description"
-                ƒ-inject-entities="--response(*.entities)"
-                ƒ-bind-data="--entity"
-              ></furo-data-collection-dropdown>
-
-              <furo-data-collection-dropdown
-                leading-icon="mail"
-                trailing-icon="fingerprint"
-                display-field="description"
-                ƒ-inject-entities="--response(*.entities)"
-                ƒ-bind-data="--entity"
-              ></furo-data-collection-dropdown>
-
-              <furo-data-collection-dropdown
-                value-field="display_name"
-                display-field="display_name"
-                ƒ-inject-entities="--response(*.entities)"
-                @-item-selected="--itemSelected"
-                hint="adsfasdf"
-              ></furo-data-collection-dropdown>
-
-              <furo-data-collection-dropdown
                 value-field="id"
                 display-field="display_name"
                 subfield="data.id"
+                ƒ-bind-data="--collectionDO(*.entities)"
                 ƒ-inject-entities="--response(*.entities)"
                 @-item-selected="--itemSelected"
-                ƒ-bind-data="--collection(*.entities)"
-                size="4"
+                size="3"
                 hint="Holding down the Ctrl to select"
               ></furo-data-collection-dropdown>
             </furo-form-layouter>
@@ -102,11 +75,6 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
             <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
 
             <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-            <furo-data-object
-              type="task.TaskCollection"
-              @-object-ready="--collection"
-              ƒ-inject-raw="--response"
-            ></furo-data-object>
 
             <furo-collection-agent
               service="TaskService"
@@ -115,6 +83,12 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
               @-response="--response"
             >
             </furo-collection-agent>
+
+            <furo-data-object
+              type="task.TaskCollection"
+              @-object-ready="--collectionDO"
+              ƒ-inject-raw="--response"
+            ></furo-data-object>
 
             <furo-location @-location-changed="--locationChanged"></furo-location>
 
@@ -132,4 +106,7 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-data-collection-dropdown', DemoFuroDataCollectionDropdown);
+window.customElements.define(
+  'demo-furo-data-collection-dropdown-multiple',
+  DemoFuroDataCollectionDropdownMultiple,
+);

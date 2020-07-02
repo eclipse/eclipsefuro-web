@@ -14,10 +14,12 @@ import '@furo/data/src/furo-deep-link';
 describe('furo-data-collection-dropdown', () => {
   let collectionDropdown1;
   let collectionDropdown2;
+  let collectionDropdown3;
   let entityObject;
   let entityObject2;
   let deeplink;
   let entityAgent;
+  let dataObject;
   let collectionAgent;
   let host;
 
@@ -63,6 +65,23 @@ describe('furo-data-collection-dropdown', () => {
             @-response="--responsePerson"
           >
           </furo-collection-agent>
+
+          <furo-data-object
+            type="person.PersonCollection"
+            @-object-ready="--personCollectionDO"
+            ƒ-inject-raw="--responsePerson"
+          ></furo-data-object>
+
+           <furo-data-collection-dropdown
+            value-field="id"
+            display-field="display_name"
+            subfield="data.id"
+            @-item-selected="--itemSelected"
+            ƒ-bind-data="--personCollectionDO(*.entities)"
+            size="4"
+            ƒ-inject-entities="--responsePerson(*.entities)"
+          ></furo-data-collection-dropdown>
+
         </template>
       </test-bind>
     `);
@@ -77,6 +96,8 @@ describe('furo-data-collection-dropdown', () => {
       collectionDropdown2,
       entityObject2,
       collectionAgent,
+      dataObject,
+      collectionDropdown3,
     ] = testbind.parentNode.children;
     await host.updateComplete;
     await collectionDropdown1.updateComplete;
@@ -86,6 +107,8 @@ describe('furo-data-collection-dropdown', () => {
     await collectionDropdown2.updateComplete;
     await entityObject2.updateComplete;
     await collectionAgent.updateComplete;
+    await dataObject.updateComplete;
+    await collectionDropdown3.updateComplete;
   });
 
   it('should be a furo-data-collection-dropdown', done => {
@@ -163,5 +186,27 @@ describe('furo-data-collection-dropdown', () => {
       assert.equal(entityObject2.data.owner.id._value, 'female');
       done();
     }, 100);
+  });
+
+  it('should set select as multiple by binding repeated field', done => {
+    dataObject.addEventListener("object-ready",()=>{
+      setTimeout(() => {
+        assert.equal(collectionDropdown3.multipleSelection, true);
+        done();
+      }, 0);
+    })
+  });
+
+  it('should set value of select input from the value of repeated field via binding', done => {
+    collectionAgent.list();
+    dataObject.addEventListener("data-injected",()=>{
+      setTimeout(() => {
+
+        console.log(collectionDropdown3.shadowRoot.getElementById("input").value);
+        assert.equal(collectionDropdown3.shadowRoot.getElementById("input").multiple, true);
+        assert.equal(JSON.stringify(collectionDropdown3.shadowRoot.getElementById("input").value), JSON.stringify(["1", "2", "3", "4"]));
+        done();
+      }, 100);
+    })
   });
 });
