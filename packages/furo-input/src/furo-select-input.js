@@ -61,17 +61,54 @@ class FuroSelectInput extends FBP(LitElement) {
     this._value = this.value || '';
 
     this._FBPAddWireHook('--inputInput', e => {
-      Helper.triggerValueChanged(this, e);
+      if (!this.multiple) {
+        Helper.triggerValueChanged(this, e);
+      } else {
+        const input = e.composedPath()[0];
+        const arrValue = [];
+        Array.from(input.selectedOptions).forEach(o => {
+          if (!arrValue.includes(o.value)) {
+            arrValue.push(o.value);
+          }
+        });
+
+        /**
+         * @event value-changed
+         * Fired when value has changed from inside the component
+         * detail payload: [] array of value
+         */
+        const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+        customEvent.detail = arrValue;
+        this.dispatchEvent(customEvent);
+      }
     });
   }
 
   set _value(v) {
-    this._FBPTriggerWire('--value', v);
+    if (!this.multiple) {
+      this._FBPTriggerWire('--value', v);
+    } else if (Array.isArray(v) && this.selectOptions) {
+      this.selectOptions.forEach(o => {
+        if (v.includes(o.id)) {
+          // eslint-disable-next-line no-param-reassign
+          o.selected = true;
+        } else {
+          // eslint-disable-next-line no-param-reassign
+          o.selected = false;
+        }
+      });
+      this._FBPTriggerWire('--selection', this.selectOptions);
+    }
   }
 
   set value(v) {
-    this._v = v;
-    this._value = v;
+    if (!this.multiple) {
+      this._v = v;
+      this._value = v;
+    } else if (JSON.stringify(v) !== JSON.stringify(this._v)) {
+      this._v = v;
+      this._value = v;
+    }
   }
 
   get value() {
@@ -191,6 +228,24 @@ class FuroSelectInput extends FBP(LitElement) {
       required: {
         type: Boolean,
       },
+      /**
+       * the multiple selection. the value true means this select can be multiple options
+       */
+      multiple: {
+        type: Boolean,
+      },
+      /**
+       * the size of multiple selection
+       */
+      size: {
+        type: Number,
+      },
+      /**
+       * converted select options which value and selected
+       */
+      selectOptions: {
+        type: Array,
+      },
     };
   }
 
@@ -298,7 +353,13 @@ class FuroSelectInput extends FBP(LitElement) {
     if (!this.value) {
       this.value = arr[0].id;
     }
+    // save parsed selection option array
+    this.selectOptions = arr;
     this._FBPTriggerWire('--selection', arr);
+    // trigger setting value after the options are injected to guarantee the correct selection
+    if (this._v) {
+      this._value = this._v;
+    }
   }
 
   set list(v) {
@@ -632,6 +693,43 @@ class FuroSelectInput extends FBP(LitElement) {
         :host([condensed]) {
           height: 40px;
         }
+
+        :host([multiple]) {
+          margin: 0;
+          vertical-align: top;
+        }
+
+        :host([multiple]) select {
+          z-index: 1;
+          margin-top: -6px;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
+
+        :host([multiple]) .left-border,
+        :host([multiple]) .right-border,
+        :host([multiple]) .label,
+        :host([multiple]) label,
+        :host([multiple]) .borderlabel {
+          border: none;
+        }
+
+        :host([multiple]) furo-icon {
+          display: none;
+        }
+
+        :host([multiple]) .hint,
+        :host([multiple]) .error {
+          position: relative;
+        }
+
+        :host([multiple]) .wrapper {
+          padding: 0;
+          height: inherit;
+        }
+
+        :host([multiple]) option {
+          padding-left: 12px;
+        }
       `
     );
   }
@@ -652,6 +750,8 @@ class FuroSelectInput extends FBP(LitElement) {
         ></furo-icon>
         <div class="iwrap">
           <select
+            ?multiple="${this.multiple}"
+            size="${this.size}"
             id="input"
             ?autofocus=${this.autofocus}
             ?disabled=${this.disabled}

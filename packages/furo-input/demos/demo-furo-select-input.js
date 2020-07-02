@@ -61,6 +61,9 @@ class DemoFuroSelectInput extends FBP(LitElement) {
 
       Array.from(l).forEach(input => {
         input.setOptions(this.options);
+        if(input.multiple) {
+          input.setValue([44,55]);
+        }
       });
     }, 60);
   }
@@ -101,6 +104,10 @@ class DemoFuroSelectInput extends FBP(LitElement) {
               value="Val"
               errortext="errortext"
             ></furo-select-input>
+            <furo-select-input
+              multiple
+            ></furo-select-input>
+
           </div>
           <div style="padding:30px">
             <furo-select-input label="Label" value="Val" hint="Hint jkfdjkdkjf"></furo-select-input>
@@ -144,7 +151,23 @@ class DemoFuroSelectInput extends FBP(LitElement) {
               value="Val"
               hint="Hint"
             ></furo-select-input>
+            <furo-select-input
+              multiple
+              condensed
+            ></furo-select-input>
           </div>
+          <div style="padding:30px">
+            <furo-select-input
+              value=[44,55]
+              multiple
+            ></furo-select-input>
+            <furo-select-input
+              value=[44,55]
+              multiple
+              size="3"
+            ></furo-select-input>
+          </div>
+
         </template>
       </furo-demo-snippet>
     `;

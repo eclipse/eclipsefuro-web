@@ -25,6 +25,7 @@ import './demo-furo-data-display-condensed.js';
 import './demo-furo-data-input-together.js';
 import './demo-furo-data-money-input.js';
 import './demo-furo-data-collection-dropdown.js';
+import './demo-furo-data-collection-dropdown-multiple.js';
 import './demo-furo-data-collection-reference-dropdown.js';
 import './demo-furo-data-collection-dropdown-bind-entity.js';
 import './demo-furo-data-file-input.js';
