@@ -2,7 +2,7 @@
   "name": "Secondenum",
   "description": "enum sample with aliases which should be in corpus.enum.proto",
   "__proto": {
-    "package": "enum",
+    "package": "enums",
     "options": {},
     "targetfile": "corpus.enum.proto",
     "allow_alias": false

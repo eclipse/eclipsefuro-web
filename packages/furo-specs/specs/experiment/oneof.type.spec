@@ -10,7 +10,7 @@
       "google/type/money.proto",
       "google/protobuf/field_mask.proto",
       "furo/property.proto",
-      "enum/corpus.enum.proto"
+      "enums/corpus.enum.proto"
     ],
     "targetfile": "experiment.proto"
   },
@@ -27,6 +27,17 @@
       "constraints": {},
       "__proto": {
         "number": 1
+      }
+    },
+    "enumexample": {
+      "description": "skalar in a group of complex",
+      "type": "enums.Corpus",
+      "meta": {
+
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 29
       }
     },
     "display_name": {
@@ -149,16 +160,6 @@
       "constraints": {},
       "__proto": {
         "number": 25,
-        "oneof": "complex"
-      }
-    },
-    "cor": {
-      "description": "skalar in a group of complex",
-      "type": "enum.Corpus",
-      "meta": {},
-      "constraints": {},
-      "__proto": {
-        "number": 29,
         "oneof": "complex"
       }
     }
