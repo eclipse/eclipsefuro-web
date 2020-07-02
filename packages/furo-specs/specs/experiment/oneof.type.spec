@@ -9,7 +9,8 @@
       "google/type/date.proto",
       "google/type/money.proto",
       "google/protobuf/field_mask.proto",
-      "furo/property.proto"
+      "furo/property.proto",
+      "enums/corpus.enum.proto"
     ],
     "targetfile": "experiment.proto"
   },
@@ -26,6 +27,17 @@
       "constraints": {},
       "__proto": {
         "number": 1
+      }
+    },
+    "enumexample": {
+      "description": "skalar in a group of complex",
+      "type": "enums.Corpus",
+      "meta": {
+
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 29
       }
     },
     "display_name": {

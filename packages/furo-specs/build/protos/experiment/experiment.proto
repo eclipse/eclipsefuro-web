@@ -13,6 +13,7 @@ import "google/protobuf/types/known/field_mask.proto";
 import "furo/property.proto";
 import "project/project.proto";
 import "google/protobuf/field_mask.proto";
+import "enums/corpus.enum.proto";
 // ExperimentEntity with Experiment
 message ExperimentEntity {            
   // contains a experiment.Experiment
@@ -171,6 +172,9 @@ message ExperimentCollection {
 }
 // oneof experiment spec for testing
 message Oneof {                              
+  // skalar in a group of complex
+  enums.Corpus enumexample = 29;
+    
   // field for testing file type
   repeated string furo_data_file_input = 22;
     

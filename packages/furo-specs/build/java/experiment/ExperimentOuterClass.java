@@ -13399,6 +13399,25 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
+     * skalar in a group of complex
+     * </pre>
+     *
+     * <code>.enums.Corpus enumexample = 29;</code>
+     * @return The enum numeric value on the wire for enumexample.
+     */
+    int getEnumexampleValue();
+    /**
+     * <pre>
+     * skalar in a group of complex
+     * </pre>
+     *
+     * <code>.enums.Corpus enumexample = 29;</code>
+     * @return The enumexample.
+     */
+    enums.CorpusEnum.Corpus getEnumexample();
+
+    /**
+     * <pre>
      * field for testing file type
      * </pre>
      *
@@ -13615,6 +13634,7 @@ public final class ExperimentOuterClass {
       super(builder);
     }
     private Oneof() {
+      enumexample_ = 0;
       furoDataFileInput_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       id_ = "";
     }
@@ -13719,6 +13739,12 @@ public final class ExperimentOuterClass {
             case 200: {
               complexCase_ = 25;
               complex_ = input.readBool();
+              break;
+            }
+            case 232: {
+              int rawValue = input.readEnum();
+
+              enumexample_ = rawValue;
               break;
             }
             default: {
@@ -13879,6 +13905,33 @@ public final class ExperimentOuterClass {
     getComplexCase() {
       return ComplexCase.forNumber(
           complexCase_);
+    }
+
+    public static final int ENUMEXAMPLE_FIELD_NUMBER = 29;
+    private int enumexample_;
+    /**
+     * <pre>
+     * skalar in a group of complex
+     * </pre>
+     *
+     * <code>.enums.Corpus enumexample = 29;</code>
+     * @return The enum numeric value on the wire for enumexample.
+     */
+    @java.lang.Override public int getEnumexampleValue() {
+      return enumexample_;
+    }
+    /**
+     * <pre>
+     * skalar in a group of complex
+     * </pre>
+     *
+     * <code>.enums.Corpus enumexample = 29;</code>
+     * @return The enumexample.
+     */
+    @java.lang.Override public enums.CorpusEnum.Corpus getEnumexample() {
+      @SuppressWarnings("deprecation")
+      enums.CorpusEnum.Corpus result = enums.CorpusEnum.Corpus.valueOf(enumexample_);
+      return result == null ? enums.CorpusEnum.Corpus.UNRECOGNIZED : result;
     }
 
     public static final int FURO_DATA_FILE_INPUT_FIELD_NUMBER = 22;
@@ -14300,6 +14353,9 @@ public final class ExperimentOuterClass {
         output.writeBool(
             25, (boolean)((java.lang.Boolean) complex_));
       }
+      if (enumexample_ != enums.CorpusEnum.Corpus.UNKNOWN.getNumber()) {
+        output.writeEnum(29, enumexample_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -14347,6 +14403,10 @@ public final class ExperimentOuterClass {
           .computeBoolSize(
               25, (boolean)((java.lang.Boolean) complex_));
       }
+      if (enumexample_ != enums.CorpusEnum.Corpus.UNKNOWN.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(29, enumexample_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -14362,6 +14422,7 @@ public final class ExperimentOuterClass {
       }
       experiment.ExperimentOuterClass.Oneof other = (experiment.ExperimentOuterClass.Oneof) obj;
 
+      if (enumexample_ != other.enumexample_) return false;
       if (!getFuroDataFileInputList()
           .equals(other.getFuroDataFileInputList())) return false;
       if (!getId()
@@ -14420,6 +14481,8 @@ public final class ExperimentOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ENUMEXAMPLE_FIELD_NUMBER;
+      hash = (53 * hash) + enumexample_;
       if (getFuroDataFileInputCount() > 0) {
         hash = (37 * hash) + FURO_DATA_FILE_INPUT_FIELD_NUMBER;
         hash = (53 * hash) + getFuroDataFileInputList().hashCode();
@@ -14605,6 +14668,8 @@ public final class ExperimentOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        enumexample_ = 0;
+
         furoDataFileInput_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         id_ = "";
@@ -14642,6 +14707,7 @@ public final class ExperimentOuterClass {
       public experiment.ExperimentOuterClass.Oneof buildPartial() {
         experiment.ExperimentOuterClass.Oneof result = new experiment.ExperimentOuterClass.Oneof(this);
         int from_bitField0_ = bitField0_;
+        result.enumexample_ = enumexample_;
         if (((bitField0_ & 0x00000001) != 0)) {
           furoDataFileInput_ = furoDataFileInput_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -14728,6 +14794,9 @@ public final class ExperimentOuterClass {
 
       public Builder mergeFrom(experiment.ExperimentOuterClass.Oneof other) {
         if (other == experiment.ExperimentOuterClass.Oneof.getDefaultInstance()) return this;
+        if (other.enumexample_ != 0) {
+          setEnumexampleValue(other.getEnumexampleValue());
+        }
         if (!other.furoDataFileInput_.isEmpty()) {
           if (furoDataFileInput_.isEmpty()) {
             furoDataFileInput_ = other.furoDataFileInput_;
@@ -14865,6 +14934,79 @@ public final class ExperimentOuterClass {
       }
 
       private int bitField0_;
+
+      private int enumexample_ = 0;
+      /**
+       * <pre>
+       * skalar in a group of complex
+       * </pre>
+       *
+       * <code>.enums.Corpus enumexample = 29;</code>
+       * @return The enum numeric value on the wire for enumexample.
+       */
+      @java.lang.Override public int getEnumexampleValue() {
+        return enumexample_;
+      }
+      /**
+       * <pre>
+       * skalar in a group of complex
+       * </pre>
+       *
+       * <code>.enums.Corpus enumexample = 29;</code>
+       * @param value The enum numeric value on the wire for enumexample to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEnumexampleValue(int value) {
+        enumexample_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * skalar in a group of complex
+       * </pre>
+       *
+       * <code>.enums.Corpus enumexample = 29;</code>
+       * @return The enumexample.
+       */
+      @java.lang.Override
+      public enums.CorpusEnum.Corpus getEnumexample() {
+        @SuppressWarnings("deprecation")
+        enums.CorpusEnum.Corpus result = enums.CorpusEnum.Corpus.valueOf(enumexample_);
+        return result == null ? enums.CorpusEnum.Corpus.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * skalar in a group of complex
+       * </pre>
+       *
+       * <code>.enums.Corpus enumexample = 29;</code>
+       * @param value The enumexample to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEnumexample(enums.CorpusEnum.Corpus value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        enumexample_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * skalar in a group of complex
+       * </pre>
+       *
+       * <code>.enums.Corpus enumexample = 29;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEnumexample() {
+        
+        enumexample_ = 0;
+        onChanged();
+        return this;
+      }
 
       private com.google.protobuf.LazyStringList furoDataFileInput_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureFuroDataFileInputIsMutable() {
@@ -15988,52 +16130,54 @@ public final class ExperimentOuterClass {
       ".proto\032\027google/type/money.proto\032,google/" +
       "protobuf/types/known/field_mask.proto\032\023f" +
       "uro/property.proto\032\025project/project.prot" +
-      "o\032 google/protobuf/field_mask.proto\"m\n\020E" +
-      "xperimentEntity\022$\n\004data\030\001 \001(\0132\026.experime" +
-      "nt.Experiment\022\031\n\005links\030\002 \003(\0132\n.furo.Link" +
-      "\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"\221\001\n\013Constrain" +
-      "ts\022\037\n\004date\030\005 \001(\0132\021.google.type.Date\022\024\n\014d" +
-      "isplay_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022!\n\005money\030\006" +
-      " \001(\0132\022.google.type.Money\022\016\n\006number\030\003 \001(\005" +
-      "\022\014\n\004text\030\004 \001(\t\"\223\006\n\nExperiment\022\023\n\013descrip" +
-      "tion\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\033\n\023furo" +
-      "_data_bool_icon\030\016 \001(\010\022 \n\030furo_data_check" +
-      "box_input\030\004 \001(\010\022\035\n\025furo_data_color_input" +
-      "\030\n \001(\t\022\034\n\024furo_data_date_input\030\r \001(\t\0226\n\033" +
-      "furo_data_date_input_google\030\022 \001(\0132\021.goog" +
-      "le.type.Date\022\034\n\024furo_data_file_input\030\026 \003" +
-      "(\t\0221\n\025furo_data_money_input\030\025 \001(\0132\022.goog" +
-      "le.type.Money\022\036\n\026furo_data_number_input\030" +
-      "\t \001(\002\022 \n\030furo_data_password_input\030\013 \001(\t\022" +
-      "\035\n\025furo_data_range_input\030\010 \001(\t\022\036\n\026furo_d" +
-      "ata_search_input\030\014 \001(\t\022\034\n\024furo_data_text" +
-      "_input\030\005 \001(\t\022 \n\030furo_data_textarea_input" +
-      "\030\006 \001(\t\022\034\n\024furo_data_time_input\030\007 \001(\t\022\n\n\002" +
-      "id\030\001 \001(\t\022\021\n\trepstring\030\024 \003(\t\022,\n\024single_ty" +
-      "pe_property\030\023 \001(\0132\016.furo.Property\022*\n\014the" +
-      "_any_type\030\017 \001(\0132\024.google.protobuf.Any\022%\n" +
-      "\rtype_property\030\021 \003(\0132\016.furo.Property\022\031\n\021" +
-      "type_with_options\030\020 \001(\t\022;\n\013update_mask\030\027" +
-      " \001(\0132&.google.protobuf.types.known.Field" +
-      "Mask\"u\n\007Default\022\023\n\013description\030\003 \001(\t\022\024\n\014" +
-      "display_name\030\002 \001(\t\022 \n\030furo_data_checkbox" +
-      "_input\030\005 \001(\010\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 " +
-      "\003(\t\"G\n\010Readonly\022\030\n\004meta\030\003 \001(\0132\n.furo.Met" +
-      "a\022!\n\007project\030\001 \001(\0132\020.project.Project\"W\n\t" +
-      "Recursive\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 " +
-      "\001(\t\022(\n\trecursion\030\003 \001(\0132\025.experiment.Recu" +
-      "rsive\"{\n\024ExperimentCollection\022.\n\010entitie" +
-      "s\030\004 \003(\0132\034.experiment.ExperimentEntity\022\031\n" +
-      "\005links\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n" +
-      ".furo.Meta\"\277\002\n\005Oneof\022\034\n\024furo_data_file_i" +
-      "nput\030\026 \003(\t\022\n\n\002id\030\001 \001(\t\022\026\n\014display_name\030\002" +
-      " \001(\tH\000\022\"\n\030furo_data_checkbox_input\030\004 \001(\010" +
-      "H\000\022\025\n\013description\030\003 \001(\tH\001\022\036\n\024furo_data_t" +
-      "ext_input\030\005 \001(\tH\001\0220\n\nother_mask\030\030 \001(\0132\032." +
-      "google.protobuf.FieldMaskH\002\022=\n\013update_ma" +
-      "sk\030\027 \001(\0132&.google.protobuf.types.known.F" +
-      "ieldMaskH\002\022\017\n\005value\030\031 \001(\010H\002B\005\n\003aaaB\005\n\003bb" +
-      "bB\t\n\007complexb\006proto3"
+      "o\032 google/protobuf/field_mask.proto\032\027enu" +
+      "ms/corpus.enum.proto\"m\n\020ExperimentEntity" +
+      "\022$\n\004data\030\001 \001(\0132\026.experiment.Experiment\022\031" +
+      "\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(\0132" +
+      "\n.furo.Meta\"\221\001\n\013Constraints\022\037\n\004date\030\005 \001(" +
+      "\0132\021.google.type.Date\022\024\n\014display_name\030\002 \001" +
+      "(\t\022\n\n\002id\030\001 \001(\t\022!\n\005money\030\006 \001(\0132\022.google.t" +
+      "ype.Money\022\016\n\006number\030\003 \001(\005\022\014\n\004text\030\004 \001(\t\"" +
+      "\223\006\n\nExperiment\022\023\n\013description\030\003 \001(\t\022\024\n\014d" +
+      "isplay_name\030\002 \001(\t\022\033\n\023furo_data_bool_icon" +
+      "\030\016 \001(\010\022 \n\030furo_data_checkbox_input\030\004 \001(\010" +
+      "\022\035\n\025furo_data_color_input\030\n \001(\t\022\034\n\024furo_" +
+      "data_date_input\030\r \001(\t\0226\n\033furo_data_date_" +
+      "input_google\030\022 \001(\0132\021.google.type.Date\022\034\n" +
+      "\024furo_data_file_input\030\026 \003(\t\0221\n\025furo_data" +
+      "_money_input\030\025 \001(\0132\022.google.type.Money\022\036" +
+      "\n\026furo_data_number_input\030\t \001(\002\022 \n\030furo_d" +
+      "ata_password_input\030\013 \001(\t\022\035\n\025furo_data_ra" +
+      "nge_input\030\010 \001(\t\022\036\n\026furo_data_search_inpu" +
+      "t\030\014 \001(\t\022\034\n\024furo_data_text_input\030\005 \001(\t\022 \n" +
+      "\030furo_data_textarea_input\030\006 \001(\t\022\034\n\024furo_" +
+      "data_time_input\030\007 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\trep" +
+      "string\030\024 \003(\t\022,\n\024single_type_property\030\023 \001" +
+      "(\0132\016.furo.Property\022*\n\014the_any_type\030\017 \001(\013" +
+      "2\024.google.protobuf.Any\022%\n\rtype_property\030" +
+      "\021 \003(\0132\016.furo.Property\022\031\n\021type_with_optio" +
+      "ns\030\020 \001(\t\022;\n\013update_mask\030\027 \001(\0132&.google.p" +
+      "rotobuf.types.known.FieldMask\"u\n\007Default" +
+      "\022\023\n\013description\030\003 \001(\t\022\024\n\014display_name\030\002 " +
+      "\001(\t\022 \n\030furo_data_checkbox_input\030\005 \001(\010\022\n\n" +
+      "\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"G\n\010Readonly" +
+      "\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\022!\n\007project\030\001 " +
+      "\001(\0132\020.project.Project\"W\n\tRecursive\022\024\n\014di" +
+      "splay_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(\n\trecursio" +
+      "n\030\003 \001(\0132\025.experiment.Recursive\"{\n\024Experi" +
+      "mentCollection\022.\n\010entities\030\004 \003(\0132\034.exper" +
+      "iment.ExperimentEntity\022\031\n\005links\030\003 \003(\0132\n." +
+      "furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Meta\"\343\002\n\005" +
+      "Oneof\022\"\n\013enumexample\030\035 \001(\0162\r.enums.Corpu" +
+      "s\022\034\n\024furo_data_file_input\030\026 \003(\t\022\n\n\002id\030\001 " +
+      "\001(\t\022\026\n\014display_name\030\002 \001(\tH\000\022\"\n\030furo_data" +
+      "_checkbox_input\030\004 \001(\010H\000\022\025\n\013description\030\003" +
+      " \001(\tH\001\022\036\n\024furo_data_text_input\030\005 \001(\tH\001\0220" +
+      "\n\nother_mask\030\030 \001(\0132\032.google.protobuf.Fie" +
+      "ldMaskH\002\022=\n\013update_mask\030\027 \001(\0132&.google.p" +
+      "rotobuf.types.known.FieldMaskH\002\022\017\n\005value" +
+      "\030\031 \001(\010H\002B\005\n\003aaaB\005\n\003bbbB\t\n\007complexb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -16047,6 +16191,7 @@ public final class ExperimentOuterClass {
           furo.PropertyOuterClass.getDescriptor(),
           project.ProjectOuterClass.getDescriptor(),
           com.google.protobuf.FieldMaskProto.getDescriptor(),
+          enums.CorpusEnum.getDescriptor(),
         });
     internal_static_experiment_ExperimentEntity_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -16095,7 +16240,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Oneof_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Oneof_descriptor,
-        new java.lang.String[] { "FuroDataFileInput", "Id", "DisplayName", "FuroDataCheckboxInput", "Description", "FuroDataTextInput", "OtherMask", "UpdateMask", "Value", "Aaa", "Bbb", "Complex", });
+        new java.lang.String[] { "Enumexample", "FuroDataFileInput", "Id", "DisplayName", "FuroDataCheckboxInput", "Description", "FuroDataTextInput", "OtherMask", "UpdateMask", "Value", "Aaa", "Bbb", "Complex", });
     furo.MetaOuterClass.getDescriptor();
     furo.LinkOuterClass.getDescriptor();
     google.protobuf.AnyOuterClass.getDescriptor();
@@ -16105,6 +16250,7 @@ public final class ExperimentOuterClass {
     furo.PropertyOuterClass.getDescriptor();
     project.ProjectOuterClass.getDescriptor();
     com.google.protobuf.FieldMaskProto.getDescriptor();
+    enums.CorpusEnum.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
