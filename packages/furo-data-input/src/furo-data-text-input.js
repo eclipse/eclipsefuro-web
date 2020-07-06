@@ -2,9 +2,11 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/input/src/furo-text-input';
+import '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
 import { Helper } from './lib/helper.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
 
 /**
  * `furo-data-text-input`
@@ -16,7 +18,7 @@ import { Helper } from './lib/helper.js';
  * @summary Bind a entityObject.field to a text input
  * @customElement
  * @demo demo-furo-data-text-input Data binding
- * @demo demo-fat-furo-data-text-input FAT, google Data binding
+ * @demo demo-fat-furo-data-text-input skalar, wrapper, FAT binding
  * @mixes FBP
  */
 class FuroDataTextInput extends FBP(LitElement) {
@@ -34,6 +36,7 @@ class FuroDataTextInput extends FBP(LitElement) {
     this.error = false;
     this.disabled = false;
 
+    this.binder = new UniversalFieldNodeBinder();
     this._FBPAddWireHook('--valueChanged', val => {
       if (this.field) {
         this.field._value = val;

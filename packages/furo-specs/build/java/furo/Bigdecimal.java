@@ -24,6 +24,7 @@ public final class Bigdecimal {
      * </pre>
      *
      * <code>string display_name = 1;</code>
+     * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
@@ -32,6 +33,7 @@ public final class Bigdecimal {
      * </pre>
      *
      * <code>string display_name = 1;</code>
+     * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
@@ -42,6 +44,7 @@ public final class Bigdecimal {
      * </pre>
      *
      * <code>int64 int_val = 3;</code>
+     * @return The intVal.
      */
     long getIntVal();
 
@@ -51,6 +54,7 @@ public final class Bigdecimal {
      * </pre>
      *
      * <code>int32 scale = 2;</code>
+     * @return The scale.
      */
     int getScale();
   }
@@ -61,7 +65,7 @@ public final class Bigdecimal {
    *
    * Protobuf type {@code furo.BigDecimal}
    */
-  public  static final class BigDecimal extends
+  public static final class BigDecimal extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.BigDecimal)
       BigDecimalOrBuilder {
@@ -72,6 +76,13 @@ public final class Bigdecimal {
     }
     private BigDecimal() {
       displayName_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new BigDecimal();
     }
 
     @java.lang.Override
@@ -87,7 +98,6 @@ public final class Bigdecimal {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -154,7 +164,9 @@ public final class Bigdecimal {
      * </pre>
      *
      * <code>string display_name = 1;</code>
+     * @return The displayName.
      */
+    @java.lang.Override
     public java.lang.String getDisplayName() {
       java.lang.Object ref = displayName_;
       if (ref instanceof java.lang.String) {
@@ -173,7 +185,9 @@ public final class Bigdecimal {
      * </pre>
      *
      * <code>string display_name = 1;</code>
+     * @return The bytes for displayName.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getDisplayNameBytes() {
       java.lang.Object ref = displayName_;
@@ -196,7 +210,9 @@ public final class Bigdecimal {
      * </pre>
      *
      * <code>int64 int_val = 3;</code>
+     * @return The intVal.
      */
+    @java.lang.Override
     public long getIntVal() {
       return intVal_;
     }
@@ -209,7 +225,9 @@ public final class Bigdecimal {
      * </pre>
      *
      * <code>int32 scale = 2;</code>
+     * @return The scale.
      */
+    @java.lang.Override
     public int getScale() {
       return scale_;
     }
@@ -562,6 +580,7 @@ public final class Bigdecimal {
        * </pre>
        *
        * <code>string display_name = 1;</code>
+       * @return The displayName.
        */
       public java.lang.String getDisplayName() {
         java.lang.Object ref = displayName_;
@@ -581,6 +600,7 @@ public final class Bigdecimal {
        * </pre>
        *
        * <code>string display_name = 1;</code>
+       * @return The bytes for displayName.
        */
       public com.google.protobuf.ByteString
           getDisplayNameBytes() {
@@ -601,6 +621,8 @@ public final class Bigdecimal {
        * </pre>
        *
        * <code>string display_name = 1;</code>
+       * @param value The displayName to set.
+       * @return This builder for chaining.
        */
       public Builder setDisplayName(
           java.lang.String value) {
@@ -618,6 +640,7 @@ public final class Bigdecimal {
        * </pre>
        *
        * <code>string display_name = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
         
@@ -631,6 +654,8 @@ public final class Bigdecimal {
        * </pre>
        *
        * <code>string display_name = 1;</code>
+       * @param value The bytes for displayName to set.
+       * @return This builder for chaining.
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
@@ -651,7 +676,9 @@ public final class Bigdecimal {
        * </pre>
        *
        * <code>int64 int_val = 3;</code>
+       * @return The intVal.
        */
+      @java.lang.Override
       public long getIntVal() {
         return intVal_;
       }
@@ -661,6 +688,8 @@ public final class Bigdecimal {
        * </pre>
        *
        * <code>int64 int_val = 3;</code>
+       * @param value The intVal to set.
+       * @return This builder for chaining.
        */
       public Builder setIntVal(long value) {
         
@@ -674,6 +703,7 @@ public final class Bigdecimal {
        * </pre>
        *
        * <code>int64 int_val = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIntVal() {
         
@@ -689,7 +719,9 @@ public final class Bigdecimal {
        * </pre>
        *
        * <code>int32 scale = 2;</code>
+       * @return The scale.
        */
+      @java.lang.Override
       public int getScale() {
         return scale_;
       }
@@ -699,6 +731,8 @@ public final class Bigdecimal {
        * </pre>
        *
        * <code>int32 scale = 2;</code>
+       * @param value The scale to set.
+       * @return This builder for chaining.
        */
       public Builder setScale(int value) {
         
@@ -712,6 +746,7 @@ public final class Bigdecimal {
        * </pre>
        *
        * <code>int32 scale = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearScale() {
         
@@ -790,18 +825,10 @@ public final class Bigdecimal {
       "mal\022\024\n\014display_name\030\001 \001(\t\022\017\n\007int_val\030\003 \001" +
       "(\003\022\r\n\005scale\030\002 \001(\005b\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_furo_BigDecimal_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_furo_BigDecimal_fieldAccessorTable = new

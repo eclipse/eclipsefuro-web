@@ -78,6 +78,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     java.util.List<java.lang.String>
         getLabelsList();
@@ -87,6 +88,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     int getLabelsCount();
     /**
@@ -95,6 +97,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     java.lang.String getLabels(int index);
     /**
@@ -103,6 +107,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     com.google.protobuf.ByteString
         getLabelsBytes(int index);
@@ -113,6 +119,7 @@ public final class Fat {
      * </pre>
      *
      * <code>int64 value = 1;</code>
+     * @return The value.
      */
     long getValue();
   }
@@ -123,7 +130,7 @@ public final class Fat {
    *
    * Protobuf type {@code furo.fat.Int64}
    */
-  public  static final class Int64 extends
+  public static final class Int64 extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.fat.Int64)
       Int64OrBuilder {
@@ -134,6 +141,13 @@ public final class Fat {
     }
     private Int64() {
       labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Int64();
     }
 
     @java.lang.Override
@@ -234,7 +248,6 @@ public final class Fat {
               furo.fat.Fat.Int64.class, furo.fat.Fat.Int64.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ATTRIBUTES_FIELD_NUMBER = 3;
     private static final class AttributesDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -269,6 +282,7 @@ public final class Fat {
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
 
+    @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -277,6 +291,7 @@ public final class Fat {
     /**
      * Use {@link #getAttributesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
       return getAttributesMap();
@@ -288,6 +303,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
       return internalGetAttributes().getMap();
@@ -299,6 +315,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrDefault(
         java.lang.String key,
@@ -315,6 +332,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrThrow(
         java.lang.String key) {
@@ -335,6 +353,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     public com.google.protobuf.ProtocolStringList
         getLabelsList() {
@@ -346,6 +365,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     public int getLabelsCount() {
       return labels_.size();
@@ -356,6 +376,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     public java.lang.String getLabels(int index) {
       return labels_.get(index);
@@ -366,6 +388,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     public com.google.protobuf.ByteString
         getLabelsBytes(int index) {
@@ -380,7 +404,9 @@ public final class Fat {
      * </pre>
      *
      * <code>int64 value = 1;</code>
+     * @return The value.
      */
+    @java.lang.Override
     public long getValue() {
       return value_;
     }
@@ -676,7 +702,6 @@ public final class Fat {
       public furo.fat.Fat.Int64 buildPartial() {
         furo.fat.Fat.Int64 result = new furo.fat.Fat.Int64(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.attributes_ = internalGetAttributes();
         result.attributes_.makeImmutable();
         if (((bitField0_ & 0x00000002) != 0)) {
@@ -685,7 +710,6 @@ public final class Fat {
         }
         result.labels_ = labels_;
         result.value_ = value_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -813,6 +837,7 @@ public final class Fat {
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
 
+      @java.lang.Override
       public boolean containsAttributes(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -821,6 +846,7 @@ public final class Fat {
       /**
        * Use {@link #getAttributesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
         return getAttributesMap();
@@ -832,6 +858,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
         return internalGetAttributes().getMap();
@@ -843,6 +870,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrDefault(
           java.lang.String key,
@@ -859,6 +887,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrThrow(
           java.lang.String key) {
@@ -943,6 +972,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return A list containing the labels.
        */
       public com.google.protobuf.ProtocolStringList
           getLabelsList() {
@@ -954,6 +984,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return The count of labels.
        */
       public int getLabelsCount() {
         return labels_.size();
@@ -964,6 +995,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the element to return.
+       * @return The labels at the given index.
        */
       public java.lang.String getLabels(int index) {
         return labels_.get(index);
@@ -974,6 +1007,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the labels at the given index.
        */
       public com.google.protobuf.ByteString
           getLabelsBytes(int index) {
@@ -985,6 +1020,9 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The labels to set.
+       * @return This builder for chaining.
        */
       public Builder setLabels(
           int index, java.lang.String value) {
@@ -1002,6 +1040,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabels(
           java.lang.String value) {
@@ -1019,6 +1059,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param values The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addAllLabels(
           java.lang.Iterable<java.lang.String> values) {
@@ -1034,6 +1076,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLabels() {
         labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -1047,6 +1090,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The bytes of the labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabelsBytes(
           com.google.protobuf.ByteString value) {
@@ -1067,7 +1112,9 @@ public final class Fat {
        * </pre>
        *
        * <code>int64 value = 1;</code>
+       * @return The value.
        */
+      @java.lang.Override
       public long getValue() {
         return value_;
       }
@@ -1077,6 +1124,8 @@ public final class Fat {
        * </pre>
        *
        * <code>int64 value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(long value) {
         
@@ -1090,6 +1139,7 @@ public final class Fat {
        * </pre>
        *
        * <code>int64 value = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -1214,6 +1264,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     java.util.List<java.lang.String>
         getLabelsList();
@@ -1223,6 +1274,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     int getLabelsCount();
     /**
@@ -1231,6 +1283,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     java.lang.String getLabels(int index);
     /**
@@ -1239,6 +1293,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     com.google.protobuf.ByteString
         getLabelsBytes(int index);
@@ -1250,7 +1306,7 @@ public final class Fat {
    *
    * Protobuf type {@code furo.fat.Empty}
    */
-  public  static final class Empty extends
+  public static final class Empty extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.fat.Empty)
       EmptyOrBuilder {
@@ -1261,6 +1317,13 @@ public final class Fat {
     }
     private Empty() {
       labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Empty();
     }
 
     @java.lang.Override
@@ -1390,6 +1453,7 @@ public final class Fat {
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
 
+    @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -1398,6 +1462,7 @@ public final class Fat {
     /**
      * Use {@link #getAttributesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
       return getAttributesMap();
@@ -1409,6 +1474,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
       return internalGetAttributes().getMap();
@@ -1420,6 +1486,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrDefault(
         java.lang.String key,
@@ -1436,6 +1503,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrThrow(
         java.lang.String key) {
@@ -1456,6 +1524,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     public com.google.protobuf.ProtocolStringList
         getLabelsList() {
@@ -1467,6 +1536,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     public int getLabelsCount() {
       return labels_.size();
@@ -1477,6 +1547,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     public java.lang.String getLabels(int index) {
       return labels_.get(index);
@@ -1487,6 +1559,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     public com.google.protobuf.ByteString
         getLabelsBytes(int index) {
@@ -1901,6 +1975,7 @@ public final class Fat {
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
 
+      @java.lang.Override
       public boolean containsAttributes(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -1909,6 +1984,7 @@ public final class Fat {
       /**
        * Use {@link #getAttributesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
         return getAttributesMap();
@@ -1920,6 +1996,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
         return internalGetAttributes().getMap();
@@ -1931,6 +2008,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrDefault(
           java.lang.String key,
@@ -1947,6 +2025,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrThrow(
           java.lang.String key) {
@@ -2031,6 +2110,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return A list containing the labels.
        */
       public com.google.protobuf.ProtocolStringList
           getLabelsList() {
@@ -2042,6 +2122,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return The count of labels.
        */
       public int getLabelsCount() {
         return labels_.size();
@@ -2052,6 +2133,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the element to return.
+       * @return The labels at the given index.
        */
       public java.lang.String getLabels(int index) {
         return labels_.get(index);
@@ -2062,6 +2145,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the labels at the given index.
        */
       public com.google.protobuf.ByteString
           getLabelsBytes(int index) {
@@ -2073,6 +2158,9 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The labels to set.
+       * @return This builder for chaining.
        */
       public Builder setLabels(
           int index, java.lang.String value) {
@@ -2090,6 +2178,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabels(
           java.lang.String value) {
@@ -2107,6 +2197,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param values The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addAllLabels(
           java.lang.Iterable<java.lang.String> values) {
@@ -2122,6 +2214,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLabels() {
         labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -2135,6 +2228,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The bytes of the labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabelsBytes(
           com.google.protobuf.ByteString value) {
@@ -2264,6 +2359,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     java.util.List<java.lang.String>
         getLabelsList();
@@ -2273,6 +2369,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     int getLabelsCount();
     /**
@@ -2281,6 +2378,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     java.lang.String getLabels(int index);
     /**
@@ -2289,6 +2388,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     com.google.protobuf.ByteString
         getLabelsBytes(int index);
@@ -2299,6 +2400,7 @@ public final class Fat {
      * </pre>
      *
      * <code>int32 value = 1;</code>
+     * @return The value.
      */
     int getValue();
   }
@@ -2309,7 +2411,7 @@ public final class Fat {
    *
    * Protobuf type {@code furo.fat.Int32}
    */
-  public  static final class Int32 extends
+  public static final class Int32 extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.fat.Int32)
       Int32OrBuilder {
@@ -2320,6 +2422,13 @@ public final class Fat {
     }
     private Int32() {
       labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Int32();
     }
 
     @java.lang.Override
@@ -2420,7 +2529,6 @@ public final class Fat {
               furo.fat.Fat.Int32.class, furo.fat.Fat.Int32.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ATTRIBUTES_FIELD_NUMBER = 3;
     private static final class AttributesDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -2455,6 +2563,7 @@ public final class Fat {
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
 
+    @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -2463,6 +2572,7 @@ public final class Fat {
     /**
      * Use {@link #getAttributesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
       return getAttributesMap();
@@ -2474,6 +2584,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
       return internalGetAttributes().getMap();
@@ -2485,6 +2596,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrDefault(
         java.lang.String key,
@@ -2501,6 +2613,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrThrow(
         java.lang.String key) {
@@ -2521,6 +2634,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     public com.google.protobuf.ProtocolStringList
         getLabelsList() {
@@ -2532,6 +2646,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     public int getLabelsCount() {
       return labels_.size();
@@ -2542,6 +2657,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     public java.lang.String getLabels(int index) {
       return labels_.get(index);
@@ -2552,6 +2669,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     public com.google.protobuf.ByteString
         getLabelsBytes(int index) {
@@ -2566,7 +2685,9 @@ public final class Fat {
      * </pre>
      *
      * <code>int32 value = 1;</code>
+     * @return The value.
      */
+    @java.lang.Override
     public int getValue() {
       return value_;
     }
@@ -2861,7 +2982,6 @@ public final class Fat {
       public furo.fat.Fat.Int32 buildPartial() {
         furo.fat.Fat.Int32 result = new furo.fat.Fat.Int32(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.attributes_ = internalGetAttributes();
         result.attributes_.makeImmutable();
         if (((bitField0_ & 0x00000002) != 0)) {
@@ -2870,7 +2990,6 @@ public final class Fat {
         }
         result.labels_ = labels_;
         result.value_ = value_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2998,6 +3117,7 @@ public final class Fat {
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
 
+      @java.lang.Override
       public boolean containsAttributes(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -3006,6 +3126,7 @@ public final class Fat {
       /**
        * Use {@link #getAttributesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
         return getAttributesMap();
@@ -3017,6 +3138,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
         return internalGetAttributes().getMap();
@@ -3028,6 +3150,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrDefault(
           java.lang.String key,
@@ -3044,6 +3167,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrThrow(
           java.lang.String key) {
@@ -3128,6 +3252,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return A list containing the labels.
        */
       public com.google.protobuf.ProtocolStringList
           getLabelsList() {
@@ -3139,6 +3264,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return The count of labels.
        */
       public int getLabelsCount() {
         return labels_.size();
@@ -3149,6 +3275,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the element to return.
+       * @return The labels at the given index.
        */
       public java.lang.String getLabels(int index) {
         return labels_.get(index);
@@ -3159,6 +3287,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the labels at the given index.
        */
       public com.google.protobuf.ByteString
           getLabelsBytes(int index) {
@@ -3170,6 +3300,9 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The labels to set.
+       * @return This builder for chaining.
        */
       public Builder setLabels(
           int index, java.lang.String value) {
@@ -3187,6 +3320,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabels(
           java.lang.String value) {
@@ -3204,6 +3339,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param values The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addAllLabels(
           java.lang.Iterable<java.lang.String> values) {
@@ -3219,6 +3356,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLabels() {
         labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -3232,6 +3370,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The bytes of the labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabelsBytes(
           com.google.protobuf.ByteString value) {
@@ -3252,7 +3392,9 @@ public final class Fat {
        * </pre>
        *
        * <code>int32 value = 1;</code>
+       * @return The value.
        */
+      @java.lang.Override
       public int getValue() {
         return value_;
       }
@@ -3262,6 +3404,8 @@ public final class Fat {
        * </pre>
        *
        * <code>int32 value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(int value) {
         
@@ -3275,6 +3419,7 @@ public final class Fat {
        * </pre>
        *
        * <code>int32 value = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -3399,6 +3544,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     java.util.List<java.lang.String>
         getLabelsList();
@@ -3408,6 +3554,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     int getLabelsCount();
     /**
@@ -3416,6 +3563,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     java.lang.String getLabels(int index);
     /**
@@ -3424,6 +3573,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     com.google.protobuf.ByteString
         getLabelsBytes(int index);
@@ -3434,6 +3585,7 @@ public final class Fat {
      * </pre>
      *
      * <code>double value = 1;</code>
+     * @return The value.
      */
     double getValue();
   }
@@ -3444,7 +3596,7 @@ public final class Fat {
    *
    * Protobuf type {@code furo.fat.Double}
    */
-  public  static final class Double extends
+  public static final class Double extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.fat.Double)
       DoubleOrBuilder {
@@ -3455,6 +3607,13 @@ public final class Fat {
     }
     private Double() {
       labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Double();
     }
 
     @java.lang.Override
@@ -3555,7 +3714,6 @@ public final class Fat {
               furo.fat.Fat.Double.class, furo.fat.Fat.Double.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ATTRIBUTES_FIELD_NUMBER = 3;
     private static final class AttributesDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -3590,6 +3748,7 @@ public final class Fat {
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
 
+    @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -3598,6 +3757,7 @@ public final class Fat {
     /**
      * Use {@link #getAttributesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
       return getAttributesMap();
@@ -3609,6 +3769,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
       return internalGetAttributes().getMap();
@@ -3620,6 +3781,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrDefault(
         java.lang.String key,
@@ -3636,6 +3798,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrThrow(
         java.lang.String key) {
@@ -3656,6 +3819,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     public com.google.protobuf.ProtocolStringList
         getLabelsList() {
@@ -3667,6 +3831,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     public int getLabelsCount() {
       return labels_.size();
@@ -3677,6 +3842,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     public java.lang.String getLabels(int index) {
       return labels_.get(index);
@@ -3687,6 +3854,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     public com.google.protobuf.ByteString
         getLabelsBytes(int index) {
@@ -3701,7 +3870,9 @@ public final class Fat {
      * </pre>
      *
      * <code>double value = 1;</code>
+     * @return The value.
      */
+    @java.lang.Override
     public double getValue() {
       return value_;
     }
@@ -3998,7 +4169,6 @@ public final class Fat {
       public furo.fat.Fat.Double buildPartial() {
         furo.fat.Fat.Double result = new furo.fat.Fat.Double(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.attributes_ = internalGetAttributes();
         result.attributes_.makeImmutable();
         if (((bitField0_ & 0x00000002) != 0)) {
@@ -4007,7 +4177,6 @@ public final class Fat {
         }
         result.labels_ = labels_;
         result.value_ = value_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -4135,6 +4304,7 @@ public final class Fat {
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
 
+      @java.lang.Override
       public boolean containsAttributes(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -4143,6 +4313,7 @@ public final class Fat {
       /**
        * Use {@link #getAttributesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
         return getAttributesMap();
@@ -4154,6 +4325,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
         return internalGetAttributes().getMap();
@@ -4165,6 +4337,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrDefault(
           java.lang.String key,
@@ -4181,6 +4354,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrThrow(
           java.lang.String key) {
@@ -4265,6 +4439,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return A list containing the labels.
        */
       public com.google.protobuf.ProtocolStringList
           getLabelsList() {
@@ -4276,6 +4451,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return The count of labels.
        */
       public int getLabelsCount() {
         return labels_.size();
@@ -4286,6 +4462,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the element to return.
+       * @return The labels at the given index.
        */
       public java.lang.String getLabels(int index) {
         return labels_.get(index);
@@ -4296,6 +4474,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the labels at the given index.
        */
       public com.google.protobuf.ByteString
           getLabelsBytes(int index) {
@@ -4307,6 +4487,9 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The labels to set.
+       * @return This builder for chaining.
        */
       public Builder setLabels(
           int index, java.lang.String value) {
@@ -4324,6 +4507,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabels(
           java.lang.String value) {
@@ -4341,6 +4526,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param values The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addAllLabels(
           java.lang.Iterable<java.lang.String> values) {
@@ -4356,6 +4543,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLabels() {
         labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -4369,6 +4557,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The bytes of the labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabelsBytes(
           com.google.protobuf.ByteString value) {
@@ -4389,7 +4579,9 @@ public final class Fat {
        * </pre>
        *
        * <code>double value = 1;</code>
+       * @return The value.
        */
+      @java.lang.Override
       public double getValue() {
         return value_;
       }
@@ -4399,6 +4591,8 @@ public final class Fat {
        * </pre>
        *
        * <code>double value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(double value) {
         
@@ -4412,6 +4606,7 @@ public final class Fat {
        * </pre>
        *
        * <code>double value = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -4536,6 +4731,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     java.util.List<java.lang.String>
         getLabelsList();
@@ -4545,6 +4741,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     int getLabelsCount();
     /**
@@ -4553,6 +4750,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     java.lang.String getLabels(int index);
     /**
@@ -4561,6 +4760,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     com.google.protobuf.ByteString
         getLabelsBytes(int index);
@@ -4571,6 +4772,7 @@ public final class Fat {
      * </pre>
      *
      * <code>uint64 value = 1;</code>
+     * @return The value.
      */
     long getValue();
   }
@@ -4581,7 +4783,7 @@ public final class Fat {
    *
    * Protobuf type {@code furo.fat.Uint64}
    */
-  public  static final class Uint64 extends
+  public static final class Uint64 extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.fat.Uint64)
       Uint64OrBuilder {
@@ -4592,6 +4794,13 @@ public final class Fat {
     }
     private Uint64() {
       labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Uint64();
     }
 
     @java.lang.Override
@@ -4692,7 +4901,6 @@ public final class Fat {
               furo.fat.Fat.Uint64.class, furo.fat.Fat.Uint64.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ATTRIBUTES_FIELD_NUMBER = 3;
     private static final class AttributesDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -4727,6 +4935,7 @@ public final class Fat {
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
 
+    @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -4735,6 +4944,7 @@ public final class Fat {
     /**
      * Use {@link #getAttributesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
       return getAttributesMap();
@@ -4746,6 +4956,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
       return internalGetAttributes().getMap();
@@ -4757,6 +4968,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrDefault(
         java.lang.String key,
@@ -4773,6 +4985,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrThrow(
         java.lang.String key) {
@@ -4793,6 +5006,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     public com.google.protobuf.ProtocolStringList
         getLabelsList() {
@@ -4804,6 +5018,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     public int getLabelsCount() {
       return labels_.size();
@@ -4814,6 +5029,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     public java.lang.String getLabels(int index) {
       return labels_.get(index);
@@ -4824,6 +5041,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     public com.google.protobuf.ByteString
         getLabelsBytes(int index) {
@@ -4838,7 +5057,9 @@ public final class Fat {
      * </pre>
      *
      * <code>uint64 value = 1;</code>
+     * @return The value.
      */
+    @java.lang.Override
     public long getValue() {
       return value_;
     }
@@ -5134,7 +5355,6 @@ public final class Fat {
       public furo.fat.Fat.Uint64 buildPartial() {
         furo.fat.Fat.Uint64 result = new furo.fat.Fat.Uint64(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.attributes_ = internalGetAttributes();
         result.attributes_.makeImmutable();
         if (((bitField0_ & 0x00000002) != 0)) {
@@ -5143,7 +5363,6 @@ public final class Fat {
         }
         result.labels_ = labels_;
         result.value_ = value_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -5271,6 +5490,7 @@ public final class Fat {
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
 
+      @java.lang.Override
       public boolean containsAttributes(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -5279,6 +5499,7 @@ public final class Fat {
       /**
        * Use {@link #getAttributesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
         return getAttributesMap();
@@ -5290,6 +5511,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
         return internalGetAttributes().getMap();
@@ -5301,6 +5523,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrDefault(
           java.lang.String key,
@@ -5317,6 +5540,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrThrow(
           java.lang.String key) {
@@ -5401,6 +5625,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return A list containing the labels.
        */
       public com.google.protobuf.ProtocolStringList
           getLabelsList() {
@@ -5412,6 +5637,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return The count of labels.
        */
       public int getLabelsCount() {
         return labels_.size();
@@ -5422,6 +5648,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the element to return.
+       * @return The labels at the given index.
        */
       public java.lang.String getLabels(int index) {
         return labels_.get(index);
@@ -5432,6 +5660,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the labels at the given index.
        */
       public com.google.protobuf.ByteString
           getLabelsBytes(int index) {
@@ -5443,6 +5673,9 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The labels to set.
+       * @return This builder for chaining.
        */
       public Builder setLabels(
           int index, java.lang.String value) {
@@ -5460,6 +5693,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabels(
           java.lang.String value) {
@@ -5477,6 +5712,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param values The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addAllLabels(
           java.lang.Iterable<java.lang.String> values) {
@@ -5492,6 +5729,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLabels() {
         labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -5505,6 +5743,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The bytes of the labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabelsBytes(
           com.google.protobuf.ByteString value) {
@@ -5525,7 +5765,9 @@ public final class Fat {
        * </pre>
        *
        * <code>uint64 value = 1;</code>
+       * @return The value.
        */
+      @java.lang.Override
       public long getValue() {
         return value_;
       }
@@ -5535,6 +5777,8 @@ public final class Fat {
        * </pre>
        *
        * <code>uint64 value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(long value) {
         
@@ -5548,6 +5792,7 @@ public final class Fat {
        * </pre>
        *
        * <code>uint64 value = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -5672,6 +5917,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     java.util.List<java.lang.String>
         getLabelsList();
@@ -5681,6 +5927,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     int getLabelsCount();
     /**
@@ -5689,6 +5936,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     java.lang.String getLabels(int index);
     /**
@@ -5697,6 +5946,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     com.google.protobuf.ByteString
         getLabelsBytes(int index);
@@ -5707,6 +5958,7 @@ public final class Fat {
      * </pre>
      *
      * <code>uint32 value = 1;</code>
+     * @return The value.
      */
     int getValue();
   }
@@ -5717,7 +5969,7 @@ public final class Fat {
    *
    * Protobuf type {@code furo.fat.Uint32}
    */
-  public  static final class Uint32 extends
+  public static final class Uint32 extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.fat.Uint32)
       Uint32OrBuilder {
@@ -5728,6 +5980,13 @@ public final class Fat {
     }
     private Uint32() {
       labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Uint32();
     }
 
     @java.lang.Override
@@ -5828,7 +6087,6 @@ public final class Fat {
               furo.fat.Fat.Uint32.class, furo.fat.Fat.Uint32.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ATTRIBUTES_FIELD_NUMBER = 3;
     private static final class AttributesDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -5863,6 +6121,7 @@ public final class Fat {
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
 
+    @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -5871,6 +6130,7 @@ public final class Fat {
     /**
      * Use {@link #getAttributesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
       return getAttributesMap();
@@ -5882,6 +6142,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
       return internalGetAttributes().getMap();
@@ -5893,6 +6154,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrDefault(
         java.lang.String key,
@@ -5909,6 +6171,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrThrow(
         java.lang.String key) {
@@ -5929,6 +6192,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     public com.google.protobuf.ProtocolStringList
         getLabelsList() {
@@ -5940,6 +6204,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     public int getLabelsCount() {
       return labels_.size();
@@ -5950,6 +6215,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     public java.lang.String getLabels(int index) {
       return labels_.get(index);
@@ -5960,6 +6227,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     public com.google.protobuf.ByteString
         getLabelsBytes(int index) {
@@ -5974,7 +6243,9 @@ public final class Fat {
      * </pre>
      *
      * <code>uint32 value = 1;</code>
+     * @return The value.
      */
+    @java.lang.Override
     public int getValue() {
       return value_;
     }
@@ -6269,7 +6540,6 @@ public final class Fat {
       public furo.fat.Fat.Uint32 buildPartial() {
         furo.fat.Fat.Uint32 result = new furo.fat.Fat.Uint32(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.attributes_ = internalGetAttributes();
         result.attributes_.makeImmutable();
         if (((bitField0_ & 0x00000002) != 0)) {
@@ -6278,7 +6548,6 @@ public final class Fat {
         }
         result.labels_ = labels_;
         result.value_ = value_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -6406,6 +6675,7 @@ public final class Fat {
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
 
+      @java.lang.Override
       public boolean containsAttributes(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -6414,6 +6684,7 @@ public final class Fat {
       /**
        * Use {@link #getAttributesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
         return getAttributesMap();
@@ -6425,6 +6696,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
         return internalGetAttributes().getMap();
@@ -6436,6 +6708,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrDefault(
           java.lang.String key,
@@ -6452,6 +6725,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrThrow(
           java.lang.String key) {
@@ -6536,6 +6810,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return A list containing the labels.
        */
       public com.google.protobuf.ProtocolStringList
           getLabelsList() {
@@ -6547,6 +6822,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return The count of labels.
        */
       public int getLabelsCount() {
         return labels_.size();
@@ -6557,6 +6833,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the element to return.
+       * @return The labels at the given index.
        */
       public java.lang.String getLabels(int index) {
         return labels_.get(index);
@@ -6567,6 +6845,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the labels at the given index.
        */
       public com.google.protobuf.ByteString
           getLabelsBytes(int index) {
@@ -6578,6 +6858,9 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The labels to set.
+       * @return This builder for chaining.
        */
       public Builder setLabels(
           int index, java.lang.String value) {
@@ -6595,6 +6878,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabels(
           java.lang.String value) {
@@ -6612,6 +6897,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param values The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addAllLabels(
           java.lang.Iterable<java.lang.String> values) {
@@ -6627,6 +6914,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLabels() {
         labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -6640,6 +6928,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The bytes of the labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabelsBytes(
           com.google.protobuf.ByteString value) {
@@ -6660,7 +6950,9 @@ public final class Fat {
        * </pre>
        *
        * <code>uint32 value = 1;</code>
+       * @return The value.
        */
+      @java.lang.Override
       public int getValue() {
         return value_;
       }
@@ -6670,6 +6962,8 @@ public final class Fat {
        * </pre>
        *
        * <code>uint32 value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(int value) {
         
@@ -6683,6 +6977,7 @@ public final class Fat {
        * </pre>
        *
        * <code>uint32 value = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -6807,6 +7102,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     java.util.List<java.lang.String>
         getLabelsList();
@@ -6816,6 +7112,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     int getLabelsCount();
     /**
@@ -6824,6 +7121,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     java.lang.String getLabels(int index);
     /**
@@ -6832,6 +7131,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     com.google.protobuf.ByteString
         getLabelsBytes(int index);
@@ -6842,6 +7143,7 @@ public final class Fat {
      * </pre>
      *
      * <code>bytes value = 1;</code>
+     * @return The value.
      */
     com.google.protobuf.ByteString getValue();
   }
@@ -6854,7 +7156,7 @@ public final class Fat {
    *
    * Protobuf type {@code furo.fat.Any}
    */
-  public  static final class Any extends
+  public static final class Any extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.fat.Any)
       AnyOrBuilder {
@@ -6866,6 +7168,13 @@ public final class Fat {
     private Any() {
       labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       value_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Any();
     }
 
     @java.lang.Override
@@ -6966,7 +7275,6 @@ public final class Fat {
               furo.fat.Fat.Any.class, furo.fat.Fat.Any.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ATTRIBUTES_FIELD_NUMBER = 3;
     private static final class AttributesDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -7001,6 +7309,7 @@ public final class Fat {
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
 
+    @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -7009,6 +7318,7 @@ public final class Fat {
     /**
      * Use {@link #getAttributesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
       return getAttributesMap();
@@ -7020,6 +7330,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
       return internalGetAttributes().getMap();
@@ -7031,6 +7342,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrDefault(
         java.lang.String key,
@@ -7047,6 +7359,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrThrow(
         java.lang.String key) {
@@ -7067,6 +7380,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     public com.google.protobuf.ProtocolStringList
         getLabelsList() {
@@ -7078,6 +7392,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     public int getLabelsCount() {
       return labels_.size();
@@ -7088,6 +7403,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     public java.lang.String getLabels(int index) {
       return labels_.get(index);
@@ -7098,6 +7415,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     public com.google.protobuf.ByteString
         getLabelsBytes(int index) {
@@ -7112,7 +7431,9 @@ public final class Fat {
      * </pre>
      *
      * <code>bytes value = 1;</code>
+     * @return The value.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getValue() {
       return value_;
     }
@@ -7409,7 +7730,6 @@ public final class Fat {
       public furo.fat.Fat.Any buildPartial() {
         furo.fat.Fat.Any result = new furo.fat.Fat.Any(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.attributes_ = internalGetAttributes();
         result.attributes_.makeImmutable();
         if (((bitField0_ & 0x00000002) != 0)) {
@@ -7418,7 +7738,6 @@ public final class Fat {
         }
         result.labels_ = labels_;
         result.value_ = value_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -7546,6 +7865,7 @@ public final class Fat {
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
 
+      @java.lang.Override
       public boolean containsAttributes(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -7554,6 +7874,7 @@ public final class Fat {
       /**
        * Use {@link #getAttributesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
         return getAttributesMap();
@@ -7565,6 +7886,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
         return internalGetAttributes().getMap();
@@ -7576,6 +7898,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrDefault(
           java.lang.String key,
@@ -7592,6 +7915,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrThrow(
           java.lang.String key) {
@@ -7676,6 +8000,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return A list containing the labels.
        */
       public com.google.protobuf.ProtocolStringList
           getLabelsList() {
@@ -7687,6 +8012,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return The count of labels.
        */
       public int getLabelsCount() {
         return labels_.size();
@@ -7697,6 +8023,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the element to return.
+       * @return The labels at the given index.
        */
       public java.lang.String getLabels(int index) {
         return labels_.get(index);
@@ -7707,6 +8035,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the labels at the given index.
        */
       public com.google.protobuf.ByteString
           getLabelsBytes(int index) {
@@ -7718,6 +8048,9 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The labels to set.
+       * @return This builder for chaining.
        */
       public Builder setLabels(
           int index, java.lang.String value) {
@@ -7735,6 +8068,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabels(
           java.lang.String value) {
@@ -7752,6 +8087,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param values The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addAllLabels(
           java.lang.Iterable<java.lang.String> values) {
@@ -7767,6 +8104,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLabels() {
         labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -7780,6 +8118,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The bytes of the labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabelsBytes(
           com.google.protobuf.ByteString value) {
@@ -7800,7 +8140,9 @@ public final class Fat {
        * </pre>
        *
        * <code>bytes value = 1;</code>
+       * @return The value.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getValue() {
         return value_;
       }
@@ -7810,6 +8152,8 @@ public final class Fat {
        * </pre>
        *
        * <code>bytes value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -7826,6 +8170,7 @@ public final class Fat {
        * </pre>
        *
        * <code>bytes value = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -7950,6 +8295,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     java.util.List<java.lang.String>
         getLabelsList();
@@ -7959,6 +8305,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     int getLabelsCount();
     /**
@@ -7967,6 +8314,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     java.lang.String getLabels(int index);
     /**
@@ -7975,6 +8324,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     com.google.protobuf.ByteString
         getLabelsBytes(int index);
@@ -7985,6 +8336,7 @@ public final class Fat {
      * </pre>
      *
      * <code>float value = 1;</code>
+     * @return The value.
      */
     float getValue();
   }
@@ -7995,7 +8347,7 @@ public final class Fat {
    *
    * Protobuf type {@code furo.fat.Float}
    */
-  public  static final class Float extends
+  public static final class Float extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.fat.Float)
       FloatOrBuilder {
@@ -8006,6 +8358,13 @@ public final class Fat {
     }
     private Float() {
       labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Float();
     }
 
     @java.lang.Override
@@ -8106,7 +8465,6 @@ public final class Fat {
               furo.fat.Fat.Float.class, furo.fat.Fat.Float.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ATTRIBUTES_FIELD_NUMBER = 3;
     private static final class AttributesDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -8141,6 +8499,7 @@ public final class Fat {
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
 
+    @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -8149,6 +8508,7 @@ public final class Fat {
     /**
      * Use {@link #getAttributesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
       return getAttributesMap();
@@ -8160,6 +8520,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
       return internalGetAttributes().getMap();
@@ -8171,6 +8532,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrDefault(
         java.lang.String key,
@@ -8187,6 +8549,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrThrow(
         java.lang.String key) {
@@ -8207,6 +8570,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     public com.google.protobuf.ProtocolStringList
         getLabelsList() {
@@ -8218,6 +8582,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     public int getLabelsCount() {
       return labels_.size();
@@ -8228,6 +8593,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     public java.lang.String getLabels(int index) {
       return labels_.get(index);
@@ -8238,6 +8605,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     public com.google.protobuf.ByteString
         getLabelsBytes(int index) {
@@ -8252,7 +8621,9 @@ public final class Fat {
      * </pre>
      *
      * <code>float value = 1;</code>
+     * @return The value.
      */
+    @java.lang.Override
     public float getValue() {
       return value_;
     }
@@ -8549,7 +8920,6 @@ public final class Fat {
       public furo.fat.Fat.Float buildPartial() {
         furo.fat.Fat.Float result = new furo.fat.Fat.Float(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.attributes_ = internalGetAttributes();
         result.attributes_.makeImmutable();
         if (((bitField0_ & 0x00000002) != 0)) {
@@ -8558,7 +8928,6 @@ public final class Fat {
         }
         result.labels_ = labels_;
         result.value_ = value_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -8686,6 +9055,7 @@ public final class Fat {
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
 
+      @java.lang.Override
       public boolean containsAttributes(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -8694,6 +9064,7 @@ public final class Fat {
       /**
        * Use {@link #getAttributesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
         return getAttributesMap();
@@ -8705,6 +9076,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
         return internalGetAttributes().getMap();
@@ -8716,6 +9088,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrDefault(
           java.lang.String key,
@@ -8732,6 +9105,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrThrow(
           java.lang.String key) {
@@ -8816,6 +9190,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return A list containing the labels.
        */
       public com.google.protobuf.ProtocolStringList
           getLabelsList() {
@@ -8827,6 +9202,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return The count of labels.
        */
       public int getLabelsCount() {
         return labels_.size();
@@ -8837,6 +9213,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the element to return.
+       * @return The labels at the given index.
        */
       public java.lang.String getLabels(int index) {
         return labels_.get(index);
@@ -8847,6 +9225,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the labels at the given index.
        */
       public com.google.protobuf.ByteString
           getLabelsBytes(int index) {
@@ -8858,6 +9238,9 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The labels to set.
+       * @return This builder for chaining.
        */
       public Builder setLabels(
           int index, java.lang.String value) {
@@ -8875,6 +9258,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabels(
           java.lang.String value) {
@@ -8892,6 +9277,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param values The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addAllLabels(
           java.lang.Iterable<java.lang.String> values) {
@@ -8907,6 +9294,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLabels() {
         labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -8920,6 +9308,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The bytes of the labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabelsBytes(
           com.google.protobuf.ByteString value) {
@@ -8940,7 +9330,9 @@ public final class Fat {
        * </pre>
        *
        * <code>float value = 1;</code>
+       * @return The value.
        */
+      @java.lang.Override
       public float getValue() {
         return value_;
       }
@@ -8950,6 +9342,8 @@ public final class Fat {
        * </pre>
        *
        * <code>float value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(float value) {
         
@@ -8963,6 +9357,7 @@ public final class Fat {
        * </pre>
        *
        * <code>float value = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -9087,6 +9482,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated bytes labels = 2;</code>
+     * @return A list containing the labels.
      */
     java.util.List<com.google.protobuf.ByteString> getLabelsList();
     /**
@@ -9095,6 +9491,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated bytes labels = 2;</code>
+     * @return The count of labels.
      */
     int getLabelsCount();
     /**
@@ -9103,6 +9500,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated bytes labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     com.google.protobuf.ByteString getLabels(int index);
 
@@ -9112,6 +9511,7 @@ public final class Fat {
      * </pre>
      *
      * <code>bytes value = 1;</code>
+     * @return The value.
      */
     com.google.protobuf.ByteString getValue();
   }
@@ -9122,7 +9522,7 @@ public final class Fat {
    *
    * Protobuf type {@code furo.fat.Bytes}
    */
-  public  static final class Bytes extends
+  public static final class Bytes extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.fat.Bytes)
       BytesOrBuilder {
@@ -9134,6 +9534,13 @@ public final class Fat {
     private Bytes() {
       labels_ = java.util.Collections.emptyList();
       value_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Bytes();
     }
 
     @java.lang.Override
@@ -9233,7 +9640,6 @@ public final class Fat {
               furo.fat.Fat.Bytes.class, furo.fat.Fat.Bytes.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ATTRIBUTES_FIELD_NUMBER = 3;
     private static final class AttributesDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -9268,6 +9674,7 @@ public final class Fat {
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
 
+    @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -9276,6 +9683,7 @@ public final class Fat {
     /**
      * Use {@link #getAttributesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
       return getAttributesMap();
@@ -9287,6 +9695,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
       return internalGetAttributes().getMap();
@@ -9298,6 +9707,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrDefault(
         java.lang.String key,
@@ -9314,6 +9724,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrThrow(
         java.lang.String key) {
@@ -9334,7 +9745,9 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated bytes labels = 2;</code>
+     * @return A list containing the labels.
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.ByteString>
         getLabelsList() {
       return labels_;
@@ -9345,6 +9758,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated bytes labels = 2;</code>
+     * @return The count of labels.
      */
     public int getLabelsCount() {
       return labels_.size();
@@ -9355,6 +9769,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated bytes labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     public com.google.protobuf.ByteString getLabels(int index) {
       return labels_.get(index);
@@ -9368,7 +9784,9 @@ public final class Fat {
      * </pre>
      *
      * <code>bytes value = 1;</code>
+     * @return The value.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getValue() {
       return value_;
     }
@@ -9664,7 +10082,6 @@ public final class Fat {
       public furo.fat.Fat.Bytes buildPartial() {
         furo.fat.Fat.Bytes result = new furo.fat.Fat.Bytes(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.attributes_ = internalGetAttributes();
         result.attributes_.makeImmutable();
         if (((bitField0_ & 0x00000002) != 0)) {
@@ -9673,7 +10090,6 @@ public final class Fat {
         }
         result.labels_ = labels_;
         result.value_ = value_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -9801,6 +10217,7 @@ public final class Fat {
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
 
+      @java.lang.Override
       public boolean containsAttributes(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -9809,6 +10226,7 @@ public final class Fat {
       /**
        * Use {@link #getAttributesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
         return getAttributesMap();
@@ -9820,6 +10238,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
         return internalGetAttributes().getMap();
@@ -9831,6 +10250,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrDefault(
           java.lang.String key,
@@ -9847,6 +10267,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrThrow(
           java.lang.String key) {
@@ -9931,6 +10352,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated bytes labels = 2;</code>
+       * @return A list containing the labels.
        */
       public java.util.List<com.google.protobuf.ByteString>
           getLabelsList() {
@@ -9943,6 +10365,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated bytes labels = 2;</code>
+       * @return The count of labels.
        */
       public int getLabelsCount() {
         return labels_.size();
@@ -9953,6 +10376,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated bytes labels = 2;</code>
+       * @param index The index of the element to return.
+       * @return The labels at the given index.
        */
       public com.google.protobuf.ByteString getLabels(int index) {
         return labels_.get(index);
@@ -9963,6 +10388,9 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated bytes labels = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The labels to set.
+       * @return This builder for chaining.
        */
       public Builder setLabels(
           int index, com.google.protobuf.ByteString value) {
@@ -9980,6 +10408,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated bytes labels = 2;</code>
+       * @param value The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabels(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -9996,6 +10426,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated bytes labels = 2;</code>
+       * @param values The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addAllLabels(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
@@ -10011,6 +10443,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated bytes labels = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLabels() {
         labels_ = java.util.Collections.emptyList();
@@ -10026,7 +10459,9 @@ public final class Fat {
        * </pre>
        *
        * <code>bytes value = 1;</code>
+       * @return The value.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getValue() {
         return value_;
       }
@@ -10036,6 +10471,8 @@ public final class Fat {
        * </pre>
        *
        * <code>bytes value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -10052,6 +10489,7 @@ public final class Fat {
        * </pre>
        *
        * <code>bytes value = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -10176,6 +10614,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     java.util.List<java.lang.String>
         getLabelsList();
@@ -10185,6 +10624,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     int getLabelsCount();
     /**
@@ -10193,6 +10633,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     java.lang.String getLabels(int index);
     /**
@@ -10201,6 +10643,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     com.google.protobuf.ByteString
         getLabelsBytes(int index);
@@ -10211,6 +10655,7 @@ public final class Fat {
      * </pre>
      *
      * <code>string value = 1;</code>
+     * @return The value.
      */
     java.lang.String getValue();
     /**
@@ -10219,6 +10664,7 @@ public final class Fat {
      * </pre>
      *
      * <code>string value = 1;</code>
+     * @return The bytes for value.
      */
     com.google.protobuf.ByteString
         getValueBytes();
@@ -10230,7 +10676,7 @@ public final class Fat {
    *
    * Protobuf type {@code furo.fat.String}
    */
-  public  static final class String extends
+  public static final class String extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.fat.String)
       StringOrBuilder {
@@ -10242,6 +10688,13 @@ public final class Fat {
     private String() {
       labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       value_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new String();
     }
 
     @java.lang.Override
@@ -10343,7 +10796,6 @@ public final class Fat {
               furo.fat.Fat.String.class, furo.fat.Fat.String.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ATTRIBUTES_FIELD_NUMBER = 3;
     private static final class AttributesDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -10378,6 +10830,7 @@ public final class Fat {
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
 
+    @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -10386,6 +10839,7 @@ public final class Fat {
     /**
      * Use {@link #getAttributesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
       return getAttributesMap();
@@ -10397,6 +10851,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
       return internalGetAttributes().getMap();
@@ -10408,6 +10863,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrDefault(
         java.lang.String key,
@@ -10424,6 +10880,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrThrow(
         java.lang.String key) {
@@ -10444,6 +10901,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return A list containing the labels.
      */
     public com.google.protobuf.ProtocolStringList
         getLabelsList() {
@@ -10455,6 +10913,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @return The count of labels.
      */
     public int getLabelsCount() {
       return labels_.size();
@@ -10465,6 +10924,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     public java.lang.String getLabels(int index) {
       return labels_.get(index);
@@ -10475,6 +10936,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated string labels = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the labels at the given index.
      */
     public com.google.protobuf.ByteString
         getLabelsBytes(int index) {
@@ -10489,7 +10952,9 @@ public final class Fat {
      * </pre>
      *
      * <code>string value = 1;</code>
+     * @return The value.
      */
+    @java.lang.Override
     public java.lang.String getValue() {
       java.lang.Object ref = value_;
       if (ref instanceof java.lang.String) {
@@ -10508,7 +10973,9 @@ public final class Fat {
      * </pre>
      *
      * <code>string value = 1;</code>
+     * @return The bytes for value.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getValueBytes() {
       java.lang.Object ref = value_;
@@ -10812,7 +11279,6 @@ public final class Fat {
       public furo.fat.Fat.String buildPartial() {
         furo.fat.Fat.String result = new furo.fat.Fat.String(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.attributes_ = internalGetAttributes();
         result.attributes_.makeImmutable();
         if (((bitField0_ & 0x00000002) != 0)) {
@@ -10821,7 +11287,6 @@ public final class Fat {
         }
         result.labels_ = labels_;
         result.value_ = value_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -10950,6 +11415,7 @@ public final class Fat {
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
 
+      @java.lang.Override
       public boolean containsAttributes(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -10958,6 +11424,7 @@ public final class Fat {
       /**
        * Use {@link #getAttributesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
         return getAttributesMap();
@@ -10969,6 +11436,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
         return internalGetAttributes().getMap();
@@ -10980,6 +11448,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrDefault(
           java.lang.String key,
@@ -10996,6 +11465,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrThrow(
           java.lang.String key) {
@@ -11080,6 +11550,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return A list containing the labels.
        */
       public com.google.protobuf.ProtocolStringList
           getLabelsList() {
@@ -11091,6 +11562,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return The count of labels.
        */
       public int getLabelsCount() {
         return labels_.size();
@@ -11101,6 +11573,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the element to return.
+       * @return The labels at the given index.
        */
       public java.lang.String getLabels(int index) {
         return labels_.get(index);
@@ -11111,6 +11585,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the labels at the given index.
        */
       public com.google.protobuf.ByteString
           getLabelsBytes(int index) {
@@ -11122,6 +11598,9 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The labels to set.
+       * @return This builder for chaining.
        */
       public Builder setLabels(
           int index, java.lang.String value) {
@@ -11139,6 +11618,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabels(
           java.lang.String value) {
@@ -11156,6 +11637,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param values The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addAllLabels(
           java.lang.Iterable<java.lang.String> values) {
@@ -11171,6 +11654,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLabels() {
         labels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -11184,6 +11668,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated string labels = 2;</code>
+       * @param value The bytes of the labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabelsBytes(
           com.google.protobuf.ByteString value) {
@@ -11204,6 +11690,7 @@ public final class Fat {
        * </pre>
        *
        * <code>string value = 1;</code>
+       * @return The value.
        */
       public java.lang.String getValue() {
         java.lang.Object ref = value_;
@@ -11223,6 +11710,7 @@ public final class Fat {
        * </pre>
        *
        * <code>string value = 1;</code>
+       * @return The bytes for value.
        */
       public com.google.protobuf.ByteString
           getValueBytes() {
@@ -11243,6 +11731,8 @@ public final class Fat {
        * </pre>
        *
        * <code>string value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(
           java.lang.String value) {
@@ -11260,6 +11750,7 @@ public final class Fat {
        * </pre>
        *
        * <code>string value = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -11273,6 +11764,8 @@ public final class Fat {
        * </pre>
        *
        * <code>string value = 1;</code>
+       * @param value The bytes for value to set.
+       * @return This builder for chaining.
        */
       public Builder setValueBytes(
           com.google.protobuf.ByteString value) {
@@ -11402,6 +11895,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated bool labels = 2;</code>
+     * @return A list containing the labels.
      */
     java.util.List<java.lang.Boolean> getLabelsList();
     /**
@@ -11410,6 +11904,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated bool labels = 2;</code>
+     * @return The count of labels.
      */
     int getLabelsCount();
     /**
@@ -11418,6 +11913,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated bool labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     boolean getLabels(int index);
 
@@ -11427,6 +11924,7 @@ public final class Fat {
      * </pre>
      *
      * <code>bool value = 1;</code>
+     * @return The value.
      */
     boolean getValue();
   }
@@ -11437,7 +11935,7 @@ public final class Fat {
    *
    * Protobuf type {@code furo.fat.Bool}
    */
-  public  static final class Bool extends
+  public static final class Bool extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.fat.Bool)
       BoolOrBuilder {
@@ -11448,6 +11946,13 @@ public final class Fat {
     }
     private Bool() {
       labels_ = emptyBooleanList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Bool();
     }
 
     @java.lang.Override
@@ -11560,7 +12065,6 @@ public final class Fat {
               furo.fat.Fat.Bool.class, furo.fat.Fat.Bool.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ATTRIBUTES_FIELD_NUMBER = 3;
     private static final class AttributesDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -11595,6 +12099,7 @@ public final class Fat {
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
 
+    @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -11603,6 +12108,7 @@ public final class Fat {
     /**
      * Use {@link #getAttributesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
       return getAttributesMap();
@@ -11614,6 +12120,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
       return internalGetAttributes().getMap();
@@ -11625,6 +12132,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrDefault(
         java.lang.String key,
@@ -11641,6 +12149,7 @@ public final class Fat {
      *
      * <code>map&lt;string, string&gt; attributes = 3;</code>
      */
+    @java.lang.Override
 
     public java.lang.String getAttributesOrThrow(
         java.lang.String key) {
@@ -11661,7 +12170,9 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated bool labels = 2;</code>
+     * @return A list containing the labels.
      */
+    @java.lang.Override
     public java.util.List<java.lang.Boolean>
         getLabelsList() {
       return labels_;
@@ -11672,6 +12183,7 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated bool labels = 2;</code>
+     * @return The count of labels.
      */
     public int getLabelsCount() {
       return labels_.size();
@@ -11682,6 +12194,8 @@ public final class Fat {
      * </pre>
      *
      * <code>repeated bool labels = 2;</code>
+     * @param index The index of the element to return.
+     * @return The labels at the given index.
      */
     public boolean getLabels(int index) {
       return labels_.getBoolean(index);
@@ -11696,7 +12210,9 @@ public final class Fat {
      * </pre>
      *
      * <code>bool value = 1;</code>
+     * @return The value.
      */
+    @java.lang.Override
     public boolean getValue() {
       return value_;
     }
@@ -12000,7 +12516,6 @@ public final class Fat {
       public furo.fat.Fat.Bool buildPartial() {
         furo.fat.Fat.Bool result = new furo.fat.Fat.Bool(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.attributes_ = internalGetAttributes();
         result.attributes_.makeImmutable();
         if (((bitField0_ & 0x00000002) != 0)) {
@@ -12009,7 +12524,6 @@ public final class Fat {
         }
         result.labels_ = labels_;
         result.value_ = value_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -12137,6 +12651,7 @@ public final class Fat {
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
 
+      @java.lang.Override
       public boolean containsAttributes(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -12145,6 +12660,7 @@ public final class Fat {
       /**
        * Use {@link #getAttributesMap()} instead.
        */
+      @java.lang.Override
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
         return getAttributesMap();
@@ -12156,6 +12672,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
         return internalGetAttributes().getMap();
@@ -12167,6 +12684,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrDefault(
           java.lang.String key,
@@ -12183,6 +12701,7 @@ public final class Fat {
        *
        * <code>map&lt;string, string&gt; attributes = 3;</code>
        */
+      @java.lang.Override
 
       public java.lang.String getAttributesOrThrow(
           java.lang.String key) {
@@ -12267,6 +12786,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated bool labels = 2;</code>
+       * @return A list containing the labels.
        */
       public java.util.List<java.lang.Boolean>
           getLabelsList() {
@@ -12279,6 +12799,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated bool labels = 2;</code>
+       * @return The count of labels.
        */
       public int getLabelsCount() {
         return labels_.size();
@@ -12289,6 +12810,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated bool labels = 2;</code>
+       * @param index The index of the element to return.
+       * @return The labels at the given index.
        */
       public boolean getLabels(int index) {
         return labels_.getBoolean(index);
@@ -12299,6 +12822,9 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated bool labels = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The labels to set.
+       * @return This builder for chaining.
        */
       public Builder setLabels(
           int index, boolean value) {
@@ -12313,6 +12839,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated bool labels = 2;</code>
+       * @param value The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addLabels(boolean value) {
         ensureLabelsIsMutable();
@@ -12326,6 +12854,8 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated bool labels = 2;</code>
+       * @param values The labels to add.
+       * @return This builder for chaining.
        */
       public Builder addAllLabels(
           java.lang.Iterable<? extends java.lang.Boolean> values) {
@@ -12341,6 +12871,7 @@ public final class Fat {
        * </pre>
        *
        * <code>repeated bool labels = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearLabels() {
         labels_ = emptyBooleanList();
@@ -12356,7 +12887,9 @@ public final class Fat {
        * </pre>
        *
        * <code>bool value = 1;</code>
+       * @return The value.
        */
+      @java.lang.Override
       public boolean getValue() {
         return value_;
       }
@@ -12366,6 +12899,8 @@ public final class Fat {
        * </pre>
        *
        * <code>bool value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(boolean value) {
         
@@ -12379,6 +12914,7 @@ public final class Fat {
        * </pre>
        *
        * <code>bool value = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -12600,18 +13136,10 @@ public final class Fat {
       "\0321\n\017AttributesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
       "e\030\002 \001(\t:\0028\001b\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_furo_fat_Int64_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_furo_fat_Int64_fieldAccessorTable = new

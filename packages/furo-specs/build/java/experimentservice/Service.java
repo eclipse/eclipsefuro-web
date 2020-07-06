@@ -20,10 +20,12 @@ public final class Service {
 
     /**
      * <code>.experiment.Experiment data = 1;</code>
+     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
      * <code>.experiment.Experiment data = 1;</code>
+     * @return The data.
      */
     experiment.ExperimentOuterClass.Experiment getData();
     /**
@@ -34,7 +36,7 @@ public final class Service {
   /**
    * Protobuf type {@code experimentservice.CreateExperimentServiceRequest}
    */
-  public  static final class CreateExperimentServiceRequest extends
+  public static final class CreateExperimentServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:experimentservice.CreateExperimentServiceRequest)
       CreateExperimentServiceRequestOrBuilder {
@@ -44,6 +46,13 @@ public final class Service {
       super(builder);
     }
     private CreateExperimentServiceRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CreateExperimentServiceRequest();
     }
 
     @java.lang.Override
@@ -59,7 +68,6 @@ public final class Service {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -119,19 +127,24 @@ public final class Service {
     private experiment.ExperimentOuterClass.Experiment data_;
     /**
      * <code>.experiment.Experiment data = 1;</code>
+     * @return Whether the data field is set.
      */
+    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
     /**
      * <code>.experiment.Experiment data = 1;</code>
+     * @return The data.
      */
+    @java.lang.Override
     public experiment.ExperimentOuterClass.Experiment getData() {
       return data_ == null ? experiment.ExperimentOuterClass.Experiment.getDefaultInstance() : data_;
     }
     /**
      * <code>.experiment.Experiment data = 1;</code>
      */
+    @java.lang.Override
     public experiment.ExperimentOuterClass.ExperimentOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -456,12 +469,14 @@ public final class Service {
           experiment.ExperimentOuterClass.Experiment, experiment.ExperimentOuterClass.Experiment.Builder, experiment.ExperimentOuterClass.ExperimentOrBuilder> dataBuilder_;
       /**
        * <code>.experiment.Experiment data = 1;</code>
+       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
       }
       /**
        * <code>.experiment.Experiment data = 1;</code>
+       * @return The data.
        */
       public experiment.ExperimentOuterClass.Experiment getData() {
         if (dataBuilder_ == null) {
@@ -626,10 +641,12 @@ public final class Service {
 
     /**
      * <code>.google.protobuf.Empty data = 1;</code>
+     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
      * <code>.google.protobuf.Empty data = 1;</code>
+     * @return The data.
      */
     google.protobuf.EmptyOuterClass.Empty getData();
     /**
@@ -640,7 +657,7 @@ public final class Service {
   /**
    * Protobuf type {@code experimentservice.CreateTemplateExperimentServiceRequest}
    */
-  public  static final class CreateTemplateExperimentServiceRequest extends
+  public static final class CreateTemplateExperimentServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:experimentservice.CreateTemplateExperimentServiceRequest)
       CreateTemplateExperimentServiceRequestOrBuilder {
@@ -650,6 +667,13 @@ public final class Service {
       super(builder);
     }
     private CreateTemplateExperimentServiceRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CreateTemplateExperimentServiceRequest();
     }
 
     @java.lang.Override
@@ -665,7 +689,6 @@ public final class Service {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -725,19 +748,24 @@ public final class Service {
     private google.protobuf.EmptyOuterClass.Empty data_;
     /**
      * <code>.google.protobuf.Empty data = 1;</code>
+     * @return Whether the data field is set.
      */
+    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
     /**
      * <code>.google.protobuf.Empty data = 1;</code>
+     * @return The data.
      */
+    @java.lang.Override
     public google.protobuf.EmptyOuterClass.Empty getData() {
       return data_ == null ? google.protobuf.EmptyOuterClass.Empty.getDefaultInstance() : data_;
     }
     /**
      * <code>.google.protobuf.Empty data = 1;</code>
      */
+    @java.lang.Override
     public google.protobuf.EmptyOuterClass.EmptyOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -1062,12 +1090,14 @@ public final class Service {
           google.protobuf.EmptyOuterClass.Empty, google.protobuf.EmptyOuterClass.Empty.Builder, google.protobuf.EmptyOuterClass.EmptyOrBuilder> dataBuilder_;
       /**
        * <code>.google.protobuf.Empty data = 1;</code>
+       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
       }
       /**
        * <code>.google.protobuf.Empty data = 1;</code>
+       * @return The data.
        */
       public google.protobuf.EmptyOuterClass.Empty getData() {
         if (dataBuilder_ == null) {
@@ -1232,20 +1262,24 @@ public final class Service {
 
     /**
      * <code>string exp = 1;</code>
+     * @return The exp.
      */
     java.lang.String getExp();
     /**
      * <code>string exp = 1;</code>
+     * @return The bytes for exp.
      */
     com.google.protobuf.ByteString
         getExpBytes();
 
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
+     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
+     * @return The data.
      */
     google.protobuf.EmptyOuterClass.Empty getData();
     /**
@@ -1256,7 +1290,7 @@ public final class Service {
   /**
    * Protobuf type {@code experimentservice.DeleteExperimentServiceRequest}
    */
-  public  static final class DeleteExperimentServiceRequest extends
+  public static final class DeleteExperimentServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:experimentservice.DeleteExperimentServiceRequest)
       DeleteExperimentServiceRequestOrBuilder {
@@ -1267,6 +1301,13 @@ public final class Service {
     }
     private DeleteExperimentServiceRequest() {
       exp_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DeleteExperimentServiceRequest();
     }
 
     @java.lang.Override
@@ -1282,7 +1323,6 @@ public final class Service {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1348,7 +1388,9 @@ public final class Service {
     private volatile java.lang.Object exp_;
     /**
      * <code>string exp = 1;</code>
+     * @return The exp.
      */
+    @java.lang.Override
     public java.lang.String getExp() {
       java.lang.Object ref = exp_;
       if (ref instanceof java.lang.String) {
@@ -1363,7 +1405,9 @@ public final class Service {
     }
     /**
      * <code>string exp = 1;</code>
+     * @return The bytes for exp.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getExpBytes() {
       java.lang.Object ref = exp_;
@@ -1382,19 +1426,24 @@ public final class Service {
     private google.protobuf.EmptyOuterClass.Empty data_;
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
+     * @return Whether the data field is set.
      */
+    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
+     * @return The data.
      */
+    @java.lang.Override
     public google.protobuf.EmptyOuterClass.Empty getData() {
       return data_ == null ? google.protobuf.EmptyOuterClass.Empty.getDefaultInstance() : data_;
     }
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
      */
+    @java.lang.Override
     public google.protobuf.EmptyOuterClass.EmptyOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -1734,6 +1783,7 @@ public final class Service {
       private java.lang.Object exp_ = "";
       /**
        * <code>string exp = 1;</code>
+       * @return The exp.
        */
       public java.lang.String getExp() {
         java.lang.Object ref = exp_;
@@ -1749,6 +1799,7 @@ public final class Service {
       }
       /**
        * <code>string exp = 1;</code>
+       * @return The bytes for exp.
        */
       public com.google.protobuf.ByteString
           getExpBytes() {
@@ -1765,6 +1816,8 @@ public final class Service {
       }
       /**
        * <code>string exp = 1;</code>
+       * @param value The exp to set.
+       * @return This builder for chaining.
        */
       public Builder setExp(
           java.lang.String value) {
@@ -1778,6 +1831,7 @@ public final class Service {
       }
       /**
        * <code>string exp = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearExp() {
         
@@ -1787,6 +1841,8 @@ public final class Service {
       }
       /**
        * <code>string exp = 1;</code>
+       * @param value The bytes for exp to set.
+       * @return This builder for chaining.
        */
       public Builder setExpBytes(
           com.google.protobuf.ByteString value) {
@@ -1805,12 +1861,14 @@ public final class Service {
           google.protobuf.EmptyOuterClass.Empty, google.protobuf.EmptyOuterClass.Empty.Builder, google.protobuf.EmptyOuterClass.EmptyOrBuilder> dataBuilder_;
       /**
        * <code>.google.protobuf.Empty data = 2;</code>
+       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
       }
       /**
        * <code>.google.protobuf.Empty data = 2;</code>
+       * @return The data.
        */
       public google.protobuf.EmptyOuterClass.Empty getData() {
         if (dataBuilder_ == null) {
@@ -1975,10 +2033,12 @@ public final class Service {
 
     /**
      * <code>string exp = 1;</code>
+     * @return The exp.
      */
     java.lang.String getExp();
     /**
      * <code>string exp = 1;</code>
+     * @return The bytes for exp.
      */
     com.google.protobuf.ByteString
         getExpBytes();
@@ -1986,7 +2046,7 @@ public final class Service {
   /**
    * Protobuf type {@code experimentservice.GetExperimentServiceRequest}
    */
-  public  static final class GetExperimentServiceRequest extends
+  public static final class GetExperimentServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:experimentservice.GetExperimentServiceRequest)
       GetExperimentServiceRequestOrBuilder {
@@ -1997,6 +2057,13 @@ public final class Service {
     }
     private GetExperimentServiceRequest() {
       exp_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetExperimentServiceRequest();
     }
 
     @java.lang.Override
@@ -2012,7 +2079,6 @@ public final class Service {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2065,7 +2131,9 @@ public final class Service {
     private volatile java.lang.Object exp_;
     /**
      * <code>string exp = 1;</code>
+     * @return The exp.
      */
+    @java.lang.Override
     public java.lang.String getExp() {
       java.lang.Object ref = exp_;
       if (ref instanceof java.lang.String) {
@@ -2080,7 +2148,9 @@ public final class Service {
     }
     /**
      * <code>string exp = 1;</code>
+     * @return The bytes for exp.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getExpBytes() {
       java.lang.Object ref = exp_;
@@ -2400,6 +2470,7 @@ public final class Service {
       private java.lang.Object exp_ = "";
       /**
        * <code>string exp = 1;</code>
+       * @return The exp.
        */
       public java.lang.String getExp() {
         java.lang.Object ref = exp_;
@@ -2415,6 +2486,7 @@ public final class Service {
       }
       /**
        * <code>string exp = 1;</code>
+       * @return The bytes for exp.
        */
       public com.google.protobuf.ByteString
           getExpBytes() {
@@ -2431,6 +2503,8 @@ public final class Service {
       }
       /**
        * <code>string exp = 1;</code>
+       * @param value The exp to set.
+       * @return This builder for chaining.
        */
       public Builder setExp(
           java.lang.String value) {
@@ -2444,6 +2518,7 @@ public final class Service {
       }
       /**
        * <code>string exp = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearExp() {
         
@@ -2453,6 +2528,8 @@ public final class Service {
       }
       /**
        * <code>string exp = 1;</code>
+       * @param value The bytes for exp to set.
+       * @return This builder for chaining.
        */
       public Builder setExpBytes(
           com.google.protobuf.ByteString value) {
@@ -2528,6 +2605,7 @@ public final class Service {
      * </pre>
      *
      * <code>string q = 1;</code>
+     * @return The q.
      */
     java.lang.String getQ();
     /**
@@ -2536,6 +2614,7 @@ public final class Service {
      * </pre>
      *
      * <code>string q = 1;</code>
+     * @return The bytes for q.
      */
     com.google.protobuf.ByteString
         getQBytes();
@@ -2543,7 +2622,7 @@ public final class Service {
   /**
    * Protobuf type {@code experimentservice.ListExperimentServiceRequest}
    */
-  public  static final class ListExperimentServiceRequest extends
+  public static final class ListExperimentServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:experimentservice.ListExperimentServiceRequest)
       ListExperimentServiceRequestOrBuilder {
@@ -2554,6 +2633,13 @@ public final class Service {
     }
     private ListExperimentServiceRequest() {
       q_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListExperimentServiceRequest();
     }
 
     @java.lang.Override
@@ -2569,7 +2655,6 @@ public final class Service {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2626,7 +2711,9 @@ public final class Service {
      * </pre>
      *
      * <code>string q = 1;</code>
+     * @return The q.
      */
+    @java.lang.Override
     public java.lang.String getQ() {
       java.lang.Object ref = q_;
       if (ref instanceof java.lang.String) {
@@ -2645,7 +2732,9 @@ public final class Service {
      * </pre>
      *
      * <code>string q = 1;</code>
+     * @return The bytes for q.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getQBytes() {
       java.lang.Object ref = q_;
@@ -2969,6 +3058,7 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 1;</code>
+       * @return The q.
        */
       public java.lang.String getQ() {
         java.lang.Object ref = q_;
@@ -2988,6 +3078,7 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 1;</code>
+       * @return The bytes for q.
        */
       public com.google.protobuf.ByteString
           getQBytes() {
@@ -3008,6 +3099,8 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 1;</code>
+       * @param value The q to set.
+       * @return This builder for chaining.
        */
       public Builder setQ(
           java.lang.String value) {
@@ -3025,6 +3118,7 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearQ() {
         
@@ -3038,6 +3132,8 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 1;</code>
+       * @param value The bytes for q to set.
+       * @return This builder for chaining.
        */
       public Builder setQBytes(
           com.google.protobuf.ByteString value) {
@@ -3109,10 +3205,12 @@ public final class Service {
 
     /**
      * <code>.experiment.ExperimentEntity data = 1;</code>
+     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
      * <code>.experiment.ExperimentEntity data = 1;</code>
+     * @return The data.
      */
     experiment.ExperimentOuterClass.ExperimentEntity getData();
     /**
@@ -3123,7 +3221,7 @@ public final class Service {
   /**
    * Protobuf type {@code experimentservice.ReleaseExperimentServiceRequest}
    */
-  public  static final class ReleaseExperimentServiceRequest extends
+  public static final class ReleaseExperimentServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:experimentservice.ReleaseExperimentServiceRequest)
       ReleaseExperimentServiceRequestOrBuilder {
@@ -3133,6 +3231,13 @@ public final class Service {
       super(builder);
     }
     private ReleaseExperimentServiceRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ReleaseExperimentServiceRequest();
     }
 
     @java.lang.Override
@@ -3148,7 +3253,6 @@ public final class Service {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3208,19 +3312,24 @@ public final class Service {
     private experiment.ExperimentOuterClass.ExperimentEntity data_;
     /**
      * <code>.experiment.ExperimentEntity data = 1;</code>
+     * @return Whether the data field is set.
      */
+    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
     /**
      * <code>.experiment.ExperimentEntity data = 1;</code>
+     * @return The data.
      */
+    @java.lang.Override
     public experiment.ExperimentOuterClass.ExperimentEntity getData() {
       return data_ == null ? experiment.ExperimentOuterClass.ExperimentEntity.getDefaultInstance() : data_;
     }
     /**
      * <code>.experiment.ExperimentEntity data = 1;</code>
      */
+    @java.lang.Override
     public experiment.ExperimentOuterClass.ExperimentEntityOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -3545,12 +3654,14 @@ public final class Service {
           experiment.ExperimentOuterClass.ExperimentEntity, experiment.ExperimentOuterClass.ExperimentEntity.Builder, experiment.ExperimentOuterClass.ExperimentEntityOrBuilder> dataBuilder_;
       /**
        * <code>.experiment.ExperimentEntity data = 1;</code>
+       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
       }
       /**
        * <code>.experiment.ExperimentEntity data = 1;</code>
+       * @return The data.
        */
       public experiment.ExperimentOuterClass.ExperimentEntity getData() {
         if (dataBuilder_ == null) {
@@ -3715,20 +3826,24 @@ public final class Service {
 
     /**
      * <code>string exp = 1;</code>
+     * @return The exp.
      */
     java.lang.String getExp();
     /**
      * <code>string exp = 1;</code>
+     * @return The bytes for exp.
      */
     com.google.protobuf.ByteString
         getExpBytes();
 
     /**
      * <code>.experiment.Experiment data = 2;</code>
+     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
      * <code>.experiment.Experiment data = 2;</code>
+     * @return The data.
      */
     experiment.ExperimentOuterClass.Experiment getData();
     /**
@@ -3739,7 +3854,7 @@ public final class Service {
   /**
    * Protobuf type {@code experimentservice.UpdateExperimentServiceRequest}
    */
-  public  static final class UpdateExperimentServiceRequest extends
+  public static final class UpdateExperimentServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:experimentservice.UpdateExperimentServiceRequest)
       UpdateExperimentServiceRequestOrBuilder {
@@ -3750,6 +3865,13 @@ public final class Service {
     }
     private UpdateExperimentServiceRequest() {
       exp_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UpdateExperimentServiceRequest();
     }
 
     @java.lang.Override
@@ -3765,7 +3887,6 @@ public final class Service {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3831,7 +3952,9 @@ public final class Service {
     private volatile java.lang.Object exp_;
     /**
      * <code>string exp = 1;</code>
+     * @return The exp.
      */
+    @java.lang.Override
     public java.lang.String getExp() {
       java.lang.Object ref = exp_;
       if (ref instanceof java.lang.String) {
@@ -3846,7 +3969,9 @@ public final class Service {
     }
     /**
      * <code>string exp = 1;</code>
+     * @return The bytes for exp.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getExpBytes() {
       java.lang.Object ref = exp_;
@@ -3865,19 +3990,24 @@ public final class Service {
     private experiment.ExperimentOuterClass.Experiment data_;
     /**
      * <code>.experiment.Experiment data = 2;</code>
+     * @return Whether the data field is set.
      */
+    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
     /**
      * <code>.experiment.Experiment data = 2;</code>
+     * @return The data.
      */
+    @java.lang.Override
     public experiment.ExperimentOuterClass.Experiment getData() {
       return data_ == null ? experiment.ExperimentOuterClass.Experiment.getDefaultInstance() : data_;
     }
     /**
      * <code>.experiment.Experiment data = 2;</code>
      */
+    @java.lang.Override
     public experiment.ExperimentOuterClass.ExperimentOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -4217,6 +4347,7 @@ public final class Service {
       private java.lang.Object exp_ = "";
       /**
        * <code>string exp = 1;</code>
+       * @return The exp.
        */
       public java.lang.String getExp() {
         java.lang.Object ref = exp_;
@@ -4232,6 +4363,7 @@ public final class Service {
       }
       /**
        * <code>string exp = 1;</code>
+       * @return The bytes for exp.
        */
       public com.google.protobuf.ByteString
           getExpBytes() {
@@ -4248,6 +4380,8 @@ public final class Service {
       }
       /**
        * <code>string exp = 1;</code>
+       * @param value The exp to set.
+       * @return This builder for chaining.
        */
       public Builder setExp(
           java.lang.String value) {
@@ -4261,6 +4395,7 @@ public final class Service {
       }
       /**
        * <code>string exp = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearExp() {
         
@@ -4270,6 +4405,8 @@ public final class Service {
       }
       /**
        * <code>string exp = 1;</code>
+       * @param value The bytes for exp to set.
+       * @return This builder for chaining.
        */
       public Builder setExpBytes(
           com.google.protobuf.ByteString value) {
@@ -4288,12 +4425,14 @@ public final class Service {
           experiment.ExperimentOuterClass.Experiment, experiment.ExperimentOuterClass.Experiment.Builder, experiment.ExperimentOuterClass.ExperimentOrBuilder> dataBuilder_;
       /**
        * <code>.experiment.Experiment data = 2;</code>
+       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
       }
       /**
        * <code>.experiment.Experiment data = 2;</code>
+       * @return The data.
        */
       public experiment.ExperimentOuterClass.Experiment getData() {
         if (dataBuilder_ == null) {
@@ -4540,21 +4679,13 @@ public final class Service {
       "/{exp}:\004dataB\024Z\022/experimentserviceb\006prot" +
       "o3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
           experiment.ExperimentOuterClass.getDescriptor(),
           google.protobuf.EmptyOuterClass.getDescriptor(),
-        }, assigner);
+        });
     internal_static_experimentservice_CreateExperimentServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_experimentservice_CreateExperimentServiceRequest_fieldAccessorTable = new

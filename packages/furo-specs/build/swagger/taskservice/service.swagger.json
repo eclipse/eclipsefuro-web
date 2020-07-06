@@ -4,10 +4,6 @@
     "title": "taskservice/service.proto",
     "version": "version not set"
   },
-  "schemes": [
-    "http",
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
@@ -18,12 +14,18 @@
     "/mockdata/tasks/create.json": {
       "get": {
         "summary": "Creates a new Task",
-        "operationId": "CreateTask",
+        "operationId": "TaskService_CreateTask",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskTaskEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -115,12 +117,18 @@
     "/mockdata/tasks/list.json": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",
-        "operationId": "ListTasks",
+        "operationId": "TaskService_ListTasks",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskTaskCollection"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -176,12 +184,18 @@
     "/mockdata/tasks/{tsk}/delete.json": {
       "get": {
         "summary": "Delete a Task",
-        "operationId": "DeleteTask",
+        "operationId": "TaskService_DeleteTask",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -201,12 +215,18 @@
     "/mockdata/tasks/{tsk}/get.json": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",
-        "operationId": "GetTask",
+        "operationId": "TaskService_GetTask",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskTaskEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -226,12 +246,18 @@
     "/mockdata/tasks/{tsk}/update.json": {
       "get": {
         "summary": "Updates a Task, partial updates are not supported",
-        "operationId": "UpdateTask",
+        "operationId": "TaskService_UpdateTask",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/taskTaskEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -484,6 +510,27 @@
         }
       },
       "title": "Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
     },
     "taskTask": {
       "type": "object",

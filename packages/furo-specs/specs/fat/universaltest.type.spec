@@ -18,7 +18,7 @@
         "label": "Id",
         "default": "",
         "hint": "",
-        "readonly": true
+        "readonly": false
       },
       "constraints": {},
       "__proto": {
@@ -32,7 +32,7 @@
         "label": "skalar string",
         "default": "",
         "hint": "",
-        "readonly": true
+        "readonly": false
       },
       "constraints": {},
       "__proto": {
@@ -47,7 +47,7 @@
         "label": "wrapper string",
         "default": "",
         "hint": "",
-        "readonly": true
+        "readonly": false
       },
       "constraints": {},
       "__proto": {
@@ -62,7 +62,7 @@
         "label": "fat string",
         "default": "",
         "hint": "",
-        "readonly": true
+        "readonly": false
       },
       "constraints": {},
       "__proto": {
@@ -77,7 +77,7 @@
         "label": "skalar int",
         "default": "",
         "hint": "",
-        "readonly": true
+        "readonly": false
       },
       "constraints": {},
       "__proto": {
@@ -92,7 +92,7 @@
         "label": "skalar int",
         "default": "",
         "hint": "",
-        "readonly": true
+        "readonly": false
       },
       "constraints": {},
       "__proto": {
@@ -107,7 +107,7 @@
         "label": "fat int32",
         "default": "",
         "hint": "",
-        "readonly": true
+        "readonly": false
       },
       "constraints": {},
       "__proto": {

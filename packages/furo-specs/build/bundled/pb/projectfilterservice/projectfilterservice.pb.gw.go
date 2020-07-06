@@ -9,24 +9,27 @@ It translates gRPC into RESTful JSON APIs.
 package projectfilterservice
 
 import (
+	"context"
 	"io"
 	"net/http"
 
+	"github.com/golang/protobuf/descriptor"
 	"github.com/golang/protobuf/proto"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/utilities"
-	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/grpclog"
 	"google.golang.org/grpc/status"
 )
 
+// Suppress "imported and not used" errors
 var _ codes.Code
 var _ io.Reader
 var _ status.Status
 var _ = runtime.String
 var _ = utilities.NewDoubleArray
+var _ = descriptor.ForMessage
 
 func request_ProjectfilterService_GetProjectfilter_0(ctx context.Context, marshaler runtime.Marshaler, client ProjectfilterServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetProjectfilterServiceRequest
@@ -35,6 +38,43 @@ func request_ProjectfilterService_GetProjectfilter_0(ctx context.Context, marsha
 	msg, err := client.GetProjectfilter(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
+}
+
+func local_request_ProjectfilterService_GetProjectfilter_0(ctx context.Context, marshaler runtime.Marshaler, server ProjectfilterServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq GetProjectfilterServiceRequest
+	var metadata runtime.ServerMetadata
+
+	msg, err := server.GetProjectfilter(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
+// RegisterProjectfilterServiceHandlerServer registers the http handlers for service ProjectfilterService to "mux".
+// UnaryRPC     :call ProjectfilterServiceServer directly.
+// StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
+func RegisterProjectfilterServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server ProjectfilterServiceServer) error {
+
+	mux.Handle("GET", pattern_ProjectfilterService_GetProjectfilter_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_ProjectfilterService_GetProjectfilter_0(rctx, inboundMarshaler, server, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_ProjectfilterService_GetProjectfilter_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	return nil
 }
 
 // RegisterProjectfilterServiceHandlerFromEndpoint is same as RegisterProjectfilterServiceHandler but
@@ -99,7 +139,7 @@ func RegisterProjectfilterServiceHandlerClient(ctx context.Context, mux *runtime
 }
 
 var (
-	pattern_ProjectfilterService_GetProjectfilter_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"mockdata", "projects", "filter", "get.json"}, ""))
+	pattern_ProjectfilterService_GetProjectfilter_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"mockdata", "projects", "filter", "get.json"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

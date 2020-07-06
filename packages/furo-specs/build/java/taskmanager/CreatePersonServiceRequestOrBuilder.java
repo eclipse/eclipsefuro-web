@@ -9,10 +9,12 @@ public interface CreatePersonServiceRequestOrBuilder extends
 
   /**
    * <code>.person.Person data = 1;</code>
+   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.person.Person data = 1;</code>
+   * @return The data.
    */
   person.PersonOuterClass.Person getData();
   /**
