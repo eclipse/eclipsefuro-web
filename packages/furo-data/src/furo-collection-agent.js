@@ -328,6 +328,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
      * Partial Response
      */
     if (this.fields) {
+      this._checkQueryParam('fields');
       params.fields = this.fields.split(' ').join('');
     }
 
@@ -336,6 +337,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
      * Lets client specify sorting order for list results
      */
     if (this.orderBy) {
+      this._checkQueryParam('order_by');
       params.order_by = this.orderBy.split(' ').join('');
     }
 
@@ -344,6 +346,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
      * The response message will be filtered by the fields before being sent back to the client.
      */
     if (this._filter) {
+      this._checkQueryParam('filter');
       params.filter = JSON.stringify(this._filter);
     }
 
@@ -354,6 +357,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
      * If the page_size is 0, the server will decide the number of results to be returned.
      */
     if (this.pageSize) {
+      this._checkQueryParam('page_size');
       params.page_size = JSON.stringify(this.pageSize);
     }
 
@@ -385,6 +389,20 @@ class FuroCollectionAgent extends FBP(LitElement) {
       headers,
       body: data,
     });
+  }
+
+  /**
+   * check whether the param is already defined in the spec. when not output warn information
+   * @param param
+   * @private
+   */
+  _checkQueryParam(param) {
+    if (!this._service.services.List.query || !this._service.services.List.query[param]) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        `The query param ${param} for the list service is not defined in the spec. please define it in the spec project.`,
+      );
+    }
   }
 
   /**
@@ -457,6 +475,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
 
   search(term) {
     if (term !== '') {
+      this._checkQueryParam('q');
       this._queryParams.q = term;
       this.list();
     } else {
