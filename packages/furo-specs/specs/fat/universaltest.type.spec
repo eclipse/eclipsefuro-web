@@ -5,17 +5,14 @@
   "__proto": {
     "package": "fat",
     "imports": [
-      "google/protobuf/any.proto",
-      "google/type/date.proto",
-      "google/type/money.proto",
-      "google/protobuf/field_mask.proto",
-      "furo/property.proto"
+      "google/protobuf/wrappers.proto",
+      "fat/fat.proto"
     ],
     "targetfile": "universaltest.proto"
   },
   "fields": {
     "id": {
-      "description": "Identity of a experiment",
+      "description": "Identity of a universaltes type",
       "type": "string",
       "meta": {
         "label": "Id",
@@ -28,8 +25,8 @@
         "number": 1
       }
     },
-    "skalar_string": {
-      "description": "Localized String representation of a experiment",
+    "scalar_string": {
+      "description": "field of a scalar string for the Universaltest",
       "type": "string",
       "meta": {
         "label": "skalar string",
@@ -44,32 +41,77 @@
       }
     },
     "wrapper_string": {
-      "description": "Localized String representation of a experiment",
-      "type": "string",
+      "description": "field of a wrapper string for the Universaltest",
+      "type": "google.protobuf.StringValue",
       "meta": {
-        "label": "experiment",
+        "label": "wrapper string",
         "default": "",
         "hint": "",
         "readonly": true
       },
       "constraints": {},
       "__proto": {
-        "number": 2,
+        "number": 3,
         "oneof": null
       }
     },
     "fat_string": {
-      "description": "Localized String representation of a experiment",
-      "type": "string",
+      "description": "field of a fat string for the Universaltest",
+      "type": "furo.fat.string",
       "meta": {
-        "label": "experiment",
+        "label": "fat string",
         "default": "",
         "hint": "",
         "readonly": true
       },
       "constraints": {},
       "__proto": {
-        "number": 2,
+        "number": 4,
+        "oneof": null
+      }
+    },
+    "scalar_int32": {
+      "description": "field of a scalar int32 for the Universaltest",
+      "type": "int32",
+      "meta": {
+        "label": "skalar int",
+        "default": "",
+        "hint": "",
+        "readonly": true
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 5,
+        "oneof": null
+      }
+    },
+    "wrapper_int32": {
+      "description": "field of a wrapper int32 for the Universaltest",
+      "type": "google.protobuf.Int32Value",
+      "meta": {
+        "label": "skalar int",
+        "default": "",
+        "hint": "",
+        "readonly": true
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 6,
+        "oneof": null
+      }
+    },
+    "fat_int32": {
+      "description": "field of a fat int32 for the Universaltest",
+      "type": "furo.fat.int32",
+      "meta": {
+        "label": "fat int32",
+        "default": "",
+        "hint": "",
+        "readonly": true
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 7,
         "oneof": null
       }
     }
