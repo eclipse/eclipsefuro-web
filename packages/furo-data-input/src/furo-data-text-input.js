@@ -16,6 +16,7 @@ import { Helper } from './lib/helper.js';
  * @summary Bind a entityObject.field to a text input
  * @customElement
  * @demo demo-furo-data-text-input Data binding
+ * @demo demo-fat-furo-data-text-input FAT, google Data binding
  * @mixes FBP
  */
 class FuroDataTextInput extends FBP(LitElement) {
