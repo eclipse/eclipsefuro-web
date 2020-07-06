@@ -3,10 +3,10 @@
   "type": "Universaltest",
   "description": "oneof experiment spec for testing",
   "__proto": {
-    "package": "fat",
+    "package": "universaltest",
     "imports": [
       "google/protobuf/wrappers.proto",
-      "fat/fat.proto"
+      "furo/fat/fat.proto"
     ],
     "targetfile": "universaltest.proto"
   },
@@ -57,7 +57,7 @@
     },
     "fat_string": {
       "description": "field of a fat string for the Universaltest",
-      "type": "furo.fat.string",
+      "type": "furo.fat.String",
       "meta": {
         "label": "fat string",
         "default": "",
@@ -102,7 +102,7 @@
     },
     "fat_int32": {
       "description": "field of a fat int32 for the Universaltest",
-      "type": "furo.fat.int32",
+      "type": "furo.fat.Int32",
       "meta": {
         "label": "fat int32",
         "default": "",
