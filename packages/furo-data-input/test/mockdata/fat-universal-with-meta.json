@@ -1,0 +1,66 @@
+{
+  "data": {
+    "id": "1",
+    "scalar_string": "this is a scalar string",
+    "wrapper_string": {
+      "value": "this is a google wrapper string"
+    },
+    "fat_string": {
+      "value": "this is a furo fat string",
+      "labels": "",
+      "attributes": {
+        "value-state": "Error",
+        "maxlength": "6"
+      }
+    },
+    "scalar_int32": 14,
+    "wrapper_int32": {
+      "value": 14
+    },
+    "fat_int32": {
+      "value": 14,
+      "value-state": "Information"
+    }
+  },
+  "links": [],
+  "meta": {
+    "fields": {
+      "data.scalar_string": {
+        "meta": {
+          "label": "scalar string label setted via response meta",
+          "readonly": true
+        }
+      },
+      "data.wrapper_string": {
+        "meta": {
+          "label": "wrapper string label setted via response meta",
+          "readonly": true
+        }
+      },
+      "data.fat_string": {
+        "meta": {
+          "label": "fat string label setted via response meta",
+          "readonly": true
+        }
+      },
+      "data.scalar_int32": {
+        "meta": {
+          "label": "scalar int32 label setted via response meta",
+          "readonly": true
+        }
+      },
+      "data.wrapper_int32": {
+        "meta": {
+          "label": "wrapper int32 label setted via response meta",
+          "readonly": true
+        }
+      },
+      "data.fat_int32": {
+        "meta": {
+          "label": "fat int32 label setted via response meta",
+          "readonly": true
+        }
+      }
+    }
+  }
+}
