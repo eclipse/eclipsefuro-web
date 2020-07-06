@@ -9,24 +9,20 @@ public interface UpdateProjectServiceRequestOrBuilder extends
 
   /**
    * <code>string prj = 1;</code>
-   * @return The prj.
    */
   java.lang.String getPrj();
   /**
    * <code>string prj = 1;</code>
-   * @return The bytes for prj.
    */
   com.google.protobuf.ByteString
       getPrjBytes();
 
   /**
    * <code>.project.Project data = 2;</code>
-   * @return Whether the data field is set.
    */
   boolean hasData();
   /**
    * <code>.project.Project data = 2;</code>
-   * @return The data.
    */
   project.ProjectOuterClass.Project getData();
   /**

@@ -24,7 +24,6 @@ public final class ReferenceOuterClass {
      * </pre>
      *
      * <code>string display_name = 1;</code>
-     * @return The displayName.
      */
     java.lang.String getDisplayName();
     /**
@@ -33,7 +32,6 @@ public final class ReferenceOuterClass {
      * </pre>
      *
      * <code>string display_name = 1;</code>
-     * @return The bytes for displayName.
      */
     com.google.protobuf.ByteString
         getDisplayNameBytes();
@@ -44,7 +42,6 @@ public final class ReferenceOuterClass {
      * </pre>
      *
      * <code>string id = 2;</code>
-     * @return The id.
      */
     java.lang.String getId();
     /**
@@ -53,7 +50,6 @@ public final class ReferenceOuterClass {
      * </pre>
      *
      * <code>string id = 2;</code>
-     * @return The bytes for id.
      */
     com.google.protobuf.ByteString
         getIdBytes();
@@ -64,7 +60,6 @@ public final class ReferenceOuterClass {
      * </pre>
      *
      * <code>.furo.Link link = 3;</code>
-     * @return Whether the link field is set.
      */
     boolean hasLink();
     /**
@@ -73,7 +68,6 @@ public final class ReferenceOuterClass {
      * </pre>
      *
      * <code>.furo.Link link = 3;</code>
-     * @return The link.
      */
     furo.LinkOuterClass.Link getLink();
     /**
@@ -92,7 +86,7 @@ public final class ReferenceOuterClass {
    *
    * Protobuf type {@code furo.Reference}
    */
-  public static final class Reference extends
+  public  static final class Reference extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:furo.Reference)
       ReferenceOrBuilder {
@@ -104,13 +98,6 @@ public final class ReferenceOuterClass {
     private Reference() {
       displayName_ = "";
       id_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Reference();
     }
 
     @java.lang.Override
@@ -126,6 +113,7 @@ public final class ReferenceOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -201,9 +189,7 @@ public final class ReferenceOuterClass {
      * </pre>
      *
      * <code>string display_name = 1;</code>
-     * @return The displayName.
      */
-    @java.lang.Override
     public java.lang.String getDisplayName() {
       java.lang.Object ref = displayName_;
       if (ref instanceof java.lang.String) {
@@ -222,9 +208,7 @@ public final class ReferenceOuterClass {
      * </pre>
      *
      * <code>string display_name = 1;</code>
-     * @return The bytes for displayName.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getDisplayNameBytes() {
       java.lang.Object ref = displayName_;
@@ -247,9 +231,7 @@ public final class ReferenceOuterClass {
      * </pre>
      *
      * <code>string id = 2;</code>
-     * @return The id.
      */
-    @java.lang.Override
     public java.lang.String getId() {
       java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
@@ -268,9 +250,7 @@ public final class ReferenceOuterClass {
      * </pre>
      *
      * <code>string id = 2;</code>
-     * @return The bytes for id.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getIdBytes() {
       java.lang.Object ref = id_;
@@ -293,9 +273,7 @@ public final class ReferenceOuterClass {
      * </pre>
      *
      * <code>.furo.Link link = 3;</code>
-     * @return Whether the link field is set.
      */
-    @java.lang.Override
     public boolean hasLink() {
       return link_ != null;
     }
@@ -305,9 +283,7 @@ public final class ReferenceOuterClass {
      * </pre>
      *
      * <code>.furo.Link link = 3;</code>
-     * @return The link.
      */
-    @java.lang.Override
     public furo.LinkOuterClass.Link getLink() {
       return link_ == null ? furo.LinkOuterClass.Link.getDefaultInstance() : link_;
     }
@@ -318,7 +294,6 @@ public final class ReferenceOuterClass {
      *
      * <code>.furo.Link link = 3;</code>
      */
-    @java.lang.Override
     public furo.LinkOuterClass.LinkOrBuilder getLinkOrBuilder() {
       return getLink();
     }
@@ -683,7 +658,6 @@ public final class ReferenceOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @return The displayName.
        */
       public java.lang.String getDisplayName() {
         java.lang.Object ref = displayName_;
@@ -703,7 +677,6 @@ public final class ReferenceOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @return The bytes for displayName.
        */
       public com.google.protobuf.ByteString
           getDisplayNameBytes() {
@@ -724,8 +697,6 @@ public final class ReferenceOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @param value The displayName to set.
-       * @return This builder for chaining.
        */
       public Builder setDisplayName(
           java.lang.String value) {
@@ -743,7 +714,6 @@ public final class ReferenceOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
         
@@ -757,8 +727,6 @@ public final class ReferenceOuterClass {
        * </pre>
        *
        * <code>string display_name = 1;</code>
-       * @param value The bytes for displayName to set.
-       * @return This builder for chaining.
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
@@ -779,7 +747,6 @@ public final class ReferenceOuterClass {
        * </pre>
        *
        * <code>string id = 2;</code>
-       * @return The id.
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -799,7 +766,6 @@ public final class ReferenceOuterClass {
        * </pre>
        *
        * <code>string id = 2;</code>
-       * @return The bytes for id.
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -820,8 +786,6 @@ public final class ReferenceOuterClass {
        * </pre>
        *
        * <code>string id = 2;</code>
-       * @param value The id to set.
-       * @return This builder for chaining.
        */
       public Builder setId(
           java.lang.String value) {
@@ -839,7 +803,6 @@ public final class ReferenceOuterClass {
        * </pre>
        *
        * <code>string id = 2;</code>
-       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -853,8 +816,6 @@ public final class ReferenceOuterClass {
        * </pre>
        *
        * <code>string id = 2;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -877,7 +838,6 @@ public final class ReferenceOuterClass {
        * </pre>
        *
        * <code>.furo.Link link = 3;</code>
-       * @return Whether the link field is set.
        */
       public boolean hasLink() {
         return linkBuilder_ != null || link_ != null;
@@ -888,7 +848,6 @@ public final class ReferenceOuterClass {
        * </pre>
        *
        * <code>.furo.Link link = 3;</code>
-       * @return The link.
        */
       public furo.LinkOuterClass.Link getLink() {
         if (linkBuilder_ == null) {
@@ -1094,11 +1053,19 @@ public final class ReferenceOuterClass {
       "\022\n\n\002id\030\002 \001(\t\022\030\n\004link\030\003 \001(\0132\n.furo.Linkb\006" +
       "proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           furo.LinkOuterClass.getDescriptor(),
-        });
+        }, assigner);
     internal_static_furo_Reference_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_furo_Reference_fieldAccessorTable = new
