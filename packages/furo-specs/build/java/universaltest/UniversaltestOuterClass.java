@@ -1954,11 +1954,1455 @@ public final class UniversaltestOuterClass {
 
   }
 
+  public interface UniversaltestEntityOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:universaltest.UniversaltestEntity)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * contains a universaltest.Universaltest
+     * </pre>
+     *
+     * <code>.universaltest.Universaltest data = 1;</code>
+     * @return Whether the data field is set.
+     */
+    boolean hasData();
+    /**
+     * <pre>
+     * contains a universaltest.Universaltest
+     * </pre>
+     *
+     * <code>.universaltest.Universaltest data = 1;</code>
+     * @return The data.
+     */
+    universaltest.UniversaltestOuterClass.Universaltest getData();
+    /**
+     * <pre>
+     * contains a universaltest.Universaltest
+     * </pre>
+     *
+     * <code>.universaltest.Universaltest data = 1;</code>
+     */
+    universaltest.UniversaltestOuterClass.UniversaltestOrBuilder getDataOrBuilder();
+
+    /**
+     * <pre>
+     * Hateoas links
+     * </pre>
+     *
+     * <code>repeated .furo.Link links = 2;</code>
+     */
+    java.util.List<furo.LinkOuterClass.Link> 
+        getLinksList();
+    /**
+     * <pre>
+     * Hateoas links
+     * </pre>
+     *
+     * <code>repeated .furo.Link links = 2;</code>
+     */
+    furo.LinkOuterClass.Link getLinks(int index);
+    /**
+     * <pre>
+     * Hateoas links
+     * </pre>
+     *
+     * <code>repeated .furo.Link links = 2;</code>
+     */
+    int getLinksCount();
+    /**
+     * <pre>
+     * Hateoas links
+     * </pre>
+     *
+     * <code>repeated .furo.Link links = 2;</code>
+     */
+    java.util.List<? extends furo.LinkOuterClass.LinkOrBuilder> 
+        getLinksOrBuilderList();
+    /**
+     * <pre>
+     * Hateoas links
+     * </pre>
+     *
+     * <code>repeated .furo.Link links = 2;</code>
+     */
+    furo.LinkOuterClass.LinkOrBuilder getLinksOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     * @return Whether the meta field is set.
+     */
+    boolean hasMeta();
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     * @return The meta.
+     */
+    furo.MetaOuterClass.Meta getMeta();
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     */
+    furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder();
+  }
+  /**
+   * <pre>
+   * UniversaltestEntity with Universaltest type in data
+   * </pre>
+   *
+   * Protobuf type {@code universaltest.UniversaltestEntity}
+   */
+  public static final class UniversaltestEntity extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:universaltest.UniversaltestEntity)
+      UniversaltestEntityOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UniversaltestEntity.newBuilder() to construct.
+    private UniversaltestEntity(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UniversaltestEntity() {
+      links_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UniversaltestEntity();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UniversaltestEntity(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              universaltest.UniversaltestOuterClass.Universaltest.Builder subBuilder = null;
+              if (data_ != null) {
+                subBuilder = data_.toBuilder();
+              }
+              data_ = input.readMessage(universaltest.UniversaltestOuterClass.Universaltest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(data_);
+                data_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                links_ = new java.util.ArrayList<furo.LinkOuterClass.Link>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              links_.add(
+                  input.readMessage(furo.LinkOuterClass.Link.parser(), extensionRegistry));
+              break;
+            }
+            case 26: {
+              furo.MetaOuterClass.Meta.Builder subBuilder = null;
+              if (meta_ != null) {
+                subBuilder = meta_.toBuilder();
+              }
+              meta_ = input.readMessage(furo.MetaOuterClass.Meta.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(meta_);
+                meta_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          links_ = java.util.Collections.unmodifiableList(links_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return universaltest.UniversaltestOuterClass.internal_static_universaltest_UniversaltestEntity_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return universaltest.UniversaltestOuterClass.internal_static_universaltest_UniversaltestEntity_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              universaltest.UniversaltestOuterClass.UniversaltestEntity.class, universaltest.UniversaltestOuterClass.UniversaltestEntity.Builder.class);
+    }
+
+    public static final int DATA_FIELD_NUMBER = 1;
+    private universaltest.UniversaltestOuterClass.Universaltest data_;
+    /**
+     * <pre>
+     * contains a universaltest.Universaltest
+     * </pre>
+     *
+     * <code>.universaltest.Universaltest data = 1;</code>
+     * @return Whether the data field is set.
+     */
+    @java.lang.Override
+    public boolean hasData() {
+      return data_ != null;
+    }
+    /**
+     * <pre>
+     * contains a universaltest.Universaltest
+     * </pre>
+     *
+     * <code>.universaltest.Universaltest data = 1;</code>
+     * @return The data.
+     */
+    @java.lang.Override
+    public universaltest.UniversaltestOuterClass.Universaltest getData() {
+      return data_ == null ? universaltest.UniversaltestOuterClass.Universaltest.getDefaultInstance() : data_;
+    }
+    /**
+     * <pre>
+     * contains a universaltest.Universaltest
+     * </pre>
+     *
+     * <code>.universaltest.Universaltest data = 1;</code>
+     */
+    @java.lang.Override
+    public universaltest.UniversaltestOuterClass.UniversaltestOrBuilder getDataOrBuilder() {
+      return getData();
+    }
+
+    public static final int LINKS_FIELD_NUMBER = 2;
+    private java.util.List<furo.LinkOuterClass.Link> links_;
+    /**
+     * <pre>
+     * Hateoas links
+     * </pre>
+     *
+     * <code>repeated .furo.Link links = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<furo.LinkOuterClass.Link> getLinksList() {
+      return links_;
+    }
+    /**
+     * <pre>
+     * Hateoas links
+     * </pre>
+     *
+     * <code>repeated .furo.Link links = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends furo.LinkOuterClass.LinkOrBuilder> 
+        getLinksOrBuilderList() {
+      return links_;
+    }
+    /**
+     * <pre>
+     * Hateoas links
+     * </pre>
+     *
+     * <code>repeated .furo.Link links = 2;</code>
+     */
+    @java.lang.Override
+    public int getLinksCount() {
+      return links_.size();
+    }
+    /**
+     * <pre>
+     * Hateoas links
+     * </pre>
+     *
+     * <code>repeated .furo.Link links = 2;</code>
+     */
+    @java.lang.Override
+    public furo.LinkOuterClass.Link getLinks(int index) {
+      return links_.get(index);
+    }
+    /**
+     * <pre>
+     * Hateoas links
+     * </pre>
+     *
+     * <code>repeated .furo.Link links = 2;</code>
+     */
+    @java.lang.Override
+    public furo.LinkOuterClass.LinkOrBuilder getLinksOrBuilder(
+        int index) {
+      return links_.get(index);
+    }
+
+    public static final int META_FIELD_NUMBER = 3;
+    private furo.MetaOuterClass.Meta meta_;
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     * @return Whether the meta field is set.
+     */
+    @java.lang.Override
+    public boolean hasMeta() {
+      return meta_ != null;
+    }
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     * @return The meta.
+     */
+    @java.lang.Override
+    public furo.MetaOuterClass.Meta getMeta() {
+      return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+    }
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     */
+    @java.lang.Override
+    public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+      return getMeta();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (data_ != null) {
+        output.writeMessage(1, getData());
+      }
+      for (int i = 0; i < links_.size(); i++) {
+        output.writeMessage(2, links_.get(i));
+      }
+      if (meta_ != null) {
+        output.writeMessage(3, getMeta());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (data_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getData());
+      }
+      for (int i = 0; i < links_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, links_.get(i));
+      }
+      if (meta_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getMeta());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof universaltest.UniversaltestOuterClass.UniversaltestEntity)) {
+        return super.equals(obj);
+      }
+      universaltest.UniversaltestOuterClass.UniversaltestEntity other = (universaltest.UniversaltestOuterClass.UniversaltestEntity) obj;
+
+      if (hasData() != other.hasData()) return false;
+      if (hasData()) {
+        if (!getData()
+            .equals(other.getData())) return false;
+      }
+      if (!getLinksList()
+          .equals(other.getLinksList())) return false;
+      if (hasMeta() != other.hasMeta()) return false;
+      if (hasMeta()) {
+        if (!getMeta()
+            .equals(other.getMeta())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
+      }
+      if (getLinksCount() > 0) {
+        hash = (37 * hash) + LINKS_FIELD_NUMBER;
+        hash = (53 * hash) + getLinksList().hashCode();
+      }
+      if (hasMeta()) {
+        hash = (37 * hash) + META_FIELD_NUMBER;
+        hash = (53 * hash) + getMeta().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static universaltest.UniversaltestOuterClass.UniversaltestEntity parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static universaltest.UniversaltestOuterClass.UniversaltestEntity parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static universaltest.UniversaltestOuterClass.UniversaltestEntity parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static universaltest.UniversaltestOuterClass.UniversaltestEntity parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static universaltest.UniversaltestOuterClass.UniversaltestEntity parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static universaltest.UniversaltestOuterClass.UniversaltestEntity parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static universaltest.UniversaltestOuterClass.UniversaltestEntity parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static universaltest.UniversaltestOuterClass.UniversaltestEntity parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static universaltest.UniversaltestOuterClass.UniversaltestEntity parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static universaltest.UniversaltestOuterClass.UniversaltestEntity parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static universaltest.UniversaltestOuterClass.UniversaltestEntity parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static universaltest.UniversaltestOuterClass.UniversaltestEntity parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(universaltest.UniversaltestOuterClass.UniversaltestEntity prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * UniversaltestEntity with Universaltest type in data
+     * </pre>
+     *
+     * Protobuf type {@code universaltest.UniversaltestEntity}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:universaltest.UniversaltestEntity)
+        universaltest.UniversaltestOuterClass.UniversaltestEntityOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return universaltest.UniversaltestOuterClass.internal_static_universaltest_UniversaltestEntity_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return universaltest.UniversaltestOuterClass.internal_static_universaltest_UniversaltestEntity_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                universaltest.UniversaltestOuterClass.UniversaltestEntity.class, universaltest.UniversaltestOuterClass.UniversaltestEntity.Builder.class);
+      }
+
+      // Construct using universaltest.UniversaltestOuterClass.UniversaltestEntity.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getLinksFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (dataBuilder_ == null) {
+          data_ = null;
+        } else {
+          data_ = null;
+          dataBuilder_ = null;
+        }
+        if (linksBuilder_ == null) {
+          links_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          linksBuilder_.clear();
+        }
+        if (metaBuilder_ == null) {
+          meta_ = null;
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return universaltest.UniversaltestOuterClass.internal_static_universaltest_UniversaltestEntity_descriptor;
+      }
+
+      @java.lang.Override
+      public universaltest.UniversaltestOuterClass.UniversaltestEntity getDefaultInstanceForType() {
+        return universaltest.UniversaltestOuterClass.UniversaltestEntity.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public universaltest.UniversaltestOuterClass.UniversaltestEntity build() {
+        universaltest.UniversaltestOuterClass.UniversaltestEntity result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public universaltest.UniversaltestOuterClass.UniversaltestEntity buildPartial() {
+        universaltest.UniversaltestOuterClass.UniversaltestEntity result = new universaltest.UniversaltestOuterClass.UniversaltestEntity(this);
+        int from_bitField0_ = bitField0_;
+        if (dataBuilder_ == null) {
+          result.data_ = data_;
+        } else {
+          result.data_ = dataBuilder_.build();
+        }
+        if (linksBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            links_ = java.util.Collections.unmodifiableList(links_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.links_ = links_;
+        } else {
+          result.links_ = linksBuilder_.build();
+        }
+        if (metaBuilder_ == null) {
+          result.meta_ = meta_;
+        } else {
+          result.meta_ = metaBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof universaltest.UniversaltestOuterClass.UniversaltestEntity) {
+          return mergeFrom((universaltest.UniversaltestOuterClass.UniversaltestEntity)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(universaltest.UniversaltestOuterClass.UniversaltestEntity other) {
+        if (other == universaltest.UniversaltestOuterClass.UniversaltestEntity.getDefaultInstance()) return this;
+        if (other.hasData()) {
+          mergeData(other.getData());
+        }
+        if (linksBuilder_ == null) {
+          if (!other.links_.isEmpty()) {
+            if (links_.isEmpty()) {
+              links_ = other.links_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureLinksIsMutable();
+              links_.addAll(other.links_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.links_.isEmpty()) {
+            if (linksBuilder_.isEmpty()) {
+              linksBuilder_.dispose();
+              linksBuilder_ = null;
+              links_ = other.links_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              linksBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getLinksFieldBuilder() : null;
+            } else {
+              linksBuilder_.addAllMessages(other.links_);
+            }
+          }
+        }
+        if (other.hasMeta()) {
+          mergeMeta(other.getMeta());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        universaltest.UniversaltestOuterClass.UniversaltestEntity parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (universaltest.UniversaltestOuterClass.UniversaltestEntity) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private universaltest.UniversaltestOuterClass.Universaltest data_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          universaltest.UniversaltestOuterClass.Universaltest, universaltest.UniversaltestOuterClass.Universaltest.Builder, universaltest.UniversaltestOuterClass.UniversaltestOrBuilder> dataBuilder_;
+      /**
+       * <pre>
+       * contains a universaltest.Universaltest
+       * </pre>
+       *
+       * <code>.universaltest.Universaltest data = 1;</code>
+       * @return Whether the data field is set.
+       */
+      public boolean hasData() {
+        return dataBuilder_ != null || data_ != null;
+      }
+      /**
+       * <pre>
+       * contains a universaltest.Universaltest
+       * </pre>
+       *
+       * <code>.universaltest.Universaltest data = 1;</code>
+       * @return The data.
+       */
+      public universaltest.UniversaltestOuterClass.Universaltest getData() {
+        if (dataBuilder_ == null) {
+          return data_ == null ? universaltest.UniversaltestOuterClass.Universaltest.getDefaultInstance() : data_;
+        } else {
+          return dataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * contains a universaltest.Universaltest
+       * </pre>
+       *
+       * <code>.universaltest.Universaltest data = 1;</code>
+       */
+      public Builder setData(universaltest.UniversaltestOuterClass.Universaltest value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * contains a universaltest.Universaltest
+       * </pre>
+       *
+       * <code>.universaltest.Universaltest data = 1;</code>
+       */
+      public Builder setData(
+          universaltest.UniversaltestOuterClass.Universaltest.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * contains a universaltest.Universaltest
+       * </pre>
+       *
+       * <code>.universaltest.Universaltest data = 1;</code>
+       */
+      public Builder mergeData(universaltest.UniversaltestOuterClass.Universaltest value) {
+        if (dataBuilder_ == null) {
+          if (data_ != null) {
+            data_ =
+              universaltest.UniversaltestOuterClass.Universaltest.newBuilder(data_).mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          dataBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * contains a universaltest.Universaltest
+       * </pre>
+       *
+       * <code>.universaltest.Universaltest data = 1;</code>
+       */
+      public Builder clearData() {
+        if (dataBuilder_ == null) {
+          data_ = null;
+          onChanged();
+        } else {
+          data_ = null;
+          dataBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * contains a universaltest.Universaltest
+       * </pre>
+       *
+       * <code>.universaltest.Universaltest data = 1;</code>
+       */
+      public universaltest.UniversaltestOuterClass.Universaltest.Builder getDataBuilder() {
+        
+        onChanged();
+        return getDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * contains a universaltest.Universaltest
+       * </pre>
+       *
+       * <code>.universaltest.Universaltest data = 1;</code>
+       */
+      public universaltest.UniversaltestOuterClass.UniversaltestOrBuilder getDataOrBuilder() {
+        if (dataBuilder_ != null) {
+          return dataBuilder_.getMessageOrBuilder();
+        } else {
+          return data_ == null ?
+              universaltest.UniversaltestOuterClass.Universaltest.getDefaultInstance() : data_;
+        }
+      }
+      /**
+       * <pre>
+       * contains a universaltest.Universaltest
+       * </pre>
+       *
+       * <code>.universaltest.Universaltest data = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          universaltest.UniversaltestOuterClass.Universaltest, universaltest.UniversaltestOuterClass.Universaltest.Builder, universaltest.UniversaltestOuterClass.UniversaltestOrBuilder> 
+          getDataFieldBuilder() {
+        if (dataBuilder_ == null) {
+          dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              universaltest.UniversaltestOuterClass.Universaltest, universaltest.UniversaltestOuterClass.Universaltest.Builder, universaltest.UniversaltestOuterClass.UniversaltestOrBuilder>(
+                  getData(),
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        return dataBuilder_;
+      }
+
+      private java.util.List<furo.LinkOuterClass.Link> links_ =
+        java.util.Collections.emptyList();
+      private void ensureLinksIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          links_ = new java.util.ArrayList<furo.LinkOuterClass.Link>(links_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          furo.LinkOuterClass.Link, furo.LinkOuterClass.Link.Builder, furo.LinkOuterClass.LinkOrBuilder> linksBuilder_;
+
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public java.util.List<furo.LinkOuterClass.Link> getLinksList() {
+        if (linksBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(links_);
+        } else {
+          return linksBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public int getLinksCount() {
+        if (linksBuilder_ == null) {
+          return links_.size();
+        } else {
+          return linksBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public furo.LinkOuterClass.Link getLinks(int index) {
+        if (linksBuilder_ == null) {
+          return links_.get(index);
+        } else {
+          return linksBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public Builder setLinks(
+          int index, furo.LinkOuterClass.Link value) {
+        if (linksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureLinksIsMutable();
+          links_.set(index, value);
+          onChanged();
+        } else {
+          linksBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public Builder setLinks(
+          int index, furo.LinkOuterClass.Link.Builder builderForValue) {
+        if (linksBuilder_ == null) {
+          ensureLinksIsMutable();
+          links_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          linksBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public Builder addLinks(furo.LinkOuterClass.Link value) {
+        if (linksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureLinksIsMutable();
+          links_.add(value);
+          onChanged();
+        } else {
+          linksBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public Builder addLinks(
+          int index, furo.LinkOuterClass.Link value) {
+        if (linksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureLinksIsMutable();
+          links_.add(index, value);
+          onChanged();
+        } else {
+          linksBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public Builder addLinks(
+          furo.LinkOuterClass.Link.Builder builderForValue) {
+        if (linksBuilder_ == null) {
+          ensureLinksIsMutable();
+          links_.add(builderForValue.build());
+          onChanged();
+        } else {
+          linksBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public Builder addLinks(
+          int index, furo.LinkOuterClass.Link.Builder builderForValue) {
+        if (linksBuilder_ == null) {
+          ensureLinksIsMutable();
+          links_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          linksBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public Builder addAllLinks(
+          java.lang.Iterable<? extends furo.LinkOuterClass.Link> values) {
+        if (linksBuilder_ == null) {
+          ensureLinksIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, links_);
+          onChanged();
+        } else {
+          linksBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public Builder clearLinks() {
+        if (linksBuilder_ == null) {
+          links_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          linksBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public Builder removeLinks(int index) {
+        if (linksBuilder_ == null) {
+          ensureLinksIsMutable();
+          links_.remove(index);
+          onChanged();
+        } else {
+          linksBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public furo.LinkOuterClass.Link.Builder getLinksBuilder(
+          int index) {
+        return getLinksFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public furo.LinkOuterClass.LinkOrBuilder getLinksOrBuilder(
+          int index) {
+        if (linksBuilder_ == null) {
+          return links_.get(index);  } else {
+          return linksBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public java.util.List<? extends furo.LinkOuterClass.LinkOrBuilder> 
+           getLinksOrBuilderList() {
+        if (linksBuilder_ != null) {
+          return linksBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(links_);
+        }
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public furo.LinkOuterClass.Link.Builder addLinksBuilder() {
+        return getLinksFieldBuilder().addBuilder(
+            furo.LinkOuterClass.Link.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public furo.LinkOuterClass.Link.Builder addLinksBuilder(
+          int index) {
+        return getLinksFieldBuilder().addBuilder(
+            index, furo.LinkOuterClass.Link.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Hateoas links
+       * </pre>
+       *
+       * <code>repeated .furo.Link links = 2;</code>
+       */
+      public java.util.List<furo.LinkOuterClass.Link.Builder> 
+           getLinksBuilderList() {
+        return getLinksFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          furo.LinkOuterClass.Link, furo.LinkOuterClass.Link.Builder, furo.LinkOuterClass.LinkOrBuilder> 
+          getLinksFieldBuilder() {
+        if (linksBuilder_ == null) {
+          linksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              furo.LinkOuterClass.Link, furo.LinkOuterClass.Link.Builder, furo.LinkOuterClass.LinkOrBuilder>(
+                  links_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          links_ = null;
+        }
+        return linksBuilder_;
+      }
+
+      private furo.MetaOuterClass.Meta meta_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> metaBuilder_;
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       * @return Whether the meta field is set.
+       */
+      public boolean hasMeta() {
+        return metaBuilder_ != null || meta_ != null;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       * @return The meta.
+       */
+      public furo.MetaOuterClass.Meta getMeta() {
+        if (metaBuilder_ == null) {
+          return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        } else {
+          return metaBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public Builder setMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          meta_ = value;
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public Builder setMeta(
+          furo.MetaOuterClass.Meta.Builder builderForValue) {
+        if (metaBuilder_ == null) {
+          meta_ = builderForValue.build();
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public Builder mergeMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (meta_ != null) {
+            meta_ =
+              furo.MetaOuterClass.Meta.newBuilder(meta_).mergeFrom(value).buildPartial();
+          } else {
+            meta_ = value;
+          }
+          onChanged();
+        } else {
+          metaBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public Builder clearMeta() {
+        if (metaBuilder_ == null) {
+          meta_ = null;
+          onChanged();
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public furo.MetaOuterClass.Meta.Builder getMetaBuilder() {
+        
+        onChanged();
+        return getMetaFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+        if (metaBuilder_ != null) {
+          return metaBuilder_.getMessageOrBuilder();
+        } else {
+          return meta_ == null ?
+              furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> 
+          getMetaFieldBuilder() {
+        if (metaBuilder_ == null) {
+          metaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder>(
+                  getMeta(),
+                  getParentForChildren(),
+                  isClean());
+          meta_ = null;
+        }
+        return metaBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:universaltest.UniversaltestEntity)
+    }
+
+    // @@protoc_insertion_point(class_scope:universaltest.UniversaltestEntity)
+    private static final universaltest.UniversaltestOuterClass.UniversaltestEntity DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new universaltest.UniversaltestOuterClass.UniversaltestEntity();
+    }
+
+    public static universaltest.UniversaltestOuterClass.UniversaltestEntity getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UniversaltestEntity>
+        PARSER = new com.google.protobuf.AbstractParser<UniversaltestEntity>() {
+      @java.lang.Override
+      public UniversaltestEntity parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UniversaltestEntity(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UniversaltestEntity> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UniversaltestEntity> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public universaltest.UniversaltestOuterClass.UniversaltestEntity getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_universaltest_Universaltest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_universaltest_Universaltest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_universaltest_UniversaltestEntity_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_universaltest_UniversaltestEntity_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1970,20 +3414,25 @@ public final class UniversaltestOuterClass {
     java.lang.String[] descriptorData = {
       "\n!universaltest/universaltest.proto\022\runi" +
       "versaltest\032\036google/protobuf/wrappers.pro" +
-      "to\032\022furo/fat/fat.proto\"\374\001\n\rUniversaltest" +
-      "\022\"\n\tfat_int32\030\007 \001(\0132\017.furo.fat.Int32\022$\n\n" +
-      "fat_string\030\004 \001(\0132\020.furo.fat.String\022\n\n\002id" +
-      "\030\001 \001(\t\022\024\n\014scalar_int32\030\005 \001(\005\022\025\n\rscalar_s" +
-      "tring\030\002 \001(\t\0222\n\rwrapper_int32\030\006 \001(\0132\033.goo" +
-      "gle.protobuf.Int32Value\0224\n\016wrapper_strin" +
-      "g\030\003 \001(\0132\034.google.protobuf.StringValueb\006p" +
-      "roto3"
+      "to\032\022furo/fat/fat.proto\032\017furo/meta.proto\032" +
+      "\017furo/link.proto\"\374\001\n\rUniversaltest\022\"\n\tfa" +
+      "t_int32\030\007 \001(\0132\017.furo.fat.Int32\022$\n\nfat_st" +
+      "ring\030\004 \001(\0132\020.furo.fat.String\022\n\n\002id\030\001 \001(\t" +
+      "\022\024\n\014scalar_int32\030\005 \001(\005\022\025\n\rscalar_string\030" +
+      "\002 \001(\t\0222\n\rwrapper_int32\030\006 \001(\0132\033.google.pr" +
+      "otobuf.Int32Value\0224\n\016wrapper_string\030\003 \001(" +
+      "\0132\034.google.protobuf.StringValue\"v\n\023Unive" +
+      "rsaltestEntity\022*\n\004data\030\001 \001(\0132\034.universal" +
+      "test.Universaltest\022\031\n\005links\030\002 \003(\0132\n.furo" +
+      ".Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           google.protobuf.Wrappers.getDescriptor(),
           furo.fat.Fat.getDescriptor(),
+          furo.MetaOuterClass.getDescriptor(),
+          furo.LinkOuterClass.getDescriptor(),
         });
     internal_static_universaltest_Universaltest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -1991,8 +3440,16 @@ public final class UniversaltestOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_universaltest_Universaltest_descriptor,
         new java.lang.String[] { "FatInt32", "FatString", "Id", "ScalarInt32", "ScalarString", "WrapperInt32", "WrapperString", });
+    internal_static_universaltest_UniversaltestEntity_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_universaltest_UniversaltestEntity_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_universaltest_UniversaltestEntity_descriptor,
+        new java.lang.String[] { "Data", "Links", "Meta", });
     google.protobuf.Wrappers.getDescriptor();
     furo.fat.Fat.getDescriptor();
+    furo.MetaOuterClass.getDescriptor();
+    furo.LinkOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

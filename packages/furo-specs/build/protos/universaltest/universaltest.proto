@@ -6,6 +6,8 @@ package universaltest;
 
 import "google/protobuf/wrappers.proto";
 import "furo/fat/fat.proto";
+import "furo/meta.proto";
+import "furo/link.proto";
 // oneof experiment spec for testing
 message Universaltest {                    
   // field of a fat int32 for the Universaltest
@@ -28,5 +30,17 @@ message Universaltest {
   
   // field of a wrapper string for the Universaltest
   google.protobuf.StringValue wrapper_string = 3;
+
+}
+// UniversaltestEntity with Universaltest type in data
+message UniversaltestEntity {            
+  // contains a universaltest.Universaltest
+  Universaltest data = 1;
+  
+  // Hateoas links
+  repeated furo.Link links = 2;
+  
+  // Meta for the response
+  furo.Meta meta = 3;
 
 }

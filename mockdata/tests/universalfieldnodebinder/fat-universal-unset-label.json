@@ -7,11 +7,10 @@
     },
     "fat_string": {
       "value": "this is a furo fat string",
-      "labels": ["before"],
+      "labels": ["after"],
       "attributes": {
         "value-state": "Error",
-        "maxlength": "6",
-        "label": "override"
+        "other": "6"
       }
     },
     "scalar_int32": 14,
