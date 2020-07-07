@@ -7,7 +7,7 @@
     },
     "fat_string": {
       "value": "this is a furo fat string",
-      "labels": "",
+      "labels": [],
       "attributes": {
         "value-state": "Error",
         "maxlength": "6"

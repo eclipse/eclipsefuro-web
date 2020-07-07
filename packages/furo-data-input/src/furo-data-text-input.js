@@ -2,11 +2,10 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/input/src/furo-text-input';
-import '@furo/data/src/lib/UniversalFieldNodeBinder.js';
-
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
 import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
 import { Helper } from './lib/helper.js';
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
+
 
 /**
  * `furo-data-text-input`
