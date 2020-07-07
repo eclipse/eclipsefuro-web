@@ -287,11 +287,14 @@ class FuroCollectionAgent extends FBP(LitElement) {
         : link.rel.toLowerCase();
 
     let serviceResponse;
+    let definedQPs;
     for (const [key, service] of Object.entries(
       this._ApiEnvironment.services[link.service].services,
     )) {
       if (key.toLowerCase() === REL_NAME) {
         serviceResponse = service.data.response;
+        // save the defined query param for the future params-check by requesting
+        definedQPs = service.query;
       }
     }
 
@@ -364,6 +367,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
       // eslint-disable-next-line no-prototype-builtins
       if (params.hasOwnProperty(key)) {
         qp.push(`${key}=${params[key]}`);
+        this._checkQueryParam(key, definedQPs);
       }
     }
     if (qp.length > 0) {
@@ -385,6 +389,22 @@ class FuroCollectionAgent extends FBP(LitElement) {
       headers,
       body: data,
     });
+  }
+
+  /**
+   * check whether the param is already defined in the spec. when not output the warning-information
+   * @param key
+   * @param definedQPs
+   * @private
+   */
+  // eslint-disable-next-line class-methods-use-this
+  _checkQueryParam(key, definedQPs) {
+    if (!definedQPs || !definedQPs[key]) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        `The query param ${key} for the list service is not defined in the spec. please define it in the spec project.`,
+      );
+    }
   }
 
   /**
