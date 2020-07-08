@@ -173,13 +173,53 @@ describe('UniversalFieldNodeBinder.test', () => {
   });
 
   it('should set selected attributes and labels and the value on the target (pseudocomponent)', done => {
+    // set another property for the value property
     pseudocomponent.binder.targetValueField = 'val';
+    pseudocomponent.binder.labelMappings = { before: 'before' };
+    pseudocomponent.binder.attributeMappings = { 'value-state': 'valueState', maxlength: 'maxLength' };
+
     dataobj.addEventListener('data-injected', () => {
       pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
       assert.equal(pseudocomponent.val, pseudocomponent.binder._fieldValue);
+      assert.equal(pseudocomponent.valueState, 'Error');
+      assert.equal(pseudocomponent.maxLength, '6');
+      assert.equal(pseudocomponent.before, true);
 
       done();
     });
+    fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
+  });
+
+  it('should update / remove selected attributes and labels and the value on the target (pseudocomponent)', done => {
+    // set another property for the value property
+    pseudocomponent.binder.targetValueField = 'val';
+    pseudocomponent.binder.labelMappings = { before: 'before' };
+    pseudocomponent.binder.attributeMappings = { 'value-state': 'valueState', maxlength: 'maxLength' };
+
+    dataobj.addEventListener('data-injected', () => {
+        pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
+        assert.equal(pseudocomponent.val, pseudocomponent.binder._fieldValue);
+        assert.equal(pseudocomponent.valueState, 'Error');
+        assert.equal(pseudocomponent.maxLength, '6');
+        assert.equal(pseudocomponent.before, true);
+
+      dataobj.addEventListener('data-injected', () => {
+        // remove labels which are not in the dataset and restore spec values
+        assert.equal(pseudocomponent.binder.virtualNode.attributes.other, 6);
+        assert.equal('maxlength' in pseudocomponent.binder.virtualNode.attributes, false);
+        assert.equal(pseudocomponent.before, true);
+        assert.equal(pseudocomponent.after, undefined);
+        assert.equal(pseudocomponent.valueState, '');
+        assert.equal(pseudocomponent.maxLength, '');
+
+        done();
+      });
+
+      fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal-unset-label.json');
+
+        done();
+      }, { once: true },
+    );
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 });

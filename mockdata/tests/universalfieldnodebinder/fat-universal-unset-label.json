@@ -10,7 +10,8 @@
       "labels": ["after"],
       "attributes": {
         "value-state": "Error",
-        "other": "6"
+        "other": "6",
+        "default": "new"
       }
     },
     "scalar_int32": 14,

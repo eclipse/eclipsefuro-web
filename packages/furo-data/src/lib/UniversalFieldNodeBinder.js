@@ -10,8 +10,19 @@ export class UniversalFieldNodeBinder {
     this.fieldFormat = undefined; // scalar || wrapper || fat
     this._metastore = {}; // store metas from field
 
+    /**
+     * Define the property for the value on the component. If the value in the fieldnode changes
+     * this property will be updated
+     * @type {string}
+     */
     this.targetValueField = 'value';
-    this.labelmappings = { 'readonly': 'ro' };
+    /**
+     * Define the mappings for the labels / flags which will be set on the component if it is set in the fieldnode.
+     * @type {{readonly: string}}
+     */
+    this.labelMappings = {};
+
+    this.attributeMappings = {};
     return this;
   }
 
@@ -28,14 +39,14 @@ export class UniversalFieldNodeBinder {
       constraints: {},
     };
     // update virtualNode from meta
-    this._updateMetaFromFieldnode(field);
+    this._updateMetaFromFieldnode(field._meta);
     field.addEventListener('this-metas-changed', () => {
-      this._updateMetaFromFieldnode(field);
+      this._updateMetaFromFieldnode(field._meta);
     });
 
-    this._updateFieldValue(field);
+    this._updateVirtualNode(field);
     field.addEventListener('field-value-changed', () => {
-      this._updateFieldValue(field);
+      this._updateVirtualNode(field);
     });
   }
 
@@ -45,11 +56,20 @@ export class UniversalFieldNodeBinder {
     this.target[this.targetValueField] = val;
   }
 
+  /**
+   * returns the current value of the field
+   * @return {*}
+   */
   get fieldValue() {
     return this._fieldValue;
   }
 
-  _updateFieldValue(field) {
+  /**
+   * Sets the correct value for the given fieldnode to the virtual node and this.fieldValue according to the signature of the field
+   * @param field
+   * @private
+   */
+  _updateVirtualNode(field) {
     // for scalar
     if (this.fieldFormat === 'scalar') {
       this.fieldValue = field._value;
@@ -58,50 +78,95 @@ export class UniversalFieldNodeBinder {
       this.fieldValue = field.value._value;
 
       if (this.fieldFormat === 'fat') {
-        // clear the labels and attributes
-        this.virtualNode.attributes = {};
-        this.virtualNode.labels.clear(); //
+        const givenAttrs = field.attributes.__childNodes.map((attrNode)=>{
+          return attrNode._name;
+        });
+        const givenLabels = field.labels.__childNodes.map((labelNode)=>{
+          return labelNode._value;
+        });
 
-        // set the spec values
-        this._updateMetaFromFieldnode(field);
+        // clear the attributes by removing attrs which are not in field.attributes
+        Object.keys(this.virtualNode.attributes).forEach((attr)=>{
+          if(!givenAttrs[attr]){
+            this.removeVirtualAttribute(attr)
+          }
+        });
 
-        // update labels and attributes
+        // clear the labels  by removing labels which are not in field.labels
+        this.virtualNode.labels.forEach((label)=>{
+          if(!givenLabels[label]){
+            this.removeVirtualLabel(label)
+          }
+        });
+
+        // updates the attrs and labels on the virtual node with the metas from the fieldnode
+        this._updateMetaFromFieldnode(field._meta);
+
+        // update the given attributes on the virtual node
         field.attributes.__childNodes.forEach(attr => {
           this.addVirtualAttribute(attr._name, attr._value);
         });
+        // update the given labels on the virtual node
         field.labels.__childNodes.forEach(label => {
           this.addVirtualLabel(label._value);
         });
-
       }
     }
   }
 
+  /**
+   * Adds or updates a attribute to the virtual node and set the attribute on the target component if mapping is defined
+   * @param name
+   * @param value
+   */
   addVirtualAttribute(name, value) {
     this.virtualNode.attributes[name] = value;
+    if(name in this.attributeMappings){
+      this.target[this.attributeMappings[name]] = value;
+    }
   }
 
+  /**
+   * Removes a attribute from the virtual node and sets the attribute on the target component to "" empty string.
+   * @param name
+   */
   removeVirtualAttribute(name) {
     delete this.virtualNode.attributes[name];
+    if(name in this.attributeMappings){
+      this.target[this.attributeMappings[name]]  = "";
+    }
   }
 
+  /**
+   * Adds a label to the virtual node label set and sets the label on the target component to `true` if mapping is defined.
+   * @param name
+   */
   addVirtualLabel(name) {
     this.virtualNode.labels.add(name);
     // map the label if configured
-    if (name in this.labelmappings) {
-      this.target[this.labelmappings[name]] = true;
+    if (name in this.labelMappings) {
+      this.target[this.labelMappings[name]] = true;
     }
   }
 
+  /**
+   * Removes a label from the virtual node label set and sets the label on the target component to `false` if mapping is defined.
+   * @param name
+   */
   removeVirtualLabel(name) {
     this.virtualNode.labels.delete(name);
     // map the label if configured
-    if (name in this.labelmappings) {
-      this.target[this.labelmappings[name]] = false;
+    if (name in this.labelMappings) {
+      this.target[this.labelMappings[name]] = false;
     }
   }
 
-  // detects the kind of the fieldNode (scalar, wrapper, fat)
+
+  /**
+   * detects the kind of the fieldNode (scalar, wrapper, fat)
+   * @param field
+   * @return {string|undefined}
+   */
   detectFormat(field) {
     if (field.__childNodes.length === 0) {
       this.fieldValue = field._value;
@@ -118,25 +183,30 @@ export class UniversalFieldNodeBinder {
     return undefined;
   }
 
-  _updateMetaFromFieldnode(field) {
-    if ('default' in field._meta && field._meta.default) {
-      this.addVirtualAttribute('default', field._meta.default);
-      this._metastore.default = field._meta.default;
+  /**
+   * updates the virtual node attributes and labels with metas from the fieldnode
+   * @param fieldmeta
+   * @private
+   */
+  _updateMetaFromFieldnode(fieldmeta) {
+    if ('default' in fieldmeta && fieldmeta.default) {
+      this.addVirtualAttribute('default', fieldmeta.default);
+      this._metastore.default = fieldmeta.default;
     }
 
-    if ('readonly' in field._meta && field._meta.readonly === true) {
+    if ('readonly' in fieldmeta && fieldmeta.readonly === true) {
       this.addVirtualLabel('readonly');
-      this._metastore.readonly = field._meta.readonly;
+      this._metastore.readonly = fieldmeta.readonly;
     }
 
-    if ('label' in field._meta && field._meta.label) {
-      this.addVirtualAttribute('label', field._meta.label);
-      this._metastore.label = field._meta.label;
+    if ('label' in fieldmeta && fieldmeta.label) {
+      this.addVirtualAttribute('label', fieldmeta.label);
+      this._metastore.label = fieldmeta.label;
     }
 
-    if ('hint' in field._meta && field._meta.hint) {
-      this.addVirtualAttribute('hint', field._meta.hint);
-      this._metastore.hint = field._meta.hint;
+    if ('hint' in fieldmeta && fieldmeta.hint) {
+      this.addVirtualAttribute('hint', fieldmeta.hint);
+      this._metastore.hint = fieldmeta.hint;
     }
   }
 }

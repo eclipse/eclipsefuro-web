@@ -10,7 +10,8 @@
       "labels": "",
       "attributes": {
         "value-state": "Error",
-        "maxlength": "6"
+        "maxlength": "6",
+        "emotion": "friendly"
       }
     },
     "scalar_int32": 14,
@@ -19,7 +20,10 @@
     },
     "fat_int32": {
       "value": 14,
-      "value-state": "Information"
+      "labels": "",
+      "attributes": {
+        "value-state": "Information"
+      }
     }
   },
   "links": [],
@@ -28,7 +32,8 @@
       "data.scalar_string": {
         "meta": {
           "label": "scalar string label setted via response meta",
-          "readonly": true
+          "readonly": true,
+          "default": "new"
         }
       },
       "data.wrapper_string": {
