@@ -90,6 +90,34 @@ export class UniversalFieldNodeBinder {
   }
 
   /**
+   * adds a label to the fat fieldNode
+   * @param label
+   */
+  addLabel(label){
+    if('labels' in this.fieldNode){
+      if (!this._givenLabels[label]) {
+        this.fieldNode.labels.add(label);
+      }
+    }else {
+      console.warn('not a fat type', this.fieldNode);
+    }
+  }
+
+  /**
+   * deletes a label from a fat fieldNode
+   * @param label
+   */
+  deleteLabel(label){
+    if('labels' in this.fieldNode){
+      const labelindex = this._givenLabels.indexOf(label);
+      if (labelindex !== -1) {
+        this.fieldNode.labels.deleteChild(labelindex);
+      }
+    }else {
+      console.warn('not a fat type', this.fieldNode);
+    }
+  }
+  /**
    * Sets the correct value for the given fieldnode to the virtual node and this.fieldValue according to the signature of the field
    * @param field
    * @private
@@ -104,7 +132,7 @@ export class UniversalFieldNodeBinder {
 
       if (this.fieldFormat === 'fat') {
         const givenAttrs = field.attributes.__childNodes.map((attrNode) => attrNode._name);
-        const givenLabels = field.labels.__childNodes.map((labelNode) => labelNode._value);
+        this._givenLabels = field.labels.__childNodes.map((labelNode) => labelNode._value);
 
         // clear the attributes by removing attrs which are not in field.attributes
         Object.keys(this.virtualNode.attributes).forEach((attr) => {
@@ -115,7 +143,7 @@ export class UniversalFieldNodeBinder {
 
         // clear the labels  by removing labels which are not in field.labels
         this.virtualNode.labels.forEach((label) => {
-          if (!givenLabels[label]) {
+          if (!this._givenLabels[label]) {
             this._removeVirtualLabel(label);
           }
         });

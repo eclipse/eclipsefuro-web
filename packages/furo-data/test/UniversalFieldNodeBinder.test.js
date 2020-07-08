@@ -267,4 +267,28 @@ describe('UniversalFieldNodeBinder.test', () => {
     });
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
+
+
+  it('should update fieldnode labels on fat types', done => {
+    // set another property for the value property
+    pseudocomponent.binder.labelMappings = { neu: 'neu' };
+    dataobj.addEventListener('data-injected', () => {
+      pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
+      assert.equal(pseudocomponent.value, 'this is a furo fat string');
+
+      pseudocomponent.binder.addLabel("neu");
+      assert.equal(pseudocomponent.neu, true);
+      assert.equal(pseudocomponent.binder.fieldNode.labels._value[0],'before');
+      assert.equal(pseudocomponent.binder.fieldNode.labels._value[1],'neu');
+
+      pseudocomponent.binder.deleteLabel("before");
+      assert.equal(pseudocomponent.binder.fieldNode.labels._value.length,1);
+      assert.equal(pseudocomponent.binder.fieldNode.labels._value[0],'neu');
+      done();
+    });
+    fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
+  });
+
+
+
 });
