@@ -121,6 +121,33 @@ export class UniversalFieldNodeBinder {
   }
 
   /**
+   * Sets the value of a named attribute of the current node.
+   * @param name
+   * @param value
+   */
+  setAttribute(name, value){
+    if('attributes' in this.fieldNode){
+      if (!this._givenAttrs[name]) {
+        this.fieldNode.attributes.createField({"fieldName":name,"type":"string", "_value":value});
+      }
+    }else{
+      this._addVirtualAttribute(name,value)
+    }
+  }
+
+  removeAttribute(name){
+    if('attributes' in this.fieldNode){
+      const attrindex = this._givenAttrs.indexOf(name);
+      if (attrindex !== -1) {
+        this.fieldNode.attributes[name].deleteNode();
+      }
+    }else{
+      this._removeVirtualAttribute(name)
+    }
+  }
+
+
+  /**
    * Sets the correct value for the given fieldnode to the virtual node and this.fieldValue according to the signature of the field
    * @param field
    * @private
@@ -134,12 +161,12 @@ export class UniversalFieldNodeBinder {
       this.fieldValue = field.value._value;
 
       if (this.fieldFormat === 'fat') {
-        const givenAttrs = field.attributes.__childNodes.map((attrNode) => attrNode._name);
+        this._givenAttrs = field.attributes.__childNodes.map((attrNode) => attrNode._name);
         this._givenLabels = field.labels.__childNodes.map((labelNode) => labelNode._value);
 
         // clear the attributes by removing attrs which are not in field.attributes
         Object.keys(this.virtualNode.attributes).forEach((attr) => {
-          if (!givenAttrs[attr]) {
+          if (!this._givenAttrs[attr]) {
             this._removeVirtualAttribute(attr);
           }
         });

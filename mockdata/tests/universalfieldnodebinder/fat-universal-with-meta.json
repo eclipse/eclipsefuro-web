@@ -32,8 +32,7 @@
       "data.scalar_string": {
         "meta": {
           "label": "scalar string label setted via response meta",
-          "readonly": true,
-          "default": "new"
+          "readonly": true
         }
       },
       "data.wrapper_string": {
@@ -45,7 +44,9 @@
       "data.fat_string": {
         "meta": {
           "label": "fat string label setted via response meta",
-          "readonly": true
+          "readonly": true,
+          "default": "new",
+          "hint": "hint"
         }
       },
       "data.scalar_int32": {

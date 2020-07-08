@@ -309,4 +309,55 @@ describe('UniversalFieldNodeBinder.test', () => {
 
 
 
+
+  it('should set and delete fieldnode attributes on fat types', done => {
+    // set another property for the value property
+    pseudocomponent.binder.attributeMappings = { 'value-state': 'valueState', maxlength: 'maxLength', minlength: 'minLength' };
+    dataobj.addEventListener('data-injected', () => {
+      pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
+      assert.equal(pseudocomponent.value, pseudocomponent.binder._fieldValue);
+      assert.equal(pseudocomponent.valueState, 'Error');
+      assert.equal(pseudocomponent.maxLength, '6');
+      assert.equal(pseudocomponent.minLength, undefined);
+
+
+      pseudocomponent.binder.setAttribute("minlength","small");
+
+      assert.equal(pseudocomponent.minLength, "small");
+      assert.equal(pseudocomponent.binder.fieldNode.attributes.minlength._value,'small');
+      assert.equal(JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),JSON.stringify({"value-state":"Error","maxlength":"6","label":"override","minlength":"small"}));
+
+      pseudocomponent.binder.removeAttribute("value-state");
+
+      pseudocomponent.binder.removeAttribute("label");
+      assert.equal(JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),JSON.stringify({"maxlength":"6","minlength":"small"}));
+      done();
+    });
+    fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
+  });
+
+
+  it('should not set and delete fieldnode attributes on NON fat types', done => {
+    // set another property for the value property
+    pseudocomponent.binder.attributeMappings = { 'value-state': 'valueState', maxlength: 'maxLength', minlength: 'minLength' };
+    dataobj.addEventListener('data-injected', () => {
+      pseudocomponent.binder.bindField(dataobj.data.data.scalar_string);
+      assert.equal(pseudocomponent.value, pseudocomponent.binder._fieldValue);
+      pseudocomponent.binder.setAttribute("minlength","small");
+      pseudocomponent.binder.setAttribute("value-state","Error");
+      pseudocomponent.binder.setAttribute("label","Error");
+      assert.equal(pseudocomponent.label, undefined);
+      assert.equal(pseudocomponent.valueState, 'Error');
+      assert.equal(pseudocomponent.minLength, "small");
+      pseudocomponent.binder.removeAttribute("value-state");
+      pseudocomponent.binder.removeAttribute("label");
+      assert.equal(pseudocomponent.valueState, '');
+      assert.equal(pseudocomponent.label, undefined);
+
+      done();
+    });
+    fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
+  });
+
+
 });
