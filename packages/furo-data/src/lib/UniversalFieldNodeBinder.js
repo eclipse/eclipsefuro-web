@@ -90,7 +90,7 @@ export class UniversalFieldNodeBinder {
   }
 
   /**
-   * adds a label to the fat fieldNode
+   * adds a label to the fat fieldNode. Adding labels to scalar and wrapper works too, but will never updated on the fieldNode.
    * @param label
    */
   addLabel(label){
@@ -99,7 +99,8 @@ export class UniversalFieldNodeBinder {
         this.fieldNode.labels.add(label);
       }
     }else {
-      console.warn('not a fat type', this.fieldNode);
+      // attention, this is for ui only, this label will never sent back to the server
+      this._addVirtualLabel(label);
     }
   }
 
@@ -114,9 +115,11 @@ export class UniversalFieldNodeBinder {
         this.fieldNode.labels.deleteChild(labelindex);
       }
     }else {
-      console.warn('not a fat type', this.fieldNode);
+      // attention, this is for ui only, this label will never sent back to the server
+      this._removeVirtualLabel(label);
     }
   }
+
   /**
    * Sets the correct value for the given fieldnode to the virtual node and this.fieldValue according to the signature of the field
    * @param field

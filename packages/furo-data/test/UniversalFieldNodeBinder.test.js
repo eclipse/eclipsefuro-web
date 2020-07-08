@@ -290,5 +290,23 @@ describe('UniversalFieldNodeBinder.test', () => {
   });
 
 
+  it('should not update fieldnode labels on non fat types', done => {
+    // set another property for the value property
+    pseudocomponent.binder.labelMappings = { neu: 'neu' };
+    dataobj.addEventListener('data-injected', () => {
+      pseudocomponent.binder.bindField(dataobj.data.data.wrapper_string);
+      assert.equal(pseudocomponent.value, 'this is a google wrapper string');
+
+      pseudocomponent.binder.addLabel("neu");
+      assert.equal(pseudocomponent.neu, true);
+
+      pseudocomponent.binder.deleteLabel("neu");
+      assert.equal(pseudocomponent.neu, false);
+      done();
+    });
+    fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
+  });
+
+
 
 });
