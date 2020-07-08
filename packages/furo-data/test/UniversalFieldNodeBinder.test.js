@@ -222,4 +222,19 @@ describe('UniversalFieldNodeBinder.test', () => {
     );
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
+
+  it('should update values from outside', done => {
+    // set another property for the value property
+
+    dataobj.addEventListener('data-injected', () => {
+      pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
+      assert.equal(pseudocomponent.value, 'this is a furo fat string');
+
+      pseudocomponent.binder.fieldValue = "m2";
+      assert.equal(pseudocomponent.value, 'm2');
+      assert.equal(pseudocomponent.binder.fieldNode.value._value, 'm2');
+      done();
+    });
+    fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
+  });
 });
