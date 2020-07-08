@@ -203,19 +203,19 @@ describe('UniversalFieldNodeBinder.test', () => {
         assert.equal(pseudocomponent.maxLength, '6');
         assert.equal(pseudocomponent.before, true);
 
-      dataobj.addEventListener('data-injected', () => {
-        // remove labels which are not in the dataset and restore spec values
-        assert.equal(pseudocomponent.binder.virtualNode.attributes.other, 6);
-        assert.equal('maxlength' in pseudocomponent.binder.virtualNode.attributes, false);
-        assert.equal(pseudocomponent.before, true);
-        assert.equal(pseudocomponent.after, undefined);
-        assert.equal(pseudocomponent.valueState, '');
-        assert.equal(pseudocomponent.maxLength, '');
+        dataobj.addEventListener('data-injected', () => {
+          // remove labels which are not in the dataset and restore spec values
+          assert.equal(pseudocomponent.binder.virtualNode.attributes.other, 6);
+          assert.equal('maxlength' in pseudocomponent.binder.virtualNode.attributes, false);
+          assert.equal(pseudocomponent.before, true);
+          assert.equal(pseudocomponent.after, undefined);
+          assert.equal(pseudocomponent.valueState, '');
+          assert.equal(pseudocomponent.maxLength, '');
 
-        done();
-      });
+          done();
+        });
 
-      fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal-unset-label.json');
+        fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal-unset-label.json');
 
         done();
       }, { once: true },
@@ -223,14 +223,44 @@ describe('UniversalFieldNodeBinder.test', () => {
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 
-  it('should update values from outside', done => {
+  it('should update values from outside to fat', done => {
     // set another property for the value property
 
     dataobj.addEventListener('data-injected', () => {
       pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
       assert.equal(pseudocomponent.value, 'this is a furo fat string');
 
-      pseudocomponent.binder.fieldValue = "m2";
+      pseudocomponent.binder.fieldValue = 'm2';
+      assert.equal(pseudocomponent.value, 'm2');
+      assert.equal(pseudocomponent.binder.fieldNode.value._value, 'm2');
+      done();
+    });
+    fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
+  });
+
+  it('should update values from outside to scalar', done => {
+    // set another property for the value property
+
+    dataobj.addEventListener('data-injected', () => {
+      pseudocomponent.binder.bindField(dataobj.data.data.scalar_string);
+      assert.equal(pseudocomponent.value, 'this is a scalar string');
+
+      pseudocomponent.binder.fieldValue = 'm2';
+      assert.equal(pseudocomponent.value, 'm2');
+      assert.equal(pseudocomponent.binder.fieldNode._value, 'm2');
+      done();
+    });
+    fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
+  });
+
+  it('should update values from outside to wrapper', done => {
+    // set another property for the value property
+
+    dataobj.addEventListener('data-injected', () => {
+      pseudocomponent.binder.bindField(dataobj.data.data.wrapper_string);
+      assert.equal(pseudocomponent.value, 'this is a google wrapper string');
+
+      pseudocomponent.binder.fieldValue = 'm2';
       assert.equal(pseudocomponent.value, 'm2');
       assert.equal(pseudocomponent.binder.fieldNode.value._value, 'm2');
       done();
