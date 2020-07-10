@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 import './furo-api-fetch.js';
 import { Env } from '@furo/framework';
+import { AgentHelper } from './lib/AgentHelper.js';
 
 /**
  * `furo-entity-agent` is an interface component to handle entity requests. It analyzes the hateoas data.
@@ -49,6 +50,8 @@ class FuroEntityAgent extends FBP(LitElement) {
     });
 
     this._singleElementQueue = []; // queue for calls, before hts is set
+    this._queryParams = {};
+    this._specDefinedQPs = {};
   }
 
   static get properties() {
@@ -86,6 +89,17 @@ class FuroEntityAgent extends FBP(LitElement) {
         `You are using a deprecated service (${service}) ${this._service.lifecycle.info}`,
       );
     }
+  }
+
+  /**
+   * Update query params
+   * a qp like {"active":true} will just update the qp *active*
+   *
+   * If the current value of the qp is not the same like the injected value, a qp-changed event will be fired
+   * @param {Object} key value pairs
+   */
+  updateQp(qp) {
+    AgentHelper.updateQp(this, qp);
   }
 
   /**
@@ -172,6 +186,13 @@ class FuroEntityAgent extends FBP(LitElement) {
   }
 
   /**
+   * clear the query params that you have setted before
+   */
+  clearQp() {
+    this._queryParams = {};
+  }
+
+  /**
    * Creates a Request object with header and body data
    * - special treatment for method PATCH
    * - body object only includes writeable fields
@@ -198,19 +219,24 @@ class FuroEntityAgent extends FBP(LitElement) {
 
     const REL_NAME = link.rel.toLowerCase() === 'self' ? 'get' : link.rel.toLowerCase();
 
-    let serviceResponse;
-    for (const [key, service] of Object.entries(
+    // generate accept field for header
+    const ACCEPT = AgentHelper.generateHeaderAccept(
+      this,
       this._ApiEnvironment.services[link.service].services,
-    )) {
-      if (key.toLowerCase() === REL_NAME) {
-        serviceResponse = service.data.response;
-      }
-    }
+      REL_NAME,
+    );
 
-    if (serviceResponse) {
-      const ACCEPT = `application/${serviceResponse}+json, application/json;q=0.9`;
+    if (ACCEPT) {
       headers.append('Accept', `${ACCEPT}`);
     }
+
+    // get existing params from href and append query params
+    const params = AgentHelper.getParams(this, link);
+
+    // rebuild qp
+    const qp = AgentHelper.rebuildQPFromParams(params, this._specDefinedQPs);
+    // generate req
+    const req = AgentHelper.generateReq(link, qp);
 
     /**
      * The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
@@ -221,7 +247,7 @@ class FuroEntityAgent extends FBP(LitElement) {
     this._abortController = abortController || new AbortController();
     const { signal } = this._abortController;
 
-    return new Request(link.href, {
+    return new Request(req, {
       signal,
       method: link.method,
       headers,
@@ -283,42 +309,6 @@ class FuroEntityAgent extends FBP(LitElement) {
   }
 
   /**
-   *
-   * @param rel
-   * @param serviceName
-   * @returns {undefined|object}
-   * @private
-   */
-  _checkServiceAndHateoasLinkError(rel, serviceName) {
-    // check Service Get
-    if (!this._service.services[serviceName]) {
-      // eslint-disable-next-line no-console
-      console.warn(`Service ${serviceName} is not specified`, this._service, this);
-      return undefined;
-    }
-
-    // queue if no hts is set, queue it
-    if (!this._hts) {
-      this._singleElementQueue = [[rel, serviceName]];
-      return undefined;
-    }
-    // check rel and type
-    const htsFound = this._hts.find(
-      link => link.rel === rel && link.service === this._service.name,
-    );
-    if (!htsFound) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        `No HATEOAS for rel ${rel} in service ${this._service.name} found.`,
-        this._hts,
-        this,
-      );
-      return undefined;
-    }
-    return htsFound;
-  }
-
-  /**
    * @event load-success
    * Fired when load was successful
    * detail payload: response
@@ -334,7 +324,7 @@ class FuroEntityAgent extends FBP(LitElement) {
    * loads the entity if hts is available
    */
   load() {
-    const hts = this._checkServiceAndHateoasLinkError('self', 'Get');
+    const hts = AgentHelper.checkServiceAndHateoasLinkError(this, 'self', 'Get');
     if (!hts) {
       const customEvent = new Event('missing-hts-self', { composed: true, bubbles: false });
       this.dispatchEvent(customEvent);
@@ -361,7 +351,7 @@ class FuroEntityAgent extends FBP(LitElement) {
    * delete the entity if hts is available
    */
   delete() {
-    const hts = this._checkServiceAndHateoasLinkError('delete', 'Delete');
+    const hts = AgentHelper.checkServiceAndHateoasLinkError(this, 'delete', 'Delete');
     if (!hts) {
       const customEvent = new Event('missing-hts-delete', { composed: true, bubbles: false });
       this.dispatchEvent(customEvent);
@@ -396,7 +386,7 @@ class FuroEntityAgent extends FBP(LitElement) {
       return this.create();
     }
 
-    const hts = this._checkServiceAndHateoasLinkError('update', 'Update');
+    const hts = AgentHelper.checkServiceAndHateoasLinkError(this, 'update', 'Update');
     if (!hts) {
       const customEvent = new Event('missing-hts-update', { composed: true, bubbles: false });
       this.dispatchEvent(customEvent);
@@ -425,7 +415,7 @@ class FuroEntityAgent extends FBP(LitElement) {
    * saves the entity with method put if hts is available
    */
   put() {
-    const hts = this._checkServiceAndHateoasLinkError('update', 'Update');
+    const hts = AgentHelper.checkServiceAndHateoasLinkError(this, 'update', 'Update');
     if (!hts) {
       const customEvent = new Event('missing-hts-update', { composed: true, bubbles: false });
       this.dispatchEvent(customEvent);
@@ -451,7 +441,7 @@ class FuroEntityAgent extends FBP(LitElement) {
    * creating the entity if hts rel="create" is available
    */
   create() {
-    const hts = this._checkServiceAndHateoasLinkError('create', 'Create');
+    const hts = AgentHelper.checkServiceAndHateoasLinkError(this, 'create', 'Create');
     if (!hts) {
       const customEvent = new Event('missing-hts-create', { composed: true, bubbles: false });
       this.dispatchEvent(customEvent);
