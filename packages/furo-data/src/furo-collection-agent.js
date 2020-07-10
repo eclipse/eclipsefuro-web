@@ -3,6 +3,7 @@ import { FBP } from '@furo/fbp';
 import './furo-api-fetch.js';
 
 import { Env } from '@furo/framework';
+import { AgentHelper } from './lib/AgentHelper.js';
 
 /**
  * `furo-collection-agent` is an interface component to handle collection requests. It helps you with paginating collection data.
@@ -75,6 +76,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
 
     this._singleElementQueue = []; // queue for calls, before hts is set
     this._queryParams = {};
+    this._specDefinedQPs = {};
   }
 
   /**
@@ -238,28 +240,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * @param {Object} key value pairs
    */
   updateQp(qp) {
-    let qpChanged = false;
-    // eslint-disable-next-line no-restricted-syntax
-    for (const key in qp) {
-      // eslint-disable-next-line no-prototype-builtins
-      if (qp.hasOwnProperty(key)) {
-        if (this._queryParams[key] !== qp[key]) {
-          qpChanged = true;
-        }
-        this._queryParams[key] = qp[key];
-      }
-    }
-
-    if (qpChanged) {
-      /**
-       * @event qp-changed
-       * Fired when query params changed
-       * detail payload: qp
-       */
-      const customEvent = new Event('qp-changed', { composed: true, bubbles: true });
-      customEvent.detail = this._queryParams;
-      this.dispatchEvent(customEvent);
-    }
+    AgentHelper.updateQp(this, qp);
   }
 
   /**
@@ -286,45 +267,19 @@ class FuroCollectionAgent extends FBP(LitElement) {
         ? 'get'
         : link.rel.toLowerCase();
 
-    let serviceResponse;
-    let definedQPs;
-    for (const [key, service] of Object.entries(
+    // generate accept field for header
+    const ACCEPT = AgentHelper.generateHeaderAccept(
+      this,
       this._ApiEnvironment.services[link.service].services,
-    )) {
-      if (key.toLowerCase() === REL_NAME) {
-        serviceResponse = service.data.response;
-        // save the defined query param for the future params-check by requesting
-        definedQPs = service.query;
-      }
-    }
+      REL_NAME,
+    );
 
-    if (serviceResponse) {
-      const ACCEPT = `application/${serviceResponse}+json, application/json;q=0.9`;
+    if (ACCEPT) {
       headers.append('Accept', `${ACCEPT}`);
     }
 
-    const params = {};
-    const r = link.href.split('?');
-    let req = r[0];
-    // add existing params from href
-    if (r[1]) {
-      r[1].split('&').forEach(p => {
-        const s = p.split('=');
-        // eslint-disable-next-line prefer-destructuring
-        params[s[0]] = s[1];
-      });
-    }
-
-    /**
-     * Append query params
-     */
-    // eslint-disable-next-line no-restricted-syntax
-    for (const key in this._queryParams) {
-      // eslint-disable-next-line no-prototype-builtins
-      if (this._queryParams.hasOwnProperty(key)) {
-        params[key] = this._queryParams[key];
-      }
-    }
+    // get existing params from href and append query params
+    const params = AgentHelper.getParams(this, link);
 
     /**
      * ?fields="id,foo,bar"
@@ -360,19 +315,10 @@ class FuroCollectionAgent extends FBP(LitElement) {
       params.page_size = JSON.stringify(this.pageSize);
     }
 
-    // rebuild req
-    const qp = [];
-    // eslint-disable-next-line no-restricted-syntax
-    for (const key in params) {
-      // eslint-disable-next-line no-prototype-builtins
-      if (params.hasOwnProperty(key)) {
-        qp.push(`${key}=${params[key]}`);
-        this._checkQueryParam(key, definedQPs);
-      }
-    }
-    if (qp.length > 0) {
-      req = `${req}?${qp.join('&')}`;
-    }
+    // rebuild qp
+    const qp = AgentHelper.rebuildQPFromParams(params, this._specDefinedQPs);
+    // generate req
+    const req = AgentHelper.generateReq(link, qp);
 
     /**
      * The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
@@ -392,58 +338,6 @@ class FuroCollectionAgent extends FBP(LitElement) {
   }
 
   /**
-   * check whether the param is already defined in the spec. when not output the warning-information
-   * @param key
-   * @param definedQPs
-   * @private
-   */
-  // eslint-disable-next-line class-methods-use-this
-  _checkQueryParam(key, definedQPs) {
-    if (!definedQPs || !definedQPs[key]) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        `The query param ${key} for the list service is not defined in the spec. please define it in the spec project.`,
-      );
-    }
-  }
-
-  /**
-   *
-   * @param rel
-   * @param serviceName
-   * @returns {undefined|object}
-   * @private
-   */
-  _checkServiceAndHateoasLinkError(rel, serviceName) {
-    // check Service Get
-    if (!this._service.services[serviceName]) {
-      // eslint-disable-next-line no-console
-      console.warn(`Service ${serviceName} is not specified`, this._service, this);
-      return undefined;
-    }
-
-    // queue if no hts is set, queue it
-    if (!this._hts) {
-      this._singleElementQueue = [[rel, serviceName]];
-      return undefined;
-    }
-    // check rel and type
-    const htsFound = this._hts.find(
-      link => link.rel === rel && link.service === this._service.name,
-    );
-    if (!htsFound) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        `No HATEOAS for rel ${rel} in service ${this._service.name} found.`,
-        this._hts,
-        this,
-      );
-      return undefined;
-    }
-    return htsFound;
-  }
-
-  /**
    * If HATEOAS is present, the wire --triggerLoad is fired with the
    * corresponding request object as payload.
    * @param rel
@@ -451,7 +345,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * @private
    */
   _followRelService(rel, serviceName) {
-    const hts = this._checkServiceAndHateoasLinkError(rel, serviceName);
+    const hts = AgentHelper.checkServiceAndHateoasLinkError(this, rel, serviceName);
     if (!hts) {
       const customEvent = new Event(`missing-hts-${rel}`, { composed: true, bubbles: false });
       this.dispatchEvent(customEvent);
