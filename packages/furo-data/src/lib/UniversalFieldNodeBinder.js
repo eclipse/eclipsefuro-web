@@ -52,6 +52,7 @@ export class UniversalFieldNodeBinder {
 
     // update virtualNode from meta
     this._updateMetaFromFieldnode(field._meta);
+
     field.addEventListener('this-metas-changed', () => {
       this._updateMetaFromFieldnode(field._meta);
     });
@@ -65,7 +66,6 @@ export class UniversalFieldNodeBinder {
 
     field.addEventListener('field-became-invalid', () => {
       this._addVirtualLabel('error');
-
       if (this.fieldNode._validity && this.fieldNode._validity.description) {
         this._addVirtualAttribute('errortext', this.fieldNode._validity.description);
       }
@@ -302,23 +302,32 @@ export class UniversalFieldNodeBinder {
    * @private
    */
   _updateMetaFromFieldnode(fieldmeta) {
-    if ('default' in fieldmeta && fieldmeta.default) {
-      this._addVirtualAttribute('default', fieldmeta.default);
-      this._metastore.default = fieldmeta.default;
-    }
 
-    if ('readonly' in fieldmeta && fieldmeta.readonly === true) {
-      this._addVirtualLabel('readonly');
+    if ('readonly' in fieldmeta) {
+      if(fieldmeta.readonly === true){
+        this._addVirtualLabel('readonly');
+      }else {
+        this._removeVirtualLabel('readonly');
+      }
       this._metastore.readonly = fieldmeta.readonly;
     }
 
-    if ('label' in fieldmeta && fieldmeta.label) {
-      this._addVirtualAttribute('label', fieldmeta.label);
+
+    if ('label' in fieldmeta ) {
+      if(fieldmeta.label){
+        this._addVirtualAttribute('label', fieldmeta.label);
+      }else{
+        this._removeVirtualAttribute('label');
+      }
       this._metastore.label = fieldmeta.label;
     }
 
-    if ('hint' in fieldmeta && fieldmeta.hint) {
-      this._addVirtualAttribute('hint', fieldmeta.hint);
+    if ('hint' in fieldmeta) {
+      if(fieldmeta.hint){
+        this._addVirtualAttribute('hint', fieldmeta.hint);
+      }else{
+        this._removeVirtualAttribute('hint');
+      }
       this._metastore.hint = fieldmeta.hint;
     }
   }

@@ -7,7 +7,7 @@
     },
     "fat_string": {
       "value": "this is a demo fat string",
-      "labels": ["required","autofocus", "condensed"],
+      "labels": ["required", "condensed"],
       "attributes": {
         "value-state": "Error",
         "error-msg": "something went wrong",
@@ -30,6 +30,20 @@
   "meta": {
     "fields": {
 
+      "data.wrapper_string": {
+        "meta": {
+          "label": "wrapper string label setted via response meta",
+          "readonly": false,
+          "default": "new"
+        }
+      },
+      "data.scalar_string": {
+        "meta": {
+          "label": "scalar_string string label setted via response meta",
+          "readonly": false,
+          "default": "new"
+        }
+      },
       "data.fat_string": {
         "meta": {
           "label": "fat string label setted via response meta",
