@@ -32,7 +32,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-input-together Different input elements together
  * @appliesMixin FBP
  */
-class FuroTextInput extends FBP(LitElement) {
+export class FuroTextInput extends FBP(LitElement) {
   /**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked

@@ -1,10 +1,5 @@
-import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme';
-import { FBP } from '@furo/fbp';
-import '@furo/input/src/furo-text-input';
+import {FuroTextInput} from '@furo/input/src/furo-text-input';
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
-import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
-import { Helper } from './lib/helper.js';
 
 
 /**
@@ -20,7 +15,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-fat-furo-data-text-input skalar, wrapper, FAT binding
  * @mixes FBP
  */
-class FuroDataTextInput extends FBP(LitElement) {
+class FuroDataTextInput extends FuroTextInput {
   /**
    * @event value-changed
    * Fired when value has changed from inside the input field.
@@ -35,110 +30,66 @@ class FuroDataTextInput extends FBP(LitElement) {
     this.error = false;
     this.disabled = false;
 
-    this.binder = new UniversalFieldNodeBinder();
-    this._FBPAddWireHook('--valueChanged', val => {
-      if (this.field) {
-        this.field._value = val;
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    this.binder.attributeMappings = {
+      "label":"label",
+      "hint":"hint",
+      "leading-icon":"leadingIcon",
+      "trailing-icon":"trailingIcon",
+      "errortext":"errortext",
+      "pattern":"pattern",
+      "min":"min",
+      "max":"max",
+    };
+    this.binder.labelMappings = {
+      "error":"error",
+      "readonly":"readonly",
+      "required":"required",
+      "condensed":"condensed",
+      "autofocus":"autofocus",
+    };
+
+    /**
+     * check overrides from the used component, setted attributes overrides all
+     * so all we have to do is removing the mapping
+     */
+    this.getAttributeNames().forEach((name)=>{
+      if(name in this.binder.attributeMappings){
+        delete this.binder.attributeMappings[name];
       }
+      if(name in this.binder.labelMappings){
+        delete this.binder.labelMappings[name];
+      }
+    });
+
+    // the extended furo-text-input component uses _value
+    this.binder.targetValueField = "_value";
+
+    // update the value on input changes
+    this.addEventListener('value-changed', val => {
+        this.binder.fieldValue = val.detail;
     });
   }
 
-  /**
-   * flow is ready lifecycle method
-   */
-  _FBPReady() {
-    super._FBPReady();
-    // this._FBPTraceWires();
-    // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-  }
 
   /**
-   * Updater for the label attr
-   * @param value
+   * Bind a entity field to the text-input. You can use the entity even when no data was received.
+   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+   * @param {Object|FieldNode} fieldNode a Field object
    */
-  set _label(value) {
-    Helper.UpdateInputAttribute(this, 'label', value);
+  bindData(fieldNode) {
+    this.binder.bindField(fieldNode);
   }
 
-  /**
-   * Updater for the hint attr
-   * @param value
-   */
-  set _hint(value) {
-    Helper.UpdateInputAttribute(this, 'hint', value);
-  }
 
-  /**
-   * Updater for the leadingIcon attr
-   * @param value
-   */
-  set leadingIcon(value) {
-    Helper.UpdateInputAttribute(this, 'leading-icon', value);
-  }
-
-  /**
-   * Updater for the trailingIcon attr
-   * @param value
-   */
-  set trailingIcon(value) {
-    Helper.UpdateInputAttribute(this, 'trailing-icon', value);
-  }
-
-  /**
-   * Updater for the errortext attr
-   * @param value
-   */
-  set errortext(value) {
-    Helper.UpdateInputAttribute(this, 'errortext', value);
-  }
-
-  /**
-   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
-   * becaue it set "undefined" (as a Sting!)
-   *
-   * @param value
-   */
-  set _pattern(value) {
-    Helper.UpdateInputAttribute(this, 'pattern', value);
-  }
-
-  /**
-   * Updater for the min => minlength attr
-   * same problem like in pattern
-   *
-   * @param value
-   */
-  set _min(value) {
-    Helper.UpdateInputAttribute(this, 'min', value);
-  }
-
-  /**
-   * Updater for the max attr
-   * * same problem like in pattern
-   *
-   * @param value
-   */
-  set _max(value) {
-    Helper.UpdateInputAttribute(this, 'max', value);
-  }
-
-  /**
-   * Sets the field to readonly
-   */
-  disable() {
-    this.disabled = true;
-  }
-
-  /**
-   * Makes the field writable.
-   */
-  enable() {
-    this.disabled = false;
-  }
 
   static get properties() {
     return {
+      /**
+       * set this to true to indicate errors
+       */
+      error: { type: Boolean, reflect: true },
       /**
        * Overrides the label text from the **specs**.
        *
@@ -146,6 +97,7 @@ class FuroDataTextInput extends FBP(LitElement) {
        */
       label: {
         type: String,
+        reflect: true,
       },
       /**
        * Overrides the pattern from the **specs**.
@@ -154,6 +106,7 @@ class FuroDataTextInput extends FBP(LitElement) {
        */
       pattern: {
         type: String,
+        reflect: true,
       },
       /**
        * Overrides the required value from the **specs**.
@@ -162,6 +115,7 @@ class FuroDataTextInput extends FBP(LitElement) {
        */
       required: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -170,6 +124,7 @@ class FuroDataTextInput extends FBP(LitElement) {
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Overrides the min value from the **specs**.
@@ -178,6 +133,7 @@ class FuroDataTextInput extends FBP(LitElement) {
        */
       min: {
         type: Number,
+        reflect: true,
       },
       /**
        * Overrides the max value from the **specs**.
@@ -186,6 +142,7 @@ class FuroDataTextInput extends FBP(LitElement) {
        */
       max: {
         type: Number,
+        reflect: true,
       },
       /**
        * Overrides the readonly value from the **specs**.
@@ -194,6 +151,7 @@ class FuroDataTextInput extends FBP(LitElement) {
        */
       readonly: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -208,6 +166,7 @@ class FuroDataTextInput extends FBP(LitElement) {
        */
       autofocus: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Icon on the left side
@@ -215,6 +174,7 @@ class FuroDataTextInput extends FBP(LitElement) {
       leadingIcon: {
         type: String,
         attribute: 'leading-icon',
+        reflect: true,
       },
       /**
        * Icon on the right side
@@ -222,6 +182,7 @@ class FuroDataTextInput extends FBP(LitElement) {
       trailingIcon: {
         type: String,
         attribute: 'trailing-icon',
+        reflect: true,
       },
       /**
        * html input validity
@@ -235,72 +196,18 @@ class FuroDataTextInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * passes always float the label
        */
       float: {
         type: Boolean,
+        reflect: true,
       },
     };
   }
 
-  /**
-   * Bind a entity field to the text-input. You can use the entity even when no data was received.
-   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
-   * @param {Object|FieldNode} fieldNode a Field object
-   */
-  bindData(fieldNode) {
-    Helper.BindData(this, fieldNode);
-  }
-
-  _updateField() {
-    this._FBPTriggerWire('--value', this.field._value);
-    this.requestUpdate();
-  }
-
-  /**
-   *
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('FuroDataTextInput') ||
-      css`
-        :host {
-          display: inline-block;
-          width: 190px;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-
-        furo-text-input {
-          width: 100%;
-        }
-      `
-    );
-  }
-
-  render() {
-    // language=HTML
-    return html`
-      <furo-text-input
-        id="input"
-        ?autofocus=${this.autofocus}
-        ?disabled=${this._readonly || this.disabled}
-        ?error="${this.error}"
-        ?float="${this.float}"
-        ?condensed="${this.condensed}"
-        ?required=${this._required}
-        @-value-changed="--valueChanged"
-        ƒ-set-value="--value"
-      ></furo-text-input>
-    `;
-  }
 }
 
 customElements.define('furo-data-text-input', FuroDataTextInput);

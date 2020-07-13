@@ -1,0 +1,42 @@
+{
+  "data": {
+    "id": "1",
+    "scalar_string": "this is a scalar string",
+    "wrapper_string": {
+      "value": "this is a google wrapper string"
+    },
+    "fat_string": {
+      "value": "this is a demo fat string",
+      "labels": ["required","autofocus", "condensed"],
+      "attributes": {
+        "value-state": "Error",
+        "error-msg": "something went wrong",
+        "hint": "with error and leading icon",
+        "leading-icon": "dashboard",
+        "trailing-icon": "dashboard",
+        "label": "override and required"
+      }
+    },
+    "scalar_int32": 14,
+    "wrapper_int32": {
+      "value": 14
+    },
+    "fat_int32": {
+      "value": 14,
+      "value-state": "Information"
+    }
+  },
+  "links": [],
+  "meta": {
+    "fields": {
+
+      "data.fat_string": {
+        "meta": {
+          "label": "fat string label setted via response meta",
+          "readonly": false,
+          "default": "new"
+        }
+      }
+    }
+  }
+}

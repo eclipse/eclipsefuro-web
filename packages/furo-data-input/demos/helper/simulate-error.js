@@ -23,6 +23,7 @@ class SimulateError extends FBP(LitElement) {
        *};
        */
       this.fields._setInvalid(this.error);
+
     });
   }
 

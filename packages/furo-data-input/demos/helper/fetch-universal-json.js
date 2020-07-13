@@ -22,19 +22,46 @@ class FetchUniversalJson extends FBP(LitElement) {
     // this._FBPTraceWires()
 
 
-    fetch('/mockdata/tests/universalfieldnodebinder/fat-universal.json')
-      .then(res => res.json())
-      .then(response => {
-        /**
-        * @event data-loaded
-        * Fired when universal.json is loaded
-        * detail payload:
-        */
-        const customEvent = new Event('data-loaded', {composed:true, bubbles: true});
-        customEvent.detail = response.data;
-        this.dispatchEvent(customEvent)
-      });
+    if(!this.file){
+      fetch('/mockdata/tests/universalfieldnodebinder/fat-universal.json')
+        .then(res => res.json())
+        .then(response => {
+          /**
+           * @event data-loaded
+           * Fired when universal.json is loaded
+           * detail payload:
+           */
+          const customEvent = new Event('data-loaded', { composed: true, bubbles: true });
+          customEvent.detail = response;
+          this.dispatchEvent(customEvent);
+        });
 
+    }
+
+    this.addEventListener('click', () => {
+      fetch(this.file)
+        .then(res => res.json())
+        .then(response => {
+          /**
+           * @event data-loaded
+           * Fired when universal.json is loaded
+           * detail payload:
+           */
+          const customEvent = new Event('data-loaded', { composed: true, bubbles: true });
+          customEvent.detail = response;
+          this.dispatchEvent(customEvent);
+        });
+
+    });
+  }
+
+  static get properties() {
+    return {
+      /**
+       * file to load
+       */
+      file: { type: String},
+    };
   }
 
   /**
@@ -45,13 +72,13 @@ class FetchUniversalJson extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent('FetchUniversalJson') || css`
-        :host {
-            display: block;
-        }
+      :host {
+        display: block;
+      }
 
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
     `;
   }
 
@@ -64,7 +91,7 @@ class FetchUniversalJson extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <p>Hej, welcome</p>
+      <p>load ${this.file}</p>
     `;
   }
 }

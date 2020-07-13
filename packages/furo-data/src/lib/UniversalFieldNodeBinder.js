@@ -61,8 +61,29 @@ export class UniversalFieldNodeBinder {
     field.addEventListener('field-value-changed', () => {
       this._updateVirtualNode(field);
     });
-  }
 
+
+    field.addEventListener('field-became-invalid', () => {
+      this._addVirtualLabel('error');
+
+      if (this.fieldNode._validity && this.fieldNode._validity.description) {
+        this._addVirtualAttribute('errortext', this.fieldNode._validity.description);
+      }
+    });
+
+    /**
+     * remove required error on init, this is for better ux
+     */
+    field.addEventListener('field-became-invalid', () => {
+      if (this.fieldNode._validity && this.fieldNode._validity.constraint === 'required') {
+        this._removeVirtualLabel('error');
+      }
+    }, { once: true });
+
+    field.addEventListener('field-became-valid', () => {
+      this._removeVirtualLabel('error');
+    });
+  }
 
 
   /**
@@ -70,12 +91,14 @@ export class UniversalFieldNodeBinder {
    * @param val
    */
   set fieldValue(val) {
-    if('value' in this.fieldNode){
-      this.fieldNode.value._value = val;
-    }else {
-      this.fieldNode._value = val;
+    // only update on components with bindings
+    if (this.fieldNode) {
+      if ('value' in this.fieldNode) {
+        this.fieldNode.value._value = val;
+      } else {
+        this.fieldNode._value = val;
+      }
     }
-
     this._fieldValue = val;
     // update target
     this.target[this.targetValueField] = val;
@@ -93,12 +116,12 @@ export class UniversalFieldNodeBinder {
    * adds a label to the fat fieldNode. Adding labels to scalar and wrapper works too, but will never updated on the fieldNode.
    * @param label
    */
-  addLabel(label){
-    if('labels' in this.fieldNode){
+  addLabel(label) {
+    if ('labels' in this.fieldNode) {
       if (!this._givenLabels[label]) {
         this.fieldNode.labels.add(label);
       }
-    }else {
+    } else {
       // attention, this is for ui only, this label will never sent back to the server
       this._addVirtualLabel(label);
     }
@@ -108,13 +131,13 @@ export class UniversalFieldNodeBinder {
    * deletes a label from a fat fieldNode
    * @param label
    */
-  deleteLabel(label){
-    if('labels' in this.fieldNode){
+  deleteLabel(label) {
+    if ('labels' in this.fieldNode) {
       const labelindex = this._givenLabels.indexOf(label);
       if (labelindex !== -1) {
         this.fieldNode.labels.deleteChild(labelindex);
       }
-    }else {
+    } else {
       // attention, this is for ui only, this label will never sent back to the server
       this._removeVirtualLabel(label);
     }
@@ -126,13 +149,13 @@ export class UniversalFieldNodeBinder {
    * @param name
    * @param value
    */
-  setAttribute(name, value){
-    if('attributes' in this.fieldNode){
+  setAttribute(name, value) {
+    if ('attributes' in this.fieldNode) {
       if (!this._givenAttrs[name]) {
-        this.fieldNode.attributes.createField({"fieldName":name,"type":"string", "_value":value});
+        this.fieldNode.attributes.createField({ 'fieldName': name, 'type': 'string', '_value': value });
       }
-    }else{
-      this._addVirtualAttribute(name,value)
+    } else {
+      this._addVirtualAttribute(name, value);
     }
   }
 
@@ -140,14 +163,14 @@ export class UniversalFieldNodeBinder {
    * removes a named attribute from the fieldNode.
    * @param name
    */
-  removeAttribute(name){
-    if('attributes' in this.fieldNode){
+  removeAttribute(name) {
+    if ('attributes' in this.fieldNode) {
       const attrindex = this._givenAttrs.indexOf(name);
       if (attrindex !== -1) {
         this.fieldNode.attributes[name].deleteNode();
       }
-    }else{
-      this._removeVirtualAttribute(name)
+    } else {
+      this._removeVirtualAttribute(name);
     }
   }
 
@@ -256,18 +279,20 @@ export class UniversalFieldNodeBinder {
    * @return {string|undefined}
    */
   detectFormat(field) {
-    if (field.__childNodes.length === 0) {
+
+    if (field && field.__childNodes.length === 0) {
       this.fieldValue = field._value;
       return 'scalar';
     }
-    if (field.__childNodes.length === 1 && 'value' in field) {
+    if (field && field.__childNodes.length === 1 && 'value' in field) {
       this.fieldValue = field.value._value;
       return 'wrapper';
     }
-    if ('value' in field && 'labels' in field && 'attributes' in field) {
+    if (field && 'value' in field && 'labels' in field && 'attributes' in field) {
       this.fieldValue = field.value._value;
       return 'fat';
     }
+    console.warn('fieldNode is not defined, please check against the spec');
     return undefined;
   }
 

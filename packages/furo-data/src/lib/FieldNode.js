@@ -256,12 +256,14 @@ export class FieldNode extends EventTreeNode {
       this.__value = val;
       this._pristine = false;
 
-      if (!this._validationDisabled) {
-        // validate changes
-        this._checkConstraints();
-      }
 
+      // check for changes
       if (JSON.stringify(this._oldvalue) !== JSON.stringify(this.__value)) {
+        // validate changes
+        if (!this._validationDisabled) {
+          this._checkConstraints();
+        }
+
         /**
          * @event (field-value-changed)
          *
