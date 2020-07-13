@@ -121,7 +121,8 @@ export class UniversalFieldNodeBinder {
   }
 
   /**
-   * Sets the value of a named attribute of the current node.
+   * Sets the value of a named attribute of the current node. Like value-state="Error".
+   * Do not forget to add the mappings with `xxx.attributeMappings = { 'value-state': 'valueState' };` to reflect the value to your component.
    * @param name
    * @param value
    */
@@ -135,6 +136,10 @@ export class UniversalFieldNodeBinder {
     }
   }
 
+  /**
+   * removes a named attribute from the fieldNode.
+   * @param name
+   */
   removeAttribute(name){
     if('attributes' in this.fieldNode){
       const attrindex = this._givenAttrs.indexOf(name);
