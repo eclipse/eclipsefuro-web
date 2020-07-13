@@ -58,11 +58,8 @@ class DemoFatFuroDataTextInput extends FBP(LitElement) {
         </p>
         <furo-demo-snippet flex ƒ-xx="--response">
           <template>
-          <style>
-          furo-data-text-input[readonly]{
-          background: #000066;
-          }
-</style>
+         
+         
              <furo-form-layouter two>
             <furo-data-text-input
               trailing-icon="dashboard"            
