@@ -46,8 +46,8 @@ class FuroDataTextInput extends FuroTextInput {
       "error":"error",
       "readonly":"readonly",
       "required":"required",
-      "condensed":"condensed",
-      "autofocus":"autofocus",
+      "disabled":"disabled",
+      "condensed":"condensed"
     };
 
     /**
@@ -165,8 +165,7 @@ class FuroDataTextInput extends FuroTextInput {
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
-        type: Boolean,
-        reflect: true,
+        type: Boolean
       },
       /**
        * Icon on the left side

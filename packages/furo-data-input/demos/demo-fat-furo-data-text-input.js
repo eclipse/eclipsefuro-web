@@ -89,7 +89,7 @@ class DemoFatFuroDataTextInput extends FBP(LitElement) {
               ƒ-bind-data="--entity(*.data.fat_string)"
             ></furo-data-text-input>
                           
-            <furo-data-text-input                              
+            <furo-data-text-input                                         
                 label="this overrides all"
                 hint="also the hint"
               ƒ-bind-data="--entity(*.data.fat_string)"
