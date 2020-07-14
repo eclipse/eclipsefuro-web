@@ -21,7 +21,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @demo demo-fat-furo-data-text-input skalar, wrapper, FAT binding
  * @mixes FBP
  */
-class FuroDataTextInput extends FuroTextInput {
+export class FuroDataTextInput extends FuroTextInput {
   /**
    * @event value-changed
    * Fired when value has changed from inside the input field.
