@@ -66,6 +66,20 @@ describe('furo-data-text-input', () => {
     await dataTextInput.updateComplete;
   });
 
+
+  // axeReport a11y tests
+  xit('a11y', () => axeReport(dataTextInput));
+
+
+
+  it('should override labels ', done => {
+    setTimeout(() => {
+      assert.equal(secondTextInput.getAttribute('label'), 'FromTPL');
+      done();
+    }, 10);
+  });
+
+
   it('should be a furo-data-text-input', done => {
     // keep this test on top, so you can recognize a wrong asignment
     assert.equal(dataTextInput.nodeName.toLowerCase(), 'furo-data-text-input');
@@ -77,35 +91,25 @@ describe('furo-data-text-input', () => {
     done();
   });
 
-  // axeReport a11y tests
-  xit('a11y', () => axeReport(dataTextInput));
-
-  it('should override labels ', done => {
-    setTimeout(() => {
-      assert.equal(secondTextInput._theInputElement.getAttribute('label'), 'FromTPL');
-      done();
-    }, 10);
-  });
-
   it('should log invalid bindings', done => {
     setTimeout(() => {
       // invalid binding
       assert.equal(invalidBoundTextInput.field, undefined);
       // valid binding
-      assert.equal(dataTextInput.field._isValid, true);
+      assert.equal(dataTextInput.binder.fieldNode._isValid, true);
       done();
     }, 10);
   });
 
   it('should override hints ', done => {
     setTimeout(() => {
-      assert.equal(secondTextInput._theInputElement.getAttribute('hint'), 'FromTPL');
+      assert.equal(secondTextInput.getAttribute('hint'), 'FromTPL');
       done();
     }, 10);
   });
 
   it('should override required field ', done => {
-    assert.equal(secondTextInput._required, true);
+    assert.equal(secondTextInput.required, true);
     done();
   });
 
@@ -128,6 +132,7 @@ describe('furo-data-text-input', () => {
     deeplink.qpIn({ exp: 1 });
   });
 
+
   it('should set disabled via disable method', done => {
     dataTextInput.disable();
     assert.equal(dataTextInput.disabled, true);
@@ -142,8 +147,8 @@ describe('furo-data-text-input', () => {
 
   it('should bind the field label, hint ', done => {
     setTimeout(() => {
-      assert.equal(dataTextInput._theInputElement.getAttribute('label'), 'text_input**');
-      assert.equal(dataTextInput._theInputElement.getAttribute('hint'), 'hint**');
+      assert.equal(dataTextInput.getAttribute('label'), 'text_input**');
+      assert.equal(dataTextInput.getAttribute('hint'), 'hint**');
       done();
     }, 10);
   });
@@ -151,12 +156,19 @@ describe('furo-data-text-input', () => {
   it('should update the entity when values changed', done => {
     // ignore the init values
     setTimeout(() => {
-      secondTextInput._FBPAddWireHook('--value', val => {
-        assert.equal(val, 'newText');
+      secondTextInput.binder.fieldNode.addEventListener('field-value-changed', val => {
+        assert.equal(val.detail, 'newText');
         done();
       });
 
-      dataTextInput._FBPTriggerWire('--valueChanged', 'newText');
+      /**
+      * @event value-changed
+      * Fired when
+      * detail payload:
+      */
+      const customEvent = new Event('value-changed', {composed:true, bubbles: true});
+      customEvent.detail = 'newText';
+      dataTextInput.dispatchEvent(customEvent)
     }, 10);
   });
 
@@ -168,17 +180,17 @@ describe('furo-data-text-input', () => {
   it('should listen field-became-invalid event add set error', done => {
     const err = { description: 'minimal 3 charaters', constraint: 'min' };
     setTimeout(() => {
-      dataTextInput.field.addEventListener('field-became-invalid', () => {
+      dataTextInput.binder.fieldNode.addEventListener('field-became-invalid', () => {
         setTimeout(() => {
           assert.equal(dataTextInput.error, true);
           assert.equal(
-            dataTextInput._theInputElement.getAttribute('errortext'),
+            dataTextInput.errortext,
             'minimal 3 charaters',
           );
           done();
         }, 10);
       });
-      dataTextInput.field._setInvalid(err);
+      dataTextInput.binder.fieldNode._setInvalid(err);
     }, 10);
   });
 
@@ -190,9 +202,9 @@ describe('furo-data-text-input', () => {
         'data-injected',
         () => {
           setTimeout(() => {
-            assert.equal(dataTextInput._theInputElement.getAttribute('disabled'), '');
+            assert.equal(dataTextInput.disabled, false);
             assert.equal(
-              dataTextInput._theInputElement.getAttribute('label'),
+              dataTextInput.getAttribute('label'),
               'text input label via meta',
             );
             done();
@@ -203,4 +215,6 @@ describe('furo-data-text-input', () => {
     });
     deeplink.qpIn({ exp: 1 });
   });
+
+
 });

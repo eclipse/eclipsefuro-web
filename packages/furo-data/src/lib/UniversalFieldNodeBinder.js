@@ -9,6 +9,8 @@
  *
  *
  */
+import { FieldNode } from './FieldNode.js';
+
 export class UniversalFieldNodeBinder {
   constructor(target) {
     // the target object to apply the attributes, flags,...
@@ -37,6 +39,9 @@ export class UniversalFieldNodeBinder {
    * @param field
    */
   bindField(field) {
+    if(!(field instanceof FieldNode)){
+      return;
+    }
     this.fieldNode = field;
     this.fieldFormat = this.detectFormat(field);
     /**

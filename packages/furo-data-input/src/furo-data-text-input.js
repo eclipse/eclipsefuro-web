@@ -3,8 +3,14 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
 
 
 /**
- * `furo-data-text-input`
- * Binds a entityObject field to a furo-text-input field
+ * `furo-data-text-input` is a extension of furo-text-input which enables you to
+ *  bind a entityObject field.
+ *
+ * The field can be of type string, google.protobuf.StringValue, furo.fat.String or any type with the signature
+ * of the google.protobuf.StringValue (string must be in field `value`). It is also possible to bind numeric values, but the
+ * values will be handled as string.
+ *
+ * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
  *
  * <sample-furo-data-text-input></sample-furo-data-text-input>
  *
@@ -25,53 +31,83 @@ class FuroDataTextInput extends FuroTextInput {
    * Comes from underlying component furo-text-input. **bubbles**
    */
 
+  /**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * Comes from underlying component furo-text-input. **bubbles**
+   */
+
+  /**
+   * @event leading-icon-clicked
+   * Fired when the leading icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * Comes from underlying component furo-text-input. **bubbles**
+   */
+
   constructor() {
     super();
     this.error = false;
     this.disabled = false;
 
+    this._initBinder();
+  }
+
+  /**
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
+   */
+  _initBinder() {
     this.binder = new UniversalFieldNodeBinder(this);
 
+
+    // set the attribute mappings
     this.binder.attributeMappings = {
-      "label":"label",
-      "hint":"hint",
-      "leading-icon":"leadingIcon",
-      "trailing-icon":"trailingIcon",
-      "errortext":"errortext",
-      "pattern":"pattern",
-      "min":"min",
-      "max":"max",
+      'label': 'label',
+      'hint': 'hint',
+      'leading-icon': 'leadingIcon',
+      'trailing-icon': 'trailingIcon',
+      'errortext': 'errortext',
+      'pattern': 'pattern',
+      'min': 'min',
+      'max': 'max',
     };
+
+    // set the label mappings
     this.binder.labelMappings = {
-      "error":"error",
-      "readonly":"readonly",
-      "required":"required",
-      "disabled":"disabled",
-      "condensed":"condensed"
+      'error': 'error',
+      'readonly': 'readonly',
+      'required': 'required',
+      'disabled': 'disabled',
+      'condensed': 'condensed',
     };
 
     /**
      * check overrides from the used component, setted attributes overrides all
      * so all we have to do is removing the mapping
      */
-    this.getAttributeNames().forEach((name)=>{
-      if(name in this.binder.attributeMappings){
+    this.getAttributeNames().forEach((name) => {
+      if (name in this.binder.attributeMappings) {
         delete this.binder.attributeMappings[name];
       }
-      if(name in this.binder.labelMappings){
+      if (name in this.binder.labelMappings) {
         delete this.binder.labelMappings[name];
       }
     });
 
     // the extended furo-text-input component uses _value
-    this.binder.targetValueField = "_value";
+    this.binder.targetValueField = '_value';
 
     // update the value on input changes
     this.addEventListener('value-changed', val => {
-        this.binder.fieldValue = val.detail;
+      this.binder.fieldValue = val.detail;
     });
   }
-
 
   /**
    * Bind a entity field to the text-input. You can use the entity even when no data was received.
