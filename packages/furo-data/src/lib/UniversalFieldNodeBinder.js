@@ -9,7 +9,7 @@
  *
  *
  */
-import {FieldNode} from './FieldNode.js';
+import { FieldNode } from './FieldNode.js';
 
 export class UniversalFieldNodeBinder {
   constructor(target) {
@@ -83,7 +83,7 @@ export class UniversalFieldNodeBinder {
       if (this.fieldNode._validity && this.fieldNode._validity.constraint === 'required') {
         this._removeVirtualLabel('error');
       }
-    }, {once: true});
+    }, { once: true });
 
     field.addEventListener('field-became-valid', () => {
       this._removeVirtualLabel('error');
@@ -157,7 +157,7 @@ export class UniversalFieldNodeBinder {
   setAttribute(name, value) {
     if ('attributes' in this.fieldNode) {
       if (!this._givenAttrs[name]) {
-        this.fieldNode.attributes.createField({'fieldName': name, 'type': 'string', '_value': value});
+        this.fieldNode.attributes.createField({ 'fieldName': name, 'type': 'string', '_value': value });
       }
     } else {
       this._addVirtualAttribute(name, value);
@@ -245,13 +245,13 @@ export class UniversalFieldNodeBinder {
    * @private
    */
   _removeVirtualAttribute(name) {
-    if(!(name in this._metastore && this._metastore !== "")) {
+    if (!(name in this._metastore && this._metastore !== '')) {
       delete this.virtualNode.attributes[name];
       if (name in this.attributeMappings) {
         this.target[this.attributeMappings[name]] = '';
       }
-    }else{
-    // restore from metastore
+    } else {
+      // restore from metastore
       this._addVirtualAttribute(name, this._metastore[name]);
     }
   }
@@ -262,10 +262,12 @@ export class UniversalFieldNodeBinder {
    * @private
    */
   _addVirtualLabel(name) {
-    this.virtualNode.labels.add(name);
-    // map the label if configured
-    if (name in this.labelMappings) {
-      this.target[this.labelMappings[name]] = true;
+    if (!this.virtualNode.labels.has(name)) {
+      this.virtualNode.labels.add(name);
+      // map the label if configured
+      if (name in this.labelMappings) {
+        this.target[this.labelMappings[name]] = true;
+      }
     }
   }
 
