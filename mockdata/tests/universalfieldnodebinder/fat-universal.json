@@ -11,7 +11,9 @@
       "attributes": {
         "value-state": "Error",
         "maxlength": "6",
-        "label": "override"
+        "label": "override",
+        "placeholder": "overridePH"
+
       }
     },
     "scalar_int32": 14,

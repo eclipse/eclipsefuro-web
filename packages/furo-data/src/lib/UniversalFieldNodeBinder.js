@@ -9,7 +9,7 @@
  *
  *
  */
-import { FieldNode } from './FieldNode.js';
+import {FieldNode} from './FieldNode.js';
 
 export class UniversalFieldNodeBinder {
   constructor(target) {
@@ -39,7 +39,7 @@ export class UniversalFieldNodeBinder {
    * @param field
    */
   bindField(field) {
-    if(!(field instanceof FieldNode)){
+    if (!(field instanceof FieldNode)) {
       return;
     }
     this.fieldNode = field;
@@ -56,15 +56,15 @@ export class UniversalFieldNodeBinder {
     };
 
     // update virtualNode from meta
-    this._updateMetaFromFieldnode(field._meta);
-
-    field.addEventListener('this-metas-changed', () => {
-      this._updateMetaFromFieldnode(field._meta);
-    });
-
+    this._updateVirtualNodeFromMeta(field._meta);
     this._updateVirtualNode(field);
 
-    field.addEventListener('field-value-changed', () => {
+    field.addEventListener('this-metas-changed', () => {
+      this._updateVirtualNodeFromMeta(field._meta);
+    });
+
+
+    field.addEventListener('field-value-changed', (v) => {
       this._updateVirtualNode(field);
     });
 
@@ -83,7 +83,7 @@ export class UniversalFieldNodeBinder {
       if (this.fieldNode._validity && this.fieldNode._validity.constraint === 'required') {
         this._removeVirtualLabel('error');
       }
-    }, { once: true });
+    }, {once: true});
 
     field.addEventListener('field-became-valid', () => {
       this._removeVirtualLabel('error');
@@ -157,7 +157,7 @@ export class UniversalFieldNodeBinder {
   setAttribute(name, value) {
     if ('attributes' in this.fieldNode) {
       if (!this._givenAttrs[name]) {
-        this.fieldNode.attributes.createField({ 'fieldName': name, 'type': 'string', '_value': value });
+        this.fieldNode.attributes.createField({'fieldName': name, 'type': 'string', '_value': value});
       }
     } else {
       this._addVirtualAttribute(name, value);
@@ -199,20 +199,18 @@ export class UniversalFieldNodeBinder {
 
         // clear the attributes by removing attrs which are not in field.attributes
         Object.keys(this.virtualNode.attributes).forEach((attr) => {
-          if (!this._givenAttrs[attr]) {
+          if (this._givenAttrs.indexOf(attr) === -1) {
             this._removeVirtualAttribute(attr);
           }
         });
 
         // clear the labels  by removing labels which are not in field.labels
         this.virtualNode.labels.forEach((label) => {
-          if (!this._givenLabels[label]) {
+          if (this._givenLabels.indexOf(label) === -1) {
             this._removeVirtualLabel(label);
           }
         });
 
-        // updates the attrs and labels on the virtual node with the metas from the fieldnode
-        this._updateMetaFromFieldnode(field._meta);
 
         // update the given attributes on the virtual node
         field.attributes.__childNodes.forEach(attr => {
@@ -233,9 +231,11 @@ export class UniversalFieldNodeBinder {
    * @private
    */
   _addVirtualAttribute(name, value) {
-    this.virtualNode.attributes[name] = value;
-    if (name in this.attributeMappings) {
-      this.target[this.attributeMappings[name]] = value;
+    if (this.virtualNode.attributes[name] !== value) {
+      this.virtualNode.attributes[name] = value;
+      if (name in this.attributeMappings) {
+        this.target[this.attributeMappings[name]] = value;
+      }
     }
   }
 
@@ -245,9 +245,14 @@ export class UniversalFieldNodeBinder {
    * @private
    */
   _removeVirtualAttribute(name) {
-    delete this.virtualNode.attributes[name];
-    if (name in this.attributeMappings) {
-      this.target[this.attributeMappings[name]] = '';
+    if(!(name in this._metastore && this._metastore !== "")) {
+      delete this.virtualNode.attributes[name];
+      if (name in this.attributeMappings) {
+        this.target[this.attributeMappings[name]] = '';
+      }
+    }else{
+    // restore from metastore
+      this._addVirtualAttribute(name, this._metastore[name]);
     }
   }
 
@@ -277,6 +282,36 @@ export class UniversalFieldNodeBinder {
     }
   }
 
+  /**
+   * check overrides from the used component, setted attributes overrides all internal settings.
+   * All we have to do is removing the setted mappings for the current instance.
+   *
+   * **Hint:** Do this after initializing the mappings.
+   */
+  checkLabelandAttributeOverrrides() {
+    const attributeMappingTargets = Object.values(this.attributeMappings);
+    const attributeMappingKeys = Object.keys(this.attributeMappings);
+
+    const labelMappingTargets = Object.values(this.labelMappings);
+    const labelMappingKeys = Object.keys(this.labelMappings);
+
+    this.target.getAttributeNames().forEach((name) => {
+      // remove all override targets for attributes
+      attributeMappingTargets.forEach((attr, iA) => {
+        if (attr === name) {
+          delete this.attributeMappings[attributeMappingKeys[iA]];
+        }
+      });
+      // remove all override targets for labels
+      labelMappingTargets.forEach((attr, iA) => {
+        if (attr === name) {
+          delete this.labelMappings[labelMappingKeys[iA]];
+        }
+      });
+
+    });
+
+  }
 
   /**
    * detects the kind of the fieldNode (scalar, wrapper, fat)
@@ -306,31 +341,31 @@ export class UniversalFieldNodeBinder {
    * @param fieldmeta
    * @private
    */
-  _updateMetaFromFieldnode(fieldmeta) {
+  _updateVirtualNodeFromMeta(fieldmeta) {
 
     if ('readonly' in fieldmeta) {
-      if(fieldmeta.readonly === true){
+      if (fieldmeta.readonly === true) {
         this._addVirtualLabel('readonly');
-      }else {
+      } else {
         this._removeVirtualLabel('readonly');
       }
       this._metastore.readonly = fieldmeta.readonly;
     }
 
 
-    if ('label' in fieldmeta ) {
-      if(fieldmeta.label){
+    if ('label' in fieldmeta) {
+      if (fieldmeta.label) {
         this._addVirtualAttribute('label', fieldmeta.label);
-      }else{
+      } else {
         this._removeVirtualAttribute('label');
       }
       this._metastore.label = fieldmeta.label;
     }
 
     if ('hint' in fieldmeta) {
-      if(fieldmeta.hint){
+      if (fieldmeta.hint) {
         this._addVirtualAttribute('hint', fieldmeta.hint);
-      }else{
+      } else {
         this._removeVirtualAttribute('hint');
       }
       this._metastore.hint = fieldmeta.hint;

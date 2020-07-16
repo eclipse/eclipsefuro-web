@@ -137,6 +137,8 @@ describe('UniversalFieldNodeBinder.test', () => {
   });
 
   it('should not touch the spec meta when it was not given the data for fat', done => {
+
+
     dataobj.addEventListener(
       'data-injected',
       () => {
@@ -144,9 +146,9 @@ describe('UniversalFieldNodeBinder.test', () => {
         assert.equal(pseudocomponent.binder.fieldValue, 'this is a furo fat string');
         assert.equal(pseudocomponent.binder.virtualNode.value, 'this is a furo fat string');
         assert.equal(pseudocomponent.binder.virtualNode.attributes.label, 'override');
-        assert.equal(pseudocomponent.binder.virtualNode.labels.has('before'), true, 'before');
-        assert.equal(pseudocomponent.binder.virtualNode.labels.has('after'), false);
         assert.equal(pseudocomponent.binder.virtualNode.attributes.maxlength, 6);
+        assert.equal(pseudocomponent.binder.virtualNode.labels.has('before'), true, 'before');
+        assert.equal(pseudocomponent.binder.virtualNode.labels.has('after'), false, 'after');
 
         assert.equal(pseudocomponent.binder.virtualNode.attributes['value-state'], 'Error');
         assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), false);
@@ -155,7 +157,7 @@ describe('UniversalFieldNodeBinder.test', () => {
 
         dataobj.addEventListener('data-injected', () => {
           // remove labels which are not in the dataset and restore spec values
-          assert.equal(pseudocomponent.binder.virtualNode.attributes.other, 6);
+          assert.equal(pseudocomponent.binder.virtualNode.attributes.other, "otherattribute");
           assert.equal('maxlength' in pseudocomponent.binder.virtualNode.attributes, false);
           assert.equal(pseudocomponent.binder.virtualNode.labels.has('before'), false);
           assert.equal(pseudocomponent.binder.virtualNode.labels.has('after'), true);
@@ -325,12 +327,12 @@ describe('UniversalFieldNodeBinder.test', () => {
 
       assert.equal(pseudocomponent.minLength, "small");
       assert.equal(pseudocomponent.binder.fieldNode.attributes.minlength._value,'small');
-      assert.equal(JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),JSON.stringify({"value-state":"Error","maxlength":"6","label":"override","minlength":"small"}));
+      assert.equal(JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),JSON.stringify({"value-state":"Error","maxlength":"6","label":"override","placeholder":"overridePH","minlength":"small"}));
 
       pseudocomponent.binder.removeAttribute("value-state");
 
       pseudocomponent.binder.removeAttribute("label");
-      assert.equal(JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),JSON.stringify({"maxlength":"6","minlength":"small"}));
+      assert.equal(JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),JSON.stringify({"maxlength":"6","placeholder":"overridePH","minlength":"small"}));
       done();
     });
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
