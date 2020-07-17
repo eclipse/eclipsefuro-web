@@ -9,7 +9,7 @@
  *
  *
  */
-import { FieldNode } from './FieldNode.js';
+import {FieldNode} from './FieldNode.js';
 
 export class UniversalFieldNodeBinder {
   constructor(target) {
@@ -84,7 +84,7 @@ export class UniversalFieldNodeBinder {
       if (this.fieldNode._validity && this.fieldNode._validity.constraint === 'required') {
         this._removeVirtualLabel('error');
       }
-    }, { once: true });
+    }, {once: true});
 
     field.addEventListener('field-became-valid', () => {
       this._removeVirtualLabel('error');
@@ -158,7 +158,7 @@ export class UniversalFieldNodeBinder {
   setAttribute(name, value) {
     if ('attributes' in this.fieldNode) {
       if (!this._givenAttrs[name]) {
-        this.fieldNode.attributes.createField({ 'fieldName': name, 'type': 'string', '_value': value });
+        this.fieldNode.attributes.createField({'fieldName': name, 'type': 'string', '_value': value});
       }
     } else {
       this._addVirtualAttribute(name, value);
@@ -234,10 +234,37 @@ export class UniversalFieldNodeBinder {
   _addVirtualAttribute(name, value) {
     if (this.virtualNode.attributes[name] !== value) {
       this.virtualNode.attributes[name] = value;
+
       if (name in this.attributeMappings) {
         this.target[this.attributeMappings[name]] = value;
       }
+
+      if (this.fatAttributesToConstraintsMappings && name in this.fatAttributesToConstraintsMappings) {
+        this._pathSet(this.fieldNode,this.fatAttributesToConstraintsMappings[name], value);
+      }
+
     }
+  }
+
+  /**
+   * helper to set deep paths
+   * @param root
+   * @param path String a.b.c.d
+   * @param value
+   * @private
+   */
+  _pathSet(root, path, value) {
+    var obj = root;
+    const parts = path.split(".");
+    while(parts.length > 1){
+      const key = parts.shift();
+      // create if not exist
+      if(!(key in obj)){
+        obj[key] = {};
+      }
+      obj = obj[key];
+    }
+    obj[parts.shift()] = value;
   }
 
   /**
