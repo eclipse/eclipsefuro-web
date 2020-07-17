@@ -52,6 +52,17 @@ export class FieldNode extends EventTreeNode {
 
     if (this._spec.constraints) {
       this._constraints = JSON.parse(JSON.stringify(this._spec.constraints));
+      // check parent constraints for subfieldconstraints like value.min
+      if (parentNode && parentNode._constraints){
+        Object.keys(parentNode._constraints).forEach((parentconstraint)=>{
+          const pc = parentconstraint.split(".");
+          if(pc.shift() === fieldName){
+            this._constraints[pc.join(".")] = parentNode._constraints[parentconstraint];
+          }
+        })
+
+      }
+
     } else {
       this._constraints = (function emptyObject() {
         return {};
@@ -456,6 +467,7 @@ export class FieldNode extends EventTreeNode {
       subMetaAndConstraints.fields[f.slice(1).join('.')] = mc;
       // eslint-disable-next-line no-param-reassign
       level += 1;
+
       this[target].__updateMetaAndConstraints(subMetaAndConstraints, level);
     }
   }

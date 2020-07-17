@@ -64,15 +64,16 @@ export class UniversalFieldNodeBinder {
     });
 
 
-    field.addEventListener('field-value-changed', (v) => {
+    field.addEventListener('field-value-changed', () => {
       this._updateVirtualNode(field);
     });
 
 
-    field.addEventListener('field-became-invalid', () => {
+    field.addEventListener('field-became-invalid', (e) => {
+      const invalidNode = e.detail;
       this._addVirtualLabel('error');
-      if (this.fieldNode._validity && this.fieldNode._validity.description) {
-        this._addVirtualAttribute('errortext', this.fieldNode._validity.description);
+      if (invalidNode._validity && invalidNode._validity.description) {
+        this._addVirtualAttribute('errortext', invalidNode._validity.description);
       }
     });
 

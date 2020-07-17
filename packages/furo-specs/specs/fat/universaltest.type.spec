@@ -114,6 +114,60 @@
         "number": 7,
         "oneof": null
       }
+    },
+    "fat_string_list": {
+      "description": "field of a fat string for the Universaltest",
+      "type": "furo.fat.String",
+      "meta": {
+        "label": "fat string with options",
+        "default": "",
+        "hint": "hint message",
+        "readonly": false,
+        "options": {
+          "list": [
+            {
+              "id": "unknown",
+              "display_name": "person.type.sex.unknown.label",
+              "selected": false,
+              "@type": "type.googleapis.com/furo.Optionitem"
+            },
+            {
+              "id": "female",
+              "display_name": "person.type.sex.female.label",
+              "selected": true,
+              "@type": "type.googleapis.com/furo.Optionitem"
+            },
+            {
+              "id": "male",
+              "display_name": "person.type.sex.male.label",
+              "selected": false,
+              "@type": "type.googleapis.com/furo.Optionitem"
+            }
+          ]
+        }
+      },
+      "constraints": {
+        "value.required": {
+          "is": "true",
+          "message": "is required"
+        },
+        "value.min": {
+          "is": 3,
+          "message": "at least 3 characters"
+        },
+        "value.max": {
+          "is": 15,
+          "message": "15 characters maximum"
+        },
+        "value.pattern": {
+          "is": "^a.*",
+          "message": "must start with a"
+        }
+      },
+      "__proto": {
+        "number": 8,
+        "oneof": null
+      }
     }
   }
 }

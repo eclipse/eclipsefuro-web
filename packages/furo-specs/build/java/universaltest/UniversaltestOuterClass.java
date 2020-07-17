@@ -74,6 +74,33 @@ public final class UniversaltestOuterClass {
 
     /**
      * <pre>
+     * field of a fat string for the Universaltest
+     * </pre>
+     *
+     * <code>.furo.fat.String fat_string_list = 8;</code>
+     * @return Whether the fatStringList field is set.
+     */
+    boolean hasFatStringList();
+    /**
+     * <pre>
+     * field of a fat string for the Universaltest
+     * </pre>
+     *
+     * <code>.furo.fat.String fat_string_list = 8;</code>
+     * @return The fatStringList.
+     */
+    furo.fat.Fat.String getFatStringList();
+    /**
+     * <pre>
+     * field of a fat string for the Universaltest
+     * </pre>
+     *
+     * <code>.furo.fat.String fat_string_list = 8;</code>
+     */
+    furo.fat.Fat.StringOrBuilder getFatStringListOrBuilder();
+
+    /**
+     * <pre>
      * Identity of a universaltes type
      * </pre>
      *
@@ -296,6 +323,19 @@ public final class UniversaltestOuterClass {
 
               break;
             }
+            case 66: {
+              furo.fat.Fat.String.Builder subBuilder = null;
+              if (fatStringList_ != null) {
+                subBuilder = fatStringList_.toBuilder();
+              }
+              fatStringList_ = input.readMessage(furo.fat.Fat.String.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(fatStringList_);
+                fatStringList_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -402,6 +442,44 @@ public final class UniversaltestOuterClass {
     @java.lang.Override
     public furo.fat.Fat.StringOrBuilder getFatStringOrBuilder() {
       return getFatString();
+    }
+
+    public static final int FAT_STRING_LIST_FIELD_NUMBER = 8;
+    private furo.fat.Fat.String fatStringList_;
+    /**
+     * <pre>
+     * field of a fat string for the Universaltest
+     * </pre>
+     *
+     * <code>.furo.fat.String fat_string_list = 8;</code>
+     * @return Whether the fatStringList field is set.
+     */
+    @java.lang.Override
+    public boolean hasFatStringList() {
+      return fatStringList_ != null;
+    }
+    /**
+     * <pre>
+     * field of a fat string for the Universaltest
+     * </pre>
+     *
+     * <code>.furo.fat.String fat_string_list = 8;</code>
+     * @return The fatStringList.
+     */
+    @java.lang.Override
+    public furo.fat.Fat.String getFatStringList() {
+      return fatStringList_ == null ? furo.fat.Fat.String.getDefaultInstance() : fatStringList_;
+    }
+    /**
+     * <pre>
+     * field of a fat string for the Universaltest
+     * </pre>
+     *
+     * <code>.furo.fat.String fat_string_list = 8;</code>
+     */
+    @java.lang.Override
+    public furo.fat.Fat.StringOrBuilder getFatStringListOrBuilder() {
+      return getFatStringList();
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -622,6 +700,9 @@ public final class UniversaltestOuterClass {
       if (fatInt32_ != null) {
         output.writeMessage(7, getFatInt32());
       }
+      if (fatStringList_ != null) {
+        output.writeMessage(8, getFatStringList());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -657,6 +738,10 @@ public final class UniversaltestOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getFatInt32());
       }
+      if (fatStringList_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getFatStringList());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -681,6 +766,11 @@ public final class UniversaltestOuterClass {
       if (hasFatString()) {
         if (!getFatString()
             .equals(other.getFatString())) return false;
+      }
+      if (hasFatStringList() != other.hasFatStringList()) return false;
+      if (hasFatStringList()) {
+        if (!getFatStringList()
+            .equals(other.getFatStringList())) return false;
       }
       if (!getId()
           .equals(other.getId())) return false;
@@ -716,6 +806,10 @@ public final class UniversaltestOuterClass {
       if (hasFatString()) {
         hash = (37 * hash) + FAT_STRING_FIELD_NUMBER;
         hash = (53 * hash) + getFatString().hashCode();
+      }
+      if (hasFatStringList()) {
+        hash = (37 * hash) + FAT_STRING_LIST_FIELD_NUMBER;
+        hash = (53 * hash) + getFatStringList().hashCode();
       }
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
@@ -880,6 +974,12 @@ public final class UniversaltestOuterClass {
           fatString_ = null;
           fatStringBuilder_ = null;
         }
+        if (fatStringListBuilder_ == null) {
+          fatStringList_ = null;
+        } else {
+          fatStringList_ = null;
+          fatStringListBuilder_ = null;
+        }
         id_ = "";
 
         scalarInt32_ = 0;
@@ -933,6 +1033,11 @@ public final class UniversaltestOuterClass {
           result.fatString_ = fatString_;
         } else {
           result.fatString_ = fatStringBuilder_.build();
+        }
+        if (fatStringListBuilder_ == null) {
+          result.fatStringList_ = fatStringList_;
+        } else {
+          result.fatStringList_ = fatStringListBuilder_.build();
         }
         result.id_ = id_;
         result.scalarInt32_ = scalarInt32_;
@@ -1000,6 +1105,9 @@ public final class UniversaltestOuterClass {
         }
         if (other.hasFatString()) {
           mergeFatString(other.getFatString());
+        }
+        if (other.hasFatStringList()) {
+          mergeFatStringList(other.getFatStringList());
         }
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
@@ -1355,6 +1463,161 @@ public final class UniversaltestOuterClass {
           fatString_ = null;
         }
         return fatStringBuilder_;
+      }
+
+      private furo.fat.Fat.String fatStringList_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.fat.Fat.String, furo.fat.Fat.String.Builder, furo.fat.Fat.StringOrBuilder> fatStringListBuilder_;
+      /**
+       * <pre>
+       * field of a fat string for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.String fat_string_list = 8;</code>
+       * @return Whether the fatStringList field is set.
+       */
+      public boolean hasFatStringList() {
+        return fatStringListBuilder_ != null || fatStringList_ != null;
+      }
+      /**
+       * <pre>
+       * field of a fat string for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.String fat_string_list = 8;</code>
+       * @return The fatStringList.
+       */
+      public furo.fat.Fat.String getFatStringList() {
+        if (fatStringListBuilder_ == null) {
+          return fatStringList_ == null ? furo.fat.Fat.String.getDefaultInstance() : fatStringList_;
+        } else {
+          return fatStringListBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * field of a fat string for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.String fat_string_list = 8;</code>
+       */
+      public Builder setFatStringList(furo.fat.Fat.String value) {
+        if (fatStringListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          fatStringList_ = value;
+          onChanged();
+        } else {
+          fatStringListBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field of a fat string for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.String fat_string_list = 8;</code>
+       */
+      public Builder setFatStringList(
+          furo.fat.Fat.String.Builder builderForValue) {
+        if (fatStringListBuilder_ == null) {
+          fatStringList_ = builderForValue.build();
+          onChanged();
+        } else {
+          fatStringListBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field of a fat string for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.String fat_string_list = 8;</code>
+       */
+      public Builder mergeFatStringList(furo.fat.Fat.String value) {
+        if (fatStringListBuilder_ == null) {
+          if (fatStringList_ != null) {
+            fatStringList_ =
+              furo.fat.Fat.String.newBuilder(fatStringList_).mergeFrom(value).buildPartial();
+          } else {
+            fatStringList_ = value;
+          }
+          onChanged();
+        } else {
+          fatStringListBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field of a fat string for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.String fat_string_list = 8;</code>
+       */
+      public Builder clearFatStringList() {
+        if (fatStringListBuilder_ == null) {
+          fatStringList_ = null;
+          onChanged();
+        } else {
+          fatStringList_ = null;
+          fatStringListBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field of a fat string for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.String fat_string_list = 8;</code>
+       */
+      public furo.fat.Fat.String.Builder getFatStringListBuilder() {
+        
+        onChanged();
+        return getFatStringListFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * field of a fat string for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.String fat_string_list = 8;</code>
+       */
+      public furo.fat.Fat.StringOrBuilder getFatStringListOrBuilder() {
+        if (fatStringListBuilder_ != null) {
+          return fatStringListBuilder_.getMessageOrBuilder();
+        } else {
+          return fatStringList_ == null ?
+              furo.fat.Fat.String.getDefaultInstance() : fatStringList_;
+        }
+      }
+      /**
+       * <pre>
+       * field of a fat string for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.String fat_string_list = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.fat.Fat.String, furo.fat.Fat.String.Builder, furo.fat.Fat.StringOrBuilder> 
+          getFatStringListFieldBuilder() {
+        if (fatStringListBuilder_ == null) {
+          fatStringListBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              furo.fat.Fat.String, furo.fat.Fat.String.Builder, furo.fat.Fat.StringOrBuilder>(
+                  getFatStringList(),
+                  getParentForChildren(),
+                  isClean());
+          fatStringList_ = null;
+        }
+        return fatStringListBuilder_;
       }
 
       private java.lang.Object id_ = "";
@@ -3415,16 +3678,18 @@ public final class UniversaltestOuterClass {
       "\n!universaltest/universaltest.proto\022\runi" +
       "versaltest\032\036google/protobuf/wrappers.pro" +
       "to\032\022furo/fat/fat.proto\032\017furo/meta.proto\032" +
-      "\017furo/link.proto\"\374\001\n\rUniversaltest\022\"\n\tfa" +
+      "\017furo/link.proto\"\247\002\n\rUniversaltest\022\"\n\tfa" +
       "t_int32\030\007 \001(\0132\017.furo.fat.Int32\022$\n\nfat_st" +
-      "ring\030\004 \001(\0132\020.furo.fat.String\022\n\n\002id\030\001 \001(\t" +
-      "\022\024\n\014scalar_int32\030\005 \001(\005\022\025\n\rscalar_string\030" +
-      "\002 \001(\t\0222\n\rwrapper_int32\030\006 \001(\0132\033.google.pr" +
-      "otobuf.Int32Value\0224\n\016wrapper_string\030\003 \001(" +
-      "\0132\034.google.protobuf.StringValue\"v\n\023Unive" +
-      "rsaltestEntity\022*\n\004data\030\001 \001(\0132\034.universal" +
-      "test.Universaltest\022\031\n\005links\030\002 \003(\0132\n.furo" +
-      ".Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Metab\006proto3"
+      "ring\030\004 \001(\0132\020.furo.fat.String\022)\n\017fat_stri" +
+      "ng_list\030\010 \001(\0132\020.furo.fat.String\022\n\n\002id\030\001 " +
+      "\001(\t\022\024\n\014scalar_int32\030\005 \001(\005\022\025\n\rscalar_stri" +
+      "ng\030\002 \001(\t\0222\n\rwrapper_int32\030\006 \001(\0132\033.google" +
+      ".protobuf.Int32Value\0224\n\016wrapper_string\030\003" +
+      " \001(\0132\034.google.protobuf.StringValue\"v\n\023Un" +
+      "iversaltestEntity\022*\n\004data\030\001 \001(\0132\034.univer" +
+      "saltest.Universaltest\022\031\n\005links\030\002 \003(\0132\n.f" +
+      "uro.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Metab\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3439,7 +3704,7 @@ public final class UniversaltestOuterClass {
     internal_static_universaltest_Universaltest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_universaltest_Universaltest_descriptor,
-        new java.lang.String[] { "FatInt32", "FatString", "Id", "ScalarInt32", "ScalarString", "WrapperInt32", "WrapperString", });
+        new java.lang.String[] { "FatInt32", "FatString", "FatStringList", "Id", "ScalarInt32", "ScalarString", "WrapperInt32", "WrapperString", });
     internal_static_universaltest_UniversaltestEntity_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_universaltest_UniversaltestEntity_fieldAccessorTable = new
