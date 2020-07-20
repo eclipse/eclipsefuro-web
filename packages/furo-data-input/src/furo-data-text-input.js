@@ -89,16 +89,8 @@ export class FuroDataTextInput extends FuroTextInput {
 
     /**
      * check overrides from the used component, setted attributes overrides all
-     * so all we have to do is removing the mapping
      */
-    this.getAttributeNames().forEach((name) => {
-      if (name in this.binder.attributeMappings) {
-        delete this.binder.attributeMappings[name];
-      }
-      if (name in this.binder.labelMappings) {
-        delete this.binder.labelMappings[name];
-      }
-    });
+    this.binder.checkLabelandAttributeOverrrides();
 
     // the extended furo-text-input component uses _value
     this.binder.targetValueField = '_value';
@@ -242,7 +234,7 @@ export class FuroDataTextInput extends FuroTextInput {
         reflect: true,
       },
       /**
-       * passes always float the label
+       * Lets the placeholder always float
        */
       float: {
         type: Boolean,

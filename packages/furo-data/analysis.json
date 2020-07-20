@@ -3833,11 +3833,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 571,
+              "line": 582,
               "column": 2
             },
             "end": {
-              "line": 582,
+              "line": 593,
               "column": 3
             }
           },
@@ -3850,11 +3850,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 542,
+              "line": 553,
               "column": 2
             },
             "end": {
-              "line": 569,
+              "line": 580,
               "column": 3
             }
           },
@@ -3867,11 +3867,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 590,
+              "line": 601,
               "column": 2
             },
             "end": {
-              "line": 625,
+              "line": 636,
               "column": 3
             }
           },
@@ -3884,11 +3884,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 632,
+              "line": 643,
               "column": 2
             },
             "end": {
-              "line": 666,
+              "line": 677,
               "column": 3
             }
           },
@@ -3901,11 +3901,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 674,
+              "line": 685,
               "column": 2
             },
             "end": {
-              "line": 697,
+              "line": 708,
               "column": 3
             }
           },
@@ -3919,11 +3919,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 146,
+              "line": 155,
               "column": 2
             },
             "end": {
-              "line": 165,
+              "line": 174,
               "column": 3
             }
           },
@@ -3941,11 +3941,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 170,
+              "line": 179,
               "column": 2
             },
             "end": {
-              "line": 175,
+              "line": 184,
               "column": 3
             }
           },
@@ -3962,11 +3962,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 186,
               "column": 2
             },
             "end": {
-              "line": 181,
+              "line": 190,
               "column": 3
             }
           },
@@ -3989,11 +3989,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 186,
+              "line": 195,
               "column": 2
             },
             "end": {
-              "line": 188,
+              "line": 197,
               "column": 3
             }
           },
@@ -4009,11 +4009,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 190,
+              "line": 199,
               "column": 2
             },
             "end": {
-              "line": 215,
+              "line": 224,
               "column": 3
             }
           },
@@ -4033,11 +4033,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 348,
+              "line": 358,
               "column": 2
             },
             "end": {
-              "line": 388,
+              "line": 398,
               "column": 3
             }
           },
@@ -4050,11 +4050,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 390,
+              "line": 400,
               "column": 2
             },
             "end": {
-              "line": 458,
+              "line": 469,
               "column": 3
             }
           },
@@ -4077,11 +4077,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 466,
+              "line": 477,
               "column": 2
             },
             "end": {
-              "line": 477,
+              "line": 488,
               "column": 3
             }
           },
@@ -4101,11 +4101,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 479,
+              "line": 490,
               "column": 2
             },
             "end": {
-              "line": 498,
+              "line": 509,
               "column": 3
             }
           },
@@ -4125,11 +4125,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 500,
+              "line": 511,
               "column": 2
             },
             "end": {
-              "line": 522,
+              "line": 533,
               "column": 3
             }
           },
@@ -4152,11 +4152,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 527,
+              "line": 538,
               "column": 2
             },
             "end": {
-              "line": 540,
+              "line": 551,
               "column": 3
             }
           },
@@ -4172,11 +4172,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 699,
+              "line": 710,
               "column": 2
             },
             "end": {
-              "line": 724,
+              "line": 735,
               "column": 3
             }
           },
@@ -4192,11 +4192,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 731,
+              "line": 742,
               "column": 2
             },
             "end": {
-              "line": 752,
+              "line": 763,
               "column": 3
             }
           },
@@ -4217,11 +4217,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 754,
+              "line": 765,
               "column": 2
             },
             "end": {
-              "line": 759,
+              "line": 770,
               "column": 3
             }
           },
@@ -4238,7 +4238,7 @@
           "column": 7
         },
         "end": {
-          "line": 760,
+          "line": 771,
           "column": 1
         }
       },
@@ -4550,7 +4550,7 @@
       "name": "DataObject"
     },
     {
-      "description": "`UniversalFieldNodeBinder` consumes a FieldNode of type scalar, google wrapper of FAT and exposes\na API for data binding purposes.\n\n## specifity\n**meta < fat annotations**\n\nIf meta was given and the same property is not set in the fat type anymore, the value will fall back to the given value from the meta.",
+      "description": "`UniversalFieldNodeBinder` consumes a FieldNode of type scalar, google wrapper of FAT and exposes\na API for data binding purposes.\n\n## specifity\n**meta < fat annotations**\n**attributes on element > fat annotations > meta**\n\nSpec meta and dynamic meta is handled in DataObject and FieldNode.\n\nIf meta was given and the same property is not set in the fat type anymore, the value will fall back to the given value from the meta.",
       "summary": "",
       "path": "src/lib/UniversalFieldNodeBinder.js",
       "properties": [
@@ -4561,11 +4561,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 23,
+              "line": 28,
               "column": 4
             },
             "end": {
-              "line": 23,
+              "line": 28,
               "column": 25
             }
           },
@@ -4574,17 +4574,53 @@
         },
         {
           "name": "labelMappings",
-          "type": "{readonly: string}",
-          "description": "Define the mappings for the labels / flags which will be set on the component if it is set in the fieldnode.",
+          "type": "{}",
+          "description": "Define the mappings for the labels / flags which will be set on the component if it is set in the fieldnode.\n\n```\n // set the label mappings\n // fat-label: componentProperty\nthis.binder.labelMappings = {\n  'error': '_error',\n  'readonly': 'readonly',\n  'required': 'required',\n  'disabled': 'disabled'\n};\n```",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 28,
+              "line": 45,
               "column": 4
             },
             "end": {
-              "line": 28,
+              "line": 45,
               "column": 22
+            }
+          },
+          "metadata": {},
+          "defaultValue": "{}"
+        },
+        {
+          "name": "attributeMappings",
+          "type": "{}",
+          "description": "Define the mappings for the attributes which will be set on the component if it is set in the fieldnode.\n\n```\n // set the attribute mappings\n this.binder.attributeMappings = {\n   'label': 'placeholder', // map label to placeholder\n   'placeholder': 'placeholder', // map placeholder to placeholder\n   'hint': '_hint',\n   'icon': 'leadingIcon', // icon and leading icon maps to the same\n   'leading-icon': 'leadingIcon',// icon and leading icon maps to the same\n   'value-state': '_valueState',\n   'value-state-message': '_valueStateMessage',\n   'errortext': '_errorMsg', // name errortext is for compatibility with spec\n   'warning-msg': '_warningMsg',\n   'success-msg': '_successMsg',\n   'information-msg': '_informationMsg',\n   'pattern': 'pattern',\n   'maxlength': 'maxlength', // for the input element itself\n };\n```",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 70,
+              "column": 4
+            },
+            "end": {
+              "line": 70,
+              "column": 26
+            }
+          },
+          "metadata": {},
+          "defaultValue": "{}"
+        },
+        {
+          "name": "fatAttributesToConstraintsMappings",
+          "type": "{}",
+          "description": "Define the attributes which maps to the field constraints.\n\n```\nthis.fatAttributesToConstraintsMappings = {\n  'max': 'value._constraints.max.is',// for the fieldnode max constraint\n  'min': 'value._constraints.min.is',// for the fieldnode min constraint\n  'min-msg': 'value._constraints.min.message',// for the fieldnode min constraint message\n  'max-msg': 'value._constraints.max.message',// for the fieldnode max constraint message\n}\n```",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 85,
+              "column": 4
+            },
+            "end": {
+              "line": 85,
+              "column": 43
             }
           },
           "metadata": {},
@@ -4597,11 +4633,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 77,
+              "line": 170,
               "column": 2
             },
             "end": {
-              "line": 79,
+              "line": 172,
               "column": 3
             }
           },
@@ -4615,11 +4651,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 38,
+              "line": 93,
               "column": 2
             },
             "end": {
-              "line": 61,
+              "line": 146,
               "column": 3
             }
           },
@@ -4634,40 +4670,64 @@
           }
         },
         {
-          "name": "_updateVirtualNode",
-          "description": "Sets the correct value for the given fieldnode to the virtual node and this.fieldValue according to the signature of the field",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 86,
-              "column": 2
-            },
-            "end": {
-              "line": 129,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "field"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "addVirtualAttribute",
-          "description": "Adds or updates a attribute to the virtual node and set the attribute on the target component if mapping is defined",
+          "name": "addLabel",
+          "description": "adds a label to the fat fieldNode. Adding labels to scalar and wrapper works too, but will never updated on the fieldNode.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 136,
+              "line": 178,
               "column": 2
             },
             "end": {
-              "line": 141,
+              "line": 187,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "label"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "deleteLabel",
+          "description": "deletes a label from a fat fieldNode",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 193,
+              "column": 2
+            },
+            "end": {
+              "line": 203,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "label"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "setAttribute",
+          "description": "Sets the value of a named attribute of the current node. Like value-state=\"Error\".\nDo not forget to add the mappings with `xxx.attributeMappings = { 'value-state': 'valueState' };` to reflect the value to your component.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 211,
+              "column": 2
+            },
+            "end": {
+              "line": 219,
               "column": 3
             }
           },
@@ -4685,16 +4745,119 @@
           }
         },
         {
-          "name": "removeVirtualAttribute",
+          "name": "removeAttribute",
+          "description": "removes a named attribute from the fieldNode.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 225,
+              "column": 2
+            },
+            "end": {
+              "line": 234,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateVirtualNode",
+          "description": "Sets the correct value for the given fieldnode to the virtual node and this.fieldValue according to the signature of the field",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 241,
+              "column": 2
+            },
+            "end": {
+              "line": 277,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "field"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_addVirtualAttribute",
+          "description": "Adds or updates a attribute to the virtual node and set the attribute on the target component if mapping is defined",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 285,
+              "column": 2
+            },
+            "end": {
+              "line": 298,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_pathSet",
+          "description": "helper to set deep paths",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 306,
+              "column": 2
+            },
+            "end": {
+              "line": 318,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "path",
+              "description": "String a.b.c.d"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_removeVirtualAttribute",
           "description": "Removes a attribute from the virtual node and sets the attribute on the target component to \"\" empty string.",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 147,
+              "line": 325,
               "column": 2
             },
             "end": {
-              "line": 152,
+              "line": 335,
               "column": 3
             }
           },
@@ -4709,16 +4872,16 @@
           }
         },
         {
-          "name": "addVirtualLabel",
+          "name": "_addVirtualLabel",
           "description": "Adds a label to the virtual node label set and sets the label on the target component to `true` if mapping is defined.",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 342,
               "column": 2
             },
             "end": {
-              "line": 164,
+              "line": 350,
               "column": 3
             }
           },
@@ -4733,16 +4896,16 @@
           }
         },
         {
-          "name": "removeVirtualLabel",
+          "name": "_removeVirtualLabel",
           "description": "Removes a label from the virtual node label set and sets the label on the target component to `false` if mapping is defined.",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 170,
+              "line": 357,
               "column": 2
             },
             "end": {
-              "line": 176,
+              "line": 363,
               "column": 3
             }
           },
@@ -4752,6 +4915,26 @@
               "name": "name"
             }
           ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "checkLabelandAttributeOverrrides",
+          "description": "check overrides from the used component, setted attributes overrides all internal settings.\nAll we have to do is removing the setted mappings for the current instance.\n\n**Hint:** Do this after initializing the mappings.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 371,
+              "column": 2
+            },
+            "end": {
+              "line": 392,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
           "return": {
             "type": "void"
           }
@@ -4762,11 +4945,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 184,
+              "line": 399,
               "column": 2
             },
             "end": {
-              "line": 198,
+              "line": 414,
               "column": 3
             }
           },
@@ -4781,16 +4964,16 @@
           }
         },
         {
-          "name": "_updateMetaFromFieldnode",
+          "name": "_updateVirtualNodeFromMeta",
           "description": "updates the virtual node attributes and labels with metas from the fieldnode",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 205,
+              "line": 421,
               "column": 2
             },
             "end": {
-              "line": 225,
+              "line": 448,
               "column": 3
             }
           },
@@ -4810,11 +4993,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 11,
+          "line": 16,
           "column": 7
         },
         "end": {
-          "line": 226,
+          "line": 449,
           "column": 1
         }
       },

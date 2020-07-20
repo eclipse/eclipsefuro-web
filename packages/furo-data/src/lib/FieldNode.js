@@ -53,16 +53,14 @@ export class FieldNode extends EventTreeNode {
     if (this._spec.constraints) {
       this._constraints = JSON.parse(JSON.stringify(this._spec.constraints));
       // check parent constraints for subfieldconstraints like value.min
-      if (parentNode && parentNode._constraints){
-        Object.keys(parentNode._constraints).forEach((parentconstraint)=>{
-          const pc = parentconstraint.split(".");
-          if(pc.shift() === fieldName){
-            this._constraints[pc.join(".")] = parentNode._constraints[parentconstraint];
+      if (parentNode && parentNode._constraints) {
+        Object.keys(parentNode._constraints).forEach(parentconstraint => {
+          const pc = parentconstraint.split('.');
+          if (pc.shift() === fieldName) {
+            this._constraints[pc.join('.')] = parentNode._constraints[parentconstraint];
           }
-        })
-
+        });
       }
-
     } else {
       this._constraints = (function emptyObject() {
         return {};
@@ -266,7 +264,6 @@ export class FieldNode extends EventTreeNode {
       this._oldvalue = this._value;
       this.__value = val;
       this._pristine = false;
-
 
       // check for changes
       if (JSON.stringify(this._oldvalue) !== JSON.stringify(this.__value)) {

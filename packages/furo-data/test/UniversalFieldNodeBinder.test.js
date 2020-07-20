@@ -137,8 +137,6 @@ describe('UniversalFieldNodeBinder.test', () => {
   });
 
   it('should not touch the spec meta when it was not given the data for fat', done => {
-
-
     dataobj.addEventListener(
       'data-injected',
       () => {
@@ -157,7 +155,7 @@ describe('UniversalFieldNodeBinder.test', () => {
 
         dataobj.addEventListener('data-injected', () => {
           // remove labels which are not in the dataset and restore spec values
-          assert.equal(pseudocomponent.binder.virtualNode.attributes.other, "otherattribute");
+          assert.equal(pseudocomponent.binder.virtualNode.attributes.other, 'otherattribute');
           assert.equal('maxlength' in pseudocomponent.binder.virtualNode.attributes, false);
           assert.equal(pseudocomponent.binder.virtualNode.labels.has('before'), false);
           assert.equal(pseudocomponent.binder.virtualNode.labels.has('after'), true);
@@ -178,7 +176,10 @@ describe('UniversalFieldNodeBinder.test', () => {
     // set another property for the value property
     pseudocomponent.binder.targetValueField = 'val';
     pseudocomponent.binder.labelMappings = { before: 'before' };
-    pseudocomponent.binder.attributeMappings = { 'value-state': 'valueState', maxlength: 'maxLength' };
+    pseudocomponent.binder.attributeMappings = {
+      'value-state': 'valueState',
+      maxlength: 'maxLength',
+    };
 
     dataobj.addEventListener('data-injected', () => {
       pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
@@ -196,9 +197,14 @@ describe('UniversalFieldNodeBinder.test', () => {
     // set another property for the value property
     pseudocomponent.binder.targetValueField = 'val';
     pseudocomponent.binder.labelMappings = { before: 'before' };
-    pseudocomponent.binder.attributeMappings = { 'value-state': 'valueState', maxlength: 'maxLength' };
+    pseudocomponent.binder.attributeMappings = {
+      'value-state': 'valueState',
+      maxlength: 'maxLength',
+    };
 
-    dataobj.addEventListener('data-injected', () => {
+    dataobj.addEventListener(
+      'data-injected',
+      () => {
         pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
         assert.equal(pseudocomponent.val, pseudocomponent.binder._fieldValue);
         assert.equal(pseudocomponent.valueState, 'Error');
@@ -220,7 +226,8 @@ describe('UniversalFieldNodeBinder.test', () => {
         fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal-unset-label.json');
 
         done();
-      }, { once: true },
+      },
+      { once: true },
     );
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
@@ -270,7 +277,6 @@ describe('UniversalFieldNodeBinder.test', () => {
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 
-
   it('should update fieldnode labels on fat types', done => {
     // set another property for the value property
     pseudocomponent.binder.labelMappings = { neu: 'neu' };
@@ -278,19 +284,18 @@ describe('UniversalFieldNodeBinder.test', () => {
       pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
       assert.equal(pseudocomponent.value, 'this is a furo fat string');
 
-      pseudocomponent.binder.addLabel("neu");
+      pseudocomponent.binder.addLabel('neu');
       assert.equal(pseudocomponent.neu, true);
-      assert.equal(pseudocomponent.binder.fieldNode.labels._value[0],'before');
-      assert.equal(pseudocomponent.binder.fieldNode.labels._value[1],'neu');
+      assert.equal(pseudocomponent.binder.fieldNode.labels._value[0], 'before');
+      assert.equal(pseudocomponent.binder.fieldNode.labels._value[1], 'neu');
 
-      pseudocomponent.binder.deleteLabel("before");
-      assert.equal(pseudocomponent.binder.fieldNode.labels._value.length,1);
-      assert.equal(pseudocomponent.binder.fieldNode.labels._value[0],'neu');
+      pseudocomponent.binder.deleteLabel('before');
+      assert.equal(pseudocomponent.binder.fieldNode.labels._value.length, 1);
+      assert.equal(pseudocomponent.binder.fieldNode.labels._value[0], 'neu');
       done();
     });
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
-
 
   it('should not update fieldnode labels on non fat types', done => {
     // set another property for the value property
@@ -299,22 +304,23 @@ describe('UniversalFieldNodeBinder.test', () => {
       pseudocomponent.binder.bindField(dataobj.data.data.wrapper_string);
       assert.equal(pseudocomponent.value, 'this is a google wrapper string');
 
-      pseudocomponent.binder.addLabel("neu");
+      pseudocomponent.binder.addLabel('neu');
       assert.equal(pseudocomponent.neu, true);
 
-      pseudocomponent.binder.deleteLabel("neu");
+      pseudocomponent.binder.deleteLabel('neu');
       assert.equal(pseudocomponent.neu, false);
       done();
     });
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 
-
-
-
   it('should set and delete fieldnode attributes on fat types', done => {
     // set another property for the value property
-    pseudocomponent.binder.attributeMappings = { 'value-state': 'valueState', maxlength: 'maxLength', minlength: 'minLength' };
+    pseudocomponent.binder.attributeMappings = {
+      'value-state': 'valueState',
+      maxlength: 'maxLength',
+      minlength: 'minLength',
+    };
     dataobj.addEventListener('data-injected', () => {
       pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
       assert.equal(pseudocomponent.value, pseudocomponent.binder._fieldValue);
@@ -322,37 +328,51 @@ describe('UniversalFieldNodeBinder.test', () => {
       assert.equal(pseudocomponent.maxLength, '6');
       assert.equal(pseudocomponent.minLength, undefined);
 
+      pseudocomponent.binder.setAttribute('minlength', 'small');
 
-      pseudocomponent.binder.setAttribute("minlength","small");
+      assert.equal(pseudocomponent.minLength, 'small');
+      assert.equal(pseudocomponent.binder.fieldNode.attributes.minlength._value, 'small');
+      assert.equal(
+        JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),
+        JSON.stringify({
+          'value-state': 'Error',
+          maxlength: '6',
+          label: 'override',
+          placeholder: 'overridePH',
+          minlength: 'small',
+        }),
+      );
 
-      assert.equal(pseudocomponent.minLength, "small");
-      assert.equal(pseudocomponent.binder.fieldNode.attributes.minlength._value,'small');
-      assert.equal(JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),JSON.stringify({"value-state":"Error","maxlength":"6","label":"override","placeholder":"overridePH","minlength":"small"}));
+      pseudocomponent.binder.removeAttribute('value-state');
 
-      pseudocomponent.binder.removeAttribute("value-state");
-
-      pseudocomponent.binder.removeAttribute("label");
-      assert.equal(JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),JSON.stringify({"maxlength":"6","placeholder":"overridePH","minlength":"small"}));
+      pseudocomponent.binder.removeAttribute('label');
+      assert.equal(
+        JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),
+        JSON.stringify({ maxlength: '6', placeholder: 'overridePH', minlength: 'small' }),
+      );
       done();
     });
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 
-
   it('should not set and delete fieldnode attributes on NON fat types', done => {
     // set another property for the value property
-    pseudocomponent.binder.attributeMappings = { 'value-state': 'valueState', maxlength: 'maxLength', minlength: 'minLength' };
+    pseudocomponent.binder.attributeMappings = {
+      'value-state': 'valueState',
+      maxlength: 'maxLength',
+      minlength: 'minLength',
+    };
     dataobj.addEventListener('data-injected', () => {
       pseudocomponent.binder.bindField(dataobj.data.data.scalar_string);
       assert.equal(pseudocomponent.value, pseudocomponent.binder._fieldValue);
-      pseudocomponent.binder.setAttribute("minlength","small");
-      pseudocomponent.binder.setAttribute("value-state","Error");
-      pseudocomponent.binder.setAttribute("label","Error");
+      pseudocomponent.binder.setAttribute('minlength', 'small');
+      pseudocomponent.binder.setAttribute('value-state', 'Error');
+      pseudocomponent.binder.setAttribute('label', 'Error');
       assert.equal(pseudocomponent.label, undefined);
       assert.equal(pseudocomponent.valueState, 'Error');
-      assert.equal(pseudocomponent.minLength, "small");
-      pseudocomponent.binder.removeAttribute("value-state");
-      pseudocomponent.binder.removeAttribute("label");
+      assert.equal(pseudocomponent.minLength, 'small');
+      pseudocomponent.binder.removeAttribute('value-state');
+      pseudocomponent.binder.removeAttribute('label');
       assert.equal(pseudocomponent.valueState, '');
       assert.equal(pseudocomponent.label, undefined);
 
@@ -360,6 +380,4 @@ describe('UniversalFieldNodeBinder.test', () => {
     });
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
-
-
 });

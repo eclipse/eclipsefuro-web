@@ -1,16 +1,19 @@
+import { FieldNode } from './FieldNode.js';
+
 /**
  * `UniversalFieldNodeBinder` consumes a FieldNode of type scalar, google wrapper of FAT and exposes
  * a API for data binding purposes.
  *
  * ## specifity
  * **meta < fat annotations**
+ * **attributes on element > fat annotations > meta**
+ *
+ * Spec meta and dynamic meta is handled in DataObject and FieldNode.
  *
  * If meta was given and the same property is not set in the fat type anymore, the value will fall back to the given value from the meta.
  *
  *
  */
-import {FieldNode} from './FieldNode.js';
-
 export class UniversalFieldNodeBinder {
   constructor(target) {
     // the target object to apply the attributes, flags,...
@@ -24,13 +27,63 @@ export class UniversalFieldNodeBinder {
      * @type {string}
      */
     this.targetValueField = 'value';
+
     /**
      * Define the mappings for the labels / flags which will be set on the component if it is set in the fieldnode.
-     * @type {{readonly: string}}
+     *
+     * ```
+     *  // set the label mappings
+     *  // fat-label: componentProperty
+     * this.binder.labelMappings = {
+     *   'error': '_error',
+     *   'readonly': 'readonly',
+     *   'required': 'required',
+     *   'disabled': 'disabled'
+     * };
+     * ```
+     * @type {{}}
      */
     this.labelMappings = {};
 
+    /**
+     * Define the mappings for the attributes which will be set on the component if it is set in the fieldnode.
+     *
+     * ```
+     *  // set the attribute mappings
+     *  this.binder.attributeMappings = {
+     *    'label': 'placeholder', // map label to placeholder
+     *    'placeholder': 'placeholder', // map placeholder to placeholder
+     *    'hint': '_hint',
+     *    'icon': 'leadingIcon', // icon and leading icon maps to the same
+     *    'leading-icon': 'leadingIcon',// icon and leading icon maps to the same
+     *    'value-state': '_valueState',
+     *    'value-state-message': '_valueStateMessage',
+     *    'errortext': '_errorMsg', // name errortext is for compatibility with spec
+     *    'warning-msg': '_warningMsg',
+     *    'success-msg': '_successMsg',
+     *    'information-msg': '_informationMsg',
+     *    'pattern': 'pattern',
+     *    'maxlength': 'maxlength', // for the input element itself
+     *  };
+     * ```
+     * @type {{}}
+     */
     this.attributeMappings = {};
+
+    /**
+     * Define the attributes which maps to the field constraints.
+     *
+     * ```
+     * this.fatAttributesToConstraintsMappings = {
+     *   'max': 'value._constraints.max.is',// for the fieldnode max constraint
+     *   'min': 'value._constraints.min.is',// for the fieldnode min constraint
+     *   'min-msg': 'value._constraints.min.message',// for the fieldnode min constraint message
+     *   'max-msg': 'value._constraints.max.message',// for the fieldnode max constraint message
+     * }
+     * ```
+     * @type {{}}
+     */
+    this.fatAttributesToConstraintsMappings = {};
     return this;
   }
 
@@ -63,13 +116,11 @@ export class UniversalFieldNodeBinder {
       this._updateVirtualNodeFromMeta(field._meta);
     });
 
-
     field.addEventListener('field-value-changed', () => {
       this._updateVirtualNode(field);
     });
 
-
-    field.addEventListener('field-became-invalid', (e) => {
+    field.addEventListener('field-became-invalid', e => {
       const invalidNode = e.detail;
       this._addVirtualLabel('error');
       if (invalidNode._validity && invalidNode._validity.description) {
@@ -80,17 +131,20 @@ export class UniversalFieldNodeBinder {
     /**
      * remove required error on init, this is for better ux
      */
-    field.addEventListener('field-became-invalid', () => {
-      if (this.fieldNode._validity && this.fieldNode._validity.constraint === 'required') {
-        this._removeVirtualLabel('error');
-      }
-    }, {once: true});
+    field.addEventListener(
+      'field-became-invalid',
+      () => {
+        if (this.fieldNode._validity && this.fieldNode._validity.constraint === 'required') {
+          this._removeVirtualLabel('error');
+        }
+      },
+      { once: true },
+    );
 
     field.addEventListener('field-became-valid', () => {
       this._removeVirtualLabel('error');
     });
   }
-
 
   /**
    * setter for the fieldValue which reflects to the target component according to `targetValueField`
@@ -158,7 +212,7 @@ export class UniversalFieldNodeBinder {
   setAttribute(name, value) {
     if ('attributes' in this.fieldNode) {
       if (!this._givenAttrs[name]) {
-        this.fieldNode.attributes.createField({'fieldName': name, 'type': 'string', '_value': value});
+        this.fieldNode.attributes.createField({ fieldName: name, type: 'string', _value: value });
       }
     } else {
       this._addVirtualAttribute(name, value);
@@ -180,7 +234,6 @@ export class UniversalFieldNodeBinder {
     }
   }
 
-
   /**
    * Sets the correct value for the given fieldnode to the virtual node and this.fieldValue according to the signature of the field
    * @param field
@@ -195,23 +248,22 @@ export class UniversalFieldNodeBinder {
       this.fieldValue = field.value._value;
 
       if (this.fieldFormat === 'fat') {
-        this._givenAttrs = field.attributes.__childNodes.map((attrNode) => attrNode._name);
-        this._givenLabels = field.labels.__childNodes.map((labelNode) => labelNode._value);
+        this._givenAttrs = field.attributes.__childNodes.map(attrNode => attrNode._name);
+        this._givenLabels = field.labels.__childNodes.map(labelNode => labelNode._value);
 
         // clear the attributes by removing attrs which are not in field.attributes
-        Object.keys(this.virtualNode.attributes).forEach((attr) => {
+        Object.keys(this.virtualNode.attributes).forEach(attr => {
           if (this._givenAttrs.indexOf(attr) === -1) {
             this._removeVirtualAttribute(attr);
           }
         });
 
         // clear the labels  by removing labels which are not in field.labels
-        this.virtualNode.labels.forEach((label) => {
+        this.virtualNode.labels.forEach(label => {
           if (this._givenLabels.indexOf(label) === -1) {
             this._removeVirtualLabel(label);
           }
         });
-
 
         // update the given attributes on the virtual node
         field.attributes.__childNodes.forEach(attr => {
@@ -239,27 +291,26 @@ export class UniversalFieldNodeBinder {
         this.target[this.attributeMappings[name]] = value;
       }
 
-      if (this.fatAttributesToConstraintsMappings && name in this.fatAttributesToConstraintsMappings) {
-        this._pathSet(this.fieldNode,this.fatAttributesToConstraintsMappings[name], value);
+      // update the field constraints based on fat attributes
+      if (name in this.fatAttributesToConstraintsMappings) {
+        this._pathSet(this.fatAttributesToConstraintsMappings[name], value);
       }
-
     }
   }
 
   /**
    * helper to set deep paths
-   * @param root
    * @param path String a.b.c.d
    * @param value
    * @private
    */
-  _pathSet(root, path, value) {
-    var obj = root;
-    const parts = path.split(".");
-    while(parts.length > 1){
+  _pathSet(path, value) {
+    let obj = this.fieldNode; // we set the values relative to the fieldnode, so fieldnode is the root
+    const parts = path.split('.');
+    while (parts.length > 1) {
       const key = parts.shift();
       // create if not exist
-      if(!(key in obj)){
+      if (!(key in obj)) {
         obj[key] = {};
       }
       obj = obj[key];
@@ -325,7 +376,7 @@ export class UniversalFieldNodeBinder {
     const labelMappingTargets = Object.values(this.labelMappings);
     const labelMappingKeys = Object.keys(this.labelMappings);
 
-    this.target.getAttributeNames().forEach((name) => {
+    this.target.getAttributeNames().forEach(name => {
       // remove all override targets for attributes
       attributeMappingTargets.forEach((attr, iA) => {
         if (attr === name) {
@@ -338,9 +389,7 @@ export class UniversalFieldNodeBinder {
           delete this.labelMappings[labelMappingKeys[iA]];
         }
       });
-
     });
-
   }
 
   /**
@@ -349,7 +398,6 @@ export class UniversalFieldNodeBinder {
    * @return {string|undefined}
    */
   detectFormat(field) {
-
     if (field && field.__childNodes.length === 0) {
       this.fieldValue = field._value;
       return 'scalar';
@@ -372,7 +420,6 @@ export class UniversalFieldNodeBinder {
    * @private
    */
   _updateVirtualNodeFromMeta(fieldmeta) {
-
     if ('readonly' in fieldmeta) {
       if (fieldmeta.readonly === true) {
         this._addVirtualLabel('readonly');
@@ -381,7 +428,6 @@ export class UniversalFieldNodeBinder {
       }
       this._metastore.readonly = fieldmeta.readonly;
     }
-
 
     if ('label' in fieldmeta) {
       if (fieldmeta.label) {

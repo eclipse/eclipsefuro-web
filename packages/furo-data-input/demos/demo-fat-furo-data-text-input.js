@@ -69,6 +69,7 @@ class DemoFatFuroDataTextInput extends FBP(LitElement) {
            
                
             <furo-data-text-input
+            label="label set on tag"
               trailing-icon="dashboard"            
               required
               ƒ-bind-data="--entity(*.data.scalar_string)"
