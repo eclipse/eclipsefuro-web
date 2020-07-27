@@ -319,7 +319,9 @@ export class UniversalFieldNodeBinder {
   }
 
   /**
-   * Removes a attribute from the virtual node and sets the attribute on the target component to "" empty string.
+   * Removes a attribute from the virtual node and sets the attribute on the target component to null, so lit will remove it on reflected attributes.
+   *
+   *  https://lit-element.polymer-project.org/guide/properties#attributes
    * @param name
    * @private
    */
@@ -327,7 +329,7 @@ export class UniversalFieldNodeBinder {
     if (!(name in this._metastore && this._metastore !== '')) {
       delete this.virtualNode.attributes[name];
       if (name in this.attributeMappings) {
-        this.target[this.attributeMappings[name]] = '';
+        this.target[this.attributeMappings[name]] = null;
       }
     } else {
       // restore from metastore

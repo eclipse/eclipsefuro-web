@@ -73,6 +73,7 @@ export class FuroDataTextInput extends FuroTextInput {
       'leading-icon': 'leadingIcon',
       'trailing-icon': 'trailingIcon',
       'errortext': 'errortext',
+      'error-msg': 'errortext',
       'pattern': 'pattern',
       'min': 'min',
       'max': 'max',
