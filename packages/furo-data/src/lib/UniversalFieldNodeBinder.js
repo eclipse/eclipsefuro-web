@@ -93,8 +93,11 @@ export class UniversalFieldNodeBinder {
    */
   bindField(field) {
     if (!(field instanceof FieldNode)) {
-      return;
+      // eslint-disable-next-line no-console
+      console.warn('Invalid binding ', field, this.target);
+      return false;
     }
+
     this.fieldNode = field;
     this.fieldFormat = this.detectFormat(field);
     /**
@@ -122,7 +125,6 @@ export class UniversalFieldNodeBinder {
     });
 
 
-
     field.addEventListener('field-became-invalid', e => {
       const invalidNode = e.detail;
       this._addVirtualLabel('error');
@@ -148,7 +150,7 @@ export class UniversalFieldNodeBinder {
       this._removeVirtualLabel('error');
     });
 
-
+    return this;
 
   }
 

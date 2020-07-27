@@ -1,4 +1,4 @@
-import {FuroTextInput} from '@furo/input/src/furo-text-input';
+import { FuroTextInput } from '@furo/input/src/furo-text-input';
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
 
 
@@ -99,13 +99,13 @@ export class FuroDataTextInput extends FuroTextInput {
     // update the value on input changes
     this.addEventListener('value-changed', val => {
       // set flag empty on empty strings (for fat types)
-      if(val.detail){
-        this.binder.deleteLabel("empty");
-      }else{
-        this.binder.addLabel("empty");
+      if (val.detail) {
+        this.binder.deleteLabel('empty');
+      } else {
+        this.binder.addLabel('empty');
       }
       // if something was entered the field is not empty
-      this.binder.deleteLabel("pristine");
+      this.binder.deleteLabel('pristine');
 
       // update the value
       this.binder.fieldValue = val.detail;
@@ -116,7 +116,7 @@ export class FuroDataTextInput extends FuroTextInput {
    * Sets the value for the field. This will update the fieldNode.
    * @param val
    */
-  setValue(val){
+  setValue(val) {
     this.binder.fieldValue = val;
   }
 
@@ -127,23 +127,23 @@ export class FuroDataTextInput extends FuroTextInput {
    */
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
-
-    /**
-     * handle pristine
-     *
-     * Set to pristine label to the same _pristine from the fieldNode
-     */
-    if(this.binder.fieldNode._pristine){
-      this.binder.addLabel("pristine");
-    }else{
-      this.binder.deleteLabel("pristine")
+    if (this.binder.fieldNode) {
+      /**
+       * handle pristine
+       *
+       * Set to pristine label to the same _pristine from the fieldNode
+       */
+      if (this.binder.fieldNode._pristine) {
+        this.binder.addLabel('pristine');
+      } else {
+        this.binder.deleteLabel('pristine');
+      }
+      // set pristine on new data
+      this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this.binder.addLabel('pristine');
+      });
     }
-
-    this.binder.fieldNode.addEventListener('new-data-injected', () => {
-      this.binder.addLabel("pristine");
-    });
   }
-
 
 
   static get properties() {
@@ -227,7 +227,7 @@ export class FuroDataTextInput extends FuroTextInput {
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Icon on the left side

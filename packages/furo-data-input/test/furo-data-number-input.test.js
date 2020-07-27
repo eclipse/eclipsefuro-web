@@ -67,7 +67,7 @@ describe('furo-data-number-input', () => {
     await deeplink.updateComplete;
   });
 
-  it('should be a furo-data-money-input', done => {
+  it('should be a furo-data-number-input', done => {
     // keep this test on top, so you can recognize a wrong asignment
     assert.equal(dataNumberInput.nodeName.toLowerCase(), 'furo-data-number-input');
     assert.equal(secondNumberInput.nodeName.toLowerCase(), 'furo-data-number-input');
@@ -86,21 +86,22 @@ describe('furo-data-number-input', () => {
       // invalid binding
       assert.equal(invalidNumberInput.field, undefined);
       // valid binding
-      assert.equal(dataNumberInput.field._isValid, true);
+      assert.equal(dataNumberInput.binder.fieldNode._isValid, true);
       done();
     }, 0);
   });
 
+
   it('should override hints ', done => {
     setTimeout(() => {
-      assert.equal(secondNumberInput._theInputElement.getAttribute('hint'), 'FromTPL');
+      assert.equal(secondNumberInput.getAttribute('hint'), 'FromTPL');
       done();
-    }, 0);
+    }, 10);
   });
 
   it('should override labels ', done => {
     setTimeout(() => {
-      assert.equal(secondNumberInput._theInputElement.getAttribute('label'), 'FromTPL');
+      assert.equal(secondNumberInput.getAttribute('label'), 'FromTPL');
       done();
     }, 0);
   });
@@ -124,21 +125,30 @@ describe('furo-data-number-input', () => {
     done();
   });
 
-  it('should receive value with bind', done => {
-    dataObject.addEventListener('data-injected', () => {
-      setTimeout(() => {
-        assert.equal(dataNumberInput.shadowRoot.querySelector('*').value, 12.55);
-        assert.equal(dataNumberInput._theInputElement.getAttribute('hint'), 'hint**');
-        done();
-      }, 0);
-    });
 
+  it('should receive value with bind', done => {
+    host._FBPAddWireHook('--hts', () => {
+      dataObject.addEventListener(
+        'data-changed',
+        () => {
+          dataNumberInput._FBPAddWireHook('--value', val => {
+            assert.equal(
+              val,
+              12.55,
+            );
+            done();
+          });
+        },
+        { once: true },
+      );
+    });
     deeplink.qpIn({ exp: 1 });
   });
 
+
   it('should bind the field description', done => {
     setTimeout(() => {
-      assert.equal(dataNumberInput._theInputElement.getAttribute('label'), 'number-input**');
+      assert.equal(dataNumberInput.getAttribute('label'), 'number-input**');
       done();
     }, 0);
 
@@ -150,7 +160,7 @@ describe('furo-data-number-input', () => {
       // invalid binding
       assert.equal(invalidNumberInput.field, undefined);
       // valid binding
-      assert.equal(secondNumberInput.field._isValid, true);
+      assert.equal(secondNumberInput.binder.fieldNode._isValid, true);
       done();
     }, 0);
   });
@@ -159,14 +169,14 @@ describe('furo-data-number-input', () => {
     const err = { description: 'max 23', constraint: 'max' };
 
     setTimeout(() => {
-      dataNumberInput.field.addEventListener('field-became-invalid', () => {
+      dataNumberInput.binder.fieldNode.addEventListener('field-became-invalid', () => {
         setTimeout(() => {
           assert.equal(dataNumberInput.error, true);
-          assert.equal(dataNumberInput._theInputElement.getAttribute('errortext'), 'max 23');
+          assert.equal(dataNumberInput.errortext, 'max 23');
           done();
         }, 10);
       });
-      dataNumberInput.field._setInvalid(err);
+      dataNumberInput.binder.fieldNode._setInvalid(err);
     }, 20);
   });
 });
