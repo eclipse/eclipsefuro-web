@@ -122,18 +122,6 @@ export class UniversalFieldNodeBinder {
     });
 
 
-    if("labels" in field){ // fat type
-      field.value.addEventListener("field-value-changed",()=>{
-        // set flag empty on empty strings
-        if(field.value._value === ""){
-          this.addLabel("empty");
-        }else{
-          this.deleteLabel("empty");
-        }
-        // unset pristine on changes
-        this.deleteLabel("pristine");
-      })
-    }
 
     field.addEventListener('field-became-invalid', e => {
       const invalidNode = e.detail;
@@ -160,20 +148,7 @@ export class UniversalFieldNodeBinder {
       this._removeVirtualLabel('error');
     });
 
-    /**
-     * handle pristine
-     *
-     * Set to pristine label to the same _pristine from the fieldNode
-     */
-    if(field._pristine){
-      this.addLabel("pristine");
-    }else{
-      this.deleteLabel("pristine")
-    }
 
-    field.addEventListener('new-data-injected', () => {
-      this.addLabel("pristine");
-    });
 
   }
 
@@ -209,9 +184,7 @@ export class UniversalFieldNodeBinder {
    */
   addLabel(label) {
     if ('labels' in this.fieldNode) {
-
       this._givenLabels = this.fieldNode.labels.__childNodes.map(labelNode => labelNode._value);
-
       if (this._givenLabels.indexOf(label) === -1) {
         this.fieldNode.labels.add(label);
       }

@@ -29,7 +29,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-number-input Input sample
  * @appliesMixin FBP
  */
-class FuroNumberInput extends FBP(LitElement) {
+export class FuroNumberInput extends FBP(LitElement) {
   /**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked

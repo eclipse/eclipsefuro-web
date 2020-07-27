@@ -98,6 +98,16 @@ export class FuroDataTextInput extends FuroTextInput {
 
     // update the value on input changes
     this.addEventListener('value-changed', val => {
+      // set flag empty on empty strings (for fat types)
+      if(val.detail){
+        this.binder.deleteLabel("empty");
+      }else{
+        this.binder.addLabel("empty");
+      }
+      // if something was entered the field is not empty
+      this.binder.deleteLabel("pristine");
+
+      // update the value
       this.binder.fieldValue = val.detail;
     });
   }
@@ -117,6 +127,21 @@ export class FuroDataTextInput extends FuroTextInput {
    */
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
+
+    /**
+     * handle pristine
+     *
+     * Set to pristine label to the same _pristine from the fieldNode
+     */
+    if(this.binder.fieldNode._pristine){
+      this.binder.addLabel("pristine");
+    }else{
+      this.binder.deleteLabel("pristine")
+    }
+
+    this.binder.fieldNode.addEventListener('new-data-injected', () => {
+      this.binder.addLabel("pristine");
+    });
   }
 
 

@@ -121,11 +121,12 @@ describe('UniversalFieldNodeBinder.test', () => {
         pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
         assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), false);
         dataobj.addEventListener('data-injected', () => {
-          assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), true);
+
           assert.equal(
             pseudocomponent.binder.virtualNode.attributes.label,
             'fat string label setted via response meta',
           );
+          assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), true);
           done();
         });
 

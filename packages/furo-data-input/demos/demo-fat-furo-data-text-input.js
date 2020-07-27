@@ -86,7 +86,7 @@ class DemoFatFuroDataTextInput extends FBP(LitElement) {
             ></furo-data-text-input>
            
            
-      <furo-data-text-input autofocus leading-icon="mail"     
+            <furo-data-text-input autofocus leading-icon="mail"     
               ƒ-bind-data="--entity(*.data.fat_string)"
             ></furo-data-text-input>
                           
@@ -95,6 +95,14 @@ class DemoFatFuroDataTextInput extends FBP(LitElement) {
                 hint="also the hint"
               ƒ-bind-data="--entity(*.data.fat_string)"
             ></furo-data-text-input>
+            
+          <furo-data-number-input autofocus leading-icon="mail"     
+              ƒ-bind-data="--entity(*.data.fat_int32)"
+            ></furo-data-number-input>
+            
+         <furo-data-number-input autofocus leading-icon="mail"     
+              ƒ-bind-data="--entity(*.data.fat_int32)"
+            ></furo-data-number-input>
            </furo-form-layouter>
            
       
