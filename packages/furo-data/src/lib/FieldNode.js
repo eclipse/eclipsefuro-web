@@ -122,6 +122,7 @@ export class FieldNode extends EventTreeNode {
       this._validationDisabled = false;
     });
 
+    // will be broadcasted by dataObject
     this.addEventListener('new-data-injected', () => {
       this._pristine = true;
       this._validationDisabled = false;
