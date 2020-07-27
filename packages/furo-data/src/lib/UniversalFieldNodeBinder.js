@@ -372,23 +372,24 @@ export class UniversalFieldNodeBinder {
    * **Hint:** Do this after initializing the mappings.
    */
   checkLabelandAttributeOverrrides() {
-    const attributeMappingTargets = Object.values(this.attributeMappings);
+
     const attributeMappingKeys = Object.keys(this.attributeMappings);
 
-    const labelMappingTargets = Object.values(this.labelMappings);
     const labelMappingKeys = Object.keys(this.labelMappings);
 
     this.target.getAttributeNames().forEach(name => {
+
       // remove all override targets for attributes
-      attributeMappingTargets.forEach((attr, iA) => {
+      attributeMappingKeys.forEach((attr) => {
         if (attr === name) {
-          delete this.attributeMappings[attributeMappingKeys[iA]];
+          delete this.attributeMappings[attr];
         }
       });
+
       // remove all override targets for labels
-      labelMappingTargets.forEach((attr, iA) => {
+      labelMappingKeys.forEach((attr) => {
         if (attr === name) {
-          delete this.labelMappings[labelMappingKeys[iA]];
+          delete this.labelMappings[attr];
         }
       });
     });

@@ -373,7 +373,7 @@ describe('UniversalFieldNodeBinder.test', () => {
       assert.equal(pseudocomponent.minLength, 'small');
       pseudocomponent.binder.removeAttribute('value-state');
       pseudocomponent.binder.removeAttribute('label');
-      assert.equal(pseudocomponent.valueState, '');
+      assert.equal(pseudocomponent.valueState, null);
       assert.equal(pseudocomponent.label, undefined);
 
       done();

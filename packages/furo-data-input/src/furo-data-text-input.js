@@ -89,7 +89,7 @@ export class FuroDataTextInput extends FuroTextInput {
     };
 
     /**
-     * check overrides from the used component, setted attributes overrides all
+     * check overrides from the used component, attributes set on the component itself overrides all
      */
     this.binder.checkLabelandAttributeOverrrides();
 
