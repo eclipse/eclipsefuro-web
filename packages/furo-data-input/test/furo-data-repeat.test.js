@@ -85,7 +85,7 @@ describe('furo-data-repeat', () => {
             .querySelector('*')
             .shadowRoot.querySelector('slot')
             .assignedNodes()[0]
-            .querySelector('*').field._value,
+            .querySelector('*').binder.fieldNode._value,
           'AAA',
         );
         done();

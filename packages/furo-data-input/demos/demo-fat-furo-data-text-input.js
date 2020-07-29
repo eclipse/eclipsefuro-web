@@ -58,54 +58,54 @@ class DemoFatFuroDataTextInput extends FBP(LitElement) {
         </p>
         <furo-demo-snippet flex ƒ-xx="--response">
           <template>
-         
-         
+
+
              <furo-form-layouter two>
             <furo-data-text-input
-              trailing-icon="dashboard"            
-              required
+              trailing-icon="book"
               ƒ-bind-data="--entity(*.data.scalar_string)"
             ></furo-data-text-input>
-           
-               
+
+
             <furo-data-text-input
             label="label set on tag"
-              trailing-icon="dashboard"            
+              trailing-icon="dashboard"
               required
               ƒ-bind-data="--entity(*.data.scalar_string)"
             ></furo-data-text-input>
-           
+
               <furo-data-text-input
               ƒ-bind-data="--entity(*.data.wrapper_string)"
             ></furo-data-text-input>
-           
-               
+
+
             <furo-data-text-input
                 required
               ƒ-bind-data="--entity(*.data.wrapper_string)"
             ></furo-data-text-input>
-           
-           
-            <furo-data-text-input autofocus leading-icon="mail"     
+
+
+            <furo-data-text-input autofocus leading-icon="mail"
               ƒ-bind-data="--entity(*.data.fat_string)"
             ></furo-data-text-input>
-                          
-            <furo-data-text-input                                         
+
+            <furo-data-text-input
                 label="this overrides all"
                 hint="also the hint"
+                min="2"
               ƒ-bind-data="--entity(*.data.fat_string)"
             ></furo-data-text-input>
-            
-          <furo-data-number-input autofocus leading-icon="mail"     
+
+          <furo-data-number-input autofocus leading-icon="mail"
               ƒ-bind-data="--entity(*.data.fat_int32)"
             ></furo-data-number-input>
-            
-         <furo-data-number-input autofocus leading-icon="mail"     
+
+         <furo-data-number-input autofocus leading-icon="mail"
               ƒ-bind-data="--entity(*.data.fat_int32)"
             ></furo-data-number-input>
            </furo-form-layouter>
-           
-      
+
+
 
 <fetch-universal-json file="/mockdata/tests/universalfieldnodebinder/fat-universal.json" @-data-loaded="--mockdata"></fetch-universal-json>
 <fetch-universal-json file="/mockdata/tests/universalfieldnodebinder/fat-universal-demo.json" @-data-loaded="--mockdata"></fetch-universal-json>
@@ -113,13 +113,13 @@ class DemoFatFuroDataTextInput extends FBP(LitElement) {
 <fetch-universal-json file="/mockdata/tests/universalfieldnodebinder/fat-universal-with-meta.json" @-data-loaded="--mockdata"></fetch-universal-json>
 
 <fetch-universal-json @-data-loaded="--mockdata"></fetch-universal-json>
-            <furo-data-object           
+            <furo-data-object
               type="universaltest.UniversaltestEntity"
               @-object-ready="--entity"
               ƒ-inject-raw="--mockdata"
             ></furo-data-object>
-            
-           
+
+
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

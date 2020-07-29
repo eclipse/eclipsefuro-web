@@ -13,7 +13,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-textarea-input Input samples
  * @appliesMixin FBP
  */
-class FuroTextareaInput extends FBP(LitElement) {
+export class FuroTextareaInput extends FBP(LitElement) {
   constructor() {
     super();
     this.valid = true;
@@ -83,18 +83,21 @@ class FuroTextareaInput extends FBP(LitElement) {
       label: {
         type: String,
         attribute: true,
+        reflect: true,
       },
       /**
        * The maximum number of characters (as UTF-16 code units) the user can enter into the textarea input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the textarea input has no maximum length. This value must also be greater than or equal to the value of minlength.
        */
       max: {
         type: Number,
+        reflect: true,
       },
       /**
        * The minimum number of characters (as UTF-16 code units) the user can enter into the textarea input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the textarea input has no minimum length.
        */
       min: {
         type: Number,
+        reflect: true,
       },
       /**
        * The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.
@@ -103,12 +106,14 @@ class FuroTextareaInput extends FBP(LitElement) {
        */
       cols: {
         type: Number,
+        reflect: true,
       },
       /**
        * The number of visible text lines for the control.
        */
       rows: {
         type: Number,
+        reflect: true,
       },
       /**
        * Set this attribute to autofocus the input field.
@@ -141,18 +146,21 @@ class FuroTextareaInput extends FBP(LitElement) {
        */
       float: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * The hint text for the field.
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Text for errors
        */
       errortext: {
         type: String,
+        reflect: true,
       },
       /**
        * html input validity
@@ -166,6 +174,7 @@ class FuroTextareaInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.

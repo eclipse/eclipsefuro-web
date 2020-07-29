@@ -1,14 +1,16 @@
-import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme';
-import { FBP } from '@furo/fbp';
-import '@furo/input/src/furo-textarea-input';
-
-import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
-import { Helper } from './lib/helper.js';
+import { FuroTextareaInput } from '@furo/input/src/furo-textarea-input.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
+import { BindFatLabel } from './lib/BindFatLabel.js';
 
 /**
- * `furo-data-textarea-input`
- * Binds a entityObject field to a furo-textarea-input field
+ * `furo-data-textarea-input` is a extension of furo-textarea-input which enables you to
+ *  bind a entityObject field.
+ *
+ * The field can be of type string, google.protobuf.StringValue, furo.fat.String or any type with the signature
+ * of the google.protobuf.StringValue (string must be in field `value`). It is also possible to bind numeric values, but the
+ * values will be handled as string.
+ *
+ * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
  *
  * <sample-furo-data-textarea-input></sample-furo-data-textarea-input>
  *
@@ -18,14 +20,32 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-data-textarea-input Data binding
  * @mixes FBP
  */
-class FuroDataTextareaInput extends FBP(LitElement) {
+export class FuroDataTextareaInput extends FuroTextareaInput {
   /**
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
-   * detail payload: {String} the text value
+   * detail payload: {String} the textarea value
    *
-   * Comes from underlying component furo-textarea-input. **bubbles**
+   * Comes from underlying component furo-text-input. **bubbles**
+   */
+
+  /**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the textarea input
+   *
+   * Comes from underlying component furo-text-input. **bubbles**
+   */
+
+  /**
+   * @event leading-icon-clicked
+   * Fired when the leading icon was clicked
+   *
+   * detail payload: the value of the textarea input
+   *
+   * Comes from underlying component furo-text-input. **bubbles**
    */
 
   constructor() {
@@ -33,205 +53,73 @@ class FuroDataTextareaInput extends FBP(LitElement) {
     this.error = false;
     this.disabled = false;
 
-    this._FBPAddWireHook('--valueChanged', val => {
-      if (this.field) {
-        this.field._value = val;
-      }
-    });
+    this._initBinder();
   }
 
   /**
-   * flow is ready lifecycle method
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
    */
-  _FBPReady() {
-    super._FBPReady();
-    // this._FBPTraceWires();
-    // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-  }
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
 
-  /**
-   * Updater for the cols attr
-   * @param value
-   */
-  set _cols(value) {
-    Helper.UpdateInputAttribute(this, 'cols', value);
-  }
 
-  /**
-   * Updater for the rows attr*
-   * @param value
-   */
-  set _rows(value) {
-    Helper.UpdateInputAttribute(this, 'rows', value);
-  }
-
-  /**
-   * Updater for the label attr
-   * @param value
-   */
-  set _label(value) {
-    Helper.UpdateInputAttribute(this, 'label', value);
-  }
-
-  /**
-   * Updater for the hint attr
-   * @param value
-   */
-  set _hint(value) {
-    Helper.UpdateInputAttribute(this, 'hint', value);
-  }
-
-  /**
-   * Updater for the errortext attr
-   * @param value
-   */
-  set errortext(value) {
-    Helper.UpdateInputAttribute(this, 'errortext', value);
-  }
-
-  /**
-   * todo , add more attributes like  spellcheck..
-   * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
-   */
-  static get properties() {
-    return {
-      /**
-       * Overrides the label text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      label: {
-        type: String,
-      },
-      /**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      required: {
-        type: Boolean,
-      },
-      /**
-       * Overrides the hint text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      hint: {
-        type: String,
-      },
-      /**
-       * Overrides the readonly value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      readonly: {
-        type: Boolean,
-      },
-      /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-
-      /**
-       * Set this attribute to autofocus the input field.
-       */
-      autofocus: {
-        type: Boolean,
-      },
-      /**
-       * html input validity
-       */
-      valid: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */
-      condensed: {
-        type: Boolean,
-      },
-      /**
-       * passes always float the label
-       */
-      float: {
-        type: Boolean,
-      },
-      /**
-       * The number of visible text lines for the control.
-       */
-      rows: {
-        type: Number,
-      },
-      /**
-       * The visible width of the text control
-       */
-      cols: {
-        type: Number,
-      },
+    // set the attribute mappings
+    this.binder.attributeMappings = {
+      'label': 'label',
+      'hint': 'hint',
+      'errortext': 'errortext',
+      'error-msg': 'errortext',
+      'min': 'min',
+      'max': 'max',
+      'rows': 'rows',
+      'cols': 'cols',
     };
+
+    // set the label mappings
+    this.binder.labelMappings = {
+      'error': 'error',
+      'readonly': 'readonly',
+      'required': 'required',
+      'disabled': 'disabled',
+      'condensed': 'condensed',
+    };
+
+    /**
+     * check overrides from the used component, attributes set on the component itself overrides all
+     */
+    this.binder.checkLabelandAttributeOverrrides();
+
+    // the extended furo-text-input component uses _value
+    this.binder.targetValueField = '_value';
+
+    // update the value on input changes
+    this.addEventListener('value-changed', val => {
+      // update the value
+      this.binder.fieldValue = val.detail;
+    });
+    // set flag empty on empty strings (for fat types)
+    BindFatLabel.addEmpty(this);
   }
 
   /**
-   * Bind a entity field to the textarea-input. You can use the entity even when no data was received.
+   * Sets the value for the field. This will update the fieldNode.
+   * @param val
+   */
+  setValue(val) {
+    this.binder.fieldValue = val;
+  }
+
+  /**
+   * Bind a entity field to the text-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-    Helper.BindData(this, fieldNode);
-  }
-
-  _updateField() {
-    this.disabled = !!this.field._meta.readonly;
-
-    this._FBPTriggerWire('--value', this.field._value);
-    this.requestUpdate();
-  }
-
-  /**
-   *
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('FuroDataTextareaInput') ||
-      css`
-        :host {
-          display: inline-block;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-
-        furo-textarea-input {
-          width: 100%;
-        }
-      `
-    );
-  }
-
-  render() {
-    // language=HTML
-    return html`
-      <furo-textarea-input
-        id="input"
-        ?autofocus=${this.autofocus}
-        ?disabled=${this._readonly || this.disabled}
-        ?error="${this.error}"
-        ?float="${this.float}"
-        ?condensed="${this.condensed}"
-        ?required=${this._required}
-        @-value-changed="--valueChanged"
-        ƒ-set-value="--value"
-      ></furo-textarea-input>
-    `;
+    this.binder.bindField(fieldNode);
+    // set flag pristine (for fat types)
+    BindFatLabel.addPristine(this);
   }
 }
 

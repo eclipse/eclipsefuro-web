@@ -10,6 +10,8 @@ import './helper/produce-qp-data.js';
 import '@furo/data/src/furo-data-object.js';
 import '@furo/data/src/furo-deep-link';
 import '@furo/data/src/furo-entity-agent';
+import './helper/simulate-error.js';
+import './helper/fetch-universal-json.js';
 
 /**
  * `demo-furo-data-textarea-input`
@@ -37,6 +39,10 @@ class DemoFuroDataTextareaInput extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
+
+        furo-demo-snippet {
+          height: 100%;
+        }
       `
     );
   }
@@ -48,9 +54,11 @@ class DemoFuroDataTextareaInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
+      <furo-vertical-flex>
+
       <h2>Demo furo-data-textarea-input</h2>
       <p>
-        Bind the field from furo-data-object with
+        Bind the field from furo-data-object with scalar binding
         <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>. The labels, hints,
         defaults are comming from the furo-data-object specs.
       </p>
@@ -86,8 +94,36 @@ class DemoFuroDataTextareaInput extends FBP(LitElement) {
             @-response="--response"
           >
           </furo-entity-agent>
+
+          <p>
+            furo-data-textarea-input with google wrapper and fat bindings.
+          </p>
+          <furo-form-layouter two>
+          <furo-data-textarea-input autofocus
+                                  ƒ-bind-data="--entityU(*.data.fat_string)"
+          ></furo-data-textarea-input>
+            <furo-data-textarea-input autofocus rows="6" condensed
+                                      ƒ-bind-data="--entityU(*.data.fat_string)"
+            ></furo-data-textarea-input>
+            </furo-form-layouter >
+          <fetch-universal-json file="/mockdata/tests/universalfieldnodebinder/fat-universal.json" @-data-loaded="--mockdata"></fetch-universal-json>
+          <fetch-universal-json file="/mockdata/tests/universalfieldnodebinder/fat-universal-demo.json" @-data-loaded="--mockdata"></fetch-universal-json>
+          <fetch-universal-json file="/mockdata/tests/universalfieldnodebinder/fat-universal-unset-label.json" @-data-loaded="--mockdata"></fetch-universal-json>
+          <fetch-universal-json file="/mockdata/tests/universalfieldnodebinder/fat-universal-with-meta.json" @-data-loaded="--mockdata"></fetch-universal-json>
+
+          <fetch-universal-json @-data-loaded="--mockdata"></fetch-universal-json>
+          <furo-data-object
+            type="universaltest.UniversaltestEntity"
+            @-object-ready="--entityU"
+            ƒ-inject-raw="--mockdata"
+          ></furo-data-object>
+          <p>
+            furo-data-text-input with skalar, google wrapper and fat bindings.
+          </p>
         </template>
       </furo-demo-snippet>
+        </furo-vertical-flex>
+
     `;
   }
 }
