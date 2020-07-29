@@ -1,6 +1,5 @@
 import { FuroTextareaInput } from '@furo/input/src/furo-textarea-input.js';
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
-import { BindFatLabel } from './lib/BindFatLabel.js';
 
 /**
  * `furo-data-textarea-input` is a extension of furo-textarea-input which enables you to
@@ -86,6 +85,19 @@ export class FuroDataTextareaInput extends FuroTextareaInput {
       'condensed': 'condensed',
     };
 
+    this.binder.fatAttributesToConstraintsMappings = {
+      'max': 'value._constraints.max.is',// for the fieldnode constraint
+      'min': 'value._constraints.min.is',// for the fieldnode constraint
+      'min-msg': 'value._constraints.min.message',// for the fieldnode constraint message
+      'max-msg': 'value._constraints.max.message',// for the fieldnode constraint message
+    };
+
+    this.binder.constraintsTofatAttributesMappings = {
+      "min":"min",
+      "max":"max",
+      "required":"required"
+    };
+
     /**
      * check overrides from the used component, attributes set on the component itself overrides all
      */
@@ -96,11 +108,18 @@ export class FuroDataTextareaInput extends FuroTextareaInput {
 
     // update the value on input changes
     this.addEventListener('value-changed', val => {
+      // set flag empty on empty strings (for fat types)
+      if (val.detail) {
+        this.binder.deleteLabel('empty');
+      } else {
+        this.binder.addLabel('empty');
+      }
+      // if something was entered the field is not empty
+      this.binder.deleteLabel('pristine');
+
       // update the value
       this.binder.fieldValue = val.detail;
     });
-    // set flag empty on empty strings (for fat types)
-    BindFatLabel.addEmpty(this);
   }
 
   /**
@@ -118,9 +137,137 @@ export class FuroDataTextareaInput extends FuroTextareaInput {
    */
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
-    // set flag pristine (for fat types)
-    BindFatLabel.addPristine(this);
+    if (this.binder.fieldNode) {
+      /**
+       * handle pristine
+       *
+       * Set to pristine label to the same _pristine from the fieldNode
+       */
+      if (this.binder.fieldNode._pristine) {
+        this.binder.addLabel('pristine');
+      } else {
+        this.binder.deleteLabel('pristine');
+      }
+      // set pristine on new data
+      this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this.binder.addLabel('pristine');
+      });
+    }
   }
+
+  // because we defined the property max, the setter from the parent needs to be updated
+  set max(val){
+    super.max = val;
+  }
+
+  // because we defined the property min, the setter from the parent needs to be updated
+  set min(val){
+    super.min = val;
+  }
+
+  // because we defined the property cols, the setter from the parent needs to be updated
+  set cols(val){
+    super.cols = val;
+  }
+
+  // because we defined the property rows, the setter from the parent needs to be updated
+  set rows(val){
+    super.rows = val;
+  }
+
+  /**
+   * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
+   */
+  static get properties() {
+    return {
+      /**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      label: {
+        type: String,
+        reflect: true,
+      },
+      /**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      required: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      hint: {
+        type: String,
+        reflect: true,
+      },
+      /**
+       * Overrides the readonly value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      readonly: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean,
+        reflect: true,
+      },
+
+      /**
+       * Set this attribute to autofocus the input field.
+       */
+      autofocus: {
+        type: Boolean,
+      },
+      /**
+       * html input validity
+       */
+      valid: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */
+      condensed: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * passes always float the label
+       */
+      float: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * The number of visible text lines for the control.
+       */
+      rows: {
+        type: Number,
+        reflect: true,
+      },
+      /**
+       * The visible width of the text control
+       */
+      cols: {
+        type: Number,
+        reflect: true,
+      },
+    };
+  }
+
 }
 
 customElements.define('furo-data-textarea-input', FuroDataTextareaInput);

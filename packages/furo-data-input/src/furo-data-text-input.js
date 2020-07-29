@@ -1,7 +1,5 @@
 import { FuroTextInput } from '@furo/input/src/furo-text-input.js';
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
-import { BindFatLabel } from './lib/BindFatLabel.js';
-
 
 /**
  * `furo-data-text-input` is a extension of furo-text-input which enables you to
@@ -101,6 +99,7 @@ export class FuroDataTextInput extends FuroTextInput {
       "max":"max",
       "required":"required"
     };
+
     /**
      * check overrides from the used component, attributes set on the component itself overrides all
      */
@@ -111,11 +110,19 @@ export class FuroDataTextInput extends FuroTextInput {
 
     // update the value on input changes
     this.addEventListener('value-changed', val => {
+      // set flag empty on empty strings (for fat types)
+      if (val.detail) {
+        this.binder.deleteLabel('empty');
+      } else {
+        this.binder.addLabel('empty');
+      }
+      // if something was entered the field is not empty
+      this.binder.deleteLabel('pristine');
+
       // update the value
       this.binder.fieldValue = val.detail;
     });
     // set flag empty on empty strings (for fat types)
-    BindFatLabel.addEmpty(this);
   }
 
   /**
@@ -133,11 +140,38 @@ export class FuroDataTextInput extends FuroTextInput {
    */
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
-    // set flag pristine (for fat types)
-    BindFatLabel.addPristine(this);
+    if (this.binder.fieldNode) {
+      /**
+       * handle pristine
+       *
+       * Set to pristine label to the same _pristine from the fieldNode
+       */
+      if (this.binder.fieldNode._pristine) {
+        this.binder.addLabel('pristine');
+      } else {
+        this.binder.deleteLabel('pristine');
+      }
+      // set pristine on new data
+      this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this.binder.addLabel('pristine');
+      });
+    }
   }
 
+  // because we defined the property max, the setter from the parent needs to be updated
+  set max(val){
+    super.max = val;
+  }
 
+  // because we defined the property min, the setter from the parent needs to be updated
+  set min(val){
+    super.min = val;
+  }
+
+  // because we defined the property pattern, the setter from the parent needs to be updated
+  set pattern(val){
+    super.pattern = val;
+  }
 
   static get properties() {
     return {
@@ -261,24 +295,6 @@ export class FuroDataTextInput extends FuroTextInput {
       },
     };
   }
-
-  // because we defined the property max, the setter from the parent needs to be updated
-  set max(val){
-    super.max = val;
-  }
-
-
-  // because we defined the property min, the setter from the parent needs to be updated
-  set min(val){
-    super.min = val;
-  }
-
-  // because we defined the property pattern, the setter from the parent needs to be updated
-  set pattern(val){
-    super.pattern = val;
-  }
-
-
 }
 
 customElements.define('furo-data-text-input', FuroDataTextInput);
