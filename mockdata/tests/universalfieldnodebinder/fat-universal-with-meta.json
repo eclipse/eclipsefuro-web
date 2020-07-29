@@ -7,10 +7,10 @@
     },
     "fat_string": {
       "value": "this is a furo fat string",
-      "labels": ["disabled"],
+      "labels": ["condensed"],
       "attributes": {
         "value-state": "Error",
-        "maxlength": "6",
+        "banane": "6",
         "emotion": "friendly"
       }
     },
@@ -32,7 +32,10 @@
       "data.scalar_string": {
         "meta": {
           "label": "scalar string label setted via response meta",
-          "readonly": true
+          "readonly": false
+        },
+        "constraints": {
+          "max": {"is": "4","message": "MAX 4"}
         }
       },
       "data.wrapper_string": {
@@ -44,9 +47,13 @@
       "data.fat_string": {
         "meta": {
           "label": "fat string label setted via response meta",
-          "readonly": true,
+
           "default": "new",
-          "hint": "hint"
+          "hint": "hint",
+          "readonly": false
+        },
+        "constraints": {
+          "value.max": {"is": "4","message": "MAX 4"}
         }
       },
       "data.scalar_int32": {

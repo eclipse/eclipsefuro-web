@@ -84,6 +84,8 @@ export class UniversalFieldNodeBinder {
      * @type {{}}
      */
     this.fatAttributesToConstraintsMappings = {};
+
+    this.constraintsTofatAttributesMappings = {};
     return this;
   }
 
@@ -107,16 +109,18 @@ export class UniversalFieldNodeBinder {
     this.virtualNode = {
       value: this.fieldValue,
       attributes: {},
-      labels: new Set(),
-      constraints: {},
+      labels: new Set()
     };
 
     // update virtualNode from meta
     this._updateVirtualNodeFromMeta(field._meta);
+    this._updateVirtualNodeFromMetaConstraints(field._constraints);
+
     this._updateVirtualNode(field);
 
     field.addEventListener('this-metas-changed', () => {
       this._updateVirtualNodeFromMeta(field._meta);
+      this._updateVirtualNodeFromMetaConstraints(field._constraints);
     });
 
     field.addEventListener('field-value-changed', () => {
@@ -458,5 +462,16 @@ export class UniversalFieldNodeBinder {
       }
       this._metastore.hint = fieldmeta.hint;
     }
+  }
+
+  _updateVirtualNodeFromMetaConstraints(constraints) {
+    // map the constraints to the fat attributes
+    Object.keys(constraints).forEach((constraint)=>{
+
+      if(constraint in this.constraintsTofatAttributesMappings){
+        this.setAttribute(this.constraintsTofatAttributesMappings[constraint], constraints[constraint].is);
+      }
+
+    });
   }
 }
