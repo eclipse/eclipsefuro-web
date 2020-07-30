@@ -35,7 +35,7 @@
           "readonly": false
         },
         "constraints": {
-          "max": {"is": "4","message": "MAX 4"}
+          "max": {"is": "7","message": "MAX 7"}
         }
       },
       "data.wrapper_string": {

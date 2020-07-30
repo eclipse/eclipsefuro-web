@@ -109,7 +109,7 @@ export class UniversalFieldNodeBinder {
     this.virtualNode = {
       value: this.fieldValue,
       attributes: {},
-      labels: new Set()
+      labels: new Set(),
     };
 
     // update virtualNode from meta
@@ -304,9 +304,11 @@ export class UniversalFieldNodeBinder {
         this.target[this.attributeMappings[name]] = value;
       }
 
-      // update the field constraints based on fat attributes
-      if (name in this.fatAttributesToConstraintsMappings) {
-        this._pathSet(this.fatAttributesToConstraintsMappings[name], value);
+      // update the field constraints based on fat attributes only if not scalar
+      if (this.fieldFormat !== 'scalar') {
+        if (name in this.fatAttributesToConstraintsMappings) {
+          this._pathSet(this.fatAttributesToConstraintsMappings[name], value);
+        }
       }
     }
   }
@@ -466,9 +468,9 @@ export class UniversalFieldNodeBinder {
 
   _updateVirtualNodeFromMetaConstraints(constraints) {
     // map the constraints to the fat attributes
-    Object.keys(constraints).forEach((constraint)=>{
+    Object.keys(constraints).forEach((constraint) => {
 
-      if(constraint in this.constraintsTofatAttributesMappings){
+      if (constraint in this.constraintsTofatAttributesMappings) {
         this.setAttribute(this.constraintsTofatAttributesMappings[constraint], constraints[constraint].is);
       }
 

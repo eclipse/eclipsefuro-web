@@ -138,7 +138,6 @@ export class FuroTextInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-        attribute: true,
         reflect: true,
       },
       /**
