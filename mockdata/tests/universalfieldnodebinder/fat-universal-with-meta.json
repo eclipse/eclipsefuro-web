@@ -50,7 +50,7 @@
 
           "default": "new",
           "hint": "hint",
-          "readonly": false
+          "readonly": true
         },
         "constraints": {
           "value.max": {"is": "4","message": "MAX 4"}

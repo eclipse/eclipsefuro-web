@@ -7,11 +7,12 @@
     },
     "fat_string": {
       "value": "this is a furo fat string",
-      "labels": ["before","required"],
+      "labels": ["before"],
       "attributes": {
         "value-state": "Error",
         "min": "6",
         "max": "16",
+        "maxlength": "6",
         "label": "override",
         "placeholder": "overridePH"
 
