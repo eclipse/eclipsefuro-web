@@ -63,39 +63,38 @@ export class FuroDataTextareaInput extends FuroTextareaInput {
   _initBinder() {
     this.binder = new UniversalFieldNodeBinder(this);
 
-
     // set the attribute mappings
     this.binder.attributeMappings = {
-      'label': 'label',
-      'hint': 'hint',
-      'errortext': 'errortext',
+      label: 'label',
+      hint: 'hint',
+      errortext: 'errortext',
       'error-msg': 'errortext',
-      'min': 'min',
-      'max': 'max',
-      'rows': 'rows',
-      'cols': 'cols',
+      min: 'min',
+      max: 'max',
+      rows: 'rows',
+      cols: 'cols',
     };
 
     // set the label mappings
     this.binder.labelMappings = {
-      'error': 'error',
-      'readonly': 'readonly',
-      'required': 'required',
-      'disabled': 'disabled',
-      'condensed': 'condensed',
+      error: 'error',
+      readonly: 'readonly',
+      required: 'required',
+      disabled: 'disabled',
+      condensed: 'condensed',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
-      'max': 'value._constraints.max.is',// for the fieldnode constraint
-      'min': 'value._constraints.min.is',// for the fieldnode constraint
-      'min-msg': 'value._constraints.min.message',// for the fieldnode constraint message
-      'max-msg': 'value._constraints.max.message',// for the fieldnode constraint message
+      max: 'value._constraints.max.is', // for the fieldnode constraint
+      min: 'value._constraints.min.is', // for the fieldnode constraint
+      'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
+      'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
     };
 
     this.binder.constraintsTofatAttributesMappings = {
-      "min":"min",
-      "max":"max",
-      "required":"required"
+      min: 'min',
+      max: 'max',
+      required: 'required',
     };
 
     /**
@@ -156,22 +155,22 @@ export class FuroDataTextareaInput extends FuroTextareaInput {
   }
 
   // because we defined the property max, the setter from the parent needs to be updated
-  set max(val){
+  set max(val) {
     super.max = val;
   }
 
   // because we defined the property min, the setter from the parent needs to be updated
-  set min(val){
+  set min(val) {
     super.min = val;
   }
 
   // because we defined the property cols, the setter from the parent needs to be updated
-  set cols(val){
+  set cols(val) {
     super.cols = val;
   }
 
   // because we defined the property rows, the setter from the parent needs to be updated
-  set rows(val){
+  set rows(val) {
     super.rows = val;
   }
 
@@ -267,7 +266,6 @@ export class FuroDataTextareaInput extends FuroTextareaInput {
       },
     };
   }
-
 }
 
 customElements.define('furo-data-textarea-input', FuroDataTextareaInput);

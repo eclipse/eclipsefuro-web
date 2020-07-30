@@ -36,6 +36,10 @@ class DemoFuroDataTimeInput extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
+
+        furo-demo-snippet {
+          height: 100%;
+        }
       `
     );
   }
@@ -107,6 +111,44 @@ class DemoFuroDataTimeInput extends FBP(LitElement) {
               @-response="--response"
             >
             </furo-entity-agent>
+            <p>
+              furo-data-textarea-input with google wrapper or fat bindings.
+            </p>
+            <furo-form-layouter two>
+              <furo-data-time-input
+                autofocus
+                ƒ-bind-data="--entityU(*.data.fat_string)"
+              ></furo-data-time-input>
+              <furo-data-time-input
+                autofocus
+                rows="6"
+                condensed
+                ƒ-bind-data="--entityU(*.data.fat_string)"
+              ></furo-data-time-input>
+            </furo-form-layouter>
+            <fetch-universal-json
+              file="/mockdata/tests/universalfieldnodebinder/fat-universal.json"
+              @-data-loaded="--mockdata"
+            ></fetch-universal-json>
+            <fetch-universal-json
+              file="/mockdata/tests/universalfieldnodebinder/fat-universal-demo.json"
+              @-data-loaded="--mockdata"
+            ></fetch-universal-json>
+            <fetch-universal-json
+              file="/mockdata/tests/universalfieldnodebinder/fat-universal-unset-label.json"
+              @-data-loaded="--mockdata"
+            ></fetch-universal-json>
+            <fetch-universal-json
+              file="/mockdata/tests/universalfieldnodebinder/fat-universal-with-meta.json"
+              @-data-loaded="--mockdata"
+            ></fetch-universal-json>
+
+            <fetch-universal-json @-data-loaded="--mockdata"></fetch-universal-json>
+            <furo-data-object
+              type="universaltest.UniversaltestEntity"
+              @-object-ready="--entityU"
+              ƒ-inject-raw="--mockdata"
+            ></furo-data-object>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

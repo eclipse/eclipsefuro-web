@@ -12,6 +12,7 @@ describe('furo-data-search-input', () => {
   let dataObject;
   let secondSearchInput;
   let invalidSearchInput;
+  let deepLink;
 
   beforeEach(async () => {
     const testbind = await fixture(html`
@@ -27,6 +28,7 @@ describe('furo-data-search-input', () => {
           ></furo-data-search-input>
 
           <furo-data-search-input ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-search-input>
+          <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
         </template>
       </test-bind>
     `);
@@ -38,12 +40,14 @@ describe('furo-data-search-input', () => {
       dataSearchInput,
       secondSearchInput,
       invalidSearchInput,
+      deepLink,
     ] = testbind.parentNode.children;
     await host.updateComplete;
     await dataSearchInput.updateComplete;
     await secondSearchInput.updateComplete;
     await invalidSearchInput.updateComplete;
     await dataObject.updateComplete;
+    await deepLink.updateComplete;
   });
 
   it('should be a furo-data-search-input', done => {
@@ -63,33 +67,41 @@ describe('furo-data-search-input', () => {
       // invalid binding
       assert.equal(invalidSearchInput.field, undefined);
       // valid binding
-      assert.equal(secondSearchInput.field._isValid, true);
+      assert.equal(secondSearchInput.binder.fieldNode._isValid, true);
       done();
     }, 10);
   });
 
   it('should override hints ', done => {
     setTimeout(() => {
-      assert.equal(secondSearchInput._theInputElement.getAttribute('hint'), 'FromTPL');
+      assert.equal(secondSearchInput.getAttribute('hint'), 'FromTPL');
       done();
     }, 10);
   });
   it('should override labels ', done => {
     setTimeout(() => {
-      assert.equal(secondSearchInput._theInputElement.getAttribute('label'), 'FromTPL');
+      assert.equal(secondSearchInput.getAttribute('label'), 'FromTPL');
       done();
     }, 10);
   });
+
   it('should receive value with bind', done => {
-    dataSearchInput._FBPAddWireHook('--value', val => {
-      assert.equal(val, 'YES');
-      done();
-    });
-    dataObject.data.name._value = 'YES';
+    dataObject.addEventListener(
+      'object-ready',
+      () => {
+        dataSearchInput._FBPAddWireHook('--value', val => {
+          assert.equal(val, 'YES');
+          done();
+        });
+        dataObject.data.name._value = 'YES';
+      },
+      { once: true },
+    );
   });
+
   it('should bind the field description', done => {
     setTimeout(() => {
-      assert.equal(dataSearchInput._theInputElement.getAttribute('label'), 'Name**');
+      assert.equal(dataSearchInput.getAttribute('label'), 'Name**');
       done();
     }, 10);
   });
@@ -97,12 +109,19 @@ describe('furo-data-search-input', () => {
   it('should update the entity when values changed', done => {
     // ignore the init values
     setTimeout(() => {
-      secondSearchInput._FBPAddWireHook('--value', val => {
-        assert.equal(val, 'newSearch');
+      secondSearchInput.binder.fieldNode.addEventListener('field-value-changed', val => {
+        assert.equal(val.detail, 'newText');
         done();
       });
 
-      dataSearchInput._FBPTriggerWire('--valueChanged', 'newSearch');
+      /**
+       * @event value-changed
+       * Fired when
+       * detail payload:
+       */
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = 'newText';
+      secondSearchInput.dispatchEvent(customEvent);
     }, 10);
   });
 
@@ -114,17 +133,14 @@ describe('furo-data-search-input', () => {
   it('should listen field-became-invalid event add set error', done => {
     setTimeout(() => {
       const err = { description: 'minimal 3 charaters', constraint: 'min' };
-      dataSearchInput.field.addEventListener('field-became-invalid', () => {
+      dataSearchInput.binder.fieldNode.addEventListener('field-became-invalid', () => {
         setTimeout(() => {
           assert.equal(dataSearchInput.error, true);
-          assert.equal(
-            dataSearchInput._theInputElement.getAttribute('errortext'),
-            'minimal 3 charaters',
-          );
+          assert.equal(dataSearchInput.errortext, 'minimal 3 charaters');
           done();
         }, 10);
       });
-      dataSearchInput.field._setInvalid(err);
+      dataSearchInput.binder.fieldNode._setInvalid(err);
     }, 10);
   });
 });

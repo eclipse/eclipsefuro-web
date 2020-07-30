@@ -12,8 +12,6 @@ import { FBP } from '@furo/fbp';
  * @appliesMixin FBP
  */
 class FetchUniversalJson extends FBP(LitElement) {
-
-
   /**
    * flow is ready lifecycle method
    */
@@ -21,8 +19,7 @@ class FetchUniversalJson extends FBP(LitElement) {
     super._FBPReady();
     // this._FBPTraceWires()
 
-
-    if(!this.file){
+    if (!this.file) {
       fetch('/mockdata/tests/universalfieldnodebinder/fat-universal.json')
         .then(res => res.json())
         .then(response => {
@@ -35,7 +32,6 @@ class FetchUniversalJson extends FBP(LitElement) {
           customEvent.detail = response;
           this.dispatchEvent(customEvent);
         });
-
     }
 
     this.addEventListener('click', () => {
@@ -51,7 +47,6 @@ class FetchUniversalJson extends FBP(LitElement) {
           customEvent.detail = response;
           this.dispatchEvent(customEvent);
         });
-
     });
   }
 
@@ -60,7 +55,7 @@ class FetchUniversalJson extends FBP(LitElement) {
       /**
        * file to load
        */
-      file: { type: String},
+      file: { type: String },
     };
   }
 
@@ -71,17 +66,19 @@ class FetchUniversalJson extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FetchUniversalJson') || css`
-      :host {
-        display: block;
-      }
+    return (
+      Theme.getThemeForComponent('FetchUniversalJson') ||
+      css`
+        :host {
+          display: block;
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
-    `;
+        :host([hidden]) {
+          display: none;
+        }
+      `
+    );
   }
-
 
   /**
    * @private

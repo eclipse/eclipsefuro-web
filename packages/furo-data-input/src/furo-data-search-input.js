@@ -1,13 +1,14 @@
-import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme';
-import { FBP } from '@furo/fbp';
-import '@furo/input/src/furo-search-input';
-import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
-import { Helper } from './lib/helper.js';
+import { FuroSearchInput } from '@furo/input/src/furo-search-input.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
- * `furo-data-search-input`
- * Binds a entityObject field to a furo-search-input field
+ * `furo-data-search-input` is a extension of furo-number-input which enables you to
+ *  bind a entityObject field.
+ *
+ * The field can be of type string, google.protobuf.StringValue, furo.fat.String or any type with the signature
+ * of the google.protobuf.StringValue (string must be in field `value`).
+ *
+ * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
  *
  * <sample-furo-data-search-input></sample-furo-data-search-input>
  *
@@ -17,108 +18,165 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-data-search-input Data binding
  * @mixes FBP
  */
-class FuroDataSearchInput extends FBP(LitElement) {
+export class FuroDataSearchInput extends FuroSearchInput {
   /**
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
-   * detail payload: {String} the text value
+   * detail payload: {String} the number value
    *
-   * Comes from underlying component furo-search-input. **bubbles**
+   * Comes from underlying component furo-number-input. **bubbles**
+   */
+
+  /**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the search input
+   *
+   * Comes from underlying component furo-number-input. **bubbles**
+   */
+
+  /**
+   * @event leading-icon-clicked
+   * Fired when the leading icon was clicked
+   *
+   * detail payload: the value of the value input
+   *
+   * Comes from underlying component furo-number-input. **bubbles**
    */
 
   constructor() {
     super();
     this.error = false;
     this.disabled = false;
-    this.errortext = '';
-    this.hint = '';
 
-    this._FBPAddWireHook('--valueChanged', val => {
-      if (this.field) {
-        this.field._value = val;
+    this._initBinder();
+  }
+
+  /**
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
+   */
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    // set the attribute mappings
+    this.binder.attributeMappings = {
+      label: 'label',
+      hint: 'hint',
+      'leading-icon': 'leadingIcon',
+      'trailing-icon': 'trailingIcon',
+      errortext: 'errortext',
+      'error-msg': 'errortext',
+      pattern: 'pattern',
+      min: 'min',
+      max: 'max',
+    };
+
+    // set the label mappings
+    this.binder.labelMappings = {
+      error: 'error',
+      readonly: 'readonly',
+      required: 'required',
+      disabled: 'disabled',
+      condensed: 'condensed',
+    };
+
+    this.binder.fatAttributesToConstraintsMappings = {
+      max: 'value._constraints.max.is', // for the fieldnode constraint
+      min: 'value._constraints.min.is', // for the fieldnode constraint
+      pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
+      'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
+      'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
+    };
+
+    this.binder.constraintsTofatAttributesMappings = {
+      min: 'min',
+      max: 'max',
+      pattern: 'pattern',
+      required: 'required',
+    };
+
+    /**
+     * check overrides from the used component, attributes set on the component itself overrides all
+     */
+    this.binder.checkLabelandAttributeOverrrides();
+
+    // the extended furo-number-input component uses _value
+    this.binder.targetValueField = '_value';
+
+    // update the value on input changes
+    this.addEventListener('value-changed', val => {
+      // set flag empty on empty strings (for fat types)
+      if (val.detail) {
+        this.binder.deleteLabel('empty');
+      } else {
+        this.binder.addLabel('empty');
       }
+      // if something was entered the field is not empty
+      this.binder.deleteLabel('pristine');
+
+      // update the value
+      this.binder.fieldValue = val.detail;
     });
   }
 
   /**
-   * flow is ready lifecycle method
+   * Sets the value for the field. This will update the fieldNode.
+   * @param val
    */
-  _FBPReady() {
-    super._FBPReady();
-    // this._FBPTraceWires();
-    // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  setValue(val) {
+    this.binder.fieldValue = val;
   }
 
   /**
-   * Updater for the label attr
-   * @param value
+   * Bind a entity field to the number-input. You can use the entity even when no data was received.
+   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+   * @param {Object|FieldNode} fieldNode a Field object
    */
-  set _label(value) {
-    Helper.UpdateInputAttribute(this, 'label', value);
+  bindData(fieldNode) {
+    this.binder.bindField(fieldNode);
+    if (this.binder.fieldNode) {
+      /**
+       * handle pristine
+       *
+       * Set to pristine label to the same _pristine from the fieldNode
+       */
+      if (this.binder.fieldNode._pristine) {
+        this.binder.addLabel('pristine');
+      } else {
+        this.binder.deleteLabel('pristine');
+      }
+      // set pristine on new data
+      this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this.binder.addLabel('pristine');
+      });
+    }
   }
 
-  /**
-   * Updater for the hint attr
-   * @param value
-   */
-  set _hint(value) {
-    Helper.UpdateInputAttribute(this, 'hint', value);
+  // because we defined the property max, the setter from the parent needs to be updated
+  set max(val) {
+    super.max = val;
   }
 
-  /**
-   * Updater for the leadingIcon attr
-   * @param value
-   */
-  set leadingIcon(value) {
-    Helper.UpdateInputAttribute(this, 'leading-icon', value);
+  // because we defined the property min, the setter from the parent needs to be updated
+  set min(val) {
+    super.min = val;
   }
 
-  /**
-   * Updater for the trailingIcon attr
-   * @param value
-   */
-  set trailingIcon(value) {
-    Helper.UpdateInputAttribute(this, 'trailing-icon', value);
-  }
-
-  /**
-   * Updater for the errortext attr
-   * @param value
-   */
-  set errortext(value) {
-    Helper.UpdateInputAttribute(this, 'errortext', value);
-  }
-
-  /**
-   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
-   * becaue it set "undefined" (as a Sting!)
-   *
-   * @param value
-   */
-  set _pattern(value) {
-    Helper.UpdateInputAttribute(this, 'pattern', value);
-  }
-
-  /**
-   * Updater for the min => minlength attr*
-   * @param value
-   */
-  set _min(value) {
-    Helper.UpdateInputAttribute(this, 'min', value);
-  }
-
-  /**
-   * Updater for the max attr*
-   * @param value
-   */
-  set _max(value) {
-    Helper.UpdateInputAttribute(this, 'max', value);
+  // because we defined the property pattern, the setter from the parent needs to be updated
+  set pattern(val) {
+    super.pattern = val;
   }
 
   static get properties() {
     return {
+      /**
+       * set this to true to indicate errors
+       */
+      error: { type: Boolean, reflect: true },
       /**
        * Overrides the label text from the **specs**.
        *
@@ -126,14 +184,7 @@ class FuroDataSearchInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-      },
-      /**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      required: {
-        type: Boolean,
+        reflect: true,
       },
       /**
        * Overrides the pattern from the **specs**.
@@ -142,6 +193,16 @@ class FuroDataSearchInput extends FBP(LitElement) {
        */
       pattern: {
         type: String,
+        reflect: true,
+      },
+      /**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      required: {
+        type: Boolean,
+        reflect: true,
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -150,6 +211,7 @@ class FuroDataSearchInput extends FBP(LitElement) {
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Overrides the min value from the **specs**.
@@ -158,6 +220,7 @@ class FuroDataSearchInput extends FBP(LitElement) {
        */
       min: {
         type: Number,
+        reflect: true,
       },
       /**
        * Overrides the max value from the **specs**.
@@ -166,6 +229,7 @@ class FuroDataSearchInput extends FBP(LitElement) {
        */
       max: {
         type: Number,
+        reflect: true,
       },
       /**
        * Overrides the readonly value from the **specs**.
@@ -174,6 +238,7 @@ class FuroDataSearchInput extends FBP(LitElement) {
        */
       readonly: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -195,6 +260,7 @@ class FuroDataSearchInput extends FBP(LitElement) {
       leadingIcon: {
         type: String,
         attribute: 'leading-icon',
+        reflect: true,
       },
       /**
        * Icon on the right side
@@ -202,6 +268,7 @@ class FuroDataSearchInput extends FBP(LitElement) {
       trailingIcon: {
         type: String,
         attribute: 'trailing-icon',
+        reflect: true,
       },
       /**
        * html input validity
@@ -218,69 +285,13 @@ class FuroDataSearchInput extends FBP(LitElement) {
         reflect: true,
       },
       /**
-       * passes always float the label
+       * Lets the placeholder always float
        */
       float: {
         type: Boolean,
+        reflect: true,
       },
     };
-  }
-
-  /**
-   * Bind a entity field to the search-input. You can use the entity even when no data was received.
-   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
-   * @param {Object|FieldNode} fieldNode a Field object
-   */
-  bindData(fieldNode) {
-    Helper.BindData(this, fieldNode);
-  }
-
-  _updateField() {
-    this._FBPTriggerWire('--value', this.field._value);
-    this.requestUpdate();
-  }
-
-  /**
-   *
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('FuroDataSearchInput') ||
-      css`
-        :host {
-          display: inline-block;
-          width: 190px;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-
-        furo-search-input {
-          width: 100%;
-        }
-      `
-    );
-  }
-
-  render() {
-    // language=HTML
-    return html`
-      <furo-search-input
-        id="input"
-        ?autofocus=${this.autofocus}
-        ?disabled=${this._readonly || this.disabled}
-        ?error="${this.error}"
-        ?float="${this.float}"
-        ?condensed="${this.condensed}"
-        ?required=${this._required}
-        @-value-changed="--valueChanged"
-        ƒ-set-value="--value"
-      ></furo-search-input>
-    `;
   }
 }
 

@@ -32,7 +32,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-time-input Input sample
  * @appliesMixin FBP
  */
-class FuroTimeInput extends FBP(LitElement) {
+export class FuroTimeInput extends FBP(LitElement) {
   /**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
@@ -118,6 +118,7 @@ class FuroTimeInput extends FBP(LitElement) {
        */
       step: {
         type: String,
+        reflect: true,
       },
       /**
        * The maximum value to accept for this input. If the value entered into the element exceeds this, the element fails constraint validation. If the value of the max attribute isn't a number, then the element has no maximum value.
@@ -126,6 +127,7 @@ class FuroTimeInput extends FBP(LitElement) {
        */
       max: {
         type: String,
+        reflect: true,
       },
       /**
        * The earliest time to accept as a valid input.
@@ -134,6 +136,7 @@ class FuroTimeInput extends FBP(LitElement) {
        */
       min: {
         type: String,
+        reflect: true,
       },
       /**
        * The latest time to accept, in the syntax described under Time value format
@@ -175,18 +178,21 @@ class FuroTimeInput extends FBP(LitElement) {
        */
       float: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * The hint text for the field.
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * text for errors
        */
       errortext: {
         type: String,
+        reflect: true,
       },
       /**
        * Icon on the left side
@@ -194,6 +200,7 @@ class FuroTimeInput extends FBP(LitElement) {
       leadingIcon: {
         type: String,
         attribute: 'leading-icon',
+        reflect: true,
       },
       /**
        * Icon on the right side
@@ -201,6 +208,7 @@ class FuroTimeInput extends FBP(LitElement) {
       trailingIcon: {
         type: String,
         attribute: 'trailing-icon',
+        reflect: true,
       },
       /**
        * html input validity
@@ -214,6 +222,7 @@ class FuroTimeInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.

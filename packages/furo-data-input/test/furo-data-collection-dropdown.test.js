@@ -72,7 +72,7 @@ describe('furo-data-collection-dropdown', () => {
             ƒ-inject-raw="--responsePerson"
           ></furo-data-object>
 
-           <furo-data-collection-dropdown
+          <furo-data-collection-dropdown
             value-field="id"
             display-field="display_name"
             subfield="data.id"
@@ -81,7 +81,6 @@ describe('furo-data-collection-dropdown', () => {
             size="4"
             ƒ-inject-entities="--responsePerson(*.entities)"
           ></furo-data-collection-dropdown>
-
         </template>
       </test-bind>
     `);
@@ -189,24 +188,26 @@ describe('furo-data-collection-dropdown', () => {
   });
 
   it('should set select as multiple by binding repeated field', done => {
-    dataObject.addEventListener("object-ready",()=>{
+    dataObject.addEventListener('object-ready', () => {
       setTimeout(() => {
         assert.equal(collectionDropdown3.multipleSelection, true);
         done();
       }, 0);
-    })
+    });
   });
 
   it('should set value of select input from the value of repeated field via binding', done => {
     collectionAgent.list();
-    dataObject.addEventListener("data-injected",()=>{
+    dataObject.addEventListener('data-injected', () => {
       setTimeout(() => {
-
-        console.log(collectionDropdown3.shadowRoot.getElementById("input").value);
-        assert.equal(collectionDropdown3.shadowRoot.getElementById("input").multiple, true);
-        assert.equal(JSON.stringify(collectionDropdown3.shadowRoot.getElementById("input").value), JSON.stringify(["1", "2", "3", "4"]));
+        console.log(collectionDropdown3.shadowRoot.getElementById('input').value);
+        assert.equal(collectionDropdown3.shadowRoot.getElementById('input').multiple, true);
+        assert.equal(
+          JSON.stringify(collectionDropdown3.shadowRoot.getElementById('input').value),
+          JSON.stringify(['1', '2', '3', '4']),
+        );
         done();
       }, 100);
-    })
+    });
   });
 });

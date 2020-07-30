@@ -64,40 +64,41 @@ export class FuroDataTextInput extends FuroTextInput {
   _initBinder() {
     this.binder = new UniversalFieldNodeBinder(this);
 
-
     // set the attribute mappings
     this.binder.attributeMappings = {
-      'label': 'label',
-      'hint': 'hint',
+      label: 'label',
+      hint: 'hint',
       'leading-icon': 'leadingIcon',
       'trailing-icon': 'trailingIcon',
-      'errortext': 'errortext',
+      errortext: 'errortext',
       'error-msg': 'errortext',
-      'pattern': 'pattern',
-      'min': 'min',
-      'max': 'max',
+      pattern: 'pattern',
+      min: 'min',
+      max: 'max',
     };
 
     // set the label mappings
     this.binder.labelMappings = {
-      'error': 'error',
-      'readonly': 'readonly',
-      'required': 'required',
-      'disabled': 'disabled',
-      'condensed': 'condensed',
+      error: 'error',
+      readonly: 'readonly',
+      required: 'required',
+      disabled: 'disabled',
+      condensed: 'condensed',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
-      'max': 'value._constraints.max.is',// for the fieldnode constraint
-      'min': 'value._constraints.min.is',// for the fieldnode constraint
-      'min-msg': 'value._constraints.min.message',// for the fieldnode constraint message
-      'max-msg': 'value._constraints.max.message',// for the fieldnode constraint message
+      max: 'value._constraints.max.is', // for the fieldnode constraint
+      min: 'value._constraints.min.is', // for the fieldnode constraint
+      pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
+      'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
+      'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
     };
 
     this.binder.constraintsTofatAttributesMappings = {
-      "min":"min",
-      "max":"max",
-      "required":"required"
+      min: 'min',
+      max: 'max',
+      pattern: 'pattern',
+      required: 'required',
     };
 
     /**
@@ -159,17 +160,17 @@ export class FuroDataTextInput extends FuroTextInput {
   }
 
   // because we defined the property max, the setter from the parent needs to be updated
-  set max(val){
+  set max(val) {
     super.max = val;
   }
 
   // because we defined the property min, the setter from the parent needs to be updated
-  set min(val){
+  set min(val) {
     super.min = val;
   }
 
   // because we defined the property pattern, the setter from the parent needs to be updated
-  set pattern(val){
+  set pattern(val) {
     super.pattern = val;
   }
 

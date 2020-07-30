@@ -91,7 +91,6 @@ describe('furo-data-number-input', () => {
     }, 0);
   });
 
-
   it('should override hints ', done => {
     setTimeout(() => {
       assert.equal(secondNumberInput.getAttribute('hint'), 'FromTPL');
@@ -125,17 +124,13 @@ describe('furo-data-number-input', () => {
     done();
   });
 
-
   it('should receive value with bind', done => {
     host._FBPAddWireHook('--hts', () => {
       dataObject.addEventListener(
         'data-changed',
         () => {
           dataNumberInput._FBPAddWireHook('--value', val => {
-            assert.equal(
-              val,
-              12.55,
-            );
+            assert.equal(val, 12.55);
             done();
           });
         },
@@ -144,7 +139,6 @@ describe('furo-data-number-input', () => {
     });
     deeplink.qpIn({ exp: 1 });
   });
-
 
   it('should bind the field description', done => {
     setTimeout(() => {

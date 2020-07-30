@@ -1,4 +1,4 @@
-import {FuroNumberInput} from '@furo/input/src/furo-number-input.js';
+import { FuroNumberInput } from '@furo/input/src/furo-number-input.js';
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
@@ -63,42 +63,41 @@ export class FuroDataNumberInput extends FuroNumberInput {
   _initBinder() {
     this.binder = new UniversalFieldNodeBinder(this);
 
-
     // set the attribute mappings
     this.binder.attributeMappings = {
-      'label': 'label',
-      'hint': 'hint',
+      label: 'label',
+      hint: 'hint',
       'leading-icon': 'leadingIcon',
       'trailing-icon': 'trailingIcon',
-      'errortext': 'errortext',
+      errortext: 'errortext',
       'error-msg': 'errortext',
-      'step': 'step',
-      'min': 'min',
-      'max': 'max',
+      step: 'step',
+      min: 'min',
+      max: 'max',
     };
 
     // set the label mappings
     this.binder.labelMappings = {
-      'error': 'error',
-      'readonly': 'readonly',
-      'required': 'required',
-      'disabled': 'disabled',
-      'condensed': 'condensed',
+      error: 'error',
+      readonly: 'readonly',
+      required: 'required',
+      disabled: 'disabled',
+      condensed: 'condensed',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
-      'max': 'value._constraints.max.is',// for the fieldnode constraint
-      'min': 'value._constraints.min.is',// for the fieldnode constraint
-      'step': 'value._constraints.step.is',// for the fieldnode constraint
-      'min-msg': 'value._constraints.min.message',// for the fieldnode constraint message
-      'max-msg': 'value._constraints.max.message',// for the fieldnode constraint message
+      max: 'value._constraints.max.is', // for the fieldnode constraint
+      min: 'value._constraints.min.is', // for the fieldnode constraint
+      step: 'value._constraints.step.is', // for the fieldnode constraint
+      'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
+      'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
     };
 
     this.binder.constraintsTofatAttributesMappings = {
-      "min":"min",
-      "max":"max",
-      "step":"step",
-      "required":"required"
+      min: 'min',
+      max: 'max',
+      step: 'step',
+      required: 'required',
     };
 
     /**
@@ -123,14 +122,13 @@ export class FuroDataNumberInput extends FuroNumberInput {
       // update the value
       this.binder.fieldValue = val.detail;
     });
-
   }
 
   /**
    * Sets the value for the field. This will update the fieldNode.
    * @param val
    */
-  setValue(val){
+  setValue(val) {
     this.binder.fieldValue = val;
   }
 
@@ -160,12 +158,12 @@ export class FuroDataNumberInput extends FuroNumberInput {
   }
 
   // because we defined the property max, the setter from the parent needs to be updated
-  set max(val){
+  set max(val) {
     super.max = val;
   }
 
   // because we defined the property min, the setter from the parent needs to be updated
-  set min(val){
+  set min(val) {
     super.min = val;
   }
 
@@ -250,7 +248,7 @@ export class FuroDataNumberInput extends FuroNumberInput {
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
-        type: Boolean
+        type: Boolean,
       },
       /**
        * Icon on the left side

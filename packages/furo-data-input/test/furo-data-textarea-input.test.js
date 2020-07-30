@@ -128,14 +128,11 @@ describe('furo-data-textarea-input', () => {
        * Fired when
        * detail payload:
        */
-      const customEvent = new Event('value-changed', {composed:true, bubbles: true});
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = 'newTextarea';
-      dataTextareaInput.dispatchEvent(customEvent)
+      dataTextareaInput.dispatchEvent(customEvent);
     }, 10);
   });
-
-
-
 
   it('should set meta via response meta', done => {
     console.log('those tests are base on the mockdata/experiment/1/get.json');
@@ -146,10 +143,7 @@ describe('furo-data-textarea-input', () => {
         () => {
           setTimeout(() => {
             assert.equal(dataTextareaInput.disabled, '');
-            assert.equal(
-              dataTextareaInput.getAttribute('label'),
-              'textarea input label via meta',
-            );
+            assert.equal(dataTextareaInput.getAttribute('label'), 'textarea input label via meta');
             done();
           }, 5);
         },
