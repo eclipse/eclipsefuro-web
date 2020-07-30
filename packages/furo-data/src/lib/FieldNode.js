@@ -770,4 +770,5 @@ export class FieldNode extends EventTreeNode {
     }
     return '';
   }
+
 }
