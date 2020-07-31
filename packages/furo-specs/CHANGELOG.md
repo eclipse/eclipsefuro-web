@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.11.0...@furo/specs@1.12.0) (2020-07-31)
+
+
+### Bug Fixes
+
+* When creating a service specification for the first time, /api should not be set as a route prefix. ([5ab7878](https://github.com/theNorstroem/FuroBaseComponents/commit/5ab7878621c080897ed845aef43ac240a6666e7d))
+
+
+### Features
+
+* add second enum spec which should be generated into the corpus.enum.proto file ([12a8cba](https://github.com/theNorstroem/FuroBaseComponents/commit/12a8cba832a8b7b91587298bee55d39aaa6408c7))
+* enum specs ([7e52f31](https://github.com/theNorstroem/FuroBaseComponents/commit/7e52f31eebb3194f7713a434efbb3a1c7a17f2aa))
+* generate enum in data environment ([505f3bb](https://github.com/theNorstroem/FuroBaseComponents/commit/505f3bbc6e04a44e6174041a559fd75db1cee564))
+* generate enum in data environment ([a17bc66](https://github.com/theNorstroem/FuroBaseComponents/commit/a17bc663649708ae33e8423247a8fc4dbd1660ef))
+* generate enum in data environment ([ea33cf3](https://github.com/theNorstroem/FuroBaseComponents/commit/ea33cf3664249f2c4830cf7916a35791ef5ab42e))
+* generate enum protos ([c635a8d](https://github.com/theNorstroem/FuroBaseComponents/commit/c635a8d1e2f45d5e7b4bc8b3780eb97004f93834))
+* generate enum protos ([1edb58b](https://github.com/theNorstroem/FuroBaseComponents/commit/1edb58bcbe303d32179a23e419de82732e645786))
+* generate enum protos ([cd7809c](https://github.com/theNorstroem/FuroBaseComponents/commit/cd7809cb576609815e7e7f198e8765fe76d4bf58))
+
+
+
+
+
 # [1.11.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.10.3...@furo/specs@1.11.0) (2020-06-29)
 
 

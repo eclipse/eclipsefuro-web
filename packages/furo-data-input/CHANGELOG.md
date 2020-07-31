@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.4.9...@furo/data-input@1.4.10) (2020-07-31)
+
+
+### Bug Fixes
+
+* set display name to null when day, month and year are null ([ee18596](https://github.com/theNorstroem/FuroBaseComponents/commit/ee185967b23d792473b87f0c0a52871b7092bca6))
+
+
+
+
+
 ## [1.4.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.4.8...@furo/data-input@1.4.9) (2020-06-29)
 
 **Note:** Version bump only for package @furo/data-input

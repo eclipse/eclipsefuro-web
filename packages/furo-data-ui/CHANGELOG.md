@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.19](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.18...@furo/data-ui@1.3.19) (2020-07-31)
+
+
+### Bug Fixes
+
+* it should not matter whether the fields attribute is set before the type attribute in the template ([33f1b92](https://github.com/theNorstroem/FuroBaseComponents/commit/33f1b92039db8b2a02e2206ecb2a387534807ffe))
+
+
+
+
+
 ## [1.3.18](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.17...@furo/data-ui@1.3.18) (2020-06-29)
 
 **Note:** Version bump only for package @furo/data-ui
