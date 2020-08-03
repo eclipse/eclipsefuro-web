@@ -79,31 +79,38 @@ describe('furo-data-range-input', () => {
 
   it('should override hints ', done => {
     setTimeout(() => {
-      assert.equal(secondRangeInput._theInputElement.getAttribute('hint'), 'FromTPL');
+      assert.equal(secondRangeInput.getAttribute('hint'), 'FromTPL');
       done();
     }, 0);
   });
 
   it('should override labels ', done => {
     setTimeout(() => {
-      assert.equal(secondRangeInput._theInputElement.getAttribute('label'), 'FromTPL');
+      assert.equal(secondRangeInput.getAttribute('label'), 'FromTPL');
       done();
     }, 0);
   });
 
   it('should receive value with bind', done => {
-    dataObject.addEventListener('data-injected', () => {
-      assert.equal(dataRangeInput.shadowRoot.querySelector('*').value, 31);
-      done();
+    host._FBPAddWireHook('--hts', () => {
+      dataObject.addEventListener(
+        'data-changed',
+        () => {
+          dataRangeInput._FBPAddWireHook('--value', val => {
+            assert.equal(val, 31);
+            done();
+          });
+        },
+        { once: true },
+      );
     });
-
     deeplink.qpIn({ exp: 1 });
   });
 
   it('should bind the field description', done => {
     setTimeout(() => {
-      assert.equal(dataRangeInput._theInputElement.getAttribute('label'), 'range-input**');
-      assert.equal(dataRangeInput._theInputElement.getAttribute('hint'), 'hint**');
+      assert.equal(dataRangeInput.getAttribute('label'), 'range-input**');
+      assert.equal(dataRangeInput.getAttribute('hint'), 'hint**');
       done();
     }, 0);
 
@@ -115,7 +122,7 @@ describe('furo-data-range-input', () => {
       // invalid binding
       assert.equal(invalidRangeInput.field, undefined);
       // valid binding
-      assert.equal(secondRangeInput.field._isValid, true);
+      assert.equal(secondRangeInput.binder.fieldNode._isValid, true);
       done();
     }, 0);
   });
@@ -123,26 +130,33 @@ describe('furo-data-range-input', () => {
   it('should update the entity when values changed', done => {
     // ignore the init values
     setTimeout(() => {
-      secondRangeInput._FBPAddWireHook('--value', val => {
-        assert.equal(val, 'newText');
+      secondRangeInput.binder.fieldNode.addEventListener('field-value-changed', val => {
+        assert.equal(val.detail, '32');
         done();
       });
 
-      dataRangeInput._FBPTriggerWire('--valueChanged', 'newText');
+      /**
+       * @event value-changed
+       * Fired when
+       * detail payload:
+       */
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = '32';
+      secondRangeInput.dispatchEvent(customEvent);
     }, 10);
   });
 
   it('should listen field-became-invalid event add set error', done => {
     setTimeout(() => {
       const err = { description: 'step 3', constraint: 'min' };
-      dataRangeInput.field.addEventListener('field-became-invalid', () => {
+      dataRangeInput.binder.fieldNode.addEventListener('field-became-invalid', () => {
         setTimeout(() => {
           assert.equal(dataRangeInput.error, true);
-          assert.equal(dataRangeInput._theInputElement.getAttribute('errortext'), 'step 3');
+          assert.equal(dataRangeInput.errortext, 'step 3');
           done();
         }, 10);
       });
-      dataRangeInput.field._setInvalid(err);
+      dataRangeInput.binder.fieldNode._setInvalid(err);
     }, 20);
   });
 
@@ -154,9 +168,9 @@ describe('furo-data-range-input', () => {
         'data-injected',
         () => {
           setTimeout(() => {
-            assert.equal(dataRangeInput._theInputElement.getAttribute('disabled'), '');
+            assert.equal(dataRangeInput.getAttribute('readonly'), '');
             assert.equal(
-              dataRangeInput._theInputElement.getAttribute('label'),
+              dataRangeInput.getAttribute('label'),
               'range input label via meta',
             );
             done();

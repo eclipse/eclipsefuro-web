@@ -9,12 +9,10 @@ public interface GetProjectServiceRequestOrBuilder extends
 
   /**
    * <code>string prj = 1;</code>
-   * @return The prj.
    */
   java.lang.String getPrj();
   /**
    * <code>string prj = 1;</code>
-   * @return The bytes for prj.
    */
   com.google.protobuf.ByteString
       getPrjBytes();

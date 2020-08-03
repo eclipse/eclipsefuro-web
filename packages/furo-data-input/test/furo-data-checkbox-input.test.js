@@ -11,7 +11,7 @@ import '@furo/data/src/furo-deep-link';
 
 describe('furo-data-checkbox-input', () => {
   let dataCheckboxInput;
-  let entityObject;
+  let dataObject;
   let secondCheckboxInput;
   let deeplink;
   let host;
@@ -53,13 +53,13 @@ describe('furo-data-checkbox-input', () => {
       ,
       dataCheckboxInput,
       secondCheckboxInput,
-      entityObject,
+      dataObject,
       deeplink,
     ] = testbind.parentNode.children;
     await host.updateComplete;
     await dataCheckboxInput.updateComplete;
     await secondCheckboxInput.updateComplete;
-    await entityObject.updateComplete;
+    await dataObject.updateComplete;
     await deeplink.updateComplete;
   });
 
@@ -67,7 +67,7 @@ describe('furo-data-checkbox-input', () => {
     // keep this test on top, so you can recognize a wrong asignment
     assert.equal(dataCheckboxInput.nodeName.toLowerCase(), 'furo-data-checkbox-input');
     assert.equal(secondCheckboxInput.nodeName.toLowerCase(), 'furo-data-checkbox-input');
-    assert.equal(entityObject.nodeName.toLowerCase(), 'furo-data-object');
+    assert.equal(dataObject.nodeName.toLowerCase(), 'furo-data-object');
     assert.equal(deeplink.nodeName.toLowerCase(), 'furo-deep-link');
     done();
   });
@@ -77,33 +77,34 @@ describe('furo-data-checkbox-input', () => {
 
   // those tests are base on the mockdata/trees/1/get.json. the field tree.root.open should be true in mockdata
   it('should override labels ', done => {
-    assert.equal(secondCheckboxInput._theInputElement.getAttribute('label'), 'FromTPL');
+    assert.equal(secondCheckboxInput.getAttribute('label'), 'FromTPL');
     done();
   });
 
   it('should receive label from meta in spec by entity object ready', done => {
     setTimeout(() => {
-      assert.equal(dataCheckboxInput._theInputElement.getAttribute('label'), 'checkbox_input**');
+      assert.equal(dataCheckboxInput.getAttribute('label'), 'checkbox_input**');
       done();
     }, 5);
   });
 
   it('should receive hint from meta in spec by entity object ready', done => {
     setTimeout(() => {
-      assert.equal(dataCheckboxInput._theInputElement.getAttribute('hint'), 'Hint**');
+      assert.equal(dataCheckboxInput.getAttribute('hint'), 'Hint**');
       done();
     }, 5);
   });
 
   it('should receive value with bind', done => {
-    console.log('those tests are base on the mockdata/experiment/1/get.json');
-
     host._FBPAddWireHook('--hts', () => {
-      entityObject.addEventListener(
+      dataObject.addEventListener(
         'data-changed',
         () => {
-          secondCheckboxInput._FBPAddWireHook('--value', val => {
-            assert.equal(val, true);
+          dataCheckboxInput._FBPAddWireHook('--value', val => {
+            assert.equal(
+              val,
+              true,
+            );
             done();
           });
         },
@@ -117,17 +118,17 @@ describe('furo-data-checkbox-input', () => {
     console.log('those tests are base on the mockdata/experiment/1/get.json');
 
     host._FBPAddWireHook('--hts', () => {
-      entityObject.addEventListener(
+      dataObject.addEventListener(
         'data-injected',
         () => {
           setTimeout(() => {
             console.log(dataCheckboxInput._theInputElement);
 
             assert.equal(
-              dataCheckboxInput._theInputElement.getAttribute('label'),
+              dataCheckboxInput.getAttribute('label'),
               'checkbox label via meta',
             );
-            assert.equal(dataCheckboxInput._theInputElement.getAttribute('disabled'), '');
+            assert.equal(dataCheckboxInput.getAttribute('readonly'), '');
             done();
           }, 0);
         },

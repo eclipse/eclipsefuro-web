@@ -168,6 +168,36 @@
         "number": 8,
         "oneof": null
       }
+    },
+    "wrapper_bool": {
+      "description": "field of a wrapper boolean for the Universaltest",
+      "type": "google.protobuf.BoolValue",
+      "meta": {
+        "label": "google wrapper boolean",
+        "default": "",
+        "hint": "",
+        "readonly": false
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 9,
+        "oneof": null
+      }
+    },
+    "fat_bool": {
+      "description": "field of a fat bool for the Universaltest",
+      "type": "furo.fat.Bool",
+      "meta": {
+        "label": "fat bool",
+        "default": "",
+        "hint": "",
+        "readonly": false
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 10,
+        "oneof": null
+      }
     }
   }
 }

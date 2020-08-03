@@ -29,7 +29,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-range-input Input sample
  * @appliesMixin FBP
  */
-class FuroRangeInput extends FBP(LitElement) {
+export class FuroRangeInput extends FBP(LitElement) {
   /**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
@@ -131,6 +131,7 @@ class FuroRangeInput extends FBP(LitElement) {
        */
       step: {
         type: String,
+        reflect: true,
       },
       /**
        * The maximum value to accept for this input. If the value entered into the element exceeds this, the element fails constraint validation. If the value of the max attribute isn't a number, then the element has no maximum value.
@@ -139,6 +140,7 @@ class FuroRangeInput extends FBP(LitElement) {
        */
       max: {
         type: Number,
+        reflect: true,
       },
       /**
        * The minimum value to accept for this input. If the value of the element is less than this, the element fails constraint validation. If a value is specified for min that isn't a valid number, the input has no minimum value.
@@ -147,6 +149,7 @@ class FuroRangeInput extends FBP(LitElement) {
        */
       min: {
         type: Number,
+        reflect: true,
       },
       /**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
@@ -160,6 +163,7 @@ class FuroRangeInput extends FBP(LitElement) {
        */
       autofocus: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -186,18 +190,21 @@ class FuroRangeInput extends FBP(LitElement) {
        */
       float: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * The hint text for the field.
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Text for errors
        */
       errortext: {
         type: String,
+        reflect: true,
       },
       /**
        * Icon on the left side
@@ -205,6 +212,7 @@ class FuroRangeInput extends FBP(LitElement) {
       leadingIcon: {
         type: String,
         attribute: 'leading-icon',
+        reflect: true,
       },
       /**
        * Icon on the right side
@@ -212,6 +220,7 @@ class FuroRangeInput extends FBP(LitElement) {
       trailingIcon: {
         type: String,
         attribute: 'trailing-icon',
+        reflect: true,
       },
       /**
        * html input validity
@@ -225,12 +234,14 @@ class FuroRangeInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
        */
       filled: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * error text

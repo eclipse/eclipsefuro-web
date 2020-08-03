@@ -9,7 +9,10 @@ import "furo/fat/fat.proto";
 import "furo/meta.proto";
 import "furo/link.proto";
 // oneof experiment spec for testing
-message Universaltest {                      
+message Universaltest {                          
+  // field of a fat bool for the Universaltest
+  furo.fat.Bool fat_bool = 10;
+  
   // field of a fat int32 for the Universaltest
   furo.fat.Int32 fat_int32 = 7;
   
@@ -27,6 +30,9 @@ message Universaltest {
   
   // field of a scalar string for the Universaltest
   string scalar_string = 2;
+  
+  // field of a wrapper boolean for the Universaltest
+  google.protobuf.BoolValue wrapper_bool = 9;
   
   // field of a wrapper int32 for the Universaltest
   google.protobuf.Int32Value wrapper_int32 = 6;

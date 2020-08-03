@@ -206,9 +206,11 @@ export class UniversalFieldNodeBinder {
    */
   deleteLabel(label) {
     if ('labels' in this.fieldNode) {
-      const labelindex = this._givenLabels.indexOf(label);
-      if (labelindex !== -1) {
-        this.fieldNode.labels.deleteChild(labelindex);
+      if(this._givenLabels) {
+        const labelindex = this._givenLabels.indexOf(label);
+        if (labelindex !== -1) {
+          this.fieldNode.labels.deleteChild(labelindex);
+        }
       }
     } else {
       // attention, this is for ui only, this label will never sent back to the server

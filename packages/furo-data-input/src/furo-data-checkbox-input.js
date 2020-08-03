@@ -1,112 +1,145 @@
-import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme';
-import { FBP } from '@furo/fbp';
-import '@furo/input/src/furo-checkbox-input';
-import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
-import { Helper } from './lib/helper.js';
+import { FuroCheckboxInput } from '@furo/input/src/furo-checkbox-input.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
- * `furo-data-checkbox-input`
- * furo-data-checkbox-input element which uses a  `<furo-checkbox-input >` element. Works best with furo-data components.
+ * `furo-data-checkbox-input` is a extension of furo-checkbox-input which enables you to
+ *  bind a entityObject field.
  *
- *   ### Sample
- *  <furo-demo-snippet>
- *   <template>
- *    <furo-data-checkbox-input  ƒ-bind-data="--entity(*.fields.open)"></furo-data-checkbox-input>
- *   </template>
- *  </furo-demo-snippet>
+ * The field can be of type bool, google.protobuf.BoolValue, furo.fat.Bool. It is also possible to bind string values, but the
+ * values will be handled as boolean true when the string is not empty.
  *
- * Tags: data-input
- * @summary binds to a furo data checkbox input element
- * @demo demo-furo-data-checkbox-input Input samples
+ * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
+ *
+ * <sample-furo-data-checkbox-input></sample-furo-data-checkbox-input>
+ *
+ * Tags: input
+ * @summary Bind a entityObject.field to a range input
  * @customElement
+ * @demo demo-furo-data-checkbox-input Data binding
  * @mixes FBP
- * @mixes FuroInputBase
  */
-class FuroDataCheckboxInput extends FBP(LitElement) {
+export class FuroDataCheckboxInput extends FuroCheckboxInput {
   /**
-   * @event ALL_BUBBLING_EVENTS_FROM_furo-checkbox-input
+   * @event value-changed
+   * Fired when value has changed from inside the input field.
    *
-   * All bubbling events from [furo-checkbox-input](../../input/doc/furo-checkbox-input) will be fired, because furo-data-checkbox-input uses furo-checkbox-input internally.
+   * detail payload: {Boolean} the bool value
    *
+   * Comes from underlying component furo-checkbox-input. **bubbles**
    */
 
   constructor() {
     super();
+    this.error = false;
     this.disabled = false;
 
-    this._FBPAddWireHook('--valueChanged', val => {
-      if (this.field) {
-        this.field._value = val;
+    this._initBinder();
+  }
+
+  /**
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
+   */
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    // set the attribute mappings
+    this.binder.attributeMappings = {
+      label: 'label',
+      hint: 'hint',
+      errortext: 'errortext',
+      'error-msg': 'errortext'
+    };
+
+    // set the label mappings
+    this.binder.labelMappings = {
+      error: 'error',
+      readonly: 'readonly',
+      required: 'required',
+      disabled: 'disabled',
+      condensed: 'condensed',
+    };
+
+    this.binder.fatAttributesToConstraintsMappings = {
+    };
+
+    this.binder.constraintsTofatAttributesMappings = {
+      required: 'required',
+    };
+
+    /**
+     * check overrides from the used component, attributes set on the component itself overrides all
+     */
+    this.binder.checkLabelandAttributeOverrrides();
+
+    // the extended furo-checkbox-input component uses _value
+    this.binder.targetValueField = '_value';
+
+    // update the value on input changes
+    this.addEventListener('value-changed', val => {
+
+      // set flag empty on empty strings (for fat types)
+      if(this.binder.fieldFormat === 'fat') {
+
+        if (val.detail) {
+          this.binder.deleteLabel('empty');
+        } else if(val.detail !== false ) {
+          this.binder.addLabel('empty');
+        }
+
+        // if something was entered the field is not empty
+        this.binder.deleteLabel('pristine');
       }
+
+      if( this.binder.fieldValue !== val.detail) {
+        // update the value
+        this.binder.fieldValue = val.detail;
+      }
+
     });
+    // set flag empty on empty strings (for fat types)
   }
 
   /**
-   * flow is ready lifecycle method
+   * Sets the value for the field. This will update the fieldNode.
+   * @param val
    */
-  _FBPReady() {
-    super._FBPReady();
-    // this._FBPTraceWires();
-    // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  setValue(val) {
+    this.binder.fieldValue = val;
   }
 
   /**
-   * Updater for the label attr
-   * @param value
-   */
-  set _label(value) {
-    Helper.UpdateInputAttribute(this, 'label', value);
-  }
-
-  /**
-   * Updater for the hint attr
-   * @param value
-   */
-  set _hint(value) {
-    Helper.UpdateInputAttribute(this, 'hint', value);
-  }
-
-  /**
-   * Updater for the errortext attr
-   * @param value
-   */
-  set errortext(value) {
-    Helper.UpdateInputAttribute(this, 'errortext', value);
-  }
-
-  /**
-   * Sets the field to readonly
-   */
-  disable() {
-    this.disabled = true;
-  }
-
-  /**
-   * Makes the field writable.
-   */
-  enable() {
-    this.disabled = false;
-  }
-
-  /**
-   * Bind a entity field to the furo-data-checkbox-input. You can use the entity even when no data was received.
+   * Bind a entity field to the range-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-    Helper.BindData(this, fieldNode);
-  }
-
-  _updateField() {
-    this.disabled = !!this.field._meta.readonly;
-    this._FBPTriggerWire('--value', this.field._value);
-    this.requestUpdate();
+    this.binder.bindField(fieldNode);
+    if (this.binder.fieldNode) {
+      /**
+       * handle pristine
+       *
+       * Set to pristine label to the same _pristine from the fieldNode
+       */
+      if (this.binder.fieldNode._pristine) {
+        this.binder.addLabel('pristine');
+      } else {
+        this.binder.deleteLabel('pristine');
+      }
+      // set pristine on new data
+      this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this.binder.addLabel('pristine');
+      });
+    }
   }
 
   static get properties() {
     return {
+      /**
+       * set this to true to indicate errors
+       */
+      error: { type: Boolean, reflect: true },
       /**
        * Overrides the label text from the **specs**.
        *
@@ -114,7 +147,16 @@ class FuroDataCheckboxInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-        attribute: true,
+        reflect: true,
+      },
+      /**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      required: {
+        type: Boolean,
+        reflect: true,
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -123,6 +165,7 @@ class FuroDataCheckboxInput extends FBP(LitElement) {
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Overrides the readonly value from the **specs**.
@@ -131,6 +174,7 @@ class FuroDataCheckboxInput extends FBP(LitElement) {
        */
       readonly: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -158,49 +202,9 @@ class FuroDataCheckboxInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
     };
-  }
-
-  /**
-   *
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('FuroDataCheckboxInput') ||
-      css`
-        :host {
-          display: inline-block;
-          width: 300px;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-
-        furo-checkbox-input {
-          width: 100%;
-        }
-      `
-    );
-  }
-
-  render() {
-    // language=HTML
-    return html`
-      <furo-checkbox-input
-        id="input"
-        ?autofocus=${this.autofocus}
-        ?disabled=${this._readonly || this.disabled}
-        ?error="${this.error}"
-        ?condensed="${this.condensed}"
-        @-value-changed="--valueChanged"
-        ƒ-set-value="--value"
-      ></furo-checkbox-input>
-    `;
   }
 }
 

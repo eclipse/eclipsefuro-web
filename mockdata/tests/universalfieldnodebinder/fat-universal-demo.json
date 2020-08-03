@@ -24,6 +24,13 @@
     "fat_int32": {
       "value": 14,
       "value-state": "Information"
+    },
+    "fat_bool": {
+      "value": true,
+      "value-state": "Information"
+    },
+    "wrapper_bool": {
+      "value": true
     }
   },
   "links": [],
@@ -47,6 +54,20 @@
       "data.fat_string": {
         "meta": {
           "label": "fat string label setted via response meta",
+          "readonly": false,
+          "default": "new"
+        }
+      },
+      "data.fat_bool": {
+        "meta": {
+          "label": "fat bool label setted via response meta",
+          "readonly": false,
+          "default": "new"
+        }
+      },
+      "data.wrapper_bool": {
+        "meta": {
+          "label": "wrapper bool label setted via response meta",
           "readonly": false,
           "default": "new"
         }

@@ -4,6 +4,10 @@
     "title": "personservice/service.proto",
     "version": "version not set"
   },
+  "schemes": [
+    "http",
+    "https"
+  ],
   "consumes": [
     "application/json"
   ],
@@ -14,18 +18,12 @@
     "/mockdata/persons/create.json": {
       "get": {
         "summary": "Creates a new Person",
-        "operationId": "PersonService_CreatePerson",
+        "operationId": "CreatePerson",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/personPersonEntity"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -73,8 +71,7 @@
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "collectionFormat": "multi"
+            }
           },
           {
             "name": "data.update_mask.paths",
@@ -84,8 +81,7 @@
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "collectionFormat": "multi"
+            }
           }
         ],
         "tags": [
@@ -96,18 +92,12 @@
     "/mockdata/persons/list.json": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",
-        "operationId": "PersonService_ListPersons",
+        "operationId": "ListPersons",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/personPersonCollection"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -128,18 +118,12 @@
     "/mockdata/persons/{prs}/delete.json": {
       "get": {
         "summary": "Delete a Person",
-        "operationId": "PersonService_DeletePerson",
+        "operationId": "DeletePerson",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -159,18 +143,12 @@
     "/mockdata/persons/{prs}/get.json": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",
-        "operationId": "PersonService_GetPerson",
+        "operationId": "GetPerson",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/personPersonEntity"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -190,18 +168,12 @@
     "/mockdata/persons/{prs}/update.json": {
       "patch": {
         "summary": "Updates a Person, partial updates are supported",
-        "operationId": "PersonService_UpdatePerson",
+        "operationId": "UpdatePerson",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/personPersonEntity"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -461,27 +433,6 @@
         }
       },
       "title": "Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
-    },
-    "runtimeError": {
-      "type": "object",
-      "properties": {
-        "error": {
-          "type": "string"
-        },
-        "code": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "message": {
-          "type": "string"
-        },
-        "details": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protobufAny"
-          }
-        }
-      }
     }
   }
 }

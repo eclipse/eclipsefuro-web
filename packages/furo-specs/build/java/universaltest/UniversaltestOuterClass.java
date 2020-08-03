@@ -20,11 +20,35 @@ public final class UniversaltestOuterClass {
 
     /**
      * <pre>
+     * field of a fat bool for the Universaltest
+     * </pre>
+     *
+     * <code>.furo.fat.Bool fat_bool = 10;</code>
+     */
+    boolean hasFatBool();
+    /**
+     * <pre>
+     * field of a fat bool for the Universaltest
+     * </pre>
+     *
+     * <code>.furo.fat.Bool fat_bool = 10;</code>
+     */
+    furo.fat.Fat.Bool getFatBool();
+    /**
+     * <pre>
+     * field of a fat bool for the Universaltest
+     * </pre>
+     *
+     * <code>.furo.fat.Bool fat_bool = 10;</code>
+     */
+    furo.fat.Fat.BoolOrBuilder getFatBoolOrBuilder();
+
+    /**
+     * <pre>
      * field of a fat int32 for the Universaltest
      * </pre>
      *
      * <code>.furo.fat.Int32 fat_int32 = 7;</code>
-     * @return Whether the fatInt32 field is set.
      */
     boolean hasFatInt32();
     /**
@@ -33,7 +57,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.fat.Int32 fat_int32 = 7;</code>
-     * @return The fatInt32.
      */
     furo.fat.Fat.Int32 getFatInt32();
     /**
@@ -51,7 +74,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.fat.String fat_string = 4;</code>
-     * @return Whether the fatString field is set.
      */
     boolean hasFatString();
     /**
@@ -60,7 +82,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.fat.String fat_string = 4;</code>
-     * @return The fatString.
      */
     furo.fat.Fat.String getFatString();
     /**
@@ -78,7 +99,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.fat.String fat_string_list = 8;</code>
-     * @return Whether the fatStringList field is set.
      */
     boolean hasFatStringList();
     /**
@@ -87,7 +107,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.fat.String fat_string_list = 8;</code>
-     * @return The fatStringList.
      */
     furo.fat.Fat.String getFatStringList();
     /**
@@ -105,7 +124,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
-     * @return The id.
      */
     java.lang.String getId();
     /**
@@ -114,7 +132,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
-     * @return The bytes for id.
      */
     com.google.protobuf.ByteString
         getIdBytes();
@@ -125,7 +142,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>int32 scalar_int32 = 5;</code>
-     * @return The scalarInt32.
      */
     int getScalarInt32();
 
@@ -135,7 +151,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>string scalar_string = 2;</code>
-     * @return The scalarString.
      */
     java.lang.String getScalarString();
     /**
@@ -144,10 +159,34 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>string scalar_string = 2;</code>
-     * @return The bytes for scalarString.
      */
     com.google.protobuf.ByteString
         getScalarStringBytes();
+
+    /**
+     * <pre>
+     * field of a wrapper boolean for the Universaltest
+     * </pre>
+     *
+     * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+     */
+    boolean hasWrapperBool();
+    /**
+     * <pre>
+     * field of a wrapper boolean for the Universaltest
+     * </pre>
+     *
+     * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+     */
+    google.protobuf.Wrappers.BoolValue getWrapperBool();
+    /**
+     * <pre>
+     * field of a wrapper boolean for the Universaltest
+     * </pre>
+     *
+     * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+     */
+    google.protobuf.Wrappers.BoolValueOrBuilder getWrapperBoolOrBuilder();
 
     /**
      * <pre>
@@ -155,7 +194,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.Int32Value wrapper_int32 = 6;</code>
-     * @return Whether the wrapperInt32 field is set.
      */
     boolean hasWrapperInt32();
     /**
@@ -164,7 +202,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.Int32Value wrapper_int32 = 6;</code>
-     * @return The wrapperInt32.
      */
     google.protobuf.Wrappers.Int32Value getWrapperInt32();
     /**
@@ -182,7 +219,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.StringValue wrapper_string = 3;</code>
-     * @return Whether the wrapperString field is set.
      */
     boolean hasWrapperString();
     /**
@@ -191,7 +227,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.StringValue wrapper_string = 3;</code>
-     * @return The wrapperString.
      */
     google.protobuf.Wrappers.StringValue getWrapperString();
     /**
@@ -210,7 +245,7 @@ public final class UniversaltestOuterClass {
    *
    * Protobuf type {@code universaltest.Universaltest}
    */
-  public static final class Universaltest extends
+  public  static final class Universaltest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:universaltest.Universaltest)
       UniversaltestOrBuilder {
@@ -222,13 +257,6 @@ public final class UniversaltestOuterClass {
     private Universaltest() {
       id_ = "";
       scalarString_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new Universaltest();
     }
 
     @java.lang.Override
@@ -244,6 +272,7 @@ public final class UniversaltestOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -336,6 +365,32 @@ public final class UniversaltestOuterClass {
 
               break;
             }
+            case 74: {
+              google.protobuf.Wrappers.BoolValue.Builder subBuilder = null;
+              if (wrapperBool_ != null) {
+                subBuilder = wrapperBool_.toBuilder();
+              }
+              wrapperBool_ = input.readMessage(google.protobuf.Wrappers.BoolValue.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(wrapperBool_);
+                wrapperBool_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 82: {
+              furo.fat.Fat.Bool.Builder subBuilder = null;
+              if (fatBool_ != null) {
+                subBuilder = fatBool_.toBuilder();
+              }
+              fatBool_ = input.readMessage(furo.fat.Fat.Bool.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(fatBool_);
+                fatBool_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -368,6 +423,39 @@ public final class UniversaltestOuterClass {
               universaltest.UniversaltestOuterClass.Universaltest.class, universaltest.UniversaltestOuterClass.Universaltest.Builder.class);
     }
 
+    public static final int FAT_BOOL_FIELD_NUMBER = 10;
+    private furo.fat.Fat.Bool fatBool_;
+    /**
+     * <pre>
+     * field of a fat bool for the Universaltest
+     * </pre>
+     *
+     * <code>.furo.fat.Bool fat_bool = 10;</code>
+     */
+    public boolean hasFatBool() {
+      return fatBool_ != null;
+    }
+    /**
+     * <pre>
+     * field of a fat bool for the Universaltest
+     * </pre>
+     *
+     * <code>.furo.fat.Bool fat_bool = 10;</code>
+     */
+    public furo.fat.Fat.Bool getFatBool() {
+      return fatBool_ == null ? furo.fat.Fat.Bool.getDefaultInstance() : fatBool_;
+    }
+    /**
+     * <pre>
+     * field of a fat bool for the Universaltest
+     * </pre>
+     *
+     * <code>.furo.fat.Bool fat_bool = 10;</code>
+     */
+    public furo.fat.Fat.BoolOrBuilder getFatBoolOrBuilder() {
+      return getFatBool();
+    }
+
     public static final int FAT_INT32_FIELD_NUMBER = 7;
     private furo.fat.Fat.Int32 fatInt32_;
     /**
@@ -376,9 +464,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.fat.Int32 fat_int32 = 7;</code>
-     * @return Whether the fatInt32 field is set.
      */
-    @java.lang.Override
     public boolean hasFatInt32() {
       return fatInt32_ != null;
     }
@@ -388,9 +474,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.fat.Int32 fat_int32 = 7;</code>
-     * @return The fatInt32.
      */
-    @java.lang.Override
     public furo.fat.Fat.Int32 getFatInt32() {
       return fatInt32_ == null ? furo.fat.Fat.Int32.getDefaultInstance() : fatInt32_;
     }
@@ -401,7 +485,6 @@ public final class UniversaltestOuterClass {
      *
      * <code>.furo.fat.Int32 fat_int32 = 7;</code>
      */
-    @java.lang.Override
     public furo.fat.Fat.Int32OrBuilder getFatInt32OrBuilder() {
       return getFatInt32();
     }
@@ -414,9 +497,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.fat.String fat_string = 4;</code>
-     * @return Whether the fatString field is set.
      */
-    @java.lang.Override
     public boolean hasFatString() {
       return fatString_ != null;
     }
@@ -426,9 +507,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.fat.String fat_string = 4;</code>
-     * @return The fatString.
      */
-    @java.lang.Override
     public furo.fat.Fat.String getFatString() {
       return fatString_ == null ? furo.fat.Fat.String.getDefaultInstance() : fatString_;
     }
@@ -439,7 +518,6 @@ public final class UniversaltestOuterClass {
      *
      * <code>.furo.fat.String fat_string = 4;</code>
      */
-    @java.lang.Override
     public furo.fat.Fat.StringOrBuilder getFatStringOrBuilder() {
       return getFatString();
     }
@@ -452,9 +530,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.fat.String fat_string_list = 8;</code>
-     * @return Whether the fatStringList field is set.
      */
-    @java.lang.Override
     public boolean hasFatStringList() {
       return fatStringList_ != null;
     }
@@ -464,9 +540,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.fat.String fat_string_list = 8;</code>
-     * @return The fatStringList.
      */
-    @java.lang.Override
     public furo.fat.Fat.String getFatStringList() {
       return fatStringList_ == null ? furo.fat.Fat.String.getDefaultInstance() : fatStringList_;
     }
@@ -477,7 +551,6 @@ public final class UniversaltestOuterClass {
      *
      * <code>.furo.fat.String fat_string_list = 8;</code>
      */
-    @java.lang.Override
     public furo.fat.Fat.StringOrBuilder getFatStringListOrBuilder() {
       return getFatStringList();
     }
@@ -490,9 +563,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
-     * @return The id.
      */
-    @java.lang.Override
     public java.lang.String getId() {
       java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
@@ -511,9 +582,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>string id = 1;</code>
-     * @return The bytes for id.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getIdBytes() {
       java.lang.Object ref = id_;
@@ -536,9 +605,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>int32 scalar_int32 = 5;</code>
-     * @return The scalarInt32.
      */
-    @java.lang.Override
     public int getScalarInt32() {
       return scalarInt32_;
     }
@@ -551,9 +618,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>string scalar_string = 2;</code>
-     * @return The scalarString.
      */
-    @java.lang.Override
     public java.lang.String getScalarString() {
       java.lang.Object ref = scalarString_;
       if (ref instanceof java.lang.String) {
@@ -572,9 +637,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>string scalar_string = 2;</code>
-     * @return The bytes for scalarString.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getScalarStringBytes() {
       java.lang.Object ref = scalarString_;
@@ -589,6 +652,39 @@ public final class UniversaltestOuterClass {
       }
     }
 
+    public static final int WRAPPER_BOOL_FIELD_NUMBER = 9;
+    private google.protobuf.Wrappers.BoolValue wrapperBool_;
+    /**
+     * <pre>
+     * field of a wrapper boolean for the Universaltest
+     * </pre>
+     *
+     * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+     */
+    public boolean hasWrapperBool() {
+      return wrapperBool_ != null;
+    }
+    /**
+     * <pre>
+     * field of a wrapper boolean for the Universaltest
+     * </pre>
+     *
+     * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+     */
+    public google.protobuf.Wrappers.BoolValue getWrapperBool() {
+      return wrapperBool_ == null ? google.protobuf.Wrappers.BoolValue.getDefaultInstance() : wrapperBool_;
+    }
+    /**
+     * <pre>
+     * field of a wrapper boolean for the Universaltest
+     * </pre>
+     *
+     * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+     */
+    public google.protobuf.Wrappers.BoolValueOrBuilder getWrapperBoolOrBuilder() {
+      return getWrapperBool();
+    }
+
     public static final int WRAPPER_INT32_FIELD_NUMBER = 6;
     private google.protobuf.Wrappers.Int32Value wrapperInt32_;
     /**
@@ -597,9 +693,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.Int32Value wrapper_int32 = 6;</code>
-     * @return Whether the wrapperInt32 field is set.
      */
-    @java.lang.Override
     public boolean hasWrapperInt32() {
       return wrapperInt32_ != null;
     }
@@ -609,9 +703,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.Int32Value wrapper_int32 = 6;</code>
-     * @return The wrapperInt32.
      */
-    @java.lang.Override
     public google.protobuf.Wrappers.Int32Value getWrapperInt32() {
       return wrapperInt32_ == null ? google.protobuf.Wrappers.Int32Value.getDefaultInstance() : wrapperInt32_;
     }
@@ -622,7 +714,6 @@ public final class UniversaltestOuterClass {
      *
      * <code>.google.protobuf.Int32Value wrapper_int32 = 6;</code>
      */
-    @java.lang.Override
     public google.protobuf.Wrappers.Int32ValueOrBuilder getWrapperInt32OrBuilder() {
       return getWrapperInt32();
     }
@@ -635,9 +726,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.StringValue wrapper_string = 3;</code>
-     * @return Whether the wrapperString field is set.
      */
-    @java.lang.Override
     public boolean hasWrapperString() {
       return wrapperString_ != null;
     }
@@ -647,9 +736,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.google.protobuf.StringValue wrapper_string = 3;</code>
-     * @return The wrapperString.
      */
-    @java.lang.Override
     public google.protobuf.Wrappers.StringValue getWrapperString() {
       return wrapperString_ == null ? google.protobuf.Wrappers.StringValue.getDefaultInstance() : wrapperString_;
     }
@@ -660,7 +747,6 @@ public final class UniversaltestOuterClass {
      *
      * <code>.google.protobuf.StringValue wrapper_string = 3;</code>
      */
-    @java.lang.Override
     public google.protobuf.Wrappers.StringValueOrBuilder getWrapperStringOrBuilder() {
       return getWrapperString();
     }
@@ -703,6 +789,12 @@ public final class UniversaltestOuterClass {
       if (fatStringList_ != null) {
         output.writeMessage(8, getFatStringList());
       }
+      if (wrapperBool_ != null) {
+        output.writeMessage(9, getWrapperBool());
+      }
+      if (fatBool_ != null) {
+        output.writeMessage(10, getFatBool());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -742,6 +834,14 @@ public final class UniversaltestOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, getFatStringList());
       }
+      if (wrapperBool_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, getWrapperBool());
+      }
+      if (fatBool_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, getFatBool());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -757,6 +857,11 @@ public final class UniversaltestOuterClass {
       }
       universaltest.UniversaltestOuterClass.Universaltest other = (universaltest.UniversaltestOuterClass.Universaltest) obj;
 
+      if (hasFatBool() != other.hasFatBool()) return false;
+      if (hasFatBool()) {
+        if (!getFatBool()
+            .equals(other.getFatBool())) return false;
+      }
       if (hasFatInt32() != other.hasFatInt32()) return false;
       if (hasFatInt32()) {
         if (!getFatInt32()
@@ -778,6 +883,11 @@ public final class UniversaltestOuterClass {
           != other.getScalarInt32()) return false;
       if (!getScalarString()
           .equals(other.getScalarString())) return false;
+      if (hasWrapperBool() != other.hasWrapperBool()) return false;
+      if (hasWrapperBool()) {
+        if (!getWrapperBool()
+            .equals(other.getWrapperBool())) return false;
+      }
       if (hasWrapperInt32() != other.hasWrapperInt32()) return false;
       if (hasWrapperInt32()) {
         if (!getWrapperInt32()
@@ -799,6 +909,10 @@ public final class UniversaltestOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasFatBool()) {
+        hash = (37 * hash) + FAT_BOOL_FIELD_NUMBER;
+        hash = (53 * hash) + getFatBool().hashCode();
+      }
       if (hasFatInt32()) {
         hash = (37 * hash) + FAT_INT32_FIELD_NUMBER;
         hash = (53 * hash) + getFatInt32().hashCode();
@@ -817,6 +931,10 @@ public final class UniversaltestOuterClass {
       hash = (53 * hash) + getScalarInt32();
       hash = (37 * hash) + SCALAR_STRING_FIELD_NUMBER;
       hash = (53 * hash) + getScalarString().hashCode();
+      if (hasWrapperBool()) {
+        hash = (37 * hash) + WRAPPER_BOOL_FIELD_NUMBER;
+        hash = (53 * hash) + getWrapperBool().hashCode();
+      }
       if (hasWrapperInt32()) {
         hash = (37 * hash) + WRAPPER_INT32_FIELD_NUMBER;
         hash = (53 * hash) + getWrapperInt32().hashCode();
@@ -962,6 +1080,12 @@ public final class UniversaltestOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        if (fatBoolBuilder_ == null) {
+          fatBool_ = null;
+        } else {
+          fatBool_ = null;
+          fatBoolBuilder_ = null;
+        }
         if (fatInt32Builder_ == null) {
           fatInt32_ = null;
         } else {
@@ -986,6 +1110,12 @@ public final class UniversaltestOuterClass {
 
         scalarString_ = "";
 
+        if (wrapperBoolBuilder_ == null) {
+          wrapperBool_ = null;
+        } else {
+          wrapperBool_ = null;
+          wrapperBoolBuilder_ = null;
+        }
         if (wrapperInt32Builder_ == null) {
           wrapperInt32_ = null;
         } else {
@@ -1024,6 +1154,11 @@ public final class UniversaltestOuterClass {
       @java.lang.Override
       public universaltest.UniversaltestOuterClass.Universaltest buildPartial() {
         universaltest.UniversaltestOuterClass.Universaltest result = new universaltest.UniversaltestOuterClass.Universaltest(this);
+        if (fatBoolBuilder_ == null) {
+          result.fatBool_ = fatBool_;
+        } else {
+          result.fatBool_ = fatBoolBuilder_.build();
+        }
         if (fatInt32Builder_ == null) {
           result.fatInt32_ = fatInt32_;
         } else {
@@ -1042,6 +1177,11 @@ public final class UniversaltestOuterClass {
         result.id_ = id_;
         result.scalarInt32_ = scalarInt32_;
         result.scalarString_ = scalarString_;
+        if (wrapperBoolBuilder_ == null) {
+          result.wrapperBool_ = wrapperBool_;
+        } else {
+          result.wrapperBool_ = wrapperBoolBuilder_.build();
+        }
         if (wrapperInt32Builder_ == null) {
           result.wrapperInt32_ = wrapperInt32_;
         } else {
@@ -1100,6 +1240,9 @@ public final class UniversaltestOuterClass {
 
       public Builder mergeFrom(universaltest.UniversaltestOuterClass.Universaltest other) {
         if (other == universaltest.UniversaltestOuterClass.Universaltest.getDefaultInstance()) return this;
+        if (other.hasFatBool()) {
+          mergeFatBool(other.getFatBool());
+        }
         if (other.hasFatInt32()) {
           mergeFatInt32(other.getFatInt32());
         }
@@ -1119,6 +1262,9 @@ public final class UniversaltestOuterClass {
         if (!other.getScalarString().isEmpty()) {
           scalarString_ = other.scalarString_;
           onChanged();
+        }
+        if (other.hasWrapperBool()) {
+          mergeWrapperBool(other.getWrapperBool());
         }
         if (other.hasWrapperInt32()) {
           mergeWrapperInt32(other.getWrapperInt32());
@@ -1155,6 +1301,159 @@ public final class UniversaltestOuterClass {
         return this;
       }
 
+      private furo.fat.Fat.Bool fatBool_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.fat.Fat.Bool, furo.fat.Fat.Bool.Builder, furo.fat.Fat.BoolOrBuilder> fatBoolBuilder_;
+      /**
+       * <pre>
+       * field of a fat bool for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.Bool fat_bool = 10;</code>
+       */
+      public boolean hasFatBool() {
+        return fatBoolBuilder_ != null || fatBool_ != null;
+      }
+      /**
+       * <pre>
+       * field of a fat bool for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.Bool fat_bool = 10;</code>
+       */
+      public furo.fat.Fat.Bool getFatBool() {
+        if (fatBoolBuilder_ == null) {
+          return fatBool_ == null ? furo.fat.Fat.Bool.getDefaultInstance() : fatBool_;
+        } else {
+          return fatBoolBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * field of a fat bool for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.Bool fat_bool = 10;</code>
+       */
+      public Builder setFatBool(furo.fat.Fat.Bool value) {
+        if (fatBoolBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          fatBool_ = value;
+          onChanged();
+        } else {
+          fatBoolBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field of a fat bool for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.Bool fat_bool = 10;</code>
+       */
+      public Builder setFatBool(
+          furo.fat.Fat.Bool.Builder builderForValue) {
+        if (fatBoolBuilder_ == null) {
+          fatBool_ = builderForValue.build();
+          onChanged();
+        } else {
+          fatBoolBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field of a fat bool for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.Bool fat_bool = 10;</code>
+       */
+      public Builder mergeFatBool(furo.fat.Fat.Bool value) {
+        if (fatBoolBuilder_ == null) {
+          if (fatBool_ != null) {
+            fatBool_ =
+              furo.fat.Fat.Bool.newBuilder(fatBool_).mergeFrom(value).buildPartial();
+          } else {
+            fatBool_ = value;
+          }
+          onChanged();
+        } else {
+          fatBoolBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field of a fat bool for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.Bool fat_bool = 10;</code>
+       */
+      public Builder clearFatBool() {
+        if (fatBoolBuilder_ == null) {
+          fatBool_ = null;
+          onChanged();
+        } else {
+          fatBool_ = null;
+          fatBoolBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field of a fat bool for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.Bool fat_bool = 10;</code>
+       */
+      public furo.fat.Fat.Bool.Builder getFatBoolBuilder() {
+        
+        onChanged();
+        return getFatBoolFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * field of a fat bool for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.Bool fat_bool = 10;</code>
+       */
+      public furo.fat.Fat.BoolOrBuilder getFatBoolOrBuilder() {
+        if (fatBoolBuilder_ != null) {
+          return fatBoolBuilder_.getMessageOrBuilder();
+        } else {
+          return fatBool_ == null ?
+              furo.fat.Fat.Bool.getDefaultInstance() : fatBool_;
+        }
+      }
+      /**
+       * <pre>
+       * field of a fat bool for the Universaltest
+       * </pre>
+       *
+       * <code>.furo.fat.Bool fat_bool = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.fat.Fat.Bool, furo.fat.Fat.Bool.Builder, furo.fat.Fat.BoolOrBuilder> 
+          getFatBoolFieldBuilder() {
+        if (fatBoolBuilder_ == null) {
+          fatBoolBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              furo.fat.Fat.Bool, furo.fat.Fat.Bool.Builder, furo.fat.Fat.BoolOrBuilder>(
+                  getFatBool(),
+                  getParentForChildren(),
+                  isClean());
+          fatBool_ = null;
+        }
+        return fatBoolBuilder_;
+      }
+
       private furo.fat.Fat.Int32 fatInt32_;
       private com.google.protobuf.SingleFieldBuilderV3<
           furo.fat.Fat.Int32, furo.fat.Fat.Int32.Builder, furo.fat.Fat.Int32OrBuilder> fatInt32Builder_;
@@ -1164,7 +1463,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>.furo.fat.Int32 fat_int32 = 7;</code>
-       * @return Whether the fatInt32 field is set.
        */
       public boolean hasFatInt32() {
         return fatInt32Builder_ != null || fatInt32_ != null;
@@ -1175,7 +1473,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>.furo.fat.Int32 fat_int32 = 7;</code>
-       * @return The fatInt32.
        */
       public furo.fat.Fat.Int32 getFatInt32() {
         if (fatInt32Builder_ == null) {
@@ -1319,7 +1616,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>.furo.fat.String fat_string = 4;</code>
-       * @return Whether the fatString field is set.
        */
       public boolean hasFatString() {
         return fatStringBuilder_ != null || fatString_ != null;
@@ -1330,7 +1626,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>.furo.fat.String fat_string = 4;</code>
-       * @return The fatString.
        */
       public furo.fat.Fat.String getFatString() {
         if (fatStringBuilder_ == null) {
@@ -1474,7 +1769,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>.furo.fat.String fat_string_list = 8;</code>
-       * @return Whether the fatStringList field is set.
        */
       public boolean hasFatStringList() {
         return fatStringListBuilder_ != null || fatStringList_ != null;
@@ -1485,7 +1779,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>.furo.fat.String fat_string_list = 8;</code>
-       * @return The fatStringList.
        */
       public furo.fat.Fat.String getFatStringList() {
         if (fatStringListBuilder_ == null) {
@@ -1627,7 +1920,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @return The id.
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -1647,7 +1939,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @return The bytes for id.
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -1668,8 +1959,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @param value The id to set.
-       * @return This builder for chaining.
        */
       public Builder setId(
           java.lang.String value) {
@@ -1687,7 +1976,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -1701,8 +1989,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -1723,9 +2009,7 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>int32 scalar_int32 = 5;</code>
-       * @return The scalarInt32.
        */
-      @java.lang.Override
       public int getScalarInt32() {
         return scalarInt32_;
       }
@@ -1735,8 +2019,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>int32 scalar_int32 = 5;</code>
-       * @param value The scalarInt32 to set.
-       * @return This builder for chaining.
        */
       public Builder setScalarInt32(int value) {
         
@@ -1750,7 +2032,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>int32 scalar_int32 = 5;</code>
-       * @return This builder for chaining.
        */
       public Builder clearScalarInt32() {
         
@@ -1766,7 +2047,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>string scalar_string = 2;</code>
-       * @return The scalarString.
        */
       public java.lang.String getScalarString() {
         java.lang.Object ref = scalarString_;
@@ -1786,7 +2066,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>string scalar_string = 2;</code>
-       * @return The bytes for scalarString.
        */
       public com.google.protobuf.ByteString
           getScalarStringBytes() {
@@ -1807,8 +2086,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>string scalar_string = 2;</code>
-       * @param value The scalarString to set.
-       * @return This builder for chaining.
        */
       public Builder setScalarString(
           java.lang.String value) {
@@ -1826,7 +2103,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>string scalar_string = 2;</code>
-       * @return This builder for chaining.
        */
       public Builder clearScalarString() {
         
@@ -1840,8 +2116,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>string scalar_string = 2;</code>
-       * @param value The bytes for scalarString to set.
-       * @return This builder for chaining.
        */
       public Builder setScalarStringBytes(
           com.google.protobuf.ByteString value) {
@@ -1855,6 +2129,159 @@ public final class UniversaltestOuterClass {
         return this;
       }
 
+      private google.protobuf.Wrappers.BoolValue wrapperBool_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.protobuf.Wrappers.BoolValue, google.protobuf.Wrappers.BoolValue.Builder, google.protobuf.Wrappers.BoolValueOrBuilder> wrapperBoolBuilder_;
+      /**
+       * <pre>
+       * field of a wrapper boolean for the Universaltest
+       * </pre>
+       *
+       * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+       */
+      public boolean hasWrapperBool() {
+        return wrapperBoolBuilder_ != null || wrapperBool_ != null;
+      }
+      /**
+       * <pre>
+       * field of a wrapper boolean for the Universaltest
+       * </pre>
+       *
+       * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+       */
+      public google.protobuf.Wrappers.BoolValue getWrapperBool() {
+        if (wrapperBoolBuilder_ == null) {
+          return wrapperBool_ == null ? google.protobuf.Wrappers.BoolValue.getDefaultInstance() : wrapperBool_;
+        } else {
+          return wrapperBoolBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * field of a wrapper boolean for the Universaltest
+       * </pre>
+       *
+       * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+       */
+      public Builder setWrapperBool(google.protobuf.Wrappers.BoolValue value) {
+        if (wrapperBoolBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          wrapperBool_ = value;
+          onChanged();
+        } else {
+          wrapperBoolBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field of a wrapper boolean for the Universaltest
+       * </pre>
+       *
+       * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+       */
+      public Builder setWrapperBool(
+          google.protobuf.Wrappers.BoolValue.Builder builderForValue) {
+        if (wrapperBoolBuilder_ == null) {
+          wrapperBool_ = builderForValue.build();
+          onChanged();
+        } else {
+          wrapperBoolBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field of a wrapper boolean for the Universaltest
+       * </pre>
+       *
+       * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+       */
+      public Builder mergeWrapperBool(google.protobuf.Wrappers.BoolValue value) {
+        if (wrapperBoolBuilder_ == null) {
+          if (wrapperBool_ != null) {
+            wrapperBool_ =
+              google.protobuf.Wrappers.BoolValue.newBuilder(wrapperBool_).mergeFrom(value).buildPartial();
+          } else {
+            wrapperBool_ = value;
+          }
+          onChanged();
+        } else {
+          wrapperBoolBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field of a wrapper boolean for the Universaltest
+       * </pre>
+       *
+       * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+       */
+      public Builder clearWrapperBool() {
+        if (wrapperBoolBuilder_ == null) {
+          wrapperBool_ = null;
+          onChanged();
+        } else {
+          wrapperBool_ = null;
+          wrapperBoolBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field of a wrapper boolean for the Universaltest
+       * </pre>
+       *
+       * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+       */
+      public google.protobuf.Wrappers.BoolValue.Builder getWrapperBoolBuilder() {
+        
+        onChanged();
+        return getWrapperBoolFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * field of a wrapper boolean for the Universaltest
+       * </pre>
+       *
+       * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+       */
+      public google.protobuf.Wrappers.BoolValueOrBuilder getWrapperBoolOrBuilder() {
+        if (wrapperBoolBuilder_ != null) {
+          return wrapperBoolBuilder_.getMessageOrBuilder();
+        } else {
+          return wrapperBool_ == null ?
+              google.protobuf.Wrappers.BoolValue.getDefaultInstance() : wrapperBool_;
+        }
+      }
+      /**
+       * <pre>
+       * field of a wrapper boolean for the Universaltest
+       * </pre>
+       *
+       * <code>.google.protobuf.BoolValue wrapper_bool = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.protobuf.Wrappers.BoolValue, google.protobuf.Wrappers.BoolValue.Builder, google.protobuf.Wrappers.BoolValueOrBuilder> 
+          getWrapperBoolFieldBuilder() {
+        if (wrapperBoolBuilder_ == null) {
+          wrapperBoolBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              google.protobuf.Wrappers.BoolValue, google.protobuf.Wrappers.BoolValue.Builder, google.protobuf.Wrappers.BoolValueOrBuilder>(
+                  getWrapperBool(),
+                  getParentForChildren(),
+                  isClean());
+          wrapperBool_ = null;
+        }
+        return wrapperBoolBuilder_;
+      }
+
       private google.protobuf.Wrappers.Int32Value wrapperInt32_;
       private com.google.protobuf.SingleFieldBuilderV3<
           google.protobuf.Wrappers.Int32Value, google.protobuf.Wrappers.Int32Value.Builder, google.protobuf.Wrappers.Int32ValueOrBuilder> wrapperInt32Builder_;
@@ -1864,7 +2291,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>.google.protobuf.Int32Value wrapper_int32 = 6;</code>
-       * @return Whether the wrapperInt32 field is set.
        */
       public boolean hasWrapperInt32() {
         return wrapperInt32Builder_ != null || wrapperInt32_ != null;
@@ -1875,7 +2301,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>.google.protobuf.Int32Value wrapper_int32 = 6;</code>
-       * @return The wrapperInt32.
        */
       public google.protobuf.Wrappers.Int32Value getWrapperInt32() {
         if (wrapperInt32Builder_ == null) {
@@ -2019,7 +2444,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>.google.protobuf.StringValue wrapper_string = 3;</code>
-       * @return Whether the wrapperString field is set.
        */
       public boolean hasWrapperString() {
         return wrapperStringBuilder_ != null || wrapperString_ != null;
@@ -2030,7 +2454,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>.google.protobuf.StringValue wrapper_string = 3;</code>
-       * @return The wrapperString.
        */
       public google.protobuf.Wrappers.StringValue getWrapperString() {
         if (wrapperStringBuilder_ == null) {
@@ -2227,7 +2650,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.universaltest.Universaltest data = 1;</code>
-     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
@@ -2236,7 +2658,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.universaltest.Universaltest data = 1;</code>
-     * @return The data.
      */
     universaltest.UniversaltestOuterClass.Universaltest getData();
     /**
@@ -2298,7 +2719,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
-     * @return Whether the meta field is set.
      */
     boolean hasMeta();
     /**
@@ -2307,7 +2727,6 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
-     * @return The meta.
      */
     furo.MetaOuterClass.Meta getMeta();
     /**
@@ -2326,7 +2745,7 @@ public final class UniversaltestOuterClass {
    *
    * Protobuf type {@code universaltest.UniversaltestEntity}
    */
-  public static final class UniversaltestEntity extends
+  public  static final class UniversaltestEntity extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:universaltest.UniversaltestEntity)
       UniversaltestEntityOrBuilder {
@@ -2337,13 +2756,6 @@ public final class UniversaltestOuterClass {
     }
     private UniversaltestEntity() {
       links_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new UniversaltestEntity();
     }
 
     @java.lang.Override
@@ -2384,9 +2796,9 @@ public final class UniversaltestOuterClass {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 links_ = new java.util.ArrayList<furo.LinkOuterClass.Link>();
-                mutable_bitField0_ |= 0x00000001;
+                mutable_bitField0_ |= 0x00000002;
               }
               links_.add(
                   input.readMessage(furo.LinkOuterClass.Link.parser(), extensionRegistry));
@@ -2420,7 +2832,7 @@ public final class UniversaltestOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           links_ = java.util.Collections.unmodifiableList(links_);
         }
         this.unknownFields = unknownFields.build();
@@ -2440,6 +2852,7 @@ public final class UniversaltestOuterClass {
               universaltest.UniversaltestOuterClass.UniversaltestEntity.class, universaltest.UniversaltestOuterClass.UniversaltestEntity.Builder.class);
     }
 
+    private int bitField0_;
     public static final int DATA_FIELD_NUMBER = 1;
     private universaltest.UniversaltestOuterClass.Universaltest data_;
     /**
@@ -2448,9 +2861,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.universaltest.Universaltest data = 1;</code>
-     * @return Whether the data field is set.
      */
-    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
@@ -2460,9 +2871,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.universaltest.Universaltest data = 1;</code>
-     * @return The data.
      */
-    @java.lang.Override
     public universaltest.UniversaltestOuterClass.Universaltest getData() {
       return data_ == null ? universaltest.UniversaltestOuterClass.Universaltest.getDefaultInstance() : data_;
     }
@@ -2473,7 +2882,6 @@ public final class UniversaltestOuterClass {
      *
      * <code>.universaltest.Universaltest data = 1;</code>
      */
-    @java.lang.Override
     public universaltest.UniversaltestOuterClass.UniversaltestOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -2487,7 +2895,6 @@ public final class UniversaltestOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public java.util.List<furo.LinkOuterClass.Link> getLinksList() {
       return links_;
     }
@@ -2498,7 +2905,6 @@ public final class UniversaltestOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public java.util.List<? extends furo.LinkOuterClass.LinkOrBuilder> 
         getLinksOrBuilderList() {
       return links_;
@@ -2510,7 +2916,6 @@ public final class UniversaltestOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public int getLinksCount() {
       return links_.size();
     }
@@ -2521,7 +2926,6 @@ public final class UniversaltestOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public furo.LinkOuterClass.Link getLinks(int index) {
       return links_.get(index);
     }
@@ -2532,7 +2936,6 @@ public final class UniversaltestOuterClass {
      *
      * <code>repeated .furo.Link links = 2;</code>
      */
-    @java.lang.Override
     public furo.LinkOuterClass.LinkOrBuilder getLinksOrBuilder(
         int index) {
       return links_.get(index);
@@ -2546,9 +2949,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
-     * @return Whether the meta field is set.
      */
-    @java.lang.Override
     public boolean hasMeta() {
       return meta_ != null;
     }
@@ -2558,9 +2959,7 @@ public final class UniversaltestOuterClass {
      * </pre>
      *
      * <code>.furo.Meta meta = 3;</code>
-     * @return The meta.
      */
-    @java.lang.Override
     public furo.MetaOuterClass.Meta getMeta() {
       return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
     }
@@ -2571,7 +2970,6 @@ public final class UniversaltestOuterClass {
      *
      * <code>.furo.Meta meta = 3;</code>
      */
-    @java.lang.Override
     public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
       return getMeta();
     }
@@ -2816,7 +3214,7 @@ public final class UniversaltestOuterClass {
         }
         if (linksBuilder_ == null) {
           links_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           linksBuilder_.clear();
         }
@@ -2853,15 +3251,16 @@ public final class UniversaltestOuterClass {
       public universaltest.UniversaltestOuterClass.UniversaltestEntity buildPartial() {
         universaltest.UniversaltestOuterClass.UniversaltestEntity result = new universaltest.UniversaltestOuterClass.UniversaltestEntity(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (dataBuilder_ == null) {
           result.data_ = data_;
         } else {
           result.data_ = dataBuilder_.build();
         }
         if (linksBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             links_ = java.util.Collections.unmodifiableList(links_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.links_ = links_;
         } else {
@@ -2872,6 +3271,7 @@ public final class UniversaltestOuterClass {
         } else {
           result.meta_ = metaBuilder_.build();
         }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2927,7 +3327,7 @@ public final class UniversaltestOuterClass {
           if (!other.links_.isEmpty()) {
             if (links_.isEmpty()) {
               links_ = other.links_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureLinksIsMutable();
               links_.addAll(other.links_);
@@ -2940,7 +3340,7 @@ public final class UniversaltestOuterClass {
               linksBuilder_.dispose();
               linksBuilder_ = null;
               links_ = other.links_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               linksBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getLinksFieldBuilder() : null;
@@ -2991,7 +3391,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>.universaltest.Universaltest data = 1;</code>
-       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
@@ -3002,7 +3401,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>.universaltest.Universaltest data = 1;</code>
-       * @return The data.
        */
       public universaltest.UniversaltestOuterClass.Universaltest getData() {
         if (dataBuilder_ == null) {
@@ -3140,9 +3538,9 @@ public final class UniversaltestOuterClass {
       private java.util.List<furo.LinkOuterClass.Link> links_ =
         java.util.Collections.emptyList();
       private void ensureLinksIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           links_ = new java.util.ArrayList<furo.LinkOuterClass.Link>(links_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -3336,7 +3734,7 @@ public final class UniversaltestOuterClass {
       public Builder clearLinks() {
         if (linksBuilder_ == null) {
           links_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           linksBuilder_.clear();
@@ -3441,7 +3839,7 @@ public final class UniversaltestOuterClass {
           linksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               furo.LinkOuterClass.Link, furo.LinkOuterClass.Link.Builder, furo.LinkOuterClass.LinkOrBuilder>(
                   links_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           links_ = null;
@@ -3458,7 +3856,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 3;</code>
-       * @return Whether the meta field is set.
        */
       public boolean hasMeta() {
         return metaBuilder_ != null || meta_ != null;
@@ -3469,7 +3866,6 @@ public final class UniversaltestOuterClass {
        * </pre>
        *
        * <code>.furo.Meta meta = 3;</code>
-       * @return The meta.
        */
       public furo.MetaOuterClass.Meta getMeta() {
         if (metaBuilder_ == null) {
@@ -3678,33 +4074,43 @@ public final class UniversaltestOuterClass {
       "\n!universaltest/universaltest.proto\022\runi" +
       "versaltest\032\036google/protobuf/wrappers.pro" +
       "to\032\022furo/fat/fat.proto\032\017furo/meta.proto\032" +
-      "\017furo/link.proto\"\247\002\n\rUniversaltest\022\"\n\tfa" +
-      "t_int32\030\007 \001(\0132\017.furo.fat.Int32\022$\n\nfat_st" +
-      "ring\030\004 \001(\0132\020.furo.fat.String\022)\n\017fat_stri" +
-      "ng_list\030\010 \001(\0132\020.furo.fat.String\022\n\n\002id\030\001 " +
-      "\001(\t\022\024\n\014scalar_int32\030\005 \001(\005\022\025\n\rscalar_stri" +
-      "ng\030\002 \001(\t\0222\n\rwrapper_int32\030\006 \001(\0132\033.google" +
-      ".protobuf.Int32Value\0224\n\016wrapper_string\030\003" +
-      " \001(\0132\034.google.protobuf.StringValue\"v\n\023Un" +
-      "iversaltestEntity\022*\n\004data\030\001 \001(\0132\034.univer" +
-      "saltest.Universaltest\022\031\n\005links\030\002 \003(\0132\n.f" +
-      "uro.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Metab\006prot" +
-      "o3"
+      "\017furo/link.proto\"\373\002\n\rUniversaltest\022 \n\010fa" +
+      "t_bool\030\n \001(\0132\016.furo.fat.Bool\022\"\n\tfat_int3" +
+      "2\030\007 \001(\0132\017.furo.fat.Int32\022$\n\nfat_string\030\004" +
+      " \001(\0132\020.furo.fat.String\022)\n\017fat_string_lis" +
+      "t\030\010 \001(\0132\020.furo.fat.String\022\n\n\002id\030\001 \001(\t\022\024\n" +
+      "\014scalar_int32\030\005 \001(\005\022\025\n\rscalar_string\030\002 \001" +
+      "(\t\0220\n\014wrapper_bool\030\t \001(\0132\032.google.protob" +
+      "uf.BoolValue\0222\n\rwrapper_int32\030\006 \001(\0132\033.go" +
+      "ogle.protobuf.Int32Value\0224\n\016wrapper_stri" +
+      "ng\030\003 \001(\0132\034.google.protobuf.StringValue\"v" +
+      "\n\023UniversaltestEntity\022*\n\004data\030\001 \001(\0132\034.un" +
+      "iversaltest.Universaltest\022\031\n\005links\030\002 \003(\013" +
+      "2\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Metab\006" +
+      "proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           google.protobuf.Wrappers.getDescriptor(),
           furo.fat.Fat.getDescriptor(),
           furo.MetaOuterClass.getDescriptor(),
           furo.LinkOuterClass.getDescriptor(),
-        });
+        }, assigner);
     internal_static_universaltest_Universaltest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_universaltest_Universaltest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_universaltest_Universaltest_descriptor,
-        new java.lang.String[] { "FatInt32", "FatString", "FatStringList", "Id", "ScalarInt32", "ScalarString", "WrapperInt32", "WrapperString", });
+        new java.lang.String[] { "FatBool", "FatInt32", "FatString", "FatStringList", "Id", "ScalarInt32", "ScalarString", "WrapperBool", "WrapperInt32", "WrapperString", });
     internal_static_universaltest_UniversaltestEntity_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_universaltest_UniversaltestEntity_fieldAccessorTable = new

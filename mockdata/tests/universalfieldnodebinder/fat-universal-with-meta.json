@@ -24,6 +24,13 @@
       "attributes": {
         "value-state": "Information"
       }
+    },
+    "fat_bool": {
+      "value": true,
+      "value-state": "Information"
+    },
+    "wrapper_bool": {
+      "value": true
     }
   },
   "links": [],

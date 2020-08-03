@@ -29,7 +29,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-color-input Input samples
  * @appliesMixin FBP
  */
-class FuroColorInput extends FBP(LitElement) {
+export class FuroColorInput extends FBP(LitElement) {
   /**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked

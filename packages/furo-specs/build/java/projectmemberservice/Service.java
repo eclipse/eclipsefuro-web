@@ -24,7 +24,6 @@ public final class Service {
      * </pre>
      *
      * <code>string q = 1;</code>
-     * @return The q.
      */
     java.lang.String getQ();
     /**
@@ -33,7 +32,6 @@ public final class Service {
      * </pre>
      *
      * <code>string q = 1;</code>
-     * @return The bytes for q.
      */
     com.google.protobuf.ByteString
         getQBytes();
@@ -41,7 +39,7 @@ public final class Service {
   /**
    * Protobuf type {@code projectmemberservice.ListProjectMembersServiceRequest}
    */
-  public static final class ListProjectMembersServiceRequest extends
+  public  static final class ListProjectMembersServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:projectmemberservice.ListProjectMembersServiceRequest)
       ListProjectMembersServiceRequestOrBuilder {
@@ -52,13 +50,6 @@ public final class Service {
     }
     private ListProjectMembersServiceRequest() {
       q_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new ListProjectMembersServiceRequest();
     }
 
     @java.lang.Override
@@ -74,6 +65,7 @@ public final class Service {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -130,9 +122,7 @@ public final class Service {
      * </pre>
      *
      * <code>string q = 1;</code>
-     * @return The q.
      */
-    @java.lang.Override
     public java.lang.String getQ() {
       java.lang.Object ref = q_;
       if (ref instanceof java.lang.String) {
@@ -151,9 +141,7 @@ public final class Service {
      * </pre>
      *
      * <code>string q = 1;</code>
-     * @return The bytes for q.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getQBytes() {
       java.lang.Object ref = q_;
@@ -477,7 +465,6 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 1;</code>
-       * @return The q.
        */
       public java.lang.String getQ() {
         java.lang.Object ref = q_;
@@ -497,7 +484,6 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 1;</code>
-       * @return The bytes for q.
        */
       public com.google.protobuf.ByteString
           getQBytes() {
@@ -518,8 +504,6 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 1;</code>
-       * @param value The q to set.
-       * @return This builder for chaining.
        */
       public Builder setQ(
           java.lang.String value) {
@@ -537,7 +521,6 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearQ() {
         
@@ -551,8 +534,6 @@ public final class Service {
        * </pre>
        *
        * <code>string q = 1;</code>
-       * @param value The bytes for q to set.
-       * @return This builder for chaining.
        */
       public Builder setQBytes(
           com.google.protobuf.ByteString value) {
@@ -624,36 +605,30 @@ public final class Service {
 
     /**
      * <code>string prj = 1;</code>
-     * @return The prj.
      */
     java.lang.String getPrj();
     /**
      * <code>string prj = 1;</code>
-     * @return The bytes for prj.
      */
     com.google.protobuf.ByteString
         getPrjBytes();
 
     /**
      * <code>string prs = 2;</code>
-     * @return The prs.
      */
     java.lang.String getPrs();
     /**
      * <code>string prs = 2;</code>
-     * @return The bytes for prs.
      */
     com.google.protobuf.ByteString
         getPrsBytes();
 
     /**
      * <code>.person.PersonEntity data = 3;</code>
-     * @return Whether the data field is set.
      */
     boolean hasData();
     /**
      * <code>.person.PersonEntity data = 3;</code>
-     * @return The data.
      */
     person.PersonOuterClass.PersonEntity getData();
     /**
@@ -664,7 +639,7 @@ public final class Service {
   /**
    * Protobuf type {@code projectmemberservice.UnsubscribeProjectMembersServiceRequest}
    */
-  public static final class UnsubscribeProjectMembersServiceRequest extends
+  public  static final class UnsubscribeProjectMembersServiceRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:projectmemberservice.UnsubscribeProjectMembersServiceRequest)
       UnsubscribeProjectMembersServiceRequestOrBuilder {
@@ -676,13 +651,6 @@ public final class Service {
     private UnsubscribeProjectMembersServiceRequest() {
       prj_ = "";
       prs_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new UnsubscribeProjectMembersServiceRequest();
     }
 
     @java.lang.Override
@@ -698,6 +666,7 @@ public final class Service {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -769,9 +738,7 @@ public final class Service {
     private volatile java.lang.Object prj_;
     /**
      * <code>string prj = 1;</code>
-     * @return The prj.
      */
-    @java.lang.Override
     public java.lang.String getPrj() {
       java.lang.Object ref = prj_;
       if (ref instanceof java.lang.String) {
@@ -786,9 +753,7 @@ public final class Service {
     }
     /**
      * <code>string prj = 1;</code>
-     * @return The bytes for prj.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getPrjBytes() {
       java.lang.Object ref = prj_;
@@ -807,9 +772,7 @@ public final class Service {
     private volatile java.lang.Object prs_;
     /**
      * <code>string prs = 2;</code>
-     * @return The prs.
      */
-    @java.lang.Override
     public java.lang.String getPrs() {
       java.lang.Object ref = prs_;
       if (ref instanceof java.lang.String) {
@@ -824,9 +787,7 @@ public final class Service {
     }
     /**
      * <code>string prs = 2;</code>
-     * @return The bytes for prs.
      */
-    @java.lang.Override
     public com.google.protobuf.ByteString
         getPrsBytes() {
       java.lang.Object ref = prs_;
@@ -845,24 +806,19 @@ public final class Service {
     private person.PersonOuterClass.PersonEntity data_;
     /**
      * <code>.person.PersonEntity data = 3;</code>
-     * @return Whether the data field is set.
      */
-    @java.lang.Override
     public boolean hasData() {
       return data_ != null;
     }
     /**
      * <code>.person.PersonEntity data = 3;</code>
-     * @return The data.
      */
-    @java.lang.Override
     public person.PersonOuterClass.PersonEntity getData() {
       return data_ == null ? person.PersonOuterClass.PersonEntity.getDefaultInstance() : data_;
     }
     /**
      * <code>.person.PersonEntity data = 3;</code>
      */
-    @java.lang.Override
     public person.PersonOuterClass.PersonEntityOrBuilder getDataOrBuilder() {
       return getData();
     }
@@ -1219,7 +1175,6 @@ public final class Service {
       private java.lang.Object prj_ = "";
       /**
        * <code>string prj = 1;</code>
-       * @return The prj.
        */
       public java.lang.String getPrj() {
         java.lang.Object ref = prj_;
@@ -1235,7 +1190,6 @@ public final class Service {
       }
       /**
        * <code>string prj = 1;</code>
-       * @return The bytes for prj.
        */
       public com.google.protobuf.ByteString
           getPrjBytes() {
@@ -1252,8 +1206,6 @@ public final class Service {
       }
       /**
        * <code>string prj = 1;</code>
-       * @param value The prj to set.
-       * @return This builder for chaining.
        */
       public Builder setPrj(
           java.lang.String value) {
@@ -1267,7 +1219,6 @@ public final class Service {
       }
       /**
        * <code>string prj = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearPrj() {
         
@@ -1277,8 +1228,6 @@ public final class Service {
       }
       /**
        * <code>string prj = 1;</code>
-       * @param value The bytes for prj to set.
-       * @return This builder for chaining.
        */
       public Builder setPrjBytes(
           com.google.protobuf.ByteString value) {
@@ -1295,7 +1244,6 @@ public final class Service {
       private java.lang.Object prs_ = "";
       /**
        * <code>string prs = 2;</code>
-       * @return The prs.
        */
       public java.lang.String getPrs() {
         java.lang.Object ref = prs_;
@@ -1311,7 +1259,6 @@ public final class Service {
       }
       /**
        * <code>string prs = 2;</code>
-       * @return The bytes for prs.
        */
       public com.google.protobuf.ByteString
           getPrsBytes() {
@@ -1328,8 +1275,6 @@ public final class Service {
       }
       /**
        * <code>string prs = 2;</code>
-       * @param value The prs to set.
-       * @return This builder for chaining.
        */
       public Builder setPrs(
           java.lang.String value) {
@@ -1343,7 +1288,6 @@ public final class Service {
       }
       /**
        * <code>string prs = 2;</code>
-       * @return This builder for chaining.
        */
       public Builder clearPrs() {
         
@@ -1353,8 +1297,6 @@ public final class Service {
       }
       /**
        * <code>string prs = 2;</code>
-       * @param value The bytes for prs to set.
-       * @return This builder for chaining.
        */
       public Builder setPrsBytes(
           com.google.protobuf.ByteString value) {
@@ -1373,14 +1315,12 @@ public final class Service {
           person.PersonOuterClass.PersonEntity, person.PersonOuterClass.PersonEntity.Builder, person.PersonOuterClass.PersonEntityOrBuilder> dataBuilder_;
       /**
        * <code>.person.PersonEntity data = 3;</code>
-       * @return Whether the data field is set.
        */
       public boolean hasData() {
         return dataBuilder_ != null || data_ != null;
       }
       /**
        * <code>.person.PersonEntity data = 3;</code>
-       * @return The data.
        */
       public person.PersonOuterClass.PersonEntity getData() {
         if (dataBuilder_ == null) {
@@ -1575,12 +1515,20 @@ public final class Service {
       "}/members/{prs}:unsubscribe:\004dataB\027Z\025/pr" +
       "ojectmemberserviceb\006proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
           person.PersonOuterClass.getDescriptor(),
-        });
+        }, assigner);
     internal_static_projectmemberservice_ListProjectMembersServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_projectmemberservice_ListProjectMembersServiceRequest_fieldAccessorTable = new

@@ -20,6 +20,13 @@
     "fat_int32": {
       "value": 14,
       "value-state": "Information"
+    },
+    "fat_bool": {
+      "value": true,
+      "value-state": "Information"
+    },
+    "wrapper_bool": {
+      "value": true
     }
   },
   "links": [],

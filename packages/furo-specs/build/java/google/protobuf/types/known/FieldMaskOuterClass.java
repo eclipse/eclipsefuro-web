@@ -24,7 +24,6 @@ public final class FieldMaskOuterClass {
      * </pre>
      *
      * <code>repeated string paths = 1;</code>
-     * @return A list containing the paths.
      */
     java.util.List<java.lang.String>
         getPathsList();
@@ -34,7 +33,6 @@ public final class FieldMaskOuterClass {
      * </pre>
      *
      * <code>repeated string paths = 1;</code>
-     * @return The count of paths.
      */
     int getPathsCount();
     /**
@@ -43,8 +41,6 @@ public final class FieldMaskOuterClass {
      * </pre>
      *
      * <code>repeated string paths = 1;</code>
-     * @param index The index of the element to return.
-     * @return The paths at the given index.
      */
     java.lang.String getPaths(int index);
     /**
@@ -53,8 +49,6 @@ public final class FieldMaskOuterClass {
      * </pre>
      *
      * <code>repeated string paths = 1;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the paths at the given index.
      */
     com.google.protobuf.ByteString
         getPathsBytes(int index);
@@ -66,7 +60,7 @@ public final class FieldMaskOuterClass {
    *
    * Protobuf type {@code google.protobuf.types.known.FieldMask}
    */
-  public static final class FieldMask extends
+  public  static final class FieldMask extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:google.protobuf.types.known.FieldMask)
       FieldMaskOrBuilder {
@@ -77,13 +71,6 @@ public final class FieldMaskOuterClass {
     }
     private FieldMask() {
       paths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new FieldMask();
     }
 
     @java.lang.Override
@@ -162,7 +149,6 @@ public final class FieldMaskOuterClass {
      * </pre>
      *
      * <code>repeated string paths = 1;</code>
-     * @return A list containing the paths.
      */
     public com.google.protobuf.ProtocolStringList
         getPathsList() {
@@ -174,7 +160,6 @@ public final class FieldMaskOuterClass {
      * </pre>
      *
      * <code>repeated string paths = 1;</code>
-     * @return The count of paths.
      */
     public int getPathsCount() {
       return paths_.size();
@@ -185,8 +170,6 @@ public final class FieldMaskOuterClass {
      * </pre>
      *
      * <code>repeated string paths = 1;</code>
-     * @param index The index of the element to return.
-     * @return The paths at the given index.
      */
     public java.lang.String getPaths(int index) {
       return paths_.get(index);
@@ -197,8 +180,6 @@ public final class FieldMaskOuterClass {
      * </pre>
      *
      * <code>repeated string paths = 1;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the paths at the given index.
      */
     public com.google.protobuf.ByteString
         getPathsBytes(int index) {
@@ -543,7 +524,6 @@ public final class FieldMaskOuterClass {
        * </pre>
        *
        * <code>repeated string paths = 1;</code>
-       * @return A list containing the paths.
        */
       public com.google.protobuf.ProtocolStringList
           getPathsList() {
@@ -555,7 +535,6 @@ public final class FieldMaskOuterClass {
        * </pre>
        *
        * <code>repeated string paths = 1;</code>
-       * @return The count of paths.
        */
       public int getPathsCount() {
         return paths_.size();
@@ -566,8 +545,6 @@ public final class FieldMaskOuterClass {
        * </pre>
        *
        * <code>repeated string paths = 1;</code>
-       * @param index The index of the element to return.
-       * @return The paths at the given index.
        */
       public java.lang.String getPaths(int index) {
         return paths_.get(index);
@@ -578,8 +555,6 @@ public final class FieldMaskOuterClass {
        * </pre>
        *
        * <code>repeated string paths = 1;</code>
-       * @param index The index of the value to return.
-       * @return The bytes of the paths at the given index.
        */
       public com.google.protobuf.ByteString
           getPathsBytes(int index) {
@@ -591,9 +566,6 @@ public final class FieldMaskOuterClass {
        * </pre>
        *
        * <code>repeated string paths = 1;</code>
-       * @param index The index to set the value at.
-       * @param value The paths to set.
-       * @return This builder for chaining.
        */
       public Builder setPaths(
           int index, java.lang.String value) {
@@ -611,8 +583,6 @@ public final class FieldMaskOuterClass {
        * </pre>
        *
        * <code>repeated string paths = 1;</code>
-       * @param value The paths to add.
-       * @return This builder for chaining.
        */
       public Builder addPaths(
           java.lang.String value) {
@@ -630,8 +600,6 @@ public final class FieldMaskOuterClass {
        * </pre>
        *
        * <code>repeated string paths = 1;</code>
-       * @param values The paths to add.
-       * @return This builder for chaining.
        */
       public Builder addAllPaths(
           java.lang.Iterable<java.lang.String> values) {
@@ -647,7 +615,6 @@ public final class FieldMaskOuterClass {
        * </pre>
        *
        * <code>repeated string paths = 1;</code>
-       * @return This builder for chaining.
        */
       public Builder clearPaths() {
         paths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -661,8 +628,6 @@ public final class FieldMaskOuterClass {
        * </pre>
        *
        * <code>repeated string paths = 1;</code>
-       * @param value The bytes of the paths to add.
-       * @return This builder for chaining.
        */
       public Builder addPathsBytes(
           com.google.protobuf.ByteString value) {
@@ -746,10 +711,18 @@ public final class FieldMaskOuterClass {
       ".proto\022\033google.protobuf.types.known\"\032\n\tF" +
       "ieldMask\022\r\n\005paths\030\001 \003(\tb\006proto3"
     };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        });
+        }, assigner);
     internal_static_google_protobuf_types_known_FieldMask_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_google_protobuf_types_known_FieldMask_fieldAccessorTable = new
