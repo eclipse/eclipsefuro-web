@@ -14,24 +14,18 @@ import { i18n } from '@furo/framework/src/i18n.js';
 
 /**
  * `furo-ui5-pagination-bar`
- *  this pagination element loops the hts-in array and find out the pagination information likes prev, next, first last
- *  this current page should be detected by analysing the self link
+ * this pagination element loops the hts array and find out the pagination
+ * information like prev, next, first and last
  *
- * Lit element
- * <furo-ui5-pagination-bar ƒ-inject="--hts"
- *                 @-pagination-first="--first"
- *                 @-npagination-ext="--next"
- *                 @-pagination-prev="--prev"
- *                 @-pagination-last="--last"></furo-ui5-pagination-bar>
  *
- * Tags: data-ui
- *
- * @summary hateoas pagination bar
- * @demo demo-furo-ui5-pagination-bar Basic Usage
+ * Tags: pagination
+ * @summary Pagination Bar
  * @customElement
+ * @demo demo-furo-ui5-pagination-bar Basic Usage
  * @mixes FBP
  */
 class FuroUi5PaginationBar extends FBP(LitElement) {
+
   constructor() {
     super();
     this.currentPage = 0;
