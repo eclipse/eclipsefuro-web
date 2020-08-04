@@ -26,6 +26,25 @@ import { i18n } from '@furo/framework/src/i18n.js';
  */
 class FuroUi5PaginationBar extends FBP(LitElement) {
 
+  /**
+   * @event pagination-first
+   * Is fired if the pagination button 'sys_first_page' was clicked
+   */
+
+  /**
+   * @event pagination-last
+   * Is fired if the pagination button 'sys_last_page' was clicked
+   */
+
+  /** @event pagination-prev
+   * Is fired if the pagination button 'sys_prev_page' was clicked
+   */
+
+  /**
+   * @event pagination-next
+   * Is fired if the pagination button 'sys_next_page' was clicked
+   */
+
   constructor() {
     super();
     this.currentPage = 0;

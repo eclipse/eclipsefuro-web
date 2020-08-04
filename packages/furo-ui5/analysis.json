@@ -13,11 +13,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 64,
+              "line": 83,
               "column": 6
             },
             "end": {
-              "line": 66,
+              "line": 85,
               "column": 7
             }
           },
@@ -34,11 +34,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 67,
+              "line": 86,
               "column": 6
             },
             "end": {
-              "line": 69,
+              "line": 88,
               "column": 7
             }
           },
@@ -55,11 +55,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 70,
+              "line": 89,
               "column": 6
             },
             "end": {
-              "line": 72,
+              "line": 91,
               "column": 7
             }
           },
@@ -76,11 +76,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 92,
               "column": 6
             },
             "end": {
-              "line": 75,
+              "line": 94,
               "column": 7
             }
           },
@@ -97,11 +97,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 76,
+              "line": 95,
               "column": 6
             },
             "end": {
-              "line": 78,
+              "line": 97,
               "column": 7
             }
           },
@@ -119,11 +119,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 86,
+              "line": 105,
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 129,
               "column": 3
             }
           },
@@ -143,11 +143,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 112,
+              "line": 131,
               "column": 2
             },
             "end": {
-              "line": 117,
+              "line": 136,
               "column": 3
             }
           },
@@ -163,11 +163,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 124,
+              "line": 143,
               "column": 2
             },
             "end": {
-              "line": 132,
+              "line": 151,
               "column": 3
             }
           },
@@ -187,11 +187,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 138,
+              "line": 157,
               "column": 2
             },
             "end": {
-              "line": 177,
+              "line": 196,
               "column": 3
             }
           },
@@ -216,7 +216,7 @@
           "column": 0
         },
         "end": {
-          "line": 178,
+          "line": 197,
           "column": 1
         }
       },
@@ -229,11 +229,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 64,
+              "line": 83,
               "column": 6
             },
             "end": {
-              "line": 66,
+              "line": 85,
               "column": 7
             }
           },
@@ -245,11 +245,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 67,
+              "line": 86,
               "column": 6
             },
             "end": {
-              "line": 69,
+              "line": 88,
               "column": 7
             }
           },
@@ -261,11 +261,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 70,
+              "line": 89,
               "column": 6
             },
             "end": {
-              "line": 72,
+              "line": 91,
               "column": 7
             }
           },
@@ -277,11 +277,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 92,
               "column": 6
             },
             "end": {
-              "line": 75,
+              "line": 94,
               "column": 7
             }
           },
@@ -293,11 +293,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 76,
+              "line": 95,
               "column": 6
             },
             "end": {
-              "line": 78,
+              "line": 97,
               "column": 7
             }
           },
@@ -305,7 +305,32 @@
           "type": "boolean | null | undefined"
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "pagination-first",
+          "description": "pagination-first\nIs fired if the pagination button 'sys_first_page' was clicked",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "pagination-last",
+          "description": "pagination-last\nIs fired if the pagination button 'sys_last_page' was clicked",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "pagination-next",
+          "description": "pagination-next\nIs fired if the pagination button 'sys_next_page' was clicked",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "pagination-prev",
+          "description": "pagination-prev\nIs fired if the pagination button 'sys_prev_page' was clicked",
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
