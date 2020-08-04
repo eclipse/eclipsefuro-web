@@ -79,54 +79,55 @@ describe('furo-checkbox-input', () => {
 
   it('should accept a value with setValue', done => {
     element.setValue(true);
-    assert.equal(element.value, true);
     assert.equal(checkField.value, true);
     done();
   });
 
   it('should be via method `check` checkable', done => {
     element.check();
-    assert.equal(element.value, true);
     assert.equal(checkField.value, true);
     done();
   });
 
   it('should be via method `uncheck` unselectable', done => {
     element.uncheck();
-    assert.equal(element.value, false);
     assert.equal(checkField.value, false);
     done();
   });
 
   it('should be via method `toggle` toggleable', done => {
     element.setValue(true);
-    assert.equal(element.value, true);
+    assert.equal(checkField.value, true);
     element.toggle();
-    assert.equal(element.value, false);
-    assert.equal(checkField.value, false);
-    done();
+    setTimeout(()=>{
+      assert.equal(checkField.shadowRoot.getElementById("input").value, "on");
+      done();
+
+    },1)
   });
 
   it('should be via wire `--toggle` toggleable', done => {
     element.setValue(true);
-    assert.equal(element.value, true);
+    assert.equal(checkField.value, true);
     element._FBPTriggerWire('--toggle');
-    assert.equal(element.value, false);
-    done();
+    setTimeout(()=>{
+      assert.equal(checkField.shadowRoot.getElementById("input").value, "on");
+      done();
+
+    },1)
   });
 
   it('should be set value by checked', done => {
     element.checked = true;
-    assert.equal(element.value, true);
+    assert.equal(checkField.value, true);
     element.checked = false;
-    assert.equal(element.value, false);
+    assert.equal(checkField.value, false);
     done();
   });
 
   it('should be possible to set value when checkbox is disabled ', done => {
     element.disabled = true;
     element.toggle();
-    assert.equal(element.value, true);
     assert.equal(checkField.value, true);
     done();
   });

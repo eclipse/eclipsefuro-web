@@ -1,30 +1,49 @@
-import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme';
-import { FBP } from '@furo/fbp';
-import '@furo/input/src/furo-color-input';
-
-import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
-import { Helper } from './lib/helper.js';
+import { FuroColorInput } from '@furo/input/src/furo-color-input.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
- * `furo-input-color`
- *   Binds a entityObject field to a furo-color-input field
+ * `furo-data-color-input` is a extension of furo-color-input which enables you to
+ *  bind a entityObject field.
+ *
+ * The field can be of type string, google.protobuf.StringValue, furo.fat.String or any type with the signature
+ * of the google.protobuf.StringValue (string must be in field `value`). e.g. value : "#e318ed"
+ *
+ * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
+ *
+ * <sample-furo-data-color-input></sample-furo-data-color-input>
  *
  * Tags: input
- * @summary Binds a entityObject field to a furo-color-input field
+ * @summary Bind a entityObject.field to a color input
  * @customElement
  * @demo demo-furo-data-color-input Data binding
  * @mixes FBP
- * @mixes FuroInputBase
  */
-class FuroDataColorInput extends FBP(LitElement) {
+export class FuroDataColorInput extends FuroColorInput {
   /**
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
-   * detail payload: {String} the text value
+   * detail payload: {String} the color value
    *
-   * Comes from underlying component furo-text-input. **bubbles**
+   * Comes from underlying component furo-color-input. **bubbles**
+   */
+
+  /**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the color input
+   *
+   * Comes from underlying component furo-color-input. **bubbles**
+   */
+
+  /**
+   * @event leading-icon-clicked
+   * Fired when the leading icon was clicked
+   *
+   * detail payload: the value of the color input
+   *
+   * Comes from underlying component furo-color-input. **bubbles**
    */
 
   constructor() {
@@ -32,88 +51,120 @@ class FuroDataColorInput extends FBP(LitElement) {
     this.error = false;
     this.disabled = false;
 
-    this._FBPAddWireHook('--valueChanged', val => {
-      if (this.field) {
-        this.field._value = val;
+    this._initBinder();
+  }
+
+  /**
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
+   */
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    // set the attribute mappings
+    this.binder.attributeMappings = {
+      label: 'label',
+      hint: 'hint',
+      'leading-icon': 'leadingIcon',
+      'trailing-icon': 'trailingIcon',
+      errorcolor: 'errorcolor',
+      'error-msg': 'errorcolor'
+    };
+
+    // set the label mappings
+    this.binder.labelMappings = {
+      error: 'error',
+      readonly: 'readonly',
+      required: 'required',
+      disabled: 'disabled',
+      condensed: 'condensed',
+    };
+
+    this.binder.fatAttributesToConstraintsMappings = {
+      required: 'value._constraints.required.is', // for the fieldnode constraint
+    };
+
+    this.binder.constraintsTofatAttributesMappings = {
+      required: 'required',
+    };
+
+    /**
+     * check overrides from the used component, attributes set on the component itself overrides all
+     */
+    this.binder.checkLabelandAttributeOverrrides();
+
+    // the extended furo-color-input component uses _value
+    this.binder.targetValueField = '_value';
+
+    // update the value on input changes
+    this.addEventListener('value-changed', val => {
+      // set flag empty on empty strings (for fat types)
+      if(this.binder.fieldFormat === 'fat') {
+
+        if (val.detail) {
+          this.binder.deleteLabel('empty');
+        } else if(val.detail !== false ) {
+          this.binder.addLabel('empty');
+        }
+
+        // if something was entered the field is not empty
+        this.binder.deleteLabel('pristine');
       }
+
+      // update the value
+      this.binder.fieldValue = val.detail;
     });
+    // set flag empty on empty strings (for fat types)
   }
 
   /**
-   * flow is ready lifecycle method
+   * Sets the value for the field. This will update the fieldNode.
+   * @param val
    */
-  _FBPReady() {
-    super._FBPReady();
-    // this._FBPTraceWires();
-    // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  setValue(val) {
+    this.binder.fieldValue = val;
   }
 
   /**
-   * Updater for the label attr
-   * @param value
+   * Bind a entity field to the color-input. You can use the entity even when no data was received.
+   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+   * @param {Object|FieldNode} fieldNode a Field object
    */
-  set _label(value) {
-    Helper.UpdateInputAttribute(this, 'label', value);
+  bindData(fieldNode) {
+    this.binder.bindField(fieldNode);
+    if (this.binder.fieldNode) {
+      /**
+       * handle pristine
+       *
+       * Set to pristine label to the same _pristine from the fieldNode
+       */
+      if (this.binder.fieldNode._pristine) {
+        this.binder.addLabel('pristine');
+      } else {
+        this.binder.deleteLabel('pristine');
+      }
+      // set pristine on new data
+      this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this.binder.addLabel('pristine');
+      });
+    }
   }
 
-  /**
-   * Updater for the hint attr
-   * @param value
-   */
-  set _hint(value) {
-    Helper.UpdateInputAttribute(this, 'hint', value);
-  }
-
-  /**
-   * Updater for the leadingIcon attr
-   * @param value
-   */
-  set leadingIcon(value) {
-    Helper.UpdateInputAttribute(this, 'leading-icon', value);
-  }
-
-  /**
-   * Updater for the trailingIcon attr
-   * @param value
-   */
-  set trailingIcon(value) {
-    Helper.UpdateInputAttribute(this, 'trailing-icon', value);
-  }
-
-  /**
-   * Updater for the errortext attr
-   * @param value
-   */
-  set errortext(value) {
-    Helper.UpdateInputAttribute(this, 'errortext', value);
-  }
-
-  /**
-   * Sets the field to readonly
-   */
-  disable() {
-    this.disabled = true;
-  }
-
-  /**
-   * Makes the field writable.
-   */
-  enable() {
-    this.disabled = false;
-  }
-
-  /**
-   */
   static get properties() {
     return {
       /**
-       * Overrides the label text from the **specs**.
+       * set this to true to indicate errors
+       */
+      error: { type: Boolean, reflect: true },
+      /**
+       * Overrides the label color from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
        */
       label: {
         type: String,
+        reflect: true,
       },
       /**
        * Overrides the required value from the **specs**.
@@ -122,14 +173,16 @@ class FuroDataColorInput extends FBP(LitElement) {
        */
       required: {
         type: Boolean,
+        reflect: true,
       },
       /**
-       * Overrides the hint text from the **specs**.
+       * Overrides the hint color from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Overrides the readonly value from the **specs**.
@@ -138,6 +191,7 @@ class FuroDataColorInput extends FBP(LitElement) {
        */
       readonly: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -159,6 +213,7 @@ class FuroDataColorInput extends FBP(LitElement) {
       leadingIcon: {
         type: String,
         attribute: 'leading-icon',
+        reflect: true,
       },
       /**
        * Icon on the right side
@@ -166,6 +221,7 @@ class FuroDataColorInput extends FBP(LitElement) {
       trailingIcon: {
         type: String,
         attribute: 'trailing-icon',
+        reflect: true,
       },
       /**
        * html input validity
@@ -179,133 +235,16 @@ class FuroDataColorInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
       /**
-       * passes always float the label
+       * Lets the placeholder always float
        */
       float: {
         type: Boolean,
+        reflect: true,
       },
     };
-  }
-
-  /**
-   * Bind a entity field to the text-input. You can use the entity even when no data was received.
-   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
-   * @param {Object|FieldNode} fieldNode a Field object
-   */
-  bindData(fieldNode) {
-    Helper.BindData(this, fieldNode);
-  }
-
-  _updateField() {
-    this._FBPTriggerWire('--value', this.field._value);
-    this.requestUpdate();
-  }
-
-  /**
-   *
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('FuroDataColorInput') ||
-      css`
-        :host {
-          display: inline-block;
-          position: relative;
-          font-size: 12px;
-          box-sizing: border-box;
-          font-family: 'Roboto', 'Noto', sans-serif;
-          line-height: 1.5;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-
-        :host([error]) .border {
-          border-color: red;
-          border-width: 1px;
-        }
-
-        input {
-          border: none;
-          background: 0 0;
-          font-size: 12px;
-          margin: 0;
-          padding: 0;
-          width: 100%;
-          text-align: left;
-          color: inherit;
-          outline: none;
-          width: 30px;
-          height: 19px;
-        }
-
-        .border {
-          position: absolute;
-          width: 100%;
-          height: 1px;
-          top: 28px;
-          border: none;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-        }
-
-        label {
-          position: unset;
-          top: unset;
-          color: unset;
-          pointer-events: unset;
-          display: unset;
-          width: unset;
-          overflow: unset;
-          padding-left: 12px;
-        }
-
-        * {
-          transition: all 150ms ease-out;
-        }
-
-        .hint {
-          position: absolute;
-          top: 30px;
-          font-size: 10px;
-          color: transparent;
-          white-space: nowrap;
-          pointer-events: none;
-        }
-
-        :host(:focus-within) .hint {
-          color: var(--app-hint-color);
-          transition: all 550ms ease-in;
-        }
-
-        :host(:focus-within) .border {
-          border-color: var(--primary, #3f51b5);
-          border-width: 1px;
-        }
-      `
-    );
-  }
-
-  render() {
-    // language=HTML
-    return html`
-      <furo-color-input
-        id="input"
-        ?autofocus=${this.autofocus}
-        ?disabled=${this._readonly || this.disabled}
-        ?error="${this.error}"
-        ?float="${this.float}"
-        ?condensed="${this.condensed}"
-        ?required=${this._required}
-        @-value-changed="--valueChanged"
-        ƒ-set-value="--value"
-      ></furo-color-input>
-    `;
   }
 }
 

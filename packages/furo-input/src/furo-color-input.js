@@ -85,7 +85,7 @@ export class FuroColorInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-        attribute: true,
+        reflect: true,
       },
 
       /**
@@ -93,6 +93,7 @@ export class FuroColorInput extends FBP(LitElement) {
        */
       autofocus: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -119,18 +120,21 @@ export class FuroColorInput extends FBP(LitElement) {
        */
       float: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * The hint text for the field.
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Text for errors
        */
       errortext: {
         type: String,
+        reflect: true,
       },
       /**
        * Icon on the left side
@@ -158,12 +162,14 @@ export class FuroColorInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
        */
       filled: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * error text

@@ -62,6 +62,7 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
+      required: 'value._constraints.required.is',
     };
 
     this.binder.constraintsTofatAttributesMappings = {
@@ -96,9 +97,7 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
         // update the value
         this.binder.fieldValue = val.detail;
       }
-
     });
-    // set flag empty on empty strings (for fat types)
   }
 
   /**

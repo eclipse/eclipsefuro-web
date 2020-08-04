@@ -255,8 +255,8 @@ export class UniversalFieldNodeBinder {
    * @private
    */
   _updateVirtualNode(field) {
-    // for scalar
-    if (this.fieldFormat === 'scalar') {
+    // not for fat and wrapper types
+    if (!this.fieldFormat || this.fieldFormat === 'scalar') {
       this.fieldValue = field._value;
     } else {
       // for fat and wrapper
@@ -306,8 +306,9 @@ export class UniversalFieldNodeBinder {
         this.target[this.attributeMappings[name]] = value;
       }
 
-      // update the field constraints based on fat attributes only if not scalar
-      if (this.fieldFormat !== 'scalar') {
+      // update the field constraints based on fat attributes only for fat and wrapper types.
+      // google.type.date should not be updated
+      if ( this.fieldFormat && this.fieldFormat !== 'scalar') {
         if (name in this.fatAttributesToConstraintsMappings) {
           this._pathSet(this.fatAttributesToConstraintsMappings[name], value);
         }

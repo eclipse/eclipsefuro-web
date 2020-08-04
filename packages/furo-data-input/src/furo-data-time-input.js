@@ -88,6 +88,7 @@ export class FuroDataTimeInput extends FuroTimeInput {
       max: 'value._constraints.max.is', // for the fieldnode constraint
       min: 'value._constraints.min.is', // for the fieldnode constraint
       step: 'value._constraints.step.is', // for the fieldnode constraint
+      required: 'value._constraints.required.is', // for the fieldnode constraint
       'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
       'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
     };

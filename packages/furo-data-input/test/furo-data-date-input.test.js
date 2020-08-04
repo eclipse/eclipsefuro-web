@@ -69,7 +69,7 @@ describe('furo-data-date-input', () => {
 
   it('should override labels ', done => {
     setTimeout(() => {
-      assert.equal(secondDateInput._theInputElement.getAttribute('label'), 'FromTPL');
+      assert.equal(secondDateInput.getAttribute('label'), 'FromTPL');
       done();
     }, 0);
   });
@@ -77,7 +77,7 @@ describe('furo-data-date-input', () => {
   it('should receive date (ISO 8601 d) value with bind', done => {
     dataObject.addEventListener('data-injected', () => {
       setTimeout(() => {
-        assert.equal(dataDateInput.shadowRoot.querySelector('*').value, '2019-02-22');
+        assert.equal(dataDateInput.binder.fieldValue, '2019-02-22');
         done();
       }, 0);
     });
@@ -88,7 +88,7 @@ describe('furo-data-date-input', () => {
   it('should receive date (google.type.Date) value with bind', done => {
     dataObject.addEventListener('data-injected', () => {
       setTimeout(() => {
-        assert.equal(secondDateInput.shadowRoot.querySelector('*').value, '2020-12-31');
+        assert.equal(JSON.stringify(secondDateInput.binder.fieldValue), '{"display_name":"31.12.2020","year":2020,"month":12,"day":31}');
         done();
       }, 0);
     });
@@ -104,14 +104,14 @@ describe('furo-data-date-input', () => {
   it('should listen field-became-invalid event add set error', done => {
     const err = { description: 'step 3', constraint: 'min' };
     setTimeout(() => {
-      dataDateInput.field.addEventListener('field-became-invalid', () => {
+      dataDateInput.binder.fieldNode.addEventListener('field-became-invalid', () => {
         setTimeout(() => {
           assert.equal(dataDateInput.error, true);
-          assert.equal(dataDateInput._theInputElement.getAttribute('errortext'), 'step 3');
+          assert.equal(dataDateInput.errortext, 'step 3');
           done();
         }, 15);
       });
-      dataDateInput.field._setInvalid(err);
+      dataDateInput.binder.fieldNode._setInvalid(err);
     }, 15);
   });
 
@@ -123,10 +123,10 @@ describe('furo-data-date-input', () => {
         'data-injected',
         () => {
           setTimeout(() => {
-            assert.equal(dataDateInput._theInputElement.getAttribute('disabled'), '');
-            assert.equal(secondDateInput._theInputElement.getAttribute('disabled'), '');
+            assert.equal(dataDateInput.getAttribute('readonly'), '');
+            assert.equal(secondDateInput.getAttribute('readonly'), '');
             assert.equal(
-              dataDateInput._theInputElement.getAttribute('label'),
+              dataDateInput.getAttribute('label'),
               'date input label via meta',
             );
             done();
