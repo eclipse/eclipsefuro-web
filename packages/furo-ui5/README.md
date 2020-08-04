@@ -15,3 +15,20 @@ For seamless integration into the Furo environment, we have slightly extended so
 ### Elements
 
 - [furo-ui5-pagination](https://components.furo.pro/?t=FuroUI5Pagination) a pagination bar 
+
+## License
+A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
+
+Permissions
+* Commercial use
+* Modification
+* Distribution
+* Patent use
+* Private use
+
+Limitations
+* Trademark use
+* Liability
+* Warranty
+
+> [Apache License 2.0](https://github.com/SAP/ui5-webcomponents/blob/master/LICENSE.txt)
