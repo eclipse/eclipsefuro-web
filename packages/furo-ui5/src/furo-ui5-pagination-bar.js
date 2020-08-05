@@ -127,6 +127,14 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
           break;
       }
     });
+
+    /**
+     * @error hts-injected
+     * Is fired if HATEOAS Array is successfully injected
+     */
+    this.dispatchEvent(new CustomEvent('hts-injected', {
+        detail: hts, bubbles: true, composed: true
+    }));
   }
 
   _disableAll() {
