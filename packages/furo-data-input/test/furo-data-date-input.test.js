@@ -88,7 +88,10 @@ describe('furo-data-date-input', () => {
   it('should receive date (google.type.Date) value with bind', done => {
     dataObject.addEventListener('data-injected', () => {
       setTimeout(() => {
-        assert.equal(JSON.stringify(secondDateInput.binder.fieldValue), '{"display_name":"31.12.2020","year":2020,"month":12,"day":31}');
+        assert.equal(
+          JSON.stringify(secondDateInput.binder.fieldValue),
+          '{"display_name":"31.12.2020","year":2020,"month":12,"day":31}',
+        );
         done();
       }, 0);
     });
@@ -125,10 +128,7 @@ describe('furo-data-date-input', () => {
           setTimeout(() => {
             assert.equal(dataDateInput.getAttribute('readonly'), '');
             assert.equal(secondDateInput.getAttribute('readonly'), '');
-            assert.equal(
-              dataDateInput.getAttribute('label'),
-              'date input label via meta',
-            );
+            assert.equal(dataDateInput.getAttribute('label'), 'date input label via meta');
             done();
           }, 5);
         },

@@ -94,7 +94,6 @@ class DemoFuroDataDisplay extends FBP(LitElement) {
                   displayfield="year"
                   ƒ-bind-data="--entity(*.furo_data_date_input_google)"
                 ></furo-data-display>
-                <furo-data-display></furo-data-display>
               </furo-form-layouter>
 
               <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
@@ -117,6 +116,54 @@ class DemoFuroDataDisplay extends FBP(LitElement) {
                 @-response="--response"
               >
               </furo-entity-agent>
+
+              <p>
+                furo-data-display with google int32 wrapper or fat int32 bindings.
+              </p>
+              <furo-form-layouter two>
+                <furo-data-display
+                  autofocus
+                  ƒ-bind-data="--entityU(*.data.fat_int32)"
+                ></furo-data-display>
+                <furo-data-display
+                  autofocus
+                  condensed
+                  ƒ-bind-data="--entityU(*.data.fat_string)"
+                ></furo-data-display>
+
+                <furo-data-display
+                  autofocus
+                  ƒ-bind-data="--entityU(*.data.wrapper_int32)"
+                ></furo-data-display>
+                <furo-data-display
+                  autofocus
+                  condensed
+                  ƒ-bind-data="--entityU(*.data.wrapper_string)"
+                ></furo-data-display>
+              </furo-form-layouter>
+              <fetch-universal-json
+                file="/mockdata/tests/universalfieldnodebinder/fat-universal.json"
+                @-data-loaded="--mockdata"
+              ></fetch-universal-json>
+              <fetch-universal-json
+                file="/mockdata/tests/universalfieldnodebinder/fat-universal-demo.json"
+                @-data-loaded="--mockdata"
+              ></fetch-universal-json>
+              <fetch-universal-json
+                file="/mockdata/tests/universalfieldnodebinder/fat-universal-unset-label.json"
+                @-data-loaded="--mockdata"
+              ></fetch-universal-json>
+              <fetch-universal-json
+                file="/mockdata/tests/universalfieldnodebinder/fat-universal-with-meta.json"
+                @-data-loaded="--mockdata"
+              ></fetch-universal-json>
+
+              <fetch-universal-json @-data-loaded="--mockdata"></fetch-universal-json>
+              <furo-data-object
+                type="universaltest.UniversaltestEntity"
+                @-object-ready="--entityU"
+                ƒ-inject-raw="--mockdata"
+              ></furo-data-object>
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>

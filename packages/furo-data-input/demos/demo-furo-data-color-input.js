@@ -60,16 +60,16 @@ class DemoFuroDataColorInput extends FBP(LitElement) {
         <furo-demo-snippet flex>
           <template>
             <furo-form-layouter four>
-            <furo-data-color-input
-              hint="custom hint"
-              required
-              ƒ-bind-data="--entity(*.furo_data_color_input)"
-            ></furo-data-color-input>
-            <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
-            <simulate-error
-              ƒ-bind-data="--entity"
-              error='{"field":"furo_data_color_input","description":"wrong color value"}'
-            ></simulate-error>
+              <furo-data-color-input
+                hint="custom hint"
+                required
+                ƒ-bind-data="--entity(*.furo_data_color_input)"
+              ></furo-data-color-input>
+              <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
+              <simulate-error
+                ƒ-bind-data="--entity"
+                error='{"field":"furo_data_color_input","description":"wrong color value"}'
+              ></simulate-error>
             </furo-form-layouter>
             <furo-data-object
               type="experiment.Experiment"
@@ -90,56 +90,55 @@ class DemoFuroDataColorInput extends FBP(LitElement) {
             >
             </furo-entity-agent>
 
-                    <p>
-            furo-data-color-input with google wrapper and fat bindings.
-          </p>
-          <furo-form-layouter two>
-            <furo-data-color-input
-              autofocus
-              ƒ-bind-data="--entityU(*.data.wrapper_string)"
-            ></furo-data-color-input>
-            <furo-data-color-input
-              autofocus
-              ƒ-bind-data="--entityU(*.data.wrapper_string)"
-            ></furo-data-color-input>
-            <furo-data-color-input
-              autofocus
-              rows="6"
-              condensed
-              ƒ-bind-data="--entityU(*.data.fat_string)"
-            ></furo-data-color-input>
-            <furo-data-color-input
-              autofocus
-              rows="6"
-              condensed
-              ƒ-bind-data="--entityU(*.data.fat_string)"
-            ></furo-data-color-input>
-          </furo-form-layouter>
-          <fetch-universal-json
-            file="/mockdata/tests/universalfieldnodebinder/fat-universal.json"
-            @-data-loaded="--mockdata"
-          ></fetch-universal-json>
-          <fetch-universal-json
-            file="/mockdata/tests/universalfieldnodebinder/fat-universal-demo.json"
-            @-data-loaded="--mockdata"
-          ></fetch-universal-json>
-          <fetch-universal-json
-            file="/mockdata/tests/universalfieldnodebinder/fat-universal-unset-label.json"
-            @-data-loaded="--mockdata"
-          ></fetch-universal-json>
-          <fetch-universal-json
-            file="/mockdata/tests/universalfieldnodebinder/fat-universal-with-meta.json"
-            @-data-loaded="--mockdata"
-          ></fetch-universal-json>
+            <p>
+              furo-data-color-input with google wrapper and fat bindings.
+            </p>
+            <furo-form-layouter two>
+              <furo-data-color-input
+                autofocus
+                ƒ-bind-data="--entityU(*.data.wrapper_string)"
+              ></furo-data-color-input>
+              <furo-data-color-input
+                autofocus
+                ƒ-bind-data="--entityU(*.data.wrapper_string)"
+              ></furo-data-color-input>
+              <furo-data-color-input
+                autofocus
+                rows="6"
+                condensed
+                ƒ-bind-data="--entityU(*.data.fat_string)"
+              ></furo-data-color-input>
+              <furo-data-color-input
+                autofocus
+                rows="6"
+                condensed
+                ƒ-bind-data="--entityU(*.data.fat_string)"
+              ></furo-data-color-input>
+            </furo-form-layouter>
+            <fetch-universal-json
+              file="/mockdata/tests/universalfieldnodebinder/fat-universal.json"
+              @-data-loaded="--mockdata"
+            ></fetch-universal-json>
+            <fetch-universal-json
+              file="/mockdata/tests/universalfieldnodebinder/fat-universal-demo.json"
+              @-data-loaded="--mockdata"
+            ></fetch-universal-json>
+            <fetch-universal-json
+              file="/mockdata/tests/universalfieldnodebinder/fat-universal-unset-label.json"
+              @-data-loaded="--mockdata"
+            ></fetch-universal-json>
+            <fetch-universal-json
+              file="/mockdata/tests/universalfieldnodebinder/fat-universal-with-meta.json"
+              @-data-loaded="--mockdata"
+            ></fetch-universal-json>
 
-          <fetch-universal-json @-data-loaded="--mockdata"></fetch-universal-json>
-          <furo-data-object
-            type="universaltest.UniversaltestEntity"
-            @-object-ready="--entityU"
-            ƒ-inject-raw="--mockdata"
-          ></furo-data-object>
+            <fetch-universal-json @-data-loaded="--mockdata"></fetch-universal-json>
+            <furo-data-object
+              type="universaltest.UniversaltestEntity"
+              @-object-ready="--entityU"
+              ƒ-inject-raw="--mockdata"
+            ></furo-data-object>
           </template>
-
         </furo-demo-snippet>
       </furo-vertical-flex>
     `;

@@ -49,13 +49,7 @@ describe('furo-data-checkbox-input', () => {
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [
-      ,
-      dataCheckboxInput,
-      secondCheckboxInput,
-      dataObject,
-      deeplink,
-    ] = testbind.parentNode.children;
+    [, dataCheckboxInput, secondCheckboxInput, dataObject, deeplink] = testbind.parentNode.children;
     await host.updateComplete;
     await dataCheckboxInput.updateComplete;
     await secondCheckboxInput.updateComplete;
@@ -101,10 +95,7 @@ describe('furo-data-checkbox-input', () => {
         'data-changed',
         () => {
           dataCheckboxInput._FBPAddWireHook('--value', val => {
-            assert.equal(
-              val,
-              true,
-            );
+            assert.equal(val, true);
             done();
           });
         },
@@ -124,10 +115,7 @@ describe('furo-data-checkbox-input', () => {
           setTimeout(() => {
             console.log(dataCheckboxInput._theInputElement);
 
-            assert.equal(
-              dataCheckboxInput.getAttribute('label'),
-              'checkbox label via meta',
-            );
+            assert.equal(dataCheckboxInput.getAttribute('label'), 'checkbox label via meta');
             assert.equal(dataCheckboxInput.getAttribute('readonly'), '');
             done();
           }, 0);

@@ -86,17 +86,11 @@ describe('furo-data-search-input', () => {
   });
 
   it('should receive value with bind', done => {
-    dataObject.addEventListener(
-      'object-ready',
-      () => {
-        dataSearchInput._FBPAddWireHook('--value', val => {
-          assert.equal(val, 'YES');
-          done();
-        });
-        dataObject.data.name._value = 'YES';
-      },
-      { once: true },
-    );
+    dataObject.data.name._value = 'YES';
+    setTimeout(() => {
+      assert.equal(dataSearchInput.binder.fieldNode._value, 'YES');
+      done();
+    }, 10);
   });
 
   it('should bind the field description', done => {

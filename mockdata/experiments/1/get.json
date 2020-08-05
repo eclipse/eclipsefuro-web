@@ -186,6 +186,66 @@
             }
           }
         }
+      },
+      {
+        "data": {
+          "@type": "furo.fat.String",
+          "value": "text furo.fat.String",
+          "display_name": "furo.fat.String"
+        },
+        "display_name": "Display",
+        "id": "op33t",
+        "code": "option",
+        "meta": {
+          "fields": {
+            "data.value": {
+              "meta": {
+                "label": "fat string",
+                "hint": "Type in fat string"
+              }
+            }
+          }
+        }
+      },
+      {
+        "data": {
+          "@type": "furo.fat.Int32",
+          "value": 22,
+          "display_name": "furo.fat.Int32"
+        },
+        "display_name": "Display",
+        "id": "op33t",
+        "code": "option",
+        "meta": {
+          "fields": {
+            "data.value": {
+              "meta": {
+                "label": "fat int",
+                "hint": "Type in fat int"
+              }
+            }
+          }
+        }
+      },
+      {
+        "data": {
+          "@type": "furo.fat.Bool",
+          "value": true,
+          "display_name": "furo.fat.Bool"
+        },
+        "display_name": "Display",
+        "id": "op33t",
+        "code": "option",
+        "meta": {
+          "fields": {
+            "data.value": {
+              "meta": {
+                "label": "fat Bool",
+                "hint": "Type in fat Bool"
+              }
+            }
+          }
+        }
       }
     ],
     "single_type_property": {

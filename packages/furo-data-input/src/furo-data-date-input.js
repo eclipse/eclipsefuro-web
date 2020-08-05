@@ -107,7 +107,6 @@ class FuroDataDateInput extends FuroDateInput {
 
     // update the value on input changes
     this.addEventListener('value-changed', val => {
-
       let dateValue = val.detail;
 
       if (this.binder.fieldNode) {
@@ -121,16 +120,14 @@ class FuroDataDateInput extends FuroDateInput {
         // store tmpval to check against loop
         this.tmpval = dateValue;
 
-        if(JSON.stringify(this.binder.fieldValue) !== JSON.stringify(dateValue)) {
-
+        if (JSON.stringify(this.binder.fieldValue) !== JSON.stringify(dateValue)) {
           // update the value
           this.binder.fieldValue = dateValue;
         }
       }
 
       // set flag empty on empty strings (for fat types)
-      if(this.binder.fieldFormat === 'fat') {
-
+      if (this.binder.fieldFormat === 'fat') {
         if (dateValue) {
           this.binder.deleteLabel('empty');
         } else {
@@ -279,7 +276,6 @@ class FuroDataDateInput extends FuroDateInput {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-
       /**
        * handle pristine
        *

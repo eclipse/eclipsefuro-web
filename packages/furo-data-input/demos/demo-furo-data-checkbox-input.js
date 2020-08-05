@@ -164,7 +164,6 @@ class DemoFuroDataCheckboxInput extends FBP(LitElement) {
             @-object-ready="--entityU"
             ƒ-inject-raw="--mockdata"
           ></furo-data-object>
-
         </template>
       </furo-demo-snippet>
     `;

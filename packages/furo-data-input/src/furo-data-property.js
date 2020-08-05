@@ -111,6 +111,10 @@ class FuroDataProperty extends FBP(LitElement) {
       'furo.IntegerProperty': 'furo-data-number-input',
       'furo.NumberProperty': 'furo-data-number-input',
       'furo.StringOptionProperty': 'furo-data-collection-dropdown',
+      'furo.fat.String': 'furo-data-text-input',
+      'furo.fat.Int32': 'furo-data-number-input',
+      'furo.fat.Int64': 'furo-data-number-input',
+      'furo.fat.Bool': 'furo-data-checkbox-input',
     };
   }
 
@@ -148,8 +152,11 @@ class FuroDataProperty extends FBP(LitElement) {
     } else {
       this.field.data.addEventListener(
         'branch-value-changed',
-        () => {
-          this._createPropComponent(propertyField);
+        val => {
+          // avoid endless loop
+          if (JSON.stringify(propertyField.data._value) !== JSON.stringify(val.detail._value)) {
+            this._createPropComponent(propertyField);
+          }
         },
         { once: true },
       );
@@ -217,6 +224,10 @@ class FuroDataProperty extends FBP(LitElement) {
           case 'google.protobuf.UInt32Value':
           case 'google.protobuf.StringValue':
           case 'google.protobuf.BoolValue':
+          case 'furo.fat.String':
+          case 'furo.fat.Int32':
+          case 'furo.fat.Int64':
+          case 'furo.fat.Bool':
             e.bindData(propertyField.data.value);
             break;
           default:

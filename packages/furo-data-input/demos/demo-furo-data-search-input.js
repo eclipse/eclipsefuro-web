@@ -107,7 +107,7 @@ class DemoFuroSearchTextInput extends FBP(LitElement) {
             </furo-entity-agent>
 
             <p>
-              furo-data-textarea-input with google wrapper or fat bindings.
+              furo-data-searc-input with google wrapper or fat bindings.
             </p>
             <furo-form-layouter two>
               <furo-data-search-input

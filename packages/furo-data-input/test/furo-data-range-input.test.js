@@ -169,10 +169,7 @@ describe('furo-data-range-input', () => {
         () => {
           setTimeout(() => {
             assert.equal(dataRangeInput.getAttribute('readonly'), '');
-            assert.equal(
-              dataRangeInput.getAttribute('label'),
-              'range input label via meta',
-            );
+            assert.equal(dataRangeInput.getAttribute('label'), 'range input label via meta');
             done();
           }, 5);
         },

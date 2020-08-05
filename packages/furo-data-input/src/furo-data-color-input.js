@@ -69,7 +69,7 @@ export class FuroDataColorInput extends FuroColorInput {
       'leading-icon': 'leadingIcon',
       'trailing-icon': 'trailingIcon',
       errorcolor: 'errorcolor',
-      'error-msg': 'errorcolor'
+      'error-msg': 'errorcolor',
     };
 
     // set the label mappings
@@ -100,11 +100,10 @@ export class FuroDataColorInput extends FuroColorInput {
     // update the value on input changes
     this.addEventListener('value-changed', val => {
       // set flag empty on empty strings (for fat types)
-      if(this.binder.fieldFormat === 'fat') {
-
+      if (this.binder.fieldFormat === 'fat') {
         if (val.detail) {
           this.binder.deleteLabel('empty');
-        } else if(val.detail !== false ) {
+        } else if (val.detail !== false) {
           this.binder.addLabel('empty');
         }
 

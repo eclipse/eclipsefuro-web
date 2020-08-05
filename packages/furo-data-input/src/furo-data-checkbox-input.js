@@ -49,7 +49,7 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
       label: 'label',
       hint: 'hint',
       errortext: 'errortext',
-      'error-msg': 'errortext'
+      'error-msg': 'errortext',
     };
 
     // set the label mappings
@@ -79,13 +79,11 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
 
     // update the value on input changes
     this.addEventListener('value-changed', val => {
-
       // set flag empty on empty strings (for fat types)
-      if(this.binder.fieldFormat === 'fat') {
-
+      if (this.binder.fieldFormat === 'fat') {
         if (val.detail) {
           this.binder.deleteLabel('empty');
-        } else if(val.detail !== false ) {
+        } else if (val.detail !== false) {
           this.binder.addLabel('empty');
         }
 
@@ -93,7 +91,7 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
         this.binder.deleteLabel('pristine');
       }
 
-      if( this.binder.fieldValue !== val.detail) {
+      if (this.binder.fieldValue !== val.detail) {
         // update the value
         this.binder.fieldValue = val.detail;
       }

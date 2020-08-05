@@ -59,7 +59,6 @@ export class FuroTextInput extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
 
-    this._value = this.value || '';
     this._FBPAddWireHook('--inputInput', e => {
       Helper.triggerValueChanged(this, e);
     });
