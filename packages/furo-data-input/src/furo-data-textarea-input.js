@@ -26,7 +26,7 @@ export class FuroDataTextareaInput extends FuroTextareaInput {
    *
    * detail payload: {String} the textarea value
    *
-   * Comes from underlying component furo-text-input. **bubbles**
+   * Comes from underlying component furo-textarea-input. **bubbles**
    */
 
   /**
@@ -35,7 +35,7 @@ export class FuroDataTextareaInput extends FuroTextareaInput {
    *
    * detail payload: the value of the textarea input
    *
-   * Comes from underlying component furo-text-input. **bubbles**
+   * Comes from underlying component furo-textarea-input. **bubbles**
    */
 
   /**
@@ -44,7 +44,7 @@ export class FuroDataTextareaInput extends FuroTextareaInput {
    *
    * detail payload: the value of the textarea input
    *
-   * Comes from underlying component furo-text-input. **bubbles**
+   * Comes from underlying component furo-textarea-input. **bubbles**
    */
 
   constructor() {
@@ -131,7 +131,7 @@ export class FuroDataTextareaInput extends FuroTextareaInput {
   }
 
   /**
-   * Bind a entity field to the text-input. You can use the entity even when no data was received.
+   * Bind a entity field to the textarea-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */

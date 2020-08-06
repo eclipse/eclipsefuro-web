@@ -2,7 +2,7 @@ import { FuroSearchInput } from '@furo/input/src/furo-search-input.js';
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
- * `furo-data-search-input` is a extension of furo-number-input which enables you to
+ * `furo-data-search-input` is a extension of furo-search-input which enables you to
  *  bind a entityObject field.
  *
  * The field can be of type string, google.protobuf.StringValue, furo.fat.String or any type with the signature
@@ -23,9 +23,9 @@ export class FuroDataSearchInput extends FuroSearchInput {
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
-   * detail payload: {String} the number value
+   * detail payload: {String} the searc value
    *
-   * Comes from underlying component furo-number-input. **bubbles**
+   * Comes from underlying component furo-search-input. **bubbles**
    */
 
   /**
@@ -34,7 +34,7 @@ export class FuroDataSearchInput extends FuroSearchInput {
    *
    * detail payload: the value of the search input
    *
-   * Comes from underlying component furo-number-input. **bubbles**
+   * Comes from underlying component furo-search-input. **bubbles**
    */
 
   /**
@@ -43,7 +43,7 @@ export class FuroDataSearchInput extends FuroSearchInput {
    *
    * detail payload: the value of the value input
    *
-   * Comes from underlying component furo-number-input. **bubbles**
+   * Comes from underlying component furo-search-input. **bubbles**
    */
 
   constructor() {
@@ -105,7 +105,7 @@ export class FuroDataSearchInput extends FuroSearchInput {
      */
     this.binder.checkLabelandAttributeOverrrides();
 
-    // the extended furo-number-input component uses _value
+    // the extended furo-search-input component uses _value
     this.binder.targetValueField = '_value';
 
     // update the value on input changes
@@ -133,7 +133,7 @@ export class FuroDataSearchInput extends FuroSearchInput {
   }
 
   /**
-   * Bind a entity field to the number-input. You can use the entity even when no data was received.
+   * Bind a entity field to the search-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */

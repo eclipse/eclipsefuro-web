@@ -25,7 +25,7 @@ export class FuroDataRangeInput extends FuroRangeInput {
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
-   * detail payload: {String} the text value
+   * detail payload: {String} the range input value
    *
    * Comes from underlying component furo-range-input. **bubbles**
    */

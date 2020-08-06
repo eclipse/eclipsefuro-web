@@ -16,7 +16,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @summary Bind a entityObject.field to a number input
  * @customElement
  * @demo demo-furo-data-number-input Data binding
- * @demo demo-fat-furo-data-number-input skalar, wrapper, FAT binding
+ * @demo demo-fat-furo-data-text-input skalar, wrapper, FAT binding
  * @mixes FBP
  */
 export class FuroDataNumberInput extends FuroNumberInput {

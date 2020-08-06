@@ -31,7 +31,7 @@ class FuroDataDisplay extends FBP(LitElement) {
   }
 
   /**
-   * Bind a entity field to the password-input. You can use the entity even when no data was received.
+   * Bind a entity field to the data-display. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */

@@ -24,7 +24,7 @@ export class FuroDataPasswordInput extends FuroPasswordInput {
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
-   * detail payload: {String} the text value
+   * detail payload: {String} the password value
    *
    * Comes from underlying component furo-password-input. **bubbles**
    */

@@ -75,21 +75,21 @@ describe('furo-data-radio-button-input', () => {
   // those tests are base on the mockdata/trees/1/get.json. the field tree.root.open should be true in mockdata
   it('should override labels ', done => {
     setTimeout(() => {
-      assert.equal(secondDataRadioButtonInput._theInputElement.getAttribute('label'), 'FromTPL');
+      assert.equal(secondDataRadioButtonInput.getAttribute('label'), 'FromTPL');
       done();
     }, 0);
   });
 
   it('should receive label from meta in spec by entity object ready', done => {
     setTimeout(() => {
-      assert.equal(dataRadioButtonInput._theInputElement.getAttribute('label'), 'checkbox_input**');
+      assert.equal(dataRadioButtonInput.getAttribute('label'), 'checkbox_input**');
       done();
     }, 0);
   });
 
   it('should receive hint from meta in spec by entity object ready', done => {
     setTimeout(() => {
-      assert.equal(dataRadioButtonInput._theInputElement.getAttribute('hint'), 'Hint**');
+      assert.equal(dataRadioButtonInput.getAttribute('hint'), 'Hint**');
       done();
     }, 0);
   });

@@ -13,7 +13,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * <sample-furo-data-checkbox-input></sample-furo-data-checkbox-input>
  *
  * Tags: input
- * @summary Bind a entityObject.field to a range input
+ * @summary Bind a entityObject.field to a checkbox input
  * @customElement
  * @demo demo-furo-data-checkbox-input Data binding
  * @mixes FBP
@@ -107,7 +107,7 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
   }
 
   /**
-   * Bind a entity field to the range-input. You can use the entity even when no data was received.
+   * Bind a entity field to the checkbox-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */

@@ -1,93 +1,109 @@
-import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme';
-import { FBP } from '@furo/fbp';
-import '@furo/input/src/furo-radio-button-input';
-import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
-import { Helper } from './lib/helper.js';
+import { FuroRadioButtonInput } from '@furo/input/src/furo-radio-button-input.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
- * `furo-data-radio-button-input`
- * furo-data-radio-button-input element which uses a  `<furo-radio-button-input >` element. Works best with furo-data components.
+ * `furo-data-radio-button-input` is a extension of furo-checkbox-input which enables you to
+ *  bind a entityObject field.
  *
- *   ### Sample
- *  <furo-demo-snippet>
- *   <template>
- *    <furo-data-radio-button-input  ƒ-bind-data="--entity(*.fields.open)"></furo-data-radio-button-input>
- *   </template>
- *  </furo-demo-snippet>
+ * The field can be of type bool, google.protobuf.BoolValue, furo.fat.Bool. It is also possible to bind string values, but the
+ * values will be handled as boolean true when the string is not empty.
  *
- * Tags: data-input
- * @summary furo data radio-button input element
- * @demo demo-furo-data-radio-button-input Input samples
+ * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
+ *
+ * <sample-furo-data-radio-button-input></sample-furo-data-radio-button-input>
+ *
+ * Tags: input
+ * @summary Bind a entityObject.field to a range input
  * @customElement
+ * @demo demo-furo-data-radio-button-input Data binding
  * @mixes FBP
- * @mixes FuroInputBase
  */
-class FuroDataRadioButtonInput extends FBP(LitElement) {
+export class FuroDataRadioButtonInput extends FuroRadioButtonInput {
   /**
-   * @event ALL_BUBBLING_EVENTS_FROM_furo-radio-button-input
+   * @event value-changed
+   * Fired when value has changed from inside the input field.
    *
-   * All bubbling events from [furo-radio-button-input](../../input/doc/furo-radio-button-input) will be fired, because furo-data-radio-button-input uses furo-radio-button-input internally.
+   * detail payload: {Boolean} the bool value
    *
+   * Comes from underlying component furo-radio-button-input. **bubbles**
    */
 
   constructor() {
     super();
+    this.error = false;
     this.disabled = false;
 
-    this._FBPAddWireHook('--valueChanged', val => {
-      if (this.field) {
-        this.field._value = val;
+    this._initBinder();
+  }
+
+  /**
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
+   */
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    // set the attribute mappings
+    this.binder.attributeMappings = {
+      label: 'label',
+      hint: 'hint',
+      errortext: 'errortext',
+      'error-msg': 'errortext',
+    };
+
+    // set the label mappings
+    this.binder.labelMappings = {
+      error: 'error',
+      readonly: 'readonly',
+      required: 'required',
+      disabled: 'disabled',
+      condensed: 'condensed',
+    };
+
+    this.binder.fatAttributesToConstraintsMappings = {
+      required: 'value._constraints.required.is',
+    };
+
+    this.binder.constraintsTofatAttributesMappings = {
+      required: 'required',
+    };
+
+    /**
+     * check overrides from the used component, attributes set on the component itself overrides all
+     */
+    this.binder.checkLabelandAttributeOverrrides();
+
+    // the extended furo-checkbox-input component uses _value
+    this.binder.targetValueField = '_value';
+
+    // update the value on input changes
+    this.addEventListener('value-changed', val => {
+      // set flag empty on empty strings (for fat types)
+      if (this.binder.fieldFormat === 'fat') {
+        if (val.detail) {
+          this.binder.deleteLabel('empty');
+        } else if (val.detail !== false) {
+          this.binder.addLabel('empty');
+        }
+
+        // if something was entered the field is not empty
+        this.binder.deleteLabel('pristine');
+      }
+
+      if (this.binder.fieldValue !== val.detail) {
+        // update the value
+        this.binder.fieldValue = val.detail;
       }
     });
   }
 
   /**
-   * flow is ready lifecycle method
+   * Sets the value for the field. This will update the fieldNode.
+   * @param val
    */
-  _FBPReady() {
-    super._FBPReady();
-    // this._FBPTraceWires();
-    // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-  }
-
-  /**
-   * Updater for the label attr
-   * @param value
-   */
-  set _label(value) {
-    Helper.UpdateInputAttribute(this, 'label', value);
-  }
-
-  /**
-   * Updater for the hint attr
-   * @param value
-   */
-  set _hint(value) {
-    Helper.UpdateInputAttribute(this, 'hint', value);
-  }
-
-  /**
-   * Updater for the errortext attr
-   * @param value
-   */
-  set errortext(value) {
-    Helper.UpdateInputAttribute(this, 'errortext', value);
-  }
-
-  /**
-   * Sets the field to readonly
-   */
-  disable() {
-    this.disabled = true;
-  }
-
-  /**
-   * Makes the field writable.
-   */
-  enable() {
-    this.disabled = false;
+  setValue(val) {
+    this.binder.fieldValue = val;
   }
 
   /**
@@ -96,25 +112,31 @@ class FuroDataRadioButtonInput extends FBP(LitElement) {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-    Helper.BindData(this, fieldNode);
-  }
-
-  _updateField() {
-    this.disabled = !!this.field._meta.readonly;
-
-    // mark incomming error
-    if (!this.field._isValid) {
-      this.error = true;
-      this.errortext = this.field._validity.description;
+    this.binder.bindField(fieldNode);
+    if (this.binder.fieldNode) {
+      /**
+       * handle pristine
+       *
+       * Set to pristine label to the same _pristine from the fieldNode
+       */
+      if (this.binder.fieldNode._pristine) {
+        this.binder.addLabel('pristine');
+      } else {
+        this.binder.deleteLabel('pristine');
+      }
+      // set pristine on new data
+      this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this.binder.addLabel('pristine');
+      });
     }
-
-    this._FBPTriggerWire('--value', this.field._value);
-
-    this.requestUpdate();
   }
 
   static get properties() {
     return {
+      /**
+       * set this to true to indicate errors
+       */
+      error: { type: Boolean, reflect: true },
       /**
        * Overrides the label text from the **specs**.
        *
@@ -122,7 +144,16 @@ class FuroDataRadioButtonInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-        attribute: true,
+        reflect: true,
+      },
+      /**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      required: {
+        type: Boolean,
+        reflect: true,
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -131,6 +162,7 @@ class FuroDataRadioButtonInput extends FBP(LitElement) {
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Overrides the readonly value from the **specs**.
@@ -139,6 +171,7 @@ class FuroDataRadioButtonInput extends FBP(LitElement) {
        */
       readonly: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -166,49 +199,9 @@ class FuroDataRadioButtonInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
     };
-  }
-
-  /**
-   *
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('FuroDataRadioButtonInput') ||
-      css`
-        :host {
-          display: inline-block;
-          width: 300px;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-
-        furo-radio-button-input {
-          width: 100%;
-        }
-      `
-    );
-  }
-
-  render() {
-    // language=HTML
-    return html`
-      <furo-radio-button-input
-        id="input"
-        ?autofocus=${this.autofocus}
-        ?disabled=${this._readonly || this.disabled}
-        ?error="${this.error}"
-        ?condensed="${this.condensed}"
-        @-value-changed="--valueChanged"
-        ƒ-set-value="--value"
-      ></furo-radio-button-input>
-    `;
   }
 }
 
