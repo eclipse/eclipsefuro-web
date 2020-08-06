@@ -163,22 +163,19 @@ export class FuroRadioButtonInput extends FBP(LitElement) {
   }
 
   /**
-   * Sets the value for the radio-button.
+   * Sets the value for the checkbox.
    * @param {Boolean} v
    */
   setValue(v) {
     this.value = !!v;
+    this._value = !!v;
   }
 
   /**
-   * toggle the radio-button
+   * toggle the checkbox
    */
   toggle() {
-    if (this.value) {
-      this.uncheck();
-    } else {
-      this.check();
-    }
+    this._FBPTriggerWire('--toggle');
   }
 
   /**
@@ -244,14 +241,14 @@ export class FuroRadioButtonInput extends FBP(LitElement) {
    * check the radio-button
    */
   check() {
-    this.value = true;
+    this._value = true;
   }
 
   /**
    * uncheck the radio-button
    */
   uncheck() {
-    this.value = false;
+    this._value = false;
   }
 
   /**
@@ -433,8 +430,9 @@ export class FuroRadioButtonInput extends FBP(LitElement) {
           ?condensed=${this.condensed}
           ƒ-set-value="--value"
           ƒ-focus="--focus"
+          ƒ-toggle="--toggle"
         ></furo-radio-button>
-        <label for="input" @-click="--clicked,--focus">${this.label}</label>
+        <label for="input" @-click="--labelClicked,--focus">${this.label}</label>
       </div>
 
       <div class="ripple-line"></div>

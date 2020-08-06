@@ -79,62 +79,60 @@ describe('furo-radio-button-input', () => {
 
   it('should accept a value with setValue', done => {
     element.setValue(true);
-    assert.equal(element.value, true);
     assert.equal(radioField.value, true);
     done();
   });
 
   it('should be via method `check` checkable', done => {
     element.check();
-    assert.equal(element.value, true);
     assert.equal(radioField.value, true);
     done();
   });
 
   it('should be via method `uncheck` unselectable', done => {
     element.uncheck();
-    assert.equal(element.value, false);
     assert.equal(radioField.value, false);
     done();
   });
 
   it('should be via method `toggle` toggleable', done => {
     element.setValue(true);
-    assert.equal(element.value, true);
+    assert.equal(radioField.value, true);
     element.toggle();
-    assert.equal(element.value, false);
-    assert.equal(radioField.value, false);
-    done();
+    setTimeout(()=>{
+      assert.equal(radioField.shadowRoot.getElementById("input").value, "on");
+      done();
+
+    },1)
   });
 
-  it('should be checked via wire `--clicked` if it was previously unchecked', done => {
+  it('should be checked via wire `--labelClicked` if it was previously unchecked', done => {
     element.setValue(false);
-    assert.equal(element.value, false);
-    element._FBPTriggerWire('--clicked');
-    assert.equal(element.value, true);
+    assert.equal(radioField.value, false);
+    element._FBPTriggerWire('--labelClicked');
+    assert.equal(radioField.value, true);
     done();
   });
 
-  it('should not be checked via wire `--clicked` if it was previously already checked', done => {
+  it('should not be checked via wire `--labelClicked` if it was previously already checked', done => {
     element.setValue(true);
-    assert.equal(element.value, true);
-    element._FBPTriggerWire('--clicked');
-    assert.equal(element.value, true);
+    assert.equal(radioField.value, true);
+    element._FBPTriggerWire('--labelClicked');
+    assert.equal(radioField.value, true);
     done();
   });
 
   it('should be set value by checked', done => {
     element.checked = true;
-    assert.equal(element.value, true);
+    assert.equal(radioField.value, true);
     element.checked = false;
-    assert.equal(element.value, false);
+    assert.equal(radioField.value, false);
     done();
   });
 
   it('should be possible to set value when checkbox is disabled ', done => {
     element.disabled = true;
     element.toggle();
-    assert.equal(element.value, true);
     assert.equal(radioField.value, true);
     done();
   });
