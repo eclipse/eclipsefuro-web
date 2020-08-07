@@ -25,6 +25,17 @@ class FuroFileDialog extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
     // this._FBPTraceWires();
+
+    /**
+     * Is fired if native input change event is fired
+     * @event input-changed Payload: target element
+     */
+    this._FBPAddWireHook('--changed', (e)=>{
+      this.dispatchEvent(new CustomEvent('input-changed', {
+          detail: e.target, bubbles: true, composed: true
+      }));
+
+    });
   }
 
   static get properties() {
@@ -137,7 +148,7 @@ class FuroFileDialog extends FBP(LitElement) {
         ?capture="${this.capture}"
         id="input"
         name="input"
-        @-change="^^input-changed(*.target)"
+        @-change="--changed(*)"
       />
 
       <label for="input" ƒ-click="--open"></label>
