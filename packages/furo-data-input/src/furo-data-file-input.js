@@ -1,10 +1,5 @@
-import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme';
-import { FBP } from '@furo/fbp';
-import '@furo/input/src/furo-file-dialog.js';
-
-import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
-import { Helper } from './lib/helper.js';
+import { FuroFileDialog } from '@furo/input/src/furo-file-dialog.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
  * `furo-data-file-input`
@@ -16,7 +11,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-data-file-input Data binding
  * @mixes FBP
  */
-class FuroDataFileInput extends FBP(LitElement) {
+class FuroDataFileInput extends FuroFileDialog {
   /**
    * @event value-changed
    * This event is representative for the attribute files on the native element input type=file
@@ -35,13 +30,107 @@ class FuroDataFileInput extends FBP(LitElement) {
    * Comes from underlying component furo-file-input. **bubbles**
    */
 
+  constructor() {
+    super();
+    this._initBinder();
+  }
+
   /**
-   * @event input
-   * The input event fires when the value of an <input>, <select>, or <textarea> element has been changed.
-   * The input event is fired every time the value of the element changes.
-   *
-   * Comes from underlying component input. **bubbles**
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
    */
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    // set the attribute mappings
+    this.binder.attributeMappings = {
+      label: 'label',
+      accept: 'accept',
+      multiple: 'multiple',
+      capture: 'capture',
+    };
+
+    // set the label mappings
+    this.binder.labelMappings = {
+      error: 'error',
+      multiple: 'multiple',
+    };
+
+    this.binder.fatAttributesToConstraintsMappings = {
+      required: 'value._constraints.required.is', // for the fieldnode constraint
+    };
+
+    this.binder.constraintsTofatAttributesMappings = {
+      required: 'required',
+    };
+
+    /**
+     * check overrides from the used component, attributes set on the component itself overrides all
+     */
+    this.binder.checkLabelandAttributeOverrrides();
+
+    // the extended furo-text-input component uses _value
+    this.binder.targetValueField = '_value';
+
+    // update the value on input changes
+    this.addEventListener('input-changed', e => {
+
+      /**
+       * get local files and encode to Base64
+       */
+      const promises = [];
+      const FILES = e.detail.files;
+
+      this.files = FILES;
+
+      /**
+       * @event files-selected
+       * This event is representative for the attribute files on the native element input type=file
+       * Fired when value has changed from inside the component
+       * detail payload: {Array} A FileList listing the chosen files
+       */
+      const customEvent = new Event('files-selected', { composed: true, bubbles: true });
+      customEvent.detail = FILES;
+      this.dispatchEvent(customEvent);
+
+      /**
+       * File encoding for the convenience event `value-changed
+       */
+      for (let i = 0; i < FILES.length; i += 1) {
+        promises.push(this._fetchLocalFile(FILES[i]));
+      }
+
+      /**
+       * All files are encoded
+       */
+      Promise.all(promises).then(values => {
+        if (this.binder.fieldNode) {
+          this.binder.fieldValue = values;
+        }
+
+        /**
+         * @event value-changed
+         * Fired when value has changed from inside the component
+         * detail payload: {Array} all selected files base64 encoded
+         */
+        const valueChangeEvent = new Event('value-changed', { composed: true, bubbles: true });
+        valueChangeEvent.detail = values;
+        this.dispatchEvent(valueChangeEvent);
+
+        if(this.binder.fieldFormat === 'fat') {
+          // set flag empty on empty strings (for fat types)
+          if (values) {
+            this.binder.deleteLabel('empty');
+          } else {
+            this.binder.addLabel('empty');
+          }
+
+          this.binder.deleteLabel('pristine');
+        }
+      });
+    });
+  }
 
   /**
    * Fetch local file
@@ -72,75 +161,19 @@ class FuroDataFileInput extends FBP(LitElement) {
     });
   }
 
-  /**
-   * flow is ready lifecycle method
-   */
-  _FBPReady() {
-    super._FBPReady();
-    // this._FBPTraceWires();
-    this._FBPAddWireHook('--valueChanged', e => {
-      /**
-       * get local files and encode to Base64
-       */
-      const promises = [];
-      const FILES = e.files;
-
-      this.files = FILES;
-
-      /**
-       * @event files-selected
-       * This event is representative for the attribute files on the native element input type=file
-       * Fired when value has changed from inside the component
-       * detail payload: {Array} A FileList listing the chosen files
-       */
-      const customEvent = new Event('files-selected', { composed: true, bubbles: true });
-      customEvent.detail = FILES;
-      this.dispatchEvent(customEvent);
-
-      /**
-       * File encoding for the convenience event `value-changed
-       */
-      for (let i = 0; i < FILES.length; i += 1) {
-        promises.push(this._fetchLocalFile(FILES[i]));
-      }
-
-      /**
-       * All files are encoded
-       */
-      Promise.all(promises).then(values => {
-        if (this.field) {
-          this.field._value = values;
-        }
-        /**
-         * @event value-changed
-         * Fired when value has changed from inside the component
-         * detail payload: {Array} all selected files base64 encoded
-         */
-        const valueChangeEvent = new Event('value-changed', { composed: true, bubbles: true });
-        valueChangeEvent.detail = values;
-        this.dispatchEvent(valueChangeEvent);
-      });
-    });
-    // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  // because we defined the property accept, the setter from the parent needs to be updated
+  set accept(val) {
+    super.accept = val;
   }
 
-  /**
-   * Updater for the accept attr, the prop alone with accept="${this.accept}" wont work,
-   * because it set "undefined" (as a Sting!)
-   *
-   * @param value
-   */
-  set accept(value) {
-    Helper.UpdateInputAttribute(this, 'accept', value);
+  // because we defined the property multiple, the setter from the parent needs to be updated
+  set multiple(val) {
+    super.multiple = val;
   }
 
-  set multiple(value) {
-    Helper.UpdateInputAttribute(this, 'multiple', value);
-  }
-
-  set capture(value) {
-    Helper.UpdateInputAttribute(this, 'capture', value);
+  // because we defined the property capture, the setter from the parent needs to be updated
+  set capture(val) {
+    super.capture = val;
   }
 
   static get properties() {
@@ -152,14 +185,13 @@ class FuroDataFileInput extends FBP(LitElement) {
        */
       accept: {
         type: String,
-        attribute: true,
+        reflect: true,
       },
       /**
        * Whether to allow multiple values
        */
       multiple: {
         type: Boolean,
-        attribute: true,
         reflect: true,
       },
       /**
@@ -173,7 +205,6 @@ class FuroDataFileInput extends FBP(LitElement) {
        */
       capture: {
         type: String,
-        attribute: true,
         reflect: true,
       },
     };
@@ -185,63 +216,23 @@ class FuroDataFileInput extends FBP(LitElement) {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-    if (fieldNode === undefined) {
-      // eslint-disable-next-line no-console
-      console.warn('Invalid binding ');
-      // eslint-disable-next-line no-console
-      console.log(this);
-      return;
+    this.binder.bindField(fieldNode);
+    if (this.binder.fieldNode) {
+      /**
+       * handle pristine
+       *
+       * Set to pristine label to the same _pristine from the fieldNode
+       */
+      if (this.binder.fieldNode._pristine) {
+        this.binder.addLabel('pristine');
+      } else {
+        this.binder.deleteLabel('pristine');
+      }
+      // set pristine on new data
+      this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this.binder.addLabel('pristine');
+      });
     }
-
-    this.field = fieldNode;
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-
-    this.field.addEventListener('field-value-changed', () => {
-      // nop
-    });
-
-    // update meta and constraints when they change
-    this.field.addEventListener('this-metas-changed', () => {
-      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-    });
-  }
-
-  /**
-   *
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('FuroDataFileInput') ||
-      css`
-        :host {
-          display: none;
-        }
-      `
-    );
-  }
-
-  /**
-   * Delegates open request
-   */
-  open() {
-    this._FBPTriggerWire('--open', null);
-  }
-
-  render() {
-    // language=HTML
-    return html`
-      <furo-file-dialog
-        id="input"
-        ?accept=${this.accept}
-        ?multiple=${this.multiple}
-        ?capture="${this.capture}"
-        ƒ-open="--open"
-        @-input-changed="--valueChanged"
-      ></furo-file-dialog>
-    `;
   }
 }
 

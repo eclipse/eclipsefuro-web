@@ -34,7 +34,36 @@
     },
     "wrapper_bool": {
       "value": true
-    }
+    },
+    "fat_string_repeated": [
+      {
+        "value": "this is a furo fat string",
+        "labels": ["before"],
+        "attributes": {
+          "value-state": "Error",
+          "min": "6",
+          "max": "16",
+          "maxlength": "6",
+          "label": "override",
+          "placeholder": "overridePH"
+
+        }
+      },
+      {
+        "value": "this is a furo fat string 2",
+        "labels": ["before"],
+        "attributes": {
+          "value-state": "Error",
+          "min": "6",
+          "max": "16",
+          "maxlength": "6",
+          "label": "override",
+          "placeholder": "overridePH"
+
+        }
+      }
+
+    ]
   },
   "links": [],
   "meta": {}

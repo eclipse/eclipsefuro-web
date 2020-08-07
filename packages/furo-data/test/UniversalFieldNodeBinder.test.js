@@ -389,4 +389,13 @@ describe('UniversalFieldNodeBinder.test', () => {
     });
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
+
+  it('should bind repeater node', done => {
+    dataobj.addEventListener('data-injected', () => {
+      pseudocomponent.binder.bindField(dataobj.data.data.fat_string_repeated);
+      assert.equal(pseudocomponent.binder.fieldValue.length, 2);
+      done();
+    });
+    fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
+  });
 });

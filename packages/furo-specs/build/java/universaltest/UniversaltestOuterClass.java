@@ -120,6 +120,50 @@ public final class UniversaltestOuterClass {
 
     /**
      * <pre>
+     * field of repeated fat string for the Universaltest
+     * </pre>
+     *
+     * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+     */
+    java.util.List<furo.fat.Fat.String> 
+        getFatStringRepeatedList();
+    /**
+     * <pre>
+     * field of repeated fat string for the Universaltest
+     * </pre>
+     *
+     * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+     */
+    furo.fat.Fat.String getFatStringRepeated(int index);
+    /**
+     * <pre>
+     * field of repeated fat string for the Universaltest
+     * </pre>
+     *
+     * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+     */
+    int getFatStringRepeatedCount();
+    /**
+     * <pre>
+     * field of repeated fat string for the Universaltest
+     * </pre>
+     *
+     * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+     */
+    java.util.List<? extends furo.fat.Fat.StringOrBuilder> 
+        getFatStringRepeatedOrBuilderList();
+    /**
+     * <pre>
+     * field of repeated fat string for the Universaltest
+     * </pre>
+     *
+     * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+     */
+    furo.fat.Fat.StringOrBuilder getFatStringRepeatedOrBuilder(
+        int index);
+
+    /**
+     * <pre>
      * Identity of a universaltes type
      * </pre>
      *
@@ -255,6 +299,7 @@ public final class UniversaltestOuterClass {
       super(builder);
     }
     private Universaltest() {
+      fatStringRepeated_ = java.util.Collections.emptyList();
       id_ = "";
       scalarString_ = "";
     }
@@ -391,6 +436,15 @@ public final class UniversaltestOuterClass {
 
               break;
             }
+            case 90: {
+              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+                fatStringRepeated_ = new java.util.ArrayList<furo.fat.Fat.String>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              fatStringRepeated_.add(
+                  input.readMessage(furo.fat.Fat.String.parser(), extensionRegistry));
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -406,6 +460,9 @@ public final class UniversaltestOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000010) != 0)) {
+          fatStringRepeated_ = java.util.Collections.unmodifiableList(fatStringRepeated_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -423,6 +480,7 @@ public final class UniversaltestOuterClass {
               universaltest.UniversaltestOuterClass.Universaltest.class, universaltest.UniversaltestOuterClass.Universaltest.Builder.class);
     }
 
+    private int bitField0_;
     public static final int FAT_BOOL_FIELD_NUMBER = 10;
     private furo.fat.Fat.Bool fatBool_;
     /**
@@ -553,6 +611,61 @@ public final class UniversaltestOuterClass {
      */
     public furo.fat.Fat.StringOrBuilder getFatStringListOrBuilder() {
       return getFatStringList();
+    }
+
+    public static final int FAT_STRING_REPEATED_FIELD_NUMBER = 11;
+    private java.util.List<furo.fat.Fat.String> fatStringRepeated_;
+    /**
+     * <pre>
+     * field of repeated fat string for the Universaltest
+     * </pre>
+     *
+     * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+     */
+    public java.util.List<furo.fat.Fat.String> getFatStringRepeatedList() {
+      return fatStringRepeated_;
+    }
+    /**
+     * <pre>
+     * field of repeated fat string for the Universaltest
+     * </pre>
+     *
+     * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+     */
+    public java.util.List<? extends furo.fat.Fat.StringOrBuilder> 
+        getFatStringRepeatedOrBuilderList() {
+      return fatStringRepeated_;
+    }
+    /**
+     * <pre>
+     * field of repeated fat string for the Universaltest
+     * </pre>
+     *
+     * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+     */
+    public int getFatStringRepeatedCount() {
+      return fatStringRepeated_.size();
+    }
+    /**
+     * <pre>
+     * field of repeated fat string for the Universaltest
+     * </pre>
+     *
+     * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+     */
+    public furo.fat.Fat.String getFatStringRepeated(int index) {
+      return fatStringRepeated_.get(index);
+    }
+    /**
+     * <pre>
+     * field of repeated fat string for the Universaltest
+     * </pre>
+     *
+     * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+     */
+    public furo.fat.Fat.StringOrBuilder getFatStringRepeatedOrBuilder(
+        int index) {
+      return fatStringRepeated_.get(index);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -795,6 +908,9 @@ public final class UniversaltestOuterClass {
       if (fatBool_ != null) {
         output.writeMessage(10, getFatBool());
       }
+      for (int i = 0; i < fatStringRepeated_.size(); i++) {
+        output.writeMessage(11, fatStringRepeated_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -842,6 +958,10 @@ public final class UniversaltestOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(10, getFatBool());
       }
+      for (int i = 0; i < fatStringRepeated_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, fatStringRepeated_.get(i));
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -877,6 +997,8 @@ public final class UniversaltestOuterClass {
         if (!getFatStringList()
             .equals(other.getFatStringList())) return false;
       }
+      if (!getFatStringRepeatedList()
+          .equals(other.getFatStringRepeatedList())) return false;
       if (!getId()
           .equals(other.getId())) return false;
       if (getScalarInt32()
@@ -924,6 +1046,10 @@ public final class UniversaltestOuterClass {
       if (hasFatStringList()) {
         hash = (37 * hash) + FAT_STRING_LIST_FIELD_NUMBER;
         hash = (53 * hash) + getFatStringList().hashCode();
+      }
+      if (getFatStringRepeatedCount() > 0) {
+        hash = (37 * hash) + FAT_STRING_REPEATED_FIELD_NUMBER;
+        hash = (53 * hash) + getFatStringRepeatedList().hashCode();
       }
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
@@ -1075,6 +1201,7 @@ public final class UniversaltestOuterClass {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getFatStringRepeatedFieldBuilder();
         }
       }
       @java.lang.Override
@@ -1103,6 +1230,12 @@ public final class UniversaltestOuterClass {
         } else {
           fatStringList_ = null;
           fatStringListBuilder_ = null;
+        }
+        if (fatStringRepeatedBuilder_ == null) {
+          fatStringRepeated_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          fatStringRepeatedBuilder_.clear();
         }
         id_ = "";
 
@@ -1154,6 +1287,8 @@ public final class UniversaltestOuterClass {
       @java.lang.Override
       public universaltest.UniversaltestOuterClass.Universaltest buildPartial() {
         universaltest.UniversaltestOuterClass.Universaltest result = new universaltest.UniversaltestOuterClass.Universaltest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (fatBoolBuilder_ == null) {
           result.fatBool_ = fatBool_;
         } else {
@@ -1174,6 +1309,15 @@ public final class UniversaltestOuterClass {
         } else {
           result.fatStringList_ = fatStringListBuilder_.build();
         }
+        if (fatStringRepeatedBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) != 0)) {
+            fatStringRepeated_ = java.util.Collections.unmodifiableList(fatStringRepeated_);
+            bitField0_ = (bitField0_ & ~0x00000010);
+          }
+          result.fatStringRepeated_ = fatStringRepeated_;
+        } else {
+          result.fatStringRepeated_ = fatStringRepeatedBuilder_.build();
+        }
         result.id_ = id_;
         result.scalarInt32_ = scalarInt32_;
         result.scalarString_ = scalarString_;
@@ -1192,6 +1336,7 @@ public final class UniversaltestOuterClass {
         } else {
           result.wrapperString_ = wrapperStringBuilder_.build();
         }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1252,6 +1397,32 @@ public final class UniversaltestOuterClass {
         if (other.hasFatStringList()) {
           mergeFatStringList(other.getFatStringList());
         }
+        if (fatStringRepeatedBuilder_ == null) {
+          if (!other.fatStringRepeated_.isEmpty()) {
+            if (fatStringRepeated_.isEmpty()) {
+              fatStringRepeated_ = other.fatStringRepeated_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+            } else {
+              ensureFatStringRepeatedIsMutable();
+              fatStringRepeated_.addAll(other.fatStringRepeated_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.fatStringRepeated_.isEmpty()) {
+            if (fatStringRepeatedBuilder_.isEmpty()) {
+              fatStringRepeatedBuilder_.dispose();
+              fatStringRepeatedBuilder_ = null;
+              fatStringRepeated_ = other.fatStringRepeated_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+              fatStringRepeatedBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getFatStringRepeatedFieldBuilder() : null;
+            } else {
+              fatStringRepeatedBuilder_.addAllMessages(other.fatStringRepeated_);
+            }
+          }
+        }
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
           onChanged();
@@ -1300,6 +1471,7 @@ public final class UniversaltestOuterClass {
         }
         return this;
       }
+      private int bitField0_;
 
       private furo.fat.Fat.Bool fatBool_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1911,6 +2083,318 @@ public final class UniversaltestOuterClass {
           fatStringList_ = null;
         }
         return fatStringListBuilder_;
+      }
+
+      private java.util.List<furo.fat.Fat.String> fatStringRepeated_ =
+        java.util.Collections.emptyList();
+      private void ensureFatStringRepeatedIsMutable() {
+        if (!((bitField0_ & 0x00000010) != 0)) {
+          fatStringRepeated_ = new java.util.ArrayList<furo.fat.Fat.String>(fatStringRepeated_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          furo.fat.Fat.String, furo.fat.Fat.String.Builder, furo.fat.Fat.StringOrBuilder> fatStringRepeatedBuilder_;
+
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public java.util.List<furo.fat.Fat.String> getFatStringRepeatedList() {
+        if (fatStringRepeatedBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(fatStringRepeated_);
+        } else {
+          return fatStringRepeatedBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public int getFatStringRepeatedCount() {
+        if (fatStringRepeatedBuilder_ == null) {
+          return fatStringRepeated_.size();
+        } else {
+          return fatStringRepeatedBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public furo.fat.Fat.String getFatStringRepeated(int index) {
+        if (fatStringRepeatedBuilder_ == null) {
+          return fatStringRepeated_.get(index);
+        } else {
+          return fatStringRepeatedBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public Builder setFatStringRepeated(
+          int index, furo.fat.Fat.String value) {
+        if (fatStringRepeatedBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFatStringRepeatedIsMutable();
+          fatStringRepeated_.set(index, value);
+          onChanged();
+        } else {
+          fatStringRepeatedBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public Builder setFatStringRepeated(
+          int index, furo.fat.Fat.String.Builder builderForValue) {
+        if (fatStringRepeatedBuilder_ == null) {
+          ensureFatStringRepeatedIsMutable();
+          fatStringRepeated_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          fatStringRepeatedBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public Builder addFatStringRepeated(furo.fat.Fat.String value) {
+        if (fatStringRepeatedBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFatStringRepeatedIsMutable();
+          fatStringRepeated_.add(value);
+          onChanged();
+        } else {
+          fatStringRepeatedBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public Builder addFatStringRepeated(
+          int index, furo.fat.Fat.String value) {
+        if (fatStringRepeatedBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFatStringRepeatedIsMutable();
+          fatStringRepeated_.add(index, value);
+          onChanged();
+        } else {
+          fatStringRepeatedBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public Builder addFatStringRepeated(
+          furo.fat.Fat.String.Builder builderForValue) {
+        if (fatStringRepeatedBuilder_ == null) {
+          ensureFatStringRepeatedIsMutable();
+          fatStringRepeated_.add(builderForValue.build());
+          onChanged();
+        } else {
+          fatStringRepeatedBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public Builder addFatStringRepeated(
+          int index, furo.fat.Fat.String.Builder builderForValue) {
+        if (fatStringRepeatedBuilder_ == null) {
+          ensureFatStringRepeatedIsMutable();
+          fatStringRepeated_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          fatStringRepeatedBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public Builder addAllFatStringRepeated(
+          java.lang.Iterable<? extends furo.fat.Fat.String> values) {
+        if (fatStringRepeatedBuilder_ == null) {
+          ensureFatStringRepeatedIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, fatStringRepeated_);
+          onChanged();
+        } else {
+          fatStringRepeatedBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public Builder clearFatStringRepeated() {
+        if (fatStringRepeatedBuilder_ == null) {
+          fatStringRepeated_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+          onChanged();
+        } else {
+          fatStringRepeatedBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public Builder removeFatStringRepeated(int index) {
+        if (fatStringRepeatedBuilder_ == null) {
+          ensureFatStringRepeatedIsMutable();
+          fatStringRepeated_.remove(index);
+          onChanged();
+        } else {
+          fatStringRepeatedBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public furo.fat.Fat.String.Builder getFatStringRepeatedBuilder(
+          int index) {
+        return getFatStringRepeatedFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public furo.fat.Fat.StringOrBuilder getFatStringRepeatedOrBuilder(
+          int index) {
+        if (fatStringRepeatedBuilder_ == null) {
+          return fatStringRepeated_.get(index);  } else {
+          return fatStringRepeatedBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public java.util.List<? extends furo.fat.Fat.StringOrBuilder> 
+           getFatStringRepeatedOrBuilderList() {
+        if (fatStringRepeatedBuilder_ != null) {
+          return fatStringRepeatedBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(fatStringRepeated_);
+        }
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public furo.fat.Fat.String.Builder addFatStringRepeatedBuilder() {
+        return getFatStringRepeatedFieldBuilder().addBuilder(
+            furo.fat.Fat.String.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public furo.fat.Fat.String.Builder addFatStringRepeatedBuilder(
+          int index) {
+        return getFatStringRepeatedFieldBuilder().addBuilder(
+            index, furo.fat.Fat.String.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * field of repeated fat string for the Universaltest
+       * </pre>
+       *
+       * <code>repeated .furo.fat.String fat_string_repeated = 11;</code>
+       */
+      public java.util.List<furo.fat.Fat.String.Builder> 
+           getFatStringRepeatedBuilderList() {
+        return getFatStringRepeatedFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          furo.fat.Fat.String, furo.fat.Fat.String.Builder, furo.fat.Fat.StringOrBuilder> 
+          getFatStringRepeatedFieldBuilder() {
+        if (fatStringRepeatedBuilder_ == null) {
+          fatStringRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              furo.fat.Fat.String, furo.fat.Fat.String.Builder, furo.fat.Fat.StringOrBuilder>(
+                  fatStringRepeated_,
+                  ((bitField0_ & 0x00000010) != 0),
+                  getParentForChildren(),
+                  isClean());
+          fatStringRepeated_ = null;
+        }
+        return fatStringRepeatedBuilder_;
       }
 
       private java.lang.Object id_ = "";
@@ -4074,20 +4558,21 @@ public final class UniversaltestOuterClass {
       "\n!universaltest/universaltest.proto\022\runi" +
       "versaltest\032\036google/protobuf/wrappers.pro" +
       "to\032\022furo/fat/fat.proto\032\017furo/meta.proto\032" +
-      "\017furo/link.proto\"\373\002\n\rUniversaltest\022 \n\010fa" +
+      "\017furo/link.proto\"\252\003\n\rUniversaltest\022 \n\010fa" +
       "t_bool\030\n \001(\0132\016.furo.fat.Bool\022\"\n\tfat_int3" +
       "2\030\007 \001(\0132\017.furo.fat.Int32\022$\n\nfat_string\030\004" +
       " \001(\0132\020.furo.fat.String\022)\n\017fat_string_lis" +
-      "t\030\010 \001(\0132\020.furo.fat.String\022\n\n\002id\030\001 \001(\t\022\024\n" +
-      "\014scalar_int32\030\005 \001(\005\022\025\n\rscalar_string\030\002 \001" +
-      "(\t\0220\n\014wrapper_bool\030\t \001(\0132\032.google.protob" +
-      "uf.BoolValue\0222\n\rwrapper_int32\030\006 \001(\0132\033.go" +
-      "ogle.protobuf.Int32Value\0224\n\016wrapper_stri" +
-      "ng\030\003 \001(\0132\034.google.protobuf.StringValue\"v" +
-      "\n\023UniversaltestEntity\022*\n\004data\030\001 \001(\0132\034.un" +
-      "iversaltest.Universaltest\022\031\n\005links\030\002 \003(\013" +
-      "2\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Metab\006" +
-      "proto3"
+      "t\030\010 \001(\0132\020.furo.fat.String\022-\n\023fat_string_" +
+      "repeated\030\013 \003(\0132\020.furo.fat.String\022\n\n\002id\030\001" +
+      " \001(\t\022\024\n\014scalar_int32\030\005 \001(\005\022\025\n\rscalar_str" +
+      "ing\030\002 \001(\t\0220\n\014wrapper_bool\030\t \001(\0132\032.google" +
+      ".protobuf.BoolValue\0222\n\rwrapper_int32\030\006 \001" +
+      "(\0132\033.google.protobuf.Int32Value\0224\n\016wrapp" +
+      "er_string\030\003 \001(\0132\034.google.protobuf.String" +
+      "Value\"v\n\023UniversaltestEntity\022*\n\004data\030\001 \001" +
+      "(\0132\034.universaltest.Universaltest\022\031\n\005link" +
+      "s\030\002 \003(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.furo" +
+      ".Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4110,7 +4595,7 @@ public final class UniversaltestOuterClass {
     internal_static_universaltest_Universaltest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_universaltest_Universaltest_descriptor,
-        new java.lang.String[] { "FatBool", "FatInt32", "FatString", "FatStringList", "Id", "ScalarInt32", "ScalarString", "WrapperBool", "WrapperInt32", "WrapperString", });
+        new java.lang.String[] { "FatBool", "FatInt32", "FatString", "FatStringList", "FatStringRepeated", "Id", "ScalarInt32", "ScalarString", "WrapperBool", "WrapperInt32", "WrapperString", });
     internal_static_universaltest_UniversaltestEntity_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_universaltest_UniversaltestEntity_fieldAccessorTable = new

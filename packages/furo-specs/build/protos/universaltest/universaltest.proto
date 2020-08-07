@@ -9,7 +9,7 @@ import "furo/fat/fat.proto";
 import "furo/meta.proto";
 import "furo/link.proto";
 // oneof experiment spec for testing
-message Universaltest {                          
+message Universaltest {                            
   // field of a fat bool for the Universaltest
   furo.fat.Bool fat_bool = 10;
   
@@ -21,6 +21,9 @@ message Universaltest {
   
   // field of a fat string for the Universaltest
   furo.fat.String fat_string_list = 8;
+  
+  // field of repeated fat string for the Universaltest
+  repeated furo.fat.String fat_string_repeated = 11;
   
   // Identity of a universaltes type
   string id = 1;

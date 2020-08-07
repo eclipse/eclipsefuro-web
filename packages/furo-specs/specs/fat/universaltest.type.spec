@@ -198,6 +198,22 @@
         "number": 10,
         "oneof": null
       }
+    },
+    "fat_string_repeated": {
+      "description": "field of repeated fat string for the Universaltest",
+      "type": "furo.fat.String",
+      "meta": {
+        "label": "fat bool",
+        "default": "",
+        "hint": "",
+        "readonly": false,
+        "repeated": true
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 11,
+        "oneof": null
+      }
     }
   }
 }

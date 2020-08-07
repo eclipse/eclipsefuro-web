@@ -12,7 +12,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-file-dialog Sample
  * @appliesMixin FBP
  */
-class FuroFileDialog extends FBP(LitElement) {
+export class FuroFileDialog extends FBP(LitElement) {
   constructor() {
     super();
     this.multiple = false;
@@ -54,14 +54,13 @@ class FuroFileDialog extends FBP(LitElement) {
        */
       accept: {
         type: String,
-        attribute: true,
+        reflect: true,
       },
       /**
        * Whether to allow multiple values
        */
       multiple: {
         type: Boolean,
-        attribute: true,
         reflect: true,
       },
       /**
@@ -75,7 +74,6 @@ class FuroFileDialog extends FBP(LitElement) {
        */
       capture: {
         type: String,
-        attribute: true,
         reflect: true,
       },
     };

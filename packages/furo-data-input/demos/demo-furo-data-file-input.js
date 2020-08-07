@@ -83,6 +83,7 @@ class DemoFuroDataFileInput extends FBP(LitElement) {
                   ></furo-button>
                   <furo-data-file-input
                     accept=".md"
+                    multiple
                     ƒ-open="--openDlgReq"
                     ƒ-bind-data="--entity(*.furo_data_file_input)"
                   ></furo-data-file-input>

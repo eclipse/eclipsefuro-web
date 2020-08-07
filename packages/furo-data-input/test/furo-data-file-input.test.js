@@ -64,7 +64,7 @@ describe('furo-data-file-input', () => {
   it('should be able to upload multiple files', done => {
     dataInput.multiple = true;
     setTimeout(() => {
-      assert.equal(dataInput._theInputElement.getAttribute('multiple'), 'true');
+      assert.equal(dataInput.shadowRoot.getElementById('input').getAttribute('multiple'), 'true');
       done();
     }, 5);
   });
@@ -72,7 +72,7 @@ describe('furo-data-file-input', () => {
   it('should set attribute accept', done => {
     dataInput.accept = '.md';
     setTimeout(() => {
-      assert.equal(dataInput._theInputElement.getAttribute('accept'), '.md');
+      assert.equal(dataInput.shadowRoot.getElementById('input').getAttribute('accept'), '.md');
       done();
     }, 5);
   });
@@ -80,7 +80,7 @@ describe('furo-data-file-input', () => {
   it('should set attribute capture', done => {
     dataInput.capture = 'user';
     setTimeout(() => {
-      assert.equal(dataInput._theInputElement.getAttribute('capture'), 'user');
+      assert.equal(dataInput.shadowRoot.getElementById('input').getAttribute('capture'), 'user');
       done();
     }, 5);
   });
@@ -90,7 +90,7 @@ describe('furo-data-file-input', () => {
       entityObject.addEventListener(
         'data-changed',
         () => {
-          assert.equal(dataInput.field._name, 'furo_data_file_input');
+          assert.equal(dataInput.binder.fieldNode._name, 'furo_data_file_input');
           done();
         },
         { once: true },
@@ -119,6 +119,8 @@ describe('furo-data-file-input', () => {
       done();
     });
 
-    dataInput._FBPTriggerWire('--valueChanged', fileList);
+    dataInput.shadowRoot.getElementById('input').dispatchEvent(new CustomEvent('input-changed', {
+      detail: fileList, bubbles: true, composed: true
+    }));
   });
 });
