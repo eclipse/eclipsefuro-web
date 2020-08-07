@@ -7,6 +7,8 @@ import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/src/furo-catalog.js';
 import '@furo/input/src/furo-button.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/app/src/furo-card.js';
 import './helper/produce-qp-data.js';
 
 /**
