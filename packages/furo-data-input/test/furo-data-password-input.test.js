@@ -63,7 +63,7 @@ describe('furo-data-password-input', () => {
   it('should log invalid bindings', done => {
     setTimeout(() => {
       // invalid binding
-      assert.equal(invalidPasswordInput.field, undefined);
+      assert.equal(invalidPasswordInput.binder.fieldNode, undefined);
       // valid binding
       assert.equal(secondPasswordInput.binder.fieldNode._isValid, true);
       done();

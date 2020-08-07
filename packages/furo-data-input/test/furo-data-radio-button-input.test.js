@@ -95,16 +95,14 @@ describe('furo-data-radio-button-input', () => {
   });
 
   it('should receive value with bind', done => {
-    console.log('those tests are base on the mockdata/experiment/1/get.json');
-
     host._FBPAddWireHook('--hts', () => {
       entityObject.addEventListener(
         'data-changed',
         () => {
-          secondDataRadioButtonInput._FBPAddWireHook('--value', val => {
-            assert.equal(val, true);
+          setTimeout(()=>{
+            assert.equal(secondDataRadioButtonInput.binder.fieldNode._value, true);
             done();
-          });
+          },10)
         },
         { once: true },
       );

@@ -90,7 +90,7 @@ describe('furo-data-text-input', () => {
   it('should log invalid bindings', done => {
     setTimeout(() => {
       // invalid binding
-      assert.equal(invalidBoundTextInput.field, undefined);
+      assert.equal(invalidBoundTextInput.binder.fieldNode, undefined);
       // valid binding
       assert.equal(dataTextInput.binder.fieldNode._isValid, true);
       done();

@@ -79,7 +79,7 @@ describe('furo-data-textarea-input', () => {
   it('should log invalid bindings', done => {
     setTimeout(() => {
       // invalid binding
-      assert.equal(invalidTextareaInput.field, undefined);
+      assert.equal(invalidTextareaInput.binder.fieldNode, undefined);
       // valid binding
       assert.equal(secondTextareaInput.binder.fieldNode._isValid, true);
       done();

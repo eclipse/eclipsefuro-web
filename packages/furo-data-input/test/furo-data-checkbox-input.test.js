@@ -94,10 +94,10 @@ describe('furo-data-checkbox-input', () => {
       dataObject.addEventListener(
         'data-changed',
         () => {
-          dataCheckboxInput._FBPAddWireHook('--value', val => {
-            assert.equal(val, true);
+          setTimeout(()=>{
+            assert.equal(dataCheckboxInput.binder.fieldNode._value, true);
             done();
-          });
+          },10)
         },
         { once: true },
       );

@@ -87,7 +87,7 @@ describe('furo-data-time-input', () => {
   it('should log invalid bindings', done => {
     setTimeout(() => {
       // invalid binding
-      assert.equal(invalidTimeInput.field, undefined);
+      assert.equal(invalidTimeInput.binder.fieldNode, undefined);
       // valid binding
       assert.equal(dataTimeInput.binder.fieldNode._isValid, true);
       done();
@@ -116,16 +116,6 @@ describe('furo-data-time-input', () => {
       assert.equal(dataTimeInput.getAttribute('hint'), 'hint**');
       done();
     }, 20);
-  });
-
-  it('should log invalid bindings', done => {
-    setTimeout(() => {
-      // invalid binding
-      assert.equal(invalidTimeInput.field, undefined);
-      // valid binding
-      assert.equal(secondTimeInput.binder.fieldNode._isValid, true);
-      done();
-    }, 10);
   });
 
   it('should update the entity when values changed', done => {

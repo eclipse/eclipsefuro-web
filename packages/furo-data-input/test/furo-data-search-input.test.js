@@ -65,7 +65,7 @@ describe('furo-data-search-input', () => {
   it('should log invalid bindings', done => {
     setTimeout(() => {
       // invalid binding
-      assert.equal(invalidSearchInput.field, undefined);
+      assert.equal(invalidSearchInput.binder.fieldNode, undefined);
       // valid binding
       assert.equal(secondSearchInput.binder.fieldNode._isValid, true);
       done();

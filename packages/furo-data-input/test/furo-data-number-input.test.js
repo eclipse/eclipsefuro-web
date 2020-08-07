@@ -84,7 +84,7 @@ describe('furo-data-number-input', () => {
   it('should log invalid bindings', done => {
     setTimeout(() => {
       // invalid binding
-      assert.equal(invalidNumberInput.field, undefined);
+      assert.equal(invalidNumberInput.binder.fieldNode, undefined);
       // valid binding
       assert.equal(dataNumberInput.binder.fieldNode._isValid, true);
       done();
@@ -152,7 +152,7 @@ describe('furo-data-number-input', () => {
   it('should log invalid bindings', done => {
     setTimeout(() => {
       // invalid binding
-      assert.equal(invalidNumberInput.field, undefined);
+      assert.equal(invalidNumberInput.binder.fieldNode, undefined);
       // valid binding
       assert.equal(secondNumberInput.binder.fieldNode._isValid, true);
       done();

@@ -1,4 +1,5 @@
 import { FieldNode } from './FieldNode.js';
+import { RepeaterNode } from './RepeaterNode.js';
 
 /**
  * `UniversalFieldNodeBinder` consumes a FieldNode of type scalar, google wrapper of FAT and exposes
@@ -94,7 +95,7 @@ export class UniversalFieldNodeBinder {
    * @param field
    */
   bindField(field) {
-    if (!(field instanceof FieldNode)) {
+    if (!(field instanceof FieldNode || field instanceof RepeaterNode)) {
       // eslint-disable-next-line no-console
       console.warn('Invalid binding ', field, this.target);
       return false;

@@ -120,7 +120,7 @@ describe('furo-data-range-input', () => {
   it('should log invalid bindings', done => {
     setTimeout(() => {
       // invalid binding
-      assert.equal(invalidRangeInput.field, undefined);
+      assert.equal(invalidRangeInput.binder.fieldNode, undefined);
       // valid binding
       assert.equal(secondRangeInput.binder.fieldNode._isValid, true);
       done();
