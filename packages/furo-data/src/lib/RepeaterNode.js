@@ -271,7 +271,6 @@ export class RepeaterNode extends EventTreeNode {
    * @private
    */
   get _deltaValue() {
-
     if (!this._pristine) {
       return this._value;
       }
