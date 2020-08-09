@@ -75,6 +75,9 @@ export class RepeaterNode extends EventTreeNode {
     this.addEventListener('field-value-changed', () => {
       this._pristine = false;
     });
+    this.addEventListener('repeated-fields-changed', () => {
+      this._pristine = false;
+    });
 
     this.addEventListener('disable-validation', () => {
       this._validationDisabled = true;
@@ -268,14 +271,11 @@ export class RepeaterNode extends EventTreeNode {
    * @private
    */
   get _deltaValue() {
-    const n = [];
-    this.__childNodes.forEach(f => {
-      const val = f._deltaValue;
-      if (val !== undefined) {
-        n.push(val);
+
+    if (!this._pristine) {
+      return this._value;
       }
-    });
-    return n.length ? n : undefined;
+    return undefined;
   }
 
   /**
