@@ -166,7 +166,7 @@ class FuroEntityAgent extends FBP(LitElement) {
           );
         }
         // add the field_mask
-        body.update_mask = this._getFieldMask(body);
+        body.update_mask = { paths: this._getFieldMask(body) };
       } else if (Env.api.sendAllDataOnMethodPut && link.method.toLowerCase() === 'put') {
         body = dataObject._value;
       } else {
@@ -257,21 +257,24 @@ class FuroEntityAgent extends FBP(LitElement) {
 
   /**
    * Creates an array with the path information of the object attributes (deep dive)
-   * [{"paths:" "attr1"}, {"paths:" "attr2.sub_attr"}]
+   * according to https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto
+   *
+   * `{"paths":["attr1","attr2.sub_attr"]}`
+   *
    * @param obj
    * @returns {Array}
    * @private
    */
   _getFieldMask(obj) {
-    const result = [];
+    const paths = [];
 
     const flat = this._flattenObject(obj);
 
     const keys = Object.keys(flat);
     keys.forEach(k => {
-      result.push(`paths: ${k}`);
+      paths.push(k);
     });
-    return result;
+    return paths;
   }
 
   /**
