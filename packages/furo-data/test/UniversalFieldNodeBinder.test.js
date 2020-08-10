@@ -244,7 +244,7 @@ describe('UniversalFieldNodeBinder.test', () => {
       assert.equal(pseudocomponent.value, 'm2');
       assert.equal(pseudocomponent.binder.fieldNode.value._value, 'm2');
       done();
-    });
+    }, {'once':true});
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 
@@ -259,7 +259,7 @@ describe('UniversalFieldNodeBinder.test', () => {
       assert.equal(pseudocomponent.value, 'm2');
       assert.equal(pseudocomponent.binder.fieldNode._value, 'm2');
       done();
-    });
+    }, {'once':true});
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 
@@ -274,7 +274,7 @@ describe('UniversalFieldNodeBinder.test', () => {
       assert.equal(pseudocomponent.value, 'm2');
       assert.equal(pseudocomponent.binder.fieldNode.value._value, 'm2');
       done();
-    });
+    }, {'once':true});
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 
@@ -395,7 +395,7 @@ describe('UniversalFieldNodeBinder.test', () => {
       pseudocomponent.binder.bindField(dataobj.data.data.fat_string_repeated);
       assert.equal(pseudocomponent.binder.fieldValue.length, 2);
       done();
-    });
+    },{'once':true});
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 });

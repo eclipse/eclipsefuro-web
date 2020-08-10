@@ -1,10 +1,5 @@
-import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme';
-import '@furo/input/src/furo-select-input';
-
-import { FBP } from '@furo/fbp';
-import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
-import { Helper } from './lib/helper.js';
+import { FuroSelectInput } from '@furo/input/src/furo-select-input.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
  * `furo-data-collection-dropdown`
@@ -40,7 +35,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-data-collection-dropdown-multiple collection dropdown demo with multiple selection
  * @mixes FBP
  */
-class FuroDataCollectionDropdown extends FBP(LitElement) {
+class FuroDataCollectionDropdown extends FuroSelectInput {
   /**
    * @event value-changed
    * Fired when value has changed from the component inside.
@@ -60,11 +55,11 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     this._fieldNodeToUpdate = {};
     this._fieldDisplayNodeToUpdate = {};
 
-    this._FBPAddWireHook('--valueChanged', val => {
-      if (this.field) {
-        if (!this.multipleSelection) {
+    this.addEventListener('value-changed', val => {
+      if (this.binder.fieldNode) {
+        if (!this.multiple) {
           // by valid input reset meta and constraints
-          this._fieldNodeToUpdate._value = val;
+          this._fieldNodeToUpdate._value = val.detail;
 
           if (this.subfield) {
             this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(val);
@@ -73,8 +68,8 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
           const data = [];
           const arrSubfieldChains = this.subfield.split('.');
           // create value data according to the structure of subfield
-          if (Array.isArray(val)) {
-            val.forEach(v => {
+          if (Array.isArray(val.detail)) {
+            val.detail.forEach(v => {
               const tmp = {};
               for (let i = arrSubfieldChains.length - 1; i > -1; i -= 1) {
                 tmp[i] = {};
@@ -96,7 +91,77 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
           }, 100);
         }
       }
-      this._notifiySelectedItem(val);
+      this._notifiySelectedItem(val.detail);
+    });
+
+    this._initBinder();
+  }
+
+  /**
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
+   */
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    // set the attribute mappings
+    this.binder.attributeMappings = {
+      label: 'label',
+      hint: 'hint',
+      'leading-icon': 'leadingIcon',
+      'trailing-icon': 'trailingIcon',
+      errortext: 'errortext',
+      'error-msg': 'errortext',
+      pattern: 'pattern',
+      min: 'min',
+      max: 'max',
+    };
+
+    // set the label mappings
+    this.binder.labelMappings = {
+      error: 'error',
+      readonly: 'readonly',
+      required: 'required',
+      disabled: 'disabled',
+      condensed: 'condensed',
+    };
+
+    this.binder.fatAttributesToConstraintsMappings = {
+      max: 'value._constraints.max.is', // for the fieldnode constraint
+      min: 'value._constraints.min.is', // for the fieldnode constraint
+      pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
+      required: 'value._constraints.required.is', // for the fieldnode constraint
+      'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
+      'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
+    };
+
+    this.binder.constraintsTofatAttributesMappings = {
+      min: 'min',
+      max: 'max',
+      pattern: 'pattern',
+      required: 'required',
+    };
+
+    /**
+     * check overrides from the used component, attributes set on the component itself overrides all
+     */
+    this.binder.checkLabelandAttributeOverrrides();
+
+    // the extended furo-text-input component uses _value
+    this.binder.targetValueField = '_value';
+
+    // update the value on input changes
+    this.addEventListener('value-changed', val => {
+
+      if(this.binder.fieldNode) {
+
+        // if something was entered the field is not empty
+        this.binder.deleteLabel('pristine');
+
+        // update the value
+        this.binder.fieldValue = val.detail;
+      }
     });
   }
 
@@ -112,16 +177,6 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     return displayName;
   }
 
-  /**
-   * flow is ready lifecycle method
-   */
-  _FBPReady() {
-    super._FBPReady();
-    // this._FBPTraceWires();
-    // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-  }
-
   _notifiySelectedItem(val) {
     /**
      * @event item-selected
@@ -133,7 +188,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     // find item from list
     let selectedItem;
 
-    if (this.multipleSelection) {
+    if (this.multiple) {
       selectedItem = [];
       for (let i = this._dropdownList.length - 1; i >= 0; i -= 1) {
         if (val.includes(this._dropdownList[i].id)) {
@@ -152,45 +207,6 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     this.dispatchEvent(customEvent);
   }
 
-  /**
-   * Updater for the label attr
-   * @param value
-   */
-  set _label(value) {
-    Helper.UpdateInputAttribute(this, 'label', value);
-  }
-
-  /**
-   * Updater for the hint attr
-   * @param value
-   */
-  set _hint(value) {
-    Helper.UpdateInputAttribute(this, 'hint', value);
-  }
-
-  /**
-   * Updater for the leadingIcon attr
-   * @param value
-   */
-  set leadingIcon(value) {
-    Helper.UpdateInputAttribute(this, 'leading-icon', value);
-  }
-
-  /**
-   * Updater for the trailingIcon attr
-   * @param value
-   */
-  set trailingIcon(value) {
-    Helper.UpdateInputAttribute(this, 'trailing-icon', value);
-  }
-
-  /**
-   * Updater for the errortext attr
-   * @param value
-   */
-  set errortext(value) {
-    Helper.UpdateInputAttribute(this, 'errortext', value);
-  }
 
   /**
    * Updater for the list attr
@@ -234,13 +250,12 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
         if (this._fieldNodeToUpdate) {
           this._fieldNodeToUpdate._value = selectedItem;
         }
-      } else if (this.multipleSelection) {
+      } else if (this.multiple) {
         this._notifiySelectedItem(this._parseRepeatedData(this._fieldNodeToUpdate._value));
       } else {
         this._notifiySelectedItem(this._fieldNodeToUpdate._value);
       }
-
-      this._FBPTriggerWire('--selection', arr);
+      super.setOptions(arr);
     }
   }
 
@@ -253,6 +268,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
        */
       label: {
         type: String,
+        reflect: true,
       },
       /**
        * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
@@ -292,10 +308,12 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
        */
       hint: {
         type: String,
+        reflect: true,
       },
 
       readonly: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -310,6 +328,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
        */
       autofocus: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Icon on the left side
@@ -317,6 +336,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       leadingIcon: {
         type: String,
         attribute: 'leading-icon',
+        reflect: true,
       },
       /**
        * Icon on the right side
@@ -324,6 +344,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       trailingIcon: {
         type: String,
         attribute: 'trailing-icon',
+        reflect: true,
       },
       /**
        * html input validity
@@ -337,6 +358,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Set a string list as options:
@@ -347,6 +369,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
        */
       list: {
         type: String,
+        reflect: true,
       },
       /**
        * the dropdown list
@@ -357,14 +380,16 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       /**
        * multiple selection mark
        */
-      multipleSelection: {
+      multiple: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * the size of multiple selection
        */
       size: {
         type: Number,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field is not writeable for a while.
@@ -379,60 +404,88 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * Sets the field to readonly
    */
   disable() {
-    this.disabled = true;
+    super.disable();
   }
 
   /**
    * Makes the field writable.
    */
   enable() {
-    this.disabled = false;
+    super.enable();
   }
 
   /**
-   * Bind a entity field to the furo input. You can use the entity even when no data was received.
+   * Bind a entity field to the range-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-    Helper.BindData(this, fieldNode);
 
-    // use multiple select for repeated node
-    if (fieldNode._meta && fieldNode._meta.repeated) {
-      this.multipleSelection = true;
-      if (!this.subfield) {
+    this.binder.bindField(fieldNode);
+    if (this.binder.fieldNode) {
+
+      /**
+       * handle pristine
+       *
+       * Set to pristine label to the same _pristine from the fieldNode
+       */
+      if (this.binder.fieldNode._pristine) {
+        this.binder.addLabel('pristine');
+      } else {
+        this.binder.deleteLabel('pristine');
+      }
+      // set pristine on new data
+      this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this.binder.addLabel('pristine');
+      });
+
+      // use multiple select for repeated node
+      if (fieldNode._meta && fieldNode._meta.repeated) {
+        this.multiple = true;
+        if (!this.subfield) {
+          this.subfield = 'id';
+        }
+      }
+
+      // by complex type set `id` as `subfield` as default
+      if (this._checkIsComplexType(fieldNode) && !this.subfield) {
         this.subfield = 'id';
       }
-    }
 
-    // by complex type set `id` as `subfield` as default
-    if (this._checkIsComplexType(fieldNode) && !this.subfield) {
-      this.subfield = 'id';
-    }
+      if (this.subfield && !this.multiple) {
+        this._fieldNodeToUpdate = this.binder.fieldNode[this.subfield];
 
-    if (this.subfield && !this.multipleSelection) {
-      this._fieldNodeToUpdate = this.field[this.subfield];
-
-      if (this.subfieldDisplay) {
-        this._fieldDisplayNodeToUpdate = this.field[this.subfieldDisplay];
-      } else if (this.field.display_name) {
-        this._fieldDisplayNodeToUpdate = this.field.display_name;
+        if (this.subfieldDisplay) {
+          this._fieldDisplayNodeToUpdate = this.binder.fieldNode[this.subfieldDisplay];
+        } else if (this.binder.fieldNode.display_name) {
+          this._fieldDisplayNodeToUpdate = this.binder.fieldNode.display_name;
+        }
+      } else {
+        this._fieldNodeToUpdate = this.binder.fieldNode;
       }
-    } else {
-      this._fieldNodeToUpdate = this.field;
-    }
 
-    // inject options from meta which is defined in spec
-    if (this.field._meta && this.field._meta.options) {
-      this._buildListWithMetaOptions(this.field._meta.options);
-    }
-
-    // update meta and constraints when they change
-    this.field.addEventListener('this-metas-changed', () => {
-      if (this.field._meta && this.field._meta.options) {
-        this._buildListWithMetaOptions(this.field._meta.options);
+      // inject options from meta which is defined in spec
+      if (this.binder.fieldNode._meta && this.binder.fieldNode._meta.options) {
+        this._buildListWithMetaOptions(this.binder.fieldNode._meta.options);
       }
-    });
+
+      // update meta and constraints when they change
+      this.binder.fieldNode.addEventListener('this-metas-changed', () => {
+        if (this.binder.fieldNode._meta && this.binder.fieldNode._meta.options) {
+          this._buildListWithMetaOptions(this.binder.fieldNode._meta.options);
+        }
+      });
+
+      this.binder.fieldNode.addEventListener('this-field-value-changed', () => {
+        this._updateField();
+      });
+
+      this.binder.fieldNode.addEventListener('this-repeated-field-changed', () => {
+        this._updateField();
+      });
+
+      this._updateField();
+    }
   }
 
   /**
@@ -450,14 +503,22 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     return isComplex;
   }
 
+  /**
+   * Sets the value for the field. This will update the fieldNode.
+   * @param val
+   */
+  setValue(val) {
+    this.binder.fieldValue = val;
+  }
+
   // eslint-disable-next-line class-methods-use-this
   _updateField() {
-    if (this.multipleSelection) {
+    if (this.multiple) {
       if (!this._writeLock) {
-        this._FBPTriggerWire('--value', this._parseRepeatedData(this._fieldNodeToUpdate._value));
+        super.setValue(this._parseRepeatedData(this._fieldNodeToUpdate._value));
       }
     } else {
-      this._FBPTriggerWire('--value', this._fieldNodeToUpdate._value);
+      super.setValue(this._fieldNodeToUpdate._value);
     }
     this.requestUpdate();
   }
@@ -481,32 +542,6 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       });
     }
     return arrValue;
-  }
-
-  /**
-   *
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('FuroDataCollectionDropdown') ||
-      css`
-        :host {
-          display: inline-block;
-          width: 190px;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-
-        furo-select-input {
-          width: 100%;
-        }
-      `
-    );
   }
 
   /**
@@ -649,31 +684,6 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     }
 
     this._notifyAndTriggerUpdate(arr);
-  }
-
-  /**
-   *
-   * @return {TemplateResult}
-   * @private
-   */
-  render() {
-    // language=HTML
-    return html`
-      <furo-select-input
-        id="input"
-        ?autofocus=${this.autofocus}
-        ?disabled=${this._readonly || this.disabled}
-        ?error="${this.error}"
-        ?float="${this.float}"
-        ?condensed="${this.condensed}"
-        ?required=${this._required}
-        ?multiple="${this.multipleSelection}"
-        size="${this.size}"
-        ƒ-set-options="--selection"
-        @-value-changed="--valueChanged"
-        ƒ-set-value="--value"
-      ></furo-select-input>
-    `;
   }
 }
 

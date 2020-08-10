@@ -128,10 +128,9 @@ describe('furo-data-collection-dropdown', () => {
       'this-metas-changed',
       () => {
         setTimeout(() => {
-          assert.equal(collectionDropdown1.field._meta.options.list.length, 2);
-          assert.equal(collectionDropdown1.field._value, 2);
-          assert.equal(collectionDropdown1.field._oldvalue, 'Furo Foundation');
-          assert.equal(collectionDropdown1.field._meta.label, 'ID label from response');
+          assert.equal(collectionDropdown1.binder.fieldNode._meta.options.list.length, 2);
+          assert.equal(collectionDropdown1.binder.fieldNode._value, 2);
+          assert.equal(collectionDropdown1.binder.fieldNode._meta.label, 'ID label from response');
           done();
         }, 15);
       },
@@ -146,8 +145,8 @@ describe('furo-data-collection-dropdown', () => {
       entityObject.data.data.description.addEventListener(
         'this-metas-changed',
         () => {
-          assert.equal(collectionDropdown1.field._value, 'Build Documentation');
-          assert.equal(collectionDropdown1.field._meta.label, 'ID label from response');
+          assert.equal(collectionDropdown1.binder.fieldNode._value, 'Build Documentation');
+          assert.equal(collectionDropdown1.binder.fieldNode._meta.label, 'ID label from response');
 
           done();
         },
@@ -159,7 +158,7 @@ describe('furo-data-collection-dropdown', () => {
 
   it('should selected the items when the field value not exists and the item in option list is marked as `selected:true`', done => {
     setTimeout(() => {
-      assert.equal(collectionDropdown2.field.id, 'female');
+      assert.equal(collectionDropdown2.binder.fieldNode.id, 'female');
       done();
     }, 0);
   });
@@ -174,7 +173,7 @@ describe('furo-data-collection-dropdown', () => {
   it('should set the select element to disabled', done => {
     collectionDropdown2.disable();
     setTimeout(() => {
-      assert.equal(collectionDropdown2._theInputElement.getAttribute('disabled'), '');
+      assert.equal(collectionDropdown2.getAttribute('disabled'), '');
       done();
     }, 0);
   });
@@ -188,12 +187,10 @@ describe('furo-data-collection-dropdown', () => {
   });
 
   it('should set select as multiple by binding repeated field', done => {
-    dataObject.addEventListener('object-ready', () => {
-      setTimeout(() => {
-        assert.equal(collectionDropdown3.multipleSelection, true);
-        done();
-      }, 0);
-    });
+    setTimeout(() => {
+      assert.equal(collectionDropdown3.multiple, true);
+      done();
+    }, 100);
   });
 
   it('should set value of select input from the value of repeated field via binding', done => {
@@ -203,7 +200,7 @@ describe('furo-data-collection-dropdown', () => {
         console.log(collectionDropdown3.shadowRoot.getElementById('input').value);
         assert.equal(collectionDropdown3.shadowRoot.getElementById('input').multiple, true);
         assert.equal(
-          JSON.stringify(collectionDropdown3.shadowRoot.getElementById('input').value),
+          JSON.stringify(collectionDropdown3._v),
           JSON.stringify(['1', '2', '3', '4']),
         );
         done();

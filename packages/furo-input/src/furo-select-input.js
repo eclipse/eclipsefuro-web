@@ -30,7 +30,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-select-input Input sample
  * @appliesMixin FBP
  */
-class FuroSelectInput extends FBP(LitElement) {
+export class FuroSelectInput extends FBP(LitElement) {
   /**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
@@ -141,6 +141,7 @@ class FuroSelectInput extends FBP(LitElement) {
        */
       options: {
         type: Array,
+        reflect: true,
       },
       /**
        * Set a string list as options:
@@ -151,17 +152,19 @@ class FuroSelectInput extends FBP(LitElement) {
        */
       list: {
         type: String,
+        reflect: true,
       },
 
       label: {
         type: String,
-        attribute: true,
+        reflect: true,
       },
       /**
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -175,12 +178,14 @@ class FuroSelectInput extends FBP(LitElement) {
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Text for errors
        */
       errortext: {
         type: String,
+        reflect: true,
       },
       /**
        * Icon on the left side
@@ -188,6 +193,7 @@ class FuroSelectInput extends FBP(LitElement) {
       leadingIcon: {
         type: String,
         attribute: 'leading-icon',
+        reflect: true,
       },
       /**
        * Icon on the right side
@@ -195,6 +201,7 @@ class FuroSelectInput extends FBP(LitElement) {
       trailingIcon: {
         type: String,
         attribute: 'trailing-icon',
+        reflect: true,
       },
       /**
        * html input validity
@@ -208,12 +215,14 @@ class FuroSelectInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
        */
       filled: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * error text
@@ -227,18 +236,21 @@ class FuroSelectInput extends FBP(LitElement) {
        */
       required: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * the multiple selection. the value true means this select can be multiple options
        */
       multiple: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * the size of multiple selection
        */
       size: {
         type: Number,
+        reflect: true,
       },
       /**
        * converted select options which value and selected
