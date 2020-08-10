@@ -397,6 +397,12 @@ class FuroRangeInput extends FBP(LitElement) {
           border-bottom-left-radius: 4px;
         }
 
+        label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 56px;
+        }
+
         :host(:not([filled])) label {
           padding: 0 4px;
           border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
@@ -424,6 +430,7 @@ class FuroRangeInput extends FBP(LitElement) {
           flex: 1;
           -webkit-flex-basis: 0.000000001px;
           flex-basis: 0.000000001px;
+          min-width: 4px;
         }
 
         .ripple-line {
@@ -567,6 +574,12 @@ class FuroRangeInput extends FBP(LitElement) {
         :host([condensed]) input {
           top: 15px;
           font-size: 14px;
+        }
+
+        :host([condensed]) label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 40px;
         }
 
         :host([condensed]:not([filled])) label,
