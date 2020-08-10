@@ -166,7 +166,7 @@ class FuroEntityAgent extends FBP(LitElement) {
           );
         }
         // add the field_mask
-        body.update_mask = {"paths":this._getFieldMask(body)};
+        body.update_mask = { paths: this._getFieldMask(body) };
       } else if (Env.api.sendAllDataOnMethodPut && link.method.toLowerCase() === 'put') {
         body = dataObject._value;
       } else {

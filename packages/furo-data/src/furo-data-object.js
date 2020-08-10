@@ -76,7 +76,7 @@ export class FuroDataObject extends LitElement {
       }
     });
 
-    this._injectPromise.then(()=>{
+    this._injectPromise.then(() => {
       this._injectingCompleted = true;
     });
 
@@ -265,15 +265,12 @@ export class FuroDataObject extends LitElement {
        *   **bubbles**
        */
       if (this._injectingCompleted) {
-
         const dataInjectEvent = new Event('data-changed-after-inject', {
           composed: true,
           bubbles: true,
         });
         dataInjectEvent.detail = this.data;
         this.dispatchEvent(dataInjectEvent);
-
-
       }
 
       /**

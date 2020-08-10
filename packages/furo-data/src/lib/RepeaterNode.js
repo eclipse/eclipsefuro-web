@@ -273,7 +273,7 @@ export class RepeaterNode extends EventTreeNode {
   get _deltaValue() {
     if (!this._pristine) {
       return this._value;
-      }
+    }
     return undefined;
   }
 
