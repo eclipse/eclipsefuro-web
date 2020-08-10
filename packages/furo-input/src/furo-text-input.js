@@ -412,6 +412,12 @@ class FuroTextInput extends FBP(LitElement) {
           border-bottom-left-radius: 4px;
         }
 
+        label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 56px;
+        }
+
         :host(:not([filled])) label span {
           top: 0;
           position: relative;
@@ -449,6 +455,7 @@ class FuroTextInput extends FBP(LitElement) {
           flex: 1;
           -webkit-flex-basis: 0.000000001px;
           flex-basis: 0.000000001px;
+          min-width: 4px;
         }
 
         .ripple-line {
@@ -610,6 +617,12 @@ class FuroTextInput extends FBP(LitElement) {
         :host([condensed]) input {
           top: 12px;
           font-size: 14px;
+        }
+
+        :host([condensed]) label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 40px;
         }
 
         :host([condensed]:not([filled])) label,
