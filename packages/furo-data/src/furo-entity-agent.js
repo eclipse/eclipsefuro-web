@@ -257,10 +257,10 @@ class FuroEntityAgent extends FBP(LitElement) {
 
   /**
    * Creates an array with the path information of the object attributes (deep dive)
-   * todo: @maltenorstroem This is not according to https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto
+   * according to https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto
    *
-   * ?? --> [{"paths:" "attr1"}, {"paths:" "attr2.sub_attr"}]
-   * should be "paths":["attr1","attr2.sub_attr"]
+   * `{"paths":["attr1","attr2.sub_attr"]}`
+   *
    * @param obj
    * @returns {Array}
    * @private

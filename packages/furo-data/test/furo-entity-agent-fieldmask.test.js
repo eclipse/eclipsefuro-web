@@ -44,7 +44,7 @@ describe('furo-entity-agent fieldmask', () => {
       expect(r.detail.json.hasOwnProperty('members')).to.be.false;
       assert.equal(
         JSON.stringify(r.detail.json.update_mask),
-        '["paths: description","paths: cost_limit.currency_code"]',
+        '{"paths":["description","cost_limit.currency_code"]}',
       );
       // eslint-disable-next-line no-prototype-builtins
       expect(r.detail.json.update_mask.hasOwnProperty('members')).to.be.false;
@@ -75,7 +75,7 @@ describe('furo-entity-agent fieldmask', () => {
     entityAgent.addEventListener('save-success', r => {
       expect(r.detail.json.update_mask).to.not.be.undefined;
       expect(r.detail.json.first_name).to.be.undefined;
-      assert.equal(JSON.stringify(r.detail.json.update_mask), '["paths: name","paths: phone_nr"]');
+      assert.equal(JSON.stringify(r.detail.json.update_mask), '{"paths":["name","phone_nr"]}');
       assert.equal(r.detail.json.name, 'Doe');
       done();
     });
@@ -136,7 +136,7 @@ describe('furo-entity-agent fieldmask', () => {
     const result = entityAgent._getFieldMask(obj);
     assert.equal(
       JSON.stringify(result),
-      '["paths: data.id","paths: data.cost_limit.currency_code","paths: data.cost_limit.display_name","paths: data.cost_limit.nanos","paths: data.cost_limit.units","paths: data.description","paths: data.display_name","paths: data.end.day","paths: data.end.display_name","paths: data.end.month","paths: data.end.year","paths: data.members","paths: data.start.day","paths: data.start.display_name","paths: data.start.month","paths: data.start.year"]',
+      '["data.id","data.cost_limit.currency_code","data.cost_limit.display_name","data.cost_limit.nanos","data.cost_limit.units","data.description","data.display_name","data.end.day","data.end.display_name","data.end.month","data.end.year","data.members","data.start.day","data.start.display_name","data.start.month","data.start.year"]',
     );
   });
 });
