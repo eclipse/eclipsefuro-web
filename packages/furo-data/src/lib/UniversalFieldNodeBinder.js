@@ -126,9 +126,7 @@ export class UniversalFieldNodeBinder {
 
     field.addEventListener('field-value-changed', () => {
       this._updateVirtualNode(field);
-
     });
-
 
     field.addEventListener('field-became-invalid', e => {
       const invalidNode = e.detail;
@@ -156,7 +154,6 @@ export class UniversalFieldNodeBinder {
     });
 
     return this;
-
   }
 
   /**
@@ -207,7 +204,7 @@ export class UniversalFieldNodeBinder {
    */
   deleteLabel(label) {
     if ('labels' in this.fieldNode) {
-      if(this._givenLabels) {
+      if (this._givenLabels) {
         const labelindex = this._givenLabels.indexOf(label);
         if (labelindex !== -1) {
           this.fieldNode.labels.deleteChild(labelindex);
@@ -287,8 +284,7 @@ export class UniversalFieldNodeBinder {
           this._addVirtualLabel(label._value);
         });
       }
-    }
-    else {
+    } else {
       // for scalar and complex fields
       this.fieldValue = field._value;
     }
@@ -310,7 +306,7 @@ export class UniversalFieldNodeBinder {
 
       // update the field constraints based on fat attributes only for fat and wrapper types.
       // google.type.date should not be updated
-      if ( this.fieldFormat === 'fat' || this.fieldFormat === 'wrapper') {
+      if (this.fieldFormat === 'fat' || this.fieldFormat === 'wrapper') {
         if (name in this.fatAttributesToConstraintsMappings) {
           this._pathSet(this.fatAttributesToConstraintsMappings[name], value);
         }
@@ -392,22 +388,20 @@ export class UniversalFieldNodeBinder {
    * **Hint:** Do this after initializing the mappings.
    */
   checkLabelandAttributeOverrrides() {
-
     const attributeMappingKeys = Object.keys(this.attributeMappings);
 
     const labelMappingKeys = Object.keys(this.labelMappings);
 
     this.target.getAttributeNames().forEach(name => {
-
       // remove all override targets for attributes
-      attributeMappingKeys.forEach((attr) => {
+      attributeMappingKeys.forEach(attr => {
         if (attr === name) {
           delete this.attributeMappings[attr];
         }
       });
 
       // remove all override targets for labels
-      labelMappingKeys.forEach((attr) => {
+      labelMappingKeys.forEach(attr => {
         if (attr === name) {
           delete this.labelMappings[attr];
         }
@@ -433,7 +427,7 @@ export class UniversalFieldNodeBinder {
       this.fieldValue = field.value._value;
       return 'fat';
     }
-    if (field && field.__childNodes.length > 0 ) {
+    if (field && field.__childNodes.length > 0) {
       this.fieldValue = field._value;
       return 'complex';
     }
@@ -478,12 +472,13 @@ export class UniversalFieldNodeBinder {
 
   _updateVirtualNodeFromMetaConstraints(constraints) {
     // map the constraints to the fat attributes
-    Object.keys(constraints).forEach((constraint) => {
-
+    Object.keys(constraints).forEach(constraint => {
       if (constraint in this.constraintsTofatAttributesMappings) {
-        this.setAttribute(this.constraintsTofatAttributesMappings[constraint], constraints[constraint].is);
+        this.setAttribute(
+          this.constraintsTofatAttributesMappings[constraint],
+          constraints[constraint].is,
+        );
       }
-
     });
   }
 }

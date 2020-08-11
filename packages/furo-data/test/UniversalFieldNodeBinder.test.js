@@ -119,14 +119,21 @@ describe('UniversalFieldNodeBinder.test', () => {
       'data-injected',
       () => {
         pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
-        assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), false, 'readonly not set');
+        assert.equal(
+          pseudocomponent.binder.virtualNode.labels.has('readonly'),
+          false,
+          'readonly not set',
+        );
         dataobj.addEventListener('data-injected', () => {
-
           assert.equal(
             pseudocomponent.binder.virtualNode.attributes.label,
             'fat string label setted via response meta',
           );
-          assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), true, 'readonly is set');
+          assert.equal(
+            pseudocomponent.binder.virtualNode.labels.has('readonly'),
+            true,
+            'readonly is set',
+          );
           done();
         });
 
@@ -236,45 +243,57 @@ describe('UniversalFieldNodeBinder.test', () => {
   it('should update values from outside to fat', done => {
     // set another property for the value property
 
-    dataobj.addEventListener('data-injected', () => {
-      pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
-      assert.equal(pseudocomponent.value, 'this is a furo fat string');
+    dataobj.addEventListener(
+      'data-injected',
+      () => {
+        pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
+        assert.equal(pseudocomponent.value, 'this is a furo fat string');
 
-      pseudocomponent.binder.fieldValue = 'm2';
-      assert.equal(pseudocomponent.value, 'm2');
-      assert.equal(pseudocomponent.binder.fieldNode.value._value, 'm2');
-      done();
-    }, {'once':true});
+        pseudocomponent.binder.fieldValue = 'm2';
+        assert.equal(pseudocomponent.value, 'm2');
+        assert.equal(pseudocomponent.binder.fieldNode.value._value, 'm2');
+        done();
+      },
+      { once: true },
+    );
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 
   it('should update values from outside to scalar', done => {
     // set another property for the value property
 
-    dataobj.addEventListener('data-injected', () => {
-      pseudocomponent.binder.bindField(dataobj.data.data.scalar_string);
-      assert.equal(pseudocomponent.value, 'this is a scalar string');
+    dataobj.addEventListener(
+      'data-injected',
+      () => {
+        pseudocomponent.binder.bindField(dataobj.data.data.scalar_string);
+        assert.equal(pseudocomponent.value, 'this is a scalar string');
 
-      pseudocomponent.binder.fieldValue = 'm2';
-      assert.equal(pseudocomponent.value, 'm2');
-      assert.equal(pseudocomponent.binder.fieldNode._value, 'm2');
-      done();
-    }, {'once':true});
+        pseudocomponent.binder.fieldValue = 'm2';
+        assert.equal(pseudocomponent.value, 'm2');
+        assert.equal(pseudocomponent.binder.fieldNode._value, 'm2');
+        done();
+      },
+      { once: true },
+    );
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 
   it('should update values from outside to wrapper', done => {
     // set another property for the value property
 
-    dataobj.addEventListener('data-injected', () => {
-      pseudocomponent.binder.bindField(dataobj.data.data.wrapper_string);
-      assert.equal(pseudocomponent.value, 'this is a google wrapper string');
+    dataobj.addEventListener(
+      'data-injected',
+      () => {
+        pseudocomponent.binder.bindField(dataobj.data.data.wrapper_string);
+        assert.equal(pseudocomponent.value, 'this is a google wrapper string');
 
-      pseudocomponent.binder.fieldValue = 'm2';
-      assert.equal(pseudocomponent.value, 'm2');
-      assert.equal(pseudocomponent.binder.fieldNode.value._value, 'm2');
-      done();
-    }, {'once':true});
+        pseudocomponent.binder.fieldValue = 'm2';
+        assert.equal(pseudocomponent.value, 'm2');
+        assert.equal(pseudocomponent.binder.fieldNode.value._value, 'm2');
+        done();
+      },
+      { once: true },
+    );
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 
@@ -337,13 +356,14 @@ describe('UniversalFieldNodeBinder.test', () => {
         JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),
         JSON.stringify({
           'value-state': 'Error',
-          'min': '6',
-          'max': '16',
+          min: '6',
+          max: '16',
           maxlength: '6',
           label: 'override',
           placeholder: 'overridePH',
           minlength: 'small',
-        }), 'attributes on fieldnode after inject',
+        }),
+        'attributes on fieldnode after inject',
       );
 
       pseudocomponent.binder.removeAttribute('value-state');
@@ -352,13 +372,14 @@ describe('UniversalFieldNodeBinder.test', () => {
       assert.equal(
         JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),
         JSON.stringify({
-          'min': '6',
-          'max': '16',
-          'maxlength': '6',
-          'placeholder': 'overridePH',
-          'minlength': 'small',
+          min: '6',
+          max: '16',
+          maxlength: '6',
+          placeholder: 'overridePH',
+          minlength: 'small',
         }),
-        'attributes on fieldnode on first load');
+        'attributes on fieldnode on first load',
+      );
       done();
     });
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
@@ -391,11 +412,15 @@ describe('UniversalFieldNodeBinder.test', () => {
   });
 
   it('should bind repeater node', done => {
-    dataobj.addEventListener('data-injected', () => {
-      pseudocomponent.binder.bindField(dataobj.data.data.fat_string_repeated);
-      assert.equal(pseudocomponent.binder.fieldValue.length, 2);
-      done();
-    },{'once':true});
+    dataobj.addEventListener(
+      'data-injected',
+      () => {
+        pseudocomponent.binder.bindField(dataobj.data.data.fat_string_repeated);
+        assert.equal(pseudocomponent.binder.fieldValue.length, 2);
+        done();
+      },
+      { once: true },
+    );
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 });

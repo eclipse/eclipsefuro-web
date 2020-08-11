@@ -111,7 +111,6 @@ export class FieldNode extends EventTreeNode {
       this._isValid = false;
     });
 
-
     this.addEventListener('field-value-changed', () => {
       this._pristine = false;
     });
@@ -771,5 +770,4 @@ export class FieldNode extends EventTreeNode {
     }
     return '';
   }
-
 }

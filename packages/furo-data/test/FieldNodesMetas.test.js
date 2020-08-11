@@ -37,22 +37,31 @@ describe('FieldNodesMetas', () => {
     await host.updateComplete;
   });
 
-
   it('should update deep constraints, when sent from server', done => {
     dataobj.addEventListener(
       'data-injected',
       () => {
         pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
-        assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), false, 'readonly not set');
+        assert.equal(
+          pseudocomponent.binder.virtualNode.labels.has('readonly'),
+          false,
+          'readonly not set',
+        );
         dataobj.addEventListener('data-injected', () => {
-
           assert.equal(
             pseudocomponent.binder.virtualNode.attributes.label,
             'fat string label setted via response meta',
           );
 
-          assert.equal(JSON.stringify(pseudocomponent.binder.fieldNode.value._constraints),'{"max":{"is":"4","message":"MAX 4"}}');
-          assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), true, 'readonly is set');
+          assert.equal(
+            JSON.stringify(pseudocomponent.binder.fieldNode.value._constraints),
+            '{"max":{"is":"4","message":"MAX 4"}}',
+          );
+          assert.equal(
+            pseudocomponent.binder.virtualNode.labels.has('readonly'),
+            true,
+            'readonly is set',
+          );
           done();
         });
 
@@ -62,22 +71,27 @@ describe('FieldNodesMetas', () => {
     );
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
-
-
 
   it('should update the metas, when sent from server', done => {
     dataobj.addEventListener(
       'data-injected',
       () => {
         pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
-        assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), false, 'readonly not set');
+        assert.equal(
+          pseudocomponent.binder.virtualNode.labels.has('readonly'),
+          false,
+          'readonly not set',
+        );
         dataobj.addEventListener('data-injected', () => {
-
           assert.equal(
             pseudocomponent.binder.virtualNode.attributes.label,
             'fat string label setted via response meta',
           );
-          assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), true, 'readonly is set');
+          assert.equal(
+            pseudocomponent.binder.virtualNode.labels.has('readonly'),
+            true,
+            'readonly is set',
+          );
           done();
         });
 
@@ -87,6 +101,4 @@ describe('FieldNodesMetas', () => {
     );
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
-
-
 });

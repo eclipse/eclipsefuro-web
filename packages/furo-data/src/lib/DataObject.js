@@ -44,14 +44,11 @@ export class DataObject extends EventTreeNode {
       this._pristine = false;
     });
 
-    this.addEventListener('repeated-fields-changed', (e) => {
+    this.addEventListener('repeated-fields-changed', e => {
       this._pristine = false;
       // notifiy field-value-changed on top level
       this.dispatchNodeEvent(new NodeEvent('field-value-changed', e.detail, true));
     });
-
-
-
   }
 
   validateAllFields() {
@@ -231,7 +228,6 @@ export class DataObject extends EventTreeNode {
     // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
     // a field which is targeted we delegate the sub request to  this field
 
-
     // reformat deep level metas
     if (metaAndConstraints.fields) {
       Object.keys(metaAndConstraints.fields).forEach(fldName => {
@@ -243,22 +239,24 @@ export class DataObject extends EventTreeNode {
               // we have a deep contraint
               const constraintName = constraintPath.pop();
 
-              const newFldName = [fldName].concat(constraintPath).join(".");
-              if(!(newFldName in metaAndConstraints.fields)){
+              const newFldName = [fldName].concat(constraintPath).join('.');
+              if (!(newFldName in metaAndConstraints.fields)) {
                 // eslint-disable-next-line no-param-reassign
                 metaAndConstraints.fields[newFldName] = {};
               }
-              DataObject._pathSet(metaAndConstraints.fields[newFldName],["constraints",constraintName].join("."),metaAndConstraints.fields[fldName].constraints[constraintKey]);
+              DataObject._pathSet(
+                metaAndConstraints.fields[newFldName],
+                ['constraints', constraintName].join('.'),
+                metaAndConstraints.fields[fldName].constraints[constraintKey],
+              );
               // delete from current field, because constraints like value.max are useless
               // eslint-disable-next-line no-param-reassign
-              delete(metaAndConstraints.fields[fldName].constraints[constraintKey])
+              delete metaAndConstraints.fields[fldName].constraints[constraintKey];
             }
-
           });
         }
       });
     }
-
 
     // eslint-disable-next-line guard-for-in,no-restricted-syntax
     for (const fieldname in metaAndConstraints.fields) {
@@ -320,8 +318,6 @@ export class DataObject extends EventTreeNode {
   toString() {
     return this._spec.type;
   }
-
-
 
   /**
    * helper to set deep paths
