@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit-element';
 import { FBP } from '@furo/fbp';
 import './furo-api-fetch.js';
 import { Env } from '@furo/framework';
+import { AgentHelper } from './lib/AgentHelper.js';
 
 /**
  * `furo-custom-method`
@@ -33,6 +34,9 @@ class FuroCustomMethod extends FBP(LitElement) {
     this._FBPAddWireHook('--requestFinished', () => {
       this._pendingRequests.pop();
     });
+
+    this._queryParams = {};
+    this._specDefinedQPs = {};
   }
 
   static get properties() {
@@ -73,8 +77,26 @@ class FuroCustomMethod extends FBP(LitElement) {
     }
   }
 
+  /**
+   * Update query params
+   * a qp like {"active":true} will just update the qp *active*
+   *
+   * If the current value of the qp is not the same like the injected value, a qp-changed event will be fired
+   * @param {Object} key value pairs
+   */
+  updateQp(qp) {
+    AgentHelper.updateQp(this, qp);
+  }
+
   bindRequestData(dataObject) {
     this._requestDataObject = dataObject;
+  }
+
+  /**
+   * clear the query params that you have setted before
+   */
+  clearQp() {
+    this._queryParams = {};
   }
 
   _makeRequest(link, dataObject) {
@@ -101,18 +123,24 @@ class FuroCustomMethod extends FBP(LitElement) {
 
     const REL_NAME = link.rel.toLowerCase() === 'self' ? 'get' : link.rel.toLowerCase();
 
-    let serviceResponse;
-    for (const [key, service] of Object.entries(
+    // generate accept field for header
+    const ACCEPT = AgentHelper.generateHeaderAccept(
+      this,
       this._ApiEnvironment.services[link.service].services,
-    )) {
-      if (key.toLowerCase() === REL_NAME) {
-        serviceResponse = service.data.response;
-      }
-    }
-    if (serviceResponse) {
-      const ACCEPT = `application/${serviceResponse}+json, application/json;q=0.9`;
+      REL_NAME,
+    );
+
+    if (ACCEPT) {
       headers.append('Accept', `${ACCEPT}`);
     }
+
+    // get existing params from href and append query params
+    const params = AgentHelper.getParams(this, link);
+
+    // rebuild qp
+    const qp = AgentHelper.rebuildQPFromParams(params, this._specDefinedQPs);
+    // generate req
+    const req = AgentHelper.generateReq(link, qp);
 
     /**
      * The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
@@ -123,7 +151,7 @@ class FuroCustomMethod extends FBP(LitElement) {
     this._abortController = new AbortController();
     const { signal } = this._abortController;
 
-    return new Request(link.href, {
+    return new Request(req, {
       signal,
       method: link.method,
       headers,

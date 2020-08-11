@@ -312,6 +312,8 @@ class FuroDataDateInput extends FuroDateInput {
       obj.month = null;
       // eslint-disable-next-line no-param-reassign
       obj.year = null;
+      // eslint-disable-next-line no-param-reassign
+      obj.display_name = null;
     }
 
     return obj;

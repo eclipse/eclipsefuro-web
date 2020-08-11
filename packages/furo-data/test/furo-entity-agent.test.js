@@ -708,4 +708,87 @@ describe('furo-entity-agent', () => {
     assert.equal(entityAgent.load(), false);
     done();
   });
+
+  it('Accept header should be set ', done => {
+    entityAgent.setAttribute('service', 'TaskService');
+
+    entityAgent.addEventListener('hts-updated', () => {
+      const request = entityAgent._makeRequest({
+        href: '/mockdata/tasks/1/get.json',
+        method: 'GET',
+        rel: 'self',
+        type: 'task.TaskEntity',
+        service: 'TaskService',
+      });
+      assert.equal(
+        request.headers.get('Accept'),
+        'application/task.TaskEntity+json, application/json;q=0.9',
+      );
+      done();
+    });
+
+    entityAgent.htsIn([
+      {
+        href: '/mockdata/tasks/1/get.json',
+        method: 'GET',
+        rel: 'self',
+        type: 'task.TaskEntity',
+        service: 'TaskService',
+      },
+    ]);
+  });
+
+  it('should accept clearing of QueryParams ', done => {
+    entityAgent.setAttribute('service', 'TaskService');
+    entityAgent.updateQp({ compact: true });
+    entityAgent.updateQp({ test: '5' });
+    entityAgent.clearQp();
+    /**
+     * Register hook on wire --triggerLoad to
+     *
+     */
+    entityAgent._FBPAddWireHook('--triggerLoad', req => {
+      assert.equal(req.url.indexOf('compact=true') > 0, false);
+      assert.equal(req.url.indexOf('test=5') > 0, false);
+      done();
+    });
+
+    entityAgent.htsIn([
+      {
+        href: '/mockdata/tasks/1/get.json',
+        method: 'GET',
+        rel: 'self',
+        type: 'task.TaskEntity',
+        service: 'TaskService',
+      },
+    ]);
+    entityAgent.load();
+  });
+
+  it('should rebuild request url with via updateQp setted qp and the previously existed qp together in url ', done => {
+    entityAgent.setAttribute('service', 'TaskService');
+    entityAgent.updateQp({ compact: true });
+    entityAgent.updateQp({ test: '5' });
+    /**
+     * Register hook on wire --triggerLoad to
+     *
+     */
+    entityAgent._FBPAddWireHook('--triggerLoad', req => {
+      assert.equal(req.url.indexOf('compact=true') > 0, true);
+      assert.equal(req.url.indexOf('test=5') > 0, true);
+      assert.equal(req.url.indexOf('previousqp=xyz') > 0, true);
+      done();
+    });
+
+    entityAgent.htsIn([
+      {
+        href: '/mockdata/tasks/1/get.json?previousqp=xyz',
+        method: 'GET',
+        rel: 'self',
+        type: 'task.TaskEntity',
+        service: 'TaskService',
+      },
+    ]);
+    entityAgent.load();
+  });
 });

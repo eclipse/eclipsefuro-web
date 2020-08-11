@@ -64,6 +64,7 @@ export class FuroDataObject extends LitElement {
    * @param jsonObj
    */
   injectRaw(jsonObj) {
+    this._injectingCompleted = false;
     this._injectPromise = new Promise(resolve => {
       // queue inject bis entity bereit ist
       if (!this.data) {
@@ -74,6 +75,11 @@ export class FuroDataObject extends LitElement {
         resolve(this.data);
       }
     });
+
+    this._injectPromise.then(() => {
+      this._injectingCompleted = true;
+    });
+
     return this._injectPromise;
   }
 
@@ -258,15 +264,13 @@ export class FuroDataObject extends LitElement {
        *
        *   **bubbles**
        */
-      if (this._injectPromise) {
-        this._injectPromise.then(() => {
-          const dataInjectEvent = new Event('data-changed-after-inject', {
-            composed: true,
-            bubbles: true,
-          });
-          dataInjectEvent.detail = this.data;
-          this.dispatchEvent(dataInjectEvent);
+      if (this._injectingCompleted) {
+        const dataInjectEvent = new Event('data-changed-after-inject', {
+          composed: true,
+          bubbles: true,
         });
+        dataInjectEvent.detail = this.data;
+        this.dispatchEvent(dataInjectEvent);
       }
 
       /**

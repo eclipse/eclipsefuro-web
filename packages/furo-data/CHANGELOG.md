@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.4.3...@furo/data@1.5.0) (2020-07-31)
+
+
+### Bug Fixes
+
+* test response slightly changed ([251856d](https://github.com/theNorstroem/FuroBaseComponents/commit/251856d9ca1887d425920440728dc77a203add34))
+
+
+### Features
+
+* add query param support in entity-agent and custom-method. the request type in custom method service spec doesn't need to be changed because of backward compatibility. therefore the template of proto generator is also not changed. ([b133da8](https://github.com/theNorstroem/FuroBaseComponents/commit/b133da8d274afa0aa1c685e2abf1b3b4aaca9657))
+* generate enum in data environment ([a17bc66](https://github.com/theNorstroem/FuroBaseComponents/commit/a17bc663649708ae33e8423247a8fc4dbd1660ef))
+* give a hint when by requesting with the query param which is not defined in the spec. ([205e5b8](https://github.com/theNorstroem/FuroBaseComponents/commit/205e5b8262e9c07a4e26e030b55f4dd3f6ef321c))
+* refactoring checkQueryParam ([b719007](https://github.com/theNorstroem/FuroBaseComponents/commit/b719007d5718085947a584b65f730088eeab678e))
+
+
+
+
+
 ## [1.4.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.4.2...@furo/data@1.4.3) (2020-06-29)
 
 **Note:** Version bump only for package @furo/data

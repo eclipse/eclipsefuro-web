@@ -9,20 +9,23 @@ import '@furo/testhelper/initEnv.js';
 describe('furo-collection-agent', () => {
   let element;
   let host;
+  let dataObject;
 
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
           <furo-collection-agent></furo-collection-agent>
+          <furo-data-object @-object-ready="--doReady"></furo-data-object>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, element] = testbind.parentNode.children;
+    [, element, dataObject] = testbind.parentNode.children;
     await host.updateComplete;
     await element.updateComplete;
+    await dataObject.updateComplete;
   });
 
   it('should be a furo-collection-agent', done => {
@@ -537,6 +540,63 @@ describe('furo-collection-agent', () => {
     ]);
     element.list();
     element.list();
+    element.list();
+  });
+
+  it('Accept header should be set ', done => {
+    element.setAttribute('service', 'TaskService');
+
+    element.addEventListener('hts-updated', () => {
+      const request = element._makeRequest({
+        href: '/mockdata/tasks/list.json',
+        method: 'GET',
+        rel: 'list',
+        type: 'task.TaskCollection',
+        service: 'TaskService',
+      });
+      assert.equal(
+        request.headers.get('Accept'),
+        'application/task.TaskCollection+json, application/json;q=0.9',
+      );
+      done();
+    });
+
+    element.htsIn([
+      {
+        href: '/mockdata/tasks/list.json',
+        method: 'GET',
+        rel: 'list',
+        type: 'task.TaskCollection',
+        service: 'TaskService',
+      },
+    ]);
+  });
+
+  it('should rebuild request url with via updateQp setted qp and the previously existed qp together in url ', done => {
+    element.setAttribute('service', 'TaskService');
+    element.updateQp({ on: true });
+    element.updateQp({ level: '5' });
+
+    /**
+     * Register hook on wire --triggerLoad to
+     *
+     */
+    element._FBPAddWireHook('--triggerLoad', req => {
+      assert.equal(req.url.indexOf('on=true') > 0, true);
+      assert.equal(req.url.indexOf('level=5') > 0, true);
+      assert.equal(req.url.indexOf('previousqp=xyz') > 0, true);
+      done();
+    });
+
+    element.htsIn([
+      {
+        href: '/mockdata/tasks/list.json?previousqp=xyz',
+        method: 'GET',
+        rel: 'list',
+        type: 'task.TaskCollection',
+        service: 'TaskService',
+      },
+    ]);
     element.list();
   });
 });

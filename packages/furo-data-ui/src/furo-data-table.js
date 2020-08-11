@@ -105,6 +105,8 @@ class FuroDataTable extends FBP(LitElement) {
     this.hideHeader = false;
     this._checkedRows = [];
     this._collection = [];
+    // queue field list if type is not yet ready
+    this._fieldQueue = [];
 
     this._FBPAddWireHook('--bulkChecked', () => {
       // bulk update, check all rows
@@ -381,6 +383,13 @@ class FuroDataTable extends FBP(LitElement) {
       this._checkType(type);
     }
     this._type = type;
+    // if we have a field list in the queue, we work through it
+    if (this._fieldQueue && this._fieldQueue.length){
+      this._fieldQueue.forEach(c => {
+        this._internalAddColumn(c);
+      });
+      this._fieldQueue = [];
+    }
   }
 
   attributeChangedCallback(name, oldval, newval) {
@@ -434,9 +443,17 @@ class FuroDataTable extends FBP(LitElement) {
       const cols = fields.replace(/ /g, '').split(',');
       if (cols.length > 0) {
         this.cols = [];
-        cols.forEach(c => {
-          this._internalAddColumn(c);
-        });
+        if (this._type === undefined || !this._type.length){
+          // queue fields
+          cols.forEach(c => {
+            this._fieldQueue.push(c);
+          });
+
+        } else {
+          cols.forEach(c => {
+            this._internalAddColumn(c);
+          });
+        }
       }
     }
   }
