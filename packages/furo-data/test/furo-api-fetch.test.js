@@ -65,7 +65,6 @@ describe('furo-api-fetch', () => {
     element.addEventListener('response-error-raw', r => {
       assert.equal(r.detail.ok, false);
       assert.equal(r.detail.status, 400);
-      assert.equal(r.detail.statusText.toLowerCase(), 'bad request');
       done();
     });
     element.invokeRequest(request);

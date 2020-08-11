@@ -256,13 +256,11 @@ export class UniversalFieldNodeBinder {
    * @private
    */
   _updateVirtualNode(field) {
-    // not for fat and wrapper types
-    if (!this.fieldFormat || this.fieldFormat === 'scalar') {
-      this.fieldValue = field._value;
-    } else {
-      // for fat and wrapper
-      this.fieldValue = field.value._value;
+    // for fat and wrapper
+    if (this.fieldFormat === 'fat' || this.fieldFormat === 'wrapper') {
 
+      this.fieldValue = field.value._value;
+      // for fat
       if (this.fieldFormat === 'fat') {
         this._givenAttrs = field.attributes.__childNodes.map(attrNode => attrNode._name);
         this._givenLabels = field.labels.__childNodes.map(labelNode => labelNode._value);
@@ -290,6 +288,9 @@ export class UniversalFieldNodeBinder {
           this._addVirtualLabel(label._value);
         });
       }
+    }
+    else {
+      this.fieldValue = field._value;
     }
   }
 
@@ -432,7 +433,12 @@ export class UniversalFieldNodeBinder {
       this.fieldValue = field.value._value;
       return 'fat';
     }
-    console.warn('fieldNode is not defined, please check against the spec');
+    if (field && field.__childNodes.length > 0 ) {
+      this.fieldValue = field._value;
+      return 'complex';
+    }
+
+    console.warn('fieldNode is not defined, please check against the spec', field);
     return undefined;
   }
 
