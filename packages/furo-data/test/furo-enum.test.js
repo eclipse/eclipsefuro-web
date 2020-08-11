@@ -35,7 +35,6 @@ describe('furo data enum', () => {
     const EntityRoot = element.data;
 
     assert.equal(EntityRoot.enumexample._spec.type, 'enums.Corpus');
-    assert.equal(EntityRoot.enumexample._spec.enum, 'enums.Corpus');
 
     done();
   });
