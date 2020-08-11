@@ -44,9 +44,14 @@ export class DataObject extends EventTreeNode {
       this._pristine = false;
     });
 
-    this.addEventListener('repeated-fields-changed', () => {
+    this.addEventListener('repeated-fields-changed', (e) => {
       this._pristine = false;
+      // notifiy field-value-changed on top level
+      this.dispatchNodeEvent(new NodeEvent('field-value-changed', e.detail, true));
     });
+
+
+
   }
 
   validateAllFields() {

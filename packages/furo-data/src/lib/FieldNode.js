@@ -111,11 +111,6 @@ export class FieldNode extends EventTreeNode {
       this._isValid = false;
     });
 
-    this.addEventListener('this-repeated-field-changed', (e) => {
-      this.dispatchNodeEvent(new NodeEvent('this-field-value-changed',e.detail , false));
-      this.dispatchNodeEvent(new NodeEvent('field-value-changed', e.detail, true));
-
-    });
 
     this.addEventListener('field-value-changed', () => {
       this._pristine = false;
