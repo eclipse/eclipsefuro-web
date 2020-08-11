@@ -3,8 +3,7 @@ import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/input/src/furo-number-input';
 import '@furo/input/src/furo-select-input';
-import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
-import { Helper } from './lib/helper.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
  * `furo-data-money-input`
@@ -31,28 +30,90 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     this._currencies = [];
     // init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
     this.value = { currency_code: 'CHF', units: null, nanos: null };
+
+    this._initBinder();
+  }
+
+  /**
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
+   */
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    // set the attribute mappings
+    this.binder.attributeMappings = {
+      label: 'label',
+      hint: 'hint',
+      errortext: 'errortext',
+      'error-msg': 'errortext',
+    };
+
+    // set the label mappings
+    this.binder.labelMappings = {
+      error: 'error',
+      readonly: 'readonly',
+      required: 'required',
+      disabled: 'disabled',
+      condensed: 'condensed',
+    };
+
+    this.binder.fatAttributesToConstraintsMappings = {
+      required: 'value._constraints.required.is', // for the fieldnode constraint
+    };
+
+    this.binder.constraintsTofatAttributesMappings = {
+      required: 'required',
+    };
+
+    /**
+     * check overrides from the used component, attributes set on the component itself overrides all
+     */
+    this.binder.checkLabelandAttributeOverrrides();
+
+    // the extended furo-text-input component uses _value
+    this.binder.targetValueField = '_value';
+
+    // update the value on input changes
+    this.addEventListener('value-changed', val => {
+      // set flag empty on empty strings (for fat types)
+      if (val.detail) {
+        this.binder.deleteLabel('empty');
+      } else {
+        this.binder.addLabel('empty');
+      }
+      // if something was entered the field is not empty
+      this.binder.deleteLabel('pristine');
+
+      // update the value
+      this.binder.fieldValue = val.detail;
+    });
   }
 
   _FBPReady() {
     super._FBPReady();
-
-    // reset hint, label etc..
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-
     this.shadowRoot.getElementById('wrapper').addEventListener('value-changed', e => {
       e.stopPropagation();
 
       if (e.path[0]) {
         if (e.path[0].nodeName === 'FURO-SELECT-INPUT') {
-          this.field._value = this._convertDataToMoneyObj(e.detail, '', this.field._value);
+          this.binder.fieldValue = this._convertDataToMoneyObj(
+            e.detail,
+            '',
+            this.binder.fieldNode._value,
+          );
         }
 
         if (e.path[0].nodeName === 'FURO-NUMBER-INPUT') {
-          this.field._value = this._convertDataToMoneyObj('', e.detail, this.field._value);
+          this.binder.fieldValue = this._convertDataToMoneyObj(
+            '',
+            e.detail,
+            this.binder.fieldNode._value,
+          );
         }
       }
 
-      this._value = this.field._value;
       this.error = false;
 
       /**
@@ -61,7 +122,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
        * detail payload: google money object
        */
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
-      customEvent.detail = this.field._value;
+      customEvent.detail = this.binder.fieldValue;
       this.dispatchEvent(customEvent);
     });
   }
@@ -94,48 +155,50 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   }
 
   /**
-   * Bind a entity field to the number-input. You can use the entity even when no data was received.
+   * Bind a entity field to the money-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-    Helper.BindData(this, fieldNode);
+    this.binder.bindField(fieldNode);
+    if (this.binder.fieldNode) {
+      /**
+       * handle pristine
+       *
+       * Set to pristine label to the same _pristine from the fieldNode
+       */
+      if (this.binder.fieldNode._pristine) {
+        this.binder.addLabel('pristine');
+      } else {
+        this.binder.deleteLabel('pristine');
+      }
+      // set pristine on new data
+      this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this.binder.addLabel('pristine');
+      });
+
+      this.binder.fieldNode.addEventListener('field-value-changed', () => {
+        this._updateField();
+      });
+    }
   }
 
   _updateField() {
-    if (this.field.units && this.field.units._value !== null && this.field.nanos._value !== null) {
-      const amout = Number(`${this.field.units._value}.${this.field.nanos._value}`);
+    if (
+      this.binder.fieldNode.units &&
+      this.binder.fieldNode.units._value !== null &&
+      this.binder.fieldNode.nanos._value !== null
+    ) {
+      const amout = Number(
+        `${this.binder.fieldNode.units._value}.${this.binder.fieldNode.nanos._value}`,
+      );
       this._FBPTriggerWire('--valueAmount', amout);
     }
-    if (this.field.currency_code && this.field.currency_code._value) {
-      this._FBPTriggerWire('--valueCurrency', this.field.currency_code._value);
+    if (this.binder.fieldNode.currency_code && this.binder.fieldNode.currency_code._value) {
+      this._FBPTriggerWire('--valueCurrency', this.binder.fieldNode.currency_code._value);
     }
 
     this.requestUpdate();
-  }
-
-  /**
-   * Updater for the hint attr
-   * @param value
-   */
-  set _hint(value) {
-    Helper.UpdateInputAttribute(this, 'hint', value);
-  }
-
-  /**
-   * Updater for the errortext attr
-   * @param value
-   */
-  set errortext(value) {
-    Helper.UpdateInputAttribute(this, 'errortext', value);
-  }
-
-  /**
-   * Updater for the label attr for amount
-   * @param value
-   */
-  set _label(value) {
-    Helper.UpdateInputAttribute(this, 'label', value);
   }
 
   static get properties() {
@@ -164,6 +227,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
        */
       options: {
         type: Array,
+        reflect: true,
       },
       /**
        * Set a string list as options:
@@ -174,18 +238,21 @@ class FuroDataMoneyInput extends FBP(LitElement) {
        */
       currencies: {
         type: String,
+        reflect: true,
       },
       /**
        * amount field label
        */
       label: {
         type: String,
+        reflect: true,
       },
       /**
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -209,6 +276,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
        */
       required: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -217,12 +285,14 @@ class FuroDataMoneyInput extends FBP(LitElement) {
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Text for errors
        */
       errortext: {
         type: String,
+        reflect: true,
       },
       /**
        * html input validity
@@ -236,12 +306,14 @@ class FuroDataMoneyInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
        */
       filled: {
         type: Boolean,
+        reflect: true,
       },
     };
   }
@@ -311,11 +383,11 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       let selected = false;
       if (e.selected) {
         this.value.currency_code = e.id.toString();
-        this.field.currency_code._value = this.value.currency_code;
+        this.binder.fieldNode.currency_code._value = this.value.currency_code;
         selected = true;
       } else if (this.value.currency_code === e.id.toString()) {
         // init the currency code in field
-        this.field.currency_code._value = this.value.currency_code;
+        this.binder.fieldNode.currency_code._value = this.value.currency_code;
         selected = true;
       }
 
@@ -363,20 +435,20 @@ class FuroDataMoneyInput extends FBP(LitElement) {
         <furo-number-input
           id="input"
           ?autofocus=${this.autofocus}
-          ?disabled=${this._readonly || this.disabled}
+          ?disabled=${this.readonly || this.disabled}
           ?error="${this.error}"
           ?float="${this.float}"
           ?condensed="${this.condensed}"
-          ?required=${this._required}
+          ?required=${this.required}
           @-value-changed="--valueChanged"
           ƒ-set-value="--valueAmount"
         ></furo-number-input>
 
         <furo-select-input
           id="select"
-          ?disabled=${this._readonly || this.disabled}
+          ?disabled=${this.readonly || this.disabled}
           ?float="${this.float}"
-          list="CHF"
+          list="CHF,EUR"
           ?condensed="${this.condensed}"
           ƒ-set-options="--selection"
           @-value-changed="--valueChanged"

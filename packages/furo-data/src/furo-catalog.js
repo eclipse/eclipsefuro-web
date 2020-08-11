@@ -10,3 +10,4 @@ import './furo-filter-container.js';
 import './furo-filter-field.js';
 import './furo-rel-exists.js';
 import './furo-reverse-deep-link.js';
+import './lib/UniversalFieldNodeBinder.js';

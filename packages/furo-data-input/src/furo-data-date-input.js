@@ -1,14 +1,14 @@
-import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme';
-import { FBP } from '@furo/fbp';
-import '@furo/input/src/furo-date-input';
-import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
-import { Helper } from './lib/helper.js';
+import { FuroDateInput } from '@furo/input/src/furo-date-input.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
- * `furo-data-date-input`
- * Binds a entityObject field to a furo-date-input field
+ * `furo-data-date-input` is a extension of furo-date-input which enables you to
+ *  bind a entityObject field.
  *
+ * The field can be of type string, furo.fat.String with format '2009-12-24' or type of google.type.Date with format
+ * {"day": 24, "month": 12, "year": 2009}
+ *
+ * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
  *
  * Tags: input
  * @summary Bind a entityObject.field to a date input
@@ -16,7 +16,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-data-date-input Data binding
  * @mixes FBP
  */
-class FuroDataDateInput extends FBP(LitElement) {
+class FuroDataDateInput extends FuroDateInput {
   /**
    * @event value-changed
    * Fired when value has changed from inside the input field.
@@ -26,102 +26,126 @@ class FuroDataDateInput extends FBP(LitElement) {
    * Comes from underlying component furo-date-input. **bubbles**
    */
 
+  /**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the date input
+   *
+   * Comes from underlying component furo-date-input. **bubbles**
+   */
+
+  /**
+   * @event leading-icon-clicked
+   * Fired when the leading icon was clicked
+   *
+   * detail payload: the value of the date input
+   *
+   * Comes from underlying component furo-date-input. **bubbles**
+   */
+
   constructor() {
     super();
     this.error = false;
     this.disabled = false;
 
-    this._FBPAddWireHook('--valueChanged', val => {
-      // by valid input reset meta and constraints
+    this._initBinder();
+  }
 
-      if (this.field) {
+  /**
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
+   */
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    // set the attribute mappings
+    this.binder.attributeMappings = {
+      label: 'label',
+      hint: 'hint',
+      'leading-icon': 'leadingIcon',
+      'trailing-icon': 'trailingIcon',
+      errortext: 'errortext',
+      'error-msg': 'errortext',
+      step: 'step',
+      min: 'min',
+      max: 'max',
+    };
+
+    // set the label mappings
+    this.binder.labelMappings = {
+      error: 'error',
+      readonly: 'readonly',
+      required: 'required',
+      disabled: 'disabled',
+      condensed: 'condensed',
+    };
+
+    this.binder.fatAttributesToConstraintsMappings = {
+      max: 'value._constraints.max.is', // for the fieldnode constraint
+      min: 'value._constraints.min.is', // for the fieldnode constraint
+      step: 'value._constraints.step.is', // for the fieldnode constraint
+      'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
+      'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
+    };
+
+    this.binder.constraintsTofatAttributesMappings = {
+      min: 'min',
+      max: 'max',
+      step: 'step',
+      required: 'required',
+    };
+
+    /**
+     * check overrides from the used component, attributes set on the component itself overrides all
+     */
+    this.binder.checkLabelandAttributeOverrrides();
+
+    // the extended furo-color-input component uses _value
+    this.binder.targetValueField = '_value';
+
+    // update the value on input changes
+    this.addEventListener('value-changed', val => {
+      let dateValue = val.detail;
+
+      if (this.binder.fieldNode) {
         if (
-          this.field._spec.type === 'google.type.Date' ||
-          (this.field['@type'] &&
-            this.field['@type']._value.replace(/.*\//, '') === 'google.type.Date')
+          this.binder.fieldNode._spec.type === 'google.type.Date' ||
+          (this.binder.fieldNode['@type'] &&
+            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date')
         ) {
-          // eslint-disable-next-line no-param-reassign
-          val = this._convertStringToDateObj(val, this.field._value);
+          dateValue = this._convertStringToDateObj(dateValue, this.binder.fieldNode._value);
         }
         // store tmpval to check against loop
-        this.tmpval = val;
-        this.field._value = val;
+        this.tmpval = dateValue;
+
+        if (JSON.stringify(this.binder.fieldValue) !== JSON.stringify(dateValue)) {
+          // update the value
+          this.binder.fieldValue = dateValue;
+        }
+      }
+
+      // set flag empty on empty strings (for fat types)
+      if (this.binder.fieldFormat === 'fat') {
+        if (dateValue) {
+          this.binder.deleteLabel('empty');
+        } else {
+          this.binder.addLabel('empty');
+        }
+
+        // if something was entered the field is not empty
+        this.binder.deleteLabel('pristine');
       }
     });
   }
 
   /**
-   * flow is ready lifecycle method
+   * Sets the value for the field. This will update the fieldNode.
+   * @param val
    */
-  _FBPReady() {
-    super._FBPReady();
-    // this._FBPTraceWires();
-    // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-  }
-
-  /**
-   * Updater for the label attr
-   * @param value
-   */
-  set _label(value) {
-    Helper.UpdateInputAttribute(this, 'label', value);
-  }
-
-  /**
-   * Updater for the hint attr
-   * @param value
-   */
-  set _hint(value) {
-    Helper.UpdateInputAttribute(this, 'hint', value);
-  }
-
-  /**
-   * Updater for the leadingIcon attr
-   * @param value
-   */
-  set leadingIcon(value) {
-    Helper.UpdateInputAttribute(this, 'leading-icon', value);
-  }
-
-  /**
-   * Updater for the trailingIcon attr
-   * @param value
-   */
-  set trailingIcon(value) {
-    Helper.UpdateInputAttribute(this, 'trailing-icon', value);
-  }
-
-  /**
-   * Updater for the min => minlength attr*
-   * @param value
-   */
-  set _min(value) {
-    Helper.UpdateInputAttribute(this, 'min', value);
-  }
-
-  /**
-   * Updater for the max attr*
-   * @param value
-   */
-  set _max(value) {
-    Helper.UpdateInputAttribute(this, 'max', value);
-  }
-
-  /**
-   * Updater for the errortext attr
-   * @param value
-   */
-  set errortext(value) {
-    Helper.UpdateInputAttribute(this, 'errortext', value);
-  }
-
-  /**
-   * Updater for the step attr
-   * @param value
-   */
-  set _step(value) {
-    Helper.UpdateInputAttribute(this, 'step', value);
+  setValue(val) {
+    this.binder.fieldValue = val;
   }
 
   static get properties() {
@@ -133,7 +157,7 @@ class FuroDataDateInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-        attribute: true,
+        reflect: true,
       },
       /**
        * Overrides the required value from the **specs**.
@@ -142,6 +166,7 @@ class FuroDataDateInput extends FBP(LitElement) {
        */
       required: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -150,6 +175,7 @@ class FuroDataDateInput extends FBP(LitElement) {
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Overrides the min value from the **specs**.
@@ -158,6 +184,7 @@ class FuroDataDateInput extends FBP(LitElement) {
        */
       min: {
         type: String,
+        reflect: true,
       },
       /**
        * Overrides the max value from the **specs**.
@@ -166,6 +193,7 @@ class FuroDataDateInput extends FBP(LitElement) {
        */
       max: {
         type: String,
+        reflect: true,
       },
       /**
        * Overrides the step value from the **specs**.
@@ -174,6 +202,7 @@ class FuroDataDateInput extends FBP(LitElement) {
        */
       step: {
         type: String, // string, because "any" is also a valid step
+        reflect: true,
       },
       /**
        * Overrides the readonly value from the **specs**.
@@ -182,6 +211,7 @@ class FuroDataDateInput extends FBP(LitElement) {
        */
       readonly: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -196,6 +226,7 @@ class FuroDataDateInput extends FBP(LitElement) {
        */
       autofocus: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Icon on the left side
@@ -203,6 +234,7 @@ class FuroDataDateInput extends FBP(LitElement) {
       leadingIcon: {
         type: String,
         attribute: 'leading-icon',
+        reflect: true,
       },
       /**
        * Icon on the right side
@@ -210,6 +242,7 @@ class FuroDataDateInput extends FBP(LitElement) {
       trailingIcon: {
         type: String,
         attribute: 'trailing-icon',
+        reflect: true,
       },
       /**
        * html input validity
@@ -223,101 +256,41 @@ class FuroDataDateInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * passes always float the label
        */
       float: {
         type: Boolean,
+        reflect: true,
       },
     };
   }
 
   /**
-   * Sets the field to readonly
-   */
-  disable() {
-    this.disabled = true;
-  }
-
-  /**
-   * Makes the field writable.
-   */
-  enable() {
-    this.disabled = false;
-  }
-
-  /**
-   * Bind a entity field to the date-input. You can use the entity even when no data was received.
+   * Bind a entity field to the color-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-    Helper.BindData(this, fieldNode);
-    this.field.addEventListener('branch-value-changed', () => {
-      this._updateFieldBranch();
-    });
-
-    // init
-    this._updateFieldBranch();
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  _updateField() {}
-
-  _updateFieldBranch() {
-    // mark incomming error
-    if (!this.field._isValid) {
-      this.error = true;
-      this.errortext = this.field._validity.description;
+    this.binder.bindField(fieldNode);
+    if (this.binder.fieldNode) {
+      /**
+       * handle pristine
+       *
+       * Set to pristine label to the same _pristine from the fieldNode
+       */
+      if (this.binder.fieldNode._pristine) {
+        this.binder.addLabel('pristine');
+      } else {
+        this.binder.deleteLabel('pristine');
+      }
+      // set pristine on new data
+      this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this.binder.addLabel('pristine');
+      });
     }
-
-    let dateValue = this.field._value;
-
-    if (this.tmpval || JSON.stringify(this.field._value) !== JSON.stringify(this.tmpval)) {
-      // convert value when date type is google.type.Date
-      if (
-        this.field._spec.type === 'google.type.Date' ||
-        (this.field['@type'] &&
-          this.field['@type']._value.replace(/.*\//, '') === 'google.type.Date')
-      ) {
-        dateValue = this._convertDateObjToString(dateValue);
-      }
-
-      this._FBPTriggerWire('--value', dateValue);
-
-      this.requestUpdate();
-    }
-  }
-
-  // convert google date object to ISO 8601
-  // eslint-disable-next-line class-methods-use-this
-  _convertDateObjToString(obj) {
-    let date = '';
-
-    if (obj && obj.day && obj.month && obj.year) {
-      let month = String(obj.month);
-      let day = String(obj.day);
-      let year = String(obj.year);
-
-      if (month.length < 2) {
-        month = `0${month}`;
-      }
-
-      if (day.length < 2) {
-        day = `0${day}`;
-      }
-
-      if (year.length < 4) {
-        const l = 4 - year.length;
-        for (let i = 0; i < l; i += 1) {
-          year = `0${year}`;
-        }
-      }
-      date = `${year}-${month}-${day}`;
-    }
-
-    return date;
   }
 
   // convert date string ISO 8601 to object for google.type.Dates
@@ -344,49 +317,6 @@ class FuroDataDateInput extends FBP(LitElement) {
     }
 
     return obj;
-  }
-
-  /**
-   *
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('FuroDataDateInput') ||
-      css`
-        :host {
-          display: inline-block;
-          width: 190px;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-
-        furo-date-input {
-          width: 100%;
-        }
-      `
-    );
-  }
-
-  render() {
-    // language=HTML
-    return html`
-      <furo-date-input
-        id="input"
-        ?autofocus=${this.autofocus}
-        ?disabled=${this._readonly || this.disabled}
-        ?error="${this.error}"
-        ?float="${this.float}"
-        ?condensed="${this.condensed}"
-        ?required=${this._required}
-        @-value-changed="--valueChanged"
-        ƒ-set-value="--value"
-      ></furo-date-input>
-    `;
   }
 }
 

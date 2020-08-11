@@ -51,8 +51,8 @@ describe('furo-ui-builder-task-task-update-panel', () => {
         expect(form.shadowRoot.querySelector('person-person-reference-search').innerHTML).to.not.be.null;
         expect(form.shadowRoot.querySelector('task-task-repeat').innerHTML).to.not.be.null;
 
-        assert.equal(form.shadowRoot.querySelector('furo-data-text-input').field._value, "Apply new documentation structure");
-        assert.equal(form.shadowRoot.querySelector('furo-data-number-input').field._value, "5");
+        assert.equal(form.shadowRoot.querySelector('furo-data-text-input').binder.fieldNode._value, "Apply new documentation structure");
+        assert.equal(form.shadowRoot.querySelector('furo-data-number-input').binder.fieldNode._value, "5");
         assert.equal(form.shadowRoot.querySelector('person-person-reference-search').field.display_name, "John Doe, +41783332244");
         done();
       },18);

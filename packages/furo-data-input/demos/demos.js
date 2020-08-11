@@ -1,3 +1,4 @@
+import './demo-fat-furo-data-text-input.js';
 import './demo-furo-data-repeat.js';
 import './demo-furo-data-property-display.js';
 import './demo-furo-data-property.js';

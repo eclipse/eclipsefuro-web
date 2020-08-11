@@ -2,8 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 
-import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
-import { Helper } from './lib/helper.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
  * `furo-data-display`
@@ -26,33 +25,86 @@ import { Helper } from './lib/helper.js';
 class FuroDataDisplay extends FBP(LitElement) {
   constructor() {
     super();
-
-    this._FBPAddWireHook('--valueChanged', val => {
-      if (this.field) {
-        this.field._value = val;
-      }
-    });
-
     this.field = {};
+
+    this._initBinder();
   }
 
   /**
-   * flow is ready lifecycle method
+   * Bind a entity field to the data-display. You can use the entity even when no data was received.
+   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+   * @param {Object|FieldNode} fieldNode a Field object
    */
-  _FBPReady() {
-    super._FBPReady();
-    // this._FBPTraceWires();
-    // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  bindData(fieldNode) {
+    this.binder.bindField(fieldNode);
+    this.binder.fieldNode.addEventListener('field-value-changed', () => {
+      this._updateField();
+    });
+  }
+
+  /**
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
+   */
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    // set the attribute mappings
+    this.binder.attributeMappings = {
+      label: 'label',
+      hint: 'hint',
+      'leading-icon': 'leadingIcon',
+      'trailing-icon': 'trailingIcon',
+      errortext: 'errortext',
+      'error-msg': 'errortext',
+    };
+
+    // set the label mappings
+    this.binder.labelMappings = {
+      error: 'error',
+      condensed: 'condensed',
+    };
+
+    this.binder.fatAttributesToConstraintsMappings = {};
+
+    this.binder.constraintsTofatAttributesMappings = {};
+
+    /**
+     * check overrides from the used component, attributes set on the component itself overrides all
+     */
+    this.binder.checkLabelandAttributeOverrrides();
+
+    // the extended furo-password-input component uses _value
+    this.binder.targetValueField = '_value';
+
+    // update the value on input changes
+    this.addEventListener('value-changed', val => {
+      // update the value
+      this.binder.fieldValue = val.detail;
+    });
+  }
+
+  /**
+   * Sets the value for the field. This will update the fieldNode.
+   * @param val
+   */
+  setValue(val) {
+    this.binder.fieldValue = val;
+    this._updateField();
   }
 
   _updateField() {
-    this.text = this.field._value;
+    if (this.binder.fieldFormat === 'fat' || this.binder.fieldFormat === 'wrapper') {
+      this.text = this.binder.fieldNode.value._value;
+    } else {
+      this.text = this.binder.fieldNode._value;
+    }
 
-    if (this.displayfield && this.field[this.displayfield]) {
-      this.text = this.field[this.displayfield];
-    } else if (this.field.display_name) {
-      this.text = this.field.display_name;
+    if (this.displayfield && this.binder.fieldNode[this.displayfield]) {
+      this.text = this.binder.fieldNode[this.displayfield]._value;
+    } else if (this.binder.fieldNode.display_name) {
+      this.text = this.binder.fieldNode.display_name;
     }
 
     if (this.text && this.text.toString() === undefined) {
@@ -117,15 +169,6 @@ class FuroDataDisplay extends FBP(LitElement) {
         type: Boolean,
       },
     };
-  }
-
-  /**
-   * Bind a entity field to the text-input. You can use the entity even when no data was received.
-   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
-   * @param {Object|FieldNode} fieldNode a Field object
-   */
-  bindData(fieldNode) {
-    Helper.BindData(this, fieldNode);
   }
 
   /**
@@ -336,7 +379,7 @@ class FuroDataDisplay extends FBP(LitElement) {
       </div>
       <div class="borderlabel">
         <div class="left-border"></div>
-        <label title="${this._hint}"><span>${this._label}</span></label>
+        <label title="${this.hint}"><span>${this.label}</span></label>
         <div class="right-border"></div>
       </div>
     `;

@@ -93,7 +93,7 @@
         "readonly": false
       },
       "constraints": {
-        "required": {
+          "required": {
           "is": "true",
           "message": "is required"
         },

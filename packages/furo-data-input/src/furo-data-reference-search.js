@@ -4,8 +4,7 @@ import { FBP } from '@furo/fbp';
 import '@furo/fbp/src/flow-repeat';
 import '@furo/input/src/furo-search-input';
 import './reference-search-item.js';
-import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
-import { Helper } from './lib/helper.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
  * `furo-data-reference-search`
@@ -49,14 +48,80 @@ import { Helper } from './lib/helper.js';
 class FuroDataReferenceSearch extends FBP(LitElement) {
   constructor() {
     super();
-    this._minTermLength = 0;
+    this.minTermLength = 0;
     this.valueField = 'id';
     this.displayField = 'display_name';
-    this._noResultHint = 'no result found';
+    this.noResultHint = 'no result found';
     /**
      * the loaded collection
      */
     this._collection = [];
+    this._hint = '';
+
+    this._initBinder();
+  }
+
+  /**
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
+   */
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    // set the attribute mappings
+    this.binder.attributeMappings = {
+      label: 'label',
+      hint: 'hint',
+      min_term_length: 'min-term-length',
+      no_result_hint: 'no-result-hint',
+      errortext: 'errortext',
+      'error-msg': 'errortext',
+    };
+
+    // set the label mappings
+    this.binder.labelMappings = {
+      error: 'error',
+      readonly: 'readonly',
+      required: 'required',
+      disabled: 'disabled',
+      condensed: 'condensed',
+    };
+
+    this.binder.fatAttributesToConstraintsMappings = {
+      'min-term-length': 'value._constraints.min_term_length.is', // for the fieldnode constraint
+      'no-result-hint': 'value._constraints.no_result_hint', // for the fieldnode constraint message
+    };
+
+    this.binder.constraintsTofatAttributesMappings = {
+      required: 'required',
+    };
+
+    /**
+     * check overrides from the used component, attributes set on the component itself overrides all
+     */
+    this.binder.checkLabelandAttributeOverrrides();
+
+    // the extended furo-text-input component uses _value
+    this.binder.targetValueField = '_value';
+
+    // update the value on input changes
+    this.addEventListener('field-value-changed', val => {
+      // set flag empty on empty strings (for fat types)
+      if (val.detail) {
+        this.binder.deleteLabel('empty');
+      } else {
+        this.binder.addLabel('empty');
+      }
+      // if something was entered the field is not empty
+      this.binder.deleteLabel('pristine');
+
+      // update the value
+      this.binder.fieldValue = val.detail;
+
+      this._updateField();
+    });
+    // set flag empty on emptfuroy strings (for fat types)
   }
 
   /**
@@ -66,14 +131,13 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     super._FBPReady();
     // this._FBPTraceWires();
     // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
     this._registerListeners();
   }
 
   _registerListeners() {
     this.addEventListener('searchInput', e => {
       // by valid input reset meta and constraints
-      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+      // CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
       this._searchTerm = e.detail;
 
       if (!this.searchOnEnterOnly) {
@@ -82,8 +146,8 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     });
 
     this._FBPAddWireHook('--itemSelected', item => {
-      this.field.id._value = item.data[this.valueField];
-      this.field.display_name._value = item.data[this.displayField];
+      this.binder.fieldNode.id._value = item.data[this.valueField];
+      this.binder.fieldNode.display_name._value = item.data[this.displayField];
       this._updateField();
       this._closeList();
       /**
@@ -179,7 +243,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   }
 
   _fireSearchEvent() {
-    if (this._searchTerm && this._searchTerm.length >= this._minTermLength) {
+    if (this._searchTerm && this._searchTerm.length >= this.minTermLength) {
       /**
        * @event search
        * Fired when term is entered and bigger then min-term-length
@@ -200,7 +264,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       for (let i = 0; i < this._collection.length; i += 1) {
         if (
           this._collection[i].data &&
-          this._collection[i].data[this.valueField] === this.field.id._value
+          this._collection[i].data[this.valueField] === this.binder.fieldNode.id._value
         ) {
           index = i;
           break;
@@ -218,9 +282,9 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
   _clear() {
     this._clearNoResultHint();
-    this.field.display_name._value = '';
+    this.binder.fieldNode.display_name._value = '';
 
-    this.field.reinit();
+    this.binder.fieldNode.reinit();
     this._updateField();
     this._closeList();
 
@@ -234,45 +298,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   }
 
   /**
-   * Updater for the min => minlength attr
-   * same problem like in pattern
-   *
-   * @param value
-   */
-  set _minTermLength(value) {
-    this.__minTermLength = value;
-    Helper.UpdateInputAttribute(this, 'min', value);
-  }
-
-  get _minTermLength() {
-    return this.__minTermLength;
-  }
-
-  /**
-   * Updater for the label attr
-   * @param value
-   */
-  set _label(value) {
-    Helper.UpdateInputAttribute(this, 'label', value);
-  }
-
-  /**
-   * Updater for the hint attr
-   * @param value
-   */
-  set _hint(value) {
-    Helper.UpdateInputAttribute(this, 'hint', value);
-  }
-
-  /**
-   * Updater for the errortext attr
-   * @param value
-   */
-  set errortext(value) {
-    Helper.UpdateInputAttribute(this, 'errortext', value);
-  }
-
-  /**
    * @private
    * @return {Object}
    */
@@ -281,13 +306,18 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       /**
        * the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object
        */
-      valueField: { type: String, attribute: 'value-field' },
+      valueField: {
+        type: String,
+        attribute: 'value-field',
+        reflect: true,
+      },
       /**
        * the field name of reference-item which should be used as display which will be showed in the dropdown.
        */
       displayField: {
         type: String,
         attribute: 'display-field',
+        reflex: true,
       },
       /**
        * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
@@ -296,6 +326,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
        */
       subfield: {
         type: String,
+        reflect: true,
       },
       /**
        * this property saves the value of the displayField of selected item from collection
@@ -317,6 +348,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
        */
       label: {
         type: String,
+        reflect: true,
       },
       /**
        * hint text when result not found by search
@@ -324,6 +356,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       noResultHint: {
         type: String,
         attribute: 'no-result-hint',
+        reflect: true,
       },
       /**
        * Overrides the required value from the **specs**.
@@ -332,6 +365,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
        */
       required: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -340,6 +374,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Overrides the min value from the **specs**.
@@ -349,6 +384,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       minTermLength: {
         type: Number,
         attribute: 'min-term-length',
+        reflect: true,
       },
       /**
        * The maximal no of items to display. If the collection contains more data then then this value,
@@ -357,6 +393,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       maxItemsToDisplay: {
         type: Number,
         attribute: 'max-items-to-display',
+        reflect: true,
       },
       /**
        * hint text to display when the result set is bigger then  **maxItemsToDisplay**.
@@ -364,6 +401,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       maxResultsHint: {
         type: String,
         attribute: 'max-results-hint',
+        reflect: true,
       },
       /**
        * Enable this, to avoid the automatic triggering of "search".
@@ -373,6 +411,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       searchOnEnterOnly: {
         type: Boolean,
         attribute: 'search-on-enter-only',
+        reflect: true,
       },
       /**
        * Overrides the readonly value from the **specs**.
@@ -381,9 +420,10 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
        */
       readonly: {
         type: Boolean,
+        reflect: true,
       },
       /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       * A Boolean attribute which, if present, means this.binder.fieldNodecannot be edited by the user.
        */
       disabled: {
         type: Boolean,
@@ -415,6 +455,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
        */
       float: {
         type: Boolean,
+        reflect: true,
       },
     };
   }
@@ -425,14 +466,31 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-    Helper.BindData(this, fieldNode);
+    this.binder.bindField(fieldNode);
+
+    if (this.binder.fieldNode) {
+      /**
+       * handle pristine
+       *
+       * Set to pristine label to the same _pristine from the fieldNode
+       */
+      if (this.binder.fieldNode._pristine) {
+        this.binder.addLabel('pristine');
+      } else {
+        this.binder.deleteLabel('pristine');
+      }
+      // set pristine on new data
+      this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this.binder.addLabel('pristine');
+      });
+    }
 
     this._init();
   }
 
   _updateField() {
-    if (this.field.display_name._value !== undefined) {
-      this._FBPTriggerWire('--value', this.field.display_name._value);
+    if (this.binder.fieldNode.display_name._value !== undefined) {
+      this._FBPTriggerWire('--value', this.binder.fieldNode.display_name._value);
     }
 
     this.requestUpdate();
@@ -466,7 +524,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       this._collection = [];
       this._closeList();
       this.shadowRoot.getElementById('input').setAttribute('no-result', '');
-      this._hint = this._noResultHint;
+      this._hint = this.noResultHint;
     }
   }
 
@@ -479,8 +537,8 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     // reset hint to original value
     if (this.hint) {
       this._hint = this.hint;
-    } else if (this.field._meta && this.field._meta.hint) {
-      this._hint = this.field._meta.hint;
+    } else if (this.binder.fieldNode._meta && this.binder.fieldNode._meta.hint) {
+      this._hint = this.binder.fieldNode._meta.hint;
     } else {
       this._hint = '';
     }
@@ -555,8 +613,10 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
         trailing-icon="search"
         ?autofocus=${this.autofocus}
         ?condensed=${this.condensed}
-        ?required=${this._required}
-        ?disabled=${this._readonly || this.disabled}
+        ?required=${this.required}
+        ?disabled=${this.readonly || this.disabled}
+        hint=${this._hint}
+        label=${this.label}
         ƒ-set-value="--value"
         @-value-changed="^^searchInput"
         @-value-cleared="--cleared"

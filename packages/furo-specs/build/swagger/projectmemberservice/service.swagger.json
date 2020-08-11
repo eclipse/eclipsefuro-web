@@ -4,6 +4,10 @@
     "title": "projectmemberservice/service.proto",
     "version": "version not set"
   },
+  "schemes": [
+    "http",
+    "https"
+  ],
   "consumes": [
     "application/json"
   ],
@@ -14,18 +18,12 @@
     "/api/members": {
       "get": {
         "summary": "Get a collection with PersonEntities",
-        "operationId": "ProjectMembersService_ListMembers",
+        "operationId": "ListMembers",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/personPersonCollection"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -46,18 +44,12 @@
     "/api/projects/{prj}/members/{prs}:unsubscribe": {
       "post": {
         "summary": "Custom method to unsubscribe a member, complete PersonEntity is expected",
-        "operationId": "ProjectMembersService_UnsubscribeProjectMembersService",
+        "operationId": "UnsubscribeProjectMembersService",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/personPersonCollection"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -323,27 +315,6 @@
         }
       },
       "title": "Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
-    },
-    "runtimeError": {
-      "type": "object",
-      "properties": {
-        "error": {
-          "type": "string"
-        },
-        "code": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "message": {
-          "type": "string"
-        },
-        "details": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protobufAny"
-          }
-        }
-      }
     }
   }
 }

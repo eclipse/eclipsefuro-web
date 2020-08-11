@@ -1,0 +1,34 @@
+{
+  "data": {
+    "id": "1",
+    "scalar_string": "this is a scalar string",
+    "wrapper_string": {
+      "value": "this is a google wrapper string"
+    },
+    "fat_string": {
+      "value": "this is a furo fat string",
+      "labels": ["after"],
+      "attributes": {
+        "value-state": "Error",
+        "other": "otherattribute"
+      }
+    },
+    "scalar_int32": 14,
+    "wrapper_int32": {
+      "value": 14
+    },
+    "fat_int32": {
+      "value": 14,
+      "value-state": "Information"
+    },
+    "fat_bool": {
+      "value": true,
+      "value-state": "Information"
+    },
+    "wrapper_bool": {
+      "value": true
+    }
+  },
+  "links": [],
+  "meta": {}
+}

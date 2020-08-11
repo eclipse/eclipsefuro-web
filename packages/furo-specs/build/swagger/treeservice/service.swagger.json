@@ -4,6 +4,10 @@
     "title": "treeservice/service.proto",
     "version": "version not set"
   },
+  "schemes": [
+    "http",
+    "https"
+  ],
   "consumes": [
     "application/json"
   ],
@@ -14,18 +18,12 @@
     "/mockdata/trees": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",
-        "operationId": "TreeService_ListTrees",
+        "operationId": "ListTrees",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/treeTreeCollection"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -44,18 +42,12 @@
       },
       "post": {
         "summary": "Creates a new Tree",
-        "operationId": "TreeService_CreateTree",
+        "operationId": "CreateTree",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/treeTreeEntity"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -77,18 +69,12 @@
     "/mockdata/trees/{tre}": {
       "delete": {
         "summary": "Delete a Tree",
-        "operationId": "TreeService_DeleteTree",
+        "operationId": "DeleteTree",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -106,18 +92,12 @@
       },
       "patch": {
         "summary": "Updates a Tree, partial updates are supported",
-        "operationId": "TreeService_UpdateTree",
+        "operationId": "UpdateTree",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/treeTreeEntity"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -145,18 +125,12 @@
     "/mockdata/trees/{tre}/get.json": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",
-        "operationId": "TreeService_GetTree",
+        "operationId": "GetTree",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/treeTreeEntity"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -313,27 +287,6 @@
         }
       },
       "title": "Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
-    },
-    "runtimeError": {
-      "type": "object",
-      "properties": {
-        "error": {
-          "type": "string"
-        },
-        "code": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "message": {
-          "type": "string"
-        },
-        "details": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protobufAny"
-          }
-        }
-      }
     },
     "treeNavigationnode": {
       "type": "object",

@@ -119,6 +119,54 @@ class DemoFuroDataDateInput extends FBP(LitElement) {
               @-response="--response"
             >
             </furo-entity-agent>
+
+            <p>
+              furo-data-date-input with google string wrapper or fat string bindings.
+            </p>
+            <furo-form-layouter two>
+              <furo-data-date-input
+                autofocus
+                ƒ-bind-data="--entityU(*.data.fat_string)"
+              ></furo-data-date-input>
+              <furo-data-date-input
+                autofocus
+                condensed
+                ƒ-bind-data="--entityU(*.data.fat_string)"
+              ></furo-data-date-input>
+
+              <furo-data-date-input
+                autofocus
+                ƒ-bind-data="--entityU(*.data.wrapper_string)"
+              ></furo-data-date-input>
+              <furo-data-date-input
+                autofocus
+                condensed
+                ƒ-bind-data="--entityU(*.data.wrapper_string)"
+              ></furo-data-date-input>
+            </furo-form-layouter>
+            <fetch-universal-json
+              file="/mockdata/tests/universalfieldnodebinder/fat-universal.json"
+              @-data-loaded="--mockdata"
+            ></fetch-universal-json>
+            <fetch-universal-json
+              file="/mockdata/tests/universalfieldnodebinder/fat-universal-demo.json"
+              @-data-loaded="--mockdata"
+            ></fetch-universal-json>
+            <fetch-universal-json
+              file="/mockdata/tests/universalfieldnodebinder/fat-universal-unset-label.json"
+              @-data-loaded="--mockdata"
+            ></fetch-universal-json>
+            <fetch-universal-json
+              file="/mockdata/tests/universalfieldnodebinder/fat-universal-with-meta.json"
+              @-data-loaded="--mockdata"
+            ></fetch-universal-json>
+
+            <fetch-universal-json @-data-loaded="--mockdata"></fetch-universal-json>
+            <furo-data-object
+              type="universaltest.UniversaltestEntity"
+              @-object-ready="--entityU"
+              ƒ-inject-raw="--mockdata"
+            ></furo-data-object>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

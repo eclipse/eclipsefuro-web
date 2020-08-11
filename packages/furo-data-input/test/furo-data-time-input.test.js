@@ -79,7 +79,7 @@ describe('furo-data-time-input', () => {
 
   it('should override labels ', done => {
     setTimeout(() => {
-      assert.equal(secondTimeInput._theInputElement.getAttribute('label'), 'FromTPL');
+      assert.equal(secondTimeInput.getAttribute('label'), 'FromTPL');
       done();
     }, 10);
   });
@@ -87,49 +87,53 @@ describe('furo-data-time-input', () => {
   it('should log invalid bindings', done => {
     setTimeout(() => {
       // invalid binding
-      assert.equal(invalidTimeInput.field, undefined);
+      assert.equal(invalidTimeInput.binder.fieldNode, undefined);
       // valid binding
-      assert.equal(dataTimeInput.field._isValid, true);
+      assert.equal(dataTimeInput.binder.fieldNode._isValid, true);
       done();
     }, 10);
   });
 
   it('should receive value with bind', done => {
-    dataObject.addEventListener('data-injected', () => {
-      assert.equal(dataTimeInput.shadowRoot.querySelector('*').value, '17:34');
-      done();
+    host._FBPAddWireHook('--hts', () => {
+      dataObject.addEventListener(
+        'data-changed',
+        () => {
+          dataTimeInput._FBPAddWireHook('--value', val => {
+            assert.equal(val, '17:34');
+            done();
+          });
+        },
+        { once: true },
+      );
     });
-
     deeplink.qpIn({ exp: 1 });
   });
 
   it('should bind the field label, hint', done => {
     setTimeout(() => {
-      assert.equal(dataTimeInput._theInputElement.getAttribute('label'), 'time-input**');
-      assert.equal(dataTimeInput._theInputElement.getAttribute('hint'), 'hint**');
+      assert.equal(dataTimeInput.getAttribute('label'), 'time-input**');
+      assert.equal(dataTimeInput.getAttribute('hint'), 'hint**');
       done();
     }, 20);
-  });
-
-  it('should log invalid bindings', done => {
-    setTimeout(() => {
-      // invalid binding
-      assert.equal(invalidTimeInput.field, undefined);
-      // valid binding
-      assert.equal(secondTimeInput.field._isValid, true);
-      done();
-    }, 10);
   });
 
   it('should update the entity when values changed', done => {
     // ignore the init values
     setTimeout(() => {
-      secondTimeInput._FBPAddWireHook('--value', val => {
-        assert.equal(val, '18:33');
+      secondTimeInput.binder.fieldNode.addEventListener('field-value-changed', val => {
+        assert.equal(val.detail, '18:33');
         done();
       });
 
-      secondTimeInput._FBPTriggerWire('--valueChanged', '18:33');
+      /**
+       * @event value-changed
+       * Fired when
+       * detail payload:
+       */
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = '18:33';
+      secondTimeInput.dispatchEvent(customEvent);
     }, 10);
   });
 
@@ -139,16 +143,16 @@ describe('furo-data-time-input', () => {
   });
 
   it('should listen field-became-invalid event add set error', done => {
-    const err = { description: 'step 3', constraint: 'min' };
+    const err = { description: 'minimal 3 charaters', constraint: 'min' };
     setTimeout(() => {
-      dataTimeInput.field.addEventListener('field-became-invalid', () => {
+      dataTimeInput.binder.fieldNode.addEventListener('field-became-invalid', () => {
         setTimeout(() => {
           assert.equal(dataTimeInput.error, true);
-          assert.equal(dataTimeInput._theInputElement.getAttribute('errortext'), 'step 3');
+          assert.equal(dataTimeInput.errortext, 'minimal 3 charaters');
           done();
         }, 10);
       });
-      dataTimeInput.field._setInvalid(err);
+      dataTimeInput.binder.fieldNode._setInvalid(err);
     }, 20);
   });
 
@@ -160,11 +164,8 @@ describe('furo-data-time-input', () => {
         'data-injected',
         () => {
           setTimeout(() => {
-            assert.equal(dataTimeInput._theInputElement.getAttribute('disabled'), '');
-            assert.equal(
-              dataTimeInput._theInputElement.getAttribute('label'),
-              'time input label via meta',
-            );
+            assert.equal(dataTimeInput.getAttribute('readonly'), '');
+            assert.equal(dataTimeInput.getAttribute('label'), 'time input label via meta');
             done();
           }, 5);
         },

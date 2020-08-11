@@ -32,7 +32,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-input-together Different input elements together
  * @appliesMixin FBP
  */
-class FuroTextInput extends FBP(LitElement) {
+export class FuroTextInput extends FBP(LitElement) {
   /**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
@@ -59,7 +59,6 @@ class FuroTextInput extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
 
-    this._value = this.value || '';
     this._FBPAddWireHook('--inputInput', e => {
       Helper.triggerValueChanged(this, e);
     });
@@ -123,6 +122,7 @@ class FuroTextInput extends FBP(LitElement) {
        */
       pattern: {
         type: String,
+        reflect: true,
       },
       /**
        * The required attribute, the value true means this field must be filled in
@@ -130,31 +130,35 @@ class FuroTextInput extends FBP(LitElement) {
        */
       required: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
        */
       label: {
         type: String,
-        attribute: true,
+        reflect: true,
       },
       /**
        * The maximum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the text input has no maximum length. This value must also be greater than or equal to the value of minlength.
        */
       max: {
         type: Number,
+        reflect: true,
       },
       /**
        * The minimum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the text input has no minimum length.
        */
       min: {
         type: Number,
+        reflect: true,
       },
       /**
        * Set this attribute to autofocus the input field.
        */
       autofocus: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -181,18 +185,21 @@ class FuroTextInput extends FBP(LitElement) {
        */
       float: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * The hint text for the field.
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Text for errors
        */
       errortext: {
         type: String,
+        reflect: true,
       },
       /**
        * Icon on the left side
@@ -200,6 +207,7 @@ class FuroTextInput extends FBP(LitElement) {
       leadingIcon: {
         type: String,
         attribute: 'leading-icon',
+        reflect: true,
       },
       /**
        * Icon on the right side
@@ -207,6 +215,7 @@ class FuroTextInput extends FBP(LitElement) {
       trailingIcon: {
         type: String,
         attribute: 'trailing-icon',
+        reflect: true,
       },
       /**
        * html input validity
@@ -220,6 +229,7 @@ class FuroTextInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
@@ -421,6 +431,11 @@ class FuroTextInput extends FBP(LitElement) {
         :host(:not([filled])) label span {
           top: 0;
           position: relative;
+        }
+
+        /* mark disabled fields */
+        :host([disabled]) {
+          background-color: var(--disabled, #333333);
         }
 
         :host(:not([filled])) label {

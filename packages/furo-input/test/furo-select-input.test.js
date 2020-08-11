@@ -112,11 +112,11 @@ describe('furo-select-input', () => {
     element.multiple = true;
     element.size = 5;
 
-    setTimeout(()=>{
-      assert.equal(element.shadowRoot.querySelector("select").multiple, true);
-      assert.equal(element.shadowRoot.querySelector("select").size, 5);
+    setTimeout(() => {
+      assert.equal(element.shadowRoot.querySelector('select').multiple, true);
+      assert.equal(element.shadowRoot.querySelector('select').size, 5);
       done();
-    },10);
+    }, 10);
   });
 
   it('should support multiple selection', done => {
@@ -128,14 +128,14 @@ describe('furo-select-input', () => {
       { id: 668, label: 'DDC', selected: false },
     ]);
 
-    setTimeout(()=>{
+    setTimeout(() => {
       const arrValue = [];
-      element.selectOptions.forEach(o=>{
-        if(o.selected){
+      element.selectOptions.forEach(o => {
+        if (o.selected) {
           arrValue.push(o.id);
         }
       });
       done();
-    },20)
+    }, 20);
   });
 });

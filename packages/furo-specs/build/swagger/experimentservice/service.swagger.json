@@ -4,6 +4,10 @@
     "title": "experimentservice/service.proto",
     "version": "version not set"
   },
+  "schemes": [
+    "http",
+    "https"
+  ],
   "consumes": [
     "application/json"
   ],
@@ -14,18 +18,12 @@
     "/mockdata/experiments": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",
-        "operationId": "ExperimentService_ListExperiments",
+        "operationId": "ListExperiments",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/experimentExperimentCollection"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -44,18 +42,12 @@
       },
       "post": {
         "summary": "Creates a new Experiment",
-        "operationId": "ExperimentService_CreateExperiment",
+        "operationId": "CreateExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/experimentExperimentEntity"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -77,18 +69,12 @@
     "/mockdata/experiments/1:release": {
       "post": {
         "summary": "Releases experiment",
-        "operationId": "ExperimentService_ReleaseExperiment",
+        "operationId": "ReleaseExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -110,18 +96,12 @@
     "/mockdata/experiments/{exp}": {
       "delete": {
         "summary": "Delete a Experiment",
-        "operationId": "ExperimentService_DeleteExperiment",
+        "operationId": "DeleteExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "properties": {}
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -139,18 +119,12 @@
       },
       "patch": {
         "summary": "Updates a Experiment, partial updates are supported",
-        "operationId": "ExperimentService_UpdateExperiment",
+        "operationId": "UpdateExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/experimentExperimentEntity"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -178,18 +152,12 @@
     "/mockdata/experiments/{exp}/get.json": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",
-        "operationId": "ExperimentService_GetExperiment",
+        "operationId": "GetExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/experimentExperimentEntity"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -209,18 +177,12 @@
     "/mockdata/experiments:createtemplate": {
       "post": {
         "summary": "create an experiment template",
-        "operationId": "ExperimentService_CreateTemplateExperiment",
+        "operationId": "CreateTemplateExperiment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/experimentExperiment"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -572,27 +534,6 @@
         }
       },
       "title": "Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
-    },
-    "runtimeError": {
-      "type": "object",
-      "properties": {
-        "error": {
-          "type": "string"
-        },
-        "code": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "message": {
-          "type": "string"
-        },
-        "details": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protobufAny"
-          }
-        }
-      }
     },
     "typeDate": {
       "type": "object",

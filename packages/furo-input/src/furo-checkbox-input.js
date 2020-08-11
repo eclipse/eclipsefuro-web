@@ -36,7 +36,7 @@ import './furo-checkbox.js';
  * @demo demo-furo-checkbox-input Basic demo
  * @appliesMixin FBP
  */
-class FuroCheckboxInput extends FBP(LitElement) {
+export class FuroCheckboxInput extends FBP(LitElement) {
   /**
    * @event ALL_BUBBLING_EVENTS_FROM_furo-checkbox
    *
@@ -47,30 +47,21 @@ class FuroCheckboxInput extends FBP(LitElement) {
   constructor() {
     super();
     this.valid = true;
-
-    this.addEventListener('value-changed', e => {
-      this._value = e.detail;
-    });
   }
 
   _FBPReady() {
     super._FBPReady();
     // init value , when undefined then false
     this._value = !!this.value;
-    this._FBPAddWireHook('--toggle', () => {
+    this._FBPAddWireHook('--labelClicked', () => {
       if (!this.disabled) {
         this.toggle();
       }
     });
   }
 
-  set value(v) {
-    this._value = v;
-    this._FBPTriggerWire('--value', !!v);
-  }
-
-  get value() {
-    return this._value;
+  set _value(v) {
+    this._FBPTriggerWire('--value', v);
   }
 
   set checked(v) {
@@ -96,12 +87,17 @@ class FuroCheckboxInput extends FBP(LitElement) {
         type: Boolean,
       },
 
+      _value: {
+        type: Boolean,
+        reflect: true,
+      },
+
       /**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
        */
       label: {
         type: String,
-        attribute: true,
+        reflect: true,
       },
 
       /**
@@ -109,6 +105,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
        */
       checked: {
         type: Boolean,
+        reflect: true,
       },
 
       /**
@@ -116,6 +113,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
        */
       autofocus: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -136,12 +134,14 @@ class FuroCheckboxInput extends FBP(LitElement) {
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Text for errors
        */
       errortext: {
         type: String,
+        reflect: true,
       },
       /**
        * html input validity
@@ -155,6 +155,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * error text
@@ -171,17 +172,14 @@ class FuroCheckboxInput extends FBP(LitElement) {
    */
   setValue(v) {
     this.value = !!v;
+    this._value = !!v;
   }
 
   /**
    * toggle the checkbox
    */
   toggle() {
-    if (this.value) {
-      this.uncheck();
-    } else {
-      this.check();
-    }
+    this._FBPTriggerWire('--toggle');
   }
 
   /**
@@ -247,14 +245,14 @@ class FuroCheckboxInput extends FBP(LitElement) {
    * check the checkbox
    */
   check() {
-    this.value = true;
+    this._value = true;
   }
 
   /**
    * uncheck the checkbox
    */
   uncheck() {
-    this.value = false;
+    this._value = false;
   }
 
   /**
@@ -436,8 +434,9 @@ class FuroCheckboxInput extends FBP(LitElement) {
           ?condensed=${this.condensed}
           ƒ-set-value="--value"
           ƒ-focus="--focus"
+          ƒ-toggle="--toggle"
         ></furo-checkbox>
-        <label for="input" @-click="--toggle,--focus">${this.label}</label>
+        <label for="input" @-click="--labelClicked,--focus">${this.label}</label>
       </div>
 
       <div class="ripple-line"></div>

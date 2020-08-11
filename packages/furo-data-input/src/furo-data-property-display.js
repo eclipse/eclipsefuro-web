@@ -78,8 +78,11 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
     } else {
       this.field.data.addEventListener(
         'branch-value-changed',
-        () => {
-          this._createPropComponent(propertyField);
+        val => {
+          // avoid endless loop
+          if (JSON.stringify(propertyField.data._value) !== JSON.stringify(val.detail._value)) {
+            this._createPropComponent(propertyField);
+          }
         },
         { once: true },
       );
@@ -129,6 +132,17 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
           case 'furo.NumberProperty':
           case 'furo.IntegerProperty':
             e.bindData(propertyField.data.data);
+            break;
+          case 'google.protobuf.FloatValue':
+          case 'google.protobuf.Int32Value':
+          case 'google.protobuf.UInt32Value':
+          case 'google.protobuf.StringValue':
+          case 'google.protobuf.BoolValue':
+          case 'furo.fat.String':
+          case 'furo.fat.Int32':
+          case 'furo.fat.Int64':
+          case 'furo.fat.Bool':
+            e.bindData(propertyField.data.value);
             break;
           default:
             e.bindData(propertyField.data);

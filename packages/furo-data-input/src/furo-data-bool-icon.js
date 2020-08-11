@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
-import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
  * `furo-data-bool-icon`
@@ -17,27 +17,48 @@ import { CheckMetaAndOverrides } from './lib/CheckMetaAndOverrides.js';
 class FuroDataBoolIcon extends FBP(LitElement) {
   constructor() {
     super();
-    this.addEventListener('click', () => {
-      this.toggle();
-    });
+
+    this._initBinder();
+
     this.symboltrue = '▼';
     this.symbolfalse = '▶';
     this.field = {};
-    this._updateSymbol();
+    this._ocSymbol = this.symbolfalse;
   }
 
   /**
-   * flow is ready lifecycle method
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
    */
-  _FBPReady() {
-    super._FBPReady();
-    // this._FBPTraceWires();
-    // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    // set the attribute mappings
+    this.binder.attributeMappings = {};
+
+    // set the label mappings
+    this.binder.labelMappings = {};
+
+    this.binder.fatAttributesToConstraintsMappings = {};
+
+    this.binder.constraintsTofatAttributesMappings = {};
+
+    /**
+     * check overrides from the used component, attributes set on the component itself overrides all
+     */
+    this.binder.checkLabelandAttributeOverrrides();
+
+    // the extended furo-text-input component uses _value
+    this.binder.targetValueField = '_value';
+
+    this.addEventListener('click', () => {
+      this.toggle();
+    });
   }
 
   toggle() {
-    this.field._value = !this.field._value;
+    this.binder.fieldNode._value = !this.binder.fieldNode._value;
   }
 
   /**
@@ -87,10 +108,10 @@ class FuroDataBoolIcon extends FBP(LitElement) {
       console.warn('wrong type binded', this);
       return;
     }
-    this.field = d;
+    this.binder.bindField(d);
 
     // render on changed data
-    this.field.addEventListener('field-value-changed', () => {
+    this.binder.fieldNode.addEventListener('field-value-changed', () => {
       this._updateSymbol();
     });
 
@@ -98,7 +119,7 @@ class FuroDataBoolIcon extends FBP(LitElement) {
   }
 
   _updateSymbol() {
-    this._ocSymbol = this.field._value ? this.symboltrue : this.symbolfalse;
+    this._ocSymbol = this.binder.fieldNode._value ? this.symboltrue : this.symbolfalse;
     this.requestUpdate();
   }
 

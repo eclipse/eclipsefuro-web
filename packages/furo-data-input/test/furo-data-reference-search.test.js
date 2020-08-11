@@ -74,12 +74,17 @@ describe('furo-data-reference-search', () => {
 
   it('should bind data', done => {
     setTimeout(() => {
-      assert.equal(referenceSearch.field._meta.label, 'person.type.sex.label**');
+      assert.equal(referenceSearch.binder.fieldNode._meta.label, 'person.type.sex.label**');
       done();
     }, 15);
   });
 
   it('should clear bounded data if element is cleared', done => {
+    entityObject.addEventListener('object-ready', () => {
+      setTimeout(() => {
+        referenceSearch._clear();
+      }, 0);
+    });
     referenceSearch.addEventListener(
       'value-cleared',
       () => {
@@ -89,19 +94,6 @@ describe('furo-data-reference-search', () => {
       },
       { once: true },
     );
-
-    entityObject.addEventListener('object-ready', () => {
-      entityObject.data.id._value = '1';
-      entityObject.data.display_name._value = 'display';
-      setTimeout(() => {
-        const emptyEvent = new Event('input', { composed: true, bubbles: true });
-        emptyEvent.detail = '';
-        referenceSearch.shadowRoot
-          .getElementById('input')
-          .shadowRoot.getElementById('input')
-          .dispatchEvent(emptyEvent);
-      }, 10);
-    });
   });
 
   it('should fire search when search term is entered and the length of the term is bigger then min-term-length', done => {
@@ -171,10 +163,8 @@ describe('furo-data-reference-search', () => {
   });
 
   it('should show no result hint by empty response', done => {
-    referenceSearch.addEventListener('input-attr-updated', () => {
-      assert.equal(referenceSearch.shadowRoot.getElementById('input').hint, 'no result found');
-      done();
-    });
     referenceSearch.collectionIn({});
+    assert.equal(referenceSearch._hint, 'no result found');
+    done();
   });
 });

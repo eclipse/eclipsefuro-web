@@ -79,21 +79,22 @@ describe('furo-data-textarea-input', () => {
   it('should log invalid bindings', done => {
     setTimeout(() => {
       // invalid binding
-      assert.equal(invalidTextareaInput.field, undefined);
+      assert.equal(invalidTextareaInput.binder.fieldNode, undefined);
       // valid binding
-      assert.equal(secondTextareaInput.field._isValid, true);
+      assert.equal(secondTextareaInput.binder.fieldNode._isValid, true);
       done();
     }, 10);
   });
+
   it('should override hints ', done => {
     setTimeout(() => {
-      assert.equal(secondTextareaInput._theInputElement.getAttribute('hint'), 'FromTPL');
+      assert.equal(secondTextareaInput.getAttribute('hint'), 'FromTPL');
       done();
     }, 10);
   });
   it('should override labels ', done => {
     setTimeout(() => {
-      assert.equal(secondTextareaInput._theInputElement.getAttribute('label'), 'FromTPL');
+      assert.equal(secondTextareaInput.getAttribute('label'), 'FromTPL');
       done();
     }, 10);
   });
@@ -117,12 +118,19 @@ describe('furo-data-textarea-input', () => {
   it('should update the entity when values changed', done => {
     // ignore the init values
     setTimeout(() => {
-      secondTextareaInput._FBPAddWireHook('--value', val => {
-        assert.equal(val, 'newTextarea');
+      secondTextareaInput.binder.fieldNode.addEventListener('field-value-changed', val => {
+        assert.equal(val.detail, 'newTextarea');
         done();
       });
 
-      dataTextareaInput._FBPTriggerWire('--valueChanged', 'newTextarea');
+      /**
+       * @event value-changed
+       * Fired when
+       * detail payload:
+       */
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = 'newTextarea';
+      dataTextareaInput.dispatchEvent(customEvent);
     }, 10);
   });
 
@@ -134,13 +142,10 @@ describe('furo-data-textarea-input', () => {
         'data-injected',
         () => {
           setTimeout(() => {
-            assert.equal(
-              dataTextareaInput._theInputElement.getAttribute('label'),
-              'textarea input label via meta',
-            );
-            assert.equal(dataTextareaInput._theInputElement.getAttribute('disabled'), '');
+            assert.equal(dataTextareaInput.disabled, '');
+            assert.equal(dataTextareaInput.getAttribute('label'), 'textarea input label via meta');
             done();
-          }, 50);
+          }, 5);
         },
         { once: true },
       );

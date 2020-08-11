@@ -351,7 +351,7 @@ describe('furo-entity-agent', () => {
       assert.equal(r.detail.json.furo_data_text_input, 'overwritten text');
       // eslint-disable-next-line no-prototype-builtins
       expect(r.detail.json.hasOwnProperty('furo_data_color_input')).to.be.false;
-      assert.equal(r.detail.json.type_property.length, 7);
+      assert.equal(r.detail.json.type_property.length, 10);
       assert.equal(r.detail.json.type_property[1].data.day, 22);
       // eslint-disable-next-line no-prototype-builtins
       expect(r.detail.json.hasOwnProperty('repstring')).to.be.false;

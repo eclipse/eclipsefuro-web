@@ -63,21 +63,21 @@ describe('furo-data-password-input', () => {
   it('should log invalid bindings', done => {
     setTimeout(() => {
       // invalid binding
-      assert.equal(invalidPasswordInput.field, undefined);
+      assert.equal(invalidPasswordInput.binder.fieldNode, undefined);
       // valid binding
-      assert.equal(secondPasswordInput.field._isValid, true);
+      assert.equal(secondPasswordInput.binder.fieldNode._isValid, true);
       done();
     }, 5);
   });
   it('should override hints ', done => {
     setTimeout(() => {
-      assert.equal(secondPasswordInput._theInputElement.getAttribute('hint'), 'FromTPL');
+      assert.equal(secondPasswordInput.getAttribute('hint'), 'FromTPL');
       done();
     }, 0);
   });
   it('should override labels ', done => {
     setTimeout(() => {
-      assert.equal(secondPasswordInput._theInputElement.getAttribute('label'), 'FromTPL');
+      assert.equal(secondPasswordInput.getAttribute('label'), 'FromTPL');
       done();
     }, 0);
   });
@@ -90,7 +90,7 @@ describe('furo-data-password-input', () => {
   });
   it('should bind the field description', done => {
     setTimeout(() => {
-      assert.equal(dataPasswordInput._theInputElement.getAttribute('label'), 'Name**');
+      assert.equal(dataPasswordInput.getAttribute('label'), 'Name**');
       done();
     }, 0);
   });
@@ -98,26 +98,33 @@ describe('furo-data-password-input', () => {
   it('should update the entity when values changed', done => {
     // ignore the init values
     setTimeout(() => {
-      secondPasswordInput._FBPAddWireHook('--value', val => {
-        assert.equal(val, 'newPassword');
+      secondPasswordInput.binder.fieldNode.addEventListener('field-value-changed', val => {
+        assert.equal(val.detail, 'newPassword');
         done();
       });
 
-      dataPasswordInput._FBPTriggerWire('--valueChanged', 'newPassword');
+      /**
+       * @event value-changed
+       * Fired when
+       * detail payload:
+       */
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = 'newPassword';
+      dataPasswordInput.dispatchEvent(customEvent);
     }, 10);
   });
 
   it('should listen field-became-invalid event add set error', done => {
-    const err = { description: 'max 23', constraint: 'max' };
     setTimeout(() => {
-      dataPasswordInput.field.addEventListener('field-became-invalid', () => {
+      const err = { description: 'max 23', constraint: 'max' };
+      dataPasswordInput.binder.fieldNode.addEventListener('field-became-invalid', () => {
         setTimeout(() => {
           assert.equal(dataPasswordInput.error, true);
-          assert.equal(dataPasswordInput._theInputElement.getAttribute('errortext'), 'max 23');
+          assert.equal(dataPasswordInput.errortext, 'max 23');
           done();
         }, 10);
       });
-      dataPasswordInput.field._setInvalid(err);
+      dataPasswordInput.binder.fieldNode._setInvalid(err);
     }, 20);
   });
 });

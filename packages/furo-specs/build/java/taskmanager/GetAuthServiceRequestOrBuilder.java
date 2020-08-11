@@ -9,12 +9,10 @@ public interface GetAuthServiceRequestOrBuilder extends
 
   /**
    * <code>string uid = 1;</code>
-   * @return The uid.
    */
   java.lang.String getUid();
   /**
    * <code>string uid = 1;</code>
-   * @return The bytes for uid.
    */
   com.google.protobuf.ByteString
       getUidBytes();

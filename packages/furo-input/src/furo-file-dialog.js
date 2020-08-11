@@ -12,7 +12,7 @@ import { Helper } from './lib/helper.js';
  * @demo demo-furo-file-dialog Sample
  * @appliesMixin FBP
  */
-class FuroFileDialog extends FBP(LitElement) {
+export class FuroFileDialog extends FBP(LitElement) {
   constructor() {
     super();
     this.multiple = false;
@@ -25,6 +25,20 @@ class FuroFileDialog extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
     // this._FBPTraceWires();
+
+    /**
+     * Is fired if native input change event is fired
+     * @event input-changed Payload: target element
+     */
+    this._FBPAddWireHook('--changed', e => {
+      this.dispatchEvent(
+        new CustomEvent('input-changed', {
+          detail: e.target,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    });
   }
 
   static get properties() {
@@ -43,14 +57,13 @@ class FuroFileDialog extends FBP(LitElement) {
        */
       accept: {
         type: String,
-        attribute: true,
+        reflect: true,
       },
       /**
        * Whether to allow multiple values
        */
       multiple: {
         type: Boolean,
-        attribute: true,
         reflect: true,
       },
       /**
@@ -64,7 +77,6 @@ class FuroFileDialog extends FBP(LitElement) {
        */
       capture: {
         type: String,
-        attribute: true,
         reflect: true,
       },
     };
@@ -137,7 +149,7 @@ class FuroFileDialog extends FBP(LitElement) {
         ?capture="${this.capture}"
         id="input"
         name="input"
-        @-change="^^input-changed(*.target)"
+        @-change="--changed(*)"
       />
 
       <label for="input" ƒ-click="--open"></label>

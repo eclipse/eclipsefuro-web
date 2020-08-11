@@ -1,0 +1,77 @@
+{
+  "data": {
+    "id": "1",
+    "scalar_string": "this is a scalar string",
+    "wrapper_string": {
+      "value": "this is a google wrapper string"
+    },
+    "fat_string": {
+      "value": "this is a demo fat string",
+      "labels": ["required", "condensed"],
+      "attributes": {
+        "value-state": "Error",
+        "error-msg": "something went wrong",
+        "hint": "with error and leading icon",
+        "leading-icon": "dashboard",
+        "trailing-icon": "dashboard",
+        "label": "override and required"
+      }
+    },
+    "scalar_int32": 14,
+    "wrapper_int32": {
+      "value": 14
+    },
+    "fat_int32": {
+      "value": 14,
+      "value-state": "Information"
+    },
+    "fat_bool": {
+      "value": true,
+      "value-state": "Information"
+    },
+    "wrapper_bool": {
+      "value": true
+    }
+  },
+  "links": [],
+  "meta": {
+    "fields": {
+
+      "data.wrapper_string": {
+        "meta": {
+          "label": "wrapper string label setted via response meta",
+          "readonly": false,
+          "default": "new"
+        }
+      },
+      "data.scalar_string": {
+        "meta": {
+          "label": "scalar_string string label setted via response meta",
+          "readonly": false,
+          "default": "new"
+        }
+      },
+      "data.fat_string": {
+        "meta": {
+          "label": "fat string label setted via response meta",
+          "readonly": false,
+          "default": "new"
+        }
+      },
+      "data.fat_bool": {
+        "meta": {
+          "label": "fat bool label setted via response meta",
+          "readonly": false,
+          "default": "new"
+        }
+      },
+      "data.wrapper_bool": {
+        "meta": {
+          "label": "wrapper bool label setted via response meta",
+          "readonly": false,
+          "default": "new"
+        }
+      }
+    }
+  }
+}

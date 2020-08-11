@@ -1,0 +1,86 @@
+{
+  "data": {
+    "id": "1",
+    "scalar_string": "this is a scalar string",
+    "wrapper_string": {
+      "value": "this is a google wrapper string"
+    },
+    "fat_string": {
+      "value": "this is a furo fat string",
+      "labels": ["condensed"],
+      "attributes": {
+        "value-state": "Error",
+        "banane": "6",
+        "emotion": "friendly"
+      }
+    },
+    "scalar_int32": 14,
+    "wrapper_int32": {
+      "value": 14
+    },
+    "fat_int32": {
+      "value": 14,
+      "labels": "",
+      "attributes": {
+        "value-state": "Information"
+      }
+    },
+    "fat_bool": {
+      "value": true,
+      "value-state": "Information"
+    },
+    "wrapper_bool": {
+      "value": true
+    }
+  },
+  "links": [],
+  "meta": {
+    "fields": {
+      "data.scalar_string": {
+        "meta": {
+          "label": "scalar string label setted via response meta",
+          "readonly": false
+        },
+        "constraints": {
+          "max": {"is": "7","message": "MAX 7"}
+        }
+      },
+      "data.wrapper_string": {
+        "meta": {
+          "label": "wrapper string label setted via response meta",
+          "readonly": true
+        }
+      },
+      "data.fat_string": {
+        "meta": {
+          "label": "fat string label setted via response meta",
+
+          "default": "new",
+          "hint": "hint",
+          "readonly": true
+        },
+        "constraints": {
+          "value.max": {"is": "4","message": "MAX 4"}
+        }
+      },
+      "data.scalar_int32": {
+        "meta": {
+          "label": "scalar int32 label setted via response meta",
+          "readonly": true
+        }
+      },
+      "data.wrapper_int32": {
+        "meta": {
+          "label": "wrapper int32 label setted via response meta",
+          "readonly": true
+        }
+      },
+      "data.fat_int32": {
+        "meta": {
+          "label": "fat int32 label setted via response meta",
+          "readonly": true
+        }
+      }
+    }
+  }
+}

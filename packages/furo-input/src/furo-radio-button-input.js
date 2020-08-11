@@ -36,7 +36,7 @@ import './furo-radio-button.js';
  * @demo demo-furo-radio-button-input Basic demo
  * @appliesMixin FBP
  */
-class FuroRadioButtonInput extends FBP(LitElement) {
+export class FuroRadioButtonInput extends FBP(LitElement) {
   /**
    * @event ALL_BUBBLING_EVENTS_FROM_furo-radio-button
    *
@@ -47,31 +47,21 @@ class FuroRadioButtonInput extends FBP(LitElement) {
   constructor() {
     super();
     this.valid = true;
-
-    this.addEventListener('value-changed', e => {
-      this._value = e.detail;
-    });
   }
 
   _FBPReady() {
     super._FBPReady();
     // init value , when undefined then false
     this._value = !!this.value;
-    this._FBPAddWireHook('--clicked', () => {
-      // only toggle when the radio button unchecked
-      if (!this.disabled && !this.value) {
+    this._FBPAddWireHook('--labelClicked', () => {
+      if (!this.disabled) {
         this.toggle();
       }
     });
   }
 
-  set value(v) {
-    this._value = v;
-    this._FBPTriggerWire('--value', !!v);
-  }
-
-  get value() {
-    return this._value;
+  set _value(v) {
+    this._FBPTriggerWire('--value', v);
   }
 
   set checked(v) {
@@ -102,7 +92,7 @@ class FuroRadioButtonInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-        attribute: true,
+        reflect: true,
       },
 
       /**
@@ -110,6 +100,7 @@ class FuroRadioButtonInput extends FBP(LitElement) {
        */
       checked: {
         type: Boolean,
+        reflect: true,
       },
 
       /**
@@ -117,6 +108,7 @@ class FuroRadioButtonInput extends FBP(LitElement) {
        */
       autofocus: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -137,12 +129,14 @@ class FuroRadioButtonInput extends FBP(LitElement) {
        */
       hint: {
         type: String,
+        reflect: true,
       },
       /**
        * Text for errors
        */
       errortext: {
         type: String,
+        reflect: true,
       },
       /**
        * html input validity
@@ -156,6 +150,7 @@ class FuroRadioButtonInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean,
+        reflect: true,
       },
       /**
        * error text
@@ -167,22 +162,19 @@ class FuroRadioButtonInput extends FBP(LitElement) {
   }
 
   /**
-   * Sets the value for the radio-button.
+   * Sets the value for the checkbox.
    * @param {Boolean} v
    */
   setValue(v) {
     this.value = !!v;
+    this._value = !!v;
   }
 
   /**
-   * toggle the radio-button
+   * toggle the checkbox
    */
   toggle() {
-    if (this.value) {
-      this.uncheck();
-    } else {
-      this.check();
-    }
+    this._FBPTriggerWire('--toggle');
   }
 
   /**
@@ -248,14 +240,14 @@ class FuroRadioButtonInput extends FBP(LitElement) {
    * check the radio-button
    */
   check() {
-    this.value = true;
+    this._value = true;
   }
 
   /**
    * uncheck the radio-button
    */
   uncheck() {
-    this.value = false;
+    this._value = false;
   }
 
   /**
@@ -437,8 +429,9 @@ class FuroRadioButtonInput extends FBP(LitElement) {
           ?condensed=${this.condensed}
           ƒ-set-value="--value"
           ƒ-focus="--focus"
+          ƒ-toggle="--toggle"
         ></furo-radio-button>
-        <label for="input" @-click="--clicked,--focus">${this.label}</label>
+        <label for="input" @-click="--labelClicked,--focus">${this.label}</label>
       </div>
 
       <div class="ripple-line"></div>

@@ -38,6 +38,10 @@ class DemoFuroDataCheckboxInput extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
+
+        furo-demo-snippet {
+          height: 100%;
+        }
       `
     );
   }
@@ -59,7 +63,6 @@ class DemoFuroDataCheckboxInput extends FBP(LitElement) {
         <template style="position: relative">
           <furo-data-checkbox-input
             label="console warning by invalid binding"
-            ƒ-bind-data="--entity(*.xxxy)"
           ></furo-data-checkbox-input>
           <furo-data-checkbox-input
             label="bindable no matter Disabled"
@@ -88,6 +91,7 @@ class DemoFuroDataCheckboxInput extends FBP(LitElement) {
               condensed
               label="wire the checkbox"
               ƒ-set-value="--checkChanged"
+              float
             ></furo-text-input>
           </furo-horizontal-flex>
 
@@ -111,6 +115,55 @@ class DemoFuroDataCheckboxInput extends FBP(LitElement) {
             @-response="--response"
           >
           </furo-entity-agent>
+
+          <p>
+            furo-data-checkbox-input with google wrapper and fat bindings.
+          </p>
+          <furo-form-layouter two>
+            <furo-data-checkbox-input
+              autofocus
+              ƒ-bind-data="--entityU(*.data.wrapper_bool)"
+            ></furo-data-checkbox-input>
+            <furo-data-checkbox-input
+              autofocus
+              ƒ-bind-data="--entityU(*.data.wrapper_bool)"
+            ></furo-data-checkbox-input>
+            <furo-data-checkbox-input
+              autofocus
+              rows="6"
+              condensed
+              ƒ-bind-data="--entityU(*.data.fat_bool)"
+            ></furo-data-checkbox-input>
+            <furo-data-checkbox-input
+              autofocus
+              rows="6"
+              condensed
+              ƒ-bind-data="--entityU(*.data.fat_bool)"
+            ></furo-data-checkbox-input>
+          </furo-form-layouter>
+          <fetch-universal-json
+            file="/mockdata/tests/universalfieldnodebinder/fat-universal.json"
+            @-data-loaded="--mockdata"
+          ></fetch-universal-json>
+          <fetch-universal-json
+            file="/mockdata/tests/universalfieldnodebinder/fat-universal-demo.json"
+            @-data-loaded="--mockdata"
+          ></fetch-universal-json>
+          <fetch-universal-json
+            file="/mockdata/tests/universalfieldnodebinder/fat-universal-unset-label.json"
+            @-data-loaded="--mockdata"
+          ></fetch-universal-json>
+          <fetch-universal-json
+            file="/mockdata/tests/universalfieldnodebinder/fat-universal-with-meta.json"
+            @-data-loaded="--mockdata"
+          ></fetch-universal-json>
+
+          <fetch-universal-json @-data-loaded="--mockdata"></fetch-universal-json>
+          <furo-data-object
+            type="universaltest.UniversaltestEntity"
+            @-object-ready="--entityU"
+            ƒ-inject-raw="--mockdata"
+          ></furo-data-object>
         </template>
       </furo-demo-snippet>
     `;

@@ -9,7 +9,7 @@ import '@furo/testhelper/initEnv.js';
 describe('furo-data-display', () => {
   let dataInput;
   let host;
-  let entityObject;
+  let dataObject;
   let deeplink;
   let entityAgent;
   beforeEach(async () => {
@@ -37,10 +37,10 @@ describe('furo-data-display', () => {
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, dataInput, entityObject, deeplink, entityAgent] = testbind.parentNode.children;
+    [, dataInput, dataObject, deeplink, entityAgent] = testbind.parentNode.children;
     await host.updateComplete;
     await dataInput.updateComplete;
-    await entityObject.updateComplete;
+    await dataObject.updateComplete;
     await deeplink.updateComplete;
     await entityAgent.updateComplete;
   });
@@ -48,7 +48,7 @@ describe('furo-data-display', () => {
   it('should be a furo-data-display', done => {
     // keep this test on top, so you can recognize a wrong asignment
     assert.equal(dataInput.nodeName.toLowerCase(), 'furo-data-display');
-    assert.equal(entityObject.nodeName.toLowerCase(), 'furo-data-object');
+    assert.equal(dataObject.nodeName.toLowerCase(), 'furo-data-object');
     assert.equal(deeplink.nodeName.toLowerCase(), 'furo-deep-link');
     assert.equal(entityAgent.nodeName.toLowerCase(), 'furo-entity-agent');
     done();
@@ -58,10 +58,10 @@ describe('furo-data-display', () => {
   it('a11y', () => axeReport(dataInput));
 
   it('should receive value with bind', done => {
-    entityObject.addEventListener('data-injected', () => {
+    dataObject.addEventListener('data-injected', () => {
       setTimeout(() => {
-        assert.equal(dataInput.field._value, 'experiment data for testing');
-        assert.equal(dataInput.field._meta.label, 'Description**');
+        assert.equal(dataInput.binder.fieldNode._value, 'experiment data for testing');
+        assert.equal(dataInput.binder.fieldNode._meta.label, 'Description**');
         done();
       }, 0);
     });
@@ -71,10 +71,10 @@ describe('furo-data-display', () => {
   it('should receive value of binded field if attribute displayfield does not exist', done => {
     dataInput.displayfield = 'some_attribute';
 
-    entityObject.addEventListener('data-injected', () => {
+    dataObject.addEventListener('data-injected', () => {
       setTimeout(() => {
-        assert.equal(dataInput.field._value, 'experiment data for testing');
-        assert.equal(dataInput.field._meta.label, 'Description**');
+        assert.equal(dataInput.binder.fieldNode._value, 'experiment data for testing');
+        assert.equal(dataInput.binder.fieldNode._meta.label, 'Description**');
         done();
       }, 0);
     });

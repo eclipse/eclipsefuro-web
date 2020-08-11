@@ -69,6 +69,7 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
                 subfield-display="description"
                 ƒ-inject-entities="--response(*.entities)"
                 ƒ-bind-data="--entity"
+                @-item-selected="--itemSelected"
               ></furo-data-collection-dropdown>
 
               <furo-data-collection-dropdown
@@ -77,6 +78,7 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
                 display-field="description"
                 ƒ-inject-entities="--response(*.entities)"
                 ƒ-bind-data="--entity"
+                @-item-selected="--itemSelected"
               ></furo-data-collection-dropdown>
 
               <furo-data-collection-dropdown
