@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.3.16...@furo/input@1.3.17) (2020-08-11)
+
+
+### Bug Fixes
+
+* Long field labels no longer run around the field. ([7c1b333](https://github.com/theNorstroem/FuroBaseComponents/commit/7c1b33323ffb87624d67c1992818d06518018d11))
+
+
+
+
+
 ## [1.3.16](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.3.15...@furo/input@1.3.16) (2020-07-31)
 
 **Note:** Version bump only for package @furo/input

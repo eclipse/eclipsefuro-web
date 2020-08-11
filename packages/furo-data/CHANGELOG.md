@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.5.0...@furo/data@1.6.0) (2020-08-11)
+
+
+### Bug Fixes
+
+* data-changed-after-inject with multiple injection phases ([caa8bf2](https://github.com/theNorstroem/FuroBaseComponents/commit/caa8bf2210947bc5e53e26d1019bba5d4f856ae5))
+* data-changed-after-inject with multiple injection phases ([c84bc39](https://github.com/theNorstroem/FuroBaseComponents/commit/c84bc39626c0a326ca690583f9db6dfebb127e76))
+* data-changed-after-inject with multiple injection phases ([e63149d](https://github.com/theNorstroem/FuroBaseComponents/commit/e63149d303079dec3fbd09beddb3b0f801992ac3))
+* invalid test case removed ([839d802](https://github.com/theNorstroem/FuroBaseComponents/commit/839d8024c039692d00368f83f39961351a9defe3))
+* update pristine on nested repeated fields ([b8f3e3c](https://github.com/theNorstroem/FuroBaseComponents/commit/b8f3e3cda1aca5cece5ab12250a9bd4279b4b213))
+* update_mask according to https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto ([5aa7f76](https://github.com/theNorstroem/FuroBaseComponents/commit/5aa7f76fdacc147d4c811b8972abdd09f229bcea))
+
+
+### Features
+
+* first litter for the new UI5 package ([88b440f](https://github.com/theNorstroem/FuroBaseComponents/commit/88b440fa56e7ba2ccbce208c0276e195082e833b))
+
+
+
+
+
 # [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.4.3...@furo/data@1.5.0) (2020-07-31)
 
 
