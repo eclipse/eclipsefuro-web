@@ -427,10 +427,9 @@ export class FuroTextInput extends FBP(LitElement) {
           position: relative;
         }
 
-
         /* mark disabled fields */
-        :host([disabled]){
-          background-color:  var(--disabled, #333333);
+        :host([disabled]) {
+          background-color: var(--disabled, #333333);
         }
 
         :host(:not([filled])) label {

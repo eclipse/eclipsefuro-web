@@ -16,13 +16,12 @@ import '@furo/input/src/furo-catalog.js';
  * @appliesMixin FBP
  */
 class DemoFuroFileDialog extends FBP(LitElement) {
-
   /**
    * flow is ready lifecycle method
    */
   _FBPReady() {
     super._FBPReady();
-     this._FBPTraceWires();
+    this._FBPTraceWires();
   }
 
   /**

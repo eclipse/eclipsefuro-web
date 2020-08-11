@@ -30,11 +30,14 @@ export class FuroFileDialog extends FBP(LitElement) {
      * Is fired if native input change event is fired
      * @event input-changed Payload: target element
      */
-    this._FBPAddWireHook('--changed', (e)=>{
-      this.dispatchEvent(new CustomEvent('input-changed', {
-          detail: e.target, bubbles: true, composed: true
-      }));
-
+    this._FBPAddWireHook('--changed', e => {
+      this.dispatchEvent(
+        new CustomEvent('input-changed', {
+          detail: e.target,
+          bubbles: true,
+          composed: true,
+        }),
+      );
     });
   }
 

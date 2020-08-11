@@ -73,8 +73,8 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     this.binder.attributeMappings = {
       label: 'label',
       hint: 'hint',
-      'min_term_length': 'min-term-length',
-      'no_result_hint': 'no-result-hint',
+      min_term_length: 'min-term-length',
+      no_result_hint: 'no-result-hint',
       errortext: 'errortext',
       'error-msg': 'errortext',
     };
@@ -308,7 +308,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
        */
       valueField: {
         type: String,
-        attribute: 'value-field' ,
+        attribute: 'value-field',
         reflect: true,
       },
       /**
@@ -317,7 +317,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       displayField: {
         type: String,
         attribute: 'display-field',
-        reflex: true
+        reflex: true,
       },
       /**
        * if you bind a complex type, declare here the field which gets updated of value by selecting an item.

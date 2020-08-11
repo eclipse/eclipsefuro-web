@@ -49,7 +49,6 @@ export class FuroRadioButtonInput extends FBP(LitElement) {
     this.valid = true;
   }
 
-
   _FBPReady() {
     super._FBPReady();
     // init value , when undefined then false

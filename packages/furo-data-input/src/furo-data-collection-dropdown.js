@@ -153,9 +153,7 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
 
     // update the value on input changes
     this.addEventListener('value-changed', val => {
-
-      if(this.binder.fieldNode) {
-
+      if (this.binder.fieldNode) {
         // if something was entered the field is not empty
         this.binder.deleteLabel('pristine');
 
@@ -206,7 +204,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
     customEvent.detail = selectedItem;
     this.dispatchEvent(customEvent);
   }
-
 
   /**
    * Updater for the list attr
@@ -420,10 +417,8 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-
       /**
        * handle pristine
        *

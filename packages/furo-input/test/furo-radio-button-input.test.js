@@ -99,11 +99,10 @@ describe('furo-radio-button-input', () => {
     element.setValue(true);
     assert.equal(radioField.value, true);
     element.toggle();
-    setTimeout(()=>{
-      assert.equal(radioField.shadowRoot.getElementById("input").value, "on");
+    setTimeout(() => {
+      assert.equal(radioField.shadowRoot.getElementById('input').value, 'on');
       done();
-
-    },1)
+    }, 1);
   });
 
   it('should be checked via wire `--labelClicked` if it was previously unchecked', done => {

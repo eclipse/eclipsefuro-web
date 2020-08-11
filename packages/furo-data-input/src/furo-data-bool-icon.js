@@ -23,7 +23,7 @@ class FuroDataBoolIcon extends FBP(LitElement) {
     this.symboltrue = '▼';
     this.symbolfalse = '▶';
     this.field = {};
-    this._ocSymbol=this.symbolfalse;
+    this._ocSymbol = this.symbolfalse;
   }
 
   /**
@@ -35,12 +35,12 @@ class FuroDataBoolIcon extends FBP(LitElement) {
     this.binder = new UniversalFieldNodeBinder(this);
 
     // set the attribute mappings
-    this.binder.attributeMappings = { };
+    this.binder.attributeMappings = {};
 
     // set the label mappings
-    this.binder.labelMappings = { };
+    this.binder.labelMappings = {};
 
-    this.binder.fatAttributesToConstraintsMappings = { };
+    this.binder.fatAttributesToConstraintsMappings = {};
 
     this.binder.constraintsTofatAttributesMappings = {};
 
@@ -56,7 +56,6 @@ class FuroDataBoolIcon extends FBP(LitElement) {
       this.toggle();
     });
   }
-
 
   toggle() {
     this.binder.fieldNode._value = !this.binder.fieldNode._value;

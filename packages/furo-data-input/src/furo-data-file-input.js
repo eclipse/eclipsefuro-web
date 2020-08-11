@@ -75,7 +75,6 @@ class FuroDataFileInput extends FuroFileDialog {
 
     // update the value on input changes
     this.addEventListener('input-changed', e => {
-
       /**
        * get local files and encode to Base64
        */
@@ -118,7 +117,7 @@ class FuroDataFileInput extends FuroFileDialog {
         valueChangeEvent.detail = values;
         this.dispatchEvent(valueChangeEvent);
 
-        if(this.binder.fieldFormat === 'fat') {
+        if (this.binder.fieldFormat === 'fat') {
           // set flag empty on empty strings (for fat types)
           if (values) {
             this.binder.deleteLabel('empty');

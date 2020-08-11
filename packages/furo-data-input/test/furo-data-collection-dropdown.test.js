@@ -199,10 +199,7 @@ describe('furo-data-collection-dropdown', () => {
       setTimeout(() => {
         console.log(collectionDropdown3.shadowRoot.getElementById('input').value);
         assert.equal(collectionDropdown3.shadowRoot.getElementById('input').multiple, true);
-        assert.equal(
-          JSON.stringify(collectionDropdown3._v),
-          JSON.stringify(['1', '2', '3', '4']),
-        );
+        assert.equal(JSON.stringify(collectionDropdown3._v), JSON.stringify(['1', '2', '3', '4']));
         done();
       }, 100);
     });

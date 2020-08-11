@@ -119,8 +119,12 @@ describe('furo-data-file-input', () => {
       done();
     });
 
-    dataInput.shadowRoot.getElementById('input').dispatchEvent(new CustomEvent('input-changed', {
-      detail: fileList, bubbles: true, composed: true
-    }));
+    dataInput.shadowRoot.getElementById('input').dispatchEvent(
+      new CustomEvent('input-changed', {
+        detail: fileList,
+        bubbles: true,
+        composed: true,
+      }),
+    );
   });
 });

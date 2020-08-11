@@ -99,22 +99,20 @@ describe('furo-checkbox-input', () => {
     element.setValue(true);
     assert.equal(checkField.value, true);
     element.toggle();
-    setTimeout(()=>{
-      assert.equal(checkField.shadowRoot.getElementById("input").value, "on");
+    setTimeout(() => {
+      assert.equal(checkField.shadowRoot.getElementById('input').value, 'on');
       done();
-
-    },1)
+    }, 1);
   });
 
   it('should be via wire `--toggle` toggleable', done => {
     element.setValue(true);
     assert.equal(checkField.value, true);
     element._FBPTriggerWire('--toggle');
-    setTimeout(()=>{
-      assert.equal(checkField.shadowRoot.getElementById("input").value, "on");
+    setTimeout(() => {
+      assert.equal(checkField.shadowRoot.getElementById('input').value, 'on');
       done();
-
-    },1)
+    }, 1);
   });
 
   it('should be set value by checked', done => {

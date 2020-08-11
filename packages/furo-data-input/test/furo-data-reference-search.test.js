@@ -81,9 +81,9 @@ describe('furo-data-reference-search', () => {
 
   it('should clear bounded data if element is cleared', done => {
     entityObject.addEventListener('object-ready', () => {
-      setTimeout(()=>{
+      setTimeout(() => {
         referenceSearch._clear();
-      },0)
+      }, 0);
     });
     referenceSearch.addEventListener(
       'value-cleared',

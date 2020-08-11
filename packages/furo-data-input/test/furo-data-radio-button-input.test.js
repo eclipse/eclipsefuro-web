@@ -99,10 +99,10 @@ describe('furo-data-radio-button-input', () => {
       entityObject.addEventListener(
         'data-changed',
         () => {
-          setTimeout(()=>{
+          setTimeout(() => {
             assert.equal(secondDataRadioButtonInput.binder.fieldNode._value, true);
             done();
-          },10)
+          }, 10);
         },
         { once: true },
       );

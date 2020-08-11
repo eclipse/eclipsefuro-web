@@ -177,7 +177,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
         this.binder.addLabel('pristine');
       });
 
-      this.binder.fieldNode.addEventListener('field-value-changed', e => {
+      this.binder.fieldNode.addEventListener('field-value-changed', () => {
         this._updateField();
       });
     }
