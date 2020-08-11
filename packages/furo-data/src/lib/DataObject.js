@@ -44,7 +44,7 @@ export class DataObject extends EventTreeNode {
       this._pristine = false;
     });
 
-    this.addEventListener('repeated-fields-added', () => {
+    this.addEventListener('repeated-fields-changed', () => {
       this._pristine = false;
     });
   }

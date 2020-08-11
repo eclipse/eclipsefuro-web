@@ -364,7 +364,6 @@ export class RepeaterNode extends EventTreeNode {
     this.dispatchNodeEvent(new NodeEvent('repeated-fields-changed', this, true));
     this.__parentNode.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', this, false));
     this.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', this, false));
-
     // return field for chainabilty
     return this.repeats[index];
   }
