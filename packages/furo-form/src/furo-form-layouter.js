@@ -21,6 +21,14 @@ import { FBP } from '@furo/fbp';
  * - full | stretches the element to full width
  * - newline | forces a new line
  *
+ * ### Styling
+ * The following custom properties are available for styling:
+ *
+ * Custom property | Description | Default  | Fallback
+ * ----------------|-------------|----------|----------
+ * `--furo-form-layouter-row-gap` | width of row gap | 0px | --
+ * `--furo-form-layouter-column-gap` | width of column gap | 0px | --
+ *
  * Tags: form
  * @summary Grid based form field row
  * @customElement
@@ -136,8 +144,8 @@ class FuroFormLayouter extends FBP(LitElement) {
       css`
         :host {
           display: grid;
-          grid-row-gap: 0px;
-          grid-column-gap: 0px;
+          grid-row-gap: var(--furo-form-layouter-row-gap, 0px);
+          grid-column-gap: var(--furo-form-layouter-column-gap, 0px);
           grid-template-columns: repeat(1, 1fr);
         }
 

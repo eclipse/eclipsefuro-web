@@ -123,7 +123,7 @@
               "column": 2
             },
             "end": {
-              "line": 129,
+              "line": 137,
               "column": 3
             }
           },
@@ -143,11 +143,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 131,
+              "line": 139,
               "column": 2
             },
             "end": {
-              "line": 136,
+              "line": 144,
               "column": 3
             }
           },
@@ -163,11 +163,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 143,
+              "line": 151,
               "column": 2
             },
             "end": {
-              "line": 151,
+              "line": 159,
               "column": 3
             }
           },
@@ -187,11 +187,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 157,
+              "line": 165,
               "column": 2
             },
             "end": {
-              "line": 196,
+              "line": 204,
               "column": 3
             }
           },
@@ -216,7 +216,7 @@
           "column": 0
         },
         "end": {
-          "line": 197,
+          "line": 205,
           "column": 1
         }
       },
@@ -340,6 +340,113 @@
       "mixins": [
         "FBP"
       ]
+    },
+    {
+      "description": "`furo-ui5-data-text-input`\nThe furo-ui5-data-text-input component allows the user to enter and edit text values in one line.\nThe component can be easily connected to data objects with the integrated UniversalFieldNodeBinder.\nAdditionally, you can provide suggestionItems, that are displayed in a popover right under the input.\n\nThe text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.\nWhen the user makes changes to the text, the change event is fired, which enables you to react on any text change.",
+      "summary": "data text input field",
+      "path": "src/furo-ui5-data-text-input.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "_initBinder",
+          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 29,
+              "column": 2
+            },
+            "end": {
+              "line": 84,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "setValue",
+          "description": "Sets the value for the field. This will update the fieldNode.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 90,
+              "column": 2
+            },
+            "end": {
+              "line": 92,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "val"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Bind a entity field to the text-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 99,
+              "column": 2
+            },
+            "end": {
+              "line": 118,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode",
+              "type": "(Object | FieldNode)",
+              "description": "a Field object"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-text-input",
+          "description": "Basic usage (scalar values)"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 16,
+          "column": 7
+        },
+        "end": {
+          "line": 120,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "Input.default",
+      "name": "FuroUi5DataTextInput",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-text-input"
     }
   ]
 }

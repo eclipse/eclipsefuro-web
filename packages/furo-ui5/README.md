@@ -31,4 +31,4 @@ Limitations
 * Liability
 * Warranty
 
-> [Apache License 2.0](https://github.com/SAP/ui5-webcomponents/blob/master/LICENSE.txt)
+[Apache License 2.0](https://github.com/SAP/ui5-webcomponents/blob/master/LICENSE.txt)
