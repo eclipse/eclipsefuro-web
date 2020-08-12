@@ -1,5 +1,7 @@
 import * as Input from '@ui5/webcomponents/dist/Input.js';
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
+import {UniversalFieldNodeBinder} from '@furo/data/src/lib/UniversalFieldNodeBinder';
+import "@ui5/webcomponents/dist/features/InputSuggestions.js";
+
 /**
  * `furo-ui5-data-text-input`
  * The furo-ui5-data-text-input component allows the user to enter and edit text values in one line.
@@ -12,13 +14,14 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * @summary data text input field
  * @customElement
- * @demo demo-furo-ui5-data-text-input Basic usage (scalar values)
+ * @demo demo-furo-ui5-data-text-input Basic usage (scalar , fat, wrapper values)
+ * @demo demo-furo-ui5-data-text-input-together playground
  */
 export class FuroUi5DataTextInput extends Input.default {
   constructor(props) {
     super(props);
     this.type = "Text";
-
+    this.valueState = "None";
     this._initBinder();
   }
 
@@ -32,14 +35,25 @@ export class FuroUi5DataTextInput extends Input.default {
 
     // set the attribute mappings
     this.binder.attributeMappings = {
-      label: 'placeholder',
-      pattern: 'pattern',
-      valueState: 'value-state',
-      max: 'maxlength',
+      'label': 'placeholder', // map label to placeholder
+      'placeholder': 'placeholder', // map placeholder to placeholder
+      'hint': '_hint',
+      'icon': 'leadingIcon', // icon and leading icon maps to the same
+      'leading-icon': 'leadingIcon',// icon and leading icon maps to the same
+      'value-state': '_valueState',
+      'value-state-message': '_valueStateMessage',
+      'errortext': '_errorMsg', // name errortext is for compatibility with spec
+      'error-msg': '_errorMsg',
+      'warning-msg': '_warningMsg',
+      'success-msg': '_successMsg',
+      'information-msg': '_informationMsg',
+      'pattern': 'pattern',
+      'maxlength': 'maxlength', // for the input element itself
     };
 
     // set the label mappings
     this.binder.labelMappings = {
+      error: '_error',
       readonly: 'readonly',
       required: 'required',
       disabled: 'disabled',
@@ -47,10 +61,11 @@ export class FuroUi5DataTextInput extends Input.default {
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
-      maxlength: 'value._constraints.max.is', // for the fieldnode constraint
+      max: 'value._constraints.max.is',// for the fieldnode constraint
+      min: 'value._constraints.min.is',// for the fieldnode constraint
       pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
-      required: 'value._constraints.required.is', // for the fieldnode constraint
-      hint: 'value._constraints.max.message', // for the fieldnode constraint message
+      'min-msg': 'value._constraints.max.message', // for the fieldnode constraint message
+      'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
     };
 
     this.binder.constraintsTofatAttributesMappings = {
@@ -64,11 +79,9 @@ export class FuroUi5DataTextInput extends Input.default {
      */
     this.binder.checkLabelandAttributeOverrrides();
 
-    // the extended furo-text-input component uses _value
-    this.binder.targetValueField = 'value';
-
     // update the value on input changes
     this.addEventListener('input', val => {
+
       // set flag empty on empty strings (for fat types)
       if (val.target.value) {
         this.binder.deleteLabel('empty');
@@ -81,7 +94,6 @@ export class FuroUi5DataTextInput extends Input.default {
       // update the value
       this.binder.fieldValue = val.target.value;
     });
-    // set flag empty on empty strings (for fat types)
   }
 
   /**
@@ -116,6 +128,173 @@ export class FuroUi5DataTextInput extends Input.default {
       });
 
     }
+  }
+
+
+  /**
+   * Set the leading icon as icon
+   * @param icon
+   */
+  set leadingIcon(icon) {
+    // create element
+    if (!this._furoIcon) {
+      this._furoIcon = document.createElement('furo-icon');
+      this._furoIcon.slot = 'icon';
+    }
+    // update the value
+    this._furoIcon.icon = icon;
+    if (icon) {
+      this.appendChild(this._furoIcon)
+    } else {
+      this._furoIcon.remove();
+    }
+  }
+
+  /**
+   * sets and remove the error state
+   * @param err
+   * @private
+   */
+  set _error(err) {
+    if (err) {
+      this._lastValueState = this.valueState;
+      this.valueState = "Error";
+    } else if (this.valueState === "Error") {
+      this.valueState = this._lastValueState;
+    }
+  }
+
+
+  /**
+   * store the error message and update the value state message
+   * @param msg
+   * @private
+   */
+  set _errorMsg(msg) {
+    this.__errorMsg = msg;
+    this._updateVS();
+  }
+
+  /**
+   * store the information message and update the value state message
+   * @param msg
+   * @private
+   */
+  set _informationMsg(msg) {
+    this.__informationMsg = msg;
+    this._updateVS();
+  }
+
+  /**
+   * store the warning message and update the value state message
+   * @param msg
+   * @private
+   */
+  set _warningMsg(msg) {
+    this.__warningMsg = msg;
+    this._updateVS();
+  }
+
+  /**
+   * store the success message and update the value state message
+   * @param msg
+   * @private
+   */
+  set _successMsg(msg) {
+    this.__successMsg = msg;
+    this._updateVS();
+  }
+
+  /**
+   * Update the value state on change
+   * @param state
+   * @private
+   */
+  set _valueState(state) {
+    this.valueState = state || "None";
+    this._updateVS();
+  }
+
+  /**
+   * Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None
+   * @param h
+   * @private
+   */
+  set _hint(h) {
+    this.__hint = h;
+    // do not set an empty attribute
+    if (h) {
+      this.setAttribute("title", h);
+    } else {
+      this.removeAttribute("title");
+    }
+
+    this.__hint = h;
+  }
+
+  _updateVS() {
+    // set the correct valueStateMessage
+    switch (this.valueState) {
+      case "Error":
+        this._vsm = this._valueStateMessage || this.__errorMsg || this.__hint;
+        this.removeAttribute("title");
+        break;
+      case "Information":
+        this._vsm = this._valueStateMessage || this.__informationMsg || this.__hint;
+        this.removeAttribute("title");
+        break;
+      case "Success":
+        this._vsm = this._valueStateMessage || this.__successMsg || this.__hint;
+        this.removeAttribute("title");
+        break;
+      case "Warning":
+        this._vsm = this._valueStateMessage || this.__warningMsg || this.__hint;
+        this.removeAttribute("title");
+        break;
+
+      default:
+        this._vsm = this._valueStateMessage || this.__hint;
+        this.setAttribute("title", this._vsm);
+    }
+    this._setValueStateMessage(this._vsm);
+
+
+  }
+
+  /**
+   * Updates the vs and creates the element in the slot on demand
+   * @param msg
+   * @private
+   */
+  _setValueStateMessage(msg) {
+    // create element
+    if (!this._valueStateElement) {
+      this._valueStateElement = document.createElement('div');
+      this._valueStateElement.slot = 'valueStateMessage';
+    }
+    this._valueStateElement.innerText = msg;
+    if (msg) {
+      this.appendChild(this._valueStateElement)
+    } else {
+      this._valueStateElement.remove();
+    }
+  }
+
+  /**
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * Defines the HTML type of the ui5-input. Available options are: Text, Email, Number, Password, Tel, and URL.
+       *
+       * > The particular effect of this property differs depending on the browser and the current language settings, especially for type Number.
+       * > The property is mostly intended to be used with touch devices that use different soft keyboard layouts depending on the given input type.
+       *
+       */
+      type: {type: String}
+    };
   }
 
 }

@@ -15,6 +15,7 @@ import '@furo/form/src/furo-form-layouter.js';
 import '@furo/form/src/furo-button-bar.js';
 import '@furo/input/src/furo-button.js';
 import '@furo/data-input/demos/helper/produce-qp-data.js';
+import '@furo/data-input/demos/helper/fetch-universal-json.js';
 
 import '@ui5/webcomponents/dist/Icon.js';
 import '@ui5/webcomponents-icons/dist/icons/example.js'
@@ -48,6 +49,11 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
           display: none;
         }
 
+
+        furo-demo-snippet {
+          height: 100%;
+        }
+
       `
     )
   }
@@ -79,6 +85,51 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
           <furo-button-bar>
             <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
           </furo-button-bar>
+
+          <p>
+            ui5-text-input with type furo.fat.String bindings.
+          </p>
+          <furo-form-layouter two>
+            <furo-ui5-data-text-input
+              autofocus
+              ƒ-bind-data="--entityU(*.data.fat_string)"
+            ></furo-ui5-data-text-input>
+            <furo-ui5-data-text-input
+              autofocus
+              ƒ-bind-data="--entityU(*.data.wrapper_string)"
+            ></furo-ui5-data-text-input>
+            <furo-ui5-data-text-input
+              autofocus
+              rows="6"
+              condensed
+              ƒ-bind-data="--entityU(*.data.fat_string)"
+            ></furo-ui5-data-text-input>
+            <furo-ui5-data-text-input
+              autofocus
+              rows="6"
+              condensed
+              ƒ-bind-data="--entityU(*.data.wrapper_string)"
+            ></furo-ui5-data-text-input>
+          </furo-form-layouter>
+          <fetch-universal-json
+            file="/mockdata/ui5/demos/fat-universal.json"
+            @-data-loaded="--mockdata"
+          ></fetch-universal-json>
+          <fetch-universal-json
+            file="/mockdata/ui5/demos/fat-universal-unset-label.json"
+            @-data-loaded="--mockdata"
+          ></fetch-universal-json>
+          <fetch-universal-json
+            file="/mockdata/ui5/demos/fat-universal-with-meta.json"
+            @-data-loaded="--mockdata"
+          ></fetch-universal-json>
+
+          <fetch-universal-json @-data-loaded="--mockdata"></fetch-universal-json>
+          <furo-data-object
+            type="universaltest.UniversaltestEntity"
+            @-object-ready="--entityU"
+            ƒ-inject-raw="--mockdata"
+          ></furo-data-object>
 
           <furo-data-object
             type="experiment.ExperimentEntity"
