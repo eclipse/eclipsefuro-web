@@ -14,8 +14,8 @@
         "max": "16",
         "maxlength": "6",
         "label": "override",
-        "placeholder": "overridePH"
-
+        "placeholder": "overridePH",
+        "errortext": "this is an errortext"
       }
     },
     "scalar_int32": 14,

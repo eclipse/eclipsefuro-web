@@ -345,7 +345,197 @@
       "description": "`furo-ui5-data-text-input`\nThe furo-ui5-data-text-input component allows the user to enter and edit text values in one line.\nThe component can be easily connected to data objects with the integrated UniversalFieldNodeBinder.\nAdditionally, you can provide suggestionItems, that are displayed in a popover right under the input.\n\nThe text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.\nWhen the user makes changes to the text, the change event is fired, which enables you to react on any text change.",
       "summary": "data text input field",
       "path": "src/furo-ui5-data-text-input.js",
-      "properties": [],
+      "properties": [
+        {
+          "name": "leadingIcon",
+          "type": "?",
+          "description": "Set the leading icon as icon",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 137,
+              "column": 2
+            },
+            "end": {
+              "line": 150,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_error",
+          "type": "?",
+          "description": "sets and remove the error state",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 157,
+              "column": 2
+            },
+            "end": {
+              "line": 164,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_errorMsg",
+          "type": "?",
+          "description": "store the error message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 172,
+              "column": 2
+            },
+            "end": {
+              "line": 175,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_informationMsg",
+          "type": "?",
+          "description": "store the information message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 182,
+              "column": 2
+            },
+            "end": {
+              "line": 185,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_warningMsg",
+          "type": "?",
+          "description": "store the warning message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 192,
+              "column": 2
+            },
+            "end": {
+              "line": 195,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_successMsg",
+          "type": "?",
+          "description": "store the success message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 202,
+              "column": 2
+            },
+            "end": {
+              "line": 205,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_valueState",
+          "type": "?",
+          "description": "Update the value state on change",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 212,
+              "column": 2
+            },
+            "end": {
+              "line": 215,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_hint",
+          "type": "?",
+          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 222,
+              "column": 2
+            },
+            "end": {
+              "line": 232,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "type",
+          "type": "string | null | undefined",
+          "description": "Defines the HTML type of the ui5-input. Available options are: Text, Email, Number, Password, Tel, and URL.\n\n> The particular effect of this property differs depending on the browser and the current language settings, especially for type Number.\n> The property is mostly intended to be used with touch devices that use different soft keyboard layouts depending on the given input type.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 295,
+              "column": 6
+            },
+            "end": {
+              "line": 295,
+              "column": 26
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        }
+      ],
       "methods": [
         {
           "name": "_initBinder",
@@ -353,11 +543,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 29,
+              "line": 32,
               "column": 2
             },
             "end": {
-              "line": 84,
+              "line": 96,
               "column": 3
             }
           },
@@ -373,11 +563,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 90,
+              "line": 102,
               "column": 2
             },
             "end": {
-              "line": 92,
+              "line": 104,
               "column": 3
             }
           },
@@ -397,11 +587,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 111,
               "column": 2
             },
             "end": {
-              "line": 118,
+              "line": 130,
               "column": 3
             }
           },
@@ -416,30 +606,95 @@
           "return": {
             "type": "void"
           }
+        },
+        {
+          "name": "_updateVS",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 234,
+              "column": 2
+            },
+            "end": {
+              "line": 261,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_setValueStateMessage",
+          "description": "Updates the vs and creates the element in the slot on demand",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 268,
+              "column": 2
+            },
+            "end": {
+              "line": 280,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "msg"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
         }
       ],
       "staticMethods": [],
       "demos": [
         {
           "url": "demo-furo-ui5-data-text-input",
-          "description": "Basic usage (scalar values)"
+          "description": "Basic usage (scalar , fat, wrapper values)"
+        },
+        {
+          "url": "demo-furo-ui5-data-text-input-together",
+          "description": "playground"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 16,
+          "line": 19,
           "column": 7
         },
         "end": {
-          "line": 120,
+          "line": 299,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "Input.default",
       "name": "FuroUi5DataTextInput",
-      "attributes": [],
+      "attributes": [
+        {
+          "name": "type",
+          "description": "Defines the HTML type of the ui5-input. Available options are: Text, Email, Number, Password, Tel, and URL.\n\n> The particular effect of this property differs depending on the browser and the current language settings, especially for type Number.\n> The property is mostly intended to be used with touch devices that use different soft keyboard layouts depending on the given input type.",
+          "sourceRange": {
+            "start": {
+              "line": 295,
+              "column": 6
+            },
+            "end": {
+              "line": 295,
+              "column": 26
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        }
+      ],
       "events": [],
       "styling": {
         "cssVariables": [],
@@ -447,6 +702,45 @@
       },
       "slots": [],
       "tagname": "furo-ui5-data-text-input"
+    },
+    {
+      "description": "`furo-ui5-data-text-input-labeled`\nDesc",
+      "summary": "",
+      "path": "src/furo-ui5-data-text-input-labeled.js",
+      "properties": [],
+      "methods": [],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demofuro-ui5-data-text-input-labeled",
+          "description": "Sample"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 11,
+          "column": 0
+        },
+        "end": {
+          "line": 14,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "FuroUi5DataTextInput",
+      "name": "FuroUi5DataTextInputLabeled",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-text-input-labeled",
+      "mixins": [
+        "FBP"
+      ]
     }
   ]
 }
