@@ -1,6 +1,7 @@
 import * as Input from '@ui5/webcomponents/dist/Input.js';
-import {UniversalFieldNodeBinder} from '@furo/data/src/lib/UniversalFieldNodeBinder';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 import "@ui5/webcomponents/dist/features/InputSuggestions.js";
+import { Ui5StandardBindingSet } from './lib/Ui5StandardBindingSet.js';
 
 /**
  * `furo-ui5-data-text-input`
@@ -33,67 +34,8 @@ export class FuroUi5DataTextInput extends Input.default {
   _initBinder() {
     this.binder = new UniversalFieldNodeBinder(this);
 
-    // set the attribute mappings
-    this.binder.attributeMappings = {
-      'label': 'placeholder', // map label to placeholder
-      'placeholder': 'placeholder', // map placeholder to placeholder
-      'hint': '_hint',
-      'icon': 'leadingIcon', // icon and leading icon maps to the same
-      'leading-icon': 'leadingIcon',// icon and leading icon maps to the same
-      'value-state': '_valueState',
-      'value-state-message': '_valueStateMessage',
-      'errortext': '_errorMsg', // name errortext is for compatibility with spec
-      'error-msg': '_errorMsg',
-      'warning-msg': '_warningMsg',
-      'success-msg': '_successMsg',
-      'information-msg': '_informationMsg',
-      'pattern': 'pattern',
-      'maxlength': 'maxlength', // for the input element itself
-    };
-
-    // set the label mappings
-    this.binder.labelMappings = {
-      error: '_error',
-      readonly: 'readonly',
-      required: 'required',
-      disabled: 'disabled',
-      pristine: 'pristine'
-    };
-
-    this.binder.fatAttributesToConstraintsMappings = {
-      max: 'value._constraints.max.is',// for the fieldnode constraint
-      min: 'value._constraints.min.is',// for the fieldnode constraint
-      pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
-      'min-msg': 'value._constraints.max.message', // for the fieldnode constraint message
-      'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
-    };
-
-    this.binder.constraintsTofatAttributesMappings = {
-      max: 'max',
-      pattern: 'pattern',
-      required: 'required',
-    };
-
-    /**
-     * check overrides from the used component, attributes set on the component itself overrides all
-     */
-    this.binder.checkLabelandAttributeOverrrides();
-
-    // update the value on input changes
-    this.addEventListener('input', val => {
-
-      // set flag empty on empty strings (for fat types)
-      if (val.target.value) {
-        this.binder.deleteLabel('empty');
-      } else {
-        this.binder.addLabel('empty');
-      }
-      // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
-
-      // update the value
-      this.binder.fieldValue = val.target.value;
-    });
+    const bindingSet =  new Ui5StandardBindingSet(this);
+    bindingSet.applyToBinder();
   }
 
   /**

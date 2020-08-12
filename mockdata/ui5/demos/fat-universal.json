@@ -10,9 +10,9 @@
       "labels": ["before"],
       "attributes": {
         "value-state": "Error",
-        "min": "6",
-        "max": "16",
-        "maxlength": "6",
+        "min": 6,
+        "max": 16,
+        "maxlength": 6,
         "label": "override",
         "placeholder": "overridePH",
         "errortext": "this is an errortext"
