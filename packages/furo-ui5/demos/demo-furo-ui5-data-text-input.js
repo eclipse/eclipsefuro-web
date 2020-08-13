@@ -18,10 +18,8 @@ import '@furo/data-input/demos/helper/produce-qp-data.js';
 import '@furo/data-input/demos/helper/fetch-universal-json.js';
 
 import '@ui5/webcomponents/dist/Icon.js';
-import '@ui5/webcomponents-icons/dist/icons/example.js'
-import "@ui5/webcomponents-icons/dist/icons/world.js";
-
 import '../src/lib/ui5-icons.js'
+
 /**
  * `demo-furo-ui5-data-text-input`
  *

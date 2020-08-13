@@ -132,7 +132,7 @@ export class FuroUi5DataInput extends Input.default {
   }
 
   /**
-   * Set the ui5 icon as icon
+   * Set the ui5 icon
    * @param icon
    */
   set ui5Icon(icon) {
@@ -285,12 +285,11 @@ export class FuroUi5DataInput extends Input.default {
    * @param arr
    */
   set suggestions(arr) {
+
     // remove previous suggestion items.
     this.querySelectorAll('ui5-suggestion-item').forEach(e=>{e.remove()});
-    if(Array.isArray(arr) && arr.length>0) {
 
-      // remove previous suggestion items.
-      this.querySelectorAll('ui5-suggestion-item').forEach(e=>{e.remove()});
+    if(Array.isArray(arr) && arr.length>0) {
 
       // add current suggestion items
       arr.forEach(e=>{
