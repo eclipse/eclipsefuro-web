@@ -1,7 +1,6 @@
 import * as Input from '@ui5/webcomponents/dist/Input.js';
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 import "@ui5/webcomponents/dist/features/InputSuggestions.js";
-import { Ui5StandardBindingSet } from './lib/Ui5StandardBindingSet.js';
 
 /**
  * `furo-ui5-data-input`
@@ -26,8 +25,77 @@ export class FuroUi5DataInput extends Input.default {
   _initBinder() {
     this.binder = new UniversalFieldNodeBinder(this);
 
-    const bindingSet =  new Ui5StandardBindingSet(this);
-    bindingSet.applyToBinder();
+    this.applyBindingSet();
+  }
+
+  /**
+   * apply the binding set to the universal field node binder
+   */
+  applyBindingSet() {
+
+    // set the attribute mappings
+    this.binder.attributeMappings = {
+      'label': 'placeholder', // map label to placeholder
+      'placeholder': 'placeholder', // map placeholder to placeholder
+      'hint': '_hint',
+      'icon': 'leadingIcon', // icon and leading icon maps to the same
+      'leading-icon': 'leadingIcon',// icon and leading icon maps to the same
+      'ui5-icon': 'ui5Icon',// ui5 icon mapping to ui5 icon
+      'value-state': '_valueState',
+      'value-state-message': '_valueStateMessage',
+      'errortext': '_errorMsg', // name errortext is for compatibility with spec
+      'error-msg': '_errorMsg',
+      'warning-msg': '_warningMsg',
+      'success-msg': '_successMsg',
+      'information-msg': '_informationMsg',
+      'pattern': 'pattern',
+      'name': 'name',
+      'suggestions': 'suggestions', // suggestion items
+      'maxlength': 'maxlength', // for the input element itself
+    };
+
+    // set the label mappings
+    this.binder.labelMappings = {
+      error: '_error',
+      readonly: 'readonly',
+      required: 'required',
+      disabled: 'disabled',
+      pristine: 'pristine',
+      highlight: 'highlight',
+      'show-suggestions': 'showSuggestions',
+    };
+
+    // set attributes to constrains mapping for furo.fat types
+    this.binder.fatAttributesToConstraintsMappings = {
+      max: 'value._constraints.max.is',// for the fieldnode constraint
+      min: 'value._constraints.min.is',// for the fieldnode constraint
+      pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
+      'min-msg': 'value._constraints.max.message', // for the fieldnode constraint message
+      'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
+    };
+
+    // set constrains to attributes mapping for furo.fat types
+    this.binder.constraintsTofatAttributesMappings = {
+      max: 'max',
+      pattern: 'pattern',
+      required: 'required',
+    };
+
+    // update the value on input changes
+    this.addEventListener('input', val => {
+
+      // set flag empty on empty strings (for fat types)
+      if (val.target.value) {
+        this.binder.deleteLabel('empty');
+      } else {
+        this.binder.addLabel('empty');
+      }
+      // if something was entered the field is not empty
+      this.binder.deleteLabel('pristine');
+
+      // update the value
+      this.binder.fieldValue = val.target.value;
+    });
   }
 
   /**
@@ -76,11 +144,30 @@ export class FuroUi5DataInput extends Input.default {
       this._furoIcon.slot = 'icon';
     }
     // update the value
-    this._furoIcon.icon = icon;
     if (icon) {
+      this._furoIcon.icon = icon;
       this.appendChild(this._furoIcon)
     } else {
       this._furoIcon.remove();
+    }
+  }
+
+  /**
+   * Set the ui5 icon as icon
+   * @param icon
+   */
+  set ui5Icon(icon) {
+    // create element
+    if (!this._icon) {
+      this._icon = document.createElement('ui5-icon');
+      this._icon.slot = 'icon';
+    }
+    // update the value
+    if (icon) {
+      this._icon.name = icon;
+      this.appendChild(this._icon)
+    } else {
+      this._icon.remove();
     }
   }
 
@@ -211,6 +298,48 @@ export class FuroUi5DataInput extends Input.default {
       this.appendChild(this._valueStateElement)
     } else {
       this._valueStateElement.remove();
+    }
+  }
+
+  /**
+   * set suggestions as the ui5-suggestion-item element
+   * sample data of the suggestions: [{"text":"Spain","icon":"world","type":"Active","infoState":"None","group":false,"key":0},.. ]
+   * if the suggestion item has icon , the ui5 icons should be imported in your ui component
+   * @param arr
+   */
+  set suggestions(arr) {
+    if(Array.isArray(arr) && arr.length>0) {
+
+      // remove previous suggestion items.
+      this.querySelectorAll('ui5-suggestion-item').forEach(e=>{e.remove()});
+
+      // add current suggestion items
+      arr.forEach(e=>{
+        const suggestion = document.createElement('ui5-suggestion-item');
+        if(e.text !== undefined) {
+          suggestion.text = e.text;
+        }
+        if(e.icon !== undefined) {
+          suggestion.icon = e.icon;
+        }
+        if(e.image !== undefined) {
+          suggestion.image = e.image;
+        }
+        if(e.type !== undefined) {
+          suggestion.type = e.type;
+        }
+        if(e.infoState !== undefined) {
+          suggestion.infoState = e.infoState;
+        }
+        if(e.group !== undefined) {
+          suggestion.group = e.group;
+        }
+        if(e.key !== undefined) {
+          suggestion.key = e.key;
+        }
+
+        this.appendChild(suggestion);
+      })
     }
   }
 }

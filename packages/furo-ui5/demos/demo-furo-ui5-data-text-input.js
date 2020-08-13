@@ -19,6 +19,8 @@ import '@furo/data-input/demos/helper/fetch-universal-json.js';
 
 import '@ui5/webcomponents/dist/Icon.js';
 import '@ui5/webcomponents-icons/dist/icons/example.js'
+import "@ui5/webcomponents-icons/dist/icons/world.js";
+
 /**
  * `demo-furo-ui5-data-text-input`
  *
@@ -80,6 +82,13 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
             <furo-ui5-data-text-input ƒ-bind-data="--entity(*.data.description)"></furo-ui5-data-text-input>
             <furo-ui5-data-text-input ƒ-bind-data="--entity(*.data.description)"></furo-ui5-data-text-input>
             <furo-ui5-data-text-input ƒ-bind-data="--entity(*.data.furo_data_text_input)"></furo-ui5-data-text-input>
+            <furo-ui5-data-text-input
+              show-suggestions
+              ƒ-bind-data="--entity(*.data.description)"
+            >
+              <ui5-suggestion-item text="suggestion Item #1"></ui5-suggestion-item>
+              <ui5-suggestion-item text="suggestion Item #2"></ui5-suggestion-item>
+            </furo-ui5-data-text-input>
           </furo-form-layouter>
 
           <furo-button-bar>
@@ -91,29 +100,22 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
           </p>
           <furo-form-layouter two>
             <furo-ui5-data-text-input
-              autofocus
               ƒ-bind-data="--entityU(*.data.fat_string)"
             ></furo-ui5-data-text-input>
             <furo-ui5-data-text-input
-              autofocus
               ƒ-bind-data="--entityU(*.data.wrapper_string)"
             ></furo-ui5-data-text-input>
             <furo-ui5-data-text-input
-              autofocus
-              condensed
-              placeholder="hallo"
               ƒ-bind-data="--entityU(*.data.fat_string)"
             ></furo-ui5-data-text-input>
             <furo-ui5-data-text-input
-              autofocus
-              condensed
               ƒ-bind-data="--entityU(*.data.wrapper_string)"
             ></furo-ui5-data-text-input>
           </furo-form-layouter>
           <fetch-universal-json
             file="/mockdata/ui5/demos/fat-universal.json"
             @-data-loaded="--mockdata"
-          ></fetch-universal-json>
+          > mockdate with suggestions</fetch-universal-json>
           <fetch-universal-json
             file="/mockdata/ui5/demos/fat-universal-unset-label.json"
             @-data-loaded="--mockdata"

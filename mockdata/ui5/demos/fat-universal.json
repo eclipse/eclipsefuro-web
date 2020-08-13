@@ -7,7 +7,7 @@
     },
     "fat_string": {
       "value": "this is a furo fat string",
-      "labels": ["before"],
+      "labels": ["before","show-suggestions","highlight","required"],
       "attributes": {
         "value-state": "Error",
         "min": 6,
@@ -15,7 +15,9 @@
         "maxlength": 6,
         "label": "override",
         "placeholder": "overridePH",
-        "errortext": "this is an errortext"
+        "errortext": "this is an errortext",
+        "ui5-icon": "world",
+        "suggestions": [{"text":"Spain","icon":"world","type":"Active","infoState":"None","group":false,"key":0},{"text":"Sweden","icon":"world","type":"Active","infoState":"None","group":false,"key":1},{"text":"Sri Lanka","icon":"world","type":"Active","infoState":"None","group":false,"key":9},{"text":"Senegal","icon":"world","type":"Active","infoState":"None","group":false,"key":3}]
       }
     },
     "scalar_int32": 14,

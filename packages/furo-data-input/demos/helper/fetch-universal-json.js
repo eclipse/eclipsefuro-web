@@ -88,7 +88,7 @@ class FetchUniversalJson extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <p>load ${this.file}</p>
+      <p>load ${this.file} <i><slot></slot></i></p>
     `;
   }
 }

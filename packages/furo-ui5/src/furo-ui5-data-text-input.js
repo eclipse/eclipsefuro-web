@@ -57,11 +57,17 @@ export class FuroUi5DataTextInput extends FuroUi5DataInput{
   }
 
   /**
-   * Binds the fieldNode to the component
+   * apply the binding set to the binder
+   * binding set can be customised here otherwise the standard set in the ui5-data-input will be used
    * @param fieldNode
    */
-  bindData(fieldNode) {
-    super.bindData(fieldNode)
-  }
+  // applyBindingSet() {}
+
+  /**
+   * Binds the fieldNode to the component
+   * binding set can be customised here otherwise the standard bindData in the ui5-data-input will be used
+   * @param fieldNode
+   */
+  // bindData(fieldNode) {}
 }
 window.customElements.define('furo-ui5-data-text-input', FuroUi5DataTextInput);
