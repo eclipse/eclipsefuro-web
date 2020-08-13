@@ -4,19 +4,12 @@ import "@ui5/webcomponents/dist/features/InputSuggestions.js";
 import { Ui5StandardBindingSet } from './lib/Ui5StandardBindingSet.js';
 
 /**
- * `furo-ui5-data-text-input`
- * The furo-ui5-data-text-input component allows the user to enter and edit text values in one line.
- * The component can be easily connected to data objects with the integrated UniversalFieldNodeBinder.
- * Additionally, you can provide suggestionItems, that are displayed in a popover right under the input.
+ * `furo-ui5-data-input`
+ * The furo-ui5-data-input is the base component for all furo-ui5-data-input components.
+ * DO NOT USE DIRECTLY
  *
- * The text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).
- * To visualize semantic states, such as "error" or "warning", the valueState property is provided.
- * When the user makes changes to the text, the change event is fired, which enables you to react on any text change.
- *
- * @summary data text input field
+ * @summary data text input base
  * @customElement
- * @demo demo-furo-ui5-data-text-input Basic usage (scalar , fat, wrapper values)
- * @demo demo-furo-ui5-data-text-input-together playground
  */
 export class FuroUi5DataInput extends Input.default {
   constructor(props) {
