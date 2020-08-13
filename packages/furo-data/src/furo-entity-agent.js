@@ -479,7 +479,8 @@ class FuroEntityAgent extends FBP(LitElement) {
       if (err.error && err.details) {
         err.details.forEach(errorSet => {
           if (errorSet.field_violations) {
-            errorSet.field_violations.forEach(error => {
+            const fieldViolations = JSON.parse(JSON.stringify(errorSet.field_violations))
+            fieldViolations.forEach(error => {
               const path = error.field.split('.');
               if (path.length > 0) {
                 // rest wieder in error reinwerfen
