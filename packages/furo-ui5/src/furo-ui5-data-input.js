@@ -38,9 +38,8 @@ export class FuroUi5DataInput extends Input.default {
       'label': 'placeholder', // map label to placeholder
       'placeholder': 'placeholder', // map placeholder to placeholder
       'hint': '_hint',
-      'icon': 'leadingIcon', // icon and leading icon maps to the same
-      'leading-icon': 'leadingIcon',// icon and leading icon maps to the same
-      'ui5-icon': 'ui5Icon',// ui5 icon mapping to ui5 icon
+      'icon': 'ui5Icon', // icon and leading icon maps to the same
+      'leading-icon': 'ui5Icon',// icon and leading icon maps to the same
       'value-state': '_valueState',
       'value-state-message': '_valueStateMessage',
       'errortext': '_errorMsg', // name errortext is for compatibility with spec
@@ -129,26 +128,6 @@ export class FuroUi5DataInput extends Input.default {
         this.binder.addLabel('pristine');
       });
 
-    }
-  }
-
-
-  /**
-   * Set the leading icon as icon
-   * @param icon
-   */
-  set leadingIcon(icon) {
-    // create element
-    if (!this._furoIcon) {
-      this._furoIcon = document.createElement('furo-icon');
-      this._furoIcon.slot = 'icon';
-    }
-    // update the value
-    if (icon) {
-      this._furoIcon.icon = icon;
-      this.appendChild(this._furoIcon)
-    } else {
-      this._furoIcon.remove();
     }
   }
 
@@ -278,8 +257,6 @@ export class FuroUi5DataInput extends Input.default {
         this.setAttribute("title", this._vsm);
     }
     this._setValueStateMessage(this._vsm);
-
-
   }
 
   /**
@@ -308,6 +285,8 @@ export class FuroUi5DataInput extends Input.default {
    * @param arr
    */
   set suggestions(arr) {
+    // remove previous suggestion items.
+    this.querySelectorAll('ui5-suggestion-item').forEach(e=>{e.remove()});
     if(Array.isArray(arr) && arr.length>0) {
 
       // remove previous suggestion items.
