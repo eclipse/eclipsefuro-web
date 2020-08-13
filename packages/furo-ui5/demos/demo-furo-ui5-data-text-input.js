@@ -21,6 +21,7 @@ import '@ui5/webcomponents/dist/Icon.js';
 import '@ui5/webcomponents-icons/dist/icons/example.js'
 import "@ui5/webcomponents-icons/dist/icons/world.js";
 
+import '../src/lib/ui5-icons.js'
 /**
  * `demo-furo-ui5-data-text-input`
  *
@@ -75,7 +76,7 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
             <div>
               <p>furo-ui5-data-text-input with icon slot</p>
               <furo-ui5-data-text-input ƒ-bind-data="--entity(*.data.display_name)" value-state="Information">
-                <ui5-icon slot="icon" name="example"></ui5-icon>
+                <ui5-icon slot="icon" name="signature"></ui5-icon>
               </furo-ui5-data-text-input>
             </div>
 
