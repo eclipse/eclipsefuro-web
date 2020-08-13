@@ -1,0 +1,225 @@
+import * as Input from '@ui5/webcomponents/dist/Input.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
+import "@ui5/webcomponents/dist/features/InputSuggestions.js";
+import { Ui5StandardBindingSet } from './lib/Ui5StandardBindingSet.js';
+
+/**
+ * `furo-ui5-data-text-input`
+ * The furo-ui5-data-text-input component allows the user to enter and edit text values in one line.
+ * The component can be easily connected to data objects with the integrated UniversalFieldNodeBinder.
+ * Additionally, you can provide suggestionItems, that are displayed in a popover right under the input.
+ *
+ * The text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).
+ * To visualize semantic states, such as "error" or "warning", the valueState property is provided.
+ * When the user makes changes to the text, the change event is fired, which enables you to react on any text change.
+ *
+ * @summary data text input field
+ * @customElement
+ * @demo demo-furo-ui5-data-text-input Basic usage (scalar , fat, wrapper values)
+ * @demo demo-furo-ui5-data-text-input-together playground
+ */
+export class FuroUi5DataInput extends Input.default {
+  constructor(props) {
+    super(props);
+    this.valueState = "None";
+    this._initBinder();
+  }
+
+  /**
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
+   */
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    const bindingSet =  new Ui5StandardBindingSet(this);
+    bindingSet.applyToBinder();
+  }
+
+  /**
+   * Sets the value for the field. This will update the fieldNode.
+   * @param val
+   */
+  setValue(val) {
+    this.binder.fieldValue = val;
+  }
+
+  /**
+   * Bind a entity field to the text-input. You can use the entity even when no data was received.
+   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+   * @param {Object|FieldNode} fieldNode a Field object
+   */
+  bindData(fieldNode) {
+    this.binder.bindField(fieldNode);
+    if (this.binder.fieldNode) {
+      /**
+       * handle pristine
+       *
+       * Set to pristine label to the same _pristine from the fieldNode
+       */
+      if (this.binder.fieldNode._pristine) {
+        this.binder.addLabel('pristine');
+      } else {
+        this.binder.deleteLabel('pristine');
+      }
+      // set pristine on new data
+      this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this.binder.addLabel('pristine');
+      });
+
+    }
+  }
+
+
+  /**
+   * Set the leading icon as icon
+   * @param icon
+   */
+  set leadingIcon(icon) {
+    // create element
+    if (!this._furoIcon) {
+      this._furoIcon = document.createElement('furo-icon');
+      this._furoIcon.slot = 'icon';
+    }
+    // update the value
+    this._furoIcon.icon = icon;
+    if (icon) {
+      this.appendChild(this._furoIcon)
+    } else {
+      this._furoIcon.remove();
+    }
+  }
+
+  /**
+   * sets and remove the error state
+   * @param err
+   * @private
+   */
+  set _error(err) {
+    if (err) {
+      this._lastValueState = this.valueState;
+      this.valueState = "Error";
+    } else if (this.valueState === "Error") {
+      this.valueState = this._lastValueState;
+    }
+  }
+
+
+  /**
+   * store the error message and update the value state message
+   * @param msg
+   * @private
+   */
+  set _errorMsg(msg) {
+    this.__errorMsg = msg;
+    this._updateVS();
+  }
+
+  /**
+   * store the information message and update the value state message
+   * @param msg
+   * @private
+   */
+  set _informationMsg(msg) {
+    this.__informationMsg = msg;
+    this._updateVS();
+  }
+
+  /**
+   * store the warning message and update the value state message
+   * @param msg
+   * @private
+   */
+  set _warningMsg(msg) {
+    this.__warningMsg = msg;
+    this._updateVS();
+  }
+
+  /**
+   * store the success message and update the value state message
+   * @param msg
+   * @private
+   */
+  set _successMsg(msg) {
+    this.__successMsg = msg;
+    this._updateVS();
+  }
+
+  /**
+   * Update the value state on change
+   * @param state
+   * @private
+   */
+  set _valueState(state) {
+    this.valueState = state || "None";
+    this._updateVS();
+  }
+
+  /**
+   * Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None
+   * @param h
+   * @private
+   */
+  set _hint(h) {
+    this.__hint = h;
+    // do not set an empty attribute
+    if (h) {
+      this.setAttribute("title", h);
+    } else {
+      this.removeAttribute("title");
+    }
+
+    this.__hint = h;
+  }
+
+  _updateVS() {
+    // set the correct valueStateMessage
+    switch (this.valueState) {
+      case "Error":
+        this._vsm = this._valueStateMessage || this.__errorMsg || this.__hint;
+        this.removeAttribute("title");
+        break;
+      case "Information":
+        this._vsm = this._valueStateMessage || this.__informationMsg || this.__hint;
+        this.removeAttribute("title");
+        break;
+      case "Success":
+        this._vsm = this._valueStateMessage || this.__successMsg || this.__hint;
+        this.removeAttribute("title");
+        break;
+      case "Warning":
+        this._vsm = this._valueStateMessage || this.__warningMsg || this.__hint;
+        this.removeAttribute("title");
+        break;
+
+      default:
+        this._vsm = this._valueStateMessage || this.__hint;
+        this.setAttribute("title", this._vsm);
+    }
+    this._setValueStateMessage(this._vsm);
+
+
+  }
+
+  /**
+   * Updates the vs and creates the element in the slot on demand
+   * @param msg
+   * @private
+   */
+  _setValueStateMessage(msg) {
+    // create element
+    if (!this._valueStateElement) {
+      this._valueStateElement = document.createElement('div');
+      this._valueStateElement.slot = 'valueStateMessage';
+    }
+    this._valueStateElement.innerText = msg;
+    if (msg) {
+      this.appendChild(this._valueStateElement)
+    } else {
+      this._valueStateElement.remove();
+    }
+  }
+}
+
+window.customElements.define('furo-ui5-data-input', FuroUi5DataInput);

@@ -63,7 +63,7 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
             <furo-vertical-scroller>
               <furo-split-view>
                 <furo-form header-text="UI5">
-                  <furo-form-layouter two style="align-items: end;">
+                  <furo-form-layouter  style="align-items: end;">
 
                     <!-- fat -->
 
@@ -75,16 +75,7 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
 
                   </furo-form-layouter>
                 </furo-form>
-                <furo-form header-text="furo data input">
-                  <furo-form-layouter two style="align-items: end;">
 
-                    <furo-data-text-input  ƒ-bind-data="--DataInjected(*.data.fat_string)"></furo-data-text-input>
-
-                    <furo-data-text-input condensed ƒ-bind-data="--DataObject(*.data.fat_string_list)"></furo-data-text-input>
-
-
-                  </furo-form-layouter>
-                </furo-form>
 
 
                 <furo-form header-text="Settings" slot="master">

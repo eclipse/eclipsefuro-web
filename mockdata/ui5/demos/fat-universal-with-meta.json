@@ -54,7 +54,6 @@
       "data.fat_string": {
         "meta": {
           "label": "fat string label setted via response meta",
-
           "default": "new",
           "hint": "hint",
           "readonly": true

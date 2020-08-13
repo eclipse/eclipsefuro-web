@@ -101,6 +101,7 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
             <furo-ui5-data-text-input
               autofocus
               condensed
+              placeholder="hallo"
               ƒ-bind-data="--entityU(*.data.fat_string)"
             ></furo-ui5-data-text-input>
             <furo-ui5-data-text-input
