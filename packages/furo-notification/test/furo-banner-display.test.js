@@ -77,10 +77,13 @@ describe('furo-banner-display', () => {
         },
         {
           '@type': 'type.googleapis.com/google.rpc.BadRequest',
-          message: 'This should not be visible',
-          locale: 'de-ch',
-        },
+          'field_violations': [{
+            'field': 'excercise',
+            'description': '**excercise** can not be _Error',
+          }, { 'field': 'rm1', 'description': '*rm1* must be 1 or more' }],
+        }
       ],
+
     });
     setTimeout(() => {
       const items = bannerDisplay.shadowRoot.querySelectorAll('p');
@@ -88,7 +91,8 @@ describe('furo-banner-display', () => {
       assert.equal(items[0].innerHTML, 'Some localized message');
       assert.equal(items[1].innerHTML, 'with newline');
       assert.equal(items[2].textContent, 'Other localized message with newline');
-      assert.equal(items.length, 3);
+      assert.equal(items[3].textContent, 'excercise can not be _Error');
+      assert.equal(items.length, 5);
 
       done();
     }, 500);
@@ -100,11 +104,7 @@ describe('furo-banner-display', () => {
       message: 'Request had invalid credentials.',
       status: 'SOMETHING',
       details: [
-        {
-          '@type': 'type.googleapis.com/google.rpc.BadRequest',
-          message: 'This should not be visible',
-          locale: 'de-ch',
-        },
+
       ],
     });
     setTimeout(() => {
