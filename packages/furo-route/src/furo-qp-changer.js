@@ -38,17 +38,23 @@ class FuroQpChanger extends FBP(LitElement) {
         qp.push(`${segment}=${queryObject[segment]}`);
       }
     }
+    const location = `${window.location.pathname}?${qp.join('&')}${window.location.hash}`;
+    if( this._lastLocation !== location){
+
+
     // notify furo location
     window.history.pushState(
       {},
       '',
-      `${window.location.pathname}?${qp.join('&')}${window.location.hash}`,
+      location,
     );
 
     const now = window.performance.now();
     const customEvent = new Event('__furoLocationChanged', { composed: true, bubbles: true });
     customEvent.detail = now;
     this.dispatchEvent(customEvent);
+      this._lastLocation = location;
+    }
   }
 }
 
