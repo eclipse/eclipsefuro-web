@@ -66,32 +66,25 @@ describe('furo-ui5-data-text-input-scalar', () => {
       assert.equal(dao.data.data.description._value, 'New description set')
       done()
     })
-
     input.setValue('New description set')
-
   })
 
-  it('should set leading icon to the component', done => {
-
-    input.leadingIcon = 'filter'
-
-    const icon = input.querySelector('furo-icon')
-    assert.equal(icon.icon, 'filter')
-    assert.equal(icon.slot, 'icon')
-    done()
-
+  it('an update of a scalar value on the data object should be synchronized with the input field', done =>{
+    dao.data.data.description._value = 'Set data in the inner input element'
+    assert.equal(input._state.value, 'Set data in the inner input element')
+    done();
   })
 
   it('should set ui5 icon to the component', done => {
 
     input.ui5Icon = 'filter'
-
     const icon = input.querySelector('ui5-icon')
     assert.equal(icon.name, 'filter')
     assert.equal(icon.slot, 'icon')
     done()
 
   })
+
 
 
 

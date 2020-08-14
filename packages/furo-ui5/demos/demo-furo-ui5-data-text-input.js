@@ -81,13 +81,7 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
             <furo-ui5-data-text-input ƒ-bind-data="--entity(*.data.description)"></furo-ui5-data-text-input>
             <furo-ui5-data-text-input ƒ-bind-data="--entity(*.data.description)"></furo-ui5-data-text-input>
             <furo-ui5-data-text-input ƒ-bind-data="--entity(*.data.furo_data_text_input)"></furo-ui5-data-text-input>
-            <furo-ui5-data-text-input
-              show-suggestions
-              ƒ-bind-data="--entity(*.data.description)"
-            >
-              <ui5-suggestion-item text="suggestion Item #1"></ui5-suggestion-item>
-              <ui5-suggestion-item text="suggestion Item #2"></ui5-suggestion-item>
-            </furo-ui5-data-text-input>
+            <furo-ui5-data-text-input ƒ-bind-data="--entity(*.data.furo_data_date_input_google.display_name)"></furo-ui5-data-text-input>
           </furo-form-layouter>
 
           <furo-button-bar>
