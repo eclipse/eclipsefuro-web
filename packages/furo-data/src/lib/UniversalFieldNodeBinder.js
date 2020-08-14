@@ -483,10 +483,20 @@ export class UniversalFieldNodeBinder {
     // map the constraints to the fat attributes
     Object.keys(constraints).forEach(constraint => {
       if (constraint in this.constraintsTofatAttributesMappings) {
-        this.setAttribute(
-          this.constraintsTofatAttributesMappings[constraint],
-          constraints[constraint].is,
-        );
+
+        // constrains with value true or false should be handled as label
+        if(constraints[constraint].is === true) {
+          this.addLabel(this.constraintsTofatAttributesMappings[constraint]);
+        }
+        else if(constraints[constraint].is === false ) {
+          this.deleteLabel(this.constraintsTofatAttributesMappings[constraint]);
+        }
+        else {
+          this.setAttribute(
+            this.constraintsTofatAttributesMappings[constraint],
+            constraints[constraint].is,
+          );
+        }
       }
     });
   }

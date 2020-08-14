@@ -68,6 +68,10 @@ describe('furo-ui5-data-text-input-fat', () => {
             },
             'constraints': {
               'max': { 'is': 40, 'message': 'MAX 40' },
+              "required": {
+                "is": true,
+                "message": "Bitte ausfüllen!"
+              }
             },
           }
         },
@@ -143,7 +147,7 @@ describe('furo-ui5-data-text-input-fat', () => {
       assert.equal(input._state.highlight, true, 'check highlight')
       assert.equal(input._state.placeholder, 'fat string label set via response meta', 'check placeholder')
       assert.equal(input._state.readonly, false, 'check readonly')
-      assert.equal(input._state.required, false, 'check required')
+      assert.equal(input._state.required, true, 'check required')
       assert.equal(input._state.type, 'Text', 'check type')
       assert.equal(input._state.value, 'fat string from record', 'check value')
       assert.equal(input._state.valueState, 'Error', 'check valueState')

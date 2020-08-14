@@ -70,7 +70,7 @@ export class FuroUi5DataInput extends Input.default {
       minlength: 'value._constraints.min.is',// for the fieldnode constraint
       pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
       required: 'value._constraints.required.is', // for the fieldnode constraint
-      'min-msg': 'value._constraints.max.message', // for the fieldnode constraint message
+      'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
       'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
     };
 
@@ -235,7 +235,6 @@ export class FuroUi5DataInput extends Input.default {
   }
 
   _updateVS() {
-    console.log(this._valueStateMessage)
     // set the correct valueStateMessage
     switch (this.valueState) {
       case "Error":
@@ -268,7 +267,6 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   _setValueStateMessage(msg) {
-    console.log(msg)
     // create element
     if (!this._valueStateElement) {
       this._valueStateElement = document.createElement('div');
