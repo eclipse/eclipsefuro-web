@@ -2031,6 +2031,346 @@
       },
       "slots": [],
       "tagname": "furo-ui5-data-password-input"
+    },
+    {
+      "description": "`furo-ui5-data-collection-dropdown`\nThe furo-ui5-data-collection-dropdown component represents a drop-down menu with a list of the available options and\na text input field to narrow down the options. It is commonly used to enable users to select one or more options from a predefined list.\n\nStructure\nThe furo-ui5-data-collection-dropdown consists of the following elements:\n - Input field - displays the selected option or a custom user entry. Users can type to narrow down the list or enter their own value.\n - Drop-down arrow - expands\\collapses the option list.\n - Option list - the list of available options.\n\nKeyboard Handling\nThe furo-ui5-data-collection-dropdown provides advanced keyboard handling.\nPicker\nIf the ui5-combobox is focused, you can open or close the drop-down by pressing F4, ALT+UP or ALT+DOWN keys.",
+      "summary": "data collection dropdown",
+      "path": "src/furo-ui5-data-collection-dropdown.js",
+      "properties": [
+        {
+          "name": "_error",
+          "type": "?",
+          "description": "sets and remove the error state",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 149,
+              "column": 2
+            },
+            "end": {
+              "line": 156,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_errorMsg",
+          "type": "?",
+          "description": "store the error message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 164,
+              "column": 2
+            },
+            "end": {
+              "line": 167,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_informationMsg",
+          "type": "?",
+          "description": "store the information message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 174,
+              "column": 2
+            },
+            "end": {
+              "line": 177,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_warningMsg",
+          "type": "?",
+          "description": "store the warning message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 184,
+              "column": 2
+            },
+            "end": {
+              "line": 187,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_successMsg",
+          "type": "?",
+          "description": "store the success message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 194,
+              "column": 2
+            },
+            "end": {
+              "line": 197,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_valueState",
+          "type": "?",
+          "description": "Update the value state on change",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 204,
+              "column": 2
+            },
+            "end": {
+              "line": 207,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_hint",
+          "type": "?",
+          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 214,
+              "column": 2
+            },
+            "end": {
+              "line": 224,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "suggestions",
+          "type": "?",
+          "description": "set suggestions as the ui5-suggestion-item element\nsample data of the suggestions: [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},.. ]\nif the suggestion item has icon , the ui5 icons should be imported in your ui component",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 278,
+              "column": 2
+            },
+            "end": {
+              "line": 313,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_initBinder",
+          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 35,
+              "column": 2
+            },
+            "end": {
+              "line": 39,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "applyBindingSet",
+          "description": "apply the binding set to the universal field node binder",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 44,
+              "column": 2
+            },
+            "end": {
+              "line": 108,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "setValue",
+          "description": "Sets the value for the field. This will update the fieldNode.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 114,
+              "column": 2
+            },
+            "end": {
+              "line": 116,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "val"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Bind a entity field to the text-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 123,
+              "column": 2
+            },
+            "end": {
+              "line": 142,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode",
+              "type": "(Object | FieldNode)",
+              "description": "a Field object"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateVS",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 226,
+              "column": 2
+            },
+            "end": {
+              "line": 251,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_setValueStateMessage",
+          "description": "Updates the vs and creates the element in the slot on demand",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 258,
+              "column": 2
+            },
+            "end": {
+              "line": 270,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "msg"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-collection-dropdown",
+          "description": "Basic Usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 23,
+          "column": 7
+        },
+        "end": {
+          "line": 314,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "Input.default",
+      "name": "FuroUi5DataCollectionDropdown",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-collection-dropdown"
     }
   ]
 }

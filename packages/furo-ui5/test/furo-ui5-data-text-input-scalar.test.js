@@ -61,239 +61,8 @@ describe('furo-ui5-data-text-input-scalar', () => {
                 },
               },
             },
-          },
-          {
-            'data': {
-              '@type': 'xx/google.type.Date',
-              'day': 8,
-              'month': 11,
-              'year': 2022,
-              'display_name': '8.11.2022',
-            },
-            'display_name': 'a date',
-            'id': 'a',
-            'code': 'date',
-            'meta': {
-              'fields': {
-                'data': {
-                  'meta': {
-                    'label': 'datelabel',
-                    'hint': 'datehint is data',
-                    'readonly': true,
-                  },
-                  'constraints': {
-                    'min': {
-                      'is': '2019-09-09',
-                      'message': 'to small',
-                    },
-                  },
-                },
-              },
-            },
-          },
-          {
-            'data': {
-              '@type': 'xx/furo.NumberProperty',
-              'data': 34.23,
-              'display_name': '34.23',
-            },
-            'display_name': 'Display',
-            'id': 'bb',
-            'code': 'option',
-            'meta': {
-              'fields': {
-                'data.data': {
-                  'meta': {
-                    'label': 'Float',
-                    'hint': 'Type in int',
-                  },
-                },
-              },
-            },
-          },
-          {
-            'data': {
-              '@type': 'xx/google.protobuf.StringValue',
-              'value': 'text google.protobuf.StringValue',
-              'display_name': '342',
-            },
-            'display_name': 'Display',
-            'id': 'op33t',
-            'code': 'option',
-            'meta': {
-              'fields': {
-                'data.value': {
-                  'meta': {
-                    'label': 'Google string',
-                    'hint': 'Type in int',
-                  },
-                },
-              },
-            },
-          },
-          {
-            'data': {
-              '@type': 'xx/furo.StringOptionProperty',
-              'id': 'bb',
-              'display_name': 'Display',
-            },
-            'display_name': 'Display',
-            'id': '444',
-            'code': 'option',
-            'meta': {
-              'fields': {
-                'data': {
-                  'meta': {
-                    'label': 'Please select',
-                    'hint': 'datehint is data',
-                    'repeated': false,
-                    'options': {
-                      'list': [
-                        {
-                          'id': '',
-                          'display_name': 'Please select',
-                        },
-                        {
-                          'id': 'aa',
-                          'display_name': 'The display a',
-                        },
-                        {
-                          'id': 'bb',
-                          'display_name': 'The display b',
-                        },
-                      ],
-                    },
-                  },
-                },
-              },
-            },
-          },
-          {
-            'data': {
-              '@type': 'xx/furo.StringProperty',
-              'data': '32 32 23',
-              'display_name': 'a date',
-            },
-            'id': 'bv3',
-            'code': 'date',
-            'meta': {
-              'fields': {
-                'data.data': {
-                  'meta': {
-                    'label': 'repeated fields',
-                    'hint': 'this is data',
-                  },
-                },
-              },
-            },
-          },
-          {
-            'data': {
-              '@type': 'xx/google.protobuf.BoolValue',
-              'value': true,
-            },
-            'display_name': 'Display',
-            'id': 'xxxxxx',
-            'meta': {
-              'fields': {
-                'data.value': {
-                  'meta': {
-                    'label': 'is online',
-                  },
-                },
-              },
-            },
-          },
-          {
-            'data': {
-              '@type': 'furo.fat.String',
-              'value': 'text furo.fat.String',
-              'display_name': 'furo.fat.String',
-            },
-            'display_name': 'Display',
-            'id': 'op33t',
-            'code': 'option',
-            'meta': {
-              'fields': {
-                'data.value': {
-                  'meta': {
-                    'label': 'fat string',
-                    'hint': 'Type in fat string',
-                  },
-                },
-              },
-            },
-          },
-          {
-            'data': {
-              '@type': 'furo.fat.Int32',
-              'value': 22,
-              'display_name': 'furo.fat.Int32',
-            },
-            'display_name': 'Display',
-            'id': 'op33t',
-            'code': 'option',
-            'meta': {
-              'fields': {
-                'data.value': {
-                  'meta': {
-                    'label': 'fat int',
-                    'hint': 'Type in fat int',
-                  },
-                },
-              },
-            },
-          },
-          {
-            'data': {
-              '@type': 'furo.fat.Bool',
-              'value': true,
-              'display_name': 'furo.fat.Bool',
-            },
-            'display_name': 'Display',
-            'id': 'op33t',
-            'code': 'option',
-            'meta': {
-              'fields': {
-                'data.value': {
-                  'meta': {
-                    'label': 'fat Bool',
-                    'hint': 'Type in fat Bool',
-                  },
-                },
-              },
-            },
-          },
+          }
         ],
-        'single_type_property': {
-          'data': {
-            '@type': 'xx/google.type.Date',
-            'day': 8,
-            'month': 11,
-            'year': 2022,
-            'display_name': '8.11.2022',
-          },
-          'display_name': 'a date',
-          'id': 'date',
-          'code': 'date',
-          'meta': {
-            'fields': {
-              'data': {
-                'meta': {
-                  'label': 'Additional fields',
-                  'hint': 'this is data',
-                  'readonly': true,
-                },
-                'constraints': {
-                  'min': {
-                    'is': '2019-09-09',
-                    'message': 'to small',
-                  },
-                },
-              },
-            },
-          },
-        },
         'repstring': [
           'AAA',
           'BBBB',
@@ -364,7 +133,7 @@ describe('furo-ui5-data-text-input-scalar', () => {
 
     setTimeout(() => {
       assert.equal(input._state.disabled, false, 'check disabled')
-      assert.equal(input._state.highlight, false, 'check highlight')
+      assert.equal(input._state.highlight, true, 'check highlight')
       assert.equal(input._state.placeholder, 'Description**', 'check placeholder')
       assert.equal(input._state.readonly, false, 'check readonly')
       assert.equal(input._state.required, false, 'check required')
@@ -372,7 +141,7 @@ describe('furo-ui5-data-text-input-scalar', () => {
       assert.equal(input._state.value, 'Default Description', 'check value')
       assert.equal(input._state.valueState, 'None', 'check valueState')
       assert.equal(input._state.name, '', 'check name')
-      assert.equal(input._state.showSuggestions, false, 'check showSuggestions')
+      assert.equal(input._state.showSuggestions, true, 'check showSuggestions')
       assert.equal(input._state.maxlength, undefined, 'check maxlength')
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel')
       done()
@@ -409,7 +178,7 @@ describe('furo-ui5-data-text-input-scalar', () => {
 
     dao.addEventListener('data-injected', ()=>{
       assert.equal(input._state.disabled, false, 'check disabled')
-      assert.equal(input._state.highlight, false, 'check highlight')
+      assert.equal(input._state.highlight, true, 'check highlight')
       assert.equal(input._state.placeholder, 'My description', 'check placeholder')
       assert.equal(input._state.readonly, false, 'check readonly')
       assert.equal(input._state.required, true, 'check required')
@@ -417,7 +186,7 @@ describe('furo-ui5-data-text-input-scalar', () => {
       assert.equal(input._state.value, 'Description from record', 'check value')
       assert.equal(input._state.valueState, 'None', 'check valueState')
       assert.equal(input._state.name, '', 'check name')
-      assert.equal(input._state.showSuggestions, false, 'check showSuggestions')
+      assert.equal(input._state.showSuggestions, true, 'check showSuggestions')
       assert.equal(input._state.maxlength, undefined, 'check maxlength')
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel')
       assert.equal(input.__hint, 'Please enter a description', 'check hint')

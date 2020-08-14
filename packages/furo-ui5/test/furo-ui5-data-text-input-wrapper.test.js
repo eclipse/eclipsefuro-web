@@ -115,7 +115,7 @@ describe('furo-ui5-data-text-input-fat', () => {
 
     setTimeout(()=>{
       assert.equal(input._state.disabled, false, 'check disabled')
-      assert.equal(input._state.highlight, false, 'check highlight')
+      assert.equal(input._state.highlight, true, 'check highlight')
       assert.equal(input._state.placeholder, 'wrapper string**', 'check placeholder')
       assert.equal(input._state.readonly, false, 'check readonly')
       assert.equal(input._state.required, false, 'check required')
@@ -123,7 +123,7 @@ describe('furo-ui5-data-text-input-fat', () => {
       assert.equal(input._state.value, null, 'check value')
       assert.equal(input._state.valueState, 'None', 'check valueState')
       assert.equal(input._state.name, '', 'check name')
-      assert.equal(input._state.showSuggestions, false, 'check showSuggestions')
+      assert.equal(input._state.showSuggestions, true, 'check showSuggestions')
       assert.equal(input._state.maxlength, undefined, 'check maxlength')
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel')
       done()
@@ -150,7 +150,7 @@ describe('furo-ui5-data-text-input-fat', () => {
 
     dao.addEventListener('data-injected', () => {
       assert.equal(input._state.disabled, false, 'check disabled')
-      assert.equal(input._state.highlight, false, 'check highlight')
+      assert.equal(input._state.highlight, true, 'check highlight')
       assert.equal(input._state.placeholder, 'wrapper string label set via response meta', 'check placeholder')
       assert.equal(input._state.readonly, false, 'check readonly')
       assert.equal(input._state.required, false, 'check required')
@@ -160,7 +160,7 @@ describe('furo-ui5-data-text-input-fat', () => {
       assert.equal(input._state.valueStateMessage.length, 1, 'check valueStateMessage')
       assert.equal(input._state.valueStateMessage[0], 'Your fat string is valid', 'check valueStateMessage content')
       assert.equal(input._state.name, '', 'check name')
-      assert.equal(input._state.showSuggestions, false, 'check showSuggestions')
+      assert.equal(input._state.showSuggestions, true, 'check showSuggestions')
       assert.equal(input._state.maxlength, 40, 'check maxlength')
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel')
       assert.equal(input.__hint, '', 'check hint')
