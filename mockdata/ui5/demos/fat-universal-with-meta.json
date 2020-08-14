@@ -38,7 +38,7 @@
     "fields": {
       "data.scalar_string": {
         "meta": {
-          "label": "scalar string label setted via response meta",
+          "label": "scalar string label set via response meta",
           "readonly": false
         },
         "constraints": {
@@ -47,36 +47,56 @@
       },
       "data.wrapper_string": {
         "meta": {
-          "label": "wrapper string label setted via response meta",
+          "label": "wrapper string label set via response meta",
           "readonly": true
         }
       },
       "data.fat_string": {
         "meta": {
-          "label": "fat string label setted via response meta",
+          "label": "fat string label set via response meta",
           "default": "new",
           "hint": "hint",
-          "readonly": true
+          "readonly": true,
+          "options": {
+            "list": [
+              {
+                "id": "",
+                "display_name": "Please select"
+              },
+              {
+                "id": "aa",
+                "display_name": "The display a"
+              },
+              {
+                "id": "bb",
+                "text": "The display b"
+              }
+            ]
+          }
         },
         "constraints": {
-          "value.max": {"is": "4","message": "MAX 4"}
+          "max": {"is": 4,"message": "MAX 4"},
+          "required": {
+            "is": true,
+            "message": "Bitte ausfüllen!"
+          }
         }
       },
       "data.scalar_int32": {
         "meta": {
-          "label": "scalar int32 label setted via response meta",
+          "label": "scalar int32 label set via response meta",
           "readonly": true
         }
       },
       "data.wrapper_int32": {
         "meta": {
-          "label": "wrapper int32 label setted via response meta",
+          "label": "wrapper int32 label set via response meta",
           "readonly": true
         }
       },
       "data.fat_int32": {
         "meta": {
-          "label": "fat int32 label setted via response meta",
+          "label": "fat int32 label set via response meta",
           "readonly": true
         }
       }

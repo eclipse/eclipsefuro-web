@@ -26,8 +26,8 @@ describe('furo-ui5-data-text-input-fat', () => {
           'value': 'fat string from record',
           'labels': ['cozy'],
           'attributes': {
-            'value-state': 'Success',
-            'value-state-message': 'Your fat string is valid',
+            'value-state': 'Error',
+            'errortext': 'Your fat string is valid',
             'icon': 'thumb-up',
           },
         },
@@ -55,7 +55,7 @@ describe('furo-ui5-data-text-input-fat', () => {
         'fields': {
           'data.wrapper_string': {
             'meta': {
-              'label': 'wrapper string label setted via response meta',
+              'label': 'wrapper string label set via response meta',
               'readonly': true,
             },
           },
@@ -67,7 +67,7 @@ describe('furo-ui5-data-text-input-fat', () => {
               'readonly': false,
             },
             'constraints': {
-              'value.max': { 'is': '40', 'message': 'MAX 40' },
+              'max': { 'is': 40, 'message': 'MAX 40' },
             },
           }
         },
@@ -105,7 +105,7 @@ describe('furo-ui5-data-text-input-fat', () => {
 
     setTimeout(() => {
       assert.equal(input._state.disabled, false, 'check disabled')
-      assert.equal(input._state.highlight, false, 'check highlight')
+      assert.equal(input._state.highlight, true, 'check highlight')
       assert.equal(input._state.placeholder, 'fat string**', 'check placeholder')
       assert.equal(input._state.readonly, false, 'check readonly')
       assert.equal(input._state.required, false, 'check required')
@@ -113,7 +113,7 @@ describe('furo-ui5-data-text-input-fat', () => {
       assert.equal(input._state.value, null, 'check value')
       assert.equal(input._state.valueState, 'None', 'check valueState')
       assert.equal(input._state.name, '', 'check name')
-      assert.equal(input._state.showSuggestions, false, 'check showSuggestions')
+      assert.equal(input._state.showSuggestions, true, 'check showSuggestions')
       assert.equal(input._state.maxlength, undefined, 'check maxlength')
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel')
       done()
@@ -140,20 +140,19 @@ describe('furo-ui5-data-text-input-fat', () => {
 
     dao.addEventListener('data-injected', () => {
       assert.equal(input._state.disabled, false, 'check disabled')
-      assert.equal(input._state.highlight, false, 'check highlight')
+      assert.equal(input._state.highlight, true, 'check highlight')
       assert.equal(input._state.placeholder, 'fat string label set via response meta', 'check placeholder')
       assert.equal(input._state.readonly, false, 'check readonly')
       assert.equal(input._state.required, false, 'check required')
       assert.equal(input._state.type, 'Text', 'check type')
       assert.equal(input._state.value, 'fat string from record', 'check value')
-      assert.equal(input._state.valueState, 'Success', 'check valueState')
-      assert.equal(input._state.valueStateMessage.length, 1, 'check valueStateMessage')
-      assert.equal(input._state.valueStateMessage[0], 'Your fat string is valid', 'check valueStateMessage content')
+      assert.equal(input._state.valueState, 'Error', 'check valueState')
       assert.equal(input._state.name, '', 'check name')
-      assert.equal(input._state.showSuggestions, false, 'check showSuggestions')
+      assert.equal(input._state.showSuggestions, true, 'check showSuggestions')
       assert.equal(input._state.maxlength, 40, 'check maxlength')
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel')
-      assert.equal(input.__hint, '', 'check hint')
+      assert.equal(input.__errorMsg, 'Your fat string is valid', 'check valueStateMessage content')
+      assert.equal(input.__hint, 'hint', 'check hint')
       assert.equal(input.pristine, true, 'Please enter a description', 'check pristine')
       assert.equal(input.binder.fieldFormat, 'fat', 'check fieldFormat')
       assert.equal(input.querySelector('ui5-icon')._state.name, 'thumb-up', 'check icon')

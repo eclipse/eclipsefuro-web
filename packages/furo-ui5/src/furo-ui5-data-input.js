@@ -14,6 +14,8 @@ export class FuroUi5DataInput extends Input.default {
   constructor(props) {
     super(props);
     this.valueState = "None";
+    this.showSuggestions = true;
+    this.highlight = true;
     this._initBinder();
   }
 
@@ -41,7 +43,6 @@ export class FuroUi5DataInput extends Input.default {
       'icon': 'ui5Icon', // icon and leading icon maps to the same
       'leading-icon': 'ui5Icon',// icon and leading icon maps to the same
       'value-state': '_valueState',
-      'value-state-message': '_valueStateMessage',
       'errortext': '_errorMsg', // name errortext is for compatibility with spec
       'error-msg': '_errorMsg',
       'warning-msg': '_warningMsg',
@@ -61,21 +62,22 @@ export class FuroUi5DataInput extends Input.default {
       disabled: 'disabled',
       pristine: 'pristine',
       highlight: 'highlight',
-      'show-suggestions': 'showSuggestions',
     };
 
     // set attributes to constrains mapping for furo.fat types
     this.binder.fatAttributesToConstraintsMappings = {
-      max: 'value._constraints.max.is',// for the fieldnode constraint
-      min: 'value._constraints.min.is',// for the fieldnode constraint
+      maxlength: 'value._constraints.max.is',// for the fieldnode constraint
+      minlength: 'value._constraints.min.is',// for the fieldnode constraint
       pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
+      required: 'value._constraints.required.is', // for the fieldnode constraint
       'min-msg': 'value._constraints.max.message', // for the fieldnode constraint message
       'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
     };
 
     // set constrains to attributes mapping for furo.fat types
     this.binder.constraintsTofatAttributesMappings = {
-      max: 'max',
+      max: 'maxlength',
+      min: 'minlength',
       pattern: 'pattern',
       required: 'required',
     };
@@ -233,6 +235,7 @@ export class FuroUi5DataInput extends Input.default {
   }
 
   _updateVS() {
+    console.log(this._valueStateMessage)
     // set the correct valueStateMessage
     switch (this.valueState) {
       case "Error":
@@ -265,6 +268,7 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   _setValueStateMessage(msg) {
+    console.log(msg)
     // create element
     if (!this._valueStateElement) {
       this._valueStateElement = document.createElement('div');
@@ -294,29 +298,40 @@ export class FuroUi5DataInput extends Input.default {
       // add current suggestion items
       arr.forEach(e=>{
         const suggestion = document.createElement('ui5-suggestion-item');
+
+        // suggestions from furo.optionItem
+        if(e.display_name !== undefined) {
+          suggestion.text = e.display_name;
+        }
+        // suggestions from fat attribute
         if(e.text !== undefined) {
           suggestion.text = e.text;
         }
-        if(e.icon !== undefined) {
-          suggestion.icon = e.icon;
-        }
-        if(e.image !== undefined) {
-          suggestion.image = e.image;
-        }
-        if(e.type !== undefined) {
-          suggestion.type = e.type;
-        }
-        if(e.infoState !== undefined) {
-          suggestion.infoState = e.infoState;
-        }
-        if(e.group !== undefined) {
-          suggestion.group = e.group;
-        }
-        if(e.key !== undefined) {
-          suggestion.key = e.key;
-        }
 
-        this.appendChild(suggestion);
+        // appends only when suggestion text exists
+        if(suggestion.text !== undefined ) {
+
+          if(e.icon !== undefined) {
+            suggestion.icon = e.icon;
+          }
+          if(e.image !== undefined) {
+            suggestion.image = e.image;
+          }
+          if(e.type !== undefined) {
+            suggestion.type = e.type;
+          }
+          if(e.infoState !== undefined) {
+            suggestion.infoState = e.infoState;
+          }
+          if(e.group !== undefined) {
+            suggestion.group = e.group;
+          }
+          if(e.key !== undefined) {
+            suggestion.key = e.key;
+          }
+
+          this.appendChild(suggestion);
+        }
       })
     }
   }
