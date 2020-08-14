@@ -71,13 +71,11 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
 
           <furo-form-layouter one>
             <furo-ui5-data-collection-dropdown value-field="id"
-                                               display-field="id"
-                                               subfield="data.id"
+                                               display-field="display_name"
                                                ƒ-inject-entities="--response(*.entities)"
-                                               @-item-selected="--itemSelected"
                                                ƒ-bind-data="--entity(*.owner)">
             </furo-ui5-data-collection-dropdown>
-
+            <hr>
             <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
             <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.display_name)"></furo-ui5-data-text-input>
 

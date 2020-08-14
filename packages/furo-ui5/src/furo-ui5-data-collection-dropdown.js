@@ -43,14 +43,20 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
     this._fieldDisplayNodeToUpdate = {}
 
     this.addEventListener('change', val => {
-      const cbValue = val.target.value;
+
+      const selectedObj = this._dropdownList.find(obj => {
+        return obj._original.data[this.displayField] === val.target.value
+      });
+
+      const cbValue = selectedObj._original.data[this.valueField];
+
       if (this.binder.fieldNode) {
         if (!this.multiple) {
           // by valid input reset meta and constraints
           this._fieldNodeToUpdate._value = cbValue
 
           if (this.subfield) {
-            this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(val)
+            this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(cbValue)
           }
         } else {
           const data = []
