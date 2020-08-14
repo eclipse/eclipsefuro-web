@@ -14,6 +14,77 @@ describe('furo-ui5-data-text-input-fat', () => {
   let input
   let dao
 
+  const testRecordMeta =
+    {
+      'data': {
+        'id': '1',
+        'scalar_string': 'this is a scalar string',
+        'wrapper_string': {
+          'value': 'this is a google wrapper string',
+          'labels': ['cozy'],
+          'attributes': {
+            'value-state': 'Success',
+            'value-state-message': 'Your wrapper string is valid',
+            'icon': 'thumb-up',
+          },
+        },
+        'fat_string': {
+          'value': 'fat string from record',
+          'labels': ['cozy'],
+          'attributes': {
+            'value-state': 'Success',
+            'value-state-message': 'Your fat string is valid',
+            'icon': 'thumb-up',
+          },
+        },
+        'scalar_int32': 14,
+        'wrapper_int32': {
+          'value': 14,
+        },
+        'fat_int32': {
+          'value': 14,
+          'labels': '',
+          'attributes': {
+            'value-state': 'Information',
+          },
+        },
+        'fat_bool': {
+          'value': true,
+          'value-state': 'Information',
+        },
+        'wrapper_bool': {
+          'value': true,
+        },
+      },
+      'links': [],
+      'meta': {
+        'fields': {
+          'data.wrapper_string': {
+            'meta': {
+              'label': 'wrapper string label set via response meta',
+              'default': 'new',
+              'hint': 'hint',
+              'readonly': false,
+            },
+            'constraints': {
+              'value.max': { 'is': '40', 'message': 'MAX 40' },
+            },
+          },
+          'data.fat_string': {
+            'meta': {
+              'label': 'fat string label set via response meta',
+              'default': 'new',
+              'hint': 'hint',
+              'readonly': false,
+            },
+            'constraints': {
+              'value.max': { 'is': '40', 'message': 'MAX 40' },
+            },
+          }
+        },
+      },
+    }
+
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
@@ -75,6 +146,34 @@ describe('furo-ui5-data-text-input-fat', () => {
     done();
   })
 
+  it('should apply meta and constraints to the bound field (wrapper)', done => {
+
+    dao.addEventListener('data-injected', () => {
+      assert.equal(input._state.disabled, false, 'check disabled')
+      assert.equal(input._state.highlight, false, 'check highlight')
+      assert.equal(input._state.placeholder, 'wrapper string label set via response meta', 'check placeholder')
+      assert.equal(input._state.readonly, false, 'check readonly')
+      assert.equal(input._state.required, false, 'check required')
+      assert.equal(input._state.type, 'Text', 'check type')
+      assert.equal(input._state.value, 'this is a google wrapper string', 'check value')
+      assert.equal(input._state.valueState, 'Success', 'check valueState')
+      assert.equal(input._state.valueStateMessage.length, 1, 'check valueStateMessage')
+      assert.equal(input._state.valueStateMessage[0], 'Your fat string is valid', 'check valueStateMessage content')
+      assert.equal(input._state.name, '', 'check name')
+      assert.equal(input._state.showSuggestions, false, 'check showSuggestions')
+      assert.equal(input._state.maxlength, 40, 'check maxlength')
+      assert.equal(input._state.ariaLabel, '', 'check ariaLabel')
+      assert.equal(input.__hint, '', 'check hint')
+      assert.equal(input.pristine, true, 'Please enter a description', 'check pristine')
+      assert.equal(input.binder.fieldFormat, 'wrapper', 'check fieldFormat')
+      assert.equal(input.querySelector('ui5-icon')._state.name, 'thumb-up', 'check icon')
+
+      done()
+    })
+
+    dao.injectRaw(testRecordMeta)
+
+  })
 
 
 
