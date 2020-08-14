@@ -1,23 +1,23 @@
-import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme';
-import { FBP } from '@furo/fbp/src/fbp.js';
+import { LitElement, html, css } from 'lit-element'
+import { Theme } from '@furo/framework/src/theme'
+import { FBP } from '@furo/fbp/src/fbp.js'
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/doc-helper';
+import '@furo/doc-helper'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5/src/furo-catalog.js';
+import '@furo/ui5/src/furo-catalog.js'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-data-object.js';
-import '@furo/data/src/furo-entity-agent.js';
-import '@furo/data/src/furo-deep-link.js';
+import '@furo/data/src/furo-data-object.js'
+import '@furo/data/src/furo-entity-agent.js'
+import '@furo/data/src/furo-deep-link.js'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-form-layouter.js';
-import '@furo/form/src/furo-button-bar.js';
-import '@furo/input/src/furo-button.js';
-import '@furo/data-input/demos/helper/produce-qp-data.js';
-import '@furo/data-input/demos/helper/fetch-universal-json.js';
+import '@furo/form/src/furo-form-layouter.js'
+import '@furo/form/src/furo-button-bar.js'
+import '@furo/input/src/furo-button.js'
+import '@furo/data-input/demos/helper/produce-qp-data.js'
+import '@furo/data-input/demos/helper/fetch-universal-json.js'
 
-import '@ui5/webcomponents/dist/Icon.js';
+import '@ui5/webcomponents/dist/Icon.js'
 import '../src/lib/ui5-icons.js'
 
 /**
@@ -81,8 +81,10 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
             <furo-ui5-data-text-input ƒ-bind-data="--entity(*.data.description)"></furo-ui5-data-text-input>
             <furo-ui5-data-text-input ƒ-bind-data="--entity(*.data.description)"></furo-ui5-data-text-input>
             <furo-ui5-data-text-input ƒ-bind-data="--entity(*.data.furo_data_text_input)"></furo-ui5-data-text-input>
-            <furo-ui5-data-text-input ƒ-bind-data="--entity(*.data.furo_data_date_input_google.display_name)"></furo-ui5-data-text-input>
-            <furo-ui5-data-number-input ƒ-bind-data="--entity(*.data.furo_data_number_input)"></furo-ui5-data-number-input>
+            <furo-ui5-data-text-input
+              ƒ-bind-data="--entity(*.data.furo_data_date_input_google.display_name)"></furo-ui5-data-text-input>
+            <furo-ui5-data-number-input
+              ƒ-bind-data="--entity(*.data.furo_data_number_input)"></furo-ui5-data-number-input>
             <furo-ui5-data-password-input ƒ-bind-data="--entity(*.data.description)"></furo-ui5-data-password-input>
           </furo-form-layouter>
 
@@ -94,9 +96,7 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
             ui5-text-input with type furo.fat.String bindings.
           </p>
           <furo-form-layouter two>
-            <furo-ui5-data-text-input
-              ƒ-bind-data="--entityU(*.data.fat_string)"
-            ></furo-ui5-data-text-input>
+            <furo-ui5-data-text-input ƒ-bind-data="--entityU(*.data.fat_string)"></furo-ui5-data-text-input>
             <furo-ui5-data-text-input
               ƒ-bind-data="--entityU(*.data.wrapper_string)"
             ></furo-ui5-data-text-input>
@@ -106,11 +106,17 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
             <furo-ui5-data-text-input
               ƒ-bind-data="--entityU(*.data.wrapper_string)"
             ></furo-ui5-data-text-input>
+            <furo-ui5-data-number-input
+              ƒ-bind-data="--entityU(*.data.fat_int32)"></furo-ui5-data-number-input>
+            <furo-ui5-data-password-input ƒ-bind-data="--entityU(*.data.fat_string))"></furo-ui5-data-password-input>
           </furo-form-layouter>
+
+
           <fetch-universal-json
             file="/mockdata/ui5/demos/fat-universal.json"
             @-data-loaded="--mockdata"
-          > mockdate with suggestions</fetch-universal-json>
+          > mockdate with suggestions
+          </fetch-universal-json>
           <fetch-universal-json
             file="/mockdata/ui5/demos/fat-universal-unset-label.json"
             @-data-loaded="--mockdata"
