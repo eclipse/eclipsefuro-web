@@ -4,3 +4,4 @@ import './furo-ui5-data-text-input-labeled.js';
 import './furo-ui5-data-number-input.js';
 import './furo-ui5-data-password-input.js';
 import './furo-ui5-data-collection-dropdown.js';
+import './furo-ui5-data-date-picker.js';

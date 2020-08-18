@@ -1,0 +1,27 @@
+{
+  "data": {
+    "furo_data_date_input": "2019-02-22",
+    "furo_data_date_input_google": {
+      "day": 31,
+      "display_name": "31.12.2020",
+      "month": 12,
+      "year": 2020
+    }
+  },
+  "meta": {
+    "fields": {
+      "data.furo_data_date_input": {
+        "meta": {
+          "label": "date input label via meta",
+          "readonly": false
+        }
+      },
+      "data.furo_data_date_input_google": {
+        "meta": {
+          "label": "google date input label via meta",
+          "readonly": false
+        }
+      }
+    }
+  }
+}

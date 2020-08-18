@@ -1,4 +1,4 @@
-import {FuroUi5DataInput} from './furo-ui5-data-input.js';
+import { FuroUi5DataInput } from './furo-ui5-data-input.js';
 
 /**
  * The ui5-input component allows the user to enter and edit text.
@@ -13,8 +13,7 @@ import {FuroUi5DataInput} from './furo-ui5-data-input.js';
  * @demo demo-furo-ui5-data-text-input Basic usage (scalar , fat, wrapper values)
  * @demo demo-furo-ui5-data-text-input-together playground
  */
-export class FuroUi5DataTextInput extends FuroUi5DataInput{
-
+export class FuroUi5DataTextInput extends FuroUi5DataInput {
   /**
    * Fired when the input operation has finished by pressing Enter or on focusout.
    * @event change
@@ -53,7 +52,7 @@ export class FuroUi5DataTextInput extends FuroUi5DataInput{
    */
   constructor(props) {
     super(props);
-    this.type = "Text";
+    this.type = 'Text';
   }
 
   /**

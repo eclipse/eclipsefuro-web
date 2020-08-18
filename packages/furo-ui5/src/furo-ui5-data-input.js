@@ -1,6 +1,6 @@
 import * as Input from '@ui5/webcomponents/dist/Input.js';
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
-import "@ui5/webcomponents/dist/features/InputSuggestions.js";
+import '@ui5/webcomponents/dist/features/InputSuggestions.js';
 
 /**
  * `furo-ui5-data-input`
@@ -13,7 +13,7 @@ import "@ui5/webcomponents/dist/features/InputSuggestions.js";
 export class FuroUi5DataInput extends Input.default {
   constructor(props) {
     super(props);
-    this.valueState = "None";
+    this.valueState = 'None';
     this.showSuggestions = true;
     this.highlight = true;
     this._initBinder();
@@ -34,24 +34,23 @@ export class FuroUi5DataInput extends Input.default {
    * apply the binding set to the universal field node binder
    */
   applyBindingSet() {
-
     // set the attribute mappings
     this.binder.attributeMappings = {
-      'label': 'placeholder', // map label to placeholder
-      'placeholder': 'placeholder', // map placeholder to placeholder
-      'hint': '_hint',
-      'icon': 'ui5Icon', // icon and leading icon maps to the same
-      'leading-icon': 'ui5Icon',// icon and leading icon maps to the same
+      label: 'placeholder', // map label to placeholder
+      placeholder: 'placeholder', // map placeholder to placeholder
+      hint: '_hint',
+      icon: 'ui5Icon', // icon and leading icon maps to the same
+      'leading-icon': 'ui5Icon', // icon and leading icon maps to the same
       'value-state': '_valueState',
-      'errortext': '_errorMsg', // name errortext is for compatibility with spec
+      errortext: '_errorMsg', // name errortext is for compatibility with spec
       'error-msg': '_errorMsg',
       'warning-msg': '_warningMsg',
       'success-msg': '_successMsg',
       'information-msg': '_informationMsg',
-      'pattern': 'pattern',
-      'name': 'name',
-      'suggestions': 'suggestions', // suggestion items
-      'maxlength': 'maxlength', // for the input element itself
+      pattern: 'pattern',
+      name: 'name',
+      suggestions: 'suggestions', // suggestion items
+      maxlength: 'maxlength', // for the input element itself
     };
 
     // set the label mappings
@@ -66,8 +65,8 @@ export class FuroUi5DataInput extends Input.default {
 
     // set attributes to constrains mapping for furo.fat types
     this.binder.fatAttributesToConstraintsMappings = {
-      maxlength: 'value._constraints.max.is',// for the fieldnode constraint
-      minlength: 'value._constraints.min.is',// for the fieldnode constraint
+      maxlength: 'value._constraints.max.is', // for the fieldnode constraint
+      minlength: 'value._constraints.min.is', // for the fieldnode constraint
       pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
       required: 'value._constraints.required.is', // for the fieldnode constraint
       'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
@@ -84,7 +83,6 @@ export class FuroUi5DataInput extends Input.default {
 
     // update the value on input changes
     this.addEventListener('input', val => {
-
       // set flag empty on empty strings (for fat types)
       if (val.target.value) {
         this.binder.deleteLabel('empty');
@@ -129,7 +127,6 @@ export class FuroUi5DataInput extends Input.default {
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
         this.binder.addLabel('pristine');
       });
-
     }
   }
 
@@ -146,7 +143,7 @@ export class FuroUi5DataInput extends Input.default {
     // update the value
     if (icon) {
       this._icon.name = icon;
-      this.appendChild(this._icon)
+      this.appendChild(this._icon);
     } else {
       this._icon.remove();
     }
@@ -160,12 +157,11 @@ export class FuroUi5DataInput extends Input.default {
   set _error(err) {
     if (err) {
       this._lastValueState = this.valueState;
-      this.valueState = "Error";
-    } else if (this.valueState === "Error") {
+      this.valueState = 'Error';
+    } else if (this.valueState === 'Error') {
       this.valueState = this._lastValueState;
     }
   }
-
 
   /**
    * store the error message and update the value state message
@@ -213,7 +209,7 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _valueState(state) {
-    this.valueState = state || "None";
+    this.valueState = state || 'None';
     this._updateVS();
   }
 
@@ -226,9 +222,9 @@ export class FuroUi5DataInput extends Input.default {
     this.__hint = h;
     // do not set an empty attribute
     if (h) {
-      this.setAttribute("title", h);
+      this.setAttribute('title', h);
     } else {
-      this.removeAttribute("title");
+      this.removeAttribute('title');
     }
 
     this.__hint = h;
@@ -237,26 +233,26 @@ export class FuroUi5DataInput extends Input.default {
   _updateVS() {
     // set the correct valueStateMessage
     switch (this.valueState) {
-      case "Error":
+      case 'Error':
         this._vsm = this._valueStateMessage || this.__errorMsg || this.__hint;
-        this.removeAttribute("title");
+        this.removeAttribute('title');
         break;
-      case "Information":
+      case 'Information':
         this._vsm = this._valueStateMessage || this.__informationMsg || this.__hint;
-        this.removeAttribute("title");
+        this.removeAttribute('title');
         break;
-      case "Success":
+      case 'Success':
         this._vsm = this._valueStateMessage || this.__successMsg || this.__hint;
-        this.removeAttribute("title");
+        this.removeAttribute('title');
         break;
-      case "Warning":
+      case 'Warning':
         this._vsm = this._valueStateMessage || this.__warningMsg || this.__hint;
-        this.removeAttribute("title");
+        this.removeAttribute('title');
         break;
 
       default:
         this._vsm = this._valueStateMessage || this.__hint;
-        this.setAttribute("title", this._vsm);
+        this.setAttribute('title', this._vsm);
     }
     this._setValueStateMessage(this._vsm);
   }
@@ -274,7 +270,7 @@ export class FuroUi5DataInput extends Input.default {
     }
     this._valueStateElement.innerText = msg;
     if (msg) {
-      this.appendChild(this._valueStateElement)
+      this.appendChild(this._valueStateElement);
     } else {
       this._valueStateElement.remove();
     }
@@ -287,50 +283,49 @@ export class FuroUi5DataInput extends Input.default {
    * @param arr
    */
   set suggestions(arr) {
-
     // remove previous suggestion items.
-    this.querySelectorAll('ui5-suggestion-item').forEach(e=>{e.remove()});
+    this.querySelectorAll('ui5-suggestion-item').forEach(e => {
+      e.remove();
+    });
 
-    if(Array.isArray(arr) && arr.length>0) {
-
+    if (Array.isArray(arr) && arr.length > 0) {
       // add current suggestion items
-      arr.forEach(e=>{
+      arr.forEach(e => {
         const suggestion = document.createElement('ui5-suggestion-item');
 
         // suggestions from furo.optionItem
-        if(e.display_name !== undefined) {
+        if (e.display_name !== undefined) {
           suggestion.text = e.display_name;
         }
         // suggestions from fat attribute
-        if(e.text !== undefined) {
+        if (e.text !== undefined) {
           suggestion.text = e.text;
         }
 
         // appends only when suggestion text exists
-        if(suggestion.text !== undefined ) {
-
-          if(e.icon !== undefined) {
+        if (suggestion.text !== undefined) {
+          if (e.icon !== undefined) {
             suggestion.icon = e.icon;
           }
-          if(e.image !== undefined) {
+          if (e.image !== undefined) {
             suggestion.image = e.image;
           }
-          if(e.type !== undefined) {
+          if (e.type !== undefined) {
             suggestion.type = e.type;
           }
-          if(e.infoState !== undefined) {
+          if (e.infoState !== undefined) {
             suggestion.infoState = e.infoState;
           }
-          if(e.group !== undefined) {
+          if (e.group !== undefined) {
             suggestion.group = e.group;
           }
-          if(e.key !== undefined) {
+          if (e.key !== undefined) {
             suggestion.key = e.key;
           }
 
           this.appendChild(suggestion);
         }
-      })
+      });
     }
   }
 }

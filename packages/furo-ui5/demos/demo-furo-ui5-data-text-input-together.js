@@ -1,6 +1,6 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from '@furo/framework/src/theme.js';
-import {FBP} from '@furo/fbp';
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme.js';
+import { FBP } from '@furo/fbp';
 import '@furo/doc-helper';
 import '@furo/data/src/furo-data-object.js';
 import '@furo/form/src/furo-form.js';
@@ -36,7 +36,6 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
-
       `
     );
   }
@@ -126,4 +125,7 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-ui5-data-text-input-together', DemoFuroUi5DataTextInputTogether);
+window.customElements.define(
+  'demo-furo-ui5-data-text-input-together',
+  DemoFuroUi5DataTextInputTogether,
+);

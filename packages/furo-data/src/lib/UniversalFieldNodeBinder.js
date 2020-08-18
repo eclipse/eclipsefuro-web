@@ -170,8 +170,12 @@ export class UniversalFieldNodeBinder {
       }
     }
     this._fieldValue = val;
-    // update target
-    this.target[this.targetValueField] = val;
+
+
+    // update target. the target value of complex type should be updated in their input component self
+    if( this.targetValueField !== 'value' &&  this.fieldFormat !== 'complex' && this.fieldFormat !== undefined ) {
+      this.target[this.targetValueField] = val;
+    }
   }
 
   /**
@@ -483,15 +487,12 @@ export class UniversalFieldNodeBinder {
     // map the constraints to the fat attributes
     Object.keys(constraints).forEach(constraint => {
       if (constraint in this.constraintsTofatAttributesMappings) {
-
         // constrains with value true or false should be handled as label
-        if(constraints[constraint].is === true) {
+        if (constraints[constraint].is === true || constraints[constraint].is === 'true') {
           this.addLabel(this.constraintsTofatAttributesMappings[constraint]);
-        }
-        else if(constraints[constraint].is === false ) {
+        } else if (constraints[constraint].is === false || constraints[constraint].is === 'false') {
           this.deleteLabel(this.constraintsTofatAttributesMappings[constraint]);
-        }
-        else {
+        } else {
           this.setAttribute(
             this.constraintsTofatAttributesMappings[constraint],
             constraints[constraint].is,
