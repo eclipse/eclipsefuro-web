@@ -305,8 +305,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       this.value = arr[0].id
     }
     // save parsed selection option array
-    this.selectOptions = arr
-    this.addItems(this.selectOptions)
+    this.selectOptions = arr;
+    this.addItems(this.selectOptions);
     // trigger setting value after the options are injected to guarantee the correct selection
     if (this._v) {
       this._value = this._v
@@ -401,6 +401,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       element.setAttribute('value', item.label)
       element.setAttribute('data-id', item.id)
       element.setAttribute('selected', item.selected)
+      element.value = item.label;
+      element.selected = item.selected;
       element.innerText = item.label
       combo.appendChild(element)
     })
@@ -466,11 +468,11 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         }
       })
 
-      this.binder.fieldNode.addEventListener('this-field-value-changed', () => {
+      this.binder.fieldNode.addEventListener('field-value-changed', () => {
         this._updateField()
       })
 
-      this.binder.fieldNode.addEventListener('this-repeated-field-changed', () => {
+      this.binder.fieldNode.addEventListener('repeated-field-changed', () => {
         this._updateField()
       })
 
@@ -493,7 +495,12 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         super.value = (this._parseRepeatedData(this._fieldNodeToUpdate._value))
       }
     } else {
-      super.value = (this._fieldNodeToUpdate._value)
+      let size = this._dropdownList.length;
+      // eslint-disable-next-line no-plusplus
+      while (size--) {
+        this._dropdownList[size].selected = this._dropdownList[size].id === this.binder.fieldValue.id;
+      }
+      this._notifyAndTriggerUpdate(this._dropdownList);
     }
   }
 
@@ -574,58 +581,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     this.injectList(entities)
   }
 
-  /**
-   * Inject the array with entities for the selectable options.
-   *
-   * @param {Array} Array with entities
-   */
-  ainjectEntities(entities) {
-    let arr = []
-
-    // select the item when it's value is equal the field value.
-    // when field value is not equal the filed value, select the item if the item is marked as `selected`
-    if (Array.isArray(entities)) {
-      const arrA = []
-      const arrB = []
-      let isSelected = false
-      let hasSelectedMark = false
-      let preSelectedValueInList = null
-      for (let i = 0; i < entities.length; i += 1) {
-        const item = {
-          id: entities[i].data[this._valueField],
-          label: entities[i].data[this._displayField],
-          selected: false,
-          _original: entities[i],
-        }
-        let itemB = {}
-
-        itemB = Object.assign(itemB, item)
-
-        if (this._fieldNodeToUpdate._value === entities[i].data[this._valueField]) {
-          item.selected = true
-          isSelected = true
-        }
-
-        if (entities[i].data.selected) {
-          hasSelectedMark = true
-          itemB.selected = true
-          preSelectedValueInList = entities[i].data[this._valueField]
-        }
-
-        arrA.push(item)
-        arrB.push(itemB)
-      }
-
-      if (!isSelected && hasSelectedMark) {
-        arr = arrB
-        this._fieldNodeToUpdate._value = preSelectedValueInList
-      } else {
-        arr = arrA
-      }
-    }
-
-    this._notifyAndTriggerUpdate(arr)
-  }
 }
 
 window.customElements.define('furo-ui5-data-collection-dropdown', FuroUi5DataCollectionDropdown)
