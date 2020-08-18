@@ -14,7 +14,6 @@ import '@furo/data/src/furo-deep-link.js'
 import '@furo/form/src/furo-form-layouter.js'
 import '@furo/form/src/furo-button-bar.js'
 import '@furo/data-input/demos/helper/produce-qp-data.js'
-import '@furo/data-input/demos/helper/fetch-universal-json.js'
 
 import '@ui5/webcomponents/dist/Icon.js'
 import '../src/lib/ui5-icons.js'
@@ -70,12 +69,47 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
         <template>
 
           <furo-form-layouter one>
-            <furo-ui5-data-collection-dropdown value-field="id"
-                                               display-field="display_name"
-                                               ƒ-inject-entities="--response(*.entities)"
-                                               ƒ-bind-data="--entity(*.owner)">
-            </furo-ui5-data-collection-dropdown>
+            <div>
+              <p>Option items from spec. Type furo.Optionitem. Attention: OVERWRITE OF SUBFIELD DEFAULT</p>
+              <furo-ui5-data-collection-dropdown style="width: 100%;"
+                                                 sub-field=""
+                                                 ƒ-bind-data="--entity(*.owner)"
+                                                 @-item-selected="--itemSelected"></furo-ui5-data-collection-dropdown>
+            </div>
+            <div>
+              <p>Option items an array of objects with injectList(). Display field is set to field NAME</p>
+              <furo-ui5-data-collection-dropdown style="width: 100%;"
+                                                 display-field="name"
+                                                 ƒ-bind-data="--entity(*.owner)"
+                                                 ƒ-inject-list="--response(*.entities)"
+                                                 @-item-selected="--itemSelected"></furo-ui5-data-collection-dropdown>
+            </div>
+            <div>
+              <p>Option item from collection response. Type xxx.TypeEntity)</p>
+              <p>The attributes value-field, sub-field and display-field are optional and by default set to:
+                id, display_name and data</p>
+              <furo-ui5-data-collection-dropdown style="width: 100%;"
+                                                 value-field="id"
+                                                 sub-field="data"
+                                                 display-field="display_name"
+                                                 ƒ-inject-entities="--response(*.entities)"
+                                                 ƒ-bind-data="--entity(*.owner)"
+                                                 @-item-selected="--itemSelected">
+              </furo-ui5-data-collection-dropdown>
+            </div>
+            <div>
+              <p>Option item from collection response. Type xxx.TypeEntity)</p>
+              <p>In this example, the bound fieldNode receives a custom update. With the attributes value-sub-field and display-sub-field you can determine which attributes of the target object (bound field) are updated.</p>
+              <furo-ui5-data-collection-dropdown style="width: 100%;"
+                                                 value-sub-field="link.rel"
+                                                 display-sub-field="link.type"
+                                                 ƒ-inject-entities="--response(*.entities)"
+                                                 ƒ-bind-data="--entity(*.owner)"
+                                                 @-item-selected="--itemSelected">
+              </furo-ui5-data-collection-dropdown>
+            </div>
             <hr>
+            <p>Bound input fields</p>
             <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
             <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.display_name)"></furo-ui5-data-text-input>
 
@@ -84,6 +118,8 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
           <furo-button-bar>
             <ui5-button @-click="--load">load data</ui5-button>
           </furo-button-bar>
+
+          <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
 
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
           <furo-data-object
