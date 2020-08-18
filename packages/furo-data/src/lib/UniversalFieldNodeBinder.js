@@ -176,8 +176,6 @@ export class UniversalFieldNodeBinder {
       this.targetValueField !== 'value' ||
       (this.fieldFormat !== 'complex' && this.fieldFormat !== undefined)
     ) {
-      console.log(this.fieldFormat);
-      console.log(this.targetValueField);
       this.target[this.targetValueField] = val;
     }
   }
