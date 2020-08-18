@@ -1,28 +1,22 @@
-import * as Input from '@ui5/webcomponents/dist/ComboBox.js'
-import { FBP } from '@furo/fbp'
+import * as Select from '@ui5/webcomponents/dist/Select.js'
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js'
 
 /**
  * `furo-ui5-data-collection-dropdown`
- * The furo-ui5-data-collection-dropdown component represents a drop-down menu with a list of the available options and
- * a text input field to narrow down the options. It is commonly used to enable users to select one or more options from a predefined list.
- *
- * Structure
- * The furo-ui5-data-collection-dropdown consists of the following elements:
- *  - Input field - displays the selected option or a custom user entry. Users can type to narrow down the list or enter their own value.
- *  - Drop-down arrow - expands\collapses the option list.
- *  - Option list - the list of available options.
+ * The furo-ui5-data-collection-dropdown component represents a drop-down list. The items inside define the available
+ * options by using the furo-ui5-data-collection-dropdown component.
  *
  * Keyboard Handling
- * The furo-ui5-data-collection-dropdown provides advanced keyboard handling.
- * Picker
- * If the ui5-combobox is focused, you can open or close the drop-down by pressing F4, ALT+UP or ALT+DOWN keys.
+ * The furo-ui5-data-collection-dropdown provides advanced keyboard handling. If the furo-ui5-data-collection-dropdown
+ * is focused, you can open or close the drop-down by pressing F4, ALT+UP or ALT+DOWN keys. Once the drop-down is
+ * opened, you can use the UP and DOWN arrow keys to navigate through the available options and select one
+ * by pressing the Space or Enter keys.
  *
  * @summary data collection dropdown
  * @customElement
  * @demo demo-furo-ui5-data-collection-dropdown Basic Usage
  */
-export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
+export class FuroUi5DataCollectionDropdown extends Select.default {
   /**
    * @event value-changed
    * Fired when value has changed from the component inside.
@@ -32,38 +26,72 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
    *  **bubbles**
    */
 
-  constructor() {
-    super()
-    this.error = false
-    this.disabled = false
-    this.displayField = 'display_name'
-    this.valueField = 'id'
+  constructor(props) {
+
+    super(props)
+    this.valueState = 'None'
+
+    /**
+     * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
+     *
+     * This is only needed if display_name and value_field are not located in the root of the object.
+     * @property sub-field
+     * @private
+     */
+    this._subField = 'data'
+    /**
+     * The name of the field from the injected collection that contains the label for the dropdown array.
+     * @property display-field
+     * @private
+     */
+    this._displayField = 'display_name'
+    /**
+     * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
+     * If you bind a scalar, you dont need this attribute.
+     * @property value-field
+     * @private
+     */
+    this._valueField = 'id'
+
+    /**
+     * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
+     *
+     * If you bind a scalar, you dont need this attribute.
+     * @property value-sub-field
+     * @private
+     */
+    this._valueSubField = 'id'
+
+    /**
+     * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
+     *
+     * If you bind a scalar, you dont need this attribute.
+     * @property display-sub-field
+     * @private
+     */
+    this._displaySubField = 'display_name'
 
     this._fieldNodeToUpdate = {}
     this._fieldDisplayNodeToUpdate = {}
 
+    /**
+     * Listener to catch the selected data
+     */
     this.addEventListener('change', val => {
 
-      const selectedObj = this._dropdownList.find(obj => {
-        return obj._original.data[this.displayField] === val.target.value
-      });
-
-      const cbValue = selectedObj._original.data[this.valueField];
+      const selectedObj = this._dropdownList.find(obj => obj.id === val.detail.selectedOption.dataset.id)
 
       if (this.binder.fieldNode) {
         if (!this.multiple) {
           // by valid input reset meta and constraints
-          this._fieldNodeToUpdate._value = cbValue
-
-          if (this.subfield) {
-            this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(cbValue)
-          }
+          this._fieldNodeToUpdate._value = selectedObj.id
+          this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id)
         } else {
           const data = []
-          const arrSubfieldChains = this.subfield.split('.')
+          const arrSubfieldChains = this._subField.split('.')
           // create value data according to the structure of subfield
-          if (Array.isArray(cbValue)) {
-            cbValue.forEach(v => {
+          if (Array.isArray(selectedObj.id)) {
+            selectedObj.forEach(v => {
               const tmp = {}
               for (let i = arrSubfieldChains.length - 1; i > -1; i -= 1) {
                 tmp[i] = {}
@@ -85,10 +113,41 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
           }, 100)
         }
       }
-      this._notifiySelectedItem(cbValue)
+      this._notifiySelectedItem(selectedObj)
     })
 
     this._initBinder()
+  }
+
+  /**
+   * List of observed attributes
+   * @returns {string[]}
+   */
+  static get observedAttributes() {
+    return ['value-field', 'display-field', 'sub-field', 'value-sub-field', 'display-sub-field']
+  }
+
+  attributeChangedCallback(name, oldVal, newVal) {
+    if (oldVal !== newVal) {
+      // eslint-disable-next-line default-case
+      switch (name) {
+        case 'value-field':
+          this._valueField = newVal
+          break
+        case 'display-field':
+          this._displayField = newVal
+          break
+        case 'sub-field':
+          this._subField = newVal
+          break
+        case 'value-sub-field':
+          this._valueSubField = newVal
+          break
+        case 'display-sub-field':
+          this._displaySubField = newVal
+          break
+      }
+    }
   }
 
   /**
@@ -169,53 +228,15 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
     return displayName
   }
 
-  _notifiySelectedItem(val) {
-    /**
-     * @event item-selected
-     * Fired when a item from the dropdown was selected
-     *
-     * detail payload: the original item object or the array of original item objects by multiple options
-     */
-    const customEvent = new Event('item-selected', { composed: true, bubbles: true })
-    // find item from list
-    let selectedItem
-
-    if (this.multiple) {
-      selectedItem = []
-      for (let i = this._dropdownList.length - 1; i >= 0; i -= 1) {
-        if (val.includes(this._dropdownList[i].id)) {
-          selectedItem.push(this._dropdownList[i]._original)
-        }
-      }
-    } else {
-      for (let i = this._dropdownList.length - 1; i >= 0; i -= 1) {
-        if (this._dropdownList[i].id === val) {
-          selectedItem = this._dropdownList[i]._original
-          break
-        }
-      }
-    }
-    customEvent.detail = selectedItem
-    this.dispatchEvent(customEvent)
-  }
-
   /**
-   * Updater for the list attr
-   * @param value
+   * @event item-selected
+   * Fired when a item from the dropdown was selected
+   * detail payload: the original item object or the array of original item objects by multiple options
    */
-  set list(value) {
-    // map
-    const arr = value.split(',').map(e => {
-      const item = e.trim()
-      return {
-        id: item,
-        label: e,
-        selected: this._fieldNodeToUpdate._value === item,
-        _original: item,
-      }
-    })
-
-    this._notifyAndTriggerUpdate(arr)
+  _notifiySelectedItem(obj) {
+    const customEvent = new Event('item-selected', { composed: true, bubbles: true })
+    customEvent.detail = obj._original
+    this.dispatchEvent(customEvent)
   }
 
   /**
@@ -228,15 +249,15 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
       this._dropdownList = arr
 
       if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
-        // notifiy first item if field is not set
+        // notify first item if field is not set
         let selectedItem = null
         for (let i = 0; i < arr.length; i += 1) {
           if (arr[i].selected) {
-            selectedItem = arr[i].id
+            selectedItem = arr[i]
             break
           }
         }
-        selectedItem = selectedItem || arr[0].id
+        selectedItem = selectedItem || arr[0]
         this._notifiySelectedItem(selectedItem)
         if (this._fieldNodeToUpdate) {
           this._fieldNodeToUpdate._value = selectedItem
@@ -246,7 +267,7 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
       } else {
         this._notifiySelectedItem(this._fieldNodeToUpdate._value)
       }
-      this.setOptions(arr)
+      this.setList(arr)
     }
   }
 
@@ -254,11 +275,15 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
    * Set the options programmatically
    * @param {Array} Array with options
    */
-  setOptions(optionArray) {
-    this.options = optionArray
+  setList(optionArray) {
+    this.optionItems = optionArray
   }
 
-  set options(collection) {
+  set optionItems(collection) {
+    if (collection === undefined || !collection.length) {
+      // no action
+      return
+    }
     // convert array list to id, label structure
     if (typeof collection[0] === 'string') {
       // eslint-disable-next-line no-param-reassign
@@ -288,168 +313,109 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
     }
   }
 
+  /**
+   *
+   * @param collection
+   * @returns {[]}
+   * @private
+   */
+  _mapInputToInnerStruct(collection) {
+    if (collection === undefined || !collection.length) {
+      // no valid collection object submitted
+      return []
+    }
+    const arrValue = [];
+
+    const arrSubfieldChains = this._subField.length ? this._subField.split('.') : [];
+
+    if (Array.isArray(collection)) {
+      collection.forEach(element => {
+        let tmpValue = element;
+        arrSubfieldChains.forEach(s => {
+          tmpValue = tmpValue[s] ? tmpValue[s] : tmpValue;
+        })
+        arrValue.push(tmpValue);
+      })
+    }
+    return arrValue;
+  }
+
+  /**
+   * Maps an array structure to the inner list struct
+   * {id: '', label: '', selected: Boolean, _original: {}}
+   * @param list
+   * @returns {[]}
+   * @private
+   */
+  _mapDataToList(list) {
+    let arr = []
+    // if field value not exists. select item when the item is marked as `selected` in list
+    if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
+      arr = this._setItemSelectedViaSelectedMark(list)
+    } else if (Array.isArray(list)) {
+      let isSelected = false
+      let hasSelectedMark = false
+      let preSelectedValueInList = null
+      for (let i = 0; i < list.length; i += 1) {
+        const item = {
+          id: list[i][this._valueField],
+          label: list[i][this._displayField],
+          selected: false,
+          _original: list[i],
+        }
+
+        if (this._fieldNodeToUpdate._value === list[i][this._valueField]) {
+          item.selected = true
+          isSelected = true
+        }
+
+        if (list[i].selected) {
+          hasSelectedMark = true
+          preSelectedValueInList = list[i][this._valueField]
+        }
+
+        arr.push(item)
+      }
+
+      if (!isSelected && hasSelectedMark) {
+        arr = this._setItemSelectedViaSelectedMark(list)
+        this._fieldNodeToUpdate._value = preSelectedValueInList
+      }
+    }
+
+    return arr
+  }
+
+  /**
+   * Adds the option components to the default slot
+   * @param options
+   */
   addItems(options) {
-    const combo = this;
+    const combo = this
     while (combo.firstChild) {
-      combo.removeChild(combo.firstChild);
+      combo.removeChild(combo.firstChild)
     }
-
-    combo.value = '';
-
-    options.forEach(function (item) {
-      const element = document.createElement("ui5-cb-item");
-      element.setAttribute("text", item.label);
-      element.setAttribute("value", item.id);
-      element.setAttribute("selected", item.selected);
-      combo.appendChild(element);
-    });
-  }
-
-  static get properties() {
-    return {
-
-      /**
-       * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
-       *
-       * If you bind a scalar, you dont need this attribute.
-       */
-      subfield: {
-        type: String,
-      },
-      /**
-       * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
-       *
-       * If you bind a scalar, you dont need this attribute.
-       */
-      subfieldDisplay: {
-        type: String,
-        attribute: 'subfield-display',
-      },
-      /**
-       * The name of the field from the injected collection that contains the label for the dropdown array.
-       */
-      displayField: {
-        type: String,
-        attribute: 'display-field',
-      },
-      /**
-       * The name of the field from the injected collection that contains the value you want to assign to the attribute value and the bounded field.
-       */
-      valueField: {
-        type: String,
-        attribute: 'value-field',
-      },
-      /**
-       * Overrides the hint text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      hint: {
-        type: String,
-        reflect: true,
-      },
-
-      readonly: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-
-      /**
-       * Set this attribute to autofocus the input field.
-       */
-      autofocus: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Icon on the left side
-       */
-      leadingIcon: {
-        type: String,
-        attribute: 'leading-icon',
-        reflect: true,
-      },
-      /**
-       * Icon on the right side
-       */
-      trailingIcon: {
-        type: String,
-        attribute: 'trailing-icon',
-        reflect: true,
-      },
-      /**
-       * html input validity
-       */
-      valid: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */
-      condensed: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Set a string list as options:
-       *
-       * "A, B, C"
-       *
-       * This will convert to options ["A","B","C"] by furo-select-input
-       */
-      list: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * the dropdown list
-       */
-      _dropdownList: {
-        type: Array,
-      },
-      /**
-       * multiple selection mark
-       */
-      multiple: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * the size of multiple selection
-       */
-      size: {
-        type: Number,
-        reflect: true,
-      },
-      /**
-       * A Boolean attribute which, if present, means this field is not writeable for a while.
-       */
-      _writeLock: {
-        type: Boolean,
-      },
-    }
+    combo.value = ''
+    options.forEach((item) => {
+      const element = document.createElement('ui5-option')
+      element.setAttribute('value', item.label)
+      element.setAttribute('data-id', item.id)
+      element.setAttribute('selected', item.selected)
+      element.innerText = item.label
+      combo.appendChild(element)
+    })
   }
 
   /**
-   * Sets the field to readonly
+   * Let you get an attribute value by path
+   * @param obj
+   * @param path
+   * @returns {T}
+   * @private
    */
-  disable() {
-    super.disable()
-  }
-
-  /**
-   * Makes the field writable.
-   */
-  enable() {
-    super.enable()
+  // eslint-disable-next-line class-methods-use-this
+  _getValueByPath(obj, path) {
+    return path.split('.').reduce((res, prop) => res[prop], obj)
   }
 
   /**
@@ -478,24 +444,12 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
       // use multiple select for repeated node
       if (fieldNode._meta && fieldNode._meta.repeated) {
         this.multiple = true
-        if (!this.subfield) {
-          this.subfield = 'id'
-        }
       }
 
-      // by complex type set `id` as `subfield` as default
-      if (this._checkIsComplexType(fieldNode) && !this.subfield) {
-        this.subfield = 'id'
-      }
-
-      if (this.subfield && !this.multiple) {
-        this._fieldNodeToUpdate = this.binder.fieldNode[this.subfield]
-
-        if (this.subfieldDisplay) {
-          this._fieldDisplayNodeToUpdate = this.binder.fieldNode[this.subfieldDisplay]
-        } else if (this.binder.fieldNode.display_name) {
-          this._fieldDisplayNodeToUpdate = this.binder.fieldNode.display_name
-        }
+      if (this._valueSubField && !this.multiple) {
+        this._fieldNodeToUpdate = this._getValueByPath(this.binder.fieldNode, this._valueSubField);
+        // this._fieldNodeToUpdate = this.binder.fieldNode[this._valueSubField];
+        this._fieldDisplayNodeToUpdate = this._getValueByPath(this.binder.fieldNode, this._displaySubField);
       } else {
         this._fieldNodeToUpdate = this.binder.fieldNode
       }
@@ -525,21 +479,6 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
   }
 
   /**
-   *
-   * @param fieldNode
-   * @returns {boolean}
-   * @private
-   */
-  // eslint-disable-next-line class-methods-use-this
-  _checkIsComplexType(fieldNode) {
-    let isComplex = false
-    if (fieldNode.__childNodes.length > 0) {
-      isComplex = true
-    }
-    return isComplex
-  }
-
-  /**
    * Sets the value for the field. This will update the fieldNode.
    * @param val
    */
@@ -566,7 +505,7 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
    */
   _parseRepeatedData(data) {
     const arrValue = []
-    const arrSubfieldChains = this.subfield.split('.')
+    const arrSubfieldChains = this._subField.split('.')
     if (Array.isArray(data)) {
       data.forEach(element => {
         let tmpValue = element
@@ -584,56 +523,18 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
    * @param {options} list of options with id and display_name
    */
   _buildListWithMetaOptions(options) {
-    const arr = this._mapDataToList(options.list)
+    // const arr = this._mapDataToList(options.list)
+    this.injectList(options.list);
 
-    this._notifyAndTriggerUpdate(arr)
-  }
-
-  _mapDataToList(list) {
-    let arr = []
-    // if field value not exists. select item when the item is marked as `selected` in list
-    if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
-      arr = this._setItemSelectedViaSelectedMark(list)
-    } else if (Array.isArray(list)) {
-      let isSelected = false
-      let hasSelectedMark = false
-      let preSelectedValueInList = null
-      for (let i = 0; i < list.length; i += 1) {
-        const item = {
-          id: list[i][this.valueField],
-          label: list[i][this.displayField],
-          selected: false,
-          _original: list[i],
-        }
-
-        if (this._fieldNodeToUpdate._value === list[i][this.valueField]) {
-          item.selected = true
-          isSelected = true
-        }
-
-        if (list[i].selected) {
-          hasSelectedMark = true
-          preSelectedValueInList = list[i][this.valueField]
-        }
-
-        arr.push(item)
-      }
-
-      if (!isSelected && hasSelectedMark) {
-        arr = this._setItemSelectedViaSelectedMark(list)
-        this._fieldNodeToUpdate._value = preSelectedValueInList
-      }
-    }
-
-    return arr
+    // this._notifyAndTriggerUpdate(arr)
   }
 
   _setItemSelectedViaSelectedMark(list) {
     let arr = []
     if (Array.isArray(list)) {
       arr = list.map(e => ({
-        id: e[this.valueField],
-        label: e[this.displayField],
+        id: e[this._valueField],
+        label: e[this._displayField],
         selected: !!e.selected,
         _original: e,
       }))
@@ -657,15 +558,20 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
    *  },
    * ]
    * ```
-   *
-   *
-   *
    * @param {Array} Array with entities
    */
   injectList(list) {
-    const arr = this._mapDataToList(list)
+    const arr = this._mapInputToInnerStruct(list)
+    const innerList = this._mapDataToList(arr)
+    this._notifyAndTriggerUpdate(innerList)
+  }
 
-    this._notifyAndTriggerUpdate(arr)
+  /**
+   * Inject the array of a collection
+   * @param entities
+   */
+  injectEntities(entities) {
+    this.injectList(entities)
   }
 
   /**
@@ -673,7 +579,7 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
    *
    * @param {Array} Array with entities
    */
-  injectEntities(entities) {
+  ainjectEntities(entities) {
     let arr = []
 
     // select the item when it's value is equal the field value.
@@ -686,8 +592,8 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
       let preSelectedValueInList = null
       for (let i = 0; i < entities.length; i += 1) {
         const item = {
-          id: entities[i].data[this.valueField],
-          label: entities[i].data[this.displayField],
+          id: entities[i].data[this._valueField],
+          label: entities[i].data[this._displayField],
           selected: false,
           _original: entities[i],
         }
@@ -695,7 +601,7 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
 
         itemB = Object.assign(itemB, item)
 
-        if (this._fieldNodeToUpdate._value === entities[i].data[this.valueField]) {
+        if (this._fieldNodeToUpdate._value === entities[i].data[this._valueField]) {
           item.selected = true
           isSelected = true
         }
@@ -703,7 +609,7 @@ export class FuroUi5DataCollectionDropdown extends FBP(Input.default) {
         if (entities[i].data.selected) {
           hasSelectedMark = true
           itemB.selected = true
-          preSelectedValueInList = entities[i].data[this.valueField]
+          preSelectedValueInList = entities[i].data[this._valueField]
         }
 
         arrA.push(item)
