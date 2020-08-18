@@ -119,7 +119,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
           </furo-form-layouter>
 
           <furo-button-bar>
-            <ui5-button @-click="--load">load data</ui5-button>
+            <ui5-button design="Emphasized" @-click="--load">load data</ui5-button>
           </furo-button-bar>
 
           <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>

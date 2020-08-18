@@ -1532,11 +1532,11 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-data-number-input",
+          "url": "demo-furo-ui5-data-text-input",
           "description": "Basic usage (scalar , fat, wrapper values)"
         },
         {
-          "url": "demo-furo-ui5-data-number-input-together",
+          "url": "demo-furo-ui5-data-text-input-together",
           "description": "playground"
         }
       ],
