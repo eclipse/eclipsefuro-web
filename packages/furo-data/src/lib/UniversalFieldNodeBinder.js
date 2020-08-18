@@ -171,9 +171,13 @@ export class UniversalFieldNodeBinder {
     }
     this._fieldValue = val;
 
-
     // update target. the target value of complex type should be updated in their input component self
-    if( this.targetValueField !== 'value' &&  this.fieldFormat !== 'complex' && this.fieldFormat !== undefined ) {
+    if (
+      this.targetValueField !== 'value' ||
+      (this.fieldFormat !== 'complex' && this.fieldFormat !== undefined)
+    ) {
+      console.log(this.fieldFormat);
+      console.log(this.targetValueField);
       this.target[this.targetValueField] = val;
     }
   }
