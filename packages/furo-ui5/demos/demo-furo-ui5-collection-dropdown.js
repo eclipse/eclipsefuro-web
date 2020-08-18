@@ -71,7 +71,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
           <furo-form-layouter one>
             <div>
               <p>Option items from spec. Type furo.Optionitem. Attention: OVERWRITE OF SUBFIELD DEFAULT</p>
-              <furo-ui5-data-collection-dropdown style="width: 100%;"
+              <furo-ui5-data-collection-dropdown style="width: 100%;" value-state="Warning"
                                                  sub-field=""
                                                  ƒ-bind-data="--entity(*.owner)"
                                                  @-item-selected="--itemSelected"></furo-ui5-data-collection-dropdown>
@@ -99,7 +99,9 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
             </div>
             <div>
               <p>Option item from collection response. Type xxx.TypeEntity)</p>
-              <p>In this example, the bound fieldNode receives a custom update. With the attributes value-sub-field and display-sub-field you can determine which attributes of the target object (bound field) are updated.</p>
+              <p>In this example, the bound fieldNode receives a custom update. With the attributes value-sub-field and display-sub-field
+                you can determine which attributes of the target object (bound field) are updated.
+                In this use case the link object of the type reference is updated (check the furo-data-object)</p>
               <furo-ui5-data-collection-dropdown style="width: 100%;"
                                                  value-sub-field="link.rel"
                                                  display-sub-field="link.type"
@@ -109,8 +111,9 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
               </furo-ui5-data-collection-dropdown>
             </div>
             <hr>
-            <p>Bound input fields</p>
-            <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
+            <p>Bound input fields: owner.id and owner.display_name.
+            If you enter a valid owner ID, the items in the collection drop-down list automatically display the record matching the ID.</p>
+            <furo-ui5-data-text-input value-state="Success" ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
             <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.display_name)"></furo-ui5-data-text-input>
 
           </furo-form-layouter>
