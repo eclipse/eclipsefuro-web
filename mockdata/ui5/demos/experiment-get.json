@@ -20,6 +20,14 @@
         "meta": {
           "label": "google date input label via meta",
           "readonly": false
+        },
+        "constraints": {
+          "max": {"is": "2020-09-30","message": "MAX 2020-09-30"},
+          "min": {"is": "2020-07-30","message": "MIN 2020-07-30"},
+          "pattern": {
+            "is": "dd.MM.yy",
+            "message": "Bitte ausfüllen!"
+          }
         }
       }
     }

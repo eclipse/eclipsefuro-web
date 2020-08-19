@@ -70,7 +70,8 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
       pattern: 'formatPattern', // date format-pattern for datepicker
       name: 'name',
       suggestions: 'suggestions', // suggestion items
-      maxlength: 'maxlength', // for the input element itself
+      'max-date': 'maxDate', // max date
+      'min-date': 'minDate', // min date
     };
 
     // set the label mappings
@@ -85,8 +86,8 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
 
     // set attributes to constrains mapping for furo.fat types
     this.binder.fatAttributesToConstraintsMappings = {
-      maxDate: 'value._constraints.max.is', // for the fieldnode constraint
-      minDate: 'value._constraints.min.is', // for the fieldnode constraint
+      'max-date': 'value._constraints.max.is', // for the fieldnode constraint
+      'min-date': 'value._constraints.min.is', // for the fieldnode constraint
       pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
       required: 'value._constraints.required.is', // for the fieldnode constraint
       'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
@@ -95,8 +96,8 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
 
     // set constrains to attributes mapping for furo.fat types
     this.binder.constraintsTofatAttributesMappings = {
-      max: 'maxDate',
-      min: 'minDate',
+      max: 'max-date',
+      min: 'min-date',
       pattern: 'pattern',
       required: 'required',
     };
@@ -197,6 +198,11 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
       });
 
       this.binder.fieldNode.addEventListener('field-value-changed', () => {
+        this._updateInputDateValue();
+      });
+
+      // should show the date according to new pattern when the pattern in constrains changes
+      this.binder.fieldNode.addEventListener('this-metas-changed', () => {
         this._updateInputDateValue();
       });
 
