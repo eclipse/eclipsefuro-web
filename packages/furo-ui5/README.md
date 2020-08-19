@@ -15,6 +15,11 @@ For seamless integration into the Furo environment, we have slightly extended so
 ### Elements
 
 - [furo-ui5-pagination](https://components.furo.pro/?t=FuroUI5Pagination) a pagination bar 
+- [furo-ui5-data-text-input](https://components.furo.pro/?t=FuroUi5DataTextInput) a text input component 
+- [furo-ui5-data-number-input](https://components.furo.pro/?t=FuroUi5DataNumberInput) a number input component 
+- [furo-ui5-data-password-input](https://components.furo.pro/?t=FuroUi5DataPasswordInput) a password input component 
+- [furo-ui5-data-date-picker](https://components.furo.pro/?t=FuroUi5DataDatePicker) a date input component 
+- [furo-ui5-data-collection-dropdown](https://components.furo.pro/?t=FuroUi5DataCollectionDropdown) a dropdown component 
 
 ## License
 A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
