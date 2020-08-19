@@ -2044,11 +2044,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 281,
+              "line": 282,
               "column": 2
             },
             "end": {
-              "line": 313,
+              "line": 310,
               "column": 3
             }
           },
@@ -2066,11 +2066,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 129,
+              "line": 130,
               "column": 2
             },
             "end": {
-              "line": 150,
+              "line": 151,
               "column": 3
             }
           },
@@ -2096,11 +2096,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 157,
+              "line": 158,
               "column": 2
             },
             "end": {
-              "line": 216,
+              "line": 217,
               "column": 3
             }
           },
@@ -2116,11 +2116,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 219,
               "column": 2
             },
             "end": {
-              "line": 228,
+              "line": 229,
               "column": 3
             }
           },
@@ -2137,11 +2137,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 235,
+              "line": 236,
               "column": 2
             },
             "end": {
-              "line": 239,
+              "line": 240,
               "column": 3
             }
           },
@@ -2161,11 +2161,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 246,
+              "line": 247,
               "column": 2
             },
             "end": {
-              "line": 271,
+              "line": 272,
               "column": 3
             }
           },
@@ -2185,11 +2185,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 277,
+              "line": 278,
               "column": 2
             },
             "end": {
-              "line": 279,
+              "line": 280,
               "column": 3
             }
           },
@@ -2209,11 +2209,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 321,
+              "line": 318,
               "column": 2
             },
             "end": {
-              "line": 340,
+              "line": 337,
               "column": 3
             }
           },
@@ -2233,11 +2233,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 349,
+              "line": 346,
               "column": 2
             },
             "end": {
-              "line": 386,
+              "line": 383,
               "column": 3
             }
           },
@@ -2257,11 +2257,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 392,
+              "line": 389,
               "column": 2
             },
             "end": {
-              "line": 408,
+              "line": 405,
               "column": 3
             }
           },
@@ -2281,11 +2281,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 418,
+              "line": 415,
               "column": 2
             },
             "end": {
-              "line": 420,
+              "line": 417,
               "column": 3
             }
           },
@@ -2305,11 +2305,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 427,
+              "line": 424,
               "column": 2
             },
             "end": {
-              "line": 480,
+              "line": 477,
               "column": 3
             }
           },
@@ -2331,11 +2331,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 486,
+              "line": 483,
               "column": 2
             },
             "end": {
-              "line": 488,
+              "line": 485,
               "column": 3
             }
           },
@@ -2355,11 +2355,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 491,
+              "line": 488,
               "column": 2
             },
             "end": {
-              "line": 504,
+              "line": 501,
               "column": 3
             }
           },
@@ -2375,11 +2375,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 512,
+              "line": 509,
               "column": 2
             },
             "end": {
-              "line": 525,
+              "line": 522,
               "column": 3
             }
           },
@@ -2399,11 +2399,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 531,
+              "line": 528,
               "column": 2
             },
             "end": {
-              "line": 536,
+              "line": 530,
               "column": 3
             }
           },
@@ -2423,11 +2423,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 538,
+              "line": 532,
               "column": 2
             },
             "end": {
-              "line": 549,
+              "line": 543,
               "column": 3
             }
           },
@@ -2444,11 +2444,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 569,
+              "line": 563,
               "column": 2
             },
             "end": {
-              "line": 573,
+              "line": 575,
               "column": 3
             }
           },
@@ -2468,11 +2468,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 579,
+              "line": 581,
               "column": 2
             },
             "end": {
-              "line": 581,
+              "line": 583,
               "column": 3
             }
           },
@@ -2497,11 +2497,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 7
         },
         "end": {
-          "line": 583,
+          "line": 585,
           "column": 1
         }
       },
@@ -2514,11 +2514,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 127,
               "column": 12
             },
             "end": {
-              "line": 126,
+              "line": 127,
               "column": 25
             }
           },
@@ -2529,11 +2529,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 127,
               "column": 27
             },
             "end": {
-              "line": 126,
+              "line": 127,
               "column": 42
             }
           },
@@ -2544,11 +2544,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 127,
               "column": 44
             },
             "end": {
-              "line": 126,
+              "line": 127,
               "column": 55
             }
           },
@@ -2559,11 +2559,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 127,
               "column": 57
             },
             "end": {
-              "line": 126,
+              "line": 127,
               "column": 74
             }
           },
@@ -2574,11 +2574,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 127,
               "column": 76
             },
             "end": {
-              "line": 126,
+              "line": 127,
               "column": 95
             }
           },
@@ -2590,6 +2590,12 @@
           "type": "CustomEvent",
           "name": "item-selected",
           "description": "item-selected\nFired when a item from the dropdown was selected\ndetail payload: the original item object or the array of original item objects by multiple options",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "options-injected",
+          "description": "Is fired when a new list is applied",
           "metadata": {}
         },
         {
@@ -2642,7 +2648,7 @@
               "column": 2
             },
             "end": {
-              "line": 135,
+              "line": 136,
               "column": 3
             }
           },
@@ -2658,11 +2664,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 144,
+              "line": 145,
               "column": 2
             },
             "end": {
-              "line": 165,
+              "line": 166,
               "column": 3
             }
           },
@@ -2685,11 +2691,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 171,
+              "line": 172,
               "column": 2
             },
             "end": {
-              "line": 173,
+              "line": 174,
               "column": 3
             }
           },
@@ -2709,11 +2715,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 180,
+              "line": 181,
               "column": 2
             },
             "end": {
-              "line": 204,
+              "line": 210,
               "column": 3
             }
           },
@@ -2735,11 +2741,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 210,
+              "line": 216,
               "column": 2
             },
             "end": {
-              "line": 236,
+              "line": 242,
               "column": 3
             }
           },
@@ -2755,11 +2761,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 244,
+              "line": 250,
               "column": 2
             },
             "end": {
-              "line": 269,
+              "line": 275,
               "column": 3
             }
           },
@@ -2779,11 +2785,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 277,
+              "line": 283,
               "column": 2
             },
             "end": {
-              "line": 284,
+              "line": 290,
               "column": 3
             }
           },
@@ -2812,7 +2818,7 @@
           "column": 7
         },
         "end": {
-          "line": 285,
+          "line": 291,
           "column": 1
         }
       },
@@ -2840,6 +2846,120 @@
       },
       "slots": [],
       "tagname": "furo-ui5-data-date-picker"
+    },
+    {
+      "description": "Allows the user to set a binary value, such as true/false or yes/no for an item.\nThe furo-ui5-data-checkbox-input component consists of a box and a label that describes its purpose. If it's checked,\nan indicator is displayed inside the box. To check/uncheck the furo-ui5-data-checkbox-input, the user has to click or tap the square box or its label.\n\nThe furo-ui5-data-checkbox-input component only has 2 states - checked and unchecked. Clicking or tapping toggles\nthe furo-ui5-data-checkbox-input between checked and unchecked state.\n\nUsage\nYou can manually set the width of the element containing the box and the label using the width property.\nIf the text exceeds the available width, it is truncated. The touchable area for toggling the\nfuro-ui5-data-checkbox-input ends where the text ends.\n\nYou can disable the furo-ui5-data-checkbox-input by setting the disabled property to true, or use the\nfuro-ui5-data-checkbox-input in read-only mode by setting the readonly property to true.",
+      "summary": "data checkbox input field",
+      "path": "src/furo-ui5-data-checkbox-input.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "_initBinder",
+          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 47,
+              "column": 2
+            },
+            "end": {
+              "line": 50,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "applyBindingSet",
+          "description": "apply the binding set to the binder\nbinding set can be customised here otherwise the standard set in the ui5-data-input will be used",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 57,
+              "column": 2
+            },
+            "end": {
+              "line": 107,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Bind a entity field to the text-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 114,
+              "column": 2
+            },
+            "end": {
+              "line": 132,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode",
+              "type": "(Object | FieldNode)",
+              "description": "a Field object"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-text-input",
+          "description": "Basic usage (scalar , fat, wrapper values)"
+        },
+        {
+          "url": "demo-furo-ui5-data-text-input-together",
+          "description": "playground"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 26,
+          "column": 7
+        },
+        "end": {
+          "line": 133,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "CheckBox.default",
+      "name": "FuroUi5DataCheckboxInput",
+      "attributes": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "change",
+          "description": "Fired when the input operation has finished by pressing Enter or on focusout.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-checkbox-input"
     }
   ]
 }

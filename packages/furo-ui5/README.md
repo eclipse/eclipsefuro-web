@@ -20,6 +20,7 @@ For seamless integration into the Furo environment, we have slightly extended so
 - [furo-ui5-data-password-input](https://components.furo.pro/?t=FuroUi5DataPasswordInput) a password input component 
 - [furo-ui5-data-date-picker](https://components.furo.pro/?t=FuroUi5DataDatePicker) a date input component 
 - [furo-ui5-data-collection-dropdown](https://components.furo.pro/?t=FuroUi5DataCollectionDropdown) a dropdown component 
+- [furo-ui5-data-checkbox-input](https://components.furo.pro/?t=FuroUi5DataCheckboxInput) a checkbox component 
 
 ## License
 A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
