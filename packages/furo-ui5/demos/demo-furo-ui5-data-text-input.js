@@ -52,6 +52,19 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
         furo-demo-snippet {
           height: 100%;
         }
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(12, 1fr);
+          grid-gap: 1em;
+        }
+
+        .width-4\\/12 {
+          grid-column: span 4;
+        }
+
+        .width-8\\/12 {
+          grid-column: span 8;
+        }
       `
     );
   }
@@ -69,7 +82,7 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
           <furo-form-layouter one>
             <div>
               <p>furo-ui5-data-text-input with icon slot</p>
-              <furo-ui5-data-text-input
+              <furo-ui5-data-text-input style="width: 100%"
                 ƒ-bind-data="--entity(*.data.display_name)"
                 value-state="Information"
               >
@@ -77,9 +90,34 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
               </furo-ui5-data-text-input>
             </div>
 
-            <furo-ui5-data-text-input
-              ƒ-bind-data="--entity(*.data.description)"
-            ></furo-ui5-data-text-input>
+<!--            SAP Fiori Design System -->
+<!--            The label-field ratio is 4:8:0 by default:-->
+
+<!--            4 grid columns of the responsive grid layout are used by the labels.-->
+<!--            8 grid columns of the responsive grid layout are used by fields.-->
+<!--            0 grid columns of the responsive grid layout are used by empty columns.-->
+            <div style="display: grid; grid-template-columns: repeat(12, 1fr); grid-gap: 1em;">
+              <div style="grid-column: span 4; justify-self: end; align-self: center;">
+                <ui5-label for="Input" show-colon >Description</ui5-label>
+              </div>
+              <div style="grid-column: span 8;">
+                <furo-ui5-data-text-input id="Input" style="width: 100%"
+                                          ƒ-bind-data="--entity(*.data.description)"
+                ></furo-ui5-data-text-input>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(12, 1fr); grid-gap: 1em;">
+              <div style="grid-column: span 4; justify-self: end; align-self: center;">
+                <ui5-label for="Input" show-colon >Description (with a lot of chars)</ui5-label>
+              </div>
+              <div style="grid-column: span 8;">
+                <furo-ui5-data-text-input id="Input" style="width: 100%"
+                                          ƒ-bind-data="--entity(*.data.description)"
+                ></furo-ui5-data-text-input>
+              </div>
+            </div>
+
+
             <furo-ui5-data-text-input
               ƒ-bind-data="--entity(*.data.description)"
             ></furo-ui5-data-text-input>
