@@ -1,4 +1,5 @@
 import * as Select from '@ui5/webcomponents/dist/Select.js'
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js'
 
 /**
@@ -307,10 +308,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     // save parsed selection option array
     this.selectOptions = arr;
     this.addItems(this.selectOptions);
-    // trigger setting value after the options are injected to guarantee the correct selection
-    if (this._v) {
-      this._value = this._v
-    }
   }
 
   /**
@@ -530,10 +527,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param {options} list of options with id and display_name
    */
   _buildListWithMetaOptions(options) {
-    // const arr = this._mapDataToList(options.list)
     this.injectList(options.list);
-
-    // this._notifyAndTriggerUpdate(arr)
   }
 
   _setItemSelectedViaSelectedMark(list) {
@@ -571,6 +565,14 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     const arr = this._mapInputToInnerStruct(list)
     const innerList = this._mapDataToList(arr)
     this._notifyAndTriggerUpdate(innerList)
+
+    /**
+     * Is fired when a new list is applied
+     * @event options-injected Payload: option list
+     */
+    this.dispatchEvent(new CustomEvent('options-injected', {
+        detail: innerList, bubbles: true, composed: true
+    }));
   }
 
   /**

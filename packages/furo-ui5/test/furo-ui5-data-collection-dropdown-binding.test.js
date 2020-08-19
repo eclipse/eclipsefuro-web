@@ -9,7 +9,7 @@ import '@furo/testhelper/initEnv.js'
 
 import '../src/furo-catalog.js'
 
-describe('furo-ui5-data-collection-dropdown', () => {
+describe('furo-ui5-data-collection-dropdown-binding', () => {
   let host
   let dropdown
   let input
@@ -119,11 +119,17 @@ describe('furo-ui5-data-collection-dropdown', () => {
     },
   ]
 
+
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-data-collection-dropdown ƒ-bind-data="--entity(*.owner)"></furo-ui5-data-collection-dropdown>
+          <furo-ui5-data-collection-dropdown ƒ-bind-data="--entity(*.owner)"
+                                             value-field="id"
+                                             sub-field="data"
+                                             display-field="display_name"
+                                             value-sub-field="link.rel"
+                                             display-sub-field="link.type"></furo-ui5-data-collection-dropdown>
           <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
         </template>
@@ -138,36 +144,10 @@ describe('furo-ui5-data-collection-dropdown', () => {
     await dao.updateComplete
   })
 
-  it('should be a furo-ui5-data-collection-dropdown element', done => {
+  it('should be a furo-ui5-data-collection-dropdown element (binding)', done => {
     // keep this test on top, so you can recognize a wrong assignment
     assert.equal(dropdown.nodeName.toLowerCase(), 'furo-ui5-data-collection-dropdown')
     done()
-  })
-
-  // axeReport a11y tests
-  xit('a11y', () => axeReport(input))
-
-  it('should have options from API SPEC', done => {
-    setTimeout(() => {
-      assert.equal(dropdown._dropdownList.length, 3)
-      done()
-    }, 16)
-  })
-
-  it('should have the basic attribute values', done => {
-    setTimeout(() => {
-      assert.equal(dropdown._state.valueState, 'None', 'value-state')
-      assert.equal(dropdown._state.disabled, false, 'disabled')
-      assert.equal(dropdown._text, 'person.type.sex.unknown.label**', '_text')
-      assert.equal(dropdown.options.length, 3, 'option count')
-      assert.equal(dropdown._subField, 'data', '_subField')
-      assert.equal(dropdown._displayField, 'display_name', '_displayField')
-      assert.equal(dropdown._displaySubField, 'display_name', '_displaySubField')
-      assert.equal(dropdown._valueField, 'id', '_valueField')
-      assert.equal(dropdown._valueSubField, 'id', '_valueSubField')
-      assert.equal(dropdown.binder.targetValueField, '_value', 'targetValueField')
-      done()
-    }, 16)
   })
 
   it('should activate the correct item', done => {
@@ -180,31 +160,5 @@ describe('furo-ui5-data-collection-dropdown', () => {
 
   })
 
-  it('should activate the correct item from the bound field', done => {
-    dropdown.addEventListener('options-injected', () => {
-      if (dropdown._dropdownList.length === 4) {
-        input.setValue('2')
-        setTimeout(() => {
-          assert.equal(dropdown._dropdownList[1].selected, true)
-          assert.equal(dropdown._state._text, 'Tari Sakota, +41791532244')
-          done()
-        }, 16)
-      }
-
-    })
-    dropdown.injectEntities(testData.entities)
-  })
-
-  it('should have options from a collection response', done => {
-    dropdown.injectEntities(testData.entities)
-    assert.equal(dropdown._dropdownList.length, 4)
-    done()
-  })
-
-  it('should have options from a array of objects', done => {
-    dropdown.injectList(testDataArray)
-    assert.equal(dropdown._dropdownList.length, 3)
-    done()
-  })
 
 })
