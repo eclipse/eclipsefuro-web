@@ -2923,7 +2923,7 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-data-text-input",
+          "url": "demo-furo-ui5-data-checkbox-input",
           "description": "Basic usage (scalar , fat, wrapper values)"
         },
         {
