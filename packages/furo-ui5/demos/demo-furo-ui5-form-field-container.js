@@ -83,6 +83,10 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
               ƒ-bind-data="--entity(*.data.furo_data_number_input)"
             ></furo-ui5-data-number-input-labeled>
 
+            <furo-ui5-data-password-input-labeled
+              ƒ-bind-data="--entity(*.data.furo_data_number_input)"
+            ></furo-ui5-data-password-input-labeled>
+
             <furo-ui5-form-field-container>
               <ui5-label label slot="label" for="Custom" show-colon>Currency / Units (custom)</ui5-label>
               <furo-horizontal-flex id="Custom" content space>
