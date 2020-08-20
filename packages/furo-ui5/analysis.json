@@ -3784,6 +3784,146 @@
       },
       "slots": [],
       "tagname": "furo-ui5-data-checkbox-input"
+    },
+    {
+      "description": "The furo-ui5-data-textarea-input component provides large spaces for text entries in the\nform of multiple rows. It has the functionality of the TextField with\nthe additional functionality for multiline texts.\n\nWhen empty, it can hold a placeholder similar to a furo-ui5-data-input.\nYou can define the rows of the ui5-textarea and also determine specific behavior when handling long texts.",
+      "summary": "data textarea input field",
+      "path": "src/furo-ui5-data-textarea-input.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "_initBinder",
+          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 36,
+              "column": 2
+            },
+            "end": {
+              "line": 40,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "applyBindingSet",
+          "description": "apply the binding set to the universal field node binder",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 45,
+              "column": 2
+            },
+            "end": {
+              "line": 107,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "setValue",
+          "description": "Sets the value for the field. This will update the fieldNode.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 113,
+              "column": 2
+            },
+            "end": {
+              "line": 115,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "val"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Bind a entity field to the text-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 122,
+              "column": 2
+            },
+            "end": {
+              "line": 140,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode",
+              "type": "(Object | FieldNode)",
+              "description": "a Field object"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-textarea-input",
+          "description": "Basic usage (scalar , fat, wrapper values)"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 15,
+          "column": 7
+        },
+        "end": {
+          "line": 155,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "TextArea.default",
+      "name": "FuroUi5DataTextareaInput",
+      "attributes": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "change",
+          "description": "Fired when the input operation has finished by pressing Enter or on focusout.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "input",
+          "description": "Fired when the value of the furo-ui5-data-textarea changes at each keystroke, and when a suggestion item has been selected.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-textarea-input"
     }
   ]
 }
