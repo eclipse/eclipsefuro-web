@@ -1,4 +1,5 @@
 import * as ComboBox from '@ui5/webcomponents/dist/ComboBox.js';
+import { LitElement, html, css } from 'lit-element';
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
@@ -62,17 +63,18 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
 
     // set the attribute mappings
     this.binder.attributeMappings = {
-      label: 'placeholder', // map label to placeholder
+      label: 'label', // map label to placeholder
       placeholder: 'placeholder', // map placeholder to placeholder
       hint: 'hint',
       filter: 'filter',
-      no_result_hint: 'noResultHint',
+      'no_result_hint': 'noResultHint',
       'max-result-hint': 'maxResultsHint',
       'value-field': 'valueField',
       'display-field': 'displayField',
       'value-state': 'valueState',
       'min-term-length': 'minTermLength',
       'max-items-to-display': 'maxItemsToDisplay',
+      'search-on-enter-only': 'searchOnEnterOnly',
     };
 
     // set the label mappings
@@ -87,7 +89,9 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
 
     this.binder.fatAttributesToConstraintsMappings = {
       'min-term-length': 'value._constraints.min_term_length.is', // for the fieldnode constraint
-      'no-result-hint': 'value._constraints.no_result_hint', // for the fieldnode constraint message
+      'no-result-hint': 'value._constraints.no_result_hint.is', // for the fieldnode constraint message
+      'max-items-to-display': 'value._constraints.max_items_to_display.is', // for the fieldnode constraint message
+      'search-on-enter-only': 'value._constraints.search_on_enter_only.is', // for the fieldnode constraint message
     };
 
     this.binder.constraintsTofatAttributesMappings = {
@@ -196,9 +200,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
       if (this.maxItemsToDisplay && collection.entities.length > this.maxItemsToDisplay) {
         // cut down the result size
         this._collection = collection.entities.slice(0, this.maxItemsToDisplay);
-        if (this.maxResultsHint) {
-          this._showList(true);
-        }
+        this._showList(true);
       } else {
         this._collection = collection.entities;
         this._showList();
@@ -231,77 +233,6 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
         // TODO: use valueStateMessage to show the max-items-info by next ui5 release
       }
     }
-  }
-
-  /**
-   * @private
-   * @return {Object}
-   */
-  static get properties() {
-    return {
-      /**
-       * the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object
-       */
-      valueField: {
-        type: String,
-        attribute: 'value-field',
-        reflect: true,
-      },
-      /**
-       * the field name of reference-item which should be used as display which will be showed in the dropdown.
-       */
-      displayField: {
-        type: String,
-        attribute: 'display-field',
-        reflex: true,
-      },
-
-      /**
-       * hint text when result not found by search
-       */
-      noResultHint: {
-        type: String,
-        attribute: 'no-result-hint',
-        reflect: true,
-      },
-      /**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      minTermLength: {
-        type: Number,
-        attribute: 'min-term-length',
-        reflect: true,
-      },
-      /**
-       * The maximal no of items to display. If the collection contains more data then then this value,
-       * the **max-results-hint** will be displayed at the bottom of the list.
-       */
-      maxItemsToDisplay: {
-        type: Number,
-        attribute: 'max-items-to-display',
-        reflect: true,
-      },
-      /**
-       * hint text to display when the result set is bigger then  **maxItemsToDisplay**.
-       */
-      maxResultsHint: {
-        type: String,
-        attribute: 'max-results-hint',
-        reflect: true,
-      },
-      /**
-       * Enable this, to avoid the automatic triggering of "search".
-       *
-       * The user have to press enter to trigger the search. Min-term-length is respected.
-       */
-      searchOnEnterOnly: {
-        type: Boolean,
-        attribute: 'search-on-enter-only',
-        reflect: true,
-      },
-    };
   }
 }
 

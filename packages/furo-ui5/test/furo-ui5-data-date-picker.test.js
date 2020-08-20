@@ -189,6 +189,6 @@ describe('furo-ui5-data-date-picker', () => {
       );
       assert.equal(datepicker2._state.formatPattern, 'dd.MM.yyyy', 'check formatPattern');
       done();
-    }, 0);
+    }, 10);
   });
 });

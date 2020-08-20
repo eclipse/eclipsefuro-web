@@ -11,14 +11,148 @@ describe('furo-ui5-data-reference-search', () => {
   let referenceSearch;
   let entityObject;
   let collectionAgent;
+
+  const testCollection = {
+    "entities": [
+      {
+        "data": {
+          "id": "1",
+          "display_name": "Rework documentation",
+          "description": "Apply new documentation structure",
+          "estimated_time": 5,
+          "owner": {
+            "display_name": "John Doe, +41783332244",
+            "id": "1",
+            "rel": "List",
+            "href": "/mockdata/persons/1/get.json",
+            "method": "GET",
+            "type": "person.Person"
+          },
+          "subtasks": []
+        },
+        "links": [
+          {
+            "href": "/mockdata/tasks/1/get.json",
+            "method": "GET",
+            "rel": "self",
+            "type": "task.TaskEntity",
+            "service": "TaskService"
+          }
+        ]
+      },
+      {
+        "data": {
+          "id": "2",
+          "display_name": "Do more tests",
+          "description": "Increase test coverage",
+          "estimated_time": 15,
+          "owner": {
+            "display_name": "John Doe, +41783332244",
+            "id": "1",
+            "rel": "List",
+            "href": "/mockdata/persons/1/get.json",
+            "method": "GET",
+            "type": "person.Person"
+          },
+          "subtasks": []
+        },
+        "links": [
+          {
+            "href": "/mockdata/tasks/2/get.json",
+            "method": "GET",
+            "rel": "self",
+            "type": "task.TaskEntity",
+            "service": "TaskService"
+          }
+        ]
+      },
+      {
+        "data": {
+          "id": "3",
+          "display_name": "item 3 ",
+          "description": "Increase test coverage",
+          "estimated_time": 15,
+          "owner": {
+            "display_name": "John Doe, +41783332244",
+            "id": "1",
+            "rel": "List",
+            "href": "/mockdata/persons/3/get.json",
+            "method": "GET",
+            "type": "person.Person"
+          },
+          "subtasks": []
+        },
+        "links": [
+          {
+            "href": "/mockdata/tasks/3/get.json",
+            "method": "GET",
+            "rel": "self",
+            "type": "task.TaskEntity",
+            "service": "TaskService"
+          }
+        ]
+      },
+      {
+        "data": {
+          "id": "4",
+          "display_name": "item 4",
+          "description": "Increase test coverage",
+          "estimated_time": 15,
+          "owner": {
+            "display_name": "John Doe, +41783332244",
+            "id": "1",
+            "rel": "List",
+            "href": "/mockdata/persons/4/get.json",
+            "method": "GET",
+            "type": "person.Person"
+          },
+          "subtasks": []
+        },
+        "links": [
+          {
+            "href": "/mockdata/tasks/4/get.json",
+            "method": "GET",
+            "rel": "self",
+            "type": "task.TaskEntity",
+            "service": "TaskService"
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "href": "/mockdata/tasks/list.json",
+        "method": "GET",
+        "rel": "list",
+        "type": "task.TaskCollection",
+        "service": "TaskService"
+      },
+      {
+        "href": "/mockdata/tasks/list.json?page=2",
+        "method": "GET",
+        "rel": "next",
+        "type": "task.TaskCollection",
+        "service": "TaskService"
+      },
+      {
+        "href": "/mockdata/tasks/list.json?page=2",
+        "method": "GET",
+        "rel": "last",
+        "type": "task.TaskCollection",
+        "service": "TaskService"
+      }
+    ]
+  }
+
+
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
           <furo-ui5-data-reference-search
-            condensed
             ƒ-bind-data="--entityReady(*.owner)"
             @-search="--term"
+            placeholder="this is a placeholder"
             ƒ-collection-in="--refCol"
           >
           </furo-ui5-data-reference-search>
@@ -57,15 +191,46 @@ describe('furo-ui5-data-reference-search', () => {
 
   it('should set placeholder  ', done => {
     setTimeout(() => {
-      assert.equal(referenceSearch.placeholder, 'person.type.sex.label**');
+      assert.equal(referenceSearch._state.placeholder, 'this is a placeholder', 'placeholder check');
       done();
     }, 0);
   });
 
   it('should bind data', done => {
     setTimeout(() => {
-      assert.equal(referenceSearch.binder.fieldNode._meta.label, 'person.type.sex.label**');
+      assert.equal(referenceSearch.binder.fieldNode._meta.label, 'person.type.sex.label**','binding check');
       done();
     }, 15);
+  });
+
+  it('should inject collections', done => {
+
+    referenceSearch.collectionIn(testCollection);
+
+    setTimeout(() => {
+      assert.equal(referenceSearch._state.items.length, 4,'collection injection check');
+      done();
+    }, 0);
+  });
+
+  it('should show collections according to maxItemsToDisplay', done => {
+
+    referenceSearch.maxItemsToDisplay = 2;
+    referenceSearch.collectionIn(testCollection);
+
+    setTimeout(() => {
+      assert.equal(referenceSearch._state.items.length, 2,'maxItemsToDisplay check');
+      done();
+    }, 0);
+  });
+
+  it('should trigger search event ', done => {
+
+    referenceSearch.addEventListener('search',()=>{
+      done();
+    });
+    referenceSearch.filterValue="xxx";
+    const customEvent = new Event('input', {'bubbles': true, 'composed':true});
+    referenceSearch.dispatchEvent(customEvent);
   });
 });
