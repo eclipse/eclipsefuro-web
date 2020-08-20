@@ -3,8 +3,23 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
 
 /**
  * The furo-ui5-data-reference-search
+ *  search a reference
+ *  bounded data should be furo.reference
  *
- * @summary furo ui5 data reference search field
+ *  the furo-ui5-data-reference-search should be used together with the fur-collection-agent:
+ *```
+ * <!--  furo-data-object -->
+ * <furo-data-object type="task.Task" @-object-ready="--entityReady"></furo-data-object>
+ *
+ *<furo-horizontal-flex>
+ *    <furo-ui5-data-reference-search autofocus  flex ƒ-bind-data="--entityReady(*.fields.ref)" @-search="--term" ƒ-collection-in="--refCol"></furo-ui5-data-reference-search>
+ *</furo-horizontal-flex>
+ *
+ *<furo-collection-agent service="tasks" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref._value)" @-response="--refCol"></furo-collection-agent>
+ *
+ * ```
+ *
+ * @summary furo ui5 data reference search
  * @customElement
  * @demo demo-furo-ui5-data-reference-search Basic Usage
  */

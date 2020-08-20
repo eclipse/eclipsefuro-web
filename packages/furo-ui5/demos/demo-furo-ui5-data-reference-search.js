@@ -1,172 +1,95 @@
-import { fixture, html } from '@open-wc/testing';
-import 'axe-core/axe.min.js';
-import { axeReport } from 'pwa-helpers/axe-report.js';
-import '../src/furo-catalog.js';
-import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
-// eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/testhelper/initEnv.js';
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme.js';
+import { FBP } from '@furo/fbp';
 import '@furo/doc-helper';
 import '@furo/data/src/furo-data-object.js';
 
-describe('furo-data-reference-search', () => {
-  let host;
-  let referenceSearch;
-  let entityObject;
-  let collectionAgent;
-  beforeEach(async () => {
-    const testbind = await fixture(html`
-      <test-bind>
-        <template>
-          <furo-ui5-data-reference-search
-            condensed
-            label="Search on enter only"
-            hint="hint"
-            min-term-length="2"
-            ƒ-bind-data="--entityReady(*.owner)"
-            @-search="--term"
-            ƒ-collection-in="--refCol"
-          >
-          </furo-ui5-data-reference-search>
+/**
+ * `demo-furo-ui5-data-reference-search`
+ *
+ * @customElement
+ * @appliesMixin FBP
+ */
+class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
+  /**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return (
+      Theme.getThemeForComponent(this.name) ||
+      css`
+        :host {
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
+          --furo-form-layouter-row-gap: var(--spacing-xs);
+        }
 
-          <furo-data-object type="task.Task" @-object-ready="--entityReady"> </furo-data-object>
-
-          <furo-collection-agent
-            service="PersonService"
-            ƒ-hts-in="--entityReady(*.owner.link._value)"
-            ƒ-search="--term"
-            @-response="--refCol"
-          >
-          </furo-collection-agent>
-        </template>
-      </test-bind>
-    `);
-    await testbind.updateComplete;
-    host = testbind._host;
-    [, referenceSearch, entityObject, collectionAgent] = testbind.parentNode.children;
-    await host.updateComplete;
-    await referenceSearch.updateComplete;
-    await entityObject.updateComplete;
-    await collectionAgent.updateComplete;
-  });
-
-  it('should be a ui5-furo-data-reference-search', done => {
-    // keep this test on top, so you can recognize a wrong asignment
-    assert.equal(referenceSearch.nodeName.toLowerCase(), 'furo-ui5-data-reference-search');
-    assert.equal(entityObject.nodeName.toLowerCase(), 'furo-data-object');
-    assert.equal(collectionAgent.nodeName.toLowerCase(), 'furo-collection-agent');
-    done();
-  });
-
-  // axeReport a11y tests
-  xit('a11y', () => axeReport(referenceSearch));
-
-  it('should override min-term-length  ', done => {
-    setTimeout(() => {
-      assert.equal(referenceSearch.minTermLength, 2);
-      done();
-    }, 0);
-  });
-
-  it('should set label  ', done => {
-    setTimeout(() => {
-      assert.equal(referenceSearch.label, 'Search on enter only');
-      done();
-    }, 0);
-  });
-
-  it('should bind data', done => {
-    setTimeout(() => {
-      assert.equal(referenceSearch.binder.fieldNode._meta.label, 'person.type.sex.label**');
-      done();
-    }, 15);
-  });
-
-  it('should clear bounded data if element is cleared', done => {
-    entityObject.addEventListener('object-ready', () => {
-      setTimeout(() => {
-        referenceSearch._clear();
-      }, 0);
-    });
-    referenceSearch.addEventListener(
-      'value-cleared',
-      () => {
-        assert.equal(entityObject.data.owner.id._value, '');
-        assert.equal(entityObject.data.owner.display_name._value, '');
-        done();
-      },
-      { once: true },
+        :host([hidden]) {
+          display: none;
+        }
+      `
     );
-  });
+  }
 
-  it('should fire search when search term is entered and the length of the term is bigger then min-term-length', done => {
-    collectionAgent.addEventListener('response', () => {
-      done();
-    });
-    referenceSearch._searchTerm = 'term';
-    referenceSearch._fireSearchEvent();
-  });
+  /**
+   * @private
+   * @returns {TemplateResult}
+   */
+  render() {
+    // language=HTML
+    return html`
+      <furo-vertical-flex>
+        <div>
+          <h2>Demo ...</h2>
+          <p>Describe your demo</p>
+        </div>
+        <furo-demo-snippet flex>
+          <template>
+            <furo-form-layouter four>
+            <furo-ui5-data-reference-search
+              condensed
+              ƒ-bind-data="--entityReady(*.owner)"
+              required
+              max-items-to-display="2"
+              max-results-hint="only 2 items displayed..."
+              @-search="--term"
+              ƒ-collection-in="--refCol"
+            >
+            </furo-ui5-data-reference-search>
 
-  it('should inject search result ', done => {
-    collectionAgent.addEventListener('response', () => {
-      setTimeout(() => {
-        assert.equal(referenceSearch._collection.length > 0, true);
-        done();
-      }, 0);
-    });
-    referenceSearch._searchTerm = 'term';
-    referenceSearch._fireSearchEvent();
-  });
+            <furo-data-display
+              label="selected id"
+              leading-icon="apps"
+              condensed
+              ƒ-bind-data="--entityReady(*.owner.id)"
+            ></furo-data-display>
+            <furo-ui5-data-reference-search
+              condensed
+              label="Search on enter only"
+              search-on-enter-only
+              ƒ-bind-data="--entityReady(*.owner)"
+              @-search="--term"
+              ƒ-collection-in="--refCol"
+            >
+            </furo-ui5-data-reference-search>
+            </furo-form-layouter>
+            <furo-data-object type="task.Task" @-object-ready="--entityReady"> </furo-data-object>
+            <furo-collection-agent
+              service="PersonService"
+              ƒ-hts-in="--entityReady(*.owner.link._value)"
+              ƒ-search="--term"
+              @-response="--refCol"
+            >
+            </furo-collection-agent>
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
+    `;
+  }
+}
 
-  it('should fire search by input changed', done => {
-    setTimeout(() => {
-      const customEvent = new Event('searchInput', { composed: true, bubbles: true });
-      customEvent.detail = 'term';
-      referenceSearch.shadowRoot.getElementById('input').dispatchEvent(customEvent);
-    }, 10);
-
-    collectionAgent.addEventListener('response', () => {
-      setTimeout(() => {
-        assert.equal(referenceSearch._collection.length > 0, true);
-        done();
-      }, 12);
-    });
-  });
-
-  it('should select element by focus', done => {
-    collectionAgent.addEventListener('response', () => {
-      setTimeout(() => {
-        assert.equal(referenceSearch._listIsOpen, undefined);
-        const customEvent = new Event('focus', { composed: true, bubbles: true });
-        referenceSearch.shadowRoot.getElementById('input').dispatchEvent(customEvent);
-        assert.equal(referenceSearch._listIsOpen, true);
-        done();
-      }, 10);
-    });
-    referenceSearch._searchTerm = 'term';
-    referenceSearch._fireSearchEvent();
-  });
-
-  it('should select element by focus', done => {
-    setTimeout(() => {
-      const customEvent = new Event('searchInput', { composed: true, bubbles: true });
-      customEvent.detail = 'term';
-      referenceSearch.shadowRoot.getElementById('input').dispatchEvent(customEvent);
-    }, 10);
-
-    collectionAgent.addEventListener('response', () => {
-      setTimeout(() => {
-        assert.equal(referenceSearch._listIsOpen, undefined);
-        const customEvent = new Event('focus', { composed: true, bubbles: true });
-        referenceSearch.shadowRoot.getElementById('input').dispatchEvent(customEvent);
-        assert.equal(referenceSearch._listIsOpen, true);
-        done();
-      }, 10);
-    });
-  });
-
-  it('should show no result hint by empty response', done => {
-    referenceSearch.collectionIn({});
-    assert.equal(referenceSearch._hint, 'no result found');
-    done();
-  });
-});
+window.customElements.define('demo-furo-ui5-data-reference-search', DemoFuroUi5DataReferenceSearch);
