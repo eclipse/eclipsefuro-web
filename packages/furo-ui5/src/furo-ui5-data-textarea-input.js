@@ -1,4 +1,5 @@
 import * as TextArea from '@ui5/webcomponents/dist/TextArea.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
 
 /**
@@ -26,7 +27,7 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
 
   constructor(props) {
     super(props);
-    this.showExceededText = true;
+    // this.showExceededText = true;
     this._initBinder();
   }
 
@@ -37,20 +38,18 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
    */
   _initBinder() {
     this.binder = new UniversalFieldNodeBinder(this);
+
     this.applyBindingSet();
   }
 
   /**
-   * Apply the binding set to the universal field node binder
+   * apply the binding set to the universal field node binder
    */
   applyBindingSet() {
     // set the attribute mappings
     this.binder.attributeMappings = {
       label: 'placeholder', // map label to placeholder
       placeholder: 'placeholder', // map placeholder to placeholder
-      hint: '_hint',
-      icon: 'ui5Icon', // icon and leading icon maps to the same
-      'leading-icon': 'ui5Icon', // icon and leading icon maps to the same
       'value-state': '_valueState',
       errortext: '_errorMsg', // name errortext is for compatibility with spec
       'error-msg': '_errorMsg',
@@ -90,13 +89,12 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
       required: 'required',
     };
 
+    // the extended furo-text-input component uses _value
+    this.binder.targetValueField = '_value';
     /**
      * check overrides from the used component, attributes set on the component itself overrides all
      */
     this.binder.checkLabelandAttributeOverrrides();
-
-    // the extended furo-text-input component uses _value
-    this.binder.targetValueField = '_value';
 
     // update the value on input changes
     this.addEventListener('input', val => {
@@ -146,6 +144,7 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
       });
     }
   }
+
 
 }
 window.customElements.define('furo-ui5-data-textarea-input', FuroUi5DataTextareaInput);

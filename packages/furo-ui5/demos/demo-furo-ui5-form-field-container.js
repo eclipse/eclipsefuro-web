@@ -102,9 +102,9 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
               <furo-form-layouter>
                 <div>
                   <p>New form field section</p>
-                  <furo-ui5-data-text-input-labeled
+                  <furo-ui5-data-textarea-input-labeled
                     ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
-                  ></furo-ui5-data-text-input-labeled>
+                  ></furo-ui5-data-textarea-input-labeled>
                 </div>
               </furo-form-layouter>
 
