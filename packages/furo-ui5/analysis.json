@@ -1130,31 +1130,168 @@
       "tagname": "furo-ui5-data-text-input"
     },
     {
-      "description": "`furo-ui5-data-text-input-labeled`\nDesc",
+      "description": "",
       "summary": "",
+      "path": "src/furo-ui5-form-field-container.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 34,
+              "column": 2
+            },
+            "end": {
+              "line": 37,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 102,
+              "column": 2
+            },
+            "end": {
+              "line": 110,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "(TemplateResult | TemplateResult)"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 29,
+          "column": 0
+        },
+        "end": {
+          "line": 112,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroUi5FormFieldContainer",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-form-field-container"
+    },
+    {
+      "description": "`furo-ui5-data-text-input-labeled`\nThe furo-ui5-data-text-input-labeled is a composition to easily use a complete input field with label according\nto the design specification of SAP Fiori Design System.",
+      "summary": "labeled input field",
       "path": "src/furo-ui5-data-text-input-labeled.js",
       "properties": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 25,
+              "column": 2
+            },
+            "end": {
+              "line": 28,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Orchestrates the data field connection to the inside",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 54,
+              "column": 2
+            },
+            "end": {
+              "line": 69,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 75,
+              "column": 2
+            },
+            "end": {
+              "line": 84,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "(TemplateResult | TemplateResult)"
+          }
+        }
+      ],
       "staticMethods": [],
       "demos": [
         {
-          "url": "demofuro-ui5-data-text-input-labeled",
-          "description": "Sample"
+          "url": "demo-furo-ui5-form-field-container",
+          "description": "Simple use"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 11,
+          "line": 15,
           "column": 0
         },
         "end": {
-          "line": 11,
-          "column": 65
+          "line": 86,
+          "column": 1
         }
       },
       "privacy": "public",
-      "superclass": "FuroUi5DataTextInput",
+      "superclass": "HTMLElement",
       "name": "FuroUi5DataTextInputLabeled",
       "attributes": [],
       "events": [],
@@ -1599,6 +1736,110 @@
       },
       "slots": [],
       "tagname": "furo-ui5-data-number-input"
+    },
+    {
+      "description": "`furo-ui5-data-number-input-labeled`\nThe furo-ui5-data-number-input-labeled is a composition to easily use a complete input field with label according\nto the design specification of SAP Fiori Design System.",
+      "summary": "labeled input field",
+      "path": "src/furo-ui5-data-number-input-labeled.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 25,
+              "column": 2
+            },
+            "end": {
+              "line": 28,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Orchestrates the data field connection to the inside",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 54,
+              "column": 2
+            },
+            "end": {
+              "line": 69,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 75,
+              "column": 2
+            },
+            "end": {
+              "line": 84,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "(TemplateResult | TemplateResult)"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-form-field-container",
+          "description": "Simple use"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 86,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroUi5DataNumberInputLabeled",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-number-input-labeled",
+      "mixins": [
+        "FBP"
+      ]
     },
     {
       "description": "The ui5-input component allows the user to enter and edit numbers.\nAdditionally, you can provide suggestionItems, that are displayed in a popover right under the input.\n\nThe text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.\nWhen the user makes changes to the text, the change event is fired, which enables you to react on any text change.",
@@ -2309,7 +2550,7 @@
               "column": 2
             },
             "end": {
-              "line": 477,
+              "line": 480,
               "column": 3
             }
           },
@@ -2331,11 +2572,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 483,
+              "line": 486,
               "column": 2
             },
             "end": {
-              "line": 485,
+              "line": 488,
               "column": 3
             }
           },
@@ -2355,11 +2596,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 488,
+              "line": 491,
               "column": 2
             },
             "end": {
-              "line": 501,
+              "line": 505,
               "column": 3
             }
           },
@@ -2375,11 +2616,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 509,
+              "line": 513,
               "column": 2
             },
             "end": {
-              "line": 522,
+              "line": 526,
               "column": 3
             }
           },
@@ -2399,11 +2640,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 528,
+              "line": 532,
               "column": 2
             },
             "end": {
-              "line": 530,
+              "line": 534,
               "column": 3
             }
           },
@@ -2423,11 +2664,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 532,
+              "line": 536,
               "column": 2
             },
             "end": {
-              "line": 543,
+              "line": 547,
               "column": 3
             }
           },
@@ -2444,11 +2685,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 563,
+              "line": 567,
               "column": 2
             },
             "end": {
-              "line": 575,
+              "line": 583,
               "column": 3
             }
           },
@@ -2468,11 +2709,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 581,
+              "line": 589,
               "column": 2
             },
             "end": {
-              "line": 583,
+              "line": 591,
               "column": 3
             }
           },
@@ -2501,7 +2742,7 @@
           "column": 7
         },
         "end": {
-          "line": 585,
+          "line": 592,
           "column": 1
         }
       },
@@ -2624,11 +2865,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 47,
+              "line": 46,
               "column": 2
             },
             "end": {
-              "line": 51,
+              "line": 50,
               "column": 3
             }
           },
@@ -2644,11 +2885,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 56,
+              "line": 55,
               "column": 2
             },
             "end": {
-              "line": 137,
+              "line": 136,
               "column": 3
             }
           },
@@ -2664,11 +2905,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 146,
+              "line": 145,
               "column": 2
             },
             "end": {
-              "line": 167,
+              "line": 166,
               "column": 3
             }
           },
@@ -2691,11 +2932,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 173,
+              "line": 172,
               "column": 2
             },
             "end": {
-              "line": 175,
+              "line": 174,
               "column": 3
             }
           },
@@ -2715,11 +2956,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 182,
+              "line": 181,
               "column": 2
             },
             "end": {
-              "line": 211,
+              "line": 210,
               "column": 3
             }
           },
@@ -2741,11 +2982,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 216,
               "column": 2
             },
             "end": {
-              "line": 243,
+              "line": 242,
               "column": 3
             }
           },
@@ -2761,11 +3002,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 251,
+              "line": 250,
               "column": 2
             },
             "end": {
-              "line": 276,
+              "line": 275,
               "column": 3
             }
           },
@@ -2785,11 +3026,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 284,
+              "line": 283,
               "column": 2
             },
             "end": {
-              "line": 291,
+              "line": 290,
               "column": 3
             }
           },
@@ -2818,7 +3059,7 @@
           "column": 7
         },
         "end": {
-          "line": 292,
+          "line": 291,
           "column": 1
         }
       },
@@ -2859,11 +3100,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 239,
+              "line": 229,
               "column": 6
             },
             "end": {
-              "line": 243,
+              "line": 233,
               "column": 7
             }
           },
@@ -2880,11 +3121,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 247,
+              "line": 237,
               "column": 6
             },
             "end": {
-              "line": 251,
+              "line": 241,
               "column": 7
             }
           },
@@ -2901,11 +3142,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 246,
               "column": 6
             },
             "end": {
-              "line": 260,
+              "line": 250,
               "column": 7
             }
           },
@@ -2922,11 +3163,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 266,
+              "line": 256,
               "column": 6
             },
             "end": {
-              "line": 270,
+              "line": 260,
               "column": 7
             }
           },
@@ -2943,11 +3184,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 275,
+              "line": 265,
               "column": 6
             },
             "end": {
-              "line": 279,
+              "line": 269,
               "column": 7
             }
           },
@@ -2964,11 +3205,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 283,
+              "line": 273,
               "column": 6
             },
             "end": {
-              "line": 287,
+              "line": 277,
               "column": 7
             }
           },
@@ -2985,11 +3226,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 293,
+              "line": 283,
               "column": 6
             },
             "end": {
-              "line": 297,
+              "line": 287,
               "column": 7
             }
           },
@@ -3007,11 +3248,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 46,
+              "line": 44,
               "column": 2
             },
             "end": {
-              "line": 92,
+              "line": 90,
               "column": 3
             }
           },
@@ -3027,11 +3268,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 98,
+              "line": 96,
               "column": 2
             },
             "end": {
-              "line": 119,
+              "line": 113,
               "column": 3
             }
           },
@@ -3047,11 +3288,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 125,
+              "line": 119,
               "column": 2
             },
             "end": {
-              "line": 137,
+              "line": 130,
               "column": 3
             }
           },
@@ -3067,11 +3308,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 144,
+              "line": 137,
               "column": 2
             },
             "end": {
-              "line": 169,
+              "line": 162,
               "column": 3
             }
           },
@@ -3093,11 +3334,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 175,
+              "line": 168,
               "column": 2
             },
             "end": {
-              "line": 179,
+              "line": 172,
               "column": 3
             }
           },
@@ -3113,11 +3354,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 185,
+              "line": 178,
               "column": 2
             },
             "end": {
-              "line": 201,
+              "line": 193,
               "column": 3
             }
           },
@@ -3137,11 +3378,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 208,
+              "line": 200,
               "column": 2
             },
             "end": {
-              "line": 228,
+              "line": 218,
               "column": 3
             }
           },
@@ -3170,7 +3411,7 @@
           "column": 7
         },
         "end": {
-          "line": 301,
+          "line": 290,
           "column": 1
         }
       },
@@ -3183,11 +3424,11 @@
           "description": "the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object",
           "sourceRange": {
             "start": {
-              "line": 239,
+              "line": 229,
               "column": 6
             },
             "end": {
-              "line": 243,
+              "line": 233,
               "column": 7
             }
           },
@@ -3199,11 +3440,11 @@
           "description": "the field name of reference-item which should be used as display which will be showed in the dropdown.",
           "sourceRange": {
             "start": {
-              "line": 247,
+              "line": 237,
               "column": 6
             },
             "end": {
-              "line": 251,
+              "line": 241,
               "column": 7
             }
           },
@@ -3215,11 +3456,11 @@
           "description": "hint text when result not found by search",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 246,
               "column": 6
             },
             "end": {
-              "line": 260,
+              "line": 250,
               "column": 7
             }
           },
@@ -3231,11 +3472,11 @@
           "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 266,
+              "line": 256,
               "column": 6
             },
             "end": {
-              "line": 270,
+              "line": 260,
               "column": 7
             }
           },
@@ -3247,11 +3488,11 @@
           "description": "The maximal no of items to display. If the collection contains more data then then this value,\nthe **max-results-hint** will be displayed at the bottom of the list.",
           "sourceRange": {
             "start": {
-              "line": 275,
+              "line": 265,
               "column": 6
             },
             "end": {
-              "line": 279,
+              "line": 269,
               "column": 7
             }
           },
@@ -3263,11 +3504,11 @@
           "description": "hint text to display when the result set is bigger then  **maxItemsToDisplay**.",
           "sourceRange": {
             "start": {
-              "line": 283,
+              "line": 273,
               "column": 6
             },
             "end": {
-              "line": 287,
+              "line": 277,
               "column": 7
             }
           },
@@ -3279,11 +3520,11 @@
           "description": "Enable this, to avoid the automatic triggering of \"search\".\n\nThe user have to press enter to trigger the search. Min-term-length is respected.",
           "sourceRange": {
             "start": {
-              "line": 293,
+              "line": 283,
               "column": 6
             },
             "end": {
-              "line": 297,
+              "line": 287,
               "column": 7
             }
           },
@@ -3330,11 +3571,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 48,
+              "line": 47,
               "column": 2
             },
             "end": {
-              "line": 52,
+              "line": 51,
               "column": 3
             }
           },
@@ -3350,11 +3591,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 58,
               "column": 2
             },
             "end": {
-              "line": 109,
+              "line": 108,
               "column": 3
             }
           },
@@ -3370,11 +3611,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 116,
+              "line": 115,
               "column": 2
             },
             "end": {
-              "line": 134,
+              "line": 133,
               "column": 3
             }
           },
@@ -3405,11 +3646,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 26,
+          "line": 25,
           "column": 7
         },
         "end": {
-          "line": 135,
+          "line": 134,
           "column": 1
         }
       },
