@@ -4,7 +4,7 @@ import * as DatePicker from '@ui5/webcomponents/dist/DatePicker.js';
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
- * The furo-ui-data-date-picker component allows the user to bind an date object like google.type.Date or a date string
+ * The furo-ui5-data-date-picker component allows the user to bind an date object like google.type.Date or a date string
  * with IOS 8061 format likes "2020-12-31" to the ui5 datepicker and edit it.
  *
  * you can define the formatPattern (e.g. 'dd.MM.yyyy' ) to show the date according to format pattern. but the data in
@@ -61,7 +61,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
       hint: '_hint',
       icon: 'ui5Icon', // icon and leading icon maps to the same
       'leading-icon': 'ui5Icon', // icon and leading icon maps to the same
-      'value-state': '_valueState',
+      'value-state': 'valueState',
       errortext: '_errorMsg', // name errortext is for compatibility with spec
       'error-msg': '_errorMsg',
       'warning-msg': '_warningMsg',

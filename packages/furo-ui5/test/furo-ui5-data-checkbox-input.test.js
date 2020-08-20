@@ -143,10 +143,6 @@ describe('furo-ui5-data-checkbox-input-scalar', () => {
   });
 
   it('should update the fieldNode', done => {
-
-      done();
-
+    done();
   });
-
-
 });

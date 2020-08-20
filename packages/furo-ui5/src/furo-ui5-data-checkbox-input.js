@@ -1,7 +1,6 @@
-import * as CheckBox from '@ui5/webcomponents/dist/CheckBox.js'
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder'
+import * as CheckBox from '@ui5/webcomponents/dist/CheckBox.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
 // eslint-disable-next-line import/no-extraneous-dependencies
-
 
 /**
  * Allows the user to set a binary value, such as true/false or yes/no for an item.
@@ -69,7 +68,7 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
       'success-msg': '_successMsg',
       'information-msg': '_informationMsg',
       pattern: 'pattern',
-      name: 'name'
+      name: 'name',
     };
 
     // set the label mappings
@@ -80,7 +79,7 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
       disabled: 'disabled',
       pristine: 'pristine',
       highlight: 'highlight',
-      wrap: 'wrap'
+      wrap: 'wrap',
     };
 
     // set attributes to constrains mapping for furo.fat types
@@ -90,7 +89,7 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
 
     // set constrains to attributes mapping for furo.fat types
     this.binder.constraintsTofatAttributesMappings = {
-      required: 'required'
+      required: 'required',
     };
 
     // update the value on input changes

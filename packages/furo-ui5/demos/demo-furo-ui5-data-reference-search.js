@@ -5,8 +5,10 @@ import '../src/furo-catalog.js';
 import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/testhelper/initEnv.js';
+import '@furo/doc-helper';
+import '@furo/data/src/furo-data-object.js';
 
-describe('furo-ui5-data-reference-search', () => {
+describe('furo-data-reference-search', () => {
   let host;
   let referenceSearch;
   let entityObject;
@@ -15,16 +17,16 @@ describe('furo-ui5-data-reference-search', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-data-reference-search
+          <furo-ui5-data-reference-search
             condensed
-            placeholder="Search on enter only"
+            label="Search on enter only"
             hint="hint"
             min-term-length="2"
             ƒ-bind-data="--entityReady(*.owner)"
             @-search="--term"
             ƒ-collection-in="--refCol"
           >
-          </furo-data-reference-search>
+          </furo-ui5-data-reference-search>
 
           <furo-data-object type="task.Task" @-object-ready="--entityReady"> </furo-data-object>
 
@@ -47,9 +49,9 @@ describe('furo-ui5-data-reference-search', () => {
     await collectionAgent.updateComplete;
   });
 
-  it('should be a furo-data-reference-search', done => {
+  it('should be a ui5-furo-data-reference-search', done => {
     // keep this test on top, so you can recognize a wrong asignment
-    assert.equal(referenceSearch.nodeName.toLowerCase(), 'furo-data-reference-search');
+    assert.equal(referenceSearch.nodeName.toLowerCase(), 'furo-ui5-data-reference-search');
     assert.equal(entityObject.nodeName.toLowerCase(), 'furo-data-object');
     assert.equal(collectionAgent.nodeName.toLowerCase(), 'furo-collection-agent');
     done();

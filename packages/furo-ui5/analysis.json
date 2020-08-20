@@ -2613,7 +2613,7 @@
       "tagname": "furo-ui5-data-collection-dropdown"
     },
     {
-      "description": "The furo-ui-data-date-picker component allows the user to bind an date object like google.type.Date or a date string\nwith IOS 8061 format likes \"2020-12-31\" to the ui5 datepicker and edit it.\n\nyou can define the formatPattern (e.g. 'dd.MM.yyyy' ) to show the date according to format pattern. but the data in\nthe payload will still be in format IOS 8061 (yyyy-MM-dd)\n\nThe text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.\nWhen the user makes changes to the date, the change event is fired, which enables you to react on any date change.",
+      "description": "The furo-ui5-data-date-picker component allows the user to bind an date object like google.type.Date or a date string\nwith IOS 8061 format likes \"2020-12-31\" to the ui5 datepicker and edit it.\n\nyou can define the formatPattern (e.g. 'dd.MM.yyyy' ) to show the date according to format pattern. but the data in\nthe payload will still be in format IOS 8061 (yyyy-MM-dd)\n\nThe text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.\nWhen the user makes changes to the date, the change event is fired, which enables you to react on any date change.",
       "summary": "furo data datepicker field",
       "path": "src/furo-ui5-data-date-picker.js",
       "properties": [],
@@ -2624,11 +2624,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 46,
+              "line": 47,
               "column": 2
             },
             "end": {
-              "line": 50,
+              "line": 51,
               "column": 3
             }
           },
@@ -2644,11 +2644,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 55,
+              "line": 56,
               "column": 2
             },
             "end": {
-              "line": 136,
+              "line": 137,
               "column": 3
             }
           },
@@ -2664,11 +2664,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 146,
               "column": 2
             },
             "end": {
-              "line": 166,
+              "line": 167,
               "column": 3
             }
           },
@@ -2691,11 +2691,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 173,
               "column": 2
             },
             "end": {
-              "line": 174,
+              "line": 175,
               "column": 3
             }
           },
@@ -2715,11 +2715,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 181,
+              "line": 182,
               "column": 2
             },
             "end": {
-              "line": 210,
+              "line": 211,
               "column": 3
             }
           },
@@ -2741,11 +2741,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 216,
+              "line": 217,
               "column": 2
             },
             "end": {
-              "line": 242,
+              "line": 243,
               "column": 3
             }
           },
@@ -2761,11 +2761,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 250,
+              "line": 251,
               "column": 2
             },
             "end": {
-              "line": 275,
+              "line": 276,
               "column": 3
             }
           },
@@ -2785,11 +2785,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 283,
+              "line": 284,
               "column": 2
             },
             "end": {
-              "line": 290,
+              "line": 291,
               "column": 3
             }
           },
@@ -2818,7 +2818,7 @@
           "column": 7
         },
         "end": {
-          "line": 291,
+          "line": 292,
           "column": 1
         }
       },
@@ -2848,6 +2848,477 @@
       "tagname": "furo-ui5-data-date-picker"
     },
     {
+      "description": "The furo-ui5-data-reference-search",
+      "summary": "furo ui5 data reference search field",
+      "path": "src/furo-ui5-data-reference-search.js",
+      "properties": [
+        {
+          "name": "valueField",
+          "type": "string | null | undefined",
+          "description": "the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 239,
+              "column": 6
+            },
+            "end": {
+              "line": 243,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "displayField",
+          "type": "string | null | undefined",
+          "description": "the field name of reference-item which should be used as display which will be showed in the dropdown.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 247,
+              "column": 6
+            },
+            "end": {
+              "line": 251,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "noResultHint",
+          "type": "string | null | undefined",
+          "description": "hint text when result not found by search",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 256,
+              "column": 6
+            },
+            "end": {
+              "line": 260,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "minTermLength",
+          "type": "number | null | undefined",
+          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 266,
+              "column": 6
+            },
+            "end": {
+              "line": 270,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "maxItemsToDisplay",
+          "type": "number | null | undefined",
+          "description": "The maximal no of items to display. If the collection contains more data then then this value,\nthe **max-results-hint** will be displayed at the bottom of the list.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 275,
+              "column": 6
+            },
+            "end": {
+              "line": 279,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "maxResultsHint",
+          "type": "string | null | undefined",
+          "description": "hint text to display when the result set is bigger then  **maxItemsToDisplay**.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 283,
+              "column": 6
+            },
+            "end": {
+              "line": 287,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "searchOnEnterOnly",
+          "type": "boolean | null | undefined",
+          "description": "Enable this, to avoid the automatic triggering of \"search\".\n\nThe user have to press enter to trigger the search. Min-term-length is respected.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 293,
+              "column": 6
+            },
+            "end": {
+              "line": 297,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_initBinder",
+          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 46,
+              "column": 2
+            },
+            "end": {
+              "line": 92,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_registerListeners",
+          "description": "add listeners",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 98,
+              "column": 2
+            },
+            "end": {
+              "line": 119,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_fireSearchEvent",
+          "description": "fire search event",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 125,
+              "column": 2
+            },
+            "end": {
+              "line": 137,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Bind a entity field to the reference-search. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 144,
+              "column": 2
+            },
+            "end": {
+              "line": 169,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode",
+              "type": "(Object | FieldNode)",
+              "description": "a Field object"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateInputField",
+          "description": "update search input text",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 175,
+              "column": 2
+            },
+            "end": {
+              "line": 179,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "collectionIn",
+          "description": "inject collection as a list",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 185,
+              "column": 2
+            },
+            "end": {
+              "line": 201,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "collection"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_showList",
+          "description": "show item list",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 208,
+              "column": 2
+            },
+            "end": {
+              "line": 228,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "withMaxItems"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-reference-search",
+          "description": "Basic Usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 10,
+          "column": 7
+        },
+        "end": {
+          "line": 301,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "ComboBox.default",
+      "name": "FuroUi5DataReferenceSearch",
+      "attributes": [
+        {
+          "name": "value-field",
+          "description": "the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object",
+          "sourceRange": {
+            "start": {
+              "line": 239,
+              "column": 6
+            },
+            "end": {
+              "line": 243,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "display-field",
+          "description": "the field name of reference-item which should be used as display which will be showed in the dropdown.",
+          "sourceRange": {
+            "start": {
+              "line": 247,
+              "column": 6
+            },
+            "end": {
+              "line": 251,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "no-result-hint",
+          "description": "hint text when result not found by search",
+          "sourceRange": {
+            "start": {
+              "line": 256,
+              "column": 6
+            },
+            "end": {
+              "line": 260,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "min-term-length",
+          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "sourceRange": {
+            "start": {
+              "line": 266,
+              "column": 6
+            },
+            "end": {
+              "line": 270,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "max-items-to-display",
+          "description": "The maximal no of items to display. If the collection contains more data then then this value,\nthe **max-results-hint** will be displayed at the bottom of the list.",
+          "sourceRange": {
+            "start": {
+              "line": 275,
+              "column": 6
+            },
+            "end": {
+              "line": 279,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "max-results-hint",
+          "description": "hint text to display when the result set is bigger then  **maxItemsToDisplay**.",
+          "sourceRange": {
+            "start": {
+              "line": 283,
+              "column": 6
+            },
+            "end": {
+              "line": 287,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "search-on-enter-only",
+          "description": "Enable this, to avoid the automatic triggering of \"search\".\n\nThe user have to press enter to trigger the search. Min-term-length is respected.",
+          "sourceRange": {
+            "start": {
+              "line": 293,
+              "column": 6
+            },
+            "end": {
+              "line": 297,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "change",
+          "description": "Fired when the input operation has finished by pressing Enter or on focusout.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "input",
+          "description": "Fired when the value of the ui5-date-picker is changed at each key stroke.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "search",
+          "description": "search\nFired when term is entered and bigger then min-term-length\ndetail payload: {String} term",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-reference-search"
+    },
+    {
       "description": "Allows the user to set a binary value, such as true/false or yes/no for an item.\nThe furo-ui5-data-checkbox-input component consists of a box and a label that describes its purpose. If it's checked,\nan indicator is displayed inside the box. To check/uncheck the furo-ui5-data-checkbox-input, the user has to click or tap the square box or its label.\n\nThe furo-ui5-data-checkbox-input component only has 2 states - checked and unchecked. Clicking or tapping toggles\nthe furo-ui5-data-checkbox-input between checked and unchecked state.\n\nUsage\nYou can manually set the width of the element containing the box and the label using the width property.\nIf the text exceeds the available width, it is truncated. The touchable area for toggling the\nfuro-ui5-data-checkbox-input ends where the text ends.\n\nYou can disable the furo-ui5-data-checkbox-input by setting the disabled property to true, or use the\nfuro-ui5-data-checkbox-input in read-only mode by setting the readonly property to true.",
       "summary": "data checkbox input field",
       "path": "src/furo-ui5-data-checkbox-input.js",
@@ -2859,11 +3330,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 47,
+              "line": 48,
               "column": 2
             },
             "end": {
-              "line": 50,
+              "line": 52,
               "column": 3
             }
           },
@@ -2879,11 +3350,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 57,
+              "line": 59,
               "column": 2
             },
             "end": {
-              "line": 107,
+              "line": 109,
               "column": 3
             }
           },
@@ -2899,11 +3370,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 114,
+              "line": 116,
               "column": 2
             },
             "end": {
-              "line": 132,
+              "line": 134,
               "column": 3
             }
           },
@@ -2938,7 +3409,7 @@
           "column": 7
         },
         "end": {
-          "line": 133,
+          "line": 135,
           "column": 1
         }
       },

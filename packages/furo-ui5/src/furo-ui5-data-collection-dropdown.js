@@ -1,6 +1,6 @@
-import * as Select from '@ui5/webcomponents/dist/Select.js'
+import * as Select from '@ui5/webcomponents/dist/Select.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js'
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
  * `furo-ui5-data-collection-dropdown`
@@ -28,9 +28,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    */
 
   constructor(props) {
-
-    super(props)
-    this.valueState = 'None'
+    super(props);
+    this.valueState = 'None';
 
     /**
      * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
@@ -39,20 +38,20 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      * @property sub-field
      * @private
      */
-    this._subField = 'data'
+    this._subField = 'data';
     /**
      * The name of the field from the injected collection that contains the label for the dropdown array.
      * @property display-field
      * @private
      */
-    this._displayField = 'display_name'
+    this._displayField = 'display_name';
     /**
      * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
      * If you bind a scalar, you dont need this attribute.
      * @property value-field
      * @private
      */
-    this._valueField = 'id'
+    this._valueField = 'id';
 
     /**
      * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
@@ -61,7 +60,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      * @property value-sub-field
      * @private
      */
-    this._valueSubField = 'id'
+    this._valueSubField = 'id';
 
     /**
      * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
@@ -70,54 +69,55 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      * @property display-sub-field
      * @private
      */
-    this._displaySubField = 'display_name'
+    this._displaySubField = 'display_name';
 
-    this._fieldNodeToUpdate = {}
-    this._fieldDisplayNodeToUpdate = {}
+    this._fieldNodeToUpdate = {};
+    this._fieldDisplayNodeToUpdate = {};
 
     /**
      * Listener to catch the selected data
      */
     this.addEventListener('change', val => {
-
-      const selectedObj = this._dropdownList.find(obj => obj.id === val.detail.selectedOption.dataset.id)
+      const selectedObj = this._dropdownList.find(
+        obj => obj.id === val.detail.selectedOption.dataset.id,
+      );
 
       if (this.binder.fieldNode) {
         if (!this.multiple) {
           // by valid input reset meta and constraints
-          this._fieldNodeToUpdate._value = selectedObj.id
-          this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id)
+          this._fieldNodeToUpdate._value = selectedObj.id;
+          this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id);
         } else {
-          const data = []
-          const arrSubfieldChains = this._subField.split('.')
+          const data = [];
+          const arrSubfieldChains = this._subField.split('.');
           // create value data according to the structure of subfield
           if (Array.isArray(selectedObj.id)) {
             selectedObj.forEach(v => {
-              const tmp = {}
+              const tmp = {};
               for (let i = arrSubfieldChains.length - 1; i > -1; i -= 1) {
-                tmp[i] = {}
+                tmp[i] = {};
                 if (i === arrSubfieldChains.length - 1) {
-                  tmp[i][arrSubfieldChains[i]] = v
+                  tmp[i][arrSubfieldChains[i]] = v;
                 } else {
-                  tmp[i][arrSubfieldChains[i]] = tmp[i + 1]
+                  tmp[i][arrSubfieldChains[i]] = tmp[i + 1];
                 }
               }
-              data.push(tmp[0])
-            })
+              data.push(tmp[0]);
+            });
           }
           // add write lock to avoid triggering _updateField via fieldnode changed event
-          this._writeLock = true
-          this._fieldNodeToUpdate._value = data
+          this._writeLock = true;
+          this._fieldNodeToUpdate._value = data;
           // shut down write protection
           setTimeout(() => {
-            this._writeLock = false
-          }, 100)
+            this._writeLock = false;
+          }, 100);
         }
       }
-      this._notifiySelectedItem(selectedObj)
-    })
+      this._notifiySelectedItem(selectedObj);
+    });
 
-    this._initBinder()
+    this._initBinder();
   }
 
   /**
@@ -125,7 +125,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @returns {string[]}
    */
   static get observedAttributes() {
-    return ['value-field', 'display-field', 'sub-field', 'value-sub-field', 'display-sub-field']
+    return ['value-field', 'display-field', 'sub-field', 'value-sub-field', 'display-sub-field'];
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
@@ -133,20 +133,20 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       // eslint-disable-next-line default-case
       switch (name) {
         case 'value-field':
-          this._valueField = newVal
-          break
+          this._valueField = newVal;
+          break;
         case 'display-field':
-          this._displayField = newVal
-          break
+          this._displayField = newVal;
+          break;
         case 'sub-field':
-          this._subField = newVal
-          break
+          this._subField = newVal;
+          break;
         case 'value-sub-field':
-          this._valueSubField = newVal
-          break
+          this._valueSubField = newVal;
+          break;
         case 'display-sub-field':
-          this._displaySubField = newVal
-          break
+          this._displaySubField = newVal;
+          break;
       }
     }
   }
@@ -157,7 +157,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @private
    */
   _initBinder() {
-    this.binder = new UniversalFieldNodeBinder(this)
+    this.binder = new UniversalFieldNodeBinder(this);
 
     // set the attribute mappings
     this.binder.attributeMappings = {
@@ -170,7 +170,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       pattern: 'pattern',
       min: 'min',
       max: 'max',
-    }
+    };
 
     // set the label mappings
     this.binder.labelMappings = {
@@ -179,7 +179,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
-    }
+    };
 
     this.binder.fatAttributesToConstraintsMappings = {
       max: 'value._constraints.max.is', // for the fieldnode constraint
@@ -188,45 +188,45 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       required: 'value._constraints.required.is', // for the fieldnode constraint
       'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
       'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
-    }
+    };
 
     this.binder.constraintsTofatAttributesMappings = {
       min: 'min',
       max: 'max',
       pattern: 'pattern',
       required: 'required',
-    }
+    };
 
     /**
      * check overrides from the used component, attributes set on the component itself overrides all
      */
-    this.binder.checkLabelandAttributeOverrrides()
+    this.binder.checkLabelandAttributeOverrrides();
 
     // the extended furo-text-input component uses _value
-    this.binder.targetValueField = '_value'
+    this.binder.targetValueField = '_value';
 
     // update the value on input changes
     this.addEventListener('value-changed', val => {
       if (this.binder.fieldNode) {
         // if something was entered the field is not empty
-        this.binder.deleteLabel('pristine')
+        this.binder.deleteLabel('pristine');
 
         // update the value
-        this.binder.fieldValue = val.detail
+        this.binder.fieldValue = val.detail;
       }
-    })
+    });
   }
 
   _findDisplayNameByValue(val) {
-    let displayName = ''
+    let displayName = '';
 
     for (let i = 0; i < this._dropdownList.length; i += 1) {
       if (this._dropdownList[i].id === val) {
-        displayName = this._dropdownList[i].label
-        break
+        displayName = this._dropdownList[i].label;
+        break;
       }
     }
-    return displayName
+    return displayName;
   }
 
   /**
@@ -235,9 +235,9 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * detail payload: the original item object or the array of original item objects by multiple options
    */
   _notifiySelectedItem(obj) {
-    const customEvent = new Event('item-selected', { composed: true, bubbles: true })
-    customEvent.detail = obj._original
-    this.dispatchEvent(customEvent)
+    const customEvent = new Event('item-selected', { composed: true, bubbles: true });
+    customEvent.detail = obj._original;
+    this.dispatchEvent(customEvent);
   }
 
   /**
@@ -247,28 +247,28 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    */
   _notifyAndTriggerUpdate(arr) {
     if (arr.length > 0) {
-      this._dropdownList = arr
+      this._dropdownList = arr;
 
       if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
         // notify first item if field is not set
-        let selectedItem = null
+        let selectedItem = null;
         for (let i = 0; i < arr.length; i += 1) {
           if (arr[i].selected) {
-            selectedItem = arr[i]
-            break
+            selectedItem = arr[i];
+            break;
           }
         }
-        selectedItem = selectedItem || arr[0]
-        this._notifiySelectedItem(selectedItem)
+        selectedItem = selectedItem || arr[0];
+        this._notifiySelectedItem(selectedItem);
         if (this._fieldNodeToUpdate) {
-          this._fieldNodeToUpdate._value = selectedItem
+          this._fieldNodeToUpdate._value = selectedItem;
         }
       } else if (this.multiple) {
-        this._notifiySelectedItem(this._parseRepeatedData(this._fieldNodeToUpdate._value))
+        this._notifiySelectedItem(this._parseRepeatedData(this._fieldNodeToUpdate._value));
       } else {
-        this._notifiySelectedItem(this._fieldNodeToUpdate._value)
+        this._notifiySelectedItem(this._fieldNodeToUpdate._value);
       }
-      this.setList(arr)
+      this.setList(arr);
     }
   }
 
@@ -277,33 +277,33 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param {Array} Array with options
    */
   setList(optionArray) {
-    this.optionItems = optionArray
+    this.optionItems = optionArray;
   }
 
   set optionItems(collection) {
     if (collection === undefined || !collection.length) {
       // no action
-      return
+      return;
     }
     // convert array list to id, label structure
     if (typeof collection[0] === 'string') {
       // eslint-disable-next-line no-param-reassign
-      collection = collection.map(item => ({ id: item, label: item }))
+      collection = collection.map(item => ({ id: item, label: item }));
     }
 
     const arr = collection.map(e => {
       if (e.selected) {
-        this.value = e.id.toString()
+        this.value = e.id.toString();
       }
       return {
         id: e.id,
         label: e.label,
         selected: this.value === e.id.toString() || e.selected || false,
-      }
-    })
+      };
+    });
 
     if (!this.value) {
-      this.value = arr[0].id
+      this.value = arr[0].id;
     }
     // save parsed selection option array
     this.selectOptions = arr;
@@ -319,7 +319,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
   _mapInputToInnerStruct(collection) {
     if (collection === undefined || !collection.length) {
       // no valid collection object submitted
-      return []
+      return [];
     }
     const arrValue = [];
 
@@ -330,9 +330,9 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         let tmpValue = element;
         arrSubfieldChains.forEach(s => {
           tmpValue = tmpValue[s] ? tmpValue[s] : tmpValue;
-        })
+        });
         arrValue.push(tmpValue);
-      })
+      });
     }
     return arrValue;
   }
@@ -345,42 +345,42 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @private
    */
   _mapDataToList(list) {
-    let arr = []
+    let arr = [];
     // if field value not exists. select item when the item is marked as `selected` in list
     if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
-      arr = this._setItemSelectedViaSelectedMark(list)
+      arr = this._setItemSelectedViaSelectedMark(list);
     } else if (Array.isArray(list)) {
-      let isSelected = false
-      let hasSelectedMark = false
-      let preSelectedValueInList = null
+      let isSelected = false;
+      let hasSelectedMark = false;
+      let preSelectedValueInList = null;
       for (let i = 0; i < list.length; i += 1) {
         const item = {
           id: list[i][this._valueField],
           label: list[i][this._displayField],
           selected: false,
           _original: list[i],
-        }
+        };
 
         if (this._fieldNodeToUpdate._value === list[i][this._valueField]) {
-          item.selected = true
-          isSelected = true
+          item.selected = true;
+          isSelected = true;
         }
 
         if (list[i].selected) {
-          hasSelectedMark = true
-          preSelectedValueInList = list[i][this._valueField]
+          hasSelectedMark = true;
+          preSelectedValueInList = list[i][this._valueField];
         }
 
-        arr.push(item)
+        arr.push(item);
       }
 
       if (!isSelected && hasSelectedMark) {
-        arr = this._setItemSelectedViaSelectedMark(list)
-        this._fieldNodeToUpdate._value = preSelectedValueInList
+        arr = this._setItemSelectedViaSelectedMark(list);
+        this._fieldNodeToUpdate._value = preSelectedValueInList;
       }
     }
 
-    return arr
+    return arr;
   }
 
   /**
@@ -388,21 +388,21 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param options
    */
   addItems(options) {
-    const combo = this
+    const combo = this;
     while (combo.firstChild) {
-      combo.removeChild(combo.firstChild)
+      combo.removeChild(combo.firstChild);
     }
-    combo.value = ''
-    options.forEach((item) => {
-      const element = document.createElement('ui5-option')
-      element.setAttribute('value', item.label)
-      element.setAttribute('data-id', item.id)
-      element.setAttribute('selected', item.selected)
+    combo.value = '';
+    options.forEach(item => {
+      const element = document.createElement('ui5-option');
+      element.setAttribute('value', item.label);
+      element.setAttribute('data-id', item.id);
+      element.setAttribute('selected', item.selected);
       element.value = item.label;
       element.selected = item.selected;
-      element.innerText = item.label
-      combo.appendChild(element)
-    })
+      element.innerText = item.label;
+      combo.appendChild(element);
+    });
   }
 
   /**
@@ -414,7 +414,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    */
   // eslint-disable-next-line class-methods-use-this
   _getValueByPath(obj, path) {
-    return path.split('.').reduce((res, prop) => res[prop], obj)
+    return path.split('.').reduce((res, prop) => res[prop], obj);
   }
 
   /**
@@ -423,7 +423,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-    this.binder.bindField(fieldNode)
+    this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
       /**
        * handle pristine
@@ -431,49 +431,52 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
        * Set to pristine label to the same _pristine from the fieldNode
        */
       if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine')
+        this.binder.addLabel('pristine');
       } else {
-        this.binder.deleteLabel('pristine')
+        this.binder.deleteLabel('pristine');
       }
       // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine')
-      })
+        this.binder.addLabel('pristine');
+      });
 
       // use multiple select for repeated node
       if (fieldNode._meta && fieldNode._meta.repeated) {
-        this.multiple = true
+        this.multiple = true;
       }
 
       if (this._valueSubField && !this.multiple) {
         this._fieldNodeToUpdate = this._getValueByPath(this.binder.fieldNode, this._valueSubField);
         // this._fieldNodeToUpdate = this.binder.fieldNode[this._valueSubField];
-        this._fieldDisplayNodeToUpdate = this._getValueByPath(this.binder.fieldNode, this._displaySubField);
+        this._fieldDisplayNodeToUpdate = this._getValueByPath(
+          this.binder.fieldNode,
+          this._displaySubField,
+        );
       } else {
-        this._fieldNodeToUpdate = this.binder.fieldNode
+        this._fieldNodeToUpdate = this.binder.fieldNode;
       }
 
       // inject options from meta which is defined in spec
       if (this.binder.fieldNode._meta && this.binder.fieldNode._meta.options) {
-        this._buildListWithMetaOptions(this.binder.fieldNode._meta.options)
+        this._buildListWithMetaOptions(this.binder.fieldNode._meta.options);
       }
 
       // update meta and constraints when they change
       this.binder.fieldNode.addEventListener('this-metas-changed', () => {
         if (this.binder.fieldNode._meta && this.binder.fieldNode._meta.options) {
-          this._buildListWithMetaOptions(this.binder.fieldNode._meta.options)
+          this._buildListWithMetaOptions(this.binder.fieldNode._meta.options);
         }
-      })
+      });
 
       this.binder.fieldNode.addEventListener('field-value-changed', () => {
-        this._updateField()
-      })
+        this._updateField();
+      });
 
       this.binder.fieldNode.addEventListener('repeated-field-changed', () => {
-        this._updateField()
-      })
+        this._updateField();
+      });
 
-      this._updateField()
+      this._updateField();
     }
   }
 
@@ -482,20 +485,21 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param val
    */
   setValue(val) {
-    this.binder.fieldValue = val
+    this.binder.fieldValue = val;
   }
 
   // eslint-disable-next-line class-methods-use-this
   _updateField() {
     if (this.multiple) {
       if (!this._writeLock) {
-        super.value = (this._parseRepeatedData(this._fieldNodeToUpdate._value))
+        super.value = this._parseRepeatedData(this._fieldNodeToUpdate._value);
       }
     } else {
       let size = this._dropdownList.length;
       // eslint-disable-next-line no-plusplus
       while (size--) {
-        this._dropdownList[size].selected = this._dropdownList[size].id === this.binder.fieldValue.id;
+        this._dropdownList[size].selected =
+          this._dropdownList[size].id === this.binder.fieldValue.id;
       }
       this._notifyAndTriggerUpdate(this._dropdownList);
     }
@@ -508,18 +512,18 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @private
    */
   _parseRepeatedData(data) {
-    const arrValue = []
-    const arrSubfieldChains = this._subField.split('.')
+    const arrValue = [];
+    const arrSubfieldChains = this._subField.split('.');
     if (Array.isArray(data)) {
       data.forEach(element => {
-        let tmpValue = element
+        let tmpValue = element;
         arrSubfieldChains.forEach(s => {
-          tmpValue = tmpValue[s]
-        })
-        arrValue.push(tmpValue)
-      })
+          tmpValue = tmpValue[s];
+        });
+        arrValue.push(tmpValue);
+      });
     }
-    return arrValue
+    return arrValue;
   }
 
   /**
@@ -531,16 +535,16 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
   }
 
   _setItemSelectedViaSelectedMark(list) {
-    let arr = []
+    let arr = [];
     if (Array.isArray(list)) {
       arr = list.map(e => ({
         id: e[this._valueField],
         label: e[this._displayField],
         selected: !!e.selected,
         _original: e,
-      }))
+      }));
     }
-    return arr
+    return arr;
   }
 
   /**
@@ -562,17 +566,21 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param {Array} Array with entities
    */
   injectList(list) {
-    const arr = this._mapInputToInnerStruct(list)
-    const innerList = this._mapDataToList(arr)
-    this._notifyAndTriggerUpdate(innerList)
+    const arr = this._mapInputToInnerStruct(list);
+    const innerList = this._mapDataToList(arr);
+    this._notifyAndTriggerUpdate(innerList);
 
     /**
      * Is fired when a new list is applied
      * @event options-injected Payload: option list
      */
-    this.dispatchEvent(new CustomEvent('options-injected', {
-        detail: innerList, bubbles: true, composed: true
-    }));
+    this.dispatchEvent(
+      new CustomEvent('options-injected', {
+        detail: innerList,
+        bubbles: true,
+        composed: true,
+      }),
+    );
   }
 
   /**
@@ -580,9 +588,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param entities
    */
   injectEntities(entities) {
-    this.injectList(entities)
+    this.injectList(entities);
   }
-
 }
 
-window.customElements.define('furo-ui5-data-collection-dropdown', FuroUi5DataCollectionDropdown)
+window.customElements.define('furo-ui5-data-collection-dropdown', FuroUi5DataCollectionDropdown);

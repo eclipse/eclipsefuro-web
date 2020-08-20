@@ -1,24 +1,24 @@
-import { LitElement, html, css } from 'lit-element'
-import { Theme } from '@furo/framework/src/theme'
-import { FBP } from '@furo/fbp/src/fbp.js'
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp/src/fbp.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/doc-helper'
+import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5/src/furo-catalog.js'
+import '@furo/ui5/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-data-object.js'
-import '@furo/data/src/furo-entity-agent.js'
-import '@furo/data/src/furo-deep-link.js'
+import '@furo/data/src/furo-data-object.js';
+import '@furo/data/src/furo-entity-agent.js';
+import '@furo/data/src/furo-deep-link.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-form-layouter.js'
-import '@furo/form/src/furo-button-bar.js'
-import '@furo/input/src/furo-button.js'
-import '@furo/data-input/demos/helper/produce-qp-data.js'
-import '@furo/data-input/demos/helper/fetch-universal-json.js'
+import '@furo/form/src/furo-form-layouter.js';
+import '@furo/form/src/furo-button-bar.js';
+import '@furo/input/src/furo-button.js';
+import '@furo/data-input/demos/helper/produce-qp-data.js';
+import '@furo/data-input/demos/helper/fetch-universal-json.js';
 
-import '@ui5/webcomponents/dist/Icon.js'
-import '../src/lib/ui5-icons.js'
+import '@ui5/webcomponents/dist/Icon.js';
+import '../src/lib/ui5-icons.js';
 
 /**
  * `demo-furo-ui5-data-text-input`
@@ -68,9 +68,8 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
         .width-8\\/12 {
           grid-column: span 8;
         }
-
       `
-    )
+    );
   }
 
   /**
@@ -84,15 +83,13 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter two>
-
-
-            <furo-ui5-data-text-input style="width: 100%"
-                                      ƒ-bind-data="--entity(*.data.display_name)"
-                                      value-state="Information"
+            <furo-ui5-data-text-input
+              style="width: 100%"
+              ƒ-bind-data="--entity(*.data.display_name)"
+              value-state="Information"
             >
               <ui5-icon slot="icon" name="signature"></ui5-icon>
             </furo-ui5-data-text-input>
-
 
             <!--            SAP Fiori Design System -->
             <!--            The label-field ratio is 4:8:0 by default:-->
@@ -105,8 +102,10 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
                 <ui5-label for="Input" show-colon>Description</ui5-label>
               </div>
               <div style="grid-column: span 8;">
-                <furo-ui5-data-text-input id="Input" style="width: 100%"
-                                          ƒ-bind-data="--entity(*.data.description)"
+                <furo-ui5-data-text-input
+                  id="Input"
+                  style="width: 100%"
+                  ƒ-bind-data="--entity(*.data.description)"
                 ></furo-ui5-data-text-input>
               </div>
             </div>
@@ -115,12 +114,13 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
                 <ui5-label for="Input" wrap show-colon>Description (with a lot of chars)</ui5-label>
               </div>
               <div style="grid-column: span 8;">
-                <furo-ui5-data-text-input id="Input" style="width: 100%"
-                                          ƒ-bind-data="--entity(*.data.description)"
+                <furo-ui5-data-text-input
+                  id="Input"
+                  style="width: 100%"
+                  ƒ-bind-data="--entity(*.data.description)"
                 ></furo-ui5-data-text-input>
               </div>
             </div>
-
 
             <furo-ui5-data-text-input
               ƒ-bind-data="--entity(*.data.description)"
@@ -139,7 +139,8 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
             ></furo-ui5-data-password-input>
 
             <furo-ui5-data-checkbox-input
-              ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"></furo-ui5-data-checkbox-input>
+              ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
+            ></furo-ui5-data-checkbox-input>
           </furo-form-layouter>
 
           <furo-button-bar>
@@ -212,8 +213,8 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
           </furo-entity-agent>
         </template>
       </furo-demo-snippet>
-    `
+    `;
   }
 }
 
-window.customElements.define('demo-furo-ui5-data-text-input', DemoFuroUi5DataTextInput)
+window.customElements.define('demo-furo-ui5-data-text-input', DemoFuroUi5DataTextInput);

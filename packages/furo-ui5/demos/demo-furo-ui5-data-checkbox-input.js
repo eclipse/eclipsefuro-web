@@ -66,20 +66,32 @@ class DemoFuroUi5DataCheckboxInput extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
-
             <furo-ui5-data-text-input
               ƒ-bind-data="--entity(*.data.description)"
             ></furo-ui5-data-text-input>
 
             <div>
-              <furo-ui5-data-checkbox-input ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"></furo-ui5-data-checkbox-input>
-              <furo-ui5-data-checkbox-input value-state="Information" wrap ƒ-bind-data="--entity(*.data.furo_data_bool_icon)"></furo-ui5-data-checkbox-input>
-              <furo-ui5-data-checkbox-input ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"></furo-ui5-data-checkbox-input>
-              <furo-ui5-data-checkbox-input ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"></furo-ui5-data-checkbox-input>
-              <furo-ui5-data-checkbox-input ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"></furo-ui5-data-checkbox-input>
-              <furo-ui5-data-checkbox-input ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"></furo-ui5-data-checkbox-input>
+              <furo-ui5-data-checkbox-input
+                ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
+              ></furo-ui5-data-checkbox-input>
+              <furo-ui5-data-checkbox-input
+                value-state="Information"
+                wrap
+                ƒ-bind-data="--entity(*.data.furo_data_bool_icon)"
+              ></furo-ui5-data-checkbox-input>
+              <furo-ui5-data-checkbox-input
+                ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
+              ></furo-ui5-data-checkbox-input>
+              <furo-ui5-data-checkbox-input
+                ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
+              ></furo-ui5-data-checkbox-input>
+              <furo-ui5-data-checkbox-input
+                ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
+              ></furo-ui5-data-checkbox-input>
+              <furo-ui5-data-checkbox-input
+                ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
+              ></furo-ui5-data-checkbox-input>
             </div>
-
           </furo-form-layouter>
 
           <furo-button-bar>
@@ -106,7 +118,6 @@ class DemoFuroUi5DataCheckboxInput extends FBP(LitElement) {
           </furo-entity-agent>
         </template>
       </furo-demo-snippet>
-
     `;
   }
 }
