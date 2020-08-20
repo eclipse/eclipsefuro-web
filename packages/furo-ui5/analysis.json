@@ -1130,8 +1130,8 @@
       "tagname": "furo-ui5-data-text-input"
     },
     {
-      "description": "",
-      "summary": "",
+      "description": "`furo-ui5-form-field-container`\nThe furo-ui5-form-field-container gives the user a layout to manage\ninput field and labels according to the design specification of SAP Fiori.\n\nExample\n\n```html\n<furo-ui5-form-field-container>\n  <ui5-label label slot=\"label\" for=\"Custom\" show-colon>Currency / Units (custom)</ui5-label>\n  <furo-horizontal-flex id=\"Custom\" content space>\n    <furo-ui5-data-text-input flex ƒ-bind-data=\"--entity(*.data.furo_data_money_input.currency_code)\"></furo-ui5-data-text-input>\n    <furo-ui5-data-number-input flex ƒ-bind-data=\"--entity(*.data.furo_data_money_input.units)\"></furo-ui5-data-number-input>\n </furo-horizontal-flex>\n</furo-ui5-form-field-container>\n```\n\n\nThe form and simple form in size L use a two-column layout within the responsive grid layout by default.\nThat means that the form groups are placed next to each other to have all the information on one screen and to\navoid scrolling. In these columns, the labels are positioned in the same row as the corresponding input field or value.\nSo the form groups adopt the Z layout (reading direction in rows, not in columns).\n\nThe label-field ratio is 4:8:0 by default:\n\n4 grid columns of the responsive grid layout are used by the labels.\n8 grid columns of the responsive grid layout are used by fields.\n0 grid columns of the responsive grid layout are used by empty columns.\n\n\nSize M of the form and simple form also has a single-column layout within the responsive grid layout by default.\nHowever, in size M the labels are positioned in the same row as the corresponding input field or value, and form\ngroups are positioned below each other.\n\nThe label-field ratio is 2:10:0 by default:\n\n2 grid columns of the responsive grid layout are used by the labels.\n10 grid columns of the responsive grid layout are used by the fields.\n0 columns of the responsive grid layout are used by empty columns.\n\n\nSize S (Smartphones and Dialogs)\nThe form and simple form use a single-column layout within the responsive grid layout in size S by default.\nThis means that the form groups are positioned below each other in a single column and the labels are positioned\n`above` the fields to avoid truncation of the labels.\n\nThe label-field ratio is 12:12:0 by default:\n\n12 grid columns of the responsive grid layout are used by the labels.\n(A label handles the space of a whole row.)\n12 grid columns of the responsive grid layout are used by the fields.\n(A field handles the space of a whole row.)\n0 grid columns of the responsive grid layout are used by empty columns.\n(There is no empty space on the right of the field.)",
+      "summary": "form field container",
       "path": "src/furo-ui5-form-field-container.js",
       "properties": [],
       "methods": [
@@ -1141,11 +1141,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 34,
+              "line": 69,
               "column": 2
             },
             "end": {
-              "line": 37,
+              "line": 72,
               "column": 3
             }
           },
@@ -1161,11 +1161,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 137,
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 145,
               "column": 3
             }
           },
@@ -1177,15 +1177,20 @@
         }
       ],
       "staticMethods": [],
-      "demos": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-form-field-container",
+          "description": "Sample"
+        }
+      ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 29,
+          "line": 64,
           "column": 0
         },
         "end": {
-          "line": 112,
+          "line": 147,
           "column": 1
         }
       },
@@ -1199,7 +1204,10 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-ui5-form-field-container"
+      "tagname": "furo-ui5-form-field-container",
+      "mixins": [
+        "FBP"
+      ]
     },
     {
       "description": "`furo-ui5-data-text-input-labeled`\nThe furo-ui5-data-text-input-labeled is a composition to easily use a complete input field with label according\nto the design specification of SAP Fiori Design System.",

@@ -1,22 +1,21 @@
-import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme';
-import { FBP } from '@furo/fbp/src/fbp.js';
+import { LitElement, html, css } from 'lit-element'
+import { Theme } from '@furo/framework/src/theme'
+import { FBP } from '@furo/fbp/src/fbp.js'
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/doc-helper';
+import '@furo/doc-helper'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5/src/furo-catalog.js';
+import '@furo/ui5/src/furo-catalog.js'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-data-object.js';
-import '@furo/data/src/furo-entity-agent.js';
-import '@furo/data/src/furo-deep-link.js';
+import '@furo/data/src/furo-data-object.js'
+import '@furo/data/src/furo-entity-agent.js'
+import '@furo/data/src/furo-deep-link.js'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-form-layouter.js';
-import '@furo/form/src/furo-button-bar.js';
-import '@furo/data-input/demos/helper/produce-qp-data.js';
+import '@furo/form/src/furo-form-layouter.js'
+import '@furo/form/src/furo-button-bar.js'
+import '@furo/data-input/demos/helper/produce-qp-data.js'
 
-import '@ui5/webcomponents/dist/Icon.js';
-import '../src/lib/ui5-icons.js';
+import '@ui5/webcomponents/dist/Card.js'
 
 /**
  * `demo-furo-ui5-form-field-container`
@@ -51,7 +50,7 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
           height: 100%;
         }
       `
-    );
+    )
   }
 
   /**
@@ -64,52 +63,56 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
       <h2>Demo furo-ui5-form-field-container</h2>
       <furo-demo-snippet>
         <template>
-          <ui5-title>How to build a form.</ui5-title>
-          <furo-form-layouter one>
+          <ui5-card heading="How to build a form.">
+            <div style="margin: var(--spacing)">
+              <furo-form-layouter one>
 
-            <furo-ui5-data-text-input-labeled
-              ƒ-bind-data="--entity(*.data.display_name)"
-            ></furo-ui5-data-text-input-labeled>
+                <furo-ui5-data-text-input-labeled
+                  ƒ-bind-data="--entity(*.data.display_name)"
+                ></furo-ui5-data-text-input-labeled>
 
-            <furo-ui5-data-text-input-labeled
-              ƒ-bind-data="--entity(*.data.description)"
-            ></furo-ui5-data-text-input-labeled>
+                <furo-ui5-data-text-input-labeled
+                  ƒ-bind-data="--entity(*.data.description)"
+                ></furo-ui5-data-text-input-labeled>
 
-            <furo-ui5-data-text-input-labeled
-              ƒ-bind-data="--entity(*.data.furo_data_text_input)"
-            ></furo-ui5-data-text-input-labeled>
+                <furo-ui5-data-text-input-labeled
+                  ƒ-bind-data="--entity(*.data.furo_data_text_input)"
+                ></furo-ui5-data-text-input-labeled>
 
-            <furo-ui5-data-number-input-labeled
-              ƒ-bind-data="--entity(*.data.furo_data_number_input)"
-            ></furo-ui5-data-number-input-labeled>
+                <furo-ui5-data-number-input-labeled
+                  ƒ-bind-data="--entity(*.data.furo_data_number_input)"
+                ></furo-ui5-data-number-input-labeled>
 
-            <furo-ui5-data-password-input-labeled
-              ƒ-bind-data="--entity(*.data.furo_data_number_input)"
-            ></furo-ui5-data-password-input-labeled>
+                <furo-ui5-data-password-input-labeled
+                  ƒ-bind-data="--entity(*.data.furo_data_number_input)"
+                ></furo-ui5-data-password-input-labeled>
 
-            <furo-ui5-form-field-container>
-              <ui5-label label slot="label" for="Custom" show-colon>Currency / Units (custom)</ui5-label>
-              <furo-horizontal-flex id="Custom" content space>
-                <furo-ui5-data-text-input flex ƒ-bind-data="--entity(*.data.furo_data_money_input.currency_code)"></furo-ui5-data-text-input>
-                <furo-ui5-data-number-input flex ƒ-bind-data="--entity(*.data.furo_data_money_input.units)"></furo-ui5-data-number-input>
-              </furo-horizontal-flex>
-            </furo-ui5-form-field-container>
+                <furo-ui5-form-field-container>
+                  <ui5-label label slot="label" for="Custom" show-colon>Currency / Units (custom)</ui5-label>
+                  <furo-horizontal-flex id="Custom" content space>
+                    <furo-ui5-data-text-input flex
+                                              ƒ-bind-data="--entity(*.data.furo_data_money_input.currency_code)"></furo-ui5-data-text-input>
+                    <furo-ui5-data-number-input flex
+                                                ƒ-bind-data="--entity(*.data.furo_data_money_input.units)"></furo-ui5-data-number-input>
+                  </furo-horizontal-flex>
+                </furo-ui5-form-field-container>
 
-          </furo-form-layouter>
+              </furo-form-layouter>
 
-          <furo-form-layouter>
-            <div>
-              <p>New form field section</p>
-              <furo-ui5-data-text-input-labeled
-                ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
-              ></furo-ui5-data-text-input-labeled>
+              <furo-form-layouter>
+                <div>
+                  <p>New form field section</p>
+                  <furo-ui5-data-text-input-labeled
+                    ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
+                  ></furo-ui5-data-text-input-labeled>
+                </div>
+              </furo-form-layouter>
+
+              <furo-button-bar slot="action">
+                <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
+              </furo-button-bar>
             </div>
-          </furo-form-layouter>
-
-          <furo-button-bar>
-            <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
-          </furo-button-bar>
-
+          </ui5-card>
           <furo-data-object
             type="experiment.ExperimentEntity"
             @-object-ready="--entity"
@@ -131,8 +134,8 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
         </template>
       </furo-demo-snippet>
 
-    `;
+    `
   }
 }
 
-window.customElements.define('demo-furo-ui5-form-field-container', DemoFuroUi5FormFieldContainer);
+window.customElements.define('demo-furo-ui5-form-field-container', DemoFuroUi5FormFieldContainer)
