@@ -89,8 +89,6 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
       required: 'required',
     };
 
-    // the extended furo-text-input component uses _value
-    this.binder.targetValueField = '_value';
     /**
      * check overrides from the used component, attributes set on the component itself overrides all
      */
@@ -126,11 +124,21 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
+
+    /**
+     * Because of the UI5 TextArea Tokenizer we can not pass NULL as a value.
+     * If the value is null, we pass an empty string
+     * @type {string}
+     * @private
+     */
+    // eslint-disable-next-line no-param-reassign
+    fieldNode._value = fieldNode._value || '';
+
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
+
       /**
        * handle pristine
-       *
        * Set to pristine label to the same _pristine from the fieldNode
        */
       if (this.binder.fieldNode._pristine) {
@@ -144,5 +152,6 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
       });
     }
   }
+
 }
 window.customElements.define('furo-ui5-data-textarea-input', FuroUi5DataTextareaInput);
