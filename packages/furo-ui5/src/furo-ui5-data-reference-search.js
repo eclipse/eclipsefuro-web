@@ -1,5 +1,4 @@
 import * as ComboBox from '@ui5/webcomponents/dist/ComboBox.js';
-import { LitElement, html, css } from 'lit-element';
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
@@ -67,7 +66,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
       placeholder: 'placeholder', // map placeholder to placeholder
       hint: 'hint',
       filter: 'filter',
-      'no_result_hint': 'noResultHint',
+      'no-result-hint': 'noResultHint',
       'max-result-hint': 'maxResultsHint',
       'value-field': 'valueField',
       'display-field': 'displayField',

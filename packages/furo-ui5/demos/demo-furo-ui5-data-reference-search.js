@@ -50,25 +50,30 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
         <furo-demo-snippet flex>
           <template>
             <furo-form-layouter four>
-            <furo-ui5-data-reference-search
-              condensed
-              ƒ-bind-data="--entityReady(*.owner)"
-              @-search="--term"
-              ƒ-collection-in="--refCol"
-            >
-            </furo-ui5-data-reference-search>
+              <furo-ui5-data-reference-search
+                condensed
+                ƒ-bind-data="--entityReady(*.owner)"
+                @-search="--term"
+                ƒ-collection-in="--refCol"
+              >
+              </furo-ui5-data-reference-search>
 
-            <furo-ui5-data-reference-search
-              placeholder="this is a placeholder"
-              ƒ-bind-data="--entityReady(*.owner)"
-              @-search="--term"
-              ƒ-collection-in="--refCol"
-            >
-            </furo-ui5-data-reference-search>
+              <furo-ui5-data-reference-search
+                placeholder="this is a placeholder"
+                ƒ-bind-data="--entityReady(*.owner)"
+                @-search="--term"
+                ƒ-collection-in="--refCol"
+              >
+              </furo-ui5-data-reference-search>
             </furo-form-layouter>
             <furo-pretty-json ƒ-inject-data="--data(*.owner._value)"></furo-pretty-json>
 
-            <furo-data-object type="task.Task" @-data-changed="--data" @-object-ready="--entityReady"> </furo-data-object>
+            <furo-data-object
+              type="task.Task"
+              @-data-changed="--data"
+              @-object-ready="--entityReady"
+            >
+            </furo-data-object>
             <furo-collection-agent
               service="PersonService"
               ƒ-hts-in="--entityReady(*.owner.link._value)"

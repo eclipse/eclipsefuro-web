@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
-import {FBP} from "@furo/fbp/src/fbp.js";
+import { FBP } from '@furo/fbp/src/fbp.js';
 /**
  * `furo-ui5-form-field-container`
  * The furo-ui5-form-field-container gives the user a layout to manage
@@ -63,7 +63,6 @@ import {FBP} from "@furo/fbp/src/fbp.js";
  * @appliesMixin FBP
  */
 class FuroUi5FormFieldContainer extends FBP(LitElement) {
-
   /**
    * flow is ready lifecycle method
    */
@@ -72,62 +71,60 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
     // this._FBPTraceWires();
   }
 
-  static get properties(){
+  static get properties() {
     return {};
   }
 
   static get styles() {
     // language=CSS
     return [
-        css`
-            :host {
-                display: block;
-            }
-            :host([hidden]){
-                display: none;
-            }
-            .container {
-              display: grid;
-              grid-template-columns: repeat(12, 1fr);
-              grid-gap: 1em;
-            }
+      css`
+        :host {
+          display: block;
+        }
+        :host([hidden]) {
+          display: none;
+        }
+        .container {
+          display: grid;
+          grid-template-columns: repeat(12, 1fr);
+          grid-gap: 1em;
+        }
 
-            ::slotted(*[content]) {
-              grid-column: span 8;
-              width: 100%;
-            }
-            ::slotted(*[label]) {
-              grid-column: span 4;
-              justify-self: end;
-              align-self: center;
-            }
+        ::slotted(*[content]) {
+          grid-column: span 8;
+          width: 100%;
+        }
+        ::slotted(*[label]) {
+          grid-column: span 4;
+          justify-self: end;
+          align-self: center;
+        }
 
-            @media only screen and (max-width:600px) {
-              ::slotted(*[content]) {
-                grid-column: span 12;
-                width: 100%;
-              }
-              ::slotted(*[label]) {
-                grid-column: span 12;
-                justify-self: start;
-                align-self: center;
-              }
-            }
+        @media only screen and (max-width: 600px) {
+          ::slotted(*[content]) {
+            grid-column: span 12;
+            width: 100%;
+          }
+          ::slotted(*[label]) {
+            grid-column: span 12;
+            justify-self: start;
+            align-self: center;
+          }
+        }
 
-            @media only screen and (min-width: 601px) and (max-width: 768px) {
-              ::slotted(*[content]) {
-                grid-column: span 10;
-                width: 100%;
-              }
-              ::slotted(*[label]) {
-                grid-column: span 2;
-                justify-self: end;
-                align-self: center;
-              }
-            }
-
-
-        `
+        @media only screen and (min-width: 601px) and (max-width: 768px) {
+          ::slotted(*[content]) {
+            grid-column: span 10;
+            width: 100%;
+          }
+          ::slotted(*[label]) {
+            grid-column: span 2;
+            justify-self: end;
+            align-self: center;
+          }
+        }
+      `,
     ];
   }
 
@@ -135,7 +132,7 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
    * @private
    * @returns {TemplateResult|TemplateResult}
    */
-  render(){
+  render() {
     // language=HTML
     return html`
       <div class="container">
@@ -144,7 +141,6 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
       </div>
     `;
   }
-
 }
 
 window.customElements.define('furo-ui5-form-field-container', FuroUi5FormFieldContainer);

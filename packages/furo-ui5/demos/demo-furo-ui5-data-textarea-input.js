@@ -63,12 +63,18 @@ class DemoFuroUi5DataTextareaInput extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
-
-                <furo-ui5-data-textarea-input ƒ-bind-data="--entity(*.data.description)"></furo-ui5-data-textarea-input>
-                <furo-ui5-data-textarea-input ƒ-bind-data="--entity(*.data.furo_data_text_input)"></furo-ui5-data-textarea-input>
-                <furo-ui5-data-textarea-input ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"></furo-ui5-data-textarea-input>
-                <furo-ui5-data-textarea-input ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"></furo-ui5-data-textarea-input>
-
+            <furo-ui5-data-textarea-input
+              ƒ-bind-data="--entity(*.data.description)"
+            ></furo-ui5-data-textarea-input>
+            <furo-ui5-data-textarea-input
+              ƒ-bind-data="--entity(*.data.furo_data_text_input)"
+            ></furo-ui5-data-textarea-input>
+            <furo-ui5-data-textarea-input
+              ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
+            ></furo-ui5-data-textarea-input>
+            <furo-ui5-data-textarea-input
+              ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
+            ></furo-ui5-data-textarea-input>
           </furo-form-layouter>
 
           <furo-button-bar>

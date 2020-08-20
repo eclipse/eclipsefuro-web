@@ -144,7 +144,5 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
       });
     }
   }
-
-
 }
 window.customElements.define('furo-ui5-data-textarea-input', FuroUi5DataTextareaInput);
