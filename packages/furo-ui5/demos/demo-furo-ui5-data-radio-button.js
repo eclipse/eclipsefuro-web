@@ -73,23 +73,17 @@ class DemoFuroUi5DataRadioButton extends FBP(LitElement) {
                                             @-item-selected="--itemSelected"
                 ></furo-ui5-data-radio-button>
               </div>
-
-              <label for="Native1">Native Radio Button1</label>
-              <input name="group" id="Native1" type="radio">
-              <label for="Native2">Native Radio Button2</label>
-              <input name="group" id="Native2" type="radio">
-
-
-              <hr/>
-              <p>
-                Bound input fields: Only one boolean field can be true
-              </p>
-              <furo-ui5-data-text-input
-                ƒ-bind-data="--entity(*.furo_data_bool_icon)"
-              ></furo-ui5-data-text-input>
-              <furo-ui5-data-text-input
-                ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
-              ></furo-ui5-data-text-input>
+            </div>
+            <hr/>
+            <p>
+              Bound input fields: Only one boolean field can be true
+            </p>
+            <furo-ui5-data-text-input
+              ƒ-bind-data="--entity(*.furo_data_bool_icon)"
+            ></furo-ui5-data-text-input>
+            <furo-ui5-data-text-input
+              ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+            ></furo-ui5-data-text-input>
 
           </furo-form-layouter>
 

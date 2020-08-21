@@ -88,7 +88,7 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
               </p>
               <furo-ui5-data-segmented-button
                 style="width: 100%;"
-                display-field="name"
+                display-field="first_name"
                 ƒ-bind-data="--entity(*.owner)"
                 ƒ-inject-list="--response(*.entities)"
                 @-item-selected="--itemSelected"
