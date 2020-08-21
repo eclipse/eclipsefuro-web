@@ -123,9 +123,9 @@ describe('furo-ui5-data-segmented-button', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-data-segemented-button
+          <furo-ui5-data-segmented-button
             ƒ-bind-data="--entity(*.owner)"
-          ></furo-ui5-data-segemented-button>
+          ></furo-ui5-data-segmented-button>
           <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
         </template>
@@ -140,9 +140,9 @@ describe('furo-ui5-data-segmented-button', () => {
     await dao.updateComplete;
   });
 
-  it('should be a furo-ui5-data-segemented-button element', done => {
+  it('should be a furo-ui5-data-segmented-button element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(segmentedButton.nodeName.toLowerCase(), 'furo-ui5-data-segemented-button');
+    assert.equal(segmentedButton.nodeName.toLowerCase(), 'furo-ui5-data-segmented-button');
     done();
   });
 

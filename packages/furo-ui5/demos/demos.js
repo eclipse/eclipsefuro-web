@@ -8,3 +8,4 @@ import './demo-furo-ui5-data-reference-search.js';
 import './demo-furo-ui5-form-field-container.js';
 import './demo-furo-ui5-data-textarea-input.js';
 import './demo-furo-ui5-segmented-button.js';
+import './demo-furo-ui5-data-radio-button.js';
