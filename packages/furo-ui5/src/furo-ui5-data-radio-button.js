@@ -1,4 +1,3 @@
-import { LitElement } from 'lit-element';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 import '@ui5/webcomponents/dist/RadioButton.js';
@@ -21,7 +20,7 @@ import '@ui5/webcomponents/dist/RadioButton.js';
  * @customElement
  * @demo demo-furo-ui5-data-radio-button Basic Usage
  */
-export class FuroUi5DataRadioButton extends LitElement {
+export class FuroUi5DataRadioButton extends HTMLElement {
   /**
    * @event value-changed
    * Fired when value has changed from the component inside.
@@ -81,9 +80,7 @@ export class FuroUi5DataRadioButton extends LitElement {
      * Listener to catch the selected data
      */
     this.addEventListener('select', val => {
-      const selectedObj = this._dropdownList.find(
-        obj => obj.id === val.detail.selectedButton.dataset.id,
-      );
+      const selectedObj = val.target.dataset;
 
       if (this.binder.fieldNode) {
         if (!this.multiple) {
@@ -392,13 +389,14 @@ export class FuroUi5DataRadioButton extends LitElement {
    */
   addItems(options) {
     const radioGroup = this;
+    const groupName = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     while (radioGroup.firstChild) {
       radioGroup.removeChild(radioGroup.firstChild);
     }
     radioGroup.value = '';
     options.forEach(item => {
       const element = document.createElement('ui5-radiobutton');
-      element.setAttribute('name', `${this.binder.fieldNode.__index }Group`);
+      element.setAttribute('name', groupName);
       element.setAttribute('text', item.label);
       element.setAttribute('data-id', item.id);
       if(item.selected) {

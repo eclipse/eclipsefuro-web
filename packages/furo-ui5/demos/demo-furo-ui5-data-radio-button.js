@@ -65,7 +65,7 @@ class DemoFuroUi5DataRadioButton extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>Demo furo-ui5-data-segemented-button</h2>
+      <h2>Demo furo-ui5-data-radio-button Group</h2>
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
