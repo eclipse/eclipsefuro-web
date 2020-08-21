@@ -9,7 +9,7 @@ import '@furo/testhelper/initEnv.js';
 
 import '../src/furo-catalog.js';
 
-describe('furo-ui5-data-checkbox-input-scalar', () => {
+describe('furo-ui5-data-collection-dropdown-labeled', () => {
   let host;
   let input;
   let dao;
@@ -102,13 +102,11 @@ describe('furo-ui5-data-checkbox-input-scalar', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-data-checkbox-input
-            ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
-          ></furo-ui5-data-checkbox-input>
-          <furo-data-object
-            type="experiment.ExperimentEntity"
-            @-object-ready="--entity"
-          ></furo-data-object>
+         <furo-ui5-data-collection-dropdown-labeled
+            ƒ-bind-data="--entity(*.owner)"
+          ></furo-ui5-data-collection-dropdown-labeled>
+          <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
+          <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
         </template>
       </test-bind>
     `);
@@ -120,39 +118,19 @@ describe('furo-ui5-data-checkbox-input-scalar', () => {
     await dao.updateComplete;
   });
 
-  it('should be a furo-ui5-data-checkbox-input element', done => {
+  it('should be a furo-ui5-data-collection-dropdown-labeled element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(input.nodeName.toLowerCase(), 'furo-ui5-data-checkbox-input');
+    assert.equal(input.nodeName.toLowerCase(), 'furo-ui5-data-collection-dropdown-labeled');
     done();
   });
 
-  // axeReport a11y tests
-  xit('a11y', () => axeReport(input));
-
-  it('should have the basic attributes of the fieldNode set', done => {
+  it('should have a label component inside', done => {
     setTimeout(() => {
-      assert.equal(input._state.disabled, false, 'check disabled');
-      assert.equal(input._state.readonly, false, 'check readonly');
-      assert.equal(input._state.checked, false, 'check checked');
-      assert.equal(input._state.text, 'checkbox_input**', 'check text');
-      assert.equal(input._state.valueState, 'None', 'check valueState');
-      assert.equal(input._state.name, '', 'check name');
-      assert.equal(input._state.ariaLabel, undefined, 'check ariaLabel');
+      const label = input.shadowRoot.querySelector('ui5-label')
+      assert.equal(label.innerText, 'person.type.sex.label**', 'check label text');
+
       done();
     }, 16);
   });
 
-  it('should update the fieldNode', done => {
-    const natInp = input.shadowRoot.querySelector('input');
-    natInp.focus();
-    natInp.click();
-    assert.equal(input._state.checked, true, 'check checked');
-    setTimeout(()=>{
-      assert.equal(dao.data.data.furo_data_checkbox_input._value, true, 'dao check checked');
-      done();
-    },16)
-
-
-
-  });
 });

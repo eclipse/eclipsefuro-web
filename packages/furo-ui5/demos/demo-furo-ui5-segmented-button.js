@@ -23,13 +23,13 @@ import '@ui5/webcomponents/dist/Icon.js';
 import '../src/lib/ui5-icons.js';
 
 /**
- * `demo-furo-ui5-data-segemented-button`
+ * `demo-furo-ui5-data-segmented-button`
  *
  * @Summary basic usage of furo-ui5-data-segemented-button
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroUi5DataSegementedButton extends FBP(LitElement) {
+class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
   /**
    * Themable Styles
    * @private
@@ -38,7 +38,7 @@ class DemoFuroUi5DataSegementedButton extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DemoFuroUi5DataSegementedButton') ||
+      Theme.getThemeForComponent('DemoFuroUi5DataSegmentedButton') ||
       css`
         :host {
           display: block;
@@ -74,25 +74,25 @@ class DemoFuroUi5DataSegementedButton extends FBP(LitElement) {
                 Option items from spec. Type furo.Optionitem. Attention: OVERWRITE OF SUBFIELD
                 DEFAULT
               </p>
-              <furo-ui5-data-segemented-button
+              <furo-ui5-data-segmented-button
                 style="width: 100%;"
                 sub-field=""
                 ƒ-bind-data="--entity(*.owner)"
                 @-item-selected="--itemSelected"
-              ></furo-ui5-data-segemented-button>
+              ></furo-ui5-data-segmented-button>
             </div>
             <div>
               <p>
                 Option items an array of objects with injectList(). Display field is set to field
                 NAME
               </p>
-              <furo-ui5-data-segemented-button
+              <furo-ui5-data-segmented-button
                 style="width: 100%;"
                 display-field="name"
                 ƒ-bind-data="--entity(*.owner)"
                 ƒ-inject-list="--response(*.entities)"
                 @-item-selected="--itemSelected"
-              ></furo-ui5-data-segemented-button>
+              ></furo-ui5-data-segmented-button>
             </div>
             <div>
               <p>Option item from collection response. Type xxx.TypeEntity)</p>
@@ -100,7 +100,7 @@ class DemoFuroUi5DataSegementedButton extends FBP(LitElement) {
                 The attributes value-field, sub-field and display-field are optional and by default
                 set to: id, display_name and data
               </p>
-              <furo-ui5-data-segemented-button
+              <furo-ui5-data-segmented-button
                 style="width: 100%;"
                 value-field="id"
                 sub-field="data"
@@ -109,7 +109,7 @@ class DemoFuroUi5DataSegementedButton extends FBP(LitElement) {
                 ƒ-bind-data="--entity(*.owner)"
                 @-item-selected="--itemSelected"
               >
-              </furo-ui5-data-segemented-button>
+              </furo-ui5-data-segmented-button>
             </div>
             <div>
               <p>Option item from collection response. Type xxx.TypeEntity)</p>
@@ -119,7 +119,7 @@ class DemoFuroUi5DataSegementedButton extends FBP(LitElement) {
                 target object (bound field) are updated. In this use case the link object of the
                 type reference is updated (check the furo-data-object)
               </p>
-              <furo-ui5-data-segemented-button
+              <furo-ui5-data-segmented-button
                 style="width: 100%;"
                 value-sub-field="link.rel"
                 display-sub-field="link.type"
@@ -127,7 +127,7 @@ class DemoFuroUi5DataSegementedButton extends FBP(LitElement) {
                 ƒ-bind-data="--entity(*.owner)"
                 @-item-selected="--itemSelected"
               >
-              </furo-ui5-data-segemented-button>
+              </furo-ui5-data-segmented-button>
             </div>
             <hr />
             <p>
@@ -179,6 +179,6 @@ class DemoFuroUi5DataSegementedButton extends FBP(LitElement) {
 }
 
 window.customElements.define(
-  'demo-furo-ui5-data-segemented-button',
-  DemoFuroUi5DataSegementedButton,
+  'demo-furo-ui5-data-segmented-button',
+  DemoFuroUi5DataSegmentedButton,
 );

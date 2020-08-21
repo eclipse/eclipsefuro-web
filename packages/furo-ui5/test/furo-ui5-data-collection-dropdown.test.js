@@ -15,6 +15,13 @@ describe('furo-ui5-data-collection-dropdown', () => {
   let input;
   let dao;
 
+  function keydown(TargetElement, key) {
+    const customEvent = new Event('keydown', { composed: true, bubbles: true });
+    customEvent.code = key; // Deprecated, prefer .key instead.
+    customEvent.key = key;
+    TargetElement.dispatchEvent(customEvent);
+  }
+
   const testData = {
     entities: [
       {
@@ -206,4 +213,22 @@ describe('furo-ui5-data-collection-dropdown', () => {
     assert.equal(dropdown._dropdownList.length, 3);
     done();
   });
+
+  it('should write the selected item to the dao', done => {
+    dropdown.injectList(testDataArray);
+    const innerElement = dropdown.shadowRoot.querySelector('ui5-label');
+    innerElement.shadowRoot.querySelector('label');
+    keydown(innerElement, 'ArrowDown');
+    keydown(innerElement, 'ArrowDown');
+    keydown(innerElement, 'Enter');
+
+    setTimeout(()=>{
+      assert.equal(dao.data.owner.id, 'male');
+      done();
+    }, 16)
+
+  });
+
+
+
 });

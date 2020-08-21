@@ -3,21 +3,21 @@ import * as SegmentedButton from '@ui5/webcomponents/dist/SegmentedButton.js';
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
- * `furo-ui5-data-segemented-button`
- * The furo-ui5-data-segemented-button component represents a drop-down list. The items inside define the available
- * options by using the furo-ui5-data-segemented-button component.
+ * `furo-ui5-data-segmented-button`
+ * The furo-ui5-data-segmented-button component represents a drop-down list. The items inside define the available
+ * options by using the furo-ui5-data-segmented-button component.
  *
  * Keyboard Handling
- * The furo-ui5-data-segemented-button provides advanced keyboard handling. If the furo-ui5-data-segemented-button
+ * The furo-ui5-data-segmented-button provides advanced keyboard handling. If the furo-ui5-data-segmented-button
  * is focused, you can open or close the drop-down by pressing F4, ALT+UP or ALT+DOWN keys. Once the drop-down is
  * opened, you can use the UP and DOWN arrow keys to navigate through the available options and select one
  * by pressing the Space or Enter keys.
  *
  * @summary data collection dropdown
  * @customElement
- * @demo demo-furo-ui5-data-segemented-button Basic Usage
+ * @demo demo-furo-ui5-data-segmented-button Basic Usage
  */
-export class FuroUi5DataSegementedButton extends SegmentedButton.default {
+export class FuroUi5DataSegmentedButton extends SegmentedButton.default {
   /**
    * @event value-changed
    * Fired when value has changed from the component inside.
@@ -596,4 +596,4 @@ export class FuroUi5DataSegementedButton extends SegmentedButton.default {
   }
 }
 
-window.customElements.define('furo-ui5-data-segemented-button', FuroUi5DataSegementedButton);
+window.customElements.define('furo-ui5-data-segmented-button', FuroUi5DataSegmentedButton);

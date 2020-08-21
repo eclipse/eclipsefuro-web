@@ -120,6 +120,15 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                   ƒ-bind-data="--entityTaskReady(*.owner)"
                   ƒ-inject-list="--refCol(*.entities)"
                 ></furo-ui5-data-collection-dropdown-labeled>
+
+                <furo-ui5-form-field-container>
+                  <ui5-label label slot="label" for="Custom" show-colon>Use it for small option lists
+                  </ui5-label>
+                  <furo-ui5-data-segmented-button content ƒ-bind-data="--entityTaskReady(*.owner)"
+                                                  ƒ-inject-list="--refCol(*.entities)"></furo-ui5-data-segmented-button>
+                </furo-ui5-form-field-container>
+
+
               </furo-form-layouter>
 
 
