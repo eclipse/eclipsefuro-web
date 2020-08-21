@@ -15,3 +15,4 @@ import './furo-ui5-data-checkbox-input.js';
 import './furo-ui5-form-field-container.js';
 import './furo-ui5-data-textarea-input.js';
 import './furo-ui5-data-textarea-input-labeled.js';
+import './furo-ui5-data-segemented-button.js';

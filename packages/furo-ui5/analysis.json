@@ -3444,11 +3444,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 60,
+              "line": 59,
               "column": 2
             },
             "end": {
-              "line": 109,
+              "line": 108,
               "column": 3
             }
           },
@@ -3464,11 +3464,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 115,
+              "line": 114,
               "column": 2
             },
             "end": {
-              "line": 132,
+              "line": 131,
               "column": 3
             }
           },
@@ -3484,11 +3484,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 138,
+              "line": 137,
               "column": 2
             },
             "end": {
-              "line": 149,
+              "line": 148,
               "column": 3
             }
           },
@@ -3504,11 +3504,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 156,
+              "line": 155,
               "column": 2
             },
             "end": {
-              "line": 181,
+              "line": 180,
               "column": 3
             }
           },
@@ -3530,11 +3530,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 187,
+              "line": 186,
               "column": 2
             },
             "end": {
-              "line": 191,
+              "line": 190,
               "column": 3
             }
           },
@@ -3550,11 +3550,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 197,
+              "line": 196,
               "column": 2
             },
             "end": {
-              "line": 210,
+              "line": 209,
               "column": 3
             }
           },
@@ -3574,11 +3574,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 216,
               "column": 2
             },
             "end": {
-              "line": 235,
+              "line": 234,
               "column": 3
             }
           },
@@ -3603,11 +3603,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 26,
+          "line": 25,
           "column": 7
         },
         "end": {
-          "line": 236,
+          "line": 235,
           "column": 1
         }
       },
@@ -3920,7 +3920,7 @@
               "column": 2
             },
             "end": {
-              "line": 112,
+              "line": 110,
               "column": 3
             }
           },
@@ -3936,11 +3936,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 118,
+              "line": 116,
               "column": 2
             },
             "end": {
-              "line": 120,
+              "line": 118,
               "column": 3
             }
           },
@@ -3960,11 +3960,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 127,
+              "line": 125,
               "column": 2
             },
             "end": {
-              "line": 145,
+              "line": 153,
               "column": 3
             }
           },
@@ -3995,7 +3995,7 @@
           "column": 7
         },
         "end": {
-          "line": 146,
+          "line": 155,
           "column": 1
         }
       },
@@ -4127,6 +4127,586 @@
       "mixins": [
         "FBP"
       ]
+    },
+    {
+      "description": "`furo-ui5-data-segemented-button`\nThe furo-ui5-data-segemented-button component represents a drop-down list. The items inside define the available\noptions by using the furo-ui5-data-segemented-button component.\n\nKeyboard Handling\nThe furo-ui5-data-segemented-button provides advanced keyboard handling. If the furo-ui5-data-segemented-button\nis focused, you can open or close the drop-down by pressing F4, ALT+UP or ALT+DOWN keys. Once the drop-down is\nopened, you can use the UP and DOWN arrow keys to navigate through the available options and select one\nby pressing the Space or Enter keys.",
+      "summary": "data collection dropdown",
+      "path": "src/furo-ui5-data-segemented-button.js",
+      "properties": [
+        {
+          "name": "optionItems",
+          "type": "?",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 282,
+              "column": 2
+            },
+            "end": {
+              "line": 310,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "attributeChangedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 130,
+              "column": 2
+            },
+            "end": {
+              "line": 151,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "oldVal"
+            },
+            {
+              "name": "newVal"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_initBinder",
+          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 158,
+              "column": 2
+            },
+            "end": {
+              "line": 217,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_findDisplayNameByValue",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 219,
+              "column": 2
+            },
+            "end": {
+              "line": 229,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "val"
+            }
+          ]
+        },
+        {
+          "name": "_notifiySelectedItem",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 236,
+              "column": 2
+            },
+            "end": {
+              "line": 240,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "obj"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_notifyAndTriggerUpdate",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 247,
+              "column": 2
+            },
+            "end": {
+              "line": 272,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "arr"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "setList",
+          "description": "Set the options programmatically",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 278,
+              "column": 2
+            },
+            "end": {
+              "line": 280,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "optionArray"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_mapInputToInnerStruct",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 318,
+              "column": 2
+            },
+            "end": {
+              "line": 337,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "collection"
+            }
+          ],
+          "return": {
+            "type": "[]"
+          }
+        },
+        {
+          "name": "_mapDataToList",
+          "description": "Maps an array structure to the inner list struct\n{id: '', label: '', selected: Boolean, _original: {}}",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 346,
+              "column": 2
+            },
+            "end": {
+              "line": 383,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "list"
+            }
+          ],
+          "return": {
+            "type": "[]"
+          }
+        },
+        {
+          "name": "addItems",
+          "description": "Adds the option components to the default slot",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 389,
+              "column": 2
+            },
+            "end": {
+              "line": 405,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "options"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_getValueByPath",
+          "description": "eslint-disable-next-line class-methods-use-this",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 415,
+              "column": 2
+            },
+            "end": {
+              "line": 417,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "obj"
+            },
+            {
+              "name": "path"
+            }
+          ]
+        },
+        {
+          "name": "bindData",
+          "description": "Bind a entity field to the range-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 424,
+              "column": 2
+            },
+            "end": {
+              "line": 480,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode",
+              "type": "(Object | FieldNode)",
+              "description": "a Field object"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "setValue",
+          "description": "Sets the value for the field. This will update the fieldNode.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 486,
+              "column": 2
+            },
+            "end": {
+              "line": 488,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "val"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateField",
+          "description": "eslint-disable-next-line class-methods-use-this",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 491,
+              "column": 2
+            },
+            "end": {
+              "line": 505,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_parseRepeatedData",
+          "description": "change the value data of repeated field to an array according to the defined subfield likes `data.id`",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 513,
+              "column": 2
+            },
+            "end": {
+              "line": 526,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "data"
+            }
+          ],
+          "return": {
+            "type": "[]"
+          }
+        },
+        {
+          "name": "_buildListWithMetaOptions",
+          "description": "Build the dropdown list with given options from meta",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 532,
+              "column": 2
+            },
+            "end": {
+              "line": 534,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "options"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_setItemSelectedViaSelectedMark",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 536,
+              "column": 2
+            },
+            "end": {
+              "line": 547,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "list"
+            }
+          ]
+        },
+        {
+          "name": "injectList",
+          "description": "Inject the array with the selectable options.\n\nThe array with objects should have a signature like this. This could be the response of a collection agent (`--response(*.entities)`)\n```json\n[\n {\n  \"id\": 34,\n  \"display_name\":\"Option A\"\n },\n {\n  \"id\": 223,\n  \"display_name\":\"Option X\"\n },\n]\n```",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 567,
+              "column": 2
+            },
+            "end": {
+              "line": 583,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "list"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "injectEntities",
+          "description": "Inject the array of a collection",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 589,
+              "column": 2
+            },
+            "end": {
+              "line": 591,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "entities"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-segemented-button",
+          "description": "Basic Usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 19,
+          "column": 7
+        },
+        "end": {
+          "line": 592,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "SegmentedButton.default",
+      "name": "FuroUi5DataSegementedButton",
+      "attributes": [
+        {
+          "name": "value-field",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 127,
+              "column": 12
+            },
+            "end": {
+              "line": 127,
+              "column": 25
+            }
+          },
+          "metadata": {}
+        },
+        {
+          "name": "display-field",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 127,
+              "column": 27
+            },
+            "end": {
+              "line": 127,
+              "column": 42
+            }
+          },
+          "metadata": {}
+        },
+        {
+          "name": "sub-field",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 127,
+              "column": 44
+            },
+            "end": {
+              "line": 127,
+              "column": 55
+            }
+          },
+          "metadata": {}
+        },
+        {
+          "name": "value-sub-field",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 127,
+              "column": 57
+            },
+            "end": {
+              "line": 127,
+              "column": 74
+            }
+          },
+          "metadata": {}
+        },
+        {
+          "name": "display-sub-field",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 127,
+              "column": 76
+            },
+            "end": {
+              "line": 127,
+              "column": 95
+            }
+          },
+          "metadata": {}
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "item-selected",
+          "description": "item-selected\nFired when a item from the dropdown was selected\ndetail payload: the original item object or the array of original item objects by multiple options",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "options-injected",
+          "description": "Is fired when a new list is applied",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "value-changed",
+          "description": "value-changed\nFired when value has changed from the component inside.\n\ndetail payload: {*} the value from the value-field. By default the value field is \"id\"\n\n*bubbles**",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-segemented-button"
     }
   ]
 }
