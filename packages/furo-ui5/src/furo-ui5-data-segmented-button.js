@@ -396,10 +396,9 @@ export class FuroUi5DataSegmentedButton extends SegmentedButton.default {
       const element = document.createElement('ui5-togglebutton');
       element.setAttribute('value', item.label);
       element.setAttribute('data-id', item.id);
-      if(item.selected) {
+      if (item.selected) {
         element.setAttribute('pressed', item.selected);
-      }
-      else {
+      } else {
         element.removeAttribute('pressed');
       }
       element.value = item.label;

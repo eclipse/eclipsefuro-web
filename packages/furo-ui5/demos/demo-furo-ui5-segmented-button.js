@@ -178,7 +178,4 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
   }
 }
 
-window.customElements.define(
-  'demo-furo-ui5-data-segmented-button',
-  DemoFuroUi5DataSegmentedButton,
-);
+window.customElements.define('demo-furo-ui5-data-segmented-button', DemoFuroUi5DataSegmentedButton);

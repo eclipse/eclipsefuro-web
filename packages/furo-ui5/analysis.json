@@ -3439,16 +3439,46 @@
       "properties": [],
       "methods": [
         {
+          "name": "attributeChangedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 109,
+              "column": 2
+            },
+            "end": {
+              "line": 136,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "oldVal"
+            },
+            {
+              "name": "newVal"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "_initBinder",
           "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 143,
               "column": 2
             },
             "end": {
-              "line": 108,
+              "line": 192,
               "column": 3
             }
           },
@@ -3464,11 +3494,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 114,
+              "line": 198,
               "column": 2
             },
             "end": {
-              "line": 131,
+              "line": 215,
               "column": 3
             }
           },
@@ -3484,11 +3514,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 137,
+              "line": 221,
               "column": 2
             },
             "end": {
-              "line": 148,
+              "line": 232,
               "column": 3
             }
           },
@@ -3504,11 +3534,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 239,
               "column": 2
             },
             "end": {
-              "line": 180,
+              "line": 264,
               "column": 3
             }
           },
@@ -3530,11 +3560,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 186,
+              "line": 270,
               "column": 2
             },
             "end": {
-              "line": 190,
+              "line": 274,
               "column": 3
             }
           },
@@ -3550,11 +3580,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 196,
+              "line": 280,
               "column": 2
             },
             "end": {
-              "line": 209,
+              "line": 293,
               "column": 3
             }
           },
@@ -3574,11 +3604,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 216,
+              "line": 300,
               "column": 2
             },
             "end": {
-              "line": 234,
+              "line": 318,
               "column": 3
             }
           },
@@ -3607,14 +3637,120 @@
           "column": 7
         },
         "end": {
-          "line": 235,
+          "line": 319,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "ComboBox.default",
       "name": "FuroUi5DataReferenceSearch",
-      "attributes": [],
+      "attributes": [
+        {
+          "name": "value-field",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 12
+            },
+            "end": {
+              "line": 106,
+              "column": 25
+            }
+          },
+          "metadata": {}
+        },
+        {
+          "name": "display-field",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 27
+            },
+            "end": {
+              "line": 106,
+              "column": 42
+            }
+          },
+          "metadata": {}
+        },
+        {
+          "name": "min-term-length",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 44
+            },
+            "end": {
+              "line": 106,
+              "column": 61
+            }
+          },
+          "metadata": {}
+        },
+        {
+          "name": "no-result-hint",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 63
+            },
+            "end": {
+              "line": 106,
+              "column": 79
+            }
+          },
+          "metadata": {}
+        },
+        {
+          "name": "max-items-to-display",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 81
+            },
+            "end": {
+              "line": 106,
+              "column": 103
+            }
+          },
+          "metadata": {}
+        },
+        {
+          "name": "max-result-hint",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 105
+            },
+            "end": {
+              "line": 106,
+              "column": 122
+            }
+          },
+          "metadata": {}
+        },
+        {
+          "name": "search-on-enter-only",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 124
+            },
+            "end": {
+              "line": 106,
+              "column": 146
+            }
+          },
+          "metadata": {}
+        }
+      ],
       "events": [
         {
           "type": "CustomEvent",

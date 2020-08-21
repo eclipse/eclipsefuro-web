@@ -39,10 +39,56 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
    */
   constructor(props) {
     super(props);
-    this.minTermLength = 0;
-    this.valueField = 'id';
-    this.displayField = 'display_name';
-    this.noResultHint = 'no result found';
+
+    /**
+     * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
+     * If you bind a scalar, you dont need this attribute.
+     * @property value-field
+     * @private
+     */
+    this._valueField = 'id';
+
+    /**
+     * The name of the field from the injected collection that contains the label for the dropdown array.
+     * @property display-field
+     * @private
+     */
+    this._displayField = 'display_name';
+
+    /**
+     * The minimal length of the inputted string to trigger the search event
+     * @property min-term-length
+     * @private
+     */
+    this._minTermLength = 0;
+
+    /**
+     * the hint message when there is no search result
+     * @property no-result-hint
+     * @private
+     */
+    this._noResultHint = 'no result found';
+
+    /**
+     * The max number of the items to display in the list
+     * @property max-items-to-display
+     * @private
+     */
+    this._maxItemsToDisplay = null;
+
+    /**
+     * the hint message for the max number of the items to display in the list
+     * @property max-result-hint
+     * @private
+     */
+    this._maxResultsHint = null;
+
+    /**
+     * trigger search only when enter is pressed
+     * @property search-on-enter-only
+     * @private
+     */
+    this._searchOnEnterOnly = false;
 
     /**
      * the loaded collection
@@ -50,6 +96,51 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
     this._collection = [];
 
     this._initBinder();
+  }
+
+  /**
+   * List of observed attributes
+   * @returns {string[]}
+   */
+  static get observedAttributes() {
+    return [
+      'value-field',
+      'display-field',
+      'min-term-length',
+      'no-result-hint',
+      'max-items-to-display',
+      'max-result-hint',
+      'search-on-enter-only',
+    ];
+  }
+
+  attributeChangedCallback(name, oldVal, newVal) {
+    if (oldVal !== newVal) {
+      // eslint-disable-next-line default-case
+      switch (name) {
+        case 'value-field':
+          this._valueField = newVal;
+          break;
+        case 'display-field':
+          this._displayField = newVal;
+          break;
+        case 'min-term-length':
+          this._minTermLength = newVal;
+          break;
+        case 'no-result-hint':
+          this._noResultHint = newVal;
+          break;
+        case 'max-items-to-display':
+          this._maxItemsToDisplay = newVal;
+          break;
+        case 'max-result-hint':
+          this._maxResultsHint = newVal;
+          break;
+        case 'search-on-enter-only':
+          this._searchOnEnterOnly = newVal;
+          break;
+      }
+    }
   }
 
   /**
@@ -66,14 +157,14 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
       placeholder: 'placeholder', // map placeholder to placeholder
       hint: 'hint',
       filter: 'filter',
-      'no-result-hint': 'noResultHint',
-      'max-result-hint': 'maxResultsHint',
-      'value-field': 'valueField',
-      'display-field': 'displayField',
+      'no-result-hint': '_noResultHint',
+      'max-result-hint': '_maxResultsHint',
+      'value-field': '_valueField',
+      'display-field': '_displayField',
       'value-state': 'valueState',
-      'min-term-length': 'minTermLength',
-      'max-items-to-display': 'maxItemsToDisplay',
-      'search-on-enter-only': 'searchOnEnterOnly',
+      'min-term-length': '_minTermLength',
+      'max-items-to-display': '_maxItemsToDisplay',
+      'search-on-enter-only': '_searchOnEnterOnly',
     };
 
     // set the label mappings
@@ -115,7 +206,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
   _registerListeners() {
     // by inputting
     this.addEventListener('input', () => {
-      if (!this.searchOnEnterOnly) {
+      if (!this._searchOnEnterOnly) {
         this._fireSearchEvent();
       }
     });
@@ -136,7 +227,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
    * @private
    */
   _fireSearchEvent() {
-    if (this.filterValue && this.filterValue.length >= this.minTermLength) {
+    if (this.filterValue && this.filterValue.length >= this._minTermLength) {
       /**
        * @event search
        * Fired when term is entered and bigger then min-term-length
@@ -196,9 +287,9 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
    */
   collectionIn(collection) {
     if (collection && collection.entities && collection.entities.length > 0) {
-      if (this.maxItemsToDisplay && collection.entities.length > this.maxItemsToDisplay) {
+      if (this._maxItemsToDisplay && collection.entities.length > this._maxItemsToDisplay) {
         // cut down the result size
-        this._collection = collection.entities.slice(0, this.maxItemsToDisplay);
+        this._collection = collection.entities.slice(0, this._maxItemsToDisplay);
         this._showList(true);
       } else {
         this._collection = collection.entities;
@@ -223,8 +314,8 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
       this._collection.forEach(e => {
         const element = document.createElement('ui5-cb-item');
 
-        element.setAttribute('text', e.data[this.displayField]);
-        element.setAttribute('id', e.data[this.valueField]);
+        element.setAttribute('text', e.data[this._displayField]);
+        element.setAttribute('id', e.data[this._valueField]);
         this.appendChild(element);
       });
 

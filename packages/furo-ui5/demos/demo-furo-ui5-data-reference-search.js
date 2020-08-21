@@ -52,6 +52,8 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
             <furo-form-layouter four>
               <furo-ui5-data-reference-search
                 condensed
+                max-items-to-display="2"
+                display-field="name"
                 ƒ-bind-data="--entityReady(*.owner)"
                 @-search="--term"
                 ƒ-collection-in="--refCol"
@@ -59,6 +61,7 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
               </furo-ui5-data-reference-search>
 
               <furo-ui5-data-reference-search
+                max-items-to-display="4"
                 placeholder="this is a placeholder"
                 ƒ-bind-data="--entityReady(*.owner)"
                 @-search="--term"

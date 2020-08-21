@@ -9,9 +9,9 @@ import '@furo/testhelper/initEnv.js';
 
 import '../src/furo-catalog.js';
 
-describe('furo-ui5-data-segemented-button', () => {
+describe('furo-ui5-data-segmented-button', () => {
   let host;
-  let segementedButton;
+  let segmentedButton;
   let input;
   let dao;
 
@@ -133,16 +133,16 @@ describe('furo-ui5-data-segemented-button', () => {
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, segementedButton, input, dao] = testbind.parentNode.children;
+    [, segmentedButton, input, dao] = testbind.parentNode.children;
     await host.updateComplete;
-    await segementedButton.updateComplete;
+    await segmentedButton.updateComplete;
     await input.updateComplete;
     await dao.updateComplete;
   });
 
   it('should be a furo-ui5-data-segemented-button element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(segementedButton.nodeName.toLowerCase(), 'furo-ui5-data-segemented-button');
+    assert.equal(segmentedButton.nodeName.toLowerCase(), 'furo-ui5-data-segemented-button');
     done();
   });
 
@@ -151,55 +151,55 @@ describe('furo-ui5-data-segemented-button', () => {
 
   it('should have options from API SPEC', done => {
     setTimeout(() => {
-      assert.equal(segementedButton._dropdownList.length, 3);
+      assert.equal(segmentedButton._dropdownList.length, 3);
       done();
     }, 16);
   });
 
   it('should have the basic attribute values', done => {
     setTimeout(() => {
-      assert.equal(segementedButton.buttons.length, 3, 'option count');
-      assert.equal(segementedButton._subField, 'data', '_subField');
-      assert.equal(segementedButton._displayField, 'display_name', '_displayField');
-      assert.equal(segementedButton._displaySubField, 'display_name', '_displaySubField');
-      assert.equal(segementedButton._valueField, 'id', '_valueField');
-      assert.equal(segementedButton._valueSubField, 'id', '_valueSubField');
-      assert.equal(segementedButton.binder.targetValueField, '_value', 'targetValueField');
+      assert.equal(segmentedButton.buttons.length, 3, 'option count');
+      assert.equal(segmentedButton._subField, 'data', '_subField');
+      assert.equal(segmentedButton._displayField, 'display_name', '_displayField');
+      assert.equal(segmentedButton._displaySubField, 'display_name', '_displaySubField');
+      assert.equal(segmentedButton._valueField, 'id', '_valueField');
+      assert.equal(segmentedButton._valueSubField, 'id', '_valueSubField');
+      assert.equal(segmentedButton.binder.targetValueField, '_value', 'targetValueField');
       done();
     }, 16);
   });
 
   it('should activate the correct item', done => {
     setTimeout(() => {
-      assert.equal(segementedButton._dropdownList.length, 3);
+      assert.equal(segmentedButton._dropdownList.length, 3);
       input.setValue('male');
-      assert.equal(segementedButton._dropdownList[2].selected, true);
+      assert.equal(segmentedButton._dropdownList[2].selected, true);
       done();
     }, 16);
   });
 
   it('should activate the correct item from the bound field', done => {
-    segementedButton.addEventListener('options-injected', () => {
-      if (segementedButton._dropdownList.length === 4) {
+    segmentedButton.addEventListener('options-injected', () => {
+      if (segmentedButton._dropdownList.length === 4) {
         input.setValue('2');
         setTimeout(() => {
-          assert.equal(segementedButton._dropdownList[1].selected, true);
+          assert.equal(segmentedButton._dropdownList[1].selected, true);
           done();
         }, 16);
       }
     });
-    segementedButton.injectEntities(testData.entities);
+    segmentedButton.injectEntities(testData.entities);
   });
 
   it('should have options from a collection response', done => {
-    segementedButton.injectEntities(testData.entities);
-    assert.equal(segementedButton._dropdownList.length, 4);
+    segmentedButton.injectEntities(testData.entities);
+    assert.equal(segmentedButton._dropdownList.length, 4);
     done();
   });
 
   it('should have options from a array of objects', done => {
-    segementedButton.injectList(testDataArray);
-    assert.equal(segementedButton._dropdownList.length, 3);
+    segmentedButton.injectList(testDataArray);
+    assert.equal(segmentedButton._dropdownList.length, 3);
     done();
   });
 });
