@@ -40,6 +40,7 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
           height: 100%;
           padding-right: var(--spacing);
           --furo-form-layouter-row-gap: var(--spacing-xs);
+          --_ui5_input_width: 24px;
         }
 
         :host([hidden]) {
