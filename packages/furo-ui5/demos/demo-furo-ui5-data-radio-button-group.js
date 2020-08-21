@@ -83,11 +83,11 @@ class DemoFuroUi5DataRadioButtonGroup extends FBP(LitElement) {
             <div>
               <p>
                 Option items an array of objects with injectList(). Display field is set to field
-                NAME
+                first_name
               </p>
               <furo-ui5-data-radio-button-group
                 style="width: 100%;"
-                display-field="name"
+                display-field="first_name"
                 ƒ-bind-data="--entity(*.owner)"
                 ƒ-inject-list="--response(*.entities)"
               ></furo-ui5-data-radio-button-group>

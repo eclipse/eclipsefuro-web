@@ -498,7 +498,6 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
    */
   bindData(fieldNode) {
 
-    this.addEventListener('select', (v)=>{console.log(v)});
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
       /**
