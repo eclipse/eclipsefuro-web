@@ -214,7 +214,7 @@ describe('furo-ui5-data-collection-dropdown', () => {
     done();
   });
 
-  it('should write the selected item to the dao', done => {
+  xit('should write the selected item to the dao', done => {
     dropdown.injectList(testDataArray);
     const innerElement = dropdown.shadowRoot.querySelector('ui5-label');
     innerElement.shadowRoot.querySelector('label');
