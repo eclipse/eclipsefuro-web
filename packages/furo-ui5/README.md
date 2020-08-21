@@ -26,6 +26,7 @@ For seamless integration into the Furo environment, we have slightly extended so
 - [furo-ui5-data-number-input-labeled](https://components.furo.pro/?t=FuroUi5DataNumberInputLabeled) a labeled number input component 
 - [furo-ui5-data-password-input-labeled](https://components.furo.pro/?t=FuroUi5DataPasswordInputLabeled) a labeled password input component 
 - [furo-ui5-form-field-container](https://components.furo.pro/?t=FuroUi5FormFieldContainer) a form field container
+- [furo-ui5-data-radio-button-group](https://components.furo.pro/?t=FuroUi5DataRadioButtonGroup) a radio button group component
 
 ## License
 A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
