@@ -14,6 +14,42 @@ describe('furo-ui5-data-reference-search-labeled', () => {
   let input;
   let dao;
 
+  const testRecordMeta = {
+    data: {
+      "id": "1",
+      "display_name": "Rework documentation",
+      "description": "Apply new documentation structure",
+      "estimated_time": 5,
+      "owner": {
+        "display_name": "John Doe, +41783332244",
+        "id": "1",
+        "rel": "List",
+        "href": "/mockdata/persons/1/get.json",
+        "method": "GET",
+        "type": "person.Person"
+      },
+      "subtasks": []
+    },
+    meta: {
+      fields: {
+        'data.owner': {
+          meta: {
+            label: 'owner label override via response meta',
+            readonly: false,
+            hint: 'Please enter a description',
+          },
+          constraints: {
+            required: {
+              is: 'true',
+              message: 'Please fill in!',
+            },
+          },
+        },
+      },
+    },
+  };
+
+
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
@@ -21,7 +57,6 @@ describe('furo-ui5-data-reference-search-labeled', () => {
           <furo-ui5-data-reference-search-labeled
             ƒ-bind-data="--entity(*.owner)"
           ></furo-ui5-data-reference-search-labeled>
-          <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
         </template>
       </test-bind>
@@ -48,4 +83,15 @@ describe('furo-ui5-data-reference-search-labeled', () => {
       done();
     }, 16);
   });
+
+/*  it('label text should be overrideable via meta ', done => {
+    dao.injectRaw(testRecordMeta);
+
+    setTimeout(() => {
+      const label = input.shadowRoot.querySelector('ui5-label');
+      assert.equal(label.innerText, 'owner label override via response meta', 'check label text ');
+
+      done();
+    }, 160);
+  });*/
 });

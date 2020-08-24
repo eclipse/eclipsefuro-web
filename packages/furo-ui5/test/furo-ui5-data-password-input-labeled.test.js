@@ -14,6 +14,29 @@ describe('furo-ui5-data-password-input-labeled', () => {
   let input;
   let dao;
 
+  const testRecordMeta = {
+    data: {
+      furo_data_number_input:
+        'hallo test',
+    },
+    meta: {
+      fields: {
+        'data.furo_data_number_input': {
+          meta: {
+            label: 'label override via response meta',
+            readonly: false,
+            hint: 'Please enter a description',
+          },
+          constraints: {
+            required: {
+              is: 'true',
+              message: 'Please fill in!',
+            },
+          },
+        },
+      },
+    },
+  };
 
   beforeEach(async () => {
     const testbind = await fixture(html`
@@ -47,6 +70,17 @@ describe('furo-ui5-data-password-input-labeled', () => {
     setTimeout(() => {
       const label = input.shadowRoot.querySelector('ui5-label');
       assert.equal(label.innerText, 'number-input**', 'check label text');
+
+      done();
+    }, 16);
+  });
+
+  it('label text should be overrideable via meta ', done => {
+    dao.injectRaw(testRecordMeta);
+
+    setTimeout(() => {
+      const label = input.shadowRoot.querySelector('ui5-label');
+      assert.equal(label.innerText, 'label override via response meta', 'check label text ');
 
       done();
     }, 16);

@@ -13,7 +13,29 @@ describe('furo-ui5-data-text-input-labeled', () => {
   let host;
   let input;
   let dao;
-
+  const testRecordMeta = {
+    data: {
+      furo_data_text_input:
+        'hallo test with loads of text to show the overflow. hallo test with loads of text to show the overflow.',
+    },
+    meta: {
+      fields: {
+        'data.furo_data_text_input': {
+          meta: {
+            label: 'My description',
+            readonly: false,
+            hint: 'Please enter a description',
+          },
+          constraints: {
+            required: {
+              is: 'true',
+              message: 'Please fill in!',
+            },
+          },
+        },
+      },
+    },
+  };
 
   beforeEach(async () => {
     const testbind = await fixture(html`
@@ -51,4 +73,16 @@ describe('furo-ui5-data-text-input-labeled', () => {
       done();
     }, 16);
   });
+
+  it('label text should be overrideable via meta ', done => {
+    dao.injectRaw(testRecordMeta);
+
+    setTimeout(() => {
+      const label = input.shadowRoot.querySelector('ui5-label');
+      assert.equal(label.innerText, 'My description', 'check label text ');
+
+      done();
+    }, 16);
+  });
+
 });
