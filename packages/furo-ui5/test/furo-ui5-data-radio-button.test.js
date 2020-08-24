@@ -12,7 +12,7 @@ import '../src/furo-catalog.js';
 describe('furo-ui5-data-radio-button', () => {
   let host;
   let dropdown;
-  let radioGroup;
+  let radio;
   let dao;
 
   function keydown(TargetElement, key) {
@@ -130,20 +130,16 @@ describe('furo-ui5-data-radio-button', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-data-radio-button
-            ƒ-bind-data="--entity(*.owner)"
-          ></furo-ui5-data-radio-button>
-          <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
-          <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+          <furo-ui5-data-radio-button ƒ-bind-data="--data(*.furo_data_checkbox_input)"></furo-ui5-data-radio-button>
+          <furo-data-object type="experiment.Experiment" @-object-ready="--data"></furo-data-object>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, dropdown, radioGroup, dao] = testbind.parentNode.children;
+    [, dropdown, radio, dao] = testbind.parentNode.children;
     await host.updateComplete;
-    await dropdown.updateComplete;
-    await radioGroup.updateComplete;
+    await radio.updateComplete;
     await dao.updateComplete;
   });
 

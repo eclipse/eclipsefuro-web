@@ -128,8 +128,6 @@ describe('furo-ui5-data-collection-dropdown-binding', () => {
             value-field="id"
             sub-field="data"
             display-field="display_name"
-            value-sub-field="link.rel"
-            display-sub-field="link.type"
           ></furo-ui5-data-collection-dropdown>
           <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
@@ -153,10 +151,13 @@ describe('furo-ui5-data-collection-dropdown-binding', () => {
 
   it('should activate the correct item', done => {
     setTimeout(() => {
-      assert.equal(dropdown._dropdownList.length, 3);
-      input.setValue('male');
-      assert.equal(dropdown._dropdownList[2].selected, true);
-      done();
-    }, 16);
-  });
+      assert.equal(dropdown._dropdownList.length, 3, 'check number of elements')
+      input.setValue('male')
+      setTimeout(() => {
+        assert.equal(dropdown._dropdownList[2].selected, true, 'check selected item')
+        done()
+      }, 16)
+    }, 16)
+  })
+
 });

@@ -4056,7 +4056,7 @@
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 111,
               "column": 3
             }
           },
@@ -4072,11 +4072,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 116,
+              "line": 117,
               "column": 2
             },
             "end": {
-              "line": 118,
+              "line": 119,
               "column": 3
             }
           },
@@ -4096,11 +4096,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 125,
+              "line": 126,
               "column": 2
             },
             "end": {
-              "line": 151,
+              "line": 152,
               "column": 3
             }
           },
@@ -4131,7 +4131,7 @@
           "column": 7
         },
         "end": {
-          "line": 152,
+          "line": 153,
           "column": 1
         }
       },
@@ -4896,71 +4896,19 @@
       "description": "`furo-ui5-data-radio-button`\nThe furo-ui5-data-radio-button component enables users to select a single option from a set of options.\nWhen a furo-ui5-data-radio-button is selected by the user, the select event is fired. When a furo-ui5-data-radio-button\nthat is within a group is selected, the one that was previously selected gets automatically deselected.\nYou can group radio buttons by using the name property.\nNote: Iffuro-ui5-data-radio-button is not part of a group, it can be selected once, but can not be deselected back.\n\nKeyboard Handling\nOnce the furo-ui5-data-radio-button is on focus, it might be selected by pressing the Space and Enter keys.\nThe Arrow Down/Arrow Up and Arrow Left/Arrow Right keys can be used to change selection between next/previous radio buttons\nin one group, while TAB and SHIFT + TAB can be used to enter or leave the radio button group.\nNote: On entering radio button group, the focus goes to the currently selected radio button.",
       "summary": "data radio buttons",
       "path": "src/furo-ui5-data-radio-button.js",
-      "properties": [
-        {
-          "name": "optionItems",
-          "type": "?",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 282,
-              "column": 2
-            },
-            "end": {
-              "line": 310,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        }
-      ],
+      "properties": [],
       "methods": [
-        {
-          "name": "attributeChangedCallback",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 130,
-              "column": 2
-            },
-            "end": {
-              "line": 151,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "name"
-            },
-            {
-              "name": "oldVal"
-            },
-            {
-              "name": "newVal"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
         {
           "name": "_initBinder",
           "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 40,
               "column": 2
             },
             "end": {
-              "line": 217,
+              "line": 44,
               "column": 3
             }
           },
@@ -4971,205 +4919,36 @@
           }
         },
         {
-          "name": "_findDisplayNameByValue",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 219,
-              "column": 2
-            },
-            "end": {
-              "line": 229,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "val"
-            }
-          ]
-        },
-        {
-          "name": "_notifiySelectedItem",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 236,
-              "column": 2
-            },
-            "end": {
-              "line": 240,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "obj"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_notifyAndTriggerUpdate",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 247,
-              "column": 2
-            },
-            "end": {
-              "line": 272,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "arr"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "setList",
-          "description": "Set the options programmatically",
+          "name": "applyBindingSet",
+          "description": "apply the binding set to the binder\nbinding set can be customised here otherwise the standard set in the ui5-data-input will be used",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 278,
+              "line": 51,
               "column": 2
             },
             "end": {
-              "line": 280,
+              "line": 101,
               "column": 3
             }
           },
           "metadata": {},
-          "params": [
-            {
-              "name": "optionArray"
-            }
-          ],
+          "params": [],
           "return": {
             "type": "void"
           }
-        },
-        {
-          "name": "_mapInputToInnerStruct",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 318,
-              "column": 2
-            },
-            "end": {
-              "line": 337,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "collection"
-            }
-          ],
-          "return": {
-            "type": "[]"
-          }
-        },
-        {
-          "name": "_mapDataToList",
-          "description": "Maps an array structure to the inner list struct\n{id: '', label: '', selected: Boolean, _original: {}}",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 346,
-              "column": 2
-            },
-            "end": {
-              "line": 383,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "list"
-            }
-          ],
-          "return": {
-            "type": "[]"
-          }
-        },
-        {
-          "name": "addItems",
-          "description": "Adds the option components to the default slot",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 389,
-              "column": 2
-            },
-            "end": {
-              "line": 416,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "options"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_getValueByPath",
-          "description": "eslint-disable-next-line class-methods-use-this",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 426,
-              "column": 2
-            },
-            "end": {
-              "line": 428,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "obj"
-            },
-            {
-              "name": "path"
-            }
-          ]
         },
         {
           "name": "bindData",
-          "description": "Bind a entity field to the range-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
+          "description": "Bind a entity field to the text-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 435,
+              "line": 108,
               "column": 2
             },
             "end": {
-              "line": 491,
+              "line": 126,
               "column": 3
             }
           },
@@ -5191,11 +4970,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 497,
+              "line": 132,
               "column": 2
             },
             "end": {
-              "line": 499,
+              "line": 134,
               "column": 3
             }
           },
@@ -5203,143 +4982,6 @@
           "params": [
             {
               "name": "val"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_updateField",
-          "description": "eslint-disable-next-line class-methods-use-this",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 502,
-              "column": 2
-            },
-            "end": {
-              "line": 516,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_parseRepeatedData",
-          "description": "change the value data of repeated field to an array according to the defined subfield likes `data.id`",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 524,
-              "column": 2
-            },
-            "end": {
-              "line": 537,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "data"
-            }
-          ],
-          "return": {
-            "type": "[]"
-          }
-        },
-        {
-          "name": "_buildListWithMetaOptions",
-          "description": "Build the dropdown list with given options from meta",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 543,
-              "column": 2
-            },
-            "end": {
-              "line": 545,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "options"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_setItemSelectedViaSelectedMark",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 547,
-              "column": 2
-            },
-            "end": {
-              "line": 558,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "list"
-            }
-          ]
-        },
-        {
-          "name": "injectList",
-          "description": "Inject the array with the selectable options.\n\nThe array with objects should have a signature like this. This could be the response of a collection agent (`--response(*.entities)`)\n```json\n[\n {\n  \"id\": 34,\n  \"display_name\":\"Option A\"\n },\n {\n  \"id\": 223,\n  \"display_name\":\"Option X\"\n },\n]\n```",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 578,
-              "column": 2
-            },
-            "end": {
-              "line": 594,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "list"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "injectEntities",
-          "description": "Inject the array of a collection",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 600,
-              "column": 2
-            },
-            "end": {
-              "line": 602,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "entities"
             }
           ],
           "return": {
@@ -5361,107 +5003,19 @@
           "column": 7
         },
         "end": {
-          "line": 603,
+          "line": 135,
           "column": 1
         }
       },
       "privacy": "public",
-      "superclass": "HTMLElement",
+      "superclass": "RadioButton.default",
       "name": "FuroUi5DataRadioButton",
-      "attributes": [
-        {
-          "name": "value-field",
-          "description": "",
-          "sourceRange": {
-            "start": {
-              "line": 127,
-              "column": 12
-            },
-            "end": {
-              "line": 127,
-              "column": 25
-            }
-          },
-          "metadata": {}
-        },
-        {
-          "name": "display-field",
-          "description": "",
-          "sourceRange": {
-            "start": {
-              "line": 127,
-              "column": 27
-            },
-            "end": {
-              "line": 127,
-              "column": 42
-            }
-          },
-          "metadata": {}
-        },
-        {
-          "name": "sub-field",
-          "description": "",
-          "sourceRange": {
-            "start": {
-              "line": 127,
-              "column": 44
-            },
-            "end": {
-              "line": 127,
-              "column": 55
-            }
-          },
-          "metadata": {}
-        },
-        {
-          "name": "value-sub-field",
-          "description": "",
-          "sourceRange": {
-            "start": {
-              "line": 127,
-              "column": 57
-            },
-            "end": {
-              "line": 127,
-              "column": 74
-            }
-          },
-          "metadata": {}
-        },
-        {
-          "name": "display-sub-field",
-          "description": "",
-          "sourceRange": {
-            "start": {
-              "line": 127,
-              "column": 76
-            },
-            "end": {
-              "line": 127,
-              "column": 95
-            }
-          },
-          "metadata": {}
-        }
-      ],
+      "attributes": [],
       "events": [
         {
           "type": "CustomEvent",
-          "name": "item-selected",
-          "description": "item-selected\nFired when a item from the dropdown was selected\ndetail payload: the original item object or the array of original item objects by multiple options",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "options-injected",
-          "description": "Is fired when a new list is applied",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "value-changed",
-          "description": "value-changed\nFired when value has changed from the component inside.\n\ndetail payload: {*} the value from the value-field. By default the value field is \"id\"\n\n*bubbles**",
+          "name": "select",
+          "description": "select\nFired when the ui5-radiobutton selected state changes.",
           "metadata": {}
         }
       ],
@@ -5471,6 +5025,86 @@
       },
       "slots": [],
       "tagname": "furo-ui5-data-radio-button"
+    },
+    {
+      "description": "`furo-ui5-radiogroup`\nThe furo-ui5-radiogroup enables users to create a radio group with n size of furo-ui5-data-radio-buttons inside.\nUse the components if you want to combine several bool fields into one radiogroup.\nOnly one value can be true.",
+      "summary": "radio group",
+      "path": "src/furo-ui5-radiogroup.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 18,
+              "column": 2
+            },
+            "end": {
+              "line": 32,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 38,
+              "column": 2
+            },
+            "end": {
+              "line": 43,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "(TemplateResult | TemplateResult)"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-radio-button",
+          "description": "Sample of radio group"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 45,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroUi5Radiogroup",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-radiogroup",
+      "mixins": [
+        "FBP"
+      ]
     },
     {
       "description": "`furo-data-money-input`\nBinds a entityObject field google.type.Money to a furo-number-input and currency dropdown fields\n <sample-furo-data-money-input></sample-furo-data-money-input>\n\n you can set currencies dropdown with options in meta or set options attribute as json in element or set currencies as string in element. the three\n ways have priority : currencies > options as attribute > options in meta. When no currencies is setted. Default currency will be `CHF`\n\n <furo-data-money-input autofocus ƒ-bind-data=\"--entity(*.furo_data_money_input)\" options='{\"list\": [ \"CHF\",\"EUR\",\"USD\" ]}'></furo-data-money-input>\n <furo-data-money-input autofocus ƒ-bind-data=\"--entity(*.furo_data_money_input)\" options='{\"list\": [ {\"id\":\"CHF\",\"label\":\"Schweiz\"},{\"id\":\"EUR\",\"label\":\"Europa\", \"selected\": true}'></furo-data-money-input>\n <furo-data-money-input autofocus ƒ-bind-data=\"--entity(*.furo_data_money_input)\" currencies=\"CHF,EUR,USD\"></furo-data-money-input>\n\nTags: money input",

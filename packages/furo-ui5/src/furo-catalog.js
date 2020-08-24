@@ -17,5 +17,6 @@ import './furo-ui5-data-textarea-input.js';
 import './furo-ui5-data-textarea-input-labeled.js';
 import './furo-ui5-data-segmented-button.js';
 import './furo-ui5-data-radio-button.js';
+import './furo-ui5-radiogroup.js';
 import './furo-ui5-data-money-input.js';
 import './furo-ui5-data-radio-button-group.js';

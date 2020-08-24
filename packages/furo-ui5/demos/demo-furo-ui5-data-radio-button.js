@@ -65,113 +65,23 @@ class DemoFuroUi5DataRadioButton extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>Demo furo-ui5-data-radio-button Group</h2>
+      <h2>Demo furo-ui5-data-radio-button</h2>
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
-            <div>
-              <p>
-                Option items from spec. Type furo.Optionitem. Attention: OVERWRITE OF SUBFIELD
-                DEFAULT
-              </p>
-              <furo-ui5-data-radio-button
-                style="width: 100%;"
-                sub-field=""
-                ƒ-bind-data="--entity(*.owner)"
-                @-item-selected="--itemSelected"
-              ></furo-ui5-data-radio-button>
-            </div>
-            <div>
-              <p>
-                Option items an array of objects with injectList(). Display field is set to field
-                NAME
-              </p>
-              <furo-ui5-data-radio-button
-                style="width: 100%;"
-                display-field="name"
-                ƒ-bind-data="--entity(*.owner)"
-                ƒ-inject-list="--response(*.entities)"
-                @-item-selected="--itemSelected"
-              ></furo-ui5-data-radio-button>
-            </div>
-            <div>
-              <p>Option item from collection response. Type xxx.TypeEntity)</p>
-              <p>
-                The attributes value-field, sub-field and display-field are optional and by default
-                set to: id, display_name and data
-              </p>
-              <furo-ui5-data-radio-button
-                style="width: 100%;"
-                value-field="id"
-                sub-field="data"
-                display-field="display_name"
-                ƒ-inject-entities="--response(*.entities)"
-                ƒ-bind-data="--entity(*.owner)"
-                @-item-selected="--itemSelected"
-              >
-              </furo-ui5-data-radio-button>
-            </div>
-            <div>
-              <p>Option item from collection response. Type xxx.TypeEntity)</p>
-              <p>
-                In this example, the bound fieldNode receives a custom update. With the attributes
-                value-sub-field and display-sub-field you can determine which attributes of the
-                target object (bound field) are updated. In this use case the link object of the
-                type reference is updated (check the furo-data-object)
-              </p>
-              <furo-ui5-data-radio-button
-                style="width: 100%;"
-                value-sub-field="link.rel"
-                display-sub-field="link.type"
-                ƒ-inject-entities="--response(*.entities)"
-                ƒ-bind-data="--entity(*.owner)"
-                @-item-selected="--itemSelected"
-              >
-              </furo-ui5-data-radio-button>
-            </div>
-            <hr />
-            <p>
-              Bound input fields: owner.id and owner.display_name. If you enter a valid owner ID,
-              the items in the collection drop-down list automatically display the record matching
-              the ID.
-            </p>
-            <furo-ui5-data-text-input
-              value-state="Success"
-              ƒ-bind-data="--entity(*.owner.id)"
-            ></furo-ui5-data-text-input>
-            <furo-ui5-data-text-input
-              ƒ-bind-data="--entity(*.owner.display_name)"
-            ></furo-ui5-data-text-input>
+            <furo-ui5-radiogroup>
+                <furo-ui5-data-radio-button content name="group" ƒ-bind-data="--data(*.furo_data_checkbox_input)"></furo-ui5-data-radio-button>
+                <furo-ui5-data-radio-button content name="group" ƒ-bind-data="--data(*.furo_data_bool_icon)"></furo-ui5-data-radio-button>
+            </furo-ui5-radiogroup>
           </furo-form-layouter>
 
-          <furo-button-bar>
-            <ui5-button design="Emphasized" @-click="--load">load data</ui5-button>
-          </furo-button-bar>
+          <furo-form-layouter one>
+            <p>Bound fields:</p>
+            <furo-ui5-data-text-input ƒ-bind-data="--data(*.furo_data_checkbox_input)"></furo-ui5-data-text-input>
+            <furo-ui5-data-text-input ƒ-bind-data="--data(*.furo_data_bool_icon)"></furo-ui5-data-text-input>
+          </furo-form-layouter>
 
-          <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
-
-          <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-          <furo-data-object
-            type="person.PersonCollection"
-            @-object-ready="--collection"
-            ƒ-inject-raw="--response"
-          ></furo-data-object>
-
-          <furo-collection-agent
-            service="PersonService"
-            ƒ-hts-in="--hts"
-            ƒ-list="--load"
-            @-response="--response"
-          >
-          </furo-collection-agent>
-
-          <furo-location @-location-changed="--locationChanged"></furo-location>
-
-          <furo-deep-link
-            service="PersonService"
-            @-hts-out="--hts"
-            ƒ-qp-in="--locationChanged(*.query)"
-          ></furo-deep-link>
+          <furo-data-object type="experiment.Experiment" @-object-ready="--data"></furo-data-object>
         </template>
       </furo-demo-snippet>
     `;
