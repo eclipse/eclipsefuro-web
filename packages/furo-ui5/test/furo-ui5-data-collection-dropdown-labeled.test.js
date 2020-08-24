@@ -102,7 +102,7 @@ describe('furo-ui5-data-collection-dropdown-labeled', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-         <furo-ui5-data-collection-dropdown-labeled
+          <furo-ui5-data-collection-dropdown-labeled
             ƒ-bind-data="--entity(*.owner)"
           ></furo-ui5-data-collection-dropdown-labeled>
           <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
@@ -126,11 +126,10 @@ describe('furo-ui5-data-collection-dropdown-labeled', () => {
 
   it('should have a label component inside', done => {
     setTimeout(() => {
-      const label = input.shadowRoot.querySelector('ui5-label')
+      const label = input.shadowRoot.querySelector('ui5-label');
       assert.equal(label.innerText, 'person.type.sex.label**', 'check label text');
 
       done();
     }, 16);
   });
-
 });

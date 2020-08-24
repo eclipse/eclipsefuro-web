@@ -1,21 +1,21 @@
-import { LitElement, html, css } from 'lit-element'
-import { Theme } from '@furo/framework/src/theme'
-import { FBP } from '@furo/fbp/src/fbp.js'
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp/src/fbp.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/doc-helper'
+import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5/src/furo-catalog.js'
+import '@furo/ui5/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-data-object.js'
-import '@furo/data/src/furo-entity-agent.js'
-import '@furo/data/src/furo-deep-link.js'
+import '@furo/data/src/furo-data-object.js';
+import '@furo/data/src/furo-entity-agent.js';
+import '@furo/data/src/furo-deep-link.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-form-layouter.js'
-import '@furo/form/src/furo-button-bar.js'
-import '@furo/data-input/demos/helper/produce-qp-data.js'
+import '@furo/form/src/furo-form-layouter.js';
+import '@furo/form/src/furo-button-bar.js';
+import '@furo/data-input/demos/helper/produce-qp-data.js';
 
-import '@ui5/webcomponents/dist/Card.js'
+import '@ui5/webcomponents/dist/Card.js';
 
 /**
  * `demo-furo-ui5-form-field-container`
@@ -51,7 +51,7 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
           height: 100%;
         }
       `
-    )
+    );
   }
 
   /**
@@ -89,9 +89,8 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
 
                 <furo-ui5-form-field-container>
                   <ui5-label label slot="label" for="Custom" show-colon
-                  >Currency / Units (custom)
-                  </ui5-label
-                  >
+                    >Currency / Units (custom)
+                  </ui5-label>
                   <furo-horizontal-flex id="Custom" content space>
                     <furo-ui5-data-text-input
                       flex
@@ -122,15 +121,16 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                 ></furo-ui5-data-collection-dropdown-labeled>
 
                 <furo-ui5-form-field-container>
-                  <ui5-label label slot="label" for="Custom" show-colon>Use it for small option lists
+                  <ui5-label label slot="label" for="Custom" show-colon
+                    >Use it for small option lists
                   </ui5-label>
-                  <furo-ui5-data-segmented-button content ƒ-bind-data="--entityTaskReady(*.owner)"
-                                                  ƒ-inject-list="--refCol(*.entities)"></furo-ui5-data-segmented-button>
+                  <furo-ui5-data-segmented-button
+                    content
+                    ƒ-bind-data="--entityTaskReady(*.owner)"
+                    ƒ-inject-list="--refCol(*.entities)"
+                  ></furo-ui5-data-segmented-button>
                 </furo-ui5-form-field-container>
-
-
               </furo-form-layouter>
-
 
               <furo-form-layouter>
                 <div>
@@ -175,8 +175,8 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
           </furo-collection-agent>
         </template>
       </furo-demo-snippet>
-    `
+    `;
   }
 }
 
-window.customElements.define('demo-furo-ui5-form-field-container', DemoFuroUi5FormFieldContainer)
+window.customElements.define('demo-furo-ui5-form-field-container', DemoFuroUi5FormFieldContainer);

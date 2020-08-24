@@ -124,7 +124,6 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-
     /**
      * Because of the UI5 TextArea Tokenizer we can not pass NULL as a value.
      * If the value is null, we pass an empty string
@@ -136,7 +135,6 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
 
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-
       /**
        * handle pristine
        * Set to pristine label to the same _pristine from the fieldNode
@@ -152,6 +150,5 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
       });
     }
   }
-
 }
 window.customElements.define('furo-ui5-data-textarea-input', FuroUi5DataTextareaInput);

@@ -79,6 +79,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
                 value-state="Warning"
                 sub-field=""
                 ƒ-bind-data="--entity(*.owner)"
+                value-sub-field="id"
                 @-item-selected="--itemSelected"
               ></furo-ui5-data-collection-dropdown>
             </div>
@@ -91,6 +92,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
                 style="width: 100%;"
                 display-field="name"
                 ƒ-bind-data="--entity(*.owner)"
+                value-sub-field="id"
                 ƒ-inject-list="--response(*.entities)"
                 @-item-selected="--itemSelected"
               ></furo-ui5-data-collection-dropdown>
@@ -108,6 +110,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
                 display-field="display_name"
                 ƒ-inject-entities="--response(*.entities)"
                 ƒ-bind-data="--entity(*.owner)"
+                value-sub-field="id"
                 @-item-selected="--itemSelected"
               >
               </furo-ui5-data-collection-dropdown>
@@ -126,6 +129,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
                 display-sub-field="link.type"
                 ƒ-inject-entities="--response(*.entities)"
                 ƒ-bind-data="--entity(*.owner)"
+                value-sub-field="id"
                 @-item-selected="--itemSelected"
               >
               </furo-ui5-data-collection-dropdown>

@@ -222,13 +222,9 @@ describe('furo-ui5-data-collection-dropdown', () => {
     keydown(innerElement, 'ArrowDown');
     keydown(innerElement, 'Enter');
 
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(dao.data.owner.id, 'male');
       done();
-    }, 16)
-
+    }, 16);
   });
-
-
-
 });

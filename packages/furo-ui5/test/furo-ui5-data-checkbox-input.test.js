@@ -147,12 +147,9 @@ describe('furo-ui5-data-checkbox-input-scalar', () => {
     natInp.focus();
     natInp.click();
     assert.equal(input._state.checked, true, 'check checked');
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(dao.data.data.furo_data_checkbox_input._value, true, 'dao check checked');
       done();
-    },16)
-
-
-
+    }, 16);
   });
 });

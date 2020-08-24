@@ -60,7 +60,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      * @property value-sub-field
      * @private
      */
-    this._valueSubField = 'id';
+    this._valueSubField = null;
 
     /**
      * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
@@ -247,7 +247,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    */
   _notifyAndTriggerUpdate(arr) {
     if (arr.length > 0) {
-      this._dropdownList = arr;
 
       if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
         // notify first item if field is not set
@@ -277,6 +276,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param {Array} Array with options
    */
   setList(optionArray) {
+    this._dropdownList = optionArray;
     this.optionItems = optionArray;
   }
 
@@ -498,12 +498,19 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       let size = this._dropdownList.length;
       // eslint-disable-next-line no-plusplus
       while (size--) {
-        this._dropdownList[size].selected =
-          this._dropdownList[size].id === this.binder.fieldValue.id;
+        if(this._valueSubField) {
+          this._dropdownList[size].selected =
+            this._dropdownList[size].id === this.binder.fieldValue[this._valueSubField];
+        }
+        else {
+          this._dropdownList[size].selected =
+            this._dropdownList[size].id === this.binder.fieldValue;
+        }
       }
       this._notifyAndTriggerUpdate(this._dropdownList);
     }
   }
+
 
   /**
    * change the value data of repeated field to an array according to the defined subfield likes `data.id`

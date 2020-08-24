@@ -25,7 +25,7 @@ import '../src/lib/ui5-icons.js';
 /**
  * `demo-furo-ui5-data-segmented-button`
  *
- * @Summary basic usage of furo-ui5-data-segemented-button
+ * @Summary basic usage of furo-ui5-data-segmented-button
  * @customElement
  * @appliesMixin FBP
  */
@@ -65,7 +65,7 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>Demo furo-ui5-data-segemented-button</h2>
+      <h2>Demo furo-ui5-data-segmented-button</h2>
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>

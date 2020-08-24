@@ -90,7 +90,7 @@ describe('furo-ui5-data-date-picker', () => {
       assert.equal(datepicker._state.minDate, '1800-01-01', 'check if set minDate from spec');
       assert.equal(datepicker._state.maxDate, '2099-12-31', 'check if set maxDate from spec');
       done();
-    }, 0);
+    }, 10);
   });
 
   it('should have the basic attributes of the fieldNode set (google.type.Date)', done => {
