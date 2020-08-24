@@ -137,7 +137,7 @@ describe('furo-ui5-data-radio-button', () => {
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, dropdown, radio, dao] = testbind.parentNode.children;
+    [, radio, dao] = testbind.parentNode.children;
     await host.updateComplete;
     await radio.updateComplete;
     await dao.updateComplete;
@@ -145,7 +145,7 @@ describe('furo-ui5-data-radio-button', () => {
 
   it('should be a furo-ui5-data-radio-button element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(dropdown.nodeName.toLowerCase(), 'furo-ui5-data-radio-button');
+    assert.equal(radio.nodeName.toLowerCase(), 'furo-ui5-data-radio-button');
     done();
   });
 
