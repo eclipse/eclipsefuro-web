@@ -16,60 +16,81 @@ describe('furo-ui5-data-textarea-input', () => {
 
   const testRecordMeta = {
     data: {
+      description: 'Description from record',
+      display_name: 'display_name',
       id: '1',
-      scalar_string: 'this is a scalar string',
-      wrapper_string: {
-        value: 'this is a google wrapper string',
+      furo_data_checkbox_input: true,
+      furo_data_text_input:
+        'hallo test with loads of text to show the overflow. hallo test with loads of text to show the overflow.',
+      furo_data_number_input: 12.55,
+      furo_data_time_input: '17:34',
+      furo_data_color_input: '#e318ed',
+      furo_data_textarea_input: 'hallo , this is textarea input',
+      furo_data_date_input: '2019-02-22',
+      furo_data_date_input_google: {
+        day: 31,
+        display_name: '31.12.2020',
+        month: 12,
+        year: 2020,
       },
-      fat_string: {
-        value: 'fat string from record',
-        labels: ['cozy'],
-        attributes: {
-          'value-state': 'Error',
-          errortext: 'Your fat string is valid',
-          icon: 'thumb-up',
+      furo_data_range_input: 31,
+      furo_data_bool_icon: false,
+      type_property: [
+        {
+          code: 'c0a7f550-0fbe-4046-8fa9-60c86327b6b1',
+          data: {
+            '@type': 'type.googleapis.com/furo.StringProperty',
+            data: '01032020',
+          },
+          flags: ['is-overwritable', 'my-prop'],
+          display_name: 'Vertragsbeginn',
+          id: '246d79a0-0a15-43c5-b18f-ac8a4a449df1',
+          meta: {
+            fields: {
+              data: {
+                constraints: {
+                  required: {
+                    is: 'true',
+                    message: 'Bitte ausfüllen!',
+                  },
+                },
+                meta: {
+                  label: 'Vertragsbeginn custom label',
+                  readonly: true,
+                },
+              },
+            },
+          },
         },
-      },
-      scalar_int32: 14,
-      wrapper_int32: {
-        value: 14,
-      },
-      fat_int32: {
-        value: 14,
-        labels: '',
-        attributes: {
-          'value-state': 'Information',
-        },
-      },
-      fat_bool: {
-        value: true,
-        'value-state': 'Information',
-      },
-      wrapper_bool: {
-        value: true,
+      ],
+      repstring: ['AAA', 'BBBB', 'CCCC'],
+      furo_data_money_input: {
+        currency_code: 'CHF',
+        units: 3333,
+        nanos: 75100000,
       },
     },
-    links: [],
+    links: [
+      {
+        href: '/mockdata/experiments/1/get-less-props.json',
+        method: 'GET',
+        rel: 'self',
+        type: 'experiment.ExperimentEntity',
+        service: 'ExperimentService',
+      },
+    ],
     meta: {
       fields: {
-        'data.wrapper_string': {
+        'data.description': {
           meta: {
-            label: 'wrapper string label set via response meta',
-            readonly: true,
-          },
-        },
-        'data.fat_string': {
-          meta: {
-            label: 'fat string label set via response meta',
-            default: 'new',
-            hint: 'hint',
+            label: 'My description',
             readonly: false,
+            hint: 'Please enter a description',
           },
           constraints: {
-            max: { is: 40, message: 'MAX 40' },
             required: {
-              is: true,
-              message: 'Bitte ausfüllen!',
+              is: 'true',
+              message: 'Please fill in!',
             },
           },
         },
@@ -82,10 +103,10 @@ describe('furo-ui5-data-textarea-input', () => {
       <test-bind>
         <template>
           <furo-ui5-data-textarea-input
-            ƒ-bind-data="--entity(*.data.scalar_string)"
+            ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
           ></furo-ui5-data-textarea-input>
           <furo-data-object
-            type="universaltest.UniversaltestEntity"
+            type="experiment.ExperimentEntity"
             @-object-ready="--entity"
           ></furo-data-object>
         </template>
@@ -99,7 +120,7 @@ describe('furo-ui5-data-textarea-input', () => {
     await dao.updateComplete;
   });
 
-  it('should be a furo-ui5-data-textarea-input element (scalar)', done => {
+  it('should be a furo-ui5-data-textarea-input element', done => {
     // keep this test on top, so you can recognize a wrong assignment
     assert.equal(input.nodeName.toLowerCase(), 'furo-ui5-data-textarea-input');
     done();
@@ -108,27 +129,37 @@ describe('furo-ui5-data-textarea-input', () => {
   // axeReport a11y tests
   xit('a11y', () => axeReport(input));
 
-  it('should have the basic attributes of the fieldNode set (scalar)', done => {
-    setTimeout(() => {
-      assert.equal(input._state.disabled, false, 'check disabled');
-      assert.equal(input._state.placeholder, 'skalar string**', 'check placeholder');
-      assert.equal(input._state.readonly, false, 'check readonly');
-      assert.equal(input._state.required, false, 'check required');
-      assert.equal(input._state.value, '', 'check value');
-      assert.equal(input._state.valueState, 'None', 'check valueState');
-      done();
-    }, 16);
+  it('should have the basic attributes of the fieldNode set', done => {
+      setTimeout(() => {
+        assert.equal(input._state.disabled, false, 'check disabled');
+        assert.equal(input._state.readonly, false, 'check readonly');
+        assert.equal(input._state.growing, false, 'check growing');
+        assert.equal(input._state.placeholder, 'textarea_input**', 'check placeholder');
+        assert.equal(input._state.valueState, 'None', 'check valueState');
+        assert.equal(input._state.valueStateMessage.length, 0, 'check valueStateMessage');
+        assert.equal(input._state.name, '', 'check name');
+        assert.equal(input._state.ariaLabel, undefined, 'check ariaLabel');
+        done();
+      }, 0);
+
   });
 
-  it('should apply meta and constraints to the bound field (scalar)', done => {
-    dao.addEventListener('data-injected', () => {
-      assert.equal(input._state.value, 'this is a scalar string', 'check value');
-      assert.equal(input._state.readonly, false, 'check readonly');
-
+  it('should update the fieldNode', done => {
+    input.setValue('new text set');
+    assert.equal(input._state.value, 'new text set', 'check internal text');
+    setTimeout(()=>{
+      assert.equal(dao.data.data.furo_data_textarea_input._value, 'new text set', 'check dao');
       done();
-    });
+    },0)
+  });
 
-    dao.injectRaw(testRecordMeta);
+  it('should update value after inject response', done => {
+
+    if (dao.injectRaw(testRecordMeta)) {
+      assert.equal(dao.data.data.furo_data_textarea_input._value, 'hallo , this is textarea input', 'check dao');
+      assert.equal(input.value, 'hallo , this is textarea input', 'check input value');
+      done();
+    }
   });
 
 });
