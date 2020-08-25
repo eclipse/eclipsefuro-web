@@ -270,7 +270,6 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
       }
 
       this.setList(arr);
-
     }
   }
 
@@ -394,12 +393,11 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
 
     const existingOptions = radioGroup.querySelectorAll('ui5-radiobutton');
 
-    if (existingOptions === undefined || !existingOptions.length){
+    if (existingOptions === undefined || !existingOptions.length) {
       this._initialAddOptions(options);
     } else {
       this._updateExistingOptions(options);
     }
-
   }
 
   /**
@@ -415,16 +413,14 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
     const existingIds = options.map(a => a.id);
 
     // if id of existing element is no longer in the option list, remove the ui5-radiobutton element
-    existingOptions.forEach(elem =>{
-      if (existingIds.indexOf(elem.getAttribute('data-id'))<0) {
+    existingOptions.forEach(elem => {
+      if (existingIds.indexOf(elem.getAttribute('data-id')) < 0) {
         // remove element
-        console.log(elem);
         radioGroup.removeChild(elem);
       }
     });
 
     options.forEach(item => {
-
       const radio = radioGroup.querySelector(`[data-id="${item.id}"]`);
       if (radio) {
         radio.selected = item.selected;
@@ -435,19 +431,16 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
         element.setAttribute('name', groupName);
         element.setAttribute('text', item.label);
         element.setAttribute('data-id', item.id);
-        if(item.selected) {
+        if (item.selected) {
           element.setAttribute('selected', item.selected);
-        }
-        else {
+        } else {
           element.removeAttribute('selected');
         }
         element.text = item.label;
         element.selected = item.selected;
         radioGroup.appendChild(element);
       }
-
     });
-
   }
 
   /**
@@ -457,7 +450,13 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
    */
   _initialAddOptions(options) {
     const radioGroup = this;
-    const groupName = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    const groupName =
+      Math.random()
+        .toString(36)
+        .substring(2, 15) +
+      Math.random()
+        .toString(36)
+        .substring(2, 15);
     // while (radioGroup.firstChild) {
     //   radioGroup.removeChild(radioGroup.firstChild);
     // }
@@ -467,10 +466,9 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
       element.setAttribute('name', groupName);
       element.setAttribute('text', item.label);
       element.setAttribute('data-id', item.id);
-      if(item.selected) {
+      if (item.selected) {
         element.setAttribute('selected', item.selected);
-      }
-      else {
+      } else {
         element.removeAttribute('selected');
       }
       element.text = item.label;
@@ -497,7 +495,6 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
       /**

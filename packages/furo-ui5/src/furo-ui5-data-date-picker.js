@@ -1,6 +1,6 @@
 import '@ui5/webcomponents/dist/generated/i18n/i18n-defaults';
-
 import * as DatePicker from '@ui5/webcomponents/dist/DatePicker.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**
@@ -120,12 +120,12 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
           (this.binder.fieldNode['@type'] &&
             this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date')
         ) {
-          dateValue = this._convertDateToGoogleDateObj(
+          dateValue = FuroUi5DataDatePicker._convertDateToGoogleDateObj(
             new Date(this.dateValue),
             this.binder.fieldNode._value,
           );
         } else if (this.binder.fieldNode._spec.type === 'string') {
-          dateValue = this._convertDateToString(new Date(this.dateValue));
+          dateValue = FuroUi5DataDatePicker._convertDateToString(new Date(this.dateValue));
         }
 
         if (JSON.stringify(this.binder.fieldValue) !== JSON.stringify(dateValue)) {
@@ -143,7 +143,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
    * @returns {*}
    * @private
    */
-  _convertDateToGoogleDateObj(date, obj) {
+  static _convertDateToGoogleDateObj(date, obj) {
     // only override properties: day, month, year
     if (date) {
       // eslint-disable-next-line no-param-reassign
@@ -224,7 +224,9 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
         this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date')
     ) {
       // date string with format ISO 8601 yyyy-MM-dd
-      const dateString = this._convertGoogleDateObjToString(this.binder.fieldNode._value);
+      const dateString = FuroUi5DataDatePicker._convertGoogleDateObjToString(
+        this.binder.fieldNode._value,
+      );
 
       if (dateString) {
         // use the ui5 function formatValue to localize the Date. it will use the local information if formatPattern is not defined
@@ -248,7 +250,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
    * @returns {string}
    * @private
    */
-  _convertGoogleDateObjToString(obj) {
+  static _convertGoogleDateObjToString(obj) {
     let date = '';
 
     if (obj && obj.day && obj.month && obj.year) {
@@ -281,7 +283,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
    * @returns {string}
    * @private
    */
-  _convertDateToString(date) {
+  static _convertDateToString(date) {
     let str = '';
 
     if (date) {

@@ -93,13 +93,12 @@ describe('furo-ui5-data-money-input', () => {
   });
 
   it('should convert amount to money object after input the amount', done => {
-
-    let obj = dataInput._convertDataToMoneyObj("CHF", '23.22',{
-      "display_name": "",
-      "currency_code": "",
-      "units": 0,
-      "nanos": 0
-    })
+    const obj = dataInput._convertDataToMoneyObj('CHF', '23.22', {
+      display_name: '',
+      currency_code: '',
+      units: 0,
+      nanos: 0,
+    });
 
     setTimeout(() => {
       assert.equal(obj.units, 23);
@@ -117,13 +116,9 @@ describe('furo-ui5-data-money-input', () => {
         'data-injected',
         () => {
           setTimeout(() => {
-
             // remove previous suggestion items.
             dataInput.shadowRoot.querySelectorAll('ui5-input').forEach(e => {
-              assert.equal(
-                e.getAttribute('disabled'),
-                null,
-              );
+              assert.equal(e.getAttribute('disabled'), null);
             });
             done();
           }, 0);

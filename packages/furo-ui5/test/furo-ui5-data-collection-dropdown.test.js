@@ -1,25 +1,25 @@
-import { fixture, html } from '@open-wc/testing'
-import 'axe-core/axe.min.js'
-import { axeReport } from 'pwa-helpers/axe-report.js'
+import { fixture, html } from '@open-wc/testing';
+import 'axe-core/axe.min.js';
+import { axeReport } from 'pwa-helpers/axe-report.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-data-object.js'
-import '@furo/fbp/src/testhelper/test-bind.js' // for testing with wires and hooks
+import '@furo/data/src/furo-data-object.js';
+import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/testhelper/initEnv.js'
+import '@furo/testhelper/initEnv.js';
 
-import '../src/furo-catalog.js'
+import '../src/furo-catalog.js';
 
 describe('furo-ui5-data-collection-dropdown', () => {
-  let host
-  let dropdown
-  let input
-  let dao
+  let host;
+  let dropdown;
+  let input;
+  let dao;
 
   function keydown(TargetElement, key) {
-    const customEvent = new Event('keydown', { composed: true, bubbles: true })
-    customEvent.code = key // Deprecated, prefer .key instead.
-    customEvent.key = key
-    TargetElement.dispatchEvent(customEvent)
+    const customEvent = new Event('keydown', { composed: true, bubbles: true });
+    customEvent.code = key; // Deprecated, prefer .key instead.
+    customEvent.key = key;
+    TargetElement.dispatchEvent(customEvent);
   }
 
   const testData = {
@@ -110,7 +110,7 @@ describe('furo-ui5-data-collection-dropdown', () => {
         service: 'PersonService',
       },
     ],
-  }
+  };
   const testDataArray = [
     {
       id: 1,
@@ -124,7 +124,7 @@ describe('furo-ui5-data-collection-dropdown', () => {
       id: 3,
       display_name: 'Item 3',
     },
-  ]
+  ];
 
   beforeEach(async () => {
     const testbind = await fixture(html`
@@ -137,96 +137,96 @@ describe('furo-ui5-data-collection-dropdown', () => {
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
         </template>
       </test-bind>
-    `)
-    await testbind.updateComplete
+    `);
+    await testbind.updateComplete;
     host = testbind._host;
-    [, dropdown, input, dao] = testbind.parentNode.children
-    await host.updateComplete
-    await dropdown.updateComplete
-    await input.updateComplete
-    await dao.updateComplete
-  })
+    [, dropdown, input, dao] = testbind.parentNode.children;
+    await host.updateComplete;
+    await dropdown.updateComplete;
+    await input.updateComplete;
+    await dao.updateComplete;
+  });
 
   it('should be a furo-ui5-data-collection-dropdown element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(dropdown.nodeName.toLowerCase(), 'furo-ui5-data-collection-dropdown')
-    done()
-  })
+    assert.equal(dropdown.nodeName.toLowerCase(), 'furo-ui5-data-collection-dropdown');
+    done();
+  });
 
   // axeReport a11y tests
-  xit('a11y', () => axeReport(input))
+  xit('a11y', () => axeReport(input));
 
   it('should have options from API SPEC', done => {
     setTimeout(() => {
-      assert.equal(dropdown._dropdownList.length, 3)
-      done()
-    }, 16)
-  })
+      assert.equal(dropdown._dropdownList.length, 3);
+      done();
+    }, 16);
+  });
 
   it('should have the basic attribute values', done => {
     setTimeout(() => {
-      assert.equal(dropdown._state.valueState, 'None', 'value-state')
-      assert.equal(dropdown._state.disabled, false, 'disabled')
-      assert.equal(dropdown._text, 'person.type.sex.unknown.label**', '_text')
-      assert.equal(dropdown.options.length, 3, 'option count')
-      assert.equal(dropdown._subField, 'data', '_subField')
-      assert.equal(dropdown._displayField, 'display_name', '_displayField')
-      assert.equal(dropdown._displaySubField, 'display_name', '_displaySubField')
-      assert.equal(dropdown._valueField, 'id', '_valueField')
-      assert.equal(dropdown._valueSubField, null, '_valueSubField')
-      assert.equal(dropdown.binder.targetValueField, '_value', 'targetValueField')
-      done()
-    }, 16)
-  })
+      assert.equal(dropdown._state.valueState, 'None', 'value-state');
+      assert.equal(dropdown._state.disabled, false, 'disabled');
+      assert.equal(dropdown._text, 'person.type.sex.unknown.label**', '_text');
+      assert.equal(dropdown.options.length, 3, 'option count');
+      assert.equal(dropdown._subField, 'data', '_subField');
+      assert.equal(dropdown._displayField, 'display_name', '_displayField');
+      assert.equal(dropdown._displaySubField, 'display_name', '_displaySubField');
+      assert.equal(dropdown._valueField, 'id', '_valueField');
+      assert.equal(dropdown._valueSubField, null, '_valueSubField');
+      assert.equal(dropdown.binder.targetValueField, '_value', 'targetValueField');
+      done();
+    }, 16);
+  });
 
   it('should activate the correct item', done => {
     setTimeout(() => {
-      assert.equal(dropdown._dropdownList.length, 3, '', 'check number of elements')
-      input.setValue('male')
+      assert.equal(dropdown._dropdownList.length, 3, '', 'check number of elements');
+      input.setValue('male');
       setTimeout(() => {
-        assert.equal(dropdown._dropdownList[2].selected, true, '', 'check selected item')
-        done()
-      }, 16)
-    }, 16)
-  })
+        assert.equal(dropdown._dropdownList[2].selected, true, '', 'check selected item');
+        done();
+      }, 16);
+    }, 16);
+  });
 
   it('should activate the correct item from the bound field', done => {
     dropdown.addEventListener('options-injected', () => {
       if (dropdown._dropdownList.length === 4) {
-        input.setValue('2')
+        input.setValue('2');
         setTimeout(() => {
-          assert.equal(dropdown._dropdownList[1].selected, true)
-          assert.equal(dropdown._state._text, 'Tari Sakota, +41791532244')
-          done()
-        }, 24)
+          assert.equal(dropdown._dropdownList[1].selected, true);
+          assert.equal(dropdown._state._text, 'Tari Sakota, +41791532244');
+          done();
+        }, 24);
       }
-    })
-    dropdown.injectEntities(testData.entities)
-  })
+    });
+    dropdown.injectEntities(testData.entities);
+  });
 
   it('should have options from a collection response', done => {
-    dropdown.injectEntities(testData.entities)
-    assert.equal(dropdown._dropdownList.length, 4)
-    done()
-  })
+    dropdown.injectEntities(testData.entities);
+    assert.equal(dropdown._dropdownList.length, 4);
+    done();
+  });
 
   it('should have options from a array of objects', done => {
-    dropdown.injectList(testDataArray)
-    assert.equal(dropdown._dropdownList.length, 3)
-    done()
-  })
+    dropdown.injectList(testDataArray);
+    assert.equal(dropdown._dropdownList.length, 3);
+    done();
+  });
 
   xit('should write the selected item to the dao', done => {
-    dropdown.injectList(testDataArray)
-    const innerElement = dropdown.shadowRoot.querySelector('ui5-label')
-    innerElement.shadowRoot.querySelector('label')
-    keydown(innerElement, 'ArrowDown')
-    keydown(innerElement, 'ArrowDown')
-    keydown(innerElement, 'Enter')
+    dropdown.injectList(testDataArray);
+    const innerElement = dropdown.shadowRoot.querySelector('ui5-label');
+    innerElement.shadowRoot.querySelector('label');
+    keydown(innerElement, 'ArrowDown');
+    keydown(innerElement, 'ArrowDown');
+    keydown(innerElement, 'Enter');
 
     setTimeout(() => {
-      assert.equal(dao.data.owner.id, 'male')
-      done()
-    }, 16)
-  })
-})
+      assert.equal(dao.data.owner.id, 'male');
+      done();
+    }, 16);
+  });
+});

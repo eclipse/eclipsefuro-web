@@ -14,7 +14,6 @@ describe('furo-ui5-data-date-picker-labeled', () => {
   let input;
   let dao;
 
-
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
@@ -26,7 +25,7 @@ describe('furo-ui5-data-date-picker-labeled', () => {
             type="experiment.ExperimentEntity"
             @-object-ready="--entity"
           ></furo-data-object>
-          </template>
+        </template>
       </test-bind>
     `);
     await testbind.updateComplete;

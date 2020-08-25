@@ -1,4 +1,5 @@
 import * as Input from '@ui5/webcomponents/dist/Input.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 import '@ui5/webcomponents/dist/features/InputSuggestions.js';
 

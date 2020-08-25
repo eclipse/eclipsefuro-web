@@ -70,15 +70,27 @@ class DemoFuroUi5DataRadioButton extends FBP(LitElement) {
         <template>
           <furo-form-layouter one>
             <furo-ui5-radiogroup>
-                <furo-ui5-data-radio-button content name="group" ƒ-bind-data="--data(*.furo_data_checkbox_input)"></furo-ui5-data-radio-button>
-                <furo-ui5-data-radio-button content name="group" ƒ-bind-data="--data(*.furo_data_bool_icon)"></furo-ui5-data-radio-button>
+              <furo-ui5-data-radio-button
+                content
+                name="group"
+                ƒ-bind-data="--data(*.furo_data_checkbox_input)"
+              ></furo-ui5-data-radio-button>
+              <furo-ui5-data-radio-button
+                content
+                name="group"
+                ƒ-bind-data="--data(*.furo_data_bool_icon)"
+              ></furo-ui5-data-radio-button>
             </furo-ui5-radiogroup>
           </furo-form-layouter>
 
           <furo-form-layouter one>
             <p>Bound fields:</p>
-            <furo-ui5-data-text-input ƒ-bind-data="--data(*.furo_data_checkbox_input)"></furo-ui5-data-text-input>
-            <furo-ui5-data-text-input ƒ-bind-data="--data(*.furo_data_bool_icon)"></furo-ui5-data-text-input>
+            <furo-ui5-data-text-input
+              ƒ-bind-data="--data(*.furo_data_checkbox_input)"
+            ></furo-ui5-data-text-input>
+            <furo-ui5-data-text-input
+              ƒ-bind-data="--data(*.furo_data_bool_icon)"
+            ></furo-ui5-data-text-input>
           </furo-form-layouter>
 
           <furo-data-object type="experiment.Experiment" @-object-ready="--data"></furo-data-object>

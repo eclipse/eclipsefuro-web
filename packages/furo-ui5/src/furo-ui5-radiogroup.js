@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit-element';
-import {FBP} from "@furo/fbp";
+import { FBP } from '@furo/fbp';
 /**
  * `furo-ui5-radiogroup`
  * The furo-ui5-radiogroup enables users to create a radio group with n size of furo-ui5-data-radio-buttons inside.
@@ -12,7 +12,6 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class FuroUi5Radiogroup extends FBP(LitElement) {
-
   /**
    * flow is ready lifecycle method
    */
@@ -20,29 +19,27 @@ class FuroUi5Radiogroup extends FBP(LitElement) {
     super._FBPReady();
     // this._FBPTraceWires();
 
-    this.addEventListener('select', (e)=>{
+    this.addEventListener('select', e => {
       let size = this.children.length;
       // eslint-disable-next-line no-plusplus
-      while(size--){
-        if (this.children[size].binder.fieldNode._name !== e.target.binder.fieldNode._name){
+      while (size--) {
+        if (this.children[size].binder.fieldNode._name !== e.target.binder.fieldNode._name) {
           this.children[size].setValue(false);
         }
       }
-
-    })
+    });
   }
 
   /**
    * @private
    * @returns {TemplateResult|TemplateResult}
    */
-  render(){
+  render() {
     // language=HTML
     return html`
       <slot></slot>
     `;
   }
-
 }
 
 window.customElements.define('furo-ui5-radiogroup', FuroUi5Radiogroup);

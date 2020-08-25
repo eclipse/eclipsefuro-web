@@ -151,13 +151,12 @@ describe('furo-ui5-data-collection-dropdown-binding', () => {
 
   it('should activate the correct item', done => {
     setTimeout(() => {
-      assert.equal(dropdown._dropdownList.length, 3, 'check number of elements')
-      input.setValue('male')
+      assert.equal(dropdown._dropdownList.length, 3, 'check number of elements');
+      input.setValue('male');
       setTimeout(() => {
-        assert.equal(dropdown._dropdownList[2].selected, true, 'check selected item')
-        done()
-      }, 16)
-    }, 16)
-  })
-
+        assert.equal(dropdown._dropdownList[2].selected, true, 'check selected item');
+        done();
+      }, 16);
+    }, 16);
+  });
 });

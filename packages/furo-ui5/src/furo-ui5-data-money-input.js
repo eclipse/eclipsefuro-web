@@ -1,9 +1,10 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
 import './furo-ui5-form-field-container.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
 import { Theme } from '@furo/framework';
-import "@ui5/webcomponents/dist/Input";
+import '@ui5/webcomponents/dist/Input';
 import './furo-ui5-data-text-input.js';
 
 /**
@@ -100,8 +101,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
     super._FBPReady();
 
     // update value when the amount changed
-    this._FBPAddWireHook("--inputInput",(e)=>{
-
+    this._FBPAddWireHook('--inputInput', e => {
       if (e.path[0]) {
         this.binder.fieldValue = this._convertDataToMoneyObj(
           '',
@@ -109,7 +109,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
           this.binder.fieldNode._value,
         );
       }
-    })
+    });
   }
 
   // convert data to google.type.Money format
@@ -145,12 +145,11 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
    */
   static get properties() {
     return {
-
       /**
        * the string list of currencies for the dropdown. e.g. "CHF,EUR,USD"
        */
       currencies: {
-        type: String
+        type: String,
       },
       /**
        * the option object defines the currencies dropdown
@@ -158,8 +157,8 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
        * '{"list": [ {"id":"CHF","label":"Schweiz"},{"id":"EUR","label":"Europa", "selected": true}'
        */
       options: {
-        type: Object
-      }
+        type: Object,
+      },
     };
   }
 
@@ -192,7 +191,6 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
     }
 
     this._FBPTriggerWire('--data', fieldNode);
-
   }
 
   /**
@@ -218,7 +216,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
    * option setter
    * @param options
    */
-  set options(options){
+  set options(options) {
     this.setOptions(options);
   }
 
@@ -237,7 +235,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       } else {
         collection = options;
       }
-      this._collection=collection;
+      this._collection = collection;
       this.updateSuggestions();
     }
   }
@@ -249,7 +247,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
   set currencies(c) {
     const arr = c.split(',').map(item => item.trim());
     this._currencies = arr;
-    this._collection=arr;
+    this._collection = arr;
 
     this.updateSuggestions();
   }
@@ -258,37 +256,32 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
    * inject the currency entities for dropdown
    * @param entities
    */
-  injectEntities(entities){
-    const list=[];
-    entities.forEach((e)=>{
-      if(e.data) {
-        const o={};
-        o.id=e.id;
-        o.label=e.display_name;
-        list.push(o);
+  injectEntities(entities) {
+    const ent = { list: [] };
+    entities.forEach(e => {
+      if (e.data) {
+        const o = {};
+        o.id = e.id;
+        o.label = e.display_name;
+        ent.list.push(o);
       }
     });
-    this.setOptions({"list":list});
+    this.setOptions(ent);
   }
-
 
   updateSuggestions() {
     const collection = this._collection;
-    let arr=[];
+    let arr = [];
     // convert array list to id, label structure
     if (typeof collection[0] === 'string') {
       // eslint-disable-next-line no-param-reassign
       arr = collection.map(item => ({ text: item }));
-    }
-    else {
-        arr = collection.map(e => {
-        return { text: e.id };
-      });
+    } else {
+      arr = collection.map(e => ({ text: e.id }));
     }
 
     this._FBPTriggerWire('--suggestions', arr);
   }
-
 
   /**
    *
@@ -303,20 +296,21 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
         /* https://material.io/design/components/text-fields.html#theming */
 
         furo-ui5-data-text-input {
-          width: 100px ;
-          min-width: 100px ;
+          width: 100px;
+          min-width: 100px;
           margin-left: var(--spacing-xs);
         }
+
         ui5-input {
           width: calc(100% - var(--spacing-xs) - 100px);
         }
+
         :host {
           width: 190px;
         }
       `
     );
   }
-
 
   /**
    * @private
@@ -327,19 +321,19 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
     return html`
       <furo-horizontal-flex>
         <ui5-input
-           type="Number"
-           ?disabled=${this.readonly || this.disabled}
-           ?required=${this.required}
-           ƒ-.value="--valueAmount"
-           @-input="--inputInput(*)"
-         ></ui5-input>
-          <furo-ui5-data-text-input
-           ?disabled=${this.readonly || this.disabled}
-           ?required=${this.required}
+          type="Number"
+          ?disabled=${this.readonly || this.disabled}
+          ?required=${this.required}
+          ƒ-.value="--valueAmount"
+          @-input="--inputInput(*)"
+        ></ui5-input>
+        <furo-ui5-data-text-input
+          ?disabled=${this.readonly || this.disabled}
+          ?required=${this.required}
           ƒ-bind-data="--data(*.currency_code)"
           ƒ-.suggestions="--suggestions"
-          ></furo-ui5-data-text-input>
-        </furo-horizontal-flex>
+        ></furo-ui5-data-text-input>
+      </furo-horizontal-flex>
     `;
   }
 }

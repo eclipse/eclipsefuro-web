@@ -130,36 +130,37 @@ describe('furo-ui5-data-textarea-input', () => {
   xit('a11y', () => axeReport(input));
 
   it('should have the basic attributes of the fieldNode set', done => {
-      setTimeout(() => {
-        assert.equal(input._state.disabled, false, 'check disabled');
-        assert.equal(input._state.readonly, false, 'check readonly');
-        assert.equal(input._state.growing, false, 'check growing');
-        assert.equal(input._state.placeholder, 'textarea_input**', 'check placeholder');
-        assert.equal(input._state.valueState, 'None', 'check valueState');
-        assert.equal(input._state.valueStateMessage.length, 0, 'check valueStateMessage');
-        assert.equal(input._state.name, '', 'check name');
-        assert.equal(input._state.ariaLabel, undefined, 'check ariaLabel');
-        done();
-      }, 0);
-
+    setTimeout(() => {
+      assert.equal(input._state.disabled, false, 'check disabled');
+      assert.equal(input._state.readonly, false, 'check readonly');
+      assert.equal(input._state.growing, false, 'check growing');
+      assert.equal(input._state.placeholder, 'textarea_input**', 'check placeholder');
+      assert.equal(input._state.valueState, 'None', 'check valueState');
+      assert.equal(input._state.valueStateMessage.length, 0, 'check valueStateMessage');
+      assert.equal(input._state.name, '', 'check name');
+      assert.equal(input._state.ariaLabel, undefined, 'check ariaLabel');
+      done();
+    }, 0);
   });
 
   it('should update the fieldNode', done => {
     input.setValue('new text set');
     assert.equal(input._state.value, 'new text set', 'check internal text');
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(dao.data.data.furo_data_textarea_input._value, 'new text set', 'check dao');
       done();
-    },0)
+    }, 0);
   });
 
   it('should update value after inject response', done => {
-
     if (dao.injectRaw(testRecordMeta)) {
-      assert.equal(dao.data.data.furo_data_textarea_input._value, 'hallo , this is textarea input', 'check dao');
+      assert.equal(
+        dao.data.data.furo_data_textarea_input._value,
+        'hallo , this is textarea input',
+        'check dao',
+      );
       assert.equal(input.value, 'hallo , this is textarea input', 'check input value');
       done();
     }
   });
-
 });

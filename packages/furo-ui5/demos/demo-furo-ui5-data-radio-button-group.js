@@ -146,7 +146,10 @@ class DemoFuroUi5DataRadioButtonGroup extends FBP(LitElement) {
           </furo-button-bar>
 
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-          <furo-data-object type="experiment.Experiment" @-object-ready="--entityExp"></furo-data-object>
+          <furo-data-object
+            type="experiment.Experiment"
+            @-object-ready="--entityExp"
+          ></furo-data-object>
           <furo-data-object
             type="person.PersonCollection"
             @-object-ready="--collection"

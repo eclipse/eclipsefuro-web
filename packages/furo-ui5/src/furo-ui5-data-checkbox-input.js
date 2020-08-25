@@ -1,6 +1,6 @@
 import * as CheckBox from '@ui5/webcomponents/dist/CheckBox.js';
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
 // eslint-disable-next-line import/no-extraneous-dependencies
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
 
 /**
  * Allows the user to set a binary value, such as true/false or yes/no for an item.
