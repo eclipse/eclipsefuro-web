@@ -13,10 +13,17 @@ import '@ui5/webcomponents/dist/features/InputSuggestions.js';
 export class FuroUi5DataInput extends Input.default {
   constructor(props) {
     super(props);
-    this.valueState = 'None';
+    this._initBinder();
+  }
+
+  /**
+   * init properties
+   */
+  connectedCallback() {
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
     this.showSuggestions = true;
     this.highlight = true;
-    this._initBinder();
   }
 
   /**

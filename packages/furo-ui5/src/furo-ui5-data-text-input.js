@@ -47,15 +47,6 @@ export class FuroUi5DataTextInput extends FuroUi5DataInput {
    */
 
   /**
-   *
-   * @param props
-   */
-  constructor(props) {
-    super(props);
-    this.type = 'Text';
-  }
-
-  /**
    * apply the binding set to the binder
    * binding set can be customised here otherwise the standard set in the ui5-data-input will be used
    * @param fieldNode

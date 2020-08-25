@@ -47,11 +47,11 @@ export class FuroUi5DataPasswordInput extends FuroUi5DataInput {
    */
 
   /**
-   *
-   * @param props
+   * init properties
    */
-  constructor(props) {
-    super(props);
+  connectedCallback() {
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
     this.type = 'Password';
     this.ui5Icon = 'shield';
   }

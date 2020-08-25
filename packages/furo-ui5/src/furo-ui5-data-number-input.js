@@ -47,11 +47,11 @@ export class FuroUi5DataNumberInput extends FuroUi5DataInput {
    */
 
   /**
-   *
-   * @param props
+   * init properties
    */
-  constructor(props) {
-    super(props);
+  connectedCallback() {
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
     this.type = 'Number';
   }
 
