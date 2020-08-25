@@ -55,7 +55,7 @@ export class FuroUi5DataToggleButton extends ToggleButton.default {
       placeholder: 'placeholder', // map placeholder to placeholder
       icon: 'icon', // icon and leading icon maps to the same
       'leading-icon': 'icon', // icon and leading icon maps to the same
-      'trailing-icon': 'icon-end', // icon and leading icon maps to the same
+      'trailing-icon': 'icon', // icon and leading icon maps to the same
       'value-state': '_valueState',
       errortext: '_errorMsg', // name errortext is for compatibility with spec
       'error-msg': '_errorMsg',

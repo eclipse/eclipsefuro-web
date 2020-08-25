@@ -31,7 +31,8 @@
       "value": true,
       "attributes": {
         "value-state": "Error",
-        "label": "override"
+        "label": "override",
+        "icon": "filter"
       }
     },
     "wrapper_bool": {
