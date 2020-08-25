@@ -16,19 +16,19 @@ describe('furo-ui5-data-reference-search-labeled', () => {
 
   const testRecordMeta = {
     data: {
-      "id": "1",
-      "display_name": "Rework documentation",
-      "description": "Apply new documentation structure",
-      "estimated_time": 5,
-      "owner": {
-        "display_name": "John Doe, +41783332244",
-        "id": "1",
-        "rel": "List",
-        "href": "/mockdata/persons/1/get.json",
-        "method": "GET",
-        "type": "person.Person"
+      id: '1',
+      display_name: 'Rework documentation',
+      description: 'Apply new documentation structure',
+      estimated_time: 5,
+      owner: {
+        display_name: 'John Doe, +41783332244',
+        id: '1',
+        rel: 'List',
+        href: '/mockdata/persons/1/get.json',
+        method: 'GET',
+        type: 'person.Person',
       },
-      "subtasks": []
+      subtasks: [],
     },
     meta: {
       fields: {
@@ -48,7 +48,6 @@ describe('furo-ui5-data-reference-search-labeled', () => {
       },
     },
   };
-
 
   beforeEach(async () => {
     const testbind = await fixture(html`
@@ -84,7 +83,7 @@ describe('furo-ui5-data-reference-search-labeled', () => {
     }, 16);
   });
 
-/*  it('label text should be overrideable via meta ', done => {
+  /*  it('label text should be overrideable via meta ', done => {
     dao.injectRaw(testRecordMeta);
 
     setTimeout(() => {
@@ -93,5 +92,5 @@ describe('furo-ui5-data-reference-search-labeled', () => {
 
       done();
     }, 160);
-  });*/
+  }); */
 });

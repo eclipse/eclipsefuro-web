@@ -152,6 +152,4 @@ describe('furo-ui5-data-radio-button-group', () => {
     assert.equal(dropdown.nodeName.toLowerCase(), 'furo-ui5-data-radio-button-group');
     done();
   });
-
-
 });

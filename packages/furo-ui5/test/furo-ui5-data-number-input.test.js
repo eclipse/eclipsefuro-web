@@ -29,7 +29,9 @@ describe('furo-ui5-data-number-input', () => {
             readonly
             @-value-changed="--textChanged"
           ></furo-ui5-data-number-input>
-          <furo-ui5-data-number-input ƒ-bind-data="--entity(*.invalidBinding)"></furo-ui5-data-number-input>
+          <furo-ui5-data-number-input
+            ƒ-bind-data="--entity(*.invalidBinding)"
+          ></furo-ui5-data-number-input>
 
           <furo-data-object
             type="experiment.ExperimentEntity"
@@ -105,7 +107,6 @@ describe('furo-ui5-data-number-input', () => {
     }, 0);
   });
 
-
   it('should log invalid bindings', done => {
     setTimeout(() => {
       // invalid binding
@@ -115,5 +116,4 @@ describe('furo-ui5-data-number-input', () => {
       done();
     }, 0);
   });
-
 });

@@ -130,7 +130,9 @@ describe('furo-ui5-data-radio-button', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-data-radio-button ƒ-bind-data="--data(*.furo_data_checkbox_input)"></furo-ui5-data-radio-button>
+          <furo-ui5-data-radio-button
+            ƒ-bind-data="--data(*.furo_data_checkbox_input)"
+          ></furo-ui5-data-radio-button>
           <furo-data-object type="experiment.Experiment" @-object-ready="--data"></furo-data-object>
         </template>
       </test-bind>
@@ -148,6 +150,4 @@ describe('furo-ui5-data-radio-button', () => {
     assert.equal(radio.nodeName.toLowerCase(), 'furo-ui5-data-radio-button');
     done();
   });
-
-
 });

@@ -247,7 +247,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    */
   _notifyAndTriggerUpdate(arr) {
     if (arr.length > 0) {
-
       if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
         // notify first item if field is not set
         let selectedItem = null;
@@ -498,11 +497,10 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       let size = this._dropdownList.length;
       // eslint-disable-next-line no-plusplus
       while (size--) {
-        if(this._valueSubField) {
+        if (this._valueSubField) {
           this._dropdownList[size].selected =
             this._dropdownList[size].id === this.binder.fieldValue[this._valueSubField];
-        }
-        else {
+        } else {
           this._dropdownList[size].selected =
             this._dropdownList[size].id === this.binder.fieldValue;
         }
@@ -510,7 +508,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       this._notifyAndTriggerUpdate(this._dropdownList);
     }
   }
-
 
   /**
    * change the value data of repeated field to an array according to the defined subfield likes `data.id`

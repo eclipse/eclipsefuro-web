@@ -6,10 +6,15 @@ import '@furo/doc-helper';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/src/furo-catalog.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-data-object.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-deep-link';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/produce-qp-data.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-entity-agent';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/simulate-error.js';
 /**
  * `demo-furo-ui5-data-money-input`
@@ -32,6 +37,7 @@ class DemoFuroUi5DataMoneyInput extends FBP(LitElement) {
           display: block;
           height: 100%;
           padding-right: var(--spacing);
+          --furo-form-layouter-row-gap: var(--spacing-xs);
         }
 
         :host([hidden]) {
@@ -61,27 +67,28 @@ class DemoFuroUi5DataMoneyInput extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-           <furo-form-layouter two>
+            <furo-form-layouter two>
               <furo-ui5-data-money-input
-              options='{"list": [ {"id":"CHF","label":"Schweiz"},{"id":"EUR","label":"Europa"}]}'
+                options='{"list": [ {"id":"CHF","label":"Schweiz"},{"id":"EUR","label":"Europa"}]}'
                 autofocus
                 ƒ-bind-data="--entity(*.furo_data_money_input)"
               ></furo-ui5-data-money-input>
               <furo-ui5-data-money-input
-              options='{"list": [ "CHF","EUR","USD" ]}'
+                options='{"list": [ "CHF","EUR","USD" ]}'
                 autofocus
                 ƒ-bind-data="--entity(*.furo_data_money_input)"
               ></furo-ui5-data-money-input>
 
-                            <furo-ui5-data-money-input
-             currencies="CHF,EUR,USD"
+              <furo-ui5-data-money-input
+                currencies="CHF,EUR,USD"
                 autofocus
                 ƒ-bind-data="--entity(*.furo_data_money_input)"
               ></furo-ui5-data-money-input>
-            <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
-
+              <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
             </furo-form-layouter>
-          <furo-pretty-json ƒ-inject-data="--dataChanged(*.furo_data_money_input._value)"></furo-pretty-json>
+            <furo-pretty-json
+              ƒ-inject-data="--dataChanged(*.furo_data_money_input._value)"
+            ></furo-pretty-json>
 
             <furo-data-object
               type="experiment.Experiment"

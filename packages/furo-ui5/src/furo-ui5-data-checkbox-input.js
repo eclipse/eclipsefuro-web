@@ -1,6 +1,6 @@
 import * as CheckBox from '@ui5/webcomponents/dist/CheckBox.js';
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
 // eslint-disable-next-line import/no-extraneous-dependencies
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
 
 /**
  * Allows the user to set a binary value, such as true/false or yes/no for an item.
@@ -21,7 +21,6 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @summary data checkbox input field
  * @customElement
  * @demo demo-furo-ui5-data-checkbox-input Basic usage (scalar , fat, wrapper values)
- * @demo demo-furo-ui5-data-text-input-together playground
  */
 export class FuroUi5DataCheckboxInput extends CheckBox.default {
   /**

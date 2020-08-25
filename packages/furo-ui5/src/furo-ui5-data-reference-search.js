@@ -1,4 +1,5 @@
 import * as ComboBox from '@ui5/webcomponents/dist/ComboBox.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 
 /**

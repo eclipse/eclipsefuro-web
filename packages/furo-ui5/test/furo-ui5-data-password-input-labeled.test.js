@@ -16,8 +16,7 @@ describe('furo-ui5-data-password-input-labeled', () => {
 
   const testRecordMeta = {
     data: {
-      furo_data_number_input:
-        'hallo test',
+      furo_data_number_input: 'hallo test',
     },
     meta: {
       fields: {
@@ -49,7 +48,7 @@ describe('furo-ui5-data-password-input-labeled', () => {
             type="experiment.ExperimentEntity"
             @-object-ready="--entity"
           ></furo-data-object>
-          </template>
+        </template>
       </test-bind>
     `);
     await testbind.updateComplete;

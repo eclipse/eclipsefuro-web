@@ -8,11 +8,15 @@ import '@furo/doc-helper';
 import '@furo/ui5/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-data-object.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-entity-agent.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-deep-link.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/form/src/furo-form-layouter.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/form/src/furo-button-bar.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/produce-qp-data.js';
 
 import '@ui5/webcomponents/dist/Card.js';

@@ -143,31 +143,27 @@ describe('furo-ui5-data-checkbox-input-scalar', () => {
   });
 
   it('should have set the value of the injected data', done => {
-
     setTimeout(() => {
       input.binder.fieldNode.addEventListener('new-data-injected', () => {
-        assert.equal(dao.data.data.furo_data_checkbox_input._value, true, 'dao check checked')
-        done()
-      })
+        assert.equal(dao.data.data.furo_data_checkbox_input._value, true, 'dao check checked');
+        done();
+      });
 
-      dao.injectRaw(testRecordMeta)
-    }, 16)
-
-  })
+      dao.injectRaw(testRecordMeta);
+    }, 16);
+  });
 
   it('should update the fieldNode', done => {
     setTimeout(() => {
       input.binder.fieldNode.addEventListener('field-value-changed', () => {
-        assert.equal(dao.data.data.furo_data_checkbox_input._value, true, 'dao check checked')
-        done()
-      })
+        assert.equal(dao.data.data.furo_data_checkbox_input._value, true, 'dao check checked');
+        done();
+      });
 
-      const natInp = input.shadowRoot.querySelector('input')
-      natInp.focus()
-      natInp.click()
-      assert.equal(input._state.checked, true, 'check checked')
-    }, 16)
-
-
-  })
-})
+      const natInp = input.shadowRoot.querySelector('input');
+      natInp.focus();
+      natInp.click();
+      assert.equal(input._state.checked, true, 'check checked');
+    }, 16);
+  });
+});

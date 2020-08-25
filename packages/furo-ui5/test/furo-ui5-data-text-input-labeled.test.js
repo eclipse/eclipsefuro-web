@@ -48,7 +48,7 @@ describe('furo-ui5-data-text-input-labeled', () => {
             type="experiment.ExperimentEntity"
             @-object-ready="--entity"
           ></furo-data-object>
-          </template>
+        </template>
       </test-bind>
     `);
     await testbind.updateComplete;
@@ -84,5 +84,4 @@ describe('furo-ui5-data-text-input-labeled', () => {
       done();
     }, 16);
   });
-
 });
