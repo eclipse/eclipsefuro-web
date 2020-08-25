@@ -21,7 +21,6 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @summary data checkbox input field
  * @customElement
  * @demo demo-furo-ui5-data-checkbox-input Basic usage (scalar , fat, wrapper values)
- * @demo demo-furo-ui5-data-text-input-together playground
  */
 export class FuroUi5DataCheckboxInput extends CheckBox.default {
   /**

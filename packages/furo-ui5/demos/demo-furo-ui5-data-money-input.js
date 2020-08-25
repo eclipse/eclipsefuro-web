@@ -37,6 +37,7 @@ class DemoFuroUi5DataMoneyInput extends FBP(LitElement) {
           display: block;
           height: 100%;
           padding-right: var(--spacing);
+          --furo-form-layouter-row-gap: var(--spacing-xs);
         }
 
         :host([hidden]) {
