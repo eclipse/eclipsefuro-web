@@ -32,7 +32,8 @@
       "attributes": {
         "value-state": "Error",
         "label": "override",
-        "icon": "filter"
+        "icon": "filter",
+        "design": "Negative"
       }
     },
     "wrapper_bool": {

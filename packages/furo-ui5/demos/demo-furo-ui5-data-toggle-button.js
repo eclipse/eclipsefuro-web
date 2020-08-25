@@ -102,19 +102,18 @@ class DemoFuroUi5DataToggleButton extends FBP(LitElement) {
               >Fat Bool
             </furo-ui5-data-toggle-button>
 
-            <furo-ui5-data-toggle-button
-              value-state="Information"
-              wrap
-              ƒ-bind-data="--entityU(*.data.wrapper_bool)"
+            <furo-ui5-data-toggle-button ƒ-bind-data="--entityU(*.data.wrapper_bool)"
               >Wrapper Bool
             </furo-ui5-data-toggle-button>
 
             <furo-ui5-data-text-input
               ƒ-bind-data="--entityU(*.data.fat_bool)"
             ></furo-ui5-data-text-input>
+
             <furo-ui5-data-text-input
               ƒ-bind-data="--entityU(*.data.wrapper_bool"
             ></furo-ui5-data-text-input>
+
           </furo-form-layouter>
 
           <fetch-universal-json
