@@ -6043,6 +6043,116 @@
       },
       "slots": [],
       "tagname": "furo-ui5-data-radio-button-group"
+    },
+    {
+      "description": "The furo-ui5-data--toggle-button component is an enhanced ui5-button that can be toggled between pressed and normal states.\nUsers can use the furo-ui5-data--toggle-button as a switch to turn a setting on or off. It can also be used to\nrepresent an independent choice similar to a check box.\n\nClicking or tapping on a furo-ui5-data--toggle-button changes its state to pressed. The button returns to its initial\nstate when the user clicks or taps on it again. By applying additional custom CSS-styling classes, apps can give\na different style to any furo-ui5-data--toggle-button.",
+      "summary": "data toggle button",
+      "path": "src/furo-ui5-data-toggle-button.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "_initBinder",
+          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 39,
+              "column": 2
+            },
+            "end": {
+              "line": 43,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "applyBindingSet",
+          "description": "apply the binding set to the binder\nbinding set can be customised here otherwise the standard set in the ui5-data-input will be used",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 50,
+              "column": 2
+            },
+            "end": {
+              "line": 103,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Bind a entity field to the text-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 110,
+              "column": 2
+            },
+            "end": {
+              "line": 128,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode",
+              "type": "(Object | FieldNode)",
+              "description": "a Field object"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-toggle-button",
+          "description": "Basic usage (scalar , fat, wrapper values)"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 17,
+          "column": 7
+        },
+        "end": {
+          "line": 129,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "ToggleButton.default",
+      "name": "FuroUi5DataToggleButton",
+      "attributes": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "click",
+          "description": "Fired when the input operation has finished by pressing Enter or on focusout.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-toggle-button"
     }
   ]
 }
