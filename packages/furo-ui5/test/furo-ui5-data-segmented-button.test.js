@@ -172,7 +172,9 @@ describe('furo-ui5-data-segmented-button', () => {
   it('should activate the correct item', done => {
     setTimeout(() => {
       assert.equal(segmentedButton._dropdownList.length, 3);
-      input.setValue('male');
+      const innerElement = segmentedButton.querySelectorAll('ui5-togglebutton');
+      innerElement[2].focus();
+      innerElement[2].click();
       assert.equal(segmentedButton._dropdownList[2].selected, true);
       done();
     }, 16);

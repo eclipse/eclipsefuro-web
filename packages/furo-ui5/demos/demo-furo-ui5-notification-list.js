@@ -3,7 +3,6 @@ import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/notification/src/furo-banner.js';
-import '@furo/input';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
 

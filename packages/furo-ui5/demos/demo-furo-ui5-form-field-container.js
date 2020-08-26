@@ -120,6 +120,7 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                 ></furo-ui5-data-reference-search-labeled>
 
                 <furo-ui5-data-collection-dropdown-labeled
+                  value-sub-field="id"
                   ƒ-bind-data="--entityTaskReady(*.owner)"
                   ƒ-inject-list="--refCol(*.entities)"
                 ></furo-ui5-data-collection-dropdown-labeled>
@@ -177,6 +178,7 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
           <furo-collection-agent
             service="PersonService"
             ƒ-hts-in="--entityTaskReady(*.owner.link._value)"
+            list-on-hts-in
             ƒ-search="--term"
             @-response="--refCol"
           >

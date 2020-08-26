@@ -8,7 +8,7 @@ import '@furo/testhelper/initEnv.js';
 
 import '../src/furo-catalog.js';
 
-describe('furo-ui5-data-radio-group', () => {
+describe('furo-ui5-radiogroup', () => {
   let host;
   let radiogroup;
   let dao;
@@ -54,10 +54,9 @@ describe('furo-ui5-data-radio-group', () => {
   });
 
   it('should toggle the elements', done => {
-    const input = radiogroup.children[0].shadowRoot.querySelector('input');
-    input.click();
+    radiogroup.children[1].selected = true;
     setTimeout(() => {
-      assert.equal(radiogroup.children[1].selected, false);
+      assert.equal(radiogroup.children[0].selected, false);
       done();
     }, 24);
   });
