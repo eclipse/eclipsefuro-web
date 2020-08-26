@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit-element'
 
 /**
  * `gen-demo-data`
@@ -25,9 +25,8 @@ class GenDemoData extends LitElement {
             'value-state': 'Error',
             'error-msg': 'XXXXX something went wrong',
             errortext: 'something went wrong',
-            hint: 'with error and leading icon',
-            'leading-icon': 'dashboard',
-            'trailing-icon': 'mail',
+            hint: 'with error and icon',
+            'leading-icon': 'filter',
             label: 'override and required',
             placeholder: 'Placeholder override and required',
             max: 2,
@@ -79,16 +78,56 @@ class GenDemoData extends LitElement {
           },
         },
       },
-    };
+    }
     /**
      * @event data
      * Fired when data is generated
      * detail payload: universaltest.Entity
      */
-    const customEvent = new Event('data', { composed: true, bubbles: true });
-    customEvent.detail = data;
-    this.dispatchEvent(customEvent);
+    const customEvent = new Event('data', { composed: true, bubbles: true })
+    customEvent.detail = data
+    this.dispatchEvent(customEvent)
+  }
+
+  /**
+   * @event value-state-list
+   * Is fired if the valueStateList is generated
+   * Available options are:
+   * None
+   * Error
+   * Warning
+   * Success
+   * Information
+   */
+  generateValueStateList() {
+    const list = [
+      {
+        id: "1",
+        display_name: 'None',
+      },
+      {
+        id: "2",
+        display_name: 'Error',
+      },
+      {
+        id: "3",
+        display_name: 'Warning',
+      },
+      {
+        id: "4",
+        display_name: 'Success',
+      },
+      {
+        id: "5",
+        display_name: 'Information',
+      },
+    ]
+
+    const customEvent = new Event('value-state-list', { composed: true, bubbles: true })
+    customEvent.detail = list
+    this.dispatchEvent(customEvent)
+
   }
 }
 
-window.customElements.define('gen-demo-data', GenDemoData);
+window.customElements.define('gen-demo-data', GenDemoData)

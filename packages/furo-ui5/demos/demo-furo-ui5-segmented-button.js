@@ -75,7 +75,6 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
                 DEFAULT
               </p>
               <furo-ui5-data-segmented-button
-                style="width: 100%;"
                 sub-field=""
                 ƒ-bind-data="--entity(*.owner)"
                 @-item-selected="--itemSelected"
@@ -87,7 +86,6 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
                 NAME
               </p>
               <furo-ui5-data-segmented-button
-                style="width: 100%;"
                 display-field="first_name"
                 ƒ-bind-data="--entity(*.owner)"
                 ƒ-inject-list="--response(*.entities)"
@@ -101,7 +99,6 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
                 set to: id, display_name and data
               </p>
               <furo-ui5-data-segmented-button
-                style="width: 100%;"
                 value-field="id"
                 sub-field="data"
                 display-field="display_name"
@@ -120,7 +117,6 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
                 type reference is updated (check the furo-data-object)
               </p>
               <furo-ui5-data-segmented-button
-                style="width: 100%;"
                 value-sub-field="link.rel"
                 display-sub-field="link.type"
                 ƒ-inject-entities="--response(*.entities)"

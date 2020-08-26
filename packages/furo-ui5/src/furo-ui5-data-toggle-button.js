@@ -91,7 +91,7 @@ export class FuroUi5DataToggleButton extends ToggleButton.default {
     // update the value on input changes
     this.addEventListener('click', val => {
       // set flag empty on empty strings (for fat types)
-      if (val.target.value) {
+      if (val.target.pressed) {
         this.binder.deleteLabel('empty');
       } else {
         this.binder.addLabel('empty');

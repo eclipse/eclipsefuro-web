@@ -32,7 +32,7 @@
       "attributes": {
         "value-state": "Error",
         "label": "override",
-        "icon": "filter",
+        "icon": "write-new",
         "design": "Negative"
       }
     },

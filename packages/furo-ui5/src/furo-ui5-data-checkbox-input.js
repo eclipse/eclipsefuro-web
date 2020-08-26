@@ -34,7 +34,6 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
    */
   constructor(props) {
     super(props);
-    this.valueState = 'None';
 
     this._initBinder();
   }
@@ -94,7 +93,7 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
     // update the value on input changes
     this.addEventListener('change', val => {
       // set flag empty on empty strings (for fat types)
-      if (val.target.value) {
+      if (val.target.checked) {
         this.binder.deleteLabel('empty');
       } else {
         this.binder.addLabel('empty');

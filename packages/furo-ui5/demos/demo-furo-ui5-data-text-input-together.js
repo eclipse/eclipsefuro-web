@@ -1,23 +1,25 @@
-import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme.js';
-import { FBP } from '@furo/fbp';
+import { LitElement, html, css } from 'lit-element'
+import { Theme } from '@furo/framework/src/theme.js'
+import { FBP } from '@furo/fbp'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/doc-helper';
+import '@furo/doc-helper'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-data-object.js';
+import '@furo/data/src/furo-data-object.js'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-form.js';
+import '@furo/form/src/furo-form.js'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-form-layouter.js';
+import '@furo/form/src/furo-form-layouter.js'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/layout/src/furo-catalog.js';
+import '@furo/layout/src/furo-catalog.js'
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-input/src/furo-catalog.js';
-import '@ui5/webcomponents/dist/Label.js';
-import './gen-demo-data.js';
+import '@furo/data-input/src/furo-catalog.js'
+import '@ui5/webcomponents/dist/Card.js'
+import '@ui5/webcomponents/dist/Label.js'
+import './gen-demo-data.js'
+import '../src/lib/ui5-icons.js'
 
 /**
- * `demo-furo-ui5-data-text-input`
+ * `demo-furo-ui5-data-text-input-together`
  *
  * @customElement
  * @appliesMixin FBP
@@ -42,8 +44,9 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
+
       `
-    );
+    )
   }
 
   /**
@@ -55,8 +58,7 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
     return html`
       <furo-vertical-flex>
         <div>
-          <h2>Demo ...</h2>
-          <p>Describe your demo</p>
+          <h2>Playground input fields</h2>
         </div>
         <furo-demo-snippet flex>
           <template>
@@ -64,74 +66,76 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
               furo-form-layouter {
                 grid-row-gap: var(--spacing-s);
               }
+
+              div.grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 1em;
+              }
+
+              .card-content {
+                margin: var(--spacing);
+              }
             </style>
             <furo-vertical-scroller>
-              <furo-split-view>
-                <furo-form header-text="UI5">
-                  <furo-form-layouter  style="align-items: end;">
+              <div class="grid">
+<!--                Playground Settings-->
+                <ui5-card heading="Settings" slot="master">
 
+                  <furo-form-layouter two class="card-content">
+                    <ui5-label for="LeadingIcon">Icon (e.g. play, stop, display-more, signature, ...)</ui5-label>
+                    <furo-ui5-data-text-input id="LeadingIcon" placeholder="leading-icon"
+                                          ƒ-bind-data="--DataObject(*.data.fat_string.attributes.leading-icon)"></furo-ui5-data-text-input>
+
+                    <ui5-label for="ValueStates">Value States</ui5-label>
+                    <furo-ui5-data-collection-dropdown id="ValueStates"
+                                                       value-field="display_name"
+                                                       ƒ-bind-data="--DataObject(*.data.fat_string.attributes.value-state)"
+                                                       ƒ-inject-list="--valueStateList"></furo-ui5-data-collection-dropdown>
+
+                    <ui5-label for="FieldValue">Field Value</ui5-label>
+                    <furo-ui5-data-text-input id="FieldValue" placeholder="value"
+                                          ƒ-bind-data="--DataObject(*.data.fat_string.value)"></furo-ui5-data-text-input>
+
+                  </furo-form-layouter>
+                </ui5-card>
+
+<!--                Furo UI5 Input Elements-->
+                <ui5-card heading="Furo UI5 Input Elements">
+
+                  <furo-form-layouter class="card-content">
                     <!-- fat -->
-
-                    <furo-ui5-data-text-input id="input1" ƒ-bind-data="--DataObject(*.data.fat_string)"></furo-ui5-data-text-input>
-
-
+                    <furo-ui5-data-text-input id="input1"
+                                              ƒ-bind-data="--DataObject(*.data.fat_string)"></furo-ui5-data-text-input>
                     <furo-ui5-data-text-input id="input2" placeholder="override placeholder"
-                                    ƒ-bind-data="--DataObject(*.data.fat_string_list)"></furo-ui5-data-text-input>
-
+                                              ƒ-bind-data="--DataObject(*.data.fat_string_list)"></furo-ui5-data-text-input>
                   </furo-form-layouter>
-                </furo-form>
-
-
-
-                <furo-form header-text="Settings" slot="master">
-                  <furo-form-layouter two style="align-items: end; margin-right: 12px">
-                    <furo-data-text-input condensed label="leading-icon"
-                                          ƒ-bind-data="--DataInjected(*.data.fat_string.attributes.leading-icon)"></furo-data-text-input>
-                    <furo-data-text-input condensed label="trailing-icon"
-                                          ƒ-bind-data="--DataInjected(*.data.fat_string.attributes.trailing-icon)"></furo-data-text-input>
-                    <furo-data-collection-dropdown condensed label="value-state"
-                                          list=",None, Error, Information, Warning, Success"
-                                          ƒ-bind-data="--DataInjected(*.data.fat_string.attributes.value-state)"></furo-data-collection-dropdown>
-                    <furo-data-text-input condensed label="value"
-                                          ƒ-bind-data="--DataInjected(*.data.fat_string.value)"></furo-data-text-input>
-
-
-                  </furo-form-layouter>
-                </furo-form>
-
-              </furo-split-view>
-
-
-              <!--possible component composition-->
-              <div>
-                <ui5-label style="display: block" for="input1" required show-colon>Display name</ui5-label>
-                <furo-ui5-data-text-input style="width: 100%" id="input1" value-state="Information"
-                                ƒ-bind-data="--DataObject(*.display_name)">
-                  <div slot="valueStateMessage">This is an information message. Extra long text used as an information
-                    message.
-                  </div>
-                </furo-ui5-data-text-input>
+                </ui5-card>
               </div>
 
               </furo-form-layouter>
               <furo-data-object
-                      type="universaltest.UniversaltestEntity"
-                      @-object-ready="--DataObject"
-                      @-data-changed="--data"
-                      @-data-injected="--DataInjected"
-                      ƒ-inject-raw="--entity"
+                type="universaltest.UniversaltestEntity"
+                @-object-ready="--DataObject"
+                @-data-changed="--data"
+                @-data-injected="--DataInjected"
+                ƒ-inject-raw="--entity"
               ></furo-data-object>
-              <gen-demo-data ƒ-generate="--DataObject" @-data="--entity"></gen-demo-data>
+              <!-- Demo data Generator -->
+              <gen-demo-data ƒ-generate="--DataObject" ƒ-generate-value-state-list="--DataObject"
+                             @-data="--entity"
+                             @-value-state-list="--valueStateList"></gen-demo-data>
+
               <furo-pretty-json ƒ-inject-data="--data(*._value)"></furo-pretty-json>
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
-    `;
+    `
   }
 }
 
 window.customElements.define(
   'demo-furo-ui5-data-text-input-together',
   DemoFuroUi5DataTextInputTogether,
-);
+)

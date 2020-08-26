@@ -143,17 +143,14 @@ export class FuroUi5DataInput extends Input.default {
    * @param icon
    */
   set ui5Icon(icon) {
-    // create element
-    if (!this._icon) {
+    if (this._icon) {
+      this._icon.remove();
+    }
+    if (icon) {
       this._icon = document.createElement('ui5-icon');
       this._icon.slot = 'icon';
-    }
-    // update the value
-    if (icon) {
       this._icon.name = icon;
       this.appendChild(this._icon);
-    } else {
-      this._icon.remove();
     }
   }
 
