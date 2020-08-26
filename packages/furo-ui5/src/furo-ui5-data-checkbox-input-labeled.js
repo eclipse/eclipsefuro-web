@@ -85,4 +85,7 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('furo-ui5-data-checkbox-input-labeled', FuroUi5DataCheckboxInputLabeled);
+window.customElements.define(
+  'furo-ui5-data-checkbox-input-labeled',
+  FuroUi5DataCheckboxInputLabeled,
+);

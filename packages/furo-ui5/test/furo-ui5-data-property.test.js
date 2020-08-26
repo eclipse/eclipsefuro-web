@@ -18,7 +18,9 @@ describe('furo-ui5-data-property', () => {
       <test-bind>
         <template>
           <!-- single Property -->
-          <furo-ui5-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-ui5-data-property>
+          <furo-ui5-data-property
+            ƒ-bind-data="--entity(*.single_type_property)"
+          ></furo-ui5-data-property>
           <furo-data-object
             type="experiment.Experiment"
             @-object-ready="--entity"

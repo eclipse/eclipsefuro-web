@@ -1,22 +1,22 @@
-import { LitElement, html, css } from 'lit-element'
-import { Theme } from '@furo/framework/src/theme.js'
-import { FBP } from '@furo/fbp'
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme.js';
+import { FBP } from '@furo/fbp';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/doc-helper'
+import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-data-object.js'
+import '@furo/data/src/furo-data-object.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-form.js'
+import '@furo/form/src/furo-form.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-form-layouter.js'
+import '@furo/form/src/furo-form-layouter.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/layout/src/furo-catalog.js'
+import '@furo/layout/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-input/src/furo-catalog.js'
-import '@ui5/webcomponents/dist/Card.js'
-import '@ui5/webcomponents/dist/Label.js'
-import './gen-demo-data.js'
-import '../src/lib/ui5-icons.js'
+import '@furo/data-input/src/furo-catalog.js';
+import '@ui5/webcomponents/dist/Card.js';
+import '@ui5/webcomponents/dist/Label.js';
+import './gen-demo-data.js';
+import '../src/lib/ui5-icons.js';
 
 /**
  * `demo-furo-ui5-data-text-input-together`
@@ -44,9 +44,8 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
-
       `
-    )
+    );
   }
 
   /**
@@ -131,11 +130,11 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
-    `
+    `;
   }
 }
 
 window.customElements.define(
   'demo-furo-ui5-data-text-input-together',
   DemoFuroUi5DataTextInputTogether,
-)
+);
