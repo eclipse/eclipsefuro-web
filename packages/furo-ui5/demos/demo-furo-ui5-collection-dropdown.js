@@ -125,7 +125,6 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
               </p>
               <furo-ui5-data-collection-dropdown
                 style="width: 100%;"
-                value-sub-field="link.rel"
                 display-sub-field="link.type"
                 ƒ-inject-entities="--response(*.entities)"
                 ƒ-bind-data="--entity(*.owner)"
