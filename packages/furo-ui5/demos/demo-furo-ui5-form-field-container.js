@@ -124,6 +124,10 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                   ƒ-inject-list="--refCol(*.entities)"
                 ></furo-ui5-data-collection-dropdown-labeled>
 
+                <furo-ui5-data-checkbox-input-labeled
+                  ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
+                ></furo-ui5-data-checkbox-input-labeled>
+
                 <furo-ui5-form-field-container>
                   <ui5-label label slot="label" for="Custom" show-colon
                     >Use it for small option lists

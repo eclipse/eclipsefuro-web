@@ -10,19 +10,19 @@
 export class Ui5PropertyStandardMapping {
 
   static typeMap = {
-    'google.type.Date': 'furo-ui5-data-date-picker',
-    'google.protobuf.StringValue': 'furo-ui5-data-text-input',
-    'google.protobuf.FloatValue': 'furo-ui5-data-number-input',
-    'google.protobuf.Int32Value': 'furo-ui5-data-number-input',
-    'google.protobuf.UInt32Value': 'furo-ui5-data-number-input',
-    'google.protobuf.BoolValue': 'furo-ui5-data-checkbox-input',
-    'furo.StringProperty': 'furo-ui5-data-text-input',
-    'furo.IntegerProperty': 'furo-ui5-data-number-input',
-    'furo.NumberProperty': 'furo-ui5-data-number-input',
-    'furo.StringOptionProperty': 'furo-ui5-data-collection-dropdown',
-    'furo.fat.String': 'furo-ui5-data-text-input',
-    'furo.fat.Int32': 'furo-ui5-data-number-input',
-    'furo.fat.Int64': 'furo-ui5-data-number-input',
-    'furo.fat.Bool': 'furo-ui5-data-checkbox-input',
+    'google.type.Date': 'furo-ui5-data-date-picker-labeled',
+    'google.protobuf.StringValue': 'furo-ui5-data-text-input-labeled',
+    'google.protobuf.FloatValue': 'furo-ui5-data-number-input-labeled',
+    'google.protobuf.Int32Value': 'furo-ui5-data-number-input-labeled',
+    'google.protobuf.UInt32Value': 'furo-ui5-data-number-input-labeled',
+    'google.protobuf.BoolValue': 'furo-ui5-data-checkbox-input-labeled',
+    'furo.StringProperty': 'furo-ui5-data-text-input-labeled',
+    'furo.IntegerProperty': 'furo-ui5-data-number-input-labeled',
+    'furo.NumberProperty': 'furo-ui5-data-number-input-labeled',
+    'furo.StringOptionProperty': 'furo-ui5-data-collection-dropdown-labeled',
+    'furo.fat.String': 'furo-ui5-data-text-input-labeled',
+    'furo.fat.Int32': 'furo-ui5-data-number-input-labeled',
+    'furo.fat.Int64': 'furo-ui5-data-number-input-labeled',
+    'furo.fat.Bool': 'furo-ui5-data-checkbox-input-labeled',
   }
 }
