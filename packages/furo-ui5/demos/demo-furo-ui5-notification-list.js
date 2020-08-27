@@ -5,7 +5,7 @@ import { FBP } from '@furo/fbp';
 import '@furo/notification/src/furo-banner.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
-
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/notification/demos/produce-banner-data.js';
 
 /**
@@ -55,7 +55,7 @@ class DemoFuroUi5NotificationList extends FBP(LitElement) {
     return html`
       <furo-vertical-flex>
         <div>
-          <h2>Demo furo-banner</h2>
+          <h2>Demo furo-ui5-notification-list</h2>
         </div>
         <furo-demo-snippet flex>
           <template>
