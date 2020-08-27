@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.3.17...@furo/input@1.4.0) (2020-08-27)
+
+
+### Bug Fixes
+
+* event detail should have the target element inside ([185ca21](https://github.com/theNorstroem/FuroBaseComponents/commit/185ca219e4ebc9bad0c7d81ad7e2b2423d3f867f))
+* fix radio button ([1b93f46](https://github.com/theNorstroem/FuroBaseComponents/commit/1b93f466ab358f741e76cedb08c625f8710628c2))
+* update the field constraints based on fat attributes only if not scalar ([7c30280](https://github.com/theNorstroem/FuroBaseComponents/commit/7c30280b0b641f7a42e7d4863a31478cc6a4e9f9))
+
+
+### Features
+
+* disabled flag on text input ([94d0fde](https://github.com/theNorstroem/FuroBaseComponents/commit/94d0fde892470e08c519d7cb8c03b9738ce6b8a6))
+* furo-data-text input with universal bindings ([8d27df0](https://github.com/theNorstroem/FuroBaseComponents/commit/8d27df0d4c3c610549c393c168a6442283bc62c6))
+* number input ([c6fbc56](https://github.com/theNorstroem/FuroBaseComponents/commit/c6fbc566e4d72a85bbe9070ba90e099d339bc617))
+
+
+
+
+
 ## [1.3.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.3.16...@furo/input@1.3.17) (2020-08-11)
 
 

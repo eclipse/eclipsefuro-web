@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.3.17...@furo/notification@1.4.0) (2020-08-27)
+
+
+### Bug Fixes
+
+* qp-changer fires to much ([92117e4](https://github.com/theNorstroem/FuroBaseComponents/commit/92117e4c74d862efc15cf895d50037e71646fe04))
+
+
+### Features
+
+* display BadRequests error with parseGrpc... ([f6faac0](https://github.com/theNorstroem/FuroBaseComponents/commit/f6faac05149b6ac0efff45ba01eb8c3735bf684d))
+
+
+
+
+
 ## [1.3.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.3.16...@furo/notification@1.3.17) (2020-08-11)
 
 **Note:** Version bump only for package @furo/notification

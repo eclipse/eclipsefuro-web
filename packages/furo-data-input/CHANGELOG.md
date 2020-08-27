@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.4.11...@furo/data-input@1.5.0) (2020-08-27)
+
+
+### Bug Fixes
+
+* event detail should have the target element inside ([185ca21](https://github.com/theNorstroem/FuroBaseComponents/commit/185ca219e4ebc9bad0c7d81ad7e2b2423d3f867f))
+* meta updates on all types ([7937634](https://github.com/theNorstroem/FuroBaseComponents/commit/7937634176e79d194f73f59ebf19ef1043631cad))
+* meta updates on all types ([f0fdd71](https://github.com/theNorstroem/FuroBaseComponents/commit/f0fdd71c453311d1e6c6b41dcdf91563973ae1d4))
+* set null on removed attributes on target ([3d276f0](https://github.com/theNorstroem/FuroBaseComponents/commit/3d276f0bccfbfe86bf8848596bfc436d4e9ca8d7))
+* set null on removed attributes on target ([f44d065](https://github.com/theNorstroem/FuroBaseComponents/commit/f44d065e84a438745b10880bdf27d9abef518c32))
+
+
+### Features
+
+* add ui5 reference search ([7cb6eab](https://github.com/theNorstroem/FuroBaseComponents/commit/7cb6eabef148493a75f6c0253c58b9e238add50c))
+* deep constraints with subfield.max in Specs ([4a0ae85](https://github.com/theNorstroem/FuroBaseComponents/commit/4a0ae855ea01a7d26b07190f91deec716980b3eb))
+* disabled flag on text input ([94d0fde](https://github.com/theNorstroem/FuroBaseComponents/commit/94d0fde892470e08c519d7cb8c03b9738ce6b8a6))
+* furo-data-text input with universal bindings ([8d27df0](https://github.com/theNorstroem/FuroBaseComponents/commit/8d27df0d4c3c610549c393c168a6442283bc62c6))
+* make FuroDataTextInput extendable ([2a4c4e5](https://github.com/theNorstroem/FuroBaseComponents/commit/2a4c4e53dc9688aa6bab50da023eab6ec8c61993))
+* number input ([8837c61](https://github.com/theNorstroem/FuroBaseComponents/commit/8837c614861258aceaac05353ab18ca8388d8c96))
+* number input ([c6fbc56](https://github.com/theNorstroem/FuroBaseComponents/commit/c6fbc566e4d72a85bbe9070ba90e099d339bc617))
+* revert demo ([83e590f](https://github.com/theNorstroem/FuroBaseComponents/commit/83e590f0dfbdb69b6c3b6d9e2c94acc482f718c2))
+* text input ([ce24d31](https://github.com/theNorstroem/FuroBaseComponents/commit/ce24d31786fefa51954291368f6de8e345da3f59))
+
+
+
+
+
 ## [1.4.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.4.10...@furo/data-input@1.4.11) (2020-08-11)
 
 **Note:** Version bump only for package @furo/data-input

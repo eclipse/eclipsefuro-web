@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.6.0...@furo/data@1.7.0) (2020-08-27)
+
+
+### Bug Fixes
+
+* constrains with boolean value should be handled as label ([da6592a](https://github.com/theNorstroem/FuroBaseComponents/commit/da6592afb03baccbfd38452237b0d77d2899fffa))
+* dispatch a field-value-changed after repeated node inside of it changed ([73bbff0](https://github.com/theNorstroem/FuroBaseComponents/commit/73bbff059cf9c784f086bea2a8a271836047e1d2))
+* dispatch a field-value-changed after repeated node inside of it changed ([c635d8f](https://github.com/theNorstroem/FuroBaseComponents/commit/c635d8f3cfc5e929740ca58b4012cd9da5e48763))
+* entity-agent does not modify the original error object ([64930b0](https://github.com/theNorstroem/FuroBaseComponents/commit/64930b0e99eab59475235f35fd68937f44fb1382))
+* fix tests ([995126d](https://github.com/theNorstroem/FuroBaseComponents/commit/995126d1ba3501e0dc47b2b3f26d615c3be3582e))
+* meta updates on all types ([f0fdd71](https://github.com/theNorstroem/FuroBaseComponents/commit/f0fdd71c453311d1e6c6b41dcdf91563973ae1d4))
+* qp-changer fires to much ([3ac8d42](https://github.com/theNorstroem/FuroBaseComponents/commit/3ac8d42d686d844af5c6eea48f0053a5cdcbdd3b))
+* set null on removed attributes on target ([f44d065](https://github.com/theNorstroem/FuroBaseComponents/commit/f44d065e84a438745b10880bdf27d9abef518c32))
+* set null on removed attributes on target ([3d276f0](https://github.com/theNorstroem/FuroBaseComponents/commit/3d276f0bccfbfe86bf8848596bfc436d4e9ca8d7))
+* UniversalFieldNodeBinder should also work with other complex types like furo.reference and google.type.date etc. ([8156ca3](https://github.com/theNorstroem/FuroBaseComponents/commit/8156ca38779a8f2cb8862775545163d9e8add8de))
+* update target value only by fat, wrapper and scalar type ([5e5fab4](https://github.com/theNorstroem/FuroBaseComponents/commit/5e5fab4187818ebe5b79f4fd8516d0e7d59c9b5e))
+* update the field constraints based on fat attributes only if not scalar ([7c30280](https://github.com/theNorstroem/FuroBaseComponents/commit/7c30280b0b641f7a42e7d4863a31478cc6a4e9f9))
+
+
+### Features
+
+* add and remove attributes on fat types and fallback on scalar and wrapper ([68969fc](https://github.com/theNorstroem/FuroBaseComponents/commit/68969fc6163321e60296eb8a3bad1ccc356c7e74))
+* add and remove labels on fat types and fallback on scalar and wrapper ([7fc7b8e](https://github.com/theNorstroem/FuroBaseComponents/commit/7fc7b8ef3fb124b7324b3f524d4c0935b3f847b1))
+* add furo-ui5-data-date-picker ([bf64988](https://github.com/theNorstroem/FuroBaseComponents/commit/bf6498844444fd3ba588b3da06a91009d067ba7e))
+* DataObject with deep fieldnode metas ([1bb165d](https://github.com/theNorstroem/FuroBaseComponents/commit/1bb165d38252cfa5e878209eb8f763ee6a36f49a))
+* deep constraints with subfield.max in fat attributes ([c35d268](https://github.com/theNorstroem/FuroBaseComponents/commit/c35d268dda2e4cf8df39af8ef3cc6f6b4495e4f3))
+* deep constraints with subfield.max in Specs ([4a0ae85](https://github.com/theNorstroem/FuroBaseComponents/commit/4a0ae855ea01a7d26b07190f91deec716980b3eb))
+* furo-data-text input with universal bindings ([8d27df0](https://github.com/theNorstroem/FuroBaseComponents/commit/8d27df0d4c3c610549c393c168a6442283bc62c6))
+* initial lib ([e9d6d1d](https://github.com/theNorstroem/FuroBaseComponents/commit/e9d6d1d4ca77b98ab33b9ffd57cb86d5ae4f7ec9))
+* labels for empty and pristine ([1ad72b9](https://github.com/theNorstroem/FuroBaseComponents/commit/1ad72b953c7a1783083d142157995f25617c0f7c))
+* number input ([c6fbc56](https://github.com/theNorstroem/FuroBaseComponents/commit/c6fbc566e4d72a85bbe9070ba90e099d339bc617))
+* number input ([8837c61](https://github.com/theNorstroem/FuroBaseComponents/commit/8837c614861258aceaac05353ab18ca8388d8c96))
+* reading scalar, wrapper and fat types ([aaff7e0](https://github.com/theNorstroem/FuroBaseComponents/commit/aaff7e0e49d1b5e3beaa24eee1d1b33a94d795db))
+* text input ([ce24d31](https://github.com/theNorstroem/FuroBaseComponents/commit/ce24d31786fefa51954291368f6de8e345da3f59))
+* ui5-data-property ([3da649d](https://github.com/theNorstroem/FuroBaseComponents/commit/3da649d9d8d5535aa2b011785905f88ff061dd22))
+* update fieldNode value ([d70e0f0](https://github.com/theNorstroem/FuroBaseComponents/commit/d70e0f083ffb232700c85c99754718d45507a5c8))
+* update fieldNode value on scalar and wrappers too ([ea8ba7a](https://github.com/theNorstroem/FuroBaseComponents/commit/ea8ba7a47b763404600d554324d3f92547478675))
+* update labels on fat types ([c3654f4](https://github.com/theNorstroem/FuroBaseComponents/commit/c3654f4de9cbef717655854304a00b4301eb5ac9))
+
+
+
+
+
 # [1.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.5.0...@furo/data@1.6.0) (2020-08-11)
 
 

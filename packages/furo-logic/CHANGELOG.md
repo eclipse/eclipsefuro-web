@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/logic@1.3.10...@furo/logic@1.3.11) (2020-08-27)
+
+**Note:** Version bump only for package @furo/logic
+
+
+
+
+
 ## [1.3.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/logic@1.3.9...@furo/logic@1.3.10) (2020-07-31)
 
 **Note:** Version bump only for package @furo/logic

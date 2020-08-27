@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.12.0...@furo/specs@1.13.0) (2020-08-27)
+
+
+### Features
+
+* add furo-ui5-data-date-picker ([bf64988](https://github.com/theNorstroem/FuroBaseComponents/commit/bf6498844444fd3ba588b3da06a91009d067ba7e))
+* deep constraints with subfield.max in Specs ([4a0ae85](https://github.com/theNorstroem/FuroBaseComponents/commit/4a0ae855ea01a7d26b07190f91deec716980b3eb))
+* initial lib ([e9d6d1d](https://github.com/theNorstroem/FuroBaseComponents/commit/e9d6d1d4ca77b98ab33b9ffd57cb86d5ae4f7ec9))
+
+
+
+
+
 # [1.12.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.11.0...@furo/specs@1.12.0) (2020-07-31)
 
 

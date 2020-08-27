@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.21](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.20...@furo/data-ui@1.3.21) (2020-08-27)
+
+
+### Bug Fixes
+
+* we need to request a render cycle for the sortable fields attribute ([dab77ec](https://github.com/theNorstroem/FuroBaseComponents/commit/dab77ecd5b9ed21fd6b8d74392fd3578c3524a11))
+
+
+
+
+
 ## [1.3.20](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.19...@furo/data-ui@1.3.20) (2020-08-11)
 
 **Note:** Version bump only for package @furo/data-ui
