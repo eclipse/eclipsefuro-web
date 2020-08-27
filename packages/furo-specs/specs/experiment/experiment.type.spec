@@ -355,7 +355,7 @@
       "description": "field for furo-data-date-input for testing",
       "type": "google.type.Date",
       "meta": {
-        "label": "gogole-date-input",
+        "label": "google-date-input",
         "hint": "hint",
         "readonly": false
       },

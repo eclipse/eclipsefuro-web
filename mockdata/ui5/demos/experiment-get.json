@@ -1,0 +1,35 @@
+{
+  "data": {
+    "furo_data_date_input": "2019-02-22",
+    "furo_data_date_input_google": {
+      "day": 31,
+      "display_name": "31.12.2020",
+      "month": 12,
+      "year": 2020
+    }
+  },
+  "meta": {
+    "fields": {
+      "data.furo_data_date_input": {
+        "meta": {
+          "label": "date input label via meta",
+          "readonly": false
+        }
+      },
+      "data.furo_data_date_input_google": {
+        "meta": {
+          "label": "google date input label via meta",
+          "readonly": false
+        },
+        "constraints": {
+          "max": {"is": "2020-09-30","message": "MAX 2020-09-30"},
+          "min": {"is": "2020-07-30","message": "MIN 2020-07-30"},
+          "pattern": {
+            "is": "dd.MM.yy",
+            "message": "Bitte ausfüllen!"
+          }
+        }
+      }
+    }
+  }
+}

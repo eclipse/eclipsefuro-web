@@ -1,0 +1,74 @@
+{
+  "data": {
+    "id": "1",
+    "scalar_string": "this is a scalar string",
+    "wrapper_string": {
+      "value": "this is a google wrapper string"
+    },
+    "fat_string": {
+      "value": "this is a furo fat string",
+      "labels": ["before","show-suggestions","required"],
+      "attributes": {
+        "value-state": "Error",
+        "min": 6,
+        "max": 16,
+        "maxlength": 6,
+        "label": "override",
+        "placeholder": "overridePH",
+        "errortext": "this is an errortext",
+        "icon": "world",
+        "suggestions": [{"text":"Spain","icon":"world","type":"Active","infoState":"None","group":false,"key":0},{"text":"Sweden","icon":"world","type":"Active","infoState":"None","group":false,"key":1},{"text":"Sri Lanka","icon":"world","type":"Active","infoState":"None","group":false,"key":9},{"text":"Senegal","icon":"world","type":"Active","infoState":"None","group":false,"key":3}]
+      }
+    },
+    "scalar_int32": 14,
+    "wrapper_int32": {
+      "value": 14
+    },
+    "fat_int32": {
+      "value": 14
+    },
+    "fat_bool": {
+      "value": true,
+      "attributes": {
+        "value-state": "Error",
+        "label": "override",
+        "icon": "write-new",
+        "design": "Negative"
+      }
+    },
+    "wrapper_bool": {
+      "value": true
+    },
+    "fat_string_repeated": [
+      {
+        "value": "this is a furo fat string",
+        "labels": ["before"],
+        "attributes": {
+          "value-state": "Error",
+          "min": "6",
+          "max": "16",
+          "maxlength": "6",
+          "label": "override",
+          "placeholder": "overridePH"
+
+        }
+      },
+      {
+        "value": "this is a furo fat string 2",
+        "labels": ["before"],
+        "attributes": {
+          "value-state": "Error",
+          "min": "6",
+          "max": "16",
+          "maxlength": "6",
+          "label": "override",
+          "placeholder": "overridePH"
+
+        }
+      }
+
+    ]
+  },
+  "links": [],
+  "meta": {}
+}

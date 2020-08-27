@@ -8,8 +8,8 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
 
 /**
  * `furo-data-reference-search`
- *  Sucht eine Referenz
- *  bounded data should be furo-reference
+ *  searc a reference
+ *  bounded data should be furo.reference
  *
  *```
  * <!--  furo-data-object will eine Referenz auflösen -->

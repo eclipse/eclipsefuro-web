@@ -464,15 +464,18 @@ class FuroDataTable extends FBP(LitElement) {
    * @private
    */
   _applySortableFields(fields) {
-    if (fields && fields.length) {
-      const sortableCols = fields.replace(/ /g, '').split(',');
-      sortableCols.forEach(f => {
-        const column = this.cols.filter(obj => obj.id === f);
-        if (column.length) {
-          column[0].sortable = true;
-        }
-      });
-    }
+    setTimeout(()=>{
+      if (fields && fields.length) {
+        const sortableCols = fields.replace(/ /g, '').split(',');
+        sortableCols.forEach(f => {
+          const column = this.cols.filter(obj => obj.id === f);
+          if (column.length) {
+            column[0].sortable = true;
+          }
+        });
+      }
+      this.requestUpdate();
+    },16)
   }
 
   /**

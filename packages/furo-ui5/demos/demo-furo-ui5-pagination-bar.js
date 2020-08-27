@@ -59,10 +59,16 @@ class DemoFuroUi5PaginationBar extends FBP(LitElement) {
         <template>
           <furo-card header-text="Usage of furo-ui5-pagination-bar">
             <p>The demo collection record has a rel for next and one for last.</p>
-            <furo-ui5-pagination-bar ƒ-inject="--responseHts"
-                                     @-pagination-next="--next"
-                                     @-pagination-last="--last"></furo-ui5-pagination-bar>
-            <furo-button slot="action" label="load collection" @-click="--btnListClicked"></furo-button>
+            <furo-ui5-pagination-bar
+              ƒ-inject="--responseHts"
+              @-pagination-next="--next"
+              @-pagination-last="--last"
+            ></furo-ui5-pagination-bar>
+            <furo-button
+              slot="action"
+              label="load collection"
+              @-click="--btnListClicked"
+            ></furo-button>
           </furo-card>
 
           <furo-deep-link

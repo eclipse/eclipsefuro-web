@@ -25,7 +25,6 @@ import { i18n } from '@furo/framework/src/i18n.js';
  * @mixes FBP
  */
 class FuroUi5PaginationBar extends FBP(LitElement) {
-
   /**
    * @event pagination-first
    * Is fired if the pagination button 'sys_first_page' was clicked
@@ -132,9 +131,13 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
      * @error hts-injected
      * Is fired if HATEOAS Array is successfully injected
      */
-    this.dispatchEvent(new CustomEvent('hts-injected', {
-        detail: hts, bubbles: true, composed: true
-    }));
+    this.dispatchEvent(
+      new CustomEvent('hts-injected', {
+        detail: hts,
+        bubbles: true,
+        composed: true,
+      }),
+    );
   }
 
   _disableAll() {
