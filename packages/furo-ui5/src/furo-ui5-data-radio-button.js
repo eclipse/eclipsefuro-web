@@ -87,6 +87,10 @@ export class FuroUi5DataRadioButton extends RadioButton.default {
 
     // update the value on input changes
     this.addEventListener('select', val => {
+
+      // update the value
+      this.binder.fieldValue = val.target.selected;
+
       // set flag empty on empty strings (for fat types)
       if (val.target.value) {
         this.binder.deleteLabel('empty');
@@ -95,9 +99,6 @@ export class FuroUi5DataRadioButton extends RadioButton.default {
       }
       // if something was entered the field is not empty
       this.binder.deleteLabel('pristine');
-
-      // update the value
-      this.binder.fieldValue = val.target.selected;
     });
   }
 

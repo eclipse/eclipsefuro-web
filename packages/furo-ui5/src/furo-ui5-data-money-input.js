@@ -79,6 +79,10 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
 
     // update the value on input changes
     this.addEventListener('value-changed', val => {
+
+      // update the value
+      this.binder.fieldValue = val.detail;
+
       // set flag empty on empty strings (for fat types)
       if (val.detail) {
         this.binder.deleteLabel('empty');
@@ -87,9 +91,6 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       }
       // if something was entered the field is not empty
       this.binder.deleteLabel('pristine');
-
-      // update the value
-      this.binder.fieldValue = val.detail;
     });
   }
 

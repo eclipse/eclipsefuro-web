@@ -90,6 +90,10 @@ export class FuroUi5DataToggleButton extends ToggleButton.default {
 
     // update the value on input changes
     this.addEventListener('click', val => {
+
+      // update the value
+      this.binder.fieldValue = val.target.pressed;
+
       // set flag empty on empty strings (for fat types)
       if (val.target.pressed) {
         this.binder.deleteLabel('empty');
@@ -98,9 +102,6 @@ export class FuroUi5DataToggleButton extends ToggleButton.default {
       }
       // if something was entered the field is not empty
       this.binder.deleteLabel('pristine');
-
-      // update the value
-      this.binder.fieldValue = val.target.pressed;
     });
   }
 

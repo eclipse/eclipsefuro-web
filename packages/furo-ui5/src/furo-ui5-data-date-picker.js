@@ -104,14 +104,6 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
 
     // update the value on input changes
     this.addEventListener('change', val => {
-      // set flag empty on empty strings (for fat types)
-      if (val.target.value) {
-        this.binder.deleteLabel('empty');
-      } else {
-        this.binder.addLabel('empty');
-      }
-      // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
 
       let dateValue = this.value;
       if (this.binder.fieldNode) {
@@ -133,6 +125,15 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
           this.binder.fieldValue = dateValue;
         }
       }
+
+      // set flag empty on empty strings (for fat types)
+      if (val.target.value) {
+        this.binder.deleteLabel('empty');
+      } else {
+        this.binder.addLabel('empty');
+      }
+      // if something was entered the field is not empty
+      this.binder.deleteLabel('pristine');
     });
   }
 
