@@ -6,9 +6,10 @@ package task;
 
 import "furo/meta.proto";
 import "furo/link.proto";
+import "notification/notification.proto";
 import "furo/reference.proto";
 // TaskEntity with Task
-message TaskEntity {            
+message TaskEntity {              
   // contains a task.Task
   Task data = 1;
   
@@ -17,6 +18,9 @@ message TaskEntity {
   
   // Meta for the response
   furo.Meta meta = 3;
+  
+  // notification for the data
+  notification.Notification notifications = 4;
 
 }
 // TaskCollection with repeated TaskEntity
