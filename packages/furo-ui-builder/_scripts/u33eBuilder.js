@@ -232,6 +232,55 @@ class U33eBuilder {
   static getBestMatchingComponent(field) {
     return this.checkMatching(field) || "furo-data-text-input";
   };
+
+  static checkMatchingUI5(field) {
+    let component = false;
+
+
+    // check which componet matches best with the simple types
+    switch (field.type) {
+      case "int":
+      case "int32":
+      case "int64":
+        component = "furo-ui5-data-number-input-labeled";
+        break;
+      case "google.type.Date":
+        component = "furo-ui5-data-date-picker-labeled";
+        break;
+      case "google.type.Money":
+        component = "furo-ui5-data-money-input";
+        break;
+      case "furo.Property":
+        component = "furo-ui5-data-property";
+        break;
+      case "bool":
+        component = "furo-ui5-data-checkbox-input-labeled";
+        break;
+    }
+
+
+    if (field.type.startsWith("map")) {
+      let type = field.type.match(/map<string,(.*)>/)[1].trim(); // get the type of map<string,xxxx
+      // split join is for replace all . with -
+      component = type.toLowerCase().split(".").join("-") + "-map";
+    }
+
+    if (field.meta && field.meta.repeated && field.type != "furo.Property" && (!field.__ui || field.__ui.autorepeater !== false))  {
+      // split join is for replace all . with -
+      component = field.type.toLowerCase().split(".").join("-") + "-repeat";
+    }
+    // use spec ui hint as component
+    if (field.__ui && field.__ui.component) {
+      component = field.__ui.component;
+    }
+
+
+    return component;
+  }
+
+  static getBestMatchingUI5Component(field) {
+    return this.checkMatchingUI5(field) || "furo-ui5-data-text-input";
+  };
 }
 
 class CssProperty {
