@@ -1,4 +1,4 @@
-define(["exports","require"],function(_exports,_require){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.$attrDefault=attr;_exports.$documentWaitDefault=documentWait;_exports.parser=_exports.$parserDefault=parser;_exports.find=_exports.$selectorDefault=baseFind;_exports.addClass=addClass;_exports.addMethodNames=addMethodNames;_exports.adopt$1=_exports.adopt=adopt;_exports.after=after;_exports.applyCss=applyCss;_exports.applyStyle=applyStyle;_exports.applyStylePlaceHolder=applyStylePlaceHolder;_exports.array=array;_exports.assignNewId$1=_exports.assignNewId=assignNewId;_exports.back=back;_exports.backward=backward;_exports.bbox=bbox;_exports.before=before;_exports.camelCase=camelCase;_exports.capitalize=capitalize;_exports.classes=classes;_exports.clear=clear;_exports.create$1=_exports.create=create;_exports.createScopeStyle=createScopeStyle;_exports.css$1=css$1;_exports.ctm=ctm;_exports.cx=cx;_exports.cy=cy;_exports.data=data;_exports.degrees=degrees;_exports.detectMixin=detectMixin;_exports.dispatch$1=_exports.dispatch=dispatch;_exports.eid$1=_exports.eid=eid;_exports.elementHasBuiltCss=elementHasBuiltCss;_exports.elementsAreInvalid=elementsAreInvalid;_exports.eventOptions$1=_exports.eventOptions=eventOptions;_exports.extend$1=_exports.extend=extend;_exports.filter=filter;_exports.find$1=find;_exports.findMatchingParen=findMatchingParen;_exports.findOne=findOne;_exports.forEachRule=forEachRule;_exports.forget=forget;_exports.forward=forward;_exports.from=from;_exports.front=front;_exports.gatherStyleText=gatherStyleText;_exports.getBuildComment=getBuildComment;_exports.getClass$1=_exports.getClass=getClass;_exports.getComputedStyleValue=getComputedStyleValue;_exports.getCssBuild=getCssBuild;_exports.getIsExtends=getIsExtends;_exports.getMethodNames=getMethodNames;_exports.getMethodsFor=getMethodsFor;_exports.getOrigin=getOrigin;_exports.getWindow=getWindow;_exports.hasClass=hasClass;_exports.height=height;_exports.height$1=height$1;_exports.hide=hide;_exports.insertAfter=insertAfter;_exports.insertBefore=insertBefore;_exports.insertNodeIntoTemplate=insertNodeIntoTemplate;_exports.internalProperty$1=_exports.internalProperty=internalProperty;_exports.invalidate=invalidate;_exports.invalidateTemplate=invalidateTemplate;_exports.invent$1=_exports.invent=invent;_exports.isKeyframesSelector=isKeyframesSelector;_exports.isOptimalCssBuild=isOptimalCssBuild;_exports.isTargetedBuild=isTargetedBuild;_exports.isUnscopedStyle=isUnscopedStyle;_exports.isValid=isValid;_exports.isValidating=isValidating;_exports.length=length;_exports.makeInstance$1=_exports.makeInstance=makeInstance;_exports.makeMorphable$1=_exports.makeMorphable=makeMorphable;_exports.map=map;_exports.matrixify=matrixify;_exports.memory=memory;_exports.mockAdopt$1=_exports.mockAdopt=mockAdopt;_exports.move=move;_exports.next=next;_exports.nodeOrNew$1=_exports.nodeOrNew=nodeOrNew;_exports.noop=noop;_exports.off$1=_exports.off=off;_exports.on$1=_exports.on=on;_exports.parse=parse;_exports.pathRegReplace=pathRegReplace;_exports.plain=plain;_exports.plot=plot;_exports.point=point;_exports.position=position;_exports.prev=prev;_exports.processUnscopedStyle=processUnscopedStyle;_exports.processVariableAndFallback=processVariableAndFallback;_exports.property$1=_exports.property=property;_exports.proportionalSize=proportionalSize;_exports.query$1=_exports.query=query;_exports.queryAll$1=_exports.queryAll=queryAll;_exports.queryAssignedNodes$1=_exports.queryAssignedNodes=queryAssignedNodes;_exports.queryAsync$1=_exports.queryAsync=queryAsync;_exports.radians=radians;_exports.rbox=rbox;_exports.register$1=_exports.register=register;_exports.registerAttrHook=registerAttrHook;_exports.registerMethods=registerMethods;_exports.registerMorphableType$1=_exports.registerMorphableType=registerMorphableType;_exports.registerWindow$1=_exports.registerWindow=registerWindow;_exports.remember=remember;_exports.removeClass=removeClass;_exports.removeCustomPropAssignment=removeCustomPropAssignment;_exports.removeNodesFromTemplate=removeNodesFromTemplate;_exports.restoreWindow=restoreWindow;_exports.rulesForStyle=rulesForStyle;_exports.rx=rx;_exports.ry=ry;_exports.saveWindow=saveWindow;_exports.screenCTM=screenCTM;_exports.setElementClassRaw=setElementClassRaw;_exports.show=show;_exports.siblings=siblings;_exports.size=size;_exports.splitSelectorList=splitSelectorList;_exports.startValidating=startValidating;_exports.startValidatingTemplate=startValidatingTemplate;_exports.stringify=stringify;_exports.templateFactory$1=_exports.templateFactory=templateFactory;_exports.templateIsValid=templateIsValid;_exports.templateIsValidating=templateIsValidating;_exports.to=to;_exports.toCssText=toCssText;_exports.toParent=toParent;_exports.toRoot=toRoot;_exports.toggleClass=toggleClass;_exports.transform=transform;_exports.unCamelCase=unCamelCase;_exports.untransform=untransform;_exports.updateNativeProperties=updateNativeProperties;_exports.visible=visible;_exports.width=width;_exports.width$1=width$1;_exports.withWindow=withWindow;_exports.wrapWithAttrCheck$1=_exports.wrapWithAttrCheck=wrapWithAttrCheck;_exports.x=x;_exports.x$1=x$1;_exports.y=y;_exports.y$1=y$1;_exports.Runner=_exports.$RunnerDefault=_exports.$Runner=_exports.Rect=_exports.$RectDefault=_exports.$Rect=_exports.Queue=_exports.$QueueDefault=_exports.$Queue=_exports.Polyline=_exports.$PolylineDefault=_exports.$Polyline=_exports.Polygon=_exports.$PolygonDefault=_exports.$Polygon=_exports.Point=_exports.$PointDefault=_exports.PointArray=_exports.$PointArrayDefault=_exports.$PointArray=_exports.$Point=_exports.Pattern=_exports.$PatternDefault=_exports.$Pattern=_exports.Path=_exports.$PathDefault=_exports.PathArray=_exports.$PathArrayDefault=_exports.$PathArray=_exports.$Path=_exports.Morphable=_exports.$MorphableDefault=_exports.$Morphable=_exports.Matrix=_exports.$MatrixDefault=_exports.$Matrix=_exports.Mask=_exports.$MaskDefault=_exports.$Mask=_exports.Marker=_exports.$MarkerDefault=_exports.$Marker=_exports.List=_exports.$ListDefault=_exports.$List=_exports.Line=_exports.$LineDefault=_exports.$Line=_exports.Image=_exports.$ImageDefault=_exports.$Image=_exports.Gradient=_exports.$GradientDefault=_exports.$Gradient=_exports.G=_exports.$GDefault=_exports.$G=_exports.ForeignObject=_exports.$ForeignObjectDefault=_exports.$ForeignObject=_exports.EventTarget=_exports.$EventTargetDefault=_exports.$EventTarget=_exports.Ellipse=_exports.$EllipseDefault=_exports.$Ellipse=_exports.Element=_exports.$ElementDefault=_exports.$Element=_exports.Dom=_exports.$DomDefault=_exports.$Dom=_exports.Defs=_exports.$DefsDefault=_exports.$Defs=_exports.$Controller=_exports.Container=_exports.$ContainerDefault=_exports.$Container=_exports.Color=_exports.$ColorDefault=_exports.$Color=_exports.ClipPath=_exports.$ClipPathDefault=_exports.$ClipPath=_exports.Circle=_exports.$CircleDefault=_exports.$Circle=_exports.Box=_exports.$BoxDefault=_exports.$Box=_exports.$BaseDefault=_exports.$Base=_exports.$ArrayPolyfill=_exports.Animator=_exports.$AnimatorDefault=_exports.$Animator=_exports.A=_exports.$ADefault=_exports.$A=void 0;_exports.$signaturePadM=_exports.$shadyRender=_exports.$selector=_exports.$render=_exports.regex=_exports.$regex=_exports.$poly=_exports.$pointed=_exports.$placesIcons=_exports.$parts=_exports.$part=_exports.$parser=_exports.$notificationIcons=_exports.namespaces=_exports.$namespaces=_exports.$modifyTemplate=_exports.$methods=_exports.$memory=_exports.$mapsIcons=_exports.$main=_exports.$litHtml=_exports.$litElement=_exports.$imageIcons=_exports.$iconset$1=_exports.$iconset=_exports.$i18n=_exports.$helper=_exports.$hardwareIcons=_exports.$gradiented=_exports.$furoSignPad=_exports.$furoAppBarTop=_exports.$furo=_exports.$fbp=_exports.$event=_exports.$environment=_exports.$editorIcons=_exports.$dom=_exports.$documentWait=_exports.$directive=_exports.$deviceIcons=_exports.defaults=_exports.$defaults=_exports.$defaultTemplateProcessor=_exports.$decorators=_exports.$dataEnvironment=_exports.$data=_exports.$customStyleInterfaceDefault=_exports.$customStyleInterface=_exports.$cssTag=_exports.$cssParse=_exports.$css=_exports.$communicationIcons=_exports.$commonUtils=_exports.$commonRegex=_exports.$class=_exports.$circled=_exports.$baseIcons=_exports.$avIcons=_exports.$attr=_exports.$arrange=_exports.$applyShimUtils=_exports.$applyShimDefault=_exports.$applyShim$1=_exports.$adopter=_exports.Use=_exports.$UseDefault=_exports.$Use=_exports.Tspan=_exports.$TspanDefault=_exports.$Tspan=_exports.Timeline=_exports.$TimelineDefault=_exports.$Timeline=_exports.TextPath=_exports.$TextPathDefault=_exports.$TextPath=_exports.Text=_exports.$TextDefault=_exports.$Text=_exports.Symbol=_exports.$SymbolDefault=_exports.$Symbol=_exports.Svg=_exports.$SvgDefault=_exports.$Svg=_exports.Style=_exports.$StyleDefault=_exports.$Style=_exports.Stop=_exports.$StopDefault=_exports.$Stop=_exports.Shape=_exports.$ShapeDefault=_exports.$Shape=_exports.Number=_exports.$SVGNumberDefault=_exports.$SVGNumber=_exports.Array=_exports.$SVGArrayDefault=_exports.$SVGArray=void 0;_exports.TemplateInstance$1=_exports.TemplateInstance=_exports.Template$1=_exports.Template=_exports.Sys$1=_exports.Sys=_exports.Styling$1=_exports.Styling=_exports.StyleNode=_exports.Stepper=_exports.Spring$1=_exports.Spring=_exports.SocialIcons=_exports.Services=_exports.SVGTemplateResult$2=_exports.SVGTemplateResult$1=_exports.SVGTemplateResult=_exports.SVG=_exports.PropertyPart$1=_exports.PropertyPart=_exports.PropertyCommitter$1=_exports.PropertyCommitter=_exports.PlacesIcons=_exports.PID$1=_exports.PID=_exports.ObjectBag$1=_exports.ObjectBag=_exports.NotificationIcons=_exports.NonMorphable$1=_exports.NonMorphable=_exports.NodePart$1=_exports.NodePart=_exports.MorphArray=_exports.MapsIcons=_exports.MIXIN_MATCH=_exports.MEDIA_MATCH=_exports.LitElement=_exports.Init$1=_exports.Init=_exports.ImageIcons=_exports.Iconset$1=_exports.Iconset=_exports.IS_VAR=_exports.Helper=_exports.HardwareIcons=_exports.HOST_SUFFIX=_exports.HOST_PREFIX=_exports.FuroSignPad=_exports.FuroDocIcons=_exports.FuroBaseIcons=_exports.FuroAppBarTop=_exports.FBP=_exports.EventPart$1=_exports.EventPart=_exports.Env$1=_exports.Env=_exports.EditorIcons=_exports.Ease$1=_exports.Ease=_exports.DeviceIcons=_exports.DefaultTemplateProcessor$1=_exports.DefaultTemplateProcessor=_exports.CustomStyleProvider=_exports.CustomStyleInterfaceInterface=_exports.Controller$1=_exports.Controller=_exports.CommunicationIcons=_exports.CSSResult$1=_exports.CSSResult=_exports.BooleanAttributePart$1=_exports.BooleanAttributePart=_exports.BRACKETED=_exports.AvIcons=_exports.AttributePart$1=_exports.AttributePart=_exports.AttributeCommitter$1=_exports.AttributeCommitter=_exports.ANIMATION_MATCH=_exports.$window=_exports.utils=_exports.$utils=_exports.$updatingElement=_exports.$unscopedStyleHandler=_exports.$unsafeHtml=_exports.$transform=_exports.$theme=_exports.$textable=_exports.$templateResult=_exports.$templateMapDefault=_exports.$templateMap=_exports.$templateInstance=_exports.$templateFactory=_exports.$template=_exports.$system=_exports.$styling$1=_exports.$styling=_exports.$styleUtil=_exports.$styleSettings=_exports.$socialIcons=_exports.$signaturePadMDefault=void 0;_exports.types=_exports.transforms=_exports.timeline=_exports.templateCaches$1=_exports.templateCaches=_exports.svgjs=_exports.svg$2=_exports.svg$1=_exports.svg=_exports.supportsAdoptingStyleSheets$1=_exports.supportsAdoptingStyleSheets=_exports.subClassArray=_exports.scopingAttribute=_exports.root$1=_exports.root=_exports.rgb=_exports.reparentNodes$1=_exports.reparentNodes=_exports.render$1=_exports.render$2=_exports.render=_exports.removeNodes$1=_exports.removeNodes=_exports.reference=_exports.pathLetters=_exports.parts$1=_exports.parts=_exports.numbersWithDots=_exports.numberAndUnit=_exports.ns=_exports.nothing$1=_exports.nothing=_exports.notEqual$1=_exports.notEqual=_exports.nodeMarker=_exports.noChange$1=_exports.noChange=_exports.nativeShadow=_exports.nativeCssVariables=_exports.markerRegex=_exports.marker=_exports.lastAttributeNameRegex=_exports.isTemplatePartActive$1=_exports.isTemplatePartActive=_exports.isRgb=_exports.isPrimitive$1=_exports.isPrimitive=_exports.isPercent=_exports.isPathLetter=_exports.isNumber=_exports.isIterable$1=_exports.isIterable=_exports.isImage=_exports.isHex=_exports.isDirective$1=_exports.isDirective=_exports.isCss=_exports.isCEPolyfill=_exports.isBlank=_exports.i18n$1=_exports.i18n=_exports.hyphen=_exports.html$2=_exports.html$1=_exports.html=_exports.hex=_exports.globals=_exports.easing$1=_exports.easing=_exports.dots=_exports.disableRuntime=_exports.directive$1=_exports.directive=_exports.delimiter=_exports.defaultTemplateProcessor$1=_exports.defaultTemplateProcessor=_exports.defaultConverter$1=_exports.defaultConverter=_exports.customElement$1=_exports.customElement=_exports.cssBuild=_exports.css$2=_exports.css=_exports.createMarker$1=_exports.createMarker=_exports.boundAttributeSuffix=_exports.attrs=_exports.VAR_CONSUMED=_exports.VAR_ASSIGN=_exports.UpdatingElement$1=_exports.UpdatingElement=_exports.Types=_exports.TransformBag$1=_exports.TransformBag=_exports.Theme$1=_exports.Theme=_exports.TemplateResult$3=_exports.TemplateResult$2=_exports.TemplateResult$1=_exports.TemplateResult=void 0;_exports.xmlns=_exports.xlink=_exports.wrap=_exports.whitespace=_exports.unsafeHTML=_exports.unsafeCSS$1=_exports.unsafeCSS=void 0;_require=babelHelpers.interopRequireWildcard(_require);function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){keys.push.apply(keys,Object.getOwnPropertySymbols(object))}if(enumerableOnly)keys=keys.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable});return keys}function _objectSpread(target){for(var i=1,source;i<arguments.length;i++){source=null!=arguments[i]?arguments[i]:{};if(i%2){ownKeys(source,!0).forEach(function(key){babelHelpers.defineProperty(target,key,source[key])})}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source))}else{ownKeys(source).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key))})}}return target}const FuroDocIcons={github:"<g><path d=\"M12,2C6.48,2,2,6.59,2,12.25c0,4.53,2.87,8.37,6.84,9.73c0.5,0.09,0.68-0.22,0.68-0.49c0-0.24-0.01-0.89-0.01-1.74c-2.78,0.62-3.37-1.37-3.37-1.37c-0.45-1.18-1.11-1.5-1.11-1.5c-0.91-0.64,0.07-0.62,0.07-0.62c1,0.07,1.53,1.06,1.53,1.06c0.89,1.57,2.34,1.11,2.91,0.85c0.09-0.66,0.35-1.11,0.63-1.37c-2.22-0.26-4.56-1.14-4.56-5.07c0-1.12,0.39-2.03,1.03-2.75c-0.1-0.26-0.45-1.3,0.1-2.71c0,0,0.84-0.28,2.75,1.05c0.8-0.23,1.65-0.34,2.5-0.34c0.85,0,1.7,0.12,2.5,0.34c1.91-1.33,2.75-1.05,2.75-1.05c0.55,1.41,0.2,2.45,0.1,2.71c0.64,0.72,1.03,1.63,1.03,2.75c0,3.94-2.34,4.81-4.57,5.06c0.36,0.32,0.68,0.94,0.68,1.9c0,1.37-0.01,2.48-0.01,2.81c0,0.27,0.18,0.59,0.69,0.49c3.97-1.36,6.83-5.2,6.83-9.73C22,6.59,17.52,2,12,2\"></path></g>"};_exports.FuroDocIcons=FuroDocIcons;var iconset={FuroDocIcons:FuroDocIcons};/**
+define(["exports","require"],function(_exports,_require){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.$attrDefault=attr;_exports.$documentWaitDefault=documentWait;_exports.parser=_exports.$parserDefault=parser;_exports.find=_exports.$selectorDefault=baseFind;_exports.addClass=addClass;_exports.addMethodNames=addMethodNames;_exports.adopt=adopt;_exports.after=after;_exports.applyCss=applyCss;_exports.applyStyle=applyStyle;_exports.applyStylePlaceHolder=applyStylePlaceHolder;_exports.array=array;_exports.assignNewId=assignNewId;_exports.back=back;_exports.backward=backward;_exports.bbox=bbox;_exports.before=before;_exports.camelCase=camelCase;_exports.capitalize=capitalize;_exports.classes=classes;_exports.clear=clear;_exports.create=create;_exports.createScopeStyle=createScopeStyle;_exports.css$1=css$1;_exports.ctm=ctm;_exports.cx=cx;_exports.cy=cy;_exports.data=data;_exports.degrees=degrees;_exports.detectMixin=detectMixin;_exports.dispatch$1=_exports.dispatch=dispatch;_exports.eid=eid;_exports.elementHasBuiltCss=elementHasBuiltCss;_exports.elementsAreInvalid=elementsAreInvalid;_exports.eventOptions$1=_exports.eventOptions=eventOptions;_exports.extend=extend;_exports.filter=filter;_exports.find$1=find;_exports.findMatchingParen=findMatchingParen;_exports.findOne=findOne;_exports.forEachRule=forEachRule;_exports.forget=forget;_exports.forward=forward;_exports.from=from;_exports.front=front;_exports.gatherStyleText=gatherStyleText;_exports.getBuildComment=getBuildComment;_exports.getClass=getClass;_exports.getComputedStyleValue=getComputedStyleValue;_exports.getCssBuild=getCssBuild;_exports.getIsExtends=getIsExtends;_exports.getMethodNames=getMethodNames;_exports.getMethodsFor=getMethodsFor;_exports.getOrigin=getOrigin;_exports.getWindow=getWindow;_exports.hasClass=hasClass;_exports.height=height;_exports.height$1=height$1;_exports.hide=hide;_exports.insertAfter=insertAfter;_exports.insertBefore=insertBefore;_exports.insertNodeIntoTemplate=insertNodeIntoTemplate;_exports.internalProperty$1=_exports.internalProperty=internalProperty;_exports.invalidate=invalidate;_exports.invalidateTemplate=invalidateTemplate;_exports.invent=invent;_exports.isKeyframesSelector=isKeyframesSelector;_exports.isOptimalCssBuild=isOptimalCssBuild;_exports.isTargetedBuild=isTargetedBuild;_exports.isUnscopedStyle=isUnscopedStyle;_exports.isValid=isValid;_exports.isValidating=isValidating;_exports.length=length;_exports.makeInstance=makeInstance;_exports.makeMorphable$1=_exports.makeMorphable=makeMorphable;_exports.map=map;_exports.matrixify=matrixify;_exports.memory=memory;_exports.mockAdopt=mockAdopt;_exports.move=move;_exports.next=next;_exports.nodeOrNew=nodeOrNew;_exports.noop=noop;_exports.off$1=_exports.off=off;_exports.on$1=_exports.on=on;_exports.parse=parse;_exports.pathRegReplace=pathRegReplace;_exports.plain=plain;_exports.plot=plot;_exports.point=point;_exports.position=position;_exports.prev=prev;_exports.processUnscopedStyle=processUnscopedStyle;_exports.processVariableAndFallback=processVariableAndFallback;_exports.property$1=_exports.property=property;_exports.proportionalSize=proportionalSize;_exports.query$1=_exports.query=query;_exports.queryAll$1=_exports.queryAll=queryAll;_exports.queryAssignedNodes$1=_exports.queryAssignedNodes=queryAssignedNodes;_exports.queryAsync$1=_exports.queryAsync=queryAsync;_exports.radians=radians;_exports.rbox=rbox;_exports.register=register;_exports.registerAttrHook=registerAttrHook;_exports.registerMethods=registerMethods;_exports.registerMorphableType$1=_exports.registerMorphableType=registerMorphableType;_exports.registerWindow$1=_exports.registerWindow=registerWindow;_exports.remember=remember;_exports.removeClass=removeClass;_exports.removeCustomPropAssignment=removeCustomPropAssignment;_exports.removeNodesFromTemplate=removeNodesFromTemplate;_exports.restoreWindow=restoreWindow;_exports.rulesForStyle=rulesForStyle;_exports.rx=rx;_exports.ry=ry;_exports.saveWindow=saveWindow;_exports.screenCTM=screenCTM;_exports.setElementClassRaw=setElementClassRaw;_exports.show=show;_exports.siblings=siblings;_exports.size=size;_exports.splitSelectorList=splitSelectorList;_exports.startValidating=startValidating;_exports.startValidatingTemplate=startValidatingTemplate;_exports.stringify=stringify;_exports.templateFactory$1=_exports.templateFactory=templateFactory;_exports.templateIsValid=templateIsValid;_exports.templateIsValidating=templateIsValidating;_exports.to=to;_exports.toCssText=toCssText;_exports.toParent=toParent;_exports.toRoot=toRoot;_exports.toggleClass=toggleClass;_exports.transform=transform;_exports.unCamelCase=unCamelCase;_exports.untransform=untransform;_exports.updateNativeProperties=updateNativeProperties;_exports.visible=visible;_exports.width=width;_exports.width$1=width$1;_exports.withWindow=withWindow;_exports.wrapWithAttrCheck=wrapWithAttrCheck;_exports.x=x;_exports.x$1=x$1;_exports.y=y;_exports.y$1=y$1;_exports.Runner=_exports.$RunnerDefault=_exports.$Runner=_exports.Rect=_exports.$RectDefault=_exports.$Rect=_exports.Queue=_exports.$QueueDefault=_exports.$Queue=_exports.Polyline=_exports.$PolylineDefault=_exports.$Polyline=_exports.Polygon=_exports.$PolygonDefault=_exports.$Polygon=_exports.Point=_exports.$PointDefault=_exports.PointArray=_exports.$PointArrayDefault=_exports.$PointArray=_exports.$Point=_exports.Pattern=_exports.$PatternDefault=_exports.$Pattern=_exports.Path=_exports.$PathDefault=_exports.PathArray=_exports.$PathArrayDefault=_exports.$PathArray=_exports.$Path=_exports.Morphable=_exports.$MorphableDefault=_exports.$Morphable=_exports.Matrix=_exports.$MatrixDefault=_exports.$Matrix=_exports.Mask=_exports.$MaskDefault=_exports.$Mask=_exports.Marker=_exports.$MarkerDefault=_exports.$Marker=_exports.List=_exports.$ListDefault=_exports.$List=_exports.Line=_exports.$LineDefault=_exports.$Line=_exports.Image=_exports.$ImageDefault=_exports.$Image=_exports.Gradient=_exports.$GradientDefault=_exports.$Gradient=_exports.G=_exports.$GDefault=_exports.$G=_exports.ForeignObject=_exports.$ForeignObjectDefault=_exports.$ForeignObject=_exports.EventTarget=_exports.$EventTargetDefault=_exports.$EventTarget=_exports.Ellipse=_exports.$EllipseDefault=_exports.$Ellipse=_exports.Element=_exports.$ElementDefault=_exports.$Element=_exports.Dom=_exports.$DomDefault=_exports.$Dom=_exports.Defs=_exports.$DefsDefault=_exports.$Defs=_exports.$Controller=_exports.Container=_exports.$ContainerDefault=_exports.$Container=_exports.Color=_exports.$ColorDefault=_exports.$Color=_exports.ClipPath=_exports.$ClipPathDefault=_exports.$ClipPath=_exports.Circle=_exports.$CircleDefault=_exports.$Circle=_exports.Box=_exports.$BoxDefault=_exports.$Box=_exports.$BaseDefault=_exports.$Base=_exports.$ArrayPolyfill=_exports.Animator=_exports.$AnimatorDefault=_exports.$Animator=_exports.A=_exports.$ADefault=_exports.$A=void 0;_exports.namespaces=_exports.$namespaces=_exports.$modifyTemplate=_exports.$methods=_exports.$memory=_exports.$mapsIcons=_exports.$main=_exports.$litHtml=_exports.$litElement=_exports.$imageIcons=_exports.$iconset$1=_exports.$iconset=_exports.$i18n=_exports.$helper=_exports.$hardwareIcons=_exports.$gradiented=_exports.$furoTimeInput=_exports.$furoTextareaInput=_exports.$furoTextInput=_exports.$furoSignPad=_exports.$furoSelectInput=_exports.$furoSearchInput=_exports.$furoRangeInput=_exports.$furoRadioButtonInput=_exports.$furoPasswordInput=_exports.$furoNumberInput=_exports.$furoFileDialog=_exports.$furoDateInput=_exports.$furoColorInput=_exports.$furoCheckboxInput=_exports.$furoAppBarTop=_exports.$furo=_exports.$fbp=_exports.$event=_exports.$environment=_exports.$editorIcons=_exports.$dom=_exports.$documentWait=_exports.$directive=_exports.$deviceIcons=_exports.defaults=_exports.$defaults=_exports.$defaultTemplateProcessor=_exports.$decorators=_exports.$dataEnvironment=_exports.$data=_exports.$customStyleInterfaceDefault=_exports.$customStyleInterface=_exports.$cssTag=_exports.$cssParse=_exports.$css=_exports.$communicationIcons=_exports.$commonUtils=_exports.$commonRegex=_exports.$class=_exports.$circled=_exports.$baseIcons=_exports.$avIcons=_exports.$attr=_exports.$arrange=_exports.$applyShimUtils=_exports.$applyShimDefault=_exports.$applyShim$1=_exports.$adopter=_exports.Use=_exports.$UseDefault=_exports.$Use=_exports.Tspan=_exports.$TspanDefault=_exports.$Tspan=_exports.Timeline=_exports.$TimelineDefault=_exports.$Timeline=_exports.TextPath=_exports.$TextPathDefault=_exports.$TextPath=_exports.Text=_exports.$TextDefault=_exports.$Text=_exports.Symbol=_exports.$SymbolDefault=_exports.$Symbol=_exports.Svg=_exports.$SvgDefault=_exports.$Svg=_exports.Style=_exports.$StyleDefault=_exports.$Style=_exports.Stop=_exports.$StopDefault=_exports.$Stop=_exports.Shape=_exports.$ShapeDefault=_exports.$Shape=_exports.Number=_exports.$SVGNumberDefault=_exports.$SVGNumber=_exports.Array=_exports.$SVGArrayDefault=_exports.$SVGArray=void 0;_exports.ObjectBag=_exports.NotificationIcons=_exports.NonMorphable$1=_exports.NonMorphable=_exports.NodePart$1=_exports.NodePart=_exports.MorphArray=_exports.MapsIcons=_exports.MIXIN_MATCH=_exports.MEDIA_MATCH=_exports.LitElement=_exports.Init$1=_exports.Init=_exports.ImageIcons=_exports.Iconset$1=_exports.Iconset=_exports.IS_VAR=_exports.Helper=_exports.HardwareIcons=_exports.HOST_SUFFIX=_exports.HOST_PREFIX=_exports.FuroTimeInput=_exports.FuroTextareaInput=_exports.FuroTextInput=_exports.FuroSignPad=_exports.FuroSelectInput=_exports.FuroSearchInput=_exports.FuroRangeInput=_exports.FuroRadioButtonInput=_exports.FuroPasswordInput=_exports.FuroNumberInput=_exports.FuroFileDialog=_exports.FuroDocIcons=_exports.FuroDateInput=_exports.FuroColorInput=_exports.FuroCheckboxInput=_exports.FuroBaseIcons=_exports.FuroAppBarTop=_exports.FBP=_exports.EventPart$1=_exports.EventPart=_exports.Env$1=_exports.Env=_exports.EditorIcons=_exports.Ease$1=_exports.Ease=_exports.DeviceIcons=_exports.DefaultTemplateProcessor$1=_exports.DefaultTemplateProcessor=_exports.CustomStyleProvider=_exports.CustomStyleInterfaceInterface=_exports.Controller$1=_exports.Controller=_exports.CommunicationIcons=_exports.CSSResult$1=_exports.CSSResult=_exports.BooleanAttributePart$1=_exports.BooleanAttributePart=_exports.BRACKETED=_exports.AvIcons=_exports.AttributePart$1=_exports.AttributePart=_exports.AttributeCommitter$1=_exports.AttributeCommitter=_exports.ANIMATION_MATCH=_exports.$window=_exports.utils=_exports.$utils=_exports.$updatingElement=_exports.$unscopedStyleHandler=_exports.$unsafeHtml=_exports.$transform=_exports.$theme=_exports.$textable=_exports.$templateResult=_exports.$templateMapDefault=_exports.$templateMap=_exports.$templateInstance=_exports.$templateFactory=_exports.$template=_exports.$system=_exports.$styling$1=_exports.$styling=_exports.$styleUtil=_exports.$styleSettings=_exports.$socialIcons=_exports.$signaturePadMDefault=_exports.$signaturePadM=_exports.$shadyRender=_exports.$selector=_exports.$render=_exports.regex=_exports.$regex=_exports.$poly=_exports.$pointed=_exports.$placesIcons=_exports.$parts=_exports.$part=_exports.$parser=_exports.$notificationIcons=void 0;_exports.parts=_exports.numbersWithDots=_exports.numberAndUnit=_exports.ns=_exports.nothing$1=_exports.nothing=_exports.notEqual$1=_exports.notEqual=_exports.nodeMarker=_exports.noChange$1=_exports.noChange=_exports.nativeShadow=_exports.nativeCssVariables=_exports.markerRegex=_exports.marker=_exports.lastAttributeNameRegex=_exports.isTemplatePartActive$1=_exports.isTemplatePartActive=_exports.isRgb=_exports.isPrimitive$1=_exports.isPrimitive=_exports.isPercent=_exports.isPathLetter=_exports.isNumber=_exports.isIterable$1=_exports.isIterable=_exports.isImage=_exports.isHex=_exports.isDirective$1=_exports.isDirective=_exports.isCss=_exports.isCEPolyfill=_exports.isBlank=_exports.i18n$1=_exports.i18n=_exports.hyphen=_exports.html$2=_exports.html$1=_exports.html=_exports.hex=_exports.globals=_exports.easing$1=_exports.easing=_exports.dots=_exports.disableRuntime=_exports.directive$1=_exports.directive=_exports.delimiter=_exports.defaultTemplateProcessor$1=_exports.defaultTemplateProcessor=_exports.defaultConverter$1=_exports.defaultConverter=_exports.customElement$1=_exports.customElement=_exports.cssBuild=_exports.css$2=_exports.css=_exports.createMarker$1=_exports.createMarker=_exports.boundAttributeSuffix=_exports.attrs=_exports.VAR_CONSUMED=_exports.VAR_ASSIGN=_exports.UpdatingElement$1=_exports.UpdatingElement=_exports.Types=_exports.TransformBag$1=_exports.TransformBag=_exports.Theme$1=_exports.Theme=_exports.TemplateResult$3=_exports.TemplateResult$2=_exports.TemplateResult$1=_exports.TemplateResult=_exports.TemplateInstance$1=_exports.TemplateInstance=_exports.Template$1=_exports.Template=_exports.Sys$1=_exports.Sys=_exports.Styling$1=_exports.Styling=_exports.StyleNode=_exports.Stepper=_exports.Spring$1=_exports.Spring=_exports.SocialIcons=_exports.Services=_exports.SVGTemplateResult$2=_exports.SVGTemplateResult$1=_exports.SVGTemplateResult=_exports.SVG=_exports.PropertyPart$1=_exports.PropertyPart=_exports.PropertyCommitter$1=_exports.PropertyCommitter=_exports.PlacesIcons=_exports.PID$1=_exports.PID=_exports.ObjectBag$1=void 0;_exports.xmlns=_exports.xlink=_exports.wrap=_exports.whitespace=_exports.unsafeHTML=_exports.unsafeCSS$1=_exports.unsafeCSS=_exports.types=_exports.transforms=_exports.timeline=_exports.templateCaches$1=_exports.templateCaches=_exports.svgjs=_exports.svg$2=_exports.svg$1=_exports.svg=_exports.supportsAdoptingStyleSheets$1=_exports.supportsAdoptingStyleSheets=_exports.subClassArray=_exports.shadyTemplateFactory=_exports.scopingAttribute=_exports.root=_exports.rgb=_exports.reparentNodes$1=_exports.reparentNodes=_exports.render$1=_exports.render$2=_exports.render=_exports.removeNodes$1=_exports.removeNodes=_exports.reference=_exports.pathLetters=_exports.parts$1=void 0;_require=babelHelpers.interopRequireWildcard(_require);function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){keys.push.apply(keys,Object.getOwnPropertySymbols(object))}if(enumerableOnly)keys=keys.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable});return keys}function _objectSpread(target){for(var i=1,source;i<arguments.length;i++){source=null!=arguments[i]?arguments[i]:{};if(i%2){ownKeys(source,!0).forEach(function(key){babelHelpers.defineProperty(target,key,source[key])})}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source))}else{ownKeys(source).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key))})}}return target}const FuroDocIcons={github:"<g><path d=\"M12,2C6.48,2,2,6.59,2,12.25c0,4.53,2.87,8.37,6.84,9.73c0.5,0.09,0.68-0.22,0.68-0.49c0-0.24-0.01-0.89-0.01-1.74c-2.78,0.62-3.37-1.37-3.37-1.37c-0.45-1.18-1.11-1.5-1.11-1.5c-0.91-0.64,0.07-0.62,0.07-0.62c1,0.07,1.53,1.06,1.53,1.06c0.89,1.57,2.34,1.11,2.91,0.85c0.09-0.66,0.35-1.11,0.63-1.37c-2.22-0.26-4.56-1.14-4.56-5.07c0-1.12,0.39-2.03,1.03-2.75c-0.1-0.26-0.45-1.3,0.1-2.71c0,0,0.84-0.28,2.75,1.05c0.8-0.23,1.65-0.34,2.5-0.34c0.85,0,1.7,0.12,2.5,0.34c1.91-1.33,2.75-1.05,2.75-1.05c0.55,1.41,0.2,2.45,0.1,2.71c0.64,0.72,1.03,1.63,1.03,2.75c0,3.94-2.34,4.81-4.57,5.06c0.36,0.32,0.68,0.94,0.68,1.9c0,1.37-0.01,2.48-0.01,2.81c0,0.27,0.18,0.59,0.69,0.49c3.97-1.36,6.83-5.2,6.83-9.73C22,6.59,17.52,2,12,2\"></path></g>"};_exports.FuroDocIcons=FuroDocIcons;var iconset={FuroDocIcons:FuroDocIcons};/**
     * @license
     * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
     * This code may only be used under the BSD style license found at
@@ -243,7 +243,7 @@ while(nodeIndex<part.index){nodeIndex++;if("TEMPLATE"===node.nodeName){stack.pus
 // - There is a template in the stack
 // - The walker will find a nextNode outside the template
 walker.currentNode=stack.pop();node=walker.nextNode()}}// We've arrived at our part's node.
-if("node"===part.type){const part=this.processor.handleTextExpression(this.options);part.insertAfterNode(node.previousSibling);this.__parts.push(part)}else{this.__parts.push(...this.processor.handleAttributeExpressions(node,part.name,part.strings,this.options))}partIndex++}if(isCEPolyfill){document.adoptNode(fragment);customElements.upgrade(fragment)}return fragment}}_exports.TemplateInstance$1=_exports.TemplateInstance=TemplateInstance;var templateInstance={TemplateInstance:TemplateInstance};_exports.$templateInstance=templateInstance;const commentMarker=` ${marker} `;/**
+if("node"===part.type){const part=this.processor.handleTextExpression(this.options);part.insertAfterNode(node.previousSibling);this.__parts.push(part)}else{this.__parts.push(...this.processor.handleAttributeExpressions(node,part.name,part.strings,this.options))}partIndex++}if(isCEPolyfill){document.adoptNode(fragment);customElements.upgrade(fragment)}return fragment}}_exports.TemplateInstance$1=_exports.TemplateInstance=TemplateInstance;var templateInstance={TemplateInstance:TemplateInstance};_exports.$templateInstance=templateInstance;const policy=window.trustedTypes&&trustedTypes.createPolicy("lit-html",{createHTML:s=>s}),commentMarker=` ${marker} `;/**
                                       * The return type of `html`, which holds a Template and the values from
                                       * interpolated expressions.
                                       */class TemplateResult{constructor(strings,values,type,processor){this.strings=strings;this.values=values;this.type=type;this.processor=processor}/**
@@ -279,7 +279,11 @@ const attributeMatch=lastAttributeNameRegex.exec(s);if(null===attributeMatch){//
 html+=s+(isCommentBinding?commentMarker:nodeMarker)}else{// For attributes we use just a marker sentinel, and also append a
 // $lit$ suffix to the name to opt-out of attribute-specific parsing
 // that IE and Edge do for style and certain SVG attributes.
-html+=s.substr(0,attributeMatch.index)+attributeMatch[1]+attributeMatch[2]+boundAttributeSuffix+attributeMatch[3]+marker}}html+=this.strings[l];return html}getTemplateElement(){const template=document.createElement("template");template.innerHTML=this.getHTML();return template}}/**
+html+=s.substr(0,attributeMatch.index)+attributeMatch[1]+attributeMatch[2]+boundAttributeSuffix+attributeMatch[3]+marker}}html+=this.strings[l];return html}getTemplateElement(){const template=document.createElement("template");let value=this.getHTML();if(policy!==void 0){// this is secure because `this.strings` is a TemplateStringsArray.
+// TODO: validate this when
+// https://github.com/tc39/proposal-array-is-template-object is
+// implemented.
+value=policy.createHTML(value)}template.innerHTML=value;return template}}/**
    * A TemplateResult for SVG fragments.
    *
    * This class wraps HTML in an `<svg>` tag in order to parse its contents in the
@@ -292,7 +296,20 @@ html+=s.substr(0,attributeMatch.index)+attributeMatch[1]+attributeMatch[2]+bound
     * for an attribute.
     */_exports.isIterable$1=_exports.isIterable=isIterable;class AttributeCommitter{constructor(element,name,strings){this.dirty=!0;this.element=element;this.name=name;this.strings=strings;this.parts=[];for(let i=0;i<strings.length-1;i++){this.parts[i]=this._createPart()}}/**
      * Creates a single part. Override this to create a differnt type of part.
-     */_createPart(){return new AttributePart(this)}_getValue(){const strings=this.strings,l=strings.length-1;let text="";for(let i=0;i<l;i++){text+=strings[i];const part=this.parts[i];if(part!==void 0){const v=part.value;if(isPrimitive(v)||!isIterable(v)){text+="string"===typeof v?v:v+""}else{for(const t of v){text+="string"===typeof t?t:t+""}}}}text+=strings[l];return text}commit(){if(this.dirty){this.dirty=!1;this.element.setAttribute(this.name,this._getValue())}}}/**
+     */_createPart(){return new AttributePart(this)}_getValue(){const strings=this.strings,l=strings.length-1,parts=this.parts;// If we're assigning an attribute via syntax like:
+//    attr="${foo}"  or  attr=${foo}
+// but not
+//    attr="${foo} ${bar}" or attr="${foo} baz"
+// then we don't want to coerce the attribute value into one long
+// string. Instead we want to just return the value itself directly,
+// so that sanitizeDOMValue can get the actual value rather than
+// String(value)
+// The exception is if v is an array, in which case we do want to smash
+// it together into a string without calling String() on the array.
+//
+// This also allows trusted values (when using TrustedTypes) being
+// assigned to DOM sinks without being stringified in the process.
+if(1===l&&""===strings[0]&&""===strings[1]){const v=parts[0].value;if("symbol"===typeof v){return v+""}if("string"===typeof v||!isIterable(v)){return v}}let text="";for(let i=0;i<l;i++){text+=strings[i];const part=parts[i];if(part!==void 0){const v=part.value;if(isPrimitive(v)||!isIterable(v)){text+="string"===typeof v?v:v+""}else{for(const t of v){text+="string"===typeof t?t:t+""}}}}text+=strings[l];return text}commit(){if(this.dirty){this.dirty=!1;this.element.setAttribute(this.name,this._getValue())}}}/**
    * A Part that controls all or part of an attribute value.
    */_exports.AttributeCommitter$1=_exports.AttributeCommitter=AttributeCommitter;class AttributePart{constructor(committer){this.value=void 0;this.committer=committer}setValue(value){if(value!==noChange&&(!isPrimitive(value)||value!==this.value)){this.value=value;// If the value is a not a directive, dirty the committer so that it'll
 // call setAttribute. If the value is a directive, it'll dirty the
@@ -406,7 +423,7 @@ templateCache.stringsArray.set(result.strings,template);return template}const te
      * @param templateFactory
      */handleTextExpression(options){return new NodePart(options)}}_exports.DefaultTemplateProcessor$1=_exports.DefaultTemplateProcessor=DefaultTemplateProcessor;const defaultTemplateProcessor=new DefaultTemplateProcessor;_exports.defaultTemplateProcessor$1=_exports.defaultTemplateProcessor=defaultTemplateProcessor;var defaultTemplateProcessor$1={DefaultTemplateProcessor:DefaultTemplateProcessor,defaultTemplateProcessor:defaultTemplateProcessor};// This line will be used in regexes to search for lit-html usage.
 // TODO(justinfagnani): inject version number at build time
-_exports.$defaultTemplateProcessor=defaultTemplateProcessor$1;if("undefined"!==typeof window){(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.2.1")}/**
+_exports.$defaultTemplateProcessor=defaultTemplateProcessor$1;if("undefined"!==typeof window){(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.3.0")}/**
    * Interprets a template literal as an HTML template that can efficiently
    * render to and update a container.
    */const html=(strings,...values)=>new TemplateResult(strings,values,"html",defaultTemplateProcessor);/**
@@ -415,7 +432,7 @@ _exports.$defaultTemplateProcessor=defaultTemplateProcessor$1;if("undefined"!==t
                                                                                                                     */_exports.html$2=_exports.html$1=_exports.html=html;const svg=(strings,...values)=>new SVGTemplateResult(strings,values,"svg",defaultTemplateProcessor);_exports.svg$2=_exports.svg$1=_exports.svg=svg;var litHtml={html:html,svg:svg,DefaultTemplateProcessor:DefaultTemplateProcessor,defaultTemplateProcessor:defaultTemplateProcessor,directive:directive,isDirective:isDirective,removeNodes:removeNodes,reparentNodes:reparentNodes,noChange:noChange,nothing:nothing,AttributeCommitter:AttributeCommitter,AttributePart:AttributePart,BooleanAttributePart:BooleanAttributePart,EventPart:EventPart,isIterable:isIterable,isPrimitive:isPrimitive,NodePart:NodePart,PropertyCommitter:PropertyCommitter,PropertyPart:PropertyPart,parts:parts$1,render:render,templateCaches:templateCaches,templateFactory:templateFactory,TemplateInstance:TemplateInstance,SVGTemplateResult:SVGTemplateResult,TemplateResult:TemplateResult,createMarker:createMarker,isTemplatePartActive:isTemplatePartActive,Template:Template};_exports.$litHtml=litHtml;const getTemplateCacheKey=(type,scopeName)=>`${type}--${scopeName}`;let compatibleShadyCSSVersion=!0;if("undefined"===typeof window.ShadyCSS){compatibleShadyCSSVersion=!1}else if("undefined"===typeof window.ShadyCSS.prepareTemplateDom){console.warn(`Incompatible ShadyCSS version detected. `+`Please update to at least @webcomponents/webcomponentsjs@2.0.2 and `+`@webcomponents/shadycss@1.3.1.`);compatibleShadyCSSVersion=!1}/**
    * Template factory which scopes template DOM using ShadyCSS.
    * @param scopeName {string}
-   */const shadyTemplateFactory=scopeName=>result=>{const cacheKey=getTemplateCacheKey(result.type,scopeName);let templateCache=templateCaches.get(cacheKey);if(templateCache===void 0){templateCache={stringsArray:new WeakMap,keyString:new Map};templateCaches.set(cacheKey,templateCache)}let template=templateCache.stringsArray.get(result.strings);if(template!==void 0){return template}const key=result.strings.join(marker);template=templateCache.keyString.get(key);if(template===void 0){const element=result.getTemplateElement();if(compatibleShadyCSSVersion){window.ShadyCSS.prepareTemplateDom(element,scopeName)}template=new Template(result,element);templateCache.keyString.set(key,template)}templateCache.stringsArray.set(result.strings,template);return template},TEMPLATE_TYPES=["html","svg"],removeStylesFromLitTemplates=scopeName=>{TEMPLATE_TYPES.forEach(type=>{const templates=templateCaches.get(getTemplateCacheKey(type,scopeName));if(templates!==void 0){templates.keyString.forEach(template=>{const{element:{content}}=template,styles=new Set;// IE 11 doesn't support the iterable param Set constructor
+   */const shadyTemplateFactory=scopeName=>result=>{const cacheKey=getTemplateCacheKey(result.type,scopeName);let templateCache=templateCaches.get(cacheKey);if(templateCache===void 0){templateCache={stringsArray:new WeakMap,keyString:new Map};templateCaches.set(cacheKey,templateCache)}let template=templateCache.stringsArray.get(result.strings);if(template!==void 0){return template}const key=result.strings.join(marker);template=templateCache.keyString.get(key);if(template===void 0){const element=result.getTemplateElement();if(compatibleShadyCSSVersion){window.ShadyCSS.prepareTemplateDom(element,scopeName)}template=new Template(result,element);templateCache.keyString.set(key,template)}templateCache.stringsArray.set(result.strings,template);return template};_exports.shadyTemplateFactory=shadyTemplateFactory;const TEMPLATE_TYPES=["html","svg"],removeStylesFromLitTemplates=scopeName=>{TEMPLATE_TYPES.forEach(type=>{const templates=templateCaches.get(getTemplateCacheKey(type,scopeName));if(templates!==void 0){templates.keyString.forEach(template=>{const{element:{content}}=template,styles=new Set;// IE 11 doesn't support the iterable param Set constructor
 Array.from(content.querySelectorAll("style")).forEach(s=>{styles.add(s)});removeNodesFromTemplate(template,styles)})}})},shadyRenderSet=new Set,prepareTemplateStyles=(scopeName,renderedDOM,template)=>{shadyRenderSet.add(scopeName);// If `renderedDOM` is stamped from a Template, then we need to edit that
 // Template's underlying template element. Otherwise, we create one here
 // to give to ShadyCSS, which still requires one while scoping.
@@ -472,7 +489,9 @@ const template=part.value instanceof TemplateInstance?part.value.template:void 0
 // safest to do every render; however, this would regress performance
 // so we leave it up to the user to call `ShadyCSS.styleElement`
 // for dynamic changes.
-if(!hasRendered&&needsScoping){window.ShadyCSS.styleElement(container.host)}};_exports.render$1=render$2;var shadyRender={render:render$2,html:html,svg:svg,TemplateResult:TemplateResult};/**
+if(!hasRendered&&needsScoping){window.ShadyCSS.styleElement(container.host)}};/**
+                                         * Removes all style elements from Templates for the given scopeName.
+                                         */_exports.render$1=render$2;var shadyRender={shadyTemplateFactory:shadyTemplateFactory,render:render$2,html:html,svg:svg,TemplateResult:TemplateResult};/**
     * @license
     * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
     * This code may only be used under the BSD style license found at
@@ -485,11 +504,15 @@ if(!hasRendered&&needsScoping){window.ShadyCSS.styleElement(container.host)}};_e
     * subject to an additional IP rights grant found at
     * http://polymer.github.io/PATENTS.txt
     */_exports.$shadyRender=shadyRender;var _a;/**
-         * When using Closure Compiler, JSCompiler_renameProperty(property, object) is
-         * replaced at compile time by the munged name for object[property]. We cannot
-         * alias this function, so we have to use a small shim that has the same
-         * behavior when not compiling.
-         */window.JSCompiler_renameProperty=(prop,_obj)=>prop;const defaultConverter={toAttribute(value,type){switch(type){case Boolean:return value?"":null;case Object:case Array:// if the value is `null` or `undefined` pass this through
+         * Use this module if you want to create your own base class extending
+         * [[UpdatingElement]].
+         * @packageDocumentation
+         */ /*
+             * When using Closure Compiler, JSCompiler_renameProperty(property, object) is
+             * replaced at compile time by the munged name for object[property]. We cannot
+             * alias this function, so we have to use a small shim that has the same
+             * behavior when not compiling.
+             */window.JSCompiler_renameProperty=(prop,_obj)=>prop;const defaultConverter={toAttribute(value,type){switch(type){case Boolean:return value?"":null;case Object:case Array:// if the value is `null` or `undefined` pass this through
 // to allow removing/no change behavior.
 return null==value?value:JSON.stringify(value);}return value},fromAttribute(value,type){switch(type){case Boolean:return null!==value;case Number:return null===value?null:+value;case Object:case Array:return JSON.parse(value);}return value}};/**
     * Change function that returns true if `value` is different from `oldValue`.
@@ -499,14 +522,8 @@ return old!==value&&(old===old||value===value)};_exports.notEqual$1=_exports.not
                                 * Base element class which manages element properties and attributes. When
                                 * properties change, the `update` method is asynchronously called. This method
                                 * should be supplied by subclassers to render updates as desired.
-                                */class UpdatingElement extends HTMLElement{constructor(){super();this._updateState=0;this._instanceProperties=void 0;// Initialize to an unresolved Promise so we can make sure the element has
-// connected before first update.
-this._updatePromise=new Promise(res=>this._enableUpdatingResolver=res);/**
-                                                                                   * Map with keys for any properties that have changed since the last
-                                                                                   * update cycle with previous values.
-                                                                                   */this._changedProperties=new Map;/**
-                                          * Map with keys of properties that should be reflected when updated.
-                                          */this._reflectingProperties=void 0;this.initialize()}/**
+                                * @noInheritDoc
+                                */class UpdatingElement extends HTMLElement{constructor(){super();this.initialize()}/**
      * Returns a list of attributes corresponding to the registered properties.
      * @nocollapse
      */static get observedAttributes(){// note: piggy backing on this to ensure we're finalized.
@@ -570,8 +587,8 @@ if(options.noAccessor||this.prototype.hasOwnProperty(name)){return}const key="sy
      *   }
      *
      * @nocollapse
-     */static getPropertyDescriptor(name,key,_options){return{// tslint:disable-next-line:no-any no symbol in index
-get(){return this[key]},set(value){const oldValue=this[name];this[key]=value;this._requestUpdate(name,oldValue)},configurable:!0,enumerable:!0}}/**
+     */static getPropertyDescriptor(name,key,options){return{// tslint:disable-next-line:no-any no symbol in index
+get(){return this[key]},set(value){const oldValue=this[name];this[key]=value;this.requestUpdateInternal(name,oldValue,options)},configurable:!0,enumerable:!0}}/**
      * Returns the property options associated with the given property.
      * These options are defined with a PropertyDeclaration via the `properties`
      * object or the `@property` decorator and are registered in
@@ -620,9 +637,9 @@ this.createProperty(p,props[p])}}}/**
      */static _propertyValueToAttribute(value,options){if(options.reflect===void 0){return}const type=options.type,converter=options.converter,toAttribute=converter&&converter.toAttribute||defaultConverter.toAttribute;return toAttribute(value,type)}/**
      * Performs element initialization. By default captures any pre-set values for
      * registered properties.
-     */initialize(){this._saveInstanceProperties();// ensures first update will be caught by an early access of
+     */initialize(){this._updateState=0;this._updatePromise=new Promise(res=>this._enableUpdatingResolver=res);this._changedProperties=new Map;this._saveInstanceProperties();// ensures first update will be caught by an early access of
 // `updateComplete`
-this._requestUpdate()}/**
+this.requestUpdateInternal()}/**
      * Fixes any properties set on the instance before upgrade time.
      * Otherwise these would shadow the accessor and break these properties.
      * The properties are stored in a Map which is played back after the
@@ -667,11 +684,11 @@ if(propName!==void 0){const options=ctor.getPropertyOptions(propName);// mark st
 this._updateState=this._updateState|STATE_IS_REFLECTING_TO_PROPERTY;this[propName]=// tslint:disable-next-line:no-any
 ctor._propertyValueFromAttribute(value,options);// mark state not reflecting
 this._updateState=this._updateState&~STATE_IS_REFLECTING_TO_PROPERTY}}/**
-     * This private version of `requestUpdate` does not access or return the
+     * This protected version of `requestUpdate` does not access or return the
      * `updateComplete` promise. This promise can be overridden and is therefore
      * not free to access.
-     */_requestUpdate(name,oldValue){let shouldRequestUpdate=!0;// If we have a property key, perform property update steps.
-if(name!==void 0){const ctor=this.constructor,options=ctor.getPropertyOptions(name);if(ctor._valueHasChanged(this[name],oldValue,options.hasChanged)){if(!this._changedProperties.has(name)){this._changedProperties.set(name,oldValue)}// Add to reflecting properties set.
+     */requestUpdateInternal(name,oldValue,options){let shouldRequestUpdate=!0;// If we have a property key, perform property update steps.
+if(name!==void 0){const ctor=this.constructor;options=options||ctor.getPropertyOptions(name);if(ctor._valueHasChanged(this[name],oldValue,options.hasChanged)){if(!this._changedProperties.has(name)){this._changedProperties.set(name,oldValue)}// Add to reflecting properties set.
 // Note, it's important that every change has a chance to add the
 // property to `_reflectingProperties`. This ensures setting
 // attribute + property reflects correctly.
@@ -688,7 +705,7 @@ shouldRequestUpdate=!1}}if(!this._hasRequestedUpdate&&shouldRequestUpdate){this.
      * @param name {PropertyKey} (optional) name of requesting property
      * @param oldValue {any} (optional) old value of requesting property
      * @returns {Promise} A Promise that is resolved when the update completes.
-     */requestUpdate(name,oldValue){this._requestUpdate(name,oldValue);return this.updateComplete}/**
+     */requestUpdate(name,oldValue){this.requestUpdateInternal(name,oldValue);return this.updateComplete}/**
      * Sets up the element to asynchronously update.
      */_enqueueUpdate(){var _this2=this;return babelHelpers.asyncToGenerator(function*(){_this2._updateState=_this2._updateState|STATE_UPDATE_REQUESTED;try{// Ensure any previous update has resolved before updating.
 // This `await` also ensures that property changes are batched.
@@ -712,7 +729,10 @@ if(null!=result){yield result}return!_this2._hasRequestedUpdate})()}get _hasRequ
      *   super.performUpdate();
      * }
      * ```
-     */performUpdate(){// Mixin instance properties once, if they exist.
+     */performUpdate(){// Abort any update if one is not pending when this is called.
+// This can happen if `performUpdate` is called early to "flush"
+// the update.
+if(!this._hasRequestedUpdate){return}// Mixin instance properties once, if they exist.
 if(this._instanceProperties){this._applyInstanceProperties()}let shouldUpdate=!1;const changedProperties=this._changedProperties;try{shouldUpdate=this.shouldUpdate(changedProperties);if(shouldUpdate){this.update(changedProperties)}else{this._markUpdated()}}catch(e){// Prevent `firstUpdated` and `updated` from running when there's an
 // update exception.
 shouldUpdate=!1;// Ensure element can accept additional updates after an exception.
@@ -814,19 +834,20 @@ return{kind:"field",key:Symbol(),placement:"own",descriptor:{},// When @babel/pl
 // ],
 initializer(){if("function"===typeof element.initializer){this[element.key]=element.initializer.call(this)}},finisher(clazz){clazz.createProperty(element.key,options)}}}},legacyProperty=(options,proto,name)=>{proto.constructor.createProperty(name,options)};/**
     * A property decorator which creates a LitElement property which reflects a
-    * corresponding attribute value. A `PropertyDeclaration` may optionally be
+    * corresponding attribute value. A [[`PropertyDeclaration`]] may optionally be
     * supplied to configure property features.
     *
     * This decorator should only be used for public fields. Private or protected
-    * fields should use the internalProperty decorator.
+    * fields should use the [[`internalProperty`]] decorator.
     *
     * @example
-    *
-    *     class MyElement {
-    *       @property({ type: Boolean })
-    *       clicked = false;
-    *     }
-    *
+    * ```ts
+    * class MyElement {
+    *   @property({ type: Boolean })
+    *   clicked = false;
+    * }
+    * ```
+    * @category Decorator
     * @ExportDecoratedItems
     */function property(options){// tslint:disable-next-line:no-any decorator
 return(protoOrDescriptor,name)=>name!==void 0?legacyProperty(options,protoOrDescriptor,name):standardProperty(options,protoOrDescriptor)}/**
@@ -836,30 +857,35 @@ return(protoOrDescriptor,name)=>name!==void 0?legacyProperty(options,protoOrDesc
    * Properties declared this way must not be used from HTML or HTML templating
    * systems, they're solely for properties internal to the element. These
    * properties may be renamed by optimization tools like closure compiler.
+   * @category Decorator
    */function internalProperty(options){return property({attribute:!1,hasChanged:null===options||void 0===options?void 0:options.hasChanged})}/**
    * A property decorator that converts a class property into a getter that
    * executes a querySelector on the element's renderRoot.
    *
    * @param selector A DOMString containing one or more selectors to match.
+   * @param cache An optional boolean which when true performs the DOM query only
+   * once and caches the result.
    *
    * See: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
    *
    * @example
    *
-   *     class MyElement {
-   *       @query('#first')
-   *       first;
+   * ```ts
+   * class MyElement {
+   *   @query('#first')
+   *   first;
    *
-   *       render() {
-   *         return html`
-   *           <div id="first"></div>
-   *           <div id="second"></div>
-   *         `;
-   *       }
-   *     }
-   *
-   */function query(selector){return(protoOrDescriptor,// tslint:disable-next-line:no-any decorator
-name)=>{const descriptor={get(){return this.renderRoot.querySelector(selector)},enumerable:!0,configurable:!0};return name!==void 0?legacyQuery(descriptor,protoOrDescriptor,name):standardQuery(descriptor,protoOrDescriptor)}}// Note, in the future, we may extend this decorator to support the use case
+   *   render() {
+   *     return html`
+   *       <div id="first"></div>
+   *       <div id="second"></div>
+   *     `;
+   *   }
+   * }
+   * ```
+   * @category Decorator
+   */function query(selector,cache){return(protoOrDescriptor,// tslint:disable-next-line:no-any decorator
+name)=>{const descriptor={get(){return this.renderRoot.querySelector(selector)},enumerable:!0,configurable:!0};if(cache){const key="symbol"===typeof name?Symbol():`__${name}`;descriptor.get=function(){if(this[key]===void 0){this[key]=this.renderRoot.querySelector(selector)}return this[key]}}return name!==void 0?legacyQuery(descriptor,protoOrDescriptor,name):standardQuery(descriptor,protoOrDescriptor)}}// Note, in the future, we may extend this decorator to support the use case
 // where the queried element may need to do work to become ready to interact
 // with (e.g. load some implementation code). If so, we might elect to
 // add a second argument defining a function that can be run to make the
@@ -877,23 +903,25 @@ name)=>{const descriptor={get(){return this.renderRoot.querySelector(selector)},
  * See: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
  *
  * @example
+ * ```ts
+ * class MyElement {
+ *   @queryAsync('#first')
+ *   first;
  *
- *     class MyElement {
- *       @queryAsync('#first')
- *       first;
+ *   render() {
+ *     return html`
+ *       <div id="first"></div>
+ *       <div id="second"></div>
+ *     `;
+ *   }
+ * }
  *
- *       render() {
- *         return html`
- *           <div id="first"></div>
- *           <div id="second"></div>
- *         `;
- *       }
- *     }
- *
- *     // external usage
- *     async doSomethingWithFirst() {
- *      (await aMyElement.first).doSomething();
- *     }
+ * // external usage
+ * async doSomethingWithFirst() {
+ *  (await aMyElement.first).doSomething();
+ * }
+ * ```
+ * @category Decorator
  */function queryAsync(selector){return(protoOrDescriptor,// tslint:disable-next-line:no-any decorator
 name)=>{const descriptor={get(){var _this3=this;return babelHelpers.asyncToGenerator(function*(){yield _this3.updateComplete;return _this3.renderRoot.querySelector(selector)})()},enumerable:!0,configurable:!0};return name!==void 0?legacyQuery(descriptor,protoOrDescriptor,name):standardQuery(descriptor,protoOrDescriptor)}}/**
    * A property decorator that converts a class property into a getter
@@ -905,18 +933,20 @@ name)=>{const descriptor={get(){var _this3=this;return babelHelpers.asyncToGener
    * https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
    *
    * @example
+   * ```ts
+   * class MyElement {
+   *   @queryAll('div')
+   *   divs;
    *
-   *     class MyElement {
-   *       @queryAll('div')
-   *       divs;
-   *
-   *       render() {
-   *         return html`
-   *           <div id="first"></div>
-   *           <div id="second"></div>
-   *         `;
-   *       }
-   *     }
+   *   render() {
+   *     return html`
+   *       <div id="first"></div>
+   *       <div id="second"></div>
+   *     `;
+   *   }
+   * }
+   * ```
+   * @category Decorator
    */function queryAll(selector){return(protoOrDescriptor,// tslint:disable-next-line:no-any decorator
 name)=>{const descriptor={get(){return this.renderRoot.querySelectorAll(selector)},enumerable:!0,configurable:!0};return name!==void 0?legacyQuery(descriptor,protoOrDescriptor,name):standardQuery(descriptor,protoOrDescriptor)}}const legacyQuery=(descriptor,proto,name)=>{Object.defineProperty(proto,name,descriptor)},standardQuery=(descriptor,element)=>({kind:"method",placement:"prototype",key:element.key,descriptor}),standardEventOptions=(options,element)=>{return Object.assign(Object.assign({},element),{finisher(clazz){Object.assign(clazz.prototype[element.key],options)}})},legacyEventOptions=// tslint:disable-next-line:no-any legacy decorator
 (options,proto,name)=>{Object.assign(proto[name],options)};/**
@@ -930,35 +960,60 @@ name)=>{const descriptor={get(){return this.renderRoot.querySelectorAll(selector
     * https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters
     *
     * @example
+    * ```ts
+    * class MyElement {
+    *   clicked = false;
     *
-    *     class MyElement {
-    *       clicked = false;
+    *   render() {
+    *     return html`
+    *       <div @click=${this._onClick}`>
+    *         <button></button>
+    *       </div>
+    *     `;
+    *   }
     *
-    *       render() {
-    *         return html`
-    *           <div @click=${this._onClick}`>
-    *             <button></button>
-    *           </div>
-    *         `;
-    *       }
-    *
-    *       @eventOptions({capture: true})
-    *       _onClick(e) {
-    *         this.clicked = true;
-    *       }
-    *     }
+    *   @eventOptions({capture: true})
+    *   _onClick(e) {
+    *     this.clicked = true;
+    *   }
+    * }
+    * ```
+    * @category Decorator
     */function eventOptions(options){// Return value typed as any to prevent TypeScript from complaining that
 // standard decorator function signature does not match TypeScript decorator
 // signature
 // TODO(kschaaf): unclear why it was only failing on this decorator and not
 // the others
-return(protoOrDescriptor,name)=>name!==void 0?legacyEventOptions(options,protoOrDescriptor,name):standardEventOptions(options,protoOrDescriptor)}/**
-   * A property decorator that converts a class property into a getter that
-   * returns the `assignedNodes` of the given named `slot`. Note, the type of
-   * this property should be annotated as `NodeListOf<HTMLElement>`.
-   *
-   */function queryAssignedNodes(slotName="",flatten=!1){return(protoOrDescriptor,// tslint:disable-next-line:no-any decorator
-name)=>{const descriptor={get(){const selector=`slot${slotName?`[name=${slotName}]`:""}`,slot=this.renderRoot.querySelector(selector);return slot&&slot.assignedNodes({flatten})},enumerable:!0,configurable:!0};return name!==void 0?legacyQuery(descriptor,protoOrDescriptor,name):standardQuery(descriptor,protoOrDescriptor)}}var decorators={customElement:customElement,property:property,internalProperty:internalProperty,query:query,queryAsync:queryAsync,queryAll:queryAll,eventOptions:eventOptions,queryAssignedNodes:queryAssignedNodes};/**
+return(protoOrDescriptor,name)=>name!==void 0?legacyEventOptions(options,protoOrDescriptor,name):standardEventOptions(options,protoOrDescriptor)}// x-browser support for matches
+// tslint:disable-next-line:no-any
+const ElementProto=Element.prototype,legacyMatches=ElementProto.msMatchesSelector||ElementProto.webkitMatchesSelector;/**
+                                                                                             * A property decorator that converts a class property into a getter that
+                                                                                             * returns the `assignedNodes` of the given named `slot`. Note, the type of
+                                                                                             * this property should be annotated as `NodeListOf<HTMLElement>`.
+                                                                                             *
+                                                                                             * @param slotName A string name of the slot.
+                                                                                             * @param flatten A boolean which when true flattens the assigned nodes,
+                                                                                             * meaning any assigned nodes that are slot elements are replaced with their
+                                                                                             * assigned nodes.
+                                                                                             * @param selector A string which filters the results to elements that match
+                                                                                             * the given css selector.
+                                                                                             *
+                                                                                             * * @example
+                                                                                             * ```ts
+                                                                                             * class MyElement {
+                                                                                             *   @queryAssignedNodes('list', true, '.item')
+                                                                                             *   listItems;
+                                                                                             *
+                                                                                             *   render() {
+                                                                                             *     return html`
+                                                                                             *       <slot name="list"></slot>
+                                                                                             *     `;
+                                                                                             *   }
+                                                                                             * }
+                                                                                             * ```
+                                                                                             * @category Decorator
+                                                                                             */function queryAssignedNodes(slotName="",flatten=!1,selector=""){return(protoOrDescriptor,// tslint:disable-next-line:no-any decorator
+name)=>{const descriptor={get(){const slotSelector=`slot${slotName?`[name=${slotName}]`:":not([name])"}`,slot=this.renderRoot.querySelector(slotSelector);let nodes=slot&&slot.assignedNodes({flatten});if(nodes&&selector){nodes=nodes.filter(node=>node.nodeType===Node.ELEMENT_NODE&&node.matches?node.matches(selector):legacyMatches.call(node,selector))}return nodes},enumerable:!0,configurable:!0};return name!==void 0?legacyQuery(descriptor,protoOrDescriptor,name):standardQuery(descriptor,protoOrDescriptor)}}var decorators={customElement:customElement,property:property,internalProperty:internalProperty,query:query,queryAsync:queryAsync,queryAll:queryAll,eventOptions:eventOptions,queryAssignedNodes:queryAssignedNodes};/**
    @license
    Copyright (c) 2019 The Polymer Project Authors. All rights reserved.
    This code may only be used under the BSD style license found at
@@ -967,29 +1022,38 @@ name)=>{const descriptor={get(){const selector=`slot${slotName?`[name=${slotName
    found at http://polymer.github.io/CONTRIBUTORS.txt Code distributed by Google as
    part of the polymer project is also subject to an additional IP rights grant
    found at http://polymer.github.io/PATENTS.txt
-   */_exports.$decorators=decorators;const supportsAdoptingStyleSheets="adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype;_exports.supportsAdoptingStyleSheets$1=_exports.supportsAdoptingStyleSheets=supportsAdoptingStyleSheets;const constructionToken=Symbol();class CSSResult{constructor(cssText,safeToken){if(safeToken!==constructionToken){throw new Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.")}this.cssText=cssText}// Note, this is a getter so that it's lazy. In practice, this means
+   */ /**
+       * Whether the current browser supports `adoptedStyleSheets`.
+       */_exports.$decorators=decorators;const supportsAdoptingStyleSheets=window.ShadowRoot&&(window.ShadyCSS===void 0||window.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype;_exports.supportsAdoptingStyleSheets$1=_exports.supportsAdoptingStyleSheets=supportsAdoptingStyleSheets;const constructionToken=Symbol();class CSSResult{constructor(cssText,safeToken){if(safeToken!==constructionToken){throw new Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.")}this.cssText=cssText}// Note, this is a getter so that it's lazy. In practice, this means
 // stylesheets are not created until the first element instance is made.
-get styleSheet(){if(this._styleSheet===void 0){// Note, if `adoptedStyleSheets` is supported then we assume CSSStyleSheet
-// is constructable.
+get styleSheet(){if(this._styleSheet===void 0){// Note, if `supportsAdoptingStyleSheets` is true then we assume
+// CSSStyleSheet is constructable.
 if(supportsAdoptingStyleSheets){this._styleSheet=new CSSStyleSheet;this._styleSheet.replaceSync(this.cssText)}else{this._styleSheet=null}}return this._styleSheet}toString(){return this.cssText}}/**
-   * Wrap a value for interpolation in a css tagged template literal.
+   * Wrap a value for interpolation in a [[`css`]] tagged template literal.
    *
    * This is unsafe because untrusted CSS text can be used to phone home
    * or exfiltrate data to an attacker controlled site. Take care to only use
    * this with trusted input.
    */_exports.CSSResult$1=_exports.CSSResult=CSSResult;const unsafeCSS=value=>{return new CSSResult(value+"",constructionToken)};_exports.unsafeCSS$1=_exports.unsafeCSS=unsafeCSS;const textFromCSSResult=value=>{if(value instanceof CSSResult){return value.cssText}else if("number"===typeof value){return value}else{throw new Error(`Value passed to 'css' function must be a 'css' function result: ${value}. Use 'unsafeCSS' to pass non-literal values, but
             take care to ensure page security.`)}},css=(strings,...values)=>{const cssText=values.reduce((acc,v,idx)=>acc+textFromCSSResult(v)+strings[idx+1],strings[0]);return new CSSResult(cssText,constructionToken)};/**
-    * Template tag which which can be used with LitElement's `style` property to
-    * set element styles. For security reasons, only literal string values may be
-    * used. To incorporate non-literal values `unsafeCSS` may be used inside a
-    * template string part.
+    * Template tag which which can be used with LitElement's [[LitElement.styles |
+    * `styles`]] property to set element styles. For security reasons, only literal
+    * string values may be used. To incorporate non-literal values [[`unsafeCSS`]]
+    * may be used inside a template string part.
     */_exports.css$2=_exports.css=css;var cssTag={supportsAdoptingStyleSheets:supportsAdoptingStyleSheets,CSSResult:CSSResult,unsafeCSS:unsafeCSS,css:css};// IMPORTANT: do not change the property name or the assignment expression.
 // This line will be used in regexes to search for LitElement usage.
 // TODO(justinfagnani): inject version number at build time
-_exports.$cssTag=cssTag;(window.litElementVersions||(window.litElementVersions=[])).push("2.3.1");/**
+_exports.$cssTag=cssTag;(window.litElementVersions||(window.litElementVersions=[])).push("2.4.0");/**
                                                                                       * Sentinal value used to avoid calling lit-html's render function when
                                                                                       * subclasses do not implement `render`
-                                                                                      */const renderNotImplemented={};class LitElement extends UpdatingElement{/**
+                                                                                      */const renderNotImplemented={};/**
+                                  * Base element class that manages element properties and attributes, and
+                                  * renders a lit-html template.
+                                  *
+                                  * To define a component, subclass `LitElement` and implement a
+                                  * `render` method to provide the component's template. Define properties
+                                  * using the [[`properties`]] property or the [[`property`]] decorator.
+                                  */class LitElement extends UpdatingElement{/**
    * Return the array of styles to apply to the element.
    * Override this method to integrate into a style management system.
    *
@@ -1001,7 +1065,7 @@ if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this))){return}// Tak
 // shared styles will generate new stylesheet objects, which is wasteful.
 // This should be addressed when a browser ships constructable
 // stylesheets.
-const userStyles=this.getStyles();if(userStyles===void 0){this._styles=[]}else if(Array.isArray(userStyles)){// De-duplicate styles preserving the _last_ instance in the set.
+const userStyles=this.getStyles();if(Array.isArray(userStyles)){// De-duplicate styles preserving the _last_ instance in the set.
 // This is a performance optimization to avoid duplicated styles that can
 // occur especially when composing via subclassing.
 // The last item is kept to try to preserve the cascade order with the
@@ -1010,10 +1074,20 @@ const userStyles=this.getStyles();if(userStyles===void 0){this._styles=[]}else i
 const addStyles=(styles,set)=>styles.reduceRight((set,s)=>// Note: On IE set.add() does not return the set
 Array.isArray(s)?addStyles(s,set):(set.add(s),set),set),set=addStyles(userStyles,new Set),styles=[];// Array.from does not work on Set in IE, otherwise return
 // Array.from(addStyles(userStyles, new Set<CSSResult>())).reverse()
-set.forEach(v=>styles.unshift(v));this._styles=styles}else{this._styles=[userStyles]}}/**
-     * Performs element initialization. By default this calls `createRenderRoot`
-     * to create the element `renderRoot` node and captures any pre-set values for
-     * registered properties.
+set.forEach(v=>styles.unshift(v));this._styles=styles}else{this._styles=userStyles===void 0?[]:[userStyles]}// Ensure that there are no invalid CSSStyleSheet instances here. They are
+// invalid in two conditions.
+// (1) the sheet is non-constructible (`sheet` of a HTMLStyleElement), but
+//     this is impossible to check except via .replaceSync or use
+// (2) the ShadyCSS polyfill is enabled (:. supportsAdoptingStyleSheets is
+//     false)
+this._styles=this._styles.map(s=>{if(s instanceof CSSStyleSheet&&!supportsAdoptingStyleSheets){// Flatten the cssText from the passed constructible stylesheet (or
+// undetectable non-constructible stylesheet). The user might have
+// expected to update their stylesheets over time, but the alternative
+// is a crash.
+const cssText=Array.prototype.slice.call(s.cssRules).reduce((css,rule)=>css+rule.cssText,"");return unsafeCSS(cssText)}return s})}/**
+     * Performs element initialization. By default this calls
+     * [[`createRenderRoot`]] to create the element [[`renderRoot`]] node and
+     * captures any pre-set values for registered properties.
      */initialize(){super.initialize();this.constructor._getUniqueStyles();this.renderRoot=this.createRenderRoot();// Note, if renderRoot is not a shadowRoot, styles would/could apply to the
 // element's getRootNode(). While this could be done, we're choosing not to
 // support this now since it would require different logic around de-duping.
@@ -1024,7 +1098,7 @@ if(window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot){this.adoptSt
      * childNodes, return `this`.
      * @returns {Element|DocumentFragment} Returns a node into which to render.
      */createRenderRoot(){return this.attachShadow({mode:"open"})}/**
-     * Applies styling to the element shadowRoot using the `static get styles`
+     * Applies styling to the element shadowRoot using the [[`styles`]]
      * property. Styling will apply using `shadowRoot.adoptedStyleSheets` where
      * available and will fallback otherwise. When Shadow DOM is polyfilled,
      * ShadyCSS scopes styles and adds them to the document. When Shadow DOM
@@ -1033,10 +1107,10 @@ if(window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot){this.adoptSt
      * behavior](https://wicg.github.io/construct-stylesheets/#using-constructed-stylesheets).
      */adoptStyles(){const styles=this.constructor._styles;if(0===styles.length){return}// There are three separate cases here based on Shadow DOM support.
 // (1) shadowRoot polyfilled: use ShadyCSS
-// (2) shadowRoot.adoptedStyleSheets available: use it.
+// (2) shadowRoot.adoptedStyleSheets available: use it
 // (3) shadowRoot.adoptedStyleSheets polyfilled: append styles after
 // rendering
-if(window.ShadyCSS!==void 0&&!window.ShadyCSS.nativeShadow){window.ShadyCSS.ScopingShim.prepareAdoptedCssText(styles.map(s=>s.cssText),this.localName)}else if(supportsAdoptingStyleSheets){this.renderRoot.adoptedStyleSheets=styles.map(s=>s.styleSheet)}else{// This must be done after rendering so the actual style insertion is done
+if(window.ShadyCSS!==void 0&&!window.ShadyCSS.nativeShadow){window.ShadyCSS.ScopingShim.prepareAdoptedCssText(styles.map(s=>s.cssText),this.localName)}else if(supportsAdoptingStyleSheets){this.renderRoot.adoptedStyleSheets=styles.map(s=>s instanceof CSSStyleSheet?s:s.styleSheet)}else{// This must be done after rendering so the actual style insertion is done
 // in `update`.
 this._needsShimAdoptedStyleSheets=!0}}connectedCallback(){super.connectedCallback();// Note, first update/render handles styleElement so we only call this if
 // connected after first update.
@@ -1054,9 +1128,9 @@ if(templateResult!==renderNotImplemented){this.constructor.render(templateResult
 // priority.
 if(this._needsShimAdoptedStyleSheets){this._needsShimAdoptedStyleSheets=!1;this.constructor._styles.forEach(s=>{const style=document.createElement("style");style.textContent=s.cssText;this.renderRoot.appendChild(style)})}}/**
      * Invoked on each update to perform rendering tasks. This method may return
-     * any value renderable by lit-html's NodePart - typically a TemplateResult.
-     * Setting properties inside this method will *not* trigger the element to
-     * update.
+     * any value renderable by lit-html's `NodePart` - typically a
+     * `TemplateResult`. Setting properties inside this method will *not* trigger
+     * the element to update.
      */render(){return renderNotImplemented}}/**
    * Ensure this class is marked as `finalized` as an optimization ensuring
    * it will not needlessly try to `finalize`.
@@ -1064,10 +1138,20 @@ if(this._needsShimAdoptedStyleSheets){this._needsShimAdoptedStyleSheets=!1;this.
    * Note this property name is a string to prevent breaking Closure JS Compiler
    * optimizations. See updating-element.ts for more information.
    */_exports.LitElement=LitElement;LitElement.finalized=!0;/**
-                                 * Render method used to render the value to the element's DOM.
-                                 * @param result The value to render.
-                                 * @param container Node into which to render.
-                                 * @param options Element name.
+                                 * Reference to the underlying library method used to render the element's
+                                 * DOM. By default, points to the `render` method from lit-html's shady-render
+                                 * module.
+                                 *
+                                 * **Most users will never need to touch this property.**
+                                 *
+                                 * This  property should not be confused with the `render` instance method,
+                                 * which should be overridden to define a template for the element.
+                                 *
+                                 * Advanced users creating a new base class based on LitElement can override
+                                 * this property to point to a custom render method with a signature that
+                                 * matches [shady-render's `render`
+                                 * method](https://lit-html.polymer-project.org/api/modules/shady_render.html#render).
+                                 *
                                  * @nocollapse
                                  */LitElement.render=render$2;var litElement={LitElement:LitElement,defaultConverter:defaultConverter,notEqual:notEqual,UpdatingElement:UpdatingElement,customElement:customElement,property:property,internalProperty:internalProperty,query:query,queryAsync:queryAsync,queryAll:queryAll,eventOptions:eventOptions,queryAssignedNodes:queryAssignedNodes,html:html,svg:svg,TemplateResult:TemplateResult,SVGTemplateResult:SVGTemplateResult,supportsAdoptingStyleSheets:supportsAdoptingStyleSheets,CSSResult:CSSResult,unsafeCSS:unsafeCSS,css:css};/**
     * We differ themeing and styling. *Themes* are in regular a rewrite of the components css and can contain style vars. We do not use mixins as long they are not "standard". *Styles* are used to set style vars like `--primary-color`. They give you the possibility to configure your themes in a simple way. Components which are using theming, give you *full control* over the css.
@@ -1085,7 +1169,7 @@ if(this._needsShimAdoptedStyleSheets){this._needsShimAdoptedStyleSheets=!1;this.
     *Theme.registerThemeset(MyThemeset);
     *...
     *```
-
+   
     *
     *## Apply themeing your components
     *Applying a theme to a component can be achieved by:
@@ -1360,7 +1444,7 @@ return Theme.getThemeForComponent("FooterBar")||css`
      * @returns {TemplateResult}
      */render(){// language=HTML
 return html`
-
+      
     `}}window.customElements.define("footer-bar",FooterBar);class FuroEmptySpacer extends LitElement{constructor(){super();this.flex=!0;// eslint-disable-next-line wc/no-constructor-attributes
 this.hidden=!1}static get properties(){return{/**
        * Attribute flex for furo-horizontal-flex and furo-vertical-flex
@@ -1812,7 +1896,7 @@ return Theme.getThemeForComponent("HeaderToolbar")||css`
         {
             border-bottom: 2px solid var(--accent);
         }
-
+       
 
         a:hover {
             color: var(--on-primary-variant);
@@ -1926,7 +2010,7 @@ console.log("to",Env.locale)}}_exports.Sys$1=_exports.Sys=Sys;var system={Init:I
     */_exports.$system=system;class Iconset{// register an icon set
 static registerIconset(setName,icons){this[setName]=icons}// get icon svg via icon set name and icon name
 static get(setName,iconName){// default fallback icon `report problem`
-let icon="<g></g>";if(this[setName]&&this[setName][iconName]){icon=this[setName][iconName]}return icon}}_exports.Iconset$1=_exports.Iconset=Iconset;var iconset$1={Iconset:Iconset};_exports.$iconset$1=iconset$1;var furo={Env:Env,i18n:i18n,Init:Init,Sys:Sys,Theme:Theme,Iconset:Iconset};_exports.$furo=furo;const Services={TreeService:{name:"TreeService",description:"service specs for the tree api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"treeservice",imports:["tree/tree.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/treeservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",rpc_name:"ListTrees",data:{request:null,response:"tree.TreeCollection"},query:{q:{description:"Query term to search a tree",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/trees",method:"GET"}},Create:{description:"Creates a new Tree",rpc_name:"CreateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/trees",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",rpc_name:"GetTree",data:{request:null,response:"tree.TreeEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/trees/{tre}/get.json",method:"GET"}},Update:{description:"Updates a Tree, partial updates are supported",rpc_name:"UpdateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/trees/{tre}",method:"PATCH"}},Delete:{description:"Delete a Tree",rpc_name:"DeleteTree",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/trees/{tre}",method:"DELETE"}}}},ProjectfilterService:{name:"ProjectfilterService",description:"service specs for the projectfilter api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectfilterservice",imports:["projectfilter/projectfilter.proto","google/protobuf/empty.proto"],targetfile:"projectfilterservice.proto",options:{go_package:"/projectfilterservice"}},services:{Get:{description:"The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter",rpc_name:"GetProjectfilter",data:{request:null,response:"projectfilter.ProjectfilterEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/filter/get.json",method:"GET"}}}},AuthService:{name:"AuthService",description:"service specs for the auth api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"authservice",imports:["auth/auth.proto","google/protobuf/empty.proto"],targetfile:"authservice.proto",options:{go_package:"/authservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a AuthCollection of AuthEntity that match the input parameters.",rpc_name:"ListAuths",data:{request:null,response:"auth.AuthCollection"},query:{q:{description:"Query term to search a auth",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/api/auths",method:"GET"}},Create:{description:"Creates a new Auth",rpc_name:"CreateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"create",href:"/api/auths",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a AuthEntity which contains a Auth",rpc_name:"GetAuth",data:{request:null,response:"auth.AuthEntity"},query:{},deeplink:{rel:"self",href:"/api/auths/{uid}",method:"GET"}},Update:{description:"Updates a Auth, partial updates are supported",rpc_name:"UpdateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"update",href:"/api/auths/{uid}",method:"PATCH"}},Delete:{description:"Logout ala delete a auth session",rpc_name:"Logout",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/api/auth",method:"DELETE"}}}},PersonService:{name:"PersonService",description:"service specs for the person api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"personservice",imports:["person/person.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/personservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",rpc_name:"ListPersons",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a person",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/persons/list.json",method:"GET"}},Create:{description:"Creates a new Person",rpc_name:"CreatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/persons/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",rpc_name:"GetPerson",data:{request:null,response:"person.PersonEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/persons/{prs}/get.json",method:"GET"}},Update:{description:"Updates a Person, partial updates are supported",rpc_name:"UpdatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/persons/{prs}/update.json",method:"PATCH"}},Delete:{description:"Delete a Person",rpc_name:"DeletePerson",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/persons/{prs}/delete.json",method:"GET"}}}},ProjectService:{name:"ProjectService",description:"service specs for the project api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectservice",imports:["project/project.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/projectservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",rpc_name:"ListProjects",data:{request:null,response:"project.ProjectCollection"},filter:{},query:{q:{description:"Query term to search a project",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/projects/list.json",method:"GET"}},Create:{description:"Creates a new Project",rpc_name:"CreateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/projects/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",rpc_name:"GetProject",data:{request:null,response:"project.ProjectEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/{prj}/get.json",method:"GET"}},Update:{description:"Updates a Project, partial updates are supported",rpc_name:"UpdateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/projects/{prj}/update.json",method:"GET"}},Delete:{description:"Delete a Project",rpc_name:"DeleteProject",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/projects/{prj}/delete.json",method:"GET"}}}},ProjectMembersService:{name:"ProjectMembersService",description:"The members of a project",version:"1.0.0",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectmemberservice",imports:["person/person.proto"],targetfile:"service.proto",options:{go_package:"/projectmemberservice"}},services:{Unsubscribe:{description:"Custom method to unsubscribe a member, complete PersonEntity is expected",rdpc_name:"UnsubscribeMember",data:{request:"person.PersonEntity",response:"person.PersonCollection"},query:{},deeplink:{description:"{prs} stands for person",rel:"unsubscibe",href:"/api/projects/{prj}/members/{prs}:unsubscribe",method:"POST"}},List:{description:"Get a collection with PersonEntities",rpc_name:"ListMembers",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a member",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{rel:"list",href:"/api/members",method:"GET"}}}},TaskService:{name:"TaskService",description:"service specs for the task api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"taskservice",imports:["task/task.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/taskservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",rpc_name:"ListTasks",data:{request:null,response:"task.TaskCollection"},query:{q:{description:"Query term to search a {{.name}}",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}},fields:{description:"Partial representation (comma separated list of field names), ?fields=",type:"string",meta:{label:"Fields",hint:"Comma separated list of field names"},__proto:{type:"string"}},order_by:{description:"Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar",type:"string",meta:{label:"Sorting Order",hint:"The default sorting order is ascending"},__proto:{type:"string"}},filter:{description:"The response message will be filtered by the fields before being sent back to the client, filter=[['id','eq','1']]",type:"string",meta:{label:"Filter",hint:""},__proto:{type:"string"}},page_size:{description:"Use this field to specify the maximum number of results to be returned by the server. \n    //The server may further constrain the maximum number of results returned in a single page. \n    //If the page_size is 0, the server will decide the number of results to be returned. page_size=15",type:"string",meta:{label:"Page Size",hint:"If the page_size is 0, the server will decide the number of results to be returned."},__proto:{type:"string"}},view:{description:"allows the client to specify which view of the resource it wants to receive in the response. view=BASIC",type:"string",meta:{label:"View",hint:"Should be a enum type. MUST be named view"},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/tasks/list.json",method:"GET"}},Create:{description:"Creates a new Task",rpc_name:"CreateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/tasks/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",rpc_name:"GetTask",data:{request:null,response:"task.TaskEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/tasks/{tsk}/get.json",method:"GET"}},Update:{description:"Updates a Task, partial updates are not supported",rpc_name:"UpdateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/tasks/{tsk}/update.json",method:"GET"}},Delete:{description:"Delete a Task",rpc_name:"DeleteTask",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/tasks/{tsk}/delete.json",method:"GET"}}}},ExperimentService:{name:"ExperimentService",description:"service specs for the experiment api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"experimentservice",imports:["experiment/experiment.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/experimentservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",rpc_name:"ListExperiments",data:{request:null,response:"experiment.ExperimentCollection"},query:{q:{description:"Query term to search a experiment",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/experiments",method:"GET"}},Create:{description:"Creates a new Experiment",rpc_name:"CreateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/experiments",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",rpc_name:"GetExperiment",data:{request:null,response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/experiments/{exp}/get.json",method:"GET"}},Update:{description:"Updates a Experiment, partial updates are supported",rpc_name:"UpdateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/experiments/{exp}",method:"PATCH"}},Delete:{description:"Delete a Experiment",rpc_name:"DeleteExperiment",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/experiments/{exp}",method:"DELETE"}},Release:{description:"Releases experiment",rpc_name:"ReleaseExperiment",data:{request:"experiment.ExperimentEntity",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"release",href:"/mockdata/experiments/1:release",method:"POST"}}}}};_exports.Services=Services;const Types={"tree.Tree":{name:"tree",type:"Tree",description:"Navigation tree type with recursive navigation nodes",__proto:{package:"tree",imports:[],targetfile:"tree.proto"},fields:{id:{description:"Id of the tree",type:"string",__proto:{number:1}},display_name:{description:"String representation of the tree",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the tree",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},root:{description:"Rootnode of the tree",type:"tree.Navigationnode",meta:{},__proto:{number:10}}}},"tree.TreeEntity":{name:"tree_entity",type:"TreeEntity",description:"TreeEntity with Tree",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{data:{description:"contains a tree.Tree",type:"tree.Tree",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"tree.Navigationnode":{name:"navigationnode",type:"Navigationnode",description:"Item of the navigationtree",__proto:{package:"tree",imports:["furo/link.proto"],targetfile:"tree.proto"},fields:{id:{description:"Id of the node",type:"string",__proto:{number:1}},display_name:{description:"String representation of the node",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},icon:{description:"icon of the node",type:"string",__proto:{number:5}},panel:{description:"Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)",type:"string",meta:{readonly:!0,"tree-search-index":!1},__proto:{number:6}},key_words:{description:"key words of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:7}},has_error:{description:"if node has error",type:"bool",__proto:{number:8}},open:{description:"node is open or not",type:"bool",__proto:{number:9}},link:{description:"Deeplink information of this node",type:"furo.Link",__proto:{number:10}},is_group_label:{description:"This node is a group label",type:"bool",meta:{default:!1},__proto:{number:11}},children:{description:"Children of this node",type:"tree.Navigationnode",meta:{repeated:!0},__proto:{number:12}}}},"tree.TreeCollection":{name:"tree_collection",type:"TreeCollection",description:"TreeCollection with repeated TreeEntity",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a tree.TreeEntity repeated",type:"tree.TreeEntity",meta:{repeated:!0},__proto:{number:4}}}},"projectfilter.ProjectfilterEntity":{name:"projectfilter_entity",type:"ProjectfilterEntity",description:"ProjectfilterEntity with Projectfilter",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{data:{description:"contains a projectfilter.Projectfilter",type:"projectfilter.Projectfilter",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"projectfilter.Projectfilter":{name:"projectfilter",type:"Projectfilter",description:"Options for possible filter values",__proto:{package:"projectfilter",options:{},imports:["google/type/date.proto","google/type/money.proto","furo/reference.proto"],targetfile:"projectfilter.proto"},fields:{description:{description:"Filter preset for field description from resource projects",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:1}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:2}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:3}},members:{description:"List of possible project members",type:"furo.Reference",meta:{label:"Choose person",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}}},constraints:{},__proto:{number:4}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{},__proto:{number:5}}}},"projectfilter.ProjectfilterCollection":{name:"projectfilter_collection",type:"ProjectfilterCollection",description:"ProjectfilterCollection with repeated ProjectfilterEntity",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a projectfilter.ProjectfilterEntity repeated",type:"projectfilter.ProjectfilterEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthCollection":{name:"auth_collection",type:"AuthCollection",description:"AuthCollection with repeated AuthEntity",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a auth.AuthEntity repeated",type:"auth.AuthEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthEntity":{name:"auth_entity",type:"AuthEntity",description:"AuthEntity with Auth",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{data:{description:"contains a auth.Auth",type:"auth.Auth",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"auth.Auth":{name:"auth",type:"Auth",description:"autogenerated",__proto:{package:"auth",options:{},imports:[],targetfile:"auth.proto"},fields:{id:{description:"Identity of Auth",type:"string",meta:{label:"Id",default:"",hint:""},constraints:{},__proto:{number:1}},username:{type:"string",description:"The unique username, ussualy an email address",meta:{label:"Username",hint:""},constraints:{},__proto:{number:2}},password:{type:"string",description:"Das _neue_ Kennwort des Benutzers",meta:{label:"Password",hint:"Look under your keyboard"},constraints:{},__proto:{number:3}},role:{type:"string",description:"",meta:{label:"Role",hint:""},constraints:{},__proto:{number:4}}}},"person.Person":{name:"person",type:"Person",description:"Person message type",__proto:{package:"person",imports:["google/protobuf/field_mask.proto"],targetfile:"person.proto"},fields:{id:{description:"Identity of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},name:{description:"Name of a person",type:"string",meta:{label:"Name",default:"",hint:""},constraints:{required:{is:"true",message:"you must enter a name"}},__proto:{number:3}},first_name:{description:"First name of a person",type:"string",meta:{label:"First name",default:"",hint:""},constraints:{},__proto:{number:4},__ui:{component:"furo-data-text-input"}},phone_nr:{description:"Internal phone number",type:"string",meta:{label:"Phone No",default:"",hint:""},constraints:{},__proto:{number:5}},skills:{description:"List of main skills of a person",type:"string",meta:{label:"Skills",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:7}}}},"person.PersonCollection":{name:"person_collection",type:"PersonCollection",description:"PersonCollection with repeated PersonEntity",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a person.PersonEntity repeated",type:"person.PersonEntity",meta:{repeated:!0},__proto:{number:4}}}},"person.PersonEntity":{name:"person_entity",type:"PersonEntity",description:"PersonEntity with Person",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{data:{description:"contains a person.Person",type:"person.Person",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.ProjectCollection":{name:"project_collection",type:"ProjectCollection",description:"ProjectCollection with repeated ProjectEntity",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a project.ProjectEntity repeated",type:"project.ProjectEntity",meta:{repeated:!0},__proto:{number:4}}}},"project.ProjectEntity":{name:"project_entity",type:"ProjectEntity",description:"ProjectEntity with Project",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{data:{description:"contains a project.Project",type:"project.Project",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.Project":{name:"project",type:"Project",description:"Project description",__proto:{package:"project",imports:["google/protobuf/field_mask.proto","google/type/money.proto","google/type/date.proto","person/person.proto"],targetfile:"project.proto"},fields:{id:{description:"Identity of a project",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a project",type:"string",meta:{label:"Project",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:3}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:4}},description:{description:"Short project description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:5}},members:{description:"List of project members",type:"person.Person",meta:{label:"Project members",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:25e3,message:"max 25000"}},__ui:{component:"",flags:["align-right"]},__proto:{number:7}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:8}}}},"menu.Menuitem":{name:"menuitem",type:"Menuitem",description:"Item of a contextual menu",__proto:{package:"menu",options:{java_outer_classname:"MenuApi",java_package:"com.acme.menu"},imports:["google/protobuf/any.proto"],targetfile:"menu.proto"},fields:{icon:{description:"Leading icon of the menu",type:"string",__proto:{number:1}},display_name:{description:"String representation of the menu item. Menu item text",type:"string",meta:{readonly:!0},__proto:{number:2}},disabled:{description:"Display actions as disabled when they can only be used sometimes, under certain conditions. They should be displayed as disabled rather than removing them.",type:"bool",meta:{default:!1},__proto:{number:3}},command:{description:"Keyboard command hint",type:"string",meta:{},__proto:{number:4}},action:{description:"String representation of the menu item action",type:"string",meta:{},__proto:{number:5}},leading_divider:{description:"Item has a leading divider line",type:"bool",meta:{default:!1},__proto:{number:6}},children:{description:"Children of this item",type:"menu.Menuitem",meta:{repeated:!0},__proto:{number:7}},flags:{description:"Attribute flags e.g. important, negative, positive",type:"string",meta:{readonly:!0,repeated:!0},__proto:{number:8}},payload:{description:"Optional payload",type:"google.protobuf.Any",meta:{readonly:!0,repeated:!0},__proto:{number:9}}}},"task.TaskEntity":{name:"task_entity",type:"TaskEntity",description:"TaskEntity with Task",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{data:{description:"contains a task.Task",type:"task.Task",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"task.TaskCollection":{name:"task_collection",type:"TaskCollection",description:"TaskCollection with repeated TaskEntity",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a task.TaskEntity repeated",type:"task.TaskEntity",meta:{repeated:!0},__proto:{number:4}}}},"task.Task":{name:"task",type:"Task",description:"Task data description",__proto:{package:"task",imports:["furo/reference.proto"],targetfile:"task.proto"},fields:{id:{description:"Identity of a task",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a task",type:"string",meta:{label:"task.display_name.label",default:"",hint:"task.display_name.hint",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short task description",type:"string",meta:{label:"task.desc.label",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:180,message:"task.desc.maxlength"}},__proto:{number:3}},estimated_time:{description:"Estimated time in days",type:"int32",meta:{label:"Est. days",default:"",hint:""},constraints:{},__proto:{number:4}},owner:{description:"Owner of a task",type:"furo.Reference",meta:{label:"person.type.sex.label",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}},hint:"",no_result_hint:"",options:{list:[{id:"unknown",display_name:"person.type.sex.unknown.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"},{id:"female",display_name:"person.type.sex.female.label",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"male",display_name:"person.type.sex.male.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:5}},subtasks:{description:"List of subtasks",type:"task.Task",meta:{label:"Subtask",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}}}},"experiment.ExperimentEntity":{name:"experiment_entity",type:"ExperimentEntity",description:"ExperimentEntity with Experiment",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{data:{description:"contains a experiment.Experiment",type:"experiment.Experiment",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Constraints":{name:"experiment",type:"Constraints",description:"Test the Constraints",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},max:{is:"12",message:"maximal 12"}},__proto:{number:2}},number:{description:"Short experiment description",type:"int32",meta:{label:"Valid values are 6,9,12",default:1,hint:""},constraints:{min:{is:"6",message:"Minimal number 6"},max:{is:"12",message:"maximal 12"},step:{is:"3",message:"step 3"}},__proto:{number:3}},text:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},min:{is:"6",message:"minimal 6"},max:{is:"12",message:"maximal 12"}},__proto:{number:4}}}},"experiment.Experiment":{name:"experiment",type:"Experiment",description:"experiment spec for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto","google/type/money.proto","google/protobuf/field_mask.proto","furo/property.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"Default Description",hint:""},constraints:{},__proto:{number:3}},furo_data_checkbox_input:{description:"field for furo_data_checkbox_input for testing",type:"bool",meta:{label:"checkbox_input",default:"",hint:"Hint",readonly:!1},constraints:{},__proto:{number:4}},furo_data_text_input:{description:"field for furo_data_text_input for testing",type:"string",meta:{label:"text_input",hint:"hint",readonly:!1},constraints:{required:{is:"true",message:"is required"},min:{is:3,message:"at least 3 characters"},max:{is:15,message:"15 characters maximum"},pattern:{is:"^a.*",message:"must start with a"}},__proto:{number:5}},furo_data_textarea_input:{description:"field for furo_data_textarea_input for testing",type:"string",meta:{label:"textarea_input",hint:"hint",readonly:!1,rows:3,cols:100},constraints:{},__proto:{number:6}},furo_data_time_input:{description:"field for furo-data-time-input for testing",type:"string",meta:{label:"time-input",hint:"hint",readonly:!1},constraints:{min:{is:"05:00",message:"From 05:00"},max:{is:"19:00",message:"to 19:00"},step:{is:"5",message:"step 5"}},__proto:{number:7}},furo_data_range_input:{description:"field for furo-data-range-input for testing",type:"string",meta:{label:"range-input",hint:"hint",readonly:!1},constraints:{min:{is:20,message:"From 20"},max:{is:50,message:"to 50"},step:{is:"2.5",message:"step 2.5"}},__proto:{number:8}},furo_data_number_input:{description:"field for furo-data-number-input for testing",type:"float",meta:{label:"number-input",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"from 1"},max:{is:555,message:"to 555"},step:{is:"3",message:"step 3"}},__proto:{number:9}},furo_data_color_input:{description:"field for furo-data-color-input for testing",type:"string",meta:{label:"color-input",hint:"hint",readonly:!1},constraints:{},__proto:{number:10}},furo_data_password_input:{description:"field for furo-data-password-input for testing",type:"string",meta:{label:"password-input",hint:"hint",readonly:!1},constraints:{min:{is:6,message:"min 6"},max:{is:15,message:"max 15"}},__proto:{number:11}},furo_data_search_input:{description:"field for furo-search-input for testing",type:"string",meta:{label:" search",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"min 1"},max:{is:15,message:"max 15"},pattern:{is:"a.*",message:"must start with a"}},__proto:{number:12}},furo_data_date_input:{description:"field for furo-data-date-input for testing",type:"string",meta:{label:"date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"5",message:"step 5"}},__proto:{number:13}},furo_data_bool_icon:{description:"field for furo-data-bool-icon for testing",type:"bool",meta:{label:"bool-icon input",hint:"hint",readonly:!1},constraints:{},__proto:{number:14}},the_any_type:{description:"field for testing any",type:"google.protobuf.Any",meta:{label:"can be anything",hint:"hint",readonly:!1},constraints:{},__proto:{number:15}},type_with_options:{description:"field for testing static options",type:"string",meta:{label:"String options",hint:"Choose one",options:{list:[{id:"option_1",display_name:"option_1",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_2",display_name:"option_2",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_3",display_name:"option_3",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:16}},type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields",repeated:!0},constraints:{},__proto:{number:17}},furo_data_date_input_google:{description:"field for furo-data-date-input for testing",type:"google.type.Date",meta:{label:"google-date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"2",message:"step 2"}},__proto:{number:18}},single_type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields"},constraints:{},__proto:{number:19}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:20}},furo_data_money_input:{description:"field for testing money type",type:"google.type.Money",meta:{readonly:!1,label:"Amount",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{required:{is:"true",message:"is required"},min:{is:0,message:"amount can not be negative"},max:{is:999999,message:"amount maximal 999999"},step:{is:.01,message:"step 0.01"}},__proto:{number:21}},furo_data_file_input:{description:"field for testing file type",type:"string",meta:{readonly:!1,repeated:!0,label:"Choose a file"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:22}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:23}}}},"experiment.Default":{name:"experiment",type:"Default",description:"Test the default value",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:3}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:4}},furo_data_checkbox_input:{description:"field for furo_data_checkbox_input for testing",type:"bool",meta:{label:"checkbox_input",default:"",hint:"Hint",readonly:!1},constraints:{},__proto:{number:5}}}},"experiment.Readonly":{name:"readonly",type:"Readonly",description:"Readonly spec for testing",__proto:{package:"experiment",targetfile:"experiment.proto",imports:["furo/property.proto","project/project.proto"],options:null},fields:{project:{type:"project.Project",description:"Identity of a experiment",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Id",hint:"",default:"",readonly:!0,repeated:!1,options:{list:[]}},constraints:null},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Recursive":{name:"recursive",type:"Recursive",description:"recursive type for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:2}},recursion:{description:"The recursion",type:"experiment.Recursive",meta:{label:"Recursio"},constraints:{},__proto:{number:3}}}},"experiment.ExperimentCollection":{name:"experiment_collection",type:"ExperimentCollection",description:"ExperimentCollection with repeated ExperimentEntity",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a experiment.ExperimentEntity repeated",type:"experiment.ExperimentEntity",meta:{repeated:!0},__proto:{number:4}}}},"furo.Reference":{name:"reference",type:"Reference",description:"reference",__proto:{package:"furo",imports:["furo/link.proto"],targetfile:"reference.proto"},fields:{display_name:{description:"String representation of the reference",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"Id of the reference",type:"string",__proto:{number:2}},link:{description:"Hateoas link",type:"furo.Link",__proto:{number:3}}}},"furo.MetaField":{name:"metafield",type:"MetaField",description:"fields of meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{meta:{description:"meta information of a field",type:"furo.FieldMeta",__proto:{number:1}},constraints:{description:"constraints for a field",type:"map<string,furo.FieldConstraint>",__proto:{number:2}}}},"furo.StringOptionProperty":{name:"string_option_property",type:"StringOptionProperty",description:"String type to use in property",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{display_name:{description:"String representation of val",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"The value, Id is used to make working with data-inputs easier",type:"string",__proto:{number:2}}}},"furo.Optionitem":{name:"optionitem",type:"Optionitem",description:"Items for fieldoption.list",__proto:{package:"furo",targetfile:"meta.proto",imports:[],options:null},fields:{id:{type:"string",description:"Id",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Id",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},display_name:{type:"string",description:"String representation",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Display name",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},selected:{type:"bool",description:"is the item selected",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Selected",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null}}},"furo.NumberProperty":{name:"number_property",type:"NumberProperty",description:"Number type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"data part",type:"float",__proto:{number:1}}}},"furo.Fieldoption":{name:"fieldoption",type:"Fieldoption",description:"Metas for a field",__proto:{package:"furo",targetfile:"meta.proto",imports:["google/protobuf/any.proto"],options:null},fields:{list:{type:"google.protobuf.Any",description:"a list with options, use furo.optionitem or your own",__proto:{number:1},__ui:{component:"",flags:["full","condensed"],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:null}},constraints:null},flags:{type:"string",description:"Add flags for your field. This can be something like \"searchable\". \n//The flags can be used by generators, ui components,...\n",__proto:{number:2},__ui:{component:null,flags:[],no_init:!1,no_skip:!1},meta:{label:"flags",hint:"optional flags",default:null,readonly:!1,repeated:!0,options:{list:[],flags:null},typespecific:null},constraints:null}}},"furo.StringProperty":{name:"string_property",type:"StringProperty",description:"String type to use in property",__proto:{package:"furo",imports:["furo/meta.proto"],targetfile:"property.proto"},fields:{data:{description:"data part",type:"string",__proto:{number:1}}}},"furo.Meta":{name:"meta",type:"Meta",description:"meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{fields:{description:"fields of meta info",type:"map<string, furo.MetaField>",__proto:{number:1}}}},"furo.IntegerProperty":{name:"integer_property",type:"IntegerProperty",description:"Integer type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"Integer data part",type:"int32",constraints:{step:{is:1}},__proto:{number:1}}}},"furo.Link":{name:"link",type:"Link",description:"link",__proto:{package:"furo",imports:[],targetfile:"link.proto"},fields:{rel:{description:"the relationship",type:"string",__proto:{number:1}},method:{description:"method of curl",type:"string",__proto:{number:2}},href:{description:"link",type:"string",__proto:{number:3}},type:{description:"mime type",type:"string",__proto:{number:4}},service:{description:"name of the service which can handle this link",type:"string",__proto:{number:5}}}},"furo.FieldMeta":{name:"fieldmeta",type:"FieldMeta",description:"Metas for a field",__proto:{package:"furo",options:{},imports:["google/protobuf/any.proto"],targetfile:"meta.proto"},fields:{label:{description:"The label",type:"string",meta:{label:"Label",hint:"Also used for input-fields"},__proto:{number:1}},hint:{description:"A hint",type:"string",meta:{label:"Hint",hint:"Also used for input-fields"},__proto:{number:2}},default:{description:"The default value as JSON string",type:"string",meta:{label:"Default value"},__proto:{number:3}},readonly:{description:"readonly",type:"bool",meta:{label:"readonly"},__proto:{number:4}},repeated:{description:"repeated",type:"bool",meta:{label:"repeated"},__proto:{number:5}},options:{description:"Fieldoptions",type:"furo.Fieldoption",meta:{label:"options"},__proto:{number:6}},typespecific:{description:"Put in type specific metas for your fields here",type:"google.protobuf.Any",meta:{label:"typespecific meta"},__proto:{number:7},__ui:{no_init:!0}}}},"furo.FieldConstraint":{name:"fieldconstraint",type:"FieldConstraint",description:"a single fieldconstraint",__proto:{package:"furo",options:{},imports:[],targetfile:"meta.proto"},fields:{is:{description:"the constraint value as string, even it is a number",type:"string",meta:{label:"is",hint:"the constraint value as string, even it is a number"},__proto:{number:1}},message:{description:"The message to display on constraint violation",type:"string",meta:{label:"message"},__proto:{number:2}}}},"furo.BigDecimal":{name:"big_decimal",type:"BigDecimal",description:"A BigDecimal is defined by two values: an arbitrary precision integer and a 32-bit integer scale. The value of the BigDecimal is defined to be unscaledValue*10^{-scale}.",__proto:{package:"furo",imports:[],targetfile:"bigdecimal.proto"},fields:{display_name:{description:"String representation of BigDecimal entity",type:"string",meta:{readonly:!0},constraints:{},options:[],__proto:{number:1}},scale:{description:"If zero or positive, the scale is the number of digits to the right of the decimal point. If negative, the unscaled value of the number is multiplied by ten to the power of the negation of the scale. For example, a scale of -3 means the unscaled value is multiplied by 1000.",type:"int32",meta:{},constraints:{},options:[],__proto:{number:2}},int_val:{description:"The integer value of the BigDecimal",type:"int64",meta:{},constraints:{},options:[],__proto:{number:3}}}},"furo.Property":{name:"property",type:"Property",description:"Type to define property values with type information",__proto:{package:"furo",imports:["google/protobuf/any.proto"],targetfile:"property.proto"},fields:{id:{description:"Id of the property",type:"string",meta:{label:"Id"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"String representation of the property",type:"string",meta:{label:"Property",readonly:!0},constraints:{},__proto:{number:2}},data:{description:"data part of the property",type:"google.protobuf.Any",constraints:{},__proto:{number:3}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:4}},code:{description:"property code for additional settings",type:"string",__proto:{number:5}}}},"google.type.Money":{name:"money",type:"Money",description:"Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto",__proto:{package:"google.type",imports:[],targetfile:"money.proto"},fields:{display_name:{description:"String representation of money entity",type:"string",meta:{default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:1}},currency_code:{description:"The 3-letter currency code defined in ISO 4217.",type:"string",meta:{label:"W\xE4hrungscode",default:"",hint:""},constraints:{},options:[],__proto:{number:2}},units:{description:"The whole units of the amount.",type:"int64",meta:{label:"Ganzahliger W\xE4hrungsbetrag",default:"",hint:""},constraints:{},options:[],__proto:{number:3}},nanos:{description:"Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",type:"int64",meta:{label:"Nanos",default:"",hint:""},constraints:{},options:[],__proto:{number:4}}}},"google.type.Date":{name:"date",type:"Date",description:"Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto ",__proto:{package:"google.type",imports:[],targetfile:"date.proto"},fields:{display_name:{description:"Localized String representation of date",type:"string",meta:{label:"Datum",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:4}},year:{description:"Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:1}},month:{description:"Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:2}},day:{description:"Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:3}}}},"google.protobuf.StringValue":{name:"stringvalue",type:"StringValue",description:"Wrapper message for `string`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `StringValue` is JSON string",type:"string",__proto:{number:1}}}},"google.protobuf.FieldMask":{name:"field_mask",type:"FieldMask",description:"A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"field_mask.proto"},fields:{paths:{description:"The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable.",type:"string",meta:{repeated:!0},__proto:{number:1}}}},"google.protobuf.Int64Value":{name:"int64value",type:"Int64Value",description:"Wrapper message for `int64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int64Value` is JSON string",type:"int64",__proto:{number:1}}}},"google.protobuf.Empty":{name:"empty",type:"Empty",description:"https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto",__proto:{package:"google.protobuf",imports:[],targetfile:"empty.proto",options:{}},fields:{}},"google.protobuf.Int32Value":{name:"int32value",type:"Int32Value",description:"Wrapper message for `int32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int32Value` is JSON number",type:"int32",__proto:{number:1},constraints:{min:{is:"\u22122147483648",message:"out of range"},max:{is:"2147483647",message:"out of range"}}}}},"google.protobuf.BoolValue":{name:"boolvalue",type:"BoolValue",description:"Wrapper message for `bool`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BoolValue` is JSON `true` and `false`",type:"bool",__proto:{number:1}}}},"google.protobuf.FloatValue":{name:"floatvalue",type:"FloatValue",description:"Wrapper message for `float`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `FloatValue` is JSON number",type:"float",__proto:{number:1}}}},"google.protobuf.BytesValue":{name:"bytesvalue",type:"BytesValue",description:"Wrapper message for `bytes`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BytesValue` is JSON string",type:"bytes",__proto:{number:1}}}},"google.protobuf.Any":{name:"any",type:"Any",description:"Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"any.proto"},fields:{type_url:{type:"string",__proto:{number:1}},value:{type:"bytes",__proto:{number:2}}}},"google.protobuf.UInt32Value":{name:"uint32value",type:"UInt32Value",description:"Wrapper message for `uint32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt32Value` is JSON number",type:"uint32",__proto:{number:1}}}},"google.protobuf.UInt64Value":{name:"uint64value",type:"UInt64Value",description:"Wrapper message for `uint64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt64Value` is JSON string",type:"uint64",__proto:{number:1}}}},"google.protobuf.DoubleValue":{name:"doublevalue",type:"DoubleValue",description:"Wrapper message for `double`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `DoubleValue` is JSON number",type:"double",__proto:{number:1}}}}};_exports.Types=Types;var data_environment={Services:Services,Types:Types};/**
+let icon="<g></g>";if(this[setName]&&this[setName][iconName]){icon=this[setName][iconName]}return icon}}_exports.Iconset$1=_exports.Iconset=Iconset;var iconset$1={Iconset:Iconset};_exports.$iconset$1=iconset$1;var furo={Env:Env,i18n:i18n,Init:Init,Sys:Sys,Theme:Theme,Iconset:Iconset};_exports.$furo=furo;const Services={TreeService:{name:"TreeService",description:"service specs for the tree api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"treeservice",imports:["tree/tree.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/treeservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",rpc_name:"ListTrees",data:{request:null,response:"tree.TreeCollection"},query:{q:{description:"Query term to search a tree",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/trees",method:"GET"}},Create:{description:"Creates a new Tree",rpc_name:"CreateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/trees",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",rpc_name:"GetTree",data:{request:null,response:"tree.TreeEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/trees/{tre}/get.json",method:"GET"}},Update:{description:"Updates a Tree, partial updates are supported",rpc_name:"UpdateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/trees/{tre}",method:"PATCH"}},Delete:{description:"Delete a Tree",rpc_name:"DeleteTree",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/trees/{tre}",method:"DELETE"}}}},ProjectfilterService:{name:"ProjectfilterService",description:"service specs for the projectfilter api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectfilterservice",imports:["projectfilter/projectfilter.proto","google/protobuf/empty.proto"],targetfile:"projectfilterservice.proto",options:{go_package:"/projectfilterservice"}},services:{Get:{description:"The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter",rpc_name:"GetProjectfilter",data:{request:null,response:"projectfilter.ProjectfilterEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/filter/get.json",method:"GET"}}}},AuthService:{name:"AuthService",description:"service specs for the auth api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"authservice",imports:["auth/auth.proto","google/protobuf/empty.proto"],targetfile:"authservice.proto",options:{go_package:"/authservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a AuthCollection of AuthEntity that match the input parameters.",rpc_name:"ListAuths",data:{request:null,response:"auth.AuthCollection"},query:{q:{description:"Query term to search a auth",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/api/auths",method:"GET"}},Create:{description:"Creates a new Auth",rpc_name:"CreateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"create",href:"/api/auths",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a AuthEntity which contains a Auth",rpc_name:"GetAuth",data:{request:null,response:"auth.AuthEntity"},query:{},deeplink:{rel:"self",href:"/api/auths/{uid}",method:"GET"}},Update:{description:"Updates a Auth, partial updates are supported",rpc_name:"UpdateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"update",href:"/api/auths/{uid}",method:"PATCH"}},Delete:{description:"Logout ala delete a auth session",rpc_name:"Logout",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/api/auth",method:"DELETE"}}}},PersonService:{name:"PersonService",description:"service specs for the person api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"personservice",imports:["person/person.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/personservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",rpc_name:"ListPersons",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a person",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/persons/list.json",method:"GET"}},Create:{description:"Creates a new Person",rpc_name:"CreatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/persons/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",rpc_name:"GetPerson",data:{request:null,response:"person.PersonEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/persons/{prs}/get.json",method:"GET"}},Update:{description:"Updates a Person, partial updates are supported",rpc_name:"UpdatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/persons/{prs}/update.json",method:"PATCH"}},Delete:{description:"Delete a Person",rpc_name:"DeletePerson",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/persons/{prs}/delete.json",method:"GET"}}}},ProjectService:{name:"ProjectService",description:"service specs for the project api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectservice",imports:["project/project.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/projectservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",rpc_name:"ListProjects",data:{request:null,response:"project.ProjectCollection"},filter:{},query:{q:{description:"Query term to search a project",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/projects/list.json",method:"GET"}},Create:{description:"Creates a new Project",rpc_name:"CreateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/projects/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",rpc_name:"GetProject",data:{request:null,response:"project.ProjectEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/{prj}/get.json",method:"GET"}},Update:{description:"Updates a Project, partial updates are supported",rpc_name:"UpdateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/projects/{prj}/update.json",method:"GET"}},Delete:{description:"Delete a Project",rpc_name:"DeleteProject",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/projects/{prj}/delete.json",method:"GET"}}}},ProjectMembersService:{name:"ProjectMembersService",description:"The members of a project",version:"1.0.0",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectmemberservice",imports:["person/person.proto"],targetfile:"service.proto",options:{go_package:"/projectmemberservice"}},services:{Unsubscribe:{description:"Custom method to unsubscribe a member, complete PersonEntity is expected",rdpc_name:"UnsubscribeMember",data:{request:"person.PersonEntity",response:"person.PersonCollection"},query:{},deeplink:{description:"{prs} stands for person",rel:"unsubscibe",href:"/api/projects/{prj}/members/{prs}:unsubscribe",method:"POST"}},List:{description:"Get a collection with PersonEntities",rpc_name:"ListMembers",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a member",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{rel:"list",href:"/api/members",method:"GET"}}}},TaskService:{name:"TaskService",description:"service specs for the task api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"taskservice",imports:["task/task.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/taskservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",rpc_name:"ListTasks",data:{request:null,response:"task.TaskCollection"},query:{q:{description:"Query term to search a {{.name}}",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}},fields:{description:"Partial representation (comma separated list of field names), ?fields=",type:"string",meta:{label:"Fields",hint:"Comma separated list of field names"},__proto:{type:"string"}},order_by:{description:"Specifies the result ordering for List requests. The default sorting order is ascending, ?order_by=foo desc,bar",type:"string",meta:{label:"Sorting Order",hint:"The default sorting order is ascending"},__proto:{type:"string"}},filter:{description:"The response message will be filtered by the fields before being sent back to the client, filter=[['id','eq','1']]",type:"string",meta:{label:"Filter",hint:""},__proto:{type:"string"}},page_size:{description:"Use this field to specify the maximum number of results to be returned by the server. \n    //The server may further constrain the maximum number of results returned in a single page. \n    //If the page_size is 0, the server will decide the number of results to be returned. page_size=15",type:"string",meta:{label:"Page Size",hint:"If the page_size is 0, the server will decide the number of results to be returned."},__proto:{type:"string"}},view:{description:"allows the client to specify which view of the resource it wants to receive in the response. view=BASIC",type:"string",meta:{label:"View",hint:"Should be a enum type. MUST be named view"},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/tasks/list.json",method:"GET"}},Create:{description:"Creates a new Task",rpc_name:"CreateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/tasks/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",rpc_name:"GetTask",data:{request:null,response:"task.TaskEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/tasks/{tsk}/get.json",method:"GET"}},Update:{description:"Updates a Task, partial updates are not supported",rpc_name:"UpdateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/tasks/{tsk}/update.json",method:"GET"}},Delete:{description:"Delete a Task",rpc_name:"DeleteTask",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/tasks/{tsk}/delete.json",method:"GET"}}}},ExperimentService:{name:"ExperimentService",description:"service specs for the experiment api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"experimentservice",imports:["experiment/experiment.proto","google/protobuf/empty.proto"],targetfile:"service.proto",options:{go_package:"/experimentservice"}},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",rpc_name:"ListExperiments",data:{request:null,response:"experiment.ExperimentCollection"},query:{q:{description:"Query term to search a experiment",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/experiments",method:"GET"}},Create:{description:"Creates a new Experiment",rpc_name:"CreateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/experiments",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",rpc_name:"GetExperiment",data:{request:null,response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/experiments/{exp}/get.json",method:"GET"}},Update:{description:"Updates a Experiment, partial updates are supported",rpc_name:"UpdateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/experiments/{exp}",method:"PATCH"}},Delete:{description:"Delete a Experiment",rpc_name:"DeleteExperiment",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/experiments/{exp}",method:"DELETE"}},Release:{description:"Releases experiment",rpc_name:"ReleaseExperiment",data:{request:"experiment.ExperimentEntity",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"release",href:"/mockdata/experiments/1:release",method:"POST"}},CreateTemplate:{description:"create an experiment template",rpc_name:"CreateTemplateExperiment",data:{request:"google.protobuf.Empty",response:"experiment.Experiment"},query:{},deeplink:{rel:"createtemplate",href:"/mockdata/experiments:createtemplate",method:"POST"}}}}};_exports.Services=Services;const Types={"tree.Tree":{name:"tree",type:"Tree",description:"Navigation tree type with recursive navigation nodes",__proto:{package:"tree",imports:[],targetfile:"tree.proto"},fields:{id:{description:"Id of the tree",type:"string",__proto:{number:1}},display_name:{description:"String representation of the tree",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the tree",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},root:{description:"Rootnode of the tree",type:"tree.Navigationnode",meta:{},__proto:{number:10}}}},"tree.TreeEntity":{name:"tree_entity",type:"TreeEntity",description:"TreeEntity with Tree",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{data:{description:"contains a tree.Tree",type:"tree.Tree",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"tree.Navigationnode":{name:"navigationnode",type:"Navigationnode",description:"Item of the navigationtree",__proto:{package:"tree",imports:["furo/link.proto"],targetfile:"tree.proto"},fields:{id:{description:"Id of the node",type:"string",__proto:{number:1}},display_name:{description:"String representation of the node",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},icon:{description:"icon of the node",type:"string",__proto:{number:5}},panel:{description:"Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)",type:"string",meta:{readonly:!0,"tree-search-index":!1},__proto:{number:6}},key_words:{description:"key words of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:7}},has_error:{description:"if node has error",type:"bool",__proto:{number:8}},open:{description:"node is open or not",type:"bool",__proto:{number:9}},link:{description:"Deeplink information of this node",type:"furo.Link",__proto:{number:10}},is_group_label:{description:"This node is a group label",type:"bool",meta:{default:!1},__proto:{number:11}},children:{description:"Children of this node",type:"tree.Navigationnode",meta:{repeated:!0},__proto:{number:12}}}},"tree.TreeCollection":{name:"tree_collection",type:"TreeCollection",description:"TreeCollection with repeated TreeEntity",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a tree.TreeEntity repeated",type:"tree.TreeEntity",meta:{repeated:!0},__proto:{number:4}}}},"projectfilter.ProjectfilterEntity":{name:"projectfilter_entity",type:"ProjectfilterEntity",description:"ProjectfilterEntity with Projectfilter",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{data:{description:"contains a projectfilter.Projectfilter",type:"projectfilter.Projectfilter",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"projectfilter.Projectfilter":{name:"projectfilter",type:"Projectfilter",description:"Options for possible filter values",__proto:{package:"projectfilter",options:{},imports:["google/type/date.proto","google/type/money.proto","furo/reference.proto"],targetfile:"projectfilter.proto"},fields:{description:{description:"Filter preset for field description from resource projects",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:1}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:2}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:3}},members:{description:"List of possible project members",type:"furo.Reference",meta:{label:"Choose person",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}}},constraints:{},__proto:{number:4}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{},__proto:{number:5}}}},"projectfilter.ProjectfilterCollection":{name:"projectfilter_collection",type:"ProjectfilterCollection",description:"ProjectfilterCollection with repeated ProjectfilterEntity",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a projectfilter.ProjectfilterEntity repeated",type:"projectfilter.ProjectfilterEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthCollection":{name:"auth_collection",type:"AuthCollection",description:"AuthCollection with repeated AuthEntity",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a auth.AuthEntity repeated",type:"auth.AuthEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthEntity":{name:"auth_entity",type:"AuthEntity",description:"AuthEntity with Auth",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{data:{description:"contains a auth.Auth",type:"auth.Auth",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"auth.Auth":{name:"auth",type:"Auth",description:"autogenerated",__proto:{package:"auth",options:{},imports:[],targetfile:"auth.proto"},fields:{id:{description:"Identity of Auth",type:"string",meta:{label:"Id",default:"",hint:""},constraints:{},__proto:{number:1}},username:{type:"string",description:"The unique username, ussualy an email address",meta:{label:"Username",hint:""},constraints:{},__proto:{number:2}},password:{type:"string",description:"Das _neue_ Kennwort des Benutzers",meta:{label:"Password",hint:"Look under your keyboard"},constraints:{},__proto:{number:3}},role:{type:"string",description:"",meta:{label:"Role",hint:""},constraints:{},__proto:{number:4}}}},"person.Person":{name:"person",type:"Person",description:"Person message type",__proto:{package:"person",imports:["google/protobuf/types/known/field_mask.proto"],targetfile:"person.proto"},fields:{id:{description:"Identity of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},name:{description:"Name of a person",type:"string",meta:{label:"Name",default:"",hint:""},constraints:{required:{is:"true",message:"you must enter a name"}},__proto:{number:3}},first_name:{description:"First name of a person",type:"string",meta:{label:"First name",default:"",hint:""},constraints:{},__proto:{number:4},__ui:{component:"furo-data-text-input"}},phone_nr:{description:"Internal phone number",type:"string",meta:{label:"Phone No",default:"",hint:""},constraints:{},__proto:{number:5}},skills:{description:"List of main skills of a person",type:"string",meta:{label:"Skills",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.types.known.FieldMask",meta:{},constraints:{},__proto:{number:7}}}},"person.PersonCollection":{name:"person_collection",type:"PersonCollection",description:"PersonCollection with repeated PersonEntity",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a person.PersonEntity repeated",type:"person.PersonEntity",meta:{repeated:!0},__proto:{number:4}}}},"person.PersonEntity":{name:"person_entity",type:"PersonEntity",description:"PersonEntity with Person",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{data:{description:"contains a person.Person",type:"person.Person",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.ProjectCollection":{name:"project_collection",type:"ProjectCollection",description:"ProjectCollection with repeated ProjectEntity",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a project.ProjectEntity repeated",type:"project.ProjectEntity",meta:{repeated:!0},__proto:{number:4}}}},"project.ProjectEntity":{name:"project_entity",type:"ProjectEntity",description:"ProjectEntity with Project",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{data:{description:"contains a project.Project",type:"project.Project",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.Project":{name:"project",type:"Project",description:"Project description",__proto:{package:"project",imports:["google/protobuf/types/known/field_mask.proto","google/type/money.proto","google/type/date.proto","person/person.proto"],targetfile:"project.proto"},fields:{id:{description:"Identity of a project",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a project",type:"string",meta:{label:"Project",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:3}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:4}},description:{description:"Short project description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:5}},members:{description:"List of project members",type:"person.Person",meta:{label:"Project members",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:25e3,message:"max 25000"}},__ui:{component:"",flags:["align-right"]},__proto:{number:7}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.types.known.FieldMask",meta:{},constraints:{},__proto:{number:8}}}},"menu.Menuitem":{name:"menuitem",type:"Menuitem",description:"Item of a contextual menu",__proto:{package:"menu",options:{java_outer_classname:"MenuApi",java_package:"com.acme.menu"},imports:["google/protobuf/any.proto"],targetfile:"menu.proto"},fields:{icon:{description:"Leading icon of the menu",type:"string",__proto:{number:1}},display_name:{description:"String representation of the menu item. Menu item text",type:"string",meta:{readonly:!0},__proto:{number:2}},disabled:{description:"Display actions as disabled when they can only be used sometimes, under certain conditions. They should be displayed as disabled rather than removing them.",type:"bool",meta:{default:!1},__proto:{number:3}},command:{description:"Keyboard command hint",type:"string",meta:{},__proto:{number:4}},action:{description:"String representation of the menu item action",type:"string",meta:{},__proto:{number:5}},leading_divider:{description:"Item has a leading divider line",type:"bool",meta:{default:!1},__proto:{number:6}},children:{description:"Children of this item",type:"menu.Menuitem",meta:{repeated:!0},__proto:{number:7}},flags:{description:"Attribute flags e.g. important, negative, positive",type:"string",meta:{readonly:!0,repeated:!0},__proto:{number:8}},payload:{description:"Optional payload",type:"google.protobuf.Any",meta:{readonly:!0,repeated:!0},__proto:{number:9}}}},"task.TaskEntity":{name:"task_entity",type:"TaskEntity",description:"TaskEntity with Task",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{data:{description:"contains a task.Task",type:"task.Task",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"task.TaskCollection":{name:"task_collection",type:"TaskCollection",description:"TaskCollection with repeated TaskEntity",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a task.TaskEntity repeated",type:"task.TaskEntity",meta:{repeated:!0},__proto:{number:4}}}},"task.Task":{name:"task",type:"Task",description:"Task data description",__proto:{package:"task",imports:["furo/reference.proto"],targetfile:"task.proto"},fields:{id:{description:"Identity of a task",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a task",type:"string",meta:{label:"task.display_name.label",default:"",hint:"task.display_name.hint",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short task description",type:"string",meta:{label:"task.desc.label",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:180,message:"task.desc.maxlength"}},__proto:{number:3}},estimated_time:{description:"Estimated time in days",type:"int32",meta:{label:"Est. days",default:"",hint:""},constraints:{},__proto:{number:4}},owner:{description:"Owner of a task",type:"furo.Reference",meta:{label:"person.type.sex.label",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}},hint:"",no_result_hint:"",options:{list:[{id:"unknown",display_name:"person.type.sex.unknown.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"},{id:"female",display_name:"person.type.sex.female.label",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"male",display_name:"person.type.sex.male.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:5}},subtasks:{description:"List of subtasks",type:"task.Task",meta:{label:"Subtask",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}}}},"experiment.ExperimentEntity":{name:"experiment_entity",type:"ExperimentEntity",description:"ExperimentEntity with Experiment",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{data:{description:"contains a experiment.Experiment",type:"experiment.Experiment",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Constraints":{name:"experiment",type:"Constraints",description:"Test the Constraints",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto","google/type/money.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},max:{is:"12",message:"maximal 12"}},__proto:{number:2}},number:{description:"Short experiment description",type:"int32",meta:{label:"Valid values are 6,9,12",default:1,hint:""},constraints:{min:{is:"6",message:"Minimal number 6"},max:{is:"12",message:"maximal 12"},step:{is:"3",message:"step 3"}},__proto:{number:3}},text:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},min:{is:"6",message:"minimal 6"},max:{is:"12",message:"maximal 12"}},__proto:{number:4}},date:{description:"Well Known Type Date",type:"google.type.Date",meta:{label:"Date",default:"",hint:"",readonly:!1},constraints:{required:{is:"true",message:"is required"},min:{is:"2020-01-01",message:"min 01.01.2020"},max:{is:"9999-12-31",message:"max 31.12.9999"},step:{is:"30",message:"step 30 days"}},__proto:{number:5}},money:{description:"Well Known Type Money",type:"google.type.Money",meta:{label:"Money",default:{currency:"CHF"},hint:"",readonly:!1},constraints:{required:{is:"true",message:"is required"},min:{is:"1200.50",message:"min amount 1200.50"},max:{is:"100000.00",message:"max amount 100000.00"},step:{is:"1000.00",message:"only in steps of 1000"}},__proto:{number:6}}}},"experiment.Experiment":{name:"experiment",type:"Experiment",description:"experiment spec for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto","google/type/money.proto","google/protobuf/types/known/field_mask.proto","furo/property.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"Default Description",hint:""},constraints:{},__proto:{number:3}},furo_data_checkbox_input:{description:"field for furo_data_checkbox_input for testing",type:"bool",meta:{label:"checkbox_input",default:"",hint:"Hint",readonly:!1},constraints:{},__proto:{number:4}},furo_data_text_input:{description:"field for furo_data_text_input for testing",type:"string",meta:{label:"text_input",hint:"hint",readonly:!1},constraints:{required:{is:"true",message:"is required"},min:{is:3,message:"at least 3 characters"},max:{is:15,message:"15 characters maximum"},pattern:{is:"^a.*",message:"must start with a"}},__proto:{number:5}},furo_data_textarea_input:{description:"field for furo_data_textarea_input for testing",type:"string",meta:{label:"textarea_input",hint:"hint",readonly:!1,rows:3,cols:100},constraints:{},__proto:{number:6}},furo_data_time_input:{description:"field for furo-data-time-input for testing",type:"string",meta:{label:"time-input",hint:"hint",readonly:!1},constraints:{min:{is:"05:00",message:"From 05:00"},max:{is:"19:00",message:"to 19:00"},step:{is:"5",message:"step 5"}},__proto:{number:7}},furo_data_range_input:{description:"field for furo-data-range-input for testing",type:"string",meta:{label:"range-input",hint:"hint",readonly:!1},constraints:{min:{is:20,message:"From 20"},max:{is:50,message:"to 50"},step:{is:"2.5",message:"step 2.5"}},__proto:{number:8}},furo_data_number_input:{description:"field for furo-data-number-input for testing",type:"float",meta:{label:"number-input",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"from 1"},max:{is:555,message:"to 555"},step:{is:"3",message:"step 3"}},__proto:{number:9}},furo_data_color_input:{description:"field for furo-data-color-input for testing",type:"string",meta:{label:"color-input",hint:"hint",readonly:!1},constraints:{},__proto:{number:10}},furo_data_password_input:{description:"field for furo-data-password-input for testing",type:"string",meta:{label:"password-input",hint:"hint",readonly:!1},constraints:{min:{is:6,message:"min 6"},max:{is:15,message:"max 15"}},__proto:{number:11}},furo_data_search_input:{description:"field for furo-search-input for testing",type:"string",meta:{label:" search",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"min 1"},max:{is:15,message:"max 15"},pattern:{is:"a.*",message:"must start with a"}},__proto:{number:12}},furo_data_date_input:{description:"field for furo-data-date-input for testing",type:"string",meta:{label:"date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"5",message:"step 5"}},__proto:{number:13}},furo_data_bool_icon:{description:"field for furo-data-bool-icon for testing",type:"bool",meta:{label:"bool-icon input",hint:"hint",readonly:!1},constraints:{},__proto:{number:14}},the_any_type:{description:"field for testing any",type:"google.protobuf.Any",meta:{label:"can be anything",hint:"hint",readonly:!1},constraints:{},__proto:{number:15}},type_with_options:{description:"field for testing static options",type:"string",meta:{label:"String options",hint:"Choose one",options:{list:[{id:"option_1",display_name:"option_1",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_2",display_name:"option_2",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_3",display_name:"option_3",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:16}},type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields",repeated:!0},constraints:{},__proto:{number:17}},furo_data_date_input_google:{description:"field for furo-data-date-input for testing",type:"google.type.Date",meta:{label:"google-date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"2",message:"step 2"}},__proto:{number:18}},single_type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields"},constraints:{},__proto:{number:19}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:20}},furo_data_money_input:{description:"field for testing money type",type:"google.type.Money",meta:{readonly:!1,label:"Amount",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{required:{is:"true",message:"is required"},min:{is:0,message:"amount can not be negative"},max:{is:999999,message:"amount maximal 999999"},step:{is:.01,message:"step 0.01"}},__proto:{number:21}},furo_data_file_input:{description:"field for testing file type",type:"string",meta:{readonly:!1,repeated:!0,label:"Choose a file"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:22}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.types.known.FieldMask",meta:{},constraints:{},__proto:{number:23}}}},"experiment.Default":{name:"experiment",type:"Default",description:"Test the default value",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:3}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:4}},furo_data_checkbox_input:{description:"field for furo_data_checkbox_input for testing",type:"bool",meta:{label:"checkbox_input",default:"",hint:"Hint",readonly:!1},constraints:{},__proto:{number:5}}}},"experiment.Readonly":{name:"readonly",type:"Readonly",description:"Readonly spec for testing",__proto:{package:"experiment",targetfile:"experiment.proto",imports:["furo/property.proto","project/project.proto"],options:null},fields:{project:{type:"project.Project",description:"Identity of a experiment",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Id",hint:"",default:"",readonly:!0,repeated:!1,options:{list:[]}},constraints:null},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Recursive":{name:"recursive",type:"Recursive",description:"recursive type for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:2}},recursion:{description:"The recursion",type:"experiment.Recursive",meta:{label:"Recursio"},constraints:{},__proto:{number:3}}}},"experiment.ExperimentCollection":{name:"experiment_collection",type:"ExperimentCollection",description:"ExperimentCollection with repeated ExperimentEntity",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a experiment.ExperimentEntity repeated",type:"experiment.ExperimentEntity",meta:{repeated:!0},__proto:{number:4}}}},"experiment.Oneof":{name:"oneof",type:"Oneof",description:"oneof experiment spec for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto","google/type/money.proto","google/protobuf/field_mask.proto","furo/property.proto","enums/corpus.enum.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},enumexample:{description:"skalar in a group of complex",type:"enums.Corpus",meta:{},constraints:{},__proto:{number:29}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2,oneof:"aaa"}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"Default Description",hint:""},constraints:{},__proto:{number:3,oneof:"bbb"}},furo_data_checkbox_input:{description:"field for furo_data_checkbox_input for testing",type:"bool",meta:{label:"checkbox_input",default:"",hint:"Hint",readonly:!1},constraints:{},__proto:{number:4,oneof:"aaa"}},furo_data_text_input:{description:"field for furo_data_text_input for testing",type:"string",meta:{label:"text_input",hint:"hint",readonly:!1},constraints:{required:{is:"true",message:"is required"},min:{is:3,message:"at least 3 characters"},max:{is:15,message:"15 characters maximum"},pattern:{is:"^a.*",message:"must start with a"}},__proto:{number:5,oneof:"bbb"}},furo_data_file_input:{description:"field for testing file type",type:"string",meta:{readonly:!1,repeated:!0,label:"Choose a file"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:22}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.types.known.FieldMask",meta:{},constraints:{},__proto:{number:23,oneof:"complex"}},other_mask:{description:"for oneof test purposes only",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:24,oneof:"complex"}},value:{description:"skalar in a group of complex",type:"bool",meta:{},constraints:{},__proto:{number:25,oneof:"complex"}}}},"universaltest.Universaltest":{name:"universaltest",type:"Universaltest",description:"oneof experiment spec for testing",__proto:{package:"universaltest",imports:["google/protobuf/wrappers.proto","furo/fat/fat.proto"],targetfile:"universaltest.proto"},fields:{id:{description:"Identity of a universaltes type",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:1}},scalar_string:{description:"field of a scalar string for the Universaltest",type:"string",meta:{label:"skalar string",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:2,oneof:null}},wrapper_string:{description:"field of a wrapper string for the Universaltest",type:"google.protobuf.StringValue",meta:{label:"wrapper string",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:3,oneof:null}},fat_string:{description:"field of a fat string for the Universaltest",type:"furo.fat.String",meta:{label:"fat string",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:4,oneof:null}},scalar_int32:{description:"field of a scalar int32 for the Universaltest",type:"int32",meta:{label:"skalar int",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:5,oneof:null}},wrapper_int32:{description:"field of a wrapper int32 for the Universaltest",type:"google.protobuf.Int32Value",meta:{label:"skalar int",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:6,oneof:null}},fat_int32:{description:"field of a fat int32 for the Universaltest",type:"furo.fat.Int32",meta:{label:"fat int32",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:7,oneof:null}},fat_string_list:{description:"field of a fat string for the Universaltest",type:"furo.fat.String",meta:{label:"fat string with options",default:"",hint:"hint message",readonly:!1,options:{list:[{id:"unknown",display_name:"person.type.sex.unknown.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"},{id:"female",display_name:"person.type.sex.female.label",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"male",display_name:"person.type.sex.male.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{"value.required":{is:"true",message:"is required"},"value.min":{is:3,message:"at least 3 characters"},"value.max":{is:15,message:"15 characters maximum"},"value.pattern":{is:"^a.*",message:"must start with a"}},__proto:{number:8,oneof:null}},wrapper_bool:{description:"field of a wrapper boolean for the Universaltest",type:"google.protobuf.BoolValue",meta:{label:"google wrapper boolean",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:9,oneof:null}},fat_bool:{description:"field of a fat bool for the Universaltest",type:"furo.fat.Bool",meta:{label:"fat bool",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:10,oneof:null}},fat_string_repeated:{description:"field of repeated fat string for the Universaltest",type:"furo.fat.String",meta:{label:"fat bool",default:"",hint:"",readonly:!1,repeated:!0},constraints:{},__proto:{number:11,oneof:null}}}},"universaltest.UniversaltestEntity":{name:"universaltest_entity",type:"UniversaltestEntity",description:"UniversaltestEntity with Universaltest type in data",__proto:{package:"universaltest",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"universaltest.proto"},fields:{data:{description:"contains a universaltest.Universaltest",type:"universaltest.Universaltest",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"furo.Reference":{name:"reference",type:"Reference",description:"reference",__proto:{package:"furo",imports:["furo/link.proto"],targetfile:"reference.proto"},fields:{display_name:{description:"String representation of the reference",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"Id of the reference",type:"string",__proto:{number:2}},link:{description:"Hateoas link",type:"furo.Link",__proto:{number:3}}}},"furo.MetaField":{name:"metafield",type:"MetaField",description:"fields of meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{meta:{description:"meta information of a field",type:"furo.FieldMeta",__proto:{number:1}},constraints:{description:"constraints for a field",type:"map<string,furo.FieldConstraint>",__proto:{number:2}}}},"furo.StringOptionProperty":{name:"string_option_property",type:"StringOptionProperty",description:"String type to use in property",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{display_name:{description:"String representation of val",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"The value, Id is used to make working with data-inputs easier",type:"string",__proto:{number:2}}}},"furo.Optionitem":{name:"optionitem",type:"Optionitem",description:"Items for fieldoption.list",__proto:{package:"furo",targetfile:"meta.proto",imports:[],options:null},fields:{id:{type:"string",description:"Id",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Id",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},display_name:{type:"string",description:"String representation",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Display name",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},selected:{type:"bool",description:"is the item selected",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Selected",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null}}},"furo.NumberProperty":{name:"number_property",type:"NumberProperty",description:"Number type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"data part",type:"float",__proto:{number:1}}}},"furo.Fieldoption":{name:"fieldoption",type:"Fieldoption",description:"Metas for a field",__proto:{package:"furo",targetfile:"meta.proto",imports:["google/protobuf/any.proto"],options:null},fields:{list:{type:"google.protobuf.Any",description:"a list with options, use furo.optionitem or your own",__proto:{number:1},__ui:{component:"",flags:["full","condensed"],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:null}},constraints:null},flags:{type:"string",description:"Add flags for your field. This can be something like \"searchable\". \n//The flags can be used by generators, ui components,...\n",__proto:{number:2},__ui:{component:null,flags:[],no_init:!1,no_skip:!1},meta:{label:"flags",hint:"optional flags",default:null,readonly:!1,repeated:!0,options:{list:[],flags:null},typespecific:null},constraints:null}}},"furo.StringProperty":{name:"string_property",type:"StringProperty",description:"String type to use in property",__proto:{package:"furo",imports:["furo/meta.proto"],targetfile:"property.proto"},fields:{data:{description:"data part",type:"string",__proto:{number:1}}}},"furo.Meta":{name:"meta",type:"Meta",description:"meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{fields:{description:"fields of meta info",type:"map<string, furo.MetaField>",__proto:{number:1}}}},"furo.IntegerProperty":{name:"integer_property",type:"IntegerProperty",description:"Integer type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"Integer data part",type:"int32",constraints:{step:{is:1}},__proto:{number:1}}}},"furo.Link":{name:"link",type:"Link",description:"link",__proto:{package:"furo",imports:[],targetfile:"link.proto"},fields:{rel:{description:"the relationship",type:"string",__proto:{number:1}},method:{description:"method of curl",type:"string",__proto:{number:2}},href:{description:"link",type:"string",__proto:{number:3}},type:{description:"mime type",type:"string",__proto:{number:4}},service:{description:"name of the service which can handle this link",type:"string",__proto:{number:5}}}},"furo.FieldMeta":{name:"fieldmeta",type:"FieldMeta",description:"Metas for a field",__proto:{package:"furo",options:{},imports:["google/protobuf/any.proto"],targetfile:"meta.proto"},fields:{label:{description:"The label",type:"string",meta:{label:"Label",hint:"Also used for input-fields"},__proto:{number:1}},hint:{description:"A hint",type:"string",meta:{label:"Hint",hint:"Also used for input-fields"},__proto:{number:2}},default:{description:"The default value as JSON string",type:"string",meta:{label:"Default value"},__proto:{number:3}},readonly:{description:"readonly",type:"bool",meta:{label:"readonly"},__proto:{number:4}},repeated:{description:"repeated",type:"bool",meta:{label:"repeated"},__proto:{number:5}},options:{description:"Fieldoptions",type:"furo.Fieldoption",meta:{label:"options"},__proto:{number:6}},typespecific:{description:"Put in type specific metas for your fields here",type:"google.protobuf.Any",meta:{label:"typespecific meta"},__proto:{number:7},__ui:{no_init:!0}}}},"furo.FieldConstraint":{name:"fieldconstraint",type:"FieldConstraint",description:"a single fieldconstraint",__proto:{package:"furo",options:{},imports:[],targetfile:"meta.proto"},fields:{is:{description:"the constraint value as string, even it is a number",type:"string",meta:{label:"is",hint:"the constraint value as string, even it is a number"},__proto:{number:1}},message:{description:"The message to display on constraint violation",type:"string",meta:{label:"message"},__proto:{number:2}}}},"furo.BigDecimal":{name:"big_decimal",type:"BigDecimal",description:"A BigDecimal is defined by two values: an arbitrary precision integer and a 32-bit integer scale. The value of the BigDecimal is defined to be unscaledValue*10^{-scale}.",__proto:{package:"furo",imports:[],targetfile:"bigdecimal.proto"},fields:{display_name:{description:"String representation of BigDecimal entity",type:"string",meta:{readonly:!0},constraints:{},options:[],__proto:{number:1}},scale:{description:"If zero or positive, the scale is the number of digits to the right of the decimal point. If negative, the unscaled value of the number is multiplied by ten to the power of the negation of the scale. For example, a scale of -3 means the unscaled value is multiplied by 1000.",type:"int32",meta:{},constraints:{},options:[],__proto:{number:2}},int_val:{description:"The integer value of the BigDecimal",type:"int64",meta:{},constraints:{},options:[],__proto:{number:3}}}},"furo.fat.Int64":{name:"int64",type:"Int64",description:"Furo annotated type wrapper message for `int64`. The range constraints are set to Number.MIN_SAFE_INTEGER - Number.MAX_SAFE_INTEGER because of browser limitations",__proto:{package:"furo.fat",targetfile:"fat.proto",imports:[],options:{}},fields:{value:{type:"int64",description:"The JSON representation for `Int64Value` is JSON number, range is set to Number.MIN_SAFE_INTEGER - Number.MAX_SAFE_INTEGER",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{min:{is:"-9007199254740991",message:"out of range"},max:{is:"9007199254740991",message:"out of range"}}},labels:{type:"string",description:"Labels / flags for the value, something like unspecified, empty, confidential, absent,... Can be used for AI, UI, Business Logic,...",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:{}}},constraints:{}},attributes:{type:"map<string,string>",description:"Attributes for a value, something like confidential-msg: you are not allowed to see this value ",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}}}},"furo.fat.Empty":{name:"empty",type:"Empty",description:"Furo annotated type wrapper message for `empty`. Empty has no values and only contains the labels and attributes",__proto:{package:"furo.fat",targetfile:"fat.proto",imports:[],options:{}},fields:{labels:{type:"string",description:"Labels / flags for the value, something like unspecified, empty, confidential, absent,... Can be used for AI, UI, Business Logic,...",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:{}}},constraints:{}},attributes:{type:"map<string,string>",description:"Attributes for a value, something like confidential-msg: you are not allowed to see this value ",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}}}},"furo.fat.Int32":{name:"int32",type:"Int32",description:"Furo annotated type wrapper message for `int32`.",__proto:{package:"furo.fat",targetfile:"fat.proto",imports:[],options:{}},fields:{value:{type:"int32",description:"The JSON representation for `Int32Value` is JSON number",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{min:{is:"\u22122147483648",message:"out of range"},max:{is:"2147483647",message:"out of range"}}},labels:{type:"string",description:"Labels / flags for the value, something like unspecified, empty, confidential, absent,... Can be used for AI, UI, Business Logic,...",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:{}}},constraints:{}},attributes:{type:"map<string,string>",description:"Attributes for a value, something like confidential-msg: you are not allowed to see this value ",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}}}},"furo.fat.Double":{name:"double",type:"Double",description:"Furo annotated type wrapper message for `double`. The range constraints are set to Number.MIN_SAFE_INTEGER - Number.MAX_SAFE_INTEGER because of browser limitations",__proto:{package:"furo.fat",targetfile:"fat.proto",imports:[],options:{}},fields:{value:{type:"double",description:"The JSON representation for `DoubleValue` is JSON number, range is set to Number.MIN_SAFE_INTEGER - Number.MAX_SAFE_INTEGER",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{min:{is:"-9007199254740991",message:"out of range"},max:{is:"9007199254740991",message:"out of range"}}},labels:{type:"string",description:"Labels / flags for the value, something like unspecified, empty, confidential, absent,... Can be used for AI, UI, Business Logic,...",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:{}}},constraints:{}},attributes:{type:"map<string,string>",description:"Attributes for a value, something like confidential-msg: you are not allowed to see this value ",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}}}},"furo.fat.Uint64":{name:"uint64",type:"Uint64",description:"Furo annotated type wrapper message for `uint64`.  The range constraints are set to Number.MAX_SAFE_INTEGER because of browser limitations",__proto:{package:"furo.fat",targetfile:"fat.proto",imports:[],options:{}},fields:{value:{type:"uint64",description:"The JSON representation for `Uint64Value` is JSON number, range is set to 0 - Number.MAX_SAFE_INTEGER",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{min:{is:"0",message:"out of range"},max:{is:"9007199254740991",message:"out of range"}}},labels:{type:"string",description:"Labels / flags for the value, something like unspecified, empty, confidential, absent,... Can be used for AI, UI, Business Logic,...",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:{}}},constraints:{}},attributes:{type:"map<string,string>",description:"Attributes for a value, something like confidential-msg: you are not allowed to see this value ",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}}}},"furo.fat.Uint32":{name:"uint32",type:"Uint32",description:"Furo annotated type wrapper message for `uint32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"furo.fat",targetfile:"fat.proto",imports:[],options:{}},fields:{value:{type:"uint32",description:"The JSON representation for `Uint32Value` is JSON number",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{min:{is:"0",message:"out of range"},max:{is:"4294967295",message:"out of range"}}},labels:{type:"string",description:"Labels / flags for the value, something like unspecified, empty, confidential, absent,... Can be used for AI, UI, Business Logic,...",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:{}}},constraints:{}},attributes:{type:"map<string,string>",description:"Attributes for a value, something like confidential-msg: you are not allowed to see this value ",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}}}},"furo.fat.Any":{name:"any",type:"Any",description:"Furo annotated type wrapper message for `any`. \n// Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto",__proto:{package:"furo.fat",targetfile:"fat.proto",imports:[],options:{}},fields:{value:{type:"bytes",description:"The JSON representation for `AnyValue` is a JSON string? The client uses type `ArrayBuffer` for the value field.",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}},labels:{type:"string",description:"Labels / flags for the value, something like unspecified, empty, confidential, absent,... Can be used for AI, UI, Business Logic,...",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:{}}},constraints:{}},attributes:{type:"map<string,string>",description:"Attributes for a value, something like confidential-msg: you are not allowed to see this value ",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}}}},"furo.fat.Float":{name:"float",type:"Float",description:"Furo annotated type wrapper message for `float`. The range constraints are set to Number.MIN_SAFE_INTEGER - Number.MAX_SAFE_INTEGER because of browser limitations",__proto:{package:"furo.fat",targetfile:"fat.proto",imports:[],options:{}},fields:{value:{type:"float",description:"The JSON representation for `FloatValue` is JSON number",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{min:{is:"-9007199254740991",message:"out of range"},max:{is:"9007199254740991",message:"out of range"}}},labels:{type:"string",description:"Labels / flags for the value, something like unspecified, empty, confidential, absent,... Can be used for AI, UI, Business Logic,...",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:{}}},constraints:{}},attributes:{type:"map<string,string>",description:"Attributes for a value, something like confidential-msg: you are not allowed to see this value ",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}}}},"furo.fat.Bytes":{name:"bytes",type:"Bytes",description:"Furo annotated type wrapper message for `bytes`.",__proto:{package:"furo.fat",targetfile:"fat.proto",imports:[],options:{}},fields:{value:{type:"bytes",description:"The JSON representation for `BytesValue` is a JSON string",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}},labels:{type:"bytes",description:"Labels / flags for the value, something like unspecified, empty, confidential, absent,... Can be used for AI, UI, Business Logic,...",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:{}}},constraints:{}},attributes:{type:"map<string,string>",description:"Attributes for a value, something like confidential-msg: you are not allowed to see this value ",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}}}},"furo.fat.String":{name:"string",type:"String",description:"Furo annotated type wrapper message for `string`.",__proto:{package:"furo.fat",targetfile:"fat.proto",imports:[],options:{}},fields:{value:{type:"string",description:"The JSON representation for `StringValue` is a JSON string",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}},labels:{type:"string",description:"Labels / flags for the value, something like unspecified, empty, confidential, absent,... Can be used for AI, UI, Business Logic,...",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:{}}},constraints:{}},attributes:{type:"map<string,string>",description:"Attributes for a value, something like confidential-msg: you are not allowed to see this value ",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}}}},"furo.fat.Bool":{name:"bool",type:"Bool",description:"Furo annotated type wrapper message for `bool`.",__proto:{package:"furo.fat",targetfile:"fat.proto",imports:[],options:{}},fields:{value:{type:"bool",description:"The JSON representation for `BoolValue` is a JSON boolean",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}},labels:{type:"bool",description:"Labels / flags for the value, something like unspecified, empty, confidential, absent,... Can be used for AI, UI, Business Logic,...",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[],flags:{}}},constraints:{}},attributes:{type:"map<string,string>",description:"Attributes for a value, something like confidential-msg: you are not allowed to see this value ",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[],flags:{}}},constraints:{}}}},"furo.Property":{name:"property",type:"Property",description:"Type to define property values with type information",__proto:{package:"furo",imports:["google/protobuf/any.proto"],targetfile:"property.proto"},fields:{id:{description:"Id of the property",type:"string",meta:{label:"Id"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"String representation of the property",type:"string",meta:{label:"Property",readonly:!0},constraints:{},__proto:{number:2}},data:{description:"data part of the property",type:"google.protobuf.Any",constraints:{},__proto:{number:3}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:4}},code:{description:"property code for additional settings",type:"string",__proto:{number:5}},flags:{description:"Optional attribute flags e.g. is-overwritable",type:"string",meta:{readonly:!0,repeated:!0},__proto:{number:6}},is_overwritten:{description:"Optional flag indicating that the property differs from the original value",type:"bool",meta:{},constraints:{},__proto:{number:7}}}},"google.type.Money":{name:"money",type:"Money",description:"Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto",__proto:{package:"google.type",imports:[],targetfile:"money.proto"},fields:{display_name:{description:"String representation of money entity",type:"string",meta:{default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:1}},currency_code:{description:"The 3-letter currency code defined in ISO 4217.",type:"string",meta:{label:"W\xE4hrungscode",default:"",hint:""},constraints:{},options:[],__proto:{number:2}},units:{description:"The whole units of the amount.",type:"int64",meta:{label:"Ganzahliger W\xE4hrungsbetrag",default:"",hint:""},constraints:{},options:[],__proto:{number:3}},nanos:{description:"Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",type:"int64",meta:{label:"Nanos",default:"",hint:""},constraints:{},options:[],__proto:{number:4}}}},"google.type.Date":{name:"date",type:"Date",description:"Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto ",__proto:{package:"google.type",imports:[],targetfile:"date.proto"},fields:{display_name:{description:"Localized String representation of date",type:"string",meta:{label:"Datum",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:4}},year:{description:"Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:1}},month:{description:"Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:2}},day:{description:"Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:3}}}},"google.protobuf.types.known.FieldMask":{name:"field_mask",type:"FieldMask",description:"A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto",__proto:{package:"google.protobuf.types.known",options:{},imports:[],targetfile:"field_mask.proto"},fields:{paths:{description:"The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable.",type:"string",meta:{repeated:!0},__proto:{number:1}}}},"google.protobuf.StringValue":{name:"stringvalue",type:"StringValue",description:"Wrapper message for `string`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `StringValue` is JSON string",type:"string",__proto:{number:1}}}},"google.protobuf.Int64Value":{name:"int64value",type:"Int64Value",description:"Wrapper message for `int64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int64Value` is JSON string",type:"int64",__proto:{number:1}}}},"google.protobuf.Empty":{name:"empty",type:"Empty",description:"https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto",__proto:{package:"google.protobuf",imports:[],targetfile:"empty.proto",options:{}},fields:{}},"google.protobuf.Int32Value":{name:"int32value",type:"Int32Value",description:"Wrapper message for `int32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int32Value` is JSON number",type:"int32",__proto:{number:1},constraints:{min:{is:"\u22122147483648",message:"out of range"},max:{is:"2147483647",message:"out of range"}}}}},"google.protobuf.BoolValue":{name:"boolvalue",type:"BoolValue",description:"Wrapper message for `bool`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BoolValue` is JSON `true` and `false`",type:"bool",__proto:{number:1}}}},"google.protobuf.FloatValue":{name:"floatvalue",type:"FloatValue",description:"Wrapper message for `float`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `FloatValue` is JSON number",type:"float",__proto:{number:1}}}},"google.protobuf.BytesValue":{name:"bytesvalue",type:"BytesValue",description:"Wrapper message for `bytes`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BytesValue` is JSON string",type:"bytes",__proto:{number:1}}}},"google.protobuf.Any":{name:"any",type:"Any",description:"Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"any.proto"},fields:{type_url:{type:"string",__proto:{number:1}},value:{type:"bytes",__proto:{number:2}}}},"google.protobuf.UInt32Value":{name:"uint32value",type:"UInt32Value",description:"Wrapper message for `uint32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt32Value` is JSON number",type:"uint32",__proto:{number:1}}}},"google.protobuf.UInt64Value":{name:"uint64value",type:"UInt64Value",description:"Wrapper message for `uint64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt64Value` is JSON string",type:"uint64",__proto:{number:1}}}},"google.protobuf.DoubleValue":{name:"doublevalue",type:"DoubleValue",description:"Wrapper message for `double`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `DoubleValue` is JSON number",type:"double",__proto:{number:1}}}},"enums.Corpus":{name:"Corpus",description:"enum sample with aliases",__proto:{package:"enums",options:{},targetfile:"corpus.enum.proto",allow_alias:!0},values:{UNKNOWN:0,STARTED:1,RUNNING:1,COMPLETE:2},type:"Corpus",_isEnum:!0},"enums.Secondenum":{name:"Secondenum",description:"enum sample with aliases which should be in corpus.enum.proto",__proto:{package:"enums",options:{},targetfile:"corpus.enum.proto",allow_alias:!1},values:{DEFAULT:0,YOURS:1,THEIRS:2},type:"Secondenum",_isEnum:!0}};_exports.Types=Types;var data_environment={Services:Services,Types:Types};/**
     * Furo Base Icons
     * This is a set of the 24x24 icons from https://github.com/google/material-design-icons.
     *
@@ -2294,7 +2378,7 @@ MIXIN_MATCH.lastIndex=0;VAR_ASSIGN.lastIndex=0;return has}var commonUtils={updat
        * the desired `orange`. This leads us to a limitation.
        *
        * Limitation 1:
-
+      
        * Only properties in the rule where the `@apply`
        * is used are considered as default values.
        * If another rule matches the element and sets `background` with
@@ -2305,7 +2389,7 @@ MIXIN_MATCH.lastIndex=0;VAR_ASSIGN.lastIndex=0;return has}var commonUtils={updat
        *
        * When using Polymer's `updateStyles` api, new properties may not be set for
        * `@apply` properties.
-
+      
       */_exports.$commonUtils=commonUtils;"use strict";const APPLY_NAME_CLEAN=/;\s*/m,INITIAL_INHERIT=/^\s*(initial)|(inherit)\s*$/,IMPORTANT=/\s*!important/,MIXIN_VAR_SEP="_-_";/**
                               * @typedef {!Object<string, string>}
                               */let PropertyEntry,DependantsEntry,MixinMapEntry;// eslint-disable-line no-unused-vars
@@ -2520,14 +2604,14 @@ template[CURRENT_VERSION]=template[NEXT_VERSION];template._validating=!1})}}/**
                        This interface is provided to add document-level <style> elements to ShadyCSS for processing.
                        These styles must be processed by ShadyCSS to simulate ShadowRoot upper-bound encapsulation from outside styles
                        In addition, these styles may also need to be processed for @apply rules and CSS Custom Properties
-
+                       
                        To add document-level styles to ShadyCSS, one can call `ShadyCSS.addDocumentStyle(styleElement)` or `ShadyCSS.addDocumentStyle({getStyle: () => styleElement})`
-
+                       
                        In addition, if the process used to discover document-level styles can be synchronously flushed, one should set `ShadyCSS.documentStyleFlush`.
                        This function will be called when calculating styles.
-
+                       
                        An example usage of the document-level styling api can be found in `examples/document-style-lib.js`
-
+                       
                        @unrestricted
                        */class CustomStyleInterface{constructor(){/** @type {!Array<!CustomStyleProvider>} */this.customStyles=[];this.enqueued=!1;// NOTE(dfreedm): use quotes here to prevent closure inlining to `function(){}`;
 documentWait(()=>{if(window.ShadyCSS.flushCustomStyles){window.ShadyCSS.flushCustomStyles()}})}/**
@@ -2674,7 +2758,7 @@ return css`
         --spacing-l: 32px;
         --spacing-xl: 48px;
         --spacing-xxl: 96px;
-
+        
         /* Transition */
         --transition-duration: 200ms;
 
@@ -3118,7 +3202,7 @@ return Theme.getThemeForComponent("ViewHome")||css`
                 text-decoration: none;
                 line-height: 26px;
                 vertical-align: unset;
-
+                
                 align-content: start;
                 font-weight: 500;
                 color: var(--accent);
@@ -3166,7 +3250,7 @@ return Theme.getThemeForComponent("ViewHome")||css`
 
             .content {
                 padding: var(--spacing);
-
+                
             }
 
             .panel {
@@ -3253,7 +3337,7 @@ return html`
                         <h2 class="caption">Dont Like Frameworks?</h2>
                         <p>You can use the furo base components standalone.</p>
                         <p>You can also use the <strong><a href="https://furo.pro/guide/md/overview/">fbp</a></strong> without having the base components</p>
-
+                        
                     </div>
 
                 </furo-horizontal-flex>
@@ -3322,8 +3406,8 @@ return html`
 
                 <footer-bar></footer-bar>
             </div>
-
-
+            
+                
             </furo-vertical-flex>
         `}}window.customElements.define("view-home",ViewHome);class FuroButton extends FBP(LitElement){constructor(){super();this.label=this.innerText;this.disabled=!1;this.danger=!1}/**
      * Set the focus to the button
@@ -3647,9 +3731,9 @@ caller.value=input.value;/**
        * The start value. Changes will be notified with the `@-value-changed` event
        */value:{type:String},/**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
-       */label:{type:String,attribute:!0},/**
+       */label:{type:String,reflect:!0},/**
        * Set this attribute to autofocus the input field.
-       */autofocus:{type:Boolean},/**
+       */autofocus:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */disabled:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -3657,11 +3741,11 @@ caller.value=input.value;/**
        * helper for the label
        */_float:{type:Boolean},/**
        * Lets the placeholder always floating
-       */float:{type:Boolean},/**
+       */float:{type:Boolean,reflect:!0},/**
        * The hint text for the field.
-       */hint:{type:String},/**
+       */hint:{type:String,reflect:!0},/**
        * Text for errors
-       */errortext:{type:String},/**
+       */errortext:{type:String,reflect:!0},/**
        * Icon on the left side
        */leadingIcon:{type:String,attribute:"leading-icon"},/**
        * Icon on the right side
@@ -3669,9 +3753,9 @@ caller.value=input.value;/**
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
+       */condensed:{type:Boolean,reflect:!0},/**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
-       */filled:{type:Boolean},/**
+       */filled:{type:Boolean,reflect:!0},/**
        * error text
        */_errortext:{type:String}}}/**
      * Sets the value for the input field.
@@ -3787,6 +3871,12 @@ return Theme.getThemeForComponent("FuroColorInput")||css`
           border-bottom-left-radius: 4px;
         }
 
+        label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 56px;
+        }
+
         :host(:not([filled])) label {
           padding: 0 4px;
           border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
@@ -3814,6 +3904,7 @@ return Theme.getThemeForComponent("FuroColorInput")||css`
           flex: 1;
           -webkit-flex-basis: 0.000000001px;
           flex-basis: 0.000000001px;
+          min-width: 4px;
         }
 
         .ripple-line {
@@ -3959,6 +4050,13 @@ return Theme.getThemeForComponent("FuroColorInput")||css`
           top: 10px;
           font-size: 14px;
         }
+
+        :host([condensed]) label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 40px;
+        }
+
         :host([condensed]:not([filled])) label,
         :host([filled][condensed]) label {
           line-height: 40px;
@@ -4032,7 +4130,7 @@ return html`
       <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-color-input",FuroColorInput);class FuroCheckbox extends FBP(LitElement){_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{const input=e.composedPath()[0];this.checked=input.checked;this.value=input.checked});this._FBPAddWireHook("--focusReceived",()=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",()=>{this.focused=!1})}/**
+    `}}_exports.FuroColorInput=FuroColorInput;window.customElements.define("furo-color-input",FuroColorInput);var furoColorInput={FuroColorInput:FuroColorInput};_exports.$furoColorInput=furoColorInput;class FuroCheckbox extends FBP(LitElement){_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{const input=e.composedPath()[0];this.checked=input.checked;this.value=input.checked});this._FBPAddWireHook("--focusReceived",()=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",()=>{this.focused=!1})}/**
      * Sets the focus on the checkbox.
      */focus(){this._FBPTriggerWire("--focus")}/**
      * check the checkbox
@@ -4330,38 +4428,38 @@ return Theme.getThemeForComponent("FuroCheckbox")||css`
    *
    * All bubbling events from [furo-checkbox](furo-checkbox) will be fired, because furo-checkbox-input uses furo-checkbox internally.
    *
-   */constructor(){super();this.valid=!0;this.addEventListener("value-changed",e=>{this._value=e.detail})}_FBPReady(){super._FBPReady();// init value , when undefined then false
-this._value=!!this.value;this._FBPAddWireHook("--toggle",()=>{if(!this.disabled){this.toggle()}})}set value(v){this._value=v;this._FBPTriggerWire("--value",!!v)}get value(){return this._value}set checked(v){if(v){this.check()}else{this.uncheck()}}static get properties(){return{/**
+   */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();// init value , when undefined then false
+this._value=!!this.value;this._FBPAddWireHook("--labelClicked",()=>{if(!this.disabled){this.toggle()}})}set _value(v){this._FBPTriggerWire("--value",v)}set checked(v){if(v){this.check()}else{this.uncheck()}}static get properties(){return{/**
        * set this to true to indicate errors
        */error:{type:Boolean,reflect:!0},/**
        * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
        * This is different from the native attribute `value` of the input checkbox
-       */value:{type:Boolean},/**
+       */value:{type:Boolean},_value:{type:Boolean,reflect:!0},/**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
-       */label:{type:String,attribute:!0},/**
+       */label:{type:String,reflect:!0},/**
        * A Boolean attribute which, if present, means this checkbox is checked.
-       */checked:{type:Boolean},/**
+       */checked:{type:Boolean,reflect:!0},/**
        * Set this attribute to autofocus the input field.
-       */autofocus:{type:Boolean},/**
+       */autofocus:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */disabled:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */readonly:{type:Boolean,reflect:!0},/**
        * The hint text for the field.
-       */hint:{type:String},/**
+       */hint:{type:String,reflect:!0},/**
        * Text for errors
-       */errortext:{type:String},/**
+       */errortext:{type:String,reflect:!0},/**
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
+       */condensed:{type:Boolean,reflect:!0},/**
        * error text
        */_errortext:{type:String}}}/**
      * Sets the value for the checkbox.
      * @param {Boolean} v
-     */setValue(v){this.value=!!v}/**
+     */setValue(v){this.value=!!v;this._value=!!v}/**
      * toggle the checkbox
-     */toggle(){if(this.value){this.uncheck()}else{this.check()}}/**
+     */toggle(){this._FBPTriggerWire("--toggle")}/**
      * Setter method for errortext
      * @param {String} errortext
      * @private
@@ -4382,9 +4480,9 @@ this._value=!!this.value;this._FBPAddWireHook("--toggle",()=>{if(!this.disabled)
      * Makes the field writable.
      */enable(){this.readonly=!1}/**
      * check the checkbox
-     */check(){this.value=!0}/**
+     */check(){this._value=!0}/**
      * uncheck the checkbox
-     */uncheck(){this.value=!1}/**
+     */uncheck(){this._value=!1}/**
      *
      * @private
      * @return {CSSResult}
@@ -4554,14 +4652,15 @@ return html`
           ?condensed=${this.condensed}
           ƒ-set-value="--value"
           ƒ-focus="--focus"
+          ƒ-toggle="--toggle"
         ></furo-checkbox>
-        <label for="input" @-click="--toggle,--focus">${this.label}</label>
+        <label for="input" @-click="--labelClicked,--focus">${this.label}</label>
       </div>
 
       <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-checkbox-input",FuroCheckboxInput);class FuroDateInput extends FBP(LitElement){/**
+    `}}_exports.FuroCheckboxInput=FuroCheckboxInput;window.customElements.define("furo-checkbox-input",FuroCheckboxInput);var furoCheckboxInput={FuroCheckboxInput:FuroCheckboxInput};_exports.$furoCheckboxInput=furoCheckboxInput;class FuroDateInput extends FBP(LitElement){/**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
    *
@@ -4587,7 +4686,15 @@ return html`
      * Updater for the step attr
      *
      * @param value
-     */set step(value){Helper.UpdateInputAttribute(this,"step",value)}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}static get properties(){return{/**
+     */set step(value){Helper.UpdateInputAttribute(this,"step",value)}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{// fix for e.g. by date "01.01.2000" you just want to modify the day and begin to tap 0.
+// at this moment the value of input in wire `--inputInput` is empty.(a bug in date input?)
+// this value has to be prevented to be send to object. because this empty value will be set to input again via `--value`.
+// then the hole date is cleared.
+if(e.composedPath()[0].value){Helper.triggerValueChanged(this,e)}});// update value by focusout. This can guarantee that the clear-button works.
+// because by `--inputInput` the empty data was not sent to value. see the code obove
+this._FBPAddWireHook("--focusOutReceived",e=>{Helper.triggerValueChanged(this,e)})}set _value(v){this._float=!!v;if("object"===typeof v){this._FBPTriggerWire("--value",this._convertDateObjToString(v))}else{this._FBPTriggerWire("--value",v)}}// convert google date object to ISO 8601
+// eslint-disable-next-line class-methods-use-this
+_convertDateObjToString(obj){let date="";if(obj&&obj.day&&obj.month&&obj.year){let month=obj.month+"",day=obj.day+"",year=obj.year+"";if(2>month.length){month=`0${month}`}if(2>day.length){day=`0${day}`}if(4>year.length){const l=4-year.length;for(let i=0;i<l;i+=1){year=`0${year}`}}date=`${year}-${month}-${day}`}return date}static get properties(){return{/**
        * set this to true to indicate errors
        */error:{type:Boolean,reflect:!0},/**
        * The start value. Changes will be notified with the `@-value-changed` event
@@ -4612,6 +4719,9 @@ return html`
        *
        * This value must specify a date string earlier than or equal to the one specified by the max attribute.
        */min:{type:String},/**
+       * The required attribute, the value true means this field must be filled in
+       *
+       */required:{type:Boolean},/**
        * The latest date to accept, in the syntax described under Date value format
        *
        * A string indicating the latest date to accept, specified in the same [date value format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#Date_value_format). If the specified string isn't a valid date, no maximum value is set.
@@ -4752,6 +4862,12 @@ return Theme.getThemeForComponent("FuroDateInput")||css`
           border-bottom-left-radius: 4px;
         }
 
+        label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 56px;
+        }
+
         :host(:not([filled])) label {
           padding: 0 4px;
           border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
@@ -4779,6 +4895,7 @@ return Theme.getThemeForComponent("FuroDateInput")||css`
           flex: 1;
           -webkit-flex-basis: 0.000000001px;
           flex-basis: 0.000000001px;
+          min-width: 4px;
         }
 
         .ripple-line {
@@ -4925,6 +5042,12 @@ return Theme.getThemeForComponent("FuroDateInput")||css`
           font-size: 14px;
         }
 
+        :host([condensed]) label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 40px;
+        }
+
         :host([condensed]:not([filled])) label,
         :host([filled][condensed]) label {
           line-height: 40px;
@@ -4976,6 +5099,7 @@ return html`
             type="date"
             ƒ-.value="--value"
             @-input="--inputInput(*)"
+            @-focusout="--focusOutReceived(*)"
             ƒ-focus="--focus"
           />
         </div>
@@ -4987,14 +5111,20 @@ return html`
       </div>
       <div class="borderlabel">
         <div class="left-border"></div>
-        <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+        <label ?float="${this._float||this.float}" for="input"
+          ><span
+            >${this.label}${this.required?html`
+                  *
+                `:html``}</span
+          ></label
+        >
         <div class="right-border"></div>
       </div>
 
       <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-date-input",FuroDateInput);class FuroNumberInput extends FBP(LitElement){/**
+    `}}_exports.FuroDateInput=FuroDateInput;window.customElements.define("furo-date-input",FuroDateInput);var furoDateInput={FuroDateInput:FuroDateInput};_exports.$furoDateInput=furoDateInput;class FuroNumberInput extends FBP(LitElement){/**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
    *
@@ -5028,20 +5158,20 @@ return html`
        * The step attribute is a number that specifies the granularity that the value must adhere to, or the special value any, which is described below. Only values which are equal to the basis for stepping (min if specified, value otherwise, and an appropriate default value if neither of those is provided) are valid.
        *
        * A string value of any means that no stepping is implied, and any value is allowed (barring other constraints, such as min and max).
-       */step:{type:Number},/**
+       */step:{type:Number,reflect:!0},/**
        * The maximum value to accept for this input. If the value entered into the element exceeds this, the element fails constraint validation. If the value of the max attribute isn't a number, then the element has no maximum value.
        *
        * This value must be greater than or equal to the value of the min attribute.
-       */max:{type:Number},/**
+       */max:{type:Number,reflect:!0},/**
        * The minimum value to accept for this input. If the value of the element is less than this, the element fails constraint validation. If a value is specified for min that isn't a valid number, the input has no minimum value.
        *
        * This value must be less than or equal to the value of the max attribute.
-       */min:{type:Number},/**
+       */min:{type:Number,reflect:!0},/**
        * The required attribute, the value true means this field must be filled in
        *
-       */required:{type:Boolean},/**
+       */required:{type:Boolean,reflect:!0},/**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
-       */label:{type:String,attribute:!0},/**
+       */label:{type:String,attribute:!0,reflect:!0},/**
        * Set this attribute to autofocus the input field.
        */autofocus:{type:Boolean},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -5051,19 +5181,19 @@ return html`
        * helper for the label
        */_float:{type:Boolean},/**
        * Lets the placeholder always floating
-       */float:{type:Boolean},/**
+       */float:{type:Boolean,reflect:!0},/**
        * The hint text for the field.
-       */hint:{type:String},/**
+       */hint:{type:String,reflect:!0},/**
        * Text for errors
-       */errortext:{type:String},/**
+       */errortext:{type:String,reflect:!0},/**
        * Icon on the left side
-       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       */leadingIcon:{type:String,attribute:"leading-icon",reflect:!0},/**
        * Icon on the right side
-       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       */trailingIcon:{type:String,attribute:"trailing-icon",reflect:!0},/**
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
+       */condensed:{type:Boolean,reflect:!0},/**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
        */filled:{type:Boolean},/**
        * error text
@@ -5193,6 +5323,12 @@ return Theme.getThemeForComponent("FuroNumberInput")||css`
           border-bottom-left-radius: 4px;
         }
 
+        label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 56px;
+        }
+
         :host(:not([filled])) label span {
           top: 0;
           position: relative;
@@ -5230,6 +5366,7 @@ return Theme.getThemeForComponent("FuroNumberInput")||css`
           flex: 1;
           -webkit-flex-basis: 0.000000001px;
           flex-basis: 0.000000001px;
+          min-width: 4px;
         }
 
         .ripple-line {
@@ -5387,6 +5524,13 @@ return Theme.getThemeForComponent("FuroNumberInput")||css`
           top: 12px;
           font-size: 14px;
         }
+
+        :host([condensed]) label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 40px;
+        }
+
         :host([condensed]:not([filled])) label,
         :host([filled][condensed]) label {
           line-height: 40px;
@@ -5468,7 +5612,7 @@ return html`
       <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-number-input",FuroNumberInput);class FuroPasswordInput extends FBP(LitElement){/**
+    `}}_exports.FuroNumberInput=FuroNumberInput;window.customElements.define("furo-number-input",FuroNumberInput);var furoNumberInput={FuroNumberInput:FuroNumberInput};_exports.$furoNumberInput=furoNumberInput;class FuroPasswordInput extends FBP(LitElement){/**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
    *
@@ -5507,15 +5651,15 @@ return html`
        * The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.
        *
        * If the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.
-       */pattern:{type:String},/**
+       */pattern:{type:String,reflect:!0},/**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
-       */label:{type:String,attribute:!0},/**
+       */label:{type:String,reflect:!0},/**
        * The maximum number of characters (as UTF-16 code units) the user can enter into the password input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the password input has no maximum length. This value must also be greater than or equal to the value of minlength.
-       */max:{type:Number},/**
+       */max:{type:Number,reflect:!0},/**
        * The minimum number of characters (as UTF-16 code units) the user can enter into the password input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the password input has no minimum length.
-       */min:{type:Number},/**
+       */min:{type:Number,reflect:!0},/**
        * Set this attribute to autofocus the input field.
-       */autofocus:{type:Boolean},/**
+       */autofocus:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */disabled:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -5523,21 +5667,21 @@ return html`
        * helper for the label
        */_float:{type:Boolean},/**
        * Lets the placeholder always floating
-       */float:{type:Boolean},/**
+       */float:{type:Boolean,reflect:!0},/**
        * The hint text for the field.
-       */hint:{type:String},/**
+       */hint:{type:String,reflect:!0},/**
        * Text for errors
-       */errortext:{type:String},/**
+       */errortext:{type:String,reflect:!0},/**
        * Icon on the left side
-       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       */leadingIcon:{type:String,attribute:"leading-icon",reflect:!0},/**
        * Icon on the right side
-       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       */trailingIcon:{type:String,attribute:"trailing-icon",reflect:!0},/**
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
+       */condensed:{type:Boolean,reflect:!0},/**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
-       */filled:{type:Boolean},/**
+       */filled:{type:Boolean,reflect:!0},/**
        * error text
        */_errortext:{type:String}}}/**
      * Sets the value for the input field.
@@ -5670,6 +5814,12 @@ return Theme.getThemeForComponent("FuroPasswordInput")||css`
           border-bottom-left-radius: 4px;
         }
 
+        label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 56px;
+        }
+
         :host(:not([filled])) label span {
           top: 0;
           position: relative;
@@ -5707,6 +5857,7 @@ return Theme.getThemeForComponent("FuroPasswordInput")||css`
           flex: 1;
           -webkit-flex-basis: 0.000000001px;
           flex-basis: 0.000000001px;
+          min-width: 4px;
         }
 
         .ripple-line {
@@ -5865,6 +6016,13 @@ return Theme.getThemeForComponent("FuroPasswordInput")||css`
           top: 10px;
           font-size: 14px;
         }
+
+        :host([condensed]) label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 40px;
+        }
+
         :host([condensed]:not([filled])) label,
         :host([filled][condensed]) label {
           line-height: 40px;
@@ -5937,7 +6095,7 @@ return html`
       <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-password-input",FuroPasswordInput);class FuroRadioButton extends FBP(LitElement){_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{const input=e.composedPath()[0];this.checked=input.checked;this.value=input.checked});this._FBPAddWireHook("--focusReceived",()=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",()=>{this.focused=!1})}/**
+    `}}_exports.FuroPasswordInput=FuroPasswordInput;window.customElements.define("furo-password-input",FuroPasswordInput);var furoPasswordInput={FuroPasswordInput:FuroPasswordInput};_exports.$furoPasswordInput=furoPasswordInput;class FuroRadioButton extends FBP(LitElement){_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{const input=e.composedPath()[0];this.checked=input.checked;this.value=input.checked});this._FBPAddWireHook("--focusReceived",()=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",()=>{this.focused=!1})}/**
      * Sets the focus on the radiobutton.
      */focus(){this._FBPTriggerWire("--focus")}/**
      * check the radiobutton
@@ -6205,39 +6363,38 @@ return Theme.getThemeForComponent("FuroRadioButton")||css`
    *
    * All bubbling events from [furo-radio-button](furo-radio-button) will be fired, because furo-radio-button-input uses furo-radio-button internally.
    *
-   */constructor(){super();this.valid=!0;this.addEventListener("value-changed",e=>{this._value=e.detail})}_FBPReady(){super._FBPReady();// init value , when undefined then false
-this._value=!!this.value;this._FBPAddWireHook("--clicked",()=>{// only toggle when the radio button unchecked
-if(!this.disabled&&!this.value){this.toggle()}})}set value(v){this._value=v;this._FBPTriggerWire("--value",!!v)}get value(){return this._value}set checked(v){if(v){this.check()}else{this.uncheck()}}static get properties(){return{/**
+   */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();// init value , when undefined then false
+this._value=!!this.value;this._FBPAddWireHook("--labelClicked",()=>{if(!this.disabled){this.toggle()}})}set _value(v){this._FBPTriggerWire("--value",v)}set checked(v){if(v){this.check()}else{this.uncheck()}}static get properties(){return{/**
        * set this to true to indicate errors
        */error:{type:Boolean,reflect:!0},/**
        * The value of radio-button with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
        * This is different from the native attribute `value` of the input radio-button
        */value:{type:Boolean},/**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
-       */label:{type:String,attribute:!0},/**
+       */label:{type:String,reflect:!0},/**
        * A Boolean attribute which, if present, means this radio-button is checked.
-       */checked:{type:Boolean},/**
+       */checked:{type:Boolean,reflect:!0},/**
        * Set this attribute to autofocus the input field.
-       */autofocus:{type:Boolean},/**
+       */autofocus:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */disabled:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */readonly:{type:Boolean,reflect:!0},/**
        * The hint text for the field.
-       */hint:{type:String},/**
+       */hint:{type:String,reflect:!0},/**
        * Text for errors
-       */errortext:{type:String},/**
+       */errortext:{type:String,reflect:!0},/**
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
+       */condensed:{type:Boolean,reflect:!0},/**
        * error text
        */_errortext:{type:String}}}/**
-     * Sets the value for the radio-button.
+     * Sets the value for the checkbox.
      * @param {Boolean} v
-     */setValue(v){this.value=!!v}/**
-     * toggle the radio-button
-     */toggle(){if(this.value){this.uncheck()}else{this.check()}}/**
+     */setValue(v){this.value=!!v;this._value=!!v}/**
+     * toggle the checkbox
+     */toggle(){this._FBPTriggerWire("--toggle")}/**
      * Setter method for errortext
      * @param {String} errortext
      * @private
@@ -6258,9 +6415,9 @@ if(!this.disabled&&!this.value){this.toggle()}})}set value(v){this._value=v;this
      * Makes the field writable.
      */enable(){this.readonly=!1}/**
      * check the radio-button
-     */check(){this.value=!0}/**
+     */check(){this._value=!0}/**
      * uncheck the radio-button
-     */uncheck(){this.value=!1}/**
+     */uncheck(){this._value=!1}/**
      *
      * @private
      * @return {CSSResult}
@@ -6430,14 +6587,15 @@ return html`
           ?condensed=${this.condensed}
           ƒ-set-value="--value"
           ƒ-focus="--focus"
+          ƒ-toggle="--toggle"
         ></furo-radio-button>
-        <label for="input" @-click="--clicked,--focus">${this.label}</label>
+        <label for="input" @-click="--labelClicked,--focus">${this.label}</label>
       </div>
 
       <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-radio-button-input",FuroRadioButtonInput);class FuroRangeInput extends FBP(LitElement){/**
+    `}}_exports.FuroRadioButtonInput=FuroRadioButtonInput;window.customElements.define("furo-radio-button-input",FuroRadioButtonInput);var furoRadioButtonInput={FuroRadioButtonInput:FuroRadioButtonInput};_exports.$furoRadioButtonInput=furoRadioButtonInput;class FuroRangeInput extends FBP(LitElement){/**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
    *
@@ -6475,19 +6633,19 @@ return html`
        * The step attribute is a number that specifies the granularity that the value must adhere to, or the special value any, which is described below. Only values which are equal to the basis for stepping (min if specified, value otherwise, and an appropriate default value if neither of those is provided) are valid.
        *
        * A string value of any means that no stepping is implied, and any value is allowed (barring other constraints, such as min and max).
-       */step:{type:String},/**
+       */step:{type:String,reflect:!0},/**
        * The maximum value to accept for this input. If the value entered into the element exceeds this, the element fails constraint validation. If the value of the max attribute isn't a number, then the element has no maximum value.
        *
        * This value must be greater than or equal to the value of the min attribute.
-       */max:{type:Number},/**
+       */max:{type:Number,reflect:!0},/**
        * The minimum value to accept for this input. If the value of the element is less than this, the element fails constraint validation. If a value is specified for min that isn't a valid number, the input has no minimum value.
        *
        * This value must be less than or equal to the value of the max attribute.
-       */min:{type:Number},/**
+       */min:{type:Number,reflect:!0},/**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
        */label:{type:String,attribute:!0},/**
        * Set this attribute to autofocus the input field.
-       */autofocus:{type:Boolean},/**
+       */autofocus:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */disabled:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -6495,21 +6653,21 @@ return html`
        * helper for the label
        */_float:{type:Boolean},/**
        * Lets the placeholder always floating
-       */float:{type:Boolean},/**
+       */float:{type:Boolean,reflect:!0},/**
        * The hint text for the field.
-       */hint:{type:String},/**
+       */hint:{type:String,reflect:!0},/**
        * Text for errors
-       */errortext:{type:String},/**
+       */errortext:{type:String,reflect:!0},/**
        * Icon on the left side
-       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       */leadingIcon:{type:String,attribute:"leading-icon",reflect:!0},/**
        * Icon on the right side
-       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       */trailingIcon:{type:String,attribute:"trailing-icon",reflect:!0},/**
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
+       */condensed:{type:Boolean,reflect:!0},/**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
-       */filled:{type:Boolean},/**
+       */filled:{type:Boolean,reflect:!0},/**
        * error text
        */_errortext:{type:String}}}/**
      * Set the value for the field
@@ -6627,6 +6785,12 @@ return Theme.getThemeForComponent("FuroRangeInput")||css`
           border-bottom-left-radius: 4px;
         }
 
+        label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 56px;
+        }
+
         :host(:not([filled])) label {
           padding: 0 4px;
           border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
@@ -6654,6 +6818,7 @@ return Theme.getThemeForComponent("FuroRangeInput")||css`
           flex: 1;
           -webkit-flex-basis: 0.000000001px;
           flex-basis: 0.000000001px;
+          min-width: 4px;
         }
 
         .ripple-line {
@@ -6799,6 +6964,12 @@ return Theme.getThemeForComponent("FuroRangeInput")||css`
           font-size: 14px;
         }
 
+        :host([condensed]) label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 40px;
+        }
+
         :host([condensed]:not([filled])) label,
         :host([filled][condensed]) label {
           line-height: 40px;
@@ -6870,7 +7041,7 @@ return html`
       <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-range-input",FuroRangeInput);class FuroSearchInput extends FBP(LitElement){/**
+    `}}_exports.FuroRangeInput=FuroRangeInput;window.customElements.define("furo-range-input",FuroRangeInput);var furoRangeInput={FuroRangeInput:FuroRangeInput};_exports.$furoRangeInput=furoRangeInput;class FuroSearchInput extends FBP(LitElement){/**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
    *
@@ -6904,19 +7075,20 @@ return html`
        */error:{type:Boolean,reflect:!0},/**
        * The start value. Changes will be notified with the `@-value-changed` event
        */value:{type:String},/**
-       * The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.
+       * The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, in
+       * ad of as ASCII. No forward slashes should be specified around the pattern text.
        *
        * If the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.
-       */pattern:{type:String},/**
+       */pattern:{type:String,reflect:!0},/**
        * The required attribute, the value true means this field must be filled in
        *
-       */required:{type:Boolean},/**
+       */required:{type:Boolean,reflect:!0},/**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
-       */label:{type:String,attribute:!0},/**
+       */label:{type:String,reflect:!0},/**
        * The maximum number of characters (as UTF-16 code units) the user can enter into the search input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the search input has no maximum length. This value must also be greater than or equal to the value of minlength.
-       */max:{type:Number},/**
+       */max:{type:Number,reflect:!0},/**
        * The minimum number of characters (as UTF-16 code units) the user can enter into the search input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the search input has no minimum length.
-       */min:{type:Number},/**
+       */min:{type:Number,reflect:!0},/**
        * Set this attribute to autofocus the input field.
        */autofocus:{type:Boolean},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -6926,21 +7098,21 @@ return html`
        * helper for the label
        */_float:{type:Boolean},/**
        * Lets the placeholder always floating
-       */float:{type:Boolean},/**
+       */float:{type:Boolean,reflect:!0},/**
        * The hint text for the field.
-       */hint:{type:String},/**
+       */hint:{type:String,reflect:!0},/**
        * Text for errors
-       */errortext:{type:String},/**
+       */errortext:{type:String,reflect:!0},/**
        * Icon on the left side
-       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       */leadingIcon:{type:String,attribute:"leading-icon",reflect:!0},/**
        * Icon on the right side
-       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       */trailingIcon:{type:String,attribute:"trailing-icon",reflect:!0},/**
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
+       */condensed:{type:Boolean,reflect:!0},/**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
-       */filled:{type:Boolean},/**
+       */filled:{type:Boolean,reflect:!0},/**
        * error text
        */_errortext:{type:String}}}/**
      * Sets the value for the input field.
@@ -7069,6 +7241,12 @@ return Theme.getThemeForComponent("FuroSearchInput")||css`
           border-bottom-left-radius: 4px;
         }
 
+        label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 56px;
+        }
+
         :host(:not([filled])) label span {
           top: 0;
           position: relative;
@@ -7106,6 +7284,7 @@ return Theme.getThemeForComponent("FuroSearchInput")||css`
           flex: 1;
           -webkit-flex-basis: 0.000000001px;
           flex-basis: 0.000000001px;
+          min-width: 4px;
         }
 
         .ripple-line {
@@ -7279,6 +7458,12 @@ return Theme.getThemeForComponent("FuroSearchInput")||css`
           top: 12px;
         }
 
+        :host([condensed]) label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 40px;
+        }
+
         :host([condensed]) .borderlabel,
         :host([condensed]) .wrapper {
           height: 40px;
@@ -7351,8 +7536,8 @@ return html`
       <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-search-input",FuroSearchInput);// empty fbp element handler to have fbp scope
-class EmptyFBPNode extends FBP(HTMLElement){}window.customElements.define("empty-fbp-node",EmptyFBPNode);class FlowRepeat extends FBP(HTMLElement){constructor(){super();this.template=void 0;this._insertedItems=[]}/**
+    `}}_exports.FuroSearchInput=FuroSearchInput;window.customElements.define("furo-search-input",FuroSearchInput);var furoSearchInput={FuroSearchInput:FuroSearchInput};// empty fbp element handler to have fbp scope
+_exports.$furoSearchInput=furoSearchInput;class EmptyFBPNode extends FBP(HTMLElement){}window.customElements.define("empty-fbp-node",EmptyFBPNode);class FlowRepeat extends FBP(HTMLElement){constructor(){super();this.template=void 0;this._insertedItems=[]}/**
      * Clear the list
      */clear(){this.injectItems([])}/**
      * Triggers the wire --itemSelected on selected item and --itemDeSelected on last selected Item
@@ -7403,7 +7588,13 @@ console.warn("Out of index",this)}}}window.customElements.define("flow-repeat",F
        * detail payload: the value of the text input
        *
        * This event bubbles
-       */constructor(){super();this.step="any";this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}set _value(v){this._FBPTriggerWire("--value",v)}set value(v){this._v=v;this._value=v}get value(){return this._v}static get properties(){return{/**
+       */constructor(){super();this.step="any";this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{if(!this.multiple){Helper.triggerValueChanged(this,e)}else{const input=e.composedPath()[0],arrValue=[];Array.from(input.selectedOptions).forEach(o=>{if(!arrValue.includes(o.value)){arrValue.push(o.value)}});/**
+             * @event value-changed
+             * Fired when value has changed from inside the component
+             * detail payload: [] array of value
+             */const customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=arrValue;this.dispatchEvent(customEvent)}})}set _value(v){if(!this.multiple){this._FBPTriggerWire("--value",v)}else if(Array.isArray(v)&&this.selectOptions){this.selectOptions.forEach(o=>{if(v.includes(o.id)){// eslint-disable-next-line no-param-reassign
+o.selected=!0}else{// eslint-disable-next-line no-param-reassign
+o.selected=!1}});this._FBPTriggerWire("--selection",this.selectOptions)}}set value(v){if(!this.multiple){this._v=v;this._value=v}else if(JSON.stringify(v)!==JSON.stringify(this._v)){this._v=v;this._value=v}}get value(){return this._v}static get properties(){return{/**
        * set this to true to indicate errors
        */error:{type:Boolean,reflect:!0},/**
        * The start value. Changes will be notified with the `@-value-changed` event
@@ -7418,33 +7609,42 @@ console.warn("Out of index",this)}}}window.customElements.define("flow-repeat",F
        * With preselect state in data:
        *
        * [{"id":23,"label":"AAA","selected":false},{"id":44,"label":"BBB","selected":true}]
-       */options:{type:Array},/**
+       */options:{type:Array,reflect:!0},/**
        * Set a string list as options:
        *
        * "A, B, C"
        *
        * This will convert to options ["A","B","C"]
-       */list:{type:String},label:{type:String,attribute:!0},/**
+       */list:{type:String,reflect:!0},label:{type:String,reflect:!0},/**
        * Set this attribute to autofocus the input field.
-       */autofocus:{type:Boolean},/**
+       */autofocus:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */disabled:{type:Boolean,reflect:!0},/**
        * The hint text for the field.
-       */hint:{type:String},/**
+       */hint:{type:String,reflect:!0},/**
        * Text for errors
-       */errortext:{type:String},/**
+       */errortext:{type:String,reflect:!0},/**
        * Icon on the left side
-       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       */leadingIcon:{type:String,attribute:"leading-icon",reflect:!0},/**
        * Icon on the right side
-       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       */trailingIcon:{type:String,attribute:"trailing-icon",reflect:!0},/**
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
+       */condensed:{type:Boolean,reflect:!0},/**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
-       */filled:{type:Boolean},/**
+       */filled:{type:Boolean,reflect:!0},/**
        * error text
-       */_errortext:{type:String}}}/**
+       */_errortext:{type:String},/**
+       * The required attribute, the value true means this field must be filled in
+       *
+       */required:{type:Boolean,reflect:!0},/**
+       * the multiple selection. the value true means this select can be multiple options
+       */multiple:{type:Boolean,reflect:!0},/**
+       * the size of multiple selection
+       */size:{type:Number,reflect:!0},/**
+       * converted select options which value and selected
+       */selectOptions:{type:Array}}}/**
      * Set the value for the field
      * @param {String} the id of the selected item
      */setValue(num){this.value=num}/**
@@ -7474,7 +7674,9 @@ console.warn("Out of index",this)}}}window.customElements.define("flow-repeat",F
      * Makes the field writable.
      */enable(){this.disabled=!1}set options(collection){// convert array list to id, label structure
 if("string"===typeof collection[0]){// eslint-disable-next-line no-param-reassign
-collection=collection.map(item=>({id:item,label:item}))}const arr=collection.map(e=>{if(e.selected){this.value=e.id.toString()}return{id:e.id,label:e.label,selected:this.value===e.id.toString()||e.selected||!1}});if(!this.value){this.value=arr[0].id}this._FBPTriggerWire("--selection",arr)}set list(v){const arr=v.split(",").map(item=>item.trim());this.options=arr}/**
+collection=collection.map(item=>({id:item,label:item}))}const arr=collection.map(e=>{if(e.selected){this.value=e.id.toString()}return{id:e.id,label:e.label,selected:this.value===e.id.toString()||e.selected||!1}});if(!this.value){this.value=arr[0].id}// save parsed selection option array
+this.selectOptions=arr;this._FBPTriggerWire("--selection",arr);// trigger setting value after the options are injected to guarantee the correct selection
+if(this._v){this._value=this._v}}set list(v){const arr=v.split(",").map(item=>item.trim());this.options=arr}/**
      *
      * @private
      * @return {CSSResult}
@@ -7582,6 +7784,12 @@ return Theme.getThemeForComponent("FuroSelectInput")||css`
           border-bottom-left-radius: 4px;
         }
 
+        label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 56px;
+        }
+
         :host(:not([filled])) label {
           padding: 0 4px;
           border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
@@ -7609,6 +7817,7 @@ return Theme.getThemeForComponent("FuroSelectInput")||css`
           flex: 1;
           -webkit-flex-basis: 0.000000001px;
           flex-basis: 0.000000001px;
+          min-width: 4px;
         }
 
         .ripple-line {
@@ -7754,6 +7963,12 @@ return Theme.getThemeForComponent("FuroSelectInput")||css`
           top: 12px;
         }
 
+        :host([condensed]) label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 40px;
+        }
+
         :host([condensed]:not([filled])) label,
         :host([filled][condensed]) label {
           line-height: 40px;
@@ -7796,6 +8011,43 @@ return Theme.getThemeForComponent("FuroSelectInput")||css`
         :host([condensed]) {
           height: 40px;
         }
+
+        :host([multiple]) {
+          margin: 0;
+          vertical-align: top;
+        }
+
+        :host([multiple]) select {
+          z-index: 1;
+          margin-top: -6px;
+          border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
+
+        :host([multiple]) .left-border,
+        :host([multiple]) .right-border,
+        :host([multiple]) .label,
+        :host([multiple]) label,
+        :host([multiple]) .borderlabel {
+          border: none;
+        }
+
+        :host([multiple]) furo-icon {
+          display: none;
+        }
+
+        :host([multiple]) .hint,
+        :host([multiple]) .error {
+          position: relative;
+        }
+
+        :host([multiple]) .wrapper {
+          padding: 0;
+          height: inherit;
+        }
+
+        :host([multiple]) option {
+          padding-left: 12px;
+        }
       `}/**
      *
      * @return {TemplateResult | TemplateResult}
@@ -7810,6 +8062,8 @@ return html`
         ></furo-icon>
         <div class="iwrap">
           <select
+            ?multiple="${this.multiple}"
+            size="${this.size}"
             id="input"
             ?autofocus=${this.autofocus}
             ?disabled=${this.disabled}
@@ -7836,7 +8090,13 @@ return html`
       <div class="borderlabel">
         <div class="left-border"></div>
         ${this.label?html`
-              <label float for="input"><span>${this.label}</span></label>
+              <label float for="input"
+                ><span
+                  >${this.label}${this.required?html`
+                        *
+                      `:html``}</span
+                ></label
+              >
             `:html``}
         <div class="right-border"></div>
       </div>
@@ -7844,10 +8104,10 @@ return html`
       <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-select-input",FuroSelectInput);/*!
-                                                                     * Signature Pad v3.0.0-beta.3 | https://github.com/szimek/signature_pad
-                                                                     * (c) 2018 Szymon Nowak | Released under the MIT license
-                                                                     */class Point{constructor(x,y,time){this.x=x;this.y=y;this.time=time||Date.now()}distanceTo(start){return Math.sqrt(Math.pow(this.x-start.x,2)+Math.pow(this.y-start.y,2))}equals(other){return this.x===other.x&&this.y===other.y&&this.time===other.time}velocityFrom(start){return this.time!==start.time?this.distanceTo(start)/(this.time-start.time):0}}class Bezier{constructor(startPoint,control2,control1,endPoint,startWidth,endWidth){this.startPoint=startPoint;this.control2=control2;this.control1=control1;this.endPoint=endPoint;this.startWidth=startWidth;this.endWidth=endWidth}static fromPoints(points,widths){const c2=this.calculateControlPoints(points[0],points[1],points[2]).c2,c3=this.calculateControlPoints(points[1],points[2],points[3]).c1;return new Bezier(points[1],c2,c3,points[2],widths.start,widths.end)}static calculateControlPoints(s1,s2,s3){const dx1=s1.x-s2.x,dy1=s1.y-s2.y,dx2=s2.x-s3.x,dy2=s2.y-s3.y,m1={x:(s1.x+s2.x)/2,y:(s1.y+s2.y)/2},m2={x:(s2.x+s3.x)/2,y:(s2.y+s3.y)/2},l1=Math.sqrt(dx1*dx1+dy1*dy1),l2=Math.sqrt(dx2*dx2+dy2*dy2),dxm=m1.x-m2.x,dym=m1.y-m2.y,k=l2/(l1+l2),cm={x:m2.x+dxm*k,y:m2.y+dym*k},tx=s2.x-cm.x,ty=s2.y-cm.y;return{c1:new Point(m1.x+tx,m1.y+ty),c2:new Point(m2.x+tx,m2.y+ty)}}length(){const steps=10;let length=0,px,py;for(let i=0;i<=steps;i+=1){const t=i/steps,cx=this.point(t,this.startPoint.x,this.control1.x,this.control2.x,this.endPoint.x),cy=this.point(t,this.startPoint.y,this.control1.y,this.control2.y,this.endPoint.y);if(0<i){const xdiff=cx-px,ydiff=cy-py;length+=Math.sqrt(xdiff*xdiff+ydiff*ydiff)}px=cx;py=cy}return length}point(t,start,c1,c2,end){return start*(1-t)*(1-t)*(1-t)+3*c1*(1-t)*(1-t)*t+3*c2*(1-t)*t*t+end*t*t*t}}function throttle(fn,wait=250){let previous=0,timeout=null,result,storedContext,storedArgs;const later=()=>{previous=Date.now();timeout=null;result=fn.apply(storedContext,storedArgs);if(!timeout){storedContext=null;storedArgs=[]}};return function(...args){const now=Date.now(),remaining=wait-(now-previous);storedContext=this;storedArgs=args;if(0>=remaining||remaining>wait){if(timeout){clearTimeout(timeout);timeout=null}previous=now;result=fn.apply(storedContext,storedArgs);if(!timeout){storedContext=null;storedArgs=[]}}else if(!timeout){timeout=window.setTimeout(later,remaining)}return result}}class SignaturePad{constructor(canvas,options={}){this.canvas=canvas;this.options=options;this._handleMouseDown=event=>{if(1===event.which){this._mouseButtonDown=!0;this._strokeBegin(event)}};this._handleMouseMove=event=>{if(this._mouseButtonDown){this._strokeMoveUpdate(event)}};this._handleMouseUp=event=>{if(1===event.which&&this._mouseButtonDown){this._mouseButtonDown=!1;this._strokeEnd(event)}};this._handleTouchStart=event=>{event.preventDefault();if(1===event.targetTouches.length){const touch=event.changedTouches[0];this._strokeBegin(touch)}};this._handleTouchMove=event=>{event.preventDefault();const touch=event.targetTouches[0];this._strokeMoveUpdate(touch)};this._handleTouchEnd=event=>{const wasCanvasTouched=event.target===this.canvas;if(wasCanvasTouched){event.preventDefault();const touch=event.changedTouches[0];this._strokeEnd(touch)}};this.velocityFilterWeight=options.velocityFilterWeight||.7;this.minWidth=options.minWidth||.5;this.maxWidth=options.maxWidth||2.5;this.throttle="throttle"in options?options.throttle:16;this.minDistance="minDistance"in options?options.minDistance:5;if(this.throttle){this._strokeMoveUpdate=throttle(SignaturePad.prototype._strokeUpdate,this.throttle)}else{this._strokeMoveUpdate=SignaturePad.prototype._strokeUpdate}this.dotSize=options.dotSize||function(){return(this.minWidth+this.maxWidth)/2};this.penColor=options.penColor||"black";this.backgroundColor=options.backgroundColor||"rgba(0,0,0,0)";this.onBegin=options.onBegin;this.onEnd=options.onEnd;this._ctx=canvas.getContext("2d");this.clear();this.on()}clear(){const ctx=this._ctx,canvas=this.canvas;ctx.fillStyle=this.backgroundColor;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillRect(0,0,canvas.width,canvas.height);this._data=[];this._reset();this._isEmpty=!0}fromDataURL(dataUrl,options={},callback){const image=new Image,ratio=options.ratio||window.devicePixelRatio||1,width=options.width||this.canvas.width/ratio,height=options.height||this.canvas.height/ratio;this._reset();image.onload=()=>{this._ctx.drawImage(image,0,0,width,height);if(callback){callback()}};image.onerror=error=>{if(callback){callback(error)}};image.src=dataUrl;this._isEmpty=!1}toDataURL(type="image/png",encoderOptions){switch(type){case"image/svg+xml":return this._toSVG();default:return this.canvas.toDataURL(type,encoderOptions);}}on(){this.canvas.style.touchAction="none";this.canvas.style.msTouchAction="none";if(window.PointerEvent){this._handlePointerEvents()}else{this._handleMouseEvents();if("ontouchstart"in window){this._handleTouchEvents()}}}off(){this.canvas.style.touchAction="auto";this.canvas.style.msTouchAction="auto";this.canvas.removeEventListener("pointerdown",this._handleMouseDown);this.canvas.removeEventListener("pointermove",this._handleMouseMove);document.removeEventListener("pointerup",this._handleMouseUp);this.canvas.removeEventListener("mousedown",this._handleMouseDown);this.canvas.removeEventListener("mousemove",this._handleMouseMove);document.removeEventListener("mouseup",this._handleMouseUp);this.canvas.removeEventListener("touchstart",this._handleTouchStart);this.canvas.removeEventListener("touchmove",this._handleTouchMove);this.canvas.removeEventListener("touchend",this._handleTouchEnd)}isEmpty(){return this._isEmpty}fromData(pointGroups){this.clear();this._fromData(pointGroups,({color,curve})=>this._drawCurve({color,curve}),({color,point})=>this._drawDot({color,point}));this._data=pointGroups}toData(){return this._data}_strokeBegin(event){const newPointGroup={color:this.penColor,points:[]};this._data.push(newPointGroup);this._reset();this._strokeUpdate(event);if("function"===typeof this.onBegin){this.onBegin(event)}}_strokeUpdate(event){const x=event.clientX,y=event.clientY,point=this._createPoint(x,y),lastPointGroup=this._data[this._data.length-1],lastPoints=lastPointGroup.points,lastPoint=0<lastPoints.length&&lastPoints[lastPoints.length-1],isLastPointTooClose=lastPoint?point.distanceTo(lastPoint)<=this.minDistance:!1,color=lastPointGroup.color;if(!lastPoint||!(lastPoint&&isLastPointTooClose)){const curve=this._addPoint(point);if(!lastPoint){this._drawDot({color,point})}else if(curve){this._drawCurve({color,curve})}lastPoints.push({time:point.time,x:point.x,y:point.y})}}_strokeEnd(event){this._strokeUpdate(event);if("function"===typeof this.onEnd){this.onEnd(event)}}_handlePointerEvents(){this._mouseButtonDown=!1;this.canvas.addEventListener("pointerdown",this._handleMouseDown);this.canvas.addEventListener("pointermove",this._handleMouseMove);document.addEventListener("pointerup",this._handleMouseUp)}_handleMouseEvents(){this._mouseButtonDown=!1;this.canvas.addEventListener("mousedown",this._handleMouseDown);this.canvas.addEventListener("mousemove",this._handleMouseMove);document.addEventListener("mouseup",this._handleMouseUp)}_handleTouchEvents(){this.canvas.addEventListener("touchstart",this._handleTouchStart);this.canvas.addEventListener("touchmove",this._handleTouchMove);this.canvas.addEventListener("touchend",this._handleTouchEnd)}_reset(){this._lastPoints=[];this._lastVelocity=0;this._lastWidth=(this.minWidth+this.maxWidth)/2;this._ctx.fillStyle=this.penColor}_createPoint(x,y){const rect=this.canvas.getBoundingClientRect();return new Point(x-rect.left,y-rect.top,new Date().getTime())}_addPoint(point){const{_lastPoints}=this;_lastPoints.push(point);if(2<_lastPoints.length){if(3===_lastPoints.length){_lastPoints.unshift(_lastPoints[0])}const widths=this._calculateCurveWidths(_lastPoints[1],_lastPoints[2]),curve=Bezier.fromPoints(_lastPoints,widths);_lastPoints.shift();return curve}return null}_calculateCurveWidths(startPoint,endPoint){const velocity=this.velocityFilterWeight*endPoint.velocityFrom(startPoint)+(1-this.velocityFilterWeight)*this._lastVelocity,newWidth=this._strokeWidth(velocity),widths={end:newWidth,start:this._lastWidth};this._lastVelocity=velocity;this._lastWidth=newWidth;return widths}_strokeWidth(velocity){return Math.max(this.maxWidth/(velocity+1),this.minWidth)}_drawCurveSegment(x,y,width){const ctx=this._ctx;ctx.moveTo(x,y);ctx.arc(x,y,width,0,2*Math.PI,!1);this._isEmpty=!1}_drawCurve({color,curve}){const ctx=this._ctx,widthDelta=curve.endWidth-curve.startWidth,drawSteps=2*Math.floor(curve.length());ctx.beginPath();ctx.fillStyle=color;for(let i=0;i<drawSteps;i+=1){const t=i/drawSteps,tt=t*t,ttt=tt*t,u=1-t,uu=u*u,uuu=uu*u;let x=uuu*curve.startPoint.x;x+=3*uu*t*curve.control1.x;x+=3*u*tt*curve.control2.x;x+=ttt*curve.endPoint.x;let y=uuu*curve.startPoint.y;y+=3*uu*t*curve.control1.y;y+=3*u*tt*curve.control2.y;y+=ttt*curve.endPoint.y;const width=curve.startWidth+ttt*widthDelta;this._drawCurveSegment(x,y,width)}ctx.closePath();ctx.fill()}_drawDot({color,point}){const ctx=this._ctx,width="function"===typeof this.dotSize?this.dotSize():this.dotSize;ctx.beginPath();this._drawCurveSegment(point.x,point.y,width);ctx.closePath();ctx.fillStyle=color;ctx.fill()}_fromData(pointGroups,drawCurve,drawDot){for(const group of pointGroups){const{color,points}=group;if(1<points.length){for(let j=0;j<points.length;j+=1){const basicPoint=points[j],point=new Point(basicPoint.x,basicPoint.y,basicPoint.time);this.penColor=color;if(0===j){this._reset()}const curve=this._addPoint(point);if(curve){drawCurve({color,curve})}}}else{this._reset();drawDot({color,point:points[0]})}}}_toSVG(){const pointGroups=this._data,ratio=Math.max(window.devicePixelRatio||1,1),minX=0,minY=0,maxX=this.canvas.width/ratio,maxY=this.canvas.height/ratio,svg=document.createElementNS("http://www.w3.org/2000/svg","svg");svg.setAttribute("width",this.canvas.width.toString());svg.setAttribute("height",this.canvas.height.toString());this._fromData(pointGroups,({color,curve})=>{const path=document.createElement("path");if(!isNaN(curve.control1.x)&&!isNaN(curve.control1.y)&&!isNaN(curve.control2.x)&&!isNaN(curve.control2.y)){const attr=`M ${curve.startPoint.x.toFixed(3)},${curve.startPoint.y.toFixed(3)} `+`C ${curve.control1.x.toFixed(3)},${curve.control1.y.toFixed(3)} `+`${curve.control2.x.toFixed(3)},${curve.control2.y.toFixed(3)} `+`${curve.endPoint.x.toFixed(3)},${curve.endPoint.y.toFixed(3)}`;path.setAttribute("d",attr);path.setAttribute("stroke-width",(2.25*curve.endWidth).toFixed(3));path.setAttribute("stroke",color);path.setAttribute("fill","none");path.setAttribute("stroke-linecap","round");svg.appendChild(path)}},({color,point})=>{const circle=document.createElement("circle"),dotSize="function"===typeof this.dotSize?this.dotSize():this.dotSize;circle.setAttribute("r",dotSize.toString());circle.setAttribute("cx",point.x.toString());circle.setAttribute("cy",point.y.toString());circle.setAttribute("fill",color);svg.appendChild(circle)});const prefix="data:image/svg+xml;base64,",header="<svg"+" xmlns=\"http://www.w3.org/2000/svg\""+" xmlns:xlink=\"http://www.w3.org/1999/xlink\""+` viewBox="${minX} ${minY} ${maxX} ${maxY}"`+` width="${maxX}"`+` height="${maxY}"`+">";let body=svg.innerHTML;if(body===void 0){const dummy=document.createElement("dummy"),nodes=svg.childNodes;dummy.innerHTML="";for(let i=0;i<nodes.length;i+=1){dummy.appendChild(nodes[i].cloneNode(!0))}body=dummy.innerHTML}const footer="</svg>",data=header+body+footer;return prefix+btoa(data)}}_exports.$signaturePadMDefault=SignaturePad;var signature_pad_m={default:SignaturePad};_exports.$signaturePadM=signature_pad_m;class FuroSignPad extends FBP(LitElement){/**
+    `}}_exports.FuroSelectInput=FuroSelectInput;window.customElements.define("furo-select-input",FuroSelectInput);var furoSelectInput={FuroSelectInput:FuroSelectInput};/*!
+    * Signature Pad v3.0.0-beta.3 | https://github.com/szimek/signature_pad
+    * (c) 2018 Szymon Nowak | Released under the MIT license
+    */_exports.$furoSelectInput=furoSelectInput;class Point{constructor(x,y,time){this.x=x;this.y=y;this.time=time||Date.now()}distanceTo(start){return Math.sqrt(Math.pow(this.x-start.x,2)+Math.pow(this.y-start.y,2))}equals(other){return this.x===other.x&&this.y===other.y&&this.time===other.time}velocityFrom(start){return this.time!==start.time?this.distanceTo(start)/(this.time-start.time):0}}class Bezier{constructor(startPoint,control2,control1,endPoint,startWidth,endWidth){this.startPoint=startPoint;this.control2=control2;this.control1=control1;this.endPoint=endPoint;this.startWidth=startWidth;this.endWidth=endWidth}static fromPoints(points,widths){const c2=this.calculateControlPoints(points[0],points[1],points[2]).c2,c3=this.calculateControlPoints(points[1],points[2],points[3]).c1;return new Bezier(points[1],c2,c3,points[2],widths.start,widths.end)}static calculateControlPoints(s1,s2,s3){const dx1=s1.x-s2.x,dy1=s1.y-s2.y,dx2=s2.x-s3.x,dy2=s2.y-s3.y,m1={x:(s1.x+s2.x)/2,y:(s1.y+s2.y)/2},m2={x:(s2.x+s3.x)/2,y:(s2.y+s3.y)/2},l1=Math.sqrt(dx1*dx1+dy1*dy1),l2=Math.sqrt(dx2*dx2+dy2*dy2),dxm=m1.x-m2.x,dym=m1.y-m2.y,k=l2/(l1+l2),cm={x:m2.x+dxm*k,y:m2.y+dym*k},tx=s2.x-cm.x,ty=s2.y-cm.y;return{c1:new Point(m1.x+tx,m1.y+ty),c2:new Point(m2.x+tx,m2.y+ty)}}length(){const steps=10;let length=0,px,py;for(let i=0;i<=steps;i+=1){const t=i/steps,cx=this.point(t,this.startPoint.x,this.control1.x,this.control2.x,this.endPoint.x),cy=this.point(t,this.startPoint.y,this.control1.y,this.control2.y,this.endPoint.y);if(0<i){const xdiff=cx-px,ydiff=cy-py;length+=Math.sqrt(xdiff*xdiff+ydiff*ydiff)}px=cx;py=cy}return length}point(t,start,c1,c2,end){return start*(1-t)*(1-t)*(1-t)+3*c1*(1-t)*(1-t)*t+3*c2*(1-t)*t*t+end*t*t*t}}function throttle(fn,wait=250){let previous=0,timeout=null,result,storedContext,storedArgs;const later=()=>{previous=Date.now();timeout=null;result=fn.apply(storedContext,storedArgs);if(!timeout){storedContext=null;storedArgs=[]}};return function(...args){const now=Date.now(),remaining=wait-(now-previous);storedContext=this;storedArgs=args;if(0>=remaining||remaining>wait){if(timeout){clearTimeout(timeout);timeout=null}previous=now;result=fn.apply(storedContext,storedArgs);if(!timeout){storedContext=null;storedArgs=[]}}else if(!timeout){timeout=window.setTimeout(later,remaining)}return result}}class SignaturePad{constructor(canvas,options={}){this.canvas=canvas;this.options=options;this._handleMouseDown=event=>{if(1===event.which){this._mouseButtonDown=!0;this._strokeBegin(event)}};this._handleMouseMove=event=>{if(this._mouseButtonDown){this._strokeMoveUpdate(event)}};this._handleMouseUp=event=>{if(1===event.which&&this._mouseButtonDown){this._mouseButtonDown=!1;this._strokeEnd(event)}};this._handleTouchStart=event=>{event.preventDefault();if(1===event.targetTouches.length){const touch=event.changedTouches[0];this._strokeBegin(touch)}};this._handleTouchMove=event=>{event.preventDefault();const touch=event.targetTouches[0];this._strokeMoveUpdate(touch)};this._handleTouchEnd=event=>{const wasCanvasTouched=event.target===this.canvas;if(wasCanvasTouched){event.preventDefault();const touch=event.changedTouches[0];this._strokeEnd(touch)}};this.velocityFilterWeight=options.velocityFilterWeight||.7;this.minWidth=options.minWidth||.5;this.maxWidth=options.maxWidth||2.5;this.throttle="throttle"in options?options.throttle:16;this.minDistance="minDistance"in options?options.minDistance:5;if(this.throttle){this._strokeMoveUpdate=throttle(SignaturePad.prototype._strokeUpdate,this.throttle)}else{this._strokeMoveUpdate=SignaturePad.prototype._strokeUpdate}this.dotSize=options.dotSize||function(){return(this.minWidth+this.maxWidth)/2};this.penColor=options.penColor||"black";this.backgroundColor=options.backgroundColor||"rgba(0,0,0,0)";this.onBegin=options.onBegin;this.onEnd=options.onEnd;this._ctx=canvas.getContext("2d");this.clear();this.on()}clear(){const ctx=this._ctx,canvas=this.canvas;ctx.fillStyle=this.backgroundColor;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillRect(0,0,canvas.width,canvas.height);this._data=[];this._reset();this._isEmpty=!0}fromDataURL(dataUrl,options={},callback){const image=new Image,ratio=options.ratio||window.devicePixelRatio||1,width=options.width||this.canvas.width/ratio,height=options.height||this.canvas.height/ratio;this._reset();image.onload=()=>{this._ctx.drawImage(image,0,0,width,height);if(callback){callback()}};image.onerror=error=>{if(callback){callback(error)}};image.src=dataUrl;this._isEmpty=!1}toDataURL(type="image/png",encoderOptions){switch(type){case"image/svg+xml":return this._toSVG();default:return this.canvas.toDataURL(type,encoderOptions);}}on(){this.canvas.style.touchAction="none";this.canvas.style.msTouchAction="none";if(window.PointerEvent){this._handlePointerEvents()}else{this._handleMouseEvents();if("ontouchstart"in window){this._handleTouchEvents()}}}off(){this.canvas.style.touchAction="auto";this.canvas.style.msTouchAction="auto";this.canvas.removeEventListener("pointerdown",this._handleMouseDown);this.canvas.removeEventListener("pointermove",this._handleMouseMove);document.removeEventListener("pointerup",this._handleMouseUp);this.canvas.removeEventListener("mousedown",this._handleMouseDown);this.canvas.removeEventListener("mousemove",this._handleMouseMove);document.removeEventListener("mouseup",this._handleMouseUp);this.canvas.removeEventListener("touchstart",this._handleTouchStart);this.canvas.removeEventListener("touchmove",this._handleTouchMove);this.canvas.removeEventListener("touchend",this._handleTouchEnd)}isEmpty(){return this._isEmpty}fromData(pointGroups){this.clear();this._fromData(pointGroups,({color,curve})=>this._drawCurve({color,curve}),({color,point})=>this._drawDot({color,point}));this._data=pointGroups}toData(){return this._data}_strokeBegin(event){const newPointGroup={color:this.penColor,points:[]};this._data.push(newPointGroup);this._reset();this._strokeUpdate(event);if("function"===typeof this.onBegin){this.onBegin(event)}}_strokeUpdate(event){const x=event.clientX,y=event.clientY,point=this._createPoint(x,y),lastPointGroup=this._data[this._data.length-1],lastPoints=lastPointGroup.points,lastPoint=0<lastPoints.length&&lastPoints[lastPoints.length-1],isLastPointTooClose=lastPoint?point.distanceTo(lastPoint)<=this.minDistance:!1,color=lastPointGroup.color;if(!lastPoint||!(lastPoint&&isLastPointTooClose)){const curve=this._addPoint(point);if(!lastPoint){this._drawDot({color,point})}else if(curve){this._drawCurve({color,curve})}lastPoints.push({time:point.time,x:point.x,y:point.y})}}_strokeEnd(event){this._strokeUpdate(event);if("function"===typeof this.onEnd){this.onEnd(event)}}_handlePointerEvents(){this._mouseButtonDown=!1;this.canvas.addEventListener("pointerdown",this._handleMouseDown);this.canvas.addEventListener("pointermove",this._handleMouseMove);document.addEventListener("pointerup",this._handleMouseUp)}_handleMouseEvents(){this._mouseButtonDown=!1;this.canvas.addEventListener("mousedown",this._handleMouseDown);this.canvas.addEventListener("mousemove",this._handleMouseMove);document.addEventListener("mouseup",this._handleMouseUp)}_handleTouchEvents(){this.canvas.addEventListener("touchstart",this._handleTouchStart);this.canvas.addEventListener("touchmove",this._handleTouchMove);this.canvas.addEventListener("touchend",this._handleTouchEnd)}_reset(){this._lastPoints=[];this._lastVelocity=0;this._lastWidth=(this.minWidth+this.maxWidth)/2;this._ctx.fillStyle=this.penColor}_createPoint(x,y){const rect=this.canvas.getBoundingClientRect();return new Point(x-rect.left,y-rect.top,new Date().getTime())}_addPoint(point){const{_lastPoints}=this;_lastPoints.push(point);if(2<_lastPoints.length){if(3===_lastPoints.length){_lastPoints.unshift(_lastPoints[0])}const widths=this._calculateCurveWidths(_lastPoints[1],_lastPoints[2]),curve=Bezier.fromPoints(_lastPoints,widths);_lastPoints.shift();return curve}return null}_calculateCurveWidths(startPoint,endPoint){const velocity=this.velocityFilterWeight*endPoint.velocityFrom(startPoint)+(1-this.velocityFilterWeight)*this._lastVelocity,newWidth=this._strokeWidth(velocity),widths={end:newWidth,start:this._lastWidth};this._lastVelocity=velocity;this._lastWidth=newWidth;return widths}_strokeWidth(velocity){return Math.max(this.maxWidth/(velocity+1),this.minWidth)}_drawCurveSegment(x,y,width){const ctx=this._ctx;ctx.moveTo(x,y);ctx.arc(x,y,width,0,2*Math.PI,!1);this._isEmpty=!1}_drawCurve({color,curve}){const ctx=this._ctx,widthDelta=curve.endWidth-curve.startWidth,drawSteps=2*Math.floor(curve.length());ctx.beginPath();ctx.fillStyle=color;for(let i=0;i<drawSteps;i+=1){const t=i/drawSteps,tt=t*t,ttt=tt*t,u=1-t,uu=u*u,uuu=uu*u;let x=uuu*curve.startPoint.x;x+=3*uu*t*curve.control1.x;x+=3*u*tt*curve.control2.x;x+=ttt*curve.endPoint.x;let y=uuu*curve.startPoint.y;y+=3*uu*t*curve.control1.y;y+=3*u*tt*curve.control2.y;y+=ttt*curve.endPoint.y;const width=curve.startWidth+ttt*widthDelta;this._drawCurveSegment(x,y,width)}ctx.closePath();ctx.fill()}_drawDot({color,point}){const ctx=this._ctx,width="function"===typeof this.dotSize?this.dotSize():this.dotSize;ctx.beginPath();this._drawCurveSegment(point.x,point.y,width);ctx.closePath();ctx.fillStyle=color;ctx.fill()}_fromData(pointGroups,drawCurve,drawDot){for(const group of pointGroups){const{color,points}=group;if(1<points.length){for(let j=0;j<points.length;j+=1){const basicPoint=points[j],point=new Point(basicPoint.x,basicPoint.y,basicPoint.time);this.penColor=color;if(0===j){this._reset()}const curve=this._addPoint(point);if(curve){drawCurve({color,curve})}}}else{this._reset();drawDot({color,point:points[0]})}}}_toSVG(){const pointGroups=this._data,ratio=Math.max(window.devicePixelRatio||1,1),minX=0,minY=0,maxX=this.canvas.width/ratio,maxY=this.canvas.height/ratio,svg=document.createElementNS("http://www.w3.org/2000/svg","svg");svg.setAttribute("width",this.canvas.width.toString());svg.setAttribute("height",this.canvas.height.toString());this._fromData(pointGroups,({color,curve})=>{const path=document.createElement("path");if(!isNaN(curve.control1.x)&&!isNaN(curve.control1.y)&&!isNaN(curve.control2.x)&&!isNaN(curve.control2.y)){const attr=`M ${curve.startPoint.x.toFixed(3)},${curve.startPoint.y.toFixed(3)} `+`C ${curve.control1.x.toFixed(3)},${curve.control1.y.toFixed(3)} `+`${curve.control2.x.toFixed(3)},${curve.control2.y.toFixed(3)} `+`${curve.endPoint.x.toFixed(3)},${curve.endPoint.y.toFixed(3)}`;path.setAttribute("d",attr);path.setAttribute("stroke-width",(2.25*curve.endWidth).toFixed(3));path.setAttribute("stroke",color);path.setAttribute("fill","none");path.setAttribute("stroke-linecap","round");svg.appendChild(path)}},({color,point})=>{const circle=document.createElement("circle"),dotSize="function"===typeof this.dotSize?this.dotSize():this.dotSize;circle.setAttribute("r",dotSize.toString());circle.setAttribute("cx",point.x.toString());circle.setAttribute("cy",point.y.toString());circle.setAttribute("fill",color);svg.appendChild(circle)});const prefix="data:image/svg+xml;base64,",header="<svg"+" xmlns=\"http://www.w3.org/2000/svg\""+" xmlns:xlink=\"http://www.w3.org/1999/xlink\""+` viewBox="${minX} ${minY} ${maxX} ${maxY}"`+` width="${maxX}"`+` height="${maxY}"`+">";let body=svg.innerHTML;if(body===void 0){const dummy=document.createElement("dummy"),nodes=svg.childNodes;dummy.innerHTML="";for(let i=0;i<nodes.length;i+=1){dummy.appendChild(nodes[i].cloneNode(!0))}body=dummy.innerHTML}const footer="</svg>",data=header+body+footer;return prefix+btoa(data)}}_exports.$signaturePadMDefault=SignaturePad;var signature_pad_m={default:SignaturePad};_exports.$signaturePadM=signature_pad_m;class FuroSignPad extends FBP(LitElement){/**
    * flow is ready lifecycle method
    */_FBPReady(){super._FBPReady();this.canvas=this.shadowRoot.querySelector("canvas");this.signaturePad=new SignaturePad(this.canvas,{onBegin:this._onBegin.bind(this),onEnd:this._onEnd.bind(this)});setTimeout(()=>{this.resize();if(this.getAttribute("image")){this.setImage(this.getAttribute("image"))}},1);this.signaturePad.clear()}resize(){if(this.canvas){const ratio=1;this.canvas.width=this.canvas.offsetWidth*ratio;this.canvas.height=this.canvas.offsetHeight*ratio;this.canvas.getContext("2d").scale(ratio,ratio)}}/**
      *
@@ -7919,7 +8179,7 @@ _onEncodingChanged(type,encoderOptions){if(this.signaturePad){this.encodeImage()
        * detail payload: the value of the text input
        *
        * This event bubbles
-       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -7942,18 +8202,18 @@ _onEncodingChanged(type,encoderOptions){if(this.signaturePad){this.encodeImage()
        * The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.
        *
        * If the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.
-       */pattern:{type:String},/**
+       */pattern:{type:String,reflect:!0},/**
        * The required attribute, the value true means this field must be filled in
        *
-       */required:{type:Boolean},/**
+       */required:{type:Boolean,reflect:!0},/**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
-       */label:{type:String,attribute:!0},/**
+       */label:{type:String,reflect:!0},/**
        * The maximum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the text input has no maximum length. This value must also be greater than or equal to the value of minlength.
-       */max:{type:Number},/**
+       */max:{type:Number,reflect:!0},/**
        * The minimum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the text input has no minimum length.
-       */min:{type:Number},/**
+       */min:{type:Number,reflect:!0},/**
        * Set this attribute to autofocus the input field.
-       */autofocus:{type:Boolean},/**
+       */autofocus:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */disabled:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -7961,19 +8221,19 @@ _onEncodingChanged(type,encoderOptions){if(this.signaturePad){this.encodeImage()
        * helper for the label
        */_float:{type:Boolean},/**
        * Lets the placeholder always floating
-       */float:{type:Boolean},/**
+       */float:{type:Boolean,reflect:!0},/**
        * The hint text for the field.
-       */hint:{type:String},/**
+       */hint:{type:String,reflect:!0},/**
        * Text for errors
-       */errortext:{type:String},/**
+       */errortext:{type:String,reflect:!0},/**
        * Icon on the left side
-       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       */leadingIcon:{type:String,attribute:"leading-icon",reflect:!0},/**
        * Icon on the right side
-       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       */trailingIcon:{type:String,attribute:"trailing-icon",reflect:!0},/**
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
+       */condensed:{type:Boolean,reflect:!0},/**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
        */filled:{type:Boolean},/**
        * error text
@@ -8103,9 +8363,20 @@ return Theme.getThemeForComponent("FuroTextInput")||css`
           border-bottom-left-radius: 4px;
         }
 
+        label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 56px;
+        }
+
         :host(:not([filled])) label span {
           top: 0;
           position: relative;
+        }
+
+        /* mark disabled fields */
+        :host([disabled]) {
+          background-color: var(--disabled, #333333);
         }
 
         :host(:not([filled])) label {
@@ -8140,6 +8411,7 @@ return Theme.getThemeForComponent("FuroTextInput")||css`
           flex: 1;
           -webkit-flex-basis: 0.000000001px;
           flex-basis: 0.000000001px;
+          min-width: 4px;
         }
 
         .ripple-line {
@@ -8303,6 +8575,12 @@ return Theme.getThemeForComponent("FuroTextInput")||css`
           font-size: 14px;
         }
 
+        :host([condensed]) label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 40px;
+        }
+
         :host([condensed]:not([filled])) label,
         :host([filled][condensed]) label {
           line-height: 40px;
@@ -8386,7 +8664,7 @@ return html`
       <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-text-input",FuroTextInput);class FuroTextareaInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+    `}}_exports.FuroTextInput=FuroTextInput;window.customElements.define("furo-text-input",FuroTextInput);var furoTextInput={FuroTextInput:FuroTextInput};_exports.$furoTextInput=furoTextInput;class FuroTextareaInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the min => minlength attr
      * @param value
      */set min(value){Helper.UpdateInputAttribute(this,"minlength",value)}/**
@@ -8404,17 +8682,17 @@ return html`
        * The start value. Changes will be notified with the `@-value-changed` event
        */value:{type:String},/**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
-       */label:{type:String,attribute:!0},/**
+       */label:{type:String,attribute:!0,reflect:!0},/**
        * The maximum number of characters (as UTF-16 code units) the user can enter into the textarea input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the textarea input has no maximum length. This value must also be greater than or equal to the value of minlength.
-       */max:{type:Number},/**
+       */max:{type:Number,reflect:!0},/**
        * The minimum number of characters (as UTF-16 code units) the user can enter into the textarea input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the textarea input has no minimum length.
-       */min:{type:Number},/**
+       */min:{type:Number,reflect:!0},/**
        * The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.
        *
        * If it is not specified, the default value is 20.
-       */cols:{type:Number},/**
+       */cols:{type:Number,reflect:!0},/**
        * The number of visible text lines for the control.
-       */rows:{type:Number},/**
+       */rows:{type:Number,reflect:!0},/**
        * Set this attribute to autofocus the input field.
        */autofocus:{type:Boolean},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -8424,15 +8702,15 @@ return html`
        * helper for the label
        */_float:{type:Boolean},/**
        * Lets the placeholder always floating
-       */float:{type:Boolean},/**
+       */float:{type:Boolean,reflect:!0},/**
        * The hint text for the field.
-       */hint:{type:String},/**
+       */hint:{type:String,reflect:!0},/**
        * Text for errors
-       */errortext:{type:String},/**
+       */errortext:{type:String,reflect:!0},/**
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
+       */condensed:{type:Boolean,reflect:!0},/**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
        */filled:{type:Boolean},/**
        * error text
@@ -8546,6 +8824,12 @@ return Theme.getThemeForComponent("FuroTextareaInput")||css`
           border-bottom-left-radius: 4px;
         }
 
+        label span {
+          overflow: hidden;
+          display: inline-block;
+          height: 56px;
+        }
+
         :host(:not([filled])) label span {
           top: 0;
           position: relative;
@@ -8583,6 +8867,7 @@ return Theme.getThemeForComponent("FuroTextareaInput")||css`
           flex: 1;
           -webkit-flex-basis: 0.000000001px;
           flex-basis: 0.000000001px;
+          min-width: 4px;
         }
 
         .ripple-line {
@@ -8735,7 +9020,7 @@ return html`
       <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-textarea-input",FuroTextareaInput);class FuroTimeInput extends FBP(LitElement){/**
+    `}}_exports.FuroTextareaInput=FuroTextareaInput;window.customElements.define("furo-textarea-input",FuroTextareaInput);var furoTextareaInput={FuroTextareaInput:FuroTextareaInput};_exports.$furoTextareaInput=furoTextareaInput;class FuroTimeInput extends FBP(LitElement){/**
    * @event trailing-icon-clicked
    * Fired when the trailing icon was clicked
    *
@@ -8769,15 +9054,15 @@ return html`
        * The step attribute is a number that specifies the granularity that the value must adhere to, or the special value any, which is described below. Only values which are equal to the basis for stepping (min if specified, value otherwise, and an appropriate default value if neither of those is provided) are valid.
        *
        * A string value of any means that no stepping is implied, and any value is allowed (barring other constraints, such as min and max).
-       */step:{type:String},/**
+       */step:{type:String,reflect:!0},/**
        * The maximum value to accept for this input. If the value entered into the element exceeds this, the element fails constraint validation. If the value of the max attribute isn't a number, then the element has no maximum value.
        *
        * This value must be greater than or equal to the value of the min attribute.
-       */max:{type:String},/**
+       */max:{type:String,reflect:!0},/**
        * The earliest time to accept as a valid input.
        *
        * A string specifying the earliest time to accept, given in the [time value format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time#Time_value_format). If the value specified isn't a valid time string, no minimum value is set.
-       */min:{type:String},/**
+       */min:{type:String,reflect:!0},/**
        * The latest time to accept, in the syntax described under Time value format
        *
        * A string indicating the latest time to accept, specified in the same [time value format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time#Time_value_format). If the specified string isn't a valid time, no maximum value is set.
@@ -8791,19 +9076,19 @@ return html`
        * helper for the label
        */_float:{type:Boolean},/**
        * Lets the placeholder always floating
-       */float:{type:Boolean},/**
+       */float:{type:Boolean,reflect:!0},/**
        * The hint text for the field.
-       */hint:{type:String},/**
+       */hint:{type:String,reflect:!0},/**
        * text for errors
-       */errortext:{type:String},/**
+       */errortext:{type:String,reflect:!0},/**
        * Icon on the left side
-       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       */leadingIcon:{type:String,attribute:"leading-icon",reflect:!0},/**
        * Icon on the right side
-       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       */trailingIcon:{type:String,attribute:"trailing-icon",reflect:!0},/**
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
+       */condensed:{type:Boolean,reflect:!0},/**
        * Set this attribute to switch to filled layout. Filled is without the borders around the field.
        */filled:{type:Boolean},/**
        * error text
@@ -9171,7 +9456,7 @@ return html`
       <div class="ripple-line"></div>
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-time-input",FuroTimeInput);class FuroChip extends FBP(LitElement){_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{const input=e.composedPath()[0];this.selected=input.checked;this.value=input.checked});this.addEventListener("click",e=>{e.stopPropagation();this.toggle()});this._FBPAddWireHook("--focusReceived",()=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",()=>{this.focused=!1})}/**
+    `}}_exports.FuroTimeInput=FuroTimeInput;window.customElements.define("furo-time-input",FuroTimeInput);var furoTimeInput={FuroTimeInput:FuroTimeInput};_exports.$furoTimeInput=furoTimeInput;class FuroChip extends FBP(LitElement){_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{const input=e.composedPath()[0];this.selected=input.checked;this.value=input.checked});this.addEventListener("click",e=>{e.stopPropagation();this.toggle()});this._FBPAddWireHook("--focusReceived",()=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",()=>{this.focused=!1})}/**
      * Sets the focus on the chip.
      */focus(){this._FBPTriggerWire("--focus")}/**
      * select the chip
@@ -9706,16 +9991,19 @@ return Theme.getThemeForComponent("FuroInputChip")||css`
     `}}customElements.define("furo-input-chip",FuroInputChip);class FuroFileDialog extends FBP(LitElement){constructor(){super();this.multiple=!1;this.capture=""}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();// this._FBPTraceWires();
-}static get properties(){return{/**
+/**
+     * Is fired if native input change event is fired
+     * @event input-changed Payload: target element
+     */this._FBPAddWireHook("--changed",e=>{this.dispatchEvent(new CustomEvent("input-changed",{detail:e.target,bubbles:!0,composed:!0}))})}static get properties(){return{/**
        * A FileList listing the chosen files
        * readonly
        */files:{type:Array},/**
        * Hint for expected file type in file upload controls
        * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers
        * e.g. .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document
-       */accept:{type:String,attribute:!0},/**
+       */accept:{type:String,reflect:!0},/**
        * Whether to allow multiple values
-       */multiple:{type:Boolean,attribute:!0,reflect:!0},/**
+       */multiple:{type:Boolean,reflect:!0},/**
        * What source to use for capturing image or video data
        * The capture attribute value is a string that specifies which camera to use for capture of
        * image or video data, if the accept attribute indicates that the input should be of one of those types.
@@ -9723,7 +10011,7 @@ return Theme.getThemeForComponent("FuroInputChip")||css`
        * specifies that the outward-facing camera and/or microphone should be used. If this attribute is missing,
        * the user agent is free to decide on its own what to do. If the requested facing mode isn't available,
        * the user agent may fall back to its preferred default mode.
-       */capture:{type:String,attribute:!0,reflect:!0}}}static get styles(){// language=CSS
+       */capture:{type:String,reflect:!0}}}static get styles(){// language=CSS
 return css`
       :host {
         display: block;
@@ -9766,11 +10054,11 @@ return html`
         ?capture="${this.capture}"
         id="input"
         name="input"
-        @-change="^^input-changed(*.target)"
+        @-change="--changed(*)"
       />
 
       <label for="input" ƒ-click="--open"></label>
-    `}}window.customElements.define("furo-file-dialog",FuroFileDialog);class FuroSnackbarDisplay extends FBP(LitElement){constructor(){super();this._stack=[];this.displayObj={labelText:"",actonButtonText:"",snackbar:{}}}/**
+    `}}_exports.FuroFileDialog=FuroFileDialog;window.customElements.define("furo-file-dialog",FuroFileDialog);var furoFileDialog={FuroFileDialog:FuroFileDialog};_exports.$furoFileDialog=furoFileDialog;class FuroSnackbarDisplay extends FBP(LitElement){constructor(){super();this._stack=[];this.displayObj={labelText:"",actonButtonText:"",snackbar:{}}}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();this._snackbar=this.shadowRoot.getElementById("snackbar");this._FBPAddWireHook("--actionClicked",()=>{if(this.displayObj.snackbar){this.displayObj.snackbar._action()}this._close()});this._FBPAddWireHook("--closeClicked",()=>{if(this.displayObj.snackbar){this.displayObj.snackbar._dismiss()}this._close()});/**
          * listen to keyboard events
@@ -9787,7 +10075,7 @@ if(!this._isWiredWithShow()){window.addEventListener("open-furo-snackbar-request
               position: absolute;
               bottom:var(--snackbar-border-distance, var(--spacing, 24px));
               left:var(--snackbar-border-distance, var(--spacing, 24px));
-              right:var(--snackbar-border-distance, var(--spacing, 24px));
+              right:var(--snackbar-border-distance, var(--spacing, 24px));               
             }
 
             #snackbar {
@@ -9795,44 +10083,44 @@ if(!this._isWiredWithShow()){window.addEventListener("open-furo-snackbar-request
               font-weight:400;
               background-color: var(--snackbar-background-color, var(--on-primary, #212121));
               opacity:0;
-              display: flex;
+              display: flex;           
               -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
               box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
               border-radius: 4px;
               z-index: 1;
             }
-
+            
             #snackbar.hide , #snackbar[stacked].hide{
               display: none;
             }
-
+            
             .label {
               color: var(--snackbar-label-color, var(--primary-variant, #dedede));
               display: inline-block;
               padding: 14px 16px;
               width: 100%;
             }
-
+            
             #snackbar[stacked] .label {
               display: block;
             }
-
+            
             #snackbar[stacked] {
               display: block;
             }
-
+            
             #snackbar[stacked] .button{
               width: 100%;
               display: block;
             }
-
+            
             .button {
               display: flex;
               text-align: right;
               margin: 3px 0;
               align-self: flex-end;
             }
-
+            
             furo-button {
              color: var(--snackbar-button-text-color, --secondary, #bb86fc));
               --on-surface: var(--secondary);
@@ -9840,15 +10128,15 @@ if(!this._isWiredWithShow()){window.addEventListener("open-furo-snackbar-request
              --surface-light: var(--snackbar-background-color, var(--on-primary, #212121));
               margin: auto;
             }
-
+            
             .center {
               margin: auto;
             }
-
+            
             .wrapper[right] {
               justify-content:flex-end;
             }
-
+            
             .wrapper[left]  {
               justify-content:flex-start;
             }
@@ -9906,13 +10194,7 @@ element.style.filter=`alpha(opacity=${100*op})`;op+=.2*op},10)}/**
           </div>
         </div>
       </div>
-    `}}customElements.define("furo-snackbar-display",FuroSnackbarDisplay);/**
-                                                                      * `furo-location`
-                                                                      *  Somethin like iron-location
-                                                                      *
-                                                                      * @summary url watcher
-                                                                      * @customElement
-                                                                      */class FuroLocation extends HTMLElement{constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
+    `}}customElements.define("furo-snackbar-display",FuroSnackbarDisplay);class FuroLocation extends LitElement{constructor(){super();// eslint-disable-next-line wc/no-constructor-attributes
 this.style.display="none";this._location={host:window.location.host};/**
         * A regexp that defines the set of URLs that should be considered part
         * of this web app.
@@ -9929,20 +10211,35 @@ this.style.display="none";this._location={host:window.location.host};/**
         * folders with a link.
         *
         * @type {string|RegExp}
-        */ // eslint-disable-next-line wc/no-constructor-attributes
-this.urlSpaceRegex=this.getAttribute("url-space-regex")||"";/**
-                                                                      * If the user was on a URL for less than `dwellTime` milliseconds, it
-                                                                      * won't be added to the browser's history, but instead will be replaced
-                                                                      * by the next entry.
-                                                                      *
-                                                                      * This is to prevent large numbers of entries from clogging up the user's
-                                                                      * browser history. Disable by setting to a negative number.
-                                                                      * @type {number} in milliseconds
-                                                                      */ // eslint-disable-next-line wc/no-constructor-attributes
-this.dwellTime=this.getAttribute("dwell-time")||2e3;this._registerHandler()}// listen to changes of the url space regex
-static get observedAttributes(){return["url-space-regex"]}attributeChangedCallback(name,oldValue,newValue){this.urlSpaceRegex=newValue}/**
+        */this.urlSpaceRegex="";/**
+                              * If the user was on a URL for less than `dwellTime` milliseconds, it
+                              * won't be added to the browser's history, but instead will be replaced
+                              * by the next entry.
+                              *
+                              * This is to prevent large numbers of entries from clogging up the user's
+                              * browser history. Disable by setting to a negative number.
+                              * @type {number} in milliseconds
+                              */ // eslint-disable-next-line wc/no-constructor-attributes
+this.dwellTime=this.getAttribute("dwell-time")||2e3;this._registerHandler()}static get properties(){return{/**
+       * A regexp that defines the set of URLs that should be considered part
+       * of this web app.
+       *
+       * Clicking on a link that matches this regex won't result in a full page
+       * navigation, but will instead just update the URL state in place.
+       *
+       * This regexp is given everything after the origin in an absolute
+       * URL. So to match just URLs that start with /app/ do:
+       *     url-space-regex="^/app/"
+       *
+       * If you plan to work in sub directories, you may set **url-space-regex="^${window.APPROOT}/additional/path"**.
+       * Keep in mind to put a "url-space-regex" on every furo-location. Otherwise you can not switch between apps in different
+       * folders with a link.
+       *
+       * @type {string} RegExp
+       */urlSpaceRegex:{type:String,attribute:"url-space-regex"}}}/**
      * @private
-     */connectedCallback(){document.body.addEventListener("click",this._clickHandler,!0);document.body.addEventListener("__furoLocationChanged",this._locationChangeNotyfier,!0);window.addEventListener("popstate",this._locationChangeNotyfier,!0);window.addEventListener("popstate",this._locationChangeNotyfier,!0);this._lastChangedAt=window.performance.now()-(this.dwellTime-200);// initial notyfier
+     */connectedCallback(){// eslint-disable-next-line wc/guard-super-call
+super.connectedCallback();document.body.addEventListener("click",this._clickHandler,!0);document.body.addEventListener("__furoLocationChanged",this._locationChangeNotyfier,!0);window.addEventListener("popstate",this._locationChangeNotyfier,!0);window.addEventListener("popstate",this._locationChangeNotyfier,!0);this._lastChangedAt=window.performance.now()-(this.dwellTime-200);// initial notyfier
 setTimeout(()=>{this._locationChangeNotyfier({detail:this._lastChangedAt})},0)}/**
      * @private
      */disconnectedCallback(){document.body.removeEventListener("click",this._clickHandler,!0);document.body.removeEventListener("__furoLocationChanged",this._locationChangeNotyfier,!0);window.removeEventListener("popstate",this._locationChangeNotyfier,!0);window.removeEventListener("popstate",this._locationChangeNotyfier,!0)}// create a valid href string from this._location
@@ -10013,7 +10310,7 @@ if(!this._lastPageName){this.activatePage(this._fallback)}},1)}/**
      *
      * @param location
      */injectLocation(location){const page=location.pathSegments[0]||this._fallback;if(this._lastPage&&page!==this._lastPageName){if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageDeActivated")}this._lastPage.setAttribute("hidden","");this._lastPage.removeAttribute(this._attrForSelected)}this._lastPage=this.querySelector(`*[name="${page}"]`);if(!this._lastPage){// 404
-this._lastPage=this.querySelector("*[name=\"404\"]");if(!this._lastPage){this._lastPage=this._default}}if(this._lastPage){if(page!==this._lastPageName){this._lastPage.removeAttribute("hidden");this._lastPage.setAttribute(this._attrForSelected,"");this._lastPageName=page;if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageActivated",location)}}// QP
+this._lastPage=this.querySelector("*[name=\"404\"]");if(!this._lastPage){this._lastPage=this._default}}if(this._lastPage){if(this._lastPage.hasAttribute("hidden")){this._lastPage.removeAttribute("hidden")}this._lastPage.setAttribute(this._attrForSelected,"");this._lastPageName=page;if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageActivated",location)}// QP
 if(this._lastQP[page]!==location.querystring){this._lastQP[page]=location.querystring;// fire --pageParamsChanged if we have a fbp component
 if(this._lastPage._FBPTriggerWire!==void 0){this._lastPage._FBPTriggerWire("--pageQueryChanged",location)}}// Hash
 if(this._lastHash[page]!==location.hashstring){this._lastHash[page]=location.hashstring;// fire --pageParamsChanged if we have a fbp component
@@ -10138,7 +10435,7 @@ return[css`
      */render(){// language=HTML
 return html`
 
-
+     
         <furo-pages flex ƒ-inject-location="--locationChanged" default="FuroBaseComponents">
           <view-home name="FuroBaseComponents"></view-home>
           <view-guide name="guide"></view-guide>
@@ -10146,7 +10443,7 @@ return html`
           <view-spec name="spec"></view-spec>
         </furo-pages>
 
-
+       
       <furo-location @-location-changed="--locationChanged"></furo-location>
         <furo-snackbar-display></furo-snackbar-display>
         <furo-tooltip-display></furo-tooltip-display>
@@ -10264,7 +10561,7 @@ if(64976<=c&&65007>=c){return!1}if(65535===(65535&c)||65534===(65535&c)){return!
 if(0<=c&&8>=c){return!1}if(11===c){return!1}if(14<=c&&31>=c){return!1}if(127<=c&&159>=c){return!1}// out of range
 if(1114111<c){return!1}return!0}function fromCodePoint(c){/*eslint no-bitwise:0*/if(65535<c){c-=65536;var surrogate1=55296+(c>>10),surrogate2=56320+(1023&c);return String.fromCharCode(surrogate1,surrogate2)}return String.fromCharCode(c)}var UNESCAPE_MD_RE=/\\([!"#$%&'()*+,\-.\/:;<=>?@[\\\]^_`{|}~])/g,ENTITY_RE=/&([a-z#][a-z0-9]{1,31});/gi,UNESCAPE_ALL_RE=new RegExp(UNESCAPE_MD_RE.source+"|"+ENTITY_RE.source,"gi"),DIGITAL_ENTITY_TEST_RE=/^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i,entities=require("./entities");function replaceEntityPattern(match,name){var code=0;if(has(entities,name)){return entities[name]}if(35===name.charCodeAt(0)/* # */&&DIGITAL_ENTITY_TEST_RE.test(name)){code="x"===name[1].toLowerCase()?parseInt(name.slice(2),16):parseInt(name.slice(1),10);if(isValidEntityCode(code)){return fromCodePoint(code)}}return match}/*function replaceEntities(str) {
           if (str.indexOf('&') < 0) { return str; }
-
+        
           return str.replace(ENTITY_RE, replaceEntityPattern);
         }*/function unescapeMd(str){if(0>str.indexOf("\\")){return str}return str.replace(UNESCAPE_MD_RE,"$1")}function unescapeAll(str){if(0>str.indexOf("\\")&&0>str.indexOf("&")){return str}return str.replace(UNESCAPE_ALL_RE,function(match,escaped,entity){if(escaped){return escaped}return replaceEntityPattern(match,entity)})}////////////////////////////////////////////////////////////////////////////////
 var HTML_ESCAPE_TEST_RE=/[&<>"]/,HTML_ESCAPE_REPLACE_RE=/[&<>"]/g,HTML_REPLACEMENTS={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"};function replaceUnsafeChar(ch){return HTML_REPLACEMENTS[ch]}function escapeHtml(str){if(HTML_ESCAPE_TEST_RE.test(str)){return str.replace(HTML_ESCAPE_REPLACE_RE,replaceUnsafeChar)}return str}////////////////////////////////////////////////////////////////////////////////
@@ -11569,25 +11866,25 @@ function isTerminatorChar(ch){switch(ch){case 10/* \n */:case 33/* ! */:case 35/
 // flexibility required.
 /*
       var TERMINATOR_RE = /[\n!#$%&*+\-:<=>@[\\\]^_`{}~]/;
-
+      
       module.exports = function text(state, silent) {
         var pos = state.pos,
             idx = state.src.slice(pos).search(TERMINATOR_RE);
-
+      
         // first char is terminator -> empty text
         if (idx === 0) { return false; }
-
+      
         // no terminator -> text till end of string
         if (idx < 0) {
           if (!silent) { state.pending += state.src.slice(pos); }
           state.pos = state.src.length;
           return true;
         }
-
+      
         if (!silent) { state.pending += state.src.slice(pos, pos + idx); }
-
+      
         state.pos += idx;
-
+      
         return true;
       };*/},{}],50:[function(require,module,exports){// Clean up tokens after emphasis and strikethrough postprocessing:
 // merge adjacent text nodes into one and re-calculate all token levels
@@ -12181,12 +12478,69 @@ freeModule.exports=punycode}else{// in Narwhal or RingoJS v0.7.0-
 for(key in punycode){punycode.hasOwnProperty(key)&&(freeExports[key]=punycode[key])}}}else{// in Rhino or a web browser
 root.punycode=punycode}})(this)}).call(this,"undefined"!==typeof global?global:"undefined"!==typeof self?self:"undefined"!==typeof window?window:{})},{}],61:[function(require,module,exports){module.exports=/[\0-\x1F\x7F-\x9F]/},{}],62:[function(require,module,exports){module.exports=/[\xAD\u0600-\u0605\u061C\u06DD\u070F\u08E2\u180E\u200B-\u200F\u202A-\u202E\u2060-\u2064\u2066-\u206F\uFEFF\uFFF9-\uFFFB]|\uD804[\uDCBD\uDCCD]|\uD82F[\uDCA0-\uDCA3]|\uD834[\uDD73-\uDD7A]|\uDB40[\uDC01\uDC20-\uDC7F]/},{}],63:[function(require,module,exports){module.exports=/[!-#%-\*,-\/:;\?@\[-\]_\{\}\xA1\xA7\xAB\xB6\xB7\xBB\xBF\u037E\u0387\u055A-\u055F\u0589\u058A\u05BE\u05C0\u05C3\u05C6\u05F3\u05F4\u0609\u060A\u060C\u060D\u061B\u061E\u061F\u066A-\u066D\u06D4\u0700-\u070D\u07F7-\u07F9\u0830-\u083E\u085E\u0964\u0965\u0970\u09FD\u0A76\u0AF0\u0C84\u0DF4\u0E4F\u0E5A\u0E5B\u0F04-\u0F12\u0F14\u0F3A-\u0F3D\u0F85\u0FD0-\u0FD4\u0FD9\u0FDA\u104A-\u104F\u10FB\u1360-\u1368\u1400\u166D\u166E\u169B\u169C\u16EB-\u16ED\u1735\u1736\u17D4-\u17D6\u17D8-\u17DA\u1800-\u180A\u1944\u1945\u1A1E\u1A1F\u1AA0-\u1AA6\u1AA8-\u1AAD\u1B5A-\u1B60\u1BFC-\u1BFF\u1C3B-\u1C3F\u1C7E\u1C7F\u1CC0-\u1CC7\u1CD3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205E\u207D\u207E\u208D\u208E\u2308-\u230B\u2329\u232A\u2768-\u2775\u27C5\u27C6\u27E6-\u27EF\u2983-\u2998\u29D8-\u29DB\u29FC\u29FD\u2CF9-\u2CFC\u2CFE\u2CFF\u2D70\u2E00-\u2E2E\u2E30-\u2E4E\u3001-\u3003\u3008-\u3011\u3014-\u301F\u3030\u303D\u30A0\u30FB\uA4FE\uA4FF\uA60D-\uA60F\uA673\uA67E\uA6F2-\uA6F7\uA874-\uA877\uA8CE\uA8CF\uA8F8-\uA8FA\uA8FC\uA92E\uA92F\uA95F\uA9C1-\uA9CD\uA9DE\uA9DF\uAA5C-\uAA5F\uAADE\uAADF\uAAF0\uAAF1\uABEB\uFD3E\uFD3F\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE61\uFE63\uFE68\uFE6A\uFE6B\uFF01-\uFF03\uFF05-\uFF0A\uFF0C-\uFF0F\uFF1A\uFF1B\uFF1F\uFF20\uFF3B-\uFF3D\uFF3F\uFF5B\uFF5D\uFF5F-\uFF65]|\uD800[\uDD00-\uDD02\uDF9F\uDFD0]|\uD801\uDD6F|\uD802[\uDC57\uDD1F\uDD3F\uDE50-\uDE58\uDE7F\uDEF0-\uDEF6\uDF39-\uDF3F\uDF99-\uDF9C]|\uD803[\uDF55-\uDF59]|\uD804[\uDC47-\uDC4D\uDCBB\uDCBC\uDCBE-\uDCC1\uDD40-\uDD43\uDD74\uDD75\uDDC5-\uDDC8\uDDCD\uDDDB\uDDDD-\uDDDF\uDE38-\uDE3D\uDEA9]|\uD805[\uDC4B-\uDC4F\uDC5B\uDC5D\uDCC6\uDDC1-\uDDD7\uDE41-\uDE43\uDE60-\uDE6C\uDF3C-\uDF3E]|\uD806[\uDC3B\uDE3F-\uDE46\uDE9A-\uDE9C\uDE9E-\uDEA2]|\uD807[\uDC41-\uDC45\uDC70\uDC71\uDEF7\uDEF8]|\uD809[\uDC70-\uDC74]|\uD81A[\uDE6E\uDE6F\uDEF5\uDF37-\uDF3B\uDF44]|\uD81B[\uDE97-\uDE9A]|\uD82F\uDC9F|\uD836[\uDE87-\uDE8B]|\uD83A[\uDD5E\uDD5F]/},{}],64:[function(require,module,exports){module.exports=/[ \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000]/},{}],65:[function(require,module,exports){'use strict';exports.Any=require("./properties/Any/regex");exports.Cc=require("./categories/Cc/regex");exports.Cf=require("./categories/Cf/regex");exports.P=require("./categories/P/regex");exports.Z=require("./categories/Z/regex")},{"./categories/Cc/regex":61,"./categories/Cf/regex":62,"./categories/P/regex":63,"./categories/Z/regex":64,"./properties/Any/regex":66}],66:[function(require,module,exports){module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/},{}],67:[function(require,module,exports){'use strict';module.exports=require("./lib/")},{"./lib/":9}]},{},[67])(67)});/* **********************************************
          Begin prism-core.js
-    ********************************************** */var _self="undefined"!==typeof window?window// if in browser
+    ********************************************** */ /// <reference lib="WebWorker"/>
+var _self="undefined"!==typeof window?window// if in browser
 :"undefined"!==typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self// if in worker
 :{}// if in node js
 ,Prism$1=function(_self){// Private helper vars
-var lang=/\blang(?:uage)?-([\w-]+)\b/i,uniqueId=0,_={manual:_self.Prism&&_self.Prism.manual,disableWorkerMessageHandler:_self.Prism&&_self.Prism.disableWorkerMessageHandler,util:{encode:function encode(tokens){if(tokens instanceof Token){return new Token(tokens.type,encode(tokens.content),tokens.alias)}else if(Array.isArray(tokens)){return tokens.map(encode)}else{return tokens.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")}},type:function(o){return Object.prototype.toString.call(o).slice(8,-1)},objId:function(obj){if(!obj.__id){Object.defineProperty(obj,"__id",{value:++uniqueId})}return obj.__id},// Deep clone a language definition (e.g. to extend it)
-clone:function deepClone(o,visited){var clone,id,type=_.util.type(o);visited=visited||{};switch(type){case"Object":id=_.util.objId(o);if(visited[id]){return visited[id]}clone={};visited[id]=clone;for(var key in o){if(o.hasOwnProperty(key)){clone[key]=deepClone(o[key],visited)}}return clone;case"Array":id=_.util.objId(o);if(visited[id]){return visited[id]}clone=[];visited[id]=clone;o.forEach(function(v,i){clone[i]=deepClone(v,visited)});return clone;default:return o;}},/**
+var lang=/\blang(?:uage)?-([\w-]+)\b/i,uniqueId=0,_={/**
+     * By default, Prism will attempt to highlight all code elements (by calling {@link Prism.highlightAll}) on the
+     * current page after the page finished loading. This might be a problem if e.g. you wanted to asynchronously load
+     * additional languages or plugins yourself.
+     *
+     * By setting this value to `true`, Prism will not automatically highlight all code elements on the page.
+     *
+     * You obviously have to change this value before the automatic highlighting started. To do this, you can add an
+     * empty Prism object into the global scope before loading the Prism script like this:
+     *
+     * ```js
+     * window.Prism = window.Prism || {};
+     * Prism.manual = true;
+     * // add a new <script> to load Prism's script
+     * ```
+     *
+     * @default false
+     * @type {boolean}
+     * @memberof Prism
+     * @public
+     */manual:_self.Prism&&_self.Prism.manual,disableWorkerMessageHandler:_self.Prism&&_self.Prism.disableWorkerMessageHandler,/**
+     * A namespace for utility methods.
+     *
+     * All function in this namespace that are not explicitly marked as _public_ are for __internal use only__ and may
+     * change or disappear at any time.
+     *
+     * @namespace
+     * @memberof Prism
+     */util:{encode:function encode(tokens){if(tokens instanceof Token){return new Token(tokens.type,encode(tokens.content),tokens.alias)}else if(Array.isArray(tokens)){return tokens.map(encode)}else{return tokens.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")}},/**
+       * Returns the name of the type of the given value.
+       *
+       * @param {any} o
+       * @returns {string}
+       * @example
+       * type(null)      === 'Null'
+       * type(undefined) === 'Undefined'
+       * type(123)       === 'Number'
+       * type('foo')     === 'String'
+       * type(true)      === 'Boolean'
+       * type([1, 2])    === 'Array'
+       * type({})        === 'Object'
+       * type(String)    === 'Function'
+       * type(/abc+/)    === 'RegExp'
+       */type:function(o){return Object.prototype.toString.call(o).slice(8,-1)},/**
+       * Returns a unique number for the given object. Later calls will still return the same number.
+       *
+       * @param {Object} obj
+       * @returns {number}
+       */objId:function(obj){if(!obj.__id){Object.defineProperty(obj,"__id",{value:++uniqueId})}return obj.__id},/**
+       * Creates a deep clone of the given object.
+       *
+       * The main intended use of this function is to clone language definitions.
+       *
+       * @param {T} o
+       * @param {Record<number, any>} [visited]
+       * @returns {T}
+       * @template T
+       */clone:function deepClone(o,visited){visited=visited||{};var clone,id;switch(_.util.type(o)){case"Object":id=_.util.objId(o);if(visited[id]){return visited[id]}clone=/** @type {Record<string, any>} */{};visited[id]=clone;for(var key in o){if(o.hasOwnProperty(key)){clone[key]=deepClone(o[key],visited)}}return(/** @type {any} */clone);case"Array":id=_.util.objId(o);if(visited[id]){return visited[id]}clone=[];visited[id]=clone;/** @type {Array} */ /** @type {any} */o.forEach(function(v,i){clone[i]=deepClone(v,visited)});return(/** @type {any} */clone);default:return o;}},/**
        * Returns the Prism language of the given element set by a `language-xxxx` or `lang-xxxx` class.
        *
        * If no language is set for the element or the element is `null` or `undefined`, `none` will be returned.
@@ -12199,7 +12553,7 @@ clone:function deepClone(o,visited){var clone,id,type=_.util.type(o);visited=vis
        * This does __not__ work for line script element.
        *
        * @returns {HTMLScriptElement | null}
-       */currentScript:function(){if("undefined"===typeof document){return null}if("currentScript"in document){return document.currentScript}// IE11 workaround
+       */currentScript:function(){if("undefined"===typeof document){return null}if("currentScript"in document&&2>1/* hack to trip TS' flow analysis */){return(/** @type {any} */document.currentScript)}// IE11 workaround
 // we'll get the src of the current script by parsing IE11's error stack trace
 // this will not work for inline scripts
 try{throw new Error}catch(err){// Get file src url from stack. Specifically works with the format of stack traces in IE.
@@ -12208,46 +12562,345 @@ try{throw new Error}catch(err){// Get file src url from stack. Specifically work
 // Error
 //    at _.util.currentScript (http://localhost/components/prism-core.js:119:5)
 //    at Global code (http://localhost/components/prism-core.js:606:1)
-var src=(/at [^(\r\n]*\((.*):.+:.+\)$/i.exec(err.stack)||[])[1];if(src){var scripts=document.getElementsByTagName("script");for(var i in scripts){if(scripts[i].src==src){return scripts[i]}}}return null}}},languages:{extend:function(id,redef){var lang=_.util.clone(_.languages[id]);for(var key in redef){lang[key]=redef[key]}return lang},/**
-       * Insert a token before another token in a language literal
-       * As this needs to recreate the object (we cannot actually insert before keys in object literals),
-       * we cannot just provide an object, we need an object and a key.
-       * @param inside The key (or language id) of the parent
-       * @param before The key to insert before.
-       * @param insert Object with the key/value pairs to insert
-       * @param root The object that contains `inside`. If equal to Prism.languages, it can be omitted.
-       */insertBefore:function(inside,before,insert,root){root=root||_.languages;var grammar=root[inside],ret={};for(var token in grammar){if(grammar.hasOwnProperty(token)){if(token==before){for(var newToken in insert){if(insert.hasOwnProperty(newToken)){ret[newToken]=insert[newToken]}}}// Do not insert token which also occur in insert. See #1525
+var src=(/at [^(\r\n]*\((.*):.+:.+\)$/i.exec(err.stack)||[])[1];if(src){var scripts=document.getElementsByTagName("script");for(var i in scripts){if(scripts[i].src==src){return scripts[i]}}}return null}},/**
+       * Returns whether a given class is active for `element`.
+       *
+       * The class can be activated if `element` or one of its ancestors has the given class and it can be deactivated
+       * if `element` or one of its ancestors has the negated version of the given class. The _negated version_ of the
+       * given class is just the given class with a `no-` prefix.
+       *
+       * Whether the class is active is determined by the closest ancestor of `element` (where `element` itself is
+       * closest ancestor) that has the given class or the negated version of it. If neither `element` nor any of its
+       * ancestors have the given class or the negated version of it, then the default activation will be returned.
+       *
+       * In the paradoxical situation where the closest ancestor contains __both__ the given class and the negated
+       * version of it, the class is considered active.
+       *
+       * @param {Element} element
+       * @param {string} className
+       * @param {boolean} [defaultActivation=false]
+       * @returns {boolean}
+       */isActive:function(element,className,defaultActivation){var no="no-"+className;while(element){var classList=element.classList;if(classList.contains(className)){return!0}if(classList.contains(no)){return!1}element=element.parentElement}return!!defaultActivation}},/**
+     * This namespace contains all currently loaded languages and the some helper functions to create and modify languages.
+     *
+     * @namespace
+     * @memberof Prism
+     * @public
+     */languages:{/**
+       * Creates a deep copy of the language with the given id and appends the given tokens.
+       *
+       * If a token in `redef` also appears in the copied language, then the existing token in the copied language
+       * will be overwritten at its original position.
+       *
+       * ## Best practices
+       *
+       * Since the position of overwriting tokens (token in `redef` that overwrite tokens in the copied language)
+       * doesn't matter, they can technically be in any order. However, this can be confusing to others that trying to
+       * understand the language definition because, normally, the order of tokens matters in Prism grammars.
+       *
+       * Therefore, it is encouraged to order overwriting tokens according to the positions of the overwritten tokens.
+       * Furthermore, all non-overwriting tokens should be placed after the overwriting ones.
+       *
+       * @param {string} id The id of the language to extend. This has to be a key in `Prism.languages`.
+       * @param {Grammar} redef The new tokens to append.
+       * @returns {Grammar} The new language created.
+       * @public
+       * @example
+       * Prism.languages['css-with-colors'] = Prism.languages.extend('css', {
+       *     // Prism.languages.css already has a 'comment' token, so this token will overwrite CSS' 'comment' token
+       *     // at its original position
+       *     'comment': { ... },
+       *     // CSS doesn't have a 'color' token, so this token will be appended
+       *     'color': /\b(?:red|green|blue)\b/
+       * });
+       */extend:function(id,redef){var lang=_.util.clone(_.languages[id]);for(var key in redef){lang[key]=redef[key]}return lang},/**
+       * Inserts tokens _before_ another token in a language definition or any other grammar.
+       *
+       * ## Usage
+       *
+       * This helper method makes it easy to modify existing languages. For example, the CSS language definition
+       * not only defines CSS highlighting for CSS documents, but also needs to define highlighting for CSS embedded
+       * in HTML through `<style>` elements. To do this, it needs to modify `Prism.languages.markup` and add the
+       * appropriate tokens. However, `Prism.languages.markup` is a regular JavaScript object literal, so if you do
+       * this:
+       *
+       * ```js
+       * Prism.languages.markup.style = {
+       *     // token
+       * };
+       * ```
+       *
+       * then the `style` token will be added (and processed) at the end. `insertBefore` allows you to insert tokens
+       * before existing tokens. For the CSS example above, you would use it like this:
+       *
+       * ```js
+       * Prism.languages.insertBefore('markup', 'cdata', {
+       *     'style': {
+       *         // token
+       *     }
+       * });
+       * ```
+       *
+       * ## Special cases
+       *
+       * If the grammars of `inside` and `insert` have tokens with the same name, the tokens in `inside`'s grammar
+       * will be ignored.
+       *
+       * This behavior can be used to insert tokens after `before`:
+       *
+       * ```js
+       * Prism.languages.insertBefore('markup', 'comment', {
+       *     'comment': Prism.languages.markup.comment,
+       *     // tokens after 'comment'
+       * });
+       * ```
+       *
+       * ## Limitations
+       *
+       * The main problem `insertBefore` has to solve is iteration order. Since ES2015, the iteration order for object
+       * properties is guaranteed to be the insertion order (except for integer keys) but some browsers behave
+       * differently when keys are deleted and re-inserted. So `insertBefore` can't be implemented by temporarily
+       * deleting properties which is necessary to insert at arbitrary positions.
+       *
+       * To solve this problem, `insertBefore` doesn't actually insert the given tokens into the target object.
+       * Instead, it will create a new object and replace all references to the target object with the new one. This
+       * can be done without temporarily deleting properties, so the iteration order is well-defined.
+       *
+       * However, only references that can be reached from `Prism.languages` or `insert` will be replaced. I.e. if
+       * you hold the target object in a variable, then the value of the variable will not change.
+       *
+       * ```js
+       * var oldMarkup = Prism.languages.markup;
+       * var newMarkup = Prism.languages.insertBefore('markup', 'comment', { ... });
+       *
+       * assert(oldMarkup !== Prism.languages.markup);
+       * assert(newMarkup === Prism.languages.markup);
+       * ```
+       *
+       * @param {string} inside The property of `root` (e.g. a language id in `Prism.languages`) that contains the
+       * object to be modified.
+       * @param {string} before The key to insert before.
+       * @param {Grammar} insert An object containing the key-value pairs to be inserted.
+       * @param {Object<string, any>} [root] The object containing `inside`, i.e. the object that contains the
+       * object to be modified.
+       *
+       * Defaults to `Prism.languages`.
+       * @returns {Grammar} The new grammar object.
+       * @public
+       */insertBefore:function(inside,before,insert,root){root=root||/** @type {any} */_.languages;var grammar=root[inside],ret={};/** @type {Grammar} */for(var token in grammar){if(grammar.hasOwnProperty(token)){if(token==before){for(var newToken in insert){if(insert.hasOwnProperty(newToken)){ret[newToken]=insert[newToken]}}}// Do not insert token which also occur in insert. See #1525
 if(!insert.hasOwnProperty(token)){ret[token]=grammar[token]}}}var old=root[inside];root[inside]=ret;// Update references in other language definitions
 _.languages.DFS(_.languages,function(key,value){if(value===old&&key!=inside){this[key]=ret}});return ret},// Traverse a language definition with Depth First Search
-DFS:function DFS(o,callback,type,visited){visited=visited||{};var objId=_.util.objId;for(var i in o){if(o.hasOwnProperty(i)){callback.call(o,i,o[i],type||i);var property=o[i],propertyType=_.util.type(property);if("Object"===propertyType&&!visited[objId(property)]){visited[objId(property)]=!0;DFS(property,callback,null,visited)}else if("Array"===propertyType&&!visited[objId(property)]){visited[objId(property)]=!0;DFS(property,callback,i,visited)}}}}},plugins:{},highlightAll:function(async,callback){_.highlightAllUnder(document,async,callback)},highlightAllUnder:function(container,async,callback){var env={callback:callback,container:container,selector:"code[class*=\"language-\"], [class*=\"language-\"] code, code[class*=\"lang-\"], [class*=\"lang-\"] code"};_.hooks.run("before-highlightall",env);env.elements=Array.prototype.slice.apply(env.container.querySelectorAll(env.selector));_.hooks.run("before-all-elements-highlight",env);for(var i=0,element;element=env.elements[i++];){_.highlightElement(element,!0===async,env.callback)}},highlightElement:function(element,async,callback){// Find language
+DFS:function DFS(o,callback,type,visited){visited=visited||{};var objId=_.util.objId;for(var i in o){if(o.hasOwnProperty(i)){callback.call(o,i,o[i],type||i);var property=o[i],propertyType=_.util.type(property);if("Object"===propertyType&&!visited[objId(property)]){visited[objId(property)]=!0;DFS(property,callback,null,visited)}else if("Array"===propertyType&&!visited[objId(property)]){visited[objId(property)]=!0;DFS(property,callback,i,visited)}}}}},plugins:{},/**
+     * This is the most high-level function in Prism’s API.
+     * It fetches all the elements that have a `.language-xxxx` class and then calls {@link Prism.highlightElement} on
+     * each one of them.
+     *
+     * This is equivalent to `Prism.highlightAllUnder(document, async, callback)`.
+     *
+     * @param {boolean} [async=false] Same as in {@link Prism.highlightAllUnder}.
+     * @param {HighlightCallback} [callback] Same as in {@link Prism.highlightAllUnder}.
+     * @memberof Prism
+     * @public
+     */highlightAll:function(async,callback){_.highlightAllUnder(document,async,callback)},/**
+     * Fetches all the descendants of `container` that have a `.language-xxxx` class and then calls
+     * {@link Prism.highlightElement} on each one of them.
+     *
+     * The following hooks will be run:
+     * 1. `before-highlightall`
+     * 2. All hooks of {@link Prism.highlightElement} for each element.
+     *
+     * @param {ParentNode} container The root element, whose descendants that have a `.language-xxxx` class will be highlighted.
+     * @param {boolean} [async=false] Whether each element is to be highlighted asynchronously using Web Workers.
+     * @param {HighlightCallback} [callback] An optional callback to be invoked on each element after its highlighting is done.
+     * @memberof Prism
+     * @public
+     */highlightAllUnder:function(container,async,callback){var env={callback:callback,container:container,selector:"code[class*=\"language-\"], [class*=\"language-\"] code, code[class*=\"lang-\"], [class*=\"lang-\"] code"};_.hooks.run("before-highlightall",env);env.elements=Array.prototype.slice.apply(env.container.querySelectorAll(env.selector));_.hooks.run("before-all-elements-highlight",env);for(var i=0,element;element=env.elements[i++];){_.highlightElement(element,!0===async,env.callback)}},/**
+     * Highlights the code inside a single element.
+     *
+     * The following hooks will be run:
+     * 1. `before-sanity-check`
+     * 2. `before-highlight`
+     * 3. All hooks of {@link Prism.highlight}. These hooks will only be run by the current worker if `async` is `true`.
+     * 4. `before-insert`
+     * 5. `after-highlight`
+     * 6. `complete`
+     *
+     * @param {Element} element The element containing the code.
+     * It must have a class of `language-xxxx` to be processed, where `xxxx` is a valid language identifier.
+     * @param {boolean} [async=false] Whether the element is to be highlighted asynchronously using Web Workers
+     * to improve performance and avoid blocking the UI when highlighting very large chunks of code. This option is
+     * [disabled by default](https://prismjs.com/faq.html#why-is-asynchronous-highlighting-disabled-by-default).
+     *
+     * Note: All language definitions required to highlight the code must be included in the main `prism.js` file for
+     * asynchronous highlighting to work. You can build your own bundle on the
+     * [Download page](https://prismjs.com/download.html).
+     * @param {HighlightCallback} [callback] An optional callback to be invoked after the highlighting is done.
+     * Mostly useful when `async` is `true`, since in that case, the highlighting is done asynchronously.
+     * @memberof Prism
+     * @public
+     */highlightElement:function(element,async,callback){// Find language
 var language=_.util.getLanguage(element),grammar=_.languages[language];// Set language on the element, if not present
 element.className=element.className.replace(lang,"").replace(/\s+/g," ")+" language-"+language;// Set language on the parent, for styling
-var parent=element.parentNode;if(parent&&"pre"===parent.nodeName.toLowerCase()){parent.className=parent.className.replace(lang,"").replace(/\s+/g," ")+" language-"+language}var code=element.textContent,env={element:element,language:language,grammar:grammar,code:code};function insertHighlightedCode(highlightedCode){env.highlightedCode=highlightedCode;_.hooks.run("before-insert",env);env.element.innerHTML=env.highlightedCode;_.hooks.run("after-highlight",env);_.hooks.run("complete",env);callback&&callback.call(env.element)}_.hooks.run("before-sanity-check",env);if(!env.code){_.hooks.run("complete",env);callback&&callback.call(env.element);return}_.hooks.run("before-highlight",env);if(!env.grammar){insertHighlightedCode(_.util.encode(env.code));return}if(async&&_self.Worker){var worker=new Worker(_.filename);worker.onmessage=function(evt){insertHighlightedCode(evt.data)};worker.postMessage(JSON.stringify({language:env.language,code:env.code,immediateClose:!0}))}else{insertHighlightedCode(_.highlight(env.code,env.grammar,env.language))}},highlight:function(text,grammar,language){var env={code:text,grammar:grammar,language:language};_.hooks.run("before-tokenize",env);env.tokens=_.tokenize(env.code,env.grammar);_.hooks.run("after-tokenize",env);return Token.stringify(_.util.encode(env.tokens),env.language)},tokenize:function(text,grammar){var rest=grammar.rest;if(rest){for(var token in rest){grammar[token]=rest[token]}delete grammar.rest}var tokenList=new LinkedList;addAfter(tokenList,tokenList.head,text);matchGrammar(text,tokenList,grammar,tokenList.head,0);return toArray(tokenList)},hooks:{all:{},add:function(name,callback){var hooks=_.hooks.all;hooks[name]=hooks[name]||[];hooks[name].push(callback)},run:function(name,env){var callbacks=_.hooks.all[name];if(!callbacks||!callbacks.length){return}for(var i=0,callback;callback=callbacks[i++];){callback(env)}}},Token:Token};_self.Prism=_;function Token(type,content,alias,matchedStr,greedy){this.type=type;this.content=content;this.alias=alias;// Copy of the full string this token was created from
-this.length=0|(matchedStr||"").length;this.greedy=!!greedy}Token.stringify=function stringify(o,language){if("string"==typeof o){return o}if(Array.isArray(o)){var s="";o.forEach(function(e){s+=stringify(e,language)});return s}var env={type:o.type,content:stringify(o.content,language),tag:"span",classes:["token",o.type],attributes:{},language:language},aliases=o.alias;if(aliases){if(Array.isArray(aliases)){Array.prototype.push.apply(env.classes,aliases)}else{env.classes.push(aliases)}}_.hooks.run("wrap",env);var attributes="";for(var name in env.attributes){attributes+=" "+name+"=\""+(env.attributes[name]||"").replace(/"/g,"&quot;")+"\""}return"<"+env.tag+" class=\""+env.classes.join(" ")+"\""+attributes+">"+env.content+"</"+env.tag+">"};/**
+var parent=element.parentElement;if(parent&&"pre"===parent.nodeName.toLowerCase()){parent.className=parent.className.replace(lang,"").replace(/\s+/g," ")+" language-"+language}var code=element.textContent,env={element:element,language:language,grammar:grammar,code:code};function insertHighlightedCode(highlightedCode){env.highlightedCode=highlightedCode;_.hooks.run("before-insert",env);env.element.innerHTML=env.highlightedCode;_.hooks.run("after-highlight",env);_.hooks.run("complete",env);callback&&callback.call(env.element)}_.hooks.run("before-sanity-check",env);if(!env.code){_.hooks.run("complete",env);callback&&callback.call(env.element);return}_.hooks.run("before-highlight",env);if(!env.grammar){insertHighlightedCode(_.util.encode(env.code));return}if(async&&_self.Worker){var worker=new Worker(_.filename);worker.onmessage=function(evt){insertHighlightedCode(evt.data)};worker.postMessage(JSON.stringify({language:env.language,code:env.code,immediateClose:!0}))}else{insertHighlightedCode(_.highlight(env.code,env.grammar,env.language))}},/**
+     * Low-level function, only use if you know what you’re doing. It accepts a string of text as input
+     * and the language definitions to use, and returns a string with the HTML produced.
+     *
+     * The following hooks will be run:
+     * 1. `before-tokenize`
+     * 2. `after-tokenize`
+     * 3. `wrap`: On each {@link Token}.
+     *
+     * @param {string} text A string with the code to be highlighted.
+     * @param {Grammar} grammar An object containing the tokens to use.
+     *
+     * Usually a language definition like `Prism.languages.markup`.
+     * @param {string} language The name of the language definition passed to `grammar`.
+     * @returns {string} The highlighted HTML.
+     * @memberof Prism
+     * @public
+     * @example
+     * Prism.highlight('var foo = true;', Prism.languages.javascript, 'javascript');
+     */highlight:function(text,grammar,language){var env={code:text,grammar:grammar,language:language};_.hooks.run("before-tokenize",env);env.tokens=_.tokenize(env.code,env.grammar);_.hooks.run("after-tokenize",env);return Token.stringify(_.util.encode(env.tokens),env.language)},/**
+     * This is the heart of Prism, and the most low-level function you can use. It accepts a string of text as input
+     * and the language definitions to use, and returns an array with the tokenized code.
+     *
+     * When the language definition includes nested tokens, the function is called recursively on each of these tokens.
+     *
+     * This method could be useful in other contexts as well, as a very crude parser.
+     *
+     * @param {string} text A string with the code to be highlighted.
+     * @param {Grammar} grammar An object containing the tokens to use.
+     *
+     * Usually a language definition like `Prism.languages.markup`.
+     * @returns {TokenStream} An array of strings and tokens, a token stream.
+     * @memberof Prism
+     * @public
+     * @example
+     * let code = `var foo = 0;`;
+     * let tokens = Prism.tokenize(code, Prism.languages.javascript);
+     * tokens.forEach(token => {
+     *     if (token instanceof Prism.Token && token.type === 'number') {
+     *         console.log(`Found numeric literal: ${token.content}`);
+     *     }
+     * });
+     */tokenize:function(text,grammar){var rest=grammar.rest;if(rest){for(var token in rest){grammar[token]=rest[token]}delete grammar.rest}var tokenList=new LinkedList;addAfter(tokenList,tokenList.head,text);matchGrammar(text,tokenList,grammar,tokenList.head,0);return toArray(tokenList)},/**
+     * @namespace
+     * @memberof Prism
+     * @public
+     */hooks:{all:{},/**
+       * Adds the given callback to the list of callbacks for the given hook.
+       *
+       * The callback will be invoked when the hook it is registered for is run.
+       * Hooks are usually directly run by a highlight function but you can also run hooks yourself.
+       *
+       * One callback function can be registered to multiple hooks and the same hook multiple times.
+       *
+       * @param {string} name The name of the hook.
+       * @param {HookCallback} callback The callback function which is given environment variables.
+       * @public
+       */add:function(name,callback){var hooks=_.hooks.all;hooks[name]=hooks[name]||[];hooks[name].push(callback)},/**
+       * Runs a hook invoking all registered callbacks with the given environment variables.
+       *
+       * Callbacks will be invoked synchronously and in the order in which they were registered.
+       *
+       * @param {string} name The name of the hook.
+       * @param {Object<string, any>} env The environment variables of the hook passed to all callbacks registered.
+       * @public
+       */run:function(name,env){var callbacks=_.hooks.all[name];if(!callbacks||!callbacks.length){return}for(var i=0,callback;callback=callbacks[i++];){callback(env)}}},Token:Token};_self.Prism=_;// Typescript note:
+// The following can be used to import the Token type in JSDoc:
+//
+//   @typedef {InstanceType<import("./prism-core")["Token"]>} Token
+/**
+   * Creates a new token.
+   *
+   * @param {string} type See {@link Token#type type}
+   * @param {string | TokenStream} content See {@link Token#content content}
+   * @param {string|string[]} [alias] The alias(es) of the token.
+   * @param {string} [matchedStr=""] A copy of the full string this token was created from.
+   * @class
+   * @global
+   * @public
+   */function Token(type,content,alias,matchedStr){/**
+     * The type of the token.
+     *
+     * This is usually the key of a pattern in a {@link Grammar}.
+     *
+     * @type {string}
+     * @see GrammarToken
+     * @public
+     */this.type=type;/**
+                          * The strings or tokens contained by this token.
+                          *
+                          * This will be a token stream if the pattern matched also defined an `inside` grammar.
+                          *
+                          * @type {string | TokenStream}
+                          * @public
+                          */this.content=content;/**
+                             * The alias(es) of the token.
+                             *
+                             * @type {string|string[]}
+                             * @see GrammarToken
+                             * @public
+                             */this.alias=alias;// Copy of the full string this token was created from
+this.length=0|(matchedStr||"").length}/**
+     * A token stream is an array of strings and {@link Token Token} objects.
+     *
+     * Token streams have to fulfill a few properties that are assumed by most functions (mostly internal ones) that process
+     * them.
+     *
+     * 1. No adjacent strings.
+     * 2. No empty strings.
+     *
+     *    The only exception here is the token stream that only contains the empty string and nothing else.
+     *
+     * @typedef {Array<string | Token>} TokenStream
+     * @global
+     * @public
+     */ /**
+         * Converts the given token or token stream to an HTML representation.
+         *
+         * The following hooks will be run:
+         * 1. `wrap`: On each {@link Token}.
+         *
+         * @param {string | Token | TokenStream} o The token or token stream to be converted.
+         * @param {string} language The name of current language.
+         * @returns {string} The HTML representation of the token or token stream.
+         * @memberof Token
+         * @static
+         */Token.stringify=function stringify(o,language){if("string"==typeof o){return o}if(Array.isArray(o)){var s="";o.forEach(function(e){s+=stringify(e,language)});return s}var env={type:o.type,content:stringify(o.content,language),tag:"span",classes:["token",o.type],attributes:{},language:language},aliases=o.alias;if(aliases){if(Array.isArray(aliases)){Array.prototype.push.apply(env.classes,aliases)}else{env.classes.push(aliases)}}_.hooks.run("wrap",env);var attributes="";for(var name in env.attributes){attributes+=" "+name+"=\""+(env.attributes[name]||"").replace(/"/g,"&quot;")+"\""}return"<"+env.tag+" class=\""+env.classes.join(" ")+"\""+attributes+">"+env.content+"</"+env.tag+">"};/**
       * @param {string} text
       * @param {LinkedList<string | Token>} tokenList
       * @param {any} grammar
       * @param {LinkedListNode<string | Token>} startNode
       * @param {number} startPos
-      * @param {boolean} [oneshot=false]
-      * @param {string} [target]
-      */function matchGrammar(text,tokenList,grammar,startNode,startPos,oneshot,target){for(var token in grammar){if(!grammar.hasOwnProperty(token)||!grammar[token]){continue}var patterns=grammar[token];patterns=Array.isArray(patterns)?patterns:[patterns];for(var j=0;j<patterns.length;++j){if(target&&target==token+","+j){return}var pattern=patterns[j],inside=pattern.inside,lookbehind=!!pattern.lookbehind,greedy=!!pattern.greedy,lookbehindLength=0,alias=pattern.alias;if(greedy&&!pattern.pattern.global){// Without the global flag, lastIndex won't work
-var flags=pattern.pattern.toString().match(/[imsuy]*$/)[0];pattern.pattern=RegExp(pattern.pattern.source,flags+"g")}pattern=pattern.pattern||pattern;for(// iterate the token list and keep track of the current token/string position
-var currentNode=startNode.next,pos=startPos,str;currentNode!==tokenList.tail;pos+=currentNode.value.length,currentNode=currentNode.next){str=currentNode.value;if(tokenList.length>text.length){// Something went terribly wrong, ABORT, ABORT!
+      * @param {RematchOptions} [rematch]
+      * @returns {void}
+      * @private
+      *
+      * @typedef RematchOptions
+      * @property {string} cause
+      * @property {number} reach
+      */function matchGrammar(text,tokenList,grammar,startNode,startPos,rematch){for(var token in grammar){if(!grammar.hasOwnProperty(token)||!grammar[token]){continue}var patterns=grammar[token];patterns=Array.isArray(patterns)?patterns:[patterns];for(var j=0;j<patterns.length;++j){if(rematch&&rematch.cause==token+","+j){return}var patternObj=patterns[j],inside=patternObj.inside,lookbehind=!!patternObj.lookbehind,greedy=!!patternObj.greedy,lookbehindLength=0,alias=patternObj.alias;if(greedy&&!patternObj.pattern.global){// Without the global flag, lastIndex won't work
+var flags=patternObj.pattern.toString().match(/[imsuy]*$/)[0];patternObj.pattern=RegExp(patternObj.pattern.source,flags+"g")}/** @type {RegExp} */for(// iterate the token list and keep track of the current token/string position
+var pattern=patternObj.pattern||patternObj,currentNode=startNode.next,pos=startPos;currentNode!==tokenList.tail;pos+=currentNode.value.length,currentNode=currentNode.next){if(rematch&&pos>=rematch.reach){break}var str=currentNode.value;if(tokenList.length>text.length){// Something went terribly wrong, ABORT, ABORT!
 return}if(str instanceof Token){continue}var removeCount=1;// this is the to parameter of removeBetween
 if(greedy&&currentNode!=tokenList.tail.prev){pattern.lastIndex=pos;var match=pattern.exec(text);if(!match){break}var from=match.index+(lookbehind&&match[1]?match[1].length:0),to=match.index+match[0].length,p=pos;// find the node that contains the match
 p+=currentNode.value.length;while(from>=p){currentNode=currentNode.next;p+=currentNode.value.length}// adjust pos (and p)
 p-=currentNode.value.length;pos=p;// the current node is a Token, then the match starts inside another Token, which is invalid
 if(currentNode.value instanceof Token){continue}// find the last node which is affected by this match
-for(var k=currentNode;k!==tokenList.tail&&(p<to||"string"===typeof k.value&&!k.prev.value.greedy);k=k.next){removeCount++;p+=k.value.length}removeCount--;// replace with the new match
-str=text.slice(pos,p);match.index-=pos}else{pattern.lastIndex=0;var match=pattern.exec(str)}if(!match){if(oneshot){break}continue}if(lookbehind){lookbehindLength=match[1]?match[1].length:0}var from=match.index+lookbehindLength,match=match[0].slice(lookbehindLength),to=from+match.length,before=str.slice(0,from),after=str.slice(to),removeFrom=currentNode.prev;if(before){removeFrom=addAfter(tokenList,removeFrom,before);pos+=before.length}removeRange(tokenList,removeFrom,removeCount);var wrapped=new Token(token,inside?_.tokenize(match,inside):match,alias,match,greedy);currentNode=addAfter(tokenList,removeFrom,wrapped);if(after){addAfter(tokenList,currentNode,after)}if(1<removeCount)matchGrammar(text,tokenList,grammar,currentNode.prev,pos,!0,token+","+j);if(oneshot)break}}}}/**
+for(var k=currentNode;k!==tokenList.tail&&(p<to||"string"===typeof k.value);k=k.next){removeCount++;p+=k.value.length}removeCount--;// replace with the new match
+str=text.slice(pos,p);match.index-=pos}else{pattern.lastIndex=0;var match=pattern.exec(str)}if(!match){continue}if(lookbehind){lookbehindLength=match[1]?match[1].length:0}var from=match.index+lookbehindLength,matchStr=match[0].slice(lookbehindLength),to=from+matchStr.length,before=str.slice(0,from),after=str.slice(to),reach=pos+str.length;if(rematch&&reach>rematch.reach){rematch.reach=reach}var removeFrom=currentNode.prev;if(before){removeFrom=addAfter(tokenList,removeFrom,before);pos+=before.length}removeRange(tokenList,removeFrom,removeCount);var wrapped=new Token(token,inside?_.tokenize(matchStr,inside):matchStr,alias,matchStr);currentNode=addAfter(tokenList,removeFrom,wrapped);if(after){addAfter(tokenList,currentNode,after)}if(1<removeCount){// at least one Token object was removed, so we have to do some rematching
+// this can only happen if the current pattern is greedy
+matchGrammar(text,tokenList,grammar,currentNode.prev,pos,{cause:token+","+j,reach:reach})}}}}}/**
      * @typedef LinkedListNode
      * @property {T} value
      * @property {LinkedListNode<T> | null} prev The previous node.
      * @property {LinkedListNode<T> | null} next The next node.
      * @template T
+     * @private
      */ /**
          * @template T
+         * @private
          */function LinkedList(){/** @type {LinkedListNode<T>} */var head={value:null,prev:null,next:null},tail={value:null,prev:head,next:null};/** @type {LinkedListNode<T>} */head.next=tail;/** @type {LinkedListNode<T>} */this.head=head;/** @type {LinkedListNode<T>} */this.tail=tail;this.length=0}/**
      * Adds a new node with the given value to the list.
      * @param {LinkedList<T>} list
@@ -12268,7 +12921,7 @@ var next=node.next,newNode={value:value,prev:node,next:next};node.next=newNode;n
      * @template T
      */function toArray(list){var array=[],node=list.head.next;while(node!==list.tail){array.push(node.value);node=node.next}return array}if(!_self.document){if(!_self.addEventListener){// in Node.js
 return _}if(!_.disableWorkerMessageHandler){// In worker
-_self.addEventListener("message",function(evt){var message=JSON.parse(evt.data),lang=message.language,code=message.code,immediateClose=message.immediateClose;_self.postMessage(_.highlight(code,_.languages[lang],lang));if(immediateClose){_self.close()}},!1)}return _}//Get current script and highlight
+_self.addEventListener("message",function(evt){var message=JSON.parse(evt.data),lang=message.language,code=message.code,immediateClose=message.immediateClose;_self.postMessage(_.highlight(code,_.languages[lang],lang));if(immediateClose){_self.close()}},!1)}return _}// Get current script and highlight
 var script=_.util.currentScript();if(script){_.filename=script.src;if(script.hasAttribute("data-manual")){_.manual=!0}}function highlightAutomaticallyCallback(){if(!_.manual){_.highlightAll()}}if(!_.manual){// If the document state is "loading", then we'll use DOMContentLoaded.
 // If the document state is "interactive" and the prism.js script is deferred, then we'll also use the
 // DOMContentLoaded event because there might be some plugins or languages which have also been deferred and they
@@ -12277,12 +12930,57 @@ var script=_.util.currentScript();if(script){_.filename=script.src;if(script.has
 // See https://github.com/PrismJS/prism/issues/2102
 var readyState=document.readyState;if("loading"===readyState||"interactive"===readyState&&script&&script.defer){document.addEventListener("DOMContentLoaded",highlightAutomaticallyCallback)}else{if(window.requestAnimationFrame){window.requestAnimationFrame(highlightAutomaticallyCallback)}else{window.setTimeout(highlightAutomaticallyCallback,16)}}}return _}(_self);/**
    * Prism: Lightweight, robust, elegant syntax highlighting
-   * MIT license http://www.opensource.org/licenses/mit-license.php/
-   * @author Lea Verou http://lea.verou.me
+   *
+   * @license MIT <https://opensource.org/licenses/MIT>
+   * @author Lea Verou <https://lea.verou.me>
+   * @namespace
+   * @public
    */if("undefined"!==typeof module&&module.exports){module.exports=Prism$1}// hack for components to work correctly in node.js
-if("undefined"!==typeof global){global.Prism=Prism$1}/* **********************************************
-       Begin prism-markup.js
-  ********************************************** */Prism$1.languages.markup={comment:/<!--[\s\S]*?-->/,prolog:/<\?[\s\S]+?\?>/,doctype:{pattern:/<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:(?!<!--)[^"'\]]|"[^"]*"|'[^']*'|<!--[\s\S]*?-->)*\]\s*)?>/i,greedy:!0},cdata:/<!\[CDATA\[[\s\S]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/i,greedy:!0,inside:{tag:{pattern:/^<\/?[^\s>\/]+/i,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"attr-value":{pattern:/=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/i,inside:{punctuation:[/^=/,{pattern:/^(\s*)["']|["']$/,lookbehind:!0}]}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:/&#?[\da-z]{1,8};/i};Prism$1.languages.markup.tag.inside["attr-value"].inside.entity=Prism$1.languages.markup.entity;// Plugin to make entity title show the real entity, idea by Roman Komarov
+if("undefined"!==typeof global){global.Prism=Prism$1}// some additional documentation/types
+/**
+ * The expansion of a simple `RegExp` literal to support additional properties.
+ *
+ * @typedef GrammarToken
+ * @property {RegExp} pattern The regular expression of the token.
+ * @property {boolean} [lookbehind=false] If `true`, then the first capturing group of `pattern` will (effectively)
+ * behave as a lookbehind group meaning that the captured text will not be part of the matched text of the new token.
+ * @property {boolean} [greedy=false] Whether the token is greedy.
+ * @property {string|string[]} [alias] An optional alias or list of aliases.
+ * @property {Grammar} [inside] The nested grammar of this token.
+ *
+ * The `inside` grammar will be used to tokenize the text value of each token of this kind.
+ *
+ * This can be used to make nested and even recursive language definitions.
+ *
+ * Note: This can cause infinite recursion. Be careful when you embed different languages or even the same language into
+ * each another.
+ * @global
+ * @public
+*/ /**
+    * @typedef Grammar
+    * @type {Object<string, RegExp | GrammarToken | Array<RegExp | GrammarToken>>}
+    * @property {Grammar} [rest] An optional grammar object that will be appended to this grammar.
+    * @global
+    * @public
+    */ /**
+        * A function which will invoked after an element was successfully highlighted.
+        *
+        * @callback HighlightCallback
+        * @param {Element} element The element successfully highlighted.
+        * @returns {void}
+        * @global
+        * @public
+       */ /**
+           * @callback HookCallback
+           * @param {Object<string, any>} env The environment variables of the hook.
+           * @returns {void}
+           * @global
+           * @public
+           */ /* **********************************************
+                   Begin prism-markup.js
+              ********************************************** */Prism$1.languages.markup={comment:/<!--[\s\S]*?-->/,prolog:/<\?[\s\S]+?\?>/,doctype:{// https://www.w3.org/TR/xml/#NT-doctypedecl
+pattern:/<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:[^<"'\]]|"[^"]*"|'[^']*'|<(?!!--)|<!--(?:[^-]|-(?!->))*-->)*\]\s*)?>/i,greedy:!0,inside:{"internal-subset":{pattern:/(\[)[\s\S]+(?=\]>$)/,lookbehind:!0,greedy:!0,inside:null// see below
+},string:{pattern:/"[^"]*"|'[^']*'/,greedy:!0},punctuation:/^<!|>$|[[\]]/,"doctype-tag":/^DOCTYPE/,name:/[^\s<>'"]+/}},cdata:/<!\[CDATA\[[\s\S]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/,greedy:!0,inside:{tag:{pattern:/^<\/?[^\s>\/]+/,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"attr-value":{pattern:/=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/,inside:{punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:[{pattern:/&[\da-z]{1,8};/i,alias:"named-entity"},/&#x?[\da-f]{1,8};/i]};Prism$1.languages.markup.tag.inside["attr-value"].inside.entity=Prism$1.languages.markup.entity;Prism$1.languages.markup.doctype.inside["internal-subset"].inside=Prism$1.languages.markup;// Plugin to make entity title show the real entity, idea by Roman Komarov
 Prism$1.hooks.add("wrap",function(env){if("entity"===env.type){env.attributes.title=env.content.replace(/&amp;/,"&")}});Object.defineProperty(Prism$1.languages.markup.tag,"addInlined",{/**
    * Adds an inlined language to markup.
    *
@@ -12293,24 +12991,42 @@ Prism$1.hooks.add("wrap",function(env){if("entity"===env.type){env.attributes.ti
    * @param {string} lang The language key.
    * @example
    * addInlined('style', 'css');
-   */value:function addInlined(tagName,lang){var includedCdataInside={};includedCdataInside["language-"+lang]={pattern:/(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,lookbehind:!0,inside:Prism$1.languages[lang]};includedCdataInside.cdata=/^<!\[CDATA\[|\]\]>$/i;var inside={"included-cdata":{pattern:/<!\[CDATA\[[\s\S]*?\]\]>/i,inside:includedCdataInside}};inside["language-"+lang]={pattern:/[\s\S]+/,inside:Prism$1.languages[lang]};var def={};def[tagName]={pattern:RegExp(/(<__[\s\S]*?>)(?:<!\[CDATA\[[\s\S]*?\]\]>\s*|[\s\S])*?(?=<\/__>)/.source.replace(/__/g,function(){return tagName}),"i"),lookbehind:!0,greedy:!0,inside:inside};Prism$1.languages.insertBefore("markup","cdata",def)}});Prism$1.languages.xml=Prism$1.languages.extend("markup",{});Prism$1.languages.html=Prism$1.languages.markup;Prism$1.languages.mathml=Prism$1.languages.markup;Prism$1.languages.svg=Prism$1.languages.markup;/* **********************************************
-                                                   Begin prism-css.js
-                                                  ********************************************** */(function(Prism){var string=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;Prism.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:/@[\w-]+[\s\S]*?(?:;|(?=\s*\{))/,inside:{rule:/^@[\w-]+/,"selector-function-argument":{pattern:/(\bselector\s*\((?!\s*\))\s*)(?:[^()]|\((?:[^()]|\([^()]*\))*\))+?(?=\s*\))/,lookbehind:!0,alias:"selector"// See rest below
-}}},url:{pattern:RegExp("url\\((?:"+string.source+"|[^\n\r()]*)\\)","i"),greedy:!0,inside:{function:/^url/i,punctuation:/^\(|\)$/}},selector:RegExp("[^{}\\s](?:[^{};\"']|"+string.source+")*?(?=\\s*\\{)"),string:{pattern:string,greedy:!0},property:/[-_a-z\xA0-\uFFFF][-\w\xA0-\uFFFF]*(?=\s*:)/i,important:/!important\b/i,function:/[-a-z0-9]+(?=\()/i,punctuation:/[(){};:,]/};Prism.languages.css.atrule.inside.rest=Prism.languages.css;var markup=Prism.languages.markup;if(markup){markup.tag.addInlined("style","css");Prism.languages.insertBefore("inside","attr-value",{"style-attr":{pattern:/\s*style=("|')(?:\\[\s\S]|(?!\1)[^\\])*\1/i,inside:{"attr-name":{pattern:/^\s*style/i,inside:markup.tag.inside},punctuation:/^\s*=\s*['"]|['"]\s*$/,"attr-value":{pattern:/.+/i,inside:Prism.languages.css}},alias:"language-css"}},markup.tag)}})(Prism$1);/* **********************************************
+   */value:function addInlined(tagName,lang){var includedCdataInside={};includedCdataInside["language-"+lang]={pattern:/(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,lookbehind:!0,inside:Prism$1.languages[lang]};includedCdataInside.cdata=/^<!\[CDATA\[|\]\]>$/i;var inside={"included-cdata":{pattern:/<!\[CDATA\[[\s\S]*?\]\]>/i,inside:includedCdataInside}};inside["language-"+lang]={pattern:/[\s\S]+/,inside:Prism$1.languages[lang]};var def={};def[tagName]={pattern:RegExp(/(<__[\s\S]*?>)(?:<!\[CDATA\[(?:[^\]]|\](?!\]>))*\]\]>|(?!<!\[CDATA\[)[\s\S])*?(?=<\/__>)/.source.replace(/__/g,function(){return tagName}),"i"),lookbehind:!0,greedy:!0,inside:inside};Prism$1.languages.insertBefore("markup","cdata",def)}});Prism$1.languages.html=Prism$1.languages.markup;Prism$1.languages.mathml=Prism$1.languages.markup;Prism$1.languages.svg=Prism$1.languages.markup;Prism$1.languages.xml=Prism$1.languages.extend("markup",{});Prism$1.languages.ssml=Prism$1.languages.xml;Prism$1.languages.atom=Prism$1.languages.xml;Prism$1.languages.rss=Prism$1.languages.xml;/* **********************************************
+                                                Begin prism-css.js
+                                               ********************************************** */(function(Prism){var string=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;Prism.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:/@[\w-]+[\s\S]*?(?:;|(?=\s*\{))/,inside:{rule:/^@[\w-]+/,"selector-function-argument":{pattern:/(\bselector\s*\((?!\s*\))\s*)(?:[^()]|\((?:[^()]|\([^()]*\))*\))+?(?=\s*\))/,lookbehind:!0,alias:"selector"},keyword:{pattern:/(^|[^\w-])(?:and|not|only|or)(?![\w-])/,lookbehind:!0// See rest below
+}}},url:{// https://drafts.csswg.org/css-values-3/#urls
+pattern:RegExp("\\burl\\((?:"+string.source+"|"+/(?:[^\\\r\n()"']|\\[\s\S])*/.source+")\\)","i"),greedy:!0,inside:{function:/^url/i,punctuation:/^\(|\)$/,string:{pattern:RegExp("^"+string.source+"$"),alias:"url"}}},selector:RegExp("[^{}\\s](?:[^{};\"']|"+string.source+")*?(?=\\s*\\{)"),string:{pattern:string,greedy:!0},property:/[-_a-z\xA0-\uFFFF][-\w\xA0-\uFFFF]*(?=\s*:)/i,important:/!important\b/i,function:/[-a-z0-9]+(?=\()/i,punctuation:/[(){};:,]/};Prism.languages.css.atrule.inside.rest=Prism.languages.css;var markup=Prism.languages.markup;if(markup){markup.tag.addInlined("style","css");Prism.languages.insertBefore("inside","attr-value",{"style-attr":{pattern:/\s*style=("|')(?:\\[\s\S]|(?!\1)[^\\])*\1/i,inside:{"attr-name":{pattern:/^\s*style/i,inside:markup.tag.inside},punctuation:/^\s*=\s*['"]|['"]\s*$/,"attr-value":{pattern:/.+/i,inside:Prism.languages.css}},alias:"language-css"}},markup.tag)}})(Prism$1);/* **********************************************
                 Begin prism-clike.js
              ********************************************** */Prism$1.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,boolean:/\b(?:true|false)\b/,function:/\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,punctuation:/[{}[\];(),.:]/};/* **********************************************
         Begin prism-javascript.js
-   ********************************************** */Prism$1.languages.javascript=Prism$1.languages.extend("clike",{"class-name":[Prism$1.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])[_$A-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)(?:catch|finally)\b/,lookbehind:!0},{pattern:/(^|[^.]|\.\.\.\s*)\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],number:/\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,// Allow for all non-ASCII characters (See http://stackoverflow.com/a/2008444)
-function:/#?[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,operator:/--|\+\+|\*\*=?|=>|&&|\|\||[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?[.?]?|[~:]/});Prism$1.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/;Prism$1.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s])\s*)\/(?:\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=(?:\s|\/\*[\s\S]*?\*\/)*(?:$|[\r\n,.;:})\]]|\/\/))/,lookbehind:!0,greedy:!0},// This must be declared before keyword because we use "function" inside the look-forward
-"function-variable":{pattern:/#?[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)\s*=>))/,alias:"function"},parameter:[{pattern:/(function(?:\s+[_$A-Za-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)?\s*\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\))/,lookbehind:!0,inside:Prism$1.languages.javascript},{pattern:/[_$a-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*=>)/i,inside:Prism$1.languages.javascript},{pattern:/(\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\)\s*=>)/,lookbehind:!0,inside:Prism$1.languages.javascript},{pattern:/((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:[_$A-Za-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*\s*)\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\)\s*\{)/,lookbehind:!0,inside:Prism$1.languages.javascript}],constant:/\b[A-Z](?:[A-Z_]|\dx?)*\b/});Prism$1.languages.insertBefore("javascript","string",{"template-string":{pattern:/`(?:\\[\s\S]|\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}|(?!\${)[^\\`])*`/,greedy:!0,inside:{"template-punctuation":{pattern:/^`|`$/,alias:"string"},interpolation:{pattern:/((?:^|[^\\])(?:\\{2})*)\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}/,lookbehind:!0,inside:{"interpolation-punctuation":{pattern:/^\${|}$/,alias:"punctuation"},rest:Prism$1.languages.javascript}},string:/[\s\S]+/}}});if(Prism$1.languages.markup){Prism$1.languages.markup.tag.addInlined("script","javascript")}Prism$1.languages.js=Prism$1.languages.javascript;/* **********************************************
+   ********************************************** */Prism$1.languages.javascript=Prism$1.languages.extend("clike",{"class-name":[Prism$1.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])[_$A-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)(?:catch|finally)\b/,lookbehind:!0},{pattern:/(^|[^.]|\.\.\.\s*)\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|for|from|function|(?:get|set)(?=\s*[\[$\w\xA0-\uFFFF])|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],number:/\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,// Allow for all non-ASCII characters (See http://stackoverflow.com/a/2008444)
+function:/#?[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,operator:/--|\+\+|\*\*=?|=>|&&=?|\|\|=?|[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?\?=?|\?\.?|[~:]/});Prism$1.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/;Prism$1.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s]|\b(?:return|yield))\s*)\/(?:\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=(?:\s|\/\*(?:[^*]|\*(?!\/))*\*\/)*(?:$|[\r\n,.;:})\]]|\/\/))/,lookbehind:!0,greedy:!0},// This must be declared before keyword because we use "function" inside the look-forward
+"function-variable":{pattern:/#?[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)\s*=>))/,alias:"function"},parameter:[{pattern:/(function(?:\s+[_$A-Za-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)?\s*\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\))/,lookbehind:!0,inside:Prism$1.languages.javascript},{pattern:/[_$a-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*=>)/i,inside:Prism$1.languages.javascript},{pattern:/(\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\)\s*=>)/,lookbehind:!0,inside:Prism$1.languages.javascript},{pattern:/((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:[_$A-Za-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*\s*)\(\s*|\]\s*\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\)\s*\{)/,lookbehind:!0,inside:Prism$1.languages.javascript}],constant:/\b[A-Z](?:[A-Z_]|\dx?)*\b/});Prism$1.languages.insertBefore("javascript","string",{"template-string":{pattern:/`(?:\\[\s\S]|\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}|(?!\${)[^\\`])*`/,greedy:!0,inside:{"template-punctuation":{pattern:/^`|`$/,alias:"string"},interpolation:{pattern:/((?:^|[^\\])(?:\\{2})*)\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}/,lookbehind:!0,inside:{"interpolation-punctuation":{pattern:/^\${|}$/,alias:"punctuation"},rest:Prism$1.languages.javascript}},string:/[\s\S]+/}}});if(Prism$1.languages.markup){Prism$1.languages.markup.tag.addInlined("script","javascript")}Prism$1.languages.js=Prism$1.languages.javascript;/* **********************************************
                                                       Begin prism-file-highlight.js
-                                                     ********************************************** */(function(){if("undefined"===typeof self||!self.Prism||!self.document||!document.querySelector){return}/**
-     * @param {Element} [container=document]
-     */self.Prism.fileHighlight=function(container){container=container||document;var Extensions={js:"javascript",py:"python",rb:"ruby",ps1:"powershell",psm1:"powershell",sh:"bash",bat:"batch",h:"c",tex:"latex"};Array.prototype.slice.call(container.querySelectorAll("pre[data-src]")).forEach(function(pre){// ignore if already loaded
-if(pre.hasAttribute("data-src-loaded")){return}// load current
-var src=pre.getAttribute("data-src"),language,parent=pre,lang=/\blang(?:uage)?-([\w-]+)\b/i;while(parent&&!lang.test(parent.className)){parent=parent.parentNode}if(parent){language=(pre.className.match(lang)||[,""])[1]}if(!language){var extension=(src.match(/\.(\w+)$/)||[,""])[1];language=Extensions[extension]||extension}var code=document.createElement("code");code.className="language-"+language;pre.textContent="";code.textContent="Loading\u2026";pre.appendChild(code);var xhr=new XMLHttpRequest;xhr.open("GET",src,!0);xhr.onreadystatechange=function(){if(4==xhr.readyState){if(400>xhr.status&&xhr.responseText){code.textContent=xhr.responseText;Prism$1.highlightElement(code);// mark as loaded
-pre.setAttribute("data-src-loaded","")}else if(400<=xhr.status){code.textContent="\u2716 Error "+xhr.status+" while fetching file: "+xhr.statusText}else{code.textContent="\u2716 Error: File does not exist or is empty"}}};xhr.send(null)})};document.addEventListener("DOMContentLoaded",function(){// execute inside handler, for dropping Event as argument
-self.Prism.fileHighlight()})})();// unsafeHTML directive, and the DocumentFragment that was last set as a value.
+                                                     ********************************************** */(function(){if("undefined"===typeof self||!self.Prism||!self.document){return}var Prism=window.Prism,LOADING_MESSAGE="Loading\u2026",FAILURE_MESSAGE=function(status,message){return"\u2716 Error "+status+" while fetching file: "+message},FAILURE_EMPTY_MESSAGE="\u2716 Error: File does not exist or is empty",EXTENSIONS={js:"javascript",py:"python",rb:"ruby",ps1:"powershell",psm1:"powershell",sh:"bash",bat:"batch",h:"c",tex:"latex"},STATUS_ATTR="data-src-status",STATUS_LOADING="loading",STATUS_LOADED="loaded",STATUS_FAILED="failed",SELECTOR="pre[data-src]:not(["+STATUS_ATTR+"=\""+STATUS_LOADED+"\"])"+":not(["+STATUS_ATTR+"=\""+STATUS_LOADING+"\"])",lang=/\blang(?:uage)?-([\w-]+)\b/i;/**
+                                             * Sets the Prism `language-xxxx` or `lang-xxxx` class to the given language.
+                                             *
+                                             * @param {HTMLElement} element
+                                             * @param {string} language
+                                             * @returns {void}
+                                             */function setLanguageClass(element,language){var className=element.className;className=className.replace(lang," ")+" language-"+language;element.className=className.replace(/\s+/g," ").trim()}Prism.hooks.add("before-highlightall",function(env){env.selector+=", "+SELECTOR});Prism.hooks.add("before-sanity-check",function(env){var pre=/** @type {HTMLPreElement} */env.element;if(pre.matches(SELECTOR)){env.code="";// fast-path the whole thing and go to complete
+pre.setAttribute(STATUS_ATTR,STATUS_LOADING);// mark as loading
+// add code element with loading message
+var code=pre.appendChild(document.createElement("CODE"));code.textContent=LOADING_MESSAGE;var src=pre.getAttribute("data-src"),language=env.language;if("none"===language){// the language might be 'none' because there is no language set;
+// in this case, we want to use the extension as the language
+var extension=(/\.(\w+)$/.exec(src)||[,"none"])[1];language=EXTENSIONS[extension]||extension}// set language classes
+setLanguageClass(code,language);setLanguageClass(pre,language);// preload the language
+var autoloader=Prism.plugins.autoloader;if(autoloader){autoloader.loadLanguages(language)}// load file
+var xhr=new XMLHttpRequest;xhr.open("GET",src,!0);xhr.onreadystatechange=function(){if(4==xhr.readyState){if(400>xhr.status&&xhr.responseText){// mark as loaded
+pre.setAttribute(STATUS_ATTR,STATUS_LOADED);// highlight code
+code.textContent=xhr.responseText;Prism.highlightElement(code)}else{// mark as failed
+pre.setAttribute(STATUS_ATTR,STATUS_FAILED);if(400<=xhr.status){code.textContent=FAILURE_MESSAGE(xhr.status,xhr.statusText)}else{code.textContent=FAILURE_EMPTY_MESSAGE}}}};xhr.send(null)}});Prism.plugins.fileHighlight={/**
+     * Executes the File Highlight plugin for all matching `pre` elements under the given container.
+     *
+     * Note: Elements which are already loaded or currently loading will not be touched by this method.
+     *
+     * @param {ParentNode} [container=document]
+     */highlight:function highlight(container){for(var elements=(container||document).querySelectorAll(SELECTOR),i=0,element;element=elements[i++];){Prism.highlightElement(element)}}};var logged=!1;/** @deprecated Use `Prism.plugins.fileHighlight.highlight` instead. */Prism.fileHighlight=function(){if(!logged){console.warn("Prism.fileHighlight is deprecated. Use `Prism.plugins.fileHighlight.highlight` instead.");logged=!0}Prism.plugins.fileHighlight.highlight.apply(this,arguments)}})();// unsafeHTML directive, and the DocumentFragment that was last set as a value.
 // The DocumentFragment is used as a unique key to check if the last value
 // rendered to the part was with unsafeHTML. If not, we'll always re-render the
 // value passed to unsafeHTML.
@@ -12535,17 +13251,17 @@ return Theme.getThemeForComponent("FuroMarkdown")||css`
       ${this.markdownRendered}
     `}}window.customElements.define("furo-markdown",FuroMarkdown);(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.dagre=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){/*
       Copyright (c) 2012-2014 Chris Pettitt
-
+      
       Permission is hereby granted, free of charge, to any person obtaining a copy
       of this software and associated documentation files (the "Software"), to deal
       in the Software without restriction, including without limitation the rights
       to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
       copies of the Software, and to permit persons to whom the Software is
       furnished to do so, subject to the following conditions:
-
+      
       The above copyright notice and this permission notice shall be included in
       all copies or substantial portions of the Software.
-
+      
       THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
       IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
       FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -15619,7 +16335,7 @@ _exports.utils=_exports.$utils=utils;const ns="http://www.w3.org/2000/svg";_expo
 //   //   this.tags.push(extension.name)
 //   // }
 // }
-}_exports.$BaseDefault=Base;var Base$1={default:Base};_exports.$Base=Base$1;const elements={},root="___SYMBOL___ROOT___";_exports.root$1=_exports.root=root;// Method for element creation
+}_exports.$BaseDefault=Base;var Base$1={default:Base};_exports.$Base=Base$1;const elements={},root="___SYMBOL___ROOT___";_exports.root=root;// Method for element creation
 function create(name){// create element
 return globals.document.createElementNS(ns,name)}function makeInstance(element){if(element instanceof Base)return element;if("object"===typeof element){return adopter(element)}if(null==element){return new elements[root]}if("string"===typeof element&&"<"!==element.charAt(0)){return adopter(globals.document.querySelector(element))}var node=create("svg");node.innerHTML=element;// We can use firstChild here because we know,
 // that the first char is < and thus an element
@@ -15759,7 +16475,7 @@ clone(){return new Point$1(this)}transform(m){return this.clone().transformO(m)}
 transformO(m){if(!Matrix.isMatrixLike(m)){m=new Matrix(m)}const{x,y}=this;// Perform the matrix multiplication
 this.x=m.a*x+m.c*y+m.e;this.y=m.b*x+m.d*y+m.f;return this}toArray(){return[this.x,this.y]}}_exports.Point=_exports.$PointDefault=Point$1;function point(x,y){return new Point$1(x,y).transform(this.screenCTM().inverse())}var Point$2={default:Point$1,point:point};_exports.$Point=Point$2;function closeEnough(a,b,threshold){return Math.abs(b-a)<(threshold||1e-6)}class Matrix{constructor(...args){this.init(...args)}// Initialize
 init(source){var base=Matrix.fromArray([1,0,0,1,0,0]);// ensure source as object
-source=source instanceof Element?source.matrixify():"string"===typeof source?Matrix.fromArray(source.split(delimiter).map(parseFloat)):Array.isArray(source)?Matrix.fromArray(source):"object"===typeof source&&Matrix.isMatrixLike(source)?source:"object"===typeof source?new Matrix().transform(source):6===arguments.length?Matrix.fromArray([].slice.call(arguments)):base;// Merge the source matrix with the base matrix
+source=source instanceof Element$1?source.matrixify():"string"===typeof source?Matrix.fromArray(source.split(delimiter).map(parseFloat)):Array.isArray(source)?Matrix.fromArray(source):"object"===typeof source&&Matrix.isMatrixLike(source)?source:"object"===typeof source?new Matrix().transform(source):6===arguments.length?Matrix.fromArray([].slice.call(arguments)):base;// Merge the source matrix with the base matrix
 this.a=null!=source.a?source.a:base.a;this.b=null!=source.b?source.b:base.b;this.c=null!=source.c?source.c:base.c;this.d=null!=source.d?source.d:base.d;this.e=null!=source.e?source.e:base.e;this.f=null!=source.f?source.f:base.f;return this}// Clones this matrix
 clone(){return new Matrix(this)}// Transform a matrix into another matrix by manipulating the space
 transform(o){// Check if o is a matrix and then left multiply it directly
@@ -15914,7 +16630,7 @@ for(len=well.children.length;len--;){fragment.appendChild(well.firstElementChild
 return outerHTML?this.replace(fragment)&&parent:this.add(fragment)}words(text){// This is faster than removing all children and adding a new one
 this.node.textContent=text;return this}// write svgjs data to the dom
 writeDataToDom(){// dump variables recursively
-this.each(function(){this.writeDataToDom()});return this}}_exports.Dom=_exports.$DomDefault=Dom;extend(Dom,{attr,find,findOne});register(Dom,"Dom");var Dom$1={default:Dom};_exports.$Dom=Dom$1;class Element extends Dom{constructor(node,attrs){super(node,attrs);// initialize data object
+this.each(function(){this.writeDataToDom()});return this}}_exports.Dom=_exports.$DomDefault=Dom;extend(Dom,{attr,find,findOne});register(Dom,"Dom");var Dom$1={default:Dom};_exports.$Dom=Dom$1;class Element$1 extends Dom{constructor(node,attrs){super(node,attrs);// initialize data object
 this.dom={};// create circular reference
 this.node.instance=this;if(node.hasAttribute("svgjs:data")){// pull svgjs data from the dom (getAttributeNS doesn't work in html5)
 this.setData(JSON.parse(node.getAttribute("svgjs:data"))||{})}}// Move element by its center
@@ -15938,8 +16654,8 @@ writeDataToDom(){// remove previously set data
 this.node.removeAttribute("svgjs:data");if(Object.keys(this.dom).length){this.node.setAttribute("svgjs:data",JSON.stringify(this.dom));// see #428
 }return super.writeDataToDom()}// Move over x-axis
 x(x){return this.attr("x",x)}// Move over y-axis
-y(y){return this.attr("y",y)}}_exports.Element=_exports.$ElementDefault=Element;extend(Element,{bbox,rbox,point,ctm,screenCTM});register(Element,"Element");var Element$1={default:Element};_exports.$Element=Element$1;var sugar={stroke:["color","width","opacity","linecap","linejoin","miterlimit","dasharray","dashoffset"],fill:["color","opacity","rule"],prefix:function(t,a){return"color"===a?t:t+"-"+a}// Add sugar for fill and stroke
-};["fill","stroke"].forEach(function(m){var extension={},i;extension[m]=function(o){if("undefined"===typeof o){return this.attr(m)}if("string"===typeof o||o instanceof Color||Color.isRgb(o)||o instanceof Element){this.attr(m,o)}else{// set all attributes from sugar.fill and sugar.stroke list
+y(y){return this.attr("y",y)}}_exports.Element=_exports.$ElementDefault=Element$1;extend(Element$1,{bbox,rbox,point,ctm,screenCTM});register(Element$1,"Element");var Element$2={default:Element$1};_exports.$Element=Element$2;var sugar={stroke:["color","width","opacity","linecap","linejoin","miterlimit","dasharray","dashoffset"],fill:["color","opacity","rule"],prefix:function(t,a){return"color"===a?t:t+"-"+a}// Add sugar for fill and stroke
+};["fill","stroke"].forEach(function(m){var extension={},i;extension[m]=function(o){if("undefined"===typeof o){return this.attr(m)}if("string"===typeof o||o instanceof Color||Color.isRgb(o)||o instanceof Element$1){this.attr(m,o)}else{// set all attributes from sugar.fill and sugar.stroke list
 for(i=sugar[m].length-1;0<=i;i--){if(null!=o[sugar[m][i]]){this.attr(sugar.prefix(m,sugar[m][i]),o[sugar[m][i]])}}}return this};registerMethods(["Element","Runner"],extension)});registerMethods(["Element","Runner"],{// Let the user set the matrix directly
 matrix:function(mat,b,c,d,e,f){// Act as a getter
 if(null==mat){return new Matrix(this)}// Act as a setter, the user can pass a matrix or a set of numbers
@@ -15973,12 +16689,12 @@ function y(y){return null==y?this.cy()-this.ry():this.cy(y+this.ry())}// Move by
 function cx(x){return null==x?this.attr("cx"):this.attr("cx",x)}// Move by center over y-axis
 function cy(y){return null==y?this.attr("cy"):this.attr("cy",y)}// Set width of element
 function width(width){return null==width?2*this.rx():this.rx(new SVGNumber(width).divide(2))}// Set height of element
-function height(height){return null==height?2*this.ry():this.ry(new SVGNumber(height).divide(2))}var circled={rx:rx,ry:ry,x:x,y:y,cx:cx,cy:cy,width:width,height:height};_exports.$circled=circled;class Shape extends Element{}_exports.Shape=_exports.$ShapeDefault=Shape;register(Shape,"Shape");var Shape$1={default:Shape};_exports.$Shape=Shape$1;class Circle extends Shape{constructor(node){super(nodeOrNew("circle",node),node)}radius(r){return this.attr("r",r)}// Radius x value
+function height(height){return null==height?2*this.ry():this.ry(new SVGNumber(height).divide(2))}var circled={rx:rx,ry:ry,x:x,y:y,cx:cx,cy:cy,width:width,height:height};_exports.$circled=circled;class Shape extends Element$1{}_exports.Shape=_exports.$ShapeDefault=Shape;register(Shape,"Shape");var Shape$1={default:Shape};_exports.$Shape=Shape$1;class Circle extends Shape{constructor(node){super(nodeOrNew("circle",node),node)}radius(r){return this.attr("r",r)}// Radius x value
 rx(rx){return this.attr("r",rx)}// Alias radius x value
 ry(ry){return this.rx(ry)}size(size){return this.radius(new SVGNumber(size).divide(2))}}_exports.Circle=_exports.$CircleDefault=Circle;extend(Circle,{x,y,cx,cy,width,height});registerMethods({Container:{// Create circle element
-circle:wrapWithAttrCheck(function(size){return this.put(new Circle).size(size).move(0,0)})}});register(Circle,"Circle");var Circle$1={default:Circle};_exports.$Circle=Circle$1;class Container extends Element{flatten(parent){this.each(function(){if(this instanceof Container)return this.flatten(parent).ungroup(parent);return this.toParent(parent)});// we need this so that the root does not get removed
+circle:wrapWithAttrCheck(function(size){return this.put(new Circle).size(size).move(0,0)})}});register(Circle,"Circle");var Circle$1={default:Circle};_exports.$Circle=Circle$1;class Container extends Element$1{flatten(parent){this.each(function(){if(this instanceof Container)return this.flatten(parent).ungroup(parent);return this.toParent(parent)});// we need this so that the root does not get removed
 this.node.firstElementChild||this.remove();return this}ungroup(parent){parent=parent||this.parent();this.each(function(){return this.toParent(parent)});this.remove();return this}}_exports.Container=_exports.$ContainerDefault=Container;register(Container,"Container");var Container$1={default:Container};_exports.$Container=Container$1;class Defs extends Container{constructor(node){super(nodeOrNew("defs",node),node)}flatten(){return this}ungroup(){return this}}_exports.Defs=_exports.$DefsDefault=Defs;register(Defs,"Defs");var Defs$1={default:Defs};_exports.$Defs=Defs$1;class Ellipse extends Shape{constructor(node){super(nodeOrNew("ellipse",node),node)}size(width,height){var p=proportionalSize(this,width,height);return this.rx(new SVGNumber(p.width).divide(2)).ry(new SVGNumber(p.height).divide(2))}}_exports.Ellipse=_exports.$EllipseDefault=Ellipse;extend(Ellipse,circled);registerMethods("Container",{// Create an ellipse
-ellipse:wrapWithAttrCheck(function(width=0,height=width){return this.put(new Ellipse).size(width,height).move(0,0)})});register(Ellipse,"Ellipse");var Ellipse$1={default:Ellipse};_exports.$Ellipse=Ellipse$1;class Stop extends Element{constructor(node){super(nodeOrNew("stop",node),node)}// add color stops
+ellipse:wrapWithAttrCheck(function(width=0,height=width){return this.put(new Ellipse).size(width,height).move(0,0)})});register(Ellipse,"Ellipse");var Ellipse$1={default:Ellipse};_exports.$Ellipse=Ellipse$1;class Stop extends Element$1{constructor(node){super(nodeOrNew("stop",node),node)}// add color stops
 update(o){if("number"===typeof o||o instanceof SVGNumber){o={offset:arguments[0],color:arguments[1],opacity:arguments[2]}}// set attributes
 if(null!=o.opacity)this.attr("stop-opacity",o.opacity);if(null!=o.color)this.attr("stop-color",o.color);if(null!=o.offset)this.attr("offset",new SVGNumber(o.offset));return this}}_exports.Stop=_exports.$StopDefault=Stop;register(Stop,"Stop");var Stop$1={default:Stop};_exports.$Stop=Stop$1;function from(x,y){return"radialGradient"===(this._element||this).type?this.attr({fx:new SVGNumber(x),fy:new SVGNumber(y)}):this.attr({x1:new SVGNumber(x),y1:new SVGNumber(y)})}function to(x,y){return"radialGradient"===(this._element||this).type?this.attr({cx:new SVGNumber(x),cy:new SVGNumber(y)}):this.attr({x2:new SVGNumber(x),y2:new SVGNumber(y)})}var gradiented={from:from,to:to};_exports.$gradiented=gradiented;class Gradient extends Container{constructor(type,attrs){super(nodeOrNew(type+"Gradient","string"===typeof type?null:type),attrs)}// Add a color stop
 stop(offset,color,opacity){return this.put(new Stop).update(offset,color,opacity)}// Update gradient
@@ -16414,7 +17130,7 @@ clip:wrapWithAttrCheck(function(){return this.defs().put(new ClipPath)})},Elemen
 clipWith(element){// use given clip or create a new one
 const clipper=element instanceof ClipPath?element:this.parent().clip().add(element);// apply mask
 return this.attr("clip-path","url(\"#"+clipper.id()+"\")")},// Unclip element
-unclip(){return this.attr("clip-path",null)},clipper(){return this.reference("clip-path")}}});register(ClipPath,"ClipPath");var ClipPath$1={default:ClipPath};_exports.$ClipPath=ClipPath$1;class ForeignObject extends Element{constructor(node){super(nodeOrNew("foreignObject",node),node)}}_exports.ForeignObject=_exports.$ForeignObjectDefault=ForeignObject;registerMethods({Container:{foreignObject:wrapWithAttrCheck(function(width,height){return this.put(new ForeignObject).size(width,height)})}});register(ForeignObject,"ForeignObject");var ForeignObject$1={default:ForeignObject};_exports.$ForeignObject=ForeignObject$1;class G extends Container{constructor(node){super(nodeOrNew("g",node),node)}x(x,box=this.bbox()){if(null==x)return box.x;return this.move(x,box.y,box)}y(y,box=this.bbox()){if(null==y)return box.y;return this.move(box.x,y,box)}move(x=0,y=0,box=this.bbox()){const dx=x-box.x,dy=y-box.y;return this.dmove(dx,dy)}dx(dx){return this.dmove(dx,0)}dy(dy){return this.dmove(0,dy)}dmove(dx,dy){this.children().forEach((child,i)=>{// Get the childs bbox
+unclip(){return this.attr("clip-path",null)},clipper(){return this.reference("clip-path")}}});register(ClipPath,"ClipPath");var ClipPath$1={default:ClipPath};_exports.$ClipPath=ClipPath$1;class ForeignObject extends Element$1{constructor(node){super(nodeOrNew("foreignObject",node),node)}}_exports.ForeignObject=_exports.$ForeignObjectDefault=ForeignObject;registerMethods({Container:{foreignObject:wrapWithAttrCheck(function(width,height){return this.put(new ForeignObject).size(width,height)})}});register(ForeignObject,"ForeignObject");var ForeignObject$1={default:ForeignObject};_exports.$ForeignObject=ForeignObject$1;class G extends Container{constructor(node){super(nodeOrNew("g",node),node)}x(x,box=this.bbox()){if(null==x)return box.x;return this.move(x,box.y,box)}y(y,box=this.bbox()){if(null==y)return box.y;return this.move(box.x,y,box)}move(x=0,y=0,box=this.bbox()){const dx=x-box.x,dy=y-box.y;return this.dmove(dx,dy)}dx(dx){return this.dmove(dx,0)}dy(dy){return this.dmove(0,dy)}dmove(dx,dy){this.children().forEach((child,i)=>{// Get the childs bbox
 const bbox=child.bbox(),m=new Matrix(child),matrix=m.translate(dx,dy).transform(m.inverse()),p=new Point$1(bbox.x,bbox.y).transform(matrix);// Get childs matrix
 // Move element
 child.move(p.x,p.y)});return this}width(width,box=this.bbox()){if(null==width)return box.width;return this.size(width,box.height,box)}height(height,box=this.bbox()){if(null==height)return box.height;return this.size(box.width,height,box)}size(width,height,box=this.bbox()){const p=proportionalSize(this,width,height,box),scaleX=p.width/box.width,scaleY=p.height/box.height;this.children().forEach((child,i)=>{const o=new Point$1(box).transform(new Matrix(child).inverse());child.scale(scaleX,scaleY,o.x,o.y)});return this}}_exports.G=_exports.$GDefault=G;registerMethods({Container:{// Create a group element
@@ -16430,7 +17146,7 @@ return super.remove()}targets(){return baseFind("svg [mask*=\""+this.id()+"\"]")
 maskWith(element){// use given mask or create a new one
 var masker=element instanceof Mask?element:this.parent().mask().add(element);// apply mask
 return this.attr("mask","url(\"#"+masker.id()+"\")")},// Unmask element
-unmask(){return this.attr("mask",null)},masker(){return this.reference("mask")}}});register(Mask,"Mask");var Mask$1={default:Mask};_exports.$Mask=Mask$1;function cssRule(selector,rule){if(!selector)return"";if(!rule)return selector;var ret=selector+"{";for(var i in rule){ret+=unCamelCase(i)+":"+rule[i]+";"}ret+="}";return ret}class Style extends Element{constructor(node){super(nodeOrNew("style",node),node)}addText(w=""){this.node.textContent+=w;return this}font(name,src,params={}){return this.rule("@font-face",_objectSpread({fontFamily:name,src:src},params))}rule(selector,obj){return this.addText(cssRule(selector,obj))}}_exports.Style=_exports.$StyleDefault=Style;registerMethods("Dom",{style:wrapWithAttrCheck(function(selector,obj){return this.put(new Style).rule(selector,obj)}),fontface:wrapWithAttrCheck(function(name,src,params){return this.put(new Style).font(name,src,params)})});register(Style,"Style");var Style$1={default:Style};_exports.$Style=Style$1;class TextPath extends Text{// Initialize node
+unmask(){return this.attr("mask",null)},masker(){return this.reference("mask")}}});register(Mask,"Mask");var Mask$1={default:Mask};_exports.$Mask=Mask$1;function cssRule(selector,rule){if(!selector)return"";if(!rule)return selector;var ret=selector+"{";for(var i in rule){ret+=unCamelCase(i)+":"+rule[i]+";"}ret+="}";return ret}class Style extends Element$1{constructor(node){super(nodeOrNew("style",node),node)}addText(w=""){this.node.textContent+=w;return this}font(name,src,params={}){return this.rule("@font-face",_objectSpread({fontFamily:name,src:src},params))}rule(selector,obj){return this.addText(cssRule(selector,obj))}}_exports.Style=_exports.$StyleDefault=Style;registerMethods("Dom",{style:wrapWithAttrCheck(function(selector,obj){return this.put(new Style).rule(selector,obj)}),fontface:wrapWithAttrCheck(function(name,src,params){return this.put(new Style).font(name,src,params)})});register(Style,"Style");var Style$1={default:Style};_exports.$Style=Style$1;class TextPath extends Text{// Initialize node
 constructor(node){super(nodeOrNew("textPath",node),node)}// return the array of the path track element
 array(){var track=this.track();return track?track.array():null}// Plot path if any
 plot(d){var track=this.track(),pathArray=null;if(track){pathArray=track.plot(d)}return null==d?pathArray:this}// Get the path element
@@ -16448,19 +17164,29 @@ if(!(text instanceof Text)){text=new Text().addTo(this.parent()).text(text)}// C
 return text.path(this)}),targets(){return baseFind("svg [href*=\""+this.id()+"\"]")}}});TextPath.prototype.MorphArray=PathArray;register(TextPath,"TextPath");var TextPath$1={default:TextPath};_exports.$TextPath=TextPath$1;class Use extends Shape{constructor(node){super(nodeOrNew("use",node),node)}// Use element as a reference
 element(element,file){// Set lined element
 return this.attr("href",(file||"")+"#"+element,xlink)}}_exports.Use=_exports.$UseDefault=Use;registerMethods({Container:{// Create a use element
-use:wrapWithAttrCheck(function(element,file){return this.put(new Use).element(element,file)})}});register(Use,"Use");var Use$1={default:Use};_exports.$Use=Use$1;const SVG=makeInstance;_exports.SVG=SVG;extend([Svg,Symbol$1,Image$1,Pattern,Marker],getMethodsFor("viewbox"));extend([Line,Polyline,Polygon,Path],getMethodsFor("marker"));extend(Text,getMethodsFor("Text"));extend(Path,getMethodsFor("Path"));extend(Defs,getMethodsFor("Defs"));extend([Text,Tspan],getMethodsFor("Tspan"));extend([Rect,Ellipse,Circle,Gradient],getMethodsFor("radius"));extend(EventTarget,getMethodsFor("EventTarget"));extend(Dom,getMethodsFor("Dom"));extend(Element,getMethodsFor("Element"));extend(Shape,getMethodsFor("Shape"));// extend(Element, getConstructor('Memory'))
-extend(Container,getMethodsFor("Container"));extend(Runner,getMethodsFor("Runner"));List.extend(getMethodNames());registerMorphableType([SVGNumber,Color,Box,Matrix,SVGArray,PointArray,PathArray]);makeMorphable();var main={Morphable:Morphable,registerMorphableType:registerMorphableType,makeMorphable:makeMorphable,TransformBag:TransformBag,ObjectBag:ObjectBag,NonMorphable:NonMorphable,defaults:defaults,utils:utils,namespaces:namespaces,regex:regex,SVG:SVG,parser:parser,find:baseFind,on:on,off:off,dispatch:dispatch,root:root,create:create,makeInstance:makeInstance,nodeOrNew:nodeOrNew,adopt:adopt,mockAdopt:mockAdopt,register:register,getClass:getClass,eid:eid,assignNewId:assignNewId,extend:extend,wrapWithAttrCheck:wrapWithAttrCheck,invent:invent,registerWindow:registerWindow,Animator:Animator,Controller:Controller,Ease:Ease,PID:PID,Spring:Spring,easing:easing,Queue:Queue,Runner:Runner,Timeline:Timeline,Array:SVGArray,Box:Box,Color:Color,EventTarget:EventTarget,Matrix:Matrix,Number:SVGNumber,PathArray:PathArray,Point:Point$1,PointArray:PointArray,List:List,Circle:Circle,ClipPath:ClipPath,Container:Container,Defs:Defs,Dom:Dom,Element:Element,Ellipse:Ellipse,ForeignObject:ForeignObject,Gradient:Gradient,G:G,A:A,Image:Image$1,Line:Line,Marker:Marker,Mask:Mask,Path:Path,Pattern:Pattern,Polygon:Polygon,Polyline:Polyline,Rect:Rect,Shape:Shape,Stop:Stop,Style:Style,Svg:Svg,Symbol:Symbol$1,Text:Text,TextPath:TextPath,Tspan:Tspan,Use:Use};/*!
+use:wrapWithAttrCheck(function(element,file){return this.put(new Use).element(element,file)})}});register(Use,"Use");var Use$1={default:Use};_exports.$Use=Use$1;const SVG=makeInstance;_exports.SVG=SVG;extend([Svg,Symbol$1,Image$1,Pattern,Marker],getMethodsFor("viewbox"));extend([Line,Polyline,Polygon,Path],getMethodsFor("marker"));extend(Text,getMethodsFor("Text"));extend(Path,getMethodsFor("Path"));extend(Defs,getMethodsFor("Defs"));extend([Text,Tspan],getMethodsFor("Tspan"));extend([Rect,Ellipse,Circle,Gradient],getMethodsFor("radius"));extend(EventTarget,getMethodsFor("EventTarget"));extend(Dom,getMethodsFor("Dom"));extend(Element$1,getMethodsFor("Element"));extend(Shape,getMethodsFor("Shape"));// extend(Element, getConstructor('Memory'))
+extend(Container,getMethodsFor("Container"));extend(Runner,getMethodsFor("Runner"));List.extend(getMethodNames());registerMorphableType([SVGNumber,Color,Box,Matrix,SVGArray,PointArray,PathArray]);makeMorphable();var main={Morphable:Morphable,registerMorphableType:registerMorphableType,makeMorphable:makeMorphable,TransformBag:TransformBag,ObjectBag:ObjectBag,NonMorphable:NonMorphable,defaults:defaults,utils:utils,namespaces:namespaces,regex:regex,SVG:SVG,parser:parser,find:baseFind,on:on,off:off,dispatch:dispatch,root:root,create:create,makeInstance:makeInstance,nodeOrNew:nodeOrNew,adopt:adopt,mockAdopt:mockAdopt,register:register,getClass:getClass,eid:eid,assignNewId:assignNewId,extend:extend,wrapWithAttrCheck:wrapWithAttrCheck,invent:invent,registerWindow:registerWindow,Animator:Animator,Controller:Controller,Ease:Ease,PID:PID,Spring:Spring,easing:easing,Queue:Queue,Runner:Runner,Timeline:Timeline,Array:SVGArray,Box:Box,Color:Color,EventTarget:EventTarget,Matrix:Matrix,Number:SVGNumber,PathArray:PathArray,Point:Point$1,PointArray:PointArray,List:List,Circle:Circle,ClipPath:ClipPath,Container:Container,Defs:Defs,Dom:Dom,Element:Element$1,Ellipse:Ellipse,ForeignObject:ForeignObject,Gradient:Gradient,G:G,A:A,Image:Image$1,Line:Line,Marker:Marker,Mask:Mask,Path:Path,Pattern:Pattern,Polygon:Polygon,Polyline:Polyline,Rect:Rect,Shape:Shape,Stop:Stop,Style:Style,Svg:Svg,Symbol:Symbol$1,Text:Text,TextPath:TextPath,Tspan:Tspan,Use:Use};/*!
    * @svgdotjs/svg.panzoom.js - A plugin for svg.js that enables panzoom for viewport elements
-   * @version 2.1.0
+   * @version 2.1.1
    * https://github.com/svgdotjs/svg.panzoom.js#readme
    *
    * @copyright undefined
    * @license MIT
    *
-   * BUILT: Tue Feb 25 2020 01:37:12 GMT+0100 (GMT+01:00)
-   */_exports.$main=main;;var normalizeEvent=function normalizeEvent(ev){return ev.touches||[{clientX:ev.clientX,clientY:ev.clientY}]};extend(Svg,{panZoom:function panZoom(options){var _options,_options$zoomFactor,_options$zoomMin,_options$zoomMax,_options$wheelZoom,_options$pinchZoom,_options$panning,_options$panButton,_options$oneFingerPan,_options$margins,_this=this;this.off(".panZoom");// when called with false, disable panZoom
-if(!1===options)return this;options=null!=(_options=options)?_options:{};var zoomFactor=null!=(_options$zoomFactor=options.zoomFactor)?_options$zoomFactor:2,zoomMin=null!=(_options$zoomMin=options.zoomMin)?_options$zoomMin:Number.MIN_VALUE,zoomMax=null!=(_options$zoomMax=options.zoomMax)?_options$zoomMax:Number.MAX_VALUE,doWheelZoom=null!=(_options$wheelZoom=options.wheelZoom)?_options$wheelZoom:!0,doPinchZoom=null!=(_options$pinchZoom=options.pinchZoom)?_options$pinchZoom:!0,doPanning=null!=(_options$panning=options.panning)?_options$panning:!0,panButton=null!=(_options$panButton=options.panButton)?_options$panButton:0,oneFingerPan=null!=(_options$oneFingerPan=options.oneFingerPan)?_options$oneFingerPan:!1,margins=null!=(_options$margins=options.margins)?_options$margins:!1,lastP,lastTouches,zoomInProgress=!1,restrictToMargins=function restrictToMargins(box){if(!margins)return;var top=margins.top,left=margins.left,bottom=margins.bottom,right=margins.right,zoom=_this.width()/box.width,_this$attr=_this.attr(["width","height"]),width=_this$attr.width,height=_this$attr.height,leftLimit=width-left/zoom,rightLimit=(right-width)/zoom,topLimit=height-top/zoom,bottomLimit=(bottom-height)/zoom;box.x=Math.min(leftLimit,Math.max(rightLimit,box.x));box.y=Math.min(topLimit,Math.max(bottomLimit,box.y));return box},wheelZoom=function wheelZoom(ev){ev.preventDefault();// touchpads can give ev.deltaY == 0, which skrews the lvl calculation
-if(0===ev.deltaY)return;var lvl=Math.pow(1+zoomFactor,-1*ev.deltaY/100)*this.zoom(),p=this.point(ev.clientX,ev.clientY);if(lvl>zoomMax){lvl=zoomMax}if(lvl<zoomMin){lvl=zoomMin}if(this.dispatch("zoom",{level:lvl,focus:p}).defaultPrevented){return this}this.zoom(lvl,p);if(margins){var box=restrictToMargins(this.viewbox());this.viewbox(box)}},pinchZoomStart=function pinchZoomStart(ev){lastTouches=normalizeEvent(ev);// Start panning in case only one touch is found
+   * BUILT: Fri Apr 24 2020 21:18:11 GMT+1000 (Ostaustralische Normalzeit)
+   */_exports.$main=main;;var normalizeEvent=function normalizeEvent(ev){return ev.touches||[{clientX:ev.clientX,clientY:ev.clientY}]};extend(Svg,{panZoom:function panZoom(options){var _options,_options$zoomFactor,_options$zoomMin,_options$zoomMax,_options$wheelZoom,_options$pinchZoom,_options$panning,_options$panButton,_options$oneFingerPan,_options$margins,_options$wheelZoomDel,_options$wheelZoomDel2,_this=this;this.off(".panZoom");// when called with false, disable panZoom
+if(!1===options)return this;options=null!=(_options=options)?_options:{};var zoomFactor=null!=(_options$zoomFactor=options.zoomFactor)?_options$zoomFactor:2,zoomMin=null!=(_options$zoomMin=options.zoomMin)?_options$zoomMin:Number.MIN_VALUE,zoomMax=null!=(_options$zoomMax=options.zoomMax)?_options$zoomMax:Number.MAX_VALUE,doWheelZoom=null!=(_options$wheelZoom=options.wheelZoom)?_options$wheelZoom:!0,doPinchZoom=null!=(_options$pinchZoom=options.pinchZoom)?_options$pinchZoom:!0,doPanning=null!=(_options$panning=options.panning)?_options$panning:!0,panButton=null!=(_options$panButton=options.panButton)?_options$panButton:0,oneFingerPan=null!=(_options$oneFingerPan=options.oneFingerPan)?_options$oneFingerPan:!1,margins=null!=(_options$margins=options.margins)?_options$margins:!1,wheelZoomDeltaModeLinePixels=null!=(_options$wheelZoomDel=options.wheelZoomDeltaModeLinePixels)?_options$wheelZoomDel:17,wheelZoomDeltaModeScreenPixels=null!=(_options$wheelZoomDel2=options.wheelZoomDeltaModeScreenPixels)?_options$wheelZoomDel2:53,lastP,lastTouches,zoomInProgress=!1,restrictToMargins=function restrictToMargins(box){if(!margins)return box;var top=margins.top,left=margins.left,bottom=margins.bottom,right=margins.right,zoom=_this.width()/box.width,_this$attr=_this.attr(["width","height"]),width=_this$attr.width,height=_this$attr.height,leftLimit=width-left/zoom,rightLimit=(right-width)/zoom,topLimit=height-top/zoom,bottomLimit=(bottom-height)/zoom;box.x=Math.min(leftLimit,Math.max(rightLimit,box.x));box.y=Math.min(topLimit,Math.max(bottomLimit,box.y));return box},wheelZoom=function wheelZoom(ev){ev.preventDefault();// When wheeling on a mouse,
+// - chrome by default uses deltaY = 53, deltaMode = 0 (pixel)
+// - firefox by default uses deltaY = 3, deltaMode = 1 (line)
+// - chrome and firefox on windows after configuring "One screen at a time"
+//   use deltaY = 1, deltaMode = 2 (screen)
+//
+// Note that when when wheeling on a touchpad, deltaY depends on how fast
+// you swipe, but the deltaMode is still different between the browsers.
+//
+// Normalize everything so that zooming speed is approximately the same in all cases
+var normalizedPixelDeltaY;switch(ev.deltaMode){case 1:normalizedPixelDeltaY=ev.deltaY*wheelZoomDeltaModeLinePixels;break;case 2:normalizedPixelDeltaY=ev.deltaY*wheelZoomDeltaModeScreenPixels;break;default:// 0 (already pixels) or new mode (avoid crashing)
+normalizedPixelDeltaY=ev.deltaY;break;}var lvl=Math.pow(1+zoomFactor,-1*normalizedPixelDeltaY/100)*this.zoom(),p=this.point(ev.clientX,ev.clientY);if(lvl>zoomMax){lvl=zoomMax}if(lvl<zoomMin){lvl=zoomMin}if(this.dispatch("zoom",{level:lvl,focus:p}).defaultPrevented){return this}this.zoom(lvl,p);if(margins){var box=restrictToMargins(this.viewbox());this.viewbox(box)}},pinchZoomStart=function pinchZoomStart(ev){lastTouches=normalizeEvent(ev);// Start panning in case only one touch is found
 if(2>lastTouches.length){if(doPanning&&oneFingerPan){panStart.call(this,ev)}return}// Stop panning for more than one touch
 if(doPanning&&oneFingerPan){panStop.call(this,ev)}// We call it so late, so the user is still able to scroll / reload the page via gesture
 // In case oneFingerPan is not active

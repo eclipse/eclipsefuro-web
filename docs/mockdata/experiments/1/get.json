@@ -4,7 +4,7 @@
     "display_name": "display_name",
     "id": "1",
     "furo_data_checkbox_input": true,
-    "furo_data_text_input": "hallo test",
+    "furo_data_text_input": "hallo test with loads of text to show the overflow. hallo test with loads of text to show the overflow.",
     "furo_data_number_input": 12.55,
     "furo_data_time_input": "17:34",
     "furo_data_color_input": "#e318ed",
@@ -25,6 +25,7 @@
           "@type": "type.googleapis.com/furo.StringProperty",
           "data": "01032020"
         },
+        "flags": ["is-overwritable", "my-prop"],
         "display_name": "Vertragsbeginn",
         "id": "246d79a0-0a15-43c5-b18f-ac8a4a449df1",
         "meta": {
@@ -185,6 +186,66 @@
             }
           }
         }
+      },
+      {
+        "data": {
+          "@type": "furo.fat.String",
+          "value": "text furo.fat.String",
+          "display_name": "furo.fat.String"
+        },
+        "display_name": "Display",
+        "id": "op33t",
+        "code": "option",
+        "meta": {
+          "fields": {
+            "data.value": {
+              "meta": {
+                "label": "fat string",
+                "hint": "Type in fat string"
+              }
+            }
+          }
+        }
+      },
+      {
+        "data": {
+          "@type": "furo.fat.Int32",
+          "value": 22,
+          "display_name": "furo.fat.Int32"
+        },
+        "display_name": "Display",
+        "id": "op33t",
+        "code": "option",
+        "meta": {
+          "fields": {
+            "data.value": {
+              "meta": {
+                "label": "fat int",
+                "hint": "Type in fat int"
+              }
+            }
+          }
+        }
+      },
+      {
+        "data": {
+          "@type": "furo.fat.Bool",
+          "value": true,
+          "display_name": "furo.fat.Bool"
+        },
+        "display_name": "Display",
+        "id": "op33t",
+        "code": "option",
+        "meta": {
+          "fields": {
+            "data.value": {
+              "meta": {
+                "label": "fat Bool",
+                "hint": "Type in fat Bool"
+              }
+            }
+          }
+        }
       }
     ],
     "single_type_property": {
@@ -236,18 +297,88 @@
       "service": "ExperimentService"
     },
     {
-      "href": "http://httpbin.org/anything",
+      "href": "https://httpbin.org/anything",
       "method": "PATCH",
       "rel": "update",
       "type": "experiment.ExperimentEntity",
       "service": "ExperimentService"
     },
     {
-      "href": "http://httpbin.org/anything",
+      "href": "https://httpbin.org/anything",
       "method": "POST",
       "rel": "create",
       "type": "experiment.ExperimentEntity",
       "service": "ExperimentService"
     }
-  ]
+  ],
+  "meta": {
+    "fields": {
+      "data.furo_data_checkbox_input": {
+        "meta": {
+          "label": "checkbox label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_text_input": {
+        "meta": {
+          "label": "text input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_number_input": {
+        "meta": {
+          "label": "number input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_time_input": {
+        "meta": {
+          "label": "time input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_color_input": {
+        "meta": {
+          "label": "color input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_textarea_input": {
+        "meta": {
+          "label": "textarea input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_date_input": {
+        "meta": {
+          "label": "date input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_date_input_google": {
+        "meta": {
+          "label": "google date input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_range_input": {
+        "meta": {
+          "label": "range input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_bool_icon": {
+        "meta": {
+          "label": "bool input label via meta",
+          "readonly": true
+        }
+      },
+      "data.furo_data_money_input": {
+        "meta": {
+          "label": "money input label via meta",
+          "readonly": false
+        }
+      }
+    }
+  }
 }

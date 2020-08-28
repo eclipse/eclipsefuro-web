@@ -208,6 +208,20 @@
       "rel": "list",
       "type": "project.ProjectCollection",
       "service": "ProjectService"
+    },
+    {
+      "href": "/mockdata/projects/list.json?page=2",
+      "method": "GET",
+      "rel": "next",
+      "type": "project.ProjectCollection",
+      "service": "ProjectService"
+    },
+    {
+      "href": "/mockdata/projects/list.json?page=3",
+      "method": "GET",
+      "rel": "last",
+      "type": "project.ProjectCollection",
+      "service": "ProjectService"
     }
   ]
 }

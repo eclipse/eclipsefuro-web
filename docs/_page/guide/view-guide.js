@@ -285,7 +285,7 @@ this.disableNoRel=!1;this.disableNotValid=!0;this.disablePristine=!0}/**
      * Entity bind to control elements inside the bar.
      *
      * @param entity
-     */bindEntity(entity){if(entity&&entity.data){this._entity=entity;this._entity.addEventListener("this-branch-value-changed",()=>{this._updateElements(this._entity)});this._entity.addEventListener("field-value-changed",()=>{this._updateElements(this._entity)});this._entity.addEventListener("data-injected",()=>{this._updateElements(this._entity)})}else{// eslint-disable-next-line no-console
+     */bindEntity(entity){if(entity&&entity.data){this._entity=entity;this._entity.addEventListener("this-branch-value-changed",()=>{this._updateElements(this._entity)});this._entity.addEventListener("data-object-became-valid",()=>{this._updateElements(this._entity)});this._entity.addEventListener("data-object-became-invalid",()=>{this._updateElements(this._entity)});this._entity.addEventListener("field-value-changed",()=>{this._updateElements(this._entity)});this._entity.addEventListener("data-injected",()=>{this._updateElements(this._entity)})}else{// eslint-disable-next-line no-console
 console.warn("Invalid binding ",entity,this)}}/**
      * Disable all elements inside
      * Can be used to disable during pending requests
@@ -488,8 +488,8 @@ setTimeout(()=>{const cr=this.getBoundingClientRect();this._checkSize(cr.width)}
 return _furoShell.Theme.getThemeForComponent("FuroFormLayouter")||_furoShell.css`
         :host {
           display: grid;
-          grid-row-gap: 0px;
-          grid-column-gap: 0px;
+          grid-row-gap: var(--furo-form-layouter-row-gap, 0px);
+          grid-column-gap: var(--furo-form-layouter-column-gap, 0px);
           grid-template-columns: repeat(1, 1fr);
         }
 
@@ -3036,7 +3036,10 @@ this.removeEventListener("mouseup",this.trackEnd,{once:!0});this.removeEventList
      */this._FBPAddWireHook("--backdropClicked",()=>{this.close()});// register resize listener
 if(!this.permanent){if(window.ResizeObserver){const ro=new ResizeObserver(entries=>{for(const entry of entries){window.requestAnimationFrame(()=>{const cr=entry.contentRect;this.__isFloating=cr.width<=this.floatBreakpoint})}if(this.__isFloating){this.close()}});ro.observe(this)}else{// fallback, just listen to the resize event
 const cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;window.addEventListener("resize",()=>{// eslint-disable-next-line no-shadow
-const cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;if(this.__isFloating){this.close()}})}}const drawer=this.shadowRoot.getElementById("drawer"),drag=this.shadowRoot.getElementById("drag"),backdrop=this.shadowRoot.getElementById("backdrop"),trackhandler=e=>{// unregister
+const cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;if(this.__isFloating){this.close()}})}}// initial size
+const cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;const drawer=this.shadowRoot.getElementById("drawer");/**
+                                                              * Set the transition effect after the first render. Otherwise we get a flickering effect
+                                                              */setTimeout(()=>{drawer.style.transitionDuration="200ms"},201);const drag=this.shadowRoot.getElementById("drag"),backdrop=this.shadowRoot.getElementById("backdrop"),trackhandler=e=>{// unregister
 this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);if(e instanceof MouseEvent){this.pauseEvent(e)}if(this.__isFloating){const startX=this._getScreenX(e),startY=this._getScreenY(e),startTime=performance.now(),{width}=drawer.getBoundingClientRect();let trackingEnabled=!1,trackingFixed=!1;drawer.style.transitionDuration="0ms";// Setup a timer
 let animationframetimeout;// register move
 this.moveHandler=()=>{// If there's a timer, cancel it
@@ -3087,7 +3090,7 @@ return _furoShell.Theme.getThemeForComponent("FuroAppDrawer")||_furoShell.css`
 
         #drawer {
           border-right: 1px solid var(--separator, rgb(228, 228, 228));
-          transition-duration: 200ms;
+          /*transition-duration: 200ms; is set in fbpReady */
           background: var(--surface-light);
         }
 
