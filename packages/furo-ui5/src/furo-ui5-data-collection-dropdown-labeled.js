@@ -43,32 +43,32 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
        * This is only needed if display_name and value_field are not located in the root of the object.
        * @property sub-field
        */
-      subField: {type: String, attribute: 'sub-field', reflect: true},
+      subField: { type: String, attribute: 'sub-field', reflect: true },
       /**
        * The name of the field from the injected collection that contains the label for the dropdown array.
        * @property display-field
        */
-      displayField: {type: String, attribute: 'display-field', reflect: true},
+      displayField: { type: String, attribute: 'display-field', reflect: true },
       /**
        * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
        * If you bind a scalar, you dont need this attribute.
        * @property value-field
        */
-      valueField: {type: String, attribute: 'value-field', reflect: true},
+      valueField: { type: String, attribute: 'value-field', reflect: true },
       /**
        * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
        *
        * If you bind a scalar, you dont need this attribute.
        * @property value-sub-field
        */
-      valueSubField: {type: String, attribute: 'value-sub-field', reflect: true},
+      valueSubField: { type: String, attribute: 'value-sub-field', reflect: true },
       /**
        * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
        *
        * If you bind a scalar, you dont need this attribute.
        * @property display-sub-field
        */
-      displaySubField: {type: String, attribute: 'display-sub-field', reflect: true},
+      displaySubField: { type: String, attribute: 'display-sub-field', reflect: true },
     };
   }
 

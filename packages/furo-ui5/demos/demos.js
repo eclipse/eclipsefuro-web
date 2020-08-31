@@ -13,4 +13,4 @@ import './demo-furo-ui5-data-radio-button-group.js';
 import './demo-furo-ui5-data-money-input.js';
 import './demo-furo-ui5-data-toggle-button.js';
 import './demo-furo-ui5-data-property.js';
-import './demo-furo-ui5-notification-list.js';
+import './demo-furo-ui5-notification-list-display.js';

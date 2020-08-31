@@ -17,7 +17,7 @@ import '@furo/input/src/furo-text-input.js';
  * @customElement
  * @demo demo/index.html
  */
-class DemoFuroUi5NotificationList extends FBP(LitElement) {
+class DemoFuroUi5NotificationListDisplay extends FBP(LitElement) {
   /**
    * Themable Styles
    * @private
@@ -55,19 +55,27 @@ class DemoFuroUi5NotificationList extends FBP(LitElement) {
   render() {
     // eslint-disable-next-line lit/no-invalid-html
     return html`
+
       <furo-vertical-flex>
         <div>
           <h2>Demo furo-ui5-notification-list</h2>
         </div>
         <furo-demo-snippet flex>
           <template>
+           <furo-ui5-notification-list-display autofocus></furo-ui5-notification-list-display>
+
             <furo-vertical-scroller>
-              <furo-ui5-notification-list autofocus></furo-ui5-notification-list>
 
               <h2>Parse grpc status message</h2>
-
+                <furo-ui5-notification
+                ƒ-parse-grpc-status="--notification-grpc-status"
+                ƒ-inject-notification-collection="--response(*.notifications)"
+                @-notification-closed="--notificationAction"
+                @-notification-custom-action="--notificationAction"
+                @-notification-custom-action-reject="--notificationAction"
+                ></furo-ui5-notification>
               <produce-banner-data
-                @-response-error="^^notification-grpc-status"
+                @-response-error="--notification-grpc-status"
             @-notification-closed="--notificationAction"
                 label="Generate GRPC ERROR"
               ></produce-banner-data>
@@ -75,11 +83,9 @@ class DemoFuroUi5NotificationList extends FBP(LitElement) {
                             <h2>Parse notification messages </h2>
 
                <produce-qp-data @-data="--qp" qpescaped="%7B%22tsk%22%3A1%7D"></produce-qp-data>
-                 <h2>Display the Action Wire </h2>
-          <furo-text-input
-          condensed
-          ƒ-set-value="--notificationAction"
-          ></furo-text-input>
+                 <h2>Display the payload by notification custom action </h2>
+            <furo-pretty-json ƒ-inject-data="--notificationAction"></furo-pretty-json>
+
           <furo-data-object
             type="task.Task"
             @-object-ready="--entity"
@@ -95,15 +101,8 @@ class DemoFuroUi5NotificationList extends FBP(LitElement) {
             ƒ-hts-in="--hts"
             ƒ-load="--hts"
             ƒ-bind-request-data="--entity"
-            @-notification-closed="--notificationAction"
-            @-notification-reject="--notificationAction"
-            @-notification-accept="--notificationAction"
-            @-response="--response,^^notification-message(*.notifications)"
+            @-response="--response"
           >
-            <furo-pretty-json ƒ-inject-data="--notificationAction"></furo-pretty-json>
-
-
-
               <hr />
             </furo-vertical-scroller>
           </template>
@@ -113,4 +112,7 @@ class DemoFuroUi5NotificationList extends FBP(LitElement) {
   }
 }
 
-customElements.define('demo-furo-ui5-notification-list', DemoFuroUi5NotificationList);
+customElements.define(
+  'demo-furo-ui5-notification-list-display',
+  DemoFuroUi5NotificationListDisplay,
+);

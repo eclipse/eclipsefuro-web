@@ -13,14 +13,12 @@ import { Theme } from '@furo/framework';
  *  best place the furo-ui5-notification-list on the main site. then you only need one furo-ui5-notification-list.
  *  you can also use more furo-ui5-notification-list for special needs. but You have to be sure the furo-ui5-notification-list can receive the notification events.
  *
- * ### Styling
- * The following custom properties and mixins are available for styling:
  *
  * @summary ui5 notification list
  * @customElement
- * @demo demo-furo-ui5-notification-list banner display demo
+ * @demo demo-furo-ui5-notification-list-display ui5 notification display demo
  */
-class FuroUi5NotificationList extends FBP(LitElement) {
+class FuroUi5NotificationListDisplay extends FBP(LitElement) {
   constructor() {
     super();
     this.headerText = '';
@@ -34,30 +32,20 @@ class FuroUi5NotificationList extends FBP(LitElement) {
 
     /**
      * listening the 'notification-grpc-status' event
-     * the message in the event detail should be GRPC status
-     * https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto
+     * the message in the event detail should be GRPC status.
+     * https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto.
      */
-    this.parentNode.addEventListener('notification-grpc-status', e => {
+    this.parentNode.addEventListener('open-furo-ui5-notification-requested', e => {
       e.stopPropagation();
-      this.target = e.target;
-      this.parseGrpcStatus(e.detail);
-    });
+      this.target = e.detail;
 
-    /**
-     * listening the 'notification-message' event
-     * the message in the event detail should be type furo-notification
-     */
-    this.parentNode.addEventListener('notification-message', e => {
-      e.stopPropagation();
-      this.target = e.target;
-      console.log(e.detail);
-      if(e.detail && Array.isArray(e.detail)) {
-
-        e.detail.forEach(n=>{
+      if (e.detail._type === 'grpc') {
+        this.parseGrpcStatus(e.detail);
+      } else if (e.detail.payload && Array.isArray(e.detail.payload)) {
+        e.detail.payload.forEach(n => {
           this.parseNotificationMessage(n);
         });
       }
-      // this.parseNotificationMessage(e.detail);
     });
 
     /**
@@ -67,9 +55,9 @@ class FuroUi5NotificationList extends FBP(LitElement) {
      * <furo-entity-agent @-notification-closed="--notificationAction" ..
      */
     this.shadowRoot.getElementById('ui5-list').addEventListener('item-close', e => {
-      const customEvent = new Event("notification-closed",{bubbles:true, composed: true});
-      customEvent.detail='notification closed.'
-      e.detail.item.target.dispatchEvent(customEvent);
+      const customEvent = new Event('notification-closed', { bubbles: true, composed: true });
+      customEvent.detail = 'notification closed.';
+      e.detail.item.target._close();
       e.detail.item.remove();
     });
 
@@ -80,51 +68,68 @@ class FuroUi5NotificationList extends FBP(LitElement) {
      * <furo-entity-agent @-notification-actionName="--notificationAction" ..
      */
     this.shadowRoot.getElementById('ui5-list').addEventListener('click', e => {
-      const action = e.target.getAttribute("action");
-      if(action) {
-
-        const customEvent = new Event(`notification-${action}`,{bubbles:true, composed: true});
-        customEvent.detail=action;
-
-        e.target.notification.target.dispatchEvent(customEvent);
+      const action = e.target.getAttribute('action');
+      if (action) {
+        e.target.notification.target._customAction(action);
         e.target.notification.remove();
       }
     });
   }
 
   /**
-   * parse grpc status object and set the label according to the LocalizedMessage in status
-   * https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto
+   * parse grpc status object and set the notification text according to the LocalizedMessage in status.
+   * https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto.
    * @param s
    */
-  parseGrpcStatus(status) {
+  parseGrpcStatus(d) {
+    const status = d.payload;
+
     // fallback, if no localized message was given
-    let text = status.message;
+    this.text = d.text ? d.text : d.payload.message;
+
     // log developper message
     if (status.details && status.details.length > 0) {
-      const textTmp = status.details
-        .filter(det => det['@type'].includes('LocalizedMessage'))
-        .map(det => det.message);
+      this.multilineText = [];
+      // show localized messages first
+      this.multilineText = this.multilineText.concat(
+        status.details
+          .filter(det => det['@type'].includes('LocalizedMessage'))
+          .map(det => det.message),
+      );
 
-      if (textTmp && textTmp.length) {
-        text = textTmp.join('\n\n');
-      }
+      // list descriptions of badRequest errors
+      this.multilineText = this.multilineText.concat(
+        status.details
+          .filter(det => det['@type'].includes('google.rpc.BadRequest'))
+          // eslint-disable-next-line array-callback-return
+          .map(det => {
+            if (det.field_violations) {
+              return det.field_violations.map(violation => violation.description);
+            }
+            return {};
+          })[0],
+      );
+      // todo: implement the other error types from https://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto
+      // Help, RequestInfo, ResourceInfo, PreconditionFailure
     }
-    this.text = text;
-    this.heading =  status.code ? status.code : '';
 
+    if (this.multilineText) {
+      this.text = this.multilineText.join('\n\n');
+    }
+
+    this.heading = status.code ? status.code : '';
+    this.priority = 'High';
+    this.actions = [];
     this.show();
   }
 
   /**
-   * parse notification message
+   * parse notification message and set the ui5 notification properties like priority, actions, heading..
    * @param message
    */
   parseNotificationMessage(message) {
-
-    this.priority = message.priority ? message.priority: 'low';
-    this.heading = message.heading ? message.heading: null;
-    this.avatar = message.avatar ? message.avatar: null;
+    this.priority = message.message_priority ? message.message_priority : 'low';
+    this.heading = message.heading ? message.heading : null;
     this.text = message.message;
     this.actions = message.actions;
 
@@ -132,7 +137,7 @@ class FuroUi5NotificationList extends FBP(LitElement) {
   }
 
   /**
-   * show notification list item
+   * show notification list item.
    * @param text
    */
   show() {
@@ -152,14 +157,14 @@ class FuroUi5NotificationList extends FBP(LitElement) {
     /**
      * add actions
      */
-    if(this.actions && Array.isArray(this.actions)) {
-      this.actions.forEach((a)=>{
+    if (this.actions && Array.isArray(this.actions)) {
+      this.actions.forEach(a => {
         const action = document.createElement('ui5-notification-overflow-action');
         action.setAttribute('icon', a.icon);
         action.setAttribute('text', a.text);
-        action.setAttribute('action', a.action);
+        action.setAttribute('action', a.command);
         action.setAttribute('slot', 'actions');
-        action.notification=notification;
+        action.notification = notification;
         notification.appendChild(action);
       });
     }
@@ -183,8 +188,20 @@ class FuroUi5NotificationList extends FBP(LitElement) {
        * the target dom object, which sends the notification event
        */
       target: {
-        type: Object
-      }
+        type: Object,
+      },
+      /**
+       * the priority of the notification. `High`, `Low`,`Medium`, `None`
+       */
+      priority: {
+        type: String,
+      },
+      /**
+       * the custom actioins of the notification. [{icon: "accept", command: "accept", text: "accept"},…]
+       */
+      actions: {
+        type: Array,
+      },
     };
   }
 
@@ -216,4 +233,4 @@ class FuroUi5NotificationList extends FBP(LitElement) {
   }
 }
 
-customElements.define('furo-ui5-notification-list', FuroUi5NotificationList);
+customElements.define('furo-ui5-notification-list-display', FuroUi5NotificationListDisplay);

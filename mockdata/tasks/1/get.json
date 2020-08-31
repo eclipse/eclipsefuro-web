@@ -35,12 +35,12 @@
 
         {
           "icon":"accept",
-          "action":"accept",
+          "command":"accept",
           "text": "accept"
         },
         {
           "icon":"message-error",
-          "action":"reject",
+          "command":"reject",
           "text": "Reject"
         }
 
@@ -58,12 +58,12 @@
 
         {
           "icon":"accept",
-          "action":"accept",
+          "command":"accept",
           "text": "accept"
         },
         {
           "icon":"message-error",
-          "action":"reject",
+          "command":"reject",
           "text": "Reject"
         }
 
@@ -74,19 +74,19 @@
       "id": 3,
       "display_name": "",
       "heading": "heading 3",
-      "message_priority": "High",
+      "message_priority": "Low",
       "category": "warning",
       "category_priority": "High",
       "actions": [
 
         {
           "icon":"accept",
-          "action":"accept",
+          "command":"accept",
           "text": "accept"
         },
         {
           "icon":"message-error",
-          "action":"reject",
+          "command":"reject",
           "text": "Reject"
         }
 

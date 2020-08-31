@@ -97,7 +97,6 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
 
     // update the value on input changes
     this.addEventListener('input', val => {
-
       // update the value
       this.binder.fieldValue = val.target.value;
 
