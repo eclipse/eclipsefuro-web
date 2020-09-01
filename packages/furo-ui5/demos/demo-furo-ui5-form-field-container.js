@@ -107,6 +107,8 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                   </furo-horizontal-flex>
                 </furo-ui5-form-field-container>
 
+                <furo-ui5-data-display-labeled ƒ-bind-data="--entity(*.data.furo_data_money_input)"></furo-ui5-data-display-labeled>
+
                 <furo-ui5-data-date-picker-labeled
                   ƒ-bind-data="--entity(*.data.furo_data_date_input_google)"
                 ></furo-ui5-data-date-picker-labeled>
@@ -129,6 +131,8 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                   ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
                 ></furo-ui5-data-checkbox-input-labeled>
 
+
+
                 <furo-ui5-form-field-container>
                   <ui5-label label slot="label" for="Custom" show-colon
                     >Use it for small option lists
@@ -139,6 +143,7 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                     ƒ-inject-list="--refCol(*.entities)"
                   ></furo-ui5-data-segmented-button>
                 </furo-ui5-form-field-container>
+                <furo-ui5-data-display-labeled ƒ-bind-data="--entityTaskReady(*.owner)"></furo-ui5-data-display-labeled>
               </furo-form-layouter>
 
               <furo-form-layouter>

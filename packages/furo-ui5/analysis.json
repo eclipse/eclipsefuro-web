@@ -1146,11 +1146,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 69,
               "column": 2
             },
             "end": {
-              "line": 71,
+              "line": 96,
               "column": 3
             }
           },
@@ -1161,16 +1161,64 @@
           }
         },
         {
+          "name": "_checkSize",
+          "description": "Form breakpoints according to SAP Fiori Design System\nhttps://experience.sap.com/fiori-design-web/form/",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 104,
+              "column": 2
+            },
+            "end": {
+              "line": 116,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "size"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_setSizeAttribute",
+          "description": "Sets data-size attribute",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 123,
+              "column": 2
+            },
+            "end": {
+              "line": 128,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "attrValue"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "render",
           "description": "",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 134,
+              "line": 215,
               "column": 2
             },
             "end": {
-              "line": 142,
+              "line": 223,
               "column": 3
             }
           },
@@ -1191,11 +1239,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 64,
+          "line": 65,
           "column": 0
         },
         "end": {
-          "line": 143,
+          "line": 224,
           "column": 1
         }
       },
@@ -3361,7 +3409,7 @@
               "column": 2
             },
             "end": {
-              "line": 136,
+              "line": 137,
               "column": 3
             }
           },
@@ -3377,11 +3425,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 173,
               "column": 2
             },
             "end": {
-              "line": 174,
+              "line": 175,
               "column": 3
             }
           },
@@ -3401,11 +3449,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 181,
+              "line": 182,
               "column": 2
             },
             "end": {
-              "line": 210,
+              "line": 211,
               "column": 3
             }
           },
@@ -3427,11 +3475,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 216,
+              "line": 217,
               "column": 2
             },
             "end": {
-              "line": 244,
+              "line": 245,
               "column": 3
             }
           },
@@ -3449,11 +3497,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 146,
               "column": 2
             },
             "end": {
-              "line": 166,
+              "line": 167,
               "column": 3
             }
           },
@@ -3476,11 +3524,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 252,
+              "line": 253,
               "column": 2
             },
             "end": {
-              "line": 277,
+              "line": 278,
               "column": 3
             }
           },
@@ -3500,11 +3548,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 285,
+              "line": 286,
               "column": 2
             },
             "end": {
-              "line": 292,
+              "line": 293,
               "column": 3
             }
           },
@@ -3532,7 +3580,7 @@
           "column": 7
         },
         "end": {
-          "line": 293,
+          "line": 294,
           "column": 1
         }
       },
@@ -4175,7 +4223,7 @@
               "column": 2
             },
             "end": {
-              "line": 106,
+              "line": 108,
               "column": 3
             }
           },
@@ -4191,11 +4239,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 113,
+              "line": 115,
               "column": 2
             },
             "end": {
-              "line": 131,
+              "line": 133,
               "column": 3
             }
           },
@@ -4226,7 +4274,7 @@
           "column": 7
         },
         "end": {
-          "line": 132,
+          "line": 134,
           "column": 1
         }
       },
@@ -4389,7 +4437,7 @@
               "column": 2
             },
             "end": {
-              "line": 111,
+              "line": 112,
               "column": 3
             }
           },
@@ -4405,11 +4453,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 117,
+              "line": 118,
               "column": 2
             },
             "end": {
-              "line": 119,
+              "line": 120,
               "column": 3
             }
           },
@@ -4429,11 +4477,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 127,
               "column": 2
             },
             "end": {
-              "line": 152,
+              "line": 153,
               "column": 3
             }
           },
@@ -4464,7 +4512,7 @@
           "column": 7
         },
         "end": {
-          "line": 153,
+          "line": 154,
           "column": 1
         }
       },
@@ -5261,7 +5309,7 @@
               "column": 2
             },
             "end": {
-              "line": 101,
+              "line": 102,
               "column": 3
             }
           },
@@ -5277,11 +5325,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 108,
+              "line": 109,
               "column": 2
             },
             "end": {
-              "line": 126,
+              "line": 127,
               "column": 3
             }
           },
@@ -5303,11 +5351,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 132,
+              "line": 133,
               "column": 2
             },
             "end": {
-              "line": 134,
+              "line": 135,
               "column": 3
             }
           },
@@ -5336,7 +5384,7 @@
           "column": 7
         },
         "end": {
-          "line": 135,
+          "line": 136,
           "column": 1
         }
       },
@@ -5451,11 +5499,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 219,
               "column": 2
             },
             "end": {
-              "line": 220,
+              "line": 221,
               "column": 3
             }
           },
@@ -5470,11 +5518,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 246,
+              "line": 247,
               "column": 2
             },
             "end": {
-              "line": 252,
+              "line": 253,
               "column": 3
             }
           },
@@ -5494,7 +5542,7 @@
               "column": 2
             },
             "end": {
-              "line": 93,
+              "line": 94,
               "column": 3
             }
           },
@@ -5510,11 +5558,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 100,
               "column": 2
             },
             "end": {
-              "line": 112,
+              "line": 113,
               "column": 3
             }
           },
@@ -5530,11 +5578,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 116,
+              "line": 117,
               "column": 2
             },
             "end": {
-              "line": 139,
+              "line": 140,
               "column": 3
             }
           },
@@ -5557,11 +5605,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 169,
+              "line": 170,
               "column": 2
             },
             "end": {
-              "line": 193,
+              "line": 194,
               "column": 3
             }
           },
@@ -5583,11 +5631,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 200,
               "column": 2
             },
             "end": {
-              "line": 212,
+              "line": 213,
               "column": 3
             }
           },
@@ -5603,11 +5651,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 226,
+              "line": 227,
               "column": 2
             },
             "end": {
-              "line": 240,
+              "line": 241,
               "column": 3
             }
           },
@@ -5627,11 +5675,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 258,
+              "line": 259,
               "column": 2
             },
             "end": {
-              "line": 269,
+              "line": 270,
               "column": 3
             }
           },
@@ -5651,11 +5699,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 271,
+              "line": 272,
               "column": 2
             },
             "end": {
-              "line": 283,
+              "line": 284,
               "column": 3
             }
           },
@@ -5671,11 +5719,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 318,
+              "line": 319,
               "column": 2
             },
             "end": {
-              "line": 337,
+              "line": 338,
               "column": 3
             }
           },
@@ -5700,7 +5748,7 @@
           "column": 0
         },
         "end": {
-          "line": 338,
+          "line": 339,
           "column": 1
         }
       },
@@ -5713,11 +5761,11 @@
           "description": "the option object defines the currencies dropdown\n'{\"list\": [ \"chf\",\"eur\",\"usd\" ]}'\n'{\"list\": [ {\"id\":\"CHF\",\"label\":\"Schweiz\"},{\"id\":\"EUR\",\"label\":\"Europa\", \"selected\": true}'",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 219,
               "column": 2
             },
             "end": {
-              "line": 220,
+              "line": 221,
               "column": 3
             }
           },
@@ -5729,11 +5777,11 @@
           "description": "the string list of currencies for the dropdown. e.g. \"CHF,EUR,USD\"",
           "sourceRange": {
             "start": {
-              "line": 246,
+              "line": 247,
               "column": 2
             },
             "end": {
-              "line": 252,
+              "line": 253,
               "column": 3
             }
           },
@@ -6416,7 +6464,7 @@
               "column": 2
             },
             "end": {
-              "line": 104,
+              "line": 105,
               "column": 3
             }
           },
@@ -6432,11 +6480,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 112,
               "column": 2
             },
             "end": {
-              "line": 115,
+              "line": 116,
               "column": 3
             }
           },
@@ -6456,11 +6504,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 122,
+              "line": 123,
               "column": 2
             },
             "end": {
-              "line": 149,
+              "line": 150,
               "column": 3
             }
           },
@@ -6491,7 +6539,7 @@
           "column": 7
         },
         "end": {
-          "line": 150,
+          "line": 151,
           "column": 1
         }
       },
@@ -6781,6 +6829,535 @@
       },
       "slots": [],
       "tagname": "furo-ui5-notification-list"
+    },
+    {
+      "description": "The furo-ui5-data-display component allows the user to show text information.\n\nThe text field is read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.",
+      "summary": "data display field",
+      "path": "src/furo-ui5-data-display.js",
+      "properties": [
+        {
+          "name": "ui5Icon",
+          "type": "?",
+          "description": "Set the ui5 icon",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 144,
+              "column": 2
+            },
+            "end": {
+              "line": 154,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "_error",
+          "type": "?",
+          "description": "sets and remove the error state",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 161,
+              "column": 2
+            },
+            "end": {
+              "line": 168,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "_errorMsg",
+          "type": "?",
+          "description": "store the error message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 175,
+              "column": 2
+            },
+            "end": {
+              "line": 178,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "_informationMsg",
+          "type": "?",
+          "description": "store the information message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 185,
+              "column": 2
+            },
+            "end": {
+              "line": 188,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "_warningMsg",
+          "type": "?",
+          "description": "store the warning message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 195,
+              "column": 2
+            },
+            "end": {
+              "line": 198,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "_successMsg",
+          "type": "?",
+          "description": "store the success message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 205,
+              "column": 2
+            },
+            "end": {
+              "line": 208,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "_valueState",
+          "type": "?",
+          "description": "Update the value state on change",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 215,
+              "column": 2
+            },
+            "end": {
+              "line": 218,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "_hint",
+          "type": "?",
+          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 225,
+              "column": 2
+            },
+            "end": {
+              "line": 235,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "suggestions",
+          "type": "?",
+          "description": "set suggestions as the ui5-suggestion-item element\nsample data of the suggestions: [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},.. ]\nif the suggestion item has icon , the ui5 icons should be imported in your ui component",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 289,
+              "column": 2
+            },
+            "end": {
+              "line": 334,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        }
+      ],
+      "methods": [
+        {
+          "name": "connectedCallback",
+          "description": "init properties",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 22,
+              "column": 2
+            },
+            "end": {
+              "line": 27,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "_initBinder",
+          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 34,
+              "column": 2
+            },
+            "end": {
+              "line": 38,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "applyBindingSet",
+          "description": "apply the binding set to the binder\nbinding set can be customised here otherwise the standard set in the ui5-data-input will be used",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 24,
+              "column": 2
+            },
+            "end": {
+              "line": 53,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "setValue",
+          "description": "Sets the value for the field. This will update the fieldNode.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 76,
+              "column": 2
+            },
+            "end": {
+              "line": 79,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "val"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Binds the fieldNode to the component\nbinding set can be customised here otherwise the standard bindData in the ui5-data-input will be used",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 60,
+              "column": 2
+            },
+            "end": {
+              "line": 70,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateVS",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 237,
+              "column": 2
+            },
+            "end": {
+              "line": 262,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "_setValueStateMessage",
+          "description": "Updates the vs and creates the element in the slot on demand",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 269,
+              "column": 2
+            },
+            "end": {
+              "line": 281,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "msg"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "_updateField",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 81,
+              "column": 2
+            },
+            "end": {
+              "line": 98,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-display",
+          "description": "Basic usage (scalar, fat, wrapper values)"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 12,
+          "column": 7
+        },
+        "end": {
+          "line": 99,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "FuroUi5DataInput",
+      "name": "FuroUi5DataDisplay",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-display"
+    },
+    {
+      "description": "`furo-ui5-data-display-labeled`\nThe furo-ui5-data-display-labeled is a composition to easily use a complete input field with label according\nto the design specification of SAP Fiori Design System.",
+      "summary": "labeled display field",
+      "path": "src/furo-ui5-data-display-labeled.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 24,
+              "column": 2
+            },
+            "end": {
+              "line": 27,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Orchestrates the data field connection to the inside",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 51,
+              "column": 2
+            },
+            "end": {
+              "line": 71,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 77,
+              "column": 2
+            },
+            "end": {
+              "line": 89,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "(TemplateResult | TemplateResult)"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-form-field-container",
+          "description": "Simple use"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 90,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroUi5DataDisplayLabeled",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-display-labeled",
+      "mixins": [
+        "FBP"
+      ]
     }
   ]
 }

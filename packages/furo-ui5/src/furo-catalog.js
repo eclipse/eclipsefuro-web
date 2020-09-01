@@ -24,3 +24,5 @@ import './furo-ui5-data-radio-button-group.js';
 import './furo-ui5-data-toggle-button.js';
 import './furo-ui5-data-property.js';
 import './furo-ui5-notification-list.js';
+import './furo-ui5-data-display.js';
+import './furo-ui5-data-display-labeled.js';
