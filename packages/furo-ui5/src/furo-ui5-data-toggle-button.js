@@ -90,7 +90,6 @@ export class FuroUi5DataToggleButton extends ToggleButton.default {
 
     // update the value on input changes
     this.addEventListener('click', val => {
-
       // update the value
       this.binder.fieldValue = val.target.pressed;
 

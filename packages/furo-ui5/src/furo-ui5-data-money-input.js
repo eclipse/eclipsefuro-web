@@ -79,7 +79,6 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
 
     // update the value on input changes
     this.addEventListener('value-changed', val => {
-
       // update the value
       this.binder.fieldValue = val.detail;
 
