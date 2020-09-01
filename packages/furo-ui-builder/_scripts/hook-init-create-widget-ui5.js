@@ -1,6 +1,6 @@
 const U33eBuilder = require("./u33eBuilder");
 
-class HookInitCreateWidget {
+class HookInitCreateWidgetUi5 {
 
   static getPath(ctx){
     const SPEC = ctx.spec;
@@ -21,31 +21,34 @@ class HookInitCreateWidget {
     u33e.addImportWithMember(" FBP ", "@furo/fbp");
     u33e.addImportWithMember(" i18n ", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
-
-    u33e.addImport("@furo/data-input");
     u33e.addImport("@furo/form/src/furo-form-layouter.js");
-    u33e.addImport("@furo/input/src/furo-button.js");
     u33e.addImport("@furo/form/src/furo-button-bar.js");
     u33e.addImport("@ui5/webcomponents/dist/Card.js");
     u33e.addImport("@ui5/webcomponents/dist/Button.js");
 
+    // header-text and secondary-text property
+    u33e.addProperty("headerText", "String", "Header text to label the form", null, false, false, "header-text");
+    u33e.addProperty("secondaryText", "String", "Secondary text for a detailed description", null, false, false, "secondary-text");
+
     u33e.addMethod("bindData", "data",
-        " Bind your furo-data-object event @-object-ready\n @public\n @param data",
-        "CiAgICB0aGlzLl9GQlBUcmlnZ2VyV2lyZSgnLS1kYXRhJywgZGF0YSk7CiAgICB0aGlzLmZpZWxkID0gZGF0YTs=");
+      " Bind your furo-data-object event @-object-ready\n @public\n @param data",
+      "CiAgICB0aGlzLl9GQlBUcmlnZ2VyV2lyZSgnLS1kYXRhJywgZGF0YSk7CiAgICB0aGlzLmZpZWxkID0gZGF0YTs=");
 
     u33e.addExposedWire("focus", "--focused", "Fokus");
 
     // styling
     u33e.addStyle(":host")
-        .addCSSAttribute("display", "block");
+      .addCSSAttribute("display", "block");
 
     u33e.addStyle(":host([hidden])")
-        .addCSSAttribute("display", "none");
+      .addCSSAttribute("display", "none");
 
     u33e.addStyle(".content")
       .addCSSAttribute("padding", "var(--spacing-s, 16px) var(--spacing, 24px)");
 
     let card = u33e.addDomNode("ui5-card");
+    card.addAttribute("heading", '${this.headerText?this.headerText:""}');
+    card.addAttribute("subheading", '${this.secondaryText?this.secondaryText:""}');
     card.description = "The card is the main container";
 
     let cardContent = card.appendChild("div");
@@ -56,11 +59,11 @@ class HookInitCreateWidget {
     form.description = "the form layouter will contain all required fields";
 
     let action = cardContent.appendChild("furo-button-bar");
-    
+
     let button = action.appendChild("ui5-button");
     button.addAttribute("rel","create")
-        .addInnerText("${i18n.t('create')}")
-        .addEventListener("click","-^create-requested", "fired when the create button was pressed");
+      .addInnerText("${i18n.t('create')}")
+      .addEventListener("click","-^create-requested", "fired when the create button was pressed");
 
     //fields
     for (let fieldname in SPEC.fields) {
@@ -129,4 +132,4 @@ class HookInitCreateWidget {
   }
 }
 
-module.exports = HookInitCreateWidget;
+module.exports = HookInitCreateWidgetUi5;

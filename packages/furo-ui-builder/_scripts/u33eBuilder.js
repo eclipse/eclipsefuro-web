@@ -279,7 +279,7 @@ class U33eBuilder {
   }
 
   static getBestMatchingUI5Component(field) {
-    return this.checkMatchingUI5(field) || 'furo-ui5-data-text-input'
+    return this.checkMatchingUI5(field) || 'furo-ui5-data-text-input-labeled'
   };
 }
 

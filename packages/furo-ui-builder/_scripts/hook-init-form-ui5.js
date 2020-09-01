@@ -1,30 +1,30 @@
 const U33eBuilder = require("./u33eBuilder");
 
-class HookInitCreateFormUi5 {
-  static getPath(ctx){
+class HookInitFormUi5 {
+  static getPath(ctx) {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-form-ui5").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-form-ui5").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
 
     const OPTIONS = (() => {
-      if (ctx.config.hook && ctx.config.hook.hook_init_create_form_ui5) {
-        return ctx.config.hook.hook_init_create_form_ui5
+      if (ctx.config.hook && ctx.config.hook.hook_init_form_ui5) {
+        return ctx.config.hook.hook_init_form_ui5
       } else {
         return {
           "default_form_size": "one",
           "default_field_flags": [],
-          "skip_fields_on_init" : ["id", "display_name"]
+          "skip_fields_on_init": ["id", "display_name"]
         }
       }
     })();
 
-    u33e.setTheme("CreateFormBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-form-ui5").toLowerCase();
+    u33e.setTheme("FormUI5BaseTheme");
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-form-ui5").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -33,7 +33,7 @@ class HookInitCreateFormUi5 {
     u33e.addImportWithMember("FBP", "@furo/fbp");
     u33e.addImportWithMember("i18n", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
-    u33e.addImport("@furo/ui5/src/furo-catalog.js;");
+    u33e.addImport("@furo/ui5/src/furo-catalog.js");
     u33e.addImport("@furo/form");
 
     u33e.addMethod("bindData", "data",
@@ -53,6 +53,9 @@ class HookInitCreateFormUi5 {
     u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");
 
+    u33e.addStyle(":host(.in-repeater)")
+        .addCSSAttribute("border-bottom", "1px solid var(--separator, #FAFAFA)");
+
 
     // all field will be added to this node
     let root = u33e.addDomNode("furo-form");
@@ -65,23 +68,29 @@ class HookInitCreateFormUi5 {
     let form = root.appendChild("furo-form-layouter");
     form.addFlag(OPTIONS.default_form_size || "one");
 
-
-    //fields
+    // range of fields
     for (let fieldname in SPEC.fields) {
       let field = SPEC.fields[fieldname];
+
       /**
        * skip field if it is skip list or skipped in spec
        */
       if (OPTIONS.skip_fields_on_init.indexOf(fieldname) !== -1 || (field.__ui && field.__ui.no_init)) {
-        continue
-      }
+        if(field.__ui && field.__ui.no_skip){
 
-      // use only required fields
-      if (!(field.constraints && field.constraints.required)) {
-        continue
+        }else{
+          continue
+        }
+
       }
 
       let component = U33eBuilder.getBestMatchingUI5Component(field);
+
+      let importComponent = ctx.getImportPathForComponent(component);
+      if (importComponent) {
+        u33e.addImport(importComponent);
+      }
+
       let fld = form.appendChild(component);
 
 
@@ -114,29 +123,33 @@ class HookInitCreateFormUi5 {
         }
       }
 
+
       fld.addMethod("bind-data", "--data(*." + fieldname + ")");
 
+
       let arrTmpName = field.type.split(".");
-      //  complex type has a custom form component
-      if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google" && !component.endsWith("-map") && !component.endsWith("-repeat")) {
-        component = field.type.toLowerCase().split(".").join("-") + "-form";
+      //  complex type has a cutom form component
+
+      if (arrTmpName.length > 1 && arrTmpName[0] != "google" && !U33eBuilder.checkMatching(field) && !field.type.startsWith("google.protobuf")) {
+        component = field.type.toLowerCase().split(".").join("-") + "-form-ui5";
         fld.component = component;
         // change flag double to full
         let flagIndex = fld.flags.indexOf("double");
-        if(flagIndex === -1){
+        if (flagIndex === -1) {
           fld.addFlag("full");
-        }else{
+        } else {
           fld.flags[flagIndex] = "full";
         }
 
-        fld.addAttribute("header-text", "${i18n.t('createform."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".header.text')}");
-        fld.addAttribute("secondary-text", "${i18n.t('createform."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".secondary.text')}");
+          fld.addAttribute("header-text", "${i18n.t('form."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".header.text')}");
+          fld.addAttribute("secondary-text", "${i18n.t('form."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".secondary.text')}");
+
 
         /**
          * check if component have a replacement in the config
          *
          * "hook": {
-         *   "hook_init_form": {
+         *   "hook_init_form_ui5": {
          *     "replace": {
          *       "premium-premiumgui-form": {
          *         "with": "premium-field",
@@ -154,28 +167,32 @@ class HookInitCreateFormUi5 {
           // set flags from config
 
         } else {
-        // exclude self import
-        let importComponent = ctx.getImportPathForComponent(component);
-        if (importComponent) {
-          u33e.addImport(importComponent);
+          // exclude self import
+          let importComponent = ctx.getImportPathForComponent(component);
+          if (importComponent) {
+            u33e.addImport(importComponent);
+          }
+
         }
-      }
 
       }
 
 
       // add header text on maps and repeats
       if(component.endsWith("-map") || component.endsWith("-repeat")){
-        fld.addAttribute("header-text", "${i18n.t('createform."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".header.text')}");
-        fld.addAttribute("secondary-text", "${i18n.t('createform."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".secondary.text')}");
+        fld.addAttribute("header-text", "${i18n.t('form."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".header.text')}");
+        fld.addAttribute("secondary-text", "${i18n.t('form."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".secondary.text')}");
       }
 
-
       // repeated fields can use furo-data-repeat component
-      if (field.meta && field.meta.repeated && field.type != "furo.Property") {
-        let value_name = component;
+      if (field.__ui && field.__ui.component === "furo-data-repeat") {
         fld.component = "furo-data-repeat";
-        fld.addAttribute("repeated-component", value_name);
+        fld.addAttribute("repeated-component", field.__ui.repeated_component);
+        fld
+        let importComponent = ctx.getImportPathForComponent(field.__ui.repeated_component);
+        if (importComponent) {
+          u33e.addImport(importComponent);
+        }
       }
 
       // add a form for type furo.Property
@@ -184,12 +201,11 @@ class HookInitCreateFormUi5 {
       }
 
       // special type furo.Reference
+
       if (field.type === "furo.Reference") {
         if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
           let f = field.meta.default.link.type;
           fld.component = f.toLowerCase().split(".").join("-") + "-reference-search";
-
-
           // exclude self import
           let importComponent = ctx.getImportPathForComponent(fld.component);
           if (importComponent) {
@@ -204,9 +220,8 @@ class HookInitCreateFormUi5 {
       form.children[0].addMethod("focus", "--focused");
     }
 
-
     return u33e;
   }
 }
 
-module.exports = HookInitCreateFormUi5;
+module.exports = HookInitFormUi5;
