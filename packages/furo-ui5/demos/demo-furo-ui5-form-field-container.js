@@ -137,7 +137,7 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                   <ui5-label label slot="label" for="Custom" show-colon
                     >Use it for small option lists
                   </ui5-label>
-                  <furo-ui5-data-segmented-button
+                  <furo-ui5-data-segmented-button style="max-width: 100%;"
                     content
                     ƒ-bind-data="--entityTaskReady(*.owner)"
                     ƒ-inject-list="--refCol(*.entities)"
