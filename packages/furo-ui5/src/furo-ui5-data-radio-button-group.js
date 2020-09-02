@@ -409,9 +409,13 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
     } else {
       this._updateExistingOptions(options);
     }
-    this.dispatchEvent(new CustomEvent('radio-buttons-updated', {
-        detail: this, bubbles: true, composed: true
-    }));
+    this.dispatchEvent(
+      new CustomEvent('radio-buttons-updated', {
+        detail: this,
+        bubbles: true,
+        composed: true,
+      }),
+    );
   }
 
   /**

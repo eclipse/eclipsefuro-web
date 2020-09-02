@@ -131,7 +131,8 @@ describe('furo-ui5-data-radio-button-group', () => {
       <test-bind>
         <template>
           <furo-ui5-data-radio-button-group
-            ƒ-bind-data="--typeData(*.owner)" sub-field="data"
+            ƒ-bind-data="--typeData(*.owner)"
+            sub-field="data"
           ></furo-ui5-data-radio-button-group>
           <furo-ui5-data-text-input ƒ-bind-data="--typeData(*.owner.id)"></furo-ui5-data-text-input>
           <furo-data-object type="task.Task" @-object-ready="--typeData"></furo-data-object>
@@ -154,20 +155,16 @@ describe('furo-ui5-data-radio-button-group', () => {
   });
 
   it('should have the correct items', done => {
-
-    dropdown.addEventListener('radio-buttons-updated', ()=>{
-
-
-      if (dropdown._dropdownList.length === 4){
+    dropdown.addEventListener('radio-buttons-updated', () => {
+      if (dropdown._dropdownList.length === 4) {
         const item = dropdown.querySelectorAll('ui5-radiobutton');
         item[2].selected = true;
-        setTimeout(()=>{
+        setTimeout(() => {
           assert.equal(dao.data.owner.id._value, '3');
           done();
-        },16)
+        }, 16);
       }
-    })
+    });
     dropdown.injectEntities(testData.entities);
-
   });
 });

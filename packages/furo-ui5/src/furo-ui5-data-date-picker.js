@@ -106,7 +106,6 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
 
     // update the value on input changes
     this.addEventListener('change', val => {
-
       let dateValue = this.value;
       if (this.binder.fieldNode) {
         if (
