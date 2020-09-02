@@ -28,32 +28,9 @@
       "id": 1,
       "display_name": "",
       "heading": "heading 1",
-      "message_priority": "High",
+      "message_priority": "Low",
       "category": "warning",
-      "category_priority": "High",
-      "actions": [
-
-        {
-          "icon":"accept",
-          "command":"accept",
-          "text": "accept"
-        },
-        {
-          "icon":"message-error",
-          "command":"reject",
-          "text": "Reject"
-        }
-
-      ],
-      "message": "Markdown | Less | Pretty\n--- | --- | ---\n*Still* | `renders` | **nicely**\n1 | 2 | 3"
-    },
-    {
-      "id": 2,
-      "display_name": "",
-      "heading": "heading 2",
-      "message_priority": "High",
-      "category": "warning",
-      "category_priority": "High",
+      "category_priority": "Low",
       "actions": [
 
         {
@@ -76,6 +53,29 @@
       "heading": "heading 3",
       "message_priority": "Low",
       "category": "warning",
+      "category_priority": "Low",
+      "actions": [
+
+        {
+          "icon":"accept",
+          "command":"accept",
+          "text": "accept"
+        },
+        {
+          "icon":"message-error",
+          "command":"reject",
+          "text": "Reject"
+        }
+
+      ],
+      "message": "Markdown | Less | Pretty\n--- | --- | ---\n*Still* | `renders` | **nicely**\n1 | 2 | 3"
+    },
+    {
+      "id": 2,
+      "display_name": "",
+      "heading": "heading 2",
+      "message_priority": "High",
+      "category": "Error",
       "category_priority": "High",
       "actions": [
 

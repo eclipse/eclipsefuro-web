@@ -38,8 +38,8 @@ describe('furo-ui5-notification', () => {
       display_name: '',
       heading: 'heading 1',
       message_priority: 'High',
-      category: 'warning',
-      category_priority: 'High',
+      category: '',
+      category_priority: '',
       actions: [
         {
           icon: 'accept',
@@ -60,8 +60,8 @@ describe('furo-ui5-notification', () => {
       display_name: '',
       heading: 'heading 2',
       message_priority: 'High',
-      category: 'warning',
-      category_priority: 'High',
+      category: '',
+      category_priority: '',
       actions: [
         {
           icon: 'accept',
@@ -82,8 +82,8 @@ describe('furo-ui5-notification', () => {
       display_name: '',
       heading: 'heading 3',
       message_priority: 'Low',
-      category: 'warning',
-      category_priority: 'High',
+      category: '',
+      category_priority: '',
       actions: [
         {
           icon: 'accept',

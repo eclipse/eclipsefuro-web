@@ -63,6 +63,7 @@ class DemoFuroUi5NotificationListDisplay extends FBP(LitElement) {
         <furo-demo-snippet flex>
           <template>
            <furo-ui5-notification-list-display autofocus></furo-ui5-notification-list-display>
+           <furo-ui5-notification-group-display autofocus></furo-ui5-notification-group-display>
 
             <furo-vertical-scroller>
 
@@ -80,9 +81,14 @@ class DemoFuroUi5NotificationListDisplay extends FBP(LitElement) {
                 label="Generate GRPC ERROR"
               ></produce-banner-data>
 
-                            <h2>Parse notification messages </h2>
+                            <h2>show notification messages </h2>
 
+               <produce-qp-data @-data="--qp" qpescaped="%7B%22tsk%22%3A2%7D"></produce-qp-data>
+
+                                           <h2>show notification messages in group </h2>
                <produce-qp-data @-data="--qp" qpescaped="%7B%22tsk%22%3A1%7D"></produce-qp-data>
+
+
                  <h2>Display the payload by notification custom action </h2>
             <furo-pretty-json ƒ-inject-data="--notificationAction"></furo-pretty-json>
 

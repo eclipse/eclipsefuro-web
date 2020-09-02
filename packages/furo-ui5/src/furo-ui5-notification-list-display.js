@@ -49,13 +49,11 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     });
 
     /**
-     * listening the `item-close` event from notification-list-item. when the close button is clicked, close the notification and
+     * listening the `item-close` event from ui5-li-notification element. when the close button is clicked, close the notification and
      * call the _close function on the target element (furo-ui5-notification).
      */
     this.shadowRoot.getElementById('ui5-list').addEventListener('item-close', e => {
-      const customEvent = new Event('notification-closed', { bubbles: true, composed: true });
-      customEvent.detail = 'notification closed.';
-      e.detail.item.target._close();
+      e.detail.item.target._close(e.detail.item.message);
       e.detail.item.remove();
     });
 
@@ -66,7 +64,7 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     this.shadowRoot.getElementById('ui5-list').addEventListener('click', e => {
       const action = e.target.getAttribute('action');
       if (action) {
-        e.target.notification.target._customAction(action);
+        e.target.notification.target._customAction(action, e.target.notification.message);
         e.target.notification.remove();
       }
     });
@@ -86,7 +84,7 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     // log developper message
     if (status.details && status.details.length > 0) {
       this.multilineText = [];
-      // show localized messages first
+      // _show localized messages first
       this.multilineText = this.multilineText.concat(
         status.details
           .filter(det => det['@type'].includes('LocalizedMessage'))
@@ -116,7 +114,8 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     this.heading = status.code ? status.code : '';
     this.priority = 'High';
     this.actions = [];
-    this.show();
+    this.message = status;
+    this._show();
   }
 
   /**
@@ -150,15 +149,16 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     this.heading = message.heading ? message.heading : null;
     this.text = message.message;
     this.actions = message.actions;
+    this.message = message;
 
-    this.show();
+    this._show();
   }
 
   /**
    * show notification list item.
    * @param text
    */
-  show() {
+  _show() {
     const md = window.markdownit({
       html: false,
       linkify: true,
@@ -171,6 +171,8 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     notification.setAttribute('priority', this.priority);
     notification.target = this.target;
     notification.innerHTML = md.render(this.text);
+    // save the initial message for the later usage
+    notification.message = this.message;
 
     /**
      * add actions
@@ -231,7 +233,7 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroUi5NotificationList') ||
+      Theme.getThemeForComponent('FuroUi5NotificationListDisplay') ||
       css`
         :host {
           display: block;
