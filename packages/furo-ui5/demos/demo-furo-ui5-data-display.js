@@ -88,16 +88,18 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
       <h2>Demo furo-ui5-data-display</h2>
       <furo-demo-snippet>
         <template>
-          <furo-form-layouter two>
+          <furo-form-layouter one>
+            <p>Bound to scalar value:</p>
             <furo-ui5-data-display
-              style="width: 100%"
               ƒ-bind-data="--entity(*.data.display_name)"
               value-state="Information"
             >
               <ui5-icon slot="icon" name="signature"></ui5-icon>
             </furo-ui5-data-display>
 
+            <p>Bound to complex Google Type Date:</p>
             <furo-ui5-data-display ƒ-bind-data="--entity(*.data.furo_data_date_input)"></furo-ui5-data-display>
+            <p>Bound to complex Google Type Money:</p>
             <furo-ui5-data-display ƒ-bind-data="--entity(*.data.furo_data_money_input)"></furo-ui5-data-display>
 
           </furo-form-layouter>
