@@ -12,11 +12,18 @@ import { FuroUi5DataInput } from './furo-ui5-data-input.js';
  */
 export class FuroUi5DataDisplay extends FuroUi5DataInput {
 
-  constructor() {
-    super();
+  /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   */
+  connectedCallback() {
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
+
     this.value = '';
     this.readonly = true;
   }
+
   /**
    * apply the binding set to the binder
    * binding set can be customised here otherwise the standard set in the ui5-data-input will be used

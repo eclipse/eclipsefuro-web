@@ -34,6 +34,58 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
     super(props);
 
     /**
+     * Listener to catch the selected data
+     */
+    this.addEventListener('select', val => {
+      const selectedObj = val.target.dataset;
+
+      if (this.binder.fieldNode) {
+        if (!this.multiple) {
+          // by valid input reset meta and constraints
+          this._fieldNodeToUpdate._value = selectedObj.id;
+          this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id);
+        } else {
+          const data = [];
+          const arrSubfieldChains = this._subField.split('.');
+          // create value data according to the structure of subfield
+          if (Array.isArray(selectedObj.id)) {
+            selectedObj.forEach(v => {
+              const tmp = {};
+              for (let i = arrSubfieldChains.length - 1; i > -1; i -= 1) {
+                tmp[i] = {};
+                if (i === arrSubfieldChains.length - 1) {
+                  tmp[i][arrSubfieldChains[i]] = v;
+                } else {
+                  tmp[i][arrSubfieldChains[i]] = tmp[i + 1];
+                }
+              }
+              data.push(tmp[0]);
+            });
+          }
+          // add write lock to avoid triggering _updateField via fieldnode changed event
+          this._writeLock = true;
+          this._fieldNodeToUpdate._value = data;
+          // shut down write protection
+          setTimeout(() => {
+            this._writeLock = false;
+          }, 100);
+        }
+      }
+      this._notifiySelectedItem(selectedObj);
+    });
+
+  }
+
+  /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   */
+  connectedCallback() {
+    setTimeout(()=>{
+      super.connectedCallback();
+    },0);
+
+    /**
      * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
      *
      * This is only needed if display_name and value_field are not located in the root of the object.
@@ -75,47 +127,6 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
 
     this._fieldNodeToUpdate = {};
     this._fieldDisplayNodeToUpdate = {};
-
-    /**
-     * Listener to catch the selected data
-     */
-    this.addEventListener('select', val => {
-      const selectedObj = val.target.dataset;
-
-      if (this.binder.fieldNode) {
-        if (!this.multiple) {
-          // by valid input reset meta and constraints
-          this._fieldNodeToUpdate._value = selectedObj.id;
-          this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id);
-        } else {
-          const data = [];
-          const arrSubfieldChains = this._subField.split('.');
-          // create value data according to the structure of subfield
-          if (Array.isArray(selectedObj.id)) {
-            selectedObj.forEach(v => {
-              const tmp = {};
-              for (let i = arrSubfieldChains.length - 1; i > -1; i -= 1) {
-                tmp[i] = {};
-                if (i === arrSubfieldChains.length - 1) {
-                  tmp[i][arrSubfieldChains[i]] = v;
-                } else {
-                  tmp[i][arrSubfieldChains[i]] = tmp[i + 1];
-                }
-              }
-              data.push(tmp[0]);
-            });
-          }
-          // add write lock to avoid triggering _updateField via fieldnode changed event
-          this._writeLock = true;
-          this._fieldNodeToUpdate._value = data;
-          // shut down write protection
-          setTimeout(() => {
-            this._writeLock = false;
-          }, 100);
-        }
-      }
-      this._notifiySelectedItem(selectedObj);
-    });
 
     this._initBinder();
   }

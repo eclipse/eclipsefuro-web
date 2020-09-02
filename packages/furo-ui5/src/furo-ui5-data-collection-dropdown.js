@@ -29,6 +29,60 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
 
   constructor(props) {
     super(props);
+
+    /**
+     * Listener to catch the selected data
+     */
+    this.addEventListener('change', val => {
+      const selectedObj = this._dropdownList.find(
+        obj => obj.id === val.detail.selectedOption.dataset.id,
+      );
+
+      if (this.binder.fieldNode) {
+        if (!this.multiple) {
+          // by valid input reset meta and constraints
+          this._fieldNodeToUpdate._value = selectedObj.id;
+          this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id);
+        } else {
+          const data = [];
+          const arrSubfieldChains = this._subField.split('.');
+          // create value data according to the structure of subfield
+          if (Array.isArray(selectedObj.id)) {
+            selectedObj.forEach(v => {
+              const tmp = {};
+              for (let i = arrSubfieldChains.length - 1; i > -1; i -= 1) {
+                tmp[i] = {};
+                if (i === arrSubfieldChains.length - 1) {
+                  tmp[i][arrSubfieldChains[i]] = v;
+                } else {
+                  tmp[i][arrSubfieldChains[i]] = tmp[i + 1];
+                }
+              }
+              data.push(tmp[0]);
+            });
+          }
+          // add write lock to avoid triggering _updateField via fieldnode changed event
+          this._writeLock = true;
+          this._fieldNodeToUpdate._value = data;
+          // shut down write protection
+          setTimeout(() => {
+            this._writeLock = false;
+          }, 100);
+        }
+      }
+      this._notifiySelectedItem(selectedObj);
+    });
+  }
+
+  /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   */
+  connectedCallback(){
+    setTimeout(()=>{
+      super.connectedCallback();
+    },0);
+
     this.valueState = 'None';
 
     /**
@@ -73,49 +127,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
 
     this._fieldNodeToUpdate = {};
     this._fieldDisplayNodeToUpdate = {};
-
-    /**
-     * Listener to catch the selected data
-     */
-    this.addEventListener('change', val => {
-      const selectedObj = this._dropdownList.find(
-        obj => obj.id === val.detail.selectedOption.dataset.id,
-      );
-
-      if (this.binder.fieldNode) {
-        if (!this.multiple) {
-          // by valid input reset meta and constraints
-          this._fieldNodeToUpdate._value = selectedObj.id;
-          this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id);
-        } else {
-          const data = [];
-          const arrSubfieldChains = this._subField.split('.');
-          // create value data according to the structure of subfield
-          if (Array.isArray(selectedObj.id)) {
-            selectedObj.forEach(v => {
-              const tmp = {};
-              for (let i = arrSubfieldChains.length - 1; i > -1; i -= 1) {
-                tmp[i] = {};
-                if (i === arrSubfieldChains.length - 1) {
-                  tmp[i][arrSubfieldChains[i]] = v;
-                } else {
-                  tmp[i][arrSubfieldChains[i]] = tmp[i + 1];
-                }
-              }
-              data.push(tmp[0]);
-            });
-          }
-          // add write lock to avoid triggering _updateField via fieldnode changed event
-          this._writeLock = true;
-          this._fieldNodeToUpdate._value = data;
-          // shut down write protection
-          setTimeout(() => {
-            this._writeLock = false;
-          }, 100);
-        }
-      }
-      this._notifiySelectedItem(selectedObj);
-    });
 
     this._initBinder();
   }

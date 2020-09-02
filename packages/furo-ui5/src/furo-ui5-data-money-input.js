@@ -26,14 +26,22 @@ import './furo-ui5-data-text-input.js';
  * @mixes FBP
  */
 class FuroUi5DataMoneyInput extends FBP(LitElement) {
-  constructor(props) {
-    super(props);
-    this._initBinder();
+
+  /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   */
+  connectedCallback() {
+    setTimeout(()=>{
+      super.connectedCallback();
+    },0);
 
     this.valid = true;
     this._currencies = [];
     // init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
     this.value = { currency_code: 'CHF', units: null, nanos: null };
+
+    this._initBinder();
   }
 
   /**

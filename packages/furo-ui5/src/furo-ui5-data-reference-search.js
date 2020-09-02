@@ -36,10 +36,13 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
    */
 
   /**
-   * constructor
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
    */
-  constructor(props) {
-    super(props);
+  connectedCallback() {
+    setTimeout(()=>{
+      super.connectedCallback();
+    },0);
 
     /**
      * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.

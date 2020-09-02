@@ -26,9 +26,14 @@ export class FuroUi5DataRadioButton extends RadioButton.default {
    * Fired when the ui5-radiobutton selected state changes.
    */
 
-  constructor(props) {
-    super(props);
-    this.valueState = 'None';
+  /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   */
+  connectedCallback() {
+    setTimeout(()=>{
+      super.connectedCallback();
+    },0);
 
     this._initBinder();
   }

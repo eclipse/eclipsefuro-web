@@ -1,40 +1,39 @@
 const U33eBuilder = require("./u33eBuilder");
 
-class HookInitDisplay {
+class HookInitDisplayUi5 {
   static getPath(ctx){
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-display").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-display-ui5").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
     const OPTIONS = (() => {
-      if (ctx.config.hook && ctx.config.hook.hook_init_form) {
-        return ctx.config.hook.hook_init_form
+      if (ctx.config.hook && ctx.config.hook.hook_init_display_ui5) {
+        return ctx.config.hook.hook_init_display_ui5
       } else {
         return {
-          "default_form_size": "four",
-          "default_field_flags": ["condensed", "double"],
+          "default_form_size": "one",
+          "default_field_flags": [],
           "skip_fields_on_init": ["id", "display_name"]
         }
       }
     })();
 
     u33e.setTheme("DisplayBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-display").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-display-ui5").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
     u33e.addImportWithMember(" LitElement, html, css ", "lit-element");
     u33e.addImportWithMember("Theme", "@furo/framework/src/theme.js");
     u33e.addImportWithMember("FBP", "@furo/fbp");
-    u33e.addImportWithMember("i18n", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
-
-    u33e.addImport("@furo/data-input");
-    u33e.addImport("@furo/form");
+    u33e.addImport("@furo/ui5/src/furo-catalog.js");
+    u33e.addImport("@furo/form/src/furo-form.js");
+    u33e.addImport("@furo/form/src/furo-form-layouter.js");
 
     u33e.addMethod("bindData","data",
         " Bind your furo-data-object event @-object-ready\n @public\n @param data",
@@ -63,13 +62,12 @@ class HookInitDisplay {
 
     // all field will be added to this node
     let form = root.appendChild("furo-form-layouter");
-    form.addFlag(OPTIONS.default_form_size || "four");
+    form.addFlag(OPTIONS.default_form_size || "one");
 
 
-    //fields
+    // range of fields
     for (let fieldname in SPEC.fields) {
       let field = SPEC.fields[fieldname];
-
 
       /**
        * skip field if it is skip list or skipped in spec
@@ -83,12 +81,10 @@ class HookInitDisplay {
 
       }
 
-      //let component = U33eBuilder.getBestMatchingComponent(field);
-      let component = "furo-data-display";
-
+      // let component = U33eBuilder.getBestMatchingComponent(field);
+      let component = "furo-ui5-data-display-labeled";
 
       let fld = form.appendChild(component);
-
 
       // add a furo-form > furo-form-layouter  for type furo.Property
       if (field.type === "furo.Property") {
@@ -99,7 +95,7 @@ class HookInitDisplay {
         fld.addAttribute("secondary-text", "${i18n.t('" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + ".properties").toLowerCase() + ".secondary.text')}");
 
         let f = fld.appendChild("furo-form-layouter");
-        f.addFlag(OPTIONS.default_form_size || "four");
+        f.addFlag(OPTIONS.default_form_size || "one");
         fld = f.appendChild(component);
       }
 
@@ -209,4 +205,4 @@ class HookInitDisplay {
   }
 }
 
-module.exports = HookInitDisplay;
+module.exports = HookInitDisplayUi5;
