@@ -91,7 +91,6 @@ export class FuroUi5DataInput extends Input.default {
 
     // update the value on input changes
     this.addEventListener('input', val => {
-
       this.binder.fieldValue = val.target.value;
 
       // set flag empty on empty strings (for fat types)

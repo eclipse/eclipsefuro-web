@@ -92,7 +92,6 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
 
     // update the value on input changes
     this.addEventListener('change', val => {
-
       // update the value
       this.binder.fieldValue = val.target.checked;
 
@@ -104,7 +103,6 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
       }
       // if something was entered the field is not empty
       this.binder.deleteLabel('pristine');
-
     });
   }
 

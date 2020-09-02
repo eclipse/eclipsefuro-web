@@ -7,7 +7,8 @@
     "options": {},
     "imports": [
       "furo/meta.proto",
-      "furo/link.proto"
+      "furo/link.proto",
+      "notification/notification.proto"
     ],
     "targetfile": "task.proto"
   },
@@ -32,6 +33,13 @@
       "type": "furo.Meta",
       "__proto": {
         "number": 3
+      }
+    },
+    "notifications": {
+      "type": "notification.Notification",
+      "description": "notification for the data",
+      "__proto": {
+        "number": 4
       }
     }
   }

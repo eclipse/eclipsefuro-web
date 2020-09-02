@@ -87,7 +87,6 @@ export class FuroUi5DataRadioButton extends RadioButton.default {
 
     // update the value on input changes
     this.addEventListener('select', val => {
-
       // update the value
       this.binder.fieldValue = val.target.selected;
 
