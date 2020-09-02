@@ -68,7 +68,8 @@ speclist.forEach((pathToSpec) => {
   ctx.package = ctx.spec.__proto.package;
 
   // loop hooks for service or type
-  hooks[ctx.kindOf].forEach((hook) => {
+  const ctxHooks = hooks[ctx.kindOf] || [];
+  ctxHooks.forEach((hook) => {
     let ctx = Helper.specInfo(pathToSpec);
     ctx.config = config;
     // load spec file

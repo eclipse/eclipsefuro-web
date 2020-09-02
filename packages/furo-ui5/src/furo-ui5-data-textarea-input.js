@@ -25,9 +25,15 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
    * @event input
    */
 
-  constructor(props) {
-    super(props);
-    // this.showExceededText = true;
+  /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   */
+  connectedCallback() {
+    setTimeout(()=>{
+      super.connectedCallback();
+    },0);
+
     this._initBinder();
   }
 

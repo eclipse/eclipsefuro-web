@@ -56,14 +56,9 @@ export class FuroUi5DataNumberInput extends FuroUi5DataInput {
     super.connectedCallback();
     this.type = 'Number';
     this.showSuggestions = false;
-    debugger
+
   }
-  static get metadata() {
-    debugger
-    const m = super.metadata;
-    m.tag = "ui5-data-number-input";
-    return m;
-  }
+
   /**
    * apply the binding set to the binder
    * binding set can be customised here otherwise the standard set in the ui5-data-input will be used

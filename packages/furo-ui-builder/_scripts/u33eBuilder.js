@@ -1,24 +1,24 @@
 class U33eBuilder {
 
   constructor(componentName) {
-    this.model = {};
-    this.model.description = "todo: write description";
-    this.model.summary = "todo: write summary";
-    this.model.import_members = [];
-    this.model.imports = [];
-    this.model.component_name = componentName;
-    this.model.path = "";
+    this.model = {}
+    this.model.description = 'todo: write description'
+    this.model.summary = 'todo: write summary'
+    this.model.import_members = []
+    this.model.imports = []
+    this.model.component_name = componentName
+    this.model.path = ''
     this.model.style = {
-      "children": {},
-      "attributes": {}
-    };
-    this.model.template = [];
-    this.model.properties = {};
-    this.model.exposedWires = {};
-    this.model.methods = {};
-    this.model.keyboardShortcuts = [];
-    this.model.extends = "FBP(LitElement)";
-    this.model.theme;
+      'children': {},
+      'attributes': {},
+    }
+    this.model.template = []
+    this.model.properties = {}
+    this.model.exposedWires = {}
+    this.model.methods = {}
+    this.model.keyboardShortcuts = []
+    this.model.extends = 'FBP(LitElement)'
+    this.model.theme
   }
 
   /**
@@ -27,16 +27,16 @@ class U33eBuilder {
    * @return {U33eBuilder}
    */
   buildFromU33e(u33e) {
-    this.model = JSON.parse(u33e);
-    return this;
+    this.model = JSON.parse(u33e)
+    return this
   }
 
   getU33e() {
-    return JSON.stringify(this.model, null, 2);
+    return JSON.stringify(this.model, null, 2)
   }
 
   setTheme(theme) {
-    this.model.theme = theme;
+    this.model.theme = theme
   }
 
   /**
@@ -49,11 +49,11 @@ class U33eBuilder {
    */
   addImportWithMember(members, module, comment) {
     if (comment) {
-      this.model.import_members.push([members, module, comment]);
+      this.model.import_members.push([members, module, comment])
     } else {
-      this.model.import_members.push([members, module]);
+      this.model.import_members.push([members, module])
     }
-    return this;
+    return this
   }
 
   /**
@@ -62,8 +62,8 @@ class U33eBuilder {
    * @return {U33eBuilder}
    */
   addImport(module) {
-    this.model.imports.push(module);
-    return this;
+    this.model.imports.push(module)
+    return this
   }
 
   /**
@@ -76,16 +76,16 @@ class U33eBuilder {
    * @param attribute {String}
    * @return {U33eBuilder}
    */
-  addProperty(name, type, description = "", defaultValue = undefined, reflect = false, notify = false, attribute) {
+  addProperty(name, type, description = '', defaultValue = undefined, reflect = false, notify = false, attribute) {
     this.model.properties[name] = {
-      "type": type,
+      'type': type,
       description,
       reflect,
       notify,
       attribute,
-      defaultValue // TODO: create constructor in lit to set the default value
-    };
-    return this;
+      defaultValue, // TODO: create constructor in lit to set the default value
+    }
+    return this
   }
 
   /**
@@ -100,9 +100,9 @@ class U33eBuilder {
     this.model.exposedWires[name] = {
       name,
       wire,
-      description
-    };
-    return this;
+      description,
+    }
+    return this
   }
 
   /**
@@ -117,9 +117,9 @@ class U33eBuilder {
     this.model.methods[name] = {
       description,
       args,
-      code
-    };
-    return this;
+      code,
+    }
+    return this
   }
 
   /**
@@ -139,9 +139,9 @@ class U33eBuilder {
       global,
       alt,
       meta,
-      wire
-    });
-    return this;
+      wire,
+    })
+    return this
   }
 
 
@@ -155,23 +155,23 @@ class U33eBuilder {
    * @return {DomNode}
    */
   addDomNode(componentName, parentNode) {
-    let target;
+    let target
     if (parentNode === undefined) {
       target = this.model.template
     } else {
-      target = parentNode.children;
+      target = parentNode.children
     }
 
-    let node = new DomNode(componentName);
+    let node = new DomNode(componentName)
 
-    target.push(node);
-    return node;
+    target.push(node)
+    return node
   }
 
 
   addStyle(selector) {
-    this.model.style.children[selector] = new CssProperty();
-    return this.model.style.children[selector];
+    this.model.style.children[selector] = new CssProperty()
+    return this.model.style.children[selector]
 
     /**
      * if parent not set, add to styles.children (root)
@@ -185,61 +185,110 @@ class U33eBuilder {
   }
 
   static checkMatching(field) {
-    let component = false;
+    let component = false
 
 
     // check which componet matches best with the simple types
     switch (field.type) {
-      case "int":
-      case "int32":
-      case "int64":
-        component = "furo-data-number-input";
-        break;
-      case "google.type.Date":
-        component = "furo-data-date-input";
-        break;
-      case "google.type.Money":
-        component = "furo-data-money-input";
-        break;
-      case "furo.Property":
-        component = "furo-data-property";
-        break;
-      case "bool":
-        component = "furo-data-checkbox-input";
-        break;
+      case 'int':
+      case 'int32':
+      case 'int64':
+        component = 'furo-data-number-input'
+        break
+      case 'google.type.Date':
+        component = 'furo-data-date-input'
+        break
+      case 'google.type.Money':
+        component = 'furo-data-money-input'
+        break
+      case 'furo.Property':
+        component = 'furo-data-property'
+        break
+      case 'bool':
+        component = 'furo-data-checkbox-input'
+        break
     }
 
 
-    if (field.type.startsWith("map")) {
-      let type = field.type.match(/map<string,(.*)>/)[1].trim(); // get the type of map<string,xxxx
+    if (field.type.startsWith('map')) {
+      let type = field.type.match(/map<string,(.*)>/)[1].trim() // get the type of map<string,xxxx
       // split join is for replace all . with -
-      component = type.toLowerCase().split(".").join("-") + "-map";
+      component = type.toLowerCase().split('.').join('-') + '-map'
     }
 
-    if (field.meta && field.meta.repeated && field.type != "furo.Property" && (!field.__ui || field.__ui.autorepeater !== false))  {
+    if (field.meta && field.meta.repeated && field.type != 'furo.Property' && (!field.__ui || field.__ui.autorepeater !== false)) {
       // split join is for replace all . with -
-      component = field.type.toLowerCase().split(".").join("-") + "-repeat";
+      component = field.type.toLowerCase().split('.').join('-') + '-repeat'
     }
     // use spec ui hint as component
     if (field.__ui && field.__ui.component) {
-      component = field.__ui.component;
+      component = field.__ui.component
     }
 
 
-    return component;
+    return component
   }
 
   static getBestMatchingComponent(field) {
-    return this.checkMatching(field) || "furo-data-text-input";
+    return this.checkMatching(field) || 'furo-data-text-input'
+  };
+
+  static checkMatchingUI5(field) {
+    let component = false
+
+
+    // check which componet matches best with the simple types
+    switch (field.type) {
+      case 'int':
+      case 'int32':
+      case 'int64':
+        component = 'furo-ui5-data-number-input-labeled'
+        break
+      case 'google.type.Date':
+        component = 'furo-ui5-data-date-picker-labeled'
+        break
+      case 'google.type.Money':
+        component = 'furo-ui5-data-money-input'
+        break
+      case 'furo.Property':
+        component = 'furo-ui5-data-property'
+        break
+      case 'bool':
+        component = 'furo-ui5-data-checkbox-input-labeled'
+        break
+    }
+
+
+    if (field.type.startsWith('map')) {
+      let type = field.type.match(/map<string,(.*)>/)[1].trim() // get the type of map<string,xxxx
+      // split join is for replace all . with -
+      component = type.toLowerCase().split('.').join('-') + '-map'
+    }
+
+    if (field.meta && field.meta.repeated && field.type != 'furo.Property' && (!field.__ui || field.__ui.autorepeater !== false)) {
+      // split join is for replace all . with -
+      component = field.type.toLowerCase().split('.').join('-') + '-repeat'
+    }
+    // use spec ui hint as component
+    if (field.__ui && field.__ui.component) {
+      component = field.__ui.component
+    }
+
+
+    return component
+  }
+
+  static getBestMatchingUI5Component(field) {
+    return this.checkMatchingUI5(field) || 'furo-ui5-data-text-input-labeled'
   };
 }
 
 class CssProperty {
   constructor() {
-    this.children = {};
-    this.attributes = {};
+    this.children = {}
+    this.attributes = {}
 
-    return this;
+    return this
   }
 
   /**
@@ -248,25 +297,26 @@ class CssProperty {
    * @return {*}
    */
   addSubStyle(selector) {
-    this.children[selector] = new CssProperty();
-    return this.children[selector];
+    this.children[selector] = new CssProperty()
+    return this.children[selector]
   }
 
   addCSSAttribute(key, value) {
-    this.attributes[key] = value;
-    return this;
+    this.attributes[key] = value
+    return this
   }
 }
 
 class DomNode {
   constructor(component) {
-    this.component = component;
-    this.description = "It is a good practice to set a description";
-    this.flags = [];
-    this.attributes = {};
-    this.methods = {};
-    this.events = {};
-    this.children = [];
+    this.component = component
+    this.description = 'It is a good practice to set a description'
+    this.flags = []
+    this.attributes = {}
+    this.methods = {}
+    this.events = {}
+    this.innerText = null
+    this.children = []
   }
 
   /**
@@ -275,9 +325,9 @@ class DomNode {
    * @return {DomNode}
    */
   appendChild(componentName) {
-    let node = new DomNode(componentName);
-    this.children.push(node);
-    return node;
+    let node = new DomNode(componentName)
+    this.children.push(node)
+    return node
   }
 
   /**
@@ -287,8 +337,8 @@ class DomNode {
    */
   addFlag(flag) {
     // todo: ensure that flag is set only once
-    this.flags.push(flag);
-    return this;
+    this.flags.push(flag)
+    return this
   }
 
 
@@ -299,8 +349,8 @@ class DomNode {
    * @return {DomNode}
    */
   addAttribute(key, value) {
-    this.attributes[key] = value;
-    return this;
+    this.attributes[key] = value
+    return this
   }
 
 
@@ -314,8 +364,8 @@ class DomNode {
    * @return {DomNode}
    */
   addMethod(f, wire) {
-    this.methods[f] = wire;
-    return this;
+    this.methods[f] = wire
+    return this
   }
 
   /**
@@ -327,10 +377,23 @@ class DomNode {
    * @return {DomNode}
    */
   addEventListener(at, wire) {
-    this.events[at] = wire;
-    return this;
+    this.events[at] = wire
+    return this
+  }
+
+  /**
+   * adds innerText to a domNode
+   * like Node.innerText = ''
+   * @param text
+   * @returns {DomNode}
+   */
+  addInnerText(text) {
+    if (text && text.length) {
+      this.innerText = text
+    }
+    return this
   }
 
 }
 
-module.exports = U33eBuilder;
+module.exports = U33eBuilder
