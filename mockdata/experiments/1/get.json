@@ -283,6 +283,7 @@
       "CCCC"
     ],
     "furo_data_money_input": {
+      "display_name": "CHF 3'333.751",
       "currency_code": "CHF",
       "units": 3333,
       "nanos": 75100000

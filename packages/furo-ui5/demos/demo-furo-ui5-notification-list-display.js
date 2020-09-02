@@ -62,8 +62,8 @@ class DemoFuroUi5NotificationListDisplay extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-           <furo-ui5-notification-list-display autofocus></furo-ui5-notification-list-display>
-           <furo-ui5-notification-group-display autofocus></furo-ui5-notification-group-display>
+           <furo-ui5-notification-list-display show-close></furo-ui5-notification-list-display>
+           <furo-ui5-notification-group-display show-close show-counter></furo-ui5-notification-group-display>
 
             <furo-vertical-scroller>
 

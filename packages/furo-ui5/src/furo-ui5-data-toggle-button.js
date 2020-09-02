@@ -22,12 +22,13 @@ export class FuroUi5DataToggleButton extends ToggleButton.default {
    */
 
   /**
-   *
-   * @param props
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
    */
-  constructor(props) {
-    super(props);
-    this.valueState = 'None';
+  connectedCallback() {
+    setTimeout(()=>{
+      super.connectedCallback();
+    },0);
 
     this._initBinder();
   }

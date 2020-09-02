@@ -14,6 +14,7 @@ import { FuroUi5DataInput } from './furo-ui5-data-input.js';
  * @demo demo-furo-ui5-data-text-input-together playground
  */
 export class FuroUi5DataNumberInput extends FuroUi5DataInput {
+
   /**
    * Fired when the input operation has finished by pressing Enter or on focusout.
    * @event change
@@ -50,10 +51,12 @@ export class FuroUi5DataNumberInput extends FuroUi5DataInput {
    * init properties
    */
   connectedCallback() {
+
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
     this.type = 'Number';
     this.showSuggestions = false;
+
   }
 
   /**

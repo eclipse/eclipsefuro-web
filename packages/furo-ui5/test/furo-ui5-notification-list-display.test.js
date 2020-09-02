@@ -83,7 +83,7 @@ describe('furo-ui5-notification-list-display', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-notification-list-display></furo-ui5-notification-list-display>
+          <furo-ui5-notification-list-display show-close></furo-ui5-notification-list-display>
           <furo-ui5-notification></furo-ui5-notification>
           <div></div>
         </template>

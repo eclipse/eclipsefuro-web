@@ -205,23 +205,12 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
         attribute: 'header-text',
       },
       /**
-       * the target dom object, which sends the notification event
+       * Defines if the close button would be displayed.
        */
-      target: {
-        type: Object,
-      },
-      /**
-       * the priority of the notification. `High`, `Low`,`Medium`, `None`
-       */
-      priority: {
-        type: String,
-      },
-      /**
-       * the custom actioins of the notification. [{icon: "accept", command: "accept", text: "accept"},…]
-       */
-      actions: {
-        type: Array,
-      },
+      showClose: {
+        type: Boolean,
+        attribute: 'show-close',
+      }
     };
   }
 

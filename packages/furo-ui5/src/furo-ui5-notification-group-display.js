@@ -130,10 +130,10 @@ class FuroUi5NotificationGroupDisplay extends FBP(LitElement) {
 
         const notification = document.createElement('ui5-li-notification');
 
-        notification.setAttribute('show-close', true);
         notification.setAttribute('heading', n.heading);
         notification.setAttribute('priority', n.message_priority);
         notification.target = this.target;
+        notification.showClose = this.showClose;
         notification.innerHTML = md.render(n.message);
         // save the initial message for the later usage
         notification.message = n;
@@ -158,8 +158,9 @@ class FuroUi5NotificationGroupDisplay extends FBP(LitElement) {
 
       notificationGroup.setAttribute('priority', categoryPriority || 'Low');
       notificationGroup.setAttribute('heading', key);
-      notificationGroup.setAttribute('show-close', true);
-      notificationGroup.setAttribute('show-counter', true);
+      notificationGroup.showClose = this.showClose;
+      notificationGroup.showCounter = this.showCounter;
+      notificationGroup.collapsed = this.collapsed;
       notificationGroup.target = this.target;
       // save the initial message for the later usage
       notificationGroup.message = groups[key];
@@ -187,17 +188,25 @@ class FuroUi5NotificationGroupDisplay extends FBP(LitElement) {
         type: Object,
       },
       /**
-       * the priority of the notification. `High`, `Low`,`Medium`, `None`
+       * Defines if the group is collapsed or expanded.
        */
-      priority: {
-        type: String,
+      collapsed: {
+        type: Boolean,
       },
       /**
-       * the custom actioins of the notification. [{icon: "accept", command: "accept", text: "accept"},…]
+       * Defines if the items counter would be displayed.
        */
-      actions: {
-        type: Array,
+      showCounter: {
+        type: Boolean,
+        attribute: 'show-counter',
       },
+      /**
+       * Defines if the close button would be displayed.
+       */
+      showClose: {
+        type: Boolean,
+        attribute: 'show-close',
+      }
     };
   }
 

@@ -30,11 +30,13 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
    */
 
   /**
-   *
-   * @param props
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
    */
-  constructor(props) {
-    super(props);
+  connectedCallback() {
+    setTimeout(()=>{
+      super.connectedCallback();
+    },0);
     this._initBinder();
     // this.formatPattern="dd.MM.yyyy";
   }
