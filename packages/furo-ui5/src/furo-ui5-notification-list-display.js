@@ -31,8 +31,8 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     super._FBPReady();
 
     /**
-     * listening the 'notification-grpc-status' event
-     * the message in the event detail should be GRPC status.
+     * listening the 'open-furo-ui5-notification-requested' event
+     * the payload message in the event detail should be a grpc status message or a collection of notifications.
      * https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto.
      */
     this.parentNode.addEventListener('open-furo-ui5-notification-requested', e => {
@@ -49,10 +49,8 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     });
 
     /**
-     * listening the 'item-close' event from notification-list-item. when the close button is clicked, close the notification
-     * trigger the close event from target element. you can wire this closed event on target element.
-     * e.g. when the notification messages come from a furo-entity-agent. you can use:
-     * <furo-entity-agent @-notification-closed="--notificationAction" ..
+     * listening the `item-close` event from notification-list-item. when the close button is clicked, close the notification and
+     * call the _close function on the target element (furo-ui5-notification).
      */
     this.shadowRoot.getElementById('ui5-list').addEventListener('item-close', e => {
       const customEvent = new Event('notification-closed', { bubbles: true, composed: true });
@@ -62,10 +60,8 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     });
 
     /**
-     * listening the click event on the action buttons. when the action button is clicked, close the notification
-     * trigger the action event from target element. you can wire this action event on target element.
-     * e.g. when the notification messages come from a furo-entity-agent. you can use:
-     * <furo-entity-agent @-notification-actionName="--notificationAction" ..
+     * listening the `click` event on the action buttons. when the action button is clicked, close the notification and
+     * call the _customAction function on the target element (furo-ui5-notification).
      */
     this.shadowRoot.getElementById('ui5-list').addEventListener('click', e => {
       const action = e.target.getAttribute('action');
@@ -125,6 +121,28 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
 
   /**
    * parse notification message and set the ui5 notification properties like priority, actions, heading..
+   * the notification message should be a furo.notification type:
+   * {
+   *  "id": 1,
+   *  "display_name": "",
+   *  "heading": "heading 1",
+   *  "message_priority": "High",
+   *  "category": "warning",
+   *  "category_priority": "High",
+   *  "actions": [
+   *    {
+   *      "icon":"accept",
+   *      "command":"accept",
+   *      "text": "accept"
+   *    },
+   *    {
+   *      "icon":"message-error",
+   *      "command":"reject",
+   *      "text": "Reject"
+   *    }
+   *  ],
+   *  "message": "Markdown | Less | Pretty\n--- | --- | ---\n*Still* | `renders` | **nicely**\n1 | 2 | 3"
+   *}
    * @param message
    */
   parseNotificationMessage(message) {
