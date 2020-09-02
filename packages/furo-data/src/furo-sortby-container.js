@@ -40,6 +40,14 @@ class FuroSortbyContainer extends HTMLElement {
   }
 
   /**
+   * Clears the sort_by query and fires sortby-condition-updated
+   */
+  clear(){
+    this.sorter = {};
+    this._mapSorterToQuery();
+  }
+
+  /**
    * https://cloud.google.com/apis/design/design_patterns#sorting_order
    * @private
    */
