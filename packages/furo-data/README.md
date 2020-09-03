@@ -20,6 +20,7 @@ This package contains the furo data components.
 - [furo-filter-or](https://components.furo.pro/?t=FuroFilterOr) or filter "bracket"
 - [furo-rel-exists](https://components.furo.pro/?t=FuroRelExists) checks for a specific rel in links
 - [furo-reverse-deep-link](https://components.furo.pro/?t=FuroReverseDeepLink) create query param object from HATEOAS
+- [furo-sortby-container](https://components.furo.pro/?t=FuroSortbyContainer) create query param object for sort
 
 
 ## Detailed documentation

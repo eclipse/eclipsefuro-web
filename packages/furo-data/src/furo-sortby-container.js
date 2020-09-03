@@ -8,6 +8,7 @@
  *
  * @summary
  * @customElement
+ * @demo demo-furo-sortby-container Basic Usage
  * @appliesMixin FBP
  */
 class FuroSortbyContainer extends HTMLElement {
