@@ -6,7 +6,7 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/testhelper/initEnv.js';
 
-describe('furo-ui5-data-reference-search', () => {
+describe('furo-data-reference-search', () => {
   let host;
   let referenceSearch;
   let entityObject;
@@ -17,7 +17,7 @@ describe('furo-ui5-data-reference-search', () => {
         <template>
           <furo-data-reference-search
             condensed
-            placeholder="Search on enter only"
+            label="Search on enter only"
             hint="hint"
             min-term-length="2"
             ƒ-bind-data="--entityReady(*.owner)"
