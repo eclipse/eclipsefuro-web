@@ -17,7 +17,7 @@ class HookInitRepeatUi5 {
      *    ]
      *   }
      */
-    if (ctx.config.hook && ctx.config.hook["hook-init-repeat"] && ctx.config.hook["hook-init-repeat-ui5"].skip_types) {
+    if (ctx.config.hook && ctx.config.hook["hook-init-repeat-ui5"] && ctx.config.hook["hook-init-repeat-ui5"].skip_types) {
       let type = SPEC.__proto.package + "." + SPEC.type
       if (ctx.config.hook["hook-init-repeat-ui5"].skip_types.indexOf(type) > -1) {
         console.log("hook-init-repeat-ui5 skipped for type ", type)
@@ -32,7 +32,7 @@ class HookInitRepeatUi5 {
     const SPEC = ctx.spec;
 
     u33e.setTheme("RepeatBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat-ui5").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 

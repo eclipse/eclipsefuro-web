@@ -154,13 +154,16 @@ describe('furo-ui5-data-textarea-input', () => {
 
   it('should update value after inject response', done => {
     if (dao.injectRaw(testRecordMeta)) {
-      assert.equal(
-        dao.data.data.furo_data_textarea_input._value,
-        'hallo , this is textarea input',
-        'check dao',
-      );
-      assert.equal(input.value, 'hallo , this is textarea input', 'check input value');
-      done();
+      setTimeout(()=>{
+        assert.equal(
+          dao.data.data.furo_data_textarea_input._value,
+          'hallo , this is textarea input',
+          'check dao',
+        );
+        assert.equal(input.value, 'hallo , this is textarea input', 'check input value');
+        done();
+      },16)
+
     }
   });
 });
