@@ -1,6 +1,6 @@
 {
   "name": "@furo/framework",
-  "version": "1.3.14",
+  "version": "1.3.15",
   "description": "Furo framework libs",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-framework",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
@@ -33,8 +33,8 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/fbp": "^5.1.14",
-    "@furo/specs": "^1.13.0",
+    "@furo/fbp": "^5.1.15",
+    "@furo/specs": "^1.14.0",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

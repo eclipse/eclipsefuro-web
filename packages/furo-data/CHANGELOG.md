@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.7.0...@furo/data@1.8.0) (2020-09-03)
+
+
+### Features
+
+* query sort_by helper ([a3c9528](https://github.com/theNorstroem/FuroBaseComponents/commit/a3c9528e97613946e78414b2e5da0514b76e33b3))
+* sort_by container to use with furo-collection-agent ([a3a5807](https://github.com/theNorstroem/FuroBaseComponents/commit/a3a580787574c8d1a7a5ef44f377fb598cd1f0d8))
+
+
+
+
+
 # [1.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.6.0...@furo/data@1.7.0) (2020-08-27)
 
 

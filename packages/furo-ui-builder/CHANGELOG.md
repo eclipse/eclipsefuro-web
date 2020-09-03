@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.6.1...@furo/ui-builder@1.7.0) (2020-09-03)
+
+
+### Bug Fixes
+
+* async connectedCallback, initialize component ([2063b3e](https://github.com/theNorstroem/FuroBaseComponents/commit/2063b3ecc5ab6b46d80fd3c702b6b04873fe519c))
+
+
+### Features
+
+* best matching furo-ui5 components, first hook added ([00185dd](https://github.com/theNorstroem/FuroBaseComponents/commit/00185dd960dc403923ac70ac2b4bc7e9b8f98768))
+
+
+
+
+
 ## [1.6.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.6.0...@furo/ui-builder@1.6.1) (2020-08-27)
 
 

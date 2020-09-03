@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.13.0...@furo/specs@1.14.0) (2020-09-03)
+
+
+### Features
+
+* furo-ui5-notification-group ([d4da67c](https://github.com/theNorstroem/FuroBaseComponents/commit/d4da67c53de49d24ea6a40845bc64eca8ac5f599))
+
+
+
+
+
 # [1.13.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.12.0...@furo/specs@1.13.0) (2020-08-27)
 
 

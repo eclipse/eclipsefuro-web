@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.2.0...@furo/ui5@0.3.0) (2020-09-03)
+
+
+### Bug Fixes
+
+* add attributes and properties of ui-data-references-search in docu. add placeholder in attribute watcher ([74be387](https://github.com/theNorstroem/FuroBaseComponents/commit/74be3879fae51b7aae01d149242f419d09ac0369))
+* async connectedCallback, initialize component ([2063b3e](https://github.com/theNorstroem/FuroBaseComponents/commit/2063b3ecc5ab6b46d80fd3c702b6b04873fe519c))
+* breakpoints depends on parent element ([bd963d8](https://github.com/theNorstroem/FuroBaseComponents/commit/bd963d8619c1709e41a34d18d4e7eda66385bbde))
+* debugging stuff removed ([fd39b6e](https://github.com/theNorstroem/FuroBaseComponents/commit/fd39b6e53568df14a77e20b5c97a460d380329d9))
+* modify test. remove connectedCallback in radio-button-group ([e7bcc90](https://github.com/theNorstroem/FuroBaseComponents/commit/e7bcc90b95feb36e02a69e54444f7dbe16dabba3))
+* move attribute in constructor to generate document with attributes/properties ([fbdf132](https://github.com/theNorstroem/FuroBaseComponents/commit/fbdf132e42227c5d52709870c61596b2bed58b70))
+
+
+### Features
+
+*   furo-ui5-message-strip and furo-ui5-message-strip-display ([a477a5d](https://github.com/theNorstroem/FuroBaseComponents/commit/a477a5d8ef0fea7eb35bb9c9892d20000f68b47f))
+*  add furo-ui5-notification and furo-ui5-notification-list-display ([538033e](https://github.com/theNorstroem/FuroBaseComponents/commit/538033e16041db9314274fc668927d2407238265))
+* display field component with data-binding and label ([e4e2189](https://github.com/theNorstroem/FuroBaseComponents/commit/e4e2189a0a6fc3b39e5d4aa9fd6122e8e5a35094))
+* furo-ui5-notification-group ([d4da67c](https://github.com/theNorstroem/FuroBaseComponents/commit/d4da67c53de49d24ea6a40845bc64eca8ac5f599))
+
+
+
+
+
 # [0.2.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.1.0...@furo/ui5@0.2.0) (2020-08-27)
 
 
