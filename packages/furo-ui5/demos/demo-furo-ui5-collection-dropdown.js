@@ -71,7 +71,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
           <furo-form-layouter one>
             <div>
               <p>
-                Option items from spec. Type furo.Optionitem. Attention: OVERWRITE OF SUBFIELD
+                Option items from API Spec. Type furo.Optionitem. Attention: OVERWRITE OF SUBFIELD
                 DEFAULT
               </p>
               <furo-ui5-data-collection-dropdown
