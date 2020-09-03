@@ -1329,11 +1329,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 114,
+              "line": 120,
               "column": 2
             },
             "end": {
-              "line": 118,
+              "line": 124,
               "column": 3
             }
           },
@@ -1348,11 +1348,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 129,
               "column": 2
             },
             "end": {
-              "line": 125,
+              "line": 131,
               "column": 3
             }
           },
@@ -1374,7 +1374,7 @@
               "column": 2
             },
             "end": {
-              "line": 77,
+              "line": 83,
               "column": 3
             }
           },
@@ -1391,11 +1391,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 86,
+              "line": 92,
               "column": 2
             },
             "end": {
-              "line": 108,
+              "line": 114,
               "column": 3
             }
           },
@@ -1411,11 +1411,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 132,
+              "line": 138,
               "column": 2
             },
             "end": {
-              "line": 134,
+              "line": 140,
               "column": 3
             }
           },
@@ -1431,11 +1431,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 141,
+              "line": 147,
               "column": 2
             },
             "end": {
-              "line": 148,
+              "line": 154,
               "column": 3
             }
           },
@@ -1451,11 +1451,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 161,
               "column": 2
             },
             "end": {
-              "line": 282,
+              "line": 286,
               "column": 3
             }
           },
@@ -1485,7 +1485,7 @@
           "column": 7
         },
         "end": {
-          "line": 283,
+          "line": 287,
           "column": 1
         }
       },
@@ -1498,11 +1498,11 @@
           "description": "The name of the type you want to use. The type must be registered in Env",
           "sourceRange": {
             "start": {
-              "line": 114,
+              "line": 120,
               "column": 2
             },
             "end": {
-              "line": 118,
+              "line": 124,
               "column": 3
             }
           },
@@ -2001,15 +2001,15 @@
         },
         {
           "name": "_getFieldMask",
-          "description": "Creates an array with the path information of the object attributes (deep dive)\n[{\"paths:\" \"attr1\"}, {\"paths:\" \"attr2.sub_attr\"}]",
+          "description": "Creates an array with the path information of the object attributes (deep dive)\naccording to https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto\n\n`{\"paths\":[\"attr1\",\"attr2.sub_attr\"]}`",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 264,
+              "line": 267,
               "column": 2
             },
             "end": {
-              "line": 274,
+              "line": 277,
               "column": 3
             }
           },
@@ -2029,11 +2029,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 282,
+              "line": 285,
               "column": 2
             },
             "end": {
-              "line": 308,
+              "line": 311,
               "column": 3
             }
           },
@@ -2053,11 +2053,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 325,
+              "line": 328,
               "column": 2
             },
             "end": {
-              "line": 335,
+              "line": 338,
               "column": 3
             }
           },
@@ -2070,11 +2070,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 352,
+              "line": 355,
               "column": 2
             },
             "end": {
-              "line": 361,
+              "line": 364,
               "column": 3
             }
           },
@@ -2090,11 +2090,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 378,
+              "line": 381,
               "column": 2
             },
             "end": {
-              "line": 399,
+              "line": 402,
               "column": 3
             }
           },
@@ -2107,11 +2107,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 416,
+              "line": 419,
               "column": 2
             },
             "end": {
-              "line": 425,
+              "line": 428,
               "column": 3
             }
           },
@@ -2127,11 +2127,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 442,
+              "line": 445,
               "column": 2
             },
             "end": {
-              "line": 451,
+              "line": 454,
               "column": 3
             }
           },
@@ -2147,11 +2147,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 458,
+              "line": 461,
               "column": 2
             },
             "end": {
-              "line": 512,
+              "line": 516,
               "column": 3
             }
           },
@@ -2171,11 +2171,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 514,
+              "line": 518,
               "column": 2
             },
             "end": {
-              "line": 537,
+              "line": 541,
               "column": 3
             }
           },
@@ -2192,11 +2192,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 539,
+              "line": 543,
               "column": 2
             },
             "end": {
-              "line": 560,
+              "line": 564,
               "column": 3
             }
           },
@@ -2216,11 +2216,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 580,
+              "line": 584,
               "column": 2
             },
             "end": {
-              "line": 593,
+              "line": 597,
               "column": 3
             }
           },
@@ -2245,7 +2245,7 @@
           "column": 0
         },
         "end": {
-          "line": 594,
+          "line": 598,
           "column": 1
         }
       },
@@ -3139,6 +3139,141 @@
       },
       "slots": [],
       "tagname": "furo-reverse-deep-link"
+    },
+    {
+      "description": "`furo-sortby-container`\n\nThe string value should follow SQL syntax: comma separated list of fields. For example: \"foo,bar\".\nThe default sorting order is ascending. To specify descending order for a field, a suffix \" desc\" should be\nappended to the field name. For example: \"foo desc,bar\".\nRedundant space characters in the syntax are insignificant. \"foo,bar desc\" and \"  foo ,  bar  desc  \" are equivalent.",
+      "summary": "",
+      "path": "src/furo-sortby-container.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "addAscendingField",
+          "description": "foo,bar",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 24,
+              "column": 2
+            },
+            "end": {
+              "line": 29,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "field"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "addDescendingField",
+          "description": "foo,bar desc",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 35,
+              "column": 2
+            },
+            "end": {
+              "line": 40,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "field"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "clear",
+          "description": "Clears the sort_by query and fires sortby-condition-updated",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 45,
+              "column": 2
+            },
+            "end": {
+              "line": 48,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_mapSorterToQuery",
+          "description": "https://cloud.google.com/apis/design/design_patterns#sorting_order",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 54,
+              "column": 2
+            },
+            "end": {
+              "line": 67,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-sortby-container",
+          "description": "Basic Usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 68,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroSortbyContainer",
+      "attributes": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "sortby-condition-updated",
+          "description": "Is fired if a new sort condition is set.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-sortby-container",
+      "mixins": [
+        "FBP"
+      ]
     }
   ],
   "classes": [
@@ -3372,11 +3507,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 248,
               "column": 2
             },
             "end": {
-              "line": 247,
+              "line": 250,
               "column": 3
             }
           },
@@ -3389,11 +3524,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 254,
+              "line": 257,
               "column": 2
             },
             "end": {
-              "line": 263,
+              "line": 266,
               "column": 3
             }
           },
@@ -3406,11 +3541,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 269,
+              "line": 272,
               "column": 2
             },
             "end": {
-              "line": 278,
+              "line": 277,
               "column": 3
             }
           },
@@ -3423,11 +3558,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 285,
+              "line": 284,
               "column": 2
             },
             "end": {
-              "line": 294,
+              "line": 293,
               "column": 3
             }
           },
@@ -3441,11 +3576,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 2
             },
             "end": {
-              "line": 111,
+              "line": 114,
               "column": 3
             }
           },
@@ -3468,11 +3603,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 116,
+              "line": 119,
               "column": 2
             },
             "end": {
-              "line": 118,
+              "line": 121,
               "column": 3
             }
           },
@@ -3488,11 +3623,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 126,
               "column": 2
             },
             "end": {
-              "line": 127,
+              "line": 130,
               "column": 3
             }
           },
@@ -3508,11 +3643,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 134,
+              "line": 137,
               "column": 2
             },
             "end": {
-              "line": 136,
+              "line": 139,
               "column": 3
             }
           },
@@ -3525,11 +3660,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 138,
+              "line": 141,
               "column": 2
             },
             "end": {
-              "line": 154,
+              "line": 157,
               "column": 3
             }
           },
@@ -3545,11 +3680,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 192,
+              "line": 195,
               "column": 2
             },
             "end": {
-              "line": 243,
+              "line": 246,
               "column": 3
             }
           },
@@ -3569,11 +3704,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 301,
+              "line": 300,
               "column": 2
             },
             "end": {
-              "line": 305,
+              "line": 304,
               "column": 3
             }
           },
@@ -3593,11 +3728,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 311,
+              "line": 310,
               "column": 2
             },
             "end": {
-              "line": 321,
+              "line": 320,
               "column": 3
             }
           },
@@ -3617,11 +3752,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 323,
+              "line": 322,
               "column": 2
             },
             "end": {
-              "line": 339,
+              "line": 338,
               "column": 3
             }
           },
@@ -3634,11 +3769,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 341,
+              "line": 340,
               "column": 2
             },
             "end": {
-              "line": 350,
+              "line": 349,
               "column": 3
             }
           },
@@ -3658,11 +3793,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 352,
+              "line": 351,
               "column": 2
             },
             "end": {
-              "line": 370,
+              "line": 368,
               "column": 3
             }
           },
@@ -3683,7 +3818,7 @@
           "column": 7
         },
         "end": {
-          "line": 371,
+          "line": 369,
           "column": 1
         }
       },
@@ -4079,11 +4214,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 571,
+              "line": 583,
               "column": 2
             },
             "end": {
-              "line": 582,
+              "line": 594,
               "column": 3
             }
           },
@@ -4096,11 +4231,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 542,
+              "line": 554,
               "column": 2
             },
             "end": {
-              "line": 569,
+              "line": 581,
               "column": 3
             }
           },
@@ -4113,11 +4248,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 590,
+              "line": 602,
               "column": 2
             },
             "end": {
-              "line": 625,
+              "line": 637,
               "column": 3
             }
           },
@@ -4130,11 +4265,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 632,
+              "line": 644,
               "column": 2
             },
             "end": {
-              "line": 666,
+              "line": 678,
               "column": 3
             }
           },
@@ -4147,11 +4282,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 674,
+              "line": 686,
               "column": 2
             },
             "end": {
-              "line": 697,
+              "line": 709,
               "column": 3
             }
           },
@@ -4165,11 +4300,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 146,
+              "line": 156,
               "column": 2
             },
             "end": {
-              "line": 165,
+              "line": 175,
               "column": 3
             }
           },
@@ -4187,11 +4322,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 170,
+              "line": 180,
               "column": 2
             },
             "end": {
-              "line": 175,
+              "line": 185,
               "column": 3
             }
           },
@@ -4208,11 +4343,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 187,
               "column": 2
             },
             "end": {
-              "line": 181,
+              "line": 191,
               "column": 3
             }
           },
@@ -4235,11 +4370,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 186,
+              "line": 196,
               "column": 2
             },
             "end": {
-              "line": 188,
+              "line": 198,
               "column": 3
             }
           },
@@ -4255,11 +4390,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 190,
+              "line": 200,
               "column": 2
             },
             "end": {
-              "line": 215,
+              "line": 225,
               "column": 3
             }
           },
@@ -4279,11 +4414,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 348,
+              "line": 359,
               "column": 2
             },
             "end": {
-              "line": 388,
+              "line": 399,
               "column": 3
             }
           },
@@ -4296,11 +4431,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 390,
+              "line": 401,
               "column": 2
             },
             "end": {
-              "line": 458,
+              "line": 470,
               "column": 3
             }
           },
@@ -4323,11 +4458,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 466,
+              "line": 478,
               "column": 2
             },
             "end": {
-              "line": 477,
+              "line": 489,
               "column": 3
             }
           },
@@ -4347,11 +4482,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 479,
+              "line": 491,
               "column": 2
             },
             "end": {
-              "line": 498,
+              "line": 510,
               "column": 3
             }
           },
@@ -4371,11 +4506,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 500,
+              "line": 512,
               "column": 2
             },
             "end": {
-              "line": 522,
+              "line": 534,
               "column": 3
             }
           },
@@ -4398,11 +4533,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 527,
+              "line": 539,
               "column": 2
             },
             "end": {
-              "line": 540,
+              "line": 552,
               "column": 3
             }
           },
@@ -4418,11 +4553,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 699,
+              "line": 711,
               "column": 2
             },
             "end": {
-              "line": 724,
+              "line": 736,
               "column": 3
             }
           },
@@ -4438,11 +4573,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 731,
+              "line": 743,
               "column": 2
             },
             "end": {
-              "line": 752,
+              "line": 764,
               "column": 3
             }
           },
@@ -4463,11 +4598,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 754,
+              "line": 766,
               "column": 2
             },
             "end": {
-              "line": 759,
+              "line": 771,
               "column": 3
             }
           },
@@ -4484,7 +4619,7 @@
           "column": 7
         },
         "end": {
-          "line": 760,
+          "line": 772,
           "column": 1
         }
       },
@@ -4504,11 +4639,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 117,
+              "line": 119,
               "column": 2
             },
             "end": {
-              "line": 119,
+              "line": 121,
               "column": 3
             }
           },
@@ -4521,11 +4656,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 125,
+              "line": 127,
               "column": 2
             },
             "end": {
-              "line": 127,
+              "line": 129,
               "column": 3
             }
           },
@@ -4539,11 +4674,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 51,
+              "line": 53,
               "column": 2
             },
             "end": {
-              "line": 54,
+              "line": 56,
               "column": 3
             }
           },
@@ -4559,11 +4694,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 60,
+              "line": 62,
               "column": 2
             },
             "end": {
-              "line": 88,
+              "line": 90,
               "column": 3
             }
           },
@@ -4583,11 +4718,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 95,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 99,
               "column": 3
             }
           },
@@ -4603,11 +4738,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 101,
               "column": 2
             },
             "end": {
-              "line": 101,
+              "line": 103,
               "column": 3
             }
           },
@@ -4624,11 +4759,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 108,
               "column": 2
             },
             "end": {
-              "line": 115,
+              "line": 117,
               "column": 3
             }
           },
@@ -4644,11 +4779,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 133,
+              "line": 135,
               "column": 2
             },
             "end": {
-              "line": 142,
+              "line": 144,
               "column": 3
             }
           },
@@ -4664,11 +4799,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 144,
+              "line": 146,
               "column": 2
             },
             "end": {
-              "line": 221,
+              "line": 223,
               "column": 3
             }
           },
@@ -4691,11 +4826,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 223,
+              "line": 225,
               "column": 2
             },
             "end": {
-              "line": 240,
+              "line": 273,
               "column": 3
             }
           },
@@ -4715,11 +4850,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 242,
+              "line": 275,
               "column": 2
             },
             "end": {
-              "line": 262,
+              "line": 295,
               "column": 3
             }
           },
@@ -4739,11 +4874,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 271,
+              "line": 304,
               "column": 2
             },
             "end": {
-              "line": 282,
+              "line": 315,
               "column": 3
             }
           },
@@ -4766,11 +4901,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 284,
+              "line": 317,
               "column": 2
             },
             "end": {
-              "line": 286,
+              "line": 319,
               "column": 3
             }
           },
@@ -4778,7 +4913,39 @@
           "params": []
         }
       ],
-      "staticMethods": [],
+      "staticMethods": [
+        {
+          "name": "_pathSet",
+          "description": "helper to set deep paths",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 327,
+              "column": 2
+            },
+            "end": {
+              "line": 339,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "root"
+            },
+            {
+              "name": "path",
+              "description": "String a.b.c.d"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
       "demos": [],
       "metadata": {},
       "sourceRange": {
@@ -4787,13 +4954,489 @@
           "column": 7
         },
         "end": {
-          "line": 287,
+          "line": 340,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "EventTreeNode",
       "name": "DataObject"
+    },
+    {
+      "description": "`UniversalFieldNodeBinder` consumes a FieldNode of any type, google wrapper or FAT and exposes\na API for data binding purposes.\n\n## specifity\n**meta < fat annotations**\n**attributes on element > fat annotations > meta**\n\nSpec meta and dynamic meta is handled in DataObject and FieldNode.\n\nIf meta was given and the same property is not set in the fat type anymore, the value will fall back to the given value from the meta.",
+      "summary": "",
+      "path": "src/lib/UniversalFieldNodeBinder.js",
+      "properties": [
+        {
+          "name": "targetValueField",
+          "type": "string",
+          "description": "Define the property for the value on the component. If the value in the fieldnode changes\nthis property will be updated",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 29,
+              "column": 4
+            },
+            "end": {
+              "line": 29,
+              "column": 25
+            }
+          },
+          "metadata": {},
+          "defaultValue": "'value'"
+        },
+        {
+          "name": "labelMappings",
+          "type": "{}",
+          "description": "Define the mappings for the labels / flags which will be set on the component if it is set in the fieldnode.\n\n```\n // set the label mappings\n // fat-label: componentProperty\nthis.binder.labelMappings = {\n  'error': '_error',\n  'readonly': 'readonly',\n  'required': 'required',\n  'disabled': 'disabled'\n};\n```",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 46,
+              "column": 4
+            },
+            "end": {
+              "line": 46,
+              "column": 22
+            }
+          },
+          "metadata": {},
+          "defaultValue": "{}"
+        },
+        {
+          "name": "attributeMappings",
+          "type": "{}",
+          "description": "Define the mappings for the attributes which will be set on the component if it is set in the fieldnode.\n\n```\n // set the attribute mappings\n this.binder.attributeMappings = {\n   'label': 'placeholder', // map label to placeholder\n   'placeholder': 'placeholder', // map placeholder to placeholder\n   'hint': '_hint',\n   'icon': 'leadingIcon', // icon and leading icon maps to the same\n   'leading-icon': 'leadingIcon',// icon and leading icon maps to the same\n   'value-state': '_valueState',\n   'value-state-message': '_valueStateMessage',\n   'errortext': '_errorMsg', // name errortext is for compatibility with spec\n   'warning-msg': '_warningMsg',\n   'success-msg': '_successMsg',\n   'information-msg': '_informationMsg',\n   'pattern': 'pattern',\n   'maxlength': 'maxlength', // for the input element itself\n };\n```",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 71,
+              "column": 4
+            },
+            "end": {
+              "line": 71,
+              "column": 26
+            }
+          },
+          "metadata": {},
+          "defaultValue": "{}"
+        },
+        {
+          "name": "fatAttributesToConstraintsMappings",
+          "type": "{}",
+          "description": "Define the attributes which maps to the field constraints.\n\n```\nthis.fatAttributesToConstraintsMappings = {\n  'max': 'value._constraints.max.is',// for the fieldnode max constraint\n  'min': 'value._constraints.min.is',// for the fieldnode min constraint\n  'min-msg': 'value._constraints.min.message',// for the fieldnode min constraint message\n  'max-msg': 'value._constraints.max.message',// for the fieldnode max constraint message\n}\n```",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 86,
+              "column": 4
+            },
+            "end": {
+              "line": 86,
+              "column": 43
+            }
+          },
+          "metadata": {},
+          "defaultValue": "{}"
+        },
+        {
+          "name": "fieldValue",
+          "type": "*",
+          "description": "returns the current value of the field",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 186,
+              "column": 2
+            },
+            "end": {
+              "line": 188,
+              "column": 3
+            }
+          },
+          "metadata": {}
+        }
+      ],
+      "methods": [
+        {
+          "name": "bindField",
+          "description": "binds the fieldNode and read the metas",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 96,
+              "column": 2
+            },
+            "end": {
+              "line": 156,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "field"
+            }
+          ]
+        },
+        {
+          "name": "addLabel",
+          "description": "adds a label to the fat fieldNode. Adding labels to scalar, complex and wrapper works too, but will never updated on the fieldNode.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 194,
+              "column": 2
+            },
+            "end": {
+              "line": 204,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "label"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "deleteLabel",
+          "description": "deletes a label from a fat fieldNode",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 210,
+              "column": 2
+            },
+            "end": {
+              "line": 222,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "label"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "setAttribute",
+          "description": "Sets the value of a named attribute of the current node. Like value-state=\"Error\".\nDo not forget to add the mappings with `xxx.attributeMappings = { 'value-state': 'valueState' };` to reflect the value to your component.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 230,
+              "column": 2
+            },
+            "end": {
+              "line": 238,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "removeAttribute",
+          "description": "removes a named attribute from the fieldNode.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 244,
+              "column": 2
+            },
+            "end": {
+              "line": 253,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateVirtualNode",
+          "description": "Sets the correct value for the given fieldnode to the virtual node and this.fieldValue according to the signature of the field",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 260,
+              "column": 2
+            },
+            "end": {
+              "line": 296,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "field"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_addVirtualAttribute",
+          "description": "Adds or updates a attribute to the virtual node and set the attribute on the target component if mapping is defined",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 304,
+              "column": 2
+            },
+            "end": {
+              "line": 320,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_pathSet",
+          "description": "helper to set deep paths",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 328,
+              "column": 2
+            },
+            "end": {
+              "line": 340,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "path",
+              "description": "String a.b.c.d"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_removeVirtualAttribute",
+          "description": "Removes a attribute from the virtual node and sets the attribute on the target component to null, so lit will remove it on reflected attributes.\n\n https://lit-element.polymer-project.org/guide/properties#attributes",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 349,
+              "column": 2
+            },
+            "end": {
+              "line": 359,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_addVirtualLabel",
+          "description": "Adds a label to the virtual node label set and sets the label on the target component to `true` if mapping is defined.",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 366,
+              "column": 2
+            },
+            "end": {
+              "line": 374,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_removeVirtualLabel",
+          "description": "Removes a label from the virtual node label set and sets the label on the target component to `false` if mapping is defined.",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 381,
+              "column": 2
+            },
+            "end": {
+              "line": 387,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "checkLabelandAttributeOverrrides",
+          "description": "check overrides from the used component, setted attributes overrides all internal settings.\nAll we have to do is removing the setted mappings for the current instance.\n\n**Hint:** Do this after initializing the mappings.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 395,
+              "column": 2
+            },
+            "end": {
+              "line": 415,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "detectFormat",
+          "description": "detects the kind of the fieldNode (scalar, wrapper, fat)",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 422,
+              "column": 2
+            },
+            "end": {
+              "line": 442,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "field"
+            }
+          ],
+          "return": {
+            "type": "(string | undefined)"
+          }
+        },
+        {
+          "name": "_updateVirtualNodeFromMeta",
+          "description": "updates the virtual node attributes and labels with metas from the fieldnode",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 449,
+              "column": 2
+            },
+            "end": {
+              "line": 485,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldmeta"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateVirtualNodeFromMetaConstraints",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 487,
+              "column": 2
+            },
+            "end": {
+              "line": 504,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "constraints"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 17,
+          "column": 7
+        },
+        "end": {
+          "line": 505,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "name": "UniversalFieldNodeBinder"
     }
   ]
 }
