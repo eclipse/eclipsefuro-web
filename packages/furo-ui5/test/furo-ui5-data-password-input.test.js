@@ -172,7 +172,7 @@ describe('furo-ui5-data-password-input', () => {
   it('should apply meta and constraints to the bound field', done => {
     dao.addEventListener('data-injected', () => {
       assert.equal(input._state.disabled, false, 'check disabled');
-      assert.equal(input._state.highlight, false, 'check highlight');
+      assert.equal(input._state.highlight, true, 'check highlight');
       assert.equal(input._state.readonly, false, 'check readonly');
       assert.equal(input._state.required, true, 'check required');
       assert.equal(input._state.type, 'Password', 'check type');
