@@ -111,6 +111,31 @@ public final class TaskOuterClass {
      * <code>.furo.Meta meta = 3;</code>
      */
     furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder();
+
+    /**
+     * <pre>
+     * notification for the data
+     * </pre>
+     *
+     * <code>.notification.Notification notifications = 4;</code>
+     */
+    boolean hasNotifications();
+    /**
+     * <pre>
+     * notification for the data
+     * </pre>
+     *
+     * <code>.notification.Notification notifications = 4;</code>
+     */
+    notification.NotificationApi.Notification getNotifications();
+    /**
+     * <pre>
+     * notification for the data
+     * </pre>
+     *
+     * <code>.notification.Notification notifications = 4;</code>
+     */
+    notification.NotificationApi.NotificationOrBuilder getNotificationsOrBuilder();
   }
   /**
    * <pre>
@@ -187,6 +212,19 @@ public final class TaskOuterClass {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(meta_);
                 meta_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              notification.NotificationApi.Notification.Builder subBuilder = null;
+              if (notifications_ != null) {
+                subBuilder = notifications_.toBuilder();
+              }
+              notifications_ = input.readMessage(notification.NotificationApi.Notification.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(notifications_);
+                notifications_ = subBuilder.buildPartial();
               }
 
               break;
@@ -348,6 +386,39 @@ public final class TaskOuterClass {
       return getMeta();
     }
 
+    public static final int NOTIFICATIONS_FIELD_NUMBER = 4;
+    private notification.NotificationApi.Notification notifications_;
+    /**
+     * <pre>
+     * notification for the data
+     * </pre>
+     *
+     * <code>.notification.Notification notifications = 4;</code>
+     */
+    public boolean hasNotifications() {
+      return notifications_ != null;
+    }
+    /**
+     * <pre>
+     * notification for the data
+     * </pre>
+     *
+     * <code>.notification.Notification notifications = 4;</code>
+     */
+    public notification.NotificationApi.Notification getNotifications() {
+      return notifications_ == null ? notification.NotificationApi.Notification.getDefaultInstance() : notifications_;
+    }
+    /**
+     * <pre>
+     * notification for the data
+     * </pre>
+     *
+     * <code>.notification.Notification notifications = 4;</code>
+     */
+    public notification.NotificationApi.NotificationOrBuilder getNotificationsOrBuilder() {
+      return getNotifications();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -371,6 +442,9 @@ public final class TaskOuterClass {
       if (meta_ != null) {
         output.writeMessage(3, getMeta());
       }
+      if (notifications_ != null) {
+        output.writeMessage(4, getNotifications());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -391,6 +465,10 @@ public final class TaskOuterClass {
       if (meta_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getMeta());
+      }
+      if (notifications_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getNotifications());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -419,6 +497,11 @@ public final class TaskOuterClass {
         if (!getMeta()
             .equals(other.getMeta())) return false;
       }
+      if (hasNotifications() != other.hasNotifications()) return false;
+      if (hasNotifications()) {
+        if (!getNotifications()
+            .equals(other.getNotifications())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -441,6 +524,10 @@ public final class TaskOuterClass {
       if (hasMeta()) {
         hash = (37 * hash) + META_FIELD_NUMBER;
         hash = (53 * hash) + getMeta().hashCode();
+      }
+      if (hasNotifications()) {
+        hash = (37 * hash) + NOTIFICATIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getNotifications().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -598,6 +685,12 @@ public final class TaskOuterClass {
           meta_ = null;
           metaBuilder_ = null;
         }
+        if (notificationsBuilder_ == null) {
+          notifications_ = null;
+        } else {
+          notifications_ = null;
+          notificationsBuilder_ = null;
+        }
         return this;
       }
 
@@ -644,6 +737,11 @@ public final class TaskOuterClass {
           result.meta_ = meta_;
         } else {
           result.meta_ = metaBuilder_.build();
+        }
+        if (notificationsBuilder_ == null) {
+          result.notifications_ = notifications_;
+        } else {
+          result.notifications_ = notificationsBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -725,6 +823,9 @@ public final class TaskOuterClass {
         }
         if (other.hasMeta()) {
           mergeMeta(other.getMeta());
+        }
+        if (other.hasNotifications()) {
+          mergeNotifications(other.getNotifications());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1372,6 +1473,159 @@ public final class TaskOuterClass {
           meta_ = null;
         }
         return metaBuilder_;
+      }
+
+      private notification.NotificationApi.Notification notifications_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          notification.NotificationApi.Notification, notification.NotificationApi.Notification.Builder, notification.NotificationApi.NotificationOrBuilder> notificationsBuilder_;
+      /**
+       * <pre>
+       * notification for the data
+       * </pre>
+       *
+       * <code>.notification.Notification notifications = 4;</code>
+       */
+      public boolean hasNotifications() {
+        return notificationsBuilder_ != null || notifications_ != null;
+      }
+      /**
+       * <pre>
+       * notification for the data
+       * </pre>
+       *
+       * <code>.notification.Notification notifications = 4;</code>
+       */
+      public notification.NotificationApi.Notification getNotifications() {
+        if (notificationsBuilder_ == null) {
+          return notifications_ == null ? notification.NotificationApi.Notification.getDefaultInstance() : notifications_;
+        } else {
+          return notificationsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * notification for the data
+       * </pre>
+       *
+       * <code>.notification.Notification notifications = 4;</code>
+       */
+      public Builder setNotifications(notification.NotificationApi.Notification value) {
+        if (notificationsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          notifications_ = value;
+          onChanged();
+        } else {
+          notificationsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * notification for the data
+       * </pre>
+       *
+       * <code>.notification.Notification notifications = 4;</code>
+       */
+      public Builder setNotifications(
+          notification.NotificationApi.Notification.Builder builderForValue) {
+        if (notificationsBuilder_ == null) {
+          notifications_ = builderForValue.build();
+          onChanged();
+        } else {
+          notificationsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * notification for the data
+       * </pre>
+       *
+       * <code>.notification.Notification notifications = 4;</code>
+       */
+      public Builder mergeNotifications(notification.NotificationApi.Notification value) {
+        if (notificationsBuilder_ == null) {
+          if (notifications_ != null) {
+            notifications_ =
+              notification.NotificationApi.Notification.newBuilder(notifications_).mergeFrom(value).buildPartial();
+          } else {
+            notifications_ = value;
+          }
+          onChanged();
+        } else {
+          notificationsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * notification for the data
+       * </pre>
+       *
+       * <code>.notification.Notification notifications = 4;</code>
+       */
+      public Builder clearNotifications() {
+        if (notificationsBuilder_ == null) {
+          notifications_ = null;
+          onChanged();
+        } else {
+          notifications_ = null;
+          notificationsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * notification for the data
+       * </pre>
+       *
+       * <code>.notification.Notification notifications = 4;</code>
+       */
+      public notification.NotificationApi.Notification.Builder getNotificationsBuilder() {
+        
+        onChanged();
+        return getNotificationsFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * notification for the data
+       * </pre>
+       *
+       * <code>.notification.Notification notifications = 4;</code>
+       */
+      public notification.NotificationApi.NotificationOrBuilder getNotificationsOrBuilder() {
+        if (notificationsBuilder_ != null) {
+          return notificationsBuilder_.getMessageOrBuilder();
+        } else {
+          return notifications_ == null ?
+              notification.NotificationApi.Notification.getDefaultInstance() : notifications_;
+        }
+      }
+      /**
+       * <pre>
+       * notification for the data
+       * </pre>
+       *
+       * <code>.notification.Notification notifications = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          notification.NotificationApi.Notification, notification.NotificationApi.Notification.Builder, notification.NotificationApi.NotificationOrBuilder> 
+          getNotificationsFieldBuilder() {
+        if (notificationsBuilder_ == null) {
+          notificationsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              notification.NotificationApi.Notification, notification.NotificationApi.Notification.Builder, notification.NotificationApi.NotificationOrBuilder>(
+                  getNotifications(),
+                  getParentForChildren(),
+                  isClean());
+          notifications_ = null;
+        }
+        return notificationsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -4847,16 +5101,19 @@ public final class TaskOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\017task/task.proto\022\004task\032\017furo/meta.proto" +
-      "\032\017furo/link.proto\032\024furo/reference.proto\"" +
-      "[\n\nTaskEntity\022\030\n\004data\030\001 \001(\0132\n.task.Task\022" +
-      "\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(\013" +
-      "2\n.furo.Meta\"i\n\016TaskCollection\022\"\n\010entiti" +
-      "es\030\004 \003(\0132\020.task.TaskEntity\022\031\n\005links\030\003 \003(" +
-      "\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Meta\"" +
-      "\223\001\n\004Task\022\023\n\013description\030\003 \001(\t\022\024\n\014display" +
-      "_name\030\002 \001(\t\022\026\n\016estimated_time\030\004 \001(\005\022\n\n\002i" +
-      "d\030\001 \001(\t\022\036\n\005owner\030\005 \001(\0132\017.furo.Reference\022" +
-      "\034\n\010subtasks\030\006 \003(\0132\n.task.Taskb\006proto3"
+      "\032\017furo/link.proto\032\037notification/notifica" +
+      "tion.proto\032\024furo/reference.proto\"\216\001\n\nTas" +
+      "kEntity\022\030\n\004data\030\001 \001(\0132\n.task.Task\022\031\n\005lin" +
+      "ks\030\002 \003(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.fur" +
+      "o.Meta\0221\n\rnotifications\030\004 \001(\0132\032.notifica" +
+      "tion.Notification\"i\n\016TaskCollection\022\"\n\010e" +
+      "ntities\030\004 \003(\0132\020.task.TaskEntity\022\031\n\005links" +
+      "\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo." +
+      "Meta\"\223\001\n\004Task\022\023\n\013description\030\003 \001(\t\022\024\n\014di" +
+      "splay_name\030\002 \001(\t\022\026\n\016estimated_time\030\004 \001(\005" +
+      "\022\n\n\002id\030\001 \001(\t\022\036\n\005owner\030\005 \001(\0132\017.furo.Refer" +
+      "ence\022\034\n\010subtasks\030\006 \003(\0132\n.task.Taskb\006prot" +
+      "o3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4871,6 +5128,7 @@ public final class TaskOuterClass {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           furo.MetaOuterClass.getDescriptor(),
           furo.LinkOuterClass.getDescriptor(),
+          notification.NotificationApi.getDescriptor(),
           furo.ReferenceOuterClass.getDescriptor(),
         }, assigner);
     internal_static_task_TaskEntity_descriptor =
@@ -4878,7 +5136,7 @@ public final class TaskOuterClass {
     internal_static_task_TaskEntity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_task_TaskEntity_descriptor,
-        new java.lang.String[] { "Data", "Links", "Meta", });
+        new java.lang.String[] { "Data", "Links", "Meta", "Notifications", });
     internal_static_task_TaskCollection_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_task_TaskCollection_fieldAccessorTable = new
@@ -4893,6 +5151,7 @@ public final class TaskOuterClass {
         new java.lang.String[] { "Description", "DisplayName", "EstimatedTime", "Id", "Owner", "Subtasks", });
     furo.MetaOuterClass.getDescriptor();
     furo.LinkOuterClass.getDescriptor();
+    notification.NotificationApi.getDescriptor();
     furo.ReferenceOuterClass.getDescriptor();
   }
 

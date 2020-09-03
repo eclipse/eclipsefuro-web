@@ -26,6 +26,7 @@ import './furo-ui5-data-property.js';
 import './furo-ui5-message-strip-display.js';
 import './furo-ui5-message-strip.js';
 import './furo-ui5-notification-list-display.js';
+import './furo-ui5-notification-group-display.js';
 import './furo-ui5-notification.js';
 import './furo-ui5-data-display.js';
 import './furo-ui5-data-display-labeled.js';

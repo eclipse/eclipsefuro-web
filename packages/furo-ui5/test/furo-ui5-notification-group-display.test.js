@@ -4,9 +4,9 @@ import { axeReport } from 'pwa-helpers/axe-report.js';
 import '../src/furo-catalog.js';
 import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
 
-describe('furo-ui5-notification-list-display', () => {
+describe('furo-ui5-notification-group-display', () => {
   let element;
-  let notificationList;
+  let notificationGroupDisplay;
   let notification;
   let host;
 
@@ -83,7 +83,7 @@ describe('furo-ui5-notification-list-display', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-notification-list-display show-close></furo-ui5-notification-list-display>
+           <furo-ui5-notification-group-display show-close show-counter></furo-ui5-notification-group-display>
           <furo-ui5-notification></furo-ui5-notification>
           <div></div>
         </template>
@@ -91,62 +91,27 @@ describe('furo-ui5-notification-list-display', () => {
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, notificationList, notification, element] = testbind.parentNode.children;
+    [, notificationGroupDisplay, notification, element] = testbind.parentNode.children;
     await host.updateComplete;
     await element.updateComplete;
     await notification.updateComplete;
-    await notificationList.updateComplete;
+    await notificationGroupDisplay.updateComplete;
   });
 
   it('should be a furo-ui5-notification-list', done => {
     // keep this test on top, so you can recognize a wrong asignment
-    assert.equal(notificationList.nodeName.toLowerCase(), 'furo-ui5-notification-list-display');
+    assert.equal(
+      notificationGroupDisplay.nodeName.toLowerCase(),
+      'furo-ui5-notification-group-display',
+    );
     done();
   });
 
   // axeReport a11y tests
-  // it('a11y', () => axeReport(notificationList));
+  // it('a11y', () => axeReport(notificationGroupDisplay));
 
-  it('should handle grpc error objects', done => {
-    notificationList.parseGrpcStatus({
-      payload: {
-        code: 400,
-        message: 'Request had invalid credentials.',
-        status: 'SOMETHING',
-        details: [
-          {
-            '@type': 'type.googleapis.com/google.rpc.LocalizedMessage',
-            message: 'Some localized message\n\nwith newline',
-            locale: 'de-ch',
-          },
-          {
-            '@type': 'type.googleapis.com/google.rpc.LocalizedMessage',
-            message: 'Other localized message with newline',
-            locale: 'de-ch',
-          },
-          {
-            '@type': 'type.googleapis.com/google.rpc.BadRequest',
-            message: 'This should not be visible',
-            locale: 'de-ch',
-            field_violations: [],
-          },
-        ],
-      },
-    });
-    setTimeout(() => {
-      const items = notificationList.shadowRoot.querySelectorAll('p');
-
-      assert.equal(items[0].innerHTML, 'Some localized message');
-      assert.equal(items[1].innerHTML, 'with newline');
-      assert.equal(items[2].textContent, 'Other localized message with newline');
-      assert.equal(items.length, 3);
-
-      done();
-    }, 0);
-  });
-
-  it('should listening open-furo-ui5-notification-requested event ', done => {
-    const customEvent = new Event('open-furo-ui5-notification-requested', {
+  it('should listening open-furo-ui5-notification-group-requested event ', done => {
+    const customEvent = new Event('open-furo-ui5-notification-group-requested', {
       bubbles: true,
       composed: true,
     });
@@ -157,7 +122,7 @@ describe('furo-ui5-notification-list-display', () => {
     notification.dispatchEvent(customEvent);
 
     setTimeout(() => {
-      const items = notificationList.shadowRoot.querySelectorAll('table');
+      const items = notificationGroupDisplay.shadowRoot.querySelectorAll('table');
       assert.equal(items.length, 3);
       done();
     }, 0);

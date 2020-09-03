@@ -4,8 +4,8 @@ import { LitElement, css } from 'lit-element';
  * `furo-ui5-notification`
  * Lit element
  *
- *  furo-ui5-notification should be used together witch furo-ui5-notification-list-display. you can place those two components into different places.
- *  best place the furo-ui5-notification-list-display on the main site. then you only need one furo-ui5-notification-list-display. it can work with n furo-ui5-notification.
+ *  furo-ui5-notification should be used together witch furo-ui5-notification-list-display or furo-ui5-notification-group-display. you can place those two components into different places.
+ *  best place the furo-ui5-notification-list(or group)-display on the main site. then you only need one furo-ui5-notification-list(or group)-display. it can work with n furo-ui5-notification.
  *
  * @summary a banner
  * @customElement
@@ -47,7 +47,7 @@ class FuroUi5Notification extends LitElement {
    * request to display the notifications
    * @param p {Object} payload
    */
-  requestDisplay() {
+  _requestListDisplay() {
     /**
      * @event open-furo-ui5-notification-requested
      * Fired when value open banner is requested
@@ -62,30 +62,55 @@ class FuroUi5Notification extends LitElement {
   }
 
   /**
-   *  trigger event when notification is closed
+   * request to display the notifications in group
+   * @param p {Object} payload
    */
-  _close() {
+  _requestGroupDisplay() {
+    /**
+     * @event open-furo-ui5-notification-group-requested
+     * Fired when value open banner is requested
+     * detail payload: {Object}  this
+     */
+    const customEvent = new Event('open-furo-ui5-notification-group-requested', {
+      composed: true,
+      bubbles: true,
+    });
+    customEvent.detail = this;
+    this.dispatchEvent(customEvent);
+  }
+
+  /**
+   * trigger event when notification is closed
+   *
+   * @param message
+   * @private
+   */
+  _close(message) {
     /**
      * @event notification-closed.
      * Fired when notification is closed.
      * detail payload: {Object}  payload
      */
     const customEvent = new Event('notification-closed', { composed: true, bubbles: true });
-    customEvent.detail = this.payload;
+    customEvent.detail = message || this.payload;
     this.dispatchEvent(customEvent);
   }
 
   /**
-   *  trigger events when notification actions are triggered
+   * trigger events when notification actions are triggered
+   *
+   * @param command
+   * @param message
+   * @private
    */
-  _customAction(command) {
+  _customAction(command, message) {
     /**
      * @event notification-custom-action
      * Fired when notification custom action is triggered. this is a general action event.
      * detail payload: {Object}  payload
      */
     const customEvent = new Event('notification-custom-action', { composed: true, bubbles: true });
-    customEvent.detail = this.payload;
+    customEvent.detail = message;
     this.dispatchEvent(customEvent);
 
     /**
@@ -97,10 +122,10 @@ class FuroUi5Notification extends LitElement {
       bubbles: true,
       composed: true,
     });
-    customActionEvent.detail = this.payload;
+    customActionEvent.detail = message;
     this.dispatchEvent(customActionEvent);
 
-    this._close();
+    this._close(message);
   }
 
   /**
@@ -110,20 +135,47 @@ class FuroUi5Notification extends LitElement {
    * @param s
    */
   parseGrpcStatus(status) {
-
     this.payload = status;
     this._type = 'grpc';
-    this.requestDisplay();
+    this._requestListDisplay();
   }
 
   /**
    * inject a collection of notification messages.
+   * the notification message should be a furo.notification type:
+   * {
+   *  "id": 1,
+   *  "display_name": "",
+   *  "heading": "heading 1",
+   *  "message_priority": "High",
+   *  "category": "warning",
+   *  "category_priority": "High",
+   *  "actions": [
+   *    {
+   *      "icon":"accept",
+   *      "command":"accept",
+   *      "text": "accept"
+   *    },
+   *    {
+   *      "icon":"message-error",
+   *      "command":"reject",
+   *      "text": "Reject"
+   *    }
+   *  ],
+   *  "message": "Markdown | Less | Pretty\n--- | --- | ---\n*Still* | `renders` | **nicely**\n1 | 2 | 3"
+   *}
    * @param c
    */
   injectNotificationCollection(c) {
     this.payload = c;
     this._type = 'notification';
-    this.requestDisplay();
+
+    // if notification has category. show notifications in group
+    if (c[0].category) {
+      this._requestGroupDisplay();
+    } else {
+      this._requestListDisplay();
+    }
   }
 
   static get styles() {
