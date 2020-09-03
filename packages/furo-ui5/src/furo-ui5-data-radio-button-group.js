@@ -81,9 +81,6 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
    * webcomponent lifecycle event
    */
   connectedCallback() {
-    setTimeout(()=>{
-      super.connectedCallback();
-    },0);
 
     /**
      * If you inject an array with complex objects, declare here the path where display_name and value_field are located.

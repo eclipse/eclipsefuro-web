@@ -129,8 +129,7 @@ describe('furo-ui5-data-display-labeled', () => {
   it('should update the display part of the component', done => {
     dao.injectRaw(testRecordMeta);
     setTimeout(()=>{
-      assert.equal(display.value, '2019-02-22');
-      assert.equal(display._state.placeholder, 'Amount**');
+      assert.equal(display._field._value, '2019-02-22');
       done();
     },16);
 

@@ -164,6 +164,7 @@ describe('furo-ui5-data-collection-dropdown', () => {
   });
 
   it('should have the basic attribute values', done => {
+
     setTimeout(() => {
       assert.equal(dropdown._state.valueState, 'None', 'value-state');
       assert.equal(dropdown._state.disabled, false, 'disabled');
@@ -180,6 +181,7 @@ describe('furo-ui5-data-collection-dropdown', () => {
   });
 
   it('should activate the correct item', done => {
+    dropdown._valueSubField="id";
     setTimeout(() => {
       assert.equal(dropdown._dropdownList.length, 3, '', 'check number of elements');
       input.setValue('male');
@@ -191,6 +193,7 @@ describe('furo-ui5-data-collection-dropdown', () => {
   });
 
   it('should activate the correct item from the bound field', done => {
+    dropdown._valueSubField="id";
     dropdown.addEventListener('options-injected', () => {
       if (dropdown._dropdownList.length === 4) {
         input.setValue('2');
@@ -200,7 +203,7 @@ describe('furo-ui5-data-collection-dropdown', () => {
           done();
         }, 24);
       }
-    });
+    },{once:true});
     dropdown.injectEntities(testData.entities);
   });
 
