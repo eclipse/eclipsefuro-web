@@ -1,5 +1,5 @@
-import { LitElement, html, css } from 'lit-element'
-import { FBP } from '@furo/fbp/src/fbp.js'
+import { LitElement, html, css } from 'lit-element';
+import { FBP } from '@furo/fbp/src/fbp.js';
 
 /**
  * `furo-ui5-form-field-container`
@@ -68,7 +68,7 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
    * flow is ready lifecycle method
    */
   _FBPReady() {
-    super._FBPReady()
+    super._FBPReady();
     // this._FBPTraceWires();
 
     this.updateComplete.then(() => {
@@ -76,24 +76,24 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
         const ro = new ResizeObserver(entries => {
           window.requestAnimationFrame(() => {
             for (const entry of entries) {
-              this._checkSize(entry.contentRect.width)
+              this._checkSize(entry.contentRect.width);
             }
-          })
-        })
-        ro.observe(this)
+          });
+        });
+        ro.observe(this);
       } else {
         // fallback, just listen to the resize event
         setTimeout(() => {
-          const cr = this.getBoundingClientRect()
-          this._checkSize(cr.width)
-        }, 1)
+          const cr = this.getBoundingClientRect();
+          this._checkSize(cr.width);
+        }, 1);
 
         window.addEventListener('resize', () => {
-          const cr = this.getBoundingClientRect()
-          this._checkSize(cr.width)
-        })
+          const cr = this.getBoundingClientRect();
+          this._checkSize(cr.width);
+        });
       }
-    })
+    });
   }
 
   /**
@@ -104,15 +104,15 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
    */
   _checkSize(size) {
     if (size <= 600) {
-      this._setSizeAttribute('size-s')
+      this._setSizeAttribute('size-s');
     } else if (size > 600 && size <= 1023) {
-      this._setSizeAttribute('size-m')
+      this._setSizeAttribute('size-m');
     } else if (size > 1023 && size <= 1439) {
-      this._setSizeAttribute('size-l')
+      this._setSizeAttribute('size-l');
     } else if (size > 1439) {
-      this._setSizeAttribute('size-xl')
+      this._setSizeAttribute('size-xl');
     } else {
-      this._setSizeAttribute('size-m')
+      this._setSizeAttribute('size-m');
     }
   }
 
@@ -124,12 +124,12 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
   _setSizeAttribute(attrValue) {
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < this.children.length; i++) {
-      this.children[i].setAttribute('data-size', attrValue)
+      this.children[i].setAttribute('data-size', attrValue);
     }
   }
 
   static get properties() {
-    return {}
+    return {};
   }
 
   static get styles() {
@@ -161,53 +161,52 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
           align-self: center;
         }
 
-        ::slotted(*[content][data-size*="size-s"]) {
+        ::slotted(*[content][data-size*='size-s']) {
           grid-column: span 12;
           width: 100%;
         }
 
-        ::slotted(*[label][data-size*="size-s"]) {
+        ::slotted(*[label][data-size*='size-s']) {
           grid-column: span 12;
           justify-self: start;
           align-self: center;
         }
 
-        ::slotted(*[content][data-size*="size-m"]) {
+        ::slotted(*[content][data-size*='size-m']) {
           grid-column: span 10;
           width: 100%;
         }
 
-        ::slotted(*[label][data-size*="size-m"]) {
+        ::slotted(*[label][data-size*='size-m']) {
           grid-column: span 2;
           justify-self: end;
           align-self: center;
         }
 
-        ::slotted(*[content][data-size*="size-l"]) {
+        ::slotted(*[content][data-size*='size-l']) {
           grid-column: span 8;
           width: 100%;
         }
 
-        ::slotted(*[label][data-size*="size-l"]) {
+        ::slotted(*[label][data-size*='size-l']) {
           grid-column: span 4;
           justify-self: end;
           align-self: center;
         }
 
-        ::slotted(*[content][data-size*="size-xl"]) {
+        ::slotted(*[content][data-size*='size-xl']) {
           grid-column: span 8;
           width: 100%;
         }
 
-        ::slotted(*[label][data-size*="size-xl"]) {
+        ::slotted(*[label][data-size*='size-xl']) {
           grid-column: span 4;
           justify-self: end;
           align-self: center;
         }
       `,
-    ]
+    ];
   }
-
 
   /**
    * @private
@@ -220,8 +219,8 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
         <slot name="label"></slot>
         <slot></slot>
       </div>
-    `
+    `;
   }
 }
 
-window.customElements.define('furo-ui5-form-field-container', FuroUi5FormFieldContainer)
+window.customElements.define('furo-ui5-form-field-container', FuroUi5FormFieldContainer);

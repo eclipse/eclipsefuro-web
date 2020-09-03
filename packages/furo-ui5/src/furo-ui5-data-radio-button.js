@@ -31,9 +31,9 @@ export class FuroUi5DataRadioButton extends RadioButton.default {
    * webcomponent lifecycle event
    */
   connectedCallback() {
-    setTimeout(()=>{
+    setTimeout(() => {
       super.connectedCallback();
-    },0);
+    }, 0);
 
     this._initBinder();
   }

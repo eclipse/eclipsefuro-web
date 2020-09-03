@@ -210,7 +210,7 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
       showClose: {
         type: Boolean,
         attribute: 'show-close',
-      }
+      },
     };
   }
 

@@ -34,9 +34,9 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
    * webcomponent lifecycle event
    */
   connectedCallback() {
-    setTimeout(()=>{
+    setTimeout(() => {
       super.connectedCallback();
-    },0);
+    }, 0);
     this._initBinder();
     // this.formatPattern="dd.MM.yyyy";
   }

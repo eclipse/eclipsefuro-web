@@ -36,68 +36,74 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
    */
 
   /**
-   * connectedCallback() method is called when an element is added to the DOM.
-   * webcomponent lifecycle event
+   *
+   * @param props
    */
-  connectedCallback() {
-    setTimeout(()=>{
-      super.connectedCallback();
-    },0);
+  constructor(props) {
+    super(props);
 
     /**
-     * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
-     * If you bind a scalar, you dont need this attribute.
-     * @property value-field
-     * @private
+     * declare here the name of the field from the injected collection.  by selecting an item from dropdown the id
+     *  of bounded complex type or the value of scalar type will be updated according to the value of this field.
+     * @type {string}
      */
-    this._valueField = 'id';
+    this.valueField = 'id';
 
     /**
      * The name of the field from the injected collection that contains the label for the dropdown array.
-     * @property display-field
-     * @private
+     *
+     * @type {string}
      */
-    this._displayField = 'display_name';
+    this.displayField = 'display_name';
 
     /**
      * The minimal length of the inputted string to trigger the search event
-     * @property min-term-length
-     * @private
+     *
+     * @type {number}
      */
-    this._minTermLength = 0;
+    this.minTermLength = 0;
 
     /**
-     * the hint message when there is no search result
-     * @property no-result-hint
-     * @private
+     * define the hint message when there is no search result.
+     *
+     * @type {string}
      */
-    this._noResultHint = 'no result found';
+    this.noResultHint = 'no result found';
 
     /**
-     * The max number of the items to display in the list
-     * @property max-items-to-display
-     * @private
+     * define the max number of the items to display in the list.
+     *
+     * @type {number}
      */
-    this._maxItemsToDisplay = null;
+    this.maxItemsToDisplay = null;
 
     /**
-     * the hint message for the max number of the items to display in the list
-     * @property max-result-hint
-     * @private
+     * define the hint message for the max number of the items to display in the list.
+     *
+     * @type {number}
      */
-    this._maxResultsHint = null;
+    this.maxResultsHint = null;
 
     /**
-     * trigger search only when enter is pressed
-     * @property search-on-enter-only
-     * @private
+     * define whether trigger search only when enter is pressed. default value false.
+     *
+     * @type {boolean}
      */
-    this._searchOnEnterOnly = false;
+    this.searchOnEnterOnly = false;
 
     /**
-     * the loaded collection
+     * the loaded collection.
+     * @type {*[]}
+     * @private
      */
     this._collection = [];
+
+    /**
+     * Defines a short hint intended to aid the user with data entry when the reference-search has no value.
+     *
+     * @type {string}
+     */
+    this.placeholder = '';
 
     this._initBinder();
   }
@@ -108,6 +114,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
    */
   static get observedAttributes() {
     return [
+      'placeholder',
       'value-field',
       'display-field',
       'min-term-length',
@@ -123,25 +130,28 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
       // eslint-disable-next-line default-case
       switch (name) {
         case 'value-field':
-          this._valueField = newVal;
+          this.valueField = newVal;
           break;
         case 'display-field':
-          this._displayField = newVal;
+          this.displayField = newVal;
           break;
         case 'min-term-length':
-          this._minTermLength = newVal;
+          this.minTermLength = newVal;
           break;
         case 'no-result-hint':
-          this._noResultHint = newVal;
+          this.noResultHint = newVal;
           break;
         case 'max-items-to-display':
-          this._maxItemsToDisplay = newVal;
+          this.maxItemsToDisplay = newVal;
           break;
         case 'max-result-hint':
-          this._maxResultsHint = newVal;
+          this.maxResultsHint = newVal;
           break;
         case 'search-on-enter-only':
           this._searchOnEnterOnly = newVal;
+          break;
+        case 'placeholder':
+          this.placeholder = newVal;
           break;
       }
     }
@@ -157,17 +167,16 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
 
     // set the attribute mappings
     this.binder.attributeMappings = {
-      label: 'label', // map label to placeholder
-      placeholder: 'placeholder', // map placeholder to placeholder
+      label: 'label', // map label
       hint: 'hint',
       filter: 'filter',
-      'no-result-hint': '_noResultHint',
-      'max-result-hint': '_maxResultsHint',
-      'value-field': '_valueField',
-      'display-field': '_displayField',
+      'no-result-hint': 'noResultHint',
+      'max-result-hint': 'maxResultsHint',
+      'value-field': 'valueField',
+      'display-field': 'displayField',
       'value-state': 'valueState',
-      'min-term-length': '_minTermLength',
-      'max-items-to-display': '_maxItemsToDisplay',
+      'min-term-length': 'minTermLength',
+      'max-items-to-display': 'maxItemsToDisplay',
       'search-on-enter-only': '_searchOnEnterOnly',
     };
 
@@ -231,7 +240,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
    * @private
    */
   _fireSearchEvent() {
-    if (this.filterValue && this.filterValue.length >= this._minTermLength) {
+    if (this.filterValue && this.filterValue.length >= this.minTermLength) {
       /**
        * @event search
        * Fired when term is entered and bigger then min-term-length
@@ -291,9 +300,9 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
    */
   collectionIn(collection) {
     if (collection && collection.entities && collection.entities.length > 0) {
-      if (this._maxItemsToDisplay && collection.entities.length > this._maxItemsToDisplay) {
+      if (this.maxItemsToDisplay && collection.entities.length > this.maxItemsToDisplay) {
         // cut down the result size
-        this._collection = collection.entities.slice(0, this._maxItemsToDisplay);
+        this._collection = collection.entities.slice(0, this.maxItemsToDisplay);
         this._showList(true);
       } else {
         this._collection = collection.entities;
@@ -318,8 +327,8 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
       this._collection.forEach(e => {
         const element = document.createElement('ui5-cb-item');
 
-        element.setAttribute('text', e.data[this._displayField]);
-        element.setAttribute('id', e.data[this._valueField]);
+        element.setAttribute('text', e.data[this.displayField]);
+        element.setAttribute('id', e.data[this.valueField]);
         this.appendChild(element);
       });
 

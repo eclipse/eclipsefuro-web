@@ -25,7 +25,7 @@ class HookInitUpdateActionUi5 {
     u33e.addImportWithMember(" Theme ", "@furo/framework/src/theme.js");
     u33e.addImportWithMember(" i18n ", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
-    u33e.addImport("@furo/form/src/ui-button-bar.js");
+    u33e.addImport("@furo/form/src/furo-button-bar.js");
     u33e.addImport("@ui5/webcomponents/dist/Button.js");
 
     // styling
@@ -36,39 +36,37 @@ class HookInitUpdateActionUi5 {
         .addCSSAttribute("display", "none");
 
     // exposed wires / public methods with _FBPTriggerWire
-    u33e.addExposedWire("bindEntity", "--entityObjectInjected", "Bind an entity data object. This will be forwarded to the ui-button-bar element inside this element.");
-    u33e.addExposedWire("disableAll", "--disableAllReq", "Disables all elements inside ui-button-bar");
-    u33e.addExposedWire("enableAll", "--enableAllReq", "Enables all elements inside ui-button-bar");
+    u33e.addExposedWire("bindEntity", "--entityObjectInjected", "Bind an entity data object. This will be forwarded to the furo-button-bar element inside this element.");
+    u33e.addExposedWire("disableAll", "--disableAllReq", "Disables all elements inside furo-button-bar");
+    u33e.addExposedWire("enableAll", "--enableAllReq", "Enables all elements inside furo-button-bar");
 
     // all components will be added to this node
-    let bar = u33e.addDomNode("ui-button-bar");
+    let bar = u33e.addDomNode("furo-button-bar");
     bar.addMethod("bind-entity", "--entityObjectInjected")
         .addMethod("disable-all", "--disableAllReq")
         .addMethod("enable-all", "--enableAllReq");
 
     for (let service in SPEC.services) {
 
-
-
       switch (service) {
 
         case "Update":
-          let updatebtn = bar.appendChild("ui-button");
+          let updatebtn = bar.appendChild("ui5-button");
           updatebtn.addFlag("hide-no-rel")
               .addFlag("disable-not-valid")
               .addFlag("disable-pristine")
               .addAttribute("design", "Emphasized")
               .addAttribute("rel", SPEC.services[service].deeplink.rel)
-              .addAttribute("label", "${i18n.t('action.update')}")
+              .addInnerText("${i18n.t('action.update')}")
               .addEventListener("click", "-^update-req");
           break;
 
         case "Delete":
-          let deletebtn = bar.appendChild("ui-button");
+          let deletebtn = bar.appendChild("ui5-button");
           deletebtn.addFlag("hide-no-rel")
               .addAttribute("design", "Negative")
               .addAttribute("rel", SPEC.services[service].deeplink.rel)
-              .addAttribute("label", "${i18n.t('action.delete')}")
+              .addInnerText("${i18n.t('action.delete')}")
               .addEventListener("click", "-^delete-req");
           break;
 

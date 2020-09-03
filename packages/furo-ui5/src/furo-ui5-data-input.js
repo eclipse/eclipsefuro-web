@@ -12,16 +12,15 @@ import '@ui5/webcomponents/dist/features/InputSuggestions.js';
  * @customElement
  */
 export class FuroUi5DataInput extends Input.default {
-
   /**
    * connectedCallback() method is called when an element is added to the DOM.
    * webcomponent lifecycle event
    */
   connectedCallback() {
     // eslint-disable-next-line wc/guard-super-call
-    setTimeout(()=>{
+    setTimeout(() => {
       super.connectedCallback();
-    },0);
+    }, 0);
 
     this.showSuggestions = true;
     this.highlight = true;

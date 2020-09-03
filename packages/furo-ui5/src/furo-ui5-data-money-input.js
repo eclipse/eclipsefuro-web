@@ -26,15 +26,14 @@ import './furo-ui5-data-text-input.js';
  * @mixes FBP
  */
 class FuroUi5DataMoneyInput extends FBP(LitElement) {
-
   /**
    * connectedCallback() method is called when an element is added to the DOM.
    * webcomponent lifecycle event
    */
   connectedCallback() {
-    setTimeout(()=>{
+    setTimeout(() => {
       super.connectedCallback();
-    },0);
+    }, 0);
 
     this.valid = true;
     this._currencies = [];

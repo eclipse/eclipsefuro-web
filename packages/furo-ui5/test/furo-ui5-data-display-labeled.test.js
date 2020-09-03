@@ -128,12 +128,10 @@ describe('furo-ui5-data-display-labeled', () => {
 
   it('should update the display part of the component', done => {
     dao.injectRaw(testRecordMeta);
-    setTimeout(()=>{
-      assert.equal(display.value, '2019-02-22');
-      assert.equal(display._state.placeholder, 'Amount**');
+    setTimeout(() => {
+      assert.equal(display._field._value, '2019-02-22');
       done();
-    },16);
-
+    }, 16);
   });
 
   it('should have a label component', done => {
@@ -144,7 +142,6 @@ describe('furo-ui5-data-display-labeled', () => {
 
       done();
     }, 16);
-
   });
 
   // axeReport a11y tests

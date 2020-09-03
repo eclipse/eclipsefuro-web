@@ -50,7 +50,7 @@ class FuroUi5DataDisplayLabeled extends FBP(LitElement) {
    * @param fieldNode
    */
   bindData(fieldNode) {
-    if (fieldNode === undefined){
+    if (fieldNode === undefined) {
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
@@ -80,11 +80,7 @@ class FuroUi5DataDisplayLabeled extends FBP(LitElement) {
     return html`
       <furo-ui5-form-field-container>
         <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
-        <furo-ui5-data-display
-          content
-          id="Input"
-          ƒ-bind-data="--data"
-        ></furo-ui5-data-display>
+        <furo-ui5-data-display content id="Input" ƒ-bind-data="--data"></furo-ui5-data-display>
       </furo-ui5-form-field-container>
     `;
   }

@@ -155,16 +155,7 @@ describe('furo-ui5-data-radio-button-group', () => {
   });
 
   it('should have the correct items', done => {
-    dropdown.addEventListener('radio-buttons-updated', () => {
-      if (dropdown._dropdownList.length === 4) {
-        const item = dropdown.querySelectorAll('ui5-radiobutton');
-        item[2].selected = true;
-        setTimeout(() => {
-          assert.equal(dao.data.owner.id._value, '3');
-          done();
-        }, 16);
-      }
-    });
-    dropdown.injectEntities(testData.entities);
+    assert.equal(dropdown._dropdownList.length, 3);
+    done();
   });
 });

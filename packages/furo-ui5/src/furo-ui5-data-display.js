@@ -11,7 +11,6 @@ import { FuroUi5DataInput } from './furo-ui5-data-input.js';
  * @demo demo-furo-ui5-data-display Basic usage (scalar, fat, wrapper values)
  */
 export class FuroUi5DataDisplay extends FuroUi5DataInput {
-
   /**
    * connectedCallback() method is called when an element is added to the DOM.
    * webcomponent lifecycle event
@@ -44,13 +43,13 @@ export class FuroUi5DataDisplay extends FuroUi5DataInput {
       'success-msg': '_successMsg',
       'information-msg': '_informationMsg',
       pattern: 'pattern',
-      name: 'name'
+      name: 'name',
     };
 
     // set the label mappings
     this.binder.labelMappings = {
       error: '_error',
-      disabled: 'disabled'
+      disabled: 'disabled',
     };
 
     // set attributes to constrains mapping for furo.fat types
@@ -66,7 +65,7 @@ export class FuroUi5DataDisplay extends FuroUi5DataInput {
    * @param fieldNode
    */
   bindData(fieldNode) {
-    if (fieldNode === undefined){
+    if (fieldNode === undefined) {
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
@@ -102,7 +101,6 @@ export class FuroUi5DataDisplay extends FuroUi5DataInput {
     if (this.value && this.value.toString() === undefined) {
       this.value = '';
     }
-
   }
 }
 window.customElements.define('furo-ui5-data-display', FuroUi5DataDisplay);
