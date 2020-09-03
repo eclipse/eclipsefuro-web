@@ -159,11 +159,11 @@ describe('furo-ui5-data-segmented-button', () => {
   it('should have the basic attribute values', done => {
     setTimeout(() => {
       assert.equal(segmentedButton.buttons.length, 3, 'option count');
-      assert.equal(segmentedButton._subField, 'data', '_subField');
-      assert.equal(segmentedButton._displayField, 'display_name', '_displayField');
-      assert.equal(segmentedButton._displaySubField, 'display_name', '_displaySubField');
-      assert.equal(segmentedButton._valueField, 'id', '_valueField');
-      assert.equal(segmentedButton._valueSubField, 'id', '_valueSubField');
+      assert.equal(segmentedButton.subField, 'data', 'subField');
+      assert.equal(segmentedButton.displayField, 'display_name', 'displayField');
+      assert.equal(segmentedButton.displaySubField, 'display_name', 'displaySubField');
+      assert.equal(segmentedButton.valueField, 'id', 'valueField');
+      assert.equal(segmentedButton.valueSubField, 'id', 'valueSubField');
       assert.equal(segmentedButton.binder.targetValueField, '_value', 'targetValueField');
       done();
     }, 16);

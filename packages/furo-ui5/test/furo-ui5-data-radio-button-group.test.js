@@ -11,7 +11,6 @@ import '../src/furo-catalog.js';
 
 describe('furo-ui5-data-radio-button-group', () => {
   let host;
-  let dropdown;
   let radioGroup;
   let dao;
 
@@ -132,39 +131,40 @@ describe('furo-ui5-data-radio-button-group', () => {
         <template>
           <furo-ui5-data-radio-button-group
             ƒ-bind-data="--typeData(*.owner)"
-            sub-field="data"
           ></furo-ui5-data-radio-button-group>
-          <furo-ui5-data-text-input ƒ-bind-data="--typeData(*.owner.id)"></furo-ui5-data-text-input>
           <furo-data-object type="task.Task" @-object-ready="--typeData"></furo-data-object>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, dropdown, radioGroup, dao] = testbind.parentNode.children;
+    [, radioGroup, dao] = testbind.parentNode.children;
     await host.updateComplete;
-    await dropdown.updateComplete;
     await radioGroup.updateComplete;
     await dao.updateComplete;
   });
 
   it('should be a furo-ui5-data-radio-button-group element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(dropdown.nodeName.toLowerCase(), 'furo-ui5-data-radio-button-group');
+    assert.equal(radioGroup.nodeName.toLowerCase(), 'furo-ui5-data-radio-button-group');
     done();
   });
 
   it('should have the correct items', done => {
-    dropdown.addEventListener('radio-buttons-updated', () => {
-      if (dropdown._dropdownList.length === 4) {
-        const item = dropdown.querySelectorAll('ui5-radiobutton');
-        item[2].selected = true;
-        setTimeout(() => {
-          assert.equal(dao.data.owner.id._value, '3');
-          done();
-        }, 16);
+    radioGroup.addEventListener('radio-buttons-updated', () => {
+      if (radioGroup._dropdownList.length === 4) {
+        const item = radioGroup.querySelectorAll('ui5-radiobutton');
+       // item[2].selected = true;
+
       }
     });
-    dropdown.injectEntities(testData.entities);
+    radioGroup.injectList(testData.entities);
+
+    setTimeout(() => {
+      console.log(radioGroup.valueSubField);
+      console.log(radioGroup.subField);
+      assert.equal(dao.data.owner.id._value, '3');
+      done();
+    }, 16);
   });
 });

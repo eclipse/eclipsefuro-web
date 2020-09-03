@@ -20,12 +20,6 @@ describe('furo-ui5-data-text-input-wrapper', () => {
       scalar_string: 'this is a scalar string',
       wrapper_string: {
         value: 'this is a google wrapper string',
-        labels: ['cozy'],
-        attributes: {
-          'value-state': 'Success',
-          'value-state-message': 'Your wrapper string is valid',
-          icon: 'thumb-up',
-        },
       },
       fat_string: {
         value: 'fat string from record',
@@ -161,21 +155,13 @@ describe('furo-ui5-data-text-input-wrapper', () => {
       assert.equal(input._state.required, false, 'check required');
       assert.equal(input._state.type, 'Text', 'check type');
       assert.equal(input._state.value, 'this is a google wrapper string', 'check value');
-      assert.equal(input._state.valueState, 'Success', 'check valueState');
-      assert.equal(input._state.valueStateMessage.length, 1, 'check valueStateMessage');
-      assert.equal(
-        input._state.valueStateMessage[0],
-        'Your fat string is valid',
-        'check valueStateMessage content',
-      );
+      assert.equal(input._state.valueState, 'None', 'check valueState');
       assert.equal(input._state.name, '', 'check name');
       assert.equal(input._state.showSuggestions, true, 'check showSuggestions');
-      assert.equal(input._state.maxlength, 40, 'check maxlength');
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
-      assert.equal(input.__hint, '', 'check hint');
+      assert.equal(input.__hint, 'hint', 'check hint');
       assert.equal(input.pristine, true, 'Please enter a description', 'check pristine');
       assert.equal(input.binder.fieldFormat, 'wrapper', 'check fieldFormat');
-      assert.equal(input.querySelector('ui5-icon')._state.name, 'thumb-up', 'check icon');
 
       done();
     });

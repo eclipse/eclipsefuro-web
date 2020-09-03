@@ -34,41 +34,36 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
      *
      * This is only needed if display_name and value_field are not located in the root of the object.
-     * @property sub-field
-     * @private
+     * @type {string}
      */
-    this._subField = 'data';
+    this.subField = 'data';
     /**
      * The name of the field from the injected collection that contains the label for the dropdown array.
-     * @property display-field
-     * @private
+     * @type {string}
      */
-    this._displayField = 'display_name';
+    this.displayField = 'display_name';
     /**
-     * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
-     * If you bind a scalar, you dont need this attribute.
-     * @property value-field
-     * @private
+     * declare here the name of the field from the injected collection.  by selecting an item from dropdown the defined
+     * valueSubField of bounded complex type or the value by scalar type will be updated according to the value of this field.
+     * @type {string}
      */
-    this._valueField = 'id';
+    this.valueField = 'id';
 
     /**
      * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
      *
      * If you bind a scalar, you dont need this attribute.
-     * @property value-sub-field
-     * @private
+     * @type {string}
      */
-    this._valueSubField = null;
+    this.valueSubField = null;
 
     /**
      * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
      *
      * If you bind a scalar, you dont need this attribute.
-     * @property display-sub-field
-     * @private
+     * @type {string}
      */
-    this._displaySubField = 'display_name';
+    this.displaySubField = 'display_name';
 
     this._fieldNodeToUpdate = {};
     this._fieldDisplayNodeToUpdate = {};
@@ -89,7 +84,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
           this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id)
         } else {
           const data = []
-          const arrSubfieldChains = this._subField.split('.')
+          const arrSubfieldChains = this.subField.split('.')
           // create value data according to the structure of subfield
           if (Array.isArray(selectedObj.id)) {
             selectedObj.forEach(v => {
@@ -144,19 +139,19 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       // eslint-disable-next-line default-case
       switch (name) {
         case 'value-field':
-          this._valueField = newVal
+          this.valueField = newVal
           break
         case 'display-field':
-          this._displayField = newVal
+          this.displayField = newVal
           break
         case 'sub-field':
-          this._subField = newVal
+          this.subField = newVal
           break
         case 'value-sub-field':
-          this._valueSubField = newVal
+          this.valueSubField = newVal
           break
         case 'display-sub-field':
-          this._displaySubField = newVal
+          this.displaySubField = newVal
           break
       }
     }
@@ -333,7 +328,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     }
     const arrValue = []
 
-    const arrSubfieldChains = this._subField.length ? this._subField.split('.') : []
+    const arrSubfieldChains = this.subField.length ? this.subField.split('.') : []
 
     if (Array.isArray(collection)) {
       collection.forEach(element => {
@@ -365,20 +360,20 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       let preSelectedValueInList = null
       for (let i = 0; i < list.length; i += 1) {
         const item = {
-          id: list[i][this._valueField],
-          label: list[i][this._displayField],
+          id: list[i][this.valueField],
+          label: list[i][this.displayField],
           selected: false,
           _original: list[i],
         }
 
-        if (this._fieldNodeToUpdate._value === list[i][this._valueField]) {
+        if (this._fieldNodeToUpdate._value === list[i][this.valueField]) {
           item.selected = true
           isSelected = true
         }
 
         if (list[i].selected) {
           hasSelectedMark = true
-          preSelectedValueInList = list[i][this._valueField]
+          preSelectedValueInList = list[i][this.valueField]
         }
 
         arr.push(item)
@@ -455,11 +450,11 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         this.multiple = true
       }
 
-      if (this._valueSubField && !this.multiple) {
-        this._fieldNodeToUpdate = this._getValueByPath(this.binder.fieldNode, this._valueSubField)
+      if (this.valueSubField && !this.multiple) {
+        this._fieldNodeToUpdate = this._getValueByPath(this.binder.fieldNode, this.valueSubField)
         this._fieldDisplayNodeToUpdate = this._getValueByPath(
           this.binder.fieldNode,
-          this._displaySubField,
+          this.displaySubField,
         )
       } else {
         this._fieldNodeToUpdate = this.binder.fieldNode
@@ -507,9 +502,9 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       let size = this._dropdownList.length
       // eslint-disable-next-line no-plusplus
       while (size--) {
-        if (this._valueSubField) {
+        if (this.valueSubField) {
           this._dropdownList[size].selected =
-            this._dropdownList[size].id === this.binder.fieldValue[this._valueSubField]
+            this._dropdownList[size].id === this.binder.fieldValue[this.valueSubField]
         } else {
           this._dropdownList[size].selected =
             this._dropdownList[size].id === this.binder.fieldValue
@@ -527,7 +522,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    */
   _parseRepeatedData(data) {
     const arrValue = []
-    const arrSubfieldChains = this._subField.split('.')
+    const arrSubfieldChains = this.subField.split('.')
     if (Array.isArray(data)) {
       data.forEach(element => {
         let tmpValue = element
@@ -552,8 +547,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     let arr = []
     if (Array.isArray(list)) {
       arr = list.map(e => ({
-        id: e[this._valueField],
-        label: e[this._displayField],
+        id: e[this.valueField],
+        label: e[this.displayField],
         selected: !!e.selected,
         _original: e,
       }))

@@ -170,18 +170,18 @@ describe('furo-ui5-data-collection-dropdown', () => {
       assert.equal(dropdown._state.disabled, false, 'disabled');
       assert.equal(dropdown._text, 'person.type.sex.unknown.label**', '_text');
       assert.equal(dropdown.options.length, 3, 'option count');
-      assert.equal(dropdown._subField, 'data', '_subField');
-      assert.equal(dropdown._displayField, 'display_name', '_displayField');
-      assert.equal(dropdown._displaySubField, 'display_name', '_displaySubField');
-      assert.equal(dropdown._valueField, 'id', '_valueField');
-      assert.equal(dropdown._valueSubField, null, '_valueSubField');
+      assert.equal(dropdown.subField, 'data', 'subField');
+      assert.equal(dropdown.displayField, 'display_name', 'displayField');
+      assert.equal(dropdown.displaySubField, 'display_name', 'displaySubField');
+      assert.equal(dropdown.valueField, 'id', 'valueField');
+      assert.equal(dropdown.valueSubField, null, 'valueSubField');
       assert.equal(dropdown.binder.targetValueField, '_value', 'targetValueField');
       done();
     }, 16);
   });
 
   it('should activate the correct item', done => {
-    dropdown._valueSubField="id";
+    dropdown.valueSubField="id";
     setTimeout(() => {
       assert.equal(dropdown._dropdownList.length, 3, '', 'check number of elements');
       input.setValue('male');
@@ -193,7 +193,7 @@ describe('furo-ui5-data-collection-dropdown', () => {
   });
 
   it('should activate the correct item from the bound field', done => {
-    dropdown._valueSubField="id";
+    dropdown.valueSubField="id";
     dropdown.addEventListener('options-injected', () => {
       if (dropdown._dropdownList.length === 4) {
         input.setValue('2');

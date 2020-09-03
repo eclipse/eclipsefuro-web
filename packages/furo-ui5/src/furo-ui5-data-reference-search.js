@@ -43,15 +43,14 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
     super(props);
 
     /**
-     * attribute `value-field`. if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
-     * If you bind a scalar, you dont need this attribute.
-     *
+     * declare here the name of the field from the injected collection.  by selecting an item from dropdown the id
+     *  of bounded complex type or the value of scalar type will be updated according to the value of this field.
      * @type {string}
      */
     this.valueField = 'id';
 
     /**
-     * attribute `display-field`. The name of the field from the injected collection that contains the label for the dropdown array.
+     * The name of the field from the injected collection that contains the label for the dropdown array.
      *
      * @type {string}
      */
@@ -65,28 +64,28 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
     this.minTermLength = 0;
 
     /**
-     * attribute `no-result-hint`. define the hint message when there is no search result.
+     * define the hint message when there is no search result.
      *
      * @type {string}
      */
     this.noResultHint = 'no result found';
 
     /**
-     * attribute `max-items-to-display`. define the max number of the items to display in the list.
+     * define the max number of the items to display in the list.
      *
      * @type {number}
      */
     this.maxItemsToDisplay = null;
 
     /**
-     * attribute `max-result-hint`. define the hint message for the max number of the items to display in the list.
+     * define the hint message for the max number of the items to display in the list.
      *
      * @type {number}
      */
     this.maxResultsHint = null;
 
     /**
-     * attribute `search-on-enter-only`. define whether trigger search only when enter is pressed. default value false.
+     * define whether trigger search only when enter is pressed. default value false.
      *
      * @type {boolean}
      */
