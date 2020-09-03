@@ -30,9 +30,9 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
    * webcomponent lifecycle event
    */
   connectedCallback() {
-    setTimeout(()=>{
+    setTimeout(() => {
       super.connectedCallback();
-    },0);
+    }, 0);
 
     this._initBinder();
   }

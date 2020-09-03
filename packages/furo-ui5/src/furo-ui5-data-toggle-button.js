@@ -26,9 +26,9 @@ export class FuroUi5DataToggleButton extends ToggleButton.default {
    * webcomponent lifecycle event
    */
   connectedCallback() {
-    setTimeout(()=>{
+    setTimeout(() => {
       super.connectedCallback();
-    },0);
+    }, 0);
 
     this._initBinder();
   }

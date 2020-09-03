@@ -155,7 +155,6 @@ describe('furo-ui5-data-radio-button-group', () => {
   });
 
   it('should have the correct items', done => {
-
     assert.equal(dropdown._dropdownList.length, 3);
     done();
   });

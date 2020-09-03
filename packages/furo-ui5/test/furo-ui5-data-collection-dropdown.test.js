@@ -164,7 +164,6 @@ describe('furo-ui5-data-collection-dropdown', () => {
   });
 
   it('should have the basic attribute values', done => {
-
     setTimeout(() => {
       assert.equal(dropdown._state.valueState, 'None', 'value-state');
       assert.equal(dropdown._state.disabled, false, 'disabled');
@@ -181,7 +180,7 @@ describe('furo-ui5-data-collection-dropdown', () => {
   });
 
   it('should activate the correct item', done => {
-    dropdown.valueSubField="id";
+    dropdown.valueSubField = 'id';
     setTimeout(() => {
       assert.equal(dropdown._dropdownList.length, 3, '', 'check number of elements');
       input.setValue('male');
@@ -193,17 +192,21 @@ describe('furo-ui5-data-collection-dropdown', () => {
   });
 
   it('should activate the correct item from the bound field', done => {
-    dropdown.valueSubField="id";
-    dropdown.addEventListener('options-injected', () => {
-      if (dropdown._dropdownList.length === 4) {
-        input.setValue('2');
-        setTimeout(() => {
-          assert.equal(dropdown._dropdownList[1].selected, true);
-          assert.equal(dropdown._state._text, 'Tari Sakota, +41791532244');
-          done();
-        }, 24);
-      }
-    },{once:true});
+    dropdown.valueSubField = 'id';
+    dropdown.addEventListener(
+      'options-injected',
+      () => {
+        if (dropdown._dropdownList.length === 4) {
+          input.setValue('2');
+          setTimeout(() => {
+            assert.equal(dropdown._dropdownList[1].selected, true);
+            assert.equal(dropdown._state._text, 'Tari Sakota, +41791532244');
+            done();
+          }, 24);
+        }
+      },
+      { once: true },
+    );
     dropdown.injectEntities(testData.entities);
   });
 

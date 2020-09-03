@@ -128,12 +128,11 @@ describe('furo-ui5-data-display', () => {
 
   it('should update the display part of the component', done => {
     dao.injectRaw(testRecordMeta);
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(display.value, '2019-02-22');
       assert.equal(display._state.placeholder, 'date-input**');
       done();
-    },16);
-
+    }, 16);
   });
 
   // axeReport a11y tests

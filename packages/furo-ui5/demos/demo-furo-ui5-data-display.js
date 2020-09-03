@@ -98,10 +98,13 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
             </furo-ui5-data-display>
 
             <p>Bound to complex Google Type Date:</p>
-            <furo-ui5-data-display ƒ-bind-data="--entity(*.data.furo_data_date_input)"></furo-ui5-data-display>
+            <furo-ui5-data-display
+              ƒ-bind-data="--entity(*.data.furo_data_date_input)"
+            ></furo-ui5-data-display>
             <p>Bound to complex Google Type Money:</p>
-            <furo-ui5-data-display ƒ-bind-data="--entity(*.data.furo_data_money_input)"></furo-ui5-data-display>
-
+            <furo-ui5-data-display
+              ƒ-bind-data="--entity(*.data.furo_data_money_input)"
+            ></furo-ui5-data-display>
           </furo-form-layouter>
 
           <furo-button-bar>
@@ -121,7 +124,6 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
             <furo-ui5-data-display
               ƒ-bind-data="--entityU(*.data.fat_int32)"
             ></furo-ui5-data-display>
-
           </furo-form-layouter>
 
           <fetch-universal-json

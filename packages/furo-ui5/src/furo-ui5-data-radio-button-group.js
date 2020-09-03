@@ -33,7 +33,6 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
   constructor(props) {
     super(props);
 
-
     /**
      * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
      *
@@ -114,7 +113,6 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
       }
       this._notifiySelectedItem(selectedObj);
     });
-
   }
 
   /**
