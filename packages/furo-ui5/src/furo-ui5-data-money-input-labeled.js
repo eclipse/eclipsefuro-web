@@ -2,11 +2,13 @@ import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
 import './furo-ui5-form-field-container.js';
-import './furo-ui5-data-number-input.js';
+import {Ui5LabelDataBinding} from './lib/Ui5LabelDataBinding.js'
+import './furo-ui5-data-money-input.js';
+
 
 /**
- * `furo-ui5-data-number-input-labeled`
- * The furo-ui5-data-number-input-labeled is a composition to easily use a complete input field with label according
+ * `furo-ui5-data-money-input-labeled`
+ * The furo-ui5-data-money-input-labeled is a composition to easily use a complete input field with label according
  * to the design specification of SAP Fiori Design System.
  *
  * @summary labeled input field
@@ -14,7 +16,7 @@ import './furo-ui5-data-number-input.js';
  * @demo demo-furo-ui5-form-field-container Simple use
  * @appliesMixin FBP
  */
-class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
+class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.label = '';
@@ -29,7 +31,11 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
   }
 
   static get properties() {
-    return {};
+    return {
+      label: {
+        type: String
+      }
+    };
   }
 
   static get styles() {
@@ -51,20 +57,8 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
    * @param fieldNode
    */
   bindData(fieldNode) {
-    this._field = fieldNode;
-    this._FBPTriggerWire('--data', fieldNode);
 
-    this.label = fieldNode._meta.label || '';
-
-    /**
-     * Listener on fieldNode meta changes
-     */
-    this._field.addEventListener('this-metas-changed', meta => {
-      this.label = meta.detail._meta.label || this.label;
-      this.requestUpdate();
-    });
-
-    this.requestUpdate();
+    Ui5LabelDataBinding.bindData(this, fieldNode);
   }
 
   /**
@@ -76,14 +70,14 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
     return html`
       <furo-ui5-form-field-container>
         <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
-        <furo-ui5-data-number-input
+        <furo-ui5-data-money-input
           content
           id="Input"
           ƒ-bind-data="--data"
-        ></furo-ui5-data-number-input>
+        ></furo-ui5-data-money-input>
       </furo-ui5-form-field-container>
     `;
   }
 }
 
-window.customElements.define('furo-ui5-data-number-input-labeled', FuroUi5DataNumberInputLabeled);
+window.customElements.define('furo-ui5-data-money-input-labeled', FuroUi5DataMoneyInputLabeled);

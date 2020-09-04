@@ -108,8 +108,15 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                 </furo-ui5-form-field-container>
 
                 <furo-ui5-data-display-labeled
+                  label="data-display-labeled"
+
                   ƒ-bind-data="--entity(*.data.furo_data_money_input)"
                 ></furo-ui5-data-display-labeled>
+
+                <furo-ui5-data-money-input-labeled
+                  label="money input labeled"
+                  ƒ-bind-data="--entity(*.data.furo_data_money_input)"
+                ></furo-ui5-data-money-input-labeled>
 
                 <furo-ui5-data-date-picker-labeled
                   ƒ-bind-data="--entity(*.data.furo_data_date_input_google)"
