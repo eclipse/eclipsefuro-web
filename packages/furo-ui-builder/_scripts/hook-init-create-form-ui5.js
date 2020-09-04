@@ -5,7 +5,7 @@ class HookInitCreateFormUi5 {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-form-ui5").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-form").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
@@ -24,7 +24,7 @@ class HookInitCreateFormUi5 {
     })();
 
     u33e.setTheme("CreateFormBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-form-ui5").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-form").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 

@@ -7,7 +7,7 @@ class HookInitReferenceSearchUi5 {
     const PKGDIR = UISPECDIR + "/" + ctx.package;
     if (SPEC.services.List && SPEC.services.List.query && SPEC.services.List.query.q){
       let type = SPEC.services.List.data.response.replace("Collection", "");
-      return PKGDIR + "/" + type.toLowerCase().split(".").join("-") + "-reference-search-ui5".toLowerCase() + ".u33e";
+      return PKGDIR + "/" + type.toLowerCase().split(".").join("-") + "-reference-search".toLowerCase() + ".u33e";
     }else {
       return undefined;
     }
@@ -18,7 +18,7 @@ class HookInitReferenceSearchUi5 {
     if (SPEC.services.List && SPEC.services.List.query && SPEC.services.List.query.q) {
       let type = SPEC.services.List.data.response.replace("Collection", "");
       u33e.setTheme("ReferenceSearchUi5BaseTheme");
-      u33e.model.component_name = type.toLowerCase().split(".").join("-") + "-reference-search-ui5".toLowerCase();
+      u33e.model.component_name = type.toLowerCase().split(".").join("-") + "-reference-search".toLowerCase();
       u33e.model.path = ctx.path;
       u33e.model.description = SPEC.description;
 
@@ -28,7 +28,7 @@ class HookInitReferenceSearchUi5 {
       u33e.addImportWithMember("i18n", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
       u33e.addImport("@furo/data");
-      u33e.addImport("@furo/ui5/src/furo-ui5-data-reference-search.js");
+      u33e.addImport("@furo/ui5/src/furo-catalog.js");
       u33e.addImport("@furo/timing/src/furo-de-bounce.js");
 
       // https://www.base64encode.org/
@@ -44,11 +44,11 @@ class HookInitReferenceSearchUi5 {
       u33e.addStyle(":host([hidden])")
           .addCSSAttribute("display", "none");
 
-      u33e.addStyle("furo-ui5-data-reference-search")
+      u33e.addStyle("furo-ui5-data-reference-search-labeled")
           .addCSSAttribute("width", "100%");
 
 
-      let refSearch = u33e.addDomNode("furo-ui5-data-reference-search");
+      let refSearch = u33e.addDomNode("furo-ui5-data-reference-search-labeled");
       refSearch.addAttribute("value-field", "id")
           .addAttribute("display-field", "display_name")
           .addAttribute("min-term-length", "1")

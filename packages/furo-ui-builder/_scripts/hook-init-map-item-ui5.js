@@ -5,7 +5,7 @@ class HookInitMapItemUi5 {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-map-item-ui5").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-map-item").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
@@ -24,7 +24,7 @@ class HookInitMapItemUi5 {
     })();
 
     u33e.setTheme("MapUi5ItemBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-map-item-ui5").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-map-item").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -59,7 +59,7 @@ class HookInitMapItemUi5 {
 
     root.addAttribute("header-text", '${this.mapKey?this.mapKey:""}');
 
-    let component = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type ).toLowerCase() + "-form-ui5";
+    let component = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type ).toLowerCase() + "-form";
     u33e.addImport(ctx.getImportPathForComponent(component));
     let form = root.appendChild(component );
     form.description = "the core of the map item is the form";

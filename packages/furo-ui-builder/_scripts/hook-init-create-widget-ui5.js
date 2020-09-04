@@ -6,13 +6,13 @@ class HookInitCreateWidgetUi5 {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-widget-ui5").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-widget").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
     u33e.setTheme("CreateWidgetBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-widget-ui5").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-widget").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -83,7 +83,7 @@ class HookInitCreateWidgetUi5 {
       let arrTmpName = field.type.split(".");
       //  complex type has a cutom form component
       if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
-        component = field.type.toLowerCase().split(".").join("-") + "-form-ui5";
+        component = field.type.toLowerCase().split(".").join("-") + "-form";
         // exclude self import
         let importComponent = ctx.getImportPathForComponent(component);
         if (importComponent) {
