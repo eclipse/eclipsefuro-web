@@ -10,24 +10,28 @@ export class Ui5LabelDataBinding {
    */
   static bindData(element,fieldNode) {
 
+    if (fieldNode === undefined) {
+      console.warn('Invalid fieldNode in bindData', this);
+      return;
+    }
+
     // eslint-disable-next-line no-param-reassign
     element._field = fieldNode;
     element._FBPTriggerWire('--data', fieldNode);
 
     if(this.isFatType(fieldNode)) {
       // eslint-disable-next-line no-param-reassign
-      element.label = element.label || fieldNode.attributes.label || fieldNode._meta.label;
+      element.label = fieldNode.attributes.label || fieldNode._meta.label || element.label ;
     }
     else {
       // eslint-disable-next-line no-param-reassign
-      element.label = element.label || fieldNode._meta.label;
-
+      element.label = fieldNode._meta.label || element.label ;
     }
 
     /**
      * Listener on fieldNode meta changes
      */
-    element._field.addEventListener('element-metas-changed', meta => {
+    element._field.addEventListener('this-metas-changed', meta => {
       // eslint-disable-next-line no-param-reassign
       element.label = meta.detail._meta.label || element.label;
       element.requestUpdate();

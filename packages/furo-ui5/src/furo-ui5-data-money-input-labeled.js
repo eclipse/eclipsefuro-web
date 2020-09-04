@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
+import {Ui5LabelDataBinding} from './lib/Ui5LabelDataBinding.js'
 
 import './furo-ui5-form-field-container.js';
-import {Ui5LabelDataBinding} from './lib/Ui5LabelDataBinding.js'
 import './furo-ui5-data-money-input.js';
 
 

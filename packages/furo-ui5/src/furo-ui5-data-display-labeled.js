@@ -1,7 +1,9 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
+import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 
 import './furo-ui5-form-field-container.js';
+import './furo-ui5-data-display.js';
 
 /**
  * `furo-ui5-data-display-labeled`
@@ -50,25 +52,8 @@ class FuroUi5DataDisplayLabeled extends FBP(LitElement) {
    * @param fieldNode
    */
   bindData(fieldNode) {
-    if (fieldNode === undefined) {
-      console.warn('Invalid fieldNode in bindData', this);
-      return;
-    }
 
-    this._field = fieldNode;
-    this._FBPTriggerWire('--data', fieldNode);
-
-    this.label = fieldNode._meta.label || '';
-
-    /**
-     * Listener on fieldNode meta changes
-     */
-    this._field.addEventListener('this-metas-changed', meta => {
-      this.label = meta.detail._meta.label || this.label;
-      this.requestUpdate();
-    });
-
-    this.requestUpdate();
+    Ui5LabelDataBinding.bindData(this, fieldNode);
   }
 
   /**
