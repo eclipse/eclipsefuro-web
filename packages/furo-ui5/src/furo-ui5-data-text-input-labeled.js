@@ -52,7 +52,6 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
    * @param fieldNode
    */
   bindData(fieldNode) {
-
     Ui5LabelDataBinding.bindData(this, fieldNode);
   }
 

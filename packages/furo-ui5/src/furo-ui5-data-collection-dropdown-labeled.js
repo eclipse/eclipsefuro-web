@@ -93,7 +93,6 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
    * @param fieldNode
    */
   bindData(fieldNode) {
-
     Ui5LabelDataBinding.bindData(this, fieldNode);
   }
 

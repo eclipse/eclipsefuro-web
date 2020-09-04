@@ -1,10 +1,9 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
-import {Ui5LabelDataBinding} from './lib/Ui5LabelDataBinding.js'
+import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 
 import './furo-ui5-form-field-container.js';
 import './furo-ui5-data-money-input.js';
-
 
 /**
  * `furo-ui5-data-money-input-labeled`
@@ -33,8 +32,8 @@ class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
   static get properties() {
     return {
       label: {
-        type: String
-      }
+        type: String,
+      },
     };
   }
 
@@ -57,7 +56,6 @@ class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
    * @param fieldNode
    */
   bindData(fieldNode) {
-
     Ui5LabelDataBinding.bindData(this, fieldNode);
   }
 

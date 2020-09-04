@@ -2,15 +2,14 @@
  * Helper class for binding ui5 labeled elements
  */
 export class Ui5LabelDataBinding {
-
   /**
    * bind data for labeled element
    * @param element
    * @param fieldNode
    */
-  static bindData(element,fieldNode) {
-
+  static bindData(element, fieldNode) {
     if (fieldNode === undefined) {
+      // eslint-disable-next-line no-console
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
@@ -19,13 +18,12 @@ export class Ui5LabelDataBinding {
     element._field = fieldNode;
     element._FBPTriggerWire('--data', fieldNode);
 
-    if(this.isFatType(fieldNode)) {
+    if (this.isFatType(fieldNode)) {
       // eslint-disable-next-line no-param-reassign
-      element.label = fieldNode.attributes.label || fieldNode._meta.label || element.label ;
-    }
-    else {
+      element.label = fieldNode.attributes.label || fieldNode._meta.label || element.label;
+    } else {
       // eslint-disable-next-line no-param-reassign
-      element.label = fieldNode._meta.label || element.label ;
+      element.label = fieldNode._meta.label || element.label;
     }
 
     /**

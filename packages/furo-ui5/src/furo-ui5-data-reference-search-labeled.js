@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
-import { FBP } from '@furo/fbp/src/fbp.js'
+import { FBP } from '@furo/fbp/src/fbp.js';
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 import '@ui5/webcomponents/dist/Label.js';
 
@@ -53,7 +53,6 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
    * @param fieldNode
    */
   bindData(fieldNode) {
-
     Ui5LabelDataBinding.bindData(this, fieldNode);
   }
 
