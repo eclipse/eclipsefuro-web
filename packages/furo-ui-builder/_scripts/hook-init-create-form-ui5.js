@@ -33,7 +33,7 @@ class HookInitCreateFormUi5 {
     u33e.addImportWithMember("FBP", "@furo/fbp");
     u33e.addImportWithMember("i18n", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
-    u33e.addImport("@furo/ui5/src/furo-catalog.js;");
+    u33e.addImport("@furo/ui5/src/furo-catalog.js");
     u33e.addImport("@furo/form");
 
     u33e.addMethod("bindData", "data",
@@ -187,7 +187,7 @@ class HookInitCreateFormUi5 {
       if (field.type === "furo.Reference") {
         if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
           let f = field.meta.default.link.type;
-          fld.component = f.toLowerCase().split(".").join("-") + "-reference-search";
+          fld.component = f.toLowerCase().split(".").join("-") + "-reference-search-ui5";
 
 
           // exclude self import

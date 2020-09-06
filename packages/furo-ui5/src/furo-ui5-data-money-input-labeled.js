@@ -3,11 +3,11 @@ import { FBP } from '@furo/fbp/src/fbp.js';
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 
 import './furo-ui5-form-field-container.js';
-import './furo-ui5-data-text-input.js';
+import './furo-ui5-data-money-input.js';
 
 /**
- * `furo-ui5-data-text-input-labeled`
- * The furo-ui5-data-text-input-labeled is a composition to easily use a complete input field with label according
+ * `furo-ui5-data-money-input-labeled`
+ * The furo-ui5-data-money-input-labeled is a composition to easily use a complete input field with label according
  * to the design specification of SAP Fiori Design System.
  *
  * @summary labeled input field
@@ -15,7 +15,7 @@ import './furo-ui5-data-text-input.js';
  * @demo demo-furo-ui5-form-field-container Simple use
  * @appliesMixin FBP
  */
-class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
+class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.label = '';
@@ -30,7 +30,11 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
   }
 
   static get properties() {
-    return {};
+    return {
+      label: {
+        type: String,
+      },
+    };
   }
 
   static get styles() {
@@ -64,14 +68,14 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
     return html`
       <furo-ui5-form-field-container>
         <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
-        <furo-ui5-data-text-input
+        <furo-ui5-data-money-input
           content
           id="Input"
           ƒ-bind-data="--data"
-        ></furo-ui5-data-text-input>
+        ></furo-ui5-data-money-input>
       </furo-ui5-form-field-container>
     `;
   }
 }
 
-window.customElements.define('furo-ui5-data-text-input-labeled', FuroUi5DataTextInputLabeled);
+window.customElements.define('furo-ui5-data-money-input-labeled', FuroUi5DataMoneyInputLabeled);
