@@ -86,7 +86,7 @@ class HookInitMapUi5 {
     let btn =  flexer.appendChild("ui5-button");
 
     label.addAttribute("for", "Type");
-    label.innerText("name for " + SPEC.__proto.package + "." + SPEC.type);
+    label.addInnerText("name for " + SPEC.__proto.package + "." + SPEC.type);
 
     input.addFlag("flex");
     input.addAttribute("id","Type")
