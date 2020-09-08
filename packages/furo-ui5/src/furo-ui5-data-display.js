@@ -66,6 +66,7 @@ export class FuroUi5DataDisplay extends FuroUi5DataInput {
    */
   bindData(fieldNode) {
     if (fieldNode === undefined) {
+      // eslint-disable-next-line no-console
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
