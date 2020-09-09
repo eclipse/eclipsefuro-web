@@ -48,6 +48,7 @@ class HookInitReferenceDropdownUi5 {
       let refSearch = u33e.addDomNode('furo-ui5-data-collection-dropdown-labeled')
       refSearch.addMethod('inject-entities', '--collection(*.entities)')
         .addMethod('bind-data', '--field-injected')
+        .addAttribute('value-sub-field', 'id')
 
       let agent = u33e.addDomNode('furo-collection-agent')
       agent.addAttribute('service', SPEC.name)

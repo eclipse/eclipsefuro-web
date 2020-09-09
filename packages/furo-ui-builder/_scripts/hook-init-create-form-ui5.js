@@ -48,7 +48,8 @@ class HookInitCreateFormUi5 {
 
     // styling
     u33e.addStyle(":host")
-        .addCSSAttribute("display", "block");
+        .addCSSAttribute("display", "block")
+        .addCSSAttribute("--furo-form-layouter-row-gap", "var(--spacing-xs)");
 
     u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");

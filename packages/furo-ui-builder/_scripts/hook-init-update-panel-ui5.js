@@ -57,7 +57,9 @@ class HookInitUpdatePanelUi5 {
         .addCSSAttribute("height", "100%")
         .addCSSAttribute("overflow", "hidden")
         .addCSSAttribute("background-color", "var(--update-panel-background, var(--surface, white))")
-        .addCSSAttribute("color", "var(--on-update-panel-background, var(--on-surface, black))");
+        .addCSSAttribute("color", "var(--on-update-panel-background, var(--on-surface, black))")
+        .addCSSAttribute("--furo-form-layouter-row-gap", "var(--spacing-xs)");
+
 
     u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");
