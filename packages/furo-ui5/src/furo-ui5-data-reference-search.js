@@ -108,15 +108,16 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
     this._initBinder();
   }
 
-
   /**
-   * connectedCallback() method is called when an element is added to the DOM.
-   * webcomponent lifecycle event
+   * rewrite this super _selectMatchingItem function
+   * initiate _filteredItems in order to avoid error
+   * @private
    */
-  connectedCallback() {
-    setTimeout(() => {
-      super.connectedCallback();
-    }, 0);
+  _selectMatchingItem() {
+    if(this._filteredItems === undefined ) {
+      this._filteredItems = [];
+    }
+    super._selectMatchingItem();
   }
 
   /**

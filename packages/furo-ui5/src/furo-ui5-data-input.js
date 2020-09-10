@@ -12,19 +12,42 @@ import '@ui5/webcomponents/dist/features/InputSuggestions.js';
  * @customElement
  */
 export class FuroUi5DataInput extends Input.default {
+
+  /**
+   * constructor
+   */
+  constructor() {
+    super();
+    // default type is text
+    this.type = 'text';
+    this._initBinder();
+  }
+
+  /**
+   * rewrite get accInfo function
+   * initiate _inputAccInfo in order to avoid error
+   * @private
+   * @returns {*}
+   */
+  get accInfo() {
+    if(this._inputAccInfo === undefined) {
+      this._inputAccInfo = [];
+    }
+    return super.accInfo;
+  }
+
   /**
    * connectedCallback() method is called when an element is added to the DOM.
    * webcomponent lifecycle event
+   * @private
    */
   connectedCallback() {
+    // initiate icon slot when it is undefined to avoid error in InputTemplate.lit.js
+    if(this.icon === undefined ) {
+       this.icon = [];
+    }
     // eslint-disable-next-line wc/guard-super-call
-    setTimeout(() => {
-      super.connectedCallback();
-    }, 0);
-
-    this.showSuggestions = true;
-    this.highlight = true;
-    this._initBinder();
+    super.connectedCallback();
   }
 
   /**
@@ -293,6 +316,10 @@ export class FuroUi5DataInput extends Input.default {
     });
 
     if (Array.isArray(arr) && arr.length > 0) {
+
+      this.showSuggestions = true;
+      this.highlight = true;
+
       // add current suggestion items
       arr.forEach(e => {
         const suggestion = document.createElement('ui5-suggestion-item');

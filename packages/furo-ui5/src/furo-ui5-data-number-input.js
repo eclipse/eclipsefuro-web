@@ -49,11 +49,9 @@ export class FuroUi5DataNumberInput extends FuroUi5DataInput {
   /**
    * init properties
    */
-  connectedCallback() {
-    // eslint-disable-next-line wc/guard-super-call
-    super.connectedCallback();
+  constructor() {
+    super();
     this.type = 'Number';
-    this.showSuggestions = false;
   }
 
   /**
