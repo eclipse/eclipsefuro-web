@@ -35,7 +35,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
    */
   connectedCallback() {
     // initiate valueStateMessage to avoid error in InputTemplate.lit.js
-    if(this.valueStateMessage === undefined) {
+    if (this.valueStateMessage === undefined) {
       this.valueStateMessage = '';
     }
     setTimeout(() => {

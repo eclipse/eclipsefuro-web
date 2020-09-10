@@ -114,7 +114,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
    * @private
    */
   _selectMatchingItem() {
-    if(this._filteredItems === undefined ) {
+    if (this._filteredItems === undefined) {
       this._filteredItems = [];
     }
     super._selectMatchingItem();
