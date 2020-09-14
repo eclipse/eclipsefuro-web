@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.3.0...@furo/ui5@0.3.1) (2020-09-14)
+
+
+### Bug Fixes
+
+* fix reference search and hooks ([5bc130c](https://github.com/theNorstroem/FuroBaseComponents/commit/5bc130c90e816b77f6ac0228907450d3452d184c))
+* remove connectedCallback. init needed variables to solve the async problems ([cbf3c0d](https://github.com/theNorstroem/FuroBaseComponents/commit/cbf3c0d07b3a88c7864cf1d19aa21da49ab4a046))
+* ui5 hooks generate the same component names ([9f95e45](https://github.com/theNorstroem/FuroBaseComponents/commit/9f95e45292a65d605f8d0712f5cdb5d3e03a5bec))
+
+
+
+
+
 # [0.3.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.2.0...@furo/ui5@0.3.0) (2020-09-03)
 
 

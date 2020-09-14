@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.8.0...@furo/data@1.9.0) (2020-09-14)
+
+
+### Bug Fixes
+
+* fieldoptions.list are not always available ([a94447c](https://github.com/theNorstroem/FuroBaseComponents/commit/a94447cb9ddc7f39adb84998f11dec25fb8c80db))
+* furo-filter-field can now handle bindData to set new value ([d3973bc](https://github.com/theNorstroem/FuroBaseComponents/commit/d3973bc8879a02798bf47cf78c068401be59c4ac))
+
+
+### Features
+
+* furo-filter-field can now handle bindData to set new value ([73f45e4](https://github.com/theNorstroem/FuroBaseComponents/commit/73f45e457311662a56c36e699649c74576fda9fc))
+
+
+
+
+
 # [1.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.7.0...@furo/data@1.8.0) (2020-09-03)
 
 
