@@ -188,7 +188,7 @@ class HookInitCreateFormUi5 {
       if (field.type === "furo.Reference") {
         if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
           let f = field.meta.default.link.type;
-          fld.component = f.toLowerCase().split(".").join("-") + "-reference-search-ui5";
+          fld.component = f.toLowerCase().split(".").join("-") + "-reference-search";
 
 
           // exclude self import
