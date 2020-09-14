@@ -1,4 +1,4 @@
-class HookInitReferenceSearch {
+class HookInitReferenceDropdown {
   static getPath(ctx){
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
@@ -73,4 +73,4 @@ class HookInitReferenceSearch {
   }
 }
 
-module.exports = HookInitReferenceSearch;
+module.exports = HookInitReferenceDropdown;

@@ -67,6 +67,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
 
     this._fieldNodeToUpdate = {};
     this._fieldDisplayNodeToUpdate = {};
+    this._dropdownList = [];
 
     /**
      * Listener to catch the selected data

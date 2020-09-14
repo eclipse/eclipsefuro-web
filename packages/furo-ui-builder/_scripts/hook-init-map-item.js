@@ -1,6 +1,6 @@
 const U33eBuilder = require("./u33eBuilder");
 
-class HookInitForm {
+class HookInitMapItem {
   static getPath(ctx) {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
@@ -75,4 +75,4 @@ class HookInitForm {
   }
 }
 
-module.exports = HookInitForm;
+module.exports = HookInitMapItem;

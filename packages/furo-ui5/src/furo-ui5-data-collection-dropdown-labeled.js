@@ -105,6 +105,14 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
   }
 
   /**
+   * Inject the array of a collection
+   * @param entities
+   */
+  injectEntities(entities) {
+    this._FBPTriggerWire('--injectList', entities);
+  }
+
+  /**
    * @private
    * @returns {TemplateResult|TemplateResult}
    */

@@ -62,6 +62,19 @@
       });
     }
   </script>
+  <!-- configuration for ui5  -->
+  <script data-ui5-config type="application/json">
+    {
+      "calendarType": "Gregorian",
+      "formatSettings": {
+        "firstDayOfWeek": 0
+      },
+      "theme": "sap_fiori_3",
+      "noConflict": {
+        "events": ["selection-change", "header-click"]
+      }
+    }
+  </script>
   <!-- Load your application shell -->
   <script type="module" src="dev-shell.js"></script>
 
