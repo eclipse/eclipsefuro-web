@@ -107,7 +107,8 @@ class FuroFilterField extends FBP(LitElement) {
   bindData(field) {
     if (field) {
       this._fieldNode = field
-      this._fieldNode.addEventListener('this-field-value-changed', (e) => {
+      this._fieldNode.addEventListener('field-value-changed', (e) => {
+        // TODO we need a solution for complex fields. Currently only scalar values are working properly
         this.value = e.detail._value
       })
     }
