@@ -9,6 +9,19 @@ The basetypes in @furo/specs/_baseTypes are deprecated.
 ``` 
 
 ├── furo
+│   ├── fat
+│   │   ├── fat.any.type.spec
+│   │   ├── fat.bool.type.spec
+│   │   ├── fat.bytes.type.spec
+│   │   ├── fat.double.type.spec
+│   │   ├── fat.empty.type.spec
+│   │   ├── fat.field_mask.type.spec
+│   │   ├── fat.float.type.spec
+│   │   ├── fat.int32.type.spec
+│   │   ├── fat.int64.type.spec
+│   │   ├── fat.string.type.spec
+│   │   ├── fat.uint32.type.spec
+│   │   └── fat.uint64.type.spec
 │   ├── big_decimal.type.spec
 │   ├── link.type.spec
 │   ├── meta.field.type.spec
