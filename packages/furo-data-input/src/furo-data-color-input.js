@@ -10,6 +10,26 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
  *
+ * ### following labels of fat types are supported by default:
+ *
+ * - 'error': state of input is error
+ * - 'readonly': input is disabled
+ * - 'required': input is required
+ * - 'disabled': input is disabled
+ * - 'pristine': data is not changed. it is pristine
+ * - 'condensed': input has condensed display
+ *
+ * ### following attributes of fat types are supported by default:
+ *
+ * - 'label': input label
+ * - 'hint': input hint
+ * - 'errortext': the error text of the input
+ * - 'error-msg': the same as errortext
+ *
+ * ### following constrains are mapped into the attributes of the fat types and presence in payload:
+ *
+ * - 'required': is mapped to 'required' attribute
+ *
  * <sample-furo-data-color-input></sample-furo-data-color-input>
  *
  * Tags: input
@@ -68,8 +88,8 @@ export class FuroDataColorInput extends FuroColorInput {
       hint: 'hint',
       'leading-icon': 'leadingIcon',
       'trailing-icon': 'trailingIcon',
-      errorcolor: 'errorcolor',
-      'error-msg': 'errorcolor',
+      errortext: 'errortext',
+      'error-msg': 'errortext',
     };
 
     // set the label mappings

@@ -39,20 +39,14 @@ class FuroQpChanger extends FBP(LitElement) {
       }
     }
     const location = `${window.location.pathname}?${qp.join('&')}${window.location.hash}`;
-    if( this._lastLocation !== location){
+    if (this._lastLocation !== location) {
+      // notify furo location
+      window.history.pushState({}, '', location);
 
-
-    // notify furo location
-    window.history.pushState(
-      {},
-      '',
-      location,
-    );
-
-    const now = window.performance.now();
-    const customEvent = new Event('__furoLocationChanged', { composed: true, bubbles: true });
-    customEvent.detail = now;
-    this.dispatchEvent(customEvent);
+      const now = window.performance.now();
+      const customEvent = new Event('__furoLocationChanged', { composed: true, bubbles: true });
+      customEvent.detail = now;
+      this.dispatchEvent(customEvent);
       this._lastLocation = location;
     }
   }

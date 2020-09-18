@@ -31,6 +31,29 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * ```
  *
+ *  * ### following labels of fat types are supported by default:
+ *
+ * - 'error': state of input is error
+ * - 'readonly': input is disabled
+ * - 'required': input is required
+ * - 'disabled': input is disabled
+ * - 'pristine': data is not changed. it is pristine
+ * - 'condensed': input has condensed display
+ *
+ * ### following attributes of fat types are supported by default:
+ *
+ * - 'label': input label
+ * - 'hint': input hint
+ * - 'min_term_length': the minimum number of characters that use should to input to trigger the search
+ * - 'no_result_hint': hint text when result not found by search
+ * - 'errortext': the error text of the input
+ * - 'error-msg': the same as errortext
+ *
+ *
+ * ### following constrains are mapped into the attributes of the fat types and presence in payload:
+ *
+ * - 'required': is mapped to 'required' attribute
+ *
  * ### Styling
  * The following custom properties and mixins are available for styling:
  *

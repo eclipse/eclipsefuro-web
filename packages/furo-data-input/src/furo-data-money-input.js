@@ -17,6 +17,27 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *  <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" options='{"list": [ {"id":"CHF","label":"Schweiz"},{"id":"EUR","label":"Europa", "selected": true}'></furo-data-money-input>
  *  <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" currencies="chf,eur,usd"></furo-data-money-input>
  *
+ * ### following labels of fat types are supported by default:
+ *
+ * - 'error': state of input is error
+ * - 'readonly': input is disabled
+ * - 'required': input is required
+ * - 'disabled': input is disabled
+ * - 'pristine': data is not changed. it is pristine
+ * - 'condensed': input has condensed display
+ *
+ * ### following attributes of fat types are supported by default:
+ *
+ * - 'label': input label
+ * - 'hint': input hint
+ * - 'errortext': the error text of the input
+ * - 'error-msg': the same as errortext
+ *
+ * ### following constrains are mapped into the attributes of the fat types and presence in payload:
+ *
+ * - 'required': is mapped to 'required' attribute
+ *
+ *
  * Tags: money input
  * @summary  Binds a entityObject field google.type.Money to a furo-number-input and currency dropdown fields
  * @customElement

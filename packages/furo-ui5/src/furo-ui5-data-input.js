@@ -62,7 +62,42 @@ export class FuroUi5DataInput extends Input.default {
   }
 
   /**
-   * apply the binding set to the universal field node binder
+   * apply the binding set to the universal field node binder.
+   *
+   * ### following labels of fat types are supported by binding:
+
+   * - 'error': valueState of ui5 component is set as error
+   * - 'readonly': ui5 component is disabled
+   * - 'required': input is required
+   * - 'disabled': ui5 component is disabled
+   * - 'pristine': data is not changed. it is pristine
+   * - 'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text.
+   *
+   * ### following attributes of fat types are supported by binding:
+   *
+   * - 'label': label will be used as the placeholder of the ui5 input
+   * - 'placeholder': placeholder of the ui5 input
+   * - 'hint': title of the ui5 input
+   * - 'icon': ui5 icon in the ui5 input
+   * - 'leading-icon': the same as 'icon'
+   * - 'value-state': Defines the state of the info.Available options are: "None" (by default), "Success", "Warning" and "Erorr".
+   * - 'errortext': Defines the error value state message that will be displayed as pop up under the ui5-input.
+   * - 'error-msg': the same as 'errortext'
+   * - 'warning-msg': Defines the warning value state message that will be displayed as pop up under the ui5-input.
+   * - 'success-msg': Defines the success value state message that will be displayed as pop up under the ui5-input.
+   * - 'information-msg': Defines the information value state message that will be displayed as pop up under the ui5-input.
+   * - 'pattern': Defines the pattern of the ui5-input.
+   * - 'name': Defines the name of the ui5-input.
+   * - 'maxlength': Sets the maximum number of characters available in the input field.
+   * - 'suggestions': Defines the suggestion items. e.g. [{"text":"Spain","icon":"world","type":"Active","infoState":"None","group":false,"key":0},
+   *
+   * ### following constrains are mapped into the attributes of the fat types and presence in payload:
+
+   * - 'max': is mapped to 'maxlength' attribute
+   * - 'min': is mapped to 'minlength' attribute
+   * - 'pattern': is mapped to 'pattern' attribute
+   * - 'required': is mapped to 'required' attribute
+   *
    */
   applyBindingSet() {
     // set the attribute mappings

@@ -23,6 +23,27 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * It is possible to put any other signatures (`[{}]`) by setting the attribute *display-field* and *value-field*.
  * The value in *value-field* will be set on the bounded field and the values in *display-field* are used for the dropdown.
  *
+ *  ### following labels of fat types are supported by default:
+ *
+ * - 'error': state of input is error
+ * - 'readonly': input is disabled
+ * - 'required': input is required
+ * - 'disabled': input is disabled
+ * - 'pristine': data is not changed. it is pristine
+ * - 'condensed': input has condensed display
+ *
+ * ### following attributes of fat types are supported by default:
+ *
+ * - 'label': input label
+ * - 'hint': input hint
+ * - 'leading-icon': furo leading icon of the input
+ * - 'trailing-icon': furo trailing icon of the input
+ * - 'errortext': the error text of the input
+ * - 'error-msg': the same as errortext
+ *
+ * ### following constrains are mapped into the attributes of the fat types and presence in payload:
+ *
+ * - 'required': is mapped to 'required' attribute
  *
  * <sample-furo-data-collection-dropdown></sample-furo-data-collection-dropdown>
  *
@@ -112,10 +133,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
       'leading-icon': 'leadingIcon',
       'trailing-icon': 'trailingIcon',
       errortext: 'errortext',
-      'error-msg': 'errortext',
-      pattern: 'pattern',
-      min: 'min',
-      max: 'max',
     };
 
     // set the label mappings
@@ -128,18 +145,12 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
-      max: 'value._constraints.max.is', // for the fieldnode constraint
-      min: 'value._constraints.min.is', // for the fieldnode constraint
-      pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
       required: 'value._constraints.required.is', // for the fieldnode constraint
       'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
       'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
     };
 
     this.binder.constraintsTofatAttributesMappings = {
-      min: 'min',
-      max: 'max',
-      pattern: 'pattern',
       required: 'required',
     };
 
