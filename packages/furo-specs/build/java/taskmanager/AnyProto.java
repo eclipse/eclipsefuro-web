@@ -189,6 +189,11 @@ public final class AnyProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_taskmanager_UpdateExperimentServiceRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_taskmanager_CreateUniversaltestServiceRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_taskmanager_CreateUniversaltestServiceRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -204,168 +209,175 @@ public final class AnyProto {
       "o\032!projectfilter/projectfilter.proto\032\017au" +
       "th/auth.proto\032\023person/person.proto\032\025proj" +
       "ect/project.proto\032\017task/task.proto\032\033expe" +
-      "riment/experiment.proto\"4\n\030CreateTreeSer" +
-      "viceRequest\022\030\n\004data\030\001 \001(\0132\n.tree.Tree\"M\n" +
-      "\030DeleteTreeServiceRequest\022\013\n\003tre\030\001 \001(\t\022$" +
-      "\n\004data\030\002 \001(\0132\026.google.protobuf.Empty\"$\n\025" +
-      "GetTreeServiceRequest\022\013\n\003tre\030\001 \001(\t\"#\n\026Li" +
-      "stTreeServiceRequest\022\t\n\001q\030\001 \001(\t\"A\n\030Updat" +
-      "eTreeServiceRequest\022\013\n\003tre\030\001 \001(\t\022\030\n\004data" +
-      "\030\002 \001(\0132\n.tree.Tree\" \n\036GetProjectfilterSe" +
-      "rviceRequest\"4\n\030CreateAuthServiceRequest" +
-      "\022\030\n\004data\030\001 \001(\0132\n.auth.Auth\"@\n\030DeleteAuth" +
-      "ServiceRequest\022$\n\004data\030\001 \001(\0132\026.google.pr" +
-      "otobuf.Empty\"$\n\025GetAuthServiceRequest\022\013\n" +
-      "\003uid\030\001 \001(\t\"#\n\026ListAuthServiceRequest\022\t\n\001" +
-      "q\030\001 \001(\t\"A\n\030UpdateAuthServiceRequest\022\013\n\003u" +
-      "id\030\001 \001(\t\022\030\n\004data\030\002 \001(\0132\n.auth.Auth\":\n\032Cr" +
-      "eatePersonServiceRequest\022\034\n\004data\030\001 \001(\0132\016" +
-      ".person.Person\"O\n\032DeletePersonServiceReq" +
-      "uest\022\013\n\003prs\030\001 \001(\t\022$\n\004data\030\002 \001(\0132\026.google" +
-      ".protobuf.Empty\"&\n\027GetPersonServiceReque" +
-      "st\022\013\n\003prs\030\001 \001(\t\"%\n\030ListPersonServiceRequ" +
-      "est\022\t\n\001q\030\001 \001(\t\"G\n\032UpdatePersonServiceReq" +
-      "uest\022\013\n\003prs\030\001 \001(\t\022\034\n\004data\030\002 \001(\0132\016.person" +
-      ".Person\"=\n\033CreateProjectServiceRequest\022\036" +
-      "\n\004data\030\001 \001(\0132\020.project.Project\"P\n\033Delete" +
-      "ProjectServiceRequest\022\013\n\003prj\030\001 \001(\t\022$\n\004da" +
-      "ta\030\002 \001(\0132\026.google.protobuf.Empty\"\'\n\030GetP" +
-      "rojectServiceRequest\022\013\n\003prj\030\001 \001(\t\"&\n\031Lis" +
-      "tProjectServiceRequest\022\t\n\001q\030\001 \001(\t\"J\n\033Upd" +
-      "ateProjectServiceRequest\022\013\n\003prj\030\001 \001(\t\022\036\n" +
-      "\004data\030\002 \001(\0132\020.project.Project\"-\n ListPro" +
-      "jectMembersServiceRequest\022\t\n\001q\030\001 \001(\t\"g\n\'" +
-      "UnsubscribeProjectMembersServiceRequest\022" +
-      "\013\n\003prj\030\001 \001(\t\022\013\n\003prs\030\002 \001(\t\022\"\n\004data\030\003 \001(\0132" +
-      "\024.person.PersonEntity\"4\n\030CreateTaskServi" +
-      "ceRequest\022\030\n\004data\030\001 \001(\0132\n.task.Task\"M\n\030D" +
-      "eleteTaskServiceRequest\022\013\n\003tsk\030\001 \001(\t\022$\n\004" +
-      "data\030\002 \001(\0132\026.google.protobuf.Empty\"$\n\025Ge" +
-      "tTaskServiceRequest\022\013\n\003tsk\030\001 \001(\t\"v\n\026List" +
-      "TaskServiceRequest\022\016\n\006fields\030\001 \001(\t\022\016\n\006fi" +
-      "lter\030\002 \001(\t\022\020\n\010order_by\030\003 \001(\t\022\021\n\tpage_siz" +
-      "e\030\004 \001(\t\022\t\n\001q\030\005 \001(\t\022\014\n\004view\030\006 \001(\t\"A\n\030Upda" +
-      "teTaskServiceRequest\022\013\n\003tsk\030\001 \001(\t\022\030\n\004dat" +
-      "a\030\002 \001(\0132\n.task.Task\"F\n\036CreateExperimentS" +
-      "erviceRequest\022$\n\004data\030\001 \001(\0132\026.experiment" +
-      ".Experiment\"N\n&CreateTemplateExperimentS" +
-      "erviceRequest\022$\n\004data\030\001 \001(\0132\026.google.pro" +
-      "tobuf.Empty\"S\n\036DeleteExperimentServiceRe" +
-      "quest\022\013\n\003exp\030\001 \001(\t\022$\n\004data\030\002 \001(\0132\026.googl" +
-      "e.protobuf.Empty\"*\n\033GetExperimentService" +
-      "Request\022\013\n\003exp\030\001 \001(\t\")\n\034ListExperimentSe" +
-      "rviceRequest\022\t\n\001q\030\001 \001(\t\"M\n\037ReleaseExperi" +
-      "mentServiceRequest\022*\n\004data\030\001 \001(\0132\034.exper" +
-      "iment.ExperimentEntity\"S\n\036UpdateExperime" +
-      "ntServiceRequest\022\013\n\003exp\030\001 \001(\t\022$\n\004data\030\002 " +
-      "\001(\0132\026.experiment.Experiment2\333 \n\016BundledS" +
-      "ervice\022d\n\nCreateTree\022%.taskmanager.Creat" +
-      "eTreeServiceRequest\032\020.tree.TreeEntity\"\035\202" +
-      "\323\344\223\002\027\"\017/mockdata/trees:\004data\022j\n\nDeleteTr" +
-      "ee\022%.taskmanager.DeleteTreeServiceReques" +
-      "t\032\026.google.protobuf.Empty\"\035\202\323\344\223\002\027*\025/mock" +
-      "data/trees/{tre}\022g\n\007GetTree\022\".taskmanage" +
-      "r.GetTreeServiceRequest\032\020.tree.TreeEntit" +
-      "y\"&\202\323\344\223\002 \022\036/mockdata/trees/{tre}/get.jso" +
-      "n\022_\n\tListTrees\022#.taskmanager.ListTreeSer" +
-      "viceRequest\032\024.tree.TreeCollection\"\027\202\323\344\223\002" +
-      "\021\022\017/mockdata/trees\022j\n\nUpdateTree\022%.taskm" +
-      "anager.UpdateTreeServiceRequest\032\020.tree.T" +
-      "reeEntity\"#\202\323\344\223\002\0352\025/mockdata/trees/{tre}" +
-      ":\004data\022\217\001\n\020GetProjectfilter\022+.taskmanage" +
-      "r.GetProjectfilterServiceRequest\032\".proje" +
-      "ctfilter.ProjectfilterEntity\"*\202\323\344\223\002$\022\"/m" +
-      "ockdata/projects/filter/get.json\022_\n\nCrea" +
-      "teAuth\022%.taskmanager.CreateAuthServiceRe" +
-      "quest\032\020.auth.AuthEntity\"\030\202\323\344\223\002\022\"\n/api/au" +
-      "ths:\004data\022Z\n\006Logout\022%.taskmanager.Delete" +
-      "AuthServiceRequest\032\026.google.protobuf.Emp" +
-      "ty\"\021\202\323\344\223\002\013*\t/api/auth\022Y\n\007GetAuth\022\".taskm" +
-      "anager.GetAuthServiceRequest\032\020.auth.Auth" +
-      "Entity\"\030\202\323\344\223\002\022\022\020/api/auths/{uid}\022Z\n\tList" +
-      "Auths\022#.taskmanager.ListAuthServiceReque" +
-      "st\032\024.auth.AuthCollection\"\022\202\323\344\223\002\014\022\n/api/a" +
-      "uths\022e\n\nUpdateAuth\022%.taskmanager.UpdateA" +
-      "uthServiceRequest\032\020.auth.AuthEntity\"\036\202\323\344" +
-      "\223\002\0302\020/api/auths/{uid}:\004data\022t\n\014CreatePer" +
-      "son\022\'.taskmanager.CreatePersonServiceReq" +
-      "uest\032\024.person.PersonEntity\"%\202\323\344\223\002\037\022\035/moc" +
-      "kdata/persons/create.json\022|\n\014DeletePerso" +
-      "n\022\'.taskmanager.DeletePersonServiceReque" +
-      "st\032\026.google.protobuf.Empty\"+\202\323\344\223\002%\022#/moc" +
-      "kdata/persons/{prs}/delete.json\022q\n\tGetPe" +
-      "rson\022$.taskmanager.GetPersonServiceReque" +
-      "st\032\024.person.PersonEntity\"(\202\323\344\223\002\"\022 /mockd" +
-      "ata/persons/{prs}/get.json\022s\n\013ListPerson" +
-      "s\022%.taskmanager.ListPersonServiceRequest" +
-      "\032\030.person.PersonCollection\"#\202\323\344\223\002\035\022\033/moc" +
-      "kdata/persons/list.json\022\200\001\n\014UpdatePerson" +
-      "\022\'.taskmanager.UpdatePersonServiceReques" +
-      "t\032\024.person.PersonEntity\"1\202\323\344\223\002+2#/mockda" +
-      "ta/persons/{prs}/update.json:\004data\022y\n\rCr" +
-      "eateProject\022(.taskmanager.CreateProjectS" +
-      "erviceRequest\032\026.project.ProjectEntity\"&\202" +
-      "\323\344\223\002 \022\036/mockdata/projects/create.json\022\177\n" +
-      "\rDeleteProject\022(.taskmanager.DeleteProje" +
-      "ctServiceRequest\032\026.google.protobuf.Empty" +
-      "\",\202\323\344\223\002&\022$/mockdata/projects/{prj}/delet" +
-      "e.json\022v\n\nGetProject\022%.taskmanager.GetPr" +
-      "ojectServiceRequest\032\026.project.ProjectEnt" +
-      "ity\")\202\323\344\223\002#\022!/mockdata/projects/{prj}/ge" +
-      "t.json\022x\n\014ListProjects\022&.taskmanager.Lis" +
-      "tProjectServiceRequest\032\032.project.Project" +
-      "Collection\"$\202\323\344\223\002\036\022\034/mockdata/projects/l" +
-      "ist.json\022\177\n\rUpdateProject\022(.taskmanager." +
-      "UpdateProjectServiceRequest\032\026.project.Pr" +
-      "ojectEntity\",\202\323\344\223\002&\022$/mockdata/projects/" +
-      "{prj}/update.json\022l\n\013ListMembers\022-.taskm" +
-      "anager.ListProjectMembersServiceRequest\032" +
-      "\030.person.PersonCollection\"\024\202\323\344\223\002\016\022\014/api/" +
-      "members\022\257\001\n UnsubscribeProjectMembersSer" +
-      "vice\0224.taskmanager.UnsubscribeProjectMem" +
-      "bersServiceRequest\032\030.person.PersonCollec" +
-      "tion\";\202\323\344\223\0025\"-/api/projects/{prj}/member" +
-      "s/{prs}:unsubscribe:\004data\022j\n\nCreateTask\022" +
-      "%.taskmanager.CreateTaskServiceRequest\032\020" +
-      ".task.TaskEntity\"#\202\323\344\223\002\035\022\033/mockdata/task" +
-      "s/create.json\022v\n\nDeleteTask\022%.taskmanage" +
-      "r.DeleteTaskServiceRequest\032\026.google.prot" +
-      "obuf.Empty\")\202\323\344\223\002#\022!/mockdata/tasks/{tsk" +
-      "}/delete.json\022g\n\007GetTask\022\".taskmanager.G" +
-      "etTaskServiceRequest\032\020.task.TaskEntity\"&" +
-      "\202\323\344\223\002 \022\036/mockdata/tasks/{tsk}/get.json\022i" +
-      "\n\tListTasks\022#.taskmanager.ListTaskServic" +
-      "eRequest\032\024.task.TaskCollection\"!\202\323\344\223\002\033\022\031" +
-      "/mockdata/tasks/list.json\022p\n\nUpdateTask\022" +
-      "%.taskmanager.UpdateTaskServiceRequest\032\020" +
-      ".task.TaskEntity\")\202\323\344\223\002#\022!/mockdata/task" +
-      "s/{tsk}/update.json\022\202\001\n\020CreateExperiment" +
-      "\022+.taskmanager.CreateExperimentServiceRe" +
-      "quest\032\034.experiment.ExperimentEntity\"#\202\323\344" +
-      "\223\002\035\"\025/mockdata/experiments:\004data\022\233\001\n\030Cre" +
-      "ateTemplateExperiment\0223.taskmanager.Crea" +
-      "teTemplateExperimentServiceRequest\032\026.exp" +
-      "eriment.Experiment\"2\202\323\344\223\002,\"$/mockdata/ex" +
-      "periments:createtemplate:\004data\022|\n\020Delete" +
-      "Experiment\022+.taskmanager.DeleteExperimen" +
-      "tServiceRequest\032\026.google.protobuf.Empty\"" +
-      "#\202\323\344\223\002\035*\033/mockdata/experiments/{exp}\022\205\001\n" +
-      "\rGetExperiment\022(.taskmanager.GetExperime" +
-      "ntServiceRequest\032\034.experiment.Experiment" +
-      "Entity\",\202\323\344\223\002&\022$/mockdata/experiments/{e" +
-      "xp}/get.json\022}\n\017ListExperiments\022).taskma" +
-      "nager.ListExperimentServiceRequest\032 .exp" +
-      "eriment.ExperimentCollection\"\035\202\323\344\223\002\027\022\025/m" +
-      "ockdata/experiments\022\210\001\n\021ReleaseExperimen" +
-      "t\022,.taskmanager.ReleaseExperimentService" +
-      "Request\032\026.google.protobuf.Empty\"-\202\323\344\223\002\'\"" +
-      "\037/mockdata/experiments/1:release:\004data\022\210" +
-      "\001\n\020UpdateExperiment\022+.taskmanager.Update" +
-      "ExperimentServiceRequest\032\034.experiment.Ex" +
-      "perimentEntity\")\202\323\344\223\002#2\033/mockdata/experi" +
-      "ments/{exp}:\004dataBW\n\013taskmanagerB\010AnyPro" +
-      "toP\001Z\025__bundled;taskmanager\242\002\003GPB\252\002\036Goog" +
-      "le.Protobuf.WellKnownTypesb\006proto3"
+      "riment/experiment.proto\032!universaltest/u" +
+      "niversaltest.proto\"4\n\030CreateTreeServiceR" +
+      "equest\022\030\n\004data\030\001 \001(\0132\n.tree.Tree\"M\n\030Dele" +
+      "teTreeServiceRequest\022\013\n\003tre\030\001 \001(\t\022$\n\004dat" +
+      "a\030\002 \001(\0132\026.google.protobuf.Empty\"$\n\025GetTr" +
+      "eeServiceRequest\022\013\n\003tre\030\001 \001(\t\"#\n\026ListTre" +
+      "eServiceRequest\022\t\n\001q\030\001 \001(\t\"A\n\030UpdateTree" +
+      "ServiceRequest\022\013\n\003tre\030\001 \001(\t\022\030\n\004data\030\002 \001(" +
+      "\0132\n.tree.Tree\" \n\036GetProjectfilterService" +
+      "Request\"4\n\030CreateAuthServiceRequest\022\030\n\004d" +
+      "ata\030\001 \001(\0132\n.auth.Auth\"@\n\030DeleteAuthServi" +
+      "ceRequest\022$\n\004data\030\001 \001(\0132\026.google.protobu" +
+      "f.Empty\"$\n\025GetAuthServiceRequest\022\013\n\003uid\030" +
+      "\001 \001(\t\"#\n\026ListAuthServiceRequest\022\t\n\001q\030\001 \001" +
+      "(\t\"A\n\030UpdateAuthServiceRequest\022\013\n\003uid\030\001 " +
+      "\001(\t\022\030\n\004data\030\002 \001(\0132\n.auth.Auth\":\n\032CreateP" +
+      "ersonServiceRequest\022\034\n\004data\030\001 \001(\0132\016.pers" +
+      "on.Person\"O\n\032DeletePersonServiceRequest\022" +
+      "\013\n\003prs\030\001 \001(\t\022$\n\004data\030\002 \001(\0132\026.google.prot" +
+      "obuf.Empty\"&\n\027GetPersonServiceRequest\022\013\n" +
+      "\003prs\030\001 \001(\t\"%\n\030ListPersonServiceRequest\022\t" +
+      "\n\001q\030\001 \001(\t\"G\n\032UpdatePersonServiceRequest\022" +
+      "\013\n\003prs\030\001 \001(\t\022\034\n\004data\030\002 \001(\0132\016.person.Pers" +
+      "on\"=\n\033CreateProjectServiceRequest\022\036\n\004dat" +
+      "a\030\001 \001(\0132\020.project.Project\"P\n\033DeleteProje" +
+      "ctServiceRequest\022\013\n\003prj\030\001 \001(\t\022$\n\004data\030\002 " +
+      "\001(\0132\026.google.protobuf.Empty\"\'\n\030GetProjec" +
+      "tServiceRequest\022\013\n\003prj\030\001 \001(\t\"&\n\031ListProj" +
+      "ectServiceRequest\022\t\n\001q\030\001 \001(\t\"J\n\033UpdatePr" +
+      "ojectServiceRequest\022\013\n\003prj\030\001 \001(\t\022\036\n\004data" +
+      "\030\002 \001(\0132\020.project.Project\"-\n ListProjectM" +
+      "embersServiceRequest\022\t\n\001q\030\001 \001(\t\"g\n\'Unsub" +
+      "scribeProjectMembersServiceRequest\022\013\n\003pr" +
+      "j\030\001 \001(\t\022\013\n\003prs\030\002 \001(\t\022\"\n\004data\030\003 \001(\0132\024.per" +
+      "son.PersonEntity\"4\n\030CreateTaskServiceReq" +
+      "uest\022\030\n\004data\030\001 \001(\0132\n.task.Task\"M\n\030Delete" +
+      "TaskServiceRequest\022\013\n\003tsk\030\001 \001(\t\022$\n\004data\030" +
+      "\002 \001(\0132\026.google.protobuf.Empty\"$\n\025GetTask" +
+      "ServiceRequest\022\013\n\003tsk\030\001 \001(\t\"v\n\026ListTaskS" +
+      "erviceRequest\022\016\n\006fields\030\001 \001(\t\022\016\n\006filter\030" +
+      "\002 \001(\t\022\020\n\010order_by\030\003 \001(\t\022\021\n\tpage_size\030\004 \001" +
+      "(\t\022\t\n\001q\030\005 \001(\t\022\014\n\004view\030\006 \001(\t\"A\n\030UpdateTas" +
+      "kServiceRequest\022\013\n\003tsk\030\001 \001(\t\022\030\n\004data\030\002 \001" +
+      "(\0132\n.task.Task\"F\n\036CreateExperimentServic" +
+      "eRequest\022$\n\004data\030\001 \001(\0132\026.experiment.Expe" +
+      "riment\"N\n&CreateTemplateExperimentServic" +
+      "eRequest\022$\n\004data\030\001 \001(\0132\026.google.protobuf" +
+      ".Empty\"S\n\036DeleteExperimentServiceRequest" +
+      "\022\013\n\003exp\030\001 \001(\t\022$\n\004data\030\002 \001(\0132\026.google.pro" +
+      "tobuf.Empty\"*\n\033GetExperimentServiceReque" +
+      "st\022\013\n\003exp\030\001 \001(\t\")\n\034ListExperimentService" +
+      "Request\022\t\n\001q\030\001 \001(\t\"M\n\037ReleaseExperimentS" +
+      "erviceRequest\022*\n\004data\030\001 \001(\0132\034.experiment" +
+      ".ExperimentEntity\"S\n\036UpdateExperimentSer" +
+      "viceRequest\022\013\n\003exp\030\001 \001(\t\022$\n\004data\030\002 \001(\0132\026" +
+      ".experiment.Experiment\"O\n!CreateUniversa" +
+      "ltestServiceRequest\022*\n\004data\030\001 \001(\0132\034.univ" +
+      "ersaltest.Universaltest2\357!\n\016BundledServi" +
+      "ce\022d\n\nCreateTree\022%.taskmanager.CreateTre" +
+      "eServiceRequest\032\020.tree.TreeEntity\"\035\202\323\344\223\002" +
+      "\027\"\017/mockdata/trees:\004data\022j\n\nDeleteTree\022%" +
+      ".taskmanager.DeleteTreeServiceRequest\032\026." +
+      "google.protobuf.Empty\"\035\202\323\344\223\002\027*\025/mockdata" +
+      "/trees/{tre}\022g\n\007GetTree\022\".taskmanager.Ge" +
+      "tTreeServiceRequest\032\020.tree.TreeEntity\"&\202" +
+      "\323\344\223\002 \022\036/mockdata/trees/{tre}/get.json\022_\n" +
+      "\tListTrees\022#.taskmanager.ListTreeService" +
+      "Request\032\024.tree.TreeCollection\"\027\202\323\344\223\002\021\022\017/" +
+      "mockdata/trees\022j\n\nUpdateTree\022%.taskmanag" +
+      "er.UpdateTreeServiceRequest\032\020.tree.TreeE" +
+      "ntity\"#\202\323\344\223\002\0352\025/mockdata/trees/{tre}:\004da" +
+      "ta\022\217\001\n\020GetProjectfilter\022+.taskmanager.Ge" +
+      "tProjectfilterServiceRequest\032\".projectfi" +
+      "lter.ProjectfilterEntity\"*\202\323\344\223\002$\022\"/mockd" +
+      "ata/projects/filter/get.json\022_\n\nCreateAu" +
+      "th\022%.taskmanager.CreateAuthServiceReques" +
+      "t\032\020.auth.AuthEntity\"\030\202\323\344\223\002\022\"\n/api/auths:" +
+      "\004data\022Z\n\006Logout\022%.taskmanager.DeleteAuth" +
+      "ServiceRequest\032\026.google.protobuf.Empty\"\021" +
+      "\202\323\344\223\002\013*\t/api/auth\022Y\n\007GetAuth\022\".taskmanag" +
+      "er.GetAuthServiceRequest\032\020.auth.AuthEnti" +
+      "ty\"\030\202\323\344\223\002\022\022\020/api/auths/{uid}\022Z\n\tListAuth" +
+      "s\022#.taskmanager.ListAuthServiceRequest\032\024" +
+      ".auth.AuthCollection\"\022\202\323\344\223\002\014\022\n/api/auths" +
+      "\022e\n\nUpdateAuth\022%.taskmanager.UpdateAuthS" +
+      "erviceRequest\032\020.auth.AuthEntity\"\036\202\323\344\223\002\0302" +
+      "\020/api/auths/{uid}:\004data\022t\n\014CreatePerson\022" +
+      "\'.taskmanager.CreatePersonServiceRequest" +
+      "\032\024.person.PersonEntity\"%\202\323\344\223\002\037\022\035/mockdat" +
+      "a/persons/create.json\022|\n\014DeletePerson\022\'." +
+      "taskmanager.DeletePersonServiceRequest\032\026" +
+      ".google.protobuf.Empty\"+\202\323\344\223\002%\022#/mockdat" +
+      "a/persons/{prs}/delete.json\022q\n\tGetPerson" +
+      "\022$.taskmanager.GetPersonServiceRequest\032\024" +
+      ".person.PersonEntity\"(\202\323\344\223\002\"\022 /mockdata/" +
+      "persons/{prs}/get.json\022s\n\013ListPersons\022%." +
+      "taskmanager.ListPersonServiceRequest\032\030.p" +
+      "erson.PersonCollection\"#\202\323\344\223\002\035\022\033/mockdat" +
+      "a/persons/list.json\022\200\001\n\014UpdatePerson\022\'.t" +
+      "askmanager.UpdatePersonServiceRequest\032\024." +
+      "person.PersonEntity\"1\202\323\344\223\002+2#/mockdata/p" +
+      "ersons/{prs}/update.json:\004data\022y\n\rCreate" +
+      "Project\022(.taskmanager.CreateProjectServi" +
+      "ceRequest\032\026.project.ProjectEntity\"&\202\323\344\223\002" +
+      " \022\036/mockdata/projects/create.json\022\177\n\rDel" +
+      "eteProject\022(.taskmanager.DeleteProjectSe" +
+      "rviceRequest\032\026.google.protobuf.Empty\",\202\323" +
+      "\344\223\002&\022$/mockdata/projects/{prj}/delete.js" +
+      "on\022v\n\nGetProject\022%.taskmanager.GetProjec" +
+      "tServiceRequest\032\026.project.ProjectEntity\"" +
+      ")\202\323\344\223\002#\022!/mockdata/projects/{prj}/get.js" +
+      "on\022x\n\014ListProjects\022&.taskmanager.ListPro" +
+      "jectServiceRequest\032\032.project.ProjectColl" +
+      "ection\"$\202\323\344\223\002\036\022\034/mockdata/projects/list." +
+      "json\022\177\n\rUpdateProject\022(.taskmanager.Upda" +
+      "teProjectServiceRequest\032\026.project.Projec" +
+      "tEntity\",\202\323\344\223\002&\022$/mockdata/projects/{prj" +
+      "}/update.json\022l\n\013ListMembers\022-.taskmanag" +
+      "er.ListProjectMembersServiceRequest\032\030.pe" +
+      "rson.PersonCollection\"\024\202\323\344\223\002\016\022\014/api/memb" +
+      "ers\022\257\001\n UnsubscribeProjectMembersService" +
+      "\0224.taskmanager.UnsubscribeProjectMembers" +
+      "ServiceRequest\032\030.person.PersonCollection" +
+      "\";\202\323\344\223\0025\"-/api/projects/{prj}/members/{p" +
+      "rs}:unsubscribe:\004data\022j\n\nCreateTask\022%.ta" +
+      "skmanager.CreateTaskServiceRequest\032\020.tas" +
+      "k.TaskEntity\"#\202\323\344\223\002\035\022\033/mockdata/tasks/cr" +
+      "eate.json\022v\n\nDeleteTask\022%.taskmanager.De" +
+      "leteTaskServiceRequest\032\026.google.protobuf" +
+      ".Empty\")\202\323\344\223\002#\022!/mockdata/tasks/{tsk}/de" +
+      "lete.json\022g\n\007GetTask\022\".taskmanager.GetTa" +
+      "skServiceRequest\032\020.task.TaskEntity\"&\202\323\344\223" +
+      "\002 \022\036/mockdata/tasks/{tsk}/get.json\022i\n\tLi" +
+      "stTasks\022#.taskmanager.ListTaskServiceReq" +
+      "uest\032\024.task.TaskCollection\"!\202\323\344\223\002\033\022\031/moc" +
+      "kdata/tasks/list.json\022p\n\nUpdateTask\022%.ta" +
+      "skmanager.UpdateTaskServiceRequest\032\020.tas" +
+      "k.TaskEntity\")\202\323\344\223\002#\022!/mockdata/tasks/{t" +
+      "sk}/update.json\022\202\001\n\020CreateExperiment\022+.t" +
+      "askmanager.CreateExperimentServiceReques" +
+      "t\032\034.experiment.ExperimentEntity\"#\202\323\344\223\002\035\"" +
+      "\025/mockdata/experiments:\004data\022\233\001\n\030CreateT" +
+      "emplateExperiment\0223.taskmanager.CreateTe" +
+      "mplateExperimentServiceRequest\032\026.experim" +
+      "ent.Experiment\"2\202\323\344\223\002,\"$/mockdata/experi" +
+      "ments:createtemplate:\004data\022|\n\020DeleteExpe" +
+      "riment\022+.taskmanager.DeleteExperimentSer" +
+      "viceRequest\032\026.google.protobuf.Empty\"#\202\323\344" +
+      "\223\002\035*\033/mockdata/experiments/{exp}\022\205\001\n\rGet" +
+      "Experiment\022(.taskmanager.GetExperimentSe" +
+      "rviceRequest\032\034.experiment.ExperimentEnti" +
+      "ty\",\202\323\344\223\002&\022$/mockdata/experiments/{exp}/" +
+      "get.json\022}\n\017ListExperiments\022).taskmanage" +
+      "r.ListExperimentServiceRequest\032 .experim" +
+      "ent.ExperimentCollection\"\035\202\323\344\223\002\027\022\025/mockd" +
+      "ata/experiments\022\210\001\n\021ReleaseExperiment\022,." +
+      "taskmanager.ReleaseExperimentServiceRequ" +
+      "est\032\026.google.protobuf.Empty\"-\202\323\344\223\002\'\"\037/mo" +
+      "ckdata/experiments/1:release:\004data\022\210\001\n\020U" +
+      "pdateExperiment\022+.taskmanager.UpdateExpe" +
+      "rimentServiceRequest\032\034.experiment.Experi" +
+      "mentEntity\")\202\323\344\223\002#2\033/mockdata/experiment" +
+      "s/{exp}:\004data\022\221\001\n\023Createuniversaltest\022.." +
+      "taskmanager.CreateUniversaltestServiceRe" +
+      "quest\032\".universaltest.UniversaltestEntit" +
+      "y\"&\202\323\344\223\002 \"\030/mockdata/universaltests:\004dat" +
+      "aBW\n\013taskmanagerB\010AnyProtoP\001Z\025__bundled;" +
+      "taskmanager\242\002\003GPB\252\002\036Google.Protobuf.Well" +
+      "KnownTypesb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -387,6 +399,7 @@ public final class AnyProto {
           project.ProjectOuterClass.getDescriptor(),
           task.TaskOuterClass.getDescriptor(),
           experiment.ExperimentOuterClass.getDescriptor(),
+          universaltest.UniversaltestOuterClass.getDescriptor(),
         }, assigner);
     internal_static_taskmanager_CreateTreeServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -598,6 +611,12 @@ public final class AnyProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_taskmanager_UpdateExperimentServiceRequest_descriptor,
         new java.lang.String[] { "Exp", "Data", });
+    internal_static_taskmanager_CreateUniversaltestServiceRequest_descriptor =
+      getDescriptor().getMessageTypes().get(35);
+    internal_static_taskmanager_CreateUniversaltestServiceRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_taskmanager_CreateUniversaltestServiceRequest_descriptor,
+        new java.lang.String[] { "Data", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);
@@ -612,6 +631,7 @@ public final class AnyProto {
     project.ProjectOuterClass.getDescriptor();
     task.TaskOuterClass.getDescriptor();
     experiment.ExperimentOuterClass.getDescriptor();
+    universaltest.UniversaltestOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -9,6 +9,7 @@ import (
 	 "./projectmemberservice"
 	 "./taskservice"
 	 "./experimentservice"
+	 "./UniversaltestService"
 	 
 	"flag"
 	"github.com/golang/glog"
@@ -90,6 +91,12 @@ func run() error {
 	
 	// ExperimentService service specs for the experiment api
 	err = experimentservice.RegisterExperimentServiceHandlerFromEndpoint(ctx, mux, *grpcserver, opts)
+	if err != nil {
+		return err
+	}
+	
+	// UniversaltestService service specs for the universaltest api
+	err = UniversaltestService.RegisterUniversaltestServiceHandlerFromEndpoint(ctx, mux, *grpcserver, opts)
 	if err != nil {
 		return err
 	}

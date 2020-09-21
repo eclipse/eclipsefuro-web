@@ -21,6 +21,7 @@ import "person/person.proto";
 import "project/project.proto";
 import "task/task.proto";
 import "experiment/experiment.proto";
+import "universaltest/universaltest.proto";
 
 service BundledService {
 
@@ -330,6 +331,19 @@ service BundledService {
         };
     }
 
+
+// service specs for the universaltest api
+      
+   
+     // Creates a new universaltest
+    rpc Createuniversaltest (CreateUniversaltestServiceRequest) returns (universaltest.UniversaltestEntity){
+        
+        option (google.api.http) = {
+            post: "/mockdata/universaltests"
+            body: "data"
+        };
+    }
+
 }
 
 
@@ -591,6 +605,17 @@ message UpdateExperimentServiceRequest {
 
     string exp = 1;
     experiment.Experiment data = 2;  
+}
+
+
+
+// service specs for the universaltest api
+      
+
+   
+message CreateUniversaltestServiceRequest { 
+
+    universaltest.Universaltest data = 1;  
 }
 
 

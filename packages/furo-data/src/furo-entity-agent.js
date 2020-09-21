@@ -180,9 +180,30 @@ class FuroEntityAgent extends FBP(LitElement) {
         }
       }
 
+      body = this._removeNullValues(body);
       return JSON.stringify(body);
     }
     return undefined;
+  }
+
+  /**
+   * remove null value in payload
+   * @param data
+   * @returns {*}
+   * @private
+   */
+  _removeNullValues(data){
+    for (const [key, value] of Object.entries(data)) {
+      if(typeof value === 'object' && value !== null) {
+        // eslint-disable-next-line no-param-reassign
+        data[key] = this._removeNullValues(value);
+      }
+      else if( value === null ) {
+        // eslint-disable-next-line no-param-reassign
+        delete data[key];
+      }
+    }
+    return data;
   }
 
   /**

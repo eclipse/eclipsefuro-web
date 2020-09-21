@@ -1,0 +1,12 @@
+{
+  "data": {
+    "id": "1",
+    "fat_int32": {
+      "value": 0,
+      "labels": [
+        "empty"
+      ]
+    },
+    "wrapper_int32": null
+  }
+}
