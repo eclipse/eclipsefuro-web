@@ -2710,16 +2710,40 @@
           }
         },
         {
+          "name": "bindData",
+          "description": "Use this method if you have a data-object",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 2
+            },
+            "end": {
+              "line": 114,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "field"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "_notifyChanges",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 116,
               "column": 2
             },
             "end": {
-              "line": 113,
+              "line": 127,
               "column": 3
             }
           },
@@ -2744,7 +2768,7 @@
           "column": 0
         },
         "end": {
-          "line": 128,
+          "line": 142,
           "column": 1
         }
       },
@@ -4963,8 +4987,8 @@
       "name": "DataObject"
     },
     {
-      "description": "`UniversalFieldNodeBinder` consumes a FieldNode of any type, google wrapper or FAT and exposes\na API for data binding purposes.\n\n## specifity\n**meta < fat annotations**\n**attributes on element > fat annotations > meta**\n\nSpec meta and dynamic meta is handled in DataObject and FieldNode.\n\nIf meta was given and the same property is not set in the fat type anymore, the value will fall back to the given value from the meta.",
-      "summary": "",
+      "description": "`UniversalFieldNodeBinder` consumes a FieldNode of any type, google wrapper or FAT and exposes\na API for data binding purposes.\n\n## specifity\n**meta < fat annotations**\n**attributes on element > fat annotations > meta**\n\nSpec meta and dynamic meta is handled in DataObject and FieldNode.\n\nIf meta was given and the same property is not set in the fat type anymore, the value will fall back to the given value from the meta.\n\nTags: universal fieldNode binder",
+      "summary": "UniversalFieldNodeBinder consumes a FieldNode of any type, google wrapper or FAT and exposes a API for data binding purposes.",
       "path": "src/lib/UniversalFieldNodeBinder.js",
       "properties": [
         {
@@ -4974,11 +4998,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 29,
+              "line": 31,
               "column": 4
             },
             "end": {
-              "line": 29,
+              "line": 31,
               "column": 25
             }
           },
@@ -4992,11 +5016,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 46,
+              "line": 48,
               "column": 4
             },
             "end": {
-              "line": 46,
+              "line": 48,
               "column": 22
             }
           },
@@ -5010,11 +5034,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 71,
+              "line": 73,
               "column": 4
             },
             "end": {
-              "line": 71,
+              "line": 73,
               "column": 26
             }
           },
@@ -5028,11 +5052,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 86,
+              "line": 88,
               "column": 4
             },
             "end": {
-              "line": 86,
+              "line": 88,
               "column": 43
             }
           },
@@ -5046,11 +5070,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 186,
+              "line": 188,
               "column": 2
             },
             "end": {
-              "line": 188,
+              "line": 190,
               "column": 3
             }
           },
@@ -5064,11 +5088,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 96,
+              "line": 98,
               "column": 2
             },
             "end": {
-              "line": 156,
+              "line": 158,
               "column": 3
             }
           },
@@ -5085,11 +5109,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 194,
+              "line": 196,
               "column": 2
             },
             "end": {
-              "line": 204,
+              "line": 206,
               "column": 3
             }
           },
@@ -5109,11 +5133,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 210,
+              "line": 212,
               "column": 2
             },
             "end": {
-              "line": 222,
+              "line": 224,
               "column": 3
             }
           },
@@ -5133,11 +5157,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 230,
+              "line": 232,
               "column": 2
             },
             "end": {
-              "line": 238,
+              "line": 240,
               "column": 3
             }
           },
@@ -5160,11 +5184,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 244,
+              "line": 246,
               "column": 2
             },
             "end": {
-              "line": 253,
+              "line": 255,
               "column": 3
             }
           },
@@ -5184,11 +5208,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 260,
+              "line": 262,
               "column": 2
             },
             "end": {
-              "line": 296,
+              "line": 298,
               "column": 3
             }
           },
@@ -5208,11 +5232,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 304,
+              "line": 306,
               "column": 2
             },
             "end": {
-              "line": 320,
+              "line": 322,
               "column": 3
             }
           },
@@ -5235,11 +5259,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 328,
+              "line": 330,
               "column": 2
             },
             "end": {
-              "line": 340,
+              "line": 342,
               "column": 3
             }
           },
@@ -5263,11 +5287,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 349,
+              "line": 351,
               "column": 2
             },
             "end": {
-              "line": 359,
+              "line": 361,
               "column": 3
             }
           },
@@ -5287,11 +5311,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 366,
+              "line": 368,
               "column": 2
             },
             "end": {
-              "line": 374,
+              "line": 376,
               "column": 3
             }
           },
@@ -5311,11 +5335,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 381,
+              "line": 383,
               "column": 2
             },
             "end": {
-              "line": 387,
+              "line": 389,
               "column": 3
             }
           },
@@ -5335,11 +5359,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 395,
+              "line": 397,
               "column": 2
             },
             "end": {
-              "line": 415,
+              "line": 417,
               "column": 3
             }
           },
@@ -5355,11 +5379,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 422,
+              "line": 424,
               "column": 2
             },
             "end": {
-              "line": 442,
+              "line": 444,
               "column": 3
             }
           },
@@ -5379,11 +5403,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 449,
+              "line": 451,
               "column": 2
             },
             "end": {
-              "line": 485,
+              "line": 488,
               "column": 3
             }
           },
@@ -5403,11 +5427,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 487,
+              "line": 490,
               "column": 2
             },
             "end": {
-              "line": 504,
+              "line": 507,
               "column": 3
             }
           },
@@ -5423,15 +5447,24 @@
         }
       ],
       "staticMethods": [],
-      "demos": [],
+      "demos": [
+        {
+          "url": "demo-furo-filter",
+          "description": "Data binding"
+        },
+        {
+          "url": "demo-furo-filter",
+          "description": "Data binding"
+        }
+      ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 17,
+          "line": 19,
           "column": 7
         },
         "end": {
-          "line": 505,
+          "line": 508,
           "column": 1
         }
       },

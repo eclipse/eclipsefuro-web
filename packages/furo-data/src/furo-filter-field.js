@@ -1,5 +1,5 @@
-import { LitElement, css } from 'lit-element'
-import { FBP } from '@furo/fbp'
+import { LitElement, css } from 'lit-element';
+import { FBP } from '@furo/fbp';
 
 /**
  * `furo-filter-field` is used with `furo-filter-container`, `furo-filter-and` and `furo-filter-and` to build the filter string.
@@ -74,22 +74,22 @@ class FuroFilterField extends FBP(LitElement) {
        *  Defines the value to filter
        */
       value: { type: String },
-    }
+    };
   }
 
   set is(val) {
-    this._is = val
-    this._notifyChanges()
+    this._is = val;
+    this._notifyChanges();
   }
 
   set field(val) {
-    this._field = val
-    this._notifyChanges()
+    this._field = val;
+    this._notifyChanges();
   }
 
   set value(val) {
-    this._value = val
-    this._notifyChanges()
+    this._value = val;
+    this._notifyChanges();
   }
 
   /**
@@ -97,7 +97,7 @@ class FuroFilterField extends FBP(LitElement) {
    * @param v
    */
   setValue(v) {
-    this.value = v
+    this.value = v;
   }
 
   /**
@@ -106,11 +106,11 @@ class FuroFilterField extends FBP(LitElement) {
    */
   bindData(field) {
     if (field) {
-      this._fieldNode = field
-      this._fieldNode.addEventListener('field-value-changed', (e) => {
+      this._fieldNode = field;
+      this._fieldNode.addEventListener('field-value-changed', e => {
         // TODO we need a solution for complex fields. Currently only scalar values are working properly
-        this.value = e.detail._value
-      })
+        this.value = e.detail._value;
+      });
     }
   }
 
@@ -121,9 +121,9 @@ class FuroFilterField extends FBP(LitElement) {
        * Fired when something changed
        * detail payload:
        */
-      const customEvent = new Event('furo-filter-field-changed', { composed: true, bubbles: true })
-      customEvent.detail = this
-      this.dispatchEvent(customEvent)
+      const customEvent = new Event('furo-filter-field-changed', { composed: true, bubbles: true });
+      customEvent.detail = this;
+      this.dispatchEvent(customEvent);
     }
   }
 
@@ -138,8 +138,8 @@ class FuroFilterField extends FBP(LitElement) {
       :host {
         display: none;
       }
-    `
+    `;
   }
 }
 
-window.customElements.define('furo-filter-field', FuroFilterField)
+window.customElements.define('furo-filter-field', FuroFilterField);

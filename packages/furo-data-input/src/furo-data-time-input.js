@@ -10,6 +10,33 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
  *
+ * ### following labels of the furo.fat.String are supported by default:
+ *
+ * - 'error': state of input is error
+ * - 'readonly': input is disabled
+ * - 'required': input is required
+ * - 'disabled': input is disabled
+ * - 'pristine': data is not changed. it is pristine
+ * - 'condensed': input has condensed display
+ *
+ * ### following attributes of the furo.fat.String are supported by default:
+ *
+ * - 'label': input label
+ * - 'hint': input hint
+ * - 'errortext': the error text of the input
+ * - 'error-msg': the same as errortext
+ * - 'pattern': the input regex pattern.
+ * - 'min': The earliest date and time to accept. format according to ISO 8601. e.g. '2000-01-01T08:32Z'
+ * - 'max': The latest date and time to accept. format according to ISO 8601. e.g. '2000-01-01T08:32Z'
+ * - 'step': The stepping interval to use for this input, such as when clicking arrows on spinner controls or performing validation
+ *
+ * ### following constrains are mapped into the attributes of the furo.fat.String and presence in payload:
+ *
+ * - 'max': is mapped to 'max' attribute
+ * - 'min': is mapped to 'min' attribute
+ * - 'step': is mapped to 'step' attribute
+ * - 'required': is mapped to 'required' attribute
+ *
  * <sample-furo-data-time-input></sample-furo-data-time-input>
  *
  * Tags: input
