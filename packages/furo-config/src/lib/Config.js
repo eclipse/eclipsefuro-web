@@ -23,6 +23,7 @@ class ConfigTree extends EventTreeNode {
 
   set _value(val) {
     this.__value = val;
+    this.__parentNode.dispatchNodeEvent(new NodeEvent('config-updated', this.__parentNode, false));
     this.dispatchNodeEvent(new NodeEvent('config-updated', this, false));
   }
 }
