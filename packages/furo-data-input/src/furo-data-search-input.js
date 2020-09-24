@@ -10,6 +10,34 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
  *
+ * ### following labels of the furo.fat.String are supported by binding:
+ *
+ * - 'error': state of input is error
+ * - 'readonly': input is disabled
+ * - 'required': input is required
+ * - 'disabled': input is disabled
+ * - 'pristine': data is not changed. it is pristine
+ * - 'condensed': input has condensed display
+ *
+ * ### following attributes of the furo.fat.String are supported by binding:
+ *
+ * - 'label': input label
+ * - 'hint': input hint
+ * - 'leading-icon': furo leading icon of the input
+ * - 'trailing-icon': furo trailing icon of the input
+ * - 'errortext': the error text of the input
+ * - 'error-msg': the same as errortext
+ * - 'pattern': the input regex pattern.
+ * - 'min': minimum number of characters available in the input field
+ * - 'max': maximum number of characters available in the input field
+ *
+ * ### following constrains are mapped into the attributes of the furo.fat.String and presence in payload:
+ *
+ * - 'max': is mapped to 'max' attribute
+ * - 'min': is mapped to 'min' attribute
+ * - 'pattern': is mapped to 'pattern' attribute
+ * - 'required': is mapped to 'required' attribute
+ *
  * <sample-furo-data-search-input></sample-furo-data-search-input>
  *
  * Tags: input

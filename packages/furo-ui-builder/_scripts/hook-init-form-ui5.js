@@ -5,7 +5,7 @@ class HookInitFormUi5 {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-form-ui5").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-form").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
@@ -24,7 +24,7 @@ class HookInitFormUi5 {
     })();
 
     u33e.setTheme("FormUI5BaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-form-ui5").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-form").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -48,7 +48,8 @@ class HookInitFormUi5 {
 
     // styling
     u33e.addStyle(":host")
-        .addCSSAttribute("display", "block");
+        .addCSSAttribute("display", "block")
+        .addCSSAttribute("--furo-form-layouter-row-gap", "var(--spacing-xs)");
 
     u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");
@@ -131,7 +132,7 @@ class HookInitFormUi5 {
       //  complex type has a cutom form component
 
       if (arrTmpName.length > 1 && arrTmpName[0] != "google" && !U33eBuilder.checkMatching(field) && !field.type.startsWith("google.protobuf")) {
-        component = field.type.toLowerCase().split(".").join("-") + "-form-ui5";
+        component = field.type.toLowerCase().split(".").join("-") + "-form";
         fld.component = component;
         // change flag double to full
         let flagIndex = fld.flags.indexOf("double");

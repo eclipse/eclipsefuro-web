@@ -6,7 +6,7 @@ class HookInitMapUi5 {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-map-ui5").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-map").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
@@ -25,7 +25,7 @@ class HookInitMapUi5 {
     })();
 
     u33e.setTheme("MapUi5BaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-map-ui5").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-map").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -37,6 +37,8 @@ class HookInitMapUi5 {
     u33e.addImport("@furo/ui5/src/furo-catalog.js");
     u33e.addImport("@furo/form/src/furo-form.js");
     u33e.addImport("@furo/layout/src/furo-horizontal-flex.js");
+    u33e.addImport("@ui5/webcomponents/dist/Label.js");
+    u33e.addImport("@ui5/webcomponents/dist/Button.js");
 
     u33e.addMethod("bindData", "data",
         " Bind your furo-data-object event @-object-ready\n @public\n @param data",
@@ -79,14 +81,18 @@ class HookInitMapUi5 {
     repeater.addMethod("bind-data", "--data");
 
     let flexer = u33e.addDomNode("furo-horizontal-flex");
+    let label = flexer.appendChild("ui5-label");
     let input = flexer.appendChild("furo-ui5-text-input");
     let btn =  flexer.appendChild("ui5-button");
 
+    label.addAttribute("for", "Type");
+    label.addInnerText("name for " + SPEC.__proto.package + "." + SPEC.type);
+
     input.addFlag("flex");
-    input.addAttribute("label","name for " + SPEC.__proto.package + "." + SPEC.type)
+    input.addAttribute("id","Type")
     input.addEventListener("value-changed","((park))");
 
-    btn.addAttribute("label","add");
+    btn.addInnerText("add");
     btn.addEventListener("click","--adderTriggered(park)");
     return u33e;
   }

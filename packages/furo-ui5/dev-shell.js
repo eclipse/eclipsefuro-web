@@ -8,6 +8,7 @@ import './demos/demos.js';
 // import with @furo/... because we are in a monorepo
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/ui5/src/furo-catalog.js';
+import './src/lib/init.js';
 
 /**
  * A minimal dev shell

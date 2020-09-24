@@ -1,5 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
+import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
+
 import '@ui5/webcomponents/dist/Label.js';
 
 import './furo-ui5-form-field-container.js';
@@ -91,20 +93,7 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
    * @param fieldNode
    */
   bindData(fieldNode) {
-    this._field = fieldNode;
-    this._FBPTriggerWire('--data', fieldNode);
-
-    this.label = fieldNode._meta.label || '';
-
-    /**
-     * Listener on fieldNode meta changes
-     */
-    this._field.addEventListener('this-metas-changed', meta => {
-      this.label = meta.detail._meta.label || this.label;
-      this.requestUpdate();
-    });
-
-    this.requestUpdate();
+    Ui5LabelDataBinding.bindData(this, fieldNode);
   }
 
   /**
@@ -113,6 +102,14 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
    */
   injectList(arr) {
     this._FBPTriggerWire('--injectList', arr);
+  }
+
+  /**
+   * Inject the array of a collection
+   * @param entities
+   */
+  injectEntities(entities) {
+    this._FBPTriggerWire('--injectList', entities);
   }
 
   /**

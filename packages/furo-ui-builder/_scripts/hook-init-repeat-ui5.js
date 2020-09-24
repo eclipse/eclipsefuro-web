@@ -25,14 +25,14 @@ class HookInitRepeatUi5 {
       }
     }
 
-    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat-ui5").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
 
     u33e.setTheme("RepeatBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat-ui5").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 

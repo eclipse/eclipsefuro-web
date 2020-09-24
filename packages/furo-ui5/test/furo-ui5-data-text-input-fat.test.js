@@ -111,7 +111,7 @@ describe('furo-ui5-data-text-input-fat', () => {
   it('should have the basic attributes of the fieldNode set (fat)', done => {
     setTimeout(() => {
       assert.equal(input._state.disabled, false, 'check disabled');
-      assert.equal(input._state.highlight, true, 'check highlight');
+      assert.equal(input._state.highlight, false, 'check highlight');
       assert.equal(input._state.placeholder, 'fat string**', 'check placeholder');
       assert.equal(input._state.readonly, false, 'check readonly');
       assert.equal(input._state.required, false, 'check required');
@@ -119,7 +119,7 @@ describe('furo-ui5-data-text-input-fat', () => {
       assert.equal(input._state.value, null, 'check value');
       assert.equal(input._state.valueState, 'None', 'check valueState');
       assert.equal(input._state.name, '', 'check name');
-      assert.equal(input._state.showSuggestions, true, 'check showSuggestions');
+      assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
       assert.equal(input._state.maxlength, undefined, 'check maxlength');
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
       done();
@@ -144,7 +144,7 @@ describe('furo-ui5-data-text-input-fat', () => {
   it('should apply meta and constraints to the bound field (fat)', done => {
     dao.addEventListener('data-injected', () => {
       assert.equal(input._state.disabled, false, 'check disabled');
-      assert.equal(input._state.highlight, true, 'check highlight');
+      assert.equal(input._state.highlight, false, 'check highlight');
       assert.equal(
         input._state.placeholder,
         'fat string label set via response meta',
@@ -156,7 +156,7 @@ describe('furo-ui5-data-text-input-fat', () => {
       assert.equal(input._state.value, 'fat string from record', 'check value');
       assert.equal(input._state.valueState, 'Error', 'check valueState');
       assert.equal(input._state.name, '', 'check name');
-      assert.equal(input._state.showSuggestions, true, 'check showSuggestions');
+      assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
       assert.equal(input._state.maxlength, 40, 'check maxlength');
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
       assert.equal(input.__errorMsg, 'Your fat string is valid', 'check valueStateMessage content');

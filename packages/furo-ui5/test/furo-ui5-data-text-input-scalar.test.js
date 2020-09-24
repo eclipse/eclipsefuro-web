@@ -132,7 +132,7 @@ describe('furo-ui5-data-text-input-scalar', () => {
   it('should have the basic attributes of the fieldNode set', done => {
     setTimeout(() => {
       assert.equal(input._state.disabled, false, 'check disabled');
-      assert.equal(input._state.highlight, true, 'check highlight');
+      assert.equal(input._state.highlight, false, 'check highlight');
       assert.equal(input._state.placeholder, 'Description**', 'check placeholder');
       assert.equal(input._state.readonly, false, 'check readonly');
       assert.equal(input._state.required, false, 'check required');
@@ -140,7 +140,7 @@ describe('furo-ui5-data-text-input-scalar', () => {
       assert.equal(input._state.value, 'Default Description', 'check value');
       assert.equal(input._state.valueState, 'None', 'check valueState');
       assert.equal(input._state.name, '', 'check name');
-      assert.equal(input._state.showSuggestions, true, 'check showSuggestions');
+      assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
       assert.equal(input._state.maxlength, undefined, 'check maxlength');
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
       done();
@@ -173,7 +173,7 @@ describe('furo-ui5-data-text-input-scalar', () => {
   it('should apply meta and constraints to the bound field', done => {
     dao.addEventListener('data-injected', () => {
       assert.equal(input._state.disabled, false, 'check disabled');
-      assert.equal(input._state.highlight, true, 'check highlight');
+      assert.equal(input._state.highlight, false, 'check highlight');
       assert.equal(input._state.placeholder, 'My description', 'check placeholder');
       assert.equal(input._state.readonly, false, 'check readonly');
       assert.equal(input._state.required, true, 'check required');
@@ -181,7 +181,7 @@ describe('furo-ui5-data-text-input-scalar', () => {
       assert.equal(input._state.value, 'Description from record', 'check value');
       assert.equal(input._state.valueState, 'None', 'check valueState');
       assert.equal(input._state.name, '', 'check name');
-      assert.equal(input._state.showSuggestions, true, 'check showSuggestions');
+      assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
       assert.equal(input._state.maxlength, undefined, 'check maxlength');
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
       assert.equal(input.__hint, 'Please enter a description', 'check hint');

@@ -478,10 +478,11 @@ export class UniversalFieldNodeBinder {
     if ('options' in fieldmeta) {
       if (fieldmeta.options && fieldmeta.options.list) {
         this._addVirtualAttribute('suggestions', fieldmeta.options.list);
+        this._metastore.suggestions = fieldmeta.options.list;
       } else {
         this._removeVirtualAttribute('suggestions');
       }
-      this._metastore.suggestions = fieldmeta.options.list;
+
     }
   }
 

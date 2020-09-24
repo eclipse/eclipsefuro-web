@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.7.0...@furo/ui-builder@1.7.1) (2020-09-14)
+
+
+### Bug Fixes
+
+* fix reference search and hooks ([5bc130c](https://github.com/theNorstroem/FuroBaseComponents/commit/5bc130c90e816b77f6ac0228907450d3452d184c))
+* ui5 hooks generate the same component names ([9f95e45](https://github.com/theNorstroem/FuroBaseComponents/commit/9f95e45292a65d605f8d0712f5cdb5d3e03a5bec))
+
+
+
+
+
 # [1.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.6.1...@furo/ui-builder@1.7.0) (2020-09-03)
 
 

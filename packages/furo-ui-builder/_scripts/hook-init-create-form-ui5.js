@@ -5,7 +5,7 @@ class HookInitCreateFormUi5 {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-form-ui5").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-form").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
@@ -24,7 +24,7 @@ class HookInitCreateFormUi5 {
     })();
 
     u33e.setTheme("CreateFormBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-form-ui5").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-form").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -33,7 +33,7 @@ class HookInitCreateFormUi5 {
     u33e.addImportWithMember("FBP", "@furo/fbp");
     u33e.addImportWithMember("i18n", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
-    u33e.addImport("@furo/ui5/src/furo-catalog.js;");
+    u33e.addImport("@furo/ui5/src/furo-catalog.js");
     u33e.addImport("@furo/form");
 
     u33e.addMethod("bindData", "data",
@@ -48,7 +48,8 @@ class HookInitCreateFormUi5 {
 
     // styling
     u33e.addStyle(":host")
-        .addCSSAttribute("display", "block");
+        .addCSSAttribute("display", "block")
+        .addCSSAttribute("--furo-form-layouter-row-gap", "var(--spacing-xs)");
 
     u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");

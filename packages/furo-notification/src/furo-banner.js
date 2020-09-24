@@ -181,14 +181,17 @@ class FuroBanner extends LitElement {
     if (status.details && status.details.length > 0) {
       this.multilineText = [];
       // show localized messages first
-      this.multilineText = this.multilineText.concat(status.details
-        .filter(det => det['@type'].includes('LocalizedMessage'))
-        .map(det => det.message));
+      this.multilineText = this.multilineText.concat(
+        status.details
+          .filter(det => det['@type'].includes('LocalizedMessage'))
+          .map(det => det.message),
+      );
       // list descriptions of badRequest errors
-      this.multilineText = this.multilineText.concat(status.details
-        .filter(
-          det => det['@type'].includes('google.rpc.BadRequest'))
-        .map(det => det.field_violations.map(violation => violation.description))[0]);
+      this.multilineText = this.multilineText.concat(
+        status.details
+          .filter(det => det['@type'].includes('google.rpc.BadRequest'))
+          .map(det => det.field_violations.map(violation => violation.description))[0],
+      );
       // todo: implement the other error types from https://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto
       // Help, RequestInfo, ResourceInfo, PreconditionFailure
     }

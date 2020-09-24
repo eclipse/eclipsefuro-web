@@ -12,8 +12,7 @@
  * @appliesMixin FBP
  */
 class FuroSortbyContainer extends HTMLElement {
-
-  constructor(){
+  constructor() {
     super();
     this.sorter = {};
   }
@@ -22,9 +21,9 @@ class FuroSortbyContainer extends HTMLElement {
    * foo,bar
    * @param field
    */
-  addAscendingField(field){
-    if (field && field.length){
-      this.sorter[field] = {'order': ''};
+  addAscendingField(field) {
+    if (field && field.length) {
+      this.sorter[field] = { order: '' };
       this._mapSorterToQuery();
     }
   }
@@ -33,9 +32,9 @@ class FuroSortbyContainer extends HTMLElement {
    * foo,bar desc
    * @param field
    */
-  addDescendingField(field){
-    if (field && field.length){
-      this.sorter[field] = {'order': 'desc'};
+  addDescendingField(field) {
+    if (field && field.length) {
+      this.sorter[field] = { order: 'desc' };
       this._mapSorterToQuery();
     }
   }
@@ -43,7 +42,7 @@ class FuroSortbyContainer extends HTMLElement {
   /**
    * Clears the sort_by query and fires sortby-condition-updated
    */
-  clear(){
+  clear() {
     this.sorter = {};
     this._mapSorterToQuery();
   }
@@ -52,19 +51,23 @@ class FuroSortbyContainer extends HTMLElement {
    * https://cloud.google.com/apis/design/design_patterns#sorting_order
    * @private
    */
-  _mapSorterToQuery(){
+  _mapSorterToQuery() {
     const sortQuery = [];
     for (const [key, value] of Object.entries(this.sorter)) {
-      sortQuery.push(value.order === 'desc' ? `${key  }%20${ value.order}` : key);
+      sortQuery.push(value.order === 'desc' ? `${key}%20${value.order}` : key);
     }
 
     /**
      * Is fired if a new sort condition is set.
      * @event sortby-condition-updated
      */
-    this.dispatchEvent(new CustomEvent('sortby-condition-updated', {
-      detail: sortQuery.join(','), bubbles: true, composed: true
-    }));
+    this.dispatchEvent(
+      new CustomEvent('sortby-condition-updated', {
+        detail: sortQuery.join(','),
+        bubbles: true,
+        composed: true,
+      }),
+    );
   }
 }
 

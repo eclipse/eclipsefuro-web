@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
+import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 import '@ui5/webcomponents/dist/Label.js';
 
 import './furo-ui5-data-reference-search.js';
@@ -19,6 +20,12 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.label = '';
+
+    this.subField = 'data';
+    this.displayField = 'display_name';
+    this.valueField = 'id';
+    this.valueSubField = 'id';
+    this.displaySubField = 'display_name';
   }
 
   /**
@@ -29,8 +36,63 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
     // this._FBPTraceWires();
   }
 
+  /**
+   * inject list
+   * @param arr
+   */
+  injectList(arr) {
+    this._FBPTriggerWire('--injectList', arr);
+  }
+
+  /**
+   * Inject the array of a collection
+   * @param entities
+   */
+  injectEntities(entities) {
+    this._FBPTriggerWire('--injectList', entities);
+  }
+
   static get properties() {
-    return {};
+    return {
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean,
+      },
+      /**
+       * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
+       *
+       * This is only needed if display_name and value_field are not located in the root of the object.
+       * @property sub-field
+       */
+      subField: { type: String, attribute: 'sub-field', reflect: true },
+      /**
+       * The name of the field from the injected collection that contains the label for the dropdown array.
+       * @property display-field
+       */
+      displayField: { type: String, attribute: 'display-field', reflect: true },
+      /**
+       * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
+       * If you bind a scalar, you dont need this attribute.
+       * @property value-field
+       */
+      valueField: { type: String, attribute: 'value-field', reflect: true },
+      /**
+       * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
+       *
+       * If you bind a scalar, you dont need this attribute.
+       * @property value-sub-field
+       */
+      valueSubField: { type: String, attribute: 'value-sub-field', reflect: true },
+      /**
+       * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
+       *
+       * If you bind a scalar, you dont need this attribute.
+       * @property display-sub-field
+       */
+      displaySubField: { type: String, attribute: 'display-sub-field', reflect: true },
+    };
   }
 
   static get styles() {
@@ -52,20 +114,7 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
    * @param fieldNode
    */
   bindData(fieldNode) {
-    this._field = fieldNode;
-    this._FBPTriggerWire('--data', fieldNode);
-
-    this.label = fieldNode._meta.label || '';
-
-    /**
-     * Listener on fieldNode meta changes
-     */
-    this._field.addEventListener('this-metas-changed', meta => {
-      this.label = meta.detail._meta.label || this.label;
-      this.requestUpdate();
-    });
-
-    this.requestUpdate();
+    Ui5LabelDataBinding.bindData(this, fieldNode);
   }
 
   /**
@@ -88,6 +137,13 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
         <furo-ui5-data-reference-search
           content
           id="Input"
+          ?disabled=${this.disabled}
+          sub-field="${this.subField}"
+          display-field="${this.displayField}"
+          value-field="${this.valueField}"
+          value-sub-field="${this.valueSubField}"
+          display-sub-field="${this.displaySubField}"
+          ƒ-inject-list="--injectList"
           ƒ-bind-data="--data"
           ƒ-collection-in="--collectionIn"
         ></furo-ui5-data-reference-search>

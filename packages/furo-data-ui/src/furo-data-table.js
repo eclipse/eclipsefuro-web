@@ -464,7 +464,7 @@ class FuroDataTable extends FBP(LitElement) {
    * @private
    */
   _applySortableFields(fields) {
-    setTimeout(()=>{
+    setTimeout(() => {
       if (fields && fields.length) {
         const sortableCols = fields.replace(/ /g, '').split(',');
         sortableCols.forEach(f => {
@@ -475,7 +475,7 @@ class FuroDataTable extends FBP(LitElement) {
         });
       }
       this.requestUpdate();
-    },16)
+    }, 16);
   }
 
   /**

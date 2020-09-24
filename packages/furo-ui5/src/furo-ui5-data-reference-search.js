@@ -109,6 +109,18 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
   }
 
   /**
+   * rewrite this super _selectMatchingItem function
+   * initiate _filteredItems in order to avoid error
+   * @private
+   */
+  _selectMatchingItem() {
+    if (this._filteredItems === undefined) {
+      this._filteredItems = [];
+    }
+    super._selectMatchingItem();
+  }
+
+  /**
    * List of observed attributes
    * @returns {string[]}
    */

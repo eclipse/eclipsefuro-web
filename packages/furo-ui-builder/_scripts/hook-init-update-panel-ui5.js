@@ -11,13 +11,13 @@ class HookInitUpdatePanelUi5 {
     }
 
     let basename = (SPEC.services.Update.data.request.split(".").join("-"));
-    return PKGDIR + "/" + (basename + "-update-panel-ui5").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (basename + "-update-panel").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
     ctx.basename = (SPEC.services.Update.data.request.split(".").join("-"));
-    u33e.model.component_name = (ctx.basename + "-update-panel-ui5").toLowerCase();
+    u33e.model.component_name = (ctx.basename + "-update-panel").toLowerCase();
 
     // add to registry
     ctx.addToRegistry("edit", u33e.model.component_name, SPEC.services.Update.data.response);
@@ -39,12 +39,12 @@ class HookInitUpdatePanelUi5 {
     u33e.addImport("@furo/data/src/furo-data-object.js");
 
 
-    let formImport = ctx.getImportPathForComponent((ctx.basename + "-form-ui5").toLowerCase());
+    let formImport = ctx.getImportPathForComponent((ctx.basename + "-form").toLowerCase());
     if (formImport) {
       u33e.addImport(formImport);
     }
 
-    let updateActionImport = ctx.getImportPathForComponent((ctx.basename + "-update-action-ui5").toLowerCase());
+    let updateActionImport = ctx.getImportPathForComponent((ctx.basename + "-update-action").toLowerCase());
     if (updateActionImport) {
       u33e.addImport(updateActionImport);
     }
@@ -57,7 +57,9 @@ class HookInitUpdatePanelUi5 {
         .addCSSAttribute("height", "100%")
         .addCSSAttribute("overflow", "hidden")
         .addCSSAttribute("background-color", "var(--update-panel-background, var(--surface, white))")
-        .addCSSAttribute("color", "var(--on-update-panel-background, var(--on-surface, black))");
+        .addCSSAttribute("color", "var(--on-update-panel-background, var(--on-surface, black))")
+        .addCSSAttribute("--furo-form-layouter-row-gap", "var(--spacing-xs)");
+
 
     u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");
@@ -83,7 +85,7 @@ class HookInitUpdatePanelUi5 {
         .addFlag("scroll");
 
 
-    let form = panel.appendChild((ctx.basename + "-form-ui5").toLowerCase());
+    let form = panel.appendChild((ctx.basename + "-form").toLowerCase());
     form.description = "The form for the type " + SPEC.services.Update.data.request;
     form.addMethod("bind-data", "--entity(*.data)");
 
@@ -92,7 +94,7 @@ class HookInitUpdatePanelUi5 {
     actionpanel.addFlag("no-margin");
 
 
-    let action = actionpanel.appendChild((ctx.basename + "-update-action-ui5").toLowerCase());
+    let action = actionpanel.appendChild((ctx.basename + "-update-action").toLowerCase());
     action.description = "The events of the updateaction are mostly wired to the entity-agent below";
     action.addMethod("bind-entity", "--entity")
         .addMethod("disable-all", "--requestStarted")
