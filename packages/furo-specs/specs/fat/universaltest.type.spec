@@ -89,7 +89,7 @@
       "description": "field of a wrapper int32 for the Universaltest",
       "type": "google.protobuf.Int32Value",
       "meta": {
-        "label": "skalar int",
+        "label": "google wrapper int32",
         "default": "",
         "hint": "",
         "readonly": false

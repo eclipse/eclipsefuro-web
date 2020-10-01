@@ -247,7 +247,7 @@ describe('UniversalFieldNodeBinder.test', () => {
       'data-injected',
       () => {
         pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
-        assert.equal(pseudocomponent.value, 'this is a furo fat string');
+        assert.equal(pseudocomponent.binder.fieldNode.value._value, 'this is a furo fat string');
 
         pseudocomponent.binder.fieldValue = 'm2';
         assert.equal(pseudocomponent.value, 'm2');

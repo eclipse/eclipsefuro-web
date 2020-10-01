@@ -180,8 +180,24 @@ export class FuroDataNumberInput extends FuroNumberInput {
       }
       // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this._checkAndEmptyInput();
+        // when the fat object has empty label. empty the number input.
         this.binder.addLabel('pristine');
       });
+    }
+  }
+
+  /**
+   * check the empty state by furo.fat object. check the null value by wrapper object.
+   * empty the input field.
+   * @private
+   */
+  _checkAndEmptyInput() {
+    if (
+      (this.binder.fieldFormat === 'wrapper' && this.binder.fieldNode._value.value === null) ||
+      (this.binder.fieldFormat === 'fat' && this.binder.fieldNode.labels._value.includes('empty'))
+    ) {
+      this.setValue(null);
     }
   }
 

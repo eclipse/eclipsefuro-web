@@ -159,12 +159,32 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
               @-data-loaded="--mockdata"
             ></fetch-universal-json>
 
-            <fetch-universal-json @-data-loaded="--mockdata"></fetch-universal-json>
+            <fetch-universal-json
+              file="/mockdata/tests/universalfieldnodebinder/fat-universal-empty.json"
+              @-data-loaded="--mockdata"
+            ></fetch-universal-json>
+
             <furo-data-object
               type="universaltest.UniversaltestEntity"
               @-object-ready="--entityU"
               ƒ-inject-raw="--mockdata"
             ></furo-data-object>
+
+            <furo-button label="create" @-click="--createClicked"></furo-button>
+
+            <furo-deep-link
+              ƒ-qp-in="--mockdata"
+              service="UniversaltestService"
+              @-hts-out="--uHts"
+            ></furo-deep-link>
+
+            <furo-entity-agent
+              ƒ-hts-in="--uHts"
+              service="UniversaltestService"
+              ƒ-bind-request-data="--entityU"
+              ƒ-create="--createClicked"
+            >
+            </furo-entity-agent>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
