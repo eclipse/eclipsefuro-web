@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
-import SignaturePad from 'signature_pad/dist/signature_pad.m';
+import SignaturePad from 'signature_pad/dist/signature_pad.js';
 
 /**
  * `furo-sign-pad`
