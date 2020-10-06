@@ -26,6 +26,7 @@ class HookInitUpdateActionUi5 {
     u33e.addImportWithMember(" i18n ", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
     u33e.addImport("@furo/form/src/furo-button-bar.js");
+    u33e.addImport("@furo/layout/src/furo-empty-spacer.js");
     u33e.addImport("@ui5/webcomponents/dist/Button.js");
 
     // styling
@@ -45,6 +46,8 @@ class HookInitUpdateActionUi5 {
     bar.addMethod("bind-entity", "--entityObjectInjected")
         .addMethod("disable-all", "--disableAllReq")
         .addMethod("enable-all", "--enableAllReq");
+
+    bar.appendChild("furo-empty-spacer");
 
     for (let service in SPEC.services) {
 
