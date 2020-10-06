@@ -55,7 +55,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      * If you bind a scalar, you dont need this attribute.
      * @type {string}
      */
-    this.valueSubField = null;
+    this.valueSubField = undefined;
 
     /**
      * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
@@ -264,7 +264,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         selectedItem = selectedItem || arr[0];
         this._notifiySelectedItem(selectedItem);
         if (this._fieldNodeToUpdate) {
-          this._fieldNodeToUpdate._value = selectedItem;
+          // this._fieldNodeToUpdate._value = selectedItem;
         }
       } else if (this.multiple) {
         this._notifiySelectedItem(this._parseRepeatedData(this._fieldNodeToUpdate._value));
