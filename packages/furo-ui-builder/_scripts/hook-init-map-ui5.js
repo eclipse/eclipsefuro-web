@@ -38,7 +38,6 @@ class HookInitMapUi5 {
     u33e.addImport("@furo/form/src/furo-form.js");
     u33e.addImport("@furo/layout/src/furo-horizontal-flex.js");
     u33e.addImport("@ui5/webcomponents/dist/Label.js");
-    u33e.addImport("@ui5/webcomponents/dist/Button.js");
 
     u33e.addMethod("bindData", "data",
         " Bind your furo-data-object event @-object-ready\n @public\n @param data",
@@ -60,7 +59,7 @@ class HookInitMapUi5 {
     u33e.addStyle("furo-horizontal-flex")
         .addCSSAttribute("margin-bottom", "6px");
 
-    u33e.addStyle("ui5-button")
+    u33e.addStyle("furo-ui5-button")
         .addCSSAttribute("margin", "12px 0 0 6px");
 
     // add a form to place header text
@@ -83,7 +82,7 @@ class HookInitMapUi5 {
     let flexer = u33e.addDomNode("furo-horizontal-flex");
     let label = flexer.appendChild("ui5-label");
     let input = flexer.appendChild("furo-ui5-text-input");
-    let btn =  flexer.appendChild("ui5-button");
+    let btn =  flexer.appendChild("furo-ui5-button");
 
     label.addAttribute("for", "Type");
     label.addInnerText("name for " + SPEC.__proto.package + "." + SPEC.type);

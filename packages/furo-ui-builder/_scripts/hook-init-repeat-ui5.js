@@ -42,7 +42,7 @@ class HookInitRepeatUi5 {
     u33e.addImportWithMember("i18n", "@furo/framework/src/i18n.js", "eslint-disable-next-line no-unused-vars");
 
 
-    u33e.addImport("@ui5/webcomponents/dist/Button.js");
+    u33e.addImport("@furo/ui5/src/furo-ui5-button.js");
     u33e.addImport("@furo/form");
 
     u33e.addMethod("bindData", "data",
@@ -67,7 +67,7 @@ class HookInitRepeatUi5 {
         .addCSSAttribute("margin-bottom", "6px");
 
 
-    u33e.addStyle("ui5-button")
+    u33e.addStyle("furo-ui5-button")
         .addCSSAttribute("margin", "12px 0 0 6px");
 
     u33e.addDomNode("hr")
@@ -95,7 +95,7 @@ class HookInitRepeatUi5 {
 
     let flexer = u33e.addDomNode("furo-horizontal-flex");
     let span = flexer.appendChild("span");
-    let btn = flexer.appendChild("ui5-button");
+    let btn = flexer.appendChild("furo-ui5-button");
 
 
     span.addFlag("flex");

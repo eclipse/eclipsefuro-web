@@ -27,7 +27,7 @@ class HookInitUpdateActionUi5 {
 
     u33e.addImport("@furo/form/src/furo-button-bar.js");
     u33e.addImport("@furo/layout/src/furo-empty-spacer.js");
-    u33e.addImport("@ui5/webcomponents/dist/Button.js");
+    u33e.addImport("@furo/ui5/src/furo-ui5-button.js");
 
     // styling
     u33e.addStyle(":host")
@@ -54,7 +54,7 @@ class HookInitUpdateActionUi5 {
       switch (service) {
 
         case "Update":
-          let updatebtn = bar.appendChild("ui5-button");
+          let updatebtn = bar.appendChild("furo-ui5-button");
           updatebtn.addFlag("hide-no-rel")
               .addFlag("disable-not-valid")
               .addFlag("disable-pristine")
@@ -65,7 +65,7 @@ class HookInitUpdateActionUi5 {
           break;
 
         case "Delete":
-          let deletebtn = bar.appendChild("ui5-button");
+          let deletebtn = bar.appendChild("furo-ui5-button");
           deletebtn.addFlag("hide-no-rel")
               .addAttribute("design", "Negative")
               .addAttribute("rel", SPEC.services[service].deeplink.rel)
