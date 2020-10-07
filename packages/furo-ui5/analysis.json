@@ -8725,11 +8725,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 179,
+              "line": 186,
               "column": 6
             },
             "end": {
-              "line": 182,
+              "line": 189,
               "column": 7
             }
           },
@@ -8746,11 +8746,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 186,
+              "line": 193,
               "column": 6
             },
             "end": {
-              "line": 188,
+              "line": 195,
               "column": 7
             }
           },
@@ -8767,11 +8767,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 192,
+              "line": 199,
               "column": 6
             },
             "end": {
-              "line": 194,
+              "line": 201,
               "column": 7
             }
           },
@@ -8788,11 +8788,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 205,
               "column": 6
             },
             "end": {
-              "line": 201,
+              "line": 208,
               "column": 7
             }
           },
@@ -8809,11 +8809,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 205,
+              "line": 212,
               "column": 6
             },
             "end": {
-              "line": 208,
+              "line": 215,
               "column": 7
             }
           },
@@ -8894,16 +8894,36 @@
           }
         },
         {
+          "name": "clearAll",
+          "description": "clear all notifications",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 174,
+              "column": 2
+            },
+            "end": {
+              "line": 176,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "render",
           "description": "",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 240,
               "column": 2
             },
             "end": {
-              "line": 237,
+              "line": 244,
               "column": 3
             }
           },
@@ -8928,7 +8948,7 @@
           "column": 0
         },
         "end": {
-          "line": 238,
+          "line": 245,
           "column": 1
         }
       },
@@ -8941,11 +8961,11 @@
           "description": "the header text of the notification",
           "sourceRange": {
             "start": {
-              "line": 179,
+              "line": 186,
               "column": 6
             },
             "end": {
-              "line": 182,
+              "line": 189,
               "column": 7
             }
           },
@@ -8957,11 +8977,11 @@
           "description": "the target dom object, which sends the notification event",
           "sourceRange": {
             "start": {
-              "line": 186,
+              "line": 193,
               "column": 6
             },
             "end": {
-              "line": 188,
+              "line": 195,
               "column": 7
             }
           },
@@ -8973,23 +8993,7 @@
           "description": "Defines if the group is collapsed or expanded.",
           "sourceRange": {
             "start": {
-              "line": 192,
-              "column": 6
-            },
-            "end": {
-              "line": 194,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "show-counter",
-          "description": "Defines if the items counter would be displayed.",
-          "sourceRange": {
-            "start": {
-              "line": 198,
+              "line": 199,
               "column": 6
             },
             "end": {
@@ -9001,8 +9005,8 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "show-close",
-          "description": "Defines if the close button would be displayed.",
+          "name": "show-counter",
+          "description": "Defines if the items counter would be displayed.",
           "sourceRange": {
             "start": {
               "line": 205,
@@ -9010,6 +9014,22 @@
             },
             "end": {
               "line": 208,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "show-close",
+          "description": "Defines if the close button would be displayed.",
+          "sourceRange": {
+            "start": {
+              "line": 212,
+              "column": 6
+            },
+            "end": {
+              "line": 215,
               "column": 7
             }
           },
@@ -9220,7 +9240,7 @@
               "column": 2
             },
             "end": {
-              "line": 178,
+              "line": 180,
               "column": 3
             }
           },
@@ -9249,7 +9269,7 @@
           "column": 0
         },
         "end": {
-          "line": 187,
+          "line": 189,
           "column": 1
         }
       },
@@ -9880,7 +9900,7 @@
       ]
     },
     {
-      "description": "`furo-ui5-button`\nThe furo-ui5-button component represents a simple push button. It enables users to trigger actions by clicking or\ntapping the furo-ui5-button, or by pressing certain keyboard keys, such as Enter.\nUsage\nFor the furo-ui5-button UI, you can define text, icon, or both. You can also specify whether the text or the icon is displayed first.\n\nYou can choose from a set of predefined types that offer different styling to correspond to the triggered action.\n\nYou can set the furo-ui5-button as enabled or disabled.\nAn enabled ui5-button can be pressed by clicking or tapping it.\nThe button changes its style to provide visual feedback to the user that it is pressed or hovered over with the mouse cursor.\nA disabled furo-ui5-button appears inactive and cannot be pressed.\n\nWhat is different from ui5-button?\nWith flow based programming it's usual to address functions. So we added two functions for\n- disabling => ƒ-disable\n- enabling => ƒ-enable",
+      "description": "`furo-ui5-button`\nThe furo-ui5-button component represents a simple push button. It enables users to trigger actions by clicking or\ntapping the furo-ui5-button, or by pressing certain keyboard keys, such as Enter.\nUsage\nFor the furo-ui5-button UI, you can define text, icon, or both. You can also specify whether the text or the icon is displayed first.\n\nYou can choose from a set of predefined types that offer different styling to correspond to the triggered action.\n\nYou can set the furo-ui5-button as enabled or disabled.\nAn enabled ui5-button can be pressed by clicking or tapping it.\nThe button changes its style to provide visual feedback to the user that it is pressed or hovered over with the mouse cursor.\nA disabled furo-ui5-button appears inactive and cannot be pressed.\n\nWhat is different from ui5-button?\nWith flow based programming it's usual to address functions. So we added two convenience functions for\n- disabling => ƒ-disable\n- enabling => ƒ-enable\n\nhttps://sap.github.io/ui5-webcomponents/playground/components/Button/",
       "summary": "ui5 button",
       "path": "src/furo-ui5-button.js",
       "properties": [],
@@ -9891,11 +9911,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 30,
+              "line": 31,
               "column": 2
             },
             "end": {
-              "line": 32,
+              "line": 33,
               "column": 3
             }
           },
@@ -9911,11 +9931,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 37,
+              "line": 38,
               "column": 2
             },
             "end": {
-              "line": 39,
+              "line": 40,
               "column": 3
             }
           },
@@ -9936,11 +9956,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 25,
+          "line": 27,
           "column": 7
         },
         "end": {
-          "line": 40,
+          "line": 41,
           "column": 1
         }
       },

@@ -19,6 +19,8 @@ import * as Button from '@ui5/webcomponents/dist/Button.js';
  * - disabling => ƒ-disable
  * - enabling => ƒ-enable
  *
+ * https://sap.github.io/ui5-webcomponents/playground/components/Button/
+ *
  * @summary ui5 button
  * @customElement
  * @demo demo-furo-ui5-button Basic usage
