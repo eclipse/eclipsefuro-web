@@ -418,7 +418,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    */
   // eslint-disable-next-line class-methods-use-this
   _getValueByPath(obj, path) {
-    return path.split('.').reduce((res, prop) => res[prop], obj);
+    return path.split('.').reduce((res, prop) => res[prop], obj) || {};
   }
 
   /**
@@ -501,7 +501,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       let size = this._dropdownList.length;
       // eslint-disable-next-line no-plusplus
       while (size--) {
-        if (this.valueSubField) {
+        if (this.valueSubField && this.valueSubField !== 'null') {
           this._dropdownList[size].selected =
             this._dropdownList[size].id === this.binder.fieldValue[this.valueSubField];
         } else {
