@@ -29,7 +29,7 @@ export class FuroUi5Button extends Button.default {
    * Sets the button state to disabled
    */
   disable(){
-    this.setAttribute('disabled', null);
+    this.setAttribute('disabled', 'true');
   }
 
   /**
