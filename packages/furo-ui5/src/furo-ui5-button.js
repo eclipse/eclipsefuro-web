@@ -15,7 +15,7 @@ import * as Button from '@ui5/webcomponents/dist/Button.js';
  * A disabled furo-ui5-button appears inactive and cannot be pressed.
  *
  * What is different from ui5-button?
- * With flow based programming it's usual to address functions. So we added two functions for
+ * With flow based programming it's usual to address functions. So we added two convenience functions for
  * - disabling => ƒ-disable
  * - enabling => ƒ-enable
  *

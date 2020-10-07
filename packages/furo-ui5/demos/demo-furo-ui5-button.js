@@ -73,7 +73,7 @@ class DemoFuroUi5Button extends FBP(LitElement) {
 
             <p>Button disabled:</p>
             <furo-ui5-button ƒ-enable="--enableRequested" ƒ-disable="--disableRequested" disabled>Disabled or Enabled</furo-ui5-button>
-            <p>Use of the convienence functions enable/disable</p>
+            <p>Use of the convenience functions enable/disable</p>
             <furo-button-bar>
               <furo-ui5-button @-click="--enableRequested" design="Positive">ƒ-enable</furo-ui5-button>
               <furo-ui5-button @-click="--disableRequested" design="Negative">ƒ-disable</furo-ui5-button>
