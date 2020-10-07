@@ -180,7 +180,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     // set the label mappings
     this.binder.labelMappings = {
       error: 'error',
-      readonly: 'readonly',
+      readonly: 'disabled',
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
