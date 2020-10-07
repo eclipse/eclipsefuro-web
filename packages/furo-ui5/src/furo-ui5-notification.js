@@ -170,7 +170,7 @@ class FuroUi5Notification extends LitElement {
     this.payload = c;
     this._type = 'notification';
 
-    if(c) {
+    if (c) {
       // if notification has category. show notifications in group
       if (c[0].category) {
         this._requestGroupDisplay();

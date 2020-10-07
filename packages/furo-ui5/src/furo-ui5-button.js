@@ -24,18 +24,17 @@ import * as Button from '@ui5/webcomponents/dist/Button.js';
  * @demo demo-furo-ui5-button Basic usage
  */
 export class FuroUi5Button extends Button.default {
-
   /**
    * Sets the button state to disabled
    */
-  disable(){
+  disable() {
     this.setAttribute('disabled', 'true');
   }
 
   /**
    * Sets the button state to enabled
    */
-  enable(){
+  enable() {
     this.removeAttribute('disabled');
   }
 }

@@ -20,10 +20,10 @@ export class Ui5LabelDataBinding {
 
     if (this.isFatType(fieldNode)) {
       // eslint-disable-next-line no-param-reassign
-      element.label = element.label || fieldNode.attributes.label || fieldNode._meta.label ;
+      element.label = element.label || fieldNode.attributes.label || fieldNode._meta.label;
     } else {
       // eslint-disable-next-line no-param-reassign
-      element.label = element.label || fieldNode._meta.label ;
+      element.label = element.label || fieldNode._meta.label;
     }
 
     /**
