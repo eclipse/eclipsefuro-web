@@ -2668,7 +2668,7 @@
               "readOnly": false
             }
           },
-          "defaultValue": "null"
+          "defaultValue": "undefined"
         },
         {
           "name": "displaySubField",
@@ -5002,7 +5002,7 @@
               "column": 2
             },
             "end": {
-              "line": 106,
+              "line": 107,
               "column": 3
             }
           },
@@ -5018,11 +5018,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 113,
+              "line": 114,
               "column": 2
             },
             "end": {
-              "line": 131,
+              "line": 132,
               "column": 3
             }
           },
@@ -5053,7 +5053,7 @@
           "column": 7
         },
         "end": {
-          "line": 132,
+          "line": 133,
           "column": 1
         }
       },
@@ -7824,7 +7824,7 @@
               "column": 2
             },
             "end": {
-              "line": 226,
+              "line": 230,
               "column": 3
             }
           },
@@ -7844,11 +7844,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 228,
+              "line": 232,
               "column": 2
             },
             "end": {
-              "line": 235,
+              "line": 239,
               "column": 3
             }
           },
@@ -7873,7 +7873,7 @@
           "column": 0
         },
         "end": {
-          "line": 248,
+          "line": 252,
           "column": 1
         }
       },
@@ -9878,6 +9878,83 @@
       "mixins": [
         "FBP"
       ]
+    },
+    {
+      "description": "`furo-ui5-button`\nThe furo-ui5-button component represents a simple push button. It enables users to trigger actions by clicking or\ntapping the furo-ui5-button, or by pressing certain keyboard keys, such as Enter.\nUsage\nFor the furo-ui5-button UI, you can define text, icon, or both. You can also specify whether the text or the icon is displayed first.\n\nYou can choose from a set of predefined types that offer different styling to correspond to the triggered action.\n\nYou can set the furo-ui5-button as enabled or disabled.\nAn enabled ui5-button can be pressed by clicking or tapping it.\nThe button changes its style to provide visual feedback to the user that it is pressed or hovered over with the mouse cursor.\nA disabled furo-ui5-button appears inactive and cannot be pressed.\n\nWhat is different from ui5-button?\nWith flow based programming it's usual to address functions. So we added two functions for\n- disabling => ƒ-disable\n- enabling => ƒ-enable",
+      "summary": "ui5 button",
+      "path": "src/furo-ui5-button.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "disable",
+          "description": "Sets the button state to disabled",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 30,
+              "column": 2
+            },
+            "end": {
+              "line": 32,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "enable",
+          "description": "Sets the button state to enabled",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 37,
+              "column": 2
+            },
+            "end": {
+              "line": 39,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-button",
+          "description": "Basic usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 25,
+          "column": 7
+        },
+        "end": {
+          "line": 40,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "Button.default",
+      "name": "FuroUi5Button",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-button"
     }
   ],
   "classes": [

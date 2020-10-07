@@ -31,3 +31,4 @@ import './furo-ui5-notification-group-display.js';
 import './furo-ui5-notification.js';
 import './furo-ui5-data-display.js';
 import './furo-ui5-data-display-labeled.js';
+import './furo-ui5-button.js';
