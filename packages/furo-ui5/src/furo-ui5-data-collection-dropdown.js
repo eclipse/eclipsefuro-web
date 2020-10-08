@@ -55,7 +55,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      * If you bind a scalar, you dont need this attribute.
      * @type {string}
      */
-    this.valueSubField = null;
+    this.valueSubField = undefined;
 
     /**
      * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
@@ -180,7 +180,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     // set the label mappings
     this.binder.labelMappings = {
       error: 'error',
-      readonly: 'readonly',
+      readonly: 'disabled',
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
@@ -264,7 +264,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         selectedItem = selectedItem || arr[0];
         this._notifiySelectedItem(selectedItem);
         if (this._fieldNodeToUpdate) {
-          this._fieldNodeToUpdate._value = selectedItem;
+          // this._fieldNodeToUpdate._value = selectedItem;
         }
       } else if (this.multiple) {
         this._notifiySelectedItem(this._parseRepeatedData(this._fieldNodeToUpdate._value));
@@ -418,7 +418,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    */
   // eslint-disable-next-line class-methods-use-this
   _getValueByPath(obj, path) {
-    return path.split('.').reduce((res, prop) => res[prop], obj);
+    return path.split('.').reduce((res, prop) => res[prop], obj) || {};
   }
 
   /**
@@ -501,7 +501,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       let size = this._dropdownList.length;
       // eslint-disable-next-line no-plusplus
       while (size--) {
-        if (this.valueSubField) {
+        if (this.valueSubField && this.valueSubField !== 'null') {
           this._dropdownList[size].selected =
             this._dropdownList[size].id === this.binder.fieldValue[this.valueSubField];
         } else {

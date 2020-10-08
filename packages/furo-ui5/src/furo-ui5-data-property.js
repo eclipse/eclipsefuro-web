@@ -210,6 +210,10 @@ class FuroUi5DataProperty extends FBP(LitElement) {
           case 'furo.fat.Bool':
             e.bindData(propertyField.data.value);
             break;
+          case 'furo.StringOptionProperty':
+            e.bindData(propertyField.data);
+            e.setAttribute('value-sub-field', 'id');
+            break;
           default:
             e.bindData(propertyField.data);
         }

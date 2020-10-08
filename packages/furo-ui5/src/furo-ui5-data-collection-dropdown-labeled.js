@@ -40,6 +40,10 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
   static get properties() {
     return {
       /**
+       * the label for the data-collection-dropdown
+       */
+      label: { type: String },
+      /**
        * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
        *
        * This is only needed if display_name and value_field are not located in the root of the object.

@@ -170,6 +170,13 @@ class FuroUi5NotificationGroupDisplay extends FBP(LitElement) {
   }
 
   /**
+   * clear all notifications
+   */
+  clearAll() {
+    this.shadowRoot.getElementById('ui5-list').innerHTML = '';
+  }
+
+  /**
    *@private
    */
   static get properties() {

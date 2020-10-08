@@ -23,8 +23,8 @@ class HookInitCreateWidgetUi5 {
 
     u33e.addImport("@furo/form/src/furo-form-layouter.js");
     u33e.addImport("@furo/form/src/furo-button-bar.js");
+    u33e.addImport("@furo/ui5/src/furo-ui5-button.js");
     u33e.addImport("@ui5/webcomponents/dist/Card.js");
-    u33e.addImport("@ui5/webcomponents/dist/Button.js");
 
     // header-text and secondary-text property
     u33e.addProperty("headerText", "String", "Header text to label the form", null, false, false, "header-text");
@@ -60,7 +60,7 @@ class HookInitCreateWidgetUi5 {
 
     let action = cardContent.appendChild("furo-button-bar");
 
-    let button = action.appendChild("ui5-button");
+    let button = action.appendChild("furo-ui5-button");
     button.addAttribute("rel","create")
       .addInnerText("${i18n.t('create')}")
       .addEventListener("click","-^create-requested", "fired when the create button was pressed");

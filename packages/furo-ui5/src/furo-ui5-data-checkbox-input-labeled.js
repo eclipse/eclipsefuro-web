@@ -30,7 +30,12 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
   }
 
   static get properties() {
-    return {};
+    return {
+      /**
+       * the label for the data-checkbox-input
+       */
+      label: { type: String },
+    };
   }
 
   static get styles() {

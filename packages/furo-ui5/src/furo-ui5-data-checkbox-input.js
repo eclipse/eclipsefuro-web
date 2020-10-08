@@ -57,7 +57,8 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
   applyBindingSet() {
     // set the attribute mappings
     this.binder.attributeMappings = {
-      label: 'text', // map label to placeholder
+      text: 'text', // text of checkbox
+      label: 'text', // map label to text
       placeholder: 'placeholder', // map placeholder to placeholder
       'value-state': '_valueState',
       errortext: '_errorMsg', // name errortext is for compatibility with spec

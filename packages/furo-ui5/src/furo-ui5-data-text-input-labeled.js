@@ -30,7 +30,12 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
   }
 
   static get properties() {
-    return {};
+    return {
+      /**
+       * the label for the data-text-input
+       */
+      label: { type: String },
+    };
   }
 
   static get styles() {

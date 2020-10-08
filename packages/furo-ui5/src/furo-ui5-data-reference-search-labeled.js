@@ -55,6 +55,10 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
   static get properties() {
     return {
       /**
+       * the label for the data-reference-search
+       */
+      label: { type: String },
+      /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       disabled: {

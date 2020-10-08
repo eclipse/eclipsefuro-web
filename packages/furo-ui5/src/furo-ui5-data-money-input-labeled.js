@@ -31,9 +31,10 @@ class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
 
   static get properties() {
     return {
-      label: {
-        type: String,
-      },
+      /**
+       * the label for the data-money-input
+       */
+      label: { type: String },
     };
   }
 

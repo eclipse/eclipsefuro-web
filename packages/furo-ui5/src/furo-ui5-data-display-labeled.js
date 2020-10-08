@@ -30,7 +30,12 @@ class FuroUi5DataDisplayLabeled extends FBP(LitElement) {
   }
 
   static get properties() {
-    return {};
+    return {
+      /**
+       * the label for the data-display
+       */
+      label: { type: String },
+    };
   }
 
   static get styles() {
