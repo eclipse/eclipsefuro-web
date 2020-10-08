@@ -96,9 +96,24 @@ class FuroButtonBar extends LitElement {
    * Can be used to enable after a request
    */
   enableAll() {
-    const elems = this.querySelectorAll('*')
+    if (this._entity && this._entity.data) {
+      this._updateElements(this._entity);
+    } else {
+      const elems = this.querySelectorAll('*');
+      elems.forEach(item => {
+        item.removeAttribute('disabled');
+      });
+    }
+  }
+
+  /**
+   * Enables all elements inside
+   * IMPORTANT: all checks are disabled
+   */
+  enableAllNoChecks() {
+    const elems = this.querySelectorAll('*');
     elems.forEach(item => {
-      item.removeAttribute('disabled')
+        item.removeAttribute('disabled');
     })
   }
 

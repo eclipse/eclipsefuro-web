@@ -66,15 +66,15 @@ describe('furo-ui-builder-task-task-update-panel', () => {
     const buttons = action.shadowRoot.querySelectorAll('furo-button');
 
     panel._FBPAddWireHook('--response', (response) =>{
+
       expect(action).to.not.be.undefined;
 
       assert.equal(buttons.length, 2);
 
+      expect(buttons[0].getAttribute('hidden')).to.be.null;
+      expect(buttons[0].getAttribute('disabled')).to.not.be.null;
       expect(buttons[1].getAttribute('hidden')).to.not.be.null;
       expect(buttons[1].getAttribute('disabled')).to.be.null;
-
-      expect(buttons[0].getAttribute('hidden')).to.not.be.null;
-      expect(buttons[0].getAttribute('disabled')).to.not.be.null;
 
       done();
     });
