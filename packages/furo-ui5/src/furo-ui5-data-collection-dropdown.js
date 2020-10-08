@@ -335,6 +335,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         arrSubfieldChains.forEach(s => {
           tmpValue = tmpValue[s] ? tmpValue[s] : tmpValue;
         });
+        tmpValue._original = element;
         arrValue.push(tmpValue);
       });
     }
@@ -362,7 +363,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
           id: list[i][this.valueField],
           label: list[i][this.displayField],
           selected: false,
-          _original: list[i],
+          _original: list[i]._original,
         };
 
         if (this._fieldNodeToUpdate._value === list[i][this.valueField]) {
@@ -549,7 +550,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         id: e[this.valueField],
         label: e[this.displayField],
         selected: !!e.selected,
-        _original: e,
+        _original: e._original,
       }));
     }
     return arr;
