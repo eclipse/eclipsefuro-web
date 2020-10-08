@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.23](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.22...@furo/form@1.3.23) (2020-10-08)
+
+
+### Bug Fixes
+
+* enableAll should act like disableAll, without inclusion of the entity ([11da882](https://github.com/theNorstroem/FuroBaseComponents/commit/11da882b2c4fb1ac5d1397f95412068b736dbc65))
+* new method in furo-button-bar added. enableAllNoChecks ([33ffc78](https://github.com/theNorstroem/FuroBaseComponents/commit/33ffc78b6ea0d682f315c338ed3ae3d264e22eaf))
+
+
+
+
+
 ## [1.3.22](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.21...@furo/form@1.3.22) (2020-09-14)
 
 **Note:** Version bump only for package @furo/form

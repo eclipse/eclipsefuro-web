@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.24](https://github.com/veith/template-component-package/compare/@furo/util@1.3.23...@furo/util@1.3.24) (2020-10-08)
+
+**Note:** Version bump only for package @furo/util
+
+
+
+
+
 ## [1.3.23](https://github.com/veith/template-component-package/compare/@furo/util@1.3.22...@furo/util@1.3.23) (2020-09-14)
 
 **Note:** Version bump only for package @furo/util

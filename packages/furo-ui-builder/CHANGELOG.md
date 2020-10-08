@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.7.1...@furo/ui-builder@1.7.2) (2020-10-08)
+
+
+### Bug Fixes
+
+* according to SAP Fiori ([12e4341](https://github.com/theNorstroem/FuroBaseComponents/commit/12e4341d9cdabbefc0feff41c069ec1dd88d7ac2))
+* new method in furo-button-bar added. enableAllNoChecks ([33ffc78](https://github.com/theNorstroem/FuroBaseComponents/commit/33ffc78b6ea0d682f315c338ed3ae3d264e22eaf))
+
+
+
+
+
 ## [1.7.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.7.0...@furo/ui-builder@1.7.1) (2020-09-14)
 
 

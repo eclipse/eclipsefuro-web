@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.5.2...@furo/data-input@1.6.0) (2020-10-08)
+
+
+### Features
+
+* furo-data-number-input supports google wrapper int type with null value and furo fat int type with empty label. ([009c944](https://github.com/theNorstroem/FuroBaseComponents/commit/009c944dd6bc9c61c9a4cca7fa4eaefbd13b116e))
+
+
+
+
+
 ## [1.5.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.5.1...@furo/data-input@1.5.2) (2020-09-14)
 
 **Note:** Version bump only for package @furo/data-input

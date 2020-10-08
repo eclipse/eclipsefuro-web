@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.3.1...@furo/ui5@0.4.0) (2020-10-08)
+
+
+### Bug Fixes
+
+* attribute set with boolean value ([141ae43](https://github.com/theNorstroem/FuroBaseComponents/commit/141ae434d5f08907034b747f3d1aa33c6e4d39f4))
+* the fieldNodeToUpdate object in collection-dropdown must have an initial status ([2ccc4b5](https://github.com/theNorstroem/FuroBaseComponents/commit/2ccc4b5e36120ea77e64dcc4f27d4663145e5272))
+* typo ([00f5b2a](https://github.com/theNorstroem/FuroBaseComponents/commit/00f5b2a9b4ca1d14ba6adc345f2ea341f7e9c121))
+* ui5 select doesn't support readonly ([d2dcf7a](https://github.com/theNorstroem/FuroBaseComponents/commit/d2dcf7a20725987951b951f1f3ddb1e4846827f4))
+* use id as value subfield in collection dropdown for StringOptionProperty type ([e2b3673](https://github.com/theNorstroem/FuroBaseComponents/commit/e2b3673fbe24cc753365c90b5a7a8c59d884ec7b))
+
+
+### Features
+
+* extended ui5-button with convenience functions ([ec6957b](https://github.com/theNorstroem/FuroBaseComponents/commit/ec6957b2a52ddef3671b79b21b325c171fc95746))
+
+
+
+
+
 ## [0.3.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.3.0...@furo/ui5@0.3.1) (2020-09-14)
 
 

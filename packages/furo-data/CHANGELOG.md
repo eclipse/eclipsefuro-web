@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.9.0...@furo/data@1.10.0) (2020-10-08)
+
+
+### Bug Fixes
+
+* modify incorrect subfield ([c972081](https://github.com/theNorstroem/FuroBaseComponents/commit/c972081687cb7594dc21a8d7657f90e5ee5d31fd))
+
+
+### Features
+
+* furo-data-number-input supports google wrapper int type with null value and furo fat int type with empty label. ([009c944](https://github.com/theNorstroem/FuroBaseComponents/commit/009c944dd6bc9c61c9a4cca7fa4eaefbd13b116e))
+
+
+
+
+
 # [1.9.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.8.0...@furo/data@1.9.0) (2020-09-14)
 
 
