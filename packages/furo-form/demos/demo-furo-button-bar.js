@@ -6,7 +6,9 @@ import '@furo/doc-helper';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/form/src/furo-catalog.js';
+import '@furo/data-input/src/furo-data-text-input.js';
 import '@furo/data-input/demos/helper/produce-qp-data.js';
+import '@furo/data/src/furo-catalog.js';
 
 /**
  * `demo-furo-button-bar`
@@ -79,7 +81,7 @@ class DemoFuroButtonBar extends FBP(LitElement) {
               <furo-button danger unelevated>Danger Action</furo-button>
             </furo-button-bar>
 
-            <h2>furo-button-bar with binded entity</h2>
+            <h2>furo-button-bar with bound entity</h2>
             <p>
               Please throttle your network connection in the dev console to see the pending request
               state.

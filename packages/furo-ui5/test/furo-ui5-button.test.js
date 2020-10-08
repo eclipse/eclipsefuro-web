@@ -28,7 +28,7 @@ describe('furo-ui5-button', () => {
 
   it('should be a furo-ui5-button element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(display.nodeName.toLowerCase(), 'furo-ui5-button');
+    assert.equal(btn.nodeName.toLowerCase(), 'furo-ui5-button');
     done();
   });
 
