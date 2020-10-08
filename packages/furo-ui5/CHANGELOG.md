@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.4.0...@furo/ui5@0.4.1) (2020-10-08)
+
+
+### Bug Fixes
+
+* notification group is collapsed if no value is transmitted ([92de1f9](https://github.com/theNorstroem/FuroBaseComponents/commit/92de1f9f75e5827c3f6955674cc4a0b10dfb90d4))
+* original data from injected entities should be completely saved as _original. ([bd9b77a](https://github.com/theNorstroem/FuroBaseComponents/commit/bd9b77a11ab6cc41fc65fba5e9cdff91d41a2e83))
+
+
+
+
+
 # [0.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.3.1...@furo/ui5@0.4.0) (2020-10-08)
 
 
