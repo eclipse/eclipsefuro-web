@@ -31,7 +31,12 @@ class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
   }
 
   static get properties() {
-    return {};
+    return {
+      /**
+       * the label for the data-date-picker
+       */
+      label: { type: String },
+    };
   }
 
   static get styles() {

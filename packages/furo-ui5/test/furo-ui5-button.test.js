@@ -33,7 +33,7 @@ describe('furo-ui5-button', () => {
   });
 
   it('should have different designs', done => {
-    btn.setAttribute('design', 'Negative')
+    btn.setAttribute('design', 'Negative');
     setTimeout(() => {
       assert.equal(btn.design, 'Negative');
       done();
@@ -41,21 +41,20 @@ describe('furo-ui5-button', () => {
   });
 
   it('should be clickable', done => {
-    btn.addEventListener('click', ()=>{
+    btn.addEventListener('click', () => {
       done();
-    })
+    });
     btn.click();
   });
 
   it('should have enable function', done => {
-    btn.disable()
-    btn.addEventListener('click', ()=>{
+    btn.disable();
+    btn.addEventListener('click', () => {
       done();
-    })
+    });
     btn.enable();
     btn.click();
   });
-
 
   // axeReport a11y tests
   xit('a11y', () => axeReport(input));

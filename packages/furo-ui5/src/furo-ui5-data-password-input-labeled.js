@@ -30,7 +30,12 @@ class FuroUi5DataPasswordInputLabeled extends FBP(LitElement) {
   }
 
   static get properties() {
-    return {};
+    return {
+      /**
+       * the label for the data-password-input
+       */
+      label: { type: String },
+    };
   }
 
   static get styles() {
