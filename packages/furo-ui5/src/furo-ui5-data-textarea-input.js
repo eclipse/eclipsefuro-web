@@ -15,6 +15,13 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @demo demo-furo-ui5-data-textarea-input Basic usage (scalar , fat, wrapper values)
  */
 export class FuroUi5DataTextareaInput extends TextArea.default {
+
+  /**
+   * Fired when the input value changed.
+   * the event detail is the value of the input field
+   * @event value-changed
+   */
+
   /**
    * Fired when the input operation has finished by pressing Enter or on focusout.
    * @event change
@@ -105,6 +112,14 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
     this.addEventListener('input', val => {
       // update the value
       this.binder.fieldValue = val.target.value;
+
+      /**
+       * Fired when value changed
+       * @type {Event}
+       */
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = val.target.value;
+      this.dispatchEvent(customEvent);
 
       // set flag empty on empty strings (for fat types)
       if (val.target.value) {

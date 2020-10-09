@@ -16,6 +16,13 @@ import './furo-ui5-data-checkbox-input.js';
  * @appliesMixin FBP
  */
 class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
+
+  /**
+   * Fired when the checkbox value changed.
+   * the event detail is the value of the checkbox
+   * @event value-changed
+   */
+
   constructor(props) {
     super(props);
     this.label = '';

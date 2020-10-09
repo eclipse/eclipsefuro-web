@@ -17,6 +17,13 @@ import './furo-ui5-form-field-container.js';
  * @appliesMixin FBP
  */
 class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
+
+  /**
+   * Fired when the input operation has finished by pressing Enter or on focusout.
+   * the event detail is the date in IOS 8601 format
+   * @event value-changed
+   */
+
   constructor(props) {
     super(props);
     this.label = '';

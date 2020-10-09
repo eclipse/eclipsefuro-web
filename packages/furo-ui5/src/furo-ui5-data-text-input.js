@@ -40,6 +40,13 @@ export class FuroUi5DataTextInput extends FuroUi5DataInput {
    * Fired when the user scrolls the suggestion popover.
    * @event suggestion-scroll
    */
+
+  /**
+   * Fired when the input value changed.
+   * the event detail is the value of the input field
+   * @event value-changed
+   */
+
   /**
    * apply the binding set to the binder
    * binding set can be customised here otherwise the standard set in the ui5-data-input will be used

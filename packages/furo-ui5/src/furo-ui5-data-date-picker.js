@@ -25,6 +25,12 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
    */
 
   /**
+   * Fired when the input operation has finished by pressing Enter or on focusout.
+   * the event detail is the date in IOS 8601 format
+   * @event value-changed
+   */
+
+  /**
    * Fired when the value of the ui5-date-picker is changed at each key stroke.
    * @event input
    */
@@ -111,6 +117,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
     // update the value on input changes
     this.addEventListener('change', val => {
       let dateValue = this.value;
+      const dateIOS8601 = FuroUi5DataDatePicker._convertDateToString(new Date(this.dateValue));
       if (this.binder.fieldNode) {
         if (
           this.binder.fieldNode._spec.type === 'google.type.Date' ||
@@ -122,7 +129,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
             this.binder.fieldNode._value,
           );
         } else if (this.binder.fieldNode._spec.type === 'string') {
-          dateValue = FuroUi5DataDatePicker._convertDateToString(new Date(this.dateValue));
+          dateValue = dateIOS8601;
         }
 
         if (JSON.stringify(this.binder.fieldValue) !== JSON.stringify(dateValue)) {
@@ -130,6 +137,15 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
           this.binder.fieldValue = dateValue;
         }
       }
+
+      /**
+       * Fired when datepicker value changed
+       * the event detail is the date in IOS 8601 format
+       * @type {Event}
+       */
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = dateIOS8601;
+      this.dispatchEvent(customEvent);
 
       // set flag empty on empty strings (for fat types)
       if (val.target.value) {

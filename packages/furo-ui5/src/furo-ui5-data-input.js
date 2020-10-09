@@ -13,6 +13,13 @@ import '@ui5/webcomponents/dist/features/InputSuggestions.js';
  * @demo demo-furo-fat-type furo fat type
  */
 export class FuroUi5DataInput extends Input.default {
+
+  /**
+   * Fired when the input value changed.
+   * the event detail is the value of the input field
+   * @event value-changed
+   */
+
   /**
    * constructor
    */
@@ -150,6 +157,14 @@ export class FuroUi5DataInput extends Input.default {
     // update the value on input changes
     this.addEventListener('input', val => {
       this.binder.fieldValue = val.target.value;
+
+      /**
+       * Fired when value changed
+       * @type {Event}
+       */
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = val.target.value;
+      this.dispatchEvent(customEvent);
 
       // set flag empty on empty strings (for fat types)
       if (val.target.value) {
