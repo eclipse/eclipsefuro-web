@@ -72,7 +72,7 @@ class DemoFuroUi5ReadonlyCard extends FBP(LitElement) {
             <div style="margin: var(--spacing)">
               <furo-form-layouter four>
 
-                <furo-ui5-data-display
+                <furo-ui5-data-display value-state="Critical"
                   ƒ-bind-data="--entity(*.data.description)"
                 ></furo-ui5-data-display>
                 <furo-ui5-data-display
@@ -87,7 +87,7 @@ class DemoFuroUi5ReadonlyCard extends FBP(LitElement) {
               </furo-form-layouter>
 
               <hr>
-              <furo-form-layouter four>
+              <furo-form-layouter two>
 
                 <furo-ui5-data-display
                   ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
