@@ -112,6 +112,11 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                   ƒ-bind-data="--entity(*.data.furo_data_money_input)"
                 ></furo-ui5-data-ro-labeled>
 
+                <furo-ui5-data-display
+                  label="data-display-labeled"
+                  ƒ-bind-data="--entity(*.data.furo_data_money_input)"
+                ></furo-ui5-data-display>
+
                 <furo-ui5-data-money-input-labeled
                   label="money input labeled"
                   ƒ-bind-data="--entity(*.data.furo_data_money_input)"
