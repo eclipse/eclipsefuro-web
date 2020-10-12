@@ -59,8 +59,9 @@ import { FBP } from '@furo/fbp/src/fbp.js';
  * Styling
  * Custom property | Description | Default
  * ----------------|-------------|----------
- * `--furo-ui5-form-field-container-grid-row-gap` | grid row gap | `1em`
- * `--furo-ui5-form-field-container-grid-column-gap` | grid column gap | `1em`
+ * `--furo-ui5-form-field-container-grid-row-gap` | `grid row gap` | `1em`
+ * `--furo-ui5-form-field-container-grid-column-gap` | `grid column gap` | `1em`
+ * `--furo-ui5-form-field-container-label-justify` | `label alignment (start, end)` | `end`
  *
  *
  * @summary form field container
@@ -163,7 +164,7 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
 
         ::slotted(*[label]) {
           grid-column: span 4;
-          justify-self: end;
+          justify-self: var(--furo-ui5-form-field-container-label-justify, end);
           align-self: center;
         }
 

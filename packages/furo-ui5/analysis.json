@@ -1199,7 +1199,7 @@
       "tagname": "furo-ui5-data-text-input"
     },
     {
-      "description": "`furo-ui5-form-field-container`\nThe furo-ui5-form-field-container gives the user a layout to manage\ninput field and labels according to the design specification of SAP Fiori.\n\nExample\n\n```html\n<furo-ui5-form-field-container>\n  <ui5-label label slot=\"label\" for=\"Custom\" show-colon>Currency / Units (custom)</ui5-label>\n  <furo-horizontal-flex id=\"Custom\" content space>\n    <furo-ui5-data-text-input flex ƒ-bind-data=\"--entity(*.data.furo_data_money_input.currency_code)\"></furo-ui5-data-text-input>\n    <furo-ui5-data-number-input flex ƒ-bind-data=\"--entity(*.data.furo_data_money_input.units)\"></furo-ui5-data-number-input>\n </furo-horizontal-flex>\n</furo-ui5-form-field-container>\n```\n\n\nThe form and simple form in size L use a two-column layout within the responsive grid layout by default.\nThat means that the form groups are placed next to each other to have all the information on one screen and to\navoid scrolling. In these columns, the labels are positioned in the same row as the corresponding input field or value.\nSo the form groups adopt the Z layout (reading direction in rows, not in columns).\n\nThe label-field ratio is 4:8:0 by default:\n\n4 grid columns of the responsive grid layout are used by the labels.\n8 grid columns of the responsive grid layout are used by fields.\n0 grid columns of the responsive grid layout are used by empty columns.\n\n\nSize M of the form and simple form also has a single-column layout within the responsive grid layout by default.\nHowever, in size M the labels are positioned in the same row as the corresponding input field or value, and form\ngroups are positioned below each other.\n\nThe label-field ratio is 2:10:0 by default:\n\n2 grid columns of the responsive grid layout are used by the labels.\n10 grid columns of the responsive grid layout are used by the fields.\n0 columns of the responsive grid layout are used by empty columns.\n\n\nSize S (Smartphones and Dialogs)\nThe form and simple form use a single-column layout within the responsive grid layout in size S by default.\nThis means that the form groups are positioned below each other in a single column and the labels are positioned\n`above` the fields to avoid truncation of the labels.\n\nThe label-field ratio is 12:12:0 by default:\n\n12 grid columns of the responsive grid layout are used by the labels.\n(A label handles the space of a whole row.)\n12 grid columns of the responsive grid layout are used by the fields.\n(A field handles the space of a whole row.)\n0 grid columns of the responsive grid layout are used by empty columns.\n(There is no empty space on the right of the field.)\n\nStyling\nCustom property | Description | Default\n----------------|-------------|----------\n`--furo-ui5-form-field-container-grid-row-gap` | grid row gap | `1em`\n`--furo-ui5-form-field-container-grid-column-gap` | grid column gap | `1em`",
+      "description": "`furo-ui5-form-field-container`\nThe furo-ui5-form-field-container gives the user a layout to manage\ninput field and labels according to the design specification of SAP Fiori.\n\nExample\n\n```html\n<furo-ui5-form-field-container>\n  <ui5-label label slot=\"label\" for=\"Custom\" show-colon>Currency / Units (custom)</ui5-label>\n  <furo-horizontal-flex id=\"Custom\" content space>\n    <furo-ui5-data-text-input flex ƒ-bind-data=\"--entity(*.data.furo_data_money_input.currency_code)\"></furo-ui5-data-text-input>\n    <furo-ui5-data-number-input flex ƒ-bind-data=\"--entity(*.data.furo_data_money_input.units)\"></furo-ui5-data-number-input>\n </furo-horizontal-flex>\n</furo-ui5-form-field-container>\n```\n\n\nThe form and simple form in size L use a two-column layout within the responsive grid layout by default.\nThat means that the form groups are placed next to each other to have all the information on one screen and to\navoid scrolling. In these columns, the labels are positioned in the same row as the corresponding input field or value.\nSo the form groups adopt the Z layout (reading direction in rows, not in columns).\n\nThe label-field ratio is 4:8:0 by default:\n\n4 grid columns of the responsive grid layout are used by the labels.\n8 grid columns of the responsive grid layout are used by fields.\n0 grid columns of the responsive grid layout are used by empty columns.\n\n\nSize M of the form and simple form also has a single-column layout within the responsive grid layout by default.\nHowever, in size M the labels are positioned in the same row as the corresponding input field or value, and form\ngroups are positioned below each other.\n\nThe label-field ratio is 2:10:0 by default:\n\n2 grid columns of the responsive grid layout are used by the labels.\n10 grid columns of the responsive grid layout are used by the fields.\n0 columns of the responsive grid layout are used by empty columns.\n\n\nSize S (Smartphones and Dialogs)\nThe form and simple form use a single-column layout within the responsive grid layout in size S by default.\nThis means that the form groups are positioned below each other in a single column and the labels are positioned\n`above` the fields to avoid truncation of the labels.\n\nThe label-field ratio is 12:12:0 by default:\n\n12 grid columns of the responsive grid layout are used by the labels.\n(A label handles the space of a whole row.)\n12 grid columns of the responsive grid layout are used by the fields.\n(A field handles the space of a whole row.)\n0 grid columns of the responsive grid layout are used by empty columns.\n(There is no empty space on the right of the field.)\n\nStyling\nCustom property | Description | Default\n----------------|-------------|----------\n`--furo-ui5-form-field-container-grid-row-gap` | `grid row gap` | `1em`\n`--furo-ui5-form-field-container-grid-column-gap` | `grid column gap` | `1em`\n`--furo-ui5-form-field-container-label-justify` | `label alignment (start, end)` | `end`",
       "summary": "form field container",
       "path": "src/furo-ui5-form-field-container.js",
       "properties": [],
@@ -1210,11 +1210,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 74,
+              "line": 75,
               "column": 2
             },
             "end": {
-              "line": 101,
+              "line": 102,
               "column": 3
             }
           },
@@ -1230,11 +1230,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 109,
+              "line": 110,
               "column": 2
             },
             "end": {
-              "line": 121,
+              "line": 122,
               "column": 3
             }
           },
@@ -1254,11 +1254,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 129,
               "column": 2
             },
             "end": {
-              "line": 133,
+              "line": 134,
               "column": 3
             }
           },
@@ -1278,11 +1278,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 220,
+              "line": 221,
               "column": 2
             },
             "end": {
-              "line": 228,
+              "line": 229,
               "column": 3
             }
           },
@@ -1303,11 +1303,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 70,
+          "line": 71,
           "column": 0
         },
         "end": {
-          "line": 229,
+          "line": 230,
           "column": 1
         }
       },
@@ -4592,7 +4592,7 @@
               "column": 2
             },
             "end": {
-              "line": 320,
+              "line": 321,
               "column": 3
             }
           },
@@ -4608,11 +4608,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 326,
+              "line": 327,
               "column": 2
             },
             "end": {
-              "line": 339,
+              "line": 340,
               "column": 3
             }
           },
@@ -4632,11 +4632,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 346,
+              "line": 347,
               "column": 2
             },
             "end": {
-              "line": 364,
+              "line": 365,
               "column": 3
             }
           },
@@ -4665,7 +4665,7 @@
           "column": 7
         },
         "end": {
-          "line": 365,
+          "line": 366,
           "column": 1
         }
       },
