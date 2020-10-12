@@ -16,6 +16,7 @@ import './furo-ui5-form-field-container.js';
  * @summary labeled input field
  * @customElement
  * @demo demo-furo-ui5-data-display Simple use
+ * @demo demo-furo-ui5-readonly-card Card Sample
  * @demo demo-furo-ui5-form-field-container Sample Form
  * @appliesMixin FBP
  */
