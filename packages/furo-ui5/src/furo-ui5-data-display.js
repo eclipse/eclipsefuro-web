@@ -68,16 +68,13 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
         :host([value-state='Information']) p {
           color: var(--sapInformativeColor, #0a6ed1);
         }
-        :host([value-state='Negative']) p {
-          color: var(--sapNegativeColor, #b00);
-        }
         :host([value-state='Error']) p {
           color: var(--sapNegativeColor, #b00);
         }
-        :host([value-state='Positive']) p {
+        :host([value-state='Success']) p {
           color: var(--sapPositiveColor, #107e3e);
         }
-        :host([value-state='Critical']) p {
+        :host([value-state='Warning']) p {
           color: var(--sapCrticalColor, #e9730c);
         }
       `,
