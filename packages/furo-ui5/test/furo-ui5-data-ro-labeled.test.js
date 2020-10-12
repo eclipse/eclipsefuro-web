@@ -120,9 +120,9 @@ describe('furo-ui5-data-ro-labeled', () => {
     await dao.updateComplete;
   });
 
-  it('should be a furo-ui5-data-display-labeled element', done => {
+  it('should be a furo-ui5-data-ro-labeled element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(display.nodeName.toLowerCase(), 'furo-ui5-data-display-labeled');
+    assert.equal(display.nodeName.toLowerCase(), 'furo-ui5-data-ro-labeled');
     done();
   });
 

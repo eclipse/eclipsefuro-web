@@ -9,7 +9,7 @@ import '@furo/testhelper/initEnv.js';
 
 import '../src/furo-catalog.js';
 
-describe('furo-ui5-data-ro', () => {
+describe('furo-ui5-data-display', () => {
   let host;
   let display;
   let dao;
@@ -102,9 +102,9 @@ describe('furo-ui5-data-ro', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-data-ro
+          <furo-ui5-data-display
             ƒ-bind-data="--entity(*.data.furo_data_date_input)"
-          ></furo-ui5-data-ro>
+          ></furo-ui5-data-display>
           <furo-data-object
             type="experiment.ExperimentEntity"
             @-object-ready="--entity"
@@ -120,9 +120,9 @@ describe('furo-ui5-data-ro', () => {
     await dao.updateComplete;
   });
 
-  it('should be a furo-ui5-data-ro element', done => {
+  it('should be a furo-ui5-data-display element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(display.nodeName.toLowerCase(), 'furo-ui5-data-ro');
+    assert.equal(display.nodeName.toLowerCase(), 'furo-ui5-data-display');
     done();
   });
 
@@ -130,7 +130,6 @@ describe('furo-ui5-data-ro', () => {
     dao.injectRaw(testRecordMeta);
     setTimeout(() => {
       assert.equal(display.value, '2019-02-22');
-      assert.equal(display._state.placeholder, 'date-input**');
       done();
     }, 16);
   });
