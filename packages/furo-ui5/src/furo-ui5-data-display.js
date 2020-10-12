@@ -25,6 +25,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.label = '';
+    this.valueState = '';
     this._initBinder();
   }
 
@@ -42,6 +43,10 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
        * the label for the data-text-input
        */
       label: { type: String },
+      /**
+       * Value State
+       */
+      valueState: {type: String, reflect: true, attribute: "value-state"}
     };
   }
 
@@ -64,6 +69,9 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
           color: var(--sapInformativeColor, #0a6ed1);
         }
         :host([value-state='Negative']) p {
+          color: var(--sapNegativeColor, #b00);
+        }
+        :host([value-state='Error']) p {
           color: var(--sapNegativeColor, #b00);
         }
         :host([value-state='Positive']) p {
@@ -101,12 +109,6 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
       icon: 'ui5Icon', // icon and leading icon maps to the same
       'leading-icon': 'ui5Icon', // icon and leading icon maps to the same
       'value-state': '_valueState',
-      errortext: '_errorMsg', // name errortext is for compatibility with spec
-      'error-msg': '_errorMsg',
-      'warning-msg': '_warningMsg',
-      'success-msg': '_successMsg',
-      'information-msg': '_informationMsg',
-      pattern: 'pattern',
       name: 'name',
     };
 
@@ -160,6 +162,15 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
       this.value = '';
     }
     this.requestUpdate();
+  }
+
+  /**
+   * Update the value state on change
+   * @param state
+   * @private
+   */
+  set _valueState(state) {
+    this.valueState = state || 'None';
   }
 
   /**
