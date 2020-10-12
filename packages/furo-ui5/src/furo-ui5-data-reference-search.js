@@ -314,6 +314,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
       })
       if (element[0] !== undefined && element[0].data && element[0].data[this.displayField]){
         this.filterValue = element[0].data[this.displayField];
+        this.value = element[0].data[this.displayField];
       }
 
     }
