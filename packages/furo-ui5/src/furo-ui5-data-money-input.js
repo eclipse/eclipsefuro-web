@@ -33,6 +33,11 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
    * @event value-changed
    */
 
+  constructor() {
+    super();
+    this._initBinder();
+  }
+
   /**
    * connectedCallback() method is called when an element is added to the DOM.
    * webcomponent lifecycle event
@@ -46,8 +51,6 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
     this._currencies = [];
     // init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
     this.value = { currency_code: 'CHF', units: null, nanos: null };
-
-    this._initBinder();
   }
 
   /**

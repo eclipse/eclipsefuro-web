@@ -30,10 +30,10 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
    * @event value-changed
    */
 
-  /**
-   * Fired when the value of the ui5-date-picker is changed at each key stroke.
-   * @event input
-   */
+  constructor() {
+    super();
+    this._initBinder();
+  }
 
   /**
    * connectedCallback() method is called when an element is added to the DOM.
@@ -47,7 +47,6 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
     setTimeout(() => {
       super.connectedCallback();
     }, 0);
-    this._initBinder();
     // this.formatPattern="dd.MM.yyyy";
   }
 
