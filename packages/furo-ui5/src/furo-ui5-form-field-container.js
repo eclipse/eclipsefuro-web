@@ -56,6 +56,11 @@ import { FBP } from '@furo/fbp/src/fbp.js';
  * 0 grid columns of the responsive grid layout are used by empty columns.
  * (There is no empty space on the right of the field.)
  *
+ * Styling
+ * Custom property | Description | Default
+ * ----------------|-------------|----------
+ * `--furo-ui5-form-field-container-grid-row-gap` | grid row gap | `1em`
+ * `--furo-ui5-form-field-container-grid-column-gap` | grid column gap | `1em`
  *
  *
  * @summary form field container
@@ -147,7 +152,8 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
         .container {
           display: grid;
           grid-template-columns: repeat(12, 1fr);
-          grid-gap: 1em;
+          grid-row-gap: var(--furo-ui5-form-field-container-grid-row-gap, 1em);
+          grid-column-gap: var(--furo-ui5-form-field-container-grid-column-gap, 1em);
         }
 
         ::slotted(*[content]) {

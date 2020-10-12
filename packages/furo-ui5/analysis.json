@@ -1199,7 +1199,7 @@
       "tagname": "furo-ui5-data-text-input"
     },
     {
-      "description": "`furo-ui5-form-field-container`\nThe furo-ui5-form-field-container gives the user a layout to manage\ninput field and labels according to the design specification of SAP Fiori.\n\nExample\n\n```html\n<furo-ui5-form-field-container>\n  <ui5-label label slot=\"label\" for=\"Custom\" show-colon>Currency / Units (custom)</ui5-label>\n  <furo-horizontal-flex id=\"Custom\" content space>\n    <furo-ui5-data-text-input flex ƒ-bind-data=\"--entity(*.data.furo_data_money_input.currency_code)\"></furo-ui5-data-text-input>\n    <furo-ui5-data-number-input flex ƒ-bind-data=\"--entity(*.data.furo_data_money_input.units)\"></furo-ui5-data-number-input>\n </furo-horizontal-flex>\n</furo-ui5-form-field-container>\n```\n\n\nThe form and simple form in size L use a two-column layout within the responsive grid layout by default.\nThat means that the form groups are placed next to each other to have all the information on one screen and to\navoid scrolling. In these columns, the labels are positioned in the same row as the corresponding input field or value.\nSo the form groups adopt the Z layout (reading direction in rows, not in columns).\n\nThe label-field ratio is 4:8:0 by default:\n\n4 grid columns of the responsive grid layout are used by the labels.\n8 grid columns of the responsive grid layout are used by fields.\n0 grid columns of the responsive grid layout are used by empty columns.\n\n\nSize M of the form and simple form also has a single-column layout within the responsive grid layout by default.\nHowever, in size M the labels are positioned in the same row as the corresponding input field or value, and form\ngroups are positioned below each other.\n\nThe label-field ratio is 2:10:0 by default:\n\n2 grid columns of the responsive grid layout are used by the labels.\n10 grid columns of the responsive grid layout are used by the fields.\n0 columns of the responsive grid layout are used by empty columns.\n\n\nSize S (Smartphones and Dialogs)\nThe form and simple form use a single-column layout within the responsive grid layout in size S by default.\nThis means that the form groups are positioned below each other in a single column and the labels are positioned\n`above` the fields to avoid truncation of the labels.\n\nThe label-field ratio is 12:12:0 by default:\n\n12 grid columns of the responsive grid layout are used by the labels.\n(A label handles the space of a whole row.)\n12 grid columns of the responsive grid layout are used by the fields.\n(A field handles the space of a whole row.)\n0 grid columns of the responsive grid layout are used by empty columns.\n(There is no empty space on the right of the field.)",
+      "description": "`furo-ui5-form-field-container`\nThe furo-ui5-form-field-container gives the user a layout to manage\ninput field and labels according to the design specification of SAP Fiori.\n\nExample\n\n```html\n<furo-ui5-form-field-container>\n  <ui5-label label slot=\"label\" for=\"Custom\" show-colon>Currency / Units (custom)</ui5-label>\n  <furo-horizontal-flex id=\"Custom\" content space>\n    <furo-ui5-data-text-input flex ƒ-bind-data=\"--entity(*.data.furo_data_money_input.currency_code)\"></furo-ui5-data-text-input>\n    <furo-ui5-data-number-input flex ƒ-bind-data=\"--entity(*.data.furo_data_money_input.units)\"></furo-ui5-data-number-input>\n </furo-horizontal-flex>\n</furo-ui5-form-field-container>\n```\n\n\nThe form and simple form in size L use a two-column layout within the responsive grid layout by default.\nThat means that the form groups are placed next to each other to have all the information on one screen and to\navoid scrolling. In these columns, the labels are positioned in the same row as the corresponding input field or value.\nSo the form groups adopt the Z layout (reading direction in rows, not in columns).\n\nThe label-field ratio is 4:8:0 by default:\n\n4 grid columns of the responsive grid layout are used by the labels.\n8 grid columns of the responsive grid layout are used by fields.\n0 grid columns of the responsive grid layout are used by empty columns.\n\n\nSize M of the form and simple form also has a single-column layout within the responsive grid layout by default.\nHowever, in size M the labels are positioned in the same row as the corresponding input field or value, and form\ngroups are positioned below each other.\n\nThe label-field ratio is 2:10:0 by default:\n\n2 grid columns of the responsive grid layout are used by the labels.\n10 grid columns of the responsive grid layout are used by the fields.\n0 columns of the responsive grid layout are used by empty columns.\n\n\nSize S (Smartphones and Dialogs)\nThe form and simple form use a single-column layout within the responsive grid layout in size S by default.\nThis means that the form groups are positioned below each other in a single column and the labels are positioned\n`above` the fields to avoid truncation of the labels.\n\nThe label-field ratio is 12:12:0 by default:\n\n12 grid columns of the responsive grid layout are used by the labels.\n(A label handles the space of a whole row.)\n12 grid columns of the responsive grid layout are used by the fields.\n(A field handles the space of a whole row.)\n0 grid columns of the responsive grid layout are used by empty columns.\n(There is no empty space on the right of the field.)\n\nStyling\nCustom property | Description | Default\n----------------|-------------|----------\n`--furo-ui5-form-field-container-grid-row-gap` | grid row gap | `1em`\n`--furo-ui5-form-field-container-grid-column-gap` | grid column gap | `1em`",
       "summary": "form field container",
       "path": "src/furo-ui5-form-field-container.js",
       "properties": [],
@@ -1210,11 +1210,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 69,
+              "line": 74,
               "column": 2
             },
             "end": {
-              "line": 96,
+              "line": 101,
               "column": 3
             }
           },
@@ -1230,11 +1230,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 104,
+              "line": 109,
               "column": 2
             },
             "end": {
-              "line": 116,
+              "line": 121,
               "column": 3
             }
           },
@@ -1254,11 +1254,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 128,
               "column": 2
             },
             "end": {
-              "line": 128,
+              "line": 133,
               "column": 3
             }
           },
@@ -1278,11 +1278,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 214,
+              "line": 220,
               "column": 2
             },
             "end": {
-              "line": 222,
+              "line": 228,
               "column": 3
             }
           },
@@ -1303,11 +1303,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 65,
+          "line": 70,
           "column": 0
         },
         "end": {
-          "line": 223,
+          "line": 229,
           "column": 1
         }
       },
@@ -10444,6 +10444,213 @@
       },
       "slots": [],
       "tagname": "furo-ui5-button"
+    },
+    {
+      "description": "`furo-ui5-data-display`\nThe furo-ui5-data-display is a composition to easily use a display field with label according\nto the design specification of SAP Fiori Design System.",
+      "summary": "labeled input field",
+      "path": "src/furo-ui5-data-display.js",
+      "properties": [
+        {
+          "name": "label",
+          "type": "string | null | undefined",
+          "description": "the label for the data-text-input",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 42,
+              "column": 6
+            },
+            "end": {
+              "line": 42,
+              "column": 29
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 32,
+              "column": 2
+            },
+            "end": {
+              "line": 35,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_initBinder",
+          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 2
+            },
+            "end": {
+              "line": 86,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "applyBindingSet",
+          "description": "apply the binding set to the binder\nbinding set can be customised here otherwise the standard set in the ui5-data-input will be used",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 93,
+              "column": 2
+            },
+            "end": {
+              "line": 122,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Binds the fieldNode to the component\nbinding set can be customised here otherwise the standard bindData in the ui5-data-input will be used",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 129,
+              "column": 2
+            },
+            "end": {
+              "line": 142,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateField",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 144,
+              "column": 2
+            },
+            "end": {
+              "line": 161,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 167,
+              "column": 2
+            },
+            "end": {
+              "line": 178,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "(TemplateResult | TemplateResult)"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-display",
+          "description": "Simple use"
+        },
+        {
+          "url": "demo-furo-ui5-form-field-container",
+          "description": "Sample Form"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 21,
+          "column": 0
+        },
+        "end": {
+          "line": 179,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroUi5DataDisplay",
+      "attributes": [
+        {
+          "name": "label",
+          "description": "the label for the data-text-input",
+          "sourceRange": {
+            "start": {
+              "line": 42,
+              "column": 6
+            },
+            "end": {
+              "line": 42,
+              "column": 29
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-display",
+      "mixins": [
+        "FBP"
+      ]
     }
   ],
   "classes": [
