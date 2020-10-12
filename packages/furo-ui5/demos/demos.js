@@ -15,6 +15,6 @@ import './demo-furo-ui5-data-toggle-button.js';
 import './demo-furo-ui5-data-property.js';
 import './demo-furo-ui5-message-strip-display.js';
 import './demo-furo-ui5-notification-list-display.js';
-import './demo-furo-ui5-data-display.js';
+import './demo-furo-ui5-data-ro.js';
 import './demo-furo-fat-type.js';
 import './demo-furo-ui5-button.js';

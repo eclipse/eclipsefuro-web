@@ -27,13 +27,13 @@ import '@ui5/webcomponents/dist/Icon.js';
 import '../src/lib/ui5-icons.js';
 
 /**
- * `demo-furo-ui5-data-display`
+ * `demo-furo-ui5-data-ro`
  *
- * @Summary basic usage of furo-ui5-data-display
+ * @Summary basic usage of furo-ui5-data-ro
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroUi5DataDisplay extends FBP(LitElement) {
+class DemoFuroUi5DataRo extends FBP(LitElement) {
   /**
    * Themable Styles
    * @private
@@ -85,26 +85,26 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>Demo furo-ui5-data-display</h2>
+      <h2>Demo furo-ui5-data-ro</h2>
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
             <p>Bound to scalar value:</p>
-            <furo-ui5-data-display
+            <furo-ui5-data-ro
               ƒ-bind-data="--entity(*.data.display_name)"
               value-state="Information"
             >
               <ui5-icon slot="icon" name="signature"></ui5-icon>
-            </furo-ui5-data-display>
+            </furo-ui5-data-ro>
 
             <p>Bound to complex Google Type Date:</p>
-            <furo-ui5-data-display
+            <furo-ui5-data-ro
               ƒ-bind-data="--entity(*.data.furo_data_date_input)"
-            ></furo-ui5-data-display>
+            ></furo-ui5-data-ro>
             <p>Bound to complex Google Type Money:</p>
-            <furo-ui5-data-display
+            <furo-ui5-data-ro
               ƒ-bind-data="--entity(*.data.furo_data_money_input)"
-            ></furo-ui5-data-display>
+            ></furo-ui5-data-ro>
           </furo-form-layouter>
 
           <furo-button-bar>
@@ -115,15 +115,15 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
             ui5-text-input with type furo.fat.String bindings.
           </p>
           <furo-form-layouter two>
-            <furo-ui5-data-display
+            <furo-ui5-data-ro
               ƒ-bind-data="--entityU(*.data.fat_string)"
-            ></furo-ui5-data-display>
-            <furo-ui5-data-display
+            ></furo-ui5-data-ro>
+            <furo-ui5-data-ro
               ƒ-bind-data="--entityU(*.data.wrapper_string)"
-            ></furo-ui5-data-display>
-            <furo-ui5-data-display
+            ></furo-ui5-data-ro>
+            <furo-ui5-data-ro
               ƒ-bind-data="--entityU(*.data.fat_int32)"
-            ></furo-ui5-data-display>
+            ></furo-ui5-data-ro>
           </furo-form-layouter>
 
           <fetch-universal-json
@@ -171,4 +171,4 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-ui5-data-display', DemoFuroUi5DataDisplay);
+window.customElements.define('demo-furo-ui5-data-ro', DemoFuroUi5DataRo);

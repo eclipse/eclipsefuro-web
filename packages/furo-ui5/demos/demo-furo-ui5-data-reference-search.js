@@ -46,14 +46,13 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
     return html`
       <furo-vertical-flex>
         <div>
-          <h2>Demo ...</h2>
-          <p>Describe your demo</p>
+          <h2>Demo furo-ui5-data-reference-search</h2>
+          <p>The search is started when the input has reached the value of min-term-length (default value: 0).</p>
         </div>
         <furo-demo-snippet flex>
           <template>
-            <furo-form-layouter four>
+            <furo-form-layouter two>
               <furo-ui5-data-reference-search
-                condensed
                 max-items-to-display="2"
                 display-field="name"
                 ƒ-bind-data="--entityReady(*.owner)"

@@ -1,16 +1,16 @@
 import { FuroUi5DataInput } from './furo-ui5-data-input.js';
 
 /**
- * The furo-ui5-data-display component allows the user to show text information.
+ * The furo-ui5-data-ro component allows the user to show text information.
  *
  * The text field is read-only (readonly property), and it can be enabled or disabled (enabled property).
  * To visualize semantic states, such as "error" or "warning", the valueState property is provided.
  *
  * @summary data display field
  * @customElement
- * @demo demo-furo-ui5-data-display Basic usage (scalar, fat, wrapper values)
+ * @demo demo-furo-ui5-data-ro Basic usage (scalar, fat, wrapper values)
  */
-export class FuroUi5DataDisplay extends FuroUi5DataInput {
+export class FuroUi5DataRo extends FuroUi5DataInput {
   /**
    * connectedCallback() method is called when an element is added to the DOM.
    * webcomponent lifecycle event
@@ -19,7 +19,6 @@ export class FuroUi5DataDisplay extends FuroUi5DataInput {
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
 
-    this.value = '';
     this.readonly = true;
   }
 
@@ -104,4 +103,4 @@ export class FuroUi5DataDisplay extends FuroUi5DataInput {
     }
   }
 }
-window.customElements.define('furo-ui5-data-display', FuroUi5DataDisplay);
+window.customElements.define('furo-ui5-data-ro', FuroUi5DataRo);

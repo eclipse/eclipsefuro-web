@@ -4598,7 +4598,7 @@
               "column": 2
             },
             "end": {
-              "line": 306,
+              "line": 320,
               "column": 3
             }
           },
@@ -4614,11 +4614,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 312,
+              "line": 326,
               "column": 2
             },
             "end": {
-              "line": 325,
+              "line": 339,
               "column": 3
             }
           },
@@ -4638,11 +4638,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 332,
+              "line": 346,
               "column": 2
             },
             "end": {
-              "line": 350,
+              "line": 364,
               "column": 3
             }
           },
@@ -4671,7 +4671,7 @@
           "column": 7
         },
         "end": {
-          "line": 351,
+          "line": 365,
           "column": 1
         }
       },
@@ -6836,11 +6836,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 243,
               "column": 2
             },
             "end": {
-              "line": 227,
+              "line": 245,
               "column": 3
             }
           },
@@ -6855,11 +6855,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 253,
+              "line": 271,
               "column": 2
             },
             "end": {
-              "line": 259,
+              "line": 277,
               "column": 3
             }
           },
@@ -6875,11 +6875,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 32,
+              "line": 39,
               "column": 2
             },
             "end": {
-              "line": 43,
+              "line": 50,
               "column": 3
             }
           },
@@ -6895,11 +6895,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 50,
+              "line": 57,
               "column": 2
             },
             "end": {
-              "line": 100,
+              "line": 92,
               "column": 3
             }
           },
@@ -6915,11 +6915,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 98,
               "column": 2
             },
             "end": {
-              "line": 119,
+              "line": 137,
               "column": 3
             }
           },
@@ -6935,11 +6935,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 141,
               "column": 2
             },
             "end": {
-              "line": 146,
+              "line": 164,
               "column": 3
             }
           },
@@ -6962,11 +6962,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 176,
+              "line": 194,
               "column": 2
             },
             "end": {
-              "line": 200,
+              "line": 218,
               "column": 3
             }
           },
@@ -6988,11 +6988,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 224,
               "column": 2
             },
             "end": {
-              "line": 219,
+              "line": 237,
               "column": 3
             }
           },
@@ -7008,11 +7008,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 251,
               "column": 2
             },
             "end": {
-              "line": 247,
+              "line": 265,
               "column": 3
             }
           },
@@ -7032,11 +7032,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 265,
+              "line": 283,
               "column": 2
             },
             "end": {
-              "line": 276,
+              "line": 294,
               "column": 3
             }
           },
@@ -7056,11 +7056,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 278,
+              "line": 296,
               "column": 2
             },
             "end": {
-              "line": 290,
+              "line": 308,
               "column": 3
             }
           },
@@ -7076,11 +7076,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 325,
+              "line": 343,
               "column": 2
             },
             "end": {
-              "line": 344,
+              "line": 363,
               "column": 3
             }
           },
@@ -7105,7 +7105,7 @@
           "column": 0
         },
         "end": {
-          "line": 345,
+          "line": 364,
           "column": 1
         }
       },
@@ -7118,11 +7118,11 @@
           "description": "the option object defines the currencies dropdown\n'{\"list\": [ \"chf\",\"eur\",\"usd\" ]}'\n'{\"list\": [ {\"id\":\"CHF\",\"label\":\"Schweiz\"},{\"id\":\"EUR\",\"label\":\"Europa\", \"selected\": true}'",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 243,
               "column": 2
             },
             "end": {
-              "line": 227,
+              "line": 245,
               "column": 3
             }
           },
@@ -7134,11 +7134,11 @@
           "description": "the string list of currencies for the dropdown. e.g. \"CHF,EUR,USD\"",
           "sourceRange": {
             "start": {
-              "line": 253,
+              "line": 271,
               "column": 2
             },
             "end": {
-              "line": 259,
+              "line": 277,
               "column": 3
             }
           },
@@ -7146,7 +7146,14 @@
           "type": "string | null | undefined"
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "value-changed",
+          "description": "Fired when the input value changed.\nthe event detail is the value of google.type.Money object",
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -7169,11 +7176,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 36,
+              "line": 43,
               "column": 6
             },
             "end": {
-              "line": 36,
+              "line": 43,
               "column": 29
             }
           },
@@ -7191,11 +7198,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 26,
+              "line": 33,
               "column": 2
             },
             "end": {
-              "line": 29,
+              "line": 36,
               "column": 3
             }
           },
@@ -7211,11 +7218,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 58,
+              "line": 65,
               "column": 2
             },
             "end": {
-              "line": 60,
+              "line": 67,
               "column": 3
             }
           },
@@ -7235,11 +7242,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 66,
+              "line": 73,
               "column": 2
             },
             "end": {
-              "line": 78,
+              "line": 85,
               "column": 3
             }
           },
@@ -7264,7 +7271,7 @@
           "column": 0
         },
         "end": {
-          "line": 79,
+          "line": 86,
           "column": 1
         }
       },
@@ -7277,11 +7284,11 @@
           "description": "the label for the data-money-input",
           "sourceRange": {
             "start": {
-              "line": 36,
+              "line": 43,
               "column": 6
             },
             "end": {
-              "line": 36,
+              "line": 43,
               "column": 29
             }
           },
@@ -7289,7 +7296,14 @@
           "type": "string | null | undefined"
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "value-changed",
+          "description": "Fired when the input value changed.\nthe event detail is the value of google.type.Money object",
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -7312,11 +7326,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 47,
+              "line": 41,
               "column": 4
             },
             "end": {
-              "line": 47,
+              "line": 41,
               "column": 17
             }
           },
@@ -7334,11 +7348,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 52,
+              "line": 46,
               "column": 4
             },
             "end": {
-              "line": 52,
+              "line": 46,
               "column": 21
             }
           },
@@ -7356,11 +7370,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 58,
+              "line": 52,
               "column": 4
             },
             "end": {
-              "line": 58,
+              "line": 52,
               "column": 19
             }
           },
@@ -7378,11 +7392,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 66,
+              "line": 60,
               "column": 4
             },
             "end": {
-              "line": 66,
+              "line": 60,
               "column": 22
             }
           },
@@ -7400,11 +7414,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 74,
+              "line": 68,
               "column": 4
             },
             "end": {
-              "line": 74,
+              "line": 68,
               "column": 24
             }
           },
@@ -7422,11 +7436,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 284,
+              "line": 278,
               "column": 2
             },
             "end": {
-              "line": 312,
+              "line": 306,
               "column": 3
             }
           },
@@ -7444,11 +7458,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 131,
+              "line": 125,
               "column": 2
             },
             "end": {
-              "line": 152,
+              "line": 146,
               "column": 3
             }
           },
@@ -7474,11 +7488,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 159,
+              "line": 153,
               "column": 2
             },
             "end": {
-              "line": 218,
+              "line": 212,
               "column": 3
             }
           },
@@ -7494,11 +7508,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 220,
+              "line": 214,
               "column": 2
             },
             "end": {
-              "line": 230,
+              "line": 224,
               "column": 3
             }
           },
@@ -7515,11 +7529,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 237,
+              "line": 231,
               "column": 2
             },
             "end": {
-              "line": 241,
+              "line": 235,
               "column": 3
             }
           },
@@ -7539,11 +7553,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 248,
+              "line": 242,
               "column": 2
             },
             "end": {
-              "line": 274,
+              "line": 268,
               "column": 3
             }
           },
@@ -7563,11 +7577,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 280,
+              "line": 274,
               "column": 2
             },
             "end": {
-              "line": 282,
+              "line": 276,
               "column": 3
             }
           },
@@ -7587,11 +7601,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 320,
+              "line": 314,
               "column": 2
             },
             "end": {
-              "line": 339,
+              "line": 333,
               "column": 3
             }
           },
@@ -7611,11 +7625,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 348,
+              "line": 342,
               "column": 2
             },
             "end": {
-              "line": 385,
+              "line": 379,
               "column": 3
             }
           },
@@ -7635,11 +7649,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 391,
+              "line": 385,
               "column": 2
             },
             "end": {
-              "line": 408,
+              "line": 402,
               "column": 3
             }
           },
@@ -7659,11 +7673,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 415,
+              "line": 409,
               "column": 2
             },
             "end": {
-              "line": 451,
+              "line": 445,
               "column": 3
             }
           },
@@ -7683,11 +7697,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 458,
+              "line": 452,
               "column": 2
             },
             "end": {
-              "line": 485,
+              "line": 479,
               "column": 3
             }
           },
@@ -7707,11 +7721,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 495,
+              "line": 489,
               "column": 2
             },
             "end": {
-              "line": 497,
+              "line": 491,
               "column": 3
             }
           },
@@ -7731,11 +7745,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 504,
+              "line": 498,
               "column": 2
             },
             "end": {
-              "line": 560,
+              "line": 554,
               "column": 3
             }
           },
@@ -7757,11 +7771,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 566,
+              "line": 560,
               "column": 2
             },
             "end": {
-              "line": 568,
+              "line": 562,
               "column": 3
             }
           },
@@ -7781,11 +7795,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 571,
+              "line": 565,
               "column": 2
             },
             "end": {
-              "line": 585,
+              "line": 579,
               "column": 3
             }
           },
@@ -7801,11 +7815,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 593,
+              "line": 587,
               "column": 2
             },
             "end": {
-              "line": 606,
+              "line": 600,
               "column": 3
             }
           },
@@ -7825,11 +7839,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 612,
+              "line": 606,
               "column": 2
             },
             "end": {
-              "line": 614,
+              "line": 608,
               "column": 3
             }
           },
@@ -7849,11 +7863,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 616,
+              "line": 610,
               "column": 2
             },
             "end": {
-              "line": 627,
+              "line": 621,
               "column": 3
             }
           },
@@ -7870,11 +7884,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 647,
+              "line": 641,
               "column": 2
             },
             "end": {
-              "line": 663,
+              "line": 657,
               "column": 3
             }
           },
@@ -7894,11 +7908,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 669,
+              "line": 663,
               "column": 2
             },
             "end": {
-              "line": 671,
+              "line": 665,
               "column": 3
             }
           },
@@ -7927,7 +7941,7 @@
           "column": 7
         },
         "end": {
-          "line": 672,
+          "line": 666,
           "column": 1
         }
       },
@@ -7940,11 +7954,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 122,
               "column": 12
             },
             "end": {
-              "line": 128,
+              "line": 122,
               "column": 25
             }
           },
@@ -7955,11 +7969,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 122,
               "column": 27
             },
             "end": {
-              "line": 128,
+              "line": 122,
               "column": 42
             }
           },
@@ -7970,11 +7984,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 122,
               "column": 44
             },
             "end": {
-              "line": 128,
+              "line": 122,
               "column": 55
             }
           },
@@ -7985,11 +7999,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 122,
               "column": 57
             },
             "end": {
-              "line": 128,
+              "line": 122,
               "column": 74
             }
           },
@@ -8000,11 +8014,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 122,
               "column": 76
             },
             "end": {
-              "line": 128,
+              "line": 122,
               "column": 95
             }
           },
@@ -8027,7 +8041,7 @@
         {
           "type": "CustomEvent",
           "name": "value-changed",
-          "description": "Fired when the ui5-radiobutton selected state changes.\nthe event detail is the value of the selected state.",
+          "description": "value-changed\nFired when value has changed from the component inside.\n\ndetail payload: {*} the value from the value-field. By default the value field is \"id\"\n\n*bubbles**",
           "metadata": {}
         }
       ],
@@ -9758,9 +9772,9 @@
       "tagname": "furo-ui5-notification"
     },
     {
-      "description": "The furo-ui5-data-display component allows the user to show text information.\n\nThe text field is read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.",
+      "description": "The furo-ui5-data-ro component allows the user to show text information.\n\nThe text field is read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.",
       "summary": "data display field",
-      "path": "src/furo-ui5-data-display.js",
+      "path": "src/furo-ui5-data-ro.js",
       "properties": [
         {
           "name": "accInfo",
@@ -10004,7 +10018,7 @@
               "column": 2
             },
             "end": {
-              "line": 23,
+              "line": 22,
               "column": 3
             }
           },
@@ -10042,11 +10056,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 30,
+              "line": 29,
               "column": 2
             },
             "end": {
-              "line": 59,
+              "line": 58,
               "column": 3
             }
           },
@@ -10062,11 +10076,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 83,
+              "line": 82,
               "column": 2
             },
             "end": {
-              "line": 86,
+              "line": 85,
               "column": 3
             }
           },
@@ -10086,11 +10100,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 66,
+              "line": 65,
               "column": 2
             },
             "end": {
-              "line": 77,
+              "line": 76,
               "column": 3
             }
           },
@@ -10158,11 +10172,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 88,
+              "line": 87,
               "column": 2
             },
             "end": {
-              "line": 104,
+              "line": 103,
               "column": 3
             }
           },
@@ -10176,7 +10190,7 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-data-display",
+          "url": "demo-furo-ui5-data-ro",
           "description": "Basic usage (scalar, fat, wrapper values)"
         }
       ],
@@ -10187,13 +10201,13 @@
           "column": 7
         },
         "end": {
-          "line": 105,
+          "line": 104,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "FuroUi5DataInput",
-      "name": "FuroUi5DataDisplay",
+      "name": "FuroUi5DataRo",
       "attributes": [],
       "events": [
         {
@@ -10209,12 +10223,12 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-ui5-data-display"
+      "tagname": "furo-ui5-data-ro"
     },
     {
-      "description": "`furo-ui5-data-display-labeled`\nThe furo-ui5-data-display-labeled is a composition to easily use a complete input field with label according\nto the design specification of SAP Fiori Design System.",
+      "description": "`furo-ui5-data-ro-labeled`\nThe furo-ui5-data-ro-labeled is a composition to easily use a complete input field with label according\nto the design specification of SAP Fiori Design System.",
       "summary": "labeled display field",
-      "path": "src/furo-ui5-data-display-labeled.js",
+      "path": "src/furo-ui5-data-ro-labeled.js",
       "properties": [
         {
           "name": "label",
@@ -10324,7 +10338,7 @@
       },
       "privacy": "public",
       "superclass": "HTMLElement",
-      "name": "FuroUi5DataDisplayLabeled",
+      "name": "FuroUi5DataRoLabeled",
       "attributes": [
         {
           "name": "label",
@@ -10349,7 +10363,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-ui5-data-display-labeled",
+      "tagname": "furo-ui5-data-ro-labeled",
       "mixins": [
         "FBP"
       ]
