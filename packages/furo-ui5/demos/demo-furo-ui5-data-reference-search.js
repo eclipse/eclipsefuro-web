@@ -47,7 +47,10 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
       <furo-vertical-flex>
         <div>
           <h2>Demo furo-ui5-data-reference-search</h2>
-          <p>The search is started when the input has reached the value of min-term-length (default value: 0).</p>
+          <p>
+            The search is started when the input has reached the value of min-term-length (default
+            value: 0).
+          </p>
         </div>
         <furo-demo-snippet flex>
           <template>

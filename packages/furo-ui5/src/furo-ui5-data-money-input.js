@@ -26,7 +26,6 @@ import './furo-ui5-data-text-input.js';
  * @mixes FBP
  */
 class FuroUi5DataMoneyInput extends FBP(LitElement) {
-
   /**
    * Fired when the input value changed.
    * the event detail is the value of google.type.Money object
@@ -104,15 +103,13 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
 
     // update value when the amount changed
     this._FBPAddWireHook('--inputInput', e => {
-
       if (e.path[0].nodeName === 'UI5-INPUT') {
         this.binder.fieldValue = this._convertDataToMoneyObj(
           '',
           e.path[0].value,
           this.binder.fieldNode._value,
         );
-      }
-      else {
+      } else {
         this.binder.fieldValue = this._convertDataToMoneyObj(
           e.path[0].value,
           '',
@@ -127,7 +124,6 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = this.binder.fieldNode._value;
       this.dispatchEvent(customEvent);
-
 
       // set flag empty on empty object
       if (this.binder.fieldValue) {

@@ -306,19 +306,17 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
     // }
 
     if (this.binder.fieldNode.id._value !== undefined) {
-      const element = this._collection.filter((e) => {
+      const element = this._collection.filter(e => {
         if (e.data[this.valueField] === this.binder.fieldNode.id._value) {
-          return e
+          return e;
         }
         return undefined;
-      })
-      if (element[0] !== undefined && element[0].data && element[0].data[this.displayField]){
+      });
+      if (element[0] !== undefined && element[0].data && element[0].data[this.displayField]) {
         this.filterValue = element[0].data[this.displayField];
         this.value = element[0].data[this.displayField];
       }
-
     }
-
   }
 
   /**

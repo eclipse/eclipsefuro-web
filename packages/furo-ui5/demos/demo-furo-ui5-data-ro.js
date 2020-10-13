@@ -90,10 +90,7 @@ class DemoFuroUi5DataRo extends FBP(LitElement) {
         <template>
           <furo-form-layouter one>
             <p>Bound to scalar value:</p>
-            <furo-ui5-data-ro
-              ƒ-bind-data="--entity(*.data.display_name)"
-              value-state="Information"
-            >
+            <furo-ui5-data-ro ƒ-bind-data="--entity(*.data.display_name)" value-state="Information">
               <ui5-icon slot="icon" name="signature"></ui5-icon>
             </furo-ui5-data-ro>
 
@@ -115,15 +112,9 @@ class DemoFuroUi5DataRo extends FBP(LitElement) {
             ui5-text-input with type furo.fat.String bindings.
           </p>
           <furo-form-layouter two>
-            <furo-ui5-data-ro
-              ƒ-bind-data="--entityU(*.data.fat_string)"
-            ></furo-ui5-data-ro>
-            <furo-ui5-data-ro
-              ƒ-bind-data="--entityU(*.data.wrapper_string)"
-            ></furo-ui5-data-ro>
-            <furo-ui5-data-ro
-              ƒ-bind-data="--entityU(*.data.fat_int32)"
-            ></furo-ui5-data-ro>
+            <furo-ui5-data-ro ƒ-bind-data="--entityU(*.data.fat_string)"></furo-ui5-data-ro>
+            <furo-ui5-data-ro ƒ-bind-data="--entityU(*.data.wrapper_string)"></furo-ui5-data-ro>
+            <furo-ui5-data-ro ƒ-bind-data="--entityU(*.data.fat_int32)"></furo-ui5-data-ro>
           </furo-form-layouter>
 
           <fetch-universal-json

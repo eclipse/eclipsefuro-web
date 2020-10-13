@@ -16,7 +16,6 @@ import './furo-ui5-data-textarea-input.js';
  * @appliesMixin FBP
  */
 class FuroUi5DataTextareaInputLabeled extends FBP(LitElement) {
-
   /**
    * Fired when the input value changed.
    * the event detail is the value of the input field

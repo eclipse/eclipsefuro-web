@@ -333,12 +333,10 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       collection.forEach(element => {
         const tmpValue = {};
         arrSubfieldChains.forEach(s => {
-
-          if(element[s]) {
-            Object.assign(tmpValue ,  element[s]);
-          }
-          else {
-            Object.assign(tmpValue ,  element);
+          if (element[s]) {
+            Object.assign(tmpValue, element[s]);
+          } else {
+            Object.assign(tmpValue, element);
           }
         });
         tmpValue._original = element;

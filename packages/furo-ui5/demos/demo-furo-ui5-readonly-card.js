@@ -1,25 +1,25 @@
-import { LitElement, html, css } from 'lit-element'
-import { Theme } from '@furo/framework/src/theme'
-import { FBP } from '@furo/fbp/src/fbp.js'
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp/src/fbp.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/doc-helper'
+import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5/src/furo-catalog.js'
+import '@furo/ui5/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-data-object.js'
+import '@furo/data/src/furo-data-object.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-entity-agent.js'
+import '@furo/data/src/furo-entity-agent.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-deep-link.js'
+import '@furo/data/src/furo-deep-link.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-form-layouter.js'
+import '@furo/form/src/furo-form-layouter.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-button-bar.js'
+import '@furo/form/src/furo-button-bar.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-input/demos/helper/produce-qp-data.js'
+import '@furo/data-input/demos/helper/produce-qp-data.js';
 
-import '@ui5/webcomponents/dist/Card.js'
+import '@ui5/webcomponents/dist/Card.js';
 
 /**
  * `demo-furo-ui5-readonly-card`
@@ -55,7 +55,7 @@ class DemoFuroUi5ReadonlyCard extends FBP(LitElement) {
           height: 100%;
         }
       `
-    )
+    );
   }
 
   /**
@@ -71,8 +71,8 @@ class DemoFuroUi5ReadonlyCard extends FBP(LitElement) {
           <ui5-card heading="How to display data in a card." subheading="Secondary description">
             <div style="margin: var(--spacing)">
               <furo-form-layouter four>
-
-                <furo-ui5-data-display value-state="Critical"
+                <furo-ui5-data-display
+                  value-state="Critical"
                   ƒ-bind-data="--entity(*.data.description)"
                 ></furo-ui5-data-display>
                 <furo-ui5-data-display
@@ -86,9 +86,8 @@ class DemoFuroUi5ReadonlyCard extends FBP(LitElement) {
                 ></furo-ui5-data-display>
               </furo-form-layouter>
 
-              <hr>
+              <hr />
               <furo-form-layouter two>
-
                 <furo-ui5-data-display
                   ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
                 ></furo-ui5-data-display>
@@ -102,7 +101,6 @@ class DemoFuroUi5ReadonlyCard extends FBP(LitElement) {
                   ƒ-bind-data="--entity(*.data.furo_data_date_input)"
                 ></furo-ui5-data-display>
               </furo-form-layouter>
-
             </div>
             <furo-button-bar slot="action">
               <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
@@ -139,8 +137,8 @@ class DemoFuroUi5ReadonlyCard extends FBP(LitElement) {
           </furo-collection-agent>
         </template>
       </furo-demo-snippet>
-    `
+    `;
   }
 }
 
-window.customElements.define('demo-furo-ui5-readonly-card', DemoFuroUi5ReadonlyCard)
+window.customElements.define('demo-furo-ui5-readonly-card', DemoFuroUi5ReadonlyCard);

@@ -102,9 +102,7 @@ describe('furo-ui5-data-ro', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-data-ro
-            ƒ-bind-data="--entity(*.data.furo_data_date_input)"
-          ></furo-ui5-data-ro>
+          <furo-ui5-data-ro ƒ-bind-data="--entity(*.data.furo_data_date_input)"></furo-ui5-data-ro>
           <furo-data-object
             type="experiment.ExperimentEntity"
             @-object-ready="--entity"

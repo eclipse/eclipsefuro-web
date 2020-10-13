@@ -7,7 +7,6 @@ import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 import '@ui5/webcomponents/dist/Label.js';
 import './furo-ui5-form-field-container.js';
 
-
 /**
  * `furo-ui5-data-display`
  * The furo-ui5-data-display is a composition to easily use a display field with label according
@@ -21,7 +20,6 @@ import './furo-ui5-form-field-container.js';
  * @appliesMixin FBP
  */
 class FuroUi5DataDisplay extends FBP(LitElement) {
-
   constructor(props) {
     super(props);
     this.label = '';
@@ -46,7 +44,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
       /**
        * Value State
        */
-      valueState: {type: String, reflect: true, attribute: "value-state"}
+      valueState: { type: String, reflect: true, attribute: 'value-state' },
     };
   }
 
@@ -179,10 +177,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
     return html`
       <furo-ui5-form-field-container>
         <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
-        <p
-          content
-          id="Input"
-        >${this.value}</p>
+        <p content id="Input">${this.value}</p>
       </furo-ui5-form-field-container>
     `;
   }

@@ -13,7 +13,6 @@ import '@ui5/webcomponents/dist/features/InputSuggestions.js';
  * @demo demo-furo-fat-type furo fat type
  */
 export class FuroUi5DataInput extends Input.default {
-
   /**
    * Fired when the input value changed.
    * the event detail is the value of the input field
