@@ -25,7 +25,6 @@
       "./_scripts/hook-init-form.js",
       "./_scripts/hook-init-repeat.js",
       "./_scripts/hook-init-create-form.js",
-      "./_scripts/hook-init-create-form-ui5.js",
       "./_scripts/hook-init-create-widget.js",
       "./_scripts/hook-init-display.js"
     ]

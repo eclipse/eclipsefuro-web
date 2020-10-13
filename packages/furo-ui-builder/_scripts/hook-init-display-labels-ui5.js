@@ -1,16 +1,17 @@
 /**
- * UI Builder Hook: HookInitDisplayUi5
- * is a ui Builder hook for message types. The hook creates a form with read only input fields per attribute.
+ * UI Builder Hook: HookInitDisplayLabelsUi5
+ * is a ui Builder hook for message types. The hook creates a form with labels per attribute.
+ * Use this hook to display data within a card or in read only sections.
  * @type {U33eBuilder}
  */
 const U33eBuilder = require("./u33eBuilder");
 
-class HookInitDisplayUi5 {
+class HookInitDisplayLabelsUi5 {
   static getPath(ctx){
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-display").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-display-labels").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
@@ -27,8 +28,8 @@ class HookInitDisplayUi5 {
       }
     })();
 
-    u33e.setTheme("DisplayBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-display").toLowerCase();
+    u33e.setTheme("DisplayLabelsBaseTheme");
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-display-labels").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -89,7 +90,7 @@ class HookInitDisplayUi5 {
       }
 
       // let component = U33eBuilder.getBestMatchingComponent(field);
-      let component = "furo-ui5-data-ro-labeled";
+      let component = "furo-ui5-data-display";
 
       let fld = form.appendChild(component);
 
@@ -127,10 +128,10 @@ class HookInitDisplayUi5 {
 
 
       let arrTmpName = field.type.split(".");
-      //  complex type has a cutom form component
+      //  complex type has a custom form component
 
       if (arrTmpName.length > 1 && arrTmpName[0] != "google" && !U33eBuilder.checkMatching(field) && !field.type.startsWith("google.protobuf")) {
-        component = field.type.toLowerCase().split(".").join("-") + "-display";
+        component = field.type.toLowerCase().split(".").join("-") + "-display-labels";
         fld.component = component;
         // change flag double to full
         let flagIndex = fld.flags.indexOf("double");
@@ -212,4 +213,4 @@ class HookInitDisplayUi5 {
   }
 }
 
-module.exports = HookInitDisplayUi5;
+module.exports = HookInitDisplayLabelsUi5;
