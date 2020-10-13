@@ -9,7 +9,7 @@ import '@furo/testhelper/initEnv.js';
 
 import '../src/furo-catalog.js';
 
-describe('furo-ui5-data-display', () => {
+describe('furo-ui5-data-ro-labeled', () => {
   let host;
   let display;
   let dao;
@@ -102,9 +102,9 @@ describe('furo-ui5-data-display', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-data-display
+          <furo-ui5-data-ro-labeled
             ƒ-bind-data="--entity(*.data.furo_data_date_input)"
-          ></furo-ui5-data-display>
+          ></furo-ui5-data-ro-labeled>
           <furo-data-object
             type="experiment.ExperimentEntity"
             @-object-ready="--entity"
@@ -120,20 +120,30 @@ describe('furo-ui5-data-display', () => {
     await dao.updateComplete;
   });
 
-  it('should be a furo-ui5-data-display element', done => {
+  it('should be a furo-ui5-data-ro-labeled element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(display.nodeName.toLowerCase(), 'furo-ui5-data-display');
+    assert.equal(display.nodeName.toLowerCase(), 'furo-ui5-data-ro-labeled');
     done();
   });
 
   it('should update the display part of the component', done => {
     dao.injectRaw(testRecordMeta);
     setTimeout(() => {
-      assert.equal(display.value, '2019-02-22');
+      assert.equal(display._field._value, '2019-02-22');
+      done();
+    }, 16);
+  });
+
+  it('should have a label component', done => {
+    dao.injectRaw(testRecordMeta);
+    setTimeout(() => {
+      const label = display.shadowRoot.querySelector('ui5-label');
+      assert.equal(label.innerText, 'date-input**', 'check label text');
+
       done();
     }, 16);
   });
 
   // axeReport a11y tests
-  xit('a11y', () => axeReport(input));
+  xit('a11y', () => axeReport(display));
 });

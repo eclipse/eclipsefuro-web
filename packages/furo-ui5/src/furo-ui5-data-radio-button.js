@@ -27,6 +27,12 @@ export class FuroUi5DataRadioButton extends RadioButton.default {
    */
 
   /**
+   * Fired when the ui5-radiobutton selected state changes.
+   * the event detail is the value of the selected state.
+   * @event value-changed
+   */
+
+  /**
    * connectedCallback() method is called when an element is added to the DOM.
    * webcomponent lifecycle event
    */
@@ -94,6 +100,14 @@ export class FuroUi5DataRadioButton extends RadioButton.default {
     this.addEventListener('select', val => {
       // update the value
       this.binder.fieldValue = val.target.selected;
+
+      /**
+       * Fired when value changed
+       * @type {Event}
+       */
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = val.target.selected;
+      this.dispatchEvent(customEvent);
 
       // set flag empty on empty strings (for fat types)
       if (val.target.value) {

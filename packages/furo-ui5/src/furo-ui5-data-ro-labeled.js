@@ -3,11 +3,11 @@ import { FBP } from '@furo/fbp/src/fbp.js';
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 
 import './furo-ui5-form-field-container.js';
-import './furo-ui5-data-display.js';
+import './furo-ui5-data-ro.js';
 
 /**
- * `furo-ui5-data-display-labeled`
- * The furo-ui5-data-display-labeled is a composition to easily use a complete input field with label according
+ * `furo-ui5-data-ro-labeled`
+ * The furo-ui5-data-ro-labeled is a composition to easily use a complete input field with label according
  * to the design specification of SAP Fiori Design System.
  *
  * @summary labeled display field
@@ -15,7 +15,7 @@ import './furo-ui5-data-display.js';
  * @demo demo-furo-ui5-form-field-container Simple use
  * @appliesMixin FBP
  */
-class FuroUi5DataDisplayLabeled extends FBP(LitElement) {
+class FuroUi5DataRoLabeled extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.label = '';
@@ -69,10 +69,10 @@ class FuroUi5DataDisplayLabeled extends FBP(LitElement) {
     return html`
       <furo-ui5-form-field-container>
         <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
-        <furo-ui5-data-display content id="Input" ƒ-bind-data="--data"></furo-ui5-data-display>
+        <furo-ui5-data-ro content id="Input" ƒ-bind-data="--data"></furo-ui5-data-ro>
       </furo-ui5-form-field-container>
     `;
   }
 }
 
-window.customElements.define('furo-ui5-data-display-labeled', FuroUi5DataDisplayLabeled);
+window.customElements.define('furo-ui5-data-ro-labeled', FuroUi5DataRoLabeled);

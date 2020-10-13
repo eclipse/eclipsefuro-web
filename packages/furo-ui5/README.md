@@ -27,6 +27,7 @@ For seamless integration into the Furo environment, we have slightly extended so
 - [furo-ui5-data-reference-search](https://components.furo.pro/?t=FuroUi5DataReferenceSearch) a reference search component 
 - [furo-ui5-data-segmented-button](https://components.furo.pro/?t=FuroUi5DataSegmentedButton) a segmented button component 
 - [furo-ui5-data-toggle-button](https://components.furo.pro/?t=FuroUi5DataToggleButton) a toggle button component 
+- [furo-ui5-data-ro](https://components.furo.pro/?t=FuroUi5DataRo) a read only field component 
 - [furo-ui5-data-display](https://components.furo.pro/?t=FuroUi5DataDisplay) a display field component 
 - [furo-ui5-button](https://components.furo.pro/?t=FuroUi5Button) a simple button with convenience functions 
 
@@ -40,7 +41,7 @@ For seamless integration into the Furo environment, we have slightly extended so
 - [furo-ui5-data-radio-button-group](https://components.furo.pro/?t=FuroUi5DataRadioButtonGroup) a radio button group component
 - [furo-ui5-radio-button-group](https://components.furo.pro/?t=FuroUi5RadioButtonGroup) a radio button group component
 - [furo-ui5-notification-list](https://components.furo.pro/?t=FuroUi5NotificationList) a notification component
-- [furo-ui5-data-display-labeled](https://components.furo.pro/?t=FuroUi5DataDisplayLabeled) a labeled display field
+- [furo-ui5-data-ro-labeled](https://components.furo.pro/?t=FuroUi5DataRoLabeled) a labeled read only field
 
 ## License
 A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.

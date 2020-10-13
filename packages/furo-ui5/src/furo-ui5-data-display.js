@@ -1,26 +1,93 @@
-import { FuroUi5DataInput } from './furo-ui5-data-input.js';
+import { LitElement, html, css } from 'lit-element';
+import { FBP } from '@furo/fbp/src/fbp.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
+import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
+
+import '@ui5/webcomponents/dist/Label.js';
+import './furo-ui5-form-field-container.js';
 
 /**
- * The furo-ui5-data-display component allows the user to show text information.
+ * `furo-ui5-data-display`
+ * The furo-ui5-data-display is a composition to easily use a display field with label according
+ * to the design specification of SAP Fiori Design System.
  *
- * The text field is read-only (readonly property), and it can be enabled or disabled (enabled property).
- * To visualize semantic states, such as "error" or "warning", the valueState property is provided.
- *
- * @summary data display field
+ * @summary labeled input field
  * @customElement
- * @demo demo-furo-ui5-data-display Basic usage (scalar, fat, wrapper values)
+ * @demo demo-furo-ui5-data-display Simple use
+ * @demo demo-furo-ui5-readonly-card Card Sample
+ * @demo demo-furo-ui5-form-field-container Sample Form
+ * @appliesMixin FBP
  */
-export class FuroUi5DataDisplay extends FuroUi5DataInput {
-  /**
-   * connectedCallback() method is called when an element is added to the DOM.
-   * webcomponent lifecycle event
-   */
-  connectedCallback() {
-    // eslint-disable-next-line wc/guard-super-call
-    super.connectedCallback();
+class FuroUi5DataDisplay extends FBP(LitElement) {
+  constructor(props) {
+    super(props);
+    this.label = '';
+    this.valueState = '';
+    this._initBinder();
+  }
 
-    this.value = '';
-    this.readonly = true;
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    // this._FBPTraceWires();
+  }
+
+  static get properties() {
+    return {
+      /**
+       * the label for the data-text-input
+       */
+      label: { type: String },
+      /**
+       * Value State
+       */
+      valueState: { type: String, reflect: true, attribute: 'value-state' },
+    };
+  }
+
+  static get styles() {
+    // language=CSS
+    return [
+      css`
+        :host {
+          display: block;
+          --furo-ui5-form-field-container-grid-row-gap: 0;
+        }
+        :host([hidden]) {
+          display: none;
+        }
+        p {
+          margin: 0;
+          font-weight: 700;
+        }
+        :host([value-state='Information']) p {
+          color: var(--sapInformativeColor, #0a6ed1);
+        }
+        :host([value-state='Error']) p {
+          color: var(--sapNegativeColor, #b00);
+        }
+        :host([value-state='Success']) p {
+          color: var(--sapPositiveColor, #107e3e);
+        }
+        :host([value-state='Warning']) p {
+          color: var(--sapCrticalColor, #e9730c);
+        }
+      `,
+    ];
+  }
+
+  /**
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
+   */
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    this.applyBindingSet();
   }
 
   /**
@@ -37,12 +104,6 @@ export class FuroUi5DataDisplay extends FuroUi5DataInput {
       icon: 'ui5Icon', // icon and leading icon maps to the same
       'leading-icon': 'ui5Icon', // icon and leading icon maps to the same
       'value-state': '_valueState',
-      errortext: '_errorMsg', // name errortext is for compatibility with spec
-      'error-msg': '_errorMsg',
-      'warning-msg': '_warningMsg',
-      'success-msg': '_successMsg',
-      'information-msg': '_informationMsg',
-      pattern: 'pattern',
       name: 'name',
     };
 
@@ -71,19 +132,12 @@ export class FuroUi5DataDisplay extends FuroUi5DataInput {
       return;
     }
 
+    Ui5LabelDataBinding.bindData(this, fieldNode);
+
     this.binder.bindField(fieldNode);
     this.binder.fieldNode.addEventListener('field-value-changed', () => {
       this._updateField();
     });
-  }
-
-  /**
-   * Sets the value for the field. This will update the fieldNode.
-   * @param val
-   */
-  setValue(val) {
-    this.binder.fieldValue = val;
-    this._updateField();
   }
 
   _updateField() {
@@ -102,6 +156,31 @@ export class FuroUi5DataDisplay extends FuroUi5DataInput {
     if (this.value && this.value.toString() === undefined) {
       this.value = '';
     }
+    this.requestUpdate();
+  }
+
+  /**
+   * Update the value state on change
+   * @param state
+   * @private
+   */
+  set _valueState(state) {
+    this.valueState = state || 'None';
+  }
+
+  /**
+   * @private
+   * @returns {TemplateResult|TemplateResult}
+   */
+  render() {
+    // language=HTML
+    return html`
+      <furo-ui5-form-field-container>
+        <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
+        <p content id="Input">${this.value}</p>
+      </furo-ui5-form-field-container>
+    `;
   }
 }
+
 window.customElements.define('furo-ui5-data-display', FuroUi5DataDisplay);

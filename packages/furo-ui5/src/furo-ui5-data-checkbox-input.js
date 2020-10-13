@@ -29,6 +29,12 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
    */
 
   /**
+   * Fired when the checkbox value changed.
+   * the event detail is the value of the checkbox
+   * @event value-changed
+   */
+
+  /**
    *
    * @param props
    */
@@ -95,6 +101,14 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
     this.addEventListener('change', val => {
       // update the value
       this.binder.fieldValue = val.target.checked;
+
+      /**
+       * Fired when value changed
+       * @type {Event}
+       */
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = val.target.checked;
+      this.dispatchEvent(customEvent);
 
       // set flag empty on empty strings (for fat types)
       if (val.target.checked) {

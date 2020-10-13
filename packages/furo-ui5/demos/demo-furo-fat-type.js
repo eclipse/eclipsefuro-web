@@ -29,7 +29,6 @@ import '../src/lib/ui5-icons.js';
 /**
  * `demo-furo-fat-type`
  *
- * @Summary basic usage of furo-ui5-data-display
  * @customElement
  * @appliesMixin FBP
  */

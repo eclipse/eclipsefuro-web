@@ -27,6 +27,17 @@ import './furo-ui5-data-text-input.js';
  */
 class FuroUi5DataMoneyInput extends FBP(LitElement) {
   /**
+   * Fired when the input value changed.
+   * the event detail is the value of google.type.Money object
+   * @event value-changed
+   */
+
+  constructor() {
+    super();
+    this._initBinder();
+  }
+
+  /**
    * connectedCallback() method is called when an element is added to the DOM.
    * webcomponent lifecycle event
    */
@@ -39,8 +50,6 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
     this._currencies = [];
     // init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
     this.value = { currency_code: 'CHF', units: null, nanos: null };
-
-    this._initBinder();
   }
 
   /**
@@ -83,21 +92,6 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
 
     // the extended furo-text-input component uses _value
     this.binder.targetValueField = '_value';
-
-    // update the value on input changes
-    this.addEventListener('value-changed', val => {
-      // update the value
-      this.binder.fieldValue = val.detail;
-
-      // set flag empty on empty strings (for fat types)
-      if (val.detail) {
-        this.binder.deleteLabel('empty');
-      } else {
-        this.binder.addLabel('empty');
-      }
-      // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
-    });
   }
 
   /**
@@ -109,13 +103,36 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
 
     // update value when the amount changed
     this._FBPAddWireHook('--inputInput', e => {
-      if (e.path[0]) {
+      if (e.path[0].nodeName === 'UI5-INPUT') {
         this.binder.fieldValue = this._convertDataToMoneyObj(
           '',
           e.path[0].value,
           this.binder.fieldNode._value,
         );
+      } else {
+        this.binder.fieldValue = this._convertDataToMoneyObj(
+          e.path[0].value,
+          '',
+          this.binder.fieldNode._value,
+        );
       }
+
+      /**
+       * Fired when value changed
+       * @type {Event}
+       */
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = this.binder.fieldNode._value;
+      this.dispatchEvent(customEvent);
+
+      // set flag empty on empty object
+      if (this.binder.fieldValue) {
+        this.binder.deleteLabel('empty');
+      } else {
+        this.binder.addLabel('empty');
+      }
+      // if something was entered the field is not empty
+      this.binder.deleteLabel('pristine');
     });
   }
 
@@ -233,7 +250,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
    */
   setOptions(options) {
     // the attribute currencies has priority than the options in meta
-    if (this._currencies.length > 0) {
+    if (this._currencies && this._currencies.length > 0) {
       this.updateSuggestions(this._currencies);
     } else {
       let collection;
@@ -339,6 +356,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
           ?required=${this.required}
           ƒ-bind-data="--data(*.currency_code)"
           ƒ-.suggestions="--suggestions"
+          @-value-changed=":STOP, --inputInput(*)"
         ></furo-ui5-data-text-input>
       </furo-horizontal-flex>
     `;

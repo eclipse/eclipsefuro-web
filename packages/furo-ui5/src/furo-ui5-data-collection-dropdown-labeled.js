@@ -18,6 +18,15 @@ import './furo-ui5-data-collection-dropdown.js';
  * @appliesMixin FBP
  */
 class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
+  /**
+   * @event value-changed
+   * Fired when value has changed from the component inside.
+   *
+   * detail payload: {*} the value from the value-field. By default the value field is "id"
+   *
+   *  **bubbles**
+   */
+
   constructor(props) {
     super(props);
     this.label = '';

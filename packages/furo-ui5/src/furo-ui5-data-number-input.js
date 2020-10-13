@@ -47,6 +47,12 @@ export class FuroUi5DataNumberInput extends FuroUi5DataInput {
    */
 
   /**
+   * Fired when the input value changed.
+   * the event detail is the value of the input field
+   * @event value-changed
+   */
+
+  /**
    * init properties
    */
   constructor() {
