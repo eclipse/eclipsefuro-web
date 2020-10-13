@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.4.1...@furo/ui5@0.4.2) (2020-10-13)
+
+
+### Bug Fixes
+
+* add value-changed event for ui5 input components ([13ba2d7](https://github.com/theNorstroem/FuroBaseComponents/commit/13ba2d7d841e186aff64f825a24bcd765bbe8b9c))
+* init binder in constructor to make ui5-data-property work ([0885321](https://github.com/theNorstroem/FuroBaseComponents/commit/088532100ab8c46ec374f828e38ca3c0bec6b570))
+* reference search loses value ([800f519](https://github.com/theNorstroem/FuroBaseComponents/commit/800f5193f45d0db326f1475d21e0f5c57632971d))
+* solve circular `_original` object assignment problem in ui5-collection-dropdown. fix ui5-components version ([dbecbd9](https://github.com/theNorstroem/FuroBaseComponents/commit/dbecbd98e3da130320244a91c38e781166c911ca))
+* value state according to spec ([2a7cbe5](https://github.com/theNorstroem/FuroBaseComponents/commit/2a7cbe50cf7bc3a86211d53214d019283dc094f6))
+* value state handling ([99f7ae0](https://github.com/theNorstroem/FuroBaseComponents/commit/99f7ae02b9aa59ea87c8bcfc39dd4b6b228344a3))
+
+
+
+
+
 ## [0.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.4.0...@furo/ui5@0.4.1) (2020-10-08)
 
 
