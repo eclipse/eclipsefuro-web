@@ -28,7 +28,8 @@ For seamless integration into the Furo environment, we have slightly extended so
 - [furo-ui5-data-segmented-button](https://components.furo.pro/?t=FuroUi5DataSegmentedButton) a segmented button component 
 - [furo-ui5-data-toggle-button](https://components.furo.pro/?t=FuroUi5DataToggleButton) a toggle button component 
 - [furo-ui5-data-ro](https://components.furo.pro/?t=FuroUi5DataRo) a read only field component 
-- [furo-ui5-data-display](https://components.furo.pro/?t=FuroUi5DataDisplay) a labeled read only component 
+- [furo-ui5-data-display](https://components.furo.pro/?t=FuroUi5DataDisplay) a display field component 
+- [furo-ui5-button](https://components.furo.pro/?t=FuroUi5Button) a simple button with convenience functions 
 
 ### Compositions
 - [furo-ui5-pagination](https://components.furo.pro/?t=FuroUI5Pagination) a pagination bar 
