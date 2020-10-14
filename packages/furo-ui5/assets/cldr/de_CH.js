@@ -663,7 +663,6 @@ export default {
     Egyh: 'Ägyptisch - Hieratisch',
     Egyp: 'Ägyptische Hieroglyphen',
     Elba: 'Elbasanisch',
-    Elym: 'Elym',
     Ethi: 'Äthiopisch',
     Geok: 'Khutsuri',
     Geor: 'Georgisch',
@@ -688,7 +687,6 @@ export default {
     Hira: 'Hiragana',
     Hluw: 'Hieroglyphen-Luwisch',
     Hmng: 'Pahawh Hmong',
-    Hmnp: 'Hmnp',
     Hrkt: 'Japanische Silbenschrift',
     Hung: 'Altungarisch',
     Inds: 'Indus-Schrift',
@@ -737,7 +735,6 @@ export default {
     Mtei: 'Meitei Mayek',
     Mult: 'Mult',
     Mymr: 'Birmanisch',
-    Nand: 'Nand',
     Narb: 'Altnordarabisch',
     Nbat: 'Nabatäisch',
     Newa: 'Newa',
@@ -804,7 +801,6 @@ export default {
     Vaii: 'Vai',
     Visp: 'Sichtbare Sprache',
     Wara: 'Varang Kshiti',
-    Wcho: 'Wcho',
     Wole: 'Woleaianisch',
     Xpeo: 'Altpersisch',
     Xsux: 'Sumerisch-akkadische Keilschrift',
@@ -956,7 +952,7 @@ export default {
     GU: 'Guam',
     GW: 'Guinea-Bissau',
     GY: 'Guyana',
-    HK: 'Hongkong, China',
+    HK: 'Sonderverwaltungsregion Hongkong',
     'HK-alt-short': 'Hongkong',
     HM: 'Heard und McDonaldinseln',
     HN: 'Honduras',
@@ -1007,12 +1003,12 @@ export default {
     MF: 'St. Martin',
     MG: 'Madagaskar',
     MH: 'Marshallinseln',
-    MK: 'Nordmazedonien',
-    'MK-alt-variant': 'MK',
+    MK: 'Mazedonien',
+    'MK-alt-variant': 'Mazedonien (EJR)',
     ML: 'Mali',
     MM: 'Myanmar',
     MN: 'Mongolei',
-    MO: 'Macau, China',
+    MO: 'Sonderverwaltungsregion Macau',
     'MO-alt-short': 'Macau',
     MP: 'Nördliche Marianen',
     MQ: 'Martinique',
@@ -1081,7 +1077,6 @@ export default {
     SX: 'Sint Maarten',
     SY: 'Syrien',
     SZ: 'Swasiland',
-    'SZ-alt-variant': 'Eswatini',
     TA: 'Tristan da Cunha',
     TC: 'Turks- und Caicosinseln',
     TD: 'Tschad',
@@ -1098,7 +1093,7 @@ export default {
     TR: 'Türkei',
     TT: 'Trinidad und Tobago',
     TV: 'Tuvalu',
-    TW: 'Taiwan, China',
+    TW: 'Taiwan',
     TZ: 'Tansania',
     UA: 'Ukraine',
     UG: 'Uganda',
@@ -1197,7 +1192,7 @@ export default {
         yMMMM: 'MMMM y',
         yQQQ: 'QQQ y',
         yQQQQ: 'QQQQ y',
-        MMMMW: "'Woche' W 'im' MMMM",
+        MMMMW: "'Woche' W 'im' MMM",
         yw: "'Woche' w 'des' 'Jahres' Y",
       },
       appendItems: {
@@ -1215,55 +1210,46 @@ export default {
       },
       intervalFormats: {
         intervalFormatFallback: '{0} – {1}',
-        Bh: {
-          B: "h 'Uhr' B – h 'Uhr' B",
-          h: "h–h 'Uhr' B",
-        },
-        Bhm: {
-          B: "h:mm 'Uhr' B – h:mm 'Uhr' B",
-          h: "h:mm – h:mm 'Uhr' B",
-          m: "h:mm – h:mm 'Uhr' B",
-        },
         d: {
           d: 'd.–d.',
         },
         Gy: {
-          G: 'y G – y G',
-          y: 'y–y G',
+          G: 'G y – G y',
+          y: 'G y–y',
         },
         GyM: {
-          G: 'MM.y GGGGG – MM.y GGGGG',
-          M: 'MM.y – MM.y GGGGG',
-          y: 'MM.y – MM.y GGGGG',
+          G: 'GGGGG y-MM – GGGGG y-MM',
+          M: 'GGGGG y-MM – y-MM',
+          y: 'GGGGG y-MM – y-MM',
         },
         GyMd: {
-          d: 'dd.–dd.MM.y GGGGG',
-          G: 'dd.MM.y GGGGG – dd.MM.y GGGGG',
-          M: 'dd.MM. – dd.MM.y GGGGG',
-          y: 'dd.MM.y – dd.MM.y GGGGG',
+          d: 'GGGGG y-MM-dd – y-MM-dd',
+          G: 'GGGGG y-MM-dd – GGGGG y-MM-dd',
+          M: 'GGGGG y-MM-dd – y-MM-dd',
+          y: 'GGGGG y-MM-dd – y-MM-dd',
         },
         GyMEd: {
-          d: 'E, dd.MM.y – E, dd.MM.y GGGGG',
-          G: 'E, dd.MM.y GGGGG – E, dd.MM.y GGGGG',
-          M: 'E, dd.MM. – E, dd.MM.y GGGGG',
-          y: 'E, dd.MM.y – E, dd.MM.y GGGGG',
+          d: 'GGGGG y-MM-dd, E – y-MM-dd, E',
+          G: 'GGGGG y-MM-dd, E – GGGGG y-MM-dd, E',
+          M: 'GGGGG y-MM-dd, E – y-MM-dd, E',
+          y: 'GGGGG y-MM-dd, E – y-MM-dd, E',
         },
         GyMMM: {
-          G: 'MMM y G – MMM y G',
-          M: 'MMM–MMM y G',
-          y: 'MMM y – MMM y G',
+          G: 'G y MMM – G y MMM',
+          M: 'G y MMM–MMM',
+          y: 'G y MMM – y MMM',
         },
         GyMMMd: {
-          d: 'd.–d. MMM y G',
-          G: 'd. MMM y G – d. MMM y G',
-          M: 'd. MMM – d. MMM y G',
-          y: 'd. MMM y – d. MMM y G',
+          d: 'G y MMM d–d',
+          G: 'G y MMM d – G y MMM d',
+          M: 'G y MMM d – MMM d',
+          y: 'G y MMM d – y MMM d',
         },
         GyMMMEd: {
-          d: 'E, d. – E, d. MMM y G',
-          G: 'E, d. MMM y G – E E, d. MMM y G',
-          M: 'E, d. MMM – E, d. MMM y G',
-          y: 'E, d. MMM y – E, d. MMM y G',
+          d: 'G y MMM d, E – MMM d, E',
+          G: 'G y MMM d, E – G y MMM d, E',
+          M: 'G y MMM d, E – MMM d, E',
+          y: 'G y MMM d, E – y MMM d, E',
         },
         h: {
           a: "h 'Uhr' a – h 'Uhr' a",
@@ -1550,15 +1536,6 @@ export default {
       },
       intervalFormats: {
         intervalFormatFallback: '{0} – {1}',
-        Bh: {
-          B: 'h B – h B',
-          h: 'h–h B',
-        },
-        Bhm: {
-          B: 'h:mm B – h:mm B',
-          h: 'h:mm–h:mm B',
-          m: 'h:mm–h:mm B',
-        },
         d: {
           d: 'd.–d.',
         },
@@ -1882,15 +1859,6 @@ export default {
       },
       intervalFormats: {
         intervalFormatFallback: '{0} – {1}',
-        Bh: {
-          B: 'h B – h B',
-          h: 'h–h B',
-        },
-        Bhm: {
-          B: 'h:mm B – h:mm B',
-          h: 'h:mm–h:mm B',
-          m: 'h:mm–h:mm B',
-        },
         d: {
           d: 'd.–d.',
         },
@@ -1991,46 +1959,38 @@ export default {
         },
         y: {
           y: 'y–y G',
-          G: 'y G–y G',
         },
         yM: {
           M: 'MM.y – MM.y G',
           y: 'MM.y – MM.y G',
-          G: 'MM.y G – MM.y G',
         },
         yMd: {
           d: 'dd.MM.y – dd.MM.y G',
           M: 'dd.MM.y – dd.MM.y G',
           y: 'dd.MM.y – dd.MM.y G',
-          G: 'dd.MM.y G – dd.MM.y G',
         },
         yMEd: {
           d: 'E, dd.MM.y – E, dd.MM.y G',
           M: 'E, dd.MM.y – E, dd.MM.y G',
           y: 'E, dd.MM.y – E, dd.MM.y G',
-          G: 'E, dd.MM.y G – E, dd.MM.y G',
         },
         yMMM: {
           M: 'MMM–MMM y G',
           y: 'MMM y – MMM y G',
-          G: 'MMM y G – MMM y G',
         },
         yMMMd: {
           d: 'd.–d. MMM y G',
           M: 'd. MMM – d. MMM y G',
           y: 'd. MMM y – d. MMM y G',
-          G: 'd. MMM y G – d. MMM y G',
         },
         yMMMEd: {
           d: 'E, d. – E, d. MMM y G',
           M: 'E, d. MMM – E, d. MMM y G',
           y: 'E, d. MMM y – E, d. MMM y G',
-          G: 'E, d. MMM y G – E, d. MMM y G',
         },
         yMMMM: {
           M: 'MMMM–MMMM y G',
           y: 'MMMM y – MMMM y G',
-          G: 'MMMM y G – MMMM y G',
         },
       },
     },
@@ -2141,21 +2101,18 @@ export default {
       '233': 'Taishō',
       '234': 'Shōwa',
       '235': 'Heisei',
-      '236': 'Reiwa',
     },
     'era-abbreviated': {
       '232': 'Meiji',
       '233': 'Taishō',
       '234': 'Shōwa',
       '235': 'Heisei',
-      '236': 'Reiwa',
     },
     'era-narrow': {
       '232': 'M',
       '233': 'T',
       '234': 'S',
       '235': 'H',
-      '236': 'R',
     },
   },
   'ca-persian': {
@@ -2234,15 +2191,6 @@ export default {
       },
       intervalFormats: {
         intervalFormatFallback: '{0} – {1}',
-        Bh: {
-          B: 'h B – h B',
-          h: 'h–h B',
-        },
-        Bhm: {
-          B: 'h:mm B – h:mm B',
-          h: 'h:mm–h:mm B',
-          m: 'h:mm–h:mm B',
-        },
         d: {
           d: 'd.–d.',
         },
@@ -2566,15 +2514,6 @@ export default {
       },
       intervalFormats: {
         intervalFormatFallback: '{0} – {1}',
-        Bh: {
-          B: 'h B – h B',
-          h: 'h–h B',
-        },
-        Bhm: {
-          B: 'h:mm B – h:mm B',
-          h: 'h:mm–h:mm B',
-          m: 'h:mm–h:mm B',
-        },
         d: {
           d: 'd.–d.',
         },
@@ -3236,14 +3175,6 @@ export default {
         insertBetween: ' ',
       },
     },
-    'sap-standard': '#,##0.00 ¤;-#,##0.00¤',
-    'sap-accounting': '#,##0.00 ¤',
-  },
-  miscPattern: {
-    approximately: '≈{0}',
-    atLeast: '{0}+',
-    atMost: '≤{0}',
-    range: '{0}–{1}',
   },
   'currencyFormat-short': {
     '1000-one': '0',
@@ -3341,10 +3272,12 @@ export default {
       },
       'acceleration-g-force': {
         displayName: 'g-Kraft',
+        'unitPattern-count-one': '{0} G',
         'unitPattern-count-other': '{0} G',
       },
       'acceleration-meter-per-second-squared': {
         displayName: 'm/s²',
+        'unitPattern-count-one': '{0} m/s²',
         'unitPattern-count-other': '{0} m/s²',
       },
       'angle-revolution': {
@@ -3374,49 +3307,53 @@ export default {
       },
       'area-square-kilometer': {
         displayName: 'km²',
+        'unitPattern-count-one': '{0} km²',
         'unitPattern-count-other': '{0} km²',
         perUnitPattern: '{0}/km²',
       },
       'area-hectare': {
         displayName: 'Hektar',
+        'unitPattern-count-one': '{0} ha',
         'unitPattern-count-other': '{0} ha',
       },
       'area-square-meter': {
         displayName: 'm²',
+        'unitPattern-count-one': '{0} m²',
         'unitPattern-count-other': '{0} m²',
         perUnitPattern: '{0}/m²',
       },
       'area-square-centimeter': {
         displayName: 'cm²',
+        'unitPattern-count-one': '{0} cm²',
         'unitPattern-count-other': '{0} cm²',
         perUnitPattern: '{0}/cm²',
       },
       'area-square-mile': {
         displayName: 'mi²',
+        'unitPattern-count-one': '{0} mi²',
         'unitPattern-count-other': '{0} mi²',
         perUnitPattern: '{0}/mi²',
       },
       'area-acre': {
         displayName: 'Acres',
+        'unitPattern-count-one': '{0} ac',
         'unitPattern-count-other': '{0} ac',
       },
       'area-square-yard': {
         displayName: 'yd²',
+        'unitPattern-count-one': '{0} yd²',
         'unitPattern-count-other': '{0} yd²',
       },
       'area-square-foot': {
         displayName: 'ft²',
+        'unitPattern-count-one': '{0} ft²',
         'unitPattern-count-other': '{0} ft²',
       },
       'area-square-inch': {
         displayName: 'in²',
+        'unitPattern-count-one': '{0} in²',
         'unitPattern-count-other': '{0} in²',
         perUnitPattern: '{0}/in²',
-      },
-      'area-dunam': {
-        displayName: 'Dunams',
-        'unitPattern-count-one': '{0} Dunam',
-        'unitPattern-count-other': '{0} Dunam',
       },
       'concentr-karat': {
         displayName: 'Karat',
@@ -3448,16 +3385,6 @@ export default {
         'unitPattern-count-one': '{0} ‰',
         'unitPattern-count-other': '{0} ‰',
       },
-      'concentr-permyriad': {
-        displayName: '‱',
-        'unitPattern-count-one': '{0}‱',
-        'unitPattern-count-other': '{0}‱',
-      },
-      'concentr-mole': {
-        displayName: 'mol',
-        'unitPattern-count-one': '{0} mol',
-        'unitPattern-count-other': '{0} mol',
-      },
       'consumption-liter-per-kilometer': {
         displayName: 'l/km',
         'unitPattern-count-one': '{0} l/km',
@@ -3480,6 +3407,7 @@ export default {
       },
       'digital-petabyte': {
         displayName: 'PB',
+        'unitPattern-count-one': '{0} PB',
         'unitPattern-count-other': '{0} PB',
       },
       'digital-terabyte': {
@@ -3581,38 +3509,47 @@ export default {
       },
       'duration-millisecond': {
         displayName: 'ms',
+        'unitPattern-count-one': '{0} ms',
         'unitPattern-count-other': '{0} ms',
       },
       'duration-microsecond': {
         displayName: 'μs',
+        'unitPattern-count-one': '{0} μs',
         'unitPattern-count-other': '{0} μs',
       },
       'duration-nanosecond': {
         displayName: 'ns',
+        'unitPattern-count-one': '{0} ns',
         'unitPattern-count-other': '{0} ns',
       },
       'electric-ampere': {
         displayName: 'Ampere',
+        'unitPattern-count-one': '{0} A',
         'unitPattern-count-other': '{0} A',
       },
       'electric-milliampere': {
         displayName: 'mA',
+        'unitPattern-count-one': '{0} mA',
         'unitPattern-count-other': '{0} mA',
       },
       'electric-ohm': {
         displayName: 'Ohm',
+        'unitPattern-count-one': '{0} Ω',
         'unitPattern-count-other': '{0} Ω',
       },
       'electric-volt': {
         displayName: 'Volt',
+        'unitPattern-count-one': '{0} V',
         'unitPattern-count-other': '{0} V',
       },
       'energy-kilocalorie': {
         displayName: 'kcal',
+        'unitPattern-count-one': '{0} kcal',
         'unitPattern-count-other': '{0} kcal',
       },
       'energy-calorie': {
         displayName: 'cal',
+        'unitPattern-count-one': '{0} cal',
         'unitPattern-count-other': '{0} cal',
       },
       'energy-foodcalorie': {
@@ -3622,6 +3559,7 @@ export default {
       },
       'energy-kilojoule': {
         displayName: 'Kilojoule',
+        'unitPattern-count-one': '{0} kJ',
         'unitPattern-count-other': '{0} kJ',
       },
       'energy-joule': {
@@ -3631,89 +3569,85 @@ export default {
       },
       'energy-kilowatt-hour': {
         displayName: 'kWh',
+        'unitPattern-count-one': '{0} kWh',
         'unitPattern-count-other': '{0} kWh',
-      },
-      'energy-electronvolt': {
-        displayName: 'eV',
-        'unitPattern-count-one': '{0} eV',
-        'unitPattern-count-other': '{0} eV',
-      },
-      'energy-british-thermal-unit': {
-        displayName: 'Btu',
-        'unitPattern-count-one': '{0} Btu',
-        'unitPattern-count-other': '{0} Btu',
-      },
-      'force-pound-force': {
-        displayName: 'lbf',
-        'unitPattern-count-one': '{0} lbf',
-        'unitPattern-count-other': '{0} lbf',
-      },
-      'force-newton': {
-        displayName: 'N',
-        'unitPattern-count-one': '{0} N',
-        'unitPattern-count-other': '{0} N',
       },
       'frequency-gigahertz': {
         displayName: 'GHz',
+        'unitPattern-count-one': '{0} GHz',
         'unitPattern-count-other': '{0} GHz',
       },
       'frequency-megahertz': {
         displayName: 'MHz',
+        'unitPattern-count-one': '{0} MHz',
         'unitPattern-count-other': '{0} MHz',
       },
       'frequency-kilohertz': {
         displayName: 'kHz',
+        'unitPattern-count-one': '{0} kHz',
         'unitPattern-count-other': '{0} kHz',
       },
       'frequency-hertz': {
         displayName: 'Hz',
+        'unitPattern-count-one': '{0} Hz',
         'unitPattern-count-other': '{0} Hz',
       },
       'length-kilometer': {
         displayName: 'km',
+        'unitPattern-count-one': '{0} km',
         'unitPattern-count-other': '{0} km',
         perUnitPattern: '{0}/km',
       },
       'length-meter': {
         displayName: 'Meter',
+        'unitPattern-count-one': '{0} m',
         'unitPattern-count-other': '{0} m',
         perUnitPattern: '{0}/m',
       },
       'length-decimeter': {
         displayName: 'dm',
+        'unitPattern-count-one': '{0} dm',
         'unitPattern-count-other': '{0} dm',
       },
       'length-centimeter': {
         displayName: 'cm',
+        'unitPattern-count-one': '{0} cm',
         'unitPattern-count-other': '{0} cm',
         perUnitPattern: '{0}/cm',
       },
       'length-millimeter': {
         displayName: 'mm',
+        'unitPattern-count-one': '{0} mm',
         'unitPattern-count-other': '{0} mm',
       },
       'length-micrometer': {
         displayName: 'µm',
+        'unitPattern-count-one': '{0} µm',
         'unitPattern-count-other': '{0} µm',
       },
       'length-nanometer': {
         displayName: 'nm',
+        'unitPattern-count-one': '{0} nm',
         'unitPattern-count-other': '{0} nm',
       },
       'length-picometer': {
         displayName: 'Pikometer',
+        'unitPattern-count-one': '{0} pm',
         'unitPattern-count-other': '{0} pm',
       },
       'length-mile': {
         displayName: 'Meilen',
+        'unitPattern-count-one': '{0} mi',
         'unitPattern-count-other': '{0} mi',
       },
       'length-yard': {
         displayName: 'Yards',
+        'unitPattern-count-one': '{0} yd',
         'unitPattern-count-other': '{0} yd',
       },
       'length-foot': {
         displayName: 'Fuss',
+        'unitPattern-count-one': '{0} ft',
         'unitPattern-count-other': '{0} ft',
         perUnitPattern: '{0}/ft',
       },
@@ -3725,6 +3659,7 @@ export default {
       },
       'length-parsec': {
         displayName: 'Parsec',
+        'unitPattern-count-one': '{0} pc',
         'unitPattern-count-other': '{0} pc',
       },
       'length-light-year': {
@@ -3739,6 +3674,7 @@ export default {
       },
       'length-furlong': {
         displayName: 'Furlong',
+        'unitPattern-count-one': '{0} fur',
         'unitPattern-count-other': '{0} fur',
       },
       'length-fathom': {
@@ -3753,64 +3689,65 @@ export default {
       },
       'length-mile-scandinavian': {
         displayName: 'smi',
+        'unitPattern-count-one': '{0} smi',
         'unitPattern-count-other': '{0} smi',
       },
       'length-point': {
         displayName: 'pt',
+        'unitPattern-count-one': '{0} pt',
         'unitPattern-count-other': '{0} pt',
-      },
-      'length-solar-radius': {
-        displayName: 'R☉',
-        'unitPattern-count-one': '{0} R☉',
-        'unitPattern-count-other': '{0} R☉',
       },
       'light-lux': {
         displayName: 'Lux',
         'unitPattern-count-one': '{0} lx',
         'unitPattern-count-other': '{0} lx',
       },
-      'light-solar-luminosity': {
-        displayName: 'L☉',
-        'unitPattern-count-one': '{0} L☉',
-        'unitPattern-count-other': '{0} L☉',
-      },
       'mass-metric-ton': {
         displayName: 't',
+        'unitPattern-count-one': '{0} t',
         'unitPattern-count-other': '{0} t',
       },
       'mass-kilogram': {
         displayName: 'kg',
+        'unitPattern-count-one': '{0} kg',
         'unitPattern-count-other': '{0} kg',
         perUnitPattern: '{0}/kg',
       },
       'mass-gram': {
         displayName: 'Gramm',
+        'unitPattern-count-one': '{0} g',
         'unitPattern-count-other': '{0} g',
         perUnitPattern: '{0}/g',
       },
       'mass-milligram': {
         displayName: 'mg',
+        'unitPattern-count-one': '{0} mg',
         'unitPattern-count-other': '{0} mg',
       },
       'mass-microgram': {
         displayName: 'µg',
+        'unitPattern-count-one': '{0} µg',
         'unitPattern-count-other': '{0} µg',
       },
       'mass-ton': {
         displayName: 'Tons',
+        'unitPattern-count-one': '{0} tn',
         'unitPattern-count-other': '{0} tn',
       },
       'mass-stone': {
         displayName: 'Stones',
+        'unitPattern-count-one': '{0} st',
         'unitPattern-count-other': '{0} st',
       },
       'mass-pound': {
         displayName: 'Pfund',
+        'unitPattern-count-one': '{0} lb',
         'unitPattern-count-other': '{0} lb',
         perUnitPattern: '{0}/lb',
       },
       'mass-ounce': {
         displayName: 'Unzen',
+        'unitPattern-count-one': '{0} oz',
         'unitPattern-count-other': '{0} oz',
         perUnitPattern: '{0}/oz',
       },
@@ -3824,39 +3761,29 @@ export default {
         'unitPattern-count-one': '{0} Kt',
         'unitPattern-count-other': '{0} Kt',
       },
-      'mass-dalton': {
-        displayName: 'Da',
-        'unitPattern-count-one': '{0} Da',
-        'unitPattern-count-other': '{0} Da',
-      },
-      'mass-earth-mass': {
-        displayName: 'M⊕',
-        'unitPattern-count-one': '{0} M⊕',
-        'unitPattern-count-other': '{0} M⊕',
-      },
-      'mass-solar-mass': {
-        displayName: 'M☉',
-        'unitPattern-count-one': '{0} M☉',
-        'unitPattern-count-other': '{0} M☉',
-      },
       'power-gigawatt': {
         displayName: 'GW',
+        'unitPattern-count-one': '{0} GW',
         'unitPattern-count-other': '{0} GW',
       },
       'power-megawatt': {
         displayName: 'MW',
+        'unitPattern-count-one': '{0} MW',
         'unitPattern-count-other': '{0} MW',
       },
       'power-kilowatt': {
         displayName: 'kW',
+        'unitPattern-count-one': '{0} kW',
         'unitPattern-count-other': '{0} kW',
       },
       'power-watt': {
         displayName: 'Watt',
+        'unitPattern-count-one': '{0} W',
         'unitPattern-count-other': '{0} W',
       },
       'power-milliwatt': {
         displayName: 'mW',
+        'unitPattern-count-one': '{0} mW',
         'unitPattern-count-other': '{0} mW',
       },
       'power-horsepower': {
@@ -3891,32 +3818,27 @@ export default {
       },
       'pressure-atmosphere': {
         displayName: 'atm',
+        'unitPattern-count-one': '{0} atm',
         'unitPattern-count-other': '{0} atm',
-      },
-      'pressure-kilopascal': {
-        displayName: 'kPa',
-        'unitPattern-count-one': '{0} kPa',
-        'unitPattern-count-other': '{0} kPa',
-      },
-      'pressure-megapascal': {
-        displayName: 'MPa',
-        'unitPattern-count-one': '{0} MPa',
-        'unitPattern-count-other': '{0} MPa',
       },
       'speed-kilometer-per-hour': {
         displayName: 'km/h',
+        'unitPattern-count-one': '{0} km/h',
         'unitPattern-count-other': '{0} km/h',
       },
       'speed-meter-per-second': {
         displayName: 'm/s',
+        'unitPattern-count-one': '{0} m/s',
         'unitPattern-count-other': '{0} m/s',
       },
       'speed-mile-per-hour': {
         displayName: 'mi/h',
+        'unitPattern-count-one': '{0} mi/h',
         'unitPattern-count-other': '{0} mi/h',
       },
       'speed-knot': {
         displayName: 'kn',
+        'unitPattern-count-one': '{0} kn',
         'unitPattern-count-other': '{0} kn',
       },
       'temperature-generic': {
@@ -3939,44 +3861,41 @@ export default {
         'unitPattern-count-one': '{0} K',
         'unitPattern-count-other': '{0} K',
       },
-      'torque-pound-foot': {
-        displayName: 'lbf⋅ft',
-        'unitPattern-count-one': '{0} lbf⋅ft',
-        'unitPattern-count-other': '{0} lbf⋅ft',
-      },
-      'torque-newton-meter': {
-        displayName: 'N⋅m',
-        'unitPattern-count-one': '{0} N⋅m',
-        'unitPattern-count-other': '{0} N⋅m',
-      },
       'volume-cubic-kilometer': {
         displayName: 'km³',
+        'unitPattern-count-one': '{0} km³',
         'unitPattern-count-other': '{0} km³',
       },
       'volume-cubic-meter': {
         displayName: 'm³',
+        'unitPattern-count-one': '{0} m³',
         'unitPattern-count-other': '{0} m³',
         perUnitPattern: '{0}/m³',
       },
       'volume-cubic-centimeter': {
         displayName: 'cm³',
+        'unitPattern-count-one': '{0} cm³',
         'unitPattern-count-other': '{0} cm³',
         perUnitPattern: '{0}/cm³',
       },
       'volume-cubic-mile': {
         displayName: 'mi³',
+        'unitPattern-count-one': '{0} mi³',
         'unitPattern-count-other': '{0} mi³',
       },
       'volume-cubic-yard': {
         displayName: 'yd³',
+        'unitPattern-count-one': '{0} yd³',
         'unitPattern-count-other': '{0} yd³',
       },
       'volume-cubic-foot': {
         displayName: 'ft³',
+        'unitPattern-count-one': '{0} ft³',
         'unitPattern-count-other': '{0} ft³',
       },
       'volume-cubic-inch': {
         displayName: 'in³',
+        'unitPattern-count-one': '{0} in³',
         'unitPattern-count-other': '{0} in³',
       },
       'volume-megaliter': {
@@ -3991,6 +3910,7 @@ export default {
       },
       'volume-liter': {
         displayName: 'Liter',
+        'unitPattern-count-one': '{0} l',
         'unitPattern-count-other': '{0} l',
         perUnitPattern: '{0}/l',
       },
@@ -4011,10 +3931,12 @@ export default {
       },
       'volume-pint-metric': {
         displayName: 'metr. Pints',
+        'unitPattern-count-one': '{0} mpt',
         'unitPattern-count-other': '{0} mpt',
       },
       'volume-cup-metric': {
         displayName: 'mcup',
+        'unitPattern-count-one': '{0} mc',
         'unitPattern-count-other': '{0} mc',
       },
       'volume-acre-foot': {
@@ -4024,6 +3946,7 @@ export default {
       },
       'volume-bushel': {
         displayName: 'Bushel',
+        'unitPattern-count-one': '{0} bu',
         'unitPattern-count-other': '{0} bu',
       },
       'volume-gallon': {
@@ -4040,10 +3963,12 @@ export default {
       },
       'volume-quart': {
         displayName: 'Quart',
+        'unitPattern-count-one': '{0} qt',
         'unitPattern-count-other': '{0} qt',
       },
       'volume-pint': {
         displayName: 'Pints',
+        'unitPattern-count-one': '{0} pt',
         'unitPattern-count-other': '{0} pt',
       },
       'volume-cup': {
@@ -4056,11 +3981,6 @@ export default {
         'unitPattern-count-one': '{0} fl oz',
         'unitPattern-count-other': '{0} fl oz',
       },
-      'volume-fluid-ounce-imperial': {
-        displayName: 'Imp. fl oz',
-        'unitPattern-count-one': '{0} fl oz Imp.',
-        'unitPattern-count-other': '{0} fl oz Imp.',
-      },
       'volume-tablespoon': {
         displayName: 'EL',
         'unitPattern-count-one': '{0} EL',
@@ -4071,11 +3991,6 @@ export default {
         'unitPattern-count-one': '{0} TL',
         'unitPattern-count-other': '{0} TL',
       },
-      'volume-barrel': {
-        displayName: 'bbl',
-        'unitPattern-count-one': '{0} bbl',
-        'unitPattern-count-other': '{0} bbl',
-      },
       coordinateUnit: {
         displayName: 'Richtung',
         east: '{0} O',
@@ -4084,37 +3999,6 @@ export default {
         west: '{0} W',
       },
     },
-  },
-  'lenient-scope-number': {
-    minusSign: '-‒⁻₋−➖﹣－',
-    commaSign: ',،٫、︐︑﹐﹑，､',
-    plusSign: '+⁺₊➕﬩﹢＋',
-  },
-  'currencyFormat-sap-short': {
-    '1000-one': '0',
-    '1000-other': '0',
-    '10000-one': '0',
-    '10000-other': '0',
-    '100000-one': '0',
-    '100000-other': '0',
-    '1000000-one': "0 Mio'.' ¤",
-    '1000000-other': "0 Mio'.' ¤",
-    '10000000-one': "00 Mio'.' ¤",
-    '10000000-other': "00 Mio'.' ¤",
-    '100000000-one': "000 Mio'.' ¤",
-    '100000000-other': "000 Mio'.' ¤",
-    '1000000000-one': "0 Mrd'.' ¤",
-    '1000000000-other': "0 Mrd'.' ¤",
-    '10000000000-one': "00 Mrd'.' ¤",
-    '10000000000-other': "00 Mrd'.' ¤",
-    '100000000000-one': "000 Mrd'.' ¤",
-    '100000000000-other': "000 Mrd'.' ¤",
-    '1000000000000-one': "0 Bio'.' ¤",
-    '1000000000000-other': "0 Bio'.' ¤",
-    '10000000000000-one': "00 Bio'.' ¤",
-    '10000000000000-other': "00 Bio'.' ¤",
-    '100000000000000-one': "000 Bio'.' ¤",
-    '100000000000000-other': "000 Bio'.' ¤",
   },
   currencyDigits: {
     ADP: 0,
@@ -4218,9 +4102,6 @@ export default {
     },
     '235': {
       _start: '1989-1-8',
-    },
-    '236': {
-      _start: '2019-5-1',
     },
   },
 };
