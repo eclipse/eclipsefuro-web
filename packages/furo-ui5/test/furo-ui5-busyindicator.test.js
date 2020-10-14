@@ -7,55 +7,56 @@ import '@furo/testhelper/initEnv.js';
 
 import '../src/furo-catalog.js';
 
-describe('furo-ui5-button', () => {
+describe('furo-ui5-busyindicator', () => {
   let host;
-  let btn;
+  let busy;
 
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-button></furo-ui5-button>
+          <furo-ui5-busyindicator size="Small"></furo-ui5-busyindicator>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, btn] = testbind.parentNode.children;
+    [, busy] = testbind.parentNode.children;
     await host.updateComplete;
-    await btn.updateComplete;
+    await busy.updateComplete;
   });
 
-  it('should be a furo-ui5-button element', done => {
+  it('should be a furo-ui5-busyindicator element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(btn.nodeName.toLowerCase(), 'furo-ui5-button');
+    assert.equal(busy.nodeName.toLowerCase(), 'furo-ui5-busyindicator');
     done();
   });
 
-  it('should have different designs', done => {
-    btn.setAttribute('design', 'Negative');
+  it('should have different sizes', done => {
+    busy.setAttribute('size', 'Medium');
     setTimeout(() => {
-      assert.equal(btn.design, 'Negative');
+      assert.equal(busy.size, 'Medium');
       done();
     }, 16);
   });
 
-  it('should be clickable', done => {
-    btn.addEventListener('click', () => {
+  it('should be activatable', done => {
+    busy.activate();
+    setTimeout(() => {
+      assert.equal(busy.active, true);
       done();
-    });
-    btn.click();
+    }, 16);
   });
 
-  it('should have enable function', done => {
-    btn.disable();
-    btn.addEventListener('click', () => {
+  it('should be deactivatable', done => {
+    busy.activate();
+    busy.deactivate();
+    setTimeout(() => {
+      assert.equal(busy.active, false);
       done();
-    });
-    btn.enable();
-    btn.click();
+    }, 16);
   });
 
   // axeReport a11y tests
-  xit('a11y', () => axeReport(btn));
+  xit('a11y', () => axeReport(busy));
 });

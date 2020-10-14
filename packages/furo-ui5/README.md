@@ -30,6 +30,7 @@ For seamless integration into the Furo environment, we have slightly extended so
 - [furo-ui5-data-ro](https://components.furo.pro/?t=FuroUi5DataRo) a read only field component 
 - [furo-ui5-data-display](https://components.furo.pro/?t=FuroUi5DataDisplay) a display field component 
 - [furo-ui5-button](https://components.furo.pro/?t=FuroUi5Button) a simple button with convenience functions 
+- [furo-ui5-busyindicator](https://components.furo.pro/?t=FuroUi5Busyindicator) component to signal that some operation is going on
 
 ### Compositions
 - [furo-ui5-pagination](https://components.furo.pro/?t=FuroUI5Pagination) a pagination bar 
