@@ -83,7 +83,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
           this._fieldNodeToUpdate._value = selectedObj.id;
           // the _fieldNodeToUpdate and the _fieldDisplayNodeToUpdate are the same by scalar type. in this case
           // there is no need to update the display value
-          if( this._fieldNodeToUpdate !== this._fieldDisplayNodeToUpdate) {
+          if (this._fieldNodeToUpdate !== this._fieldDisplayNodeToUpdate) {
             this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id);
           }
         } else {
