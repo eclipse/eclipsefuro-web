@@ -275,25 +275,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
     let date = '';
 
     if (obj && obj.day && obj.month && obj.year) {
-      let month = String(obj.month);
-      let day = String(obj.day);
-      let year = String(obj.year);
-
-      if (month.length < 2) {
-        month = `0${month}`;
-      }
-
-      if (day.length < 2) {
-        day = `0${day}`;
-      }
-
-      if (year.length < 4) {
-        const l = 4 - year.length;
-        for (let i = 0; i < l; i += 1) {
-          year = `0${year}`;
-        }
-      }
-      date = `${year}-${month}-${day}`;
+      date = FuroUi5DataDatePicker._converToIso8601(obj.year, obj.month, obj.day);
     }
     return date;
   }
@@ -308,9 +290,44 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
     let str = '';
 
     if (date) {
-      str = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+      str = FuroUi5DataDatePicker._converToIso8601(
+        date.getFullYear(),
+        date.getMonth() + 1,
+        date.getDate(),
+      );
     }
     return str;
   }
+
+  /**
+   * convert to date with format IOS 8601 (e.g. 2020-12-31)
+   * @param year
+   * @param month
+   * @param day
+   * @returns {string}
+   * @private
+   */
+  static _converToIso8601(y, m, d) {
+    let year = y.toString();
+    let month = m.toString();
+    let day = d.toString();
+
+    if (month.length < 2) {
+      month = `0${month}`;
+    }
+
+    if (day.length < 2) {
+      day = `0${day}`;
+    }
+
+    if (year.length < 4) {
+      const l = 4 - year.length;
+      for (let i = 0; i < l; i += 1) {
+        year = `0${year}`;
+      }
+    }
+    return `${year}-${month}-${day}`;
+  }
 }
+
 window.customElements.define('furo-ui5-data-date-picker', FuroUi5DataDatePicker);

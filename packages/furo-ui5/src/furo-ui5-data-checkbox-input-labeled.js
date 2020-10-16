@@ -54,6 +54,9 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
+        furo-ui5-data-checkbox-input {
+          width: 44px;
+        }
       `,
     ];
   }
@@ -64,6 +67,7 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
    */
   bindData(fieldNode) {
     Ui5LabelDataBinding.bindData(this, fieldNode);
+    this._FBPTriggerWire('--label', '');
   }
 
   /**
@@ -76,6 +80,7 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
       <furo-ui5-form-field-container>
         <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
         <furo-ui5-data-checkbox-input
+          ƒ-.text="--label"
           content
           id="Input"
           ƒ-bind-data="--data"

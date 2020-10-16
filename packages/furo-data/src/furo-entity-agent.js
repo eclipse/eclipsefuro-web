@@ -192,13 +192,12 @@ class FuroEntityAgent extends FBP(LitElement) {
    * @returns {*}
    * @private
    */
-  _removeNullValues(data){
+  _removeNullValues(data) {
     for (const [key, value] of Object.entries(data)) {
-      if(typeof value === 'object' && value !== null) {
+      if (typeof value === 'object' && value !== null) {
         // eslint-disable-next-line no-param-reassign
         data[key] = this._removeNullValues(value);
-      }
-      else if( value === null ) {
+      } else if (value === null) {
         // eslint-disable-next-line no-param-reassign
         delete data[key];
       }

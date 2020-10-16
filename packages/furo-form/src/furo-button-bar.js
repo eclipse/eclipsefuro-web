@@ -1,6 +1,6 @@
-import { LitElement, html, css } from 'lit-element'
-import { Theme } from '@furo/framework/src/theme'
-import '@furo/layout/src/furo-horizontal-flex'
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import '@furo/layout/src/furo-horizontal-flex';
 
 /**
  * `furo-button-bar`
@@ -12,18 +12,18 @@ import '@furo/layout/src/furo-horizontal-flex'
  */
 class FuroButtonBar extends LitElement {
   constructor() {
-    super()
-    this._entity = {}
+    super();
+    this._entity = {};
 
     // default attribute values for hidden
-    this.hideNoRel = true
-    this.hideNotValid = false
-    this.hidePristine = false
+    this.hideNoRel = true;
+    this.hideNotValid = false;
+    this.hidePristine = false;
 
     // default attribute values for disabled
-    this.disableNoRel = false
-    this.disableNotValid = true
-    this.disablePristine = true
+    this.disableNoRel = false;
+    this.disableNotValid = true;
+    this.disablePristine = true;
   }
 
   /**
@@ -47,7 +47,7 @@ class FuroButtonBar extends LitElement {
       disableNoRel: { type: String, attribute: 'disable-no-rel' },
       disableNotValid: { type: String, attribute: 'disable-not-valid' },
       disablePristine: { type: String, attribute: 'disable-pristine' },
-    }
+    };
   }
 
   /**
@@ -57,25 +57,25 @@ class FuroButtonBar extends LitElement {
    */
   bindEntity(entity) {
     if (entity && entity.data) {
-      this._entity = entity
+      this._entity = entity;
       this._entity.addEventListener('this-branch-value-changed', () => {
-        this._updateElements(this._entity)
-      })
+        this._updateElements(this._entity);
+      });
       this._entity.addEventListener('data-object-became-valid', () => {
-        this._updateElements(this._entity)
-      })
+        this._updateElements(this._entity);
+      });
       this._entity.addEventListener('data-object-became-invalid', () => {
-        this._updateElements(this._entity)
-      })
+        this._updateElements(this._entity);
+      });
       this._entity.addEventListener('field-value-changed', () => {
-        this._updateElements(this._entity)
-      })
+        this._updateElements(this._entity);
+      });
       this._entity.addEventListener('data-injected', () => {
-        this._updateElements(this._entity)
-      })
+        this._updateElements(this._entity);
+      });
     } else {
       // eslint-disable-next-line no-console
-      console.warn('Invalid binding ', entity, this)
+      console.warn('Invalid binding ', entity, this);
     }
   }
 
@@ -85,10 +85,10 @@ class FuroButtonBar extends LitElement {
    * e.g. furo-entity-agent @-request-started until @-response or @-response-error
    */
   disableAll() {
-    const elems = this.querySelectorAll('*')
+    const elems = this.querySelectorAll('*');
     elems.forEach(item => {
-      item.setAttribute('disabled', '')
-    })
+      item.setAttribute('disabled', '');
+    });
   }
 
   /**
@@ -113,8 +113,8 @@ class FuroButtonBar extends LitElement {
   enableAllNoChecks() {
     const elems = this.querySelectorAll('*');
     elems.forEach(item => {
-        item.removeAttribute('disabled');
-    })
+      item.removeAttribute('disabled');
+    });
   }
 
   /**
@@ -124,22 +124,22 @@ class FuroButtonBar extends LitElement {
    * @private
    */
   firstUpdated() {
-    const nodes = this.querySelectorAll('*')
+    const nodes = this.querySelectorAll('*');
     nodes.forEach(item => {
       if (
         (item.getAttribute('rel') !== null && item.getAttribute('hide-no-rel') !== null) ||
         item.getAttribute('hide-not-valid') !== null ||
         item.getAttribute('hide-pristine') !== null
       ) {
-        item.setAttribute('hidden', '')
+        item.setAttribute('hidden', '');
       } else if (
         (item.getAttribute('rel') !== null && item.getAttribute('disable-no-rel') !== null) ||
         item.getAttribute('disable-not-valid') !== null ||
         item.getAttribute('disable-pristine') !== null
       ) {
-        item.setAttribute('disabled', '')
+        item.setAttribute('disabled', '');
       }
-    })
+    });
   }
 
   /**
@@ -148,12 +148,12 @@ class FuroButtonBar extends LitElement {
    * @private
    */
   _updateElements(entity) {
-    const rels = []
+    const rels = [];
     entity.links.__childNodes.forEach(item => {
-      rels.push(item._value.rel)
-    })
+      rels.push(item._value.rel);
+    });
 
-    const nodes = this.querySelectorAll('*')
+    const nodes = this.querySelectorAll('*');
     nodes.forEach(item => {
       // hidden path
       if (
@@ -162,17 +162,17 @@ class FuroButtonBar extends LitElement {
         rels.indexOf(item.getAttribute('rel')) === -1 &&
         item.getAttribute('hide-no-rel') !== null
       ) {
-        item.setAttribute('hidden', '')
+        item.setAttribute('hidden', '');
       }
       // not valid
       else if (item.getAttribute('hide-not-valid') !== null && !entity._isValid) {
-        item.setAttribute('hidden', '')
+        item.setAttribute('hidden', '');
       }
       // pristine
       else if (item.getAttribute('hide-pristine') !== null && entity._pristine) {
-        item.setAttribute('hidden', '')
+        item.setAttribute('hidden', '');
       } else {
-        item.removeAttribute('hidden')
+        item.removeAttribute('hidden');
       }
 
       // disable path
@@ -182,15 +182,15 @@ class FuroButtonBar extends LitElement {
         rels.indexOf(item.getAttribute('rel')) === -1 &&
         item.getAttribute('disable-no-rel') !== null
       ) {
-        item.setAttribute('disabled', '')
+        item.setAttribute('disabled', '');
       } else if (item.getAttribute('disable-not-valid') !== null && !entity._isValid) {
-        item.setAttribute('disabled', '')
+        item.setAttribute('disabled', '');
       } else if (item.getAttribute('disable-pristine') !== null && entity._pristine) {
-        item.setAttribute('disabled', '')
+        item.setAttribute('disabled', '');
       } else {
-        item.removeAttribute('disabled')
+        item.removeAttribute('disabled');
       }
-    })
+    });
   }
 
   /**
@@ -215,7 +215,7 @@ class FuroButtonBar extends LitElement {
           flex-wrap: wrap;
         }
       `
-    )
+    );
   }
 
   /**
@@ -229,8 +229,8 @@ class FuroButtonBar extends LitElement {
       <furo-horizontal-flex>
         <slot></slot>
       </furo-horizontal-flex>
-    `
+    `;
   }
 }
 
-window.customElements.define('furo-button-bar', FuroButtonBar)
+window.customElements.define('furo-button-bar', FuroButtonBar);
