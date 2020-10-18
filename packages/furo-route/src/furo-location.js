@@ -146,47 +146,47 @@ class FuroLocation extends LitElement {
         .decodeURIComponent(window.location.pathname)
         .replace(new RegExp(this.urlSpaceRegex), '');
       if (this._location.path !== newPath) {
-        this._location.path = newPath;
-
-        // path segments
-        this._location.pathSegments = [];
-        let m;
-        const rgx = new RegExp(/\/([^/]*)/gi);
-        // eslint-disable-next-line no-cond-assign
-        while ((m = rgx.exec(newPath)) !== null) {
-          this._location.pathSegments.push(m[1]);
-        }
-
         sendPathChanged = true;
       }
+      this._location.path = newPath;
+
+      // path segments
+      this._location.pathSegments = [];
+      let m;
+      const rgx = new RegExp(/\/([^/]*)/gi);
+      // eslint-disable-next-line no-cond-assign
+      while ((m = rgx.exec(newPath)) !== null) {
+        this._location.pathSegments.push(m[1]);
+      }
+
       // hash-changed
       const newHash = window.decodeURIComponent(window.location.hash.slice(1));
       if (this._location.hashstring !== newHash) {
-        this._location.hashstring = newHash;
-        this._location.hash = {};
-        if (newHash.length > 0) {
-          newHash.split('&').forEach(qstr => {
-            const p = qstr.split('=');
-            // eslint-disable-next-line prefer-destructuring
-            this._location.hash[p[0]] = p[1];
-          });
-        }
         sendHashChanged = true;
+      }
+      this._location.hashstring = newHash;
+      this._location.hash = {};
+      if (newHash.length > 0) {
+        newHash.split('&').forEach(qstr => {
+          const p = qstr.split('=');
+          // eslint-disable-next-line prefer-destructuring
+          this._location.hash[p[0]] = p[1];
+        });
       }
 
       // query-changed
       const newQuery = window.location.search.slice(1);
       if (this._location.querystring !== newQuery) {
-        this._location.querystring = newQuery;
-        this._location.query = {};
-        if (newQuery.length > 0) {
-          newQuery.split('&').forEach(qstr => {
-            const p = qstr.split('=');
-            // eslint-disable-next-line prefer-destructuring
-            this._location.query[p[0]] = p[1];
-          });
-        }
         sendQueryChanged = true;
+      }
+      this._location.querystring = newQuery;
+      this._location.query = {};
+      if (newQuery.length > 0) {
+        newQuery.split('&').forEach(qstr => {
+          const p = qstr.split('=');
+          // eslint-disable-next-line prefer-destructuring
+          this._location.query[p[0]] = p[1];
+        });
       }
 
       if (sendPathChanged) {
