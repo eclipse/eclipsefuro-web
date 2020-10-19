@@ -238,18 +238,35 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
 
     // by item selected
     this.addEventListener('change', () => {
+      let _original;
+
+      // select at first in filtered items
       if (this._state._filteredItems.length > 0) {
-        this.binder.fieldNode.id._value = this._state._filteredItems[0].id;
+        this._state._filteredItems.forEach(e => {
+          if (e.selected && e.id !== undefined) {
+            this.binder.fieldNode.id._value = e.id;
+            this.binder.fieldNode.display_name._value = e.text;
+            _original = e._original;
+          }
+        });
+      } else {
+        this._state.items.forEach(e => {
+          if (e.selected && e.id !== undefined) {
+            this.binder.fieldNode.id._value = e.id;
+            this.binder.fieldNode.display_name._value = e.text;
+            _original = e._original;
+          }
+        });
+      }
 
-        this.binder.fieldNode.display_name._value = this._state.filterValue;
-
+      if (_original) {
         /**
          * @event item-selected
          * Fired when an item from reference dropdown was selected
          * detail payload: the original item object or the array of original item objects by multiple options
          */
         const customEvent = new Event('item-selected', { composed: true, bubbles: true });
-        customEvent.detail = this._state._filteredItems[0]._original;
+        customEvent.detail = _original;
         this.dispatchEvent(customEvent);
       }
     });
