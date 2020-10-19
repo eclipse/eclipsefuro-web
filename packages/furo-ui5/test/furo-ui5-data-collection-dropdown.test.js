@@ -132,6 +132,7 @@ describe('furo-ui5-data-collection-dropdown', () => {
         <template>
           <furo-ui5-data-collection-dropdown
             ƒ-bind-data="--entity(*.owner)"
+            value-sub-field="id"
           ></furo-ui5-data-collection-dropdown>
           <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
@@ -167,32 +168,29 @@ describe('furo-ui5-data-collection-dropdown', () => {
     setTimeout(() => {
       assert.equal(dropdown._state.valueState, 'None', 'value-state');
       assert.equal(dropdown._state.disabled, false, 'disabled');
-      assert.equal(dropdown._text, 'person.type.sex.unknown.label**', '_text');
+      assert.equal(dropdown._text, 'person.type.sex.female.label**', '_text');
       assert.equal(dropdown.options.length, 3, 'option count');
       assert.equal(dropdown.subField, 'data', 'subField');
       assert.equal(dropdown.displayField, 'display_name', 'displayField');
       assert.equal(dropdown.displaySubField, 'display_name', 'displaySubField');
       assert.equal(dropdown.valueField, 'id', 'valueField');
-      assert.equal(dropdown.valueSubField, null, 'valueSubField');
+      assert.equal(dropdown.valueSubField, 'id', 'valueSubField');
       assert.equal(dropdown.binder.targetValueField, '_value', 'targetValueField');
       done();
     }, 16);
   });
 
   it('should activate the correct item', done => {
-    dropdown.valueSubField = 'id';
     setTimeout(() => {
       assert.equal(dropdown._dropdownList.length, 3, '', 'check number of elements');
-      input.setValue('male');
       setTimeout(() => {
-        assert.equal(dropdown._dropdownList[2].selected, true, '', 'check selected item');
+        assert.equal(dropdown._dropdownList[1].selected, true, '', 'check selected item');
         done();
       }, 16);
     }, 16);
   });
 
   it('should activate the correct item from the bound field', done => {
-    dropdown.valueSubField = 'id';
     dropdown.addEventListener(
       'options-injected',
       () => {
