@@ -81,7 +81,11 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         if (!this.multiple) {
           // by valid input reset meta and constraints
           this._fieldNodeToUpdate._value = selectedObj.id;
-          this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id);
+          // the _fieldNodeToUpdate and the _fieldDisplayNodeToUpdate are the same by scalar type. in this case
+          // there is no need to update the display value
+          if (this._fieldNodeToUpdate !== this._fieldDisplayNodeToUpdate) {
+            this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id);
+          }
         } else {
           const data = [];
           const arrSubfieldChains = this.subField.split('.');
@@ -423,7 +427,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    */
   // eslint-disable-next-line class-methods-use-this
   _getValueByPath(obj, path) {
-    return path.split('.').reduce((res, prop) => res[prop], obj) || {};
+    return path.split('.').reduce((res, prop) => res[prop], obj) || obj;
   }
 
   /**

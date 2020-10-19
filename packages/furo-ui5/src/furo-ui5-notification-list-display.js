@@ -193,6 +193,13 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
   }
 
   /**
+   * clear all notifications
+   */
+  clearAll() {
+    this.shadowRoot.getElementById('ui5-list').innerHTML = '';
+  }
+
+  /**
    *@private
    */
   static get properties() {
