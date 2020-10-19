@@ -20,3 +20,4 @@ import './demo-furo-fat-type.js';
 import './demo-furo-ui5-button.js';
 import './demo-furo-ui5-data-display.js';
 import './demo-furo-ui5-readonly-card.js';
+import './demo-furo-ui5-busyindicator.js';
