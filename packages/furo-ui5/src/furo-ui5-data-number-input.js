@@ -53,11 +53,15 @@ export class FuroUi5DataNumberInput extends FuroUi5DataInput {
    */
 
   /**
-   * init properties
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
    */
-  constructor() {
-    super();
+  connectedCallback() {
     this.type = 'Number';
+
+    setTimeout(() => {
+      super.connectedCallback();
+    }, 0);
   }
 
   /**
