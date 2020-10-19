@@ -240,7 +240,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
 
   /**
    * @event item-selected
-   * Fired when a item from the dropdown was selected
+   * Fired when an item from the dropdown was selected
    * detail payload: the original item object or the array of original item objects by multiple options
    */
   _notifiySelectedItem(obj) {

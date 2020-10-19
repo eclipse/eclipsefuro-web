@@ -238,12 +238,20 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
 
     // by item selected
     this.addEventListener('change', () => {
-      this.querySelectorAll('ui5-cb-item').forEach(e => {
-        if (e.selected && e.getAttribute('id') !== undefined) {
-          this.binder.fieldNode.id._value = e.getAttribute('id');
-          this.binder.fieldNode.display_name._value = e.getAttribute('text');
-        }
-      });
+      if (this._state._filteredItems.length > 0) {
+        this.binder.fieldNode.id._value = this._state._filteredItems[0].id;
+
+        this.binder.fieldNode.display_name._value = this._state.filterValue;
+
+        /**
+         * @event item-selected
+         * Fired when an item from reference dropdown was selected
+         * detail payload: the original item object or the array of original item objects by multiple options
+         */
+        const customEvent = new Event('item-selected', { composed: true, bubbles: true });
+        customEvent.detail = this._state._filteredItems[0]._original;
+        this.dispatchEvent(customEvent);
+      }
     });
   }
 
@@ -352,9 +360,11 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
 
       this._collection.forEach(e => {
         const element = document.createElement('ui5-cb-item');
+        element._original = {};
 
         element.setAttribute('text', e.data[this.displayField]);
         element.setAttribute('id', e.data[this.valueField]);
+        Object.assign(element._original, e);
         this.appendChild(element);
       });
 
