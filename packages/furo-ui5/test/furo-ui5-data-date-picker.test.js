@@ -165,8 +165,8 @@ describe('furo-ui5-data-date-picker', () => {
   });
 
   it('should apply meta and constraints to the bound field (type string)', done => {
-    dao.injectRaw(testRecordMeta);
     datepicker2.formatPattern = 'dd.MM.yyyy';
+    dao.injectRaw(testRecordMeta);
     setTimeout(() => {
       assert.equal(datepicker2._state.disabled, false, 'check disabled');
       assert.equal(

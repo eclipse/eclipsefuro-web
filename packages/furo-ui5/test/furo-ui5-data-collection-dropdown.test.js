@@ -180,16 +180,6 @@ describe('furo-ui5-data-collection-dropdown', () => {
     }, 16);
   });
 
-  it('should activate the correct item', done => {
-    setTimeout(() => {
-      assert.equal(dropdown._dropdownList.length, 3, '', 'check number of elements');
-      setTimeout(() => {
-        assert.equal(dropdown._dropdownList[1].selected, true, '', 'check selected item');
-        done();
-      }, 16);
-    }, 16);
-  });
-
   it('should activate the correct item from the bound field', done => {
     dropdown.addEventListener(
       'options-injected',
@@ -200,13 +190,24 @@ describe('furo-ui5-data-collection-dropdown', () => {
             assert.equal(dropdown._dropdownList[1].selected, true);
             assert.equal(dropdown._state._text, 'Tari Sakota, +41791532244');
             done();
-          }, 24);
+          }, 240);
         }
       },
       { once: true },
     );
     dropdown.injectEntities(testData.entities);
   });
+
+  it('should activate the correct item', done => {
+    setTimeout(() => {
+      assert.equal(dropdown._dropdownList.length, 3, '', 'check number of elements');
+      setTimeout(() => {
+        assert.equal(dropdown._dropdownList[1].selected, true, '', 'check selected item');
+        done();
+      }, 16);
+    }, 16);
+  });
+
 
   it('should have options from a collection response', done => {
     dropdown.injectEntities(testData.entities);
