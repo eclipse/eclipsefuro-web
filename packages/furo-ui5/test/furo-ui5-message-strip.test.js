@@ -65,10 +65,7 @@ describe('furo-ui5-message-strip', () => {
     });
 
     setTimeout(() => {
-      const items = messageStripDisplay.shadowRoot
-        .querySelectorAll('ui5-messagestrip')[0]
-        .shadowRoot.querySelectorAll('button');
-      items[0].click();
+      messageStripDisplay.shadowRoot.children[0].shadowRoot.querySelector('ui5-button').click();
     }, 0);
   });
 });

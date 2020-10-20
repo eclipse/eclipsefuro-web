@@ -1716,15 +1716,14 @@
         {
           "name": "connectedCallback",
           "description": "connectedCallback() method is called when an element is added to the DOM.\nwebcomponent lifecycle event",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
-            "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 49,
+              "line": 58,
               "column": 2
             },
             "end": {
-              "line": 56,
+              "line": 64,
               "column": 3
             }
           },
@@ -1732,8 +1731,7 @@
           "params": [],
           "return": {
             "type": "void"
-          },
-          "inheritedFrom": "FuroUi5DataInput"
+          }
         },
         {
           "name": "_initBinder",
@@ -1900,7 +1898,7 @@
           "column": 7
         },
         "end": {
-          "line": 75,
+          "line": 79,
           "column": 1
         }
       },
@@ -2349,15 +2347,14 @@
         {
           "name": "connectedCallback",
           "description": "connectedCallback() method is called when an element is added to the DOM.\nwebcomponent lifecycle event",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
-            "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 49,
+              "line": 58,
               "column": 2
             },
             "end": {
-              "line": 56,
+              "line": 65,
               "column": 3
             }
           },
@@ -2365,8 +2362,7 @@
           "params": [],
           "return": {
             "type": "void"
-          },
-          "inheritedFrom": "FuroUi5DataInput"
+          }
         },
         {
           "name": "_initBinder",
@@ -2533,7 +2529,7 @@
           "column": 7
         },
         "end": {
-          "line": 76,
+          "line": 80,
           "column": 1
         }
       },
@@ -2864,11 +2860,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 290,
+              "line": 273,
               "column": 2
             },
             "end": {
-              "line": 318,
+              "line": 308,
               "column": 3
             }
           },
@@ -2886,7 +2882,7 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 125,
               "column": 2
             },
             "end": {
@@ -2981,7 +2977,7 @@
               "column": 2
             },
             "end": {
-              "line": 249,
+              "line": 251,
               "column": 3
             }
           },
@@ -3001,11 +2997,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 258,
               "column": 2
             },
             "end": {
-              "line": 279,
+              "line": 262,
               "column": 3
             }
           },
@@ -3025,11 +3021,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 285,
+              "line": 268,
               "column": 2
             },
             "end": {
-              "line": 288,
+              "line": 271,
               "column": 3
             }
           },
@@ -3049,11 +3045,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 326,
+              "line": 316,
               "column": 2
             },
             "end": {
-              "line": 350,
+              "line": 340,
               "column": 3
             }
           },
@@ -3073,11 +3069,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 359,
+              "line": 349,
               "column": 2
             },
             "end": {
-              "line": 396,
+              "line": 386,
               "column": 3
             }
           },
@@ -3097,11 +3093,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 402,
+              "line": 392,
               "column": 2
             },
             "end": {
-              "line": 418,
+              "line": 408,
               "column": 3
             }
           },
@@ -3121,11 +3117,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 428,
+              "line": 418,
               "column": 2
             },
             "end": {
-              "line": 430,
+              "line": 420,
               "column": 3
             }
           },
@@ -3145,11 +3141,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 437,
+              "line": 427,
               "column": 2
             },
             "end": {
-              "line": 492,
+              "line": 482,
               "column": 3
             }
           },
@@ -3171,11 +3167,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 498,
+              "line": 488,
               "column": 2
             },
             "end": {
-              "line": 500,
+              "line": 490,
               "column": 3
             }
           },
@@ -3195,11 +3191,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 503,
+              "line": 493,
               "column": 2
             },
             "end": {
-              "line": 522,
+              "line": 512,
               "column": 3
             }
           },
@@ -3215,11 +3211,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 530,
+              "line": 520,
               "column": 2
             },
             "end": {
-              "line": 543,
+              "line": 533,
               "column": 3
             }
           },
@@ -3239,11 +3235,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 549,
+              "line": 539,
               "column": 2
             },
             "end": {
-              "line": 551,
+              "line": 541,
               "column": 3
             }
           },
@@ -3263,11 +3259,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 553,
+              "line": 543,
               "column": 2
             },
             "end": {
-              "line": 564,
+              "line": 554,
               "column": 3
             }
           },
@@ -3284,11 +3280,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 584,
+              "line": 574,
               "column": 2
             },
             "end": {
-              "line": 600,
+              "line": 590,
               "column": 3
             }
           },
@@ -3308,11 +3304,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 606,
+              "line": 596,
               "column": 2
             },
             "end": {
-              "line": 608,
+              "line": 598,
               "column": 3
             }
           },
@@ -3341,7 +3337,7 @@
           "column": 7
         },
         "end": {
-          "line": 609,
+          "line": 599,
           "column": 1
         }
       },
@@ -3429,7 +3425,7 @@
         {
           "type": "CustomEvent",
           "name": "item-selected",
-          "description": "item-selected\nFired when a item from the dropdown was selected\ndetail payload: the original item object or the array of original item objects by multiple options",
+          "description": "item-selected\nFired when an item from the dropdown was selected\ndetail payload: the original item object or the array of original item objects by multiple options",
           "metadata": {}
         },
         {
@@ -4556,7 +4552,7 @@
               "column": 2
             },
             "end": {
-              "line": 247,
+              "line": 272,
               "column": 3
             }
           },
@@ -4572,11 +4568,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 253,
+              "line": 278,
               "column": 2
             },
             "end": {
-              "line": 264,
+              "line": 289,
               "column": 3
             }
           },
@@ -4592,11 +4588,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 271,
+              "line": 296,
               "column": 2
             },
             "end": {
-              "line": 296,
+              "line": 321,
               "column": 3
             }
           },
@@ -4618,11 +4614,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 302,
+              "line": 327,
               "column": 2
             },
             "end": {
-              "line": 320,
+              "line": 345,
               "column": 3
             }
           },
@@ -4638,11 +4634,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 326,
+              "line": 351,
               "column": 2
             },
             "end": {
-              "line": 339,
+              "line": 364,
               "column": 3
             }
           },
@@ -4662,11 +4658,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 346,
+              "line": 371,
               "column": 2
             },
             "end": {
-              "line": 364,
+              "line": 391,
               "column": 3
             }
           },
@@ -4695,7 +4691,7 @@
           "column": 7
         },
         "end": {
-          "line": 365,
+          "line": 392,
           "column": 1
         }
       },
@@ -4835,6 +4831,12 @@
           "type": "CustomEvent",
           "name": "input",
           "description": "Fired when the value of the ui5-date-picker is changed at each key stroke.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "item-selected",
+          "description": "item-selected\nFired when an item from reference dropdown was selected\ndetail payload: the original item object or the array of original item objects by multiple options",
           "metadata": {}
         },
         {
