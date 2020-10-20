@@ -64,6 +64,16 @@ class FuroEntityAgent extends FBP(LitElement) {
        * triggers a load when link rel="self" is in the injected hts (after hts-injected is fired)
        */
       loadOnHtsIn: { type: Boolean, attribute: 'load-on-hts-in' },
+      /**
+       * Creates the query param update mask according to the google api design guidelines
+       *
+       * https://cloud.google.com/apis/design/standard_methods#update
+       *
+       * You may not need it if your server can handle PATCHes without a update_mask
+       * https://grpc-ecosystem.github.io/grpc-gateway/docs/patch.html
+       *
+       */
+      appendUpdateMaskQP: { type: Boolean, attribute: 'with-update-mask' },
     };
   }
 
@@ -149,24 +159,13 @@ class FuroEntityAgent extends FBP(LitElement) {
             }
           }
         }
-        // the request object MUST contain a field named 'update_mask'
-        if (
-          !this._ApiEnvironment.specs[
-            this._service.services.Update.data.request
-            // eslint-disable-next-line no-prototype-builtins
-          ].fields.hasOwnProperty('update_mask')
-        ) {
-          // eslint-disable-next-line no-console
-          console.warn(
-            `The request type ${
-              this._ApiEnvironment.specs[this._service.services.Update.data.request].name
-            } has no specified field (update_mask) to transmit the changed fields. The operation applies to all fields!`,
-            this._ApiEnvironment.specs[this._service.services.Update.data.request],
-            this,
-          );
+
+        // check for query field update_mask
+        // todo: maybe proof one query param for type google.protobuf.FieldMask like grpc-gateway does it would be better
+        if (this.appendUpdateMaskQP && this._service.services.Update.query.update_mask) {
+          // add the field_mask
+          this._queryParams.update_mask = this._getFieldMask(body).join(",") ;
         }
-        // add the field_mask
-        body.update_mask = { paths: this._getFieldMask(body) };
       } else if (Env.api.sendAllDataOnMethodPut && link.method.toLowerCase() === 'put') {
         body = dataObject._value;
       } else {
@@ -252,6 +251,11 @@ class FuroEntityAgent extends FBP(LitElement) {
 
     // get existing params from href and append query params
     const params = AgentHelper.getParams(this, link);
+
+    // append query params to params
+    for (const p in this._queryParams){
+      params[p] = this._queryParams[p]
+    }
 
     // rebuild qp
     const qp = AgentHelper.rebuildQPFromParams(params, this._specDefinedQPs);
