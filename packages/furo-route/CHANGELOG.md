@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.25](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.3.24...@furo/route@1.3.25) (2020-10-20)
+
+
+### Bug Fixes
+
+* furo location sent empty qp on location change with same qp, hash and path. Not sending the sub events is ok, but not sending the data is not ok ([27e0c5e](https://github.com/theNorstroem/FuroBaseComponents/commit/27e0c5e3a1c13bbf8a84d413f03830d368bdae8c))
+
+
+
+
+
 ## [1.3.24](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.3.23...@furo/route@1.3.24) (2020-10-08)
 
 **Note:** Version bump only for package @furo/route

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.10.0...@furo/data@1.10.1) (2020-10-20)
+
+
+### Bug Fixes
+
+* fix ios8601 format. fix ui5-reference-search in order to show display_name initially when there is no collection-injection ([a2b51e6](https://github.com/theNorstroem/FuroBaseComponents/commit/a2b51e60fba206f0826385bf8ddaf7fd69253ef2))
+* fix tests ([20a287f](https://github.com/theNorstroem/FuroBaseComponents/commit/20a287f755c347b28bba2a873b8e5401696bdfe8))
+
+
+
+
+
 # [1.10.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.9.0...@furo/data@1.10.0) (2020-10-08)
 
 

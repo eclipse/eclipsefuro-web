@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.4.2...@furo/input@1.4.3) (2020-10-20)
+
+
+### Bug Fixes
+
+* fix ios8601 format. fix ui5-reference-search in order to show display_name initially when there is no collection-injection ([a2b51e6](https://github.com/theNorstroem/FuroBaseComponents/commit/a2b51e60fba206f0826385bf8ddaf7fd69253ef2))
+
+
+
+
+
 ## [1.4.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.4.1...@furo/input@1.4.2) (2020-10-08)
 
 

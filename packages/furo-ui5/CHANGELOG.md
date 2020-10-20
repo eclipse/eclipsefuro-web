@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.4.2...@furo/ui5@0.5.0) (2020-10-20)
+
+
+### Bug Fixes
+
+* fix ios8601 format. fix ui5-reference-search in order to show display_name initially when there is no collection-injection ([a2b51e6](https://github.com/theNorstroem/FuroBaseComponents/commit/a2b51e60fba206f0826385bf8ddaf7fd69253ef2))
+* fix tests ([20a287f](https://github.com/theNorstroem/FuroBaseComponents/commit/20a287f755c347b28bba2a873b8e5401696bdfe8))
+* move init to connectedcallback to avoid ui5-data-properties problem ([b84d93d](https://github.com/theNorstroem/FuroBaseComponents/commit/b84d93d02501c7027a2c9ecaa23d98407d975139))
+* solve problem for ui5 collection dropdown in ui5-data-property ([f53a2c2](https://github.com/theNorstroem/FuroBaseComponents/commit/f53a2c290b97b5c5f2ac13542e058e76f0027132))
+* ui5-collection-dropdown should not update the value of bounded data with the display_name of item by scalar type ([274072d](https://github.com/theNorstroem/FuroBaseComponents/commit/274072dc146ee628abb51493e27c3b0802f6f232))
+* ui5-data-collection-dropdown should selected the first item if no item is pre selected. ([bed0817](https://github.com/theNorstroem/FuroBaseComponents/commit/bed0817bc1661e20ee2bc12a04107b91c0922326))
+
+
+### Features
+
+* add item-selected event to furo-data-ui5-reference-search ([476189c](https://github.com/theNorstroem/FuroBaseComponents/commit/476189cafd9fb51537fd05dec85d9d36be1b1186))
+* add item-selected event to furo-data-ui5-reference-search ([2d21ff3](https://github.com/theNorstroem/FuroBaseComponents/commit/2d21ff3fa4e728801d677f172b6a61e7083c74f4))
+* new component with flow based enabled functions ([54608a7](https://github.com/theNorstroem/FuroBaseComponents/commit/54608a75704f16770301987c214659d9ac5fe215))
+
+
+
+
+
 ## [0.4.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.4.1...@furo/ui5@0.4.2) (2020-10-13)
 
 
