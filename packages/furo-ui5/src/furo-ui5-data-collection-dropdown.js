@@ -69,6 +69,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     this._fieldDisplayNodeToUpdate = {};
     this._dropdownList = [];
 
+    this._initBinder();
+
     /**
      * Listener to catch the selected data
      */
@@ -125,8 +127,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     setTimeout(() => {
       super.connectedCallback();
     }, 0);
-
-    this._initBinder();
   }
 
   /**
