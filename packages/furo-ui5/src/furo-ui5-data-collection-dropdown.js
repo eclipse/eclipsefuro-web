@@ -69,6 +69,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     this._fieldDisplayNodeToUpdate = {};
     this._dropdownList = [];
 
+    this._initBinder();
+
     /**
      * Listener to catch the selected data
      */
@@ -125,8 +127,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     setTimeout(() => {
       super.connectedCallback();
     }, 0);
-
-    this._initBinder();
   }
 
   /**
@@ -240,13 +240,15 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
 
   /**
    * @event item-selected
-   * Fired when a item from the dropdown was selected
+   * Fired when an item from the dropdown was selected
    * detail payload: the original item object or the array of original item objects by multiple options
    */
   _notifiySelectedItem(obj) {
-    const customEvent = new Event('item-selected', { composed: true, bubbles: true });
-    customEvent.detail = obj._original;
-    this.dispatchEvent(customEvent);
+    if (obj) {
+      const customEvent = new Event('item-selected', { composed: true, bubbles: true });
+      customEvent.detail = obj._original;
+      this.dispatchEvent(customEvent);
+    }
   }
 
   /**
@@ -256,25 +258,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    */
   _notifyAndTriggerUpdate(arr) {
     if (arr.length > 0) {
-      if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
-        // notify first item if field is not set
-        let selectedItem = null;
-        for (let i = 0; i < arr.length; i += 1) {
-          if (arr[i].selected) {
-            selectedItem = arr[i];
-            break;
-          }
-        }
-        selectedItem = selectedItem || arr[0];
-        this._notifiySelectedItem(selectedItem);
-        if (this._fieldNodeToUpdate) {
-          // this._fieldNodeToUpdate._value = selectedItem;
-        }
-      } else if (this.multiple) {
-        this._notifiySelectedItem(this._parseRepeatedData(this._fieldNodeToUpdate._value));
-      } else {
-        this._notifiySelectedItem(this._fieldNodeToUpdate._value);
-      }
       this.setList(arr);
     }
   }
@@ -301,21 +284,28 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
 
     const arr = collection.map(e => {
       if (e.selected) {
-        this.value = e.id.toString();
+        this._fieldNodeToUpdate._value = e.id.toString();
       }
       return {
         id: e.id,
         label: e.label,
-        selected: this.value === e.id.toString() || e.selected || false,
+        selected: this._fieldNodeToUpdate._value === e.id.toString() || e.selected || false,
       };
     });
 
-    if (!this.value) {
-      this.value = arr[0].id;
+    if (!this._fieldNodeToUpdate._value) {
+      // if no preselected select the first item
+      this._fieldNodeToUpdate._value = arr[0].id;
+      arr[0].selected = true;
     }
+
     // save parsed selection option array
     this.selectOptions = arr;
     this.addItems(this.selectOptions);
+
+    const selectedObj = this._dropdownList.find(obj => obj.id === this._fieldNodeToUpdate._value);
+
+    this._notifiySelectedItem(selectedObj);
   }
 
   /**

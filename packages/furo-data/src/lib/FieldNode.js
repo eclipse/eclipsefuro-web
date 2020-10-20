@@ -253,7 +253,7 @@ export class FieldNode extends EventTreeNode {
           field._value = val[field._name];
         }
         // e.g. wrapper_int32: null -> wrapper_in32{"value":null}. otherwise the old wrapper object value will not be updated by null
-        else if(val === null){
+        else if (val === null) {
           field._value = null;
         }
       }
