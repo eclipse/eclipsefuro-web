@@ -65,7 +65,9 @@ class FuroEntityAgent extends FBP(LitElement) {
        */
       loadOnHtsIn: { type: Boolean, attribute: 'load-on-hts-in' },
       /**
-       * Creates the query param update mask according to the google api design guidelines
+       * Creates the query param update mask according to the google api design guidelines.
+       *
+       * Your update service must have a query param **update_mask** to use this feature.
        *
        * https://cloud.google.com/apis/design/standard_methods#update
        *
