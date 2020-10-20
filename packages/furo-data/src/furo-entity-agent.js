@@ -166,7 +166,7 @@ class FuroEntityAgent extends FBP(LitElement) {
         // todo: maybe proof one query param for type google.protobuf.FieldMask like grpc-gateway does it would be better
         if (this.appendUpdateMaskQP && this._service.services.Update.query.update_mask) {
           // add the field_mask
-          this._queryParams.update_mask = this._getFieldMask(body).join(",") ;
+          this._queryParams.update_mask = this._getFieldMask(body).join(',');
         }
       } else if (Env.api.sendAllDataOnMethodPut && link.method.toLowerCase() === 'put') {
         body = dataObject._value;
@@ -255,8 +255,9 @@ class FuroEntityAgent extends FBP(LitElement) {
     const params = AgentHelper.getParams(this, link);
 
     // append query params to params
-    for (const p in this._queryParams){
-      params[p] = this._queryParams[p]
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
+    for (const p in this._queryParams) {
+      params[p] = this._queryParams[p];
     }
 
     // rebuild qp

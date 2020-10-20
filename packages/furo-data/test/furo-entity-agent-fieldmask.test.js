@@ -43,7 +43,10 @@ describe('furo-entity-agent fieldmask', () => {
       expect(r.detail.url).to.not.be.undefined;
       // eslint-disable-next-line no-prototype-builtins
       expect(r.detail.json.hasOwnProperty('members')).to.be.false;
-      assert.equal(r.detail.url, 'https://httpbin.org/anything?update_mask=description,cost_limit.currency_code');
+      assert.equal(
+        r.detail.url,
+        'https://httpbin.org/anything?update_mask=description,cost_limit.currency_code',
+      );
 
       done();
     });
