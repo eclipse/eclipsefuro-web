@@ -482,7 +482,6 @@ export class UniversalFieldNodeBinder {
       } else {
         this._removeVirtualAttribute('suggestions');
       }
-
     }
   }
 

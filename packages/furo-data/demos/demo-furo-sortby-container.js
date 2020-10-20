@@ -66,31 +66,36 @@ class DemoFuroSortbyContainer extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-
             <furo-card>
-              <furo-data-table type="experiment.Experiment"
-                               single-selection
-                               fields="display_name, furo_data_number_input, furo_data_color_input, furo_data_money_input"
-                               sortable-fields="display_name, furo_data_number_input"
-                               @-ascending="--asc"
-                               @-descending="--desc"></furo-data-table>
+              <furo-data-table
+                type="experiment.Experiment"
+                single-selection
+                fields="display_name, furo_data_number_input, furo_data_color_input, furo_data_money_input"
+                sortable-fields="display_name, furo_data_number_input"
+                @-ascending="--asc"
+                @-descending="--desc"
+              ></furo-data-table>
 
-              <furo-text-input style="width: 100%" label="sort_by Query" ƒ-set-value="--sortUpdated"></furo-text-input>
+              <furo-text-input
+                style="width: 100%"
+                label="sort_by Query"
+                ƒ-set-value="--sortUpdated"
+              ></furo-text-input>
 
               <furo-button label="clear Query" @-click="--clearSortBy"></furo-button>
-
             </furo-card>
 
-            <furo-sortby-container ƒ-add-ascending-field="--asc"
-                                   ƒ-add-descending-field="--desc"
-                                   ƒ-clear="--clearSortBy"
-                                   @-sortby-condition-updated="--sortUpdated"></furo-sortby-container>
+            <furo-sortby-container
+              ƒ-add-ascending-field="--asc"
+              ƒ-add-descending-field="--desc"
+              ƒ-clear="--clearSortBy"
+              @-sortby-condition-updated="--sortUpdated"
+            ></furo-sortby-container>
 
-            <furo-collection-agent service="ExperimentService"
-                                   ƒ-set-order-by="--sortUpdated"></furo-collection-agent>
-
-
-
+            <furo-collection-agent
+              service="ExperimentService"
+              ƒ-set-order-by="--sortUpdated"
+            ></furo-collection-agent>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
