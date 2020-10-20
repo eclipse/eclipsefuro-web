@@ -599,8 +599,8 @@ describe('furo-data-object', () => {
             .then(r => {
               element.injectRaw(r);
               p.then(odr => {
-                assert.equal(odr.links.repeats.length, 1);
-                assert.equal(odr.links.__childNodes.length, 1);
+                assert.equal(odr.links.repeats.length, 2);
+                assert.equal(odr.links.__childNodes.length, 2);
 
                 done();
               });
