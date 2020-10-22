@@ -297,6 +297,8 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
 
+    this._resetComboBox();
+
     if (this.binder.fieldNode) {
       /**
        * handle pristine
@@ -319,6 +321,17 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
 
       this._updateInputField();
     }
+  }
+
+  _resetComboBox() {
+    this._collection = [];
+    this.value = '';
+    this.filterValue = '';
+    const input = this.shadowRoot.getElementById('ui5-combobox-input');
+    if(input) {
+      input.value="";
+    }
+    this._removeCBItem();
   }
 
   /**
@@ -371,9 +384,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
    */
   _showList(withMaxItems) {
     if (this._collection) {
-      this.querySelectorAll('ui5-cb-item').forEach(e => {
-        e.remove();
-      });
+      this._removeCBItem();
 
       this._collection.forEach(e => {
         const element = document.createElement('ui5-cb-item');
@@ -389,6 +400,13 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
         // TODO: use valueStateMessage to show the max-items-info by next ui5 release
       }
     }
+  }
+
+
+  _removeCBItem() {
+    this.querySelectorAll('ui5-cb-item').forEach(e => {
+      e.remove();
+    });
   }
 }
 
