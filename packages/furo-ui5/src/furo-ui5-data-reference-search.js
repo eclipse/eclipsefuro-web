@@ -341,7 +341,18 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
   _updateInputField() {
     // initially show display_name in the input field by no collection injection
     if (this._collection.length === 0 && this.binder.fieldNode.display_name._value !== undefined) {
-      this.placeholder = this.binder.fieldNode[this.displayField];
+      this.filterValue = this.binder.fieldNode[this.displayField];
+      this.value = this.binder.fieldNode[this.displayField];
+      // use the bounded data as the entity in collection
+      this._collection = [
+        {
+          data: {
+            id: this.binder.fieldNode[this.valueField],
+            display_name: this.binder.fieldNode[this.displayField],
+          },
+        },
+      ];
+      this._showList();
     }
 
     if (this.binder.fieldNode.id._value !== undefined) {
