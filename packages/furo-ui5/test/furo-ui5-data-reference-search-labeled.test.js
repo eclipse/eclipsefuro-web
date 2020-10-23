@@ -9,7 +9,7 @@ import '@furo/testhelper/initEnv.js';
 
 import '../src/furo-catalog.js';
 
-describe('furo-ui5-data-reference-search-labeled', () => {
+describe('furo-ui5-data-reference-search-labeled-test', () => {
   let host;
   let input;
   let dao;
@@ -81,6 +81,15 @@ describe('furo-ui5-data-reference-search-labeled', () => {
 
       done();
     }, 16);
+  });
+
+  it('should support attribute disabled ', done => {
+    input.setAttribute('disabled','');
+    setTimeout(() => {
+      const component = input.shadowRoot.getElementById('Input');
+      assert.equal(component.getAttribute("disabled"), '', 'check attribute disabled ');
+      done();
+    }, 0);
   });
 
   /*  it('label text should be overrideable via meta ', done => {

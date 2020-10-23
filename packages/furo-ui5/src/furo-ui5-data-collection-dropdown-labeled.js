@@ -53,6 +53,12 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
        */
       label: { type: String },
       /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean,
+      },
+      /**
        * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
        *
        * This is only needed if display_name and value_field are not located in the root of the object.
@@ -137,6 +143,7 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
         <furo-ui5-data-collection-dropdown
           content
           id="Input"
+          ?disabled=${this.disabled}
           sub-field="${this.subField}"
           display-field="${this.displayField}"
           value-field="${this.valueField}"

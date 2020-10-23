@@ -72,22 +72,27 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
             <div style="margin: var(--spacing)">
               <furo-form-layouter one>
                 <furo-ui5-data-text-input-labeled
+                  ƒ-.disabled="--disable"
                   ƒ-bind-data="--entity(*.data.display_name)"
                 ></furo-ui5-data-text-input-labeled>
 
                 <furo-ui5-data-text-input-labeled
+                  ƒ-.disabled="--disable"
                   ƒ-bind-data="--entity(*.data.description)"
                 ></furo-ui5-data-text-input-labeled>
 
                 <furo-ui5-data-text-input-labeled
+                  ƒ-.disabled="--disable"
                   ƒ-bind-data="--entity(*.data.furo_data_text_input)"
                 ></furo-ui5-data-text-input-labeled>
 
                 <furo-ui5-data-number-input-labeled
+                  ƒ-.disabled="--disable"
                   ƒ-bind-data="--entity(*.data.furo_data_number_input)"
                 ></furo-ui5-data-number-input-labeled>
 
                 <furo-ui5-data-password-input-labeled
+                  ƒ-.disabled="--disable"
                   ƒ-bind-data="--entity(*.data.furo_data_number_input)"
                 ></furo-ui5-data-password-input-labeled>
 
@@ -97,10 +102,12 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                   </ui5-label>
                   <furo-horizontal-flex id="Custom" content space>
                     <furo-ui5-data-text-input
+                      ƒ-.disabled="--disable"
                       flex
                       ƒ-bind-data="--entity(*.data.furo_data_money_input.currency_code)"
                     ></furo-ui5-data-text-input>
                     <furo-ui5-data-number-input
+                      ƒ-.disabled="--disable"
                       flex
                       ƒ-bind-data="--entity(*.data.furo_data_money_input.units)"
                     ></furo-ui5-data-number-input>
@@ -119,10 +126,12 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
 
                 <furo-ui5-data-money-input-labeled
                   label="money input labeled"
+                  ƒ-.disabled="--disable"
                   ƒ-bind-data="--entity(*.data.furo_data_money_input)"
                 ></furo-ui5-data-money-input-labeled>
 
                 <furo-ui5-data-date-picker-labeled
+                  ƒ-.disabled="--disable"
                   ƒ-bind-data="--entity(*.data.furo_data_date_input_google)"
                 ></furo-ui5-data-date-picker-labeled>
                 <furo-ui5-data-date-picker-labeled
@@ -130,17 +139,20 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                 ></furo-ui5-data-date-picker-labeled>
                 <furo-ui5-data-reference-search-labeled
                   @-search="--term"
+                  ƒ-.disabled="--disable"
                   ƒ-bind-data="--entityTaskReady(*.owner)"
                   ƒ-collection-in="--refCol"
                 ></furo-ui5-data-reference-search-labeled>
 
                 <furo-ui5-data-collection-dropdown-labeled
                   value-sub-field="id"
+                  ƒ-.disabled="--disable"
                   ƒ-bind-data="--entityTaskReady(*.owner)"
                   ƒ-inject-list="--refCol(*.entities)"
                 ></furo-ui5-data-collection-dropdown-labeled>
 
                 <furo-ui5-data-checkbox-input-labeled
+                  ƒ-.disabled="--disable"
                   ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
                 ></furo-ui5-data-checkbox-input-labeled>
 
@@ -151,6 +163,7 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                   <furo-ui5-data-segmented-button
                     style="max-width: 100%;"
                     content
+                    ƒ-.disabled="--disable"
                     ƒ-bind-data="--entityTaskReady(*.owner)"
                     ƒ-inject-list="--refCol(*.entities)"
                   ></furo-ui5-data-segmented-button>
@@ -164,6 +177,7 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                 <div>
                   <p>New form field section</p>
                   <furo-ui5-data-textarea-input-labeled
+                    ƒ-.disabled="--disable"
                     ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
                   ></furo-ui5-data-textarea-input-labeled>
                 </div>
@@ -171,6 +185,7 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
 
               <furo-button-bar slot="action">
                 <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
+                <furo-button @-click="--disable" outline label="disable"></furo-button>
               </furo-button-bar>
             </div>
           </ui5-card>

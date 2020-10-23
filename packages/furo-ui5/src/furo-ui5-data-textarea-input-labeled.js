@@ -41,6 +41,12 @@ class FuroUi5DataTextareaInputLabeled extends FBP(LitElement) {
        * the label for the data-textarea-input
        */
       label: { type: String },
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean,
+      },
     };
   }
 
@@ -78,6 +84,7 @@ class FuroUi5DataTextareaInputLabeled extends FBP(LitElement) {
         <furo-ui5-data-textarea-input
           content
           id="Input"
+          ?disabled=${this.disabled}
           ƒ-bind-data="--data"
         ></furo-ui5-data-textarea-input>
       </furo-ui5-form-field-container>

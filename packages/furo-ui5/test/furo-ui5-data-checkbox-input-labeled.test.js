@@ -83,4 +83,13 @@ describe('furo-ui5-data-checkbox-input-labeled', () => {
       done();
     }, 16);
   });
+
+  it('should support attribute disabled ', done => {
+    input.setAttribute('disabled','');
+    setTimeout(() => {
+      const checkbox = input.shadowRoot.querySelector('furo-ui5-data-checkbox-input');
+      assert.equal(checkbox.disabled, true, 'check attribute disabled ');
+      done();
+    }, 0);
+  });
 });

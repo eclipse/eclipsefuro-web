@@ -50,4 +50,13 @@ describe('furo-ui5-data-date-picker-labeled', () => {
       done();
     }, 16);
   });
+
+  it('should support attribute disabled ', done => {
+    input.setAttribute('disabled','');
+    setTimeout(() => {
+      const component = input.shadowRoot.querySelector('furo-ui5-data-date-picker');
+      assert.equal(component.disabled, true, 'check attribute disabled ');
+      done();
+    }, 0);
+  });
 });
