@@ -52,7 +52,7 @@ describe('furo-ui5-data-date-picker-labeled', () => {
   });
 
   it('should support attribute disabled ', done => {
-    input.setAttribute('disabled','');
+    input.setAttribute('disabled', '');
     setTimeout(() => {
       const component = input.shadowRoot.querySelector('furo-ui5-data-date-picker');
       assert.equal(component.disabled, true, 'check attribute disabled ');

@@ -208,7 +208,6 @@ describe('furo-ui5-data-collection-dropdown', () => {
     }, 16);
   });
 
-
   it('should have options from a collection response', done => {
     dropdown.injectEntities(testData.entities);
     assert.equal(dropdown._dropdownList.length, 4);

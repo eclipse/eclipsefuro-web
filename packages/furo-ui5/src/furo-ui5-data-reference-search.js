@@ -328,8 +328,8 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
     this.value = '';
     this.filterValue = '';
     const input = this.shadowRoot.getElementById('ui5-combobox-input');
-    if(input) {
-      input.value="";
+    if (input) {
+      input.value = '';
     }
     this._removeCBItem();
   }
@@ -401,7 +401,6 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
       }
     }
   }
-
 
   _removeCBItem() {
     this.querySelectorAll('ui5-cb-item').forEach(e => {

@@ -85,7 +85,7 @@ describe('furo-ui5-data-checkbox-input-labeled', () => {
   });
 
   it('should support attribute disabled ', done => {
-    input.setAttribute('disabled','');
+    input.setAttribute('disabled', '');
     setTimeout(() => {
       const checkbox = input.shadowRoot.querySelector('furo-ui5-data-checkbox-input');
       assert.equal(checkbox.disabled, true, 'check attribute disabled ');
