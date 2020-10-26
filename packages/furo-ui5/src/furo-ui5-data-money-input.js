@@ -183,6 +183,12 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       options: {
         type: Object,
       },
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean,
+      },
     };
   }
 

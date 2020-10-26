@@ -41,6 +41,13 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
        * the label for the data-checkbox-input
        */
       label: { type: String },
+
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean,
+      },
     };
   }
 
@@ -80,9 +87,10 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
       <furo-ui5-form-field-container>
         <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
         <furo-ui5-data-checkbox-input
-          ƒ-.text="--label"
           content
           id="Input"
+          ?disabled=${this.disabled}
+          ƒ-.text="--label"
           ƒ-bind-data="--data"
         ></furo-ui5-data-checkbox-input>
       </furo-ui5-form-field-container>

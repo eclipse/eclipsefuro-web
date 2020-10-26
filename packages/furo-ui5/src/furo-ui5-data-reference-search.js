@@ -297,6 +297,8 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
 
+    this._resetComboBox();
+
     if (this.binder.fieldNode) {
       /**
        * handle pristine
@@ -321,6 +323,17 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
     }
   }
 
+  _resetComboBox() {
+    this._collection = [];
+    this.value = '';
+    this.filterValue = '';
+    const input = this.shadowRoot.getElementById('ui5-combobox-input');
+    if (input) {
+      input.value = '';
+    }
+    this._removeCBItem();
+  }
+
   /**
    * update search input text
    * @private
@@ -328,7 +341,18 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
   _updateInputField() {
     // initially show display_name in the input field by no collection injection
     if (this._collection.length === 0 && this.binder.fieldNode.display_name._value !== undefined) {
-      this.placeholder = this.binder.fieldNode[this.displayField];
+      this.filterValue = this.binder.fieldNode[this.displayField];
+      this.value = this.binder.fieldNode[this.displayField];
+      // use the bounded data as the entity in collection
+      this._collection = [
+        {
+          data: {
+            id: this.binder.fieldNode[this.valueField],
+            display_name: this.binder.fieldNode[this.displayField],
+          },
+        },
+      ];
+      this._showList();
     }
 
     if (this.binder.fieldNode.id._value !== undefined) {
@@ -371,9 +395,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
    */
   _showList(withMaxItems) {
     if (this._collection) {
-      this.querySelectorAll('ui5-cb-item').forEach(e => {
-        e.remove();
-      });
+      this._removeCBItem();
 
       this._collection.forEach(e => {
         const element = document.createElement('ui5-cb-item');
@@ -389,6 +411,12 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
         // TODO: use valueStateMessage to show the max-items-info by next ui5 release
       }
     }
+  }
+
+  _removeCBItem() {
+    this.querySelectorAll('ui5-cb-item').forEach(e => {
+      e.remove();
+    });
   }
 }
 

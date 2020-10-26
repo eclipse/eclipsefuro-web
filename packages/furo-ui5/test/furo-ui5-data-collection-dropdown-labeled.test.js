@@ -132,4 +132,13 @@ describe('furo-ui5-data-collection-dropdown-labeled', () => {
       done();
     }, 16);
   });
+
+  it('should support attribute disabled ', done => {
+    input.setAttribute('disabled', '');
+    setTimeout(() => {
+      const dropdown = input.shadowRoot.getElementById('Input');
+      assert.equal(dropdown.getAttribute('disabled'), '', 'check attribute disabled ');
+      done();
+    }, 0);
+  });
 });

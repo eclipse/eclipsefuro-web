@@ -41,6 +41,12 @@ class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
        * the label for the data-money-input
        */
       label: { type: String },
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean,
+      },
     };
   }
 
@@ -78,6 +84,7 @@ class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
         <furo-ui5-data-money-input
           content
           id="Input"
+          ?disabled=${this.disabled}
           ƒ-bind-data="--data"
         ></furo-ui5-data-money-input>
       </furo-ui5-form-field-container>

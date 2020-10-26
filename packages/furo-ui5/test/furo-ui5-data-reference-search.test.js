@@ -211,22 +211,25 @@ describe('furo-ui5-data-reference-search', () => {
   });
 
   it('should inject collections', done => {
-    referenceSearch.collectionIn(testCollection);
-
-    setTimeout(() => {
-      assert.equal(referenceSearch._state.items.length, 4, 'collection injection check');
-      done();
-    }, 0);
+    entityObject.addEventListener('object-ready', () => {
+      referenceSearch.collectionIn(testCollection);
+      setTimeout(() => {
+        assert.equal(referenceSearch._state.items.length, 4, 'collection injection check');
+        done();
+      }, 0);
+    });
   });
 
   it('should show collections according to maxItemsToDisplay', done => {
-    referenceSearch.maxItemsToDisplay = 2;
-    referenceSearch.collectionIn(testCollection);
+    entityObject.addEventListener('object-ready', () => {
+      referenceSearch.maxItemsToDisplay = 2;
+      referenceSearch.collectionIn(testCollection);
 
-    setTimeout(() => {
-      assert.equal(referenceSearch._state.items.length, 2, 'maxItemsToDisplay check');
-      done();
-    }, 0);
+      setTimeout(() => {
+        assert.equal(referenceSearch._state.items.length, 2, 'maxItemsToDisplay check');
+        done();
+      }, 0);
+    });
   });
 
   it('should trigger search event ', done => {

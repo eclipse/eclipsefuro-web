@@ -50,4 +50,13 @@ describe('furo-ui5-data-money-input-labeled', () => {
       done();
     }, 16);
   });
+
+  it('should support attribute disabled ', done => {
+    input.setAttribute('disabled', '');
+    setTimeout(() => {
+      const component = input.shadowRoot.getElementById('Input');
+      assert.equal(component.getAttribute('disabled'), '', 'check attribute disabled ');
+      done();
+    }, 0);
+  });
 });
