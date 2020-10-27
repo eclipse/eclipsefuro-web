@@ -33,6 +33,8 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
   constructor() {
     super();
     this._initBinder();
+    this.minDate = '0001-01-01';
+    this.maxDate = '9999-12-31';
   }
 
   /**

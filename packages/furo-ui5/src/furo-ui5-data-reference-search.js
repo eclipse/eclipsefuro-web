@@ -225,51 +225,117 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
   }
 
   /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   */
+  connectedCallback() {
+    // initiate valueStateMessage to avoid error in InputTemplate.lit.js
+    if (this.valueStateMessage === undefined) {
+      this.valueStateMessage = '';
+    }
+    setTimeout(() => {
+      super.connectedCallback();
+    }, 0);
+  }
+
+  /**
    * add listeners
    * @private
    */
   _registerListeners() {
     // by inputting
     this.addEventListener('input', () => {
-      if (!this._searchOnEnterOnly) {
+      if (!this._searchOnEnterOnly && !this.searchTriggerFreezed && !this.searchTermInItemList()) {
+        this._freezeSearchTrigger();
         this._fireSearchEvent();
       }
+      this._syncInputValueWithFiltervalue();
     });
 
     // by item selected
     this.addEventListener('change', () => {
-      let _original;
+      this._syncInputValueWithFiltervalue();
+      this._asignSelectedItemToFieldNode();
+    });
+  }
 
-      // select at first in filtered items
-      if (this._state._filteredItems.length > 0) {
-        this._state._filteredItems.forEach(e => {
-          if (e.selected && e.id !== undefined) {
-            this.binder.fieldNode.id._value = e.id;
-            this.binder.fieldNode.display_name._value = e.text;
-            _original = e._original;
-          }
-        });
-      } else {
-        this._state.items.forEach(e => {
-          if (e.selected && e.id !== undefined) {
-            this.binder.fieldNode.id._value = e.id;
-            this.binder.fieldNode.display_name._value = e.text;
-            _original = e._original;
-          }
-        });
-      }
-
-      if (_original) {
-        /**
-         * @event item-selected
-         * Fired when an item from reference dropdown was selected
-         * detail payload: the original item object or the array of original item objects by multiple options
-         */
-        const customEvent = new Event('item-selected', { composed: true, bubbles: true });
-        customEvent.detail = _original;
-        this.dispatchEvent(customEvent);
+  searchTermInItemList() {
+    let inList = false;
+    this._state.items.forEach(e => {
+      if (e.text === this.filterValue) {
+        inList = true;
       }
     });
+
+    return inList;
+  }
+
+  _asignSelectedItemToFieldNode() {
+    let _original;
+    let isSelected = false;
+
+    // select at first in filtered items
+    if (this._state._filteredItems.length > 0) {
+      this._state._filteredItems.forEach(e => {
+        if (e.selected && e.id !== undefined) {
+          this._freezeSearchTrigger();
+          this.binder.fieldNode.id._value = e.id;
+          this.binder.fieldNode.display_name._value = e.text;
+          _original = e._original;
+          isSelected = true;
+        }
+      });
+    } else {
+      this._state.items.forEach(e => {
+        if (e.selected && e.id !== undefined) {
+          this._freezeSearchTrigger();
+          this.binder.fieldNode.id._value = e.id;
+          this.binder.fieldNode.display_name._value = e.text;
+          _original = e._original;
+          isSelected = true;
+        }
+      });
+    }
+
+    if (!isSelected) {
+      // select item via display_name
+      this._state.items.forEach(e => {
+        if (e.text === this.filterValue) {
+          this._freezeSearchTrigger();
+          this.binder.fieldNode.id._value = e.id;
+          this.binder.fieldNode.display_name._value = e.text;
+          _original = e._original;
+          isSelected = true;
+        }
+      });
+    }
+
+    this._sendItemSelectedEvent(_original);
+  }
+
+  // ui5 combobox use this.value.length to cut the filter string
+  _syncInputValueWithFiltervalue() {
+    this.value = this.filterValue;
+  }
+
+  _sendItemSelectedEvent(detail) {
+    if (detail) {
+      /**
+       * @event item-selected
+       * Fired when an item from reference dropdown was selected
+       * detail payload: the original item object or the array of original item objects by multiple options
+       */
+      const customEvent = new Event('item-selected', { composed: true, bubbles: true });
+      customEvent.detail = detail;
+      this.dispatchEvent(customEvent);
+    }
+  }
+
+  _freezeSearchTrigger() {
+    this.searchTriggerFreezed = true;
+    setTimeout(() => {
+      this.searchTriggerFreezed = false;
+    }, 100);
   }
 
   /**
@@ -384,7 +450,9 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
         this._showList();
       }
     } else {
-      // TODO: use valueStateMessage to show no-result-message by next ui5 release
+      this._state.items = [];
+      this._state._filteredItems = [];
+      this._collection = [];
     }
   }
 
@@ -417,6 +485,63 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
     this.querySelectorAll('ui5-cb-item').forEach(e => {
       e.remove();
     });
+  }
+
+  /**
+   * override
+   */
+  onBeforeRendering() {
+    let domValue;
+
+    if (this._initialRendering) {
+      domValue = this.value;
+      this._filteredItems = this.items;
+    } else {
+      domValue = this.filterValue;
+    }
+
+    if (this._autocomplete && domValue !== '') {
+      const item = this._autoCompleteValue(domValue);
+
+      if (!this._selectionChanged && item && !item.selected) {
+        this.fireEvent('selection-change', {
+          item,
+        });
+
+        this._selectionChanged = false;
+      }
+    } else {
+      this._tempValue = domValue;
+    }
+
+    if (
+      !this._initialRendering &&
+      this.popover &&
+      document.activeElement === this &&
+      !this._filteredItems.length
+    ) {
+      this.popover.close();
+    }
+
+    this._selectMatchingItem();
+
+    if (this._isKeyNavigation && this.responsivePopover && this.responsivePopover.opened) {
+      this.focused = false;
+    } else if (this.shadowRoot.activeElement) {
+      this.focused = this.shadowRoot.activeElement.id === 'ui5-combobox-input';
+    }
+
+    this._initialRendering = false;
+    this._isKeyNavigation = false;
+  }
+
+  /**
+   * override
+   */
+  shouldClosePopover() {
+    return (
+      this.responsivePopover && this.responsivePopover.opened && !this.focused && !this._itemFocused
+    );
   }
 }
 
