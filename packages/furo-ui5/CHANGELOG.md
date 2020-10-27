@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.5.0...@furo/ui5@0.6.0) (2020-10-27)
+
+
+### Bug Fixes
+
+* use placeholder to show the bounded data as the default value of a reference search. ([a6bda5f](https://github.com/theNorstroem/FuroBaseComponents/commit/a6bda5f5f2a5f9f8a46b3d28b7545c6f16d0c233))
+
+
+### Features
+
+* initially use the display_name and id from bounded data as the data of collection when there is no collection injection ([3d4c4ab](https://github.com/theNorstroem/FuroBaseComponents/commit/3d4c4ab4a6771236389a22ec4cc92b756f55511d))
+* reset comboBox by binding data. ([6ec99b3](https://github.com/theNorstroem/FuroBaseComponents/commit/6ec99b3093eaa82bfa5b68ee062867691922300d))
+
+
+
+
+
 # [0.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.4.2...@furo/ui5@0.5.0) (2020-10-20)
 
 

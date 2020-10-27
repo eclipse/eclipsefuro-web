@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.8...@furo/navigation@1.6.9) (2020-10-27)
+
+
+### Bug Fixes
+
+* covert type number of id to string for comparing. ([a598ad2](https://github.com/theNorstroem/FuroBaseComponents/commit/a598ad238a4af67200ec0be2b32dd2b77e04c910))
+
+
+
+
+
 ## [1.6.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.7...@furo/navigation@1.6.8) (2020-10-20)
 
 **Note:** Version bump only for package @furo/navigation

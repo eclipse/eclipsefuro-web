@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.15.0...@furo/specs@1.16.0) (2020-10-27)
+
+
+### Features
+
+* entity-agent with optional update_mask query param. Use the attribute with-update-mask to enable ([8741476](https://github.com/theNorstroem/FuroBaseComponents/commit/8741476bed39ce1e4b61f7c2823c969c6ed45bff))
+
+
+
+
+
 # [1.15.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.14.0...@furo/specs@1.15.0) (2020-10-08)
 
 
