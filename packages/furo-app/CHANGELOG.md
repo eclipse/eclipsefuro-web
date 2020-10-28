@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.23](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.22...@furo/app@1.3.23) (2020-10-28)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
 ## [1.3.22](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.21...@furo/app@1.3.22) (2020-10-27)
 
 **Note:** Version bump only for package @furo/app

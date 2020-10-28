@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.4.4...@furo/input@1.5.0) (2020-10-28)
+
+
+### Features
+
+* furo-data-time-input with google.type.TimeOfDay ([c9e3be1](https://github.com/theNorstroem/FuroBaseComponents/commit/c9e3be12515d4c1a7cc66ab566e9900b3b39b806))
+
+
+
+
+
 ## [1.4.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.4.3...@furo/input@1.4.4) (2020-10-27)
 
 **Note:** Version bump only for package @furo/input
