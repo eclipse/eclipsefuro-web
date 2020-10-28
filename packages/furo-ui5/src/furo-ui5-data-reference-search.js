@@ -363,7 +363,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
 
-    this._resetComboBox();
+    // this._resetComboBox();
 
     if (this.binder.fieldNode) {
       /**
