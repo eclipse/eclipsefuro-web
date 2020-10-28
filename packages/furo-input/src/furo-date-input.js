@@ -108,7 +108,6 @@ export class FuroDateInput extends FBP(LitElement) {
 
   set _value(v) {
     this._float = !!v;
-
     if (typeof v === 'object') {
       this._FBPTriggerWire('--value', this._convertDateObjToString(v));
     } else {

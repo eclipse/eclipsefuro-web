@@ -5,7 +5,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * `furo-data-time-input` is a extension of furo-text-input which enables you to
  *  bind a entityObject field.
  *
- * The field can be of type string, google.protobuf.StringValue, furo.fat.String or any type with the signature
+ * The field can be of type string, google.type.TimeOfDay, furo.fat.String or any type with the signature
  * of the google.protobuf.StringValue (string must be in field `value`).
  *
  * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
@@ -137,19 +137,54 @@ export class FuroDataTimeInput extends FuroTimeInput {
 
     // update the value on input changes
     this.addEventListener('value-changed', val => {
-      // set flag empty on empty strings (for fat types)
-      if (val.detail) {
-        this.binder.deleteLabel('empty');
-      } else {
-        this.binder.addLabel('empty');
-      }
-      // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
+      let TimeOfDayValue = val.detail;
+      if (this.binder.fieldNode) {
+        if (
+          this.binder.fieldNode._spec.type === 'google.type.TimeOfDay' ||
+          (this.binder.fieldNode['@type'] &&
+            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.TimeOfDay')
+        ) {
+          TimeOfDayValue = this._convertStringToTimeOfDayObj(
+            TimeOfDayValue,
+            this.binder.fieldNode._value,
+          );
+        }
+        // store tmpval to check against loop
+        this.tmpval = TimeOfDayValue;
 
-      // update the value
-      this.binder.fieldValue = val.detail;
+        if (JSON.stringify(this.binder.fieldValue) !== JSON.stringify(TimeOfDayValue)) {
+          // update the value
+          this.binder.fieldValue = TimeOfDayValue;
+        }
+      }
+
+      // set flag empty on empty strings (for fat types)
+      if (this.binder.fieldFormat === 'fat') {
+        if (TimeOfDayValue) {
+          this.binder.deleteLabel('empty');
+        } else {
+          this.binder.addLabel('empty');
+        }
+        // if something was entered the field is not empty
+        this.binder.deleteLabel('pristine');
+      }
     });
-    // set flag empty on empty strings (for fat types)
+  }
+
+  //  The format is "HH:mm", "HH:mm:ss" or "HH:mm:ss.SSS" where HH is 00-23, mm is 00-59, ss is 00-59, and SSS is 000-999.
+  // convert date string ISO 8601 to object for google.type.Dates
+  // eslint-disable-next-line class-methods-use-this
+  _convertStringToTimeOfDayObj(str, obj) {
+    const arr = str.split(/[:.]/, 4);
+    // eslint-disable-next-line no-param-reassign
+    obj.hours = Number(arr[0] || null);
+    // eslint-disable-next-line no-param-reassign
+    obj.minutes = Number(arr[1] || null);
+    // eslint-disable-next-line no-param-reassign
+    obj.seconds = Number(arr[2] || null);
+    // eslint-disable-next-line no-param-reassign
+    obj.nanos = Number(arr[3] || null);
+    return obj;
   }
 
   /**

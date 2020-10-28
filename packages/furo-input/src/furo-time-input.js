@@ -95,8 +95,24 @@ export class FuroTimeInput extends FBP(LitElement) {
 
   set _value(v) {
     this._float = !!v;
+    if (typeof v === 'object' && v != null) {
+      this._FBPTriggerWire('--value', this._convertDateObjToString(v));
+    } else {
+      this._FBPTriggerWire('--value', v);
+    }
+  }
 
-    this._FBPTriggerWire('--value', v);
+  //  The format is "HH:mm", "HH:mm:ss" or "HH:mm:ss.SSS" where HH is 00-23, mm is 00-59, ss is 00-59, and SSS is 000-999.
+  // eslint-disable-next-line class-methods-use-this
+  _convertDateObjToString(v) {
+    let s = `${`00${v.hours * 1}`.slice(-2)}:${`00${v.minutes * 1}`.slice(-2)}`;
+    if (v.seconds != null) {
+      s = `${s}:${`00${v.seconds * 1}`.slice(-2)}`;
+    }
+    if (v.nanos != null) {
+      s = `${s}.${`000${v.nanos * 1}`.slice(-3)}`;
+    }
+    return s;
   }
 
   static get properties() {
@@ -366,6 +382,7 @@ export class FuroTimeInput extends FBP(LitElement) {
         input:required {
           box-shadow: none;
         }
+
         input:invalid {
           box-shadow: none;
         }
@@ -553,11 +570,13 @@ export class FuroTimeInput extends FBP(LitElement) {
           display: none;
           top: 16px;
         }
+
         furo-icon.lead {
           position: absolute;
 
           left: 8px;
         }
+
         furo-icon.trail {
           position: absolute;
           right: 8px;
@@ -571,9 +590,11 @@ export class FuroTimeInput extends FBP(LitElement) {
         :host([leading-icon]:not([leading-icon='undefined'])) .wrapper {
           padding-left: 36px;
         }
+
         :host([trailing-icon]:not([trailing-icon='undefined'])) .wrapper {
           padding-right: 36px;
         }
+
         :host(:focus-within:not([valid])) label {
           color: var(--input-error-text-color, var(--error, red));
         }
@@ -582,14 +603,17 @@ export class FuroTimeInput extends FBP(LitElement) {
           top: 12px;
           font-size: 14px;
         }
+
         :host([condensed]:not([filled])) label,
         :host([filled][condensed]) label {
           line-height: 40px;
           font-size: 14px;
         }
+
         :host([condensed][filled]) input {
           top: 12px;
         }
+
         :host([condensed]) .borderlabel,
         :host([condensed]) .wrapper {
           height: 40px;
@@ -607,6 +631,7 @@ export class FuroTimeInput extends FBP(LitElement) {
         :host([filled][condensed]:focus-within) label span {
           top: -12px;
         }
+
         :host([condensed]) label span {
           top: -20px;
         }
