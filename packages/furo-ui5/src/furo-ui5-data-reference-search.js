@@ -180,6 +180,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
     // set the attribute mappings
     this.binder.attributeMappings = {
       label: 'label', // map label
+      placeholder: 'placeholder', // map label
       hint: 'hint',
       filter: 'filter',
       'no-result-hint': 'noResultHint',
@@ -246,7 +247,6 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
     // by inputting
     this.addEventListener('input', () => {
       if (!this._searchOnEnterOnly && !this.searchTriggerFreezed && !this.searchTermInItemList()) {
-        this._freezeSearchTrigger();
         this._fireSearchEvent();
       }
       this._syncInputValueWithFiltervalue();
@@ -302,18 +302,16 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
       });
     }
 
-    if(_original) {
+    if (_original) {
       this._sendItemSelectedEvent(_original);
     }
 
     if (!isSelected) {
-
       this._selectItemViaDisplayName(this.filterValue);
     }
   }
 
   _selectItemViaDisplayName(name) {
-
     let _original;
 
     // select item via display_name
@@ -408,7 +406,6 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
   _resetComboBox() {
     this._collection = [];
     this.value = '';
-    // this.filterValue = '';
     const input = this.shadowRoot.getElementById('ui5-combobox-input');
     if (input) {
       input.value = '';
@@ -558,6 +555,14 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
     return (
       this.responsivePopover && this.responsivePopover.opened && !this.focused && !this._itemFocused
     );
+  }
+
+  /**
+   * reset combobox
+   */
+  reset() {
+    this._resetComboBox();
+    this.filterValue = '';
   }
 }
 

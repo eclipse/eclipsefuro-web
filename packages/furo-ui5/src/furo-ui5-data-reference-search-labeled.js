@@ -130,6 +130,13 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
   }
 
   /**
+   * reset combobox
+   */
+  reset() {
+    this._FBPTriggerWire('--reset');
+  }
+
+  /**
    * @private
    * @returns {TemplateResult|TemplateResult}
    */
@@ -150,6 +157,7 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
           ƒ-inject-list="--injectList"
           ƒ-bind-data="--data"
           ƒ-collection-in="--collectionIn"
+          ƒ-reset="--reset"
         ></furo-ui5-data-reference-search>
       </furo-ui5-form-field-container>
     `;
