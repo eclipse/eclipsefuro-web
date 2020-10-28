@@ -252,10 +252,15 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
       this._syncInputValueWithFiltervalue();
     });
 
-    // by item selected
+    // when the item is selected via dropdown click
     this.addEventListener('change', () => {
       this._syncInputValueWithFiltervalue();
-      this._asignSelectedItemToFieldNode();
+      this._updateFieldNodeBySelectedItem();
+    });
+
+    // when the item is selected via keyboard navigation
+    this.addEventListener('selection-change', () => {
+      this._selectItemViaDisplayName(this.filterValue);
     });
   }
 
@@ -270,7 +275,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
     return inList;
   }
 
-  _asignSelectedItemToFieldNode() {
+  _updateFieldNodeBySelectedItem() {
     let _original;
     let isSelected = false;
 
@@ -297,18 +302,29 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
       });
     }
 
-    if (!isSelected) {
-      // select item via display_name
-      this._state.items.forEach(e => {
-        if (e.text === this.filterValue) {
-          this._freezeSearchTrigger();
-          this.binder.fieldNode.id._value = e.id;
-          this.binder.fieldNode.display_name._value = e.text;
-          _original = e._original;
-          isSelected = true;
-        }
-      });
+    if(_original) {
+      this._sendItemSelectedEvent(_original);
     }
+
+    if (!isSelected) {
+
+      this._selectItemViaDisplayName(this.filterValue);
+    }
+  }
+
+  _selectItemViaDisplayName(name) {
+
+    let _original;
+
+    // select item via display_name
+    this._state.items.forEach(e => {
+      if (e.text === name) {
+        this._freezeSearchTrigger();
+        this.binder.fieldNode.id._value = e.id;
+        this.binder.fieldNode.display_name._value = e.text;
+        _original = e._original;
+      }
+    });
 
     this._sendItemSelectedEvent(_original);
   }
@@ -363,7 +379,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
 
-    // this._resetComboBox();
+    this._resetComboBox();
 
     if (this.binder.fieldNode) {
       /**
@@ -392,7 +408,7 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
   _resetComboBox() {
     this._collection = [];
     this.value = '';
-    this.filterValue = '';
+    // this.filterValue = '';
     const input = this.shadowRoot.getElementById('ui5-combobox-input');
     if (input) {
       input.value = '';
