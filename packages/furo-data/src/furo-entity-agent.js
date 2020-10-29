@@ -503,7 +503,7 @@ class FuroEntityAgent extends FBP(LitElement) {
     let failed = e => {
       // append error to the _requestDataObject (set the fields invalid)
       const err = e.detail;
-      if (err.error && err.details) {
+      if ((err.message || err.code) && err.details) {
         err.details.forEach(errorSet => {
           if (errorSet.field_violations) {
             const fieldViolations = JSON.parse(JSON.stringify(errorSet.field_violations));
