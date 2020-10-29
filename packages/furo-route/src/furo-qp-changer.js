@@ -13,6 +13,17 @@ import { FBP } from '@furo/fbp';
  * @appliesMixin FBP
  */
 class FuroQpChanger extends FBP(LitElement) {
+
+
+  static get properties() {
+    return {
+      /**
+       * Comma separated list of qp to clear if they are not explizitly set with `setQp`
+       */
+      clear: { type: String },
+    };
+  }
+
   setQp(newQP) {
     // read current qp and update incomming qp
 
@@ -25,6 +36,13 @@ class FuroQpChanger extends FBP(LitElement) {
         queryObject[p[0]] = p[1];
       });
     }
+
+    // clear qps
+    this.clear.split(",").forEach((ps)=>{
+      delete queryObject[ps.trim()]
+    })
+
+    // append qps
     // eslint-disable-next-line guard-for-in,no-restricted-syntax
     for (const param in newQP) {
       queryObject[param] = newQP[param];
