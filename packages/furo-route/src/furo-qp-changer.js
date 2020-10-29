@@ -13,8 +13,6 @@ import { FBP } from '@furo/fbp';
  * @appliesMixin FBP
  */
 class FuroQpChanger extends FBP(LitElement) {
-
-
   static get properties() {
     return {
       /**
@@ -38,9 +36,11 @@ class FuroQpChanger extends FBP(LitElement) {
     }
 
     // clear qps
-    this.clear.split(",").forEach((ps)=>{
-      delete queryObject[ps.trim()]
-    })
+    if (this.clear) {
+      this.clear.split(',').forEach(ps => {
+        delete queryObject[ps.trim()];
+      });
+    }
 
     // append qps
     // eslint-disable-next-line guard-for-in,no-restricted-syntax
