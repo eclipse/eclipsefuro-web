@@ -141,13 +141,23 @@ export class FuroDataObject extends LitElement {
   }
 
   /**
+   * @event init-completed
+   * Fired when the object init was done
+   *
+   * **detail payload:** A EntityNode object
+   *
+   * **bubbles**
+   */
+  /**
    * Sets the model to an initial state according to the given type.
+   *
+   * fires *init-completed*
    *
    * To reset changed data to the last injected state, please use reset();
    */
   init() {
     this.data.init();
-    const customEvent = new Event('object-ready', { composed: true, bubbles: true });
+    const customEvent = new Event('init-completed', { composed: true, bubbles: true });
     customEvent.detail = this.data;
     setTimeout(() => {
       this.dispatchEvent(customEvent);
