@@ -132,6 +132,12 @@ export class FieldNode extends EventTreeNode {
       this._checkConstraints();
     });
 
+    // clear the errors
+    this.addEventListener('clear-all-errors-requested', () => {
+      this._clearInvalidity();
+    });
+
+
     this.addEventListener('parent-readonly-meta-set', () => {
       // check parent readonly meta and inherit if true
       if (

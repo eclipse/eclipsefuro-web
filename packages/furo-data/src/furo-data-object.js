@@ -84,6 +84,14 @@ export class FuroDataObject extends LitElement {
   }
 
   /**
+   * Clears all errors on children without any validation!
+   */
+  clearAllErrors() {
+    // broadcast validation
+    this.data.clearAllErrors();
+  }
+
+  /**
    * Triggers the validation of all fields in the data object.
    *
    * Use this before you submit some data to a server.
