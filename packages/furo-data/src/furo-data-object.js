@@ -87,7 +87,6 @@ export class FuroDataObject extends LitElement {
    * Clears all errors on children without any validation!
    */
   clearAllErrors() {
-    // broadcast validation
     this.data.clearAllErrors();
   }
 

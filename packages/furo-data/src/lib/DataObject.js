@@ -60,8 +60,10 @@ export class DataObject extends EventTreeNode {
    * clears all errors on every fieldnode
    */
   clearAllErrors() {
-    // broadcast clearAllErrors request to all fields
-    this.broadcastEvent(new NodeEvent('clear-all-errors-requested', this));
+    if (!this._pristine) {
+      // broadcast clearAllErrors request to all fields
+      this.broadcastEvent(new NodeEvent('clear-all-errors-requested', this));
+    }
   }
 
   /**
