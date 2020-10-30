@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.5...@furo/notification@1.4.6) (2020-10-30)
+
+
+### Bug Fixes
+
+* banner should also work if no field violation was set ([2ebe753](https://github.com/theNorstroem/FuroBaseComponents/commit/2ebe753ed8a124de3240f27d4a7278c08b9e1afd))
+
+
+
+
+
 ## [1.4.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.4...@furo/notification@1.4.5) (2020-10-28)
 
 **Note:** Version bump only for package @furo/notification

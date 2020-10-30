@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.3.27...@furo/route@1.4.0) (2020-10-30)
+
+
+### Features
+
+* qp-changer with clearable qps ([d86b502](https://github.com/theNorstroem/FuroBaseComponents/commit/d86b502b302333b1d1758595657eeda00bc86fd2))
+* qp-changer with clearable qps ([069f1d0](https://github.com/theNorstroem/FuroBaseComponents/commit/069f1d0549275f774333f0a97537e16e644b74b5))
+
+
+
+
+
 ## [1.3.27](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.3.26...@furo/route@1.3.27) (2020-10-28)
 
 **Note:** Version bump only for package @furo/route

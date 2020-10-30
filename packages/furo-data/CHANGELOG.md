@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.11.1...@furo/data@1.11.2) (2020-10-30)
+
+
+### Bug Fixes
+
+* agent should handle errors from gateway v2 ([7ed5052](https://github.com/theNorstroem/FuroBaseComponents/commit/7ed50522295d1253d0ce7976ee1f7a65f999cc9c))
+* clear all errors on new data ([86029d7](https://github.com/theNorstroem/FuroBaseComponents/commit/86029d7cc98f6e9c6c50594560802dd84c79c8f9))
+* clear all errors on new data ([697f607](https://github.com/theNorstroem/FuroBaseComponents/commit/697f607a6b56e8b634d000ddcf8f638f34c47ebd))
+* fire init-completed when init on data-object is finished ([fc8e90e](https://github.com/theNorstroem/FuroBaseComponents/commit/fc8e90ec60872f7586e0d7a89d9de598785bb0f7))
+
+
+
+
+
 ## [1.11.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.11.0...@furo/data@1.11.1) (2020-10-28)
 
 **Note:** Version bump only for package @furo/data
