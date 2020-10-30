@@ -438,6 +438,7 @@ export class UniversalFieldNodeBinder {
       return 'complex';
     }
 
+    // eslint-disable-next-line no-console
     console.warn('fieldNode is not defined, please check against the spec', field);
     return undefined;
   }
