@@ -10,6 +10,16 @@ import { FuroSignPad } from '@furo/input/src/furo-sign-pad';
  * @appliesMixin FBP
  */
 export class FuroDataSignPad extends FuroSignPad {
+
+  constructor() {
+    super();
+    this.field = {}; // ensure that field is available
+  }
+
+  /**
+   * bind a entity field
+   * @param entityField
+   */
   bindData(entityField) {
     this.field = entityField;
     if (this.field._value) {
