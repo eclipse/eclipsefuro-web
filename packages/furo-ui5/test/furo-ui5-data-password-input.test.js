@@ -132,7 +132,7 @@ describe('furo-ui5-data-password-input', () => {
   it('should have the basic attributes of the fieldNode set', done => {
     setTimeout(() => {
       assert.equal(input._state.disabled, false, 'check disabled');
-      assert.equal(input._state.placeholder, 'Description**', 'check placeholder');
+      assert.equal(input._state.placeholder, '', 'check placeholder');
       assert.equal(input._state.readonly, false, 'check readonly');
       assert.equal(input._state.required, false, 'check required');
       assert.equal(input._state.type, 'Password', 'check type');

@@ -96,7 +96,7 @@ describe('furo-ui5-data-date-picker', () => {
   it('should have the basic attributes of the fieldNode set (google.type.Date)', done => {
     setTimeout(() => {
       assert.equal(datepicker._state.disabled, false, 'check disabled');
-      assert.equal(datepicker._state.placeholder, 'google-date-input**', 'check placeholder');
+      assert.equal(datepicker._state.placeholder, 'dd.MM.yyyy', 'check placeholder');
       assert.equal(datepicker._state.readonly, false, 'check readonly');
       assert.equal(datepicker._state.hideWeekNumbers, false, 'check hideWeekNumbers');
       assert.equal(datepicker._state.formatPattern, '', 'check formatPattern');
@@ -107,7 +107,7 @@ describe('furo-ui5-data-date-picker', () => {
   it('should have the basic attributes of the fieldNode set (Scalar type string)', done => {
     setTimeout(() => {
       assert.equal(datepicker2._state.disabled, false, 'check disabled');
-      assert.equal(datepicker2._state.placeholder, 'date-input**', 'check placeholder');
+      assert.equal(datepicker2._state.placeholder, 'dd.MM.yyyy', 'check placeholder');
       assert.equal(datepicker2._state.readonly, false, 'check readonly');
       assert.equal(datepicker2._state.hideWeekNumbers, false, 'check hideWeekNumbers');
       assert.equal(datepicker2._state.formatPattern, '', 'check formatPattern');
@@ -143,7 +143,7 @@ describe('furo-ui5-data-date-picker', () => {
       assert.equal(datepicker._state.disabled, false, 'check disabled');
       assert.equal(
         datepicker._state.placeholder,
-        'google date input label via meta',
+        'dd.MM.yyyy',
         'check placeholder',
       );
       assert.equal(datepicker._state.readonly, false, 'check readonly');
@@ -171,7 +171,7 @@ describe('furo-ui5-data-date-picker', () => {
       assert.equal(datepicker2._state.disabled, false, 'check disabled');
       assert.equal(
         datepicker2._state.placeholder,
-        'date input label via meta',
+        'dd.MM.yyyy',
         'check placeholder',
       );
       assert.equal(datepicker2._state.readonly, false, 'check readonly');

@@ -59,6 +59,12 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
         type: Boolean,
       },
       /**
+       * A Boolean attribute which, if present, means this field is required and marked with *.
+       */
+      required: {
+        type: Boolean,
+      },
+      /**
        * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
        *
        * This is only needed if display_name and value_field are not located in the root of the object.
@@ -139,7 +145,7 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-ui5-form-field-container>
-        <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
+        <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}>${this.label}</ui5-label>
         <furo-ui5-data-collection-dropdown
           content
           id="Input"

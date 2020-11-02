@@ -535,7 +535,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
         this.removeAttribute('showmaxhint', '');
       }
 
-      this._FBPTriggerWire('--listItemsIjnected', this._collection);
+      this._FBPTriggerWire('--listItemsInjected', this._collection);
 
       if (this._focused) {
         this._showList();
@@ -650,7 +650,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       <div class="list" @-item-selected="--itemSelected">
         <template
           is="flow-repeat"
-          ƒ-inject-items="--listItemsIjnected"
+          ƒ-inject-items="--listItemsInjected"
           ƒ-select="--listOpened"
           ƒ-select-next-index="--arrowDownPressed"
           ƒ-select-previous-index="--arrowUpPressed"

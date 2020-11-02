@@ -1,6 +1,11 @@
-import * as ComboBox from '@ui5/webcomponents/dist/ComboBox.js';
+import { LitElement, html, css } from 'lit-element';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
+import { FBP } from '@furo/fbp';
+import { Theme } from '@furo/framework';
+import '@furo/fbp/src/flow-repeat';
+import '@ui5/webcomponents/dist/List.js';
+import './ui5-reference-search-item.js';
 
 /**
  * The furo-ui5-data-reference-search
@@ -20,366 +25,75 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * ```
  *
+ *  * ### following labels of fat types are supported by default:
+ *
+ * - 'error': state of input is error
+ * - 'readonly': input is disabled
+ * - 'required': input is required
+ * - 'disabled': input is disabled
+ * - 'pristine': data is not changed. it is pristine
+ * - 'condensed': input has condensed display
+ *
+ * ### following attributes of fat types are supported by default:
+ *
+ * - 'placeholder': placeholder of the search field
+ * - 'hint': input hint
+ * - 'min_term_length': the minimum number of characters that use should to input to trigger the search
+ * - 'no_result_hint': hint text when result not found by search
+ * - 'errortext': the error text of the input
+ * - 'error-msg': the same as errortext
+ *
+ *
+ * ### following constrains are mapped into the attributes of the fat types and presence in payload:
+ *
+ * - 'required': is mapped to 'required' attribute
+ *
+ *
  * @summary furo ui5 data reference search
  * @customElement
  * @demo demo-furo-ui5-data-reference-search Basic Usage
  */
-export class FuroUi5DataReferenceSearch extends ComboBox.default {
-  /**
-   * Fired when the input operation has finished by pressing Enter or on focusout.
-   * @event change
-   */
-
-  /**
-   * Fired when the value of the ui5-date-picker is changed at each key stroke.
-   * @event input
-   */
-
-  /**
-   *
-   * @param props
-   */
-  constructor(props) {
-    super(props);
-
-    /**
-     * declare here the name of the field from the injected collection.  by selecting an item from dropdown the id
-     *  of bounded complex type or the value of scalar type will be updated according to the value of this field.
-     * @type {string}
-     */
-    this.valueField = 'id';
-
-    /**
-     * The name of the field from the injected collection that contains the label for the dropdown array.
-     *
-     * @type {string}
-     */
-    this.displayField = 'display_name';
-
-    /**
-     * The minimal length of the inputted string to trigger the search event
-     *
-     * @type {number}
-     */
+export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
+  constructor() {
+    super();
     this.minTermLength = 0;
-
-    /**
-     * define the hint message when there is no search result.
-     *
-     * @type {string}
-     */
+    this.valueField = 'id';
+    this.displayField = 'display_name';
     this.noResultHint = 'no result found';
-
     /**
-     * define the max number of the items to display in the list.
-     *
-     * @type {number}
-     */
-    this.maxItemsToDisplay = null;
-
-    /**
-     * define the hint message for the max number of the items to display in the list.
-     *
-     * @type {number}
-     */
-    this.maxResultsHint = null;
-
-    /**
-     * define whether trigger search only when enter is pressed. default value false.
-     *
-     * @type {boolean}
-     */
-    this.searchOnEnterOnly = false;
-
-    /**
-     * the loaded collection.
-     * @type {*[]}
-     * @private
+     * the loaded collection
      */
     this._collection = [];
-
-    /**
-     * Defines a short hint intended to aid the user with data entry when the reference-search has no value.
-     *
-     * @type {string}
-     */
     this.placeholder = '';
 
     this._initBinder();
   }
 
   /**
-   * rewrite this super _selectMatchingItem function
-   * initiate _filteredItems in order to avoid error
-   * @private
-   */
-  _selectMatchingItem() {
-    if (this._filteredItems === undefined) {
-      this._filteredItems = [];
-    }
-    super._selectMatchingItem();
-  }
-
-  /**
-   * List of observed attributes
-   * @returns {string[]}
-   */
-  static get observedAttributes() {
-    return [
-      'placeholder',
-      'value-field',
-      'display-field',
-      'min-term-length',
-      'no-result-hint',
-      'max-items-to-display',
-      'max-result-hint',
-      'search-on-enter-only',
-    ];
-  }
-
-  attributeChangedCallback(name, oldVal, newVal) {
-    if (oldVal !== newVal) {
-      // eslint-disable-next-line default-case
-      switch (name) {
-        case 'value-field':
-          this.valueField = newVal;
-          break;
-        case 'display-field':
-          this.displayField = newVal;
-          break;
-        case 'min-term-length':
-          this.minTermLength = newVal;
-          break;
-        case 'no-result-hint':
-          this.noResultHint = newVal;
-          break;
-        case 'max-items-to-display':
-          this.maxItemsToDisplay = newVal;
-          break;
-        case 'max-result-hint':
-          this.maxResultsHint = newVal;
-          break;
-        case 'search-on-enter-only':
-          this._searchOnEnterOnly = newVal;
-          break;
-        case 'placeholder':
-          this.placeholder = newVal;
-          break;
-      }
-    }
-  }
-
-  /**
-   * inits the universalFieldNodeBinder.
-   * Set the mapped attributes and labels.
-   * @private
-   */
-  _initBinder() {
-    this.binder = new UniversalFieldNodeBinder(this);
-
-    // set the attribute mappings
-    this.binder.attributeMappings = {
-      label: 'label', // map label
-      placeholder: 'placeholder', // map label
-      hint: 'hint',
-      filter: 'filter',
-      'no-result-hint': 'noResultHint',
-      'max-result-hint': 'maxResultsHint',
-      'value-field': 'valueField',
-      'display-field': 'displayField',
-      'value-state': 'valueState',
-      'min-term-length': 'minTermLength',
-      'max-items-to-display': 'maxItemsToDisplay',
-      'search-on-enter-only': '_searchOnEnterOnly',
-    };
-
-    // set the label mappings
-    this.binder.labelMappings = {
-      error: 'error',
-      readonly: 'readonly',
-      required: 'required',
-      disabled: 'disabled',
-      condensed: 'condensed',
-      loading: 'loading',
-    };
-
-    this.binder.fatAttributesToConstraintsMappings = {
-      'min-term-length': 'value._constraints.min_term_length.is', // for the fieldnode constraint
-      'no-result-hint': 'value._constraints.no_result_hint.is', // for the fieldnode constraint message
-      'max-items-to-display': 'value._constraints.max_items_to_display.is', // for the fieldnode constraint message
-      'search-on-enter-only': 'value._constraints.search_on_enter_only.is', // for the fieldnode constraint message
-    };
-
-    this.binder.constraintsTofatAttributesMappings = {
-      required: 'required',
-    };
-
-    /**
-     * check overrides from the used component, attributes set on the component itself overrides all
-     */
-    this.binder.checkLabelandAttributeOverrrides();
-
-    // the extended furo-text-input component uses _value
-    this.binder.targetValueField = '_value';
-
-    this._registerListeners();
-  }
-
-  /**
-   * connectedCallback() method is called when an element is added to the DOM.
-   * webcomponent lifecycle event
-   */
-  connectedCallback() {
-    // initiate valueStateMessage to avoid error in InputTemplate.lit.js
-    if (this.valueStateMessage === undefined) {
-      this.valueStateMessage = '';
-    }
-    setTimeout(() => {
-      super.connectedCallback();
-    }, 0);
-  }
-
-  /**
-   * add listeners
-   * @private
-   */
-  _registerListeners() {
-    // by inputting
-    this.addEventListener('input', () => {
-      if (!this._searchOnEnterOnly && !this.searchTriggerFreezed && !this.searchTermInItemList()) {
-        this._fireSearchEvent();
-      }
-      this._syncInputValueWithFiltervalue();
-    });
-
-    // when the item is selected via dropdown click
-    this.addEventListener('change', () => {
-      this._syncInputValueWithFiltervalue();
-      this._updateFieldNodeBySelectedItem();
-    });
-
-    // when the item is selected via keyboard navigation
-    this.addEventListener('selection-change', () => {
-      this._selectItemViaDisplayName(this.filterValue);
-    });
-  }
-
-  searchTermInItemList() {
-    let inList = false;
-    this._state.items.forEach(e => {
-      if (e.text === this.filterValue) {
-        inList = true;
-      }
-    });
-
-    return inList;
-  }
-
-  _updateFieldNodeBySelectedItem() {
-    let _original;
-    let isSelected = false;
-
-    // select at first in filtered items
-    if (this._state._filteredItems.length > 0) {
-      this._state._filteredItems.forEach(e => {
-        if (e.selected && e.id !== undefined) {
-          this._freezeSearchTrigger();
-          this.binder.fieldNode.id._value = e.id;
-          this.binder.fieldNode.display_name._value = e.text;
-          _original = e._original;
-          isSelected = true;
-        }
-      });
-    } else {
-      this._state.items.forEach(e => {
-        if (e.selected && e.id !== undefined) {
-          this._freezeSearchTrigger();
-          this.binder.fieldNode.id._value = e.id;
-          this.binder.fieldNode.display_name._value = e.text;
-          _original = e._original;
-          isSelected = true;
-        }
-      });
-    }
-
-    if (_original) {
-      this._sendItemSelectedEvent(_original);
-    }
-
-    if (!isSelected) {
-      this._selectItemViaDisplayName(this.filterValue);
-    }
-  }
-
-  _selectItemViaDisplayName(name) {
-    let _original;
-
-    // select item via display_name
-    this._state.items.forEach(e => {
-      if (e.text === name) {
-        this._freezeSearchTrigger();
-        this.binder.fieldNode.id._value = e.id;
-        this.binder.fieldNode.display_name._value = e.text;
-        _original = e._original;
-      }
-    });
-
-    this._sendItemSelectedEvent(_original);
-  }
-
-  // ui5 combobox use this.value.length to cut the filter string
-  _syncInputValueWithFiltervalue() {
-    this.value = this.filterValue;
-  }
-
-  _sendItemSelectedEvent(detail) {
-    if (detail) {
-      /**
-       * @event item-selected
-       * Fired when an item from reference dropdown was selected
-       * detail payload: the original item object or the array of original item objects by multiple options
-       */
-      const customEvent = new Event('item-selected', { composed: true, bubbles: true });
-      customEvent.detail = detail;
-      this.dispatchEvent(customEvent);
-    }
-  }
-
-  _freezeSearchTrigger() {
-    this.searchTriggerFreezed = true;
-    setTimeout(() => {
-      this.searchTriggerFreezed = false;
-    }, 100);
-  }
-
-  /**
-   * fire search event
-   * @private
-   */
-  _fireSearchEvent() {
-    if (this.filterValue && this.filterValue.length >= this.minTermLength) {
-      /**
-       * @event search
-       * Fired when term is entered and bigger then min-term-length
-       * detail payload: {String} term
-       */
-      const customEvent = new Event('search', { composed: true, bubbles: true });
-      customEvent.detail = this.filterValue;
-      this.dispatchEvent(customEvent);
-    }
-  }
-
-  /**
-   * Bind a entity field to the reference-search. You can use the entity even when no data was received.
+   * Bind an entity field to the search-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
 
-    this._resetComboBox();
-
     if (this.binder.fieldNode) {
+      // update the value on input changes
+      this.binder.fieldNode.addEventListener('field-value-changed', val => {
+        // set flag empty on empty strings (for fat types)
+        if (val.detail) {
+          this.binder.deleteLabel('empty');
+        } else {
+          this.binder.addLabel('empty');
+        }
+        // if something was entered the field is not empty
+        this.binder.deleteLabel('pristine');
+
+        this._FBPTriggerWire('--listDeselectAll');
+
+        this._updateField();
+      });
+
       /**
        * handle pristine
        *
@@ -395,174 +109,539 @@ export class FuroUi5DataReferenceSearch extends ComboBox.default {
         this.binder.addLabel('pristine');
       });
 
-      this.binder.fieldNode.addEventListener('field-value-changed', () => {
-        this._updateInputField();
-      });
-
-      this._updateInputField();
+      this._updateField();
     }
+
+    this._init();
   }
 
-  _resetComboBox() {
-    this._collection = [];
-    this.value = '';
-    const input = this.shadowRoot.getElementById('ui5-combobox-input');
-    if (input) {
-      input.value = '';
-    }
-    this._removeCBItem();
+  _init() {
+    this.requestUpdate();
   }
 
-  /**
-   * update search input text
-   * @private
-   */
-  _updateInputField() {
-    // initially show display_name in the input field by no collection injection
-    if (this._collection.length === 0 && this.binder.fieldNode.display_name._value !== undefined) {
-      this.filterValue = this.binder.fieldNode[this.displayField];
-      this.value = this.binder.fieldNode[this.displayField];
-      // use the bounded data as the entity in collection
-      this._collection = [
-        {
-          data: {
-            id: this.binder.fieldNode[this.valueField],
-            display_name: this.binder.fieldNode[this.displayField],
-          },
-        },
-      ];
-      this._showList();
-    }
+  _FBPReady() {
+    super._FBPReady();
+    this._registerListeners();
+  }
 
-    if (this.binder.fieldNode.id._value !== undefined) {
-      const element = this._collection.filter(e => {
-        if (e.data[this.valueField] === this.binder.fieldNode.id._value) {
-          return e;
-        }
-        return undefined;
-      });
-      if (element[0] !== undefined && element[0].data && element[0].data[this.displayField]) {
-        this.filterValue = element[0].data[this.displayField];
-        this.value = element[0].data[this.displayField];
+  _registerListeners() {
+    this._FBPAddWireHook('--input', e => {
+      this._searchTerm = e.path[0].value;
+
+      if (!this.searchOnEnterOnly) {
+        this._fireSearchEvent();
       }
-    }
-  }
+    });
 
-  /**
-   * inject collection as a list
-   * @param collection
-   */
-  collectionIn(collection) {
-    if (collection && collection.entities && collection.entities.length > 0) {
-      if (this.maxItemsToDisplay && collection.entities.length > this.maxItemsToDisplay) {
-        // cut down the result size
-        this._collection = collection.entities.slice(0, this.maxItemsToDisplay);
-        this._showList(true);
-      } else {
-        this._collection = collection.entities;
+    // lock blur for slow clickers
+    this.addEventListener('mousedown', () => {
+      this._lockBlur = true;
+    });
+    // unlock after long click
+    this.addEventListener('mouseup', () => {
+      this._lockBlur = false;
+    });
+
+    // close list on blur
+    this._FBPAddWireHook('--blured', () => {
+      this._focused = false;
+      this.removeAttribute('busy');
+      if (!this._lockBlur) {
+        this._closeList();
+      }
+    });
+
+    // opens the list on focus
+    this._FBPAddWireHook('--focused', () => {
+      this._focused = true;
+      if (this._hasCollection) {
         this._showList();
       }
-    } else {
-      this._state.items = [];
-      this._state._filteredItems = [];
-      this._collection = [];
-    }
-  }
+    });
 
-  /**
-   * show item list
-   * @param withMaxItems
-   * @private
-   */
-  _showList(withMaxItems) {
-    if (this._collection) {
-      this._removeCBItem();
+    this._FBPAddWireHook('--itemSelected', item => {
+      this.binder.fieldNode.id._value = item.data[this.valueField];
+      this.binder.fieldNode.display_name._value = item.data[this.displayField];
+      this._updateField();
+      this._closeList();
+      /**
+       * @event item-selected
+       * Fired from inner element when item is selected
+       * detail payload: {Object} item
+       */
+    });
 
-      this._collection.forEach(e => {
-        const element = document.createElement('ui5-cb-item');
-        element._original = {};
+    /**
+     * listen to keyboard events
+     */
+    this.addEventListener('keydown', event => {
+      const key = event.key || event.keyCode;
 
-        element.setAttribute('text', e.data[this.displayField]);
-        element.setAttribute('id', e.data[this.valueField]);
-        Object.assign(element._original, e);
-        this.appendChild(element);
-      });
+      if (key === 'Escape' || key === 'Esc' || key === 27) {
+        this._updateField();
 
-      if (withMaxItems) {
-        // TODO: use valueStateMessage to show the max-items-info by next ui5 release
+        if (this._listIsOpen) {
+          // close list if open and  then clear search
+          event.preventDefault();
+        }
+        this._closeList();
+        if (this._searchTerm === '') {
+          event.preventDefault();
+          // re set display_name
+        }
       }
-    }
-  }
 
-  _removeCBItem() {
-    this.querySelectorAll('ui5-cb-item').forEach(e => {
-      e.remove();
+      // keyboard navigation
+      if (this._listIsOpen) {
+        if (key === 'Enter') {
+          event.preventDefault();
+          this._FBPTriggerWire('--enterPressedForSelect');
+        }
+        if (key === 'ArrowDown') {
+          event.preventDefault();
+          this._FBPTriggerWire('--arrowDownPressed');
+        }
+        if (key === 'ArrowUp') {
+          event.preventDefault();
+          this._FBPTriggerWire('--arrowUpPressed');
+        }
+      } else {
+        // list is closed
+        if (key === 'ArrowDown') {
+          if (this._hasCollection) {
+            this._showList();
+          }
+        }
+        if (key === 'Enter') {
+          if (this.searchOnEnterOnly) {
+            event.preventDefault();
+            this._fireSearchEvent();
+          }
+        }
+      }
     });
   }
 
-  /**
-   * override
-   */
-  onBeforeRendering() {
-    let domValue;
-
-    if (this._initialRendering) {
-      domValue = this.value;
-      this._filteredItems = this.items;
-    } else {
-      domValue = this.filterValue;
+  _updateField() {
+    if (this.binder.fieldNode.display_name._value !== undefined) {
+      this._FBPTriggerWire('--value', this.binder.fieldNode.display_name._value);
     }
 
-    if (this._autocomplete && domValue !== '') {
-      const item = this._autoCompleteValue(domValue);
+    this.requestUpdate();
+  }
 
-      if (!this._selectionChanged && item && !item.selected) {
-        this.fireEvent('selection-change', {
-          item,
-        });
+  _closeList() {
+    this._listIsOpen = false;
+    this.removeAttribute('show-list');
+  }
 
-        this._selectionChanged = false;
+  _fireSearchEvent() {
+    if (this._searchTerm && this._searchTerm.length >= this.minTermLength) {
+      this.setAttribute('busy', '');
+      this._hasCollection = false;
+      this._collection = [];
+      this._closeList();
+
+      /**
+       * @event search
+       * Fired when term is entered and bigger then min-term-length
+       * detail payload: {String} term
+       */
+      const customEvent = new Event('search', { composed: true, bubbles: true });
+      customEvent.detail = this._searchTerm;
+      this.dispatchEvent(customEvent);
+    }
+  }
+
+  collectionIn(collection) {
+    this.removeAttribute('busy');
+    this._resetInputValueState();
+    if (collection && collection.entities && collection.entities.length > 0) {
+      // this.shadowRoot.getElementById('input').removeAttribute('no-result');
+      this._hasCollection = true;
+
+      if (this.maxItemsToDisplay && collection.entities.length > this.maxItemsToDisplay) {
+        // cut down the result size
+        this._collection = collection.entities.slice(0, this.maxItemsToDisplay);
+        if (this.maxResultsHint) {
+          this.setAttribute('showmaxhint', '');
+        }
+      } else {
+        this._collection = collection.entities;
+        this.removeAttribute('showmaxhint', '');
+      }
+
+      this._FBPTriggerWire('--listItemsInjected', this._collection);
+
+      if (this._focused) {
+        this._showList();
       }
     } else {
-      this._tempValue = domValue;
+      this.setAttribute('show-list', '');
+
+      this._hasCollection = false;
+      this._collection = [];
+      this._closeList();
+      this.shadowRoot.getElementById('input').setAttribute('value-state', 'Information');
+
+      const information = document.createElement('div');
+      information.slot = 'valueStateMessage';
+      information.innerText = this.noResultHint;
+      this.shadowRoot.getElementById('input').appendChild(information);
     }
+  }
 
-    if (
-      !this._initialRendering &&
-      this.popover &&
-      document.activeElement === this &&
-      !this._filteredItems.length
-    ) {
-      this.popover.close();
+  _resetInputValueState() {
+    this.shadowRoot.getElementById('input').removeAttribute('value-state');
+
+    this.shadowRoot
+      .getElementById('input')
+      .querySelectorAll('div')
+      .forEach(e => {
+        e.remove();
+      });
+  }
+
+  _showList() {
+    this.removeAttribute('busy');
+    if (this._collection && this._collection.length > 0) {
+      this._listIsOpen = true;
+      this.setAttribute('show-list', '');
+      let index;
+      // find index to preselect item in the opened list
+      for (let i = 0; i < this._collection.length; i += 1) {
+        if (
+          this._collection[i].data &&
+          this._collection[i].data[this.valueField] === this.binder.fieldNode.id._value
+        ) {
+          index = i;
+          break;
+        }
+      }
+      if (index !== undefined) {
+        this._FBPTriggerWire('--listOpened', index);
+      }
     }
-
-    this._selectMatchingItem();
-
-    if (this._isKeyNavigation && this.responsivePopover && this.responsivePopover.opened) {
-      this.focused = false;
-    } else if (this.shadowRoot.activeElement) {
-      this.focused = this.shadowRoot.activeElement.id === 'ui5-combobox-input';
-    }
-
-    this._initialRendering = false;
-    this._isKeyNavigation = false;
+    // trigger wire to select item
   }
 
   /**
-   * override
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
    */
-  shouldClosePopover() {
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
+
+    // set the attribute mappings
+    this.binder.attributeMappings = {
+      label: 'label',
+      hint: 'hint',
+      placeholder: 'placehoder',
+      min_term_length: 'min-term-length',
+      no_result_hint: 'no-result-hint',
+      errortext: 'errortext',
+      'error-msg': 'errortext',
+    };
+
+    // set the label mappings
+    this.binder.labelMappings = {
+      error: 'error',
+      readonly: 'readonly',
+      required: 'required',
+      disabled: 'disabled',
+      condensed: 'condensed',
+    };
+
+    this.binder.fatAttributesToConstraintsMappings = {
+      'min-term-length': 'value._constraints.min_term_length.is', // for the fieldnode constraint
+      'no-result-hint': 'value._constraints.no_result_hint', // for the fieldnode constraint message
+    };
+
+    this.binder.constraintsTofatAttributesMappings = {
+      required: 'required',
+    };
+
+    /**
+     * check overrides from the used component, attributes set on the component itself overrides all
+     */
+    this.binder.checkLabelandAttributeOverrrides();
+
+    // the extended furo-text-input component uses _value
+    this.binder.targetValueField = '_value';
+
+    // set flag empty on emptfuroy strings (for fat types)
+  }
+
+  /**
+   * reset reference search
+   */
+  reset() {
+    this._collection = [];
+    this._FBPTriggerWire('--value', '');
+  }
+
+  /**
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object
+       */
+      valueField: {
+        type: String,
+        attribute: 'value-field',
+        reflect: true,
+      },
+      /**
+       * the field name of reference-item which should be used as display which will be showed in the dropdown.
+       */
+      displayField: {
+        type: String,
+        attribute: 'display-field',
+        reflex: true,
+      },
+      /**
+       * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
+       *
+       * If you bind a scalar, you dont need this attribute.
+       */
+      subfield: {
+        type: String,
+        reflect: true,
+      },
+      /**
+       * this property saves the value of the displayField of selected item from collection
+       */
+      _displayName: {
+        type: String,
+      },
+      /**
+       * mark if the collection is already loaded
+       */
+      _hasCollection: {
+        type: Boolean,
+      },
+      /**
+       * the placeholder of the search input field
+       */
+      placeholder: {
+        type: String,
+        reflect: true,
+      },
+      /**
+       * hint text when result not found by search
+       */
+      noResultHint: {
+        type: String,
+        attribute: 'no-result-hint',
+        reflect: true,
+      },
+      /**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      required: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      hint: {
+        type: String,
+        reflect: true,
+      },
+      /**
+       * the minimal length of search term to trigger the search event.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      minTermLength: {
+        type: Number,
+        attribute: 'min-term-length',
+        reflect: true,
+      },
+      /**
+       * The maximal number of items to display. If the collection contains more data then then this value,
+       * the **max-results-hint** will be displayed at the bottom of the list.
+       */
+      maxItemsToDisplay: {
+        type: Number,
+        attribute: 'max-items-to-display',
+        reflect: true,
+      },
+      /**
+       * hint text to display when the result set is bigger then  **maxItemsToDisplay**.
+       */
+      maxResultsHint: {
+        type: String,
+        attribute: 'max-results-hint',
+        reflect: true,
+      },
+      /**
+       * Enable this, to avoid the automatic triggering of "search".
+       *
+       * The user have to press enter to trigger the search. Min-term-length is respected.
+       */
+      searchOnEnterOnly: {
+        type: Boolean,
+        attribute: 'search-on-enter-only',
+        reflect: true,
+      },
+      /**
+       * Overrides the readonly value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      readonly: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * A Boolean attribute which, if present, means this.binder.fieldNodecannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean,
+        reflect: true,
+      },
+
+      /**
+       * Set this attribute to autofocus the input field.
+       */
+      autofocus: {
+        type: Boolean,
+      },
+      /**
+       * html input validity
+       */
+      valid: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */
+      condensed: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * passes always float the label
+       */
+      float: {
+        type: Boolean,
+        reflect: true,
+      },
+    };
+  }
+
+  /**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
     return (
-      this.responsivePopover && this.responsivePopover.opened && !this.focused && !this._itemFocused
+      Theme.getThemeForComponent('FuroUi5DataReferenceSearch') ||
+      css`
+        :host {
+          display: inline-block;
+          position: relative;
+        }
+
+        .list,
+        .loading {
+          position: absolute;
+          overflow: auto;
+          box-shadow: rgba(0, 0, 0, 0.42) 0px 0px 0px 1px;
+          z-index: 1;
+          display: none;
+          background-color: var(
+            --furo-data-reference-search-list-background,
+            var(--surface, #ffffff)
+          );
+        }
+
+        :host([show-list]) .list {
+          display: block;
+        }
+
+        :host([showmaxhint]) .maxresulthint {
+          display: block;
+        }
+
+        .maxresulthint {
+          display: none;
+          padding-top: 0px;
+        }
+
+        :host([busy]) .loading {
+          display: block;
+        }
+
+        .loading {
+          display: none;
+          width: inherit;
+        }
+
+        ui5-input,
+        ui5-list {
+          width: inherit;
+        }
+      `
     );
   }
 
   /**
-   * reset combobox
+   * @private
+   * @returns {TemplateResult}
    */
-  reset() {
-    this._resetComboBox();
-    this.filterValue = '';
+  render() {
+    // language=HTML
+    return html`
+      <ui5-input
+        id="input"
+        ?required=${this.required}
+        ?disabled=${this.readonly || this.disabled}
+        ƒ-.value="--value"
+        @-input="--input(*)"
+        @-blur="--blured"
+        @-focus="--focused"
+        @-click="--focused"
+        placeholder="${this.placeholder}"
+      >
+        <ui5-icon id="searchIcon" slot="icon" name="search"></ui5-icon>
+      </ui5-input>
+
+      <ui5-list class="loading" header-text="" busy></ui5-list>
+
+      <ui5-list mode="SingleSelect" id="resultsList" class="list" @-item-selected="--itemSelected">
+        <template
+          is="flow-repeat"
+          ƒ-inject-items="--listItemsInjected"
+          ƒ-select="--listOpened"
+          ƒ-deselect-all="--listDeselectAll"
+          ƒ-select-next-index="--arrowDownPressed"
+          ƒ-select-previous-index="--arrowUpPressed"
+          ƒ-trigger-selected="--enterPressedForSelect"
+        >
+          <ui5-reference-search-item
+            ƒ-deselect="--itemDeSelected"
+            ƒ-select="--trigger"
+            ƒ-preselect="--itemSelected"
+            ƒ-inject-item="--item"
+          ></ui5-reference-search-item>
+        </template>
+        <ui5-li-groupheader class="maxresulthint">${this.maxResultsHint}</ui5-li-groupheader>
+      </ui5-list>
+    `;
   }
 }
 

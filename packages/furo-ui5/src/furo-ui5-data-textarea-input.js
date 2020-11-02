@@ -60,7 +60,7 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
   applyBindingSet() {
     // set the attribute mappings
     this.binder.attributeMappings = {
-      label: 'placeholder', // map label to placeholder
+      label: 'label', // map label to placeholder
       rows: 'rows', // map rows
       placeholder: 'placeholder', // map placeholder to placeholder
       'value-state': '_valueState',

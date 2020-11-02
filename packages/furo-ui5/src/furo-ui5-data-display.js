@@ -98,7 +98,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
   applyBindingSet() {
     // set the attribute mappings
     this.binder.attributeMappings = {
-      label: 'placeholder', // map label to placeholder
+      label: 'label', // map label to placeholder
       placeholder: 'placeholder', // map placeholder to placeholder
       hint: '_hint',
       icon: 'ui5Icon', // icon and leading icon maps to the same

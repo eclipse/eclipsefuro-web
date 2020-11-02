@@ -134,7 +134,7 @@ describe('furo-ui5-data-textarea-input', () => {
       assert.equal(input._state.disabled, false, 'check disabled');
       assert.equal(input._state.readonly, false, 'check readonly');
       assert.equal(input._state.growing, false, 'check growing');
-      assert.equal(input._state.placeholder, 'textarea_input**', 'check placeholder');
+      assert.equal(input._state.placeholder, '', 'check placeholder');
       assert.equal(input._state.valueState, 'None', 'check valueState');
       assert.equal(input._state.valueStateMessage.length, 0, 'check valueStateMessage');
       assert.equal(input._state.name, '', 'check name');
