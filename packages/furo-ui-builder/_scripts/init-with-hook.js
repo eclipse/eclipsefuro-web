@@ -5,6 +5,7 @@ const execSync = require('child_process').execSync;
 const path = require('path');
 const U33eBuilder = require("./u33eBuilder");
 const Helper = require("./InitHelper");
+const YAML = require('yaml');
 let config;
 // config öffnen
 if (fs.existsSync('./furo.ui.spec.conf.json')) {
@@ -63,8 +64,12 @@ let allCTXs = [];
 speclist.forEach((pathToSpec) => {
   let ctx = Helper.specInfo(pathToSpec);
   ctx.config = config;
-  // load spec file
-  ctx.spec = JSON.parse(fs.readFileSync(pathToSpec));
+  const file = fs.readFileSync(pathToSpec, 'utf8')
+  if (config.specFormat.toLowerCase() === 'yaml') {
+    ctx.spec = YAML.parse(file)
+  } else {
+    ctx.spec = JSON.parse(file)
+  }
   ctx.package = ctx.spec.__proto.package;
 
   // loop hooks for service or type
@@ -73,7 +78,12 @@ speclist.forEach((pathToSpec) => {
     let ctx = Helper.specInfo(pathToSpec);
     ctx.config = config;
     // load spec file
-    ctx.spec = JSON.parse(fs.readFileSync(pathToSpec));
+    const file = fs.readFileSync(pathToSpec, 'utf8')
+    if (config.specFormat.toLowerCase() === 'yaml') {
+      ctx.spec = YAML.parse(file)
+    } else {
+      ctx.spec = JSON.parse(file)
+    }
     ctx.package = ctx.spec.__proto.package;
     ctx.path = hook.getPath(ctx);
     ctx.hook = hook;
