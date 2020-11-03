@@ -5,6 +5,7 @@
   ],
   "spec_dir": "../furo-specs/specs",
   "ui_spec_out": "./generates/ui_specs",
+  "specFormat": "yaml",
   "build_output_dir": "./generates/ui_components",
   "generator_template": "./_scripts/templates/lit.js.tmpl",
   "skip_spec": [
