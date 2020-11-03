@@ -43,7 +43,15 @@ class HookInitCreateWidgetUi5 {
     u33e.addStyle(":host([hidden])")
       .addCSSAttribute("display", "none");
 
+    u33e.addStyle("ui5-card")
+      .addCSSAttribute("position", "relative");
+
     u33e.addStyle(".content")
+      .addCSSAttribute("position", "absolute")
+      .addCSSAttribute("left", "0px")
+      .addCSSAttribute("right", "0px")
+      .addCSSAttribute("background", "var(--sapTile_Background)")
+      .addCSSAttribute("box-shadow", "var(--sapContent_Shadow0)")
       .addCSSAttribute("padding", "var(--spacing-s, 16px) var(--spacing, 24px)");
 
     let card = u33e.addDomNode("ui5-card");
