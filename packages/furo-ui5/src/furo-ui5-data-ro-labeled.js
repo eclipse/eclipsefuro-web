@@ -35,6 +35,12 @@ class FuroUi5DataRoLabeled extends FBP(LitElement) {
        * the label for the data-display
        */
       label: { type: String },
+      /**
+       * A Boolean attribute which, if present, means this field is required and marked with *.
+       */
+      required: {
+        type: Boolean,
+      },
     };
   }
 
@@ -68,7 +74,7 @@ class FuroUi5DataRoLabeled extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-ui5-form-field-container>
-        <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
+        <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}>${this.label}</ui5-label>
         <furo-ui5-data-ro content id="Input" ƒ-bind-data="--data"></furo-ui5-data-ro>
       </furo-ui5-form-field-container>
     `;

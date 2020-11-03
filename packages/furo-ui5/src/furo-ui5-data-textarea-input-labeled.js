@@ -42,6 +42,12 @@ class FuroUi5DataTextareaInputLabeled extends FBP(LitElement) {
        */
       label: { type: String },
       /**
+       * A Boolean attribute which, if present, means this field is required and marked with *.
+       */
+      required: {
+        type: Boolean,
+      },
+      /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       disabled: {
@@ -80,7 +86,7 @@ class FuroUi5DataTextareaInputLabeled extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-ui5-form-field-container>
-        <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
+        <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}>${this.label}</ui5-label>
         <furo-ui5-data-textarea-input
           content
           id="Input"

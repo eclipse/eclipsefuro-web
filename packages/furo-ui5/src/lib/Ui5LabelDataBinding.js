@@ -21,9 +21,13 @@ export class Ui5LabelDataBinding {
     if (this.isFatType(fieldNode)) {
       // eslint-disable-next-line no-param-reassign
       element.label = element.label || fieldNode.attributes.label || fieldNode._meta.label;
+      // eslint-disable-next-line no-param-reassign
+      element.required = element.required || fieldNode.labels.required || fieldNode._constraints.required;
     } else {
       // eslint-disable-next-line no-param-reassign
       element.label = element.label || fieldNode._meta.label;
+      // eslint-disable-next-line no-param-reassign
+      element.required = element.required || fieldNode._constraints.required;
     }
 
     /**
@@ -32,9 +36,10 @@ export class Ui5LabelDataBinding {
     element._field.addEventListener('this-metas-changed', meta => {
       // eslint-disable-next-line no-param-reassign
       element.label = meta.detail._meta.label || element.label;
+      // eslint-disable-next-line no-param-reassign
+      element.required = meta.detail._constraints.required || element.required;
       element.requestUpdate();
     });
-
     element.requestUpdate();
   }
 

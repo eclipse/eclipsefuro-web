@@ -13,6 +13,31 @@ import '@furo/data/src/furo-data-object.js';
  * @appliesMixin FBP
  */
 class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
+  constructor() {
+    super();
+    this.collection = { entities: [] };
+  }
+
+  _FBPReady() {
+    super._FBPReady();
+    this._FBPAddWireHook('--term', e => {
+      console.log(e);
+    });
+  }
+
+  /**
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * Description
+       */
+      collection: { type: Object },
+    };
+  }
+
   /**
    * Themable Styles
    * @private
@@ -56,7 +81,9 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
           <template>
             <furo-form-layouter two>
               <furo-ui5-data-reference-search
+                placeholder="max 2 results"
                 max-items-to-display="2"
+                max-results-hint="show max 2 items"
                 display-field="name"
                 ƒ-bind-data="--entityReady(*.owner)"
                 @-search="--term"
@@ -65,7 +92,6 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
               </furo-ui5-data-reference-search>
 
               <furo-ui5-data-reference-search
-                max-items-to-display="4"
                 placeholder="this is a placeholder"
                 ƒ-bind-data="--entityReady(*.owner)"
                 @-search="--term"
@@ -74,7 +100,33 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
               </furo-ui5-data-reference-search>
             </furo-form-layouter>
             <furo-pretty-json ƒ-inject-data="--data(*.owner._value)"></furo-pretty-json>
+            <furo-form-layouter two>
+              <furo-ui5-data-reference-search
+                placeholder="min term length 2"
+                min-term-length="2"
+                max-items-to-display="2"
+                max-results-hint="show max 2 items"
+                display-field="name"
+                ƒ-bind-data="--entityReady(*.owner)"
+                @-search="--term"
+                ƒ-collection-in="--refCol"
+              >
+              </furo-ui5-data-reference-search>
 
+              <furo-ui5-data-reference-search
+                placeholder="in loading example"
+                ƒ-bind-data="--entityReady(*.owner)"
+              >
+              </furo-ui5-data-reference-search>
+
+              <furo-ui5-data-reference-search
+                placeholder="no result example"
+                no-result-hint="no result found"
+                @-search="--termNoResult"
+                ƒ-collection-in="--refColNoResult(*.noResult)"
+              >
+              </furo-ui5-data-reference-search>
+            </furo-form-layouter>
             <furo-data-object
               type="task.Task"
               @-data-changed="--data"
@@ -86,6 +138,14 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
               ƒ-hts-in="--entityReady(*.owner.link._value)"
               ƒ-search="--term"
               @-response="--refCol"
+            >
+            </furo-collection-agent>
+
+            <furo-collection-agent
+              service="PersonService"
+              ƒ-hts-in="--entityReady(*.owner.link._value)"
+              ƒ-search="--termNoResult"
+              @-response="--refColNoResult"
             >
             </furo-collection-agent>
           </template>

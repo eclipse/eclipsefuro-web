@@ -49,7 +49,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
     setTimeout(() => {
       super.connectedCallback();
     }, 0);
-    // this.formatPattern="dd.MM.yyyy";
+    this.placeholder="dd.MM.yyyy";
   }
 
   /**
@@ -69,7 +69,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
   applyBindingSet() {
     // set the attribute mappings
     this.binder.attributeMappings = {
-      label: 'placeholder', // map label to placeholder
+      label: 'label', // map label to placeholder
       placeholder: 'placeholder', // map placeholder to placeholder
       hint: '_hint',
       icon: 'ui5Icon', // icon and leading icon maps to the same
