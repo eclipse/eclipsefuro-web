@@ -397,6 +397,9 @@ export class FieldNode extends EventTreeNode {
           case 'google.type.Date':
             ValidatorGoogleTypeDate.validateConstraints(this).then(success, failure);
             break;
+          case 'furo.type.Date':
+            ValidatorGoogleTypeDate.validateConstraints(this).then(success, failure);
+            break;
           case 'google.type.Money':
             ValidatorGoogleTypeMoney.validateConstraints(this).then(success, failure);
             break;

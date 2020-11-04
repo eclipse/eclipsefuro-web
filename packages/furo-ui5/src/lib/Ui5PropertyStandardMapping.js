@@ -10,6 +10,7 @@
 export class Ui5PropertyStandardMapping {
   static typeMap = {
     'google.type.Date': 'furo-ui5-data-date-picker-labeled',
+    'furo.type.Date': 'furo-ui5-data-date-picker-labeled',
     'google.protobuf.StringValue': 'furo-ui5-data-text-input-labeled',
     'google.protobuf.FloatValue': 'furo-ui5-data-number-input-labeled',
     'google.protobuf.Int32Value': 'furo-ui5-data-number-input-labeled',

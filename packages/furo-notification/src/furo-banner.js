@@ -192,9 +192,10 @@ class FuroBanner extends LitElement {
           status.details
             .filter(det => det['@type'].includes('google.rpc.BadRequest'))
             .map(det => {
-              if (det.field_violations){ return det.field_violations.map(violation => violation.description);}else{
-                return [""];
+              if (det.field_violations) {
+                return det.field_violations.map(violation => violation.description);
               }
+              return [''];
             })[0],
         );
         // todo: implement the other error types from https://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto

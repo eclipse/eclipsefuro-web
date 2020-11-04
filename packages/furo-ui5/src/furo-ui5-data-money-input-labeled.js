@@ -86,7 +86,9 @@ class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-ui5-form-field-container>
-        <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}>${this.label}</ui5-label>
+        <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}
+          >${this.label}</ui5-label
+        >
         <furo-ui5-data-money-input
           content
           id="Input"

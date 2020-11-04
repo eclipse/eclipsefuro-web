@@ -87,7 +87,9 @@ class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-ui5-form-field-container>
-        <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}>${this.label}</ui5-label>
+        <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}
+          >${this.label}</ui5-label
+        >
         <furo-ui5-data-date-picker
           content
           id="Input"

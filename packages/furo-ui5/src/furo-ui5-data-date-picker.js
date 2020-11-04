@@ -49,7 +49,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
     setTimeout(() => {
       super.connectedCallback();
     }, 0);
-    this.placeholder="dd.MM.yyyy";
+    this.placeholder = 'dd.MM.yyyy';
   }
 
   /**
@@ -122,8 +122,11 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
       if (this.binder.fieldNode) {
         if (
           this.binder.fieldNode._spec.type === 'google.type.Date' ||
+          this.binder.fieldNode._spec.type === 'furo.type.Date' ||
           (this.binder.fieldNode['@type'] &&
-            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date')
+            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date') ||
+          (this.binder.fieldNode['@type'] &&
+            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'furo.type.Date')
         ) {
           dateValue = FuroUi5DataDatePicker._convertDateToGoogleDateObj(
             new Date(this.dateValue),
@@ -243,8 +246,11 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
     // google.type.Date
     if (
       this.binder.fieldNode._spec.type === 'google.type.Date' ||
+      this.binder.fieldNode._spec.type === 'furo.type.Date' ||
       (this.binder.fieldNode['@type'] &&
-        this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date')
+        this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date') ||
+      (this.binder.fieldNode['@type'] &&
+        this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'furo.type.Date')
     ) {
       // date string with format ISO 8601 yyyy-MM-dd
       const dateString = FuroUi5DataDatePicker._convertGoogleDateObjToString(

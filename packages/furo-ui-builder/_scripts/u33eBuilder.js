@@ -198,6 +198,9 @@ class U33eBuilder {
       case 'google.type.Date':
         component = 'furo-data-date-input'
         break
+      case 'furo.type.Date':
+        component = 'furo-data-date-input'
+        break
       case 'google.type.Money':
         component = 'furo-data-money-input'
         break
@@ -245,6 +248,9 @@ class U33eBuilder {
         component = 'furo-ui5-data-number-input-labeled'
         break
       case 'google.type.Date':
+        component = 'furo-ui5-data-date-picker-labeled'
+        break
+      case 'furo.type.Date':
         component = 'furo-ui5-data-date-picker-labeled'
         break
       case 'google.type.Money':

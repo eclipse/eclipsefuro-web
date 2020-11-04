@@ -140,8 +140,11 @@ class FuroDataDateInput extends FuroDateInput {
       if (this.binder.fieldNode) {
         if (
           this.binder.fieldNode._spec.type === 'google.type.Date' ||
+          this.binder.fieldNode._spec.type === 'furo.type.Date' ||
           (this.binder.fieldNode['@type'] &&
-            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date')
+            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date') ||
+          (this.binder.fieldNode['@type'] &&
+            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'furo.type.Date')
         ) {
           dateValue = this._convertStringToDateObj(dateValue, this.binder.fieldNode._value);
         }
