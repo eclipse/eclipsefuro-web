@@ -111,9 +111,14 @@ export class Init {
           Env.api.specs[t].fields[field].meta &&
           Env.api.specs[t].fields[field].meta.default
         ) {
+          if (typeof Env.api.specs[t].fields[field].meta.default === 'string') {
+            Env.api.specs[t].fields[field].meta.default = JSON.parse(
+              Env.api.specs[t].fields[field].meta.default,
+            );
+          }
           const deeplink = Env.api.specs[t].fields[field].meta.default.link;
           if (deeplink.href && deeplink.href.length && deeplink.href.startsWith('/')) {
-            deeplink.href = Env.api.prefix + deeplink.href;
+            Env.api.specs[t].fields[field].meta.default.link.href = Env.api.prefix + deeplink.href;
           }
         }
       }
