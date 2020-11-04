@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.7.3...@furo/ui-builder@1.7.4) (2020-11-04)
+
+
+### Bug Fixes
+
+* configurable yaml support ([44928ff](https://github.com/theNorstroem/FuroBaseComponents/commit/44928ff691088d9e0fc82945d802bcbf01acb752))
+* modify widget template to make ui5-card working with ui5-data-reference-search. ([fd6c229](https://github.com/theNorstroem/FuroBaseComponents/commit/fd6c2291457eb0589069540b37e156077a8e5ed5))
+
+
+
+
+
 ## [1.7.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.7.2...@furo/ui-builder@1.7.3) (2020-10-13)
 
 **Note:** Version bump only for package @furo/ui-builder

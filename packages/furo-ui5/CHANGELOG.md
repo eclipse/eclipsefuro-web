@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.6.2...@furo/ui5@0.7.0) (2020-11-04)
+
+
+### Features
+
+* custom ui5-data-reference-search ([ea9a42e](https://github.com/theNorstroem/FuroBaseComponents/commit/ea9a42e137c67eacbb226adc088bb46eaf692dd9))
+* update documentation ([ed62e9e](https://github.com/theNorstroem/FuroBaseComponents/commit/ed62e9e2934ab92469c06508dd73be1e2465ecb6))
+
+
+
+
+
 ## [0.6.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.6.1...@furo/ui5@0.6.2) (2020-10-30)
 
 **Note:** Version bump only for package @furo/ui5

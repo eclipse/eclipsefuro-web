@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.18](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.3.17...@furo/framework@1.3.18) (2020-11-04)
+
+
+### Bug Fixes
+
+* add api prefix for the links in the meta of the types ([bd7e702](https://github.com/theNorstroem/FuroBaseComponents/commit/bd7e702570c621695199a4cf75af8b75aac341ab))
+
+
+
+
+
 ## [1.3.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.3.16...@furo/framework@1.3.17) (2020-10-27)
 
 **Note:** Version bump only for package @furo/framework

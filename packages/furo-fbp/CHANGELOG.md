@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.1.17...@furo/fbp@5.2.0) (2020-11-04)
+
+
+### Features
+
+* custom ui5-data-reference-search ([ea9a42e](https://github.com/theNorstroem/FuroBaseComponents/commit/ea9a42e137c67eacbb226adc088bb46eaf692dd9))
+
+
+
+
+
 ## [5.1.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.1.16...@furo/fbp@5.1.17) (2020-10-27)
 
 **Note:** Version bump only for package @furo/fbp

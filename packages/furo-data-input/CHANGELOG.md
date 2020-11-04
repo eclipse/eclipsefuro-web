@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.7.1...@furo/data-input@1.8.0) (2020-11-04)
+
+
+### Bug Fixes
+
+* timing of commands ([95840c8](https://github.com/theNorstroem/FuroBaseComponents/commit/95840c8ce8252f83af03c96601748e9335fb25dc))
+
+
+### Features
+
+* custom ui5-data-reference-search ([ea9a42e](https://github.com/theNorstroem/FuroBaseComponents/commit/ea9a42e137c67eacbb226adc088bb46eaf692dd9))
+
+
+
+
+
 ## [1.7.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.7.0...@furo/data-input@1.7.1) (2020-10-30)
 
 **Note:** Version bump only for package @furo/data-input
