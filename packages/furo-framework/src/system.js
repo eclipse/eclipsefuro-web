@@ -105,6 +105,12 @@ export class Init {
     for (const t in Env.api.specs) {
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const field in Env.api.specs[t].fields) {
+        if (Env.api.specs[t].fields[field].type === 'furo.type.Date') {
+          console.warn(
+            'furo.type.Date is a deprecated type. Please replace with furo.fat.Date or google.type.Date as soon as possible',
+          );
+        }
+
         // Apply the prefix for the default links in furo.Reference types
         if (
           Env.api.specs[t].fields[field].type === 'furo.Reference' &&

@@ -37,6 +37,7 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
     super();
     this.typemap = {
       'google.type.Date': 'furo-data-display',
+      'furo.type.Date': 'furo-data-display',
       'furo.StringProperty': 'furo-data-display',
       'furo.IntegerProperty': 'furo-data-display',
       'furo.NumberProperty': 'furo-data-display',
