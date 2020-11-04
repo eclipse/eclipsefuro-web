@@ -89,7 +89,7 @@ class FlowRepeat extends FBP(HTMLElement) {
    * Triggers the wire --itemDeSelected on all items
    */
   deselectAll() {
-    this._insertedItems.forEach(item=>{
+    this._insertedItems.forEach(item => {
       item.virtualElement._FBPTriggerWire('--itemDeSelected');
       this.selectedIndex = undefined;
     });

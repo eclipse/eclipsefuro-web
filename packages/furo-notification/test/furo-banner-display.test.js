@@ -77,13 +77,15 @@ describe('furo-banner-display', () => {
         },
         {
           '@type': 'type.googleapis.com/google.rpc.BadRequest',
-          'field_violations': [{
-            'field': 'excercise',
-            'description': '**excercise** can not be _Error',
-          }, { 'field': 'rm1', 'description': '*rm1* must be 1 or more' }],
-        }
+          field_violations: [
+            {
+              field: 'excercise',
+              description: '**excercise** can not be _Error',
+            },
+            { field: 'rm1', description: '*rm1* must be 1 or more' },
+          ],
+        },
       ],
-
     });
     setTimeout(() => {
       const items = bannerDisplay.shadowRoot.querySelectorAll('p');
@@ -103,9 +105,7 @@ describe('furo-banner-display', () => {
       code: 400,
       message: 'Request had invalid credentials.',
       status: 'SOMETHING',
-      details: [
-
-      ],
+      details: [],
     });
     setTimeout(() => {
       const items = bannerDisplay.shadowRoot.querySelectorAll('p');
