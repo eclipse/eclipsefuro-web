@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.7.4...@furo/ui-builder@1.8.0) (2020-11-05)
+
+
+### Features
+
+* support furo.type.Date ([3d8847b](https://github.com/theNorstroem/FuroBaseComponents/commit/3d8847b9b98c5322621f04ccedd220bb132a7147))
+
+
+
+
+
 ## [1.7.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.7.3...@furo/ui-builder@1.7.4) (2020-11-04)
 
 
