@@ -100,7 +100,7 @@ describe('furo-select-input', () => {
       done();
     });
     element._FBPTriggerWire('--inputInput', {
-      composedPath: () => [{ value: 1337, validity: {} }],
+      composedPath: () => [{ value: 1337, validity: {valid: true} }],
     });
   });
 
