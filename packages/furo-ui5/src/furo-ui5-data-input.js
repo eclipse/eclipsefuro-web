@@ -52,6 +52,9 @@ export class FuroUi5DataInput extends Input.default {
     if (this.icon === undefined) {
       this.icon = [];
     }
+    if (this.valueStateMessage === undefined) {
+      this.valueStateMessage = '';
+    }
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
   }
