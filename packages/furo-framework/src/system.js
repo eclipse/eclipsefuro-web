@@ -123,7 +123,7 @@ export class Init {
             );
           }
           const deeplink = Env.api.specs[t].fields[field].meta.default.link;
-          if (deeplink.href && deeplink.href.length && deeplink.href.startsWith('/')) {
+          if (deeplink && deeplink.href && deeplink.href.length && deeplink.href.startsWith('/')) {
             Env.api.specs[t].fields[field].meta.default.link.href = Env.api.prefix + deeplink.href;
           }
         }
