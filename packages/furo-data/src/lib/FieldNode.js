@@ -77,7 +77,21 @@ export class FieldNode extends EventTreeNode {
     this._validationDisabled = this.__parentNode._validationDisabled;
 
     // Build custom type if a spec exists
-    if (this.__specdefinitions[this._spec.type] !== undefined) {
+    if (this.__specdefinitions[this._spec.type] !== undefined &&
+      this._spec.type !== "google.protobuf.StringValue" &&
+      this._spec.type !== "google.protobuf.BoolValue" &&
+      this._spec.type !== "google.protobuf.FloatValue" &&
+      this._spec.type !== "google.protobuf.Int32Value" &&
+      this._spec.type !== "google.protobuf.Int64Value" &&
+      this._spec.type !== "google.protobuf.DoubleValue" &&
+      this._spec.type !== "google.protobuf.Duration" &&
+      this._spec.type !== "google.protobuf.Timestamp" &&
+      this._spec.type !== "google.protobuf.FieldMask" &&
+      this._spec.type !== "google.protobuf.BytesValue" &&
+      this._spec.type !== "google.protobuf.UInt32Value" &&
+      this._spec.type !== "google.protobuf.UInt64Value"
+    ) {
+
       // check for recursion
 
       if (!this.__parentNode._hasAncestorOfType(this._spec.type)) {
