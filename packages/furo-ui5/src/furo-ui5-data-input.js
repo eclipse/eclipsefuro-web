@@ -55,6 +55,9 @@ export class FuroUi5DataInput extends Input.default {
     if (this.valueStateMessage === undefined) {
       this.valueStateMessage = '';
     }
+    if (this.suggestionItems === undefined) {
+      this.suggestionItems = [];
+    }
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
   }

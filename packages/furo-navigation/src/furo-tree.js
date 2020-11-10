@@ -209,7 +209,7 @@ export class FuroTree extends FBP(LitElement) {
   selectById(nodeID) {
     for (let i = this._flatTree.length - 1; i >= 0; i -= 1) {
       const node = this._flatTree[i];
-      if (String(node.id._value) === nodeID) {
+      if (String(node.id._value) === String(nodeID)) {
         node.selectItem();
 
         // update focused

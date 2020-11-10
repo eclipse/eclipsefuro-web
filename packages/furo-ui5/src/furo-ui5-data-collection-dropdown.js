@@ -124,6 +124,9 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * webcomponent lifecycle event
    */
   connectedCallback() {
+    if (this.options === undefined) {
+      this.options = [];
+    }
     setTimeout(() => {
       super.connectedCallback();
     }, 0);
