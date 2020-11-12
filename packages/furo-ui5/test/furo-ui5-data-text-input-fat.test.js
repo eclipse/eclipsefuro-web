@@ -145,7 +145,11 @@ describe('furo-ui5-data-text-input-fat', () => {
     dao.addEventListener('data-injected', () => {
       assert.equal(input._state.disabled, false, 'check disabled');
       assert.equal(input._state.highlight, false, 'check highlight');
-      assert.equal(input._state.placeholder, '', 'check placeholder');
+      assert.equal(
+        input._state.placeholder,
+        '',
+        'check placeholder',
+      );
       assert.equal(input._state.readonly, false, 'check readonly');
       assert.equal(input._state.required, true, 'check required');
       assert.equal(input._state.type, 'Text', 'check type');
