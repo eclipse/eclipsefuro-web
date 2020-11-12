@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.8.0...@furo/ui5@0.9.0) (2020-11-12)
+
+
+### Bug Fixes
+
+* fixes of number input. Fixes [#105](https://github.com/theNorstroem/FuroBaseComponents/issues/105) ([29a9083](https://github.com/theNorstroem/FuroBaseComponents/commit/29a9083f28b83623fb5a21197874beb49f804c6c))
+* trivial fixes ([702f726](https://github.com/theNorstroem/FuroBaseComponents/commit/702f726dd87f68d8ce5eb6940fa9ae3c21ba5af7))
+
+
+### Features
+
+* ui5-data-multi-input ([82490de](https://github.com/theNorstroem/FuroBaseComponents/commit/82490deabf81f554c8ff7e3791b1a3656b3d5df3))
+* ui5-data-multi-input ([c7f5d57](https://github.com/theNorstroem/FuroBaseComponents/commit/c7f5d57052dc5be40c565020635fc11a91dce789))
+
+
+
+
+
 # [0.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.7.0...@furo/ui5@0.8.0) (2020-11-05)
 
 

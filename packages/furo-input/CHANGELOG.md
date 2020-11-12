@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.2...@furo/input@1.5.3) (2020-11-12)
+
+
+### Bug Fixes
+
+* fixes of number input. Fixes [#105](https://github.com/theNorstroem/FuroBaseComponents/issues/105) ([29a9083](https://github.com/theNorstroem/FuroBaseComponents/commit/29a9083f28b83623fb5a21197874beb49f804c6c))
+
+
+
+
+
 ## [1.5.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.1...@furo/input@1.5.2) (2020-11-05)
 
 **Note:** Version bump only for package @furo/input

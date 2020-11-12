@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.26](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.25...@furo/app@1.3.26) (2020-11-12)
+
+
+### Bug Fixes
+
+* Handling google wrapper types as scalar values, because all (most) servers send them so and expects them so. ([00a9ae3](https://github.com/theNorstroem/FuroBaseComponents/commit/00a9ae33177c27c4dc2fd1ca775554a81b9c0970))
+
+
+
+
+
 ## [1.3.25](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.24...@furo/app@1.3.25) (2020-11-05)
 
 **Note:** Version bump only for package @furo/app
