@@ -440,6 +440,7 @@ class FuroAppDrawer extends FBP(LitElement) {
     return x;
   }
 
+
   // eslint-disable-next-line class-methods-use-this
   _getScreenY(e) {
     let y;

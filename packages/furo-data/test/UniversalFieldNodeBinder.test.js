@@ -49,7 +49,7 @@ describe('UniversalFieldNodeBinder.test', () => {
 
   it('should detect if google wrapper type was given', done => {
     pseudocomponent.binder.bindField(dataobj.data.data.wrapper_string);
-    assert.equal(pseudocomponent.binder.fieldFormat, 'wrapper');
+    assert.equal(pseudocomponent.binder.fieldFormat, 'scalar');
     done();
   });
 
@@ -289,7 +289,7 @@ describe('UniversalFieldNodeBinder.test', () => {
 
         pseudocomponent.binder.fieldValue = 'm2';
         assert.equal(pseudocomponent.value, 'm2');
-        assert.equal(pseudocomponent.binder.fieldNode.value._value, 'm2');
+        assert.equal(pseudocomponent.binder.fieldNode._value, 'm2');
         done();
       },
       { once: true },
@@ -392,22 +392,26 @@ describe('UniversalFieldNodeBinder.test', () => {
       maxlength: 'maxLength',
       minlength: 'minLength',
     };
-    dataobj.addEventListener('data-injected', () => {
-      pseudocomponent.binder.bindField(dataobj.data.data.scalar_string);
-      assert.equal(pseudocomponent.value, pseudocomponent.binder._fieldValue);
-      pseudocomponent.binder.setAttribute('minlength', 'small');
-      pseudocomponent.binder.setAttribute('value-state', 'Error');
-      pseudocomponent.binder.setAttribute('label', 'Error');
-      assert.equal(pseudocomponent.label, undefined);
-      assert.equal(pseudocomponent.valueState, 'Error');
-      assert.equal(pseudocomponent.minLength, 'small');
-      pseudocomponent.binder.removeAttribute('value-state');
-      pseudocomponent.binder.removeAttribute('label');
-      assert.equal(pseudocomponent.valueState, null);
-      assert.equal(pseudocomponent.label, undefined);
+    dataobj.addEventListener(
+      'data-injected',
+      () => {
+        pseudocomponent.binder.bindField(dataobj.data.data.scalar_string);
+        assert.equal(pseudocomponent.value, pseudocomponent.binder._fieldValue);
+        pseudocomponent.binder.setAttribute('minlength', 'small');
+        pseudocomponent.binder.setAttribute('value-state', 'Error');
+        pseudocomponent.binder.setAttribute('label', 'Error');
+        assert.equal(pseudocomponent.label, undefined);
+        assert.equal(pseudocomponent.valueState, 'Error');
+        assert.equal(pseudocomponent.minLength, 'small');
+        pseudocomponent.binder.removeAttribute('value-state');
+        pseudocomponent.binder.removeAttribute('label');
+        assert.equal(pseudocomponent.valueState, null);
+        assert.equal(pseudocomponent.label, undefined);
 
-      done();
-    });
+        done();
+      },
+      { once: true },
+    );
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 

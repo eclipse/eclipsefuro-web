@@ -5,6 +5,8 @@ import { RepeaterNode } from './RepeaterNode.js';
  * `UniversalFieldNodeBinder` consumes a FieldNode of any type, google wrapper or FAT and exposes
  * a API for data binding purposes.
  *
+ * Google wrapper types are handled like skalar values
+ *
  * ## specifity
  * **meta < fat annotations**
  * **attributes on element > fat annotations > meta**
@@ -19,7 +21,7 @@ export class UniversalFieldNodeBinder {
   constructor(target) {
     // the target object to apply the attributes, flags,...
     this.target = target;
-    this.fieldFormat = undefined; // scalar || complex || wrapper || fat
+    this.fieldFormat = undefined; // scalar || complex  || fat
     this._metastore = {}; // store metas from field
 
     /**
@@ -104,7 +106,7 @@ export class UniversalFieldNodeBinder {
     this.fieldNode = field;
     this.fieldFormat = this.detectFormat(field);
     /**
-     * The virtual node holds the superset of scalar + meta, complex + meta, wrapper + meta and fat + meta
+     * The virtual node holds the superset of scalar + meta, complex + meta, fat + meta
      * @type {{attributes: {}, value: *, constraints: {}, labels: *}}
      */
     this.virtualNode = {
@@ -189,7 +191,7 @@ export class UniversalFieldNodeBinder {
   }
 
   /**
-   * adds a label to the fat fieldNode. Adding labels to scalar, complex and wrapper works too, but will never updated on the fieldNode.
+   * adds a label to the fat fieldNode. Adding labels to scalar or complex works too, but will never updated on the fieldNode.
    * @param label
    */
   addLabel(label) {
@@ -259,37 +261,34 @@ export class UniversalFieldNodeBinder {
    * @private
    */
   _updateVirtualNode(field) {
-    // for fat and wrapper
-    if (this.fieldFormat === 'fat' || this.fieldFormat === 'wrapper') {
+    // for fat
+    if (this.fieldFormat === 'fat') {
       this.fieldValue = field.value._value;
-      // for fat
-      if (this.fieldFormat === 'fat') {
-        this._givenAttrs = field.attributes.__childNodes.map(attrNode => attrNode._name);
-        this._givenLabels = field.labels.__childNodes.map(labelNode => labelNode._value);
+      this._givenAttrs = field.attributes.__childNodes.map(attrNode => attrNode._name);
+      this._givenLabels = field.labels.__childNodes.map(labelNode => labelNode._value);
 
-        // clear the attributes by removing attrs which are not in field.attributes
-        Object.keys(this.virtualNode.attributes).forEach(attr => {
-          if (this._givenAttrs.indexOf(attr) === -1) {
-            this._removeVirtualAttribute(attr);
-          }
-        });
+      // clear the attributes by removing attrs which are not in field.attributes
+      Object.keys(this.virtualNode.attributes).forEach(attr => {
+        if (this._givenAttrs.indexOf(attr) === -1) {
+          this._removeVirtualAttribute(attr);
+        }
+      });
 
-        // clear the labels  by removing labels which are not in field.labels
-        this.virtualNode.labels.forEach(label => {
-          if (this._givenLabels.indexOf(label) === -1) {
-            this._removeVirtualLabel(label);
-          }
-        });
+      // clear the labels  by removing labels which are not in field.labels
+      this.virtualNode.labels.forEach(label => {
+        if (this._givenLabels.indexOf(label) === -1) {
+          this._removeVirtualLabel(label);
+        }
+      });
 
-        // update the given attributes on the virtual node
-        field.attributes.__childNodes.forEach(attr => {
-          this._addVirtualAttribute(attr._name, attr._value);
-        });
-        // update the given labels on the virtual node
-        field.labels.__childNodes.forEach(label => {
-          this._addVirtualLabel(label._value);
-        });
-      }
+      // update the given attributes on the virtual node
+      field.attributes.__childNodes.forEach(attr => {
+        this._addVirtualAttribute(attr._name, attr._value);
+      });
+      // update the given labels on the virtual node
+      field.labels.__childNodes.forEach(label => {
+        this._addVirtualLabel(label._value);
+      });
     } else {
       // for scalar and complex fields
       this.fieldValue = field._value;
@@ -310,9 +309,9 @@ export class UniversalFieldNodeBinder {
         this.target[this.attributeMappings[name]] = value;
       }
 
-      // update the field constraints based on fat attributes only for fat and wrapper types.
+      // update the field constraints based on fat attributes only for fat types.
       // google.type.date should not be updated
-      if (this.fieldFormat === 'fat' || this.fieldFormat === 'wrapper') {
+      if (this.fieldFormat === 'fat') {
         if (name in this.fatAttributesToConstraintsMappings) {
           this._pathSet(this.fatAttributesToConstraintsMappings[name], value);
         }
@@ -416,7 +415,7 @@ export class UniversalFieldNodeBinder {
   }
 
   /**
-   * detects the kind of the fieldNode (scalar, wrapper, fat)
+   * detects the kind of the fieldNode (scalar, fat)
    * @param field
    * @return {string|undefined}
    */
@@ -424,10 +423,6 @@ export class UniversalFieldNodeBinder {
     if (field && field.__childNodes.length === 0) {
       this.fieldValue = field._value;
       return 'scalar';
-    }
-    if (field && field.__childNodes.length === 1 && 'value' in field) {
-      this.fieldValue = field.value._value;
-      return 'wrapper';
     }
     if (field && 'value' in field && 'labels' in field && 'attributes' in field) {
       this.fieldValue = field.value._value;
