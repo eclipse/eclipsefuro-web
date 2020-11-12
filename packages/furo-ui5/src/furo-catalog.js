@@ -34,5 +34,3 @@ import './furo-ui5-data-ro-labeled.js';
 import './furo-ui5-button.js';
 import './furo-ui5-data-display.js';
 import './furo-ui5-busyindicator.js';
-import './furo-ui5-data-multi-input.js';
-import './furo-ui5-data-multi-input-labeled.js';

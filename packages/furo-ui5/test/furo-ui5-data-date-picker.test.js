@@ -141,7 +141,11 @@ describe('furo-ui5-data-date-picker', () => {
     dao.injectRaw(testRecordMeta);
     setTimeout(() => {
       assert.equal(datepicker._state.disabled, false, 'check disabled');
-      assert.equal(datepicker._state.placeholder, 'dd.MM.yyyy', 'check placeholder');
+      assert.equal(
+        datepicker._state.placeholder,
+        'dd.MM.yyyy',
+        'check placeholder',
+      );
       assert.equal(datepicker._state.readonly, false, 'check readonly');
       assert.equal(datepicker._state.value, '31.12.20', 'check value');
       assert.equal(datepicker._state.valueState, 'None', 'check valueState');
@@ -165,7 +169,11 @@ describe('furo-ui5-data-date-picker', () => {
     dao.injectRaw(testRecordMeta);
     setTimeout(() => {
       assert.equal(datepicker2._state.disabled, false, 'check disabled');
-      assert.equal(datepicker2._state.placeholder, 'dd.MM.yyyy', 'check placeholder');
+      assert.equal(
+        datepicker2._state.placeholder,
+        'dd.MM.yyyy',
+        'check placeholder',
+      );
       assert.equal(datepicker2._state.readonly, false, 'check readonly');
       assert.equal(datepicker2._state.value, '22.02.2019', 'check value');
       assert.equal(datepicker2._state.valueState, 'None', 'check valueState');
