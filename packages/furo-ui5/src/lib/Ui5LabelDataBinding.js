@@ -22,7 +22,8 @@ export class Ui5LabelDataBinding {
       // eslint-disable-next-line no-param-reassign
       element.label = element.label || fieldNode.attributes.label || fieldNode._meta.label;
       // eslint-disable-next-line no-param-reassign
-      element.required = element.required || fieldNode.labels.required || fieldNode._constraints.required;
+      element.required =
+        element.required || fieldNode.labels.required || fieldNode._constraints.required;
     } else {
       // eslint-disable-next-line no-param-reassign
       element.label = element.label || fieldNode._meta.label;

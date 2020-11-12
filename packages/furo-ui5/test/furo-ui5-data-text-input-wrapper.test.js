@@ -18,9 +18,7 @@ describe('furo-ui5-data-text-input-wrapper', () => {
     data: {
       id: '1',
       scalar_string: 'this is a scalar string',
-      wrapper_string: {
-        value: 'this is a google wrapper string',
-      },
+      wrapper_string: 'this is a google wrapper string',
       fat_string: {
         value: 'fat string from record',
         labels: ['cozy'],
@@ -130,14 +128,14 @@ describe('furo-ui5-data-text-input-wrapper', () => {
   it('should update the value of the bound fieldNode (wrapper)', done => {
     dao.data.data.wrapper_string.addEventListener('field-value-changed', () => {
       assert.equal(input._state.value, 'New FAT String value changed');
-      assert.equal(dao.data.data.wrapper_string.value._value, 'New FAT String value changed');
+      assert.equal(dao.data.data.wrapper_string._value, 'New FAT String value changed');
       done();
     });
     input.setValue('New FAT String value changed');
   });
 
   it('an update of a fat value on the data object should be synchronized with the input field (wrapper)', done => {
-    dao.data.data.wrapper_string.value._value = 'Set data in the inner input element';
+    dao.data.data.wrapper_string._value = 'Set data in the inner input element';
     assert.equal(input._state.value, 'Set data in the inner input element');
     done();
   });
@@ -146,11 +144,7 @@ describe('furo-ui5-data-text-input-wrapper', () => {
     dao.addEventListener('data-injected', () => {
       assert.equal(input._state.disabled, false, 'check disabled');
       assert.equal(input._state.highlight, false, 'check highlight');
-      assert.equal(
-        input._state.placeholder,
-        '',
-        'check placeholder',
-      );
+      assert.equal(input._state.placeholder, '', 'check placeholder');
       assert.equal(input._state.readonly, false, 'check readonly');
       assert.equal(input._state.required, false, 'check required');
       assert.equal(input._state.type, 'Text', 'check type');
@@ -161,7 +155,7 @@ describe('furo-ui5-data-text-input-wrapper', () => {
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
       assert.equal(input.__hint, 'hint', 'check hint');
       assert.equal(input.pristine, true, 'Please enter a description', 'check pristine');
-      assert.equal(input.binder.fieldFormat, 'wrapper', 'check fieldFormat');
+      assert.equal(input.binder.fieldFormat, 'scalar', 'check fieldFormat');
 
       done();
     });
