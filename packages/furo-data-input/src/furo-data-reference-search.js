@@ -127,24 +127,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     // the extended furo-text-input component uses _value
     this.binder.targetValueField = '_value';
-
-    // update the value on input changes
-    this.addEventListener('field-value-changed', val => {
-      // set flag empty on empty strings (for fat types)
-      if (val.detail) {
-        this.binder.deleteLabel('empty');
-      } else {
-        this.binder.addLabel('empty');
-      }
-      // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
-
-      // update the value
-      this.binder.fieldValue = val.detail;
-
-      this._updateField();
-    });
-    // set flag empty on emptfuroy strings (for fat types)
   }
 
   /**
@@ -505,6 +487,20 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
         this.binder.addLabel('pristine');
+      });
+
+      // update the value on input changes
+      this.binder.fieldNode.addEventListener('field-value-changed', val => {
+        // set flag empty on empty strings (for fat types)
+        if (val.detail) {
+          this.binder.deleteLabel('empty');
+        } else {
+          this.binder.addLabel('empty');
+        }
+        // if something was entered the field is not empty
+        this.binder.deleteLabel('pristine');
+
+        this._updateField();
       });
     }
 
