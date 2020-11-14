@@ -49,13 +49,22 @@ export class ValidatorNumericTypes {
           case 'step':
             {
               // step check is (value - min)%is == 0
-              const modulo = parseFloat(constraint.is);
+            let modulo = parseFloat(constraint.is);
+            let valueToProove = parseFloat(field._value);
+            let f = 1; // factor
+
+            // float can not calculate modulo propperly on fractions
+            if (modulo < 1) {
+              f = 1 / modulo
+              modulo = 1
+              valueToProove *= f ;
+            }
               let min = 0;
               if (field._constraints.min && field._constraints.min.is) {
-                min = parseFloat(field._constraints.min.is);
+              min = f * parseFloat(field._constraints.min.is);
               }
 
-              if ((min - field._value) % modulo !== 0) {
+            if ((min - valueToProove) % modulo !== 0) {
                 const NODE = {};
                 NODE.message = constraint.message;
                 NODE.name = constraintName;
