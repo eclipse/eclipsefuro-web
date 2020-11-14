@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.12.2...@furo/data@1.12.3) (2020-11-14)
+
+
+### Bug Fixes
+
+* steps smaller 1 caused always a constraint violation, because of floating point modulo calculations. ([e29823a](https://github.com/theNorstroem/FuroBaseComponents/commit/e29823acf8cddfa77a347acd97fcb3eb77f4b2fd))
+
+
+
+
+
 ## [1.12.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.12.1...@furo/data@1.12.2) (2020-11-14)
 
 **Note:** Version bump only for package @furo/data
