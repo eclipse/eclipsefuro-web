@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.29](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.28...@furo/config@1.3.29) (2020-11-14)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
 ## [1.3.28](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.27...@furo/config@1.3.28) (2020-11-12)
 
 **Note:** Version bump only for package @furo/config

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.9.1...@furo/data-input@1.9.2) (2020-11-14)
+
+
+### Bug Fixes
+
+* furo reference search ([4d6b5de](https://github.com/theNorstroem/FuroBaseComponents/commit/4d6b5de49953d57f6b4c8e44ed912c4003728b58))
+
+
+
+
+
 ## [1.9.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.9.0...@furo/data-input@1.9.1) (2020-11-12)
 
 **Note:** Version bump only for package @furo/data-input
