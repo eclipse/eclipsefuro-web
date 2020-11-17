@@ -126,7 +126,7 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
 
   _registerListeners() {
     this._FBPAddWireHook('--input', e => {
-      this._searchTerm = e.path[0].value;
+      this._searchTerm = e.composedPath()[0].value;
 
       if (!this.searchOnEnterOnly) {
         this._fireSearchEvent();

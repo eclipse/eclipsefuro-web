@@ -5,9 +5,12 @@ import {
 
 // eslint-disable-next-line camelcase
 import de_CH from '../../assets/cldr/de_CH.js';
+// en as fallback
+import en from '../../assets/cldr/en.js';
 
 const cldrData = {
   de_CH,
+  en
 };
 
 Object.entries(cldrData).forEach(([key, value]) => {

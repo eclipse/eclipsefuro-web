@@ -117,8 +117,8 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     this.shadowRoot.getElementById('wrapper').addEventListener('value-changed', e => {
       e.stopPropagation();
 
-      if (e.path[0]) {
-        if (e.path[0].nodeName === 'FURO-SELECT-INPUT') {
+      if (e.composedPath()[0]) {
+        if (e.composedPath()[0].nodeName === 'FURO-SELECT-INPUT') {
           this.binder.fieldValue = this._convertDataToMoneyObj(
             e.detail,
             '',
@@ -126,7 +126,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
           );
         }
 
-        if (e.path[0].nodeName === 'FURO-NUMBER-INPUT') {
+        if (e.composedPath()[0].nodeName === 'FURO-NUMBER-INPUT') {
           this.binder.fieldValue = this._convertDataToMoneyObj(
             '',
             e.detail,
