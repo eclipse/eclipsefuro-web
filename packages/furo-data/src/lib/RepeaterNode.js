@@ -322,6 +322,13 @@ export class RepeaterNode extends EventTreeNode {
 
   _addSilent() {
     const fieldNode = new FieldNode(this, this._spec, this._name);
+    /**
+     * by adding a repeated node, which is itself repeated, the child node can not be repeated
+     * So set this to false in the meta should be correct
+     *
+     */
+    fieldNode._meta.repeated = false;
+
     // if this field has disabled Validation, pass to new attributes. Because they do not have to validate too.
     if (this._validationDisabled || this.__parentNode._validationDisabled) {
       fieldNode._validationDisabled = true;
