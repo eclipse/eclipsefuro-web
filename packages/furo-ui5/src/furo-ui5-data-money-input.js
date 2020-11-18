@@ -103,15 +103,15 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
 
     // update value when the amount changed
     this._FBPAddWireHook('--inputInput', e => {
-      if (e.path[0].nodeName === 'UI5-INPUT') {
+      if (e.composedPath()[0].nodeName === 'UI5-INPUT') {
         this.binder.fieldValue = this._convertDataToMoneyObj(
           '',
-          e.path[0].value,
+          e.composedPath()[0].value,
           this.binder.fieldNode._value,
         );
       } else {
         this.binder.fieldValue = this._convertDataToMoneyObj(
-          e.path[0].value,
+          e.composedPath()[0].value,
           '',
           this.binder.fieldNode._value,
         );

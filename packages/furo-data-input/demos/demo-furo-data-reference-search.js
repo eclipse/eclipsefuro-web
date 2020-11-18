@@ -86,7 +86,20 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
               >
               </furo-data-reference-search>
             </furo-form-layouter>
-            <furo-data-object type="task.Task" @-object-ready="--entityReady"> </furo-data-object>
+            <furo-data-object type="task.Task" @-object-ready="--entityReady" ƒ-inject-raw="--response(*.data)"> </furo-data-object>
+            <furo-entity-agent
+              service="TaskService"
+              ƒ-hts-in="--hts"
+              ƒ-load="--hts"
+              @-response="--response"
+            >
+            </furo-entity-agent>
+            <furo-deep-link
+              service="TaskService"
+              @-hts-out="--hts"
+              ƒ-qp-in="--qp"
+            ></furo-deep-link>
+            <produce-qp-data @-data="--qp" qpescaped="%7B%22tsk%22%3A1%7D"></produce-qp-data>
             <furo-collection-agent
               service="PersonService"
               ƒ-hts-in="--entityReady(*.owner.link._value)"
