@@ -12,6 +12,7 @@ describe('furo-ui5-data-property', () => {
   let entityObject;
   let entityAgent;
   let deeplink;
+  let dataProperty2;
 
   beforeEach(async () => {
     const testbind = await fixture(html`
@@ -34,18 +35,31 @@ describe('furo-ui5-data-property', () => {
             @-response="--response"
           >
           </furo-entity-agent>
+          <div>
+            <furo-ui5-data-property
+              ƒ-bind-data="--entity(*.type_property)"
+            ></furo-ui5-data-property>
+          </div>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, dataProperty, entityObject, deeplink, entityAgent] = testbind.parentNode.children;
+    [
+      ,
+      dataProperty,
+      entityObject,
+      deeplink,
+      entityAgent,
+      dataProperty2,
+    ] = testbind.parentNode.children;
     await host.updateComplete;
 
     await dataProperty.updateComplete;
     await entityAgent.updateComplete;
     await entityObject.updateComplete;
     await deeplink.updateComplete;
+    await dataProperty2.updateComplete;
   });
 
   it('should be a furo-ui5-data-property', done => {
@@ -65,6 +79,17 @@ describe('furo-ui5-data-property', () => {
       assert.equal(dataProperty.field.data.year._value, '2022');
       done();
     });
+    deeplink.qpIn({ exp: 1 });
+  });
+
+  it('should display properties with furo ui5 data components', done => {
+    entityObject.addEventListener('data-injected', () => {
+      setTimeout(() => {
+        assert.equal(dataProperty2.querySelectorAll('furo-ui5-data-property').length, 11);
+        done();
+      }, 100);
+    });
+
     deeplink.qpIn({ exp: 1 });
   });
 });
