@@ -10,7 +10,7 @@ import en from '../../assets/cldr/en.js';
 
 const cldrData = {
   de_CH,
-  en
+  en,
 };
 
 Object.entries(cldrData).forEach(([key, value]) => {
