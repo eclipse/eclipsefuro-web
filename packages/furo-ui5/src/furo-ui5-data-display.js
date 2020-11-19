@@ -61,7 +61,8 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
         }
         p {
           margin: 0;
-          font-weight: 700;
+          font-family: var(--sapFontFamily, "72");
+          color: var(--sapTextcolor, "#32363a");
         }
         :host([value-state='Information']) p {
           color: var(--sapInformativeColor, #0a6ed1);
