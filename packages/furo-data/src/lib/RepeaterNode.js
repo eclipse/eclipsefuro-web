@@ -349,11 +349,14 @@ export class RepeaterNode extends EventTreeNode {
     this._isValid = false;
     const path = error.field.split('.');
     if (path.length > 0) {
-      // rest wieder in error reinwerfen
+      // den rest wieder in error reinwerfen
       // eslint-disable-next-line no-param-reassign
       error.field = path.slice(1).join('.');
     }
-    this.repeats[path[0]]._setInvalid(error);
+
+    if (this.repeats[path[0]]) {
+      this.repeats[path[0]]._setInvalid(error);
+    }
   }
 
   add(data) {
