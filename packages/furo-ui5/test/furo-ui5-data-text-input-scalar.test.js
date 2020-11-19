@@ -17,58 +17,6 @@ describe('furo-ui5-data-text-input-scalar', () => {
   const testRecordMeta = {
     data: {
       description: 'Description from record',
-      display_name: 'display_name',
-      id: '1',
-      furo_data_checkbox_input: true,
-      furo_data_text_input:
-        'hallo test with loads of text to show the overflow. hallo test with loads of text to show the overflow.',
-      furo_data_number_input: 12.55,
-      furo_data_time_input: '17:34',
-      furo_data_color_input: '#e318ed',
-      furo_data_textarea_input: 'hallo , this is textarea input',
-      furo_data_date_input: '2019-02-22',
-      furo_data_date_input_google: {
-        day: 31,
-        display_name: '31.12.2020',
-        month: 12,
-        year: 2020,
-      },
-      furo_data_range_input: 31,
-      furo_data_bool_icon: false,
-      type_property: [
-        {
-          code: 'c0a7f550-0fbe-4046-8fa9-60c86327b6b1',
-          data: {
-            '@type': 'type.googleapis.com/furo.StringProperty',
-            data: '01032020',
-          },
-          flags: ['is-overwritable', 'my-prop'],
-          display_name: 'Vertragsbeginn',
-          id: '246d79a0-0a15-43c5-b18f-ac8a4a449df1',
-          meta: {
-            fields: {
-              data: {
-                constraints: {
-                  required: {
-                    is: 'true',
-                    message: 'Bitte ausfüllen!',
-                  },
-                },
-                meta: {
-                  label: 'Vertragsbeginn custom label',
-                  readonly: true,
-                },
-              },
-            },
-          },
-        },
-      ],
-      repstring: ['AAA', 'BBBB', 'CCCC'],
-      furo_data_money_input: {
-        currency_code: 'CHF',
-        units: 3333,
-        nanos: 75100000,
-      },
     },
     links: [
       {
@@ -170,27 +118,34 @@ describe('furo-ui5-data-text-input-scalar', () => {
     done();
   });
 
-  it('should apply meta and constraints to the bound field', done => {
+  it('should show the value in the input field and apply meta and constraints after data injected', done => {
     dao.addEventListener('data-injected', () => {
-      assert.equal(input._state.disabled, false, 'check disabled');
-      assert.equal(input._state.highlight, false, 'check highlight');
-      assert.equal(input._state.placeholder, '', 'check placeholder');
-      assert.equal(input._state.readonly, false, 'check readonly');
-      assert.equal(input._state.required, true, 'check required');
-      assert.equal(input._state.type, 'Text', 'check type');
-      assert.equal(input._state.value, 'Description from record', 'check value');
-      assert.equal(input._state.valueState, 'None', 'check valueState');
-      assert.equal(input._state.name, '', 'check name');
-      assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
-      assert.equal(input._state.maxlength, undefined, 'check maxlength');
-      assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
-      assert.equal(input.__hint, 'Please enter a description', 'check hint');
-      assert.equal(input.pristine, true, 'Please enter a description', 'check pristine');
-      assert.equal(input.binder.fieldFormat, 'scalar', 'check fieldFormat');
+      setTimeout(() => {
+        assert.equal(input._state.disabled, false, 'check disabled');
+        assert.equal(input._state.highlight, false, 'check highlight');
+        assert.equal(input._state.placeholder, '', 'check placeholder');
+        assert.equal(input._state.readonly, false, 'check readonly');
+        assert.equal(input._state.required, true, 'check required');
+        assert.equal(input._state.type, 'Text', 'check type');
+        assert.equal(input._state.value, 'Description from record', 'check value');
+        assert.equal(input._state.valueState, 'None', 'check valueState');
+        assert.equal(input._state.name, '', 'check name');
+        assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
+        assert.equal(input._state.maxlength, undefined, 'check maxlength');
+        assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
+        assert.equal(input.__hint, 'Please enter a description', 'check hint');
+        assert.equal(input.pristine, true, 'Please enter a description', 'check pristine');
+        assert.equal(input.binder.fieldFormat, 'scalar', 'check fieldFormat');
 
-      done();
+        console.log(input.binder.fieldNode);
+        assert.equal(
+          input.shadowRoot.querySelector('input').value,
+          'Description from record',
+          'check input value',
+        );
+        done();
+      }, 100);
     });
-
     dao.injectRaw(testRecordMeta);
   });
 });

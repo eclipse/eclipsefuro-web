@@ -180,6 +180,10 @@ export class UniversalFieldNodeBinder {
     ) {
       this.target[this.targetValueField] = val;
     }
+
+    if(this.target._requestUpdate) {
+      this.target._requestUpdate();
+    }
   }
 
   /**

@@ -232,6 +232,13 @@ export class FuroUi5DataInput extends Input.default {
   }
 
   /**
+   * @private
+   */
+  _requestUpdate() {
+    this._updateSlots();
+  }
+
+  /**
    * sets and remove the error state
    * @param err
    * @private
