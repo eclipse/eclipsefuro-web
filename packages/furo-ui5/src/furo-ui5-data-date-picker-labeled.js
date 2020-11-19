@@ -93,6 +93,8 @@ class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
         <furo-ui5-data-date-picker
           content
           id="Input"
+          min-date="0001-01-01"
+          max-date="9999-12-31"
           ?disabled=${this.disabled}
           ƒ-bind-data="--data"
         ></furo-ui5-data-date-picker>
