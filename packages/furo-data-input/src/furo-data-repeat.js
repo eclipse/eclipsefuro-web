@@ -58,6 +58,11 @@ class FuroDataRepeat extends FBP(LitElement) {
        */
       repeatedComponent: { type: String, attribute: 'repeated-component' },
       identityPath: { type: String, attribute: 'identity-path' },
+      /**
+       * set this attribute to set the focus to the created item after calling add().
+       */
+      focusOnCreate: { type: Boolean, attribute: 'focus-on-create' },
+
     };
   }
 
@@ -95,6 +100,8 @@ class FuroDataRepeat extends FBP(LitElement) {
     r.setAttribute('identity-path', identityPath);
     r.setAttribute('ƒ-inject-items', '--repeatsChanged');
 
+    this._repeaterNode = r;
+
     let isCondensed = '';
     let attrs = '';
     const l = this.attributes.length;
@@ -129,7 +136,7 @@ class FuroDataRepeat extends FBP(LitElement) {
     if (this.deleteIcon) {
       icn = `<data-repeat-delete icon="${this.deleteIcon}" ${isCondensed} ƒ-bind-item="--init"></data-repeat-delete>`;
     }
-    r.innerHTML = `<template><div class="repeat-row"><${component} ${attrs} class="in-repeater" ƒ-bind-data="--init"></${component}>${icn}</div></template>`;
+    r.innerHTML = `<template><div class="repeat-row"><${component} ${attrs} class="in-repeater" ƒ-focus="--itemSelected" ƒ-bind-data="--init"></${component}>${icn}</div></template>`;
 
     container.appendChild(r);
 
@@ -190,6 +197,13 @@ class FuroDataRepeat extends FBP(LitElement) {
   add(data) {
     if (this.field) {
       this.field.add(data);
+      if(this.focusOnCreate){
+        //setTimeout(()=>{
+        this._repeaterNode.select(this.field.repeats.length-1);
+        //},16)
+
+
+      }
     }
   }
 
