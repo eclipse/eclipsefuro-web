@@ -62,7 +62,6 @@ class FuroDataRepeat extends FBP(LitElement) {
        * set this attribute to set the focus to the created item after calling add().
        */
       focusOnCreate: { type: Boolean, attribute: 'focus-on-create' },
-
     };
   }
 
@@ -197,12 +196,10 @@ class FuroDataRepeat extends FBP(LitElement) {
   add(data) {
     if (this.field) {
       this.field.add(data);
-      if(this.focusOnCreate){
-        //setTimeout(()=>{
-        this._repeaterNode.select(this.field.repeats.length-1);
-        //},16)
-
-
+      if (this.focusOnCreate) {
+        // setTimeout(()=>{
+        this._repeaterNode.select(this.field.repeats.length - 1);
+        // },16)
       }
     }
   }
