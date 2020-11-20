@@ -43,7 +43,9 @@ class FlowRepeat extends FBP(HTMLElement) {
   }
 
   /**
-   * Select item by its identity
+   * Select item by its identity.
+   *
+   * Using this method only makes sense when you have set the identity path
    * @param identifier
    */
   selectIdentity(identifier) {
