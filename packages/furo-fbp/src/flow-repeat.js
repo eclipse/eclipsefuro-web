@@ -43,6 +43,26 @@ class FlowRepeat extends FBP(HTMLElement) {
   }
 
   /**
+   * Select item by its identity
+   * @param identifier
+   */
+  selectIdentity(identifier) {
+    if (this._insertedItems.length === 0) {
+      this._selIdentityQueue = identifier;
+    } else {
+      this._selIdentityQueue = undefined;
+
+      // eslint-disable-next-line no-restricted-syntax
+      for (const i in this._insertedItems) {
+        if (this._insertedItems[i].identity === identifier) {
+          this.select(i);
+          break;
+        }
+      }
+    }
+  }
+
+  /**
    * select Next index
    *
    */
@@ -186,6 +206,11 @@ class FlowRepeat extends FBP(HTMLElement) {
         customEvent.detail = items.length;
         this.dispatchEvent(customEvent);
       }, 0);
+    }
+
+    // selectByIdentity queue
+    if (this._selIdentityQueue) {
+      this.selectIdentity(this._selIdentityQueue);
     }
   }
 
