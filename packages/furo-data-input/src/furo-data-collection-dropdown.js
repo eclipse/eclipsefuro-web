@@ -111,6 +111,8 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
             this._writeLock = false;
           }, 100);
         }
+
+        this.binder.deleteLabel('pristine');
       }
       this._notifiySelectedItem(val.detail);
     });
@@ -161,17 +163,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
 
     // the extended furo-text-input component uses _value
     this.binder.targetValueField = '_value';
-
-    // update the value on input changes
-    this.addEventListener('value-changed', val => {
-      if (this.binder.fieldNode) {
-        // if something was entered the field is not empty
-        this.binder.deleteLabel('pristine');
-
-        // update the value
-        this.binder.fieldValue = val.detail;
-      }
-    });
   }
 
   _findDisplayNameByValue(val) {

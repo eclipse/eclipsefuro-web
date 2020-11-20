@@ -64,20 +64,19 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
                 hint="hint override"
                 leading-icon="mail"
                 trailing-icon="fingerprint"
-                label="Use phone as display"
-                subfield="id"
+                label="Use description as display"
                 subfield-display="description"
                 ƒ-inject-entities="--response(*.entities)"
-                ƒ-bind-data="--entity"
+                ƒ-bind-data="--entity(*.data)"
                 @-item-selected="--itemSelected"
               ></furo-data-collection-dropdown>
 
               <furo-data-collection-dropdown
                 leading-icon="mail"
                 trailing-icon="fingerprint"
-                display-field="description"
+                display-field="id"
                 ƒ-inject-entities="--response(*.entities)"
-                ƒ-bind-data="--entity"
+                ƒ-bind-data="--entity(*.data.id)"
                 @-item-selected="--itemSelected"
               ></furo-data-collection-dropdown>
 
@@ -86,7 +85,7 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
                 display-field="display_name"
                 ƒ-inject-entities="--response(*.entities)"
                 @-item-selected="--itemSelected"
-                hint="adsfasdf"
+                hint=""
               ></furo-data-collection-dropdown>
 
               <furo-data-collection-dropdown
@@ -103,7 +102,7 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
 
             <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
 
-            <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+            <furo-data-object type="task.TaskEntity" @-object-ready="--entity"></furo-data-object>
             <furo-data-object
               type="task.TaskCollection"
               @-object-ready="--collection"

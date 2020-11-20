@@ -86,7 +86,9 @@ export class FuroSelectInput extends FBP(LitElement) {
 
   set _value(v) {
     if (!this.multiple) {
-      this._FBPTriggerWire('--value', v);
+      if (typeof v !== 'object') {
+        this._FBPTriggerWire('--value', v);
+      }
     } else if (Array.isArray(v) && this.selectOptions) {
       this.selectOptions.forEach(o => {
         if (v.includes(o.id)) {
