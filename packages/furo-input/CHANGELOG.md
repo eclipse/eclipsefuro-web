@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.3...@furo/input@1.5.4) (2020-11-20)
+
+
+### Bug Fixes
+
+* furo-data-collection-dropdown should update bounded data ([136b833](https://github.com/theNorstroem/FuroBaseComponents/commit/136b833e64b12ad04dcfabbf0fb70802348dd1e6))
+
+
+
+
+
 ## [1.5.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@1.5.2...@furo/input@1.5.3) (2020-11-12)
 
 

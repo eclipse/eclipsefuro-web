@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.8.0...@furo/ui-builder@1.8.1) (2020-11-20)
+
+
+### Bug Fixes
+
+* missing imports ([f6abcb9](https://github.com/theNorstroem/FuroBaseComponents/commit/f6abcb9d51d235b94a36fb66b4c6d5c945c910fe))
+
+
+
+
+
 # [1.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.7.4...@furo/ui-builder@1.8.0) (2020-11-05)
 
 

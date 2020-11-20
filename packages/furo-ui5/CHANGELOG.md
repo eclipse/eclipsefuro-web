@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.9.1...@furo/ui5@0.9.2) (2020-11-20)
+
+
+### Bug Fixes
+
+* date picker should not have attribute init in constructor. ([5322b15](https://github.com/theNorstroem/FuroBaseComponents/commit/5322b15cad1f0211aa0f69eebe6d60d9e8e0465b))
+* firefox event problem. ([7e962e8](https://github.com/theNorstroem/FuroBaseComponents/commit/7e962e8990ed1c5fff571c4076022de2f0d3da7b))
+* furo-data-collection-dropdown should update bounded data ([136b833](https://github.com/theNorstroem/FuroBaseComponents/commit/136b833e64b12ad04dcfabbf0fb70802348dd1e6))
+* sap stylevars added ([d5d3495](https://github.com/theNorstroem/FuroBaseComponents/commit/d5d34957e8832ac3956be577fa2fcaffd62b1552))
+* splitted up in form sections ([391717e](https://github.com/theNorstroem/FuroBaseComponents/commit/391717ec73154fdf7d251678694668fdebfe558f))
+
+
+
+
+
 ## [0.9.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.9.0...@furo/ui5@0.9.1) (2020-11-14)
 
 **Note:** Version bump only for package @furo/ui5

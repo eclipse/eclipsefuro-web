@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.27](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.26...@furo/app@1.3.27) (2020-11-20)
+
+
+### Bug Fixes
+
+* firefox event problem. ([7e962e8](https://github.com/theNorstroem/FuroBaseComponents/commit/7e962e8990ed1c5fff571c4076022de2f0d3da7b))
+
+
+
+
+
 ## [1.3.26](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.25...@furo/app@1.3.26) (2020-11-12)
 
 

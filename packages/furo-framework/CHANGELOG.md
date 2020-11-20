@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.4.1...@furo/framework@1.5.0) (2020-11-20)
+
+
+### Bug Fixes
+
+* furo-data-collection-dropdown should update bounded data ([136b833](https://github.com/theNorstroem/FuroBaseComponents/commit/136b833e64b12ad04dcfabbf0fb70802348dd1e6))
+
+
+### Features
+
+* default set on furo.Link types will prefix with api-base-url when it is not hard coded in the specs ([8dc9cd2](https://github.com/theNorstroem/FuroBaseComponents/commit/8dc9cd29557353473c10e725c9e9716374d201fc))
+
+
+
+
+
 ## [1.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.4.0...@furo/framework@1.4.1) (2020-11-12)
 
 

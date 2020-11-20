@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.2.2...@furo/fbp@5.3.0) (2020-11-20)
+
+
+### Features
+
+* flow-repeat.js select a item in the list by its identity ([1f567c8](https://github.com/theNorstroem/FuroBaseComponents/commit/1f567c8f43b7d8dc0c0b950a429b5f405c5d2718))
+* flow-repeat.js select a item in the list by its identity ([8219415](https://github.com/theNorstroem/FuroBaseComponents/commit/82194157c39796eb711f5031a61690ba67e19c7d))
+
+
+
+
+
 ## [5.2.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.2.1...@furo/fbp@5.2.2) (2020-11-12)
 
 **Note:** Version bump only for package @furo/fbp

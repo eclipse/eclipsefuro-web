@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.12.3...@furo/data@1.13.0) (2020-11-20)
+
+
+### Bug Fixes
+
+* search on collection MUST also search for empty query, when requested ([84a65e8](https://github.com/theNorstroem/FuroBaseComponents/commit/84a65e8771c628b9c5818086b0323dd7ef73601b))
+* When a repeated node is added, because the meta says it is a RepeaterNode the children should not be repeated. Set the _meta.repeated on children to false. ([57be9b6](https://github.com/theNorstroem/FuroBaseComponents/commit/57be9b61352bc30309a167e54d02fd5d7436e083))
+
+
+### Features
+
+* default set on furo.Link types will prefix with api-base-url when it is not hard coded in the specs ([8dc9cd2](https://github.com/theNorstroem/FuroBaseComponents/commit/8dc9cd29557353473c10e725c9e9716374d201fc))
+
+
+
+
+
 ## [1.12.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.12.2...@furo/data@1.12.3) (2020-11-14)
 
 

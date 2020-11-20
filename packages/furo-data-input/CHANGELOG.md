@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.9.3...@furo/data-input@1.10.0) (2020-11-20)
+
+
+### Bug Fixes
+
+* firefox event problem. ([7e962e8](https://github.com/theNorstroem/FuroBaseComponents/commit/7e962e8990ed1c5fff571c4076022de2f0d3da7b))
+* furo-data-collection-dropdown should update bounded data ([136b833](https://github.com/theNorstroem/FuroBaseComponents/commit/136b833e64b12ad04dcfabbf0fb70802348dd1e6))
+
+
+### Features
+
+* furo-data-repeat.js focus-on-create focuses the newly created element ([ddd9918](https://github.com/theNorstroem/FuroBaseComponents/commit/ddd99188790877c0660068ad57882cf2cd369912))
+
+
+
+
+
 ## [1.9.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.9.2...@furo/data-input@1.9.3) (2020-11-14)
 
 **Note:** Version bump only for package @furo/data-input
