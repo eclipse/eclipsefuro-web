@@ -58,9 +58,7 @@ export class Helper {
       const invalidInputEvent = new Event('input-invalid', { composed: true, bubbles: false });
       invalidInputEvent.detail = input.validity;
       caller.dispatchEvent(invalidInputEvent);
-    }
-    else {
-
+    } else {
       /**
        * @event value-cleared
        * Fired when value has changed to EMPTY_STRING from inside the component
