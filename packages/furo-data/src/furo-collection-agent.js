@@ -369,6 +369,13 @@ class FuroCollectionAgent extends FBP(LitElement) {
     return this.list();
   }
 
+  /**
+   * search for a term.
+   *
+   * This will set the query param q and triggers a list()
+   *
+   * @param term
+   */
   search(term) {
     if (term !== '') {
       this._queryParams.q = term;
