@@ -83,7 +83,7 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
           this._fieldNodeToUpdate._value = val.detail;
 
           if (this.subfield) {
-            this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(val);
+            this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(val.detail);
           }
         } else {
           const data = [];
@@ -473,11 +473,11 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
         }
       });
 
-      this.binder.fieldNode.addEventListener('this-field-value-changed', () => {
+      this.binder.fieldNode.addEventListener('field-value-changed', () => {
         this._updateField();
       });
 
-      this.binder.fieldNode.addEventListener('this-repeated-field-changed', () => {
+      this.binder.fieldNode.addEventListener('repeated-field-changed', () => {
         this._updateField();
       });
 
