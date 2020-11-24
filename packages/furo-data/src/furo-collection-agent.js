@@ -377,11 +377,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * @param term
    */
   search(term) {
-    if (term !== '') {
-      this._queryParams.q = term;
-    } else {
-      delete this._queryParams.q;
-    }
+    this._queryParams.q = term;
     this.list();
   }
 
