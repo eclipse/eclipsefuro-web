@@ -362,8 +362,9 @@ export class RepeaterNode extends EventTreeNode {
   add(data) {
     const index = this._addSilent();
     this._pristine = false;
+
     // set data if given
-    if (data) {
+    if (data !== undefined) {
       const child = this.repeats[index];
       child._value = data;
     }
