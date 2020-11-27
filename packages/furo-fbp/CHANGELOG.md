@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.3.0...@furo/fbp@5.3.1) (2020-11-27)
+
+
+### Bug Fixes
+
+* store selected index as int not as string ([7039e18](https://github.com/theNorstroem/FuroBaseComponents/commit/7039e183f031a7f9bece01d207d422ea25a09168))
+
+
+
+
+
 # [5.3.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.2.2...@furo/fbp@5.3.0) (2020-11-20)
 
 

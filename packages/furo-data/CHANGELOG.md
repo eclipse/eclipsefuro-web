@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.13.1...@furo/data@1.13.2) (2020-11-27)
+
+
+### Bug Fixes
+
+* adding repeater node with an empty string should not set null ([40bfe69](https://github.com/theNorstroem/FuroBaseComponents/commit/40bfe69326746f470a3a56c19c56394a056b81ea))
+* search() on collection agent must even search on empty strings ([c17f251](https://github.com/theNorstroem/FuroBaseComponents/commit/c17f251cc6298f46e52eb464195acdf42b4e328f))
+* this._updateVirtualNode(field); was to late ([9db4e41](https://github.com/theNorstroem/FuroBaseComponents/commit/9db4e41eac4f493be0c6b9d435f73454d24a6b7d))
+
+
+
+
+
 ## [1.13.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.13.0...@furo/data@1.13.1) (2020-11-24)
 
 **Note:** Version bump only for package @furo/data
