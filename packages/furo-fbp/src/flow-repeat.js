@@ -59,12 +59,15 @@ class FlowRepeat extends FBP(HTMLElement) {
       this._selIdentityQueue = undefined;
 
       // eslint-disable-next-line no-restricted-syntax
-      for (const i in this._insertedItems) {
+      const arrayLength = this._insertedItems.length;
+      let i = 0;
+      do {
         if (this._insertedItems[i].identity === identifier) {
           this.select(i);
           break;
         }
-      }
+        i += 1;
+      } while (i < arrayLength);
     }
   }
 
