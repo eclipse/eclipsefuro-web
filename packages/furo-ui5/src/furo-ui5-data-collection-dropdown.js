@@ -419,7 +419,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     setTimeout(()=>{
       if(this.options.length === 0) {
         this.options = this._state.options;
-        this._render();
+        this._updateSlots();
       }
     },0)
   }
