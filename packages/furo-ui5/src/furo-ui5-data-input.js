@@ -211,6 +211,7 @@ export class FuroUi5DataInput extends Input.default {
       // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
         this.binder.addLabel('pristine');
+        this._requestUpdate();
       });
     }
   }
