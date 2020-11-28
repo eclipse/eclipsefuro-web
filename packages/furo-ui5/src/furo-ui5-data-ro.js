@@ -74,6 +74,10 @@ export class FuroUi5DataRo extends FuroUi5DataInput {
     this.binder.fieldNode.addEventListener('field-value-changed', () => {
       this._updateField();
     });
+
+    this.binder.fieldNode.addEventListener('new-data-injected', () => {
+      this._requestUpdate();
+    });
   }
 
   /**

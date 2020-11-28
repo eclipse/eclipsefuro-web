@@ -27,8 +27,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    *  **bubbles**
    */
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     /**
      * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
@@ -386,20 +386,33 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    */
   addItems(options) {
     const combo = this;
-    while (combo.firstChild) {
-      combo.removeChild(combo.firstChild);
-    }
+    this.innerHTML = '';
     combo.value = '';
     options.forEach(item => {
       const element = document.createElement('ui5-option');
       element.setAttribute('value', item.label);
       element.setAttribute('data-id', item.id);
-      element.setAttribute('selected', item.selected);
       element.value = item.label;
-      element.selected = item.selected;
+      if(item.selected) {
+        element.setAttribute('selected', '');
+      }
       element.innerText = item.label;
       combo.appendChild(element);
     });
+    this._requestUpdate();
+  }
+
+  /**
+   * @private
+   */
+  _requestUpdate() {
+    // sync the ui5 options and re-render it to update the dropdown list
+    setTimeout(()=>{
+      if(this.options.length === 0) {
+        this.options = this._state.options;
+        this._updateSlots();
+      }
+    },0)
   }
 
   /**
