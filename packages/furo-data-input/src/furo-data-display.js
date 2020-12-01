@@ -19,6 +19,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * - 'error': state of input is error
  * - 'condensed': input has condensed display
+ * - 'hidden': input is hidden
  *
  * ### following attributes of fat types are supported by default:
  *
@@ -77,6 +78,7 @@ class FuroDataDisplay extends FBP(LitElement) {
     this.binder.labelMappings = {
       error: 'error',
       condensed: 'condensed',
+      hidden:'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {};
