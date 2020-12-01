@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.9.4...@furo/ui5@0.9.5) (2020-12-01)
+
+
+### Bug Fixes
+
+* move requestUpdate from binder to data input component. request update ui5-data-collection-dropdown if needed ([564b518](https://github.com/theNorstroem/FuroBaseComponents/commit/564b51815c76202a9b121f312d13af1169ad06be))
+* request updating child input field (in slot) when parent field value changes in furo-ui5-data-input ([b698294](https://github.com/theNorstroem/FuroBaseComponents/commit/b698294dc5b65f9f5de863b1ac08a7d5389209cc))
+
+
+
+
+
 ## [0.9.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.9.3...@furo/ui5@0.9.4) (2020-11-27)
 
 **Note:** Version bump only for package @furo/ui5
