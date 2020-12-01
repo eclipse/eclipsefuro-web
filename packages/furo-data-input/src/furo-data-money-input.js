@@ -25,6 +25,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'disabled': input is disabled
  * - 'pristine': data is not changed. it is pristine
  * - 'condensed': input has condensed display
+ * - 'hidden': input is hidden
  *
  * ### following attributes of fat types are supported by default:
  *
@@ -78,6 +79,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
@@ -434,9 +436,11 @@ class FuroDataMoneyInput extends FBP(LitElement) {
           width: 90px;
           margin-left: var(--spacing-xs);
         }
+
         furo-number-input {
           width: calc(100% - var(--spacing-xs) - 90px);
         }
+
         :host {
           width: 190px;
         }

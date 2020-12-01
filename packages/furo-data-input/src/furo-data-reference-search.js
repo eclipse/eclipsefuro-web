@@ -39,6 +39,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'disabled': input is disabled
  * - 'pristine': data is not changed. it is pristine
  * - 'condensed': input has condensed display
+ * - 'hidden': input is hidden
  *
  * ### following attributes of fat types are supported by default:
  *
@@ -109,6 +110,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
@@ -592,7 +594,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
           border-radius: 4px;
           z-index: 1;
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
-            0 3px 1px -2px rgba(0, 0, 0, 0.2);
+          0 3px 1px -2px rgba(0, 0, 0, 0.2);
           display: none;
         }
 
@@ -611,6 +613,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
         :host([showmaxhint]) .maxresulthint {
           display: block;
         }
+
         .maxresulthint {
           display: none;
           border-top: 1px solid var(--separator);

@@ -19,6 +19,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'disabled': input is disabled
  * - 'pristine': data is not changed. it is pristine
  * - 'condensed': input has condensed display
+ * - 'hidden': input is hidden
  *
  * ### following attributes of the furo.fat.String are supported by binding:
  *
@@ -111,6 +112,7 @@ export class FuroDataPasswordInput extends FuroPasswordInput {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {

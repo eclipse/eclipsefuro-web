@@ -9,6 +9,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * - 'error': state of input is error
  * - 'multiple': indicates that the user may choose more than one file
+ * - 'hidden': input is hidden
  *
  * ### following attributes of fat types are supported by default:
  *
@@ -71,6 +72,7 @@ class FuroDataFileInput extends FuroFileDialog {
     this.binder.labelMappings = {
       error: 'error',
       multiple: 'multiple',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
