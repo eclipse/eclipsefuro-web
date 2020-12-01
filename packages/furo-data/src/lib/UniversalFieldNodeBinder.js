@@ -120,8 +120,6 @@ export class UniversalFieldNodeBinder {
     this._updateVirtualNode(field);
     this._updateVirtualNodeFromMetaConstraints(field._constraints);
 
-
-
     field.addEventListener('this-metas-changed', () => {
       this._updateVirtualNodeFromMeta(field._meta);
       this._updateVirtualNodeFromMetaConstraints(field._constraints);
