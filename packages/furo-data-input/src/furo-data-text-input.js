@@ -113,7 +113,7 @@ export class FuroDataTextInput extends FuroTextInput {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
-      hidden:'hidden',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {

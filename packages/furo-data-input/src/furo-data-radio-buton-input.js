@@ -80,7 +80,7 @@ export class FuroDataRadioButtonInput extends FuroRadioButtonInput {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
-      hidden:'hidden',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {

@@ -110,7 +110,7 @@ export class FuroDataTimeInput extends FuroTimeInput {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
-      hidden:'hidden',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {

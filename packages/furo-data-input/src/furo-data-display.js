@@ -78,7 +78,7 @@ class FuroDataDisplay extends FBP(LitElement) {
     this.binder.labelMappings = {
       error: 'error',
       condensed: 'condensed',
-      hidden:'hidden',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {};

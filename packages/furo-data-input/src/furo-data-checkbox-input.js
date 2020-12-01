@@ -80,7 +80,7 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
-      hidden:'hidden',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {

@@ -79,7 +79,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
-      hidden:'hidden',
+      hidden: 'hidden',
     };
 
     this.binder.fatAttributesToConstraintsMappings = {
@@ -436,9 +436,11 @@ class FuroDataMoneyInput extends FBP(LitElement) {
           width: 90px;
           margin-left: var(--spacing-xs);
         }
+
         furo-number-input {
           width: calc(100% - var(--spacing-xs) - 90px);
         }
+
         :host {
           width: 190px;
         }

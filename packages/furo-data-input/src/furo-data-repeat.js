@@ -243,6 +243,7 @@ class FuroDataRepeat extends FBP(LitElement) {
         .repeat-row {
           position: relative;
         }
+
         data-repeat-delete {
           position: absolute;
           top: 0;
