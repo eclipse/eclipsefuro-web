@@ -10,7 +10,8 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
  *
- * ### following labels of the furo.fat.String are supported by default:
+ *
+ * ### following labels of the furo.fat.String are supported:
  *
  * - 'error': state of input is error
  * - 'readonly': input is disabled
@@ -20,7 +21,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'condensed': input has condensed display
  * - 'hidden': input is hidden
  *
- * ### following attributes of the furo.fat.String are supported by default:
+ * ### following attributes of the furo.fat.String are supported:
  *
  * - 'label': input label
  * - 'hint': input hint
@@ -31,7 +32,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'max': The latest date and time to accept. format according to ISO 8601. e.g. '2000-01-01T08:32Z'
  * - 'step': The stepping interval to use for this input, such as when clicking arrows on spinner controls or performing validation
  *
- * ### following constrains are mapped into the attributes of the furo.fat.String and presence in payload:
+ * ### following constrains are mapped into the attributes of the furo.fat.String :
  *
  * - 'max': is mapped to 'max' attribute
  * - 'min': is mapped to 'min' attribute
@@ -40,11 +41,14 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * <sample-furo-data-time-input></sample-furo-data-time-input>
  *
- * Tags: input
+ * ## Attributes & Properties
+ * see the Attributes & Properties of [furo-time-input](/furo-input?t=FuroTimeInput)
+ *
  * @summary Bind a entityObject.field to a time input
  * @customElement
  * @demo demo-furo-data-time-input Data binding
  * @mixes FBP
+ *
  */
 export class FuroDataTimeInput extends FuroTimeInput {
   /**
@@ -220,153 +224,6 @@ export class FuroDataTimeInput extends FuroTimeInput {
         this.binder.addLabel('pristine');
       });
     }
-  }
-
-  // because we defined the property max, the setter from the parent needs to be updated
-  set max(val) {
-    super.max = val;
-  }
-
-  // because we defined the property min, the setter from the parent needs to be updated
-  set min(val) {
-    super.min = val;
-  }
-
-  // because we defined the property step, the setter from the parent needs to be updated
-  set step(val) {
-    super.step = val;
-  }
-
-  static get properties() {
-    return {
-      /**
-       * set this to true to indicate errors
-       */
-      error: { type: Boolean, reflect: true },
-      /**
-       * Overrides the label text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      label: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the pattern from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      pattern: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the step value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      step: {
-        type: String, // string, because "any" is also a valid step
-        reflect: true,
-      },
-      /**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      required: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Overrides the hint text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      hint: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      min: {
-        type: Number,
-        reflect: true,
-      },
-      /**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      max: {
-        type: Number,
-        reflect: true,
-      },
-      /**
-       * Overrides the readonly value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      readonly: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-
-      /**
-       * Set this attribute to autofocus the input field.
-       */
-      autofocus: {
-        type: Boolean,
-      },
-      /**
-       * Icon on the left side
-       */
-      leadingIcon: {
-        type: String,
-        attribute: 'leading-icon',
-        reflect: true,
-      },
-      /**
-       * Icon on the right side
-       */
-      trailingIcon: {
-        type: String,
-        attribute: 'trailing-icon',
-        reflect: true,
-      },
-      /**
-       * html input validity
-       */
-      valid: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */
-      condensed: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Lets the placeholder always float
-       */
-      float: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
   }
 }
 

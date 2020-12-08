@@ -15,13 +15,13 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * ----------------|-------------|----------|----------
  * `--ellipsis-hover-background` | background color of the hovered text | white | white
  *
- * * ### following labels of fat types are supported by default:
+ * * ### following labels of fat types are supported:
  *
  * - 'error': state of input is error
  * - 'condensed': input has condensed display
  * - 'hidden': input is hidden
  *
- * ### following attributes of fat types are supported by default:
+ * ### following attributes of fat types are supported:
  *
  * - 'label': input label
  * - 'hint': input hint

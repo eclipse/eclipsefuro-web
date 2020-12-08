@@ -8,7 +8,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * The field can be of type string, furo.fat.String with format '2009-12-24' or type of google.type.Date with format
  * {"day": 24, "month": 12, "year": 2009}
  *
- * ### following labels of fat types are supported by default:
+ * ### following labels of fat types are supported:
  *
  * - 'error': state of input is error
  * - 'readonly': input is disabled
@@ -18,7 +18,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'condensed': input has condensed display
  * - 'hidden': input is hidden
  *
- * ### following attributes of fat types are supported by default:
+ * ### following attributes of fat types are supported:
  *
  * - 'label': input label
  * - 'hint': input hint
@@ -29,7 +29,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'max': The latest date to accept. format according to ISO 8601. e.g. '2000-01-01'
  * - 'step': The stepping interval to use for this input, such as when clicking arrows on spinner controls or performing validation
  *
- * ### following constrains are mapped into the attributes of the fat types and presence in payload:
+ * ### following constrains are mapped into the attributes of the fat types :
  *
  * - 'max': is mapped to 'max' attribute
  * - 'min': is mapped to 'min' attribute
@@ -39,7 +39,9 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
  *
- * Tags: input
+ * ## Attributes & Properties
+ * see the Attributes & Properties of [furo-date-input](/furo-input?t=FuroDateInput)
+ *
  * @summary Bind a entityObject.field to a date input
  * @customElement
  * @demo demo-furo-data-date-input Data binding
@@ -179,126 +181,6 @@ class FuroDataDateInput extends FuroDateInput {
    */
   setValue(val) {
     this.binder.fieldValue = val;
-  }
-
-  static get properties() {
-    return {
-      /**
-       * Overrides the label text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      label: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      required: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Overrides the hint text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      hint: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      min: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      max: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the step value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      step: {
-        type: String, // string, because "any" is also a valid step
-        reflect: true,
-      },
-      /**
-       * Overrides the readonly value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      readonly: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-
-      /**
-       * Set this attribute to autofocus the input field.
-       */
-      autofocus: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Icon on the left side
-       */
-      leadingIcon: {
-        type: String,
-        attribute: 'leading-icon',
-        reflect: true,
-      },
-      /**
-       * Icon on the right side
-       */
-      trailingIcon: {
-        type: String,
-        attribute: 'trailing-icon',
-        reflect: true,
-      },
-      /**
-       * html input validity
-       */
-      valid: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */
-      condensed: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * passes always float the label
-       */
-      float: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
   }
 
   /**
