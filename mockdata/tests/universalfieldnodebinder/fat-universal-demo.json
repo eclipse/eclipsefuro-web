@@ -5,7 +5,10 @@
     "wrapper_string": "this is a google wrapper string",
     "fat_string": {
       "value": "this is a demo fat string",
-      "labels": ["required", "condensed"],
+      "labels": {
+        "required": true,
+        "condensed": true
+      },
       "attributes": {
         "value-state": "Error",
         "error-msg": "something went wrong",

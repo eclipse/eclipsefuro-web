@@ -5,7 +5,9 @@
     "wrapper_string": "this is a google wrapper string",
     "fat_string": {
       "value": "this is a furo fat string",
-      "labels": ["before"],
+      "labels": {
+        "before": true
+      },
       "attributes": {
         "value-state": "Error",
         "min": "6",
@@ -32,7 +34,9 @@
     "fat_string_repeated": [
       {
         "value": "this is a furo fat string",
-        "labels": ["before"],
+        "labels": {
+          "before": true
+        },
         "attributes": {
           "value-state": "Error",
           "min": "6",
@@ -45,7 +49,9 @@
       },
       {
         "value": "this is a furo fat string 2",
-        "labels": ["before"],
+        "labels": {
+          "before": true
+        },
         "attributes": {
           "value-state": "Error",
           "min": "6",

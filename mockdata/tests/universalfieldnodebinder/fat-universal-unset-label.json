@@ -5,7 +5,9 @@
     "wrapper_string": "this is a google wrapper string",
     "fat_string": {
       "value": "this is a furo fat string",
-      "labels": ["after"],
+      "labels": {
+        "after": true
+      },
       "attributes": {
         "value-state": "Error",
         "other": "otherattribute"
