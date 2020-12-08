@@ -84,10 +84,7 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
                 ƒ-bind-data="--entity(*.furo_data_number_input)"
               ></furo-data-number-input>
               <furo-data-number-input
-                disabled
-                label="with step"
-                step="3"
-                hint="min and max come from spec, custom step 3"
+
                 ƒ-bind-data="--entity(*.furo_data_number_input)"
               ></furo-data-number-input>
               <furo-data-number-input></furo-data-number-input>

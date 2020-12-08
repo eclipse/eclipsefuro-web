@@ -3431,318 +3431,49 @@
       ]
     },
     {
-      "description": "`furo-data-number-input` is a extension of furo-number-input which enables you to\n bind a entityObject field.\n\nThe field can be of type int32, int64, google.protobuf.Int32Value, google.protobuf.Int64Value, furo.fat.Int32,\nfuro.fat.Int64\n\nSetting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.\n\n### following labels of the furo.fat.Int32 or furo.fat.Int64 are supported by default:\n\n- 'error': state of input is error\n- 'readonly': input is disabled\n- 'required': input is required\n- 'disabled': input is disabled\n- 'pristine': data is not changed. it is pristine\n- 'condensed': input has condensed display\n- 'hidden': input is hidden\n\n### following attributes of the furo.fat.Int32 or furo.fat.Int64 are supported by default:\n\n- 'label': input label\n- 'hint': input hint\n- 'leading-icon': furo leading icon of the input\n- 'trailing-icon': furo trailing icon of the input\n- 'errortext': the error text of the input\n- 'error-msg': the same as errortext\n- 'step': the step of number input.\n- 'min': minimum value in the input field\n- 'max': maximum value in the input field\n\n### following constrains are mapped into the attributes of the furo.fat.Int32 or furo.fat.Int64 and presence in payload:\n\n- 'max': is mapped to 'max' attribute\n- 'min': is mapped to 'min' attribute\n- 'step': is mapped to 'step' attribute\n- 'required': is mapped to 'required' attribute\n\n<sample-furo-data-number-input></sample-furo-data-number-input>\n\nTags: input",
+      "description": "`furo-data-number-input` is a extension of furo-number-input which enables you to\n bind a entityObject field.\n\nThe field can be of type int32, int64, google.protobuf.Int32Value, google.protobuf.Int64Value, furo.fat.Int32,\nfuro.fat.Int64\n\nSetting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.\n\n### following labels of the furo.fat.Int32 or furo.fat.Int64 are supported:\n\n- 'error': state of input is error\n- 'readonly': input is disabled\n- 'required': input is required\n- 'disabled': input is disabled\n- 'pristine': data is not changed. it is pristine\n- 'condensed': input has condensed display\n- 'hidden': input is hidden\n\n### following attributes of the furo.fat.Int32 or furo.fat.Int64 are supported:\n\n- 'label': input label\n- 'hint': input hint\n- 'leading-icon': furo leading icon of the input\n- 'trailing-icon': furo trailing icon of the input\n- 'errortext': the error text of the input\n- 'error-msg': the same as errortext\n- 'step': the step of number input.\n- 'min': minimum value in the input field\n- 'max': maximum value in the input field\n\n### following constrains are mapped into the attributes of the furo.fat.Int32 or furo.fat.Int64:\n\n- 'max': is mapped to 'max' attribute\n- 'min': is mapped to 'min' attribute\n- 'step': is mapped to 'step' attribute\n- 'required': is mapped to 'required' attribute\n\n<sample-furo-data-number-input></sample-furo-data-number-input>\n\n## Attributes & Properties\nPlease refer to furo-number-input\n\nTags: input",
       "summary": "Bind a entityObject.field to a number input",
       "path": "src/furo-data-number-input.js",
       "properties": [
         {
           "name": "max",
-          "type": "number | null | undefined",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "type": "?",
+          "description": " because we defined the property max, the setter from the parent needs to be updated",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 209,
               "column": 2
             },
             "end": {
-              "line": 208,
+              "line": 211,
               "column": 3
             }
           },
           "metadata": {
-            "polymer": {}
+            "polymer": {
+              "readOnly": false
+            }
           }
         },
         {
           "name": "min",
-          "type": "number | null | undefined",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "type": "?",
+          "description": " because we defined the property min, the setter from the parent needs to be updated",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 214,
               "column": 2
             },
             "end": {
-              "line": 213,
+              "line": 216,
               "column": 3
             }
           },
           "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "error",
-          "type": "boolean | null | undefined",
-          "description": "set this to true to indicate errors",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 220,
-              "column": 6
-            },
-            "end": {
-              "line": 220,
-              "column": 45
-            }
-          },
-          "metadata": {
             "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "label",
-          "type": "string | null | undefined",
-          "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 226,
-              "column": 6
-            },
-            "end": {
-              "line": 229,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "required",
-          "type": "boolean | null | undefined",
-          "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 235,
-              "column": 6
-            },
-            "end": {
-              "line": 238,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "hint",
-          "type": "string | null | undefined",
-          "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 244,
-              "column": 6
-            },
-            "end": {
-              "line": 247,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "step",
-          "type": "number | null | undefined",
-          "description": "Overrides the step value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 271,
-              "column": 6
-            },
-            "end": {
-              "line": 274,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "readonly",
-          "type": "boolean | null | undefined",
-          "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 280,
-              "column": 6
-            },
-            "end": {
-              "line": 283,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "disabled",
-          "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 287,
-              "column": 6
-            },
-            "end": {
-              "line": 290,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "autofocus",
-          "type": "boolean | null | undefined",
-          "description": "Set this attribute to autofocus the input field.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 295,
-              "column": 6
-            },
-            "end": {
-              "line": 297,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "leadingIcon",
-          "type": "string | null | undefined",
-          "description": "Icon on the left side",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 301,
-              "column": 6
-            },
-            "end": {
-              "line": 305,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "trailingIcon",
-          "type": "string | null | undefined",
-          "description": "Icon on the right side",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 309,
-              "column": 6
-            },
-            "end": {
-              "line": 313,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "valid",
-          "type": "boolean | null | undefined",
-          "description": "html input validity",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 317,
-              "column": 6
-            },
-            "end": {
-              "line": 320,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "condensed",
-          "type": "boolean | null | undefined",
-          "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 324,
-              "column": 6
-            },
-            "end": {
-              "line": 327,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "float",
-          "type": "boolean | null | undefined",
-          "description": "Lets the placeholder always float",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 331,
-              "column": 6
-            },
-            "end": {
-              "line": 334,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
+              "readOnly": false
             }
           }
         }
@@ -3754,11 +3485,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 91,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 154,
+              "line": 157,
               "column": 3
             }
           },
@@ -3774,11 +3505,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 160,
+              "line": 163,
               "column": 2
             },
             "end": {
-              "line": 162,
+              "line": 165,
               "column": 3
             }
           },
@@ -3798,11 +3529,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 169,
+              "line": 172,
               "column": 2
             },
             "end": {
-              "line": 189,
+              "line": 192,
               "column": 3
             }
           },
@@ -3824,11 +3555,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 196,
+              "line": 199,
               "column": 2
             },
             "end": {
-              "line": 203,
+              "line": 206,
               "column": 3
             }
           },
@@ -3853,259 +3584,18 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 50,
+          "line": 53,
           "column": 7
         },
         "end": {
-          "line": 337,
+          "line": 340,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "FuroNumberInput",
       "name": "FuroDataNumberInput",
-      "attributes": [
-        {
-          "name": "max",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 206,
-              "column": 2
-            },
-            "end": {
-              "line": 208,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "min",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 211,
-              "column": 2
-            },
-            "end": {
-              "line": 213,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "error",
-          "description": "set this to true to indicate errors",
-          "sourceRange": {
-            "start": {
-              "line": 220,
-              "column": 6
-            },
-            "end": {
-              "line": 220,
-              "column": 45
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "label",
-          "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 226,
-              "column": 6
-            },
-            "end": {
-              "line": 229,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "required",
-          "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 235,
-              "column": 6
-            },
-            "end": {
-              "line": 238,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "hint",
-          "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 244,
-              "column": 6
-            },
-            "end": {
-              "line": 247,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "step",
-          "description": "Overrides the step value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 271,
-              "column": 6
-            },
-            "end": {
-              "line": 274,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "readonly",
-          "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 280,
-              "column": 6
-            },
-            "end": {
-              "line": 283,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "disabled",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
-          "sourceRange": {
-            "start": {
-              "line": 287,
-              "column": 6
-            },
-            "end": {
-              "line": 290,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "autofocus",
-          "description": "Set this attribute to autofocus the input field.",
-          "sourceRange": {
-            "start": {
-              "line": 295,
-              "column": 6
-            },
-            "end": {
-              "line": 297,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "leading-icon",
-          "description": "Icon on the left side",
-          "sourceRange": {
-            "start": {
-              "line": 301,
-              "column": 6
-            },
-            "end": {
-              "line": 305,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "trailing-icon",
-          "description": "Icon on the right side",
-          "sourceRange": {
-            "start": {
-              "line": 309,
-              "column": 6
-            },
-            "end": {
-              "line": 313,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "valid",
-          "description": "html input validity",
-          "sourceRange": {
-            "start": {
-              "line": 317,
-              "column": 6
-            },
-            "end": {
-              "line": 320,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "condensed",
-          "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
-          "sourceRange": {
-            "start": {
-              "line": 324,
-              "column": 6
-            },
-            "end": {
-              "line": 327,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "float",
-          "description": "Lets the placeholder always float",
-          "sourceRange": {
-            "start": {
-              "line": 331,
-              "column": 6
-            },
-            "end": {
-              "line": 334,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        }
-      ],
+      "attributes": [],
       "events": [
         {
           "type": "CustomEvent",
@@ -9411,11 +8901,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 212,
+              "line": 213,
               "column": 6
             },
             "end": {
-              "line": 212,
+              "line": 213,
               "column": 45
             }
           },
@@ -9432,11 +8922,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 219,
               "column": 6
             },
             "end": {
-              "line": 221,
+              "line": 222,
               "column": 7
             }
           },
@@ -9453,11 +8943,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 236,
+              "line": 237,
               "column": 6
             },
             "end": {
-              "line": 239,
+              "line": 240,
               "column": 7
             }
           },
@@ -9474,11 +8964,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 246,
               "column": 6
             },
             "end": {
-              "line": 248,
+              "line": 249,
               "column": 7
             }
           },
@@ -9495,11 +8985,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 272,
+              "line": 273,
               "column": 6
             },
             "end": {
-              "line": 275,
+              "line": 276,
               "column": 7
             }
           },
@@ -9516,11 +9006,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 279,
+              "line": 280,
               "column": 6
             },
             "end": {
-              "line": 282,
+              "line": 283,
               "column": 7
             }
           },
@@ -9537,11 +9027,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 287,
+              "line": 288,
               "column": 6
             },
             "end": {
-              "line": 289,
+              "line": 290,
               "column": 7
             }
           },
@@ -9558,11 +9048,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 293,
+              "line": 294,
               "column": 6
             },
             "end": {
-              "line": 297,
+              "line": 298,
               "column": 7
             }
           },
@@ -9579,11 +9069,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 301,
+              "line": 302,
               "column": 6
             },
             "end": {
-              "line": 305,
+              "line": 306,
               "column": 7
             }
           },
@@ -9600,11 +9090,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 309,
+              "line": 310,
               "column": 6
             },
             "end": {
-              "line": 312,
+              "line": 313,
               "column": 7
             }
           },
@@ -9621,11 +9111,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 316,
+              "line": 317,
               "column": 6
             },
             "end": {
-              "line": 319,
+              "line": 320,
               "column": 7
             }
           },
@@ -9642,11 +9132,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 323,
+              "line": 324,
               "column": 6
             },
             "end": {
-              "line": 326,
+              "line": 327,
               "column": 7
             }
           },
@@ -9747,7 +9237,7 @@
           "column": 7
         },
         "end": {
-          "line": 329,
+          "line": 330,
           "column": 1
         }
       },
@@ -9808,11 +9298,11 @@
           "description": "set this to true to indicate errors",
           "sourceRange": {
             "start": {
-              "line": 212,
+              "line": 213,
               "column": 6
             },
             "end": {
-              "line": 212,
+              "line": 213,
               "column": 45
             }
           },
@@ -9824,11 +9314,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 219,
               "column": 6
             },
             "end": {
-              "line": 221,
+              "line": 222,
               "column": 7
             }
           },
@@ -9840,11 +9330,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 236,
+              "line": 237,
               "column": 6
             },
             "end": {
-              "line": 239,
+              "line": 240,
               "column": 7
             }
           },
@@ -9856,11 +9346,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 246,
               "column": 6
             },
             "end": {
-              "line": 248,
+              "line": 249,
               "column": 7
             }
           },
@@ -9872,11 +9362,11 @@
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 272,
+              "line": 273,
               "column": 6
             },
             "end": {
-              "line": 275,
+              "line": 276,
               "column": 7
             }
           },
@@ -9888,11 +9378,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 279,
+              "line": 280,
               "column": 6
             },
             "end": {
-              "line": 282,
+              "line": 283,
               "column": 7
             }
           },
@@ -9904,11 +9394,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 287,
+              "line": 288,
               "column": 6
             },
             "end": {
-              "line": 289,
+              "line": 290,
               "column": 7
             }
           },
@@ -9920,11 +9410,11 @@
           "description": "Icon on the left side",
           "sourceRange": {
             "start": {
-              "line": 293,
+              "line": 294,
               "column": 6
             },
             "end": {
-              "line": 297,
+              "line": 298,
               "column": 7
             }
           },
@@ -9936,11 +9426,11 @@
           "description": "Icon on the right side",
           "sourceRange": {
             "start": {
-              "line": 301,
+              "line": 302,
               "column": 6
             },
             "end": {
-              "line": 305,
+              "line": 306,
               "column": 7
             }
           },
@@ -9952,11 +9442,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 309,
+              "line": 310,
               "column": 6
             },
             "end": {
-              "line": 312,
+              "line": 313,
               "column": 7
             }
           },
@@ -9968,11 +9458,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 316,
+              "line": 317,
               "column": 6
             },
             "end": {
-              "line": 319,
+              "line": 320,
               "column": 7
             }
           },
@@ -9984,11 +9474,11 @@
           "description": "Lets the placeholder always float",
           "sourceRange": {
             "start": {
-              "line": 323,
+              "line": 324,
               "column": 6
             },
             "end": {
-              "line": 326,
+              "line": 327,
               "column": 7
             }
           },

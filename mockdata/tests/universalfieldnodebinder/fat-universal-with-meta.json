@@ -5,7 +5,9 @@
     "wrapper_string": "this is a google wrapper string",
     "fat_string": {
       "value": "this is a furo fat string",
-      "labels": ["condensed"],
+      "labels": {
+        "condensed": true
+      },
       "attributes": {
         "value-state": "Error",
         "banane": "6",
@@ -16,7 +18,7 @@
     "wrapper_int32": 14,
     "fat_int32": {
       "value": 14,
-      "labels": "",
+      "labels": {},
       "attributes": {
         "value-state": "Information"
       }

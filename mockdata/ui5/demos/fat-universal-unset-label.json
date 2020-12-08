@@ -7,7 +7,9 @@
     },
     "fat_string": {
       "value": "this is a furo fat string",
-      "labels": ["after"],
+      "labels": {
+        "after": true
+      },
       "attributes": {
         "value-state": "Warning",
         "other": "otherattribute"

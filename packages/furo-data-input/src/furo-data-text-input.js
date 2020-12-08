@@ -206,6 +206,7 @@ export class FuroDataTextInput extends FuroTextInput {
   }
 
   static get properties() {
+
     return {
       /**
        * set this to true to indicate errors
