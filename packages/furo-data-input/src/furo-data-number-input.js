@@ -199,7 +199,7 @@ export class FuroDataNumberInput extends FuroNumberInput {
   _checkAndEmptyInput() {
     if (
       (this.binder.fieldFormat === 'wrapper' && this.binder.fieldNode._value.value === null) ||
-      (this.binder.fieldFormat === 'fat' && this.binder.fieldNode.labels._value.includes('empty'))
+      (this.binder.fieldFormat === 'fat' && this.binder.fieldNode.labels.empty !== undefined)
     ) {
       this.setValue(null);
     }
