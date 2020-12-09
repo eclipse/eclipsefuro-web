@@ -118,6 +118,8 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
       }
       // if something was entered the field is not empty
       this.binder.deleteLabel('pristine');
+
+      this._requestUpdate();
     });
   }
 
@@ -142,8 +144,16 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
       // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
         this.binder.addLabel('pristine');
+        this._requestUpdate();
       });
     }
+  }
+
+  /**
+   * @private
+   */
+  _requestUpdate() {
+    this._updateSlots();
   }
 }
 window.customElements.define('furo-ui5-data-checkbox-input', FuroUi5DataCheckboxInput);
