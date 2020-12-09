@@ -1,83 +1,89 @@
-{
-  "name": "experiment",
-  "type": "Default",
-  "description": "Test the default value",
-  "__proto": {
-    "package": "experiment",
-    "imports": [
-      "google/protobuf/any.proto"
-    ],
-    "targetfile": "experiment.proto"
-  },
-  "fields": {
-    "id": {
-      "description": "Identity of a experiment",
-      "type": "string",
-      "meta": {
-        "label": "Id",
-        "default": "",
-        "hint": "",
-        "readonly": true
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 1
-      }
-    },
-    "display_name": {
-      "description": "Localized String representation of a experiment",
-      "type": "string",
-      "meta": {
-        "label": "experiment",
-        "default": "",
-        "hint": "",
-        "readonly": true
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 2
-      }
-    },
-    "description": {
-      "description": "Short experiment description",
-      "type": "string",
-      "meta": {
-        "label": "Description",
-        "default": "Ein text per default",
-        "hint": ""
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 3
-      }
-    },
-    "repstring": {
-      "description": "repeated string",
-      "type": "string",
-      "meta": {
-        "repeated": true,
-        "label": "Description",
-        "default": "Ein text per default",
-        "hint": ""
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 4
-      }
-    },
-    "furo_data_checkbox_input": {
-      "description": "field for furo_data_checkbox_input for testing",
-      "type": "bool",
-      "meta": {
-        "label": "checkbox_input",
-        "default": "",
-        "hint": "Hint",
-        "readonly": false
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 5
-      }
-    }
-  }
-}
+name: experiment
+type: Default
+description: Test the default value
+__proto:
+    package: experiment
+    targetfile: experiment.proto
+    imports: []
+    options: {}
+fields:
+    id:
+        type: string
+        description: Identity of a experiment
+        __proto:
+            number: 1
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: Id
+            options: null
+            readonly: true
+            repeated: false
+            typespecific: null
+        constraints: {}
+    display_name:
+        type: string
+        description: Localized String representation of a experiment
+        __proto:
+            number: 2
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: experiment
+            options: null
+            readonly: true
+            repeated: false
+            typespecific: null
+        constraints: {}
+    description:
+        type: string
+        description: Short experiment description
+        __proto:
+            number: 3
+            oneof: ""
+        __ui: null
+        meta:
+            default: Ein text per default
+            hint: ""
+            label: Description
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    repstring:
+        type: string
+        description: repeated string
+        __proto:
+            number: 4
+            oneof: ""
+        __ui: null
+        meta:
+            default: Ein text per default
+            hint: ""
+            label: Description
+            options: null
+            readonly: false
+            repeated: true
+            typespecific: null
+        constraints: {}
+    furo_data_checkbox_input:
+        type: bool
+        description: field for furo_data_checkbox_input for testing
+        __proto:
+            number: 5
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: Hint
+            label: checkbox_input
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}

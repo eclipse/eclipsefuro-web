@@ -194,7 +194,7 @@ describe('furo-data-collection-dropdown', () => {
   });
 
   it('should set value of select input from the value of repeated field via binding', done => {
-    collectionAgent.list();
+
     dataObject.addEventListener('data-injected', () => {
       setTimeout(() => {
         console.log(collectionDropdown3.shadowRoot.getElementById('input').value);
@@ -203,5 +203,7 @@ describe('furo-data-collection-dropdown', () => {
         done();
       }, 100);
     });
+    collectionAgent.list();
+
   });
 });

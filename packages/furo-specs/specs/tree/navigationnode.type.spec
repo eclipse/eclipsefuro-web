@@ -1,120 +1,167 @@
-{
-  "name": "navigationnode",
-  "type": "Navigationnode",
-  "description": "Item of the navigationtree",
-  "__proto": {
-    "package": "tree",
-    "imports": ["furo/link.proto"],
-    "targetfile": "tree.proto"
-  },
-  "fields": {
-    "id": {
-      "description": "Id of the node",
-      "type": "string",
-      "__proto": {
-        "number": 1
-      }
-    },
-    "display_name": {
-      "description": "String representation of the node",
-      "type": "string",
-      "meta": {
-        "readonly": true,
-        "tree-search-index": true
-      },
-      "__proto": {
-        "number": 2
-      }
-    },
-    "secondary_text": {
-      "description": "Secondary text of the node",
-      "type": "string",
-      "meta": {
-        "tree-search-index": true
-      },
-      "__proto": {
-        "number": 3
-      }
-    },
-    "description": {
-      "description": "description of the node",
-      "meta": {
-        "tree-search-index": true
-      },
-      "type": "string",
-      "__proto": {
-        "number": 4
-      }
-    },
-    "icon": {
-      "description": "icon of the node",
-      "type": "string",
-      "__proto": {
-        "number": 5
-      }
-    },
-    "panel": {
-      "description": "Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)",
-      "type": "string",
-      "meta": {
-        "readonly": true,
-        "tree-search-index": false
-      },
-      "__proto": {
-        "number": 6
-      }
-    },
-    "key_words": {
-      "description": "key words of the node",
-      "meta": {
-        "tree-search-index": true
-      },
-      "type": "string",
-      "__proto": {
-        "number": 7
-      }
-    },
-    "has_error": {
-      "description": "if node has error",
-      "type": "bool",
-      "__proto": {
-        "number": 8
-      }
-    },
-    "open": {
-      "description": "node is open or not",
-      "type": "bool",
-      "__proto": {
-        "number": 9
-      }
-    },
-    "link": {
-      "description": "Deeplink information of this node",
-      "type": "furo.Link",
-      "__proto": {
-        "number": 10
-      }
-    },
-    "is_group_label": {
-      "description": "This node is a group label",
-      "type": "bool",
-      "meta": {
-        "default": false
-      },
-      "__proto": {
-        "number": 11
-      }
-    },
-    "children": {
-      "description": "Children of this node",
-      "type": "tree.Navigationnode",
-      "meta": {
-        "repeated": true
-      },
-      "__proto": {
-        "number": 12
-      }
-    }
-
-  }
-}
+name: navigationnode
+type: Navigationnode
+description: Item of the navigationtree
+__proto:
+    package: tree
+    targetfile: tree.proto
+    imports:
+        - furo/furo.proto
+    options: {}
+fields:
+    id:
+        type: string
+        description: Id of the node
+        __proto:
+            number: 1
+            oneof: ""
+        __ui: null
+        meta: null
+        constraints: {}
+    display_name:
+        type: string
+        description: String representation of the node
+        __proto:
+            number: 2
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: true
+            repeated: false
+            typespecific: null
+        constraints: {}
+    secondary_text:
+        type: string
+        description: Secondary text of the node
+        __proto:
+            number: 3
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    description:
+        type: string
+        description: description of the node
+        __proto:
+            number: 4
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    icon:
+        type: string
+        description: icon of the node
+        __proto:
+            number: 5
+            oneof: ""
+        __ui: null
+        meta: null
+        constraints: {}
+    panel:
+        type: string
+        description: Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)
+        __proto:
+            number: 6
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: true
+            repeated: false
+            typespecific: null
+        constraints: {}
+    key_words:
+        type: string
+        description: key words of the node
+        __proto:
+            number: 7
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    has_error:
+        type: bool
+        description: if node has error
+        __proto:
+            number: 8
+            oneof: ""
+        __ui: null
+        meta: null
+        constraints: {}
+    open:
+        type: bool
+        description: node is open or not
+        __proto:
+            number: 9
+            oneof: ""
+        __ui: null
+        meta: null
+        constraints: {}
+    link:
+        type: furo.Link
+        description: Deeplink information of this node
+        __proto:
+            number: 10
+            oneof: ""
+        __ui: null
+        meta: null
+        constraints: {}
+    is_group_label:
+        type: bool
+        description: This node is a group label
+        __proto:
+            number: 11
+            oneof: ""
+        __ui: null
+        meta:
+            default: "false"
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    children:
+        type: tree.Navigationnode
+        description: Children of this node
+        __proto:
+            number: 12
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: true
+            typespecific: null
+        constraints: {}

@@ -1,43 +1,51 @@
-{
-  "name": "auth_collection",
-  "type": "AuthCollection",
-  "description": "AuthCollection with repeated AuthEntity",
-  "__proto": {
-    "package": "auth",
-    "options": {},
-    "imports": [
-      "furo/meta.proto",
-      "furo/link.proto"
-    ],
-    "targetfile": "auth.proto"
-  },
-  "fields": {
-    "meta": {
-      "description": "Meta for the response",
-      "type": "furo.Meta",
-      "__proto": {
-        "number": 2
-      }
-    },
-    "links": {
-      "description": "Hateoas links",
-      "type": "furo.Link",
-      "meta": {
-        "repeated": true
-      },
-      "__proto": {
-        "number": 3
-      }
-    },
-    "entities": {
-      "description": "Contains a auth.AuthEntity repeated",
-      "type": "auth.AuthEntity",
-      "meta": {
-        "repeated": true
-      },
-      "__proto": {
-        "number": 4
-      }
-    }
-  }
-}
+name: auth_collection
+type: AuthCollection
+description: AuthCollection with repeated AuthEntity
+__proto:
+    package: auth
+    targetfile: auth.proto
+    imports:
+        - furo/furo.proto
+    options: {}
+fields:
+    meta:
+        type: furo.Meta
+        description: Meta for the response
+        __proto:
+            number: 2
+            oneof: ""
+        __ui: null
+        meta: null
+        constraints: {}
+    links:
+        type: furo.Link
+        description: Hateoas links
+        __proto:
+            number: 3
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: true
+            typespecific: null
+        constraints: {}
+    entities:
+        type: auth.AuthEntity
+        description: Contains a auth.AuthEntity repeated
+        __proto:
+            number: 4
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: true
+            typespecific: null
+        constraints: {}

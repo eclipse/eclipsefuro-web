@@ -1,43 +1,51 @@
-{
-  "name": "experiment_collection",
-  "type": "ExperimentCollection",
-  "description": "ExperimentCollection with repeated ExperimentEntity",
-  "__proto": {
-    "package": "experiment",
-    "options": {},
-    "imports": [
-     "furo/meta.proto",
-     "furo/link.proto"
-     ],
-    "targetfile": "experiment.proto"
-  },
-  "fields": {
-    "meta": {
-      "description": "Meta for the response",
-      "type": "furo.Meta",
-      "__proto": {
-        "number": 2
-      }
-    },
-    "links": {
-      "description": "Hateoas links",
-      "type": "furo.Link",
-      "meta": {
-        "repeated": true
-      },
-      "__proto": {
-        "number": 3
-      }
-    },
-    "entities": {
-      "description": "Contains a experiment.ExperimentEntity repeated",
-      "type": "experiment.ExperimentEntity",
-      "meta": {
-        "repeated": true
-      },
-      "__proto": {
-        "number": 4
-      }
-    }
-  }
-}
+name: experiment_collection
+type: ExperimentCollection
+description: ExperimentCollection with repeated ExperimentEntity
+__proto:
+    package: experiment
+    targetfile: experiment.proto
+    imports:
+        - furo/furo.proto
+    options: {}
+fields:
+    meta:
+        type: furo.Meta
+        description: Meta for the response
+        __proto:
+            number: 2
+            oneof: ""
+        __ui: null
+        meta: null
+        constraints: {}
+    links:
+        type: furo.Link
+        description: Hateoas links
+        __proto:
+            number: 3
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: true
+            typespecific: null
+        constraints: {}
+    entities:
+        type: experiment.ExperimentEntity
+        description: Contains a experiment.ExperimentEntity repeated
+        __proto:
+            number: 4
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: true
+            typespecific: null
+        constraints: {}
