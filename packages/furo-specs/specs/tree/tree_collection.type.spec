@@ -1,42 +1,51 @@
-{
-  "name": "tree_collection",
-  "type": "TreeCollection",
-  "description": "TreeCollection with repeated TreeEntity",
-  "__proto": {
-    "package": "tree",
-    "imports": [
-     "furo/meta.proto",
-     "furo/link.proto"
-     ],
-    "targetfile": "tree.proto"
-  },
-  "fields": {
-    "meta": {
-      "description": "Meta for the response",
-      "type": "furo.Meta",
-      "__proto": {
-        "number": 2
-      }
-    },
-    "links": {
-      "description": "Hateoas links",
-      "type": "furo.Link",
-      "meta": {
-        "repeated": true
-      },
-      "__proto": {
-        "number": 3
-      }
-    },
-    "entities": {
-      "description": "Contains a tree.TreeEntity repeated",
-      "type": "tree.TreeEntity",
-      "meta": {
-        "repeated": true
-      },
-      "__proto": {
-        "number": 4
-      }
-    }
-  }
-}
+name: tree_collection
+type: TreeCollection
+description: TreeCollection with repeated TreeEntity
+__proto:
+    package: tree
+    targetfile: tree.proto
+    imports:
+        - furo/furo.proto
+    options: {}
+fields:
+    meta:
+        type: furo.Meta
+        description: Meta for the response
+        __proto:
+            number: 2
+            oneof: ""
+        __ui: null
+        meta: null
+        constraints: {}
+    links:
+        type: furo.Link
+        description: Hateoas links
+        __proto:
+            number: 3
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: true
+            typespecific: null
+        constraints: {}
+    entities:
+        type: tree.TreeEntity
+        description: Contains a tree.TreeEntity repeated
+        __proto:
+            number: 4
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: true
+            typespecific: null
+        constraints: {}
