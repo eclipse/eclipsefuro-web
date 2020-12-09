@@ -128,7 +128,7 @@ describe('furo-data-date-input', () => {
           setTimeout(() => {
             assert.equal(dataDateInput.getAttribute('readonly'), '');
             assert.equal(secondDateInput.getAttribute('readonly'), '');
-            assert.equal(dataDateInput.getAttribute('label'), 'date input label via meta');
+            assert.equal(dataDateInput.label, 'date input label via meta');
             done();
           }, 5);
         },

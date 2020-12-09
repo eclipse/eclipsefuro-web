@@ -112,7 +112,7 @@ describe('furo-data-time-input', () => {
 
   it('should bind the field label, hint', done => {
     setTimeout(() => {
-      assert.equal(dataTimeInput.getAttribute('label'), 'time-input**');
+      assert.equal(dataTimeInput.label, 'time-input**');
       assert.equal(dataTimeInput.getAttribute('hint'), 'hint**');
       done();
     }, 20);
@@ -165,7 +165,7 @@ describe('furo-data-time-input', () => {
         () => {
           setTimeout(() => {
             assert.equal(dataTimeInput.getAttribute('readonly'), '');
-            assert.equal(dataTimeInput.getAttribute('label'), 'time input label via meta');
+            assert.equal(dataTimeInput.label, 'time input label via meta');
             done();
           }, 5);
         },

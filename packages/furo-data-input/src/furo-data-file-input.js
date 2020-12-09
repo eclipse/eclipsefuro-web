@@ -5,24 +5,23 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * `furo-data-file-input`
  * Binds a entityObject field to a furo-file-input field
  *
- *  * ### following labels of fat types are supported by default:
+ *  * ### following labels of fat types are supported:
  *
  * - 'error': state of input is error
  * - 'multiple': indicates that the user may choose more than one file
  * - 'hidden': input is hidden
  *
- * ### following attributes of fat types are supported by default:
+ * ### following attributes of fat types are supported:
  *
  * - 'label': input label
  * - 'accept': One or more unique file type specifiers describing file types to allow
  * - 'multiple': furo leading icon of the input
  * - 'capture': What source to use for capturing image or video data
  *
- * ### following constrains are mapped into the attributes of the fat types and presence in payload:
+ * ### following constrains are mapped into the attributes of the fat types :
  *
  * - 'required': is mapped to 'required' attribute
  *
- * Tags: input
  * @summary Binds a entityObject field to a furo-file-input field
  * @customElement
  * @demo demo-furo-data-file-input Data binding

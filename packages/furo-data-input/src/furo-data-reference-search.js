@@ -31,7 +31,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * ```
  *
- *  * ### following labels of fat types are supported by default:
+ *  * ### following labels of fat types are supported:
  *
  * - 'error': state of input is error
  * - 'readonly': input is disabled
@@ -41,7 +41,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'condensed': input has condensed display
  * - 'hidden': input is hidden
  *
- * ### following attributes of fat types are supported by default:
+ * ### following attributes of fat types are supported:
  *
  * - 'label': input label
  * - 'hint': input hint
@@ -51,7 +51,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'error-msg': the same as errortext
  *
  *
- * ### following constrains are mapped into the attributes of the fat types and presence in payload:
+ * ### following constrains are mapped into the attributes of the fat types :
  *
  * - 'required': is mapped to 'required' attribute
  *

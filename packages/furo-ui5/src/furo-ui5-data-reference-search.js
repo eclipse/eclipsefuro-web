@@ -25,7 +25,7 @@ import './ui5-reference-search-item.js';
  *
  * ```
  *
- *  * ### following labels of fat types are supported by default:
+ *  * ### following labels of fat types are supported:
  *
  * - 'error': state of input is error
  * - 'readonly': input is disabled
@@ -34,7 +34,7 @@ import './ui5-reference-search-item.js';
  * - 'pristine': data is not changed. it is pristine
  * - 'condensed': input has condensed display
  *
- * ### following attributes of fat types are supported by default:
+ * ### following attributes of fat types are supported:
  *
  * - 'placeholder': placeholder of the search field
  * - 'hint': input hint

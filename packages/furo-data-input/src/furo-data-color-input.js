@@ -10,7 +10,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * Setting the attributes on the component itself, will override the metas from spec, fat labels, fat attributes.
  *
- * ### following labels of fat types are supported by default:
+ * ### following labels of fat types are supported:
  *
  * - 'error': state of input is error
  * - 'readonly': input is disabled
@@ -20,20 +20,22 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'condensed': input has condensed display
  * - 'hidden': input is hidden
  *
- * ### following attributes of fat types are supported by default:
+ * ### following attributes of fat types are supported:
  *
  * - 'label': input label
  * - 'hint': input hint
  * - 'errortext': the error text of the input
  * - 'error-msg': the same as errortext
  *
- * ### following constrains are mapped into the attributes of the fat types and presence in payload:
+ * ### following constrains are mapped into the attributes of the fat types :
  *
  * - 'required': is mapped to 'required' attribute
  *
  * <sample-furo-data-color-input></sample-furo-data-color-input>
  *
- * Tags: input
+ * ## Attributes & Properties
+ * see the Attributes & Properties of [furo-color-input](/furo-input?t=FuroColorInput)
+ *
  * @summary Bind a entityObject.field to a color input
  * @customElement
  * @demo demo-furo-data-color-input Data binding
@@ -170,102 +172,6 @@ export class FuroDataColorInput extends FuroColorInput {
         this.binder.addLabel('pristine');
       });
     }
-  }
-
-  static get properties() {
-    return {
-      /**
-       * set this to true to indicate errors
-       */
-      error: { type: Boolean, reflect: true },
-      /**
-       * Overrides the label color from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      label: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      required: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Overrides the hint color from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      hint: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * Overrides the readonly value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      readonly: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-
-      /**
-       * Set this attribute to autofocus the input field.
-       */
-      autofocus: {
-        type: Boolean,
-      },
-      /**
-       * Icon on the left side
-       */
-      leadingIcon: {
-        type: String,
-        attribute: 'leading-icon',
-        reflect: true,
-      },
-      /**
-       * Icon on the right side
-       */
-      trailingIcon: {
-        type: String,
-        attribute: 'trailing-icon',
-        reflect: true,
-      },
-      /**
-       * html input validity
-       */
-      valid: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */
-      condensed: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Lets the placeholder always float
-       */
-      float: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
   }
 }
 
