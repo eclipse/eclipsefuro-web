@@ -62,7 +62,7 @@ describe('UniversalFieldNodeBinder.test', () => {
   it('should set the meta and constraints from the spec  if scalar was given', done => {
     pseudocomponent.binder.bindField(dataobj.data.data.scalar_string);
     assert.equal(pseudocomponent.binder.virtualNode.attributes.label, 'skalar string**');
-    assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), false);
+    assert.equal(pseudocomponent.binder.virtualNode.labels.readonly, false);
     assert.equal('hint' in pseudocomponent.binder.virtualNode.attributes, false);
     assert.equal('default' in pseudocomponent.binder.virtualNode.attributes, false);
     done();
@@ -71,7 +71,7 @@ describe('UniversalFieldNodeBinder.test', () => {
   it('should set the meta and constraints from the spec  if google wrapper type was given', done => {
     pseudocomponent.binder.bindField(dataobj.data.data.wrapper_string);
     assert.equal(pseudocomponent.binder.virtualNode.attributes.label, 'wrapper string**');
-    assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), false);
+    assert.equal(pseudocomponent.binder.virtualNode.labels.readonly, false);
     assert.equal('hint' in pseudocomponent.binder.virtualNode.attributes, false);
     assert.equal('default' in pseudocomponent.binder.virtualNode.attributes, false);
     done();
@@ -80,7 +80,7 @@ describe('UniversalFieldNodeBinder.test', () => {
   it('should set the meta and constraints from the spec  if fat type was given', done => {
     pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
     assert.equal(pseudocomponent.binder.virtualNode.attributes.label, 'fat string**');
-    assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), false);
+    assert.equal(pseudocomponent.binder.virtualNode.labels.readonly, false);
     assert.equal('hint' in pseudocomponent.binder.virtualNode.attributes, false);
     assert.equal('default' in pseudocomponent.binder.virtualNode.attributes, false);
     done();
@@ -92,7 +92,7 @@ describe('UniversalFieldNodeBinder.test', () => {
       assert.equal(pseudocomponent.binder.fieldValue, 'this is a scalar string');
       assert.equal(pseudocomponent.binder.virtualNode.value, 'this is a scalar string');
       assert.equal(pseudocomponent.binder.virtualNode.attributes.label, 'skalar string**');
-      assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), false);
+      assert.equal(pseudocomponent.binder.virtualNode.labels.readonly, false);
       assert.equal('hint' in pseudocomponent.binder.virtualNode.attributes, false);
       assert.equal('default' in pseudocomponent.binder.virtualNode.attributes, false);
       done();
@@ -106,7 +106,7 @@ describe('UniversalFieldNodeBinder.test', () => {
       assert.equal(pseudocomponent.binder.fieldValue, 'this is a google wrapper string');
       assert.equal(pseudocomponent.binder.virtualNode.value, 'this is a google wrapper string');
       assert.equal(pseudocomponent.binder.virtualNode.attributes.label, 'wrapper string**');
-      assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), false);
+      assert.equal(pseudocomponent.binder.virtualNode.labels.readonly, false);
       assert.equal('hint' in pseudocomponent.binder.virtualNode.attributes, false);
       assert.equal('default' in pseudocomponent.binder.virtualNode.attributes, false);
       done();
@@ -120,7 +120,7 @@ describe('UniversalFieldNodeBinder.test', () => {
       () => {
         pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
         assert.equal(
-          pseudocomponent.binder.virtualNode.labels.has('readonly'),
+          pseudocomponent.binder.virtualNode.labels.readonly,
           false,
           'readonly not set',
         );
@@ -130,7 +130,7 @@ describe('UniversalFieldNodeBinder.test', () => {
             'fat string label setted via response meta',
           );
           assert.equal(
-            pseudocomponent.binder.virtualNode.labels.has('readonly'),
+            pseudocomponent.binder.virtualNode.labels.readonly,
             true,
             'readonly is set',
           );
@@ -153,11 +153,11 @@ describe('UniversalFieldNodeBinder.test', () => {
         assert.equal(pseudocomponent.binder.virtualNode.value, 'this is a furo fat string');
         assert.equal(pseudocomponent.binder.virtualNode.attributes.label, 'override');
         assert.equal(pseudocomponent.binder.virtualNode.attributes.maxlength, 6);
-        assert.equal(pseudocomponent.binder.virtualNode.labels.has('before'), true, 'before');
-        assert.equal(pseudocomponent.binder.virtualNode.labels.has('after'), false, 'after');
+        assert.equal(pseudocomponent.binder.virtualNode.labels.before, true, 'before');
+        assert.equal(pseudocomponent.binder.virtualNode.labels.after, undefined, 'after');
 
         assert.equal(pseudocomponent.binder.virtualNode.attributes['value-state'], 'Error');
-        assert.equal(pseudocomponent.binder.virtualNode.labels.has('readonly'), false);
+        assert.equal(pseudocomponent.binder.virtualNode.labels.readonly, false);
         assert.equal('hint' in pseudocomponent.binder.virtualNode.attributes, false);
         assert.equal('default' in pseudocomponent.binder.virtualNode.attributes, false);
 
@@ -165,8 +165,8 @@ describe('UniversalFieldNodeBinder.test', () => {
           // remove labels which are not in the dataset and restore spec values
           assert.equal(pseudocomponent.binder.virtualNode.attributes.other, 'otherattribute');
           assert.equal('maxlength' in pseudocomponent.binder.virtualNode.attributes, false);
-          assert.equal(pseudocomponent.binder.virtualNode.labels.has('before'), false);
-          assert.equal(pseudocomponent.binder.virtualNode.labels.has('after'), true);
+          assert.equal(pseudocomponent.binder.virtualNode.labels.before, false);
+          assert.equal(pseudocomponent.binder.virtualNode.labels.after, true);
           assert.equal(pseudocomponent.binder.fieldValue, 'this is a furo fat string');
           assert.equal(pseudocomponent.binder.virtualNode.value, 'this is a furo fat string');
           assert.equal(pseudocomponent.binder.virtualNode.attributes.label, 'fat string**');
@@ -240,25 +240,6 @@ describe('UniversalFieldNodeBinder.test', () => {
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 
-  it('should update values from outside to fat', done => {
-    // set another property for the value property
-
-    dataobj.addEventListener(
-      'data-injected',
-      () => {
-        pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
-        assert.equal(pseudocomponent.binder.fieldNode.value._value, 'this is a furo fat string');
-
-        pseudocomponent.binder.fieldValue = 'm2';
-        assert.equal(pseudocomponent.value, 'm2');
-        assert.equal(pseudocomponent.binder.fieldNode.value._value, 'm2');
-        done();
-      },
-      { once: true },
-    );
-    fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
-  });
-
   it('should update values from outside to scalar', done => {
     // set another property for the value property
 
@@ -306,12 +287,12 @@ describe('UniversalFieldNodeBinder.test', () => {
 
       pseudocomponent.binder.addLabel('neu');
       assert.equal(pseudocomponent.neu, true);
-      assert.equal(pseudocomponent.binder.fieldNode.labels._value[0], 'before');
-      assert.equal(pseudocomponent.binder.fieldNode.labels._value[1], 'neu');
+      assert.equal(pseudocomponent.binder.fieldNode.labels.before, true);
+      assert.equal(pseudocomponent.binder.fieldNode.labels.neu, true);
 
       pseudocomponent.binder.deleteLabel('before');
-      assert.equal(pseudocomponent.binder.fieldNode.labels._value.length, 1);
-      assert.equal(pseudocomponent.binder.fieldNode.labels._value[0], 'neu');
+
+      assert.equal(pseudocomponent.binder.fieldNode.labels.neu, true);
       done();
     });
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
@@ -427,4 +408,25 @@ describe('UniversalFieldNodeBinder.test', () => {
     );
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
+
+
+  it('should update values from outside to fat', done => {
+    // set another property for the value property
+
+    dataobj.addEventListener(
+      'data-injected',
+      () => {
+        pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
+        assert.equal(pseudocomponent.binder.fieldNode.value._value, 'this is a furo fat string');
+
+        pseudocomponent.binder.fieldValue = 'm2';
+        assert.equal(pseudocomponent.value, 'm2');
+        assert.equal(pseudocomponent.binder.fieldNode.value._value, 'm2');
+        done();
+      },
+      { once: true },
+    );
+    fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
+  });
+
 });

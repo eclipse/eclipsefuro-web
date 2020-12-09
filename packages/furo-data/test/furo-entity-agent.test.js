@@ -412,8 +412,8 @@ describe('furo-entity-agent', () => {
       expect(r.detail.json.owner.hasOwnProperty('id')).to.be.false;
       // eslint-disable-next-line no-prototype-builtins
       expect(r.detail.json.hasOwnProperty('display_name')).to.be.false;
-      assert(r.detail.json.owner.link.href, '/mockdata/persons/list.json');
-      done();
+
+       done();
     });
 
     entityAgent.htsIn([

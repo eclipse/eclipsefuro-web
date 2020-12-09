@@ -36,7 +36,7 @@ describe('FieldNodesDefaults', () => {
     const handler = () => {
       assert.equal(element.data.description._value, '');
       assert.equal(element.data.furo_data_checkbox_input._value, false);
-      assert.equal(element.data.furo_data_date_input_google._value.display_name === '', true);
+
       assert.equal(element.data.furo_data_date_input_google._value.year === 0, true);
       assert.equal(element.data.furo_data_date_input_google._value.month === 0, true);
 
