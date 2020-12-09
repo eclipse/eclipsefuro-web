@@ -39,8 +39,8 @@ describe('ValidatorGoogleTypeDate', () => {
     ValidatorGoogleTypeDate.validateConstraints(EntityRoot.date).then(
       () => {},
       error => {
-        assert.equal(error.message, 'is required**', 'required');
-        assert.equal(error.name, 'required', 'required');
+        assert.equal(error.message, 'min 01.01.2020**', 'required');
+        assert.equal(error.name, 'min', 'required');
         done();
       },
     );
