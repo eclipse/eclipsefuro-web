@@ -1,20 +1,5 @@
 export class AgentHelper {
   /**
-   * check whether the param is already defined in the spec. when not output the warning-information
-   * @param key
-   * @param definedQPs
-   * @private
-   */
-  static checkQueryParam(key, specDefinedQPs) {
-    if (!specDefinedQPs || !specDefinedQPs[key]) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        `The query param ${key} for the list service is not defined in the spec. please define it in the spec project.`,
-      );
-    }
-  }
-
-  /**
    * Update query params
    * a qp like {"active":true} will just update the qp *active*
    *
@@ -40,6 +25,30 @@ export class AgentHelper {
       /**
        * @event qp-changed
        * Fired when query params changed
+       * detail payload: qp
+       */
+      const customEvent = new Event('qp-changed', { composed: true, bubbles: true });
+      customEvent.detail = caller._queryParams;
+      caller.dispatchEvent(customEvent);
+    }
+  }
+
+  /**
+   * Set query params
+   * All existing query params are replaced by the transferred parameters
+   * If the transferred object is empty or undefined, all the values will be removed!
+   *
+   * @param caller
+   * @param qp
+   */
+  static setQp(caller, qp) {
+    if (caller && caller._queryParams) {
+      // eslint-disable-next-line no-param-reassign
+      caller._queryParams = qp || {};
+
+      /**
+       * @event qp-set
+       * Fired when query params are replaced
        * detail payload: qp
        */
       const customEvent = new Event('qp-changed', { composed: true, bubbles: true });
@@ -82,10 +91,9 @@ export class AgentHelper {
   /**
    * rebuild qp from params
    * @param params
-   * @param specDefinedQPs
    * @returns {[]}
    */
-  static rebuildQPFromParams(params, specDefinedQPs) {
+  static rebuildQPFromParams(params) {
     // rebuild req
     const qp = [];
     // eslint-disable-next-line no-restricted-syntax
@@ -93,8 +101,6 @@ export class AgentHelper {
       // eslint-disable-next-line no-prototype-builtins
       if (params.hasOwnProperty(key)) {
         qp.push(`${key}=${params[key]}`);
-        // check whether the param is already defined in the spec.
-        this.checkQueryParam(key, specDefinedQPs);
       }
     }
     return qp;

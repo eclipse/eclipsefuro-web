@@ -51,7 +51,6 @@ class FuroEntityAgent extends FBP(LitElement) {
 
     this._singleElementQueue = []; // queue for calls, before hts is set
     this._queryParams = {};
-    this._specDefinedQPs = {};
   }
 
   static get properties() {
@@ -261,7 +260,7 @@ class FuroEntityAgent extends FBP(LitElement) {
     }
 
     // rebuild qp
-    const qp = AgentHelper.rebuildQPFromParams(params, this._specDefinedQPs);
+    const qp = AgentHelper.rebuildQPFromParams(params);
     // generate req
     const req = AgentHelper.generateReq(link, qp);
 
