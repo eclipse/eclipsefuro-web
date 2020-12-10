@@ -36,7 +36,6 @@ class FuroCustomMethod extends FBP(LitElement) {
     });
 
     this._queryParams = {};
-    this._specDefinedQPs = {};
   }
 
   static get properties() {
@@ -138,7 +137,7 @@ class FuroCustomMethod extends FBP(LitElement) {
     const params = AgentHelper.getParams(this, link);
 
     // rebuild qp
-    const qp = AgentHelper.rebuildQPFromParams(params, this._specDefinedQPs);
+    const qp = AgentHelper.rebuildQPFromParams(params);
     // generate req
     const req = AgentHelper.generateReq(link, qp);
 

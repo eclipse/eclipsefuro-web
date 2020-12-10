@@ -76,7 +76,6 @@ class FuroCollectionAgent extends FBP(LitElement) {
 
     this._singleElementQueue = []; // queue for calls, before hts is set
     this._queryParams = {};
-    this._specDefinedQPs = {};
   }
 
   /**
@@ -244,6 +243,17 @@ class FuroCollectionAgent extends FBP(LitElement) {
   }
 
   /**
+   * Set query params
+   * All existing query params are replaced by the transferred parameters
+   * If the transferred object is empty, all the values will be removed!
+   * The AgentHelper fires a qp-set event after the query params are replaced.
+   * @param {Object} key value pairs
+   */
+  setQp(qp) {
+    AgentHelper.setQp(this, qp);
+  }
+
+  /**
    * clear the query params that you have setted before
    */
   clearQp() {
@@ -316,7 +326,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
     }
 
     // rebuild qp
-    const qp = AgentHelper.rebuildQPFromParams(params, this._specDefinedQPs);
+    const qp = AgentHelper.rebuildQPFromParams(params);
     // generate req
     const req = AgentHelper.generateReq(link, qp);
 

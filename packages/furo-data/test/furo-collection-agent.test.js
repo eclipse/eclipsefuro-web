@@ -95,6 +95,67 @@ describe('furo-collection-agent', () => {
     element.load();
   });
 
+  it('should replace existing query params with transferred key value object ', done => {
+    element.setAttribute('service', 'TaskService');
+    element.updateQp({ on: true });
+    element.updateQp({ level: '5' });
+    element.setQp({ id: '4711' });
+
+    /**
+     * Register hook on wire --triggerLoad to
+     */
+    element._FBPAddWireHook('--triggerLoad', req => {
+      assert.equal(req.url.indexOf('on=true') > 0, false);
+      assert.equal(req.url.indexOf('level=5') > 0, false);
+      assert.equal(req.url.indexOf('id=4711') > 0, true);
+      done();
+    });
+
+    element.htsIn([
+      {
+        href: '/mockdata/tasks/list.json',
+        method: 'GET',
+        rel: 'list',
+        type: 'task.TaskCollection',
+        service: 'TaskService',
+      },
+    ]);
+    element.load();
+  });
+
+  it('undefined query param object results in an empty queryParams object ', done => {
+    element.setAttribute('service', 'TaskService');
+    element.updateQp({ on: true });
+    element.updateQp({ level: '5' });
+    element.setQp(undefined);
+
+    /**
+     * Register hook on wire --triggerLoad to
+     */
+    element._FBPAddWireHook('--triggerLoad', req => {
+      assert.equal(req.url.indexOf('on=true') > 0, false);
+      assert.equal(req.url.indexOf('level=5') > 0, false);
+      assert.equal(
+        typeof element._queryParams === 'object' &&
+          !Array.isArray(element._queryParams) &&
+          element._queryParams !== null,
+        true,
+      );
+      done();
+    });
+
+    element.htsIn([
+      {
+        href: '/mockdata/tasks/list.json',
+        method: 'GET',
+        rel: 'list',
+        type: 'task.TaskCollection',
+        service: 'TaskService',
+      },
+    ]);
+    element.load();
+  });
+
   it('should send search with ?q= ', done => {
     element.setAttribute('service', 'TaskService');
     element.setOrderBy('id,    -display_name');
