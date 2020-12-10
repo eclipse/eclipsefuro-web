@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.9.5...@furo/ui5@0.9.6) (2020-12-10)
+
+
+### Bug Fixes
+
+* fix [#120](https://github.com/theNorstroem/FuroBaseComponents/issues/120) remove properties-override in data-input component ([bc7693d](https://github.com/theNorstroem/FuroBaseComponents/commit/bc7693dc2aa667aa320b595bc622d489897251fe))
+* update slots in ui5-data-checkbox-input when value changed ([fd4ff07](https://github.com/theNorstroem/FuroBaseComponents/commit/fd4ff0749beea84a138dd18721abd4e9ab167604))
+
+
+
+
+
 ## [0.9.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.9.4...@furo/ui5@0.9.5) (2020-12-01)
 
 

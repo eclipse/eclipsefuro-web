@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.3...@furo/data-input@1.10.4) (2020-12-10)
+
+
+### Bug Fixes
+
+* auto-select-first on collection dropdown ([4a416d1](https://github.com/theNorstroem/FuroBaseComponents/commit/4a416d11f91691acfd9395c633ce0f0ad41d671b))
+* fix [#120](https://github.com/theNorstroem/FuroBaseComponents/issues/120) remove properties-override in data-input component ([bc7693d](https://github.com/theNorstroem/FuroBaseComponents/commit/bc7693dc2aa667aa320b595bc622d489897251fe))
+* remove pristine label ([f9dc1fe](https://github.com/theNorstroem/FuroBaseComponents/commit/f9dc1fe0fc2946d45b4727737efa3fffaac3a771))
+
+
+
+
+
 ## [1.10.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.2...@furo/data-input@1.10.3) (2020-12-01)
 
 **Note:** Version bump only for package @furo/data-input

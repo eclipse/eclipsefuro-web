@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.13.3...@furo/data@1.14.0) (2020-12-10)
+
+
+### Bug Fixes
+
+* auto-select-first on collection dropdown ([4a416d1](https://github.com/theNorstroem/FuroBaseComponents/commit/4a416d11f91691acfd9395c633ce0f0ad41d671b))
+* UniversalFieldNodeBinder.js with mapped labels ([23193a5](https://github.com/theNorstroem/FuroBaseComponents/commit/23193a537cd6196c879991d97eea326309e24e79))
+
+
+### Features
+
+* new method to inject key value query param object. All existing query params are replaced by the transferred parameters. If the transferred object is empty or undefined, all the values will be removed! ([b21c219](https://github.com/theNorstroem/FuroBaseComponents/commit/b21c219d3243bfbc10826f65a79f86f5f10b7655))
+
+
+
+
+
 ## [1.13.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.13.2...@furo/data@1.13.3) (2020-12-01)
 
 **Note:** Version bump only for package @furo/data
