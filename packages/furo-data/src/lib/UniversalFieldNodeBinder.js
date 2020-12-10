@@ -112,7 +112,7 @@ export class UniversalFieldNodeBinder {
     this.virtualNode = {
       value: this.fieldValue,
       attributes: {},
-      labels: new Set(),
+      labels: {},
     };
 
     // update virtualNode from meta
@@ -120,11 +120,14 @@ export class UniversalFieldNodeBinder {
     this._updateVirtualNode(field);
     this._updateVirtualNodeFromMetaConstraints(field._constraints);
 
+
     field.addEventListener('this-metas-changed', () => {
       this._updateVirtualNodeFromMeta(field._meta);
       this._updateVirtualNodeFromMetaConstraints(field._constraints);
     });
 
+    // todo: decide if we want track the sub fields of a fat type
+    // when we do this, we can set the labels during runtime
     field.addEventListener('field-value-changed', () => {
       this._updateVirtualNode(field);
     });
@@ -197,7 +200,7 @@ export class UniversalFieldNodeBinder {
     if ('labels' in this.fieldNode) {
       this._givenLabels = this.fieldNode.labels.__childNodes.map(labelNode => labelNode._value);
       if (this._givenLabels.indexOf(label) === -1) {
-        this.fieldNode.labels.add(label);
+        this.fieldNode.labels.createField({ fieldName: label, type: 'bool', _value: true });
       }
     } else {
       // attention, this is for ui only, this label will never sent back to the server
@@ -211,11 +214,10 @@ export class UniversalFieldNodeBinder {
    */
   deleteLabel(label) {
     if ('labels' in this.fieldNode) {
-      if (this._givenLabels) {
-        const labelindex = this._givenLabels.indexOf(label);
-        if (labelindex !== -1) {
-          this.fieldNode.labels.deleteChild(labelindex);
-        }
+
+      if (this.fieldNode.labels[label]) {
+        // set to false instead delete
+        this.fieldNode.labels[label]._value=false;
       }
     } else {
       // attention, this is for ui only, this label will never sent back to the server
@@ -264,7 +266,7 @@ export class UniversalFieldNodeBinder {
     if (this.fieldFormat === 'fat') {
       this.fieldValue = field.value._value;
       this._givenAttrs = field.attributes.__childNodes.map(attrNode => attrNode._name);
-      this._givenLabels = field.labels.__childNodes.map(labelNode => labelNode._value);
+      this._givenLabels = field.labels.__childNodes.map(labelNode => labelNode._name);
 
       // clear the attributes by removing attrs which are not in field.attributes
       Object.keys(this.virtualNode.attributes).forEach(attr => {
@@ -274,11 +276,12 @@ export class UniversalFieldNodeBinder {
       });
 
       // clear the labels  by removing labels which are not in field.labels
-      this.virtualNode.labels.forEach(label => {
+      Object.keys(this.virtualNode.labels).forEach(label => {
         if (this._givenLabels.indexOf(label) === -1) {
           this._removeVirtualLabel(label);
         }
       });
+
 
       // update the given attributes on the virtual node
       field.attributes.__childNodes.forEach(attr => {
@@ -286,7 +289,7 @@ export class UniversalFieldNodeBinder {
       });
       // update the given labels on the virtual node
       field.labels.__childNodes.forEach(label => {
-        this._addVirtualLabel(label._value);
+        this._addVirtualLabel(label._name);
       });
     } else {
       // for scalar and complex fields
@@ -363,9 +366,9 @@ export class UniversalFieldNodeBinder {
    * @private
    */
   _addVirtualLabel(name) {
-    if (!this.virtualNode.labels.has(name)) {
-      this.virtualNode.labels.add(name);
-      // map the label if configured
+    if (this.virtualNode.labels[name] !== true) {
+      this.virtualNode.labels[name] = true;
+
       if (name in this.labelMappings) {
         this.target[this.labelMappings[name]] = true;
       }
@@ -378,7 +381,7 @@ export class UniversalFieldNodeBinder {
    * @private
    */
   _removeVirtualLabel(name) {
-    this.virtualNode.labels.delete(name);
+    this.virtualNode.labels[name] = false;
     // map the label if configured
     if (name in this.labelMappings) {
       this.target[this.labelMappings[name]] = false;

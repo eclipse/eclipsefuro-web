@@ -16,7 +16,6 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'readonly': input is disabled
  * - 'required': input is required
  * - 'disabled': input is disabled
- * - 'pristine': data is not changed. it is pristine
  * - 'condensed': input has condensed display
  * - 'hidden': input is hidden
  *
@@ -32,7 +31,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'min': minimum value in the input field
  * - 'max': maximum value in the input field
  *
- * ### following constrains are mapped into the attributes of the furo.fat.Int32 or furo.fat.Int64 :
+ * ### following constrains are mapped into the attributes of the furo.fat.Int32 or furo.fat.Int64:
  *
  * - 'max': is mapped to 'max' attribute
  * - 'min': is mapped to 'min' attribute
@@ -42,9 +41,9 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * <sample-furo-data-number-input></sample-furo-data-number-input>
  *
  * ## Attributes & Properties
- * see the Attributes & Properties of [furo-number-input](/furo-input?t=FuroNumberInput)
+ * Please refer to furo-number-input
  *
- * @summary Bind a entityObject.field to a number input
+ * @summary Bind a numeric entityObject.field to a number input
  * @customElement
  * @demo demo-furo-data-number-input Data binding
  * @demo demo-fat-furo-data-text-input skalar, wrapper, FAT binding
@@ -148,8 +147,6 @@ export class FuroDataNumberInput extends FuroNumberInput {
       } else {
         this.binder.addLabel('empty');
       }
-      // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
 
       // update the value
       this.binder.fieldValue = val.detail;
@@ -171,24 +168,6 @@ export class FuroDataNumberInput extends FuroNumberInput {
    */
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
-    if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this._checkAndEmptyInput();
-        // when the fat object has empty label. empty the number input.
-        this.binder.addLabel('pristine');
-      });
-    }
   }
 
   /**
@@ -199,7 +178,7 @@ export class FuroDataNumberInput extends FuroNumberInput {
   _checkAndEmptyInput() {
     if (
       (this.binder.fieldFormat === 'wrapper' && this.binder.fieldNode._value.value === null) ||
-      (this.binder.fieldFormat === 'fat' && this.binder.fieldNode.labels._value.includes('empty'))
+      (this.binder.fieldFormat === 'fat' && this.binder.fieldNode.labels.empty !== undefined)
     ) {
       this.setValue(null);
     }

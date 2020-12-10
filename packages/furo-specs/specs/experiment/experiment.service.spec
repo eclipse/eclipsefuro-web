@@ -1,135 +1,118 @@
-{
-  "name": "ExperimentService",
-  "description": "service specs for the experiment api",
-  "version": "0.0.1",
-  "lifecycle": {
-    "deprecated": false,
-    "info": "This version is still valid"
-  },
-  "__proto": {
-    "package": "experimentservice",
-    "imports": [
-      "experiment/experiment.proto",
-      "google/protobuf/empty.proto"
-    ],
-    "targetfile": "service.proto",
-    "options": {
-      "go_package": "/experimentservice"
-    }
-  },
-  "services": {
-    "List": {
-      "description": "The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",
-      "rpc_name": "ListExperiments",
-      "data": {
-        "request": null,
-        "response": "experiment.ExperimentCollection"
-      },
-      "query": {
-        "q": {
-          "description": "Query term to search a experiment",
-          "type": "string",
-          "meta": {
-            "label": "Search",
-            "hint": ""
-          },
-          "__proto": {
-            "type": "string"
-          }
-        }
-      },
-      "deeplink": {
-        "description":"Describe_the_query_params_if_you_have",
-        "rel": "list",
-        "href": "/mockdata/experiments",
-        "method": "GET"
-      }
-    },
-    "Create": {
-      "description": "Creates a new Experiment",
-      "rpc_name": "CreateExperiment",
-      "data": {
-        "request": "experiment.Experiment",
-        "response": "experiment.ExperimentEntity"
-      },
-      "query": {
-      },
-      "deeplink": {
-        "rel": "create",
-        "href": "/mockdata/experiments",
-        "method": "POST"
-      }
-    },
-    "Get": {
-      "description": "The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",
-      "rpc_name": "GetExperiment",
-      "data": {
-        "request": null,
-        "response": "experiment.ExperimentEntity"
-      },
-      "query": {
-      },
-      "deeplink": {
-        "rel": "self",
-        "href": "/mockdata/experiments/{exp}/get.json",
-        "method": "GET"
-      }
-    },
-    "Update": {
-      "description": "Updates a Experiment, partial updates are supported",
-      "rpc_name": "UpdateExperiment",
-      "data": {
-        "request": "experiment.Experiment",
-        "response": "experiment.ExperimentEntity"
-      },
-      "query": {},
-      "deeplink": {
-        "rel": "update",
-        "href": "/mockdata/experiments/{exp}",
-        "method": "PATCH"
-      }
-    },
-    "Delete": {
-      "description": "Delete a Experiment",
-      "rpc_name": "DeleteExperiment",
-      "data": {
-        "request": "google.protobuf.Empty",
-        "response": "google.protobuf.Empty"
-      },
-      "query": {},
-      "deeplink": {
-        "rel": "delete",
-        "href": "/mockdata/experiments/{exp}",
-        "method": "DELETE"
-      }
-    },
-    "Release": {
-      "description": "Releases experiment",
-      "rpc_name": "ReleaseExperiment",
-      "data": {
-        "request": "experiment.ExperimentEntity",
-        "response": "google.protobuf.Empty"
-      },
-      "query": {},
-      "deeplink": {
-        "rel": "release",
-        "href": "/mockdata/experiments/1:release",
-        "method": "POST"
-      }
-    },
-    "CreateTemplate": {
-      "description": "create an experiment template",
-      "rpc_name": "CreateTemplateExperiment",
-      "data": {
-        "request": "google.protobuf.Empty",
-        "response": "experiment.Experiment"
-      },
-      "query": {},
-      "deeplink": {
-        "rel": "createtemplate",
-        "href": "/mockdata/experiments:createtemplate",
-        "method": "POST"
-      }
-    }
-  }
-}
+name: ExperimentService
+version: 0.0.1
+description: service specs for the experiment api
+lifecycle:
+    deprecated: false
+    info: This version is still valid
+__proto:
+    package: experimentservice
+    targetfile: service.proto
+    imports:
+        - experiment/experiment.proto
+        - google/protobuf/empty.proto
+    options:
+        go_package: /experimentservice
+services:
+    List:
+        description: The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.
+        data:
+            request: ""
+            response: experiment.ExperimentCollection
+            bodyfield: ""
+        deeplink:
+            description: Describe_the_query_params_if_you_have
+            href: /mockdata/experiments
+            method: GET
+            rel: list
+        query:
+            q:
+                constraints: {}
+                description: Query term to search a experiment
+                meta:
+                    default: ""
+                    hint: ""
+                    label: Search
+                    options: null
+                    readonly: false
+                    repeated: false
+                    typespecific: null
+                type: string
+        rpc_name: ListExperiments
+    Create:
+        description: Creates a new Experiment
+        data:
+            request: experiment.Experiment
+            response: experiment.ExperimentEntity
+            bodyfield: ""
+        deeplink:
+            description: ""
+            href: /mockdata/experiments
+            method: POST
+            rel: create
+        query: {}
+        rpc_name: CreateExperiment
+    Get:
+        description: The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment
+        data:
+            request: ""
+            response: experiment.ExperimentEntity
+            bodyfield: ""
+        deeplink:
+            description: ""
+            href: /mockdata/experiments/{exp}/get.json
+            method: GET
+            rel: self
+        query: {}
+        rpc_name: GetExperiment
+    Update:
+        description: Updates a Experiment, partial updates are supported
+        data:
+            request: experiment.Experiment
+            response: experiment.ExperimentEntity
+            bodyfield: ""
+        deeplink:
+            description: ""
+            href: /mockdata/experiments/{exp}
+            method: PATCH
+            rel: update
+        query: {}
+        rpc_name: UpdateExperiment
+    Delete:
+        description: Delete a Experiment
+        data:
+            request: google.protobuf.Empty
+            response: google.protobuf.Empty
+            bodyfield: ""
+        deeplink:
+            description: ""
+            href: /mockdata/experiments/{exp}
+            method: DELETE
+            rel: delete
+        query: {}
+        rpc_name: DeleteExperiment
+    Release:
+        description: Releases experiment
+        data:
+            request: experiment.ExperimentEntity
+            response: google.protobuf.Empty
+            bodyfield: ""
+        deeplink:
+            description: ""
+            href: /mockdata/experiments/1:release
+            method: POST
+            rel: release
+        query: {}
+        rpc_name: ReleaseExperiment
+    CreateTemplate:
+        description: create an experiment template
+        data:
+            request: google.protobuf.Empty
+            response: experiment.Experiment
+            bodyfield: ""
+        deeplink:
+            description: ""
+            href: /mockdata/experiments:createtemplate
+            method: POST
+            rel: createtemplate
+        query: {}
+        rpc_name: CreateTemplateExperiment

@@ -3,9 +3,9 @@
     "id": "1",
     "fat_int32": {
       "value": 0,
-      "labels": [
-        "empty"
-      ]
+      "labels": {
+        "empty": true
+      }
     },
     "wrapper_int32": null
   }

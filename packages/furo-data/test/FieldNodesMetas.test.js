@@ -43,7 +43,7 @@ describe('FieldNodesMetas', () => {
       () => {
         pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
         assert.equal(
-          pseudocomponent.binder.virtualNode.labels.has('readonly'),
+          pseudocomponent.binder.virtualNode.labels.readonly,
           false,
           'readonly not set',
         );
@@ -58,7 +58,7 @@ describe('FieldNodesMetas', () => {
             '{"max":{"is":"4","message":"MAX 4"}}',
           );
           assert.equal(
-            pseudocomponent.binder.virtualNode.labels.has('readonly'),
+            pseudocomponent.binder.virtualNode.labels.readonly,
             true,
             'readonly is set',
           );
@@ -78,7 +78,7 @@ describe('FieldNodesMetas', () => {
       () => {
         pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
         assert.equal(
-          pseudocomponent.binder.virtualNode.labels.has('readonly'),
+          pseudocomponent.binder.virtualNode.labels.readonly,
           false,
           'readonly not set',
         );
@@ -88,7 +88,7 @@ describe('FieldNodesMetas', () => {
             'fat string label setted via response meta',
           );
           assert.equal(
-            pseudocomponent.binder.virtualNode.labels.has('readonly'),
+            pseudocomponent.binder.virtualNode.labels.readonly,
             true,
             'readonly is set',
           );

@@ -1,167 +1,185 @@
-{
-  "name": "oneof",
-  "type": "Oneof",
-  "description": "oneof experiment spec for testing",
-  "__proto": {
-    "package": "experiment",
-    "imports": [
-      "google/protobuf/any.proto",
-      "google/type/date.proto",
-      "google/type/money.proto",
-      "google/protobuf/field_mask.proto",
-      "furo/property.proto",
-      "enums/corpus.enum.proto"
-    ],
-    "targetfile": "experiment.proto"
-  },
-  "fields": {
-    "id": {
-      "description": "Identity of a experiment",
-      "type": "string",
-      "meta": {
-        "label": "Id",
-        "default": "",
-        "hint": "",
-        "readonly": true
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 1
-      }
-    },
-    "enumexample": {
-      "description": "skalar in a group of complex",
-      "type": "enums.Corpus",
-      "meta": {
-
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 29
-      }
-    },
-    "display_name": {
-      "description": "Localized String representation of a experiment",
-      "type": "string",
-      "meta": {
-        "label": "experiment",
-        "default": "",
-        "hint": "",
-        "readonly": true
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 2,
-        "oneof": "aaa"
-      }
-    },
-    "description": {
-      "description": "Short experiment description",
-      "type": "string",
-      "meta": {
-        "label": "Description",
-        "default": "Default Description",
-        "hint": ""
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 3,
-        "oneof": "bbb"
-      }
-    },
-    "furo_data_checkbox_input": {
-      "description": "field for furo_data_checkbox_input for testing",
-      "type": "bool",
-      "meta": {
-        "label": "checkbox_input",
-        "default": "",
-        "hint": "Hint",
-        "readonly": false
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 4,
-        "oneof": "aaa"
-      }
-    },
-    "furo_data_text_input": {
-      "description": "field for furo_data_text_input for testing",
-      "type": "string",
-      "meta": {
-        "label": "text_input",
-        "hint": "hint",
-        "readonly": false
-      },
-      "constraints": {
-          "required": {
-          "is": "true",
-          "message": "is required"
-        },
-        "min": {
-          "is": 3,
-          "message": "at least 3 characters"
-        },
-        "max": {
-          "is": 15,
-          "message": "15 characters maximum"
-        },
-        "pattern": {
-          "is": "^a.*",
-          "message": "must start with a"
-        }
-      },
-      "__proto": {
-        "number": 5,
-        "oneof": "bbb"
-      }
-    },
-    "furo_data_file_input": {
-      "description": "field for testing file type",
-      "type": "string",
-      "meta": {
-        "readonly": false,
-        "repeated": true,
-        "label": "Choose a file"
-      },
-      "constraints": {
-        "required": {
-          "is": "true",
-          "message": "is required"
-        }
-      },
-      "__proto": {
-        "number": 22
-      }
-    },
-    "update_mask": {
-      "description": "Contains a field_mask which fields of the targeted resource are going to be updated",
-      "type": "google.protobuf.types.known.FieldMask",
-      "meta": {},
-      "constraints": {},
-      "__proto": {
-        "number": 23,
-        "oneof": "complex"
-      }
-    },
-    "other_mask": {
-      "description": "for oneof test purposes only",
-      "type": "google.protobuf.FieldMask",
-      "meta": {},
-      "constraints": {},
-      "__proto": {
-        "number": 24,
-        "oneof": "complex"
-      }
-    },
-    "value": {
-      "description": "skalar in a group of complex",
-      "type": "bool",
-      "meta": {},
-      "constraints": {},
-      "__proto": {
-        "number": 25,
-        "oneof": "complex"
-      }
-    }
-  }
-}
+name: oneof
+type: Oneof
+description: oneof experiment spec for testing
+__proto:
+    package: experiment
+    targetfile: experiment.proto
+    imports:
+        - google/protobuf/field_mask.proto
+    options: {}
+fields:
+    id:
+        type: string
+        description: Identity of a experiment
+        __proto:
+            number: 1
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: Id
+            options: null
+            readonly: true
+            repeated: false
+            typespecific: null
+        constraints: {}
+    enumexample:
+        type: int32
+        description: skalar in a group of complex
+        __proto:
+            number: 29
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    display_name:
+        type: string
+        description: Localized String representation of a experiment
+        __proto:
+            number: 2
+            oneof: aaa
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: experiment
+            options: null
+            readonly: true
+            repeated: false
+            typespecific: null
+        constraints: {}
+    description:
+        type: string
+        description: Short experiment description
+        __proto:
+            number: 3
+            oneof: bbb
+        __ui: null
+        meta:
+            default: Default Description
+            hint: ""
+            label: Description
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    furo_data_checkbox_input:
+        type: bool
+        description: field for furo_data_checkbox_input for testing
+        __proto:
+            number: 4
+            oneof: aaa
+        __ui: null
+        meta:
+            default: ""
+            hint: Hint
+            label: checkbox_input
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    furo_data_text_input:
+        type: string
+        description: field for furo_data_text_input for testing
+        __proto:
+            number: 5
+            oneof: bbb
+        __ui: null
+        meta:
+            default: ""
+            hint: hint
+            label: text_input
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints:
+            max:
+                is: "15"
+                message: 15 characters maximum
+            min:
+                is: "3"
+                message: at least 3 characters
+            pattern:
+                is: ^a.*
+                message: must start with a
+            required:
+                is: "true"
+                message: is required
+    furo_data_file_input:
+        type: string
+        description: field for testing file type
+        __proto:
+            number: 22
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: Choose a file
+            options: null
+            readonly: false
+            repeated: true
+            typespecific: null
+        constraints:
+            required:
+                is: "true"
+                message: is required
+    update_mask:
+        type: google.protobuf.FieldMask
+        description: Contains a field_mask which fields of the targeted resource are going to be updated
+        __proto:
+            number: 23
+            oneof: complex
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    other_mask:
+        type: google.protobuf.FieldMask
+        description: for oneof test purposes only
+        __proto:
+            number: 24
+            oneof: complex
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    value:
+        type: bool
+        description: skalar in a group of complex
+        __proto:
+            number: 25
+            oneof: complex
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: ""
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}

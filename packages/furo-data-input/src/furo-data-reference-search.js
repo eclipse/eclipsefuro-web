@@ -37,7 +37,6 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'readonly': input is disabled
  * - 'required': input is required
  * - 'disabled': input is disabled
- * - 'pristine': data is not changed. it is pristine
  * - 'condensed': input has condensed display
  * - 'hidden': input is hidden
  *
@@ -289,8 +288,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
   _clear() {
     this._clearNoResultHint();
-    this.binder.fieldNode.display_name._value = '';
-
     this.binder.fieldNode.reinit();
     this._updateField();
     this._closeList();
@@ -476,21 +473,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     this.binder.bindField(fieldNode);
 
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
-      });
-
       // update the value on input changes
       this.binder.fieldNode.addEventListener('field-value-changed', val => {
         // set flag empty on empty strings (for fat types)
@@ -499,9 +481,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
         } else {
           this.binder.addLabel('empty');
         }
-        // if something was entered the field is not empty
-        this.binder.deleteLabel('pristine');
-
         this._updateField();
       });
     }

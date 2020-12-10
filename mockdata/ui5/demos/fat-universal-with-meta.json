@@ -7,7 +7,9 @@
     },
     "fat_string": {
       "value": "this is a furo fat string",
-      "labels": ["condensed"],
+      "labels": {
+        "condensed": true
+      },
       "attributes": {
         "value-state": "Success",
         "banane": "6",
@@ -20,7 +22,7 @@
     },
     "fat_int32": {
       "value": 14,
-      "labels": "",
+      "labels": {},
       "attributes": {
         "value-state": "Information"
       }

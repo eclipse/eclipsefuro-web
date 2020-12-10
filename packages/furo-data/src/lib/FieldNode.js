@@ -669,32 +669,17 @@ export class FieldNode extends EventTreeNode {
    * @private
    */
   get _deltaValue() {
-    // a required field needs a special treatment --> required path
-    if (
-      this._constraints &&
-      this._constraints.required &&
-      this._constraints.required.is === 'true'
-    ) {
-      return this._requiredValue;
-    }
+
+
     if (this.__childNodes.length > 0) {
       this.__value = {};
       // nur reine Daten zurück geben
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const index in this.__childNodes) {
         const field = this.__childNodes[index];
-        let val;
-        if (
-          field._constraints !== undefined &&
-          field._constraints.required !== undefined &&
-          field._constraints.required.is === 'true'
-        ) {
-          val = field._requiredValue;
-        } else {
-          val = field._deltaValue;
-        }
-        if (val !== undefined) {
-          this.__value[field._name] = val;
+
+        if (field._deltaValue !== undefined) {
+          this.__value[field._name] = field._deltaValue;
         }
       }
     }

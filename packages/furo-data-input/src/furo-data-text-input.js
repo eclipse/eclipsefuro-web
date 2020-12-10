@@ -17,8 +17,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'readonly': input is disabled
  * - 'required': input is required
  * - 'disabled': input is disabled
- * - 'pristine': data is not changed. it is pristine
- * - 'condensed': input has condensed display
+* - 'condensed': input has condensed display
  * - 'hidden': input is hidden
  *
  * ### following attributes of the furo.fat.String are supported:
@@ -150,8 +149,6 @@ export class FuroDataTextInput extends FuroTextInput {
       } else {
         this.binder.addLabel('empty');
       }
-      // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
 
       // update the value
       this.binder.fieldValue = val.detail;
@@ -174,22 +171,6 @@ export class FuroDataTextInput extends FuroTextInput {
    */
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
-    if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
-      });
-    }
   }
 }
 

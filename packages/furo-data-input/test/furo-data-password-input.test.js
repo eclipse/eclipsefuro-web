@@ -92,7 +92,7 @@ describe('furo-data-password-input', () => {
     setTimeout(() => {
       assert.equal(dataPasswordInput.getAttribute('label'), 'Name**');
       done();
-    }, 0);
+    }, 5);
   });
 
   it('should update the entity when values changed', done => {

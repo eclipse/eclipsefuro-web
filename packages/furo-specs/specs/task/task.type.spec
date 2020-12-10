@@ -1,135 +1,126 @@
-{
-  "name": "task",
-  "type": "Task",
-  "description": "Task data description",
-  "__proto": {
-    "package": "task",
-    "imports": [
-      "furo/reference.proto"
-    ],
-    "targetfile": "task.proto"
-  },
-  "fields": {
-    "id": {
-      "description": "Identity of a task",
-      "type": "string",
-      "meta": {
-        "label": "Id",
-        "default": "",
-        "hint": "",
-        "readonly": true
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 1
-      }
-    },
-    "display_name": {
-      "description": "Localized String representation of a task",
-      "type": "string",
-      "meta": {
-        "label": "task.display_name.label",
-        "default": "",
-        "hint": "task.display_name.hint",
-        "readonly": true
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 2
-      }
-    },
-    "description": {
-      "description": "Short task description",
-      "type": "string",
-      "meta": {
-        "label": "task.desc.label",
-        "default": "",
-        "hint": ""
-      },
-      "constraints": {
-        "required": {
-          "is": "true",
-          "message":"is required"
-        },
-        "max": {
-          "is": 180,
-          "message": "task.desc.maxlength"
-        }
-      },
-      "__proto": {
-        "number": 3
-      }
-    },
-    "estimated_time": {
-      "description": "Estimated time in days",
-      "type": "int32",
-      "meta": {
-        "label": "Est. days",
-        "default": "",
-        "hint": ""
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 4
-      }
-    },
-    "owner": {
-      "description": "Owner of a task",
-      "type": "furo.Reference",
-      "meta": {
-        "label": "person.type.sex.label",
-        "default": {
-          "link":{
-            "rel": "list",
-            "href": "/mockdata/persons/list.json",
-            "method": "Get",
-            "type": "person.Person",
-            "service": "PersonService"
-          }
-        },
-        "hint": "",
-        "no_result_hint": "",
-        "options": {
-          "list": [
-            {
-              "id": "unknown",
-              "display_name": "person.type.sex.unknown.label",
-              "selected": false,
-              "@type": "type.googleapis.com/furo.Optionitem"
-            },
-            {
-              "id": "female",
-              "display_name": "person.type.sex.female.label",
-              "selected": true,
-              "@type": "type.googleapis.com/furo.Optionitem"
-            },
-            {
-              "id": "male",
-              "display_name": "person.type.sex.male.label",
-              "selected": false,
-              "@type": "type.googleapis.com/furo.Optionitem"
-            }
-          ]
-        }
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 5
-      }
-    },
-    "subtasks": {
-      "description": "List of subtasks",
-      "type": "task.Task",
-      "meta": {
-        "label": "Subtask",
-        "default": "",
-        "hint": "",
-        "repeated": true
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 6
-      }
-    }
-  }
-}
+name: task
+type: Task
+description: Task data description
+__proto:
+    package: task
+    targetfile: task.proto
+    imports:
+        - furo/furo.proto
+    options: {}
+fields:
+    id:
+        type: string
+        description: Identity of a task
+        __proto:
+            number: 1
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: Id
+            options: null
+            readonly: true
+            repeated: false
+            typespecific: null
+        constraints: {}
+    display_name:
+        type: string
+        description: Localized String representation of a task
+        __proto:
+            number: 2
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: task.display_name.hint
+            label: task.display_name.label
+            options: null
+            readonly: true
+            repeated: false
+            typespecific: null
+        constraints: {}
+    description:
+        type: string
+        description: Short task description
+        __proto:
+            number: 3
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: task.desc.label
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints:
+            max:
+                is: "180"
+                message: task.desc.maxlength
+            required:
+                is: "true"
+                message: is required
+    estimated_time:
+        type: int32
+        description: Estimated time in days
+        __proto:
+            number: 4
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: Est. days
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    owner:
+        type: furo.Reference
+        description: Owner of a task
+        __proto:
+            number: 5
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: person.type.sex.label
+            options:
+                flags: []
+                list:
+                    - '@type': type.googleapis.com/furo.Optionitem
+                      display_name: person.type.sex.unknown.label
+                      id: unknown
+                      selected: false
+                    - '@type': type.googleapis.com/furo.Optionitem
+                      display_name: person.type.sex.female.label
+                      id: female
+                      selected: true
+                    - '@type': type.googleapis.com/furo.Optionitem
+                      display_name: person.type.sex.male.label
+                      id: male
+                      selected: false
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    subtasks:
+        type: task.Task
+        description: List of subtasks
+        __proto:
+            number: 6
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: Subtask
+            options: null
+            readonly: false
+            repeated: true
+            typespecific: null
+        constraints: {}

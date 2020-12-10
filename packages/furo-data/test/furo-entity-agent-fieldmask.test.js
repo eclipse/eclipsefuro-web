@@ -34,39 +34,6 @@ describe('furo-entity-agent fieldmask', () => {
     done();
   });
 
-  it('update method with patch should provide a field_mask', done => {
-    entityAgent.setAttribute('service', 'ProjectService');
-    dataObject.setAttribute('type', 'project.ProjectEntity');
-    entityAgent.setAttribute('with-update-mask', 'true');
-
-    entityAgent.addEventListener('save-success', r => {
-      expect(r.detail.url).to.not.be.undefined;
-      // eslint-disable-next-line no-prototype-builtins
-      expect(r.detail.json.hasOwnProperty('members')).to.be.false;
-      assert.equal(
-        r.detail.url,
-        'https://httpbin.org/anything?update_mask=description,cost_limit.currency_code',
-      );
-
-      done();
-    });
-    entityAgent.htsIn([
-      {
-        href: 'https://httpbin.org/anything',
-        method: 'PATCH',
-        rel: 'update',
-        type: 'project.ProjectEntity',
-        service: 'ProjectService',
-      },
-    ]);
-
-    dataObject.addEventListener('object-ready', () => {
-      dataObject.data.data.description._value = 'updated description';
-      dataObject.data.data.cost_limit.currency_code._value = 'DKK';
-
-      entityAgent.save();
-    });
-  });
 
   it('update method with patch should have required fields in payload', done => {
     entityAgent.setAttribute('service', 'PersonService');

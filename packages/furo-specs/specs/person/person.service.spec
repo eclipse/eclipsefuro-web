@@ -1,107 +1,92 @@
-{
-  "name": "PersonService",
-  "description": "service specs for the person api",
-  "version": "0.0.1",
-  "lifecycle": {
-    "deprecated": false,
-    "info": "This version is still valid"
-  },
-  "__proto": {
-    "package": "personservice",
-    "imports": [
-      "person/person.proto",
-      "google/protobuf/empty.proto"
-    ],
-    "targetfile": "service.proto",
-    "options": {
-      "go_package": "/personservice"
-    }
-  },
-  "services": {
-    "List": {
-      "description": "The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",
-      "rpc_name": "ListPersons",
-      "data": {
-        "request": null,
-        "response": "person.PersonCollection"
-      },
-      "query": {
-        "q": {
-          "description": "Query term to search a person",
-          "type": "string",
-          "meta": {
-            "label": "Search",
-            "hint": ""
-          },
-          "__proto": {
-            "type": "string"
-          }
-        }
-      },
-      "deeplink": {
-        "description":"Describe_the_query_params_if_you_have",
-        "rel": "list",
-        "href": "/mockdata/persons/list.json",
-        "method": "GET"
-      }
-    },
-    "Create": {
-      "description": "Creates a new Person",
-      "rpc_name": "CreatePerson",
-      "data": {
-        "request": "person.Person",
-        "response": "person.PersonEntity"
-      },
-      "query": {
-      },
-      "deeplink": {
-        "rel": "create",
-        "href": "/mockdata/persons/create.json",
-        "method": "GET"
-      }
-    },
-    "Get": {
-      "description": "The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",
-      "rpc_name": "GetPerson",
-      "data": {
-        "request": null,
-        "response": "person.PersonEntity"
-      },
-      "query": {
-      },
-      "deeplink": {
-        "rel": "self",
-        "href": "/mockdata/persons/{prs}/get.json",
-        "method": "GET"
-      }
-    },
-    "Update": {
-      "description": "Updates a Person, partial updates are supported",
-      "rpc_name": "UpdatePerson",
-      "data": {
-        "request": "person.Person",
-        "response": "person.PersonEntity"
-      },
-      "query": {},
-      "deeplink": {
-        "rel": "update",
-        "href": "/mockdata/persons/{prs}/update.json",
-        "method": "PATCH"
-      }
-    },
-    "Delete": {
-      "description": "Delete a Person",
-      "rpc_name": "DeletePerson",
-      "data": {
-        "request": "google.protobuf.Empty",
-        "response": "google.protobuf.Empty"
-      },
-      "query": {},
-      "deeplink": {
-        "rel": "delete",
-        "href": "/mockdata/persons/{prs}/delete.json",
-        "method": "GET"
-      }
-    }
-  }
-}
+name: PersonService
+version: 0.0.1
+description: service specs for the person api
+lifecycle:
+    deprecated: false
+    info: This version is still valid
+__proto:
+    package: personservice
+    targetfile: service.proto
+    imports:
+        - person/person.proto
+        - google/protobuf/empty.proto
+    options:
+        go_package: /personservice
+services:
+    List:
+        description: The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.
+        data:
+            request: ""
+            response: person.PersonCollection
+            bodyfield: ""
+        deeplink:
+            description: Describe_the_query_params_if_you_have
+            href: /mockdata/persons/list.json
+            method: GET
+            rel: list
+        query:
+            q:
+                constraints: {}
+                description: Query term to search a person
+                meta:
+                    default: ""
+                    hint: ""
+                    label: Search
+                    options: null
+                    readonly: false
+                    repeated: false
+                    typespecific: null
+                type: string
+        rpc_name: ListPersons
+    Create:
+        description: Creates a new Person
+        data:
+            request: person.Person
+            response: person.PersonEntity
+            bodyfield: ""
+        deeplink:
+            description: ""
+            href: /mockdata/persons/create.json
+            method: GET
+            rel: create
+        query: {}
+        rpc_name: CreatePerson
+    Get:
+        description: The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person
+        data:
+            request: ""
+            response: person.PersonEntity
+            bodyfield: ""
+        deeplink:
+            description: ""
+            href: /mockdata/persons/{prs}/get.json
+            method: GET
+            rel: self
+        query: {}
+        rpc_name: GetPerson
+    Update:
+        description: Updates a Person, partial updates are supported
+        data:
+            request: person.Person
+            response: person.PersonEntity
+            bodyfield: ""
+        deeplink:
+            description: ""
+            href: /mockdata/persons/{prs}/update.json
+            method: PATCH
+            rel: update
+        query: {}
+        rpc_name: UpdatePerson
+    Delete:
+        description: Delete a Person
+        data:
+            request: google.protobuf.Empty
+            response: google.protobuf.Empty
+            bodyfield: ""
+        deeplink:
+            description: ""
+            href: /mockdata/persons/{prs}/delete.json
+            method: GET
+            rel: delete
+        query: {}
+        rpc_name: DeletePerson
