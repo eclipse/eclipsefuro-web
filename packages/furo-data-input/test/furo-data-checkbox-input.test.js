@@ -97,7 +97,7 @@ describe('furo-data-checkbox-input', () => {
           setTimeout(() => {
             assert.equal(dataCheckboxInput.binder.fieldNode._value, true);
             done();
-          }, 10);
+          }, 300);
         },
         { once: true },
       );

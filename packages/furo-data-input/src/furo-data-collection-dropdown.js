@@ -47,7 +47,13 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * <sample-furo-data-collection-dropdown></sample-furo-data-collection-dropdown>
  *
- * Tags: input
+ * ## Attributes & Properties
+ * Please refer to furo-select-input
+ *
+ * ### auto-select-first
+ * set this attribute to autoselect the first item in the list, if no item is set in the bounded fieldNode
+ *
+ *
  * @summary bindable dropdown
  * @customElement
  * @demo demo-furo-data-collection-dropdown inject collection demo
@@ -233,169 +239,40 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
   _notifyAndTriggerUpdate(arr) {
     if (arr.length > 0) {
       this._dropdownList = arr;
+      super.setOptions(arr);
+      this._updateField();
+    }
+  }
 
+
+  _autoselectFirstItem( ) {
+    if(this._dropdownList){
       if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
         // notifiy first item if field is not set
         let selectedItem = null;
-        for (let i = 0; i < arr.length; i += 1) {
-          if (arr[i].selected) {
-            selectedItem = arr[i].id;
+        for (let i = 0; i < this._dropdownList.length; i += 1) {
+          if (this._dropdownList[i].selected) {
+            selectedItem = this._dropdownList[i].id;
             break;
           }
         }
-        selectedItem = selectedItem || arr[0].id;
+        selectedItem = selectedItem || this._dropdownList[0].id;
         this._notifiySelectedItem(selectedItem);
-        if (this._fieldNodeToUpdate) {
-          this._fieldNodeToUpdate._value = selectedItem;
+        if (this._fieldNodeToUpdate  ) {
+          // give a little delay with the autoselected field, so the user can
+          // realize that something was set
+          setTimeout(()=>{
+            this._fieldNodeToUpdate._value = selectedItem;
+          },350);
+
         }
       } else if (this.multiple) {
         this._notifiySelectedItem(this._parseRepeatedData(this._fieldNodeToUpdate._value));
       } else {
         this._notifiySelectedItem(this._fieldNodeToUpdate._value);
       }
-      super.setOptions(arr);
     }
-  }
 
-  static get properties() {
-    return {
-      /**
-       * Overrides the label text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      label: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
-       *
-       * If you bind a scalar, you dont need this attribute.
-       */
-      subfield: {
-        type: String,
-      },
-      /**
-       * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
-       *
-       * If you bind a scalar, you dont need this attribute.
-       */
-      subfieldDisplay: {
-        type: String,
-        attribute: 'subfield-display',
-      },
-      /**
-       * The name of the field from the injected collection that contains the label for the dropdown array.
-       */
-      displayField: {
-        type: String,
-        attribute: 'display-field',
-      },
-      /**
-       * The name of the field from the injected collection that contains the value you want to assign to the attribute value and the bounded field.
-       */
-      valueField: {
-        type: String,
-        attribute: 'value-field',
-      },
-      /**
-       * Overrides the hint text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      hint: {
-        type: String,
-        reflect: true,
-      },
-
-      readonly: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */
-      disabled: {
-        type: Boolean,
-        reflect: true,
-      },
-
-      /**
-       * Set this attribute to autofocus the input field.
-       */
-      autofocus: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Icon on the left side
-       */
-      leadingIcon: {
-        type: String,
-        attribute: 'leading-icon',
-        reflect: true,
-      },
-      /**
-       * Icon on the right side
-       */
-      trailingIcon: {
-        type: String,
-        attribute: 'trailing-icon',
-        reflect: true,
-      },
-      /**
-       * html input validity
-       */
-      valid: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */
-      condensed: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * Set a string list as options:
-       *
-       * "A, B, C"
-       *
-       * This will convert to options ["A","B","C"] by furo-select-input
-       */
-      list: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * the dropdown list
-       */
-      _dropdownList: {
-        type: Array,
-      },
-      /**
-       * multiple selection mark
-       */
-      multiple: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * the size of multiple selection
-       */
-      size: {
-        type: Number,
-        reflect: true,
-      },
-      /**
-       * A Boolean attribute which, if present, means this field is not writeable for a while.
-       */
-      _writeLock: {
-        type: Boolean,
-      },
-    };
   }
 
   /**
@@ -494,12 +371,19 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
 
   // eslint-disable-next-line class-methods-use-this
   _updateField() {
+
+
+
     if (this.multiple) {
       if (!this._writeLock) {
         super.setValue(this._parseRepeatedData(this._fieldNodeToUpdate._value));
       }
     } else {
       super.setValue(this._fieldNodeToUpdate._value);
+    }
+
+    if(this.hasAttribute("auto-select-first")){
+      this._autoselectFirstItem( );
     }
     this.requestUpdate();
   }
