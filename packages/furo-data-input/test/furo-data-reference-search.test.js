@@ -76,24 +76,26 @@ describe('furo-data-reference-search', () => {
     setTimeout(() => {
       assert.equal(referenceSearch.binder.fieldNode._meta.label, 'person.type.sex.label**');
       done();
-    }, 15);
+    }, 60);
   });
 
   it('should clear bounded data if element is cleared', done => {
-    entityObject.addEventListener('object-ready', () => {
-      setTimeout(() => {
-        referenceSearch._clear();
-      }, 0);
-    });
+
     referenceSearch.addEventListener(
       'value-cleared',
       () => {
-        assert.equal(entityObject.data.owner.id._value, '');
-        assert.equal(entityObject.data.owner.display_name._value, '');
+        assert.equal(entityObject.data.owner.display_name._value, null);
+        assert.equal(entityObject.data.owner.id._value, null);
         done();
       },
       { once: true },
     );
+
+    entityObject.addEventListener('object-ready', () => {
+      setTimeout(() => {
+        referenceSearch._clear();
+      }, 60);
+    });
   });
 
   it('should fire search when search term is entered and the length of the term is bigger then min-term-length', done => {
@@ -106,13 +108,13 @@ describe('furo-data-reference-search', () => {
 
   it('should inject search result ', done => {
     collectionAgent.addEventListener('response', () => {
-      setTimeout(() => {
-        assert.equal(referenceSearch._collection.length > 0, true);
-        done();
-      }, 0);
+      assert.equal(referenceSearch._collection.length > 0, true);
+      done();
     });
-    referenceSearch._searchTerm = 'term';
-    referenceSearch._fireSearchEvent();
+    setTimeout(() => {
+      referenceSearch._searchTerm = 'term';
+      referenceSearch._fireSearchEvent();
+    }, 60);
   });
 
   it('should fire search by input changed', done => {

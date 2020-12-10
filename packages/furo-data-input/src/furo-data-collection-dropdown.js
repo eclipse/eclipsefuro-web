@@ -29,7 +29,6 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * - 'readonly': input is disabled
  * - 'required': input is required
  * - 'disabled': input is disabled
- * - 'pristine': data is not changed. it is pristine
  * - 'condensed': input has condensed display
  * - 'hidden': input is hidden
  *
@@ -112,8 +111,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
             this._writeLock = false;
           }, 100);
         }
-
-        this.binder.deleteLabel('pristine');
       }
       this._notifiySelectedItem(val.detail);
     });
@@ -423,21 +420,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
-      });
-
       // use multiple select for repeated node
       if (fieldNode._meta && fieldNode._meta.repeated) {
         this.multiple = true;

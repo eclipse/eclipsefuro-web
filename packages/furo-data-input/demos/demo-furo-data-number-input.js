@@ -84,7 +84,6 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
                 ƒ-bind-data="--entity(*.furo_data_number_input)"
               ></furo-data-number-input>
               <furo-data-number-input
-
                 ƒ-bind-data="--entity(*.furo_data_number_input)"
               ></furo-data-number-input>
               <furo-data-number-input></furo-data-number-input>
