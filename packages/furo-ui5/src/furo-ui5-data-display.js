@@ -87,6 +87,10 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
         :host([value-state='Warning']) p {
           color: var(--sapCrticalColor, #e9730c);
         }
+        ui5-icon[value-state='Success'] {
+          color: var(--sapPositiveColor, #107e3e);
+        }
+
       `,
     ];
   }
@@ -200,7 +204,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
     if (this.binder.fieldNode && this.binder.fieldNode._spec.type === 'bool') {
       if (this.value) {
         return html`
-          <ui5-icon name="accept"></ui5-icon>
+          <ui5-icon name="accept" value-state="Success"></ui5-icon>
         `;
       }
       return html`
