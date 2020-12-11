@@ -5,6 +5,10 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 
 import '@ui5/webcomponents/dist/Label.js';
+import '@ui5/webcomponents/dist/Icon.js';
+import '@ui5/webcomponents-icons/dist/icons/accept.js';
+import '@ui5/webcomponents-icons/dist/icons/border.js';
+
 import './furo-ui5-form-field-container.js';
 
 /**
@@ -24,6 +28,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
     super(props);
     this.label = '';
     this.valueState = '';
+    this.displayField = '';
     this._initBinder();
   }
 
@@ -41,6 +46,12 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
        * the label for the data-text-input
        */
       label: { type: String },
+      /**
+       * Display Field
+       * For complex type the standard behaviour is to display the field
+       * display_name. With this attribute you can choose another field of the type.
+       */
+      displayField: { type: String, reflect: true, attribute: 'display-field' },
       /**
        * Value State
        */
@@ -141,15 +152,25 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
     });
   }
 
+  /**
+   * Finds the best string representation solution for scalar, complex and fat types
+   * @private
+   */
   _updateField() {
-    if (this.binder.fieldFormat === 'fat' || this.binder.fieldFormat === 'wrapper') {
+    if (this.binder.fieldFormat === 'fat') {
       this.value = this.binder.fieldNode.value._value;
+    } else if (
+      typeof this.binder.fieldNode._value === 'object' &&
+      !Array.isArray(this.binder.fieldNode._value) &&
+      this.binder.fieldNode._value !== null
+    ) {
+      this.value = this.binder.fieldNode._value.value || this.binder.fieldNode._value;
     } else {
-      this.value = this.binder.fieldNode._value;
+      this.value = this.binder.fieldNode._value.toString();
     }
 
-    if (this.displayfield && this.binder.fieldNode[this.displayfield]) {
-      this.value = this.binder.fieldNode[this.displayfield]._value;
+    if (this.displayField && this.displayField.length && this.binder.fieldNode[this.displayField]) {
+      this.value = this.binder.fieldNode[this.displayField]._value;
     } else if (this.binder.fieldNode.display_name) {
       this.value = this.binder.fieldNode.display_name;
     }
@@ -170,6 +191,28 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
   }
 
   /**
+   * Template logic
+   * For boolean value an icon representation is used
+   * @returns {*}
+   * @private
+   */
+  _getTemplate() {
+    if (this.binder.fieldNode && this.binder.fieldNode._spec.type === 'bool') {
+      if (this.value) {
+        return html`
+          <ui5-icon name="accept"></ui5-icon>
+        `;
+      }
+      return html`
+        <ui5-icon name="border"></ui5-icon>
+      `;
+    }
+    return html`
+      <p content id="Input">${this.value}</p>
+    `;
+  }
+
+  /**
    * @private
    * @returns {TemplateResult|TemplateResult}
    */
@@ -178,7 +221,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
     return html`
       <furo-ui5-form-field-container>
         <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
-        <p content id="Input">${this.value}</p>
+        ${this._getTemplate()}
       </furo-ui5-form-field-container>
     `;
   }

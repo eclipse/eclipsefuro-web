@@ -374,11 +374,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 221,
+              "line": 222,
               "column": 2
             },
             "end": {
-              "line": 231,
+              "line": 232,
               "column": 3
             }
           },
@@ -395,11 +395,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 238,
+              "line": 246,
               "column": 2
             },
             "end": {
-              "line": 245,
+              "line": 253,
               "column": 3
             }
           },
@@ -416,11 +416,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 252,
+              "line": 260,
               "column": 2
             },
             "end": {
-              "line": 255,
+              "line": 263,
               "column": 3
             }
           },
@@ -437,11 +437,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 262,
+              "line": 270,
               "column": 2
             },
             "end": {
-              "line": 265,
+              "line": 273,
               "column": 3
             }
           },
@@ -458,11 +458,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 272,
+              "line": 280,
               "column": 2
             },
             "end": {
-              "line": 275,
+              "line": 283,
               "column": 3
             }
           },
@@ -479,11 +479,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 282,
+              "line": 290,
               "column": 2
             },
             "end": {
-              "line": 285,
+              "line": 293,
               "column": 3
             }
           },
@@ -500,11 +500,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 292,
+              "line": 300,
               "column": 2
             },
             "end": {
-              "line": 295,
+              "line": 303,
               "column": 3
             }
           },
@@ -521,11 +521,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 302,
+              "line": 310,
               "column": 2
             },
             "end": {
-              "line": 312,
+              "line": 320,
               "column": 3
             }
           },
@@ -542,11 +542,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 366,
+              "line": 374,
               "column": 2
             },
             "end": {
-              "line": 414,
+              "line": 422,
               "column": 3
             }
           },
@@ -652,7 +652,7 @@
               "column": 2
             },
             "end": {
-              "line": 215,
+              "line": 216,
               "column": 3
             }
           },
@@ -669,16 +669,36 @@
           }
         },
         {
+          "name": "_requestUpdate",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 237,
+              "column": 2
+            },
+            "end": {
+              "line": 239,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "_updateVS",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 314,
+              "line": 322,
               "column": 2
             },
             "end": {
-              "line": 339,
+              "line": 347,
               "column": 3
             }
           },
@@ -694,11 +714,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 346,
+              "line": 354,
               "column": 2
             },
             "end": {
-              "line": 358,
+              "line": 366,
               "column": 3
             }
           },
@@ -727,7 +747,7 @@
           "column": 7
         },
         "end": {
-          "line": 415,
+          "line": 423,
           "column": 1
         }
       },
@@ -786,11 +806,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 221,
+              "line": 222,
               "column": 2
             },
             "end": {
-              "line": 231,
+              "line": 232,
               "column": 3
             }
           },
@@ -809,11 +829,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 238,
+              "line": 246,
               "column": 2
             },
             "end": {
-              "line": 245,
+              "line": 253,
               "column": 3
             }
           },
@@ -832,11 +852,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 252,
+              "line": 260,
               "column": 2
             },
             "end": {
-              "line": 255,
+              "line": 263,
               "column": 3
             }
           },
@@ -855,11 +875,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 262,
+              "line": 270,
               "column": 2
             },
             "end": {
-              "line": 265,
+              "line": 273,
               "column": 3
             }
           },
@@ -878,11 +898,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 272,
+              "line": 280,
               "column": 2
             },
             "end": {
-              "line": 275,
+              "line": 283,
               "column": 3
             }
           },
@@ -901,11 +921,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 282,
+              "line": 290,
               "column": 2
             },
             "end": {
-              "line": 285,
+              "line": 293,
               "column": 3
             }
           },
@@ -924,11 +944,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 292,
+              "line": 300,
               "column": 2
             },
             "end": {
-              "line": 295,
+              "line": 303,
               "column": 3
             }
           },
@@ -947,11 +967,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 302,
+              "line": 310,
               "column": 2
             },
             "end": {
-              "line": 312,
+              "line": 320,
               "column": 3
             }
           },
@@ -970,11 +990,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 366,
+              "line": 374,
               "column": 2
             },
             "end": {
-              "line": 414,
+              "line": 422,
               "column": 3
             }
           },
@@ -1090,7 +1110,7 @@
               "column": 2
             },
             "end": {
-              "line": 215,
+              "line": 216,
               "column": 3
             }
           },
@@ -1108,17 +1128,39 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
+          "name": "_requestUpdate",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 237,
+              "column": 2
+            },
+            "end": {
+              "line": 239,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
           "name": "_updateVS",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 314,
+              "line": 322,
               "column": 2
             },
             "end": {
-              "line": 339,
+              "line": 347,
               "column": 3
             }
           },
@@ -1136,11 +1178,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 346,
+              "line": 354,
               "column": 2
             },
             "end": {
-              "line": 358,
+              "line": 366,
               "column": 3
             }
           },
@@ -1586,11 +1628,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 221,
+              "line": 222,
               "column": 2
             },
             "end": {
-              "line": 231,
+              "line": 232,
               "column": 3
             }
           },
@@ -1609,11 +1651,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 238,
+              "line": 246,
               "column": 2
             },
             "end": {
-              "line": 245,
+              "line": 253,
               "column": 3
             }
           },
@@ -1632,11 +1674,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 252,
+              "line": 260,
               "column": 2
             },
             "end": {
-              "line": 255,
+              "line": 263,
               "column": 3
             }
           },
@@ -1655,11 +1697,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 262,
+              "line": 270,
               "column": 2
             },
             "end": {
-              "line": 265,
+              "line": 273,
               "column": 3
             }
           },
@@ -1678,11 +1720,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 272,
+              "line": 280,
               "column": 2
             },
             "end": {
-              "line": 275,
+              "line": 283,
               "column": 3
             }
           },
@@ -1701,11 +1743,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 282,
+              "line": 290,
               "column": 2
             },
             "end": {
-              "line": 285,
+              "line": 293,
               "column": 3
             }
           },
@@ -1724,11 +1766,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 292,
+              "line": 300,
               "column": 2
             },
             "end": {
-              "line": 295,
+              "line": 303,
               "column": 3
             }
           },
@@ -1747,11 +1789,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 302,
+              "line": 310,
               "column": 2
             },
             "end": {
-              "line": 312,
+              "line": 320,
               "column": 3
             }
           },
@@ -1770,11 +1812,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 366,
+              "line": 374,
               "column": 2
             },
             "end": {
-              "line": 414,
+              "line": 422,
               "column": 3
             }
           },
@@ -1888,7 +1930,7 @@
               "column": 2
             },
             "end": {
-              "line": 215,
+              "line": 216,
               "column": 3
             }
           },
@@ -1906,17 +1948,39 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
+          "name": "_requestUpdate",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 237,
+              "column": 2
+            },
+            "end": {
+              "line": 239,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
           "name": "_updateVS",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 314,
+              "line": 322,
               "column": 2
             },
             "end": {
-              "line": 339,
+              "line": 347,
               "column": 3
             }
           },
@@ -1934,11 +1998,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 346,
+              "line": 354,
               "column": 2
             },
             "end": {
-              "line": 358,
+              "line": 366,
               "column": 3
             }
           },
@@ -2291,11 +2355,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 221,
+              "line": 222,
               "column": 2
             },
             "end": {
-              "line": 231,
+              "line": 232,
               "column": 3
             }
           },
@@ -2314,11 +2378,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 238,
+              "line": 246,
               "column": 2
             },
             "end": {
-              "line": 245,
+              "line": 253,
               "column": 3
             }
           },
@@ -2337,11 +2401,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 252,
+              "line": 260,
               "column": 2
             },
             "end": {
-              "line": 255,
+              "line": 263,
               "column": 3
             }
           },
@@ -2360,11 +2424,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 262,
+              "line": 270,
               "column": 2
             },
             "end": {
-              "line": 265,
+              "line": 273,
               "column": 3
             }
           },
@@ -2383,11 +2447,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 272,
+              "line": 280,
               "column": 2
             },
             "end": {
-              "line": 275,
+              "line": 283,
               "column": 3
             }
           },
@@ -2406,11 +2470,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 282,
+              "line": 290,
               "column": 2
             },
             "end": {
-              "line": 285,
+              "line": 293,
               "column": 3
             }
           },
@@ -2429,11 +2493,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 292,
+              "line": 300,
               "column": 2
             },
             "end": {
-              "line": 295,
+              "line": 303,
               "column": 3
             }
           },
@@ -2452,11 +2516,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 302,
+              "line": 310,
               "column": 2
             },
             "end": {
-              "line": 312,
+              "line": 320,
               "column": 3
             }
           },
@@ -2475,11 +2539,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 366,
+              "line": 374,
               "column": 2
             },
             "end": {
-              "line": 414,
+              "line": 422,
               "column": 3
             }
           },
@@ -2593,7 +2657,7 @@
               "column": 2
             },
             "end": {
-              "line": 215,
+              "line": 216,
               "column": 3
             }
           },
@@ -2611,17 +2675,39 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
+          "name": "_requestUpdate",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 237,
+              "column": 2
+            },
+            "end": {
+              "line": 239,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
           "name": "_updateVS",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 314,
+              "line": 322,
               "column": 2
             },
             "end": {
-              "line": 339,
+              "line": 347,
               "column": 3
             }
           },
@@ -2639,11 +2725,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 346,
+              "line": 354,
               "column": 2
             },
             "end": {
-              "line": 358,
+              "line": 366,
               "column": 3
             }
           },
@@ -3082,11 +3168,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 276,
+              "line": 267,
               "column": 2
             },
             "end": {
-              "line": 311,
+              "line": 302,
               "column": 3
             }
           },
@@ -3104,11 +3190,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 125,
+              "line": 127,
               "column": 2
             },
             "end": {
-              "line": 132,
+              "line": 134,
               "column": 3
             }
           },
@@ -3124,11 +3210,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 142,
+              "line": 144,
               "column": 2
             },
             "end": {
-              "line": 163,
+              "line": 165,
               "column": 3
             }
           },
@@ -3154,11 +3240,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 170,
+              "line": 172,
               "column": 2
             },
             "end": {
-              "line": 229,
+              "line": 220,
               "column": 3
             }
           },
@@ -3174,11 +3260,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 222,
               "column": 2
             },
             "end": {
-              "line": 241,
+              "line": 232,
               "column": 3
             }
           },
@@ -3195,11 +3281,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 248,
+              "line": 239,
               "column": 2
             },
             "end": {
-              "line": 254,
+              "line": 245,
               "column": 3
             }
           },
@@ -3219,11 +3305,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 261,
+              "line": 252,
               "column": 2
             },
             "end": {
-              "line": 265,
+              "line": 256,
               "column": 3
             }
           },
@@ -3243,11 +3329,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 271,
+              "line": 262,
               "column": 2
             },
             "end": {
-              "line": 274,
+              "line": 265,
               "column": 3
             }
           },
@@ -3267,11 +3353,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 319,
+              "line": 310,
               "column": 2
             },
             "end": {
-              "line": 343,
+              "line": 334,
               "column": 3
             }
           },
@@ -3291,11 +3377,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 352,
+              "line": 343,
               "column": 2
             },
             "end": {
-              "line": 389,
+              "line": 380,
               "column": 3
             }
           },
@@ -3315,11 +3401,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 395,
+              "line": 386,
               "column": 2
             },
             "end": {
-              "line": 411,
+              "line": 402,
               "column": 3
             }
           },
@@ -3334,16 +3420,36 @@
           }
         },
         {
+          "name": "_requestUpdate",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 407,
+              "column": 2
+            },
+            "end": {
+              "line": 415,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "_getValueByPath",
           "description": "eslint-disable-next-line class-methods-use-this",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 421,
+              "line": 425,
               "column": 2
             },
             "end": {
-              "line": 423,
+              "line": 427,
               "column": 3
             }
           },
@@ -3363,11 +3469,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 430,
+              "line": 434,
               "column": 2
             },
             "end": {
-              "line": 485,
+              "line": 489,
               "column": 3
             }
           },
@@ -3389,11 +3495,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 491,
+              "line": 495,
               "column": 2
             },
             "end": {
-              "line": 493,
+              "line": 497,
               "column": 3
             }
           },
@@ -3413,11 +3519,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 496,
+              "line": 500,
               "column": 2
             },
             "end": {
-              "line": 515,
+              "line": 519,
               "column": 3
             }
           },
@@ -3433,11 +3539,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 523,
+              "line": 527,
               "column": 2
             },
             "end": {
-              "line": 536,
+              "line": 540,
               "column": 3
             }
           },
@@ -3457,11 +3563,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 542,
+              "line": 546,
               "column": 2
             },
             "end": {
-              "line": 544,
+              "line": 548,
               "column": 3
             }
           },
@@ -3481,11 +3587,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 546,
+              "line": 550,
               "column": 2
             },
             "end": {
-              "line": 557,
+              "line": 561,
               "column": 3
             }
           },
@@ -3502,11 +3608,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 577,
+              "line": 581,
               "column": 2
             },
             "end": {
-              "line": 593,
+              "line": 597,
               "column": 3
             }
           },
@@ -3526,11 +3632,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 599,
+              "line": 603,
               "column": 2
             },
             "end": {
-              "line": 601,
+              "line": 605,
               "column": 3
             }
           },
@@ -3559,7 +3665,7 @@
           "column": 7
         },
         "end": {
-          "line": 602,
+          "line": 606,
           "column": 1
         }
       },
@@ -3572,11 +3678,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 139,
+              "line": 141,
               "column": 12
             },
             "end": {
-              "line": 139,
+              "line": 141,
               "column": 25
             }
           },
@@ -3587,11 +3693,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 139,
+              "line": 141,
               "column": 27
             },
             "end": {
-              "line": 139,
+              "line": 141,
               "column": 42
             }
           },
@@ -3602,11 +3708,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 139,
+              "line": 141,
               "column": 44
             },
             "end": {
-              "line": 139,
+              "line": 141,
               "column": 55
             }
           },
@@ -3617,11 +3723,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 139,
+              "line": 141,
               "column": 57
             },
             "end": {
-              "line": 139,
+              "line": 141,
               "column": 74
             }
           },
@@ -3632,11 +3738,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 139,
+              "line": 141,
               "column": 76
             },
             "end": {
-              "line": 139,
+              "line": 141,
               "column": 95
             }
           },
@@ -4139,11 +4245,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 43,
+              "line": 41,
               "column": 2
             },
             "end": {
-              "line": 52,
+              "line": 50,
               "column": 3
             }
           },
@@ -4159,11 +4265,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 57,
               "column": 2
             },
             "end": {
-              "line": 63,
+              "line": 61,
               "column": 3
             }
           },
@@ -4179,11 +4285,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 66,
               "column": 2
             },
             "end": {
-              "line": 162,
+              "line": 160,
               "column": 3
             }
           },
@@ -4199,11 +4305,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 196,
               "column": 2
             },
             "end": {
-              "line": 200,
+              "line": 198,
               "column": 3
             }
           },
@@ -4223,11 +4329,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 207,
+              "line": 205,
               "column": 2
             },
             "end": {
-              "line": 236,
+              "line": 234,
               "column": 3
             }
           },
@@ -4249,11 +4355,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 242,
+              "line": 240,
               "column": 2
             },
             "end": {
-              "line": 273,
+              "line": 271,
               "column": 3
             }
           },
@@ -4271,11 +4377,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 171,
+              "line": 169,
               "column": 2
             },
             "end": {
-              "line": 192,
+              "line": 190,
               "column": 3
             }
           },
@@ -4298,11 +4404,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 281,
+              "line": 279,
               "column": 2
             },
             "end": {
-              "line": 288,
+              "line": 286,
               "column": 3
             }
           },
@@ -4322,11 +4428,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 296,
+              "line": 294,
               "column": 2
             },
             "end": {
-              "line": 307,
+              "line": 305,
               "column": 3
             }
           },
@@ -4346,11 +4452,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 317,
+              "line": 315,
               "column": 2
             },
             "end": {
-              "line": 337,
+              "line": 335,
               "column": 3
             }
           },
@@ -4384,7 +4490,7 @@
           "column": 7
         },
         "end": {
-          "line": 338,
+          "line": 336,
           "column": 1
         }
       },
@@ -4537,7 +4643,7 @@
               "column": 2
             },
             "end": {
-              "line": 100,
+              "line": 102,
               "column": 3
             }
           },
@@ -4562,7 +4668,7 @@
           "column": 0
         },
         "end": {
-          "line": 101,
+          "line": 103,
           "column": 1
         }
       },
@@ -4764,7 +4870,7 @@
       ]
     },
     {
-      "description": "The furo-ui5-data-reference-search\n search a reference\n bounded data should be furo.reference\n\n the furo-ui5-data-reference-search should be used together with the fur-collection-agent:\n```\n<!--  furo-data-object -->\n<furo-data-object type=\"task.Task\" @-object-ready=\"--entityReady\"></furo-data-object>\n\n<furo-horizontal-flex>\n   <furo-ui5-data-reference-search autofocus  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-ui5-data-reference-search>\n</furo-horizontal-flex>\n\n<furo-collection-agent service=\"tasks\" ƒ-search=\"--term\" ƒ-hts-in=\"--entityReady(*.fields.ref._value)\" @-response=\"--refCol\"></furo-collection-agent>\n\n```\n\n * ### following labels of fat types are supported by default:\n\n- 'error': state of input is error\n- 'readonly': input is disabled\n- 'required': input is required\n- 'disabled': input is disabled\n- 'pristine': data is not changed. it is pristine\n- 'condensed': input has condensed display\n\n### following attributes of fat types are supported by default:\n\n- 'placeholder': placeholder of the search field\n- 'hint': input hint\n- 'min_term_length': the minimum number of characters that use should to input to trigger the search\n- 'no_result_hint': hint text when result not found by search\n- 'errortext': the error text of the input\n- 'error-msg': the same as errortext\n\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'required': is mapped to 'required' attribute",
+      "description": "The furo-ui5-data-reference-search\n search a reference\n bounded data should be furo.reference\n\n the furo-ui5-data-reference-search should be used together with the fur-collection-agent:\n```\n<!--  furo-data-object -->\n<furo-data-object type=\"task.Task\" @-object-ready=\"--entityReady\"></furo-data-object>\n\n<furo-horizontal-flex>\n   <furo-ui5-data-reference-search autofocus  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-ui5-data-reference-search>\n</furo-horizontal-flex>\n\n<furo-collection-agent service=\"tasks\" ƒ-search=\"--term\" ƒ-hts-in=\"--entityReady(*.fields.ref._value)\" @-response=\"--refCol\"></furo-collection-agent>\n\n```\n\n * ### following labels of fat types are supported:\n\n- 'error': state of input is error\n- 'readonly': input is disabled\n- 'required': input is required\n- 'disabled': input is disabled\n- 'pristine': data is not changed. it is pristine\n- 'condensed': input has condensed display\n\n### following attributes of fat types are supported:\n\n- 'placeholder': placeholder of the search field\n- 'hint': input hint\n- 'min_term_length': the minimum number of characters that use should to input to trigger the search\n- 'no_result_hint': hint text when result not found by search\n- 'errortext': the error text of the input\n- 'error-msg': the same as errortext\n\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'required': is mapped to 'required' attribute",
       "summary": "furo ui5 data reference search",
       "path": "src/furo-ui5-data-reference-search.js",
       "properties": [
@@ -6286,7 +6392,7 @@
               "column": 2
             },
             "end": {
-              "line": 121,
+              "line": 123,
               "column": 3
             }
           },
@@ -6302,11 +6408,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 130,
               "column": 2
             },
             "end": {
-              "line": 146,
+              "line": 149,
               "column": 3
             }
           },
@@ -6318,6 +6424,26 @@
               "description": "a Field object"
             }
           ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_requestUpdate",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 154,
+              "column": 2
+            },
+            "end": {
+              "line": 156,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
           "return": {
             "type": "void"
           }
@@ -6337,7 +6463,7 @@
           "column": 7
         },
         "end": {
-          "line": 147,
+          "line": 157,
           "column": 1
         }
       },
@@ -10171,11 +10297,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 209,
+              "line": 211,
               "column": 6
             },
             "end": {
-              "line": 212,
+              "line": 214,
               "column": 7
             }
           },
@@ -10192,11 +10318,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 216,
+              "line": 218,
               "column": 6
             },
             "end": {
-              "line": 219,
+              "line": 221,
               "column": 7
             }
           },
@@ -10286,7 +10412,7 @@
               "column": 2
             },
             "end": {
-              "line": 192,
+              "line": 194,
               "column": 3
             }
           },
@@ -10302,11 +10428,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 197,
+              "line": 199,
               "column": 2
             },
             "end": {
-              "line": 199,
+              "line": 201,
               "column": 3
             }
           },
@@ -10322,11 +10448,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 244,
+              "line": 246,
               "column": 2
             },
             "end": {
-              "line": 248,
+              "line": 250,
               "column": 3
             }
           },
@@ -10351,7 +10477,7 @@
           "column": 0
         },
         "end": {
-          "line": 249,
+          "line": 251,
           "column": 1
         }
       },
@@ -10364,11 +10490,11 @@
           "description": "the header text of the notification",
           "sourceRange": {
             "start": {
-              "line": 209,
+              "line": 211,
               "column": 6
             },
             "end": {
-              "line": 212,
+              "line": 214,
               "column": 7
             }
           },
@@ -10380,11 +10506,11 @@
           "description": "Defines if the close button would be displayed.",
           "sourceRange": {
             "start": {
-              "line": 216,
+              "line": 218,
               "column": 6
             },
             "end": {
-              "line": 219,
+              "line": 221,
               "column": 7
             }
           },
@@ -11072,11 +11198,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 221,
+              "line": 222,
               "column": 2
             },
             "end": {
-              "line": 231,
+              "line": 232,
               "column": 3
             }
           },
@@ -11095,11 +11221,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 238,
+              "line": 246,
               "column": 2
             },
             "end": {
-              "line": 245,
+              "line": 253,
               "column": 3
             }
           },
@@ -11118,11 +11244,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 252,
+              "line": 260,
               "column": 2
             },
             "end": {
-              "line": 255,
+              "line": 263,
               "column": 3
             }
           },
@@ -11141,11 +11267,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 262,
+              "line": 270,
               "column": 2
             },
             "end": {
-              "line": 265,
+              "line": 273,
               "column": 3
             }
           },
@@ -11164,11 +11290,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 272,
+              "line": 280,
               "column": 2
             },
             "end": {
-              "line": 275,
+              "line": 283,
               "column": 3
             }
           },
@@ -11187,11 +11313,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 282,
+              "line": 290,
               "column": 2
             },
             "end": {
-              "line": 285,
+              "line": 293,
               "column": 3
             }
           },
@@ -11210,11 +11336,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 292,
+              "line": 300,
               "column": 2
             },
             "end": {
-              "line": 295,
+              "line": 303,
               "column": 3
             }
           },
@@ -11233,11 +11359,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 302,
+              "line": 310,
               "column": 2
             },
             "end": {
-              "line": 312,
+              "line": 320,
               "column": 3
             }
           },
@@ -11256,11 +11382,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 366,
+              "line": 374,
               "column": 2
             },
             "end": {
-              "line": 414,
+              "line": 422,
               "column": 3
             }
           },
@@ -11341,11 +11467,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 82,
+              "line": 86,
               "column": 2
             },
             "end": {
-              "line": 85,
+              "line": 89,
               "column": 3
             }
           },
@@ -11369,7 +11495,7 @@
               "column": 2
             },
             "end": {
-              "line": 76,
+              "line": 80,
               "column": 3
             }
           },
@@ -11384,17 +11510,39 @@
           }
         },
         {
+          "name": "_requestUpdate",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 237,
+              "column": 2
+            },
+            "end": {
+              "line": 239,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
           "name": "_updateVS",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 314,
+              "line": 322,
               "column": 2
             },
             "end": {
-              "line": 339,
+              "line": 347,
               "column": 3
             }
           },
@@ -11412,11 +11560,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 346,
+              "line": 354,
               "column": 2
             },
             "end": {
-              "line": 358,
+              "line": 366,
               "column": 3
             }
           },
@@ -11437,11 +11585,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 91,
               "column": 2
             },
             "end": {
-              "line": 103,
+              "line": 107,
               "column": 3
             }
           },
@@ -11466,7 +11614,7 @@
           "column": 7
         },
         "end": {
-          "line": 104,
+          "line": 108,
           "column": 1
         }
       },
@@ -11759,11 +11907,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 166,
+              "line": 187,
               "column": 2
             },
             "end": {
-              "line": 168,
+              "line": 189,
               "column": 3
             }
           },
@@ -11780,12 +11928,33 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 42,
+              "line": 47,
               "column": 6
             },
             "end": {
-              "line": 42,
+              "line": 47,
               "column": 29
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "displayField",
+          "type": "string | null | undefined",
+          "description": "Display Field\nFor complex type the standard behaviour is to display the field\ndisplay_name. With this attribute you can choose another field of the type.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 6
+            },
+            "end": {
+              "line": 53,
+              "column": 77
             }
           },
           "metadata": {
@@ -11801,11 +11970,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 46,
+              "line": 57,
               "column": 6
             },
             "end": {
-              "line": 46,
+              "line": 57,
               "column": 75
             }
           },
@@ -11823,11 +11992,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 32,
+              "line": 37,
               "column": 2
             },
             "end": {
-              "line": 35,
+              "line": 40,
               "column": 3
             }
           },
@@ -11843,11 +12012,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 86,
+              "line": 98,
               "column": 2
             },
             "end": {
-              "line": 90,
+              "line": 102,
               "column": 3
             }
           },
@@ -11863,11 +12032,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 109,
               "column": 2
             },
             "end": {
-              "line": 120,
+              "line": 132,
               "column": 3
             }
           },
@@ -11883,11 +12052,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 127,
+              "line": 139,
               "column": 2
             },
             "end": {
-              "line": 140,
+              "line": 152,
               "column": 3
             }
           },
@@ -11903,15 +12072,15 @@
         },
         {
           "name": "_updateField",
-          "description": "",
-          "privacy": "protected",
+          "description": "Finds the best string representation solution for scalar, complex and fat types",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 142,
+              "line": 158,
               "column": 2
             },
             "end": {
-              "line": 159,
+              "line": 180,
               "column": 3
             }
           },
@@ -11922,16 +12091,36 @@
           }
         },
         {
+          "name": "_getTemplate",
+          "description": "Template logic\nFor boolean value an icon representation is used",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 197,
+              "column": 2
+            },
+            "end": {
+              "line": 205,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "*"
+          }
+        },
+        {
           "name": "render",
           "description": "",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 174,
+              "line": 211,
               "column": 2
             },
             "end": {
-              "line": 182,
+              "line": 219,
               "column": 3
             }
           },
@@ -11960,11 +12149,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 21,
+          "line": 25,
           "column": 0
         },
         "end": {
-          "line": 183,
+          "line": 220,
           "column": 1
         }
       },
@@ -11977,12 +12166,28 @@
           "description": "the label for the data-text-input",
           "sourceRange": {
             "start": {
-              "line": 42,
+              "line": 47,
               "column": 6
             },
             "end": {
-              "line": 42,
+              "line": 47,
               "column": 29
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "display-field",
+          "description": "Display Field\nFor complex type the standard behaviour is to display the field\ndisplay_name. With this attribute you can choose another field of the type.",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 6
+            },
+            "end": {
+              "line": 53,
+              "column": 77
             }
           },
           "metadata": {},
@@ -11993,11 +12198,11 @@
           "description": "Value State",
           "sourceRange": {
             "start": {
-              "line": 46,
+              "line": 57,
               "column": 6
             },
             "end": {
-              "line": 46,
+              "line": 57,
               "column": 75
             }
           },
@@ -12521,6 +12726,464 @@
       },
       "slots": [],
       "tagname": "furo-ui5-data-multi-input-labeled",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-ui5-data-table`\n\nThe furo-ui5-data-table component provides a set of sophisticated and convenient functions for responsive table design.\nIt provides a comprehensive set of features for displaying and dealing with vast amounts of data.\nTo render the Table properly, the order of the columns should match with the order of the item cells in the rows.\nDesktop and tablet devices are supported. On tablets, special consideration should be given to the number of visible\ncolumns and rows due to the limited performance of some devices.",
+      "summary": "",
+      "path": "src/furo-ui5-data-table.js",
+      "properties": [
+        {
+          "name": "columnHeaders",
+          "type": "Array",
+          "description": "Column meta information\nused to render all the column stuff",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 41,
+              "column": 4
+            },
+            "end": {
+              "line": 41,
+              "column": 22
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "[]"
+        },
+        {
+          "name": "type",
+          "type": "string | null | undefined",
+          "description": "Typedefinition of row items\nREST SPEC Type\nSupported __ui flags: \"flags\": [\"align-right\"] e.g. for numeric values\ne.g. task.Task.[type]",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 117,
+              "column": 2
+            },
+            "end": {
+              "line": 129,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "fields",
+          "type": "string | null | undefined",
+          "description": "list of fields which columns should be displayed\ncomma separated field list",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 73,
+              "column": 6
+            },
+            "end": {
+              "line": 77,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "sortableFields",
+          "type": "string | null | undefined",
+          "description": "list of sortable fields\ncomma separated field list",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 6
+            },
+            "end": {
+              "line": 86,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 52,
+              "column": 2
+            },
+            "end": {
+              "line": 55,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "attributeChangedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 131,
+              "column": 2
+            },
+            "end": {
+              "line": 147,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "oldval"
+            },
+            {
+              "name": "newval"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_checkType",
+          "description": "SPEC Type checker\nBuilds the column Array for the inner template",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 155,
+              "column": 2
+            },
+            "end": {
+              "line": 170,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "type"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_init",
+          "description": "Prepare columns form attribute fields",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 177,
+              "column": 2
+            },
+            "end": {
+              "line": 194,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fields"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_addColumn",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 196,
+              "column": 2
+            },
+            "end": {
+              "line": 225,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "col"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_applySortableFields",
+          "description": "parses the attribute sortable-fields\nand creates an internal array of sortable fields",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 233,
+              "column": 2
+            },
+            "end": {
+              "line": 246,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fields"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "firstUpdated",
+          "description": "Event listening and type check",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 254,
+              "column": 2
+            },
+            "end": {
+              "line": 262,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "changedProps"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Binds data-object to data-table",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 268,
+              "column": 2
+            },
+            "end": {
+              "line": 287,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "RepeaterNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "Template rendering",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 294,
+              "column": 2
+            },
+            "end": {
+              "line": 319,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "(TemplateResult | TemplateResult)"
+          }
+        },
+        {
+          "name": "triggerNavigation",
+          "description": "Integration of furo-navigation-pad keys",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 325,
+              "column": 2
+            },
+            "end": {
+              "line": 338,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "key"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "first",
+          "description": "Focuses the first table row element",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 343,
+              "column": 2
+            },
+            "end": {
+              "line": 345,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "last",
+          "description": "Focuses the last table row element",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 350,
+              "column": 2
+            },
+            "end": {
+              "line": 352,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-table",
+          "description": "Usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 25,
+          "column": 0
+        },
+        "end": {
+          "line": 355,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroUi5DataTable",
+      "attributes": [
+        {
+          "name": "type",
+          "description": "Typedefinition of row items\nREST SPEC Type\nSupported __ui flags: \"flags\": [\"align-right\"] e.g. for numeric values\ne.g. task.Task.[type]",
+          "sourceRange": {
+            "start": {
+              "line": 117,
+              "column": 2
+            },
+            "end": {
+              "line": 129,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "fields",
+          "description": "list of fields which columns should be displayed\ncomma separated field list",
+          "sourceRange": {
+            "start": {
+              "line": 73,
+              "column": 6
+            },
+            "end": {
+              "line": 77,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "sortable-fields",
+          "description": "list of sortable fields\ncomma separated field list",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 6
+            },
+            "end": {
+              "line": 86,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "spec-error",
+          "description": "spec-error\nFired when spec could not be loaded\ndetail payload: {string} spec name",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-table",
       "mixins": [
         "FBP"
       ]
