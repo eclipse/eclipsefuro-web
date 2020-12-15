@@ -137,6 +137,25 @@ export class DataObject extends EventTreeNode {
     return this.getJson();
   }
 
+
+  /**
+   * returns the value of the data object as a base64 encoded string
+    * @return {string}
+   * @private
+   */
+  get _base64(){
+    return btoa(JSON.stringify(this._value));
+  }
+
+  /**
+   * Set the value of the data object with a base64 encoded string
+   * @param encodedData
+   * @private
+   */
+  set _base64(encodedData){
+    this.injectRaw(JSON.parse(atob(encodedData)))
+  }
+
   /**
    * Returns a json representation of your Data Object
    * @return {*}
