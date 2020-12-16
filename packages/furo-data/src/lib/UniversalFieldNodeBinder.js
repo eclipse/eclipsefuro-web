@@ -1,5 +1,5 @@
-import { FieldNode } from './FieldNode.js';
-import { RepeaterNode } from './RepeaterNode.js';
+import {FieldNode} from './FieldNode.js';
+import {RepeaterNode} from './RepeaterNode.js';
 
 /**
  * `UniversalFieldNodeBinder` consumes a FieldNode of any type, google wrapper or FAT and exposes
@@ -150,7 +150,7 @@ export class UniversalFieldNodeBinder {
           this._removeVirtualLabel('error');
         }
       },
-      { once: true },
+      {once: true},
     );
 
     field.addEventListener('field-became-valid', () => {
@@ -200,7 +200,7 @@ export class UniversalFieldNodeBinder {
     if ('labels' in this.fieldNode) {
       this._givenLabels = this.fieldNode.labels.__childNodes.map(labelNode => labelNode._value);
       if (this._givenLabels.indexOf(label) === -1) {
-        this.fieldNode.labels.createField({ fieldName: label, type: 'bool', _value: true });
+        this.fieldNode.labels.createField({fieldName: label, type: 'bool', _value: true});
       }
     } else {
       // attention, this is for ui only, this label will never sent back to the server
@@ -213,15 +213,17 @@ export class UniversalFieldNodeBinder {
    * @param label
    */
   deleteLabel(label) {
-    if ('labels' in this.fieldNode) {
+    if (this.fieldNode) {
+      if ('labels' in this.fieldNode) {
 
-      if (this.fieldNode.labels[label]) {
-        // set to false instead delete
-        this.fieldNode.labels[label]._value=false;
+        if (this.fieldNode.labels[label]) {
+          // set to false instead delete
+          this.fieldNode.labels[label]._value = false;
+        }
+      } else {
+        // attention, this is for ui only, this label will never sent back to the server
+        this._removeVirtualLabel(label);
       }
-    } else {
-      // attention, this is for ui only, this label will never sent back to the server
-      this._removeVirtualLabel(label);
     }
   }
 
@@ -232,12 +234,14 @@ export class UniversalFieldNodeBinder {
    * @param value
    */
   setAttribute(name, value) {
-    if ('attributes' in this.fieldNode) {
-      if (!this._givenAttrs[name]) {
-        this.fieldNode.attributes.createField({ fieldName: name, type: 'string', _value: value });
+    if (this.fieldNode) {
+      if ('attributes' in this.fieldNode) {
+        if (!this._givenAttrs[name]) {
+          this.fieldNode.attributes.createField({fieldName: name, type: 'string', _value: value});
+        }
+      } else {
+        this._addVirtualAttribute(name, value);
       }
-    } else {
-      this._addVirtualAttribute(name, value);
     }
   }
 
