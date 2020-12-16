@@ -34,7 +34,7 @@ describe('furo-pretty-json', () => {
 
   it('should accept json', done => {
     element.injectData({ a: 1, b: true, c: 12 });
-    const content = element.shadowRoot.querySelector('#content').innerHTML;
+    const content = element.renderRoot.innerHTML;
     assert.equal(content.length, 196);
     done();
   });
@@ -43,7 +43,7 @@ describe('furo-pretty-json', () => {
     element.injectData({ a: 2 });
 
     element.injectData(undefined);
-    assert.equal(element.shadowRoot.querySelector('#content').innerHTML, '');
+    assert.equal(element.renderRoot.innerHTML, '');
     done();
   });
 });
