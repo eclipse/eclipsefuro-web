@@ -1,33 +1,33 @@
-import { LitElement, html, css } from 'lit-element'
-import { Theme } from '@furo/framework/src/theme'
-import { FBP } from '@furo/fbp/src/fbp.js'
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp/src/fbp.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/doc-helper'
+import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5/src/furo-catalog.js'
+import '@furo/ui5/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-data-object.js'
+import '@furo/data/src/furo-data-object.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-entity-agent.js'
+import '@furo/data/src/furo-entity-agent.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-deep-link.js'
+import '@furo/data/src/furo-deep-link.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-form-layouter.js'
+import '@furo/form/src/furo-form-layouter.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-button-bar.js'
+import '@furo/form/src/furo-button-bar.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-input/demos/helper/produce-qp-data.js'
+import '@furo/data-input/demos/helper/produce-qp-data.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/route/src/furo-pages.js'
+import '@furo/route/src/furo-pages.js';
 
-import '@ui5/webcomponents/dist/Card.js'
-import '@ui5/webcomponents/dist/TabContainer.js'
-import '@ui5/webcomponents/dist/Tab.js'
+import '@ui5/webcomponents/dist/Card.js';
+import '@ui5/webcomponents/dist/TabContainer.js';
+import '@ui5/webcomponents/dist/Tab.js';
 
-import './helper/form-section-one.js'
-import './helper/form-section-two.js'
-import './helper/form-section-three.js'
+import './helper/form-section-one.js';
+import './helper/form-section-two.js';
+import './helper/form-section-three.js';
 
 /**
  * `demo-furo-ui5-form-field-container`
@@ -63,7 +63,7 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
           height: 100%;
         }
       `
-    )
+    );
   }
 
   /**
@@ -91,11 +91,25 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
             </ui5-tabcontainer>
           </ui5-panel>
 
-          <div style="padding: var(--spacing) var(--spacing); background-color: var(--sapBackgroundColor)">
+          <div
+            style="padding: var(--spacing) var(--spacing); background-color: var(--sapBackgroundColor)"
+          >
             <furo-pages ƒ-activate-page="--subTabSelected(*.tab.dataset.id)" default="one">
-              <form-section-one name="one" ƒ-inject-entity="--entity" ƒ-disable="--disable"></form-section-one>
-              <form-section-two name="two" ƒ-inject-entity="--entity" ƒ-disable="--disable"></form-section-two>
-              <form-section-three name="three" ƒ-inject-entity="--entity" ƒ-disable="--disable"></form-section-three>
+              <form-section-one
+                name="one"
+                ƒ-inject-entity="--entity"
+                ƒ-disable="--disable"
+              ></form-section-one>
+              <form-section-two
+                name="two"
+                ƒ-inject-entity="--entity"
+                ƒ-disable="--disable"
+              ></form-section-two>
+              <form-section-three
+                name="three"
+                ƒ-inject-entity="--entity"
+                ƒ-disable="--disable"
+              ></form-section-three>
             </furo-pages>
           </div>
 
@@ -122,11 +136,10 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
             @-response="--response"
           >
           </furo-entity-agent>
-
         </template>
       </furo-demo-snippet>
-    `
+    `;
   }
 }
 
-window.customElements.define('demo-furo-ui5-form-field-container', DemoFuroUi5FormFieldContainer)
+window.customElements.define('demo-furo-ui5-form-field-container', DemoFuroUi5FormFieldContainer);

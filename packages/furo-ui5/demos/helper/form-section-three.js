@@ -1,5 +1,5 @@
-import { LitElement, html, css } from 'lit-element'
-import { FBP } from '@furo/fbp'
+import { LitElement, html, css } from 'lit-element';
+import { FBP } from '@furo/fbp';
 
 /**
  * `form-section-three`
@@ -9,17 +9,16 @@ import { FBP } from '@furo/fbp'
  * @appliesMixin FBP
  */
 class FormSectionThree extends FBP(LitElement) {
-
   /**
    * flow is ready lifecycle method
    */
   _FBPReady() {
-    super._FBPReady()
+    super._FBPReady();
     // this._FBPTraceWires();
   }
 
   static get properties() {
-    return {}
+    return {};
   }
 
   static get styles() {
@@ -34,15 +33,15 @@ class FormSectionThree extends FBP(LitElement) {
           display: none;
         }
       `,
-    ]
+    ];
   }
 
   injectEntity(entity) {
-    this._FBPTriggerWire('--entity', entity)
+    this._FBPTriggerWire('--entity', entity);
   }
 
   disable() {
-    this._FBPTriggerWire('--disable')
+    this._FBPTriggerWire('--disable');
   }
 
   /**
@@ -55,7 +54,7 @@ class FormSectionThree extends FBP(LitElement) {
       <furo-form-layouter one>
         <furo-ui5-form-field-container>
           <ui5-label label slot="label" for="Custom" show-colon
-          >Currency / Units (custom)
+            >Currency / Units (custom)
           </ui5-label>
           <furo-horizontal-flex id="Custom" content space>
             <furo-ui5-data-text-input
@@ -87,10 +86,8 @@ class FormSectionThree extends FBP(LitElement) {
           ƒ-bind-data="--entity(*.data.furo_data_money_input)"
         ></furo-ui5-data-money-input-labeled>
       </furo-form-layouter>
-
-    `
+    `;
   }
-
 }
 
-window.customElements.define('form-section-three', FormSectionThree)
+window.customElements.define('form-section-three', FormSectionThree);

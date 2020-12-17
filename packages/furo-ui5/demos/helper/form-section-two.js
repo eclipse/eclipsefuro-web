@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
-import {FBP} from "@furo/fbp";
+import { FBP } from '@furo/fbp';
 /**
  * `form-section-two`
  *
@@ -8,7 +8,6 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class FormSectionTwo extends FBP(LitElement) {
-
   /**
    * flow is ready lifecycle method
    */
@@ -17,21 +16,21 @@ class FormSectionTwo extends FBP(LitElement) {
     // this._FBPTraceWires();
   }
 
-  static get properties(){
+  static get properties() {
     return {};
   }
 
   static get styles() {
     // language=CSS
     return [
-        css`
-            :host {
-                display: block;
-            }
-            :host([hidden]){
-                display: none;
-            }
-        `
+      css`
+        :host {
+          display: block;
+        }
+        :host([hidden]) {
+          display: none;
+        }
+      `,
     ];
   }
 
@@ -47,7 +46,7 @@ class FormSectionTwo extends FBP(LitElement) {
    * @private
    * @returns {TemplateResult|TemplateResult}
    */
-  render(){
+  render() {
     // language=HTML
     return html`
       <furo-form-layouter>
@@ -60,7 +59,6 @@ class FormSectionTwo extends FBP(LitElement) {
       </furo-form-layouter>
     `;
   }
-
 }
 
 window.customElements.define('form-section-two', FormSectionTwo);

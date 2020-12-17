@@ -1,10 +1,10 @@
 import { LitElement, html, css } from 'lit-element';
-import {FBP} from "@furo/fbp";
+import { FBP } from '@furo/fbp';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-data-object.js'
+import '@furo/data/src/furo-data-object.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-collection-agent.js'
+import '@furo/data/src/furo-collection-agent.js';
 
 /**
  * `form-section-one`
@@ -14,7 +14,6 @@ import '@furo/data/src/furo-collection-agent.js'
  * @appliesMixin FBP
  */
 class FormSectionOne extends FBP(LitElement) {
-
   /**
    * flow is ready lifecycle method
    */
@@ -23,21 +22,21 @@ class FormSectionOne extends FBP(LitElement) {
     // this._FBPTraceWires();
   }
 
-  static get properties(){
+  static get properties() {
     return {};
   }
 
   static get styles() {
     // language=CSS
     return [
-        css`
-            :host {
-                display: block;
-            }
-            :host([hidden]){
-                display: none;
-            }
-        `
+      css`
+        :host {
+          display: block;
+        }
+        :host([hidden]) {
+          display: none;
+        }
+      `,
     ];
   }
 
@@ -53,7 +52,7 @@ class FormSectionOne extends FBP(LitElement) {
    * @private
    * @returns {TemplateResult|TemplateResult}
    */
-  render(){
+  render() {
     // language=HTML
     return html`
       <furo-form-layouter one>
@@ -117,7 +116,7 @@ class FormSectionOne extends FBP(LitElement) {
 
         <furo-ui5-form-field-container>
           <ui5-label label slot="label" for="Custom" show-colon
-          >Use it for small option lists
+            >Use it for small option lists
           </ui5-label>
           <furo-ui5-data-segmented-button
             style="max-width: 100%;"
@@ -144,7 +143,6 @@ class FormSectionOne extends FBP(LitElement) {
       </furo-collection-agent>
     `;
   }
-
 }
 
 window.customElements.define('form-section-one', FormSectionOne);

@@ -23,9 +23,6 @@ import '@furo/data-input/demos/helper/produce-qp-data.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/fetch-universal-json.js';
 
-import '@ui5/webcomponents/dist/Icon.js';
-import '../src/lib/ui5-icons.js';
-
 /**
  * `demo-furo-ui5-data-display`
  *
@@ -88,28 +85,46 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
       <h2>Demo furo-ui5-data-display</h2>
       <furo-demo-snippet>
         <template>
-          <furo-form-layouter one>
-            <p>Bound to scalar value:</p>
-            <furo-ui5-data-display
-              ƒ-bind-data="--entity(*.data.display_name)"
-              value-state="Information"
-            >
-              <ui5-icon slot="icon" name="signature"></ui5-icon>
-            </furo-ui5-data-display>
+          <ui5-card
+            heading="Scalar and complex Types"
+            subheading="For complex data types, the field display_name is used for the display."
+          >
+            <furo-form-layouter two style="padding: var(--spacing-s)">
+              <furo-ui5-data-display
+                ƒ-bind-data="--entity(*.data.display_name)"
+                value-state="Information"
+              >
+              </furo-ui5-data-display>
 
-            <p>Bound to complex Google Type Date:</p>
-            <furo-ui5-data-display
-              ƒ-bind-data="--entity(*.data.furo_data_date_input)"
-            ></furo-ui5-data-display>
-            <p>Bound to complex Google Type Money:</p>
-            <furo-ui5-data-display
-              ƒ-bind-data="--entity(*.data.furo_data_money_input)"
-            ></furo-ui5-data-display>
-          </furo-form-layouter>
+              <furo-ui5-data-display ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)">
+              </furo-ui5-data-display>
 
-          <furo-button-bar>
-            <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
-          </furo-button-bar>
+              <furo-ui5-data-display
+                ƒ-bind-data="--entity(*.data.furo_data_date_input_google)"
+              ></furo-ui5-data-display>
+
+              <furo-ui5-data-display
+                ƒ-bind-data="--entity(*.data.furo_data_money_input)"
+              ></furo-ui5-data-display>
+
+              <furo-ui5-data-display
+                display-field="currency_code"
+                ƒ-bind-data="--entity(*.data.furo_data_money_input)"
+              ></furo-ui5-data-display>
+
+              <furo-ui5-data-display
+                ƒ-bind-data="--entity(*.data.repstring)"
+              ></furo-ui5-data-display>
+
+              <furo-ui5-data-display ƒ-bind-data="--entity(*.data.furo_data_text_input)">
+              </furo-ui5-data-display>
+            </furo-form-layouter>
+            <produce-qp-data
+              slot="action"
+              @-data="--qp"
+              qpescaped="%7B%22exp%22%3A1%7D"
+            ></produce-qp-data>
+          </ui5-card>
 
           <p>
             furo-ui5-data-display with type furo.fat.String bindings.
