@@ -289,6 +289,148 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
     super.enable();
   }
 
+
+  static get properties() {
+    return {
+      /**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      label: {
+        type: String,
+        reflect: true,
+      },
+      /**
+       * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
+       *
+       * If you bind a scalar, you dont need this attribute.
+       */
+      subfield: {
+        type: String,
+      },
+      /**
+       * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
+       *
+       * If you bind a scalar, you dont need this attribute.
+       */
+      subfieldDisplay: {
+        type: String,
+        attribute: 'subfield-display',
+      },
+      /**
+       * The name of the field from the injected collection that contains the label for the dropdown array.
+       */
+      displayField: {
+        type: String,
+        attribute: 'display-field',
+      },
+      /**
+       * The name of the field from the injected collection that contains the value you want to assign to the attribute value and the bounded field.
+       */
+      valueField: {
+        type: String,
+        attribute: 'value-field',
+      },
+      /**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      hint: {
+        type: String,
+        reflect: true,
+      },
+
+      readonly: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean,
+        reflect: true,
+      },
+
+      /**
+       * Set this attribute to autofocus the input field.
+       */
+      autofocus: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * Icon on the left side
+       */
+      leadingIcon: {
+        type: String,
+        attribute: 'leading-icon',
+        reflect: true,
+      },
+      /**
+       * Icon on the right side
+       */
+      trailingIcon: {
+        type: String,
+        attribute: 'trailing-icon',
+        reflect: true,
+      },
+      /**
+       * html input validity
+       */
+      valid: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */
+      condensed: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * Set a string list as options:
+       *
+       * "A, B, C"
+       *
+       * This will convert to options ["A","B","C"] by furo-select-input
+       */
+      list: {
+        type: String,
+        reflect: true,
+      },
+      /**
+       * the dropdown list
+       */
+      _dropdownList: {
+        type: Array,
+      },
+      /**
+       * multiple selection mark
+       */
+      multiple: {
+        type: Boolean,
+        reflect: true,
+      },
+      /**
+       * the size of multiple selection
+       */
+      size: {
+        type: Number,
+        reflect: true,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field is not writeable for a while.
+       */
+      _writeLock: {
+        type: Boolean,
+      },
+    };
+  }
+
   /**
    * Bind a entity field to the range-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`

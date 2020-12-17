@@ -168,10 +168,9 @@ class FuroCollectionAgent extends FBP(LitElement) {
   }
 
   // Filtern  [["user","eq","12345"], ["abgeschlossen","eq", true]]
+  // if you throw in an object or array, it will get encoded when the request is fired
   setFilter(filterstring) {
-    if (Array.isArray(filterstring)) {
-      this.filter = filterstring;
-    }
+    this.filter = filterstring;
   }
 
   set filter(f) {
@@ -312,7 +311,11 @@ class FuroCollectionAgent extends FBP(LitElement) {
      * The response message will be filtered by the fields before being sent back to the client.
      */
     if (this._filter) {
-      params.filter = JSON.stringify(this._filter);
+      if (typeof this._filter !== 'string') {
+        params.filter = JSON.stringify(this._filter);
+      } else {
+        params.filter = this._filter;
+      }
     }
 
     /**

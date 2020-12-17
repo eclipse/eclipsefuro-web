@@ -607,6 +607,11 @@ export class FieldNode extends EventTreeNode {
     }
   }
 
+  /**
+   * returns the raw value of the field node
+   * @return {null}
+   * @private
+   */
   get _value() {
     if (this.__childNodes.length > 0 || this._fieldIsMap) {
       this.__value = {};
@@ -618,6 +623,25 @@ export class FieldNode extends EventTreeNode {
       }
     }
     return this.__value;
+  }
+
+
+  /**
+   * returns the value of the data object as a base64 encoded string
+   * @return {string}
+   * @private
+   */
+  get _base64(){
+    return btoa(JSON.stringify(this._value));
+  }
+
+  /**
+   * Set the value of the data object with a base64 encoded string
+   * @param encodedData
+   * @private
+   */
+  set _base64(encodedData){
+    this.injectRaw(JSON.parse(atob(encodedData)))
   }
 
   /**
