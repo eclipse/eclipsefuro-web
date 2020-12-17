@@ -111,19 +111,7 @@ export class DataObject extends EventTreeNode {
     return this._type === type;
   }
 
-  /**
-   * Inits the EntityNode
-   */
-  init() {
-    this.broadcastEvent(new NodeEvent('disable-validation', this));
-    for (let i = this.__childNodes.length - 1; i >= 0; i -= 1) {
-      this.__childNodes[i].reinit();
-    }
-    this._initFieldsFromSpec(this, this._spec.fields);
-    this._pristine = true;
-    this._isValid = true;
-    this.broadcastEvent(new NodeEvent('enable-validation', this));
-  }
+
 
   get rawEntity() {
     return this._rawEntity;
