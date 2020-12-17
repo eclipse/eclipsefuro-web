@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.9.6...@furo/ui5@0.10.0) (2020-12-17)
+
+
+### Features
+
+* coloured boolean true value ([7b463f5](https://github.com/theNorstroem/FuroBaseComponents/commit/7b463f52afb7df3b4af3c0c8e6eda894223946ab))
+* new method to inject key value query param object. All existing query params are replaced by the transferred parameters. If the transferred object is empty or undefined, all the values will be removed! ([f7b5bdc](https://github.com/theNorstroem/FuroBaseComponents/commit/f7b5bdcf99bb53a28fab2fdfb5f11a35df26ac48))
+
+
+
+
+
 ## [0.9.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.9.5...@furo/ui5@0.9.6) (2020-12-10)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.38](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.37...@furo/form@1.3.38) (2020-12-17)
+
+
+### Bug Fixes
+
+* four col layout narrow switches to 2 not to 1. Narrower switches to 1 ([6870dd7](https://github.com/theNorstroem/FuroBaseComponents/commit/6870dd7ff090a2d8158d24b477191da78e82898e))
+
+
+
+
+
 ## [1.3.37](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.36...@furo/form@1.3.37) (2020-12-10)
 
 **Note:** Version bump only for package @furo/form

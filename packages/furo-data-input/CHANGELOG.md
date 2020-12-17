@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.4...@furo/data-input@1.10.5) (2020-12-17)
+
+
+### Bug Fixes
+
+* non default collection dropdown ([73a425f](https://github.com/theNorstroem/FuroBaseComponents/commit/73a425f3ea27676a6f384079c0b520cf56986656))
+
+
+
+
+
 ## [1.10.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.3...@furo/data-input@1.10.4) (2020-12-10)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.14.0...@furo/data@1.15.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* remove the check for an array on expected input string ([f341694](https://github.com/theNorstroem/FuroBaseComponents/commit/f341694fe9437f5e5911260a89b5024685116131))
+* work with data fields which has no binded fields ([ec3faf6](https://github.com/theNorstroem/FuroBaseComponents/commit/ec3faf635d02ec086cba533ab205886e0cc76a1b))
+
+
+### Features
+
+* base64 encoded data object getter and setter ([397cd7e](https://github.com/theNorstroem/FuroBaseComponents/commit/397cd7e0b2bae3d7e7bd72b5183cf7aed8e5cf33))
+
+
+
+
+
 # [1.14.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.13.3...@furo/data@1.14.0) (2020-12-10)
 
 
