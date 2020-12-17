@@ -111,10 +111,14 @@ class FuroFormLayouter extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Set custom breakpoints max. two values
-       * Default: "810,405"
+       * Set custom breakpoint big
+       * Default: "810"
        */
       breakpointBig: { type: String, attribute: 'breakpoint-big', reflect: true },
+      /**
+       * Set custom breakpoints small
+       * Default: "405"
+       */
       breakpointSmall: { type: String, attribute: 'breakpoint-small', reflect: true },
       /**
        * Set narrow-fix attribute to force
@@ -211,6 +215,10 @@ class FuroFormLayouter extends FBP(LitElement) {
         }
 
         :host([four][narrow]) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        :host([four][narrower]) {
           grid-template-columns: repeat(1, 1fr);
         }
 
