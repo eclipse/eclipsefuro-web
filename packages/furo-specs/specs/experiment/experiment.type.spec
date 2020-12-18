@@ -483,3 +483,19 @@ fields:
             repeated: false
             typespecific: null
         constraints: {}
+    google_timestamp:
+        type: google.protobuf.Timestamp
+        description: goolge timestamp
+        __proto:
+            number: 24
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: "google timestamp"
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
