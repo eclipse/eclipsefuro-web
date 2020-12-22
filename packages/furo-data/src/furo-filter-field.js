@@ -2,7 +2,7 @@ import { LitElement, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 
 /**
- * `furo-filter-field` is used with `furo-filter-container`, `furo-filter-and` and `furo-filter-and` to build the filter string.
+ * DEPRECATED `furo-filter-field` is used with `furo-filter-container`, `furo-filter-and` and `furo-filter-and` to build the filter string.
  *  With `furo-filter-field` you will set the field, operator and value of a filter item.
  *
  *
