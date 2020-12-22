@@ -163,7 +163,8 @@ export class FuroDataObject extends LitElement {
    * To reset changed data to the last injected state, please use reset();
    */
   init() {
-    this.data.init();
+    // inject the initial value created below without breaking any bindings
+    this.data.injectRaw(this._initial);
     const customEvent = new Event('init-completed', { composed: true, bubbles: true });
     customEvent.detail = this.data;
     setTimeout(() => {
@@ -299,6 +300,8 @@ export class FuroDataObject extends LitElement {
       valueChangedEvent.detail = e.detail;
       this.dispatchEvent(valueChangedEvent);
     });
+    // store the initial value for a later init call
+    this._initial = this.data._value;
 
     return true;
   }

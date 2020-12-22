@@ -315,30 +315,8 @@ describe('furo-data-object', () => {
     done();
   });
 
-  it('should be possible to set the model to the inital empty state', done => {
-    element.setAttribute('type', 'project.ProjectEntity');
 
-    fetch('/mockdata/projects/1/testmeta.json')
-      .then(res => res.json())
-      .then(response => {
-        const p = element.injectRaw(response);
 
-        const initalLabel = element.data.data.display_name._meta.label;
-
-        assert.equal(element.json.data.display_name, response.data.display_name);
-
-        p.then(ObjectDataRoot => {
-          const EntityRoot = ObjectDataRoot.data;
-          assert.equal(EntityRoot, element.data.data);
-          element.data.data.display_name._meta.label = 'Something';
-
-          element.init();
-
-          assert.equal(element.data.data.display_name._meta.label, initalLabel);
-          done();
-        });
-      });
-  });
 
   it('should be possible to read the current model as json', done => {
     element.setAttribute('type', 'project.ProjectEntity');
