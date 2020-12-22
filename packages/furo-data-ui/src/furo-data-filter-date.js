@@ -20,6 +20,11 @@ import { BaseFilter } from './basefilter.js';
  * @appliesMixin FBP
  */
 class FuroDataFilterDate extends BaseFilter {
+  /**
+   * @private
+   * @returns {TemplateResult}
+   * @private
+   */
   render() {
     // language=HTML
     return html`

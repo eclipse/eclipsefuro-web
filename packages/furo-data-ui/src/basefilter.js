@@ -4,6 +4,8 @@ import { FBP } from '@furo/fbp';
 import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
 
 /**
+ * FOR DOCUMENTATION PURPOSES ONLY
+ *
  * Base filter is the base element to build special filter comparator fields
  * Your element is then bindable with type filter.Comparator
  *
@@ -14,13 +16,11 @@ import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
  *  Use this to clear the filter val and is.
  *
  * @summary base component to make a bindable filter
+ * @customElement
  * @appliesMixin FBP
  */
 export class BaseFilter extends FBP(LitElement) {
-  /**
-   * @private
-   * @return {Object}
-   */
+
   static get properties() {
     return {
       /**
@@ -140,13 +140,7 @@ export class BaseFilter extends FBP(LitElement) {
       `
     );
   }
-
-  /**
-   * Write your own render method please
-   * @return {*}
-   */
-  render() {
-    // language=HTML
-    return html``;
-  }
 }
+
+
+window.customElements.define('furo-data-filter-doc', BaseFilter);

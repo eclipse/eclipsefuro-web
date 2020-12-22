@@ -12,7 +12,11 @@ import { BaseFilter } from './basefilter.js';
  */
 class FuroDataFilterText extends BaseFilter {
 
-
+  /**
+   * @private
+   * @returns {TemplateResult}
+   * @private
+   */
   render() {
     // language=HTML
     return html`
