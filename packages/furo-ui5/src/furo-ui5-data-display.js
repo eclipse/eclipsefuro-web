@@ -90,7 +90,6 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
         ui5-icon[value-state='Success'] {
           color: var(--sapPositiveColor, #107e3e);
         }
-
       `,
     ];
   }

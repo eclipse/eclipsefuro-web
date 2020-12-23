@@ -71,11 +71,11 @@ export class FuroUi5DataDateTimePicker extends DateTimePicker.default {
     this.binder.attributeMappings = {
       label: 'label',
       'format-pattern': 'formatPattern', // Determines the format, displayed in the input field.
-       name: 'name', // Determines the name with which the ui5-date-picker will be submitted in an HTML form.
+      name: 'name', // Determines the name with which the ui5-date-picker will be submitted in an HTML form.
       'max-date': 'maxDate', // Determines the maximum date available for selection.
       'min-date': 'minDate', // Determines the minimum date available for selection.
       'value-state': 'valueState', // Defines the value state of the ui5-date-picker.  Available options are:  None, Error, Warning, Success, Information
-      'primary-calendar-type': 'primary-calendar-type' // Determines the calendar type. The input value is formated according to the calendar type and the picker shows the months and years from the specified calendar. Available options are: Gregorian, Islamic, Japanese, Buddhist, Persian
+      'primary-calendar-type': 'primary-calendar-type', // Determines the calendar type. The input value is formated according to the calendar type and the picker shows the months and years from the specified calendar. Available options are: Gregorian, Islamic, Japanese, Buddhist, Persian
     };
 
     // set the label mappings
@@ -85,7 +85,7 @@ export class FuroUi5DataDateTimePicker extends DateTimePicker.default {
       required: 'required', // Defines whether the ui5-date-picker is required.
       disabled: 'disabled', // Determines whether the ui5-date-picker is displayed as disabled.
       pristine: 'pristine',
-      'hide-week-numbers':'hideWeekNumbers' // Defines the visibility of the week numbers column.  Note: For calendars other than Gregorian, the week numbers are not displayed regardless of what is set.
+      'hide-week-numbers': 'hideWeekNumbers', // Defines the visibility of the week numbers column.  Note: For calendars other than Gregorian, the week numbers are not displayed regardless of what is set.
     };
 
     // set attributes to constrains mapping for furo.fat types
@@ -108,11 +108,9 @@ export class FuroUi5DataDateTimePicker extends DateTimePicker.default {
 
     // update the value on input changes
     this.addEventListener('change', val => {
-
       const dateValue = new Date(this.dateValue).toISOString();
 
       if (this.binder.fieldNode) {
-
         if (JSON.stringify(this.binder.fieldValue) !== JSON.stringify(dateValue)) {
           // update the value
           this.binder.fieldNode._value = dateValue;
@@ -147,7 +145,6 @@ export class FuroUi5DataDateTimePicker extends DateTimePicker.default {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-
       // set pristine on new data
       this.binder.fieldNode.addEventListener('field-value-changed', () => {
         this._updateInputDateValue();

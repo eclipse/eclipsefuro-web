@@ -1,11 +1,11 @@
 import '@ui5/webcomponents/dist/generated/i18n/i18n-defaults';
-import { LitElement, html, css} from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 
 import DateTimePicker from '@ui5/webcomponents/dist/DateTimePicker.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
-import { FBP } from '@furo/fbp'
+import { FBP } from '@furo/fbp';
 
 /**
  * The furo-ui5-data-date-time-picker component allows the user to bind a date string
@@ -19,7 +19,6 @@ import { FBP } from '@furo/fbp'
  * @demo demo-furo-ui5-data-date-time-display Basic Usage
  */
 export class FuroUi5DataDateTimeDisplay extends FBP(LitElement) {
-
   /**
    * Fired when the input operation has finished by pressing Enter or on focusout.
    * @event change
@@ -51,7 +50,7 @@ export class FuroUi5DataDateTimeDisplay extends FBP(LitElement) {
     }, 0);
     this.placeholder = 'dd.MM.yyyy hh:mm aa';
 
-    if(this.formatPattern) {
+    if (this.formatPattern) {
       this.DateTimePicker.formatPattern = this.formatPattern;
     }
   }
@@ -79,7 +78,7 @@ export class FuroUi5DataDateTimeDisplay extends FBP(LitElement) {
       'max-date': 'maxDate', // Determines the maximum date available for selection.
       'min-date': 'minDate', // Determines the minimum date available for selection.
       'value-state': 'valueState', // Defines the value state of the ui5-date-picker.  Available options are:  None, Error, Warning, Success, Information
-      'primary-calendar-type': 'primary-calendar-type' // Determines the calendar type. The input value is formated according to the calendar type and the picker shows the months and years from the specified calendar. Available options are: Gregorian, Islamic, Japanese, Buddhist, Persian
+      'primary-calendar-type': 'primary-calendar-type', // Determines the calendar type. The input value is formated according to the calendar type and the picker shows the months and years from the specified calendar. Available options are: Gregorian, Islamic, Japanese, Buddhist, Persian
     };
 
     // set the label mappings
@@ -89,7 +88,7 @@ export class FuroUi5DataDateTimeDisplay extends FBP(LitElement) {
       required: 'required', // Defines whether the ui5-date-picker is required.
       disabled: 'disabled', // Determines whether the ui5-date-picker is displayed as disabled.
       pristine: 'pristine',
-      'hide-week-numbers':'hideWeekNumbers' // Defines the visibility of the week numbers column.  Note: For calendars other than Gregorian, the week numbers are not displayed regardless of what is set.
+      'hide-week-numbers': 'hideWeekNumbers', // Defines the visibility of the week numbers column.  Note: For calendars other than Gregorian, the week numbers are not displayed regardless of what is set.
     };
 
     // set attributes to constrains mapping for furo.fat types
@@ -119,7 +118,6 @@ export class FuroUi5DataDateTimeDisplay extends FBP(LitElement) {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-
       // set pristine on new data
       this.binder.fieldNode.addEventListener('field-value-changed', () => {
         this._updateInputDateValue();
@@ -172,8 +170,8 @@ export class FuroUi5DataDateTimeDisplay extends FBP(LitElement) {
        */
       formatPattern: {
         type: String,
-        attribute: 'format-pattern'
-      }
+        attribute: 'format-pattern',
+      },
     };
   }
 
@@ -183,9 +181,10 @@ export class FuroUi5DataDateTimeDisplay extends FBP(LitElement) {
    */
   render() {
     // language=HTML
-    return html`${this.value}`;
+    return html`
+      ${this.value}
+    `;
   }
-
 }
 
 window.customElements.define('furo-ui5-data-date-time-display', FuroUi5DataDateTimeDisplay);

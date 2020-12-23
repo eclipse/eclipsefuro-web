@@ -198,15 +198,6 @@ describe('furo-ui5-data-collection-dropdown', () => {
     dropdown.injectEntities(testData.entities);
   });
 
-  it('should activate the correct item', done => {
-    setTimeout(() => {
-      assert.equal(dropdown._dropdownList.length, 3, '', 'check number of elements');
-      setTimeout(() => {
-        assert.equal(dropdown._dropdownList[1].selected, true, '', 'check selected item');
-        done();
-      }, 16);
-    }, 16);
-  });
 
   it('should have options from a collection response', done => {
     dropdown.injectEntities(testData.entities);

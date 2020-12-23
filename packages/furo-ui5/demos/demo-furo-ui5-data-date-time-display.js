@@ -97,4 +97,7 @@ class DemoFuroUi5DataDateTimeDisplay extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-ui5-data-date-time-display', DemoFuroUi5DataDateTimeDisplay);
+window.customElements.define(
+  'demo-furo-ui5-data-date-time-display',
+  DemoFuroUi5DataDateTimeDisplay,
+);

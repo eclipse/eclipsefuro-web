@@ -103,4 +103,7 @@ class FuroUi5DataDateTimeDisplayLabeled extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('furo-ui5-data-date-time-display-labeled', FuroUi5DataDateTimeDisplayLabeled);
+window.customElements.define(
+  'furo-ui5-data-date-time-display-labeled',
+  FuroUi5DataDateTimeDisplayLabeled,
+);
