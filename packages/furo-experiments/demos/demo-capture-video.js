@@ -1,9 +1,10 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from "@furo/framework/src/theme"
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme.js';
 import {FBP} from "@furo/fbp";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import "@furo/doc-helper"
-import "../furo-catalog"
-
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/experiments/src/furo-catalog.js';
 /**
  * `demo-capture-video`
  *

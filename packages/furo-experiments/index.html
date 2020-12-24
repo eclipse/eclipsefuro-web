@@ -3,64 +3,84 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <meta name="Description" content="This is a sample demo app to show furos capabilites">
 
-  <title>from-template demo</title>
 
-  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <link rel="icon" href="assets/icons/favicon.ico">
+  <meta name="theme-color" content="#ffffff">
 
-  <script type="module">
-    import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
-    import '@polymer/iron-demo-helpers/demo-snippet';
-    import './furo-catalog';
-    import "@furo/fbp/src/flow-bind"
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,300,300italic,400italic,500,500italic,700,700italic&display=swap"
+    rel="stylesheet">
+  <base id="base" href="/packages/furo-experiments/">
+  <title>package template</title>
 
+  <script>
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.getRegistration().then((registration) => {
+          if (registration) {
+            registration.addEventListener('updatefound', () => {
+              // A wild service worker has appeared in reg.installing!
+              const newWorker = registration.installing;
+              // "installing" - the install event has fired, but not yet complete
+              // "installed"  - install complete
+              // "activating" - the activate event has fired, but not yet complete
+              // "activated"  - fully active
+              // "redundant"  - discarded. Either failed install, or it's been
+              //                replaced by a newer version
+
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed') {
+                  const obj = {};
+                  obj.labelText = "New update installed.";
+                  obj._action = () => {
+                    // reload page
+                    registration.unregister();
+                    window.location.reload();
+
+                  };
+                  obj.icon = "clear";
+                  obj._dismiss = () => {
+                    console.log("closed without reload...")
+                  };
+                  obj.actionButtonText = "restart";
+                  const customEvent = new Event("open-furo-snackbar-requested", {composed: true, bubbles: true});
+                  customEvent.detail = obj;
+                  this.dispatchEvent(customEvent);
+                }
+              });
+            });
+          }
+        });
+      });
+
+      // Load and register pre-caching Service Worker
+      window.addEventListener('load', function (registration) {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
   </script>
+  <!-- Load your application shell -->
+  <script type="module" src="dev-shell.js"></script>
 
-
-  <custom-style>
-    <style is="custom-style" include="demo-pages-shared-styles">
-    </style>
-  </custom-style>
-
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: #ffffff;
+      font-family: "Roboto", "Noto", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      letter-spacing: 0.5px;
+    }
+  </style>
 </head>
 <body>
-
-<div class="vertical-section-container centered">
-  <h3>audio speech</h3>
-  <demo-snippet>
-    <template>
-      <flow-bind>
-        <template>
-          <button @-click="--start">start</button> <button @-click="--stop">stop</button>
-
-          <furo-speech-recognition ƒ-start="--start" @-transcript="--text"></furo-speech-recognition>
-          <h2>Result</h2>
-          <div ƒ-.inner-text="--text"></div>
-
-
-        </template>
-
-      </flow-bind>
-    </template>
-  </demo-snippet>
-</div>
-
-<div class="vertical-section-container centered">
-  <h3>video</h3>
-  <demo-snippet>
-    <template>
-      <flow-bind>
-        <template>
-          <button @-click="--start">start</button>
-          <button @-click="--stop">stop</button>
-          <furo-capture-video ƒ-start="--start" ƒ-stop="--stop" @-stream="--stream"></furo-capture-video>
-          <video autoplay playsinline ƒ-.src-object="--stream"></video>
-        </template>
-
-      </flow-bind>
-    </template>
-  </demo-snippet>
-</div>
-
+<dev-shell></dev-shell>
+<noscript>
+  Please enable JavaScript to view this website.
+</noscript>
 </body>
 </html>
