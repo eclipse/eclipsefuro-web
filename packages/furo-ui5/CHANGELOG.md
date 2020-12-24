@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.10.0...@furo/ui5@0.11.0) (2020-12-24)
+
+
+### Features
+
+*  timestamp datepicker ([ba6ca80](https://github.com/theNorstroem/FuroBaseComponents/commit/ba6ca80444173bdd0eec7bd86d28d6b285ef81a4))
+
+
+
+
+
 # [0.10.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.9.6...@furo/ui5@0.10.0) (2020-12-17)
 
 

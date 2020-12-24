@@ -1,7 +1,7 @@
 {
   "name": "@furo/data-input",
   "description": "Input components",
-  "version": "1.10.5",
+  "version": "1.10.6",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-data-input",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -28,13 +28,13 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/data": "^1.15.0",
-    "@furo/fbp": "^5.3.3",
-    "@furo/form": "^1.3.38",
-    "@furo/framework": "^1.5.3",
-    "@furo/icon": "^1.3.24",
-    "@furo/input": "^1.5.7",
-    "@furo/layout": "^1.3.24",
+    "@furo/data": "^1.16.0",
+    "@furo/fbp": "^5.3.4",
+    "@furo/form": "^1.3.39",
+    "@furo/framework": "^1.5.4",
+    "@furo/icon": "^1.3.25",
+    "@furo/input": "^1.5.8",
+    "@furo/layout": "^1.3.25",
     "lit-element": "^2.3.1"
   },
   "devDependencies": {

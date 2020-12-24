@@ -2,12 +2,12 @@
   "name": "@furo/experiments",
   "description": "Experimental furo components",
   "main": "src/furo-catalog.js",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "dependencies": {
-    "@furo/fbp": "^5.3.3",
+    "@furo/fbp": "^5.3.4",
     "apexcharts": "^3.15.6",
-    "qr-scanner": "^1.2.0",
-    "lit-element": "^2.3.1"
+    "lit-element": "^2.3.1",
+    "qr-scanner": "^1.2.0"
   },
   "publishConfig": {
     "access": "public"

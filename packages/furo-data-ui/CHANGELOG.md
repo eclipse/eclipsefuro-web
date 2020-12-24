@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.39...@furo/data-ui@1.4.0) (2020-12-24)
+
+
+### Features
+
+* initial filters ([129cfac](https://github.com/theNorstroem/FuroBaseComponents/commit/129cfac9dc2bc04191e7e182ffe4b2cf60dcf074))
+
+
+
+
+
 ## [1.3.39](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.3.38...@furo/data-ui@1.3.39) (2020-12-17)
 
 **Note:** Version bump only for package @furo/data-ui

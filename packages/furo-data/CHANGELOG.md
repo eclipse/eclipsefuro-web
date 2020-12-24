@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.15.0...@furo/data@1.16.0) (2020-12-24)
+
+
+### Bug Fixes
+
+* four col layout narrow switches to 2 not to 1. Narrower switches to 1 ([edf3bef](https://github.com/theNorstroem/FuroBaseComponents/commit/edf3befb7638b9f58bc288948781ce19eb2ace35))
+
+
+### Features
+
+* initial filters ([129cfac](https://github.com/theNorstroem/FuroBaseComponents/commit/129cfac9dc2bc04191e7e182ffe4b2cf60dcf074))
+
+
+
+
+
 # [1.15.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.14.0...@furo/data@1.15.0) (2020-12-17)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.3.3...@furo/fbp@5.3.4) (2020-12-24)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
 ## [5.3.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.3.2...@furo/fbp@5.3.3) (2020-12-17)
 
 **Note:** Version bump only for package @furo/fbp

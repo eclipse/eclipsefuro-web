@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.16.2...@furo/specs@1.17.0) (2020-12-24)
+
+
+### Features
+
+*  timestamp datepicker ([ba6ca80](https://github.com/theNorstroem/FuroBaseComponents/commit/ba6ca80444173bdd0eec7bd86d28d6b285ef81a4))
+
+
+
+
+
 ## [1.16.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.16.1...@furo/specs@1.16.2) (2020-12-17)
 
 **Note:** Version bump only for package @furo/specs
