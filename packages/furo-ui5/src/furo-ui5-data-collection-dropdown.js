@@ -14,7 +14,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * by pressing the Space or Enter keys.
  *
  * ### auto-select-first
- * set this attribute to autoselect the first item in the list, if no item is set in the bounded fieldNode
+ * set this attribute to auto select the first item in the list, if no item is set in the bounded fieldNode.
  *
  * @summary data collection dropdown
  * @customElement
@@ -69,7 +69,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     this.displaySubField = 'display_name';
 
     /**
-     * set this attribute to autoselect the first item in the list, if no item is set in the bounded fieldNode
+     * set this attribute to autoSelectFirst the first item in the list, if no item is set in the bounded fieldNode
      * @type {boolean}
      */
     this.autoSelectFirst = false;
@@ -189,7 +189,9 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
           this.displaySubField = newVal;
           break;
         case 'auto-select-first':
-          this.autoSelectFirst = newVal;
+          if (newVal || newVal === '') {
+            this.autoSelectFirst = true;
+          }
           break;
       }
     }
@@ -301,16 +303,12 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @private
    */
   _setOptionItems() {
-    console.log("sele field",this.autoSelectFirst );
-
     if (
       this._dropdownList &&
       (this.autoSelectFirst ||
         this._optionNeedToBeRendered ||
         this._fieldNodeToUpdate._value !== null)
     ) {
-      console.log("value field",this._fieldNodeToUpdate );
-      console.log("value",this._fieldNodeToUpdate._value );
       this.optionItems = this._dropdownList;
     }
   }
@@ -523,6 +521,9 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       });
 
       this.binder.fieldNode.addEventListener('field-value-changed', () => {
+        if (this._dropdownList.length === 0) {
+          this._initDropdownItemWithoutCollectionInjection();
+        }
         this._updateField();
       });
 
@@ -531,6 +532,28 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       });
 
       this._updateField();
+    }
+  }
+
+  _initDropdownItemWithoutCollectionInjection() {
+    // complex value
+    if (this.valueSubField && this.valueSubField !== 'null') {
+      if (
+        this.binder.fieldValue[this.valueSubField] &&
+        this.binder.fieldValue[this.displaySubField]
+      ) {
+        this._dropdownList = [
+          {
+            id: this.binder.fieldValue[this.valueSubField],
+            label: this.binder.fieldValue[this.displaySubField],
+            selected: true,
+          },
+        ];
+      }
+    } else if (this.binder.fieldValue !== null) {
+      this._dropdownList = [
+        { id: this.binder.fieldValue, label: this.binder.fieldValue, selected: true },
+      ];
     }
   }
 
@@ -590,6 +613,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param {options} list of options with id and display_name
    */
   _buildListWithMetaOptions(options) {
+    //
+    this.autoSelectFirst = true;
     this.injectList(options.list);
   }
 

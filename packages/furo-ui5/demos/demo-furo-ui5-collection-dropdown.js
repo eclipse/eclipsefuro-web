@@ -136,7 +136,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
             </div>
 
             <div>
-              <p>Option item from collection response. Type xxx.TypeEntity)</p>
+              <p>auto-select-first attribute</p>
               <p>
                 In this example, the first element will be selected after injecting the entities.
                 Because the auto-select-first attribute is set.
@@ -151,8 +151,6 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
               >
               </furo-ui5-data-collection-dropdown>
             </div>
-
-            <hr />
             <p>
               Bound input fields: owner.id and owner.display_name. If you enter a valid owner ID,
               the items in the collection drop-down list automatically display the record matching
@@ -168,12 +166,15 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
           </furo-form-layouter>
 
           <furo-button-bar>
-            <ui5-button design="Emphasized" @-click="--loadCollection">load and inject entities into dropdown list</ui5-button>
-            <ui5-button design="Emphasized" @-click="--loadData">            <fetch-universal-json
-              file="/mockdata/projects/2/get.json"
-              @-data-loaded="--responseProject"
-            ></fetch-universal-json></ui5-button>
-
+            <ui5-button design="Emphasized" @-click="--loadCollection"
+              >load and inject entities into dropdown list</ui5-button
+            >
+            <ui5-button design="Emphasized" @-click="--loadData">
+              <fetch-universal-json
+                file="/mockdata/projects/2/get.json"
+                @-data-loaded="--responseProject"
+              ></fetch-universal-json
+            ></ui5-button>
           </furo-button-bar>
 
           <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
@@ -184,10 +185,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
             @-object-ready="--entityProject"
             ƒ-inject-raw="--responseProject"
           ></furo-data-object>
-          <furo-data-object
-            type="person.Person"
-            @-object-ready="--entityPerson"
-          ></furo-data-object>
+          <furo-data-object type="person.Person" @-object-ready="--entityPerson"></furo-data-object>
           <furo-data-object
             type="person.PersonCollection"
             @-object-ready="--collection"
