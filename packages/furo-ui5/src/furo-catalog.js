@@ -40,3 +40,4 @@ import './furo-ui5-data-display.js';
 import './furo-ui5-busyindicator.js';
 import './furo-ui5-data-multi-input.js';
 import './furo-ui5-data-multi-input-labeled.js';
+import './furo-ui5-data-repeat.js';

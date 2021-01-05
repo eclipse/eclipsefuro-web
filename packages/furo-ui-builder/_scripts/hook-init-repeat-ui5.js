@@ -43,6 +43,7 @@ class HookInitRepeatUi5 {
 
 
     u33e.addImport("@furo/ui5/src/furo-ui5-button.js");
+    u33e.addImport("@furo/ui5/src/furo-ui5-data-repeat.js");
     u33e.addImport("@furo/form");
 
     u33e.addMethod("bindData", "data",
@@ -70,9 +71,6 @@ class HookInitRepeatUi5 {
     u33e.addStyle("furo-ui5-button")
         .addCSSAttribute("margin", "12px 0 0 6px");
 
-    u33e.addDomNode("hr")
-
-
 
     // add a form to place header text
     let head = u33e.addDomNode("furo-form");
@@ -80,7 +78,7 @@ class HookInitRepeatUi5 {
     head.addAttribute("secondary-text", "${this.secondaryText}");
 
     // all field will be added to this node
-    let repeater = u33e.addDomNode("furo-data-repeat");
+    let repeater = u33e.addDomNode("furo-ui5-data-repeat");
 
 
     let component = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type).toLowerCase() + "-form";
@@ -101,7 +99,7 @@ class HookInitRepeatUi5 {
     span.addFlag("flex");
 
     btn.addInnerText("Add " + SPEC.type);
-    btn.addAttribute("design", "Positive");
+    btn.addAttribute("icon", "add");
     btn.addEventListener("click", "--adderTriggered");
     return u33e;
   }
