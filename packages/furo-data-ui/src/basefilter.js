@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
@@ -20,7 +20,6 @@ import { NodeEvent } from '@furo/framework/src/EventTreeNode.js';
  * @appliesMixin FBP
  */
 export class BaseFilter extends FBP(LitElement) {
-
   static get properties() {
     return {
       /**
@@ -117,7 +116,6 @@ export class BaseFilter extends FBP(LitElement) {
         furo-data-collection-dropdown {
           width: var(--comparator-dropdown-width, 64px);
           margin-right: 2px;
-
         }
 
         :host([hide-comparator]) furo-data-collection-dropdown {
@@ -141,6 +139,5 @@ export class BaseFilter extends FBP(LitElement) {
     );
   }
 }
-
 
 window.customElements.define('furo-data-filter-doc', BaseFilter);

@@ -119,21 +119,13 @@ describe('UniversalFieldNodeBinder.test', () => {
       'data-injected',
       () => {
         pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
-        assert.equal(
-          pseudocomponent.binder.virtualNode.labels.readonly,
-          false,
-          'readonly not set',
-        );
+        assert.equal(pseudocomponent.binder.virtualNode.labels.readonly, false, 'readonly not set');
         dataobj.addEventListener('data-injected', () => {
           assert.equal(
             pseudocomponent.binder.virtualNode.attributes.label,
             'fat string label setted via response meta',
           );
-          assert.equal(
-            pseudocomponent.binder.virtualNode.labels.readonly,
-            true,
-            'readonly is set',
-          );
+          assert.equal(pseudocomponent.binder.virtualNode.labels.readonly, true, 'readonly is set');
           done();
         });
 
@@ -409,7 +401,6 @@ describe('UniversalFieldNodeBinder.test', () => {
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 
-
   it('should update values from outside to fat', done => {
     // set another property for the value property
 
@@ -428,5 +419,4 @@ describe('UniversalFieldNodeBinder.test', () => {
     );
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
-
 });

@@ -42,11 +42,7 @@ describe('FieldNodesMetas', () => {
       'data-injected',
       () => {
         pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
-        assert.equal(
-          pseudocomponent.binder.virtualNode.labels.readonly,
-          false,
-          'readonly not set',
-        );
+        assert.equal(pseudocomponent.binder.virtualNode.labels.readonly, false, 'readonly not set');
         dataobj.addEventListener('data-injected', () => {
           assert.equal(
             pseudocomponent.binder.virtualNode.attributes.label,
@@ -57,11 +53,7 @@ describe('FieldNodesMetas', () => {
             JSON.stringify(pseudocomponent.binder.fieldNode.value._constraints),
             '{"max":{"is":"4","message":"MAX 4"}}',
           );
-          assert.equal(
-            pseudocomponent.binder.virtualNode.labels.readonly,
-            true,
-            'readonly is set',
-          );
+          assert.equal(pseudocomponent.binder.virtualNode.labels.readonly, true, 'readonly is set');
           done();
         });
 
@@ -77,21 +69,13 @@ describe('FieldNodesMetas', () => {
       'data-injected',
       () => {
         pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
-        assert.equal(
-          pseudocomponent.binder.virtualNode.labels.readonly,
-          false,
-          'readonly not set',
-        );
+        assert.equal(pseudocomponent.binder.virtualNode.labels.readonly, false, 'readonly not set');
         dataobj.addEventListener('data-injected', () => {
           assert.equal(
             pseudocomponent.binder.virtualNode.attributes.label,
             'fat string label setted via response meta',
           );
-          assert.equal(
-            pseudocomponent.binder.virtualNode.labels.readonly,
-            true,
-            'readonly is set',
-          );
+          assert.equal(pseudocomponent.binder.virtualNode.labels.readonly, true, 'readonly is set');
           done();
         });
 

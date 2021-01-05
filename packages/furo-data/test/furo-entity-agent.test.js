@@ -415,7 +415,7 @@ describe('furo-entity-agent', () => {
       // eslint-disable-next-line no-prototype-builtins
       expect(r.detail.json.hasOwnProperty('display_name')).to.be.false;
 
-       done();
+      done();
     });
 
     entityAgent.htsIn([

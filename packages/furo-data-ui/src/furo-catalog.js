@@ -5,3 +5,4 @@ import './furo-data-context-menu-display.js';
 import './furo-data-filter-date.js';
 import './furo-data-filter-text.js';
 import './furo-data-filter-slot.js';
+import './furo-data-filter-checkbox.js';

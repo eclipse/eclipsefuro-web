@@ -1,5 +1,5 @@
-import {FieldNode} from './FieldNode.js';
-import {RepeaterNode} from './RepeaterNode.js';
+import { FieldNode } from './FieldNode.js';
+import { RepeaterNode } from './RepeaterNode.js';
 
 /**
  * `UniversalFieldNodeBinder` consumes a FieldNode of any type, google wrapper or FAT and exposes
@@ -120,7 +120,6 @@ export class UniversalFieldNodeBinder {
     this._updateVirtualNode(field);
     this._updateVirtualNodeFromMetaConstraints(field._constraints);
 
-
     field.addEventListener('this-metas-changed', () => {
       this._updateVirtualNodeFromMeta(field._meta);
       this._updateVirtualNodeFromMetaConstraints(field._constraints);
@@ -150,7 +149,7 @@ export class UniversalFieldNodeBinder {
           this._removeVirtualLabel('error');
         }
       },
-      {once: true},
+      { once: true },
     );
 
     field.addEventListener('field-became-valid', () => {
@@ -200,7 +199,7 @@ export class UniversalFieldNodeBinder {
     if ('labels' in this.fieldNode) {
       this._givenLabels = this.fieldNode.labels.__childNodes.map(labelNode => labelNode._value);
       if (this._givenLabels.indexOf(label) === -1) {
-        this.fieldNode.labels.createField({fieldName: label, type: 'bool', _value: true});
+        this.fieldNode.labels.createField({ fieldName: label, type: 'bool', _value: true });
       }
     } else {
       // attention, this is for ui only, this label will never sent back to the server
@@ -215,7 +214,6 @@ export class UniversalFieldNodeBinder {
   deleteLabel(label) {
     if (this.fieldNode) {
       if ('labels' in this.fieldNode) {
-
         if (this.fieldNode.labels[label]) {
           // set to false instead delete
           this.fieldNode.labels[label]._value = false;
@@ -237,7 +235,7 @@ export class UniversalFieldNodeBinder {
     if (this.fieldNode) {
       if ('attributes' in this.fieldNode) {
         if (!this._givenAttrs[name]) {
-          this.fieldNode.attributes.createField({fieldName: name, type: 'string', _value: value});
+          this.fieldNode.attributes.createField({ fieldName: name, type: 'string', _value: value });
         }
       } else {
         this._addVirtualAttribute(name, value);
@@ -285,7 +283,6 @@ export class UniversalFieldNodeBinder {
           this._removeVirtualLabel(label);
         }
       });
-
 
       // update the given attributes on the virtual node
       field.attributes.__childNodes.forEach(attr => {

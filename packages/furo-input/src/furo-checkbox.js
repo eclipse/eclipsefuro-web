@@ -1,6 +1,6 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from '@furo/framework/src/theme';
-import {FBP} from '@furo/fbp';
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp';
 import '@furo/layout/src/furo-ripple.js';
 
 /**
@@ -104,24 +104,22 @@ class FuroCheckbox extends FBP(LitElement) {
   }
 
   set value(val) {
-    let setTo = false
-    if(typeof val === "boolean"){
+    let setTo = false;
+    if (typeof val === 'boolean') {
       setTo = val;
     }
-    if(typeof val === "string"){
-      setTo = (val.toLowerCase() === "true");
+    if (typeof val === 'string') {
+      setTo = val.toLowerCase() === 'true';
     }
-    if(this._value !== setTo){
+    if (this._value !== setTo) {
       this._value = setTo;
-
-
 
       /**
        * @event value-changed
        * Fired when value has changed from inside the component
        * detail payload: {String} the text value
        */
-      const customEvent = new Event('value-changed', {composed: true, bubbles: true});
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = this.value;
       this.dispatchEvent(customEvent);
 
@@ -131,7 +129,7 @@ class FuroCheckbox extends FBP(LitElement) {
          * Fired when the checkbox is checked
          * detail payload: {String} the text value
          */
-        const checkedEvent = new Event('checked', {composed: true, bubbles: true});
+        const checkedEvent = new Event('checked', { composed: true, bubbles: true });
         checkedEvent.detail = this.value;
         this.dispatchEvent(checkedEvent);
       } else {
@@ -140,7 +138,7 @@ class FuroCheckbox extends FBP(LitElement) {
          * Fired when the checkbox is unchecked
          * detail payload: {String} the text value
          */
-        const uncheckedEvent = new Event('unchecked', {composed: true, bubbles: true});
+        const uncheckedEvent = new Event('unchecked', { composed: true, bubbles: true });
         uncheckedEvent.detail = this.value;
         this.dispatchEvent(uncheckedEvent);
       }

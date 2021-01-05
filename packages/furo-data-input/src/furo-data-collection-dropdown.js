@@ -244,9 +244,8 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
     }
   }
 
-
-  _autoselectFirstItem( ) {
-    if(this._dropdownList){
+  _autoselectFirstItem() {
+    if (this._dropdownList) {
       if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
         // notifiy first item if field is not set
         let selectedItem = null;
@@ -258,13 +257,12 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
         }
         selectedItem = selectedItem || this._dropdownList[0].id;
         this._notifiySelectedItem(selectedItem);
-        if (this._fieldNodeToUpdate  ) {
+        if (this._fieldNodeToUpdate) {
           // give a little delay with the autoselected field, so the user can
           // realize that something was set
-          setTimeout(()=>{
+          setTimeout(() => {
             this._fieldNodeToUpdate._value = selectedItem;
-          },350);
-
+          }, 350);
         }
       } else if (this.multiple) {
         this._notifiySelectedItem(this._parseRepeatedData(this._fieldNodeToUpdate._value));
@@ -272,7 +270,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
         this._notifiySelectedItem(this._fieldNodeToUpdate._value);
       }
     }
-
   }
 
   /**
@@ -288,7 +285,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
   enable() {
     super.enable();
   }
-
 
   static get properties() {
     return {
@@ -513,9 +509,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
 
   // eslint-disable-next-line class-methods-use-this
   _updateField() {
-
-
-
     if (this.multiple) {
       if (!this._writeLock) {
         super.setValue(this._parseRepeatedData(this._fieldNodeToUpdate._value));
@@ -524,8 +517,8 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
       super.setValue(this._fieldNodeToUpdate._value);
     }
 
-    if(this.hasAttribute("auto-select-first")){
-      this._autoselectFirstItem( );
+    if (this.hasAttribute('auto-select-first')) {
+      this._autoselectFirstItem();
     }
     this.requestUpdate();
   }

@@ -315,9 +315,6 @@ describe('furo-data-object', () => {
     done();
   });
 
-
-
-
   it('should be possible to read the current model as json', done => {
     element.setAttribute('type', 'project.ProjectEntity');
 
