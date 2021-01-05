@@ -80,7 +80,6 @@ describe('furo-data-reference-search', () => {
   });
 
   it('should clear bounded data if element is cleared', done => {
-
     referenceSearch.addEventListener(
       'value-cleared',
       () => {

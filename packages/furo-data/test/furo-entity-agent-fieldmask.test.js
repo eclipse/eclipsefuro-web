@@ -34,7 +34,6 @@ describe('furo-entity-agent fieldmask', () => {
     done();
   });
 
-
   it('update method with patch should have required fields in payload', done => {
     entityAgent.setAttribute('service', 'PersonService');
     dataObject.setAttribute('type', 'person.PersonEntity');

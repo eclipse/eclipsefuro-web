@@ -98,7 +98,7 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
     this.binder.checkLabelandAttributeOverrrides();
 
     // the extended furo-checkbox-input component uses _value
-    this.binder.targetValueField = '_value';
+    this.binder.targetValueField = '__value';
 
     // update the value on input changes
     this.addEventListener('value-changed', val => {
@@ -111,10 +111,8 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
         }
       }
 
-      if (this.binder.fieldValue !== val.detail) {
-        // update the value
-        this.binder.fieldValue = val.detail;
-      }
+      // update the value
+      this.setValue(val.detail);
     });
   }
 
@@ -123,7 +121,26 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
    * @param val
    */
   setValue(val) {
-    this.binder.fieldValue = val;
+    if (this.binder.fieldNode) {
+      // update only if field is bound
+      if (this.binder.fieldNode._spec.type === 'string') {
+        const v = val ? 'true' : 'false';
+        if (this.binder.fieldValue !== v) {
+          this.binder.fieldValue = v;
+        }
+      } else if (this.binder.fieldValue !== val) {
+        this.binder.fieldValue = val;
+      }
+    }
+  }
+
+  // pass the value to the underlieying component always as boolean
+  set __value(v) {
+    if (typeof v === 'string') {
+      this._value = v.toLowerCase() === 'true';
+    } else {
+      this._value = v;
+    }
   }
 
   /**

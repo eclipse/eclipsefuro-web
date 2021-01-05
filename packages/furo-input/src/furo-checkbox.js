@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import '@furo/layout/src/furo-ripple.js';
+
 /**
  * `furo-checkbox`
  *
@@ -102,36 +103,45 @@ class FuroCheckbox extends FBP(LitElement) {
     this.value = !!v;
   }
 
-  set value(v) {
-    this._value = !!v;
+  set value(val) {
+    let setTo = false;
+    if (typeof val === 'boolean') {
+      setTo = val;
+    }
+    if (typeof val === 'string') {
+      setTo = val.toLowerCase() === 'true';
+    }
+    if (this._value !== setTo) {
+      this._value = setTo;
 
-    /**
-     * @event value-changed
-     * Fired when value has changed from inside the component
-     * detail payload: {String} the text value
-     */
-    const customEvent = new Event('value-changed', { composed: true, bubbles: true });
-    customEvent.detail = this.value;
-    this.dispatchEvent(customEvent);
-
-    if (this.checked) {
       /**
-       * @event checked
-       * Fired when the checkbox is checked
+       * @event value-changed
+       * Fired when value has changed from inside the component
        * detail payload: {String} the text value
        */
-      const checkedEvent = new Event('checked', { composed: true, bubbles: true });
-      checkedEvent.detail = this.value;
-      this.dispatchEvent(checkedEvent);
-    } else {
-      /**
-       * @event unchecked
-       * Fired when the checkbox is unchecked
-       * detail payload: {String} the text value
-       */
-      const uncheckedEvent = new Event('unchecked', { composed: true, bubbles: true });
-      uncheckedEvent.detail = this.value;
-      this.dispatchEvent(uncheckedEvent);
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = this.value;
+      this.dispatchEvent(customEvent);
+
+      if (this.checked) {
+        /**
+         * @event checked
+         * Fired when the checkbox is checked
+         * detail payload: {String} the text value
+         */
+        const checkedEvent = new Event('checked', { composed: true, bubbles: true });
+        checkedEvent.detail = this.value;
+        this.dispatchEvent(checkedEvent);
+      } else {
+        /**
+         * @event unchecked
+         * Fired when the checkbox is unchecked
+         * detail payload: {String} the text value
+         */
+        const uncheckedEvent = new Event('unchecked', { composed: true, bubbles: true });
+        uncheckedEvent.detail = this.value;
+        this.dispatchEvent(uncheckedEvent);
+      }
     }
   }
 

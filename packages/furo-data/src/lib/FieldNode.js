@@ -625,13 +625,12 @@ export class FieldNode extends EventTreeNode {
     return this.__value;
   }
 
-
   /**
    * returns the value of the data object as a base64 encoded string
    * @return {string}
    * @private
    */
-  get _base64(){
+  get _base64() {
     return btoa(JSON.stringify(this._value));
   }
 
@@ -640,8 +639,8 @@ export class FieldNode extends EventTreeNode {
    * @param encodedData
    * @private
    */
-  set _base64(encodedData){
-    this.injectRaw(JSON.parse(atob(encodedData)))
+  set _base64(encodedData) {
+    this.injectRaw(JSON.parse(atob(encodedData)));
   }
 
   /**
@@ -693,8 +692,6 @@ export class FieldNode extends EventTreeNode {
    * @private
    */
   get _deltaValue() {
-
-
     if (this.__childNodes.length > 0) {
       this.__value = {};
       // nur reine Daten zurück geben

@@ -1,5 +1,5 @@
 import { html } from 'lit-element';
-import '@furo/data-input/src/furo-data-text-input.js';
+import '@furo/data-input/src/furo-data-checkbox-input.js';
 import { BaseFilter } from './basefilter.js';
 /**
  * INITIAL VERSION
@@ -10,7 +10,7 @@ import { BaseFilter } from './basefilter.js';
  * @customElement
  * @appliesMixin FBP
  */
-class FuroDataFilterText extends BaseFilter {
+class FuroDataFilterCheckbox extends BaseFilter {
   /**
    * @private
    * @returns {TemplateResult}
@@ -28,7 +28,7 @@ class FuroDataFilterText extends BaseFilter {
           list="${this.comparators}"
         ></furo-data-collection-dropdown>
 
-        <furo-data-text-input
+        <furo-data-checkbox-input
           id="val"
           label="${this.label}"
           ?condensed="${this.condensed}"
@@ -36,11 +36,11 @@ class FuroDataFilterText extends BaseFilter {
           @-trailing-icon-clicked="--clear"
           flex
           ƒ-bind-data="--filternode(*.val)"
-        ></furo-data-text-input>
+        ></furo-data-checkbox-input>
       </furo-horizontal-flex>
       <furo-keydown key="Escape" @-key="--clear"></furo-keydown>
     `;
   }
 }
 
-window.customElements.define('furo-data-filter-text', FuroDataFilterText);
+window.customElements.define('furo-data-filter-checkbox', FuroDataFilterCheckbox);

@@ -111,8 +111,6 @@ export class DataObject extends EventTreeNode {
     return this._type === type;
   }
 
-
-
   get rawEntity() {
     return this._rawEntity;
   }
@@ -125,13 +123,12 @@ export class DataObject extends EventTreeNode {
     return this.getJson();
   }
 
-
   /**
    * returns the value of the data object as a base64 encoded string
-    * @return {string}
+   * @return {string}
    * @private
    */
-  get _base64(){
+  get _base64() {
     return btoa(JSON.stringify(this._value));
   }
 
@@ -140,8 +137,8 @@ export class DataObject extends EventTreeNode {
    * @param encodedData
    * @private
    */
-  set _base64(encodedData){
-    this.injectRaw(JSON.parse(atob(encodedData)))
+  set _base64(encodedData) {
+    this.injectRaw(JSON.parse(atob(encodedData)));
   }
 
   /**

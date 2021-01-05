@@ -30,7 +30,6 @@ class FuroPrettyJson extends FBP(LitElement) {
           white-space: pre;
         }
 
-
         .string {
           color: #080;
         }
