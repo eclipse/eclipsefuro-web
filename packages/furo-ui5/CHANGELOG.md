@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.11.0...@furo/ui5@0.12.0) (2021-01-05)
+
+
+### Features
+
+*  auto select first attribute for ui5-data-collection-dropdown ([c215cf7](https://github.com/theNorstroem/FuroBaseComponents/commit/c215cf7451a49d39c73587d7381b127a0099e691))
+
+
+
+
+
 # [0.11.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.10.0...@furo/ui5@0.11.0) (2020-12-24)
 
 
