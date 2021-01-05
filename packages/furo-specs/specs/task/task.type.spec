@@ -88,22 +88,7 @@ fields:
         meta:
             default: ""
             hint: ""
-            label: person.type.sex.label
-            options:
-                flags: []
-                list:
-                    - '@type': type.googleapis.com/furo.Optionitem
-                      display_name: person.type.sex.unknown.label
-                      id: unknown
-                      selected: false
-                    - '@type': type.googleapis.com/furo.Optionitem
-                      display_name: person.type.sex.female.label
-                      id: female
-                      selected: true
-                    - '@type': type.googleapis.com/furo.Optionitem
-                      display_name: person.type.sex.male.label
-                      id: male
-                      selected: false
+            label: person.label
             readonly: false
             repeated: false
             typespecific: null

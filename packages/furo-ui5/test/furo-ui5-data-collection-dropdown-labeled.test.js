@@ -127,7 +127,7 @@ describe('furo-ui5-data-collection-dropdown-labeled', () => {
   it('should have a label component inside', done => {
     setTimeout(() => {
       const label = input.shadowRoot.querySelector('ui5-label');
-      assert.equal(label.innerText, 'person.type.sex.label**', 'check label text');
+      assert.equal(label.innerText, 'person.label**', 'check label text');
 
       done();
     }, 16);

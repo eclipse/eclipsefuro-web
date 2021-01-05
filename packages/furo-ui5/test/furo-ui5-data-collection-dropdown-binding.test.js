@@ -19,12 +19,12 @@ describe('furo-ui5-data-collection-dropdown-binding', () => {
       <test-bind>
         <template>
           <furo-ui5-data-collection-dropdown
-            ƒ-bind-data="--entity(*.owner)"
+            ƒ-bind-data="--entity(*.sex)"
             value-field="id"
             display-field="display_name"
           ></furo-ui5-data-collection-dropdown>
-          <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
-          <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+          <furo-ui5-data-text-input ƒ-bind-data="--entity(*.sex)"></furo-ui5-data-text-input>
+          <furo-data-object type="person.Person" @-object-ready="--entity"></furo-data-object>
         </template>
       </test-bind>
     `);
@@ -44,14 +44,17 @@ describe('furo-ui5-data-collection-dropdown-binding', () => {
   });
 
   it('should activate the correct item', done => {
-    setTimeout(() => {
-      assert.equal(dropdown._dropdownList.length, 3, 'check number of elements');
-
-      setTimeout(() => {
-        assert.equal(dropdown._syncedOptions[0].selected, true, 'check selected item');
-        assert.equal(dropdown._selectedIndex, 0, 'check selected index');
-        done();
-      }, 0);
-    }, 16);
+    dropdown.addEventListener(
+      'item-selected',
+      () => {
+        setTimeout(() => {
+          assert.equal(dropdown._dropdownList.length, 3, 'check number of elements');
+          assert.equal(dropdown._syncedOptions[1].selected, true, 'check selected item');
+          assert.equal(dropdown._selectedIndex, 1, 'check selected index');
+          done();
+        }, 16);
+      },
+      { once: true },
+    );
   });
 });

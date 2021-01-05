@@ -103,4 +103,7 @@ class FuroUi5DataDateTimePickerLabeled extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('furo-ui5-data-date-time-picker-labeled', FuroUi5DataDateTimePickerLabeled);
+window.customElements.define(
+  'furo-ui5-data-date-time-picker-labeled',
+  FuroUi5DataDateTimePickerLabeled,
+);

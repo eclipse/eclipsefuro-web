@@ -13,6 +13,9 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * opened, you can use the UP and DOWN arrow keys to navigate through the available options and select one
  * by pressing the Space or Enter keys.
  *
+ * ### auto-select-first
+ * set this attribute to auto select the first item in the list, if no item is set in the bounded fieldNode.
+ *
  * @summary data collection dropdown
  * @customElement
  * @demo demo-furo-ui5-data-collection-dropdown Basic Usage
@@ -64,6 +67,12 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      * @type {string}
      */
     this.displaySubField = 'display_name';
+
+    /**
+     * set this attribute to autoSelectFirst the first item in the list, if no item is set in the bounded fieldNode
+     * @type {boolean}
+     */
+    this.autoSelectFirst = false;
 
     this._fieldNodeToUpdate = {};
     this._fieldDisplayNodeToUpdate = {};
@@ -119,6 +128,17 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       }
       this._notifiySelectedItem(selectedObj);
     });
+
+    /**
+     * set option items by opening the dropdown if items are not set before
+     */
+    this.addEventListener('click', () => {
+      //  only when items are not set before
+      if (this._fieldNodeToUpdate._value == null) {
+        this._optionNeedToBeRendered = true;
+        this._setOptionItems();
+      }
+    });
   }
 
   /**
@@ -139,7 +159,14 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @returns {string[]}
    */
   static get observedAttributes() {
-    return ['value-field', 'display-field', 'sub-field', 'value-sub-field', 'display-sub-field'];
+    return [
+      'value-field',
+      'display-field',
+      'sub-field',
+      'value-sub-field',
+      'display-sub-field',
+      'auto-select-first',
+    ];
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
@@ -160,6 +187,11 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
           break;
         case 'display-sub-field':
           this.displaySubField = newVal;
+          break;
+        case 'auto-select-first':
+          if (newVal || newVal === '') {
+            this.autoSelectFirst = true;
+          }
           break;
       }
     }
@@ -262,7 +294,23 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    */
   setList(optionArray) {
     this._dropdownList = optionArray;
-    this.optionItems = optionArray;
+
+    this._setOptionItems();
+  }
+
+  /**
+   * set option items
+   * @private
+   */
+  _setOptionItems() {
+    if (
+      this._dropdownList &&
+      (this.autoSelectFirst ||
+        this._optionNeedToBeRendered ||
+        this._fieldNodeToUpdate._value !== null)
+    ) {
+      this.optionItems = this._dropdownList;
+    }
   }
 
   set optionItems(collection) {
@@ -300,6 +348,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     const selectedObj = this._dropdownList.find(obj => obj.id === this._fieldNodeToUpdate._value);
 
     this._notifiySelectedItem(selectedObj);
+    this._optionNeedToBeRendered = true;
   }
 
   /**
@@ -393,7 +442,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       element.setAttribute('value', item.label);
       element.setAttribute('data-id', item.id);
       element.value = item.label;
-      if(item.selected) {
+      if (item.selected) {
         element.setAttribute('selected', '');
       }
       element.innerText = item.label;
@@ -407,12 +456,12 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    */
   _requestUpdate() {
     // sync the ui5 options and re-render it to update the dropdown list
-    setTimeout(()=>{
-      if(this.options.length === 0) {
+    setTimeout(() => {
+      if (this.options.length === 0) {
         this.options = this._state.options;
         this._updateSlots();
       }
-    },0)
+    }, 0);
   }
 
   /**
@@ -440,15 +489,9 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
        *
        * Set to pristine label to the same _pristine from the fieldNode
        */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
+      if (!this.binder.fieldNode._pristine) {
         this.binder.deleteLabel('pristine');
       }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
-      });
 
       // use multiple select for repeated node
       if (fieldNode._meta && fieldNode._meta.repeated) {
@@ -478,6 +521,9 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       });
 
       this.binder.fieldNode.addEventListener('field-value-changed', () => {
+        if (this._dropdownList.length === 0) {
+          this._initDropdownItemWithoutCollectionInjection();
+        }
         this._updateField();
       });
 
@@ -486,6 +532,28 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       });
 
       this._updateField();
+    }
+  }
+
+  _initDropdownItemWithoutCollectionInjection() {
+    // complex value
+    if (this.valueSubField && this.valueSubField !== 'null') {
+      if (
+        this.binder.fieldValue[this.valueSubField] &&
+        this.binder.fieldValue[this.displaySubField]
+      ) {
+        this._dropdownList = [
+          {
+            id: this.binder.fieldValue[this.valueSubField],
+            label: this.binder.fieldValue[this.displaySubField],
+            selected: true,
+          },
+        ];
+      }
+    } else if (this.binder.fieldValue !== null) {
+      this._dropdownList = [
+        { id: this.binder.fieldValue, label: this.binder.fieldValue, selected: true },
+      ];
     }
   }
 
@@ -545,6 +613,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param {options} list of options with id and display_name
    */
   _buildListWithMetaOptions(options) {
+    //
+    this.autoSelectFirst = true;
     this.injectList(options.list);
   }
 

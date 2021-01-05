@@ -11,6 +11,8 @@ import '@furo/data/src/furo-data-object.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-collection-agent.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/data/src/furo-entity-agent.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-deep-link.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/form/src/furo-form-layouter.js';
@@ -21,7 +23,8 @@ import '@furo/data-input/demos/helper/produce-qp-data.js';
 
 import '@ui5/webcomponents/dist/Icon.js';
 import '../src/lib/ui5-icons.js';
-
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/data-input/demos/helper/fetch-universal-json.js';
 /**
  * `demo-furo-ui5-data-collection-dropdown`
  *
@@ -77,9 +80,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
               <furo-ui5-data-collection-dropdown
                 style="width: 100%;"
                 value-state="Warning"
-                sub-field=""
-                ƒ-bind-data="--entity(*.owner)"
-                value-sub-field="id"
+                ƒ-bind-data="--entityPerson(*.sex)"
                 @-item-selected="--itemSelected"
               ></furo-ui5-data-collection-dropdown>
             </div>
@@ -126,13 +127,30 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
               <furo-ui5-data-collection-dropdown
                 style="width: 100%;"
                 display-sub-field="link.type"
+                value-sub-field="id"
                 ƒ-inject-entities="--response(*.entities)"
                 ƒ-bind-data="--entity(*.owner)"
                 @-item-selected="--itemSelected"
               >
               </furo-ui5-data-collection-dropdown>
             </div>
-            <hr />
+
+            <div>
+              <p>auto-select-first attribute</p>
+              <p>
+                In this example, the first element will be selected after injecting the entities.
+                Because the auto-select-first attribute is set.
+              </p>
+              <furo-ui5-data-collection-dropdown
+                style="width: 100%;"
+                value-sub-field="id"
+                auto-select-first
+                ƒ-inject-entities="--response(*.entities)"
+                ƒ-bind-data="--entityProject(*.data)"
+                @-item-selected="--itemSelected"
+              >
+              </furo-ui5-data-collection-dropdown>
+            </div>
             <p>
               Bound input fields: owner.id and owner.display_name. If you enter a valid owner ID,
               the items in the collection drop-down list automatically display the record matching
@@ -148,12 +166,26 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
           </furo-form-layouter>
 
           <furo-button-bar>
-            <ui5-button design="Emphasized" @-click="--load">load data</ui5-button>
+            <ui5-button design="Emphasized" @-click="--loadCollection"
+              >load and inject entities into dropdown list</ui5-button
+            >
+            <ui5-button design="Emphasized" @-click="--loadData">
+              <fetch-universal-json
+                file="/mockdata/projects/2/get.json"
+                @-data-loaded="--responseProject"
+              ></fetch-universal-json
+            ></ui5-button>
           </furo-button-bar>
 
           <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
 
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+          <furo-data-object
+            type="project.ProjectEntity"
+            @-object-ready="--entityProject"
+            ƒ-inject-raw="--responseProject"
+          ></furo-data-object>
+          <furo-data-object type="person.Person" @-object-ready="--entityPerson"></furo-data-object>
           <furo-data-object
             type="person.PersonCollection"
             @-object-ready="--collection"
@@ -163,7 +195,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
           <furo-collection-agent
             service="PersonService"
             ƒ-hts-in="--hts"
-            ƒ-list="--load"
+            ƒ-list="--loadCollection"
             @-response="--response"
           >
           </furo-collection-agent>

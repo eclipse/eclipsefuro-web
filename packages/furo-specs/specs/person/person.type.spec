@@ -127,3 +127,32 @@ fields:
             repeated: false
             typespecific: null
         constraints: {}
+    sex:
+        type: string
+        description: sex
+        __proto:
+            number: 8
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: "sex"
+            options:
+                list:
+                    - '@type': type.googleapis.com/furo.Optionitem
+                      display_name: person.type.sex.unknown.label
+                      id: unknown
+                      selected: false
+                    - '@type': type.googleapis.com/furo.Optionitem
+                      display_name: person.type.sex.female.label
+                      id: female
+                      selected: true
+                    - '@type': type.googleapis.com/furo.Optionitem
+                      display_name: person.type.sex.male.label
+                      id: male
+                      selected: false
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}

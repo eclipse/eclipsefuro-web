@@ -90,5 +90,4 @@ describe('furo-ui5-data-date-time-display', () => {
       done();
     }, 0);
   });
-
 });
