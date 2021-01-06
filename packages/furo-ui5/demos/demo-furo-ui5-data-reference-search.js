@@ -21,6 +21,7 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
     this._FBPAddWireHook('--term', e => {
+      // eslint-disable-next-line no-console
       console.log(e);
     });
   }
