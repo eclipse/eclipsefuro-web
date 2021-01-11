@@ -157,7 +157,6 @@ describe('furo-ui5-data-text-input-fat', () => {
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
       assert.equal(input.__errorMsg, 'Your fat string is valid', 'check valueStateMessage content');
       assert.equal(input.__hint, 'hint', 'check hint');
-      assert.equal(input.pristine, true, 'Please enter a description', 'check pristine');
       assert.equal(input.binder.fieldFormat, 'fat', 'check fieldFormat');
       assert.equal(input.querySelector('ui5-icon')._state.name, 'thumb-up', 'check icon');
 
