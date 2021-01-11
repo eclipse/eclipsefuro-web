@@ -183,7 +183,6 @@ describe('furo-ui5-data-password-input', () => {
       assert.equal(input._state.maxlength, undefined, 'check maxlength');
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
       assert.equal(input.__hint, 'Please enter a description', 'check hint');
-      assert.equal(input.pristine, true, 'Please enter a description', 'check pristine');
       assert.equal(input.binder.fieldFormat, 'scalar', 'check fieldFormat');
 
       done();
