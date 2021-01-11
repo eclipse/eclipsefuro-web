@@ -102,7 +102,7 @@ class HookInitRepeat {
 
     btn.addAttribute("label", "Add " + SPEC.type);
     btn.addFlag("outline");
-    btn.addEventListener("click", "--adderTriggered");
+    btn.addEventListener("click", "--adderTriggered(park)");
     return u33e;
   }
 }
