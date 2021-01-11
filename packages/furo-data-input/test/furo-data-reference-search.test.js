@@ -74,7 +74,7 @@ describe('furo-data-reference-search', () => {
 
   it('should bind data', done => {
     setTimeout(() => {
-      assert.equal(referenceSearch.binder.fieldNode._meta.label, 'person.type.sex.label**');
+      assert.equal(referenceSearch.binder.fieldNode._meta.label, 'person.label**');
       done();
     }, 60);
   });
@@ -83,8 +83,8 @@ describe('furo-data-reference-search', () => {
     referenceSearch.addEventListener(
       'value-cleared',
       () => {
-        assert.equal(entityObject.data.owner.display_name._value, null);
-        assert.equal(entityObject.data.owner.id._value, null);
+        assert.equal(entityObject.data.owner.display_name._value, "");
+        assert.equal(entityObject.data.owner.id._value, "");
         done();
       },
       { once: true },
@@ -98,70 +98,31 @@ describe('furo-data-reference-search', () => {
   });
 
   it('should fire search when search term is entered and the length of the term is bigger then min-term-length', done => {
-    collectionAgent.addEventListener('response', () => {
+    host._FBPAddWireHook("--term" , () => {
       done();
     });
     referenceSearch._searchTerm = 'term';
     referenceSearch._fireSearchEvent();
   });
 
-  it('should inject search result ', done => {
-    collectionAgent.addEventListener('response', () => {
-      assert.equal(referenceSearch._collection.length > 0, true);
-      done();
-    });
-    setTimeout(() => {
-      referenceSearch._searchTerm = 'term';
-      referenceSearch._fireSearchEvent();
-    }, 60);
-  });
 
   it('should fire search by input changed', done => {
+
+    referenceSearch.addEventListener('search', (d) => {
+
+        assert.equal(d.detail, 'term');
+        done();
+
+    });
+
     setTimeout(() => {
       const customEvent = new Event('searchInput', { composed: true, bubbles: true });
       customEvent.detail = 'term';
       referenceSearch.shadowRoot.getElementById('input').dispatchEvent(customEvent);
     }, 10);
 
-    collectionAgent.addEventListener('response', () => {
-      setTimeout(() => {
-        assert.equal(referenceSearch._collection.length > 0, true);
-        done();
-      }, 12);
-    });
   });
 
-  it('should select element by focus', done => {
-    collectionAgent.addEventListener('response', () => {
-      setTimeout(() => {
-        assert.equal(referenceSearch._listIsOpen, undefined);
-        const customEvent = new Event('focus', { composed: true, bubbles: true });
-        referenceSearch.shadowRoot.getElementById('input').dispatchEvent(customEvent);
-        assert.equal(referenceSearch._listIsOpen, true);
-        done();
-      }, 10);
-    });
-    referenceSearch._searchTerm = 'term';
-    referenceSearch._fireSearchEvent();
-  });
-
-  it('should select element by focus', done => {
-    setTimeout(() => {
-      const customEvent = new Event('searchInput', { composed: true, bubbles: true });
-      customEvent.detail = 'term';
-      referenceSearch.shadowRoot.getElementById('input').dispatchEvent(customEvent);
-    }, 10);
-
-    collectionAgent.addEventListener('response', () => {
-      setTimeout(() => {
-        assert.equal(referenceSearch._listIsOpen, undefined);
-        const customEvent = new Event('focus', { composed: true, bubbles: true });
-        referenceSearch.shadowRoot.getElementById('input').dispatchEvent(customEvent);
-        assert.equal(referenceSearch._listIsOpen, true);
-        done();
-      }, 10);
-    });
-  });
 
   it('should show no result hint by empty response', done => {
     referenceSearch.collectionIn({});

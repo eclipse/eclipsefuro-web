@@ -353,8 +353,10 @@ describe('UniversalFieldNodeBinder.test', () => {
         }),
         'attributes on fieldnode on first load',
       );
-      done();
-    });
+        done();
+      },
+      { once: true },
+    );
     fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
   });
 
