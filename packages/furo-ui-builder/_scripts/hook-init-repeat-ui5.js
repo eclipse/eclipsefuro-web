@@ -100,7 +100,7 @@ class HookInitRepeatUi5 {
 
     btn.addInnerText("Add " + SPEC.type);
     btn.addAttribute("icon", "add");
-    btn.addEventListener("click", "--adderTriggered");
+    btn.addEventListener("click", "--adderTriggered(park)");
     return u33e;
   }
 }
