@@ -604,11 +604,13 @@ export class FieldNode extends EventTreeNode {
     // type any
     this._createAnyType(val);
 
-    if (this.__childNodes.length > 0 && val) {
+    if (this.__childNodes.length > 0 && (val !== undefined || val !== null)) {
       // eslint-disable-next-line guard-for-in,no-restricted-syntax
       for (const index in this.__childNodes) {
         const field = this.__childNodes[index];
-        field.defaultvalue = val[field._name];
+        if (val[field._name] !== undefined) {
+          field.defaultvalue = val[field._name];
+        }
       }
     } else if (this._spec.type.startsWith('map<')) {
       this._updateKeyValueMap(val, this._spec.type);

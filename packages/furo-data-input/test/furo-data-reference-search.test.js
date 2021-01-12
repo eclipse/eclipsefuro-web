@@ -83,8 +83,8 @@ describe('furo-data-reference-search', () => {
     referenceSearch.addEventListener(
       'value-cleared',
       () => {
-        assert.equal(entityObject.data.owner.display_name._value, "");
-        assert.equal(entityObject.data.owner.id._value, "");
+        assert.equal(entityObject.data.owner.display_name._value, '');
+        assert.equal(entityObject.data.owner.id._value, '');
         done();
       },
       { once: true },
@@ -98,21 +98,17 @@ describe('furo-data-reference-search', () => {
   });
 
   it('should fire search when search term is entered and the length of the term is bigger then min-term-length', done => {
-    host._FBPAddWireHook("--term" , () => {
+    host._FBPAddWireHook('--term', () => {
       done();
     });
     referenceSearch._searchTerm = 'term';
     referenceSearch._fireSearchEvent();
   });
 
-
   it('should fire search by input changed', done => {
-
-    referenceSearch.addEventListener('search', (d) => {
-
-        assert.equal(d.detail, 'term');
-        done();
-
+    referenceSearch.addEventListener('search', d => {
+      assert.equal(d.detail, 'term');
+      done();
     });
 
     setTimeout(() => {
@@ -120,9 +116,7 @@ describe('furo-data-reference-search', () => {
       customEvent.detail = 'term';
       referenceSearch.shadowRoot.getElementById('input').dispatchEvent(customEvent);
     }, 10);
-
   });
-
 
   it('should show no result hint by empty response', done => {
     referenceSearch.collectionIn({});
