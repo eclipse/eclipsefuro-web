@@ -1,6 +1,6 @@
 {
   "name": "@furo/form",
-  "version": "1.3.40",
+  "version": "1.3.41",
   "description": "form",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-form",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
@@ -36,8 +36,8 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data": "^1.16.1",
-    "@furo/data-input": "^1.10.7",
+    "@furo/data": "^1.16.2",
+    "@furo/data-input": "^1.10.8",
     "@furo/input": "^1.5.9",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",

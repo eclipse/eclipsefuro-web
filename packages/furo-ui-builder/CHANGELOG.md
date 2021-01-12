@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.8.1...@furo/ui-builder@1.9.0) (2021-01-12)
+
+
+### Bug Fixes
+
+* add wire must not transmit values ([cdb45b1](https://github.com/theNorstroem/FuroBaseComponents/commit/cdb45b19214f371fe5a8aa0ea0014dead657ec6b))
+
+
+### Features
+
+* semi-finished repeater tmpl according to SAP Fiori ([cf58e4f](https://github.com/theNorstroem/FuroBaseComponents/commit/cf58e4f587f304fa578a7e253a442df40fbb590c))
+
+
+
+
+
 ## [1.8.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.8.0...@furo/ui-builder@1.8.1) (2020-11-20)
 
 

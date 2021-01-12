@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.12.0...@furo/ui5@0.13.0) (2021-01-12)
+
+
+### Bug Fixes
+
+* update input slot by filed-value-changed event ([1883bd8](https://github.com/theNorstroem/FuroBaseComponents/commit/1883bd8c9ac04dc788dfb8669ef0da4680a95c07))
+
+
+### Features
+
+* semi-finished repeater tmpl according to SAP Fiori ([cf58e4f](https://github.com/theNorstroem/FuroBaseComponents/commit/cf58e4f587f304fa578a7e253a442df40fbb590c))
+
+
+
+
+
 # [0.12.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.11.0...@furo/ui5@0.12.0) (2021-01-05)
 
 
