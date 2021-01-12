@@ -28,6 +28,7 @@ describe('furo-data-collection-dropdown', () => {
       <test-bind>
         <template>
           <furo-data-collection-dropdown
+            auto-select-first
             ƒ-bind-data="--entity(*.data.description)"
           ></furo-data-collection-dropdown>
 
@@ -48,6 +49,7 @@ describe('furo-data-collection-dropdown', () => {
           </furo-entity-agent>
 
           <furo-data-collection-dropdown
+            auto-select-first
             hint="hint override"
             leading-icon="mail"
             trailing-icon="fingerprint"
@@ -159,16 +161,16 @@ describe('furo-data-collection-dropdown', () => {
 
   it('should selected the items when the field value not exists and the item in option list is marked as `selected:true`', done => {
     setTimeout(() => {
-      assert.equal(collectionDropdown2.binder.fieldNode.id, 'female');
+      assert.equal(collectionDropdown2.binder.fieldNode.id._value, 'female');
       done();
-    }, 400);
+    }, 600);
   });
 
   it('should assign the field value (is not setted before) initially with the selected item value from spec', done => {
     setTimeout(() => {
       assert.equal(entityObject2.data.owner.id._value, 'female');
       done();
-    }, 400);
+    }, 600);
   });
 
   it('should set the select element to disabled', done => {

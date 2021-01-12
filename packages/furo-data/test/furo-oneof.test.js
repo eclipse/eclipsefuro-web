@@ -44,13 +44,13 @@ describe('furo data oneof', () => {
   it('should clear the siblings when setting one of the oneof fields in a group', done => {
     element.setAttribute('type', 'experiment.Oneof');
     const EntityRoot = element.data;
-    assert.equal(EntityRoot.display_name._value, null);
+    assert.equal(EntityRoot.display_name._value, '');
     assert.equal(EntityRoot.furo_data_checkbox_input._value, null);
 
     EntityRoot.furo_data_checkbox_input._value = true;
     EntityRoot.display_name._value = 'Some Text';
     EntityRoot.furo_data_checkbox_input._value = false;
-    assert.equal(EntityRoot.display_name._value, null);
+    assert.equal(EntityRoot.display_name._value, '');
     assert.equal(EntityRoot.furo_data_checkbox_input._value, false);
 
     done();

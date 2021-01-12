@@ -104,8 +104,12 @@ export class FieldNode extends EventTreeNode {
     }
 
     // set default value from meta
-    if (this._meta && this._meta.default) {
-      this.defaultvalue = this._meta.default;
+    if (this._meta && this._meta.default !== null) {
+      if (this._spec.type === 'string') {
+        this.defaultvalue = this._meta.default;
+      } else if (this._meta.default) {
+        this.defaultvalue = this._meta.default;
+      }
     }
 
     /**
@@ -354,10 +358,18 @@ export class FieldNode extends EventTreeNode {
             sibling.__oneofrecusion = true;
             // eslint-disable-next-line no-param-reassign
             sibling._oldvalue = this._value;
-            // eslint-disable-next-line no-param-reassign
-            sibling.__value = undefined;
-            // eslint-disable-next-line no-param-reassign
-            sibling._value = undefined;
+            if (sibling._spec.type === 'string') {
+              // eslint-disable-next-line no-param-reassign
+              sibling.__value = '';
+              // eslint-disable-next-line no-param-reassign
+              sibling._value = '';
+            } else {
+              // eslint-disable-next-line no-param-reassign
+              sibling.__value = undefined;
+              // eslint-disable-next-line no-param-reassign
+              sibling._value = undefined;
+            }
+
             if (sibling.__childNodes.length > 0) {
               // eslint-disable-next-line no-param-reassign
               sibling.__childNodes = [];
