@@ -314,45 +314,51 @@ describe('UniversalFieldNodeBinder.test', () => {
       maxlength: 'maxLength',
       minlength: 'minLength',
     };
-    dataobj.addEventListener('data-injected', () => {
-      pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
-      assert.equal(pseudocomponent.value, pseudocomponent.binder._fieldValue, 'values be the same');
-      assert.equal(pseudocomponent.valueState, 'Error');
-      assert.equal(pseudocomponent.maxLength, '6');
-      assert.equal(pseudocomponent.minLength, undefined);
+    dataobj.addEventListener(
+      'data-injected',
+      () => {
+        pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
+        assert.equal(
+          pseudocomponent.value,
+          pseudocomponent.binder._fieldValue,
+          'values be the same',
+        );
+        assert.equal(pseudocomponent.valueState, 'Error');
+        assert.equal(pseudocomponent.maxLength, '6');
+        assert.equal(pseudocomponent.minLength, undefined);
 
-      pseudocomponent.binder.setAttribute('minlength', 'small');
+        pseudocomponent.binder.setAttribute('minlength', 'small');
 
-      assert.equal(pseudocomponent.minLength, 'small');
-      assert.equal(pseudocomponent.binder.fieldNode.attributes.minlength._value, 'small');
-      assert.equal(
-        JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),
-        JSON.stringify({
-          'value-state': 'Error',
-          min: '6',
-          max: '16',
-          maxlength: '6',
-          label: 'override',
-          placeholder: 'overridePH',
-          minlength: 'small',
-        }),
-        'attributes on fieldnode after inject',
-      );
+        assert.equal(pseudocomponent.minLength, 'small');
+        assert.equal(pseudocomponent.binder.fieldNode.attributes.minlength._value, 'small');
+        assert.equal(
+          JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),
+          JSON.stringify({
+            'value-state': 'Error',
+            min: '6',
+            max: '16',
+            maxlength: '6',
+            label: 'override',
+            placeholder: 'overridePH',
+            minlength: 'small',
+          }),
+          'attributes on fieldnode after inject',
+        );
 
-      pseudocomponent.binder.removeAttribute('value-state');
+        pseudocomponent.binder.removeAttribute('value-state');
 
-      pseudocomponent.binder.removeAttribute('label');
-      assert.equal(
-        JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),
-        JSON.stringify({
-          min: '6',
-          max: '16',
-          maxlength: '6',
-          placeholder: 'overridePH',
-          minlength: 'small',
-        }),
-        'attributes on fieldnode on first load',
-      );
+        pseudocomponent.binder.removeAttribute('label');
+        assert.equal(
+          JSON.stringify(pseudocomponent.binder.fieldNode.attributes._value),
+          JSON.stringify({
+            min: '6',
+            max: '16',
+            maxlength: '6',
+            placeholder: 'overridePH',
+            minlength: 'small',
+          }),
+          'attributes on fieldnode on first load',
+        );
         done();
       },
       { once: true },
