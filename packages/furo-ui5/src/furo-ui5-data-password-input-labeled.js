@@ -27,6 +27,15 @@ class FuroUi5DataPasswordInputLabeled extends FBP(LitElement) {
     this.label = '';
   }
 
+
+  /**
+   * Focuses the underlying ui5 input element
+   * @param e
+   */
+  focus(e){
+    this._FBPTriggerWire("--focus",e)
+  }
+
   /**
    * flow is ready lifecycle method
    */
@@ -94,6 +103,7 @@ class FuroUi5DataPasswordInputLabeled extends FBP(LitElement) {
           id="Input"
           ?disabled=${this.disabled}
           ƒ-bind-data="--data"
+          ƒ-focus="--focus"
         ></furo-ui5-data-password-input>
       </furo-ui5-form-field-container>
     `;
