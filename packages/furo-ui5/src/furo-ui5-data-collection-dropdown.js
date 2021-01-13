@@ -443,6 +443,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
   _requestUpdate() {
     // sync the ui5 options and re-render it to update the dropdown list
     setTimeout(() => {
+      // direct modify the option of ui5 component is forbidden via ui5, therefor use splice
+      this.options.splice(0,this.options.length);
       this._state.options.forEach(element => {
         this.options.push(element);
       });
