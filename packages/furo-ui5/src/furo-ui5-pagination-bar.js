@@ -4,10 +4,10 @@ import { FBP } from '@furo/fbp';
 
 import '@furo/layout';
 import '@ui5/webcomponents/dist/Button.js';
-import '@ui5/webcomponents-icons/dist/icons/sys-first-page.js';
-import '@ui5/webcomponents-icons/dist/icons/sys-last-page.js';
-import '@ui5/webcomponents-icons/dist/icons/sys-next-page.js';
-import '@ui5/webcomponents-icons/dist/icons/sys-prev-page.js';
+import '@ui5/webcomponents-icons/dist/sys-first-page.js';
+import '@ui5/webcomponents-icons/dist/sys-last-page.js';
+import '@ui5/webcomponents-icons/dist/sys-next-page.js';
+import '@ui5/webcomponents-icons/dist/sys-prev-page.js';
 
 // eslint-disable-next-line no-unused-vars
 import { i18n } from '@furo/framework/src/i18n.js';

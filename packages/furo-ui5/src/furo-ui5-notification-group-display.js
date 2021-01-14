@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 import 'markdown-it/dist/markdown-it.js';
 import '@ui5/webcomponents-fiori/dist/NotificationListGroupItem.js';
-import '@ui5/webcomponents-fiori/dist/NotificationOverflowAction.js';
+import '@ui5/webcomponents-fiori/dist/NotificationAction.js';
 import '@ui5/webcomponents/dist/List.js';
 import { Theme } from '@furo/framework';
 

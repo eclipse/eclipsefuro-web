@@ -201,11 +201,7 @@ describe('furo-ui5-data-reference-search', () => {
 
   it('should bind data', done => {
     setTimeout(() => {
-      assert.equal(
-        referenceSearch.binder.fieldNode._meta.label,
-        'person.type.sex.label**',
-        'binding check',
-      );
+      assert.equal(referenceSearch.binder.fieldNode._meta.label, 'person.label**', 'binding check');
       done();
     }, 15);
   });

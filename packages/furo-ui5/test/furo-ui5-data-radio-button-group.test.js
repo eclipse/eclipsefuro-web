@@ -131,11 +131,11 @@ describe('furo-ui5-data-radio-button-group', () => {
       <test-bind>
         <template>
           <furo-ui5-data-radio-button-group
-            ƒ-bind-data="--typeData(*.owner)"
+            ƒ-bind-data="--entity(*.sex)"
             sub-field="data"
           ></furo-ui5-data-radio-button-group>
-          <furo-ui5-data-text-input ƒ-bind-data="--typeData(*.owner.id)"></furo-ui5-data-text-input>
-          <furo-data-object type="task.Task" @-object-ready="--typeData"></furo-data-object>
+          <furo-ui5-data-text-input ƒ-bind-data="--entity(*.sex)"></furo-ui5-data-text-input>
+          <furo-data-object type="person.Person" @-object-ready="--entity"></furo-data-object>
         </template>
       </test-bind>
     `);
@@ -155,7 +155,9 @@ describe('furo-ui5-data-radio-button-group', () => {
   });
 
   it('should have the correct items', done => {
-    assert.equal(dropdown._dropdownList.length, 3);
-    done();
+    setTimeout(() => {
+      assert.equal(dropdown._dropdownList.length, 3);
+      done();
+    }, 16);
   });
 });

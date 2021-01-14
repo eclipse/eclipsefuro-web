@@ -262,6 +262,8 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
         if (localDateString && localDateString !== this.value) {
           this.value = localDateString;
         }
+      } else if (this.value) {
+        this.value = '';
       }
     }
     // scalar string type

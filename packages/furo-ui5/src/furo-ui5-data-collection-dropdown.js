@@ -84,48 +84,27 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      * Listener to catch the selected data
      */
     this.addEventListener('change', val => {
+      this.updateLock = true;
+
       const selectedObj = this._dropdownList.find(
         obj => obj.id === val.detail.selectedOption.dataset.id,
       );
 
       if (this.binder.fieldNode) {
-        if (!this.multiple) {
-          // by valid input reset meta and constraints
-          this._fieldNodeToUpdate._value = selectedObj.id;
-          // the _fieldNodeToUpdate and the _fieldDisplayNodeToUpdate are the same by scalar type. in this case
-          // there is no need to update the display value
-          if (this._fieldNodeToUpdate !== this._fieldDisplayNodeToUpdate) {
-            this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id);
-          }
-        } else {
-          const data = [];
-          const arrSubfieldChains = this.subField.split('.');
-          // create value data according to the structure of subfield
-          if (Array.isArray(selectedObj.id)) {
-            selectedObj.forEach(v => {
-              const tmp = {};
-              for (let i = arrSubfieldChains.length - 1; i > -1; i -= 1) {
-                tmp[i] = {};
-                if (i === arrSubfieldChains.length - 1) {
-                  tmp[i][arrSubfieldChains[i]] = v;
-                } else {
-                  tmp[i][arrSubfieldChains[i]] = tmp[i + 1];
-                }
-              }
-              data.push(tmp[0]);
-            });
-          }
-          // add write lock to avoid triggering _updateField via fieldnode changed event
-          this._writeLock = true;
-          this._fieldNodeToUpdate._value = data;
-          // shut down write protection
-          setTimeout(() => {
-            this._writeLock = false;
-          }, 100);
+        // by valid input reset meta and constraints
+        this._fieldNodeToUpdate._value = selectedObj.id;
+        // the _fieldNodeToUpdate and the _fieldDisplayNodeToUpdate are the same by scalar type. in this case
+        // there is no need to update the display value
+        if (this._fieldNodeToUpdate !== this._fieldDisplayNodeToUpdate) {
+          this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id);
         }
 
         this.binder.deleteLabel('pristine');
       }
+      setTimeout(() => {
+        this.updateLock = false;
+      }, 50);
+
       this._notifiySelectedItem(selectedObj);
     });
 
@@ -133,6 +112,14 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      * set option items by opening the dropdown if items are not set before
      */
     this.addEventListener('click', () => {
+      //  only when items are not set before
+      if (this._fieldNodeToUpdate._value == null) {
+        this._optionNeedToBeRendered = true;
+        this._setOptionItems();
+      }
+    });
+
+    this.addEventListener('focus', () => {
       //  only when items are not set before
       if (this._fieldNodeToUpdate._value == null) {
         this._optionNeedToBeRendered = true;
@@ -267,7 +254,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
   /**
    * @event item-selected
    * Fired when an item from the dropdown was selected
-   * detail payload: the original item object or the array of original item objects by multiple options
+   * detail payload: the original item object
    */
   _notifiySelectedItem(obj) {
     if (obj) {
@@ -307,7 +294,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       this._dropdownList &&
       (this.autoSelectFirst ||
         this._optionNeedToBeRendered ||
-        this._fieldNodeToUpdate._value !== null)
+        (this._fieldNodeToUpdate._value !== undefined && this._fieldNodeToUpdate._value !== null))
     ) {
       this.optionItems = this._dropdownList;
     }
@@ -434,9 +421,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param options
    */
   addItems(options) {
-    const combo = this;
     this.innerHTML = '';
-    combo.value = '';
+    this.value = '';
     options.forEach(item => {
       const element = document.createElement('ui5-option');
       element.setAttribute('value', item.label);
@@ -446,7 +432,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         element.setAttribute('selected', '');
       }
       element.innerText = item.label;
-      combo.appendChild(element);
+      this.appendChild(element);
     });
     this._requestUpdate();
   }
@@ -457,10 +443,12 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
   _requestUpdate() {
     // sync the ui5 options and re-render it to update the dropdown list
     setTimeout(() => {
-      if (this.options.length === 0) {
-        this.options = this._state.options;
-        this._updateSlots();
-      }
+      // direct modify the option of ui5 component is forbidden via ui5, therefor use splice
+      this.options.splice(0,this.options.length);
+      this._state.options.forEach(element => {
+        this.options.push(element);
+      });
+      this._updateSlots();
     }, 0);
   }
 
@@ -493,12 +481,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         this.binder.deleteLabel('pristine');
       }
 
-      // use multiple select for repeated node
-      if (fieldNode._meta && fieldNode._meta.repeated) {
-        this.multiple = true;
-      }
-
-      if (this.valueSubField && !this.multiple) {
+      if (this.valueSubField) {
         this._fieldNodeToUpdate = this._getValueByPath(this.binder.fieldNode, this.valueSubField);
         this._fieldDisplayNodeToUpdate = this._getValueByPath(
           this.binder.fieldNode,
@@ -567,11 +550,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
 
   // eslint-disable-next-line class-methods-use-this
   _updateField() {
-    if (this.multiple) {
-      if (!this._writeLock) {
-        super.value = this._parseRepeatedData(this._fieldNodeToUpdate._value);
-      }
-    } else {
+    if (!this.updateLock) {
       let size = this._dropdownList.length;
       // eslint-disable-next-line no-plusplus
       while (size--) {

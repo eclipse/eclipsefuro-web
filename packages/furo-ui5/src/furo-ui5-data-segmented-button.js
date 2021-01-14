@@ -75,7 +75,8 @@ export class FuroUi5DataSegmentedButton extends SegmentedButton.default {
      */
     this.addEventListener('selection-change', val => {
       const selectedObj = this._dropdownList.find(
-        obj => obj.id === val.detail.selectedButton.dataset.id,
+        // eslint-disable-next-line eqeqeq
+        obj => obj.id == val.detail.selectedButton.dataset.id,
       );
 
       if (this.binder.fieldNode) {
@@ -215,7 +216,8 @@ export class FuroUi5DataSegmentedButton extends SegmentedButton.default {
     let displayName = '';
 
     for (let i = 0; i < this._dropdownList.length; i += 1) {
-      if (this._dropdownList[i].id === val) {
+      // eslint-disable-next-line eqeqeq
+      if (this._dropdownList[i].id == val) {
         displayName = this._dropdownList[i].label;
         break;
       }
@@ -547,7 +549,7 @@ export class FuroUi5DataSegmentedButton extends SegmentedButton.default {
       if (!this._writeLock) {
         super.value = this._parseRepeatedData(this._fieldNodeToUpdate._value);
       }
-    } else {
+    } else if (this._dropdownList) {
       let size = this._dropdownList.length;
       // eslint-disable-next-line no-plusplus
       while (size--) {
