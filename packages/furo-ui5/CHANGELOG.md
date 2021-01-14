@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.13.1...@furo/ui5@0.14.0) (2021-01-14)
+
+
+### Bug Fixes
+
+* solve key navigation problem by ui5-data-collection-dropdown. upgrade ui5 to version rc11 ([93f800a](https://github.com/theNorstroem/FuroBaseComponents/commit/93f800ab8d2e076d2cf22074b005269bd2ccce36))
+* solve problem of ui5-data-collection-dropdown. ([ee12191](https://github.com/theNorstroem/FuroBaseComponents/commit/ee121910f825ac81e74740b9eade2b21dc13278d))
+
+
+### Features
+
+* make the labeled input elements focusable ([8f84689](https://github.com/theNorstroem/FuroBaseComponents/commit/8f846897ae057b1d39b60b4e56642b078c4c808f))
+
+
+
+
+
 ## [0.13.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.13.0...@furo/ui5@0.13.1) (2021-01-12)
 
 **Note:** Version bump only for package @furo/ui5
