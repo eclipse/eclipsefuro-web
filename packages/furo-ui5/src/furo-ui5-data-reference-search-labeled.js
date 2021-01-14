@@ -28,6 +28,15 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
     this.displaySubField = 'display_name';
   }
 
+
+  /**
+   * Focuses the underlying ui5 input element
+   * @param e
+   */
+  focus(e){
+    this._FBPTriggerWire("--focus",e)
+  }
+
   /**
    * flow is ready lifecycle method
    */
@@ -166,6 +175,7 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
           ƒ-bind-data="--data"
           ƒ-collection-in="--collectionIn"
           ƒ-reset="--reset"
+          ƒ-focus="--focus"
         ></furo-ui5-data-reference-search>
       </furo-ui5-form-field-container>
     `;

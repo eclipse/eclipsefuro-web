@@ -28,6 +28,15 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
   }
 
   /**
+   * Focuses the underlying ui5 input element
+   * @param e
+   */
+  focus(e){
+    this._FBPTriggerWire("--focus",e)
+  }
+
+
+  /**
    * flow is ready lifecycle method
    */
   _FBPReady() {
@@ -94,6 +103,7 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
           id="Input"
           ?disabled=${this.disabled}
           ƒ-bind-data="--data"
+          ƒ-focus="--focus"
         ></furo-ui5-data-number-input>
       </furo-ui5-form-field-container>
     `;
