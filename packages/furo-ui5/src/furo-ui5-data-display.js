@@ -201,7 +201,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
    */
   _getTemplate() {
     if (this.binder.fieldNode && this.binder.fieldNode._spec.type === 'bool') {
-      if (this.value) {
+      if (this.value === "true") {
         return html`
           <ui5-icon name="accept" value-state="Success"></ui5-icon>
         `;
