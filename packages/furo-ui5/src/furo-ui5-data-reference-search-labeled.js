@@ -28,13 +28,12 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
     this.displaySubField = 'display_name';
   }
 
-
   /**
    * Focuses the underlying ui5 input element
    * @param e
    */
-  focus(e){
-    this._FBPTriggerWire("--focus",e)
+  focus(e) {
+    this._FBPTriggerWire('--focus', e);
   }
 
   /**

@@ -113,7 +113,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      */
     this.addEventListener('click', () => {
       //  only when items are not set before
-      if (this._fieldNodeToUpdate._value == null) {
+      if (!this._fieldNodeToUpdate._value) {
         this._optionNeedToBeRendered = true;
         this._setOptionItems();
       }
@@ -176,7 +176,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
           this.displaySubField = newVal;
           break;
         case 'auto-select-first':
-          if (newVal || newVal === '') {
+          if ((newVal || newVal === '') && newVal !== 'false') {
             this.autoSelectFirst = true;
           }
           break;
@@ -292,9 +292,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
   _setOptionItems() {
     if (
       this._dropdownList &&
-      (this.autoSelectFirst ||
-        this._optionNeedToBeRendered ||
-        (this._fieldNodeToUpdate._value !== undefined && this._fieldNodeToUpdate._value !== null))
+      (this.autoSelectFirst || this._optionNeedToBeRendered || this._fieldNodeToUpdate._value)
     ) {
       this.optionItems = this._dropdownList;
     }
@@ -444,7 +442,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     // sync the ui5 options and re-render it to update the dropdown list
     setTimeout(() => {
       // direct modify the option of ui5 component is forbidden via ui5, therefor use splice
-      this.options.splice(0,this.options.length);
+      this.options.splice(0, this.options.length);
       this._state.options.forEach(element => {
         this.options.push(element);
       });
@@ -592,9 +590,10 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param {options} list of options with id and display_name
    */
   _buildListWithMetaOptions(options) {
-    //
-    this.autoSelectFirst = true;
-    this.injectList(options.list);
+    if (options && options.list && options.list.length > 0) {
+      this.autoSelectFirst = true;
+      this.injectList(options.list);
+    }
   }
 
   _setItemSelectedViaSelectedMark(list) {
