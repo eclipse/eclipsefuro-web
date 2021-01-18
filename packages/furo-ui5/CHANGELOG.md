@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.14.0...@furo/ui5@0.15.0) (2021-01-18)
+
+
+### Bug Fixes
+
+* avoid triggering reference search many times. update cldr files. ([4f516ea](https://github.com/theNorstroem/FuroBaseComponents/commit/4f516eabd654ac99b97266deb7a43fd289a0c8a6))
+* check bool with string value "true" ([fe8ea21](https://github.com/theNorstroem/FuroBaseComponents/commit/fe8ea21e56fbf5adcb38fbfe29ae532d1cba55b8))
+
+
+### Features
+
+* configurable right padding for pagination bar with style var ([4103879](https://github.com/theNorstroem/FuroBaseComponents/commit/41038791ceb0f1bea5f1baaf979ceefbcaca9876))
+
+
+
+
+
 # [0.14.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.13.1...@furo/ui5@0.14.0) (2021-01-14)
 
 

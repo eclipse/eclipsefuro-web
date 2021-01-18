@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.16.3...@furo/data@1.16.4) (2021-01-18)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
 ## [1.16.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.16.2...@furo/data@1.16.3) (2021-01-12)
 
 **Note:** Version bump only for package @furo/data

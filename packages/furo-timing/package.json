@@ -1,6 +1,6 @@
 {
   "name": "@furo/timing",
-  "version": "1.3.43",
+  "version": "1.3.44",
   "description": "Furo timing components",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-timing",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
@@ -35,11 +35,11 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data": "^1.16.3",
-    "@furo/data-input": "^1.10.9",
+    "@furo/data": "^1.16.4",
+    "@furo/data-input": "^1.10.10",
     "@furo/input": "^1.5.9",
     "@furo/layout": "^1.3.26",
-    "@furo/util": "^1.4.4",
+    "@furo/util": "^1.4.5",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.9...@furo/data-input@1.10.10) (2021-01-18)
+
+
+### Bug Fixes
+
+* task.owner has no options any more in new spec. therefore the tests are also modified according to new specs. ([189404e](https://github.com/theNorstroem/FuroBaseComponents/commit/189404ed46601b4a77ace0ebf1fc2b6411445ac3))
+
+
+
+
+
 ## [1.10.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.8...@furo/data-input@1.10.9) (2021-01-12)
 
 **Note:** Version bump only for package @furo/data-input

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.9.0...@furo/ui-builder@1.9.1) (2021-01-18)
+
+
+### Bug Fixes
+
+* avoid triggering reference search many times. update cldr files. ([4f516ea](https://github.com/theNorstroem/FuroBaseComponents/commit/4f516eabd654ac99b97266deb7a43fd289a0c8a6))
+
+
+
+
+
 # [1.9.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@1.8.1...@furo/ui-builder@1.9.0) (2021-01-12)
 
 
