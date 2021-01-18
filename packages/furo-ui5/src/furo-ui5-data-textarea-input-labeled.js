@@ -27,13 +27,12 @@ class FuroUi5DataTextareaInputLabeled extends FBP(LitElement) {
     this.label = '';
   }
 
-
   /**
    * Focuses the underlying ui5 input element
    * @param e
    */
-  focus(e){
-    this._FBPTriggerWire("--focus",e)
+  focus(e) {
+    this._FBPTriggerWire('--focus', e);
   }
 
   /**

@@ -36,6 +36,7 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
     this.valueField = 'id';
     this.valueSubField = null;
     this.displaySubField = 'display_name';
+    this.autoSelectFirst = false;
   }
 
   /**
@@ -96,6 +97,11 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
        * @property display-sub-field
        */
       displaySubField: { type: String, attribute: 'display-sub-field', reflect: true },
+      /**
+       * set this attribute to autoSelectFirst the first item in the list, if no item is set in the bounded fieldNode
+       * @type {boolean}
+       */
+      autoSelectFirst: { type: Boolean, attribute: 'auto-select-first', reflect: true },
     };
   }
 
@@ -152,6 +158,7 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
           content
           id="Input"
           ?disabled=${this.disabled}
+          auto-select-first=${this.autoSelectFirst}
           sub-field="${this.subField}"
           display-field="${this.displayField}"
           value-field="${this.valueField}"

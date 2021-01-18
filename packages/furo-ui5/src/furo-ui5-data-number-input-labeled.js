@@ -31,10 +31,9 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
    * Focuses the underlying ui5 input element
    * @param e
    */
-  focus(e){
-    this._FBPTriggerWire("--focus",e)
+  focus(e) {
+    this._FBPTriggerWire('--focus', e);
   }
-
 
   /**
    * flow is ready lifecycle method
