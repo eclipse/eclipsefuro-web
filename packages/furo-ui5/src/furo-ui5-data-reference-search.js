@@ -633,6 +633,7 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
           ƒ-trigger-selected="--enterPressedForSelect"
         >
           <ui5-reference-search-item
+            display-field="${this.displayField}"
             ƒ-deselect="--itemDeSelected"
             ƒ-select="--trigger"
             ƒ-preselect="--itemSelected"
