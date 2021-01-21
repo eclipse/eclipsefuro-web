@@ -234,4 +234,15 @@ describe('furo-ui5-data-collection-dropdown', () => {
       done();
     }, 16);
   });
+
+  it('should show bounded data even when the value of data object is not in the list of dropdown', done => {
+    dropdown.injectList(testDataArray);
+    dao.injectRaw({"owner":{"id": "notFound", "display_name": "not_found"}});
+    assert.equal(dropdown._dropdownList.length, 1);
+    setTimeout(()=>{
+      console.log(dropdown._dropdownList);
+
+    },20)
+    done();
+  });
 });

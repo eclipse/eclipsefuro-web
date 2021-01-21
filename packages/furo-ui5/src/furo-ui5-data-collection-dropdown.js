@@ -77,6 +77,11 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     this._fieldNodeToUpdate = {};
     this._fieldDisplayNodeToUpdate = {};
     this._dropdownList = [];
+    // generated one element dropdown, which has only the data of the bounded DO
+    this._pseudoDropdownList = [];
+    // injected dropdown elements which from a collection of response or in spec defined options
+    this._injectedDropdownList = [];
+    this._valueFoundInList = true;
 
     this._initBinder();
 
@@ -112,20 +117,27 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      * set option items by opening the dropdown if items are not set before
      */
     this.addEventListener('click', () => {
-      //  only when items are not set before
-      if (!this._fieldNodeToUpdate._value) {
-        this._optionNeedToBeRendered = true;
-        this._setOptionItems();
-      }
+      // always use injected list by clicking the dropdown
+      this._triggerSetOptionItem();
     });
 
     this.addEventListener('focus', () => {
-      //  only when items are not set before
-      if (this._fieldNodeToUpdate._value == null) {
-        this._optionNeedToBeRendered = true;
-        this._setOptionItems();
+      // init once
+      if (this.options.length === 0) {
+        this._triggerSetOptionItem();
       }
     });
+  }
+
+  _triggerSetOptionItem() {
+    if (this._injectedDropdownList.length > 0) {
+      this._dropdownList = this._injectedDropdownList;
+    } else if (this._pseudoDropdownList.length > 0) {
+      this._dropdownList = this._pseudoDropdownList;
+    }
+    this._pseudoDropdownList = [];
+    this._optionNeedToBeRendered = true;
+    this._setOptionItems();
   }
 
   /**
@@ -280,7 +292,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param {Array} Array with options
    */
   setList(optionArray) {
-    this._dropdownList = optionArray;
+    this._injectedDropdownList = optionArray;
+    this._dropdownList = this._injectedDropdownList;
 
     this._setOptionItems();
   }
@@ -309,16 +322,20 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       collection = collection.map(item => ({ id: item, label: item }));
     }
 
-    const arr = collection.map(e => {
-      if (e.selected) {
-        this._fieldNodeToUpdate._value = e.id.toString();
-      }
-      return {
+    let arr;
+    if (this._fieldNodeToUpdate._value) {
+      arr = collection.map(e => ({
         id: e.id,
         label: e.label,
-        selected: this._fieldNodeToUpdate._value === e.id.toString() || e.selected || false,
-      };
-    });
+        selected: this._fieldNodeToUpdate._value === e.id.toString() || false,
+      }));
+    } else {
+      arr = collection.map(e => ({
+        id: e.id,
+        label: e.label,
+        selected: this._fieldNodeToUpdate._value === e.selected || false,
+      }));
+    }
 
     if (!this._fieldNodeToUpdate._value) {
       // if no preselected select the first item
@@ -501,15 +518,13 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         }
       });
 
-      this.binder.fieldNode.addEventListener('field-value-changed', () => {
-        if (this._dropdownList.length === 0) {
-          this._initDropdownItemWithoutCollectionInjection();
+      this.binder.fieldNode.addEventListener('field-value-changed', e => {
+        if (
+          this.binder.fieldFormat === 'scalar' ||
+          (this.binder.fieldFormat === 'complex' && this.valueSubField === e.detail._name)
+        ) {
+          this._updateField();
         }
-        this._updateField();
-      });
-
-      this.binder.fieldNode.addEventListener('repeated-field-changed', () => {
-        this._updateField();
       });
 
       this._updateField();
@@ -517,24 +532,43 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
   }
 
   _initDropdownItemWithoutCollectionInjection() {
+    let valueIsEmpty = false;
+
     // complex value
     if (this.valueSubField && this.valueSubField !== 'null') {
       if (
-        this.binder.fieldValue[this.valueSubField] &&
-        this.binder.fieldValue[this.displaySubField]
+        this.binder.fieldValue[this.valueSubField] !== null &&
+        this.binder.fieldValue[this.displayField] !== null
       ) {
-        this._dropdownList = [
+        this._pseudoDropdownList = [
           {
             id: this.binder.fieldValue[this.valueSubField],
             label: this.binder.fieldValue[this.displaySubField],
             selected: true,
           },
         ];
+        if (
+          !this.binder.fieldValue[this.valueSubField] &&
+          this.binder.fieldValue[this.valueSubField] !== 0
+        ) {
+          valueIsEmpty = true;
+        }
       }
     } else if (this.binder.fieldValue !== null) {
-      this._dropdownList = [
+      this._pseudoDropdownList = [
         { id: this.binder.fieldValue, label: this.binder.fieldValue, selected: true },
       ];
+      if (!this.binder.fieldValue && this.binder.fieldValue !== 0) {
+        valueIsEmpty = true;
+      }
+    }
+
+    if (this.autoSelectFirst && valueIsEmpty && this._injectedDropdownList.length > 0) {
+      this._dropdownList = this._injectedDropdownList;
+      this._setOptionItems();
+    } else if (this._pseudoDropdownList.length > 0) {
+      this._dropdownList = this._pseudoDropdownList;
+      this._setOptionItems();
     }
   }
 
@@ -549,19 +583,31 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
   // eslint-disable-next-line class-methods-use-this
   _updateField() {
     if (!this.updateLock) {
-      let size = this._dropdownList.length;
+      this._valueFoundInList = false;
+      let size = this._injectedDropdownList.length;
       // eslint-disable-next-line no-plusplus
       while (size--) {
         if (this.valueSubField && this.valueSubField !== 'null') {
-          this._dropdownList[size].selected =
-            this._dropdownList[size].id === this.binder.fieldValue[this.valueSubField];
-        } else {
-          this._dropdownList[size].selected =
-            this._dropdownList[size].id === this.binder.fieldValue;
+          if (this._injectedDropdownList[size].id === this.binder.fieldValue[this.valueSubField]) {
+            this._injectedDropdownList[size].selected = true;
+            this._valueFoundInList = true;
+          }
+        } else if (this._injectedDropdownList[size].id === this.binder.fieldValue) {
+          this._injectedDropdownList[size].selected = true;
+          this._valueFoundInList = true;
         }
       }
-      this._notifyAndTriggerUpdate(this._dropdownList);
+
+      if (!this._valueFoundInList) {
+        this._initDropdownItemWithoutCollectionInjection();
+      } else {
+        this._notifyAndTriggerUpdate(this._injectedDropdownList);
+      }
     }
+  }
+
+  _listHasDOValue () {
+
   }
 
   /**

@@ -86,7 +86,7 @@ fields:
             oneof: ""
         __ui: null
         meta:
-            default: ""
+            default: '{ "link": { "rel": "list", "href": "/mockdata/persons/list.json", "method": "GET", "type": "person.Person", "service": "PersonService" } }'
             hint: ""
             label: person.label
             readonly: false
