@@ -3,6 +3,7 @@ import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 
 import '@furo/layout';
+import '@furo/util/src/furo-navigation-pad.js';
 import '@ui5/webcomponents/dist/Button.js';
 import '@ui5/webcomponents-icons/dist/sys-first-page.js';
 import '@ui5/webcomponents-icons/dist/sys-last-page.js';
@@ -163,6 +164,48 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
     }
   }
 
+  _FBPReady() {
+    super._FBPReady()
+    const btns = this.shadowRoot.querySelectorAll("ui5-button")
+
+    /**
+     * Register hook on wire --navigated to
+     * catch navigation events
+     */
+    this._FBPAddWireHook("--navigated", (e) => {
+      let start
+      let enabledButtons = []
+      btns.forEach((btn, i) => {
+        if (!btn.disabled) {
+         let c = enabledButtons.push(btn)
+          if (btn.focused) {
+            start = c - 1
+          }
+        }
+      });
+      switch (e) {
+        case "ArrowRight":
+          if(start + 1 >= enabledButtons.length){
+            enabledButtons[0].focus()
+          }else{
+            enabledButtons[start+1].focus()
+          }
+
+          break
+        case "ArrowLeft":
+          if(start == 0){
+            enabledButtons[enabledButtons.length-1].focus()
+          }else{
+            enabledButtons[start-1].focus()
+          }
+
+          break
+      }
+
+
+    });
+  }
+
   /**
    * @private
    * @returns {TemplateResult}
@@ -205,6 +248,7 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
           ?disabled="${!this.last}"
         ></ui5-button>
       </furo-horizontal-flex>
+      <furo-navigation-pad @-navigated="--navigated"></furo-navigation-pad>
     `;
   }
 }
