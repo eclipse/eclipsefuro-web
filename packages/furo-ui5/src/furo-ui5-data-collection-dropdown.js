@@ -277,28 +277,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
   }
 
   /**
-   *
-   * @param arr
-   * @private
-   */
-  _notifyAndTriggerUpdate(arr) {
-    if (arr.length > 0) {
-      this.setList(arr);
-    }
-  }
-
-  /**
-   * Set the options programmatically
-   * @param {Array} Array with options
-   */
-  setList(optionArray) {
-    this._injectedDropdownList = optionArray;
-    this._dropdownList = this._injectedDropdownList;
-
-    this._setOptionItems();
-  }
-
-  /**
    * set option items
    * @private
    */
@@ -337,15 +315,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       }));
     }
 
-    if (!this._fieldNodeToUpdate._value) {
-      // if no preselected select the first item
-      this._fieldNodeToUpdate._value = arr[0].id;
-      arr[0].selected = true;
-    }
-
-    // save parsed selection option array
-    this.selectOptions = arr;
-    this.addItems(this.selectOptions);
+    this.addItems(arr);
 
     const selectedObj = this._dropdownList.find(obj => obj.id === this._fieldNodeToUpdate._value);
 
@@ -532,39 +502,24 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
   }
 
   _initDropdownItemWithoutCollectionInjection() {
-    let valueIsEmpty = false;
+    this._pseudoDropdownList = [
+      {
+        id: this._fieldNodeToUpdate._value,
+        label: this._fieldDisplayNodeToUpdate._value,
+        selected: true,
+      },
+    ];
 
-    // complex value
-    if (this.valueSubField && this.valueSubField !== 'null') {
-      if (
-        this.binder.fieldValue[this.valueSubField] !== null &&
-        this.binder.fieldValue[this.displayField] !== null
-      ) {
-        this._pseudoDropdownList = [
-          {
-            id: this.binder.fieldValue[this.valueSubField],
-            label: this.binder.fieldValue[this.displaySubField],
-            selected: true,
-          },
-        ];
-        if (
-          !this.binder.fieldValue[this.valueSubField] &&
-          this.binder.fieldValue[this.valueSubField] !== 0
-        ) {
-          valueIsEmpty = true;
-        }
-      }
-    } else if (this.binder.fieldValue !== null) {
-      this._pseudoDropdownList = [
-        { id: this.binder.fieldValue, label: this.binder.fieldValue, selected: true },
-      ];
-      if (!this.binder.fieldValue && this.binder.fieldValue !== 0) {
-        valueIsEmpty = true;
-      }
-    }
-
-    if (this.autoSelectFirst && valueIsEmpty && this._injectedDropdownList.length > 0) {
+    if (
+      this.autoSelectFirst &&
+      !this._fieldNodeToUpdate._value &&
+      this._injectedDropdownList.length > 0
+    ) {
       this._dropdownList = this._injectedDropdownList;
+      this._dropdownList[0].selected = true;
+      this._fieldNodeToUpdate._value = this._dropdownList.id;
+      this._fieldDisplayNodeToUpdate._value = this._dropdownList.label;
+
       this._setOptionItems();
     } else if (this._pseudoDropdownList.length > 0) {
       this._dropdownList = this._pseudoDropdownList;
@@ -583,31 +538,26 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
   // eslint-disable-next-line class-methods-use-this
   _updateField() {
     if (!this.updateLock) {
-      this._valueFoundInList = false;
-      let size = this._injectedDropdownList.length;
-      // eslint-disable-next-line no-plusplus
-      while (size--) {
-        if (this.valueSubField && this.valueSubField !== 'null') {
-          if (this._injectedDropdownList[size].id === this.binder.fieldValue[this.valueSubField]) {
-            this._injectedDropdownList[size].selected = true;
-            this._valueFoundInList = true;
-          }
-        } else if (this._injectedDropdownList[size].id === this.binder.fieldValue) {
-          this._injectedDropdownList[size].selected = true;
-          this._valueFoundInList = true;
-        }
-      }
-
+      this._listHasDataObjectValue();
       if (!this._valueFoundInList) {
         this._initDropdownItemWithoutCollectionInjection();
       } else {
-        this._notifyAndTriggerUpdate(this._injectedDropdownList);
+        this._dropdownList = this._injectedDropdownList;
+        this._setOptionItems();
       }
     }
   }
 
-  _listHasDOValue () {
+  _listHasDataObjectValue() {
+    this._valueFoundInList = false;
 
+    let size = this._injectedDropdownList.length;
+    // eslint-disable-next-line no-plusplus
+    while (size-- && !this._valueFoundInList) {
+      if (this._fieldNodeToUpdate._value === this._injectedDropdownList[size].id) {
+        this._valueFoundInList = true;
+      }
+    }
   }
 
   /**
@@ -675,8 +625,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    */
   injectList(list) {
     const arr = this._mapInputToInnerStruct(list);
-    const innerList = this._mapDataToList(arr);
-    this._notifyAndTriggerUpdate(innerList);
+    this._injectedDropdownList = this._mapDataToList(arr);
+    this._updateField();
 
     /**
      * Is fired when a new list is applied
@@ -684,7 +634,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      */
     this.dispatchEvent(
       new CustomEvent('options-injected', {
-        detail: innerList,
+        detail: this._injectedDropdownList,
         bubbles: true,
         composed: true,
       }),
