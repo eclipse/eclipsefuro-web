@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.15.0...@furo/ui5@0.16.0) (2021-01-22)
+
+
+### Bug Fixes
+
+* delegate of the attribute display-field ([c429bb1](https://github.com/theNorstroem/FuroBaseComponents/commit/c429bb1ee4ec246ca47417b217df7d03499ac01e))
+* the display value should be configurable with the attribute display-field ([534ed36](https://github.com/theNorstroem/FuroBaseComponents/commit/534ed36dfa0da385c4f30914821544ece7eefd94))
+* word-wrap added ([2944988](https://github.com/theNorstroem/FuroBaseComponents/commit/2944988f709444ad6d8e29bd3330af5f4224005e))
+
+
+### Features
+
+* keyboard navigation for ui5 navigation pad ([fe35c29](https://github.com/theNorstroem/FuroBaseComponents/commit/fe35c29ef1aab5aaa0f1b33ce749d1d94ba0a945))
+* the value of bounded data object always counts in ui5-data-collection-dropdown ([65dd676](https://github.com/theNorstroem/FuroBaseComponents/commit/65dd676aa673af50c9ddd0a9604ba5ca5cab90ca))
+
+
+
+
+
 # [0.15.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.14.0...@furo/ui5@0.15.0) (2021-01-18)
 
 

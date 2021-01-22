@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.19.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.18.0...@furo/specs@1.19.0) (2021-01-22)
+
+
+### Features
+
+* the value of bounded data object always counts in ui5-data-collection-dropdown ([65dd676](https://github.com/theNorstroem/FuroBaseComponents/commit/65dd676aa673af50c9ddd0a9604ba5ca5cab90ca))
+
+
+
+
+
 # [1.18.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.17.0...@furo/specs@1.18.0) (2021-01-05)
 
 
