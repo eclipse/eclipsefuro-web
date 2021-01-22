@@ -178,7 +178,6 @@ describe('furo-ui5-data-collection-dropdown', () => {
       'options-injected',
       () => {
         if (dropdown._dropdownList.length === 4) {
-          input.setValue('2');
           setTimeout(() => {
             assert.equal(dropdown._dropdownList[1].selected, true);
             assert.equal(dropdown._state._text, 'Tari Sakota, +41791532244');
@@ -188,35 +187,31 @@ describe('furo-ui5-data-collection-dropdown', () => {
       },
       { once: true },
     );
+    input.setValue('2');
     dropdown.injectEntities(testData.entities);
   });
 
   it('should auto select the first element', done => {
     dropdown.autoSelectFirst = true;
-    dropdown.addEventListener(
-      'item-selected',
-      () => {
-        if (dropdown._dropdownList.length === 4) {
-          setTimeout(() => {
-            assert.equal(dropdown._dropdownList[0].selected, true);
-            assert.equal(dropdown._state._text, 'John Doe, +41783332244');
-            done();
-          }, 16);
-        }
-      },
-      { once: true },
-    );
     dropdown.injectEntities(testData.entities);
+    dropdown.click();
+    setTimeout(() => {
+      assert.equal(dropdown._dropdownList[0].selected, true);
+      assert.equal(dropdown._state._text, 'John Doe, +41783332244');
+      done();
+    }, 16);
   });
 
   it('should have options from a collection response', done => {
     dropdown.injectEntities(testData.entities);
+    dropdown.click();
     assert.equal(dropdown._dropdownList.length, 4);
     done();
   });
 
   it('should have options from a array of objects', done => {
     dropdown.injectList(testDataArray);
+    dropdown.click();
     assert.equal(dropdown._dropdownList.length, 3);
     done();
   });
@@ -233,5 +228,19 @@ describe('furo-ui5-data-collection-dropdown', () => {
       assert.equal(dao.data.owner.id, 'male');
       done();
     }, 16);
+  });
+
+  it('should show bounded data even when the value of data object is not in the list of dropdown, inject first', done => {
+    dropdown.injectList(testDataArray);
+    dao.injectRaw({ owner: { id: 'notFound', display_name: 'not_found' } });
+    assert.equal(dropdown._dropdownList.length, 1);
+    done();
+  });
+
+  it('should show bounded data even when the value of data object is not in the list of dropdown, inject later', done => {
+    dao.injectRaw({ owner: { id: 'notFound', display_name: 'not_found' } });
+    dropdown.injectList(testDataArray);
+    assert.equal(dropdown._dropdownList.length, 1);
+    done();
   });
 });

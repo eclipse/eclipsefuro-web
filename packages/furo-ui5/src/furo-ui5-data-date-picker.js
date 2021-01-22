@@ -47,7 +47,6 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
     setTimeout(() => {
       super.connectedCallback();
     }, 0);
-    this.placeholder = 'dd.MM.yyyy';
   }
 
   /**

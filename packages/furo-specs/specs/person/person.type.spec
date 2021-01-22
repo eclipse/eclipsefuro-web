@@ -135,7 +135,7 @@ fields:
             oneof: ""
         __ui: null
         meta:
-            default: ""
+            default: "female"
             hint: ""
             label: "sex"
             options:

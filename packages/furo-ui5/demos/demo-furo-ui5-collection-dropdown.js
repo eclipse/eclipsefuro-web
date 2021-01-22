@@ -175,11 +175,16 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
                 @-data-loaded="--responseProject"
               ></fetch-universal-json
             ></ui5-button>
+            <ui5-button @-click="--reset">reset task</ui5-button>
           </furo-button-bar>
 
           <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
 
-          <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+          <furo-data-object
+            type="task.Task"
+            @-object-ready="--entity"
+            ƒ-init="--reset"
+          ></furo-data-object>
           <furo-data-object
             type="project.ProjectEntity"
             @-object-ready="--entityProject"

@@ -3,6 +3,8 @@ import {
   setCldrData,
 } from '@ui5/webcomponents-base/dist/asset-registries/LocaleData.js';
 
+import { setLanguage } from '@ui5/webcomponents-base/dist/config/Language.js';
+
 // eslint-disable-next-line camelcase
 import de_CH from '../../assets/cldr/de_CH.js';
 // en as fallback
@@ -13,6 +15,8 @@ import it from '../../assets/cldr/it.js';
 import es from '../../assets/cldr/es.js';
 // eslint-disable-next-line camelcase
 import zh_CN from '../../assets/cldr/zh_CN.js';
+
+setLanguage('en');
 
 const cldrData = {
   de_CH,
