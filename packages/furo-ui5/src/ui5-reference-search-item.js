@@ -9,9 +9,11 @@ import * as StandardListItem from '@ui5/webcomponents/dist/StandardListItem.js';
  * @appliesMixin FBP
  */
 export class Ui5ReferenceSearchItem extends StandardListItem.default {
+
   constructor() {
     super();
     this._item = {};
+    this.displayField = 'display_name';
 
     this.addEventListener('click', () => {
       const customEvent = new Event('item-selected', {
@@ -23,9 +25,32 @@ export class Ui5ReferenceSearchItem extends StandardListItem.default {
     });
   }
 
+  /**
+   * Attribute observer
+   * @returns {string[]}
+   */
+  static get observedAttributes() {return ['display-field']; }
+
+  /**
+   * Native attribute changed callback
+   * Setter for new value of displayField
+   * @param name
+   * @param oldValue
+   * @param newValue
+   */
+  attributeChangedCallback(name, oldValue, newValue) {
+    this.displayField = newValue;
+  }
+
+  /**
+   * Inject of the item
+   * data of inner text of the element is defined with the attribute
+   * display-field (default value: display_name)
+   * @param item
+   */
   injectItem(item) {
     this._item = item;
-    this.innerText = item.data.display_name;
+    this.innerText = item.data[this.displayField];
   }
 
   deselect() {
