@@ -61,45 +61,13 @@ export class FuroSelectInput extends FBP(LitElement) {
     this._value = this.value || '';
 
     this._FBPAddWireHook('--inputInput', e => {
-      if (!this.multiple) {
         Helper.triggerValueChanged(this, e);
-      } else {
-        const input = e.composedPath()[0];
-        const arrValue = [];
-        Array.from(input.selectedOptions).forEach(o => {
-          if (!arrValue.includes(o.value)) {
-            arrValue.push(o.value);
-          }
-        });
-
-        /**
-         * @event value-changed
-         * Fired when value has changed from inside the component
-         * detail payload: [] array of value
-         */
-        const customEvent = new Event('value-changed', { composed: true, bubbles: true });
-        customEvent.detail = arrValue;
-        this.dispatchEvent(customEvent);
-      }
     });
   }
 
   set _value(v) {
-    if (!this.multiple) {
-      if (typeof v !== 'object') {
-        this._FBPTriggerWire('--value', v);
-      }
-    } else if (Array.isArray(v) && this.selectOptions) {
-      this.selectOptions.forEach(o => {
-        if (v.includes(o.id)) {
-          // eslint-disable-next-line no-param-reassign
-          o.selected = true;
-        } else {
-          // eslint-disable-next-line no-param-reassign
-          o.selected = false;
-        }
-      });
-      this._FBPTriggerWire('--selection', this.selectOptions);
+    if (typeof v !== 'object') {
+      this._FBPTriggerWire('--value', v);
     }
   }
 
@@ -241,13 +209,6 @@ export class FuroSelectInput extends FBP(LitElement) {
         reflect: true,
       },
       /**
-       * the multiple selection. the value true means this select can be multiple options
-       */
-      multiple: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
        * the size of multiple selection
        */
       size: {
@@ -354,13 +315,13 @@ export class FuroSelectInput extends FBP(LitElement) {
     }
 
     const arr = collection.map(e => {
-      if (e.selected) {
-        this.value = e.id.toString();
+      if (e.selected ) {
+        this.value = e.id? e.id.toString() : '';
       }
       return {
         id: e.id,
         label: e.label,
-        selected: this.value === e.id.toString() || e.selected || false,
+        selected: this.value ===  e.selected || false,
       };
     });
 
@@ -777,7 +738,6 @@ export class FuroSelectInput extends FBP(LitElement) {
         ></furo-icon>
         <div class="iwrap">
           <select
-            ?multiple="${this.multiple}"
             size="${this.size}"
             id="input"
             ?autofocus=${this.autofocus}

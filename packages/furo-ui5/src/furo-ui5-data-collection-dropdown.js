@@ -517,8 +517,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     ) {
       this._dropdownList = this._injectedDropdownList;
       this._dropdownList[0].selected = true;
-      this._fieldNodeToUpdate._value = this._dropdownList.id;
-      this._fieldDisplayNodeToUpdate._value = this._dropdownList.label;
+      this._fieldNodeToUpdate._value = this._dropdownList[0].id;
+      this._fieldDisplayNodeToUpdate._value = this._dropdownList[0].label;
 
       this._setOptionItems();
     } else if (this._pseudoDropdownList.length > 0) {
