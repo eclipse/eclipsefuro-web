@@ -2,8 +2,8 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 
-import '@furo/layout';
-// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/layout/src/furo-horizontal-flex.js';
+import '@furo/layout/src/furo-empty-spacer.js';
 import '@furo/util/src/furo-navigation-pad.js';
 import '@ui5/webcomponents/dist/Button.js';
 import '@ui5/webcomponents-icons/dist/sys-first-page.js';
