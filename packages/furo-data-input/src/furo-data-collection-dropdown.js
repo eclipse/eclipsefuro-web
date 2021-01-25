@@ -200,7 +200,7 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
   _notifyAndTriggerUpdate(arr) {
     if (arr.length > 0) {
       this._dropdownList = arr;
-      super.setOptions(arr);
+      //super.setOptions(arr);
       CollectionDropdownHelper.updateField(this);
     }
   }
@@ -359,10 +359,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
     };
   }
 
-
-
-
-
   /**
    * Bind a entity field to the range-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
@@ -392,12 +388,12 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
    * @param {options} list of options with id and display_name
    */
   _buildListWithMetaOptions(options) {
-    const arr = CollectionDropdownHelper.mapDataToList(this,options.list);
 
-    this._notifyAndTriggerUpdate(arr);
+    this._injectedDropdownList = CollectionDropdownHelper.mapDataToList(this,options.list);
+    this._isMetaInjection = true;
+
+    this._notifyAndTriggerUpdate(this._injectedDropdownList);
   }
-
-
 
 
   /**

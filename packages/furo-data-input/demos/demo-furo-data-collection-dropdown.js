@@ -112,6 +112,17 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
                 @-item-selected="--itemSelected"
               ></furo-data-collection-dropdown>
 
+              <furo-emtpy-spacer></furo-emtpy-spacer>
+              <furo-data-collection-dropdown
+                label="use meta options from spec as the dropdown list"
+                ƒ-bind-data="--personDO(*.sex)"
+              ></furo-data-collection-dropdown>
+
+              <furo-data-text-input
+                label="sex"
+                ƒ-bind-data="--personDO(*.sex)"
+              ></furo-data-text-input>
+
             </furo-form-layouter>
 
             <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
@@ -122,6 +133,12 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
               type="task.TaskCollection"
               @-object-ready="--collection"
               ƒ-inject-raw="--response"
+            ></furo-data-object>
+
+
+            <furo-data-object
+              type="person.Person"
+              @-object-ready="--personDO"
             ></furo-data-object>
 
             <furo-collection-agent

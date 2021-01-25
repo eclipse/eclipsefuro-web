@@ -1,6 +1,7 @@
 import * as Select from '@ui5/webcomponents/dist/Select.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
+import {CollectionDropdownHelper} from '@furo/data-input/src/lib/CollectionDropdownHelper.js';
 
 /**
  * `furo-ui5-data-collection-dropdown`
@@ -101,7 +102,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         // the _fieldNodeToUpdate and the _fieldDisplayNodeToUpdate are the same by scalar type. in this case
         // there is no need to update the display value
         if (this._fieldNodeToUpdate !== this._fieldDisplayNodeToUpdate) {
-          this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id);
+          this._fieldDisplayNodeToUpdate._value = CollectionDropdownHelper.findDisplayNameByValue(this,selectedObj.id);
         }
 
         this.binder.deleteLabel('pristine');
@@ -110,7 +111,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         this.updateLock = false;
       }, 50);
 
-      this._notifiySelectedItem(selectedObj);
+      CollectionDropdownHelper.notifiySelectedItem(this,selectedObj);
     });
 
     /**
@@ -118,26 +119,15 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
      */
     this.addEventListener('click', () => {
       // always use injected list by clicking the dropdown
-      this._triggerSetOptionItem();
+      CollectionDropdownHelper.triggerSetOptionItem(this);
     });
 
     this.addEventListener('focus', () => {
       // init once
       if (this.options.length === 0) {
-        this._triggerSetOptionItem();
+        CollectionDropdownHelper.triggerSetOptionItem(this);
       }
     });
-  }
-
-  _triggerSetOptionItem() {
-    if (this._injectedDropdownList.length > 0) {
-      this._dropdownList = this._injectedDropdownList;
-    } else if (this._pseudoDropdownList.length > 0) {
-      this._dropdownList = this._pseudoDropdownList;
-    }
-    this._pseudoDropdownList = [];
-    this._optionNeedToBeRendered = true;
-    this._setOptionItems();
   }
 
   /**
@@ -251,156 +241,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     this.binder.targetValueField = '_value';
   }
 
-  _findDisplayNameByValue(val) {
-    let displayName = '';
-
-    for (let i = 0; i < this._dropdownList.length; i += 1) {
-      if (this._dropdownList[i].id === val) {
-        displayName = this._dropdownList[i].label;
-        break;
-      }
-    }
-    return displayName;
-  }
-
-  /**
-   * @event item-selected
-   * Fired when an item from the dropdown was selected
-   * detail payload: the original item object
-   */
-  _notifiySelectedItem(obj) {
-    if (obj) {
-      const customEvent = new Event('item-selected', { composed: true, bubbles: true });
-      customEvent.detail = obj._original;
-      this.dispatchEvent(customEvent);
-    }
-  }
-
-  /**
-   * set option items
-   * @private
-   */
-  _setOptionItems() {
-    if (
-      this._dropdownList &&
-      (this.autoSelectFirst || this._optionNeedToBeRendered || this._fieldNodeToUpdate._value)
-    ) {
-      this.optionItems = this._dropdownList;
-    }
-  }
-
-  set optionItems(collection) {
-    if (collection === undefined || !collection.length) {
-      // no action
-      return;
-    }
-    // convert array list to id, label structure
-    if (typeof collection[0] === 'string') {
-      // eslint-disable-next-line no-param-reassign
-      collection = collection.map(item => ({ id: item, label: item }));
-    }
-
-    let arr;
-    if (this._fieldNodeToUpdate._value) {
-      arr = collection.map(e => ({
-        id: e.id,
-        label: e.label,
-        selected: this._fieldNodeToUpdate._value === e.id.toString() || false,
-      }));
-    } else {
-      arr = collection.map(e => ({
-        id: e.id,
-        label: e.label,
-        selected: this._fieldNodeToUpdate._value === e.selected || false,
-      }));
-    }
-
-    this.addItems(arr);
-
-    const selectedObj = this._dropdownList.find(obj => obj.id === this._fieldNodeToUpdate._value);
-
-    this._notifiySelectedItem(selectedObj);
-    this._optionNeedToBeRendered = true;
-  }
-
-  /**
-   *
-   * @param collection
-   * @returns {[]}
-   * @private
-   */
-  _mapInputToInnerStruct(collection) {
-    if (collection === undefined || !collection.length) {
-      // no valid collection object submitted
-      return [];
-    }
-    const arrValue = [];
-
-    const arrSubfieldChains = this.subField.length ? this.subField.split('.') : [];
-
-    if (Array.isArray(collection)) {
-      collection.forEach(element => {
-        const tmpValue = {};
-        arrSubfieldChains.forEach(s => {
-          if (element[s]) {
-            Object.assign(tmpValue, element[s]);
-          } else {
-            Object.assign(tmpValue, element);
-          }
-        });
-        tmpValue._original = element;
-        arrValue.push(tmpValue);
-      });
-    }
-    return arrValue;
-  }
-
-  /**
-   * Maps an array structure to the inner list struct
-   * {id: '', label: '', selected: Boolean, _original: {}}
-   * @param list
-   * @returns {[]}
-   * @private
-   */
-  _mapDataToList(list) {
-    let arr = [];
-    // if field value not exists. select item when the item is marked as `selected` in list
-    if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
-      arr = this._setItemSelectedViaSelectedMark(list);
-    } else if (Array.isArray(list)) {
-      let isSelected = false;
-      let hasSelectedMark = false;
-      let preSelectedValueInList = null;
-      for (let i = 0; i < list.length; i += 1) {
-        const item = {
-          id: list[i][this.valueField],
-          label: list[i][this.displayField],
-          selected: false,
-          _original: list[i]._original,
-        };
-
-        if (this._fieldNodeToUpdate._value === list[i][this.valueField]) {
-          item.selected = true;
-          isSelected = true;
-        }
-
-        if (list[i].selected) {
-          hasSelectedMark = true;
-          preSelectedValueInList = list[i][this.valueField];
-        }
-
-        arr.push(item);
-      }
-
-      if (!isSelected && hasSelectedMark) {
-        arr = this._setItemSelectedViaSelectedMark(list);
-        this._fieldNodeToUpdate._value = preSelectedValueInList;
-      }
-    }
-
-    return arr;
-  }
-
   /**
    * Adds the option components to the default slot
    * @param options
@@ -438,18 +278,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
   }
 
   /**
-   * Let you get an attribute value by path
-   * @param obj
-   * @param path
-   * @returns {T}
-   * @private
-   */
-  // eslint-disable-next-line class-methods-use-this
-  _getValueByPath(obj, path) {
-    return path.split('.').reduce((res, prop) => res[prop], obj) || obj;
-  }
-
-  /**
    * Bind a entity field to the range-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
@@ -467,8 +295,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       }
 
       if (this.valueSubField) {
-        this._fieldNodeToUpdate = this._getValueByPath(this.binder.fieldNode, this.valueSubField);
-        this._fieldDisplayNodeToUpdate = this._getValueByPath(
+        this._fieldNodeToUpdate = CollectionDropdownHelper.getValueByPath(this.binder.fieldNode, this.valueSubField);
+        this._fieldDisplayNodeToUpdate = CollectionDropdownHelper.getValueByPath(
           this.binder.fieldNode,
           this.displaySubField,
         );
@@ -489,43 +317,21 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       });
 
       this.binder.fieldNode.addEventListener('field-value-changed', e => {
+        CollectionDropdownHelper.updateField(this);
+
         if (
           this.binder.fieldFormat === 'scalar' ||
           (this.binder.fieldFormat === 'complex' && this.valueSubField === e.detail._name)
         ) {
-          this._updateField();
+          CollectionDropdownHelper.updateField(this);
         }
       });
 
-      this._updateField();
+      CollectionDropdownHelper.updateField(this);
     }
   }
 
-  _initDropdownItemWithoutCollectionInjection() {
-    this._pseudoDropdownList = [
-      {
-        id: this._fieldNodeToUpdate._value,
-        label: this._fieldDisplayNodeToUpdate._value,
-        selected: true,
-      },
-    ];
 
-    if (
-      this.autoSelectFirst &&
-      !this._fieldNodeToUpdate._value &&
-      this._injectedDropdownList.length > 0
-    ) {
-      this._dropdownList = this._injectedDropdownList;
-      this._dropdownList[0].selected = true;
-      this._fieldNodeToUpdate._value = this._dropdownList[0].id;
-      this._fieldDisplayNodeToUpdate._value = this._dropdownList[0].label;
-
-      this._setOptionItems();
-    } else if (this._pseudoDropdownList.length > 0) {
-      this._dropdownList = this._pseudoDropdownList;
-      this._setOptionItems();
-    }
-  }
 
   /**
    * Sets the value for the field. This will update the fieldNode.
@@ -535,110 +341,15 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     this.binder.fieldValue = val;
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  _updateField() {
-    if (!this.updateLock) {
-      this._listHasDataObjectValue();
-      if (!this._valueFoundInList) {
-        this._initDropdownItemWithoutCollectionInjection();
-      } else {
-        this._dropdownList = this._injectedDropdownList;
-        this._setOptionItems();
-      }
-    }
-  }
-
-  _listHasDataObjectValue() {
-    this._valueFoundInList = false;
-
-    let size = this._injectedDropdownList.length;
-    // eslint-disable-next-line no-plusplus
-    while (size-- && !this._valueFoundInList) {
-      if (this._fieldNodeToUpdate._value === this._injectedDropdownList[size].id) {
-        this._valueFoundInList = true;
-      }
-    }
-  }
-
-  /**
-   * change the value data of repeated field to an array according to the defined subfield likes `data.id`
-   * @param data
-   * @returns {[]}
-   * @private
-   */
-  _parseRepeatedData(data) {
-    const arrValue = [];
-    const arrSubfieldChains = this.subField.split('.');
-    if (Array.isArray(data)) {
-      data.forEach(element => {
-        let tmpValue = element;
-        arrSubfieldChains.forEach(s => {
-          tmpValue = tmpValue[s];
-        });
-        arrValue.push(tmpValue);
-      });
-    }
-    return arrValue;
-  }
-
   /**
    * Build the dropdown list with given options from meta
    * @param {options} list of options with id and display_name
    */
   _buildListWithMetaOptions(options) {
     if (options && options.list && options.list.length > 0) {
-      this.autoSelectFirst = true;
-      this.injectList(options.list);
+      this._isMetaInjection = true;
+      CollectionDropdownHelper.injectList(this, options.list);
     }
-  }
-
-  _setItemSelectedViaSelectedMark(list) {
-    let arr = [];
-    if (Array.isArray(list)) {
-      arr = list.map(e => ({
-        id: e[this.valueField],
-        label: e[this.displayField],
-        selected: !!e.selected,
-        _original: e._original,
-      }));
-    }
-    return arr;
-  }
-
-  /**
-   * Inject the array with the selectable options.
-   *
-   * The array with objects should have a signature like this. This could be the response of a collection agent (`--response(*.entities)`)
-   * ```json
-   * [
-   *  {
-   *   "id": 34,
-   *   "display_name":"Option A"
-   *  },
-   *  {
-   *   "id": 223,
-   *   "display_name":"Option X"
-   *  },
-   * ]
-   * ```
-   * @param {Array} Array with entities
-   */
-  injectList(list) {
-    const arr = this._mapInputToInnerStruct(list);
-    this._injectedDropdownList = this._mapDataToList(arr);
-    this._updateField();
-
-    /**
-     * Is fired when a new list is applied
-     * @event options-injected Payload: option list
-     */
-    this.dispatchEvent(
-      new CustomEvent('options-injected', {
-        detail: this._injectedDropdownList,
-        bubbles: true,
-        composed: true,
-      }),
-    );
   }
 
   /**
@@ -646,7 +357,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param entities
    */
   injectEntities(entities) {
-    this.injectList(entities);
+    CollectionDropdownHelper.injectList(this,entities);
   }
 }
 

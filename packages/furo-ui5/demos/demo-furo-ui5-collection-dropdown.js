@@ -77,26 +77,36 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
                 Option items from API Spec. Type furo.Optionitem. Attention: OVERWRITE OF SUBFIELD
                 DEFAULT
               </p>
-              <furo-ui5-data-collection-dropdown
-                style="width: 100%;"
-                value-state="Warning"
-                ƒ-bind-data="--entityPerson(*.sex)"
-                @-item-selected="--itemSelected"
-              ></furo-ui5-data-collection-dropdown>
+              <furo-form-layouter two>
+
+                <furo-ui5-data-collection-dropdown
+                  style="width: 100%;"
+                  value-state="Warning"
+                  ƒ-bind-data="--entityPerson(*.sex)"
+                  @-item-selected="--itemSelected"
+                ></furo-ui5-data-collection-dropdown>
+                <furo-ui5-data-text-input ƒ-bind-data="--entityPerson(*.sex)" ></furo-ui5-data-text-input>
+              </furo-form-layouter>
+
             </div>
             <div>
               <p>
-                Option items an array of objects with injectList(). Display field is set to field
+                Option items an array of objects with injectEntities(). Display field is set to field
                 NAME
               </p>
-              <furo-ui5-data-collection-dropdown
-                style="width: 100%;"
-                display-field="name"
-                ƒ-bind-data="--entity(*.owner)"
-                value-sub-field="id"
-                ƒ-inject-list="--response(*.entities)"
-                @-item-selected="--itemSelected"
-              ></furo-ui5-data-collection-dropdown>
+              <furo-form-layouter two>
+                <furo-ui5-data-collection-dropdown
+                  style="width: 100%;"
+                  display-field="name"
+                  ƒ-bind-data="--entity(*.owner)"
+                  value-sub-field="id"
+                  ƒ-inject-entities="--response(*.entities)"
+                  @-item-selected="--itemSelected"
+                ></furo-ui5-data-collection-dropdown>
+                <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)" ></furo-ui5-data-text-input>
+
+              </furo-form-layouter>
+
             </div>
             <div>
               <p>Option item from collection response. Type xxx.TypeEntity)</p>

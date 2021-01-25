@@ -101,16 +101,32 @@ export class CollectionDropdownHelper {
       },
     ];
 
-    if (
+    // select marked item from meta options
+    if(caller._isMetaInjection && !caller._fieldNodeToUpdate._value && caller._injectedDropdownList.length > 0) {
+      caller._injectedDropdownList.forEach((i)=>{
+        if(i.selected) {
+          caller._fieldNodeToUpdate._value = i.id;
+          if(caller._fieldDisplayNodeToUpdate) {
+            caller._fieldDisplayNodeToUpdate._value = i.label;
+
+          }
+        }
+      });
+      this._isMetaInjection = false;
+    }
+    // select first item if the auto-select-first is set
+    else if (
       caller.autoSelectFirst &&
       !caller._fieldNodeToUpdate._value &&
       caller._injectedDropdownList.length > 0
     ) {
       caller._dropdownList = caller._injectedDropdownList;
       caller._dropdownList[0].selected = true;
-      caller._fieldNodeToUpdate._value = caller._dropdownList.id;
-      caller._fieldDisplayNodeToUpdate._value = caller._dropdownList.label;
+      caller._fieldNodeToUpdate._value = caller._dropdownList[0].id;
+      if(caller._fieldDisplayNodeToUpdate) {
+        caller._fieldDisplayNodeToUpdate._value = caller._dropdownList[0].label;
 
+      }
       this.setOptionItems(caller);
     } else if (caller._pseudoDropdownList.length > 0) {
       caller._dropdownList = caller._pseudoDropdownList;
@@ -251,11 +267,26 @@ export class CollectionDropdownHelper {
           selected: caller._fieldNodeToUpdate._value === e.id.toString() || false,
         }));
       } else {
-        arr = caller._dropdownList.map(e => ({
-          id: e.id,
-          label: e.label,
-          selected: caller._fieldNodeToUpdate._value === e.selected || false,
-        }));
+
+        arr = caller._dropdownList.map(e => {
+          if(e.selected) {
+            caller._fieldNodeToUpdate._value =  e.id;
+
+            return {
+              id: e.id,
+              label: e.label,
+              selected:  e.selected || false,
+            }
+          }
+          else {
+            return {
+              id: e.id,
+              label: e.label,
+              selected:  e.selected || false,
+            }
+          }
+      }
+          );
       }
       if(!caller._valueFoundInList) {
         arr[0].selected = true;

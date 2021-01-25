@@ -174,21 +174,21 @@ describe('furo-ui5-data-collection-dropdown', () => {
   });
 
   it('should activate the correct item from the bound field', done => {
-    dropdown.addEventListener(
-      'options-injected',
-      () => {
-        if (dropdown._dropdownList.length === 4) {
+    dropdown.binder.fieldNode.addEventListener(
+      'field-value-changed',
+      (e) => {
+        console.log("data",dao.data.owner._value)
+        if (dao.data.owner._value === '2') {
           setTimeout(() => {
             assert.equal(dropdown._dropdownList[1].selected, true);
             assert.equal(dropdown._state._text, 'Tari Sakota, +41791532244');
             done();
           }, 240);
         }
-      },
-      { once: true },
-    );
-    input.setValue('2');
+      }
+    ),{once: true};
     dropdown.injectEntities(testData.entities);
+    input.setValue('2');
   });
 
   it('should auto select the first element', done => {
@@ -210,14 +210,14 @@ describe('furo-ui5-data-collection-dropdown', () => {
   });
 
   it('should have options from a array of objects', done => {
-    dropdown.injectList(testDataArray);
+    dropdown.injectEntities(testDataArray);
     dropdown.click();
     assert.equal(dropdown._dropdownList.length, 3);
     done();
   });
 
   xit('should write the selected item to the dao', done => {
-    dropdown.injectList(testDataArray);
+    dropdown.injectEntities(testDataArray);
     const innerElement = dropdown.shadowRoot.querySelector('ui5-label');
     innerElement.shadowRoot.querySelector('label');
     keydown(innerElement, 'ArrowDown');
@@ -231,7 +231,7 @@ describe('furo-ui5-data-collection-dropdown', () => {
   });
 
   it('should show bounded data even when the value of data object is not in the list of dropdown, inject first', done => {
-    dropdown.injectList(testDataArray);
+    dropdown.injectEntities(testDataArray);
     dao.injectRaw({ owner: { id: 'notFound', display_name: 'not_found' } });
     assert.equal(dropdown._dropdownList.length, 1);
     done();
@@ -239,7 +239,7 @@ describe('furo-ui5-data-collection-dropdown', () => {
 
   it('should show bounded data even when the value of data object is not in the list of dropdown, inject later', done => {
     dao.injectRaw({ owner: { id: 'notFound', display_name: 'not_found' } });
-    dropdown.injectList(testDataArray);
+    dropdown.injectEntities(testDataArray);
     assert.equal(dropdown._dropdownList.length, 1);
     done();
   });
