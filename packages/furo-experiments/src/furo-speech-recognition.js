@@ -1,4 +1,4 @@
-import {LitElement} from 'lit-element';
+import { LitElement } from 'lit-element';
 
 /**
  * `furo-speech-recognition`
@@ -17,32 +17,25 @@ import {LitElement} from 'lit-element';
  * @customElement
  * @demo demo-furo-speech-recognition
  */
-class FuroSpeechRecognition extends (LitElement) {
-
+class FuroSpeechRecognition extends LitElement {
   constructor() {
     super();
     window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
     this.recognition = new SpeechRecognition();
     this.recognition.interimResults = false;
 
-
-
-    this.recognition.onresult = (event) => {
+    this.recognition.onresult = event => {
       const speechToText = event.results[0][0].transcript;
-      console.log(event.results)
+      console.log(event.results);
       /**
-      * @event transcript
-      * Fired when speechToText
-      * detail payload: string
-      */
-      let customEvent = new Event('transcript', {composed:true, bubbles: true});
+       * @event transcript
+       * Fired when speechToText
+       * detail payload: string
+       */
+      const customEvent = new Event('transcript', { composed: true, bubbles: true });
       customEvent.detail = speechToText;
       this.dispatchEvent(customEvent);
-    }
-
-
-
-
+    };
   }
 
   start() {
@@ -58,11 +51,9 @@ class FuroSpeechRecognition extends (LitElement) {
       /**
        * Description
        */
-      myBool: {type: Boolean}
+      myBool: { type: Boolean },
     };
   }
-
-
 }
 
 window.customElements.define('furo-speech-recognition', FuroSpeechRecognition);

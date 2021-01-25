@@ -1,6 +1,6 @@
 import { FuroSelectInput } from '@furo/input/src/furo-select-input.js';
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
-import {CollectionDropdownHelper} from './lib/CollectionDropdownHelper.js';
+import { CollectionDropdownHelper } from './lib/CollectionDropdownHelper.js';
 
 /**
  * `furo-data-collection-dropdown`
@@ -90,22 +90,22 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
     this._injectedDropdownList = [];
     this._valueFoundInList = true;
 
-
     this.addEventListener('value-changed', val => {
       if (this.binder.fieldNode) {
         // by valid input reset meta and constraints
         this._fieldNodeToUpdate._value = val.detail;
 
         if (this.subfield) {
-          this._fieldDisplayNodeToUpdate._value = CollectionDropdownHelper.findDisplayNameByValue(this, val.detail);
+          this._fieldDisplayNodeToUpdate._value = CollectionDropdownHelper.findDisplayNameByValue(
+            this,
+            val.detail,
+          );
         }
       }
 
-      const selectedObj = this._dropdownList.find(
-        obj => obj.id === this._fieldNodeToUpdate._value,
-      );
+      const selectedObj = this._dropdownList.find(obj => obj.id === this._fieldNodeToUpdate._value);
 
-      CollectionDropdownHelper.notifiySelectedItem(this,selectedObj);
+      CollectionDropdownHelper.notifiySelectedItem(this, selectedObj);
     });
 
     this._initBinder();
@@ -117,7 +117,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
       // always use injected list by clicking the dropdown
       CollectionDropdownHelper.triggerSetOptionItem(this);
     });
-
   }
 
   /**
@@ -166,7 +165,6 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
     this.binder.targetValueField = '_value';
   }
 
-
   /**
    * @event item-selected
    * Fired when an item from the dropdown was selected
@@ -200,7 +198,7 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
   _notifyAndTriggerUpdate(arr) {
     if (arr.length > 0) {
       this._dropdownList = arr;
-      //super.setOptions(arr);
+      // super.setOptions(arr);
       CollectionDropdownHelper.updateField(this);
     }
   }
@@ -382,26 +380,23 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
     this.requestUpdate();
   }
 
-
   /**
    * Build the dropdown list with given options from meta
    * @param {options} list of options with id and display_name
    */
   _buildListWithMetaOptions(options) {
-
-    this._injectedDropdownList = CollectionDropdownHelper.mapDataToList(this,options.list);
+    this._injectedDropdownList = CollectionDropdownHelper.mapDataToList(this, options.list);
     this._isMetaInjection = true;
 
     this._notifyAndTriggerUpdate(this._injectedDropdownList);
   }
-
 
   /**
    * Inject the array of a collection
    * @param entities
    */
   injectEntities(entities) {
-    CollectionDropdownHelper.injectList(this,entities);
+    CollectionDropdownHelper.injectList(this, entities);
   }
 }
 

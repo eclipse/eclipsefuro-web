@@ -9,7 +9,6 @@ import * as StandardListItem from '@ui5/webcomponents/dist/StandardListItem.js';
  * @appliesMixin FBP
  */
 export class Ui5ReferenceSearchItem extends StandardListItem.default {
-
   constructor() {
     super();
     this._item = {};
@@ -29,7 +28,9 @@ export class Ui5ReferenceSearchItem extends StandardListItem.default {
    * Attribute observer
    * @returns {string[]}
    */
-  static get observedAttributes() {return ['display-field']; }
+  static get observedAttributes() {
+    return ['display-field'];
+  }
 
   /**
    * Native attribute changed callback

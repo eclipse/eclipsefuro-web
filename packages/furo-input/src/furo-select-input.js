@@ -61,7 +61,7 @@ export class FuroSelectInput extends FBP(LitElement) {
     this._value = this.value || '';
 
     this._FBPAddWireHook('--inputInput', e => {
-        Helper.triggerValueChanged(this, e);
+      Helper.triggerValueChanged(this, e);
     });
   }
 
@@ -315,13 +315,13 @@ export class FuroSelectInput extends FBP(LitElement) {
     }
 
     const arr = collection.map(e => {
-      if (e.selected ) {
-        this.value = e.id? e.id.toString() : '';
+      if (e.selected) {
+        this.value = e.id ? e.id.toString() : '';
       }
       return {
         id: e.id,
         label: e.label,
-        selected: this.value ===  e.selected || false,
+        selected: this.value === e.selected || false,
       };
     });
 

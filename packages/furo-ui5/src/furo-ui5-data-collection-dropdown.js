@@ -1,7 +1,8 @@
 import * as Select from '@ui5/webcomponents/dist/Select.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
-import {CollectionDropdownHelper} from '@furo/data-input/src/lib/CollectionDropdownHelper.js';
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { CollectionDropdownHelper } from '@furo/data-input/src/lib/CollectionDropdownHelper.js';
 
 /**
  * `furo-ui5-data-collection-dropdown`
@@ -102,7 +103,10 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         // the _fieldNodeToUpdate and the _fieldDisplayNodeToUpdate are the same by scalar type. in this case
         // there is no need to update the display value
         if (this._fieldNodeToUpdate !== this._fieldDisplayNodeToUpdate) {
-          this._fieldDisplayNodeToUpdate._value = CollectionDropdownHelper.findDisplayNameByValue(this,selectedObj.id);
+          this._fieldDisplayNodeToUpdate._value = CollectionDropdownHelper.findDisplayNameByValue(
+            this,
+            selectedObj.id,
+          );
         }
 
         this.binder.deleteLabel('pristine');
@@ -111,7 +115,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         this.updateLock = false;
       }, 50);
 
-      CollectionDropdownHelper.notifiySelectedItem(this,selectedObj);
+      CollectionDropdownHelper.notifiySelectedItem(this, selectedObj);
     });
 
     /**
@@ -295,7 +299,10 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       }
 
       if (this.valueSubField) {
-        this._fieldNodeToUpdate = CollectionDropdownHelper.getValueByPath(this.binder.fieldNode, this.valueSubField);
+        this._fieldNodeToUpdate = CollectionDropdownHelper.getValueByPath(
+          this.binder.fieldNode,
+          this.valueSubField,
+        );
         this._fieldDisplayNodeToUpdate = CollectionDropdownHelper.getValueByPath(
           this.binder.fieldNode,
           this.displaySubField,
@@ -317,8 +324,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       });
 
       this.binder.fieldNode.addEventListener('field-value-changed', e => {
-        CollectionDropdownHelper.updateField(this);
-
         if (
           this.binder.fieldFormat === 'scalar' ||
           (this.binder.fieldFormat === 'complex' && this.valueSubField === e.detail._name)
@@ -330,8 +335,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       CollectionDropdownHelper.updateField(this);
     }
   }
-
-
 
   /**
    * Sets the value for the field. This will update the fieldNode.
@@ -357,7 +360,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param entities
    */
   injectEntities(entities) {
-    CollectionDropdownHelper.injectList(this,entities);
+    CollectionDropdownHelper.injectList(this, entities);
   }
 }
 

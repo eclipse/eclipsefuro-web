@@ -174,21 +174,13 @@ describe('furo-ui5-data-collection-dropdown', () => {
   });
 
   it('should activate the correct item from the bound field', done => {
-    dropdown.binder.fieldNode.addEventListener(
-      'field-value-changed',
-      (e) => {
-        console.log("data",dao.data.owner._value)
-        if (dao.data.owner._value === '2') {
-          setTimeout(() => {
-            assert.equal(dropdown._dropdownList[1].selected, true);
-            assert.equal(dropdown._state._text, 'Tari Sakota, +41791532244');
-            done();
-          }, 240);
-        }
-      }
-    ),{once: true};
+    dao.injectRaw({ owner: { id: '2' , display_name:'test'} });
     dropdown.injectEntities(testData.entities);
-    input.setValue('2');
+    setTimeout(() => {
+      assert.equal(dropdown._dropdownList[1].selected, true);
+      assert.equal(dropdown._dropdownList[1].id, '2');
+      done();
+    }, 400);
   });
 
   it('should auto select the first element', done => {

@@ -3,6 +3,7 @@ import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 
 import '@furo/layout';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/util/src/furo-navigation-pad.js';
 import '@ui5/webcomponents/dist/Button.js';
 import '@ui5/webcomponents-icons/dist/sys-first-page.js';
@@ -58,7 +59,8 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
         :host {
           width: 100%;
           display: block;
-          padding: var(--spacing-xs) var(--furo-ui5-pagination-bar-padding-right,var(--spacing, 24px)) var(--spacing-xs) 0;
+          padding: var(--spacing-xs)
+            var(--furo-ui5-pagination-bar-padding-right, var(--spacing, 24px)) var(--spacing-xs) 0;
           box-sizing: border-box;
           background-color: var(
             --furo-ui5-pagination-bar-background-color,
@@ -165,44 +167,42 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
   }
 
   _FBPReady() {
-    super._FBPReady()
-    const btns = this.shadowRoot.querySelectorAll("ui5-button")
+    super._FBPReady();
+    const btns = this.shadowRoot.querySelectorAll('ui5-button');
 
     /**
      * Register hook on wire --navigated to
      * catch navigation events
      */
-    this._FBPAddWireHook("--navigated", (e) => {
-      let start
-      let enabledButtons = []
+    this._FBPAddWireHook('--navigated', e => {
+      let start;
+      const enabledButtons = [];
       btns.forEach((btn, i) => {
         if (!btn.disabled) {
-         let c = enabledButtons.push(btn)
+          const c = enabledButtons.push(btn);
           if (btn.focused) {
-            start = c - 1
+            start = c - 1;
           }
         }
       });
       switch (e) {
-        case "ArrowRight":
-          if(start + 1 >= enabledButtons.length){
-            enabledButtons[0].focus()
-          }else{
-            enabledButtons[start+1].focus()
+        case 'ArrowRight':
+          if (start + 1 >= enabledButtons.length) {
+            enabledButtons[0].focus();
+          } else {
+            enabledButtons[start + 1].focus();
           }
 
-          break
-        case "ArrowLeft":
-          if(start == 0){
-            enabledButtons[enabledButtons.length-1].focus()
-          }else{
-            enabledButtons[start-1].focus()
+          break;
+        case 'ArrowLeft':
+          if (start == 0) {
+            enabledButtons[enabledButtons.length - 1].focus();
+          } else {
+            enabledButtons[start - 1].focus();
           }
 
-          break
+          break;
       }
-
-
     });
   }
 
