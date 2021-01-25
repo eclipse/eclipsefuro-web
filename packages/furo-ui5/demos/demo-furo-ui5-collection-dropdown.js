@@ -102,8 +102,8 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
             <div>
               <p>Option item from collection response. Type xxx.TypeEntity)</p>
               <p>
-                The attributes value-sub-field, value-field, sub-field and display-field are optional and by default
-                set to: owner.id, id, display_name and data
+                The attributes  value-field, sub-field and display-field are optional and by default
+                set to: id, data and display_name.
               </p>
               <furo-ui5-data-collection-dropdown
                 style="width: 100%;"

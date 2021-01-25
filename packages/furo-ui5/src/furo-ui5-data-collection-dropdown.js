@@ -55,7 +55,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     this.valueField = 'id';
 
     /**
-     * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
+     * if you bind a complex type, you must declare here the field which gets updated of value by selecting an item. e.g. value-sub-field = "id"
      *
      * If you bind a scalar, you dont need this attribute.
      * @type {string}
