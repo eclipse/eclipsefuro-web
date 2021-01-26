@@ -2,8 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
-import  QrScanner  from 'qr-scanner';
-
+import QrScanner from 'qr-scanner';
 
 /**
  * `furo-qr-scanner`
@@ -15,8 +14,6 @@ import  QrScanner  from 'qr-scanner';
  * @appliesMixin FBP
  */
 class FuroQrScanner extends FBP(LitElement) {
-
-
   /**
    * @private
    * @return {Object}
@@ -26,8 +23,8 @@ class FuroQrScanner extends FBP(LitElement) {
       /**
        * Description
        */
-      stopOnCodeFound: { type: Boolean ,attribute:"stop-on-code-found"},
-      worker :{type:String}
+      stopOnCodeFound: { type: Boolean, attribute: 'stop-on-code-found' },
+      worker: { type: String },
     };
   }
 
@@ -36,33 +33,30 @@ class FuroQrScanner extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    this.vid = this.shadowRoot.getElementById("vid");
+    this.vid = this.shadowRoot.getElementById('vid');
     QrScanner.WORKER_PATH = this.worker || '/worker/qr-scanner-worker.min.js';
     // this._FBPTraceWires()
-    this.qrScanner = new QrScanner(this.vid, result =>  {
+    this.qrScanner = new QrScanner(this.vid, result => {
       /**
-      * @event qr-code
-      * Fired when a qr-code is detected
-      * detail payload: string
-      */
-      const customEvent = new Event('qr-code', {composed:true, bubbles: true});
+       * @event qr-code
+       * Fired when a qr-code is detected
+       * detail payload: string
+       */
+      const customEvent = new Event('qr-code', { composed: true, bubbles: true });
       customEvent.detail = result;
-      this.dispatchEvent(customEvent)
-      if(this.stopOnCodeFound){
-        this.qrScanner.stop()
+      this.dispatchEvent(customEvent);
+      if (this.stopOnCodeFound) {
+        this.qrScanner.stop();
       }
-
     });
-
-
   }
 
-  start(){
-    this.qrScanner.start()
+  start() {
+    this.qrScanner.start();
   }
 
-  stop(){
-    this.qrScanner.stop()
+  stop() {
+    this.qrScanner.stop();
   }
 
   /**
@@ -72,20 +66,22 @@ class FuroQrScanner extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('FuroQrScanner') || css`
+    return (
+      Theme.getThemeForComponent('FuroQrScanner') ||
+      css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-        video{
+        video {
           width: 100%;
         }
-    `;
+      `
+    );
   }
-
 
   /**
    * @private

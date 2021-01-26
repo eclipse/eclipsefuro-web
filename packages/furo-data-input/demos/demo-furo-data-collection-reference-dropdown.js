@@ -59,6 +59,7 @@ class DemoFuroDataCollectionReferenceDropdown extends FBP(LitElement) {
                 leading-icon="mail"
                 trailing-icon="fingerprint"
                 label="default list from spec"
+                value-sub-field="id"
                 ƒ-inject-entities="--response(*.entities)"
                 ƒ-bind-data="--entity(*.owner)"
               ></furo-data-collection-dropdown>
@@ -68,6 +69,7 @@ class DemoFuroDataCollectionReferenceDropdown extends FBP(LitElement) {
                 trailing-icon="fingerprint"
                 display-field="phone_nr"
                 label="Use phone as display"
+                value-sub-field="id"
                 ƒ-inject-entities="--response(*.entities)"
                 ƒ-bind-data="--entity(*.owner.id)"
               ></furo-data-collection-dropdown>

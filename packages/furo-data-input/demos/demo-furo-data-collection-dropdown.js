@@ -64,8 +64,9 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
                 hint="hint override"
                 leading-icon="mail"
                 trailing-icon="fingerprint"
-                label="Use description as display"
-                subfield-display="description"
+                label="bind object which value-sub-field: id"
+                display-sub-field="description"
+                value-sub-field="id"
                 ƒ-inject-entities="--response(*.entities)"
                 ƒ-bind-data="--entity(*.data)"
                 @-item-selected="--itemSelected"
@@ -75,38 +76,69 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
                 leading-icon="mail"
                 trailing-icon="fingerprint"
                 display-field="id"
+                label="bind scalar value data.id"
                 ƒ-inject-entities="--response(*.entities)"
                 ƒ-bind-data="--entity(*.data.id)"
                 @-item-selected="--itemSelected"
               ></furo-data-collection-dropdown>
 
               <furo-data-collection-dropdown
-                value-field="display_name"
-                display-field="display_name"
+                leading-icon="mail"
+                trailing-icon="fingerprint"
+                display-field="id"
+                value-sub-field="estimated_time"
+                display-sub-field="estimated_time"
+                label="bind scalar value data.estimated_time"
                 ƒ-inject-entities="--response(*.entities)"
+                ƒ-bind-data="--entity(*.data)"
                 @-item-selected="--itemSelected"
-                hint=""
               ></furo-data-collection-dropdown>
 
+              <furo-data-text-input
+                label="you can set this estimated_time to update the dropdown"
+                ƒ-bind-data="--entity(*.data.estimated_time)"
+              ></furo-data-text-input>
+
               <furo-data-collection-dropdown
-                value-field="id"
-                display-field="display_name"
-                subfield="data.id"
+                auto-select-first
+                leading-icon="mail"
+                trailing-icon="fingerprint"
+                display-field="id"
+                value-sub-field="estimated_time"
+                display-sub-field="estimated_time"
+                label="bind description, auto-select-first is set"
                 ƒ-inject-entities="--response(*.entities)"
+                ƒ-bind-data="--entity(*.data.description)"
                 @-item-selected="--itemSelected"
-                ƒ-bind-data="--collection(*.entities)"
-                size="4"
-                hint="Holding down the Ctrl to select"
               ></furo-data-collection-dropdown>
+
+              <furo-emtpy-spacer></furo-emtpy-spacer>
+              <furo-data-collection-dropdown
+                label="use meta options from spec as the dropdown list"
+                ƒ-bind-data="--personDO(*.sex)"
+              ></furo-data-collection-dropdown>
+
+              <furo-data-text-input
+                label="sex"
+                ƒ-bind-data="--personDO(*.sex)"
+              ></furo-data-text-input>
+
             </furo-form-layouter>
 
             <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
 
-            <furo-data-object type="task.TaskEntity" @-object-ready="--entity"></furo-data-object>
+            <furo-data-object               ƒ-init="--reset"
+                                            type="task.TaskEntity" @-object-ready="--entity"></furo-data-object>
             <furo-data-object
               type="task.TaskCollection"
               @-object-ready="--collection"
               ƒ-inject-raw="--response"
+            ></furo-data-object>
+
+
+            <furo-data-object
+              type="person.Person"
+              @-object-ready="--personDO"
             ></furo-data-object>
 
             <furo-collection-agent
@@ -126,6 +158,7 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
             ></furo-deep-link>
 
             <furo-button raised label="load" @-click="--load"></furo-button>
+            <furo-button raised label="reset" @-click="--reset"></furo-button>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

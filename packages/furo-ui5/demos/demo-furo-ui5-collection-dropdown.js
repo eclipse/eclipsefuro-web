@@ -77,6 +77,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
                 Option items from API Spec. Type furo.Optionitem. Attention: OVERWRITE OF SUBFIELD
                 DEFAULT
               </p>
+
               <furo-ui5-data-collection-dropdown
                 style="width: 100%;"
                 value-state="Warning"
@@ -86,23 +87,23 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
             </div>
             <div>
               <p>
-                Option items an array of objects with injectList(). Display field is set to field
-                NAME
+                Option items an array of objects with injectEntities(). Display field is set to
+                field NAME
               </p>
               <furo-ui5-data-collection-dropdown
                 style="width: 100%;"
                 display-field="name"
                 ƒ-bind-data="--entity(*.owner)"
                 value-sub-field="id"
-                ƒ-inject-list="--response(*.entities)"
+                ƒ-inject-entities="--response(*.entities)"
                 @-item-selected="--itemSelected"
               ></furo-ui5-data-collection-dropdown>
             </div>
             <div>
               <p>Option item from collection response. Type xxx.TypeEntity)</p>
               <p>
-                The attributes value-field, sub-field and display-field are optional and by default
-                set to: id, display_name and data
+                The attributes  value-field, sub-field and display-field are optional and by default
+                set to: id, data and display_name.
               </p>
               <furo-ui5-data-collection-dropdown
                 style="width: 100%;"
@@ -189,6 +190,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
             type="project.ProjectEntity"
             @-object-ready="--entityProject"
             ƒ-inject-raw="--responseProject"
+            ƒ-init="--reset"
           ></furo-data-object>
           <furo-data-object type="person.Person" @-object-ready="--entityPerson"></furo-data-object>
           <furo-data-object

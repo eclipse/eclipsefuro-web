@@ -1,4 +1,4 @@
-import {LitElement} from 'lit-element';
+import { LitElement } from 'lit-element';
 
 /**
  * Video stream capture
@@ -11,18 +11,15 @@ import {LitElement} from 'lit-element';
  * @summary Capture Audio
  * @customElement
  */
-class FuroCaptureAudio extends (LitElement) {
-
+class FuroCaptureAudio extends LitElement {
   constructor() {
     super();
 
     this.constraints = {
       audio: true,
-      video: false
+      video: false,
     };
-
   }
-
 
   stop() {
     this.tracks[0].stop();
@@ -30,60 +27,60 @@ class FuroCaptureAudio extends (LitElement) {
 
   start() {
     if (navigator.mediaDevices) {
-      navigator.mediaDevices.getUserMedia(this.constraints).then((stream) => {
-        /**
-         *
-         * @type {MediaStream}
-         */
-        this.stream = stream;
-        this.tracks = stream.getTracks();
-        /**
-         * the stream
-         * @type {MediaStream}
-         */
+      navigator.mediaDevices
+        .getUserMedia(this.constraints)
+        .then(stream => {
+          /**
+           *
+           * @type {MediaStream}
+           */
+          this.stream = stream;
+          this.tracks = stream.getTracks();
+          /**
+           * the stream
+           * @type {MediaStream}
+           */
 
-        /**
-         * @event stream
-         * Fired when
-         * detail payload:
-         */
-        let customEvent = new Event('stream', {composed: true, bubbles: true});
-        customEvent.detail = this.stream;
-        this.dispatchEvent(customEvent)
-      }).catch(this._err)
+          /**
+           * @event stream
+           * Fired when
+           * detail payload:
+           */
+          const customEvent = new Event('stream', { composed: true, bubbles: true });
+          customEvent.detail = this.stream;
+          this.dispatchEvent(customEvent);
+        })
+        .catch(this._err);
     } else {
-      let e = new Error("Works with https only");
+      const e = new Error('Works with https only');
       this._err(e);
     }
   }
 
   _err(e) {
-    console.error(e)
+    console.error(e);
     /**
      * @event error
      * Fired when
      * detail payload:
      */
-    let customEvent = new Event('error', {composed: true, bubbles: true});
+    const customEvent = new Event('error', { composed: true, bubbles: true });
     customEvent.detail = e;
-    this.dispatchEvent(customEvent)
+    this.dispatchEvent(customEvent);
   }
 
   /**
    * @private
    * @return {Object}
    */
-  static
-  get properties() {
+  static get properties() {
     return {
       /**
        * Description
        */
-      myBool: {type: Boolean}
+      myBool: { type: Boolean },
     };
   }
-
-
 }
 
 window.customElements.define('furo-capture-audio', FuroCaptureAudio);

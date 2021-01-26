@@ -60,7 +60,7 @@ class DemoFuroDataCollectionDropdownBindEntity extends FBP(LitElement) {
                 flex
                 leading-icon="mail"
                 trailing-icon="fingerprint"
-                ƒ-bind-data="--entity(*.data.description)"
+                ƒ-bind-data="--entity(*.data.display_name)"
               ></furo-data-collection-dropdown>
             </furo-horizontal-flex>
 
