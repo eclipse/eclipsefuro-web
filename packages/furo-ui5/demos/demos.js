@@ -2,6 +2,7 @@ import './demo-furo-ui5-pagination-bar.js';
 import './demo-furo-ui5-data-text-input.js';
 import './demo-furo-ui5-data-text-input-together.js';
 import './demo-furo-ui5-collection-dropdown.js';
+import './demo-furo-ui5-collection-dropdown-labeled.js';
 import './demo-furo-ui5-data-date-picker.js';
 import './demo-furo-ui5-data-date-time-picker.js';
 import './demo-furo-ui5-data-date-time-display.js';
