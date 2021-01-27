@@ -187,6 +187,7 @@ export class FuroDataObject extends LitElement {
     const customEvent = new Event('object-data', { composed: true, bubbles: true });
     customEvent.detail = this.data;
     this.dispatchEvent(customEvent);
+    return this.data;
   }
 
   /**
