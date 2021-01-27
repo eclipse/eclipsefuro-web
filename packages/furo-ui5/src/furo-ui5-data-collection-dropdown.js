@@ -1,6 +1,6 @@
 import * as Select from '@ui5/webcomponents/dist/Select.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';// eslint-disable-next-line import/no-extraneous-dependencies
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js'; // eslint-disable-next-line import/no-extraneous-dependencies
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { CollectionDropdownHelper } from '@furo/data-input/src/lib/CollectionDropdownHelper.js';
 
@@ -97,7 +97,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         obj => obj.id === val.detail.selectedOption.dataset.id,
       );
 
-      if (this.binder.fieldNode) {
+      if (selectedObj && this.binder.fieldNode) {
         // by valid input reset meta and constraints
         this._fieldNodeToUpdate._value = selectedObj.id;
         // the _fieldNodeToUpdate and the _fieldDisplayNodeToUpdate are the same by scalar type. in this case
@@ -298,7 +298,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         this.binder.deleteLabel('pristine');
       }
 
-      if (this.valueSubField) {
+      if (this.valueSubField && this.valueSubField !== 'null') {
         this._fieldNodeToUpdate = CollectionDropdownHelper.getValueByPath(
           this.binder.fieldNode,
           this.valueSubField,

@@ -26,13 +26,13 @@ import '../src/lib/ui5-icons.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/fetch-universal-json.js';
 /**
- * `demo-furo-ui5-data-collection-dropdown`
+ * `demo-furo-ui5-data-collection-dropdown-labeled`
  *
  * @Summary basic usage of furo-ui5-data-collection-dropdown
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
+class DemoFuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
   /**
    * Themable Styles
    * @private
@@ -41,7 +41,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DemoFuroUi5DataCollectionDropdown') ||
+      Theme.getThemeForComponent('DemoFuroUi5DataCollectionDropdownLabeled') ||
       css`
         :host {
           display: block;
@@ -78,26 +78,25 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
                 DEFAULT
               </p>
 
-              <furo-ui5-data-collection-dropdown
+              <furo-ui5-data-collection-dropdown-labeled
                 style="width: 100%;"
                 value-state="Warning"
                 ƒ-bind-data="--entityPerson(*.sex)"
                 @-item-selected="--itemSelected"
-              ></furo-ui5-data-collection-dropdown>
+              ></furo-ui5-data-collection-dropdown-labeled>
             </div>
             <div>
               <p>
                 Option items an array of objects with injectEntities(). Display field is set to
                 field NAME
               </p>
-              <furo-ui5-data-collection-dropdown
+              <furo-ui5-data-collection-dropdown-labeled
                 style="width: 100%;"
                 display-field="name"
-                ƒ-bind-data="--entity(*.owner)"
-                value-sub-field="id"
+                ƒ-bind-data="--entity(*.owner.id)"
                 ƒ-inject-entities="--response(*.entities)"
                 @-item-selected="--itemSelected"
-              ></furo-ui5-data-collection-dropdown>
+              ></furo-ui5-data-collection-dropdown-labeled>
             </div>
             <div>
               <p>Option item from collection response. Type xxx.TypeEntity)</p>
@@ -105,7 +104,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
                 The attributes value-field, sub-field and display-field are optional and by default
                 set to: id, data and display_name.
               </p>
-              <furo-ui5-data-collection-dropdown
+              <furo-ui5-data-collection-dropdown-labeled
                 style="width: 100%;"
                 value-field="id"
                 sub-field="data"
@@ -115,7 +114,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
                 value-sub-field="id"
                 @-item-selected="--itemSelected"
               >
-              </furo-ui5-data-collection-dropdown>
+              </furo-ui5-data-collection-dropdown-labeled>
             </div>
             <div>
               <p>Option item from collection response. Type xxx.TypeEntity)</p>
@@ -125,7 +124,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
                 target object (bound field) are updated. In this use case the link object of the
                 type reference is updated (check the furo-data-object)
               </p>
-              <furo-ui5-data-collection-dropdown
+              <furo-ui5-data-collection-dropdown-labeled
                 style="width: 100%;"
                 display-sub-field="link.type"
                 value-sub-field="id"
@@ -133,7 +132,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
                 ƒ-bind-data="--entity(*.owner)"
                 @-item-selected="--itemSelected"
               >
-              </furo-ui5-data-collection-dropdown>
+              </furo-ui5-data-collection-dropdown-labeled>
             </div>
 
             <div>
@@ -142,7 +141,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
                 In this example, the first element will be selected after injecting the entities.
                 Because the auto-select-first attribute is set.
               </p>
-              <furo-ui5-data-collection-dropdown
+              <furo-ui5-data-collection-dropdown-labeled
                 style="width: 100%;"
                 value-sub-field="id"
                 auto-select-first
@@ -150,7 +149,7 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
                 ƒ-bind-data="--entityProject(*.data)"
                 @-item-selected="--itemSelected"
               >
-              </furo-ui5-data-collection-dropdown>
+              </furo-ui5-data-collection-dropdown-labeled>
             </div>
             <p>
               Bound input fields: owner.id and owner.display_name. If you enter a valid owner ID,
@@ -221,6 +220,6 @@ class DemoFuroUi5DataCollectionDropdown extends FBP(LitElement) {
 }
 
 window.customElements.define(
-  'demo-furo-ui5-data-collection-dropdown',
-  DemoFuroUi5DataCollectionDropdown,
+  'demo-furo-ui5-data-collection-dropdown-labeled',
+  DemoFuroUi5DataCollectionDropdownLabeled,
 );

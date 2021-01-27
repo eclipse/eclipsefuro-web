@@ -14,7 +14,7 @@ import './furo-ui5-data-collection-dropdown.js';
  *
  * @summary labeled input field
  * @customElement
- * @demo demo-furo-ui5-form-field-container Simple use
+ * @demo demo-furo-ui5-data-collection-dropdown-labeled Simple use
  * @appliesMixin FBP
  */
 class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
@@ -128,19 +128,11 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
   }
 
   /**
-   * inject list
-   * @param arr
-   */
-  injectList(arr) {
-    this._FBPTriggerWire('--injectList', arr);
-  }
-
-  /**
    * Inject the array of a collection
    * @param entities
    */
   injectEntities(entities) {
-    this._FBPTriggerWire('--injectList', entities);
+    this._FBPTriggerWire('--injectEntities', entities);
   }
 
   /**
@@ -165,7 +157,7 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
           value-sub-field="${this.valueSubField}"
           display-sub-field="${this.displaySubField}"
           ƒ-bind-data="--data"
-          ƒ-inject-list="--injectList"
+          ƒ-inject-entities="--injectEntities"
         ></furo-ui5-data-collection-dropdown>
       </furo-ui5-form-field-container>
     `;
