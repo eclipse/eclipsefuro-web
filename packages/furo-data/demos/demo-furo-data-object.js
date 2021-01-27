@@ -115,7 +115,7 @@ class DemoFuroDataObject extends FBP(LitElement) {
               ƒ-inject-raw="--response(*.data)"
               ƒ-get-data="--getData"
               @-object-ready="--dataObject"
-              @-object-data="--objectData"
+              @-ƒ-get-data="--objectData"
             ></furo-data-object>
             <produce-qp-data
               hidden
