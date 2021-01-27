@@ -697,4 +697,20 @@ describe('furo-data-object', () => {
     };
     element.addEventListener('object-ready', handler);
   });
+
+  it('should be possible get the data of a DataObject via geData method', done => {
+    element.setAttribute('type', 'project.ProjectEntity');
+    element.addEventListener('object-data', d => {
+      assert.equal(d.detail._base64, element.data._base64);
+      done();
+    });
+    fetch('/mockdata/projects/1/get.json')
+      .then(res => res.json())
+      .then(response => {
+        const p = element.injectRaw(response);
+        p.then(ObjectDataRoot => {
+          element.getData();
+        });
+      });
+  });
 });

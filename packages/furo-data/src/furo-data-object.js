@@ -173,6 +173,23 @@ export class FuroDataObject extends LitElement {
   }
 
   /**
+   * @event object-data
+   * Fired when the getData method is called
+   *
+   * **detail payload:** the data of a data object
+   *
+   * **bubbles**
+   */
+  /**
+   * get the data of the data object
+   */
+  getData() {
+    const customEvent = new Event('object-data', { composed: true, bubbles: true });
+    customEvent.detail = this.data;
+    this.dispatchEvent(customEvent);
+  }
+
+  /**
    *
    * @param type
    * @private
