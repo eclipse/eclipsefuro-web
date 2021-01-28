@@ -10,6 +10,7 @@ import '@furo/data/src/furo-catalog.js';
 import '@furo/app/src/furo-card.js';
 
 import './helper/furo-data-object-form.js';
+import '@furo/data-input/demos/helper/produce-qp-data.js';
 
 /**
  * `demo-furo-data-object`
@@ -61,21 +62,50 @@ class DemoFuroDataObject extends FBP(LitElement) {
           <template>
             <!-- Styles in furo-card are just for the demo -->
             <furo-card
-              style="width: 420px; margin: 30px"
+              style="width: 420px; margin:  30px; display: inline-block; vertical-align: top"
               header-text="Some data"
               secondary-text="Save is not implemented"
             >
-              <furo-data-object-form ƒ-bind-fields="--dataObject(*.fields)"></furo-data-object-form>
+              <furo-data-object-form ƒ-bind-fields="--dataObject"></furo-data-object-form>
+
               <furo-horizontal-flex slot="action">
                 <!-- The button will trigger the wire --saveClicked, which triggers ƒ-save on the furo-entity-agent as soon it is clicked -->
                 <furo-button primary @-click="--saveClicked" label="save data"></furo-button>
               </furo-horizontal-flex>
             </furo-card>
+            <furo-card
+              style="width: 420px; margin: 30px; display: inline-block;vertical-align: top"
+              header-text="Get the data of DataObject"
+              secondary-text="get data of a data object via getData method"
+            >
+              <furo-form-layouter two>
+                <furo-pretty-json
+                  style="width: 320px; "
+                  ƒ-inject-data="--objectData(*._value)"
+                ></furo-pretty-json>
+
+                <furo-data-textarea-input
+                  label="value in base64"
+                  ƒ-set-value="--objectData(*._base64)"
+                ></furo-data-textarea-input>
+              </furo-form-layouter>
+
+              <furo-horizontal-flex slot="action">
+                <furo-button primary @-click="--getData" label="get data"></furo-button>
+              </furo-horizontal-flex>
+            </furo-card>
+
+            <furo-deep-link
+              service="ProjectService"
+              @-hts-out="--hts"
+              ƒ-qp-in="--qp"
+            ></furo-deep-link>
 
             <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->
             <furo-entity-agent
               service="ProjectService"
               ƒ-save="--saveClicked"
+              ƒ-hts-in="--hts"
               ƒ-bind-request-data="--dataObject"
               @-response="--response"
             ></furo-entity-agent>
@@ -83,8 +113,16 @@ class DemoFuroDataObject extends FBP(LitElement) {
             <furo-data-object
               type="project.Project"
               ƒ-inject-raw="--response(*.data)"
+              ƒ-get-data="--getData"
               @-object-ready="--dataObject"
+              @-ƒ-get-data="--objectData"
             ></furo-data-object>
+            <produce-qp-data
+              hidden
+              auto
+              @-data="--qp"
+              qpescaped="%7B%22prj%22%3A1%7D"
+            ></produce-qp-data>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

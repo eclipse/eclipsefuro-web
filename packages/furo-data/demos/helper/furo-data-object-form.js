@@ -69,10 +69,10 @@ class FuroDataObjectForm extends FBP(LitElement) {
       Some fields are readonly:
       <furo-form-layouter>
         <furo-data-text-input
-          ƒ-bind-data="--dataObject(*.fields.display_name)"
+          ƒ-bind-data="--dataObjectFields(*.display_name)"
         ></furo-data-text-input>
-        <furo-data-date-input ƒ-bind-data="--dataObject(*.fields.start)"></furo-data-date-input>
-        <furo-data-date-input ƒ-bind-data="--dataObject(*.fields.end)"></furo-data-date-input>
+        <furo-data-date-input ƒ-bind-data="--dataObjectFields(*.start)"></furo-data-date-input>
+        <furo-data-date-input ƒ-bind-data="--dataObjectFields(*.end)"></furo-data-date-input>
       </furo-form-layouter>
     `;
   }

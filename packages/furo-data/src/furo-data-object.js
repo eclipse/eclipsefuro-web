@@ -173,6 +173,13 @@ export class FuroDataObject extends LitElement {
   }
 
   /**
+   * get the data of the data object
+   */
+  getData(){
+    return this.data;
+  }
+
+  /**
    *
    * @param type
    * @private
