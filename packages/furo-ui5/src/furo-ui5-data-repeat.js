@@ -2,7 +2,7 @@ import { LitElement, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import './lib/ui5-data-repeat-delete.js';
-import './lib/ui5-icons.js';
+// import './lib/ui5-icons.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/form/src/furo-form-layouter';
 
