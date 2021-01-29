@@ -46,8 +46,8 @@ class DemoFuroUi5DataDateTimePicker extends FBP(LitElement) {
     return html`
       <furo-vertical-flex>
         <div>
-          <h2>Demo ...</h2>
-          <p>Describe your demo</p>
+          <h2>Demo furo-ui5-data-date-time-picker</h2>
+          <p>Basic usage of a bound date time picker.</p>
         </div>
         <furo-demo-snippet flex>
           <template>
@@ -55,7 +55,7 @@ class DemoFuroUi5DataDateTimePicker extends FBP(LitElement) {
               <furo-form-layouter four>
                 <furo-ui5-data-date-time-picker
                   format-pattern="dd.MM.yyyy hh:mm aa"
-                  min-date="1970-02-02"
+                  max-date="2022-02-02"
                   ƒ-bind-data="--entity(*.data.google_timestamp)"
                 ></furo-ui5-data-date-time-picker>
                 <furo-ui5-data-date-time-picker

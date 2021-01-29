@@ -108,26 +108,29 @@ export class FuroUi5DataDateTimePicker extends DateTimePicker.default {
 
     // update the value on input changes
     this.addEventListener('change', val => {
-      const dateValue = new Date(this.dateValue).toISOString();
+      const { dateValue } = val.target;
+      let isoValue = '';
 
-      if (this.binder.fieldNode) {
-        if (JSON.stringify(this.binder.fieldValue) !== JSON.stringify(dateValue)) {
+      if (val.detail.value === '') {
+        this.binder.fieldNode.reset();
+      } else if (this.binder.fieldNode) {
+        isoValue = dateValue.toISOString();
+        if (JSON.stringify(this.binder.fieldValue) !== JSON.stringify(isoValue)) {
           // update the value
-          this.binder.fieldNode._value = dateValue;
+          this.binder.fieldNode._value = isoValue;
         }
       }
-
       /**
        * Fired when datepicker value changed
        * the event detail is the date in IOS 8601 format
        * @type {Event}
        */
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
-      customEvent.detail = dateValue;
+      customEvent.detail = isoValue;
       this.dispatchEvent(customEvent);
 
       // set flag empty on empty strings (for fat types)
-      if (val.target.value) {
+      if (val.target.value.length) {
         this.binder.deleteLabel('empty');
       } else {
         this.binder.addLabel('empty');

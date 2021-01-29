@@ -64,7 +64,6 @@ class DemoFuroUi5DataDatePicker extends FBP(LitElement) {
                   placeholder="scalar string"
                   ƒ-bind-data="--entity(*.data.furo_data_date_input)"
                 ></furo-ui5-data-date-picker>
-                <ui5-date-picker></ui5-date-picker>
               </furo-form-layouter>
               <furo-pretty-json ƒ-inject-data="--data(*._value)"></furo-pretty-json>
 

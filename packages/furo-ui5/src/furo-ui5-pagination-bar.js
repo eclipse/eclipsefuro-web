@@ -177,7 +177,7 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
     this._FBPAddWireHook('--navigated', e => {
       let start;
       const enabledButtons = [];
-      btns.forEach((btn, i) => {
+      btns.forEach(btn => {
         if (!btn.disabled) {
           const c = enabledButtons.push(btn);
           if (btn.focused) {
@@ -195,13 +195,14 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
 
           break;
         case 'ArrowLeft':
-          if (start == 0) {
+          if (start === 0) {
             enabledButtons[enabledButtons.length - 1].focus();
           } else {
             enabledButtons[start - 1].focus();
           }
 
           break;
+        default:
       }
     });
   }

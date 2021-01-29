@@ -27,13 +27,13 @@ import '@ui5/webcomponents/dist/Icon.js';
 import '../src/lib/ui5-icons.js';
 
 /**
- * `demo-furo-ui5-data-text-input`
+ * `demo-furo-ui5-data-number-input`
  *
- * @Summary basic usage of furo-ui5-data-text-input
+ * @Summary basic usage of furo-ui5-data-number-input
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroUi5DataTextInput extends FBP(LitElement) {
+class DemoFuroUi5DataNumberInput extends FBP(LitElement) {
   /**
    * Themable Styles
    * @private
@@ -42,7 +42,7 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DemoFuroUi5DataTextInput') ||
+      Theme.getThemeForComponent('DemoFuroUi5DataNumberInput') ||
       css`
         :host {
           display: block;
@@ -85,96 +85,38 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>
-        Demo furo-ui5-data-text-input, furo-ui5-data-textarea-input and furo-ui5-password-input
-      </h2>
+      <h2>Demo furo-ui5-data-number-input</h2>
       <furo-demo-snippet>
         <template>
           <furo-form-layouter two>
-            <furo-ui5-data-text-input
-              style="width: 100%"
-              ƒ-bind-data="--entity(*.data.display_name)"
-              value-state="Information"
-            >
-              <ui5-icon slot="icon" name="signature"></ui5-icon>
-            </furo-ui5-data-text-input>
-
-            <!--            SAP Fiori Design System -->
-            <!--            The label-field ratio is 4:8:0 by default:-->
-
-            <!--            4 grid columns of the responsive grid layout are used by the labels.-->
-            <!--            8 grid columns of the responsive grid layout are used by fields.-->
-            <!--            0 grid columns of the responsive grid layout are used by empty columns.-->
-            <div style="display: grid; grid-template-columns: repeat(12, 1fr); grid-gap: 1em;">
-              <div style="grid-column: span 4; justify-self: end; align-self: center;">
-                <ui5-label for="Input" show-colon>Description</ui5-label>
-              </div>
-              <div style="grid-column: span 8;">
-                <furo-ui5-data-text-input
-                  id="Input"
-                  style="width: 100%"
-                  ƒ-bind-data="--entity(*.data.description)"
-                ></furo-ui5-data-text-input>
-              </div>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(12, 1fr); grid-gap: 1em;">
-              <div style="grid-column: span 4; justify-self: end; align-self: center;">
-                <ui5-label for="Input" wrap show-colon>Description (with a lot of chars)</ui5-label>
-              </div>
-              <div style="grid-column: span 8;">
-                <furo-ui5-data-text-input
-                  id="Input"
-                  style="width: 100%"
-                  ƒ-bind-data="--entity(*.data.description)"
-                ></furo-ui5-data-text-input>
-              </div>
-            </div>
-
-            <furo-ui5-data-textarea-input
-              ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
-            ></furo-ui5-data-textarea-input>
-            <furo-ui5-data-text-input
-              ƒ-bind-data="--entity(*.data.furo_data_text_input)"
-            ></furo-ui5-data-text-input>
-            <furo-ui5-data-password-input
-              ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
-            ></furo-ui5-data-password-input>
-            <furo-ui5-data-text-input
-              ƒ-bind-data="--entity(*.data.google_timestamp)"
-            ></furo-ui5-data-text-input>
+            <furo-ui5-data-number-input
+              ƒ-bind-data="--entity(*.data.furo_data_number_input)"
+            ></furo-ui5-data-number-input>
+            <furo-ui5-data-number-input
+              ƒ-bind-data="--entity(*.data.furo_data_range_input)"
+            ></furo-ui5-data-number-input>
           </furo-form-layouter>
 
           <furo-button-bar>
-            <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
+            <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A2%7D"></produce-qp-data>
           </furo-button-bar>
 
           <p>
-            furo-ui5-data-text-input with type Google wrapper String bindings.
+            furo-ui5-data-number-input with type google.protobuf.Int32Value binding.
           </p>
           <furo-form-layouter two>
-            <furo-ui5-data-text-input
-              ƒ-bind-data="--entityU(*.data.wrapper_string)"
-            ></furo-ui5-data-text-input>
-            <furo-ui5-data-text-input
-              ƒ-bind-data="--entityU(*.data.wrapper_string)"
-            ></furo-ui5-data-text-input>
+            <furo-ui5-data-number-input
+              ƒ-bind-data="--entityU(*.data.wrapper_int32)"
+            ></furo-ui5-data-number-input>
           </furo-form-layouter>
 
           <p>
-            furo-ui5-data-text-input with type furo.fat.String bindings.
+            furo-ui5-data-number-input with type furo.fat.Int32 binding.
           </p>
           <furo-form-layouter two>
-            <furo-ui5-data-text-input
-              ƒ-bind-data="--entityU(*.data.fat_string)"
-            ></furo-ui5-data-text-input>
-
-            <furo-ui5-data-text-input
-              ƒ-bind-data="--entityU(*.data.fat_string)"
-            ></furo-ui5-data-text-input>
-
-            <furo-ui5-data-password-input
-              ƒ-bind-data="--entityU(*.data.fat_string))"
-            ></furo-ui5-data-password-input>
+            <furo-ui5-data-number-input
+              ƒ-bind-data="--entityU(*.data.fat_int32)"
+            ></furo-ui5-data-number-input>
           </furo-form-layouter>
 
           <fetch-universal-json
@@ -222,4 +164,4 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-ui5-data-text-input', DemoFuroUi5DataTextInput);
+window.customElements.define('demo-furo-ui5-data-number-input', DemoFuroUi5DataNumberInput);

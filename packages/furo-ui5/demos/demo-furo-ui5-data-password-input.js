@@ -20,15 +20,20 @@ import '@furo/form/src/furo-button-bar.js';
 import '@furo/input/src/furo-button.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/produce-qp-data.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/data-input/demos/helper/fetch-universal-json.js';
+
+import '@ui5/webcomponents/dist/Icon.js';
+import '../src/lib/ui5-icons.js';
 
 /**
- * `demo-furo-ui5-data-textarea-input`
+ * `demo-furo-ui5-data-password-input`
  *
- * @Summary basic usage of furo-ui5-data-textarea-input
+ * @Summary basic usage of furo-ui5-data-text-input
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroUi5DataTextareaInput extends FBP(LitElement) {
+class DemoFuroUi5DataPasswordInput extends FBP(LitElement) {
   /**
    * Themable Styles
    * @private
@@ -37,7 +42,7 @@ class DemoFuroUi5DataTextareaInput extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DemoFuroUi5DataTextInput') ||
+      Theme.getThemeForComponent('DemoFuroUi5DataPasswordInput') ||
       css`
         :host {
           display: block;
@@ -53,6 +58,22 @@ class DemoFuroUi5DataTextareaInput extends FBP(LitElement) {
         furo-demo-snippet {
           height: 100%;
         }
+
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(12, 1fr);
+          grid-gap: 1em;
+        }
+
+        .width-4\\/12 {
+          grid-column: span 4;
+          justify-self: end;
+          align-self: center;
+        }
+
+        .width-8\\/12 {
+          grid-column: span 8;
+        }
       `
     );
   }
@@ -64,31 +85,57 @@ class DemoFuroUi5DataTextareaInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>Demo furo-ui5-data-textarea-input</h2>
+      <h2>Demo furo-ui5-data-password-input</h2>
       <furo-demo-snippet>
         <template>
-          <furo-form-layouter one>
-            <furo-ui5-data-textarea-input
+          <furo-form-layouter two>
+            <furo-ui5-data-password-input
               ƒ-bind-data="--entity(*.data.description)"
-            ></furo-ui5-data-textarea-input>
-            <furo-ui5-data-textarea-input
-              ƒ-bind-data="--entity(*.data.furo_data_text_input)"
-            ></furo-ui5-data-textarea-input>
-            <furo-ui5-data-textarea-input
-              value-state="Information"
-              growing
-              ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
-            ></furo-ui5-data-textarea-input>
-            <furo-ui5-data-textarea-input
-              maxlength="10"
-              show-exceeded-text
-              ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
-            ></furo-ui5-data-textarea-input>
+            ></furo-ui5-data-password-input>
           </furo-form-layouter>
 
           <furo-button-bar>
             <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
           </furo-button-bar>
+
+          <p>
+            furo-ui5-data-password-input with type Google wrapper String bindings.
+          </p>
+          <furo-form-layouter two>
+            <furo-ui5-data-password-input
+              ƒ-bind-data="--entityU(*.data.wrapper_string)"
+            ></furo-ui5-data-password-input>
+          </furo-form-layouter>
+
+          <p>
+            furo-ui5-data-password-input with type furo.fat.String bindings.
+          </p>
+          <furo-form-layouter two>
+            <furo-ui5-data-password-input
+              ƒ-bind-data="--entityU(*.data.fat_string)"
+            ></furo-ui5-data-password-input>
+          </furo-form-layouter>
+
+          <fetch-universal-json
+            file="/mockdata/ui5/demos/fat-universal.json"
+            @-data-loaded="--mockdata"
+          >
+            mockdate with suggestions
+          </fetch-universal-json>
+          <fetch-universal-json
+            file="/mockdata/ui5/demos/fat-universal-unset-label.json"
+            @-data-loaded="--mockdata"
+          ></fetch-universal-json>
+          <fetch-universal-json
+            file="/mockdata/ui5/demos/fat-universal-with-meta.json"
+            @-data-loaded="--mockdata"
+          ></fetch-universal-json>
+
+          <furo-data-object
+            type="universaltest.UniversaltestEntity"
+            @-object-ready="--entityU"
+            ƒ-inject-raw="--mockdata"
+          ></furo-data-object>
 
           <furo-data-object
             type="experiment.ExperimentEntity"
@@ -114,4 +161,4 @@ class DemoFuroUi5DataTextareaInput extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-ui5-data-textarea-input', DemoFuroUi5DataTextareaInput);
+window.customElements.define('demo-furo-ui5-data-password-input', DemoFuroUi5DataPasswordInput);
