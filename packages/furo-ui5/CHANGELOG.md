@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.16.0...@furo/ui5@0.17.0) (2021-01-31)
+
+
+### Bug Fixes
+
+* css ([9487dc6](https://github.com/theNorstroem/FuroBaseComponents/commit/9487dc6d98101f88f580d7f44031829a583e91a0))
+* DevX log the wrong component not the source of the binder ([2f4310c](https://github.com/theNorstroem/FuroBaseComponents/commit/2f4310c0ec51925d3be580d32572b00a7634d304))
+* minor fixes. ([f3f62b9](https://github.com/theNorstroem/FuroBaseComponents/commit/f3f62b9dc9c953e177c8cd4d8db7a7983e2acda5))
+* reduce imports by importing the concrete elements only ([9bf5dc1](https://github.com/theNorstroem/FuroBaseComponents/commit/9bf5dc1caa086b0710e3e37f55fcce0fec58bb57))
+
+
+### Features
+
+* the value of data object should be always showed in furo-data-collection-dropdown event the value is not in the dropdown list. ([6054642](https://github.com/theNorstroem/FuroBaseComponents/commit/6054642fef799299fc3a8f38c116f68fb36f89cc))
+
+
+
+
+
 # [0.16.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.15.0...@furo/ui5@0.16.0) (2021-01-22)
 
 

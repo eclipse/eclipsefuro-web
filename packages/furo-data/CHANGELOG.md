@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.16.5...@furo/data@1.17.0) (2021-01-31)
+
+
+### Features
+
+* add getData method to dataObject. modify demo and test. ([20ec1d8](https://github.com/theNorstroem/FuroBaseComponents/commit/20ec1d8ccd15baf2755c17d220af214d54b382e3))
+
+
+
+
+
 ## [1.16.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.16.4...@furo/data@1.16.5) (2021-01-22)
 
 **Note:** Version bump only for package @furo/data
