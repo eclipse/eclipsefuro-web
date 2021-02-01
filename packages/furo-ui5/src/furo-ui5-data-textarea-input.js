@@ -36,10 +36,30 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
    * webcomponent lifecycle event
    */
   connectedCallback() {
-    setTimeout(() => {
-      super.connectedCallback();
-    }, 0);
 
+    // initiate icon slot when it is undefined to avoid error in _tokenizeText
+    if (this.value === undefined) {
+      this.value = '';
+    }
+    if (this.valueStateMessage === undefined) {
+      this.valueStateMessage = '';
+    }
+
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
+  }
+
+  /**
+   * Fired when the input value changed.
+   * the event detail is the value of the input field
+   * @event value-changed
+   */
+
+  /**
+   * constructor
+   */
+  constructor() {
+    super();
     this._initBinder();
   }
 
