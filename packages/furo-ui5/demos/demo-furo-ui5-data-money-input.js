@@ -70,6 +70,7 @@ class DemoFuroUi5DataMoneyInput extends FBP(LitElement) {
           <template>
             <furo-form-layouter two>
               <furo-ui5-data-money-input
+                step="0.01"
                 options='{"list": [ {"id":"CHF","label":"Schweiz"},{"id":"EUR","label":"Europa"}]}'
                 autofocus
                 ƒ-bind-data="--entity(*.data.furo_data_money_input)"

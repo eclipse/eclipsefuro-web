@@ -69,7 +69,6 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
-
             <div>
               <p>Option item from collection response. Type xxx.TypeEntity)</p>
               <p>
@@ -85,7 +84,8 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
             </div>
             <div>
               <p>Readonly state</p>
-              <furo-ui5-data-segmented-button readonly
+              <furo-ui5-data-segmented-button
+                readonly
                 ƒ-inject-entities="--response(*.entities)"
                 ƒ-bind-data="--daoTask(*.owner)"
                 @-item-selected="--itemSelected"

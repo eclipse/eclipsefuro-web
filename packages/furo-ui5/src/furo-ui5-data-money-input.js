@@ -105,6 +105,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
     this._FBPAddWireHook('--inputInput', e => {
       if (e.inputType === 'deleteContentBackward') {
         this.binder.fieldNode.reset();
+        this.binder.fieldNode.currency_code._value = '';
         this._FBPTriggerWire('--valueAmount', '');
       }
       if (e.composedPath()[0].nodeName === 'UI5-INPUT') {
@@ -234,6 +235,10 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
 
   /**
    * update amount field
+   * One issue with number inputs is that their step size is 1 by default.
+   * If you try to enter a number with a decimal (such as "1.0"), it will be considered invalid.
+   * If you want to enter a value that requires decimals, you'll need to reflect this in the step value
+   * (e.g. step="0.01" to allow decimals to two decimal places).
    * @private
    */
   _updateField() {
@@ -242,10 +247,17 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       this.binder.fieldNode.units._value !== null &&
       this.binder.fieldNode.nanos._value !== null
     ) {
-      const amount = Number(
-        `${this.binder.fieldNode.units._value}.${this.binder.fieldNode.nanos._value}`,
-      );
+      let numberStr = '';
+      if (this.binder.fieldNode.units._value > 0) {
+        numberStr = this.binder.fieldNode.units._value;
+      }
+      if (this.binder.fieldNode.nanos._value > 0) {
+        numberStr += `.${this.binder.fieldNode.nanos._value}`;
+      }
+      const amount = Number(numberStr);
       this._FBPTriggerWire('--valueAmount', amount);
+    } else {
+      this._FBPTriggerWire('--valueAmount', '');
     }
 
     this.requestUpdate();

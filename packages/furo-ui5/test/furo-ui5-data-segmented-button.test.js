@@ -170,8 +170,7 @@ describe('furo-ui5-data-segmented-button', () => {
   });
 
   it('should activate the correct item', done => {
-
-    segmentedButton.addEventListener('options-injected', ()=>{
+    segmentedButton.addEventListener('options-injected', () => {
       assert.equal(segmentedButton._dropdownList.length, 4);
 
       const innerElement = segmentedButton.querySelectorAll('ui5-togglebutton');
@@ -189,11 +188,11 @@ describe('furo-ui5-data-segmented-button', () => {
 
   it('should activate the correct item from the bound field', done => {
     segmentedButton.addEventListener('options-injected', () => {
-        segmentedButton._fieldNodeToUpdate.addEventListener('field-value-changed', () => {
-          assert.equal(segmentedButton._dropdownList[1].selected, true);
-          assert.equal(segmentedButton.selectOptions[1].selected, true);
-          done();
-        });
+      segmentedButton._fieldNodeToUpdate.addEventListener('field-value-changed', () => {
+        assert.equal(segmentedButton._dropdownList[1].selected, true);
+        assert.equal(segmentedButton.selectOptions[1].selected, true);
+        done();
+      });
 
       input.binder.fieldNode._value = '2';
     });

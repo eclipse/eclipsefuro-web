@@ -94,7 +94,14 @@ export class FuroUi5DataSegmentedButton extends SegmentedButton.default {
    * @returns {string[]}
    */
   static get observedAttributes() {
-    return ['readonly', 'value-field', 'display-field', 'sub-field', 'value-sub-field', 'display-sub-field'];
+    return [
+      'readonly',
+      'value-field',
+      'display-field',
+      'sub-field',
+      'value-sub-field',
+      'display-sub-field',
+    ];
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
@@ -103,6 +110,7 @@ export class FuroUi5DataSegmentedButton extends SegmentedButton.default {
       switch (name) {
         case 'readonly':
           this.readonly = newVal === '';
+          this._updateField();
           break;
         case 'value-field':
           this.valueField = newVal;
@@ -380,8 +388,7 @@ export class FuroUi5DataSegmentedButton extends SegmentedButton.default {
         }
         radio.text = item.label;
         // eslint-disable-next-line babel/no-unused-expressions
-        item.readonly ? radio.setAttribute('disabled', true): radio.removeAttribute('disabled');
-
+        item.readonly ? radio.setAttribute('disabled', true) : radio.removeAttribute('disabled');
       } else {
         // add new element
         const element = document.createElement('ui5-togglebutton');
@@ -393,7 +400,9 @@ export class FuroUi5DataSegmentedButton extends SegmentedButton.default {
           element.removeAttribute('pressed');
         }
         // eslint-disable-next-line babel/no-unused-expressions
-        item.readonly ? element.setAttribute('disabled', true): element.removeAttribute('disabled');
+        item.readonly
+          ? element.setAttribute('disabled', true)
+          : element.removeAttribute('disabled');
 
         element.value = item.label;
         element.pressed = item.selected;
@@ -423,7 +432,7 @@ export class FuroUi5DataSegmentedButton extends SegmentedButton.default {
         element.removeAttribute('pressed');
       }
       // eslint-disable-next-line babel/no-unused-expressions
-      item.readonly ? element.setAttribute('disabled', true): element.removeAttribute('disabled');
+      item.readonly ? element.setAttribute('disabled', true) : element.removeAttribute('disabled');
 
       element.value = item.label;
       element.pressed = item.selected;
