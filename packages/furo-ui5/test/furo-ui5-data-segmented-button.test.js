@@ -12,10 +12,8 @@ import '../src/furo-catalog.js';
 describe('furo-ui5-data-segmented-button', () => {
   let host;
   let segmentedButton;
-  let segmentedButton2;
   let input;
   let dao;
-  let dao2;
 
   const testData = {
     entities: [
@@ -130,22 +128,16 @@ describe('furo-ui5-data-segmented-button', () => {
           ></furo-ui5-data-segmented-button>
           <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-          <furo-ui5-data-segmented-button
-            ƒ-bind-data="--personDO(*.sex)"
-          ></furo-ui5-data-segmented-button>
-          <furo-data-object type="person.Person" @-object-ready="--personDO"></furo-data-object>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, segmentedButton, input, dao, segmentedButton2, dao2] = testbind.parentNode.children;
+    [, segmentedButton, input, dao] = testbind.parentNode.children;
     await host.updateComplete;
     await segmentedButton.updateComplete;
-    await segmentedButton2.updateComplete;
     await input.updateComplete;
     await dao.updateComplete;
-    await dao2.updateComplete;
   });
 
   it('should be a furo-ui5-data-segmented-button element', done => {
@@ -159,47 +151,51 @@ describe('furo-ui5-data-segmented-button', () => {
 
   it('should have options from API SPEC', done => {
     setTimeout(() => {
-      assert.equal(segmentedButton2._dropdownList.length, 3);
+      assert.equal(segmentedButton._dropdownList.length, 0);
       done();
     }, 16);
   });
 
   it('should have the basic attribute values', done => {
     setTimeout(() => {
-      assert.equal(segmentedButton2.buttons.length, 3, 'option count');
-      assert.equal(segmentedButton2.subField, 'data', 'subField');
-      assert.equal(segmentedButton2.displayField, 'display_name', 'displayField');
-      assert.equal(segmentedButton2.displaySubField, 'display_name', 'displaySubField');
-      assert.equal(segmentedButton2.valueField, 'id', 'valueField');
-      assert.equal(segmentedButton2.valueSubField, 'id', 'valueSubField');
-      assert.equal(segmentedButton2.binder.targetValueField, '_value', 'targetValueField');
+      assert.equal(segmentedButton.buttons.length, 0, 'option count');
+      assert.equal(segmentedButton.subField, 'data', 'subField');
+      assert.equal(segmentedButton.displayField, 'display_name', 'displayField');
+      assert.equal(segmentedButton.displaySubField, 'display_name', 'displaySubField');
+      assert.equal(segmentedButton.valueField, 'id', 'valueField');
+      assert.equal(segmentedButton.valueSubField, undefined, 'valueSubField');
+      assert.equal(segmentedButton.binder.targetValueField, '_value', 'targetValueField');
       done();
     }, 16);
   });
 
   it('should activate the correct item', done => {
-    segmentedButton.injectList(testDataArray);
 
-    setTimeout(() => {
-      assert.equal(segmentedButton._dropdownList.length, 3);
+    segmentedButton.addEventListener('options-injected', ()=>{
+      assert.equal(segmentedButton._dropdownList.length, 4);
+
       const innerElement = segmentedButton.querySelectorAll('ui5-togglebutton');
       innerElement[2].focus();
       innerElement[2].click();
-      assert.equal(segmentedButton._dropdownList[2].selected, true);
-      done();
-    }, 16);
+      setTimeout(() => {
+        assert.equal(segmentedButton._value.display_name, 'Yoko Tasimoto, +41781442244');
+        assert.equal(segmentedButton._value.id, '3');
+        done();
+      }, 16);
+    });
+
+    segmentedButton.injectEntities(testData.entities);
   });
 
   it('should activate the correct item from the bound field', done => {
     segmentedButton.addEventListener('options-injected', () => {
-      if (segmentedButton._dropdownList.length === 4) {
-        input.setValue('2');
-        setTimeout(() => {
-          console.log(segmentedButton._dropdownList);
+        segmentedButton._fieldNodeToUpdate.addEventListener('field-value-changed', () => {
           assert.equal(segmentedButton._dropdownList[1].selected, true);
+          assert.equal(segmentedButton.selectOptions[1].selected, true);
           done();
-        }, 16);
-      }
+        });
+
+      input.binder.fieldNode._value = '2';
     });
     segmentedButton.injectEntities(testData.entities);
   });

@@ -341,7 +341,7 @@
       "data.furo_data_checkbox_input": {
         "meta": {
           "label": "checkbox label via meta",
-          "readonly": true
+          "readonly": false
         }
       },
       "data.furo_data_text_input": {
