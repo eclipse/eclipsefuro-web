@@ -4,6 +4,7 @@ import { FBP } from '@furo/fbp';
 
 import '@furo/layout/src/furo-horizontal-flex.js';
 import '@furo/layout/src/furo-empty-spacer.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/util/src/furo-navigation-pad.js';
 import '@ui5/webcomponents/dist/Button.js';
 import '@ui5/webcomponents-icons/dist/sys-first-page.js';
@@ -177,7 +178,7 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
     this._FBPAddWireHook('--navigated', e => {
       let start;
       const enabledButtons = [];
-      btns.forEach((btn, i) => {
+      btns.forEach((btn) => {
         if (!btn.disabled) {
           const c = enabledButtons.push(btn);
           if (btn.focused) {
@@ -185,6 +186,7 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
           }
         }
       });
+      // eslint-disable-next-line default-case
       switch (e) {
         case 'ArrowRight':
           if (start + 1 >= enabledButtons.length) {
@@ -195,6 +197,7 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
 
           break;
         case 'ArrowLeft':
+          // eslint-disable-next-line eqeqeq
           if (start == 0) {
             enabledButtons[enabledButtons.length - 1].focus();
           } else {
