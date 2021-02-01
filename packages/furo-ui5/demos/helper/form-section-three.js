@@ -41,7 +41,7 @@ class FormSectionThree extends FBP(LitElement) {
   }
 
   disable() {
-    this._FBPTriggerWire('--disable');
+    this._FBPTriggerWire('--disable', true);
   }
 
   /**
