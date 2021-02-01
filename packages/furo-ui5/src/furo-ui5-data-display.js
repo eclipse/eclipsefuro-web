@@ -168,7 +168,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
       !Array.isArray(this.binder.fieldNode._value) &&
       this.binder.fieldNode._value !== null
     ) {
-      this.value = this.binder.fieldNode._value.value || this.binder.fieldNode._value;
+      this.value = JSON.stringify(this.binder.fieldNode._value);
     } else {
       this.value = this.binder.fieldNode._value.toString();
     }
