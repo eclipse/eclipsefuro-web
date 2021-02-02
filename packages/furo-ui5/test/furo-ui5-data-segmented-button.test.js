@@ -188,7 +188,7 @@ describe('furo-ui5-data-segmented-button', () => {
 
   it('should activate the correct item from the bound field', done => {
     segmentedButton.addEventListener('options-injected', () => {
-      segmentedButton._fieldNodeToUpdate.addEventListener('field-value-changed', () => {
+      segmentedButton.binder.fieldNode.addEventListener('field-value-changed', () => {
         assert.equal(segmentedButton._dropdownList[1].selected, true);
         assert.equal(segmentedButton.selectOptions[1].selected, true);
         done();

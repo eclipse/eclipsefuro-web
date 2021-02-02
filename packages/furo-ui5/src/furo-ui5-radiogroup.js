@@ -23,7 +23,10 @@ class FuroUi5Radiogroup extends FBP(LitElement) {
       let size = this.children.length;
       // eslint-disable-next-line no-plusplus
       while (size--) {
-        if (this.children[size].binder.fieldNode._name !== e.target.binder.fieldNode._name) {
+        if (
+          this.children[size].nodeName === 'FURO-UI5-DATA-RADIO-BUTTON' &&
+          this.children[size].binder.fieldNode._name !== e.target.binder.fieldNode._name
+        ) {
           this.children[size].setValue(false);
         }
       }

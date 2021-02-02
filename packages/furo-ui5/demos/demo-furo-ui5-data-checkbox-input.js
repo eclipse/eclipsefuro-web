@@ -71,9 +71,6 @@ class DemoFuroUi5DataCheckboxInput extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
-            <furo-ui5-data-text-input
-              ƒ-bind-data="--entity(*.data.description)"
-            ></furo-ui5-data-text-input>
 
             <div>
               <furo-ui5-data-checkbox-input

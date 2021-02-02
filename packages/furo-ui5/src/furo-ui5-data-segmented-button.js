@@ -484,7 +484,7 @@ export class FuroUi5DataSegmentedButton extends SegmentedButton.default {
           this.displaySubField,
         );
       } else {
-        this._fieldNodeToUpdate = this.binder.fieldNode[this.valueField];
+        this._fieldNodeToUpdate = this.binder.fieldNode[this.valueField] || this.binder.fieldNode;
         this._fieldDisplayNodeToUpdate = this.binder.fieldNode[this.displayField];
       }
 
@@ -500,7 +500,7 @@ export class FuroUi5DataSegmentedButton extends SegmentedButton.default {
         }
       });
 
-      this._fieldNodeToUpdate.addEventListener('field-value-changed', () => {
+      this.binder.fieldNode.addEventListener('field-value-changed', () => {
         this._updateField();
       });
 

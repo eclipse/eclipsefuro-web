@@ -90,7 +90,7 @@ class DemoFuroUi5DataPasswordInput extends FBP(LitElement) {
         <template>
           <furo-form-layouter two>
             <furo-ui5-data-password-input
-              ƒ-bind-data="--entity(*.data.description)"
+              ƒ-bind-data="--entity(*.data.furo_data_password_input)"
             ></furo-ui5-data-password-input>
           </furo-form-layouter>
 

@@ -69,6 +69,14 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
+            <p>Option items from type spec. Type person.Person field sex</p>
+            <furo-ui5-data-segmented-button ƒ-bind-data="--daoPerson(*.sex)">
+            </furo-ui5-data-segmented-button>
+            <hr />
+            <furo-ui5-data-text-input
+              value-state="Success"
+              ƒ-bind-data="--daoPerson(*.sex)"
+            ></furo-ui5-data-text-input>
             <div>
               <p>Option item from collection response. Type xxx.TypeEntity)</p>
               <p>
@@ -114,6 +122,7 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
           <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
 
           <furo-data-object type="task.Task" @-object-ready="--daoTask"></furo-data-object>
+          <furo-data-object type="person.Person" @-object-ready="--daoPerson"></furo-data-object>
 
           <furo-data-object
             type="person.PersonCollection"
