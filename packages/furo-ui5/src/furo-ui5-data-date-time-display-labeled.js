@@ -67,6 +67,9 @@ class FuroUi5DataDateTimeDisplayLabeled extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
+        ui5-label {
+         var(--_ui5_input_height);
+        }
       `,
     ];
   }
