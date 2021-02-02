@@ -287,16 +287,28 @@ export class FuroUi5DataTextareaInput extends TextArea.default {
     if (this.binder.fieldNode) {
       /**
        * handle pristine
+       *
        * Set to pristine label to the same _pristine from the fieldNode
        */
       if (!this.binder.fieldNode._pristine) {
         this.binder.deleteLabel('pristine');
       }
-      // set pristine on new data
+
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
+        this._requestUpdate();
+      });
+
+      this.binder.fieldNode.addEventListener('field-value-changed', () => {
+        this._requestUpdate();
       });
     }
+  }
+
+  /**
+   * @private
+   */
+  _requestUpdate() {
+    this._updateSlots();
   }
 }
 window.customElements.define('furo-ui5-data-textarea-input', FuroUi5DataTextareaInput);
