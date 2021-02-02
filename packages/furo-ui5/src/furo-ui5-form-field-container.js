@@ -164,8 +164,8 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
 
         ::slotted(*[label]) {
           grid-column: span 4;
-          justify-self: var(--furo-ui5-form-field-container-label-justify, end);
-          align-self: center;
+          place-self: start var(--furo-ui5-form-field-container-label-justify, end);
+          padding-top: 0.5rem;
         }
 
         ::slotted(*[content][data-size*='size-s']) {
@@ -176,7 +176,6 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
         ::slotted(*[label][data-size*='size-s']) {
           grid-column: span 12;
           justify-self: start;
-          align-self: center;
         }
 
         ::slotted(*[content][data-size*='size-m']) {
@@ -186,8 +185,8 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
 
         ::slotted(*[label][data-size*='size-m']) {
           grid-column: span 3;
-          justify-self: end;
-          align-self: center;
+          place-self: start var(--furo-ui5-form-field-container-label-justify, end);
+          padding-top: 0.5rem;
         }
 
         ::slotted(*[content][data-size*='size-l']) {
@@ -197,8 +196,8 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
 
         ::slotted(*[label][data-size*='size-l']) {
           grid-column: span 4;
-          justify-self: end;
-          align-self: center;
+          place-self: start var(--furo-ui5-form-field-container-label-justify, end);
+          padding-top: 0.5rem;
         }
 
         ::slotted(*[content][data-size*='size-xl']) {
@@ -208,8 +207,8 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
 
         ::slotted(*[label][data-size*='size-xl']) {
           grid-column: span 4;
-          justify-self: end;
-          align-self: center;
+          place-self: start var(--furo-ui5-form-field-container-label-justify, end);
+          padding-top: 0.5rem;
         }
       `,
     ];
