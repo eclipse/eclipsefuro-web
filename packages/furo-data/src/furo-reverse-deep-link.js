@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 import { Env } from '@furo/framework';
 
 /**
@@ -137,6 +137,15 @@ class FuroReverseDeepLink extends LitElement {
        */
       rel: { type: String },
     };
+  }
+
+  static get styles() {
+    // language=CSS
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 

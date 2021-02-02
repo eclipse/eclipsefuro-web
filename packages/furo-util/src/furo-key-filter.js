@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 
 /**
@@ -85,6 +85,15 @@ class FuroKeyFilter extends FBP(LitElement) {
       control: { type: Boolean },
       // stopPropagation, disableDefault??
     };
+  }
+
+  static get styles() {
+    // language=CSS
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 
