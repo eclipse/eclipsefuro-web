@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.17.0...@furo/ui5@0.17.1) (2021-02-02)
+
+
+### Bug Fixes
+
+*  initiate the properties of the ui5-textarea to avoid errors. modify the import sequence in furo-catalog ([bbe9da6](https://github.com/theNorstroem/FuroBaseComponents/commit/bbe9da6fee12a10bd5f3b1d0e1a94511566182a2))
+*  ui5-data-textarea-input should support value state and value state messages. ([7688f32](https://github.com/theNorstroem/FuroBaseComponents/commit/7688f320fe6435d61ee0d75df96ba9fa234e5fb2))
+* boolean components like checkbox, radio, radio group and segmented button ([baec511](https://github.com/theNorstroem/FuroBaseComponents/commit/baec5112933612f2b4d38d537d81388e4085a704))
+* data-display and data-ro now behave the same ([164e52a](https://github.com/theNorstroem/FuroBaseComponents/commit/164e52a579326f1a626ab910902df096670348e9))
+* disabled state demo form-field-container ([f511b1c](https://github.com/theNorstroem/FuroBaseComponents/commit/f511b1c4b17efb86bd9d5c011f93cd1f2d7460f5))
+* display content with ::first-line ([54a5ba7](https://github.com/theNorstroem/FuroBaseComponents/commit/54a5ba74c9b6d7fb7a78280cdf0f3ce9b559c674))
+* display with the same line-height ([8152eab](https://github.com/theNorstroem/FuroBaseComponents/commit/8152eab911531ccd63f2b664b7055aeb02535437))
+* empty search will dereference bound fieldNode ([0906ce2](https://github.com/theNorstroem/FuroBaseComponents/commit/0906ce23a016b82452406578b7f67daaff790594))
+* empty state money input with preservation of the currency code suggestion ([64f41eb](https://github.com/theNorstroem/FuroBaseComponents/commit/64f41eb25b2b9f1d746c1402d79236875dbfbfef))
+* fix fallback value ([f7b07b0](https://github.com/theNorstroem/FuroBaseComponents/commit/f7b07b030c3d5da2cba5ce79e7fcab68c5724b67))
+* keyboard navigation, event changed ([277ac05](https://github.com/theNorstroem/FuroBaseComponents/commit/277ac055afabc62d47c7c1685ddcd3eb06069a9b))
+* label top ([60ab3df](https://github.com/theNorstroem/FuroBaseComponents/commit/60ab3df2a2080e147a8ca89545ea6a7afde9556c))
+* ration changed from 2:10 to 3:9 ([ab86c70](https://github.com/theNorstroem/FuroBaseComponents/commit/ab86c708bd9f7723528aed90cc231136babf7847))
+* toggle button binding for fat, wrapper and scalar ([50aa7e0](https://github.com/theNorstroem/FuroBaseComponents/commit/50aa7e034da3595e22076c2b32e947d1692d8ddf))
+* treatment of blank values for input fields. Updated demo cases ([f46c8ee](https://github.com/theNorstroem/FuroBaseComponents/commit/f46c8ee39500e8d267726ec5560f48a31bbffae1))
+* update segmented-button, bindings and readonly state ([d63ae94](https://github.com/theNorstroem/FuroBaseComponents/commit/d63ae94dd0bdc285d4c5ce8d55bada55a2749d18))
+
+
+
+
+
 # [0.17.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.16.0...@furo/ui5@0.17.0) (2021-01-31)
 
 

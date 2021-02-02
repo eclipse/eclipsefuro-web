@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.19.0...@furo/specs@1.19.1) (2021-02-02)
+
+
+### Bug Fixes
+
+* update segmented-button, bindings and readonly state ([d63ae94](https://github.com/theNorstroem/FuroBaseComponents/commit/d63ae94dd0bdc285d4c5ce8d55bada55a2749d18))
+
+
+
+
+
 # [1.19.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.18.0...@furo/specs@1.19.0) (2021-01-22)
 
 

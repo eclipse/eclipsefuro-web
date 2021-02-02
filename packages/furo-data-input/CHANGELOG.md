@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.0...@furo/data-input@1.11.1) (2021-02-02)
+
+
+### Bug Fixes
+
+* cursor pointer ([6104060](https://github.com/theNorstroem/FuroBaseComponents/commit/610406021672fb3f5b2496630721f271c747d175))
+
+
+
+
+
 # [1.11.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.10.11...@furo/data-input@1.11.0) (2021-01-31)
 
 

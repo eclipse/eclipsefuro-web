@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.6...@furo/data-ui@1.4.7) (2021-02-02)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
 ## [1.4.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.5...@furo/data-ui@1.4.6) (2021-01-31)
 
 **Note:** Version bump only for package @furo/data-ui
