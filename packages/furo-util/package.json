@@ -1,6 +1,6 @@
 {
   "name": "@furo/util",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "package sample",
   "homepage": "https://github.com/veith/template-component-package",
   "repository": "git@github.com:veith/template-component-package.git",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/navigation": "^1.6.28",
+    "@furo/navigation": "^1.6.29",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

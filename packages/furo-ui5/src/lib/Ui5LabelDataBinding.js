@@ -10,7 +10,7 @@ export class Ui5LabelDataBinding {
   static bindData(element, fieldNode) {
     if (fieldNode === undefined) {
       // eslint-disable-next-line no-console
-      console.warn('Invalid fieldNode in bindData', this);
+      console.warn('Invalid fieldNode in bindData', element);
       return;
     }
 

@@ -560,7 +560,7 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
         .loading {
           position: absolute;
           overflow: auto;
-          box-shadow: rgba(0, 0, 0, 0.42) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.42) 0 0 0 1px;
           z-index: 1;
           display: none;
           background-color: var(
@@ -579,7 +579,7 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
 
         .maxresulthint {
           display: none;
-          padding-top: 0px;
+          padding-top: 0;
         }
 
         :host([busy]) .loading {
@@ -617,12 +617,12 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
         @-click="--focused"
         placeholder="${this.placeholder}"
       >
-        <ui5-icon id="searchIcon" slot="icon" name="search"></ui5-icon>
+        <ui5-icon slot="icon" name="search" @-click="^^trailing-icon-clicked"></ui5-icon>
       </ui5-input>
 
       <ui5-list class="loading" header-text="" busy></ui5-list>
 
-      <ui5-list mode="SingleSelect" id="resultsList" class="list" @-item-selected="--itemSelected">
+      <ui5-list mode="SingleSelect" class="list" @-item-selected="--itemSelected">
         <template
           is="flow-repeat"
           ƒ-inject-items="--listItemsInjected"
