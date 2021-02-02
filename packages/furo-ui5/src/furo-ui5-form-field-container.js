@@ -35,7 +35,7 @@ import { FBP } from '@furo/fbp/src/fbp.js';
  * However, in size M the labels are positioned in the same row as the corresponding input field or value, and form
  * groups are positioned below each other.
  *
- * The label-field ratio is 2:10:0 by default:
+ * The label-field ratio is 3:9:0 by default:
  *
  * 2 grid columns of the responsive grid layout are used by the labels.
  * 10 grid columns of the responsive grid layout are used by the fields.
@@ -180,12 +180,12 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
         }
 
         ::slotted(*[content][data-size*='size-m']) {
-          grid-column: span 10;
+          grid-column: span 9;
           width: 100%;
         }
 
         ::slotted(*[label][data-size*='size-m']) {
-          grid-column: span 2;
+          grid-column: span 3;
           justify-self: end;
           align-self: center;
         }

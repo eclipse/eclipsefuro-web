@@ -47,7 +47,6 @@ export class FuroUi5DataRo extends FuroUi5DataInput {
 
     // set the label mappings
     this.binder.labelMappings = {
-      error: '_error',
       disabled: 'disabled',
     };
 

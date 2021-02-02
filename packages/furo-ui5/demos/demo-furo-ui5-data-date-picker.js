@@ -46,8 +46,7 @@ class DemoFuroUi5DataDatePicker extends FBP(LitElement) {
     return html`
       <furo-vertical-flex>
         <div>
-          <h2>Demo ...</h2>
-          <p>Describe your demo</p>
+          <h2>Demo furo-ui5-data-date-picker</h2>
         </div>
         <furo-demo-snippet flex>
           <template>

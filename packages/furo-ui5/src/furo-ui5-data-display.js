@@ -56,6 +56,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
        * Value State
        */
       valueState: { type: String, reflect: true, attribute: 'value-state' },
+      disabled: {type: Boolean, reflect: true, attribute: 'disabled'}
     };
   }
 
@@ -90,6 +91,9 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
         }
         ui5-icon[value-state='Success'] {
           color: var(--sapPositiveColor, #107e3e);
+        }
+        :host([disabled]) p {
+          opacity: var(--_ui5_input_disabled_opacity);
         }
       `,
     ];
@@ -127,6 +131,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
     this.binder.labelMappings = {
       error: '_error',
       disabled: 'disabled',
+      readonly: 'disabled'
     };
 
     // set attributes to constrains mapping for furo.fat types
