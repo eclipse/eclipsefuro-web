@@ -69,62 +69,28 @@ class DemoFuroUi5DataRadioButtonGroup extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
+            <p>
+              Option items from spec. Type furo.Optionitem.
+            </p>
+            <furo-ui5-data-radio-button-group
+              style="width: 100%;"
+              ƒ-bind-data="--daoPerson(*.sex)"
+            ></furo-ui5-data-radio-button-group>
+            <hr />
+            <furo-ui5-data-text-input
+              value-state="Success"
+              ƒ-bind-data="--daoPerson(*.sex)"
+            ></furo-ui5-data-text-input>
             <div>
               <p>
-                Option items from spec. Type furo.Optionitem. Attention: OVERWRITE OF SUBFIELD
-                DEFAULT
+                Option items from an array of objects with injectList(). Display field is set to
+                field first_name
               </p>
               <furo-ui5-data-radio-button-group
                 style="width: 100%;"
-                sub-field=""
-                ƒ-bind-data="--entity(*.owner)"
-              ></furo-ui5-data-radio-button-group>
-            </div>
-            <div>
-              <p>
-                Option items an array of objects with injectList(). Display field is set to field
-                first_name
-              </p>
-              <furo-ui5-data-radio-button-group
-                style="width: 100%;"
-                display-field="first_name"
                 ƒ-bind-data="--entity(*.owner)"
                 ƒ-inject-list="--response(*.entities)"
               ></furo-ui5-data-radio-button-group>
-            </div>
-            <div>
-              <p>Option item from collection response. Type xxx.TypeEntity)</p>
-              <p>
-                The attributes value-field, sub-field and display-field are optional and by default
-                set to: id, display_name and data
-              </p>
-              <furo-ui5-data-radio-button-group
-                style="width: 100%;"
-                value-field="id"
-                sub-field="data"
-                display-field="display_name"
-                ƒ-inject-entities="--response(*.entities)"
-                ƒ-bind-data="--entity(*.owner)"
-              >
-              </furo-ui5-data-radio-button-group>
-            </div>
-            <div>
-              <p>Option item from collection response. Type xxx.TypeEntity)</p>
-              <p>
-                In this example, the bound fieldNode receives a custom update. With the attributes
-                value-sub-field and display-sub-field you can determine which attributes of the
-                target object (bound field) are updated. In this use case the link object of the
-                type reference is updated (check the furo-data-object)
-              </p>
-              <furo-ui5-data-radio-button-group
-                style="width: 100%;"
-                value-sub-field="link.rel"
-                display-sub-field="link.type"
-                ƒ-inject-entities="--response(*.entities)"
-                ƒ-bind-data="--entity(*.owner)"
-                @-item-selected="--itemSelected"
-              >
-              </furo-ui5-data-radio-button-group>
             </div>
             <hr />
             <p>
@@ -146,10 +112,9 @@ class DemoFuroUi5DataRadioButtonGroup extends FBP(LitElement) {
           </furo-button-bar>
 
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-          <furo-data-object
-            type="experiment.Experiment"
-            @-object-ready="--entityExp"
-          ></furo-data-object>
+
+          <furo-data-object type="person.Person" @-object-ready="--daoPerson"></furo-data-object>
+
           <furo-data-object
             type="person.PersonCollection"
             @-object-ready="--collection"

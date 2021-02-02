@@ -56,6 +56,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
        * Value State
        */
       valueState: { type: String, reflect: true, attribute: 'value-state' },
+      disabled: {type: Boolean, reflect: true, attribute: 'disabled'}
     };
   }
 
@@ -76,6 +77,9 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
           color: var(--sapTextcolor, '#32363a');
           word-break: break-word;
         }
+        p::first-line {
+          line-height: var(--_ui5_input_height, 36px);
+        }
         :host([value-state='Information']) p {
           color: var(--sapInformativeColor, #0a6ed1);
         }
@@ -90,6 +94,9 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
         }
         ui5-icon[value-state='Success'] {
           color: var(--sapPositiveColor, #107e3e);
+        }
+        :host([disabled]) p {
+          opacity: var(--_ui5_input_disabled_opacity);
         }
       `,
     ];
@@ -127,6 +134,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
     this.binder.labelMappings = {
       error: '_error',
       disabled: 'disabled',
+      readonly: 'disabled'
     };
 
     // set attributes to constrains mapping for furo.fat types
@@ -168,7 +176,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
       !Array.isArray(this.binder.fieldNode._value) &&
       this.binder.fieldNode._value !== null
     ) {
-      this.value = this.binder.fieldNode._value.value || this.binder.fieldNode._value;
+      this.value = JSON.stringify(this.binder.fieldNode._value);
     } else {
       this.value = this.binder.fieldNode._value.toString();
     }

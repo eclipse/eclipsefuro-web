@@ -90,7 +90,7 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
                     <furo-ui5-data-collection-dropdown id="ValueStates"
                                                        value-field="display_name"
                                                        ƒ-bind-data="--DataObject(*.data.fat_string.attributes.value-state)"
-                                                       ƒ-inject-list="--valueStateList"></furo-ui5-data-collection-dropdown>
+                                                       ƒ-inject-entities="--valueStateList"></furo-ui5-data-collection-dropdown>
 
                     <ui5-label for="FieldValue">Field Value</ui5-label>
                     <furo-ui5-data-text-input id="FieldValue" placeholder="value"

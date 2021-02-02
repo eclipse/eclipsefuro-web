@@ -69,29 +69,14 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
-            <div>
-              <p>
-                Option items from spec. Type furo.Optionitem. Attention: OVERWRITE OF SUBFIELD
-                DEFAULT
-              </p>
-              <furo-ui5-data-segmented-button
-                sub-field=""
-                ƒ-bind-data="--entity(*.owner)"
-                @-item-selected="--itemSelected"
-              ></furo-ui5-data-segmented-button>
-            </div>
-            <div>
-              <p>
-                Option items an array of objects with injectList(). Display field is set to field
-                NAME
-              </p>
-              <furo-ui5-data-segmented-button
-                display-field="first_name"
-                ƒ-bind-data="--entity(*.owner)"
-                ƒ-inject-list="--response(*.entities)"
-                @-item-selected="--itemSelected"
-              ></furo-ui5-data-segmented-button>
-            </div>
+            <p>Option items from type spec. Type person.Person field sex</p>
+            <furo-ui5-data-segmented-button ƒ-bind-data="--daoPerson(*.sex)">
+            </furo-ui5-data-segmented-button>
+            <hr />
+            <furo-ui5-data-text-input
+              value-state="Success"
+              ƒ-bind-data="--daoPerson(*.sex)"
+            ></furo-ui5-data-text-input>
             <div>
               <p>Option item from collection response. Type xxx.TypeEntity)</p>
               <p>
@@ -99,28 +84,18 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
                 set to: id, display_name and data
               </p>
               <furo-ui5-data-segmented-button
-                value-field="id"
-                sub-field="data"
-                display-field="display_name"
                 ƒ-inject-entities="--response(*.entities)"
-                ƒ-bind-data="--entity(*.owner)"
+                ƒ-bind-data="--daoTask(*.owner)"
                 @-item-selected="--itemSelected"
               >
               </furo-ui5-data-segmented-button>
             </div>
             <div>
-              <p>Option item from collection response. Type xxx.TypeEntity)</p>
-              <p>
-                In this example, the bound fieldNode receives a custom update. With the attributes
-                value-sub-field and display-sub-field you can determine which attributes of the
-                target object (bound field) are updated. In this use case the link object of the
-                type reference is updated (check the furo-data-object)
-              </p>
+              <p>Readonly state</p>
               <furo-ui5-data-segmented-button
-                value-sub-field="link.rel"
-                display-sub-field="link.type"
+                readonly
                 ƒ-inject-entities="--response(*.entities)"
-                ƒ-bind-data="--entity(*.owner)"
+                ƒ-bind-data="--daoTask(*.owner)"
                 @-item-selected="--itemSelected"
               >
               </furo-ui5-data-segmented-button>
@@ -133,10 +108,10 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
             </p>
             <furo-ui5-data-text-input
               value-state="Success"
-              ƒ-bind-data="--entity(*.owner.id)"
+              ƒ-bind-data="--daoTask(*.owner.id)"
             ></furo-ui5-data-text-input>
             <furo-ui5-data-text-input
-              ƒ-bind-data="--entity(*.owner.display_name)"
+              ƒ-bind-data="--daoTask(*.owner.display_name)"
             ></furo-ui5-data-text-input>
           </furo-form-layouter>
 
@@ -146,7 +121,9 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
 
           <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
 
-          <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+          <furo-data-object type="task.Task" @-object-ready="--daoTask"></furo-data-object>
+          <furo-data-object type="person.Person" @-object-ready="--daoPerson"></furo-data-object>
+
           <furo-data-object
             type="person.PersonCollection"
             @-object-ready="--collection"

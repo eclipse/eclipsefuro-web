@@ -2,9 +2,7 @@
   "data": {
     "id": "1",
     "scalar_string": "this is a scalar string",
-    "wrapper_string": {
-      "value": "this is a google wrapper string"
-    },
+    "wrapper_string": "this is a google wrapper string",
     "fat_string": {
       "value": "this is a furo fat string",
       "labels": {
@@ -17,9 +15,7 @@
       }
     },
     "scalar_int32": 14,
-    "wrapper_int32": {
-      "value": 14
-    },
+    "wrapper_int32": 14,
     "fat_int32": {
       "value": 14,
       "labels": {},
@@ -31,9 +27,7 @@
       "value": true,
       "value-state": "Information"
     },
-    "wrapper_bool": {
-      "value": true
-    }
+    "wrapper_bool": true
   },
   "links": [],
   "meta": {

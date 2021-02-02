@@ -47,7 +47,6 @@ export class FuroUi5DataRo extends FuroUi5DataInput {
 
     // set the label mappings
     this.binder.labelMappings = {
-      error: '_error',
       disabled: 'disabled',
     };
 
@@ -90,14 +89,20 @@ export class FuroUi5DataRo extends FuroUi5DataInput {
   }
 
   _updateField() {
-    if (this.binder.fieldFormat === 'fat' || this.binder.fieldFormat === 'wrapper') {
+    if (this.binder.fieldFormat === 'fat') {
       this.value = this.binder.fieldNode.value._value;
+    } else if (
+      typeof this.binder.fieldNode._value === 'object' &&
+      !Array.isArray(this.binder.fieldNode._value) &&
+      this.binder.fieldNode._value !== null
+    ) {
+      this.value = JSON.stringify(this.binder.fieldNode._value);
     } else {
-      this.value = this.binder.fieldNode._value;
+      this.value = this.binder.fieldNode._value.toString();
     }
 
-    if (this.displayfield && this.binder.fieldNode[this.displayfield]) {
-      this.value = this.binder.fieldNode[this.displayfield]._value;
+    if (this.displayField && this.displayField.length && this.binder.fieldNode[this.displayField]) {
+      this.value = this.binder.fieldNode[this.displayField]._value;
     } else if (this.binder.fieldNode.display_name) {
       this.value = this.binder.fieldNode.display_name;
     }

@@ -151,6 +151,7 @@ export class FuroUi5DataDateTimeDisplay extends FBP(LitElement) {
       css`
         :host {
           display: block;
+          line-height: var(--_ui5_input_height, 36px);
         }
         :host([hidden]) {
           display: none;

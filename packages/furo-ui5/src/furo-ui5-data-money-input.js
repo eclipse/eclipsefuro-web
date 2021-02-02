@@ -22,7 +22,7 @@ import './furo-ui5-data-text-input.js';
  * Tags: money input
  * @summary  Binds a entityObject field google.type.Money to a number-input and currency dropdown fields
  * @customElement
- * @demo demo-furo-ui5-data-money-input Data binding
+ * @demo demo-furo-ui5-data-money-input Basic Usage
  * @mixes FBP
  */
 class FuroUi5DataMoneyInput extends FBP(LitElement) {
@@ -49,7 +49,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
     this.valid = true;
     this._currencies = [];
     // init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
-    this.value = { currency_code: 'CHF', units: null, nanos: null };
+    this.value = { currency_code: '', units: null, nanos: null };
   }
 
   /**
@@ -103,17 +103,22 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
 
     // update value when the amount changed
     this._FBPAddWireHook('--inputInput', e => {
+      if (e.inputType === 'deleteContentBackward') {
+        this.binder.fieldNode.reset();
+        this.binder.fieldNode.currency_code._value = '';
+        this._FBPTriggerWire('--valueAmount', '');
+      }
       if (e.composedPath()[0].nodeName === 'UI5-INPUT') {
         this.binder.fieldValue = this._convertDataToMoneyObj(
           '',
           e.composedPath()[0].value,
-          this.binder.fieldNode._value,
+          this.binder.fieldValue,
         );
       } else {
         this.binder.fieldValue = this._convertDataToMoneyObj(
           e.composedPath()[0].value,
           '',
-          this.binder.fieldNode._value,
+          this.binder.fieldValue,
         );
       }
 
@@ -126,7 +131,12 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       this.dispatchEvent(customEvent);
 
       // set flag empty on empty object
-      if (this.binder.fieldValue) {
+      if (
+        this.binder.fieldValue &&
+        this.binder.fieldValue.currency_code &&
+        this.binder.fieldValue.units &&
+        this.binder.fieldValue.nanos
+      ) {
         this.binder.deleteLabel('empty');
       } else {
         this.binder.addLabel('empty');
@@ -225,6 +235,10 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
 
   /**
    * update amount field
+   * One issue with number inputs is that their step size is 1 by default.
+   * If you try to enter a number with a decimal (such as "1.0"), it will be considered invalid.
+   * If you want to enter a value that requires decimals, you'll need to reflect this in the step value
+   * (e.g. step="0.01" to allow decimals to two decimal places).
    * @private
    */
   _updateField() {
@@ -233,10 +247,17 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       this.binder.fieldNode.units._value !== null &&
       this.binder.fieldNode.nanos._value !== null
     ) {
-      const amout = Number(
-        `${this.binder.fieldNode.units._value}.${this.binder.fieldNode.nanos._value}`,
-      );
-      this._FBPTriggerWire('--valueAmount', amout);
+      let numberStr = '';
+      if (this.binder.fieldNode.units._value > 0) {
+        numberStr = this.binder.fieldNode.units._value;
+      }
+      if (this.binder.fieldNode.nanos._value > 0) {
+        numberStr += `.${this.binder.fieldNode.nanos._value}`;
+      }
+      const amount = Number(numberStr);
+      this._FBPTriggerWire('--valueAmount', amount);
+    } else {
+      this._FBPTriggerWire('--valueAmount', '');
     }
 
     this.requestUpdate();

@@ -10,6 +10,7 @@ import { FuroUi5DataInput } from './furo-ui5-data-input.js';
  *
  * @summary data number input field
  * @customElement
+ * @demo demo-furo-ui5-data-number-input Basic usage (scalar , fat, wrapper values)
  * @demo demo-furo-ui5-data-text-input Basic usage (scalar , fat, wrapper values)
  * @demo demo-furo-ui5-data-text-input-together playground
  */

@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
+import '@ui5/webcomponents/dist/features/InputElementsFormSupport.js';
 import '@ui5/webcomponents/dist/RadioButton.js';
 
 /**
@@ -8,7 +9,7 @@ import '@ui5/webcomponents/dist/RadioButton.js';
  * When a furo-ui5-data-radio-button-group is selected by the user, the select event is fired. When a furo-ui5-data-radio-button-group
  * that is within a group is selected, the one that was previously selected gets automatically deselected.
  * You can group radio buttons by using the name property.
- * Note: Iffuro-ui5-data-radio-button-group is not part of a group, it can be selected once, but can not be deselected back.
+ * Note: If furo-ui5-data-radio-button-group is not part of a group, it can be selected once, but can not be deselected back.
  *
  * Keyboard Handling
  * Once the furo-ui5-data-radio-button-group is on focus, it might be selected by pressing the Space and Enter keys.
@@ -33,6 +34,7 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
   constructor(props) {
     super(props);
 
+    this.readonly = false;
     /**
      * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
      *
@@ -58,7 +60,7 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
      * If you bind a scalar, you dont need this attribute.
      * @type {string}
      */
-    this.valueSubField = 'id';
+    this.valueSubField = undefined;
 
     /**
      * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
@@ -70,48 +72,24 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
 
     this._fieldNodeToUpdate = {};
     this._fieldDisplayNodeToUpdate = {};
+    this._dropdownList = [];
 
     this._initBinder();
 
     /**
-     * Listener to catch the selected data
+     * Listener to catch the selected button
      */
     this.addEventListener('select', val => {
-      const selectedObj = val.target.dataset;
+      const selectedObj = this._dropdownList.find(
+        // eslint-disable-next-line eqeqeq
+        obj => obj.id == val.target.dataset.id,
+      );
 
-      if (this.binder.fieldNode) {
-        if (!this.multiple) {
-          // by valid input reset meta and constraints
-          this._fieldNodeToUpdate._value = selectedObj.id;
-          this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id);
-        } else {
-          const data = [];
-          const arrSubfieldChains = this.subField.split('.');
-          // create value data according to the structure of subfield
-          if (Array.isArray(selectedObj.id)) {
-            selectedObj.forEach(v => {
-              const tmp = {};
-              for (let i = arrSubfieldChains.length - 1; i > -1; i -= 1) {
-                tmp[i] = {};
-                if (i === arrSubfieldChains.length - 1) {
-                  tmp[i][arrSubfieldChains[i]] = v;
-                } else {
-                  tmp[i][arrSubfieldChains[i]] = tmp[i + 1];
-                }
-              }
-              data.push(tmp[0]);
-            });
-          }
-          // add write lock to avoid triggering _updateField via fieldnode changed event
-          this._writeLock = true;
-          this._fieldNodeToUpdate._value = data;
-          // shut down write protection
-          setTimeout(() => {
-            this._writeLock = false;
-          }, 100);
-        }
+      if (this.binder.fieldNode && selectedObj) {
+        // by valid input reset meta and constraints
+        this._fieldNodeToUpdate._value = selectedObj.id;
+        this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id);
       }
-      this._notifiySelectedItem(selectedObj);
     });
   }
 
@@ -120,13 +98,24 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
    * @returns {string[]}
    */
   static get observedAttributes() {
-    return ['value-field', 'display-field', 'sub-field', 'value-sub-field', 'display-sub-field'];
+    return [
+      'readonly',
+      'value-field',
+      'display-field',
+      'sub-field',
+      'value-sub-field',
+      'display-sub-field',
+    ];
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
     if (oldVal !== newVal) {
       // eslint-disable-next-line default-case
       switch (name) {
+        case 'readonly':
+          this.readonly = newVal === '';
+          this._updateField();
+          break;
         case 'value-field':
           this.valueField = newVal;
           break;
@@ -199,23 +188,13 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
 
     // the extended furo-text-input component uses _value
     this.binder.targetValueField = '_value';
-
-    // update the value on input changes
-    this.addEventListener('value-changed', val => {
-      if (this.binder.fieldNode) {
-        // if something was entered the field is not empty
-        this.binder.deleteLabel('pristine');
-
-        // update the value
-        this.binder.fieldValue = val.detail;
-      }
-    });
   }
 
   _findDisplayNameByValue(val) {
     let displayName = '';
 
     for (let i = 0; i < this._dropdownList.length; i += 1) {
+      // eslint-disable-next-line eqeqeq
       if (this._dropdownList[i].id === val) {
         displayName = this._dropdownList[i].label;
         break;
@@ -230,9 +209,16 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
    * detail payload: the original item object or the array of original item objects by multiple options
    */
   _notifiySelectedItem(obj) {
-    const customEvent = new Event('item-selected', { composed: true, bubbles: true });
-    customEvent.detail = obj._original;
-    this.dispatchEvent(customEvent);
+    const selectedObj = this._dropdownList.find(
+      // eslint-disable-next-line eqeqeq
+      item => item.id === obj,
+    );
+
+    if (selectedObj && selectedObj._original) {
+      const customEvent = new Event('item-selected', { composed: true, bubbles: true });
+      customEvent.detail = selectedObj._original;
+      this.dispatchEvent(customEvent);
+    }
   }
 
   /**
@@ -244,26 +230,9 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
     if (arr.length > 0) {
       this._dropdownList = arr;
 
-      if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
-        // notify first item if field is not set
-        let selectedItem = null;
-        for (let i = 0; i < arr.length; i += 1) {
-          if (arr[i].selected) {
-            selectedItem = arr[i];
-            break;
-          }
-        }
-        selectedItem = selectedItem || arr[0];
-        this._notifiySelectedItem(selectedItem);
-        if (this._fieldNodeToUpdate) {
-          this._fieldNodeToUpdate._value = selectedItem;
-        }
-      } else if (this.multiple) {
-        this._notifiySelectedItem(this._parseRepeatedData(this._fieldNodeToUpdate._value));
-      } else {
+      if (this._fieldNodeToUpdate && this._fieldNodeToUpdate._value) {
         this._notifiySelectedItem(this._fieldNodeToUpdate._value);
       }
-
       this.setList(arr);
     }
   }
@@ -295,12 +264,11 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
         id: e.id,
         label: e.label,
         selected: this.value === e.id.toString() || e.selected || false,
+        readonly: this.readonly,
+        _original: e,
       };
     });
 
-    if (!this.value) {
-      this.value = arr[0].id;
-    }
     // save parsed selection option array
     this.selectOptions = arr;
     this.addItems(this.selectOptions);
@@ -354,6 +322,7 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
           id: list[i][this.valueField],
           label: list[i][this.displayField],
           selected: false,
+          readonly: this.readonly,
           _original: list[i],
         };
 
@@ -384,22 +353,15 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
    * @param options
    */
   addItems(options) {
-    const radioGroup = this;
+    const toggleGroup = this;
 
-    const existingOptions = radioGroup.querySelectorAll('ui5-radiobutton');
+    const existingOptions = toggleGroup.querySelectorAll('ui5-radiobutton');
 
     if (existingOptions === undefined || !existingOptions.length) {
       this._initialAddOptions(options);
     } else {
       this._updateExistingOptions(options);
     }
-    this.dispatchEvent(
-      new CustomEvent('radio-buttons-updated', {
-        detail: this,
-        bubbles: true,
-        composed: true,
-      }),
-    );
   }
 
   /**
@@ -408,39 +370,50 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
    * @private
    */
   _updateExistingOptions(options) {
-    const radioGroup = this;
-    // catch existing group name for new added items.
-    const groupName = radioGroup.querySelector('ui5-radiobutton').getAttribute('name');
-    const existingOptions = radioGroup.querySelectorAll('ui5-radiobutton');
+    const toggleGroup = this;
+    const existingOptions = toggleGroup.querySelectorAll('ui5-radiobutton');
     const existingIds = options.map(a => a.id);
 
     // if id of existing element is no longer in the option list, remove the ui5-radiobutton element
     existingOptions.forEach(elem => {
       if (existingIds.indexOf(elem.getAttribute('data-id')) < 0) {
         // remove element
-        radioGroup.removeChild(elem);
+        toggleGroup.removeChild(elem);
       }
     });
 
     options.forEach(item => {
-      const radio = radioGroup.querySelector(`[data-id="${item.id}"]`);
+      const radio = toggleGroup.querySelector(`[data-id="${item.id}"]`);
       if (radio) {
-        radio.selected = item.selected;
+        if (toggleGroup._fieldNodeToUpdate._value === item.id) {
+          radio.selected = true;
+        } else {
+          radio.selected = false;
+        }
         radio.text = item.label;
+        // eslint-disable-next-line babel/no-unused-expressions
+        item.readonly ? radio.setAttribute('disabled', true) : radio.removeAttribute('disabled');
       } else {
         // add new element
         const element = document.createElement('ui5-radiobutton');
-        element.setAttribute('name', groupName);
-        element.setAttribute('text', item.label);
+        element.setAttribute('value', item.label);
         element.setAttribute('data-id', item.id);
         if (item.selected) {
           element.setAttribute('selected', item.selected);
         } else {
           element.removeAttribute('selected');
         }
-        element.text = item.label;
+        // eslint-disable-next-line babel/no-unused-expressions
+        item.readonly
+          ? element.setAttribute('disabled', true)
+          : element.removeAttribute('disabled');
+
+        element.value = item.label;
         element.selected = item.selected;
-        radioGroup.appendChild(element);
+        element.text = item.label;
+        element.readonly = item.readonly;
+
+        toggleGroup.appendChild(element);
       }
     });
   }
@@ -451,31 +424,25 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
    * @private
    */
   _initialAddOptions(options) {
-    const radioGroup = this;
-    const groupName =
-      Math.random()
-        .toString(36)
-        .substring(2, 15) +
-      Math.random()
-        .toString(36)
-        .substring(2, 15);
-    // while (radioGroup.firstChild) {
-    //   radioGroup.removeChild(radioGroup.firstChild);
-    // }
-    radioGroup.value = '';
+    const toggleGroup = this;
+    toggleGroup.value = '';
     options.forEach(item => {
       const element = document.createElement('ui5-radiobutton');
-      element.setAttribute('name', groupName);
-      element.setAttribute('text', item.label);
+      element.setAttribute('value', item.label);
       element.setAttribute('data-id', item.id);
       if (item.selected) {
         element.setAttribute('selected', item.selected);
       } else {
         element.removeAttribute('selected');
       }
-      element.text = item.label;
+      // eslint-disable-next-line babel/no-unused-expressions
+      item.readonly ? element.setAttribute('disabled', true) : element.removeAttribute('disabled');
+
+      element.value = item.label;
       element.selected = item.selected;
-      radioGroup.appendChild(element);
+      element.text = item.label;
+
+      toggleGroup.appendChild(element);
     });
   }
 
@@ -514,20 +481,15 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
         this.binder.addLabel('pristine');
       });
 
-      // use multiple select for repeated node
-      if (fieldNode._meta && fieldNode._meta.repeated) {
-        this.multiple = true;
-      }
-
-      if (this.valueSubField && !this.multiple) {
+      if (this.valueSubField) {
         this._fieldNodeToUpdate = this._getValueByPath(this.binder.fieldNode, this.valueSubField);
-        // this._fieldNodeToUpdate = this.binder.fieldNode[this.valueSubField];
         this._fieldDisplayNodeToUpdate = this._getValueByPath(
           this.binder.fieldNode,
           this.displaySubField,
         );
       } else {
-        this._fieldNodeToUpdate = this.binder.fieldNode;
+        this._fieldNodeToUpdate = this.binder.fieldNode[this.valueField] || this.binder.fieldNode;
+        this._fieldDisplayNodeToUpdate = this.binder.fieldNode[this.displayField];
       }
 
       // inject options from meta which is defined in spec
@@ -546,10 +508,6 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
         this._updateField();
       });
 
-      this.binder.fieldNode.addEventListener('repeated-field-changed', () => {
-        this._updateField();
-      });
-
       this._updateField();
     }
   }
@@ -564,40 +522,15 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
 
   // eslint-disable-next-line class-methods-use-this
   _updateField() {
-    if (this.multiple) {
-      if (!this._writeLock) {
-        super.value = this._parseRepeatedData(this._fieldNodeToUpdate._value);
-      }
-    } else {
-      let size = this._dropdownList.length;
+    let size = this._dropdownList.length;
+    if (size) {
       // eslint-disable-next-line no-plusplus
       while (size--) {
         this._dropdownList[size].selected =
-          this._dropdownList[size].id === this.binder.fieldValue.id;
+          this._dropdownList[size].id === this._fieldNodeToUpdate._value;
       }
       this._notifyAndTriggerUpdate(this._dropdownList);
     }
-  }
-
-  /**
-   * change the value data of repeated field to an array according to the defined subfield likes `data.id`
-   * @param data
-   * @returns {[]}
-   * @private
-   */
-  _parseRepeatedData(data) {
-    const arrValue = [];
-    const arrSubfieldChains = this.subField.split('.');
-    if (Array.isArray(data)) {
-      data.forEach(element => {
-        let tmpValue = element;
-        arrSubfieldChains.forEach(s => {
-          tmpValue = tmpValue[s];
-        });
-        arrValue.push(tmpValue);
-      });
-    }
-    return arrValue;
   }
 
   /**

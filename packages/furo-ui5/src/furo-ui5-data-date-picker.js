@@ -114,28 +114,34 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
 
     // update the value on input changes
     this.addEventListener('change', val => {
-      let dateValue = this.value;
-      const dateIOS8601 = FuroUi5DataDatePicker._convertDateToString(new Date(this.dateValue));
-      if (this.binder.fieldNode) {
-        if (
-          this.binder.fieldNode._spec.type === 'google.type.Date' ||
-          this.binder.fieldNode._spec.type === 'furo.type.Date' ||
-          (this.binder.fieldNode['@type'] &&
-            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date') ||
-          (this.binder.fieldNode['@type'] &&
-            this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'furo.type.Date')
-        ) {
-          dateValue = FuroUi5DataDatePicker._convertDateToGoogleDateObj(
-            new Date(this.dateValue),
-            this.binder.fieldNode._value,
-          );
-        } else if (this.binder.fieldNode._spec.type === 'string') {
-          dateValue = dateIOS8601;
-        }
+      let { dateValue } = val.target;
+      let dateIOS8601 = '';
 
-        if (JSON.stringify(this.binder.fieldValue) !== JSON.stringify(dateValue)) {
-          // update the value
-          this.binder.fieldValue = dateValue;
+      if (val.detail.value === '') {
+        this.binder.fieldNode.reset();
+      } else {
+        dateIOS8601 = FuroUi5DataDatePicker._convertDateToString(new Date(dateValue));
+        if (this.binder.fieldNode) {
+          if (
+            this.binder.fieldNode._spec.type === 'google.type.Date' ||
+            this.binder.fieldNode._spec.type === 'furo.type.Date' ||
+            (this.binder.fieldNode['@type'] &&
+              this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'google.type.Date') ||
+            (this.binder.fieldNode['@type'] &&
+              this.binder.fieldNode['@type']._value.replace(/.*\//, '') === 'furo.type.Date')
+          ) {
+            dateValue = FuroUi5DataDatePicker._convertDateToGoogleDateObj(
+              new Date(dateValue),
+              this.binder.fieldNode._value,
+            );
+          } else if (this.binder.fieldNode._spec.type === 'string') {
+            dateValue = dateIOS8601;
+          }
+
+          if (JSON.stringify(this.binder.fieldValue) !== JSON.stringify(dateValue)) {
+            // update the value
+            this.binder.fieldValue = dateValue;
+          }
         }
       }
 
@@ -149,7 +155,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
       this.dispatchEvent(customEvent);
 
       // set flag empty on empty strings (for fat types)
-      if (val.target.value) {
+      if (val.target.value.length) {
         this.binder.deleteLabel('empty');
       } else {
         this.binder.addLabel('empty');

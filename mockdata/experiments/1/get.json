@@ -10,6 +10,7 @@
     "furo_data_color_input": "#e318ed",
     "furo_data_textarea_input": "hallo , this is textarea input",
     "furo_data_date_input": "2019-02-22",
+    "furo_data_password_input": "password",
     "furo_data_date_input_google": {
       "day": 31,
       "display_name": "31.12.2020",
@@ -315,16 +316,39 @@
   ],
   "meta": {
     "fields": {
+      "data.description": {
+        "meta": {
+          "options": {
+            "list": [
+              {
+                "@type": "type.googleapis.com/furo.Optionitem",
+                "id": "1",
+                "display_name": "Most used description"
+              },
+              {
+                "@type": "type.googleapis.com/furo.Optionitem",
+                "id": "2",
+                "display_name": "Most used description 2"
+              },
+              {
+                "@type": "type.googleapis.com/furo.Optionitem",
+                "id": "2",
+                "display_name": "Most used description 3"
+              }
+            ]
+          }
+        }
+      },
       "data.furo_data_checkbox_input": {
         "meta": {
           "label": "checkbox label via meta",
-          "readonly": true
+          "readonly": false
         }
       },
       "data.furo_data_text_input": {
         "meta": {
           "label": "text input label via meta",
-          "readonly": true
+          "readonly": false
         }
       },
       "data.furo_data_number_input": {
@@ -375,10 +399,27 @@
           "readonly": true
         }
       },
-      "data.furo_data_money_input": {
+      "data.furo_data_money_input.currency_code": {
         "meta": {
-          "label": "money input label via meta",
-          "readonly": false
+          "options": {
+            "list": [
+              {
+                "@type": "type.googleapis.com/furo.Optionitem",
+                "id": "CHF",
+                "display_name": "CHF"
+              },
+              {
+                "@type": "type.googleapis.com/furo.Optionitem",
+                "id": "EUR",
+                "display_name": "EUR"
+              },
+              {
+                "@type": "type.googleapis.com/furo.Optionitem",
+                "id": "USD",
+                "display_name": "USD"
+              }
+            ]
+          }
         }
       }
     }

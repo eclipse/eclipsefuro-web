@@ -46,4 +46,22 @@ describe('FieldNodesDefaults', () => {
 
     element.injectRaw({});
   });
+
+  it('should provide a reset function', done => {
+    element.setAttribute('type', 'experiment.Experiment');
+
+    const handler = () => {
+      element.data.description.reset();
+      element.data.furo_data_date_input_google.reset();
+      assert.equal(element.data.description._value, null);
+
+      assert.equal(element.data.furo_data_date_input_google._value.year === null, true);
+      assert.equal(element.data.furo_data_date_input_google._value.month === null, true);
+
+      done();
+    };
+    element.data.addEventListener('data-injected', handler, { once: true });
+
+    element.injectRaw({});
+  });
 });

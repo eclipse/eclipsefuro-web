@@ -146,6 +146,11 @@ export class FuroUi5DataToggleButton extends ToggleButton.default {
         if (this.binder.virtualNode && this.binder.virtualNode.attributes) {
           this._addLabel(this.binder.virtualNode.attributes.label);
         }
+        if (this.binder.fieldFormat === 'fat') {
+          this.pressed = `${this.binder.fieldNode._value.value}` === 'true';
+        } else {
+          this.pressed = `${this.binder.fieldNode._value}` === 'true';
+        }
       });
     }
   }

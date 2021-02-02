@@ -126,20 +126,22 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
             ></produce-qp-data>
           </ui5-card>
 
-          <p>
-            furo-ui5-data-display with type furo.fat.String bindings.
-          </p>
-          <furo-form-layouter two>
-            <furo-ui5-data-display
-              ƒ-bind-data="--entityU(*.data.fat_string)"
-            ></furo-ui5-data-display>
-            <furo-ui5-data-display
-              ƒ-bind-data="--entityU(*.data.wrapper_string)"
-            ></furo-ui5-data-display>
-            <furo-ui5-data-display
-              ƒ-bind-data="--entityU(*.data.fat_int32)"
-            ></furo-ui5-data-display>
-          </furo-form-layouter>
+          <ui5-card
+            heading="furo.fat Types"
+            subheading="furo-ui5-data-display with type furo.fat.String bindings."
+          >
+            <furo-form-layouter two style="padding: var(--spacing-s)">
+              <furo-ui5-data-display
+                ƒ-bind-data="--entityU(*.data.fat_string)"
+              ></furo-ui5-data-display>
+              <furo-ui5-data-display
+                ƒ-bind-data="--entityU(*.data.wrapper_string)"
+              ></furo-ui5-data-display>
+              <furo-ui5-data-display
+                ƒ-bind-data="--entityU(*.data.fat_int32)"
+              ></furo-ui5-data-display>
+            </furo-form-layouter>
+          </ui5-card>
 
           <fetch-universal-json
             file="/mockdata/ui5/demos/fat-universal.json"

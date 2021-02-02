@@ -10,7 +10,7 @@ import '@ui5/webcomponents/dist/Token.js';
  *
  * @summary data ui5 data multi input
  * @customElement
- * @demo demo-furo-ui5-data-multi-input bind repeated string
+ * @demo demo-furo-ui5-data-multi-input Basic usage (recommended for repeated strings)
  */
 export class FuroUi5DataMultiInput extends MultiInput.default {
   constructor() {

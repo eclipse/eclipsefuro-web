@@ -45,7 +45,7 @@ class FormSectionOne extends FBP(LitElement) {
   }
 
   disable() {
-    this._FBPTriggerWire('--disable');
+    this._FBPTriggerWire('--disable', 'true');
   }
 
   /**
@@ -87,14 +87,17 @@ class FormSectionOne extends FBP(LitElement) {
         ></furo-ui5-data-date-picker-labeled>
 
         <furo-ui5-data-date-picker-labeled
+          ƒ-.disabled="--disable"
           ƒ-bind-data="--entity(*.data.furo_data_date_input)"
         ></furo-ui5-data-date-picker-labeled>
 
         <furo-ui5-data-date-time-picker-labeled
+          ƒ-.disabled="--disable"
           ƒ-bind-data="--entity(*.data.google_timestamp)"
         ></furo-ui5-data-date-time-picker-labeled>
 
         <furo-ui5-data-date-time-display-labeled
+          ƒ-.disabled="--disable"
           ƒ-bind-data="--entity(*.data.google_timestamp)"
         ></furo-ui5-data-date-time-display-labeled>
 
@@ -109,7 +112,7 @@ class FormSectionOne extends FBP(LitElement) {
           value-sub-field="id"
           ƒ-.disabled="--disable"
           ƒ-bind-data="--entityTaskReady(*.owner)"
-          ƒ-inject-list="--refCol(*.entities)"
+          ƒ-inject-entities="--refCol(*.entities)"
         ></furo-ui5-data-collection-dropdown-labeled>
 
         <furo-ui5-data-checkbox-input-labeled
@@ -129,9 +132,9 @@ class FormSectionOne extends FBP(LitElement) {
           <furo-ui5-data-segmented-button
             style="max-width: 100%;"
             content
-            ƒ-.disabled="--disable"
+            ƒ-.readonly="--disable"
             ƒ-bind-data="--entityTaskReady(*.owner)"
-            ƒ-inject-list="--refCol(*.entities)"
+            ƒ-inject-entities="--refCol(*.entities)"
           ></furo-ui5-data-segmented-button>
         </furo-ui5-form-field-container>
 

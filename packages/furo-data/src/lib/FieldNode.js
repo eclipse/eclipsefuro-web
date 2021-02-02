@@ -168,7 +168,7 @@ export class FieldNode extends EventTreeNode {
       }
     });
 
-    // store __initialValue value for resetting the field
+    // store __initialValue value for setting the field back to the defaults
     this.__initialValue = JSON.stringify(this._value);
   }
 
@@ -215,10 +215,21 @@ export class FieldNode extends EventTreeNode {
   }
 
   /**
-   * resets the field to the initial values from the spec
+   * sets the field to the initial values from the spec
+   * default values are applied
    */
   reinit() {
     this._value = JSON.parse(this.__initialValue);
+  }
+
+  /**
+   * resets the field to empty values
+   * no default values are applied
+   * @param type
+   * @private
+   */
+  reset() {
+    this._value = null;
   }
 
   _createVendorType(type) {

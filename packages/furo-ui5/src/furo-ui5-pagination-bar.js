@@ -178,7 +178,7 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
     this._FBPAddWireHook('--navigated', e => {
       let start;
       const enabledButtons = [];
-      btns.forEach((btn) => {
+      btns.forEach(btn => {
         if (!btn.disabled) {
           const c = enabledButtons.push(btn);
           if (btn.focused) {
