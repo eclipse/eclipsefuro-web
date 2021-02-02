@@ -71,6 +71,7 @@ class FetchUniversalJson extends FBP(LitElement) {
       css`
         :host {
           display: block;
+          cursor: pointer;
         }
 
         :host([hidden]) {
