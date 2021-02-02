@@ -81,9 +81,22 @@ class DemoFuroUi5DataTextareaInput extends FBP(LitElement) {
               ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
             ></furo-ui5-data-textarea-input>
           </furo-form-layouter>
-
           <furo-button-bar>
             <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
+          </furo-button-bar>
+          <h3>ui5-data-textarea-input with valueState</h3>
+          <furo-form-layouter>
+            <furo-ui5-data-textarea-input
+              ƒ-bind-data="--UniEntity(*.data.fat_string)"
+            ></furo-ui5-data-textarea-input>
+          </furo-form-layouter>
+          <furo-button-bar>
+            <ui5-button design="Emphasized">
+              <fetch-universal-json
+                file="/mockdata/ui5/demos/fat-universal.json"
+                @-data-loaded="--mockdata"
+              ></fetch-universal-json
+            ></ui5-button>
           </furo-button-bar>
 
           <furo-data-object
@@ -91,6 +104,13 @@ class DemoFuroUi5DataTextareaInput extends FBP(LitElement) {
             @-object-ready="--entity"
             ƒ-inject-raw="--response"
           ></furo-data-object>
+
+          <furo-data-object
+            type="universaltest.UniversaltestEntity"
+            @-object-ready="--UniEntity"
+            ƒ-inject-raw="--mockdata"
+          ></furo-data-object>
+
           <furo-deep-link
             service="ExperimentService"
             @-hts-out="--hts"

@@ -622,7 +622,7 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
 
       <ui5-list class="loading" header-text="" busy></ui5-list>
 
-      <ui5-list mode="SingleSelect"  class="list" @-item-selected="--itemSelected">
+      <ui5-list mode="SingleSelect" class="list" @-item-selected="--itemSelected">
         <template
           is="flow-repeat"
           ƒ-inject-items="--listItemsInjected"
