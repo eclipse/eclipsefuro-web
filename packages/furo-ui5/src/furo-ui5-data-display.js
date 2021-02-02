@@ -56,7 +56,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
        * Value State
        */
       valueState: { type: String, reflect: true, attribute: 'value-state' },
-      disabled: {type: Boolean, reflect: true, attribute: 'disabled'}
+      disabled: { type: Boolean, reflect: true, attribute: 'disabled' },
     };
   }
 
@@ -134,7 +134,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
     this.binder.labelMappings = {
       error: '_error',
       disabled: 'disabled',
-      readonly: 'disabled'
+      readonly: 'disabled',
     };
 
     // set attributes to constrains mapping for furo.fat types

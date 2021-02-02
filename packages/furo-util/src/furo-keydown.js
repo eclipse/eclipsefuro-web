@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 
 /**
@@ -78,6 +78,15 @@ class FuroKeydown extends FBP(LitElement) {
         this.dispatchEvent(customEvent);
       }
     });
+  }
+
+  static get styles() {
+    // language=CSS
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 

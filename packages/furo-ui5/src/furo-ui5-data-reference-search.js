@@ -1,11 +1,11 @@
-import { LitElement, html, css } from 'lit-element'
+import { LitElement, html, css } from 'lit-element';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js'
-import { FBP } from '@furo/fbp'
-import { Theme } from '@furo/framework'
-import '@furo/fbp/src/flow-repeat'
-import '@ui5/webcomponents/dist/List.js'
-import './ui5-reference-search-item.js'
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
+import { FBP } from '@furo/fbp';
+import { Theme } from '@furo/framework';
+import '@furo/fbp/src/flow-repeat';
+import '@ui5/webcomponents/dist/List.js';
+import './ui5-reference-search-item.js';
 
 /**
  * The furo-ui5-data-reference-search
@@ -55,18 +55,18 @@ import './ui5-reference-search-item.js'
  */
 export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
   constructor() {
-    super()
-    this.minTermLength = 0
-    this.valueField = 'id'
-    this.displayField = 'display_name'
-    this.noResultHint = 'no result found'
+    super();
+    this.minTermLength = 0;
+    this.valueField = 'id';
+    this.displayField = 'display_name';
+    this.noResultHint = 'no result found';
     /**
      * the loaded collection
      */
-    this._collection = []
-    this.placeholder = ''
+    this._collection = [];
+    this.placeholder = '';
 
-    this._initBinder()
+    this._initBinder();
   }
 
   /**
@@ -75,24 +75,24 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-    this.binder.bindField(fieldNode)
+    this.binder.bindField(fieldNode);
 
     if (this.binder.fieldNode) {
       // update the value on input changes
       this.binder.fieldNode.addEventListener('field-value-changed', val => {
         // set flag empty on empty strings (for fat types)
         if (val.detail) {
-          this.binder.deleteLabel('empty')
+          this.binder.deleteLabel('empty');
         } else {
-          this.binder.addLabel('empty')
+          this.binder.addLabel('empty');
         }
         // if something was entered the field is not empty
-        this.binder.deleteLabel('pristine')
+        this.binder.deleteLabel('pristine');
 
-        this._FBPTriggerWire('--listDeselectAll')
+        this._FBPTriggerWire('--listDeselectAll');
 
-        this._updateField()
-      })
+        this._updateField();
+      });
 
       /**
        * handle pristine
@@ -100,93 +100,93 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
        * Set to pristine label to the same _pristine from the fieldNode
        */
       if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine')
+        this.binder.addLabel('pristine');
       } else {
-        this.binder.deleteLabel('pristine')
+        this.binder.deleteLabel('pristine');
       }
       // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine')
-      })
+        this.binder.addLabel('pristine');
+      });
 
-      this._updateField()
+      this._updateField();
     }
 
-    this._init()
+    this._init();
   }
 
   _init() {
-    this.requestUpdate()
+    this.requestUpdate();
   }
 
   _FBPReady() {
-    super._FBPReady()
-    this._registerListeners()
+    super._FBPReady();
+    this._registerListeners();
   }
 
   _registerListeners() {
     this._FBPAddWireHook('--input', e => {
-      this._searchTerm = e.composedPath()[0].value
+      this._searchTerm = e.composedPath()[0].value;
 
       if (!this.searchOnEnterOnly) {
-        this._fireSearchEvent()
+        this._fireSearchEvent();
       }
-    })
+    });
 
     // lock blur for slow clickers
     this.addEventListener('mousedown', () => {
-      this._lockBlur = true
-    })
+      this._lockBlur = true;
+    });
     // unlock after long click
     this.addEventListener('mouseup', () => {
-      this._lockBlur = false
-    })
+      this._lockBlur = false;
+    });
 
     // close list on blur
     this._FBPAddWireHook('--blured', () => {
-      this._focused = false
-      this.removeAttribute('busy')
+      this._focused = false;
+      this.removeAttribute('busy');
       if (!this._lockBlur) {
-        this._closeList()
+        this._closeList();
       }
-    })
+    });
 
     // opens the list on focus
     this._FBPAddWireHook('--focused', () => {
-      this._focused = true
+      this._focused = true;
       if (this._hasCollection) {
-        this._showList()
+        this._showList();
       }
-    })
+    });
 
     this._FBPAddWireHook('--itemSelected', item => {
-      this.binder.fieldNode.id._value = item.data[this.valueField]
-      this.binder.fieldNode.display_name._value = item.data[this.displayField]
-      this._updateField()
-      this._closeList()
+      this.binder.fieldNode.id._value = item.data[this.valueField];
+      this.binder.fieldNode.display_name._value = item.data[this.displayField];
+      this._updateField();
+      this._closeList();
       /**
        * @event item-selected
        * Fired from inner element when item is selected
        * detail payload: {Object} item
        */
-    })
+    });
 
     /**
      * listen to keyboard events
      */
     this.addEventListener('keydown', event => {
-      const key = event.key || event.keyCode
+      const key = event.key || event.keyCode;
 
       if (key === 'Escape' || key === 'Esc' || key === 27) {
-        this._updateField()
+        this._updateField();
 
         if (this._listIsOpen) {
           // close list if open and  then clear search
-          event.preventDefault()
+          event.preventDefault();
         }
-        this._closeList()
+        this._closeList();
         if (this._searchTerm === '') {
-          event.preventDefault()
+          event.preventDefault();
           // re set display_name
         }
       }
@@ -194,142 +194,142 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
       // keyboard navigation
       if (this._listIsOpen) {
         if (key === 'Enter') {
-          event.preventDefault()
-          this._FBPTriggerWire('--enterPressedForSelect')
+          event.preventDefault();
+          this._FBPTriggerWire('--enterPressedForSelect');
         }
         if (key === 'ArrowDown') {
-          event.preventDefault()
-          this._FBPTriggerWire('--arrowDownPressed')
+          event.preventDefault();
+          this._FBPTriggerWire('--arrowDownPressed');
         }
         if (key === 'ArrowUp') {
-          event.preventDefault()
-          this._FBPTriggerWire('--arrowUpPressed')
+          event.preventDefault();
+          this._FBPTriggerWire('--arrowUpPressed');
         }
       } else {
         // list is closed
         if (key === 'ArrowDown') {
           if (this._hasCollection) {
-            this._showList()
+            this._showList();
           }
         }
         if (key === 'Enter') {
           if (this.searchOnEnterOnly) {
-            event.preventDefault()
-            this._fireSearchEvent()
+            event.preventDefault();
+            this._fireSearchEvent();
           }
         }
       }
-    })
+    });
   }
 
   _updateField() {
     if (this.binder.fieldNode.display_name._value !== undefined) {
-      this._FBPTriggerWire('--value', this.binder.fieldNode.display_name._value)
+      this._FBPTriggerWire('--value', this.binder.fieldNode.display_name._value);
     }
 
-    this.requestUpdate()
+    this.requestUpdate();
   }
 
   _closeList() {
-    this._listIsOpen = false
-    this.removeAttribute('show-list')
+    this._listIsOpen = false;
+    this.removeAttribute('show-list');
   }
 
   _fireSearchEvent() {
     if (this._searchTerm && this._searchTerm.length >= this.minTermLength) {
-      this.setAttribute('busy', '')
-      this._hasCollection = false
-      this._collection = []
-      this._closeList()
+      this.setAttribute('busy', '');
+      this._hasCollection = false;
+      this._collection = [];
+      this._closeList();
 
       /**
        * @event search
        * Fired when term is entered and bigger then min-term-length
        * detail payload: {String} term
        */
-      const customEvent = new Event('search', { composed: true, bubbles: true })
-      customEvent.detail = this._searchTerm
-      this.dispatchEvent(customEvent)
+      const customEvent = new Event('search', { composed: true, bubbles: true });
+      customEvent.detail = this._searchTerm;
+      this.dispatchEvent(customEvent);
     } else {
       /**
        * empty search term will dereference the fieldNode
        */
-      this.binder.fieldNode[this.valueField].reset()
+      this.binder.fieldNode[this.valueField].reset();
       if (this.binder.fieldNode[this.displayField]) {
         this.binder.fieldNode[this.displayField].reset();
-      } else if (this.binder.fieldNode.display_name){
-          this.binder.fieldNode.display_name.reset();
-        }
+      } else if (this.binder.fieldNode.display_name) {
+        this.binder.fieldNode.display_name.reset();
+      }
     }
   }
 
   collectionIn(collection) {
-    this.removeAttribute('busy')
-    this._resetInputValueState()
+    this.removeAttribute('busy');
+    this._resetInputValueState();
     if (collection && collection.entities && collection.entities.length > 0) {
       // this.shadowRoot.getElementById('input').removeAttribute('no-result');
-      this._hasCollection = true
+      this._hasCollection = true;
 
       if (this.maxItemsToDisplay && collection.entities.length > this.maxItemsToDisplay) {
         // cut down the result size
-        this._collection = collection.entities.slice(0, this.maxItemsToDisplay)
+        this._collection = collection.entities.slice(0, this.maxItemsToDisplay);
         if (this.maxResultsHint) {
-          this.setAttribute('showmaxhint', '')
+          this.setAttribute('showmaxhint', '');
         }
       } else {
-        this._collection = collection.entities
-        this.removeAttribute('showmaxhint', '')
+        this._collection = collection.entities;
+        this.removeAttribute('showmaxhint', '');
       }
 
-      this._FBPTriggerWire('--listItemsInjected', this._collection)
+      this._FBPTriggerWire('--listItemsInjected', this._collection);
 
       if (this._focused) {
-        this._showList()
+        this._showList();
       }
     } else {
-      this.setAttribute('show-list', '')
+      this.setAttribute('show-list', '');
 
-      this._hasCollection = false
-      this._collection = []
-      this._closeList()
-      this.shadowRoot.getElementById('input').setAttribute('value-state', 'Information')
+      this._hasCollection = false;
+      this._collection = [];
+      this._closeList();
+      this.shadowRoot.getElementById('input').setAttribute('value-state', 'Information');
 
-      const information = document.createElement('div')
-      information.slot = 'valueStateMessage'
-      information.innerText = this.noResultHint
-      this.shadowRoot.getElementById('input').appendChild(information)
+      const information = document.createElement('div');
+      information.slot = 'valueStateMessage';
+      information.innerText = this.noResultHint;
+      this.shadowRoot.getElementById('input').appendChild(information);
     }
   }
 
   _resetInputValueState() {
-    this.shadowRoot.getElementById('input').removeAttribute('value-state')
+    this.shadowRoot.getElementById('input').removeAttribute('value-state');
 
     this.shadowRoot
       .getElementById('input')
       .querySelectorAll('div')
       .forEach(e => {
-        e.remove()
-      })
+        e.remove();
+      });
   }
 
   _showList() {
-    this.removeAttribute('busy')
+    this.removeAttribute('busy');
     if (this._collection && this._collection.length > 0) {
-      this._listIsOpen = true
-      this.setAttribute('show-list', '')
-      let index
+      this._listIsOpen = true;
+      this.setAttribute('show-list', '');
+      let index;
       // find index to preselect item in the opened list
       for (let i = 0; i < this._collection.length; i += 1) {
         if (
           this._collection[i].data &&
           this._collection[i].data[this.valueField] === this.binder.fieldNode.id._value
         ) {
-          index = i
-          break
+          index = i;
+          break;
         }
       }
       if (index !== undefined) {
-        this._FBPTriggerWire('--listOpened', index)
+        this._FBPTriggerWire('--listOpened', index);
       }
     }
     // trigger wire to select item
@@ -341,7 +341,7 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
    * @private
    */
   _initBinder() {
-    this.binder = new UniversalFieldNodeBinder(this)
+    this.binder = new UniversalFieldNodeBinder(this);
 
     // set the attribute mappings
     this.binder.attributeMappings = {
@@ -352,7 +352,7 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
       no_result_hint: 'no-result-hint',
       errortext: 'errortext',
       'error-msg': 'errortext',
-    }
+    };
 
     // set the label mappings
     this.binder.labelMappings = {
@@ -361,24 +361,24 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
-    }
+    };
 
     this.binder.fatAttributesToConstraintsMappings = {
       'min-term-length': 'value._constraints.min_term_length.is', // for the fieldnode constraint
       'no-result-hint': 'value._constraints.no_result_hint', // for the fieldnode constraint message
-    }
+    };
 
     this.binder.constraintsTofatAttributesMappings = {
       required: 'required',
-    }
+    };
 
     /**
      * check overrides from the used component, attributes set on the component itself overrides all
      */
-    this.binder.checkLabelandAttributeOverrrides()
+    this.binder.checkLabelandAttributeOverrrides();
 
     // the extended furo-text-input component uses _value
-    this.binder.targetValueField = '_value'
+    this.binder.targetValueField = '_value';
 
     // set flag empty on emptfuroy strings (for fat types)
   }
@@ -387,8 +387,8 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
    * reset reference search
    */
   reset() {
-    this._collection = []
-    this._FBPTriggerWire('--value', '')
+    this._collection = [];
+    this._FBPTriggerWire('--value', '');
   }
 
   /**
@@ -548,7 +548,7 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
         type: Boolean,
         reflect: true,
       },
-    }
+    };
   }
 
   /**
@@ -606,7 +606,7 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
           width: inherit;
         }
       `
-    )
+    );
   }
 
   /**
@@ -652,8 +652,8 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
         </template>
         <ui5-li-groupheader class="maxresulthint">${this.maxResultsHint}</ui5-li-groupheader>
       </ui5-list>
-    `
+    `;
   }
 }
 
-window.customElements.define('furo-ui5-data-reference-search', FuroUi5DataReferenceSearch)
+window.customElements.define('furo-ui5-data-reference-search', FuroUi5DataReferenceSearch);

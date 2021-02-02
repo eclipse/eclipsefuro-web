@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 
 /**
@@ -200,6 +200,15 @@ class FuroAppFlowRouter extends FBP(LitElement) {
     configArray.forEach(config => {
       this._configObject[config[0] + config[1]] = { target: config[2], mapping: config[3] };
     });
+  }
+
+  static get styles() {
+    // language=CSS
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 

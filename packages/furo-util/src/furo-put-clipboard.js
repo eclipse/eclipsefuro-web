@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 
 /**
  * `furo-put-clipboard`
@@ -54,6 +54,15 @@ class FuroPutClipboard extends LitElement {
        */
       json: { type: Boolean },
     };
+  }
+
+  static get styles() {
+    // language=CSS
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 

@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 
 /**
  * `furo-rel-exists`
@@ -75,6 +75,15 @@ class FuroRelExists extends LitElement {
         break;
       default:
     }
+  }
+
+  static get styles() {
+    // language=CSS
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 

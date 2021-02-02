@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 
 /**
@@ -67,6 +67,15 @@ class FuroQpChanger extends FBP(LitElement) {
       this.dispatchEvent(customEvent);
       this._lastLocation = location;
     }
+  }
+
+  static get styles() {
+    // language=CSS
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 

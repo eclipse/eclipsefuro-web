@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 
 // to ensure that data is of type FuroAppFlow
 function TypeAppFlow(name) {
@@ -65,6 +65,15 @@ class FuroAppFlow extends LitElement {
     customEvent.detail = data;
     this.dispatchEvent(customEvent);
     return customEvent;
+  }
+
+  static get styles() {
+    // language=CSS
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 

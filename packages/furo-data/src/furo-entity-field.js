@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 
 /**
  * Use this component to interact with fields from an furo-data-object.
@@ -54,6 +54,15 @@ class FuroEntityField extends LitElement {
       this.dispatchEvent(customEvent);
     });
     return this.field;
+  }
+
+  static get styles() {
+    // language=CSS
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 

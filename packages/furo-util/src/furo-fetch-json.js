@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 
 /**
@@ -73,6 +73,15 @@ class FuroFetchJson extends FBP(LitElement) {
   fetchSrc(source) {
     this.src = source;
     return this.fetch();
+  }
+
+  static get styles() {
+    // language=CSS
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 

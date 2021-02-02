@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 import { Env } from '@furo/framework';
 import { DataObject } from './lib/DataObject.js';
 
@@ -175,7 +175,7 @@ export class FuroDataObject extends LitElement {
   /**
    * get the data of the data object
    */
-  getData(){
+  getData() {
     return this.data;
   }
 
@@ -311,6 +311,15 @@ export class FuroDataObject extends LitElement {
     this._initial = this.data._value;
 
     return true;
+  }
+
+  static get styles() {
+    // language=CSS
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 
