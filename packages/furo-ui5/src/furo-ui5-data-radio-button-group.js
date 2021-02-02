@@ -79,7 +79,7 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
     /**
      * Listener to catch the selected button
      */
-    this.addEventListener('click', val => {
+    this.addEventListener('select', val => {
       const selectedObj = this._dropdownList.find(
         // eslint-disable-next-line eqeqeq
         obj => obj.id == val.target.dataset.id,
