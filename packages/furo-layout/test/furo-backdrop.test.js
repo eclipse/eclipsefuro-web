@@ -36,12 +36,33 @@ describe('furo-backdrop', () => {
 
   });
 
-  it('should closes the backdrop on close request', (done) => {
+  it('should closes the backdrop on close request on initiator', (done) => {
     backdrop.addEventListener("closed",()=>{
       done();
     })
     backdrop.addEventListener("opened",()=>{
       backdrop.close()
+    })
+    content.click();
+
+  });
+
+  it('should closes the backdrop on click on the backgrount', (done) => {
+    backdrop.addEventListener("closed",()=>{
+      done();
+    })
+    backdrop.addEventListener("opened",()=>{
+      backdropDisplay.shadowRoot.getElementById('backdrop').click()
+    })
+    content.click();
+
+  });
+  it('should closes the backdrop on close request on display', (done) => {
+    backdrop.addEventListener("closed",()=>{
+      done();
+    })
+    backdrop.addEventListener("opened",()=>{
+      backdropDisplay.close()
     })
     content.click();
 
