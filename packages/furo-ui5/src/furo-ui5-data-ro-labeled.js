@@ -41,6 +41,14 @@ class FuroUi5DataRoLabeled extends FBP(LitElement) {
       required: {
         type: Boolean,
       },
+      /**
+       * Disabled state
+       */
+      disabled: {
+        type: Boolean,
+        reflect: true,
+        attribute: 'disabled',
+      },
     };
   }
 
@@ -51,6 +59,7 @@ class FuroUi5DataRoLabeled extends FBP(LitElement) {
         :host {
           display: block;
         }
+
         :host([hidden]) {
           display: none;
         }
@@ -75,9 +84,14 @@ class FuroUi5DataRoLabeled extends FBP(LitElement) {
     return html`
       <furo-ui5-form-field-container>
         <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}
-          >${this.label}</ui5-label
-        >
-        <furo-ui5-data-ro content id="Input" ƒ-bind-data="--data"></furo-ui5-data-ro>
+          >${this.label}
+        </ui5-label>
+        <furo-ui5-data-ro
+          content
+          id="Input"
+          ?disabled=${this.disabled}
+          ƒ-bind-data="--data"
+        ></furo-ui5-data-ro>
       </furo-ui5-form-field-container>
     `;
   }

@@ -53,6 +53,8 @@ class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
        */
       disabled: {
         type: Boolean,
+        reflect: true,
+        attribute: 'disabled',
       },
     };
   }

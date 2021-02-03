@@ -156,6 +156,11 @@ export class FuroUi5DataDateTimeDisplay extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
+        :host([disabled]) {
+          opacity: var(--_ui5_input_disabled_opacity);
+          cursor: default;
+          pointer-events: none;
+        }
       `,
     ];
   }

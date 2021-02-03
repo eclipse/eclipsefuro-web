@@ -176,6 +176,7 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
         ::slotted(*[label][data-size*='size-s']) {
           grid-column: span 12;
           justify-self: start;
+          padding-top: 0;
         }
 
         ::slotted(*[content][data-size*='size-m']) {
