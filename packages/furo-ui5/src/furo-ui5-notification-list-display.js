@@ -167,7 +167,9 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
       });
 
       const notification = document.createElement('ui5-li-notification');
-      notification.setAttribute('show-close', true);
+      if(this.showClose) {
+        notification.setAttribute('show-close', this.showClose);
+      }
       notification.setAttribute('heading', this.heading);
       notification.setAttribute('priority', this.priority);
       notification.target = this.target;
