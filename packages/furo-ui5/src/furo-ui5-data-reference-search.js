@@ -254,12 +254,20 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
       /**
        * empty search term will dereference the fieldNode
        */
-      this.binder.fieldNode[this.valueField].reset();
+      this.binder.fieldNode.id.reset();
       if (this.binder.fieldNode[this.displayField]) {
         this.binder.fieldNode[this.displayField].reset();
       } else if (this.binder.fieldNode.display_name) {
         this.binder.fieldNode.display_name.reset();
       }
+      /**
+       * @event reset
+       * Triggered when the search term is empty and the bound field is set to empty
+       * detail payload: {Object} fieldNode
+       */
+      const customEvent = new Event('reset', { composed: true, bubbles: true });
+      customEvent.detail = this.binder.fieldNode;
+      this.dispatchEvent(customEvent);
     }
   }
 
