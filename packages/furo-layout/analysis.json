@@ -2,6 +2,295 @@
   "schema_version": "1.0.0",
   "elements": [
     {
+      "description": "`furo-backdrop`\nPlace your elements which have to be displayed in the backdrop.\n\n\n```html\n  <furo-backdrop @-opened=\"--BackdropFocus\" @-closed=\"--backdropClosed\"\n    ƒ-show=\"--expandIconClicked\"\n    ƒ-close=\"--closeRequested, --recordSelected\"\n    >\n     <any-component @-item-selected=\"--recordSelected\" style=\"width: 90vw; height: 90vh\"></any-component>\n  </furo-backdrop>\n ```\n\nYou can wire and use the elements in furo-backrop as if they were local elements.\n\nDo not forget to add the furo-backdrop-display somewhere in the parent dom.",
+      "summary": "backdrop initiator",
+      "path": "src/furo-backdrop.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 28,
+              "column": 2
+            },
+            "end": {
+              "line": 35,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "show",
+          "description": "Initiates the backdrop and shows the content in the backdrop area.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 2
+            },
+            "end": {
+              "line": 57,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "close",
+          "description": "Closes the display.\nThe display will also get closed when the user clicks on the background.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 63,
+              "column": 2
+            },
+            "end": {
+              "line": 67,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-backdrop",
+          "description": "Basic usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 27,
+          "column": 0
+        },
+        "end": {
+          "line": 85,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroBackdrop",
+      "attributes": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "closed",
+          "description": "closed\nFired when backdrop is closed.\n\nTipp: Maybe you want to use this event to refocus the initiator.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "opened",
+          "description": "opened\nFired when displayed component on the backdrop is opened",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-backdrop",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-backdrop-display`\nThis components receives and displays the backdrop requests from furo-backdrop components.\n\nThe backdrop display can be placed anywhere in the dom. The higher the better.\n\nTipp: place it below or inside the component which applies the style vars. Othewise the displayed components\ndo not know these vars.\n\n```html\n <!-- place the display in your main-stage -->\n <furo-backdrop-display></furo-backdrop-display>\n ```",
+      "summary": "Display component for furo-backdrop",
+      "path": "src/furo-backdrop-display.js",
+      "properties": [
+        {
+          "name": "start",
+          "type": "boolean | null | undefined",
+          "description": "Description",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 77,
+              "column": 6
+            },
+            "end": {
+              "line": 77,
+              "column": 45
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "show",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 78,
+              "column": 6
+            },
+            "end": {
+              "line": 78,
+              "column": 44
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 85,
+              "column": 2
+            },
+            "end": {
+              "line": 93,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "close",
+          "description": "closes the backdrop.\nYou can close the backdrop on the display element, this is useful when you want to close the backdrops on page\nchanges.\n\nUsualy the component which triggers the backdrop or is displayed closes it.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 102,
+              "column": 2
+            },
+            "end": {
+              "line": 114,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 196,
+              "column": 2
+            },
+            "end": {
+              "line": 202,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-backdrop",
+          "description": "Basic usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 23,
+          "column": 0
+        },
+        "end": {
+          "line": 203,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroBackdropDisplay",
+      "attributes": [
+        {
+          "name": "start",
+          "description": "Description",
+          "sourceRange": {
+            "start": {
+              "line": 77,
+              "column": 6
+            },
+            "end": {
+              "line": 77,
+              "column": 45
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "show",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 78,
+              "column": 6
+            },
+            "end": {
+              "line": 78,
+              "column": 44
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-backdrop-display",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
       "description": "`furo-empty-spacer` Takes the place in furo-horizontal-flex or a furo-vertical-flex.\n\n<furo-demo-snippet source>\n<template>\n <furo-horizontal-flex>\n  <div>small</div>\n  <!-- A furo-empty-spacer will fill the available space. -->\n  <furo-empty-spacer style=\"border: 1px dashed lightgray;\"></furo-empty-spacer>\n  <div>small</div>\n </furo-horizontal-flex>\n</template>\n</furo-demo-snippet>",
       "summary": "fill the space in a furo-xxxx-flex",
       "path": "src/furo-empty-spacer.js",
@@ -197,336 +486,6 @@
       },
       "slots": [],
       "tagname": "furo-horizontal-flex",
-      "mixins": [
-        "FBP"
-      ]
-    },
-    {
-      "description": "`furo-ripple` gives the ripple effect to a element\n\n > Note: Add a `position:relative` to the parent element.\n\n use it directly in an element:\n<furo-demo-snippet source>\n<template>\n<!-- without position relative -->\n <button>\n      click here\n     <furo-ripple></furo-ripple>\n </button>\n</template>\n</furo-demo-snippet>\n\n## trigger the ripple effect via wire\n<furo-demo-snippet source>\n<template>\n<button @-click=\"--actionClicked\">\n      click here\n</button>\n\n<div style=\"position:relative; width:80px;height:80px; border:1px solid black;\">\n  <furo-ripple noink ƒ-trigger=\"--actionClicked\"></furo-ripple>\n  Ripple here\n</div>\n</template>\n</furo-demo-snippet>\n\n\n## style vars\n with variable `--furo-ripple-bg-color` you can modify the backgroud color of the ripple effect",
-      "summary": "add a ripple effect",
-      "path": "src/furo-ripple.js",
-      "properties": [
-        {
-          "name": "noink",
-          "type": "boolean | null | undefined",
-          "description": "Disables the click, only ripples with `trigger()`",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 115,
-              "column": 6
-            },
-            "end": {
-              "line": 115,
-              "column": 45
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        }
-      ],
-      "methods": [
-        {
-          "name": "connectedCallback",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 47,
-              "column": 2
-            },
-            "end": {
-              "line": 53,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "trigger",
-          "description": "animate the ripple effect",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 122,
-              "column": 2
-            },
-            "end": {
-              "line": 127,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        }
-      ],
-      "staticMethods": [],
-      "demos": [],
-      "metadata": {},
-      "sourceRange": {
-        "start": {
-          "line": 41,
-          "column": 0
-        },
-        "end": {
-          "line": 128,
-          "column": 1
-        }
-      },
-      "privacy": "public",
-      "superclass": "LitElement",
-      "name": "FuroRipple",
-      "attributes": [
-        {
-          "name": "noink",
-          "description": "Disables the click, only ripples with `trigger()`",
-          "sourceRange": {
-            "start": {
-              "line": 115,
-              "column": 6
-            },
-            "end": {
-              "line": 115,
-              "column": 45
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        }
-      ],
-      "events": [],
-      "styling": {
-        "cssVariables": [],
-        "selectors": []
-      },
-      "slots": [],
-      "tagname": "furo-ripple"
-    },
-    {
-      "description": "`furo-vertical-scroller`\n\n```html\n<furo-vertical-scroller>\n  <your-content></your-content>\n</furo-vertical-scroller>\n```",
-      "summary": "vertical scroll",
-      "path": "src/furo-vertical-scroller.js",
-      "properties": [],
-      "methods": [
-        {
-          "name": "render",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 80,
-              "column": 2
-            },
-            "end": {
-              "line": 85,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "TemplateResult"
-          }
-        }
-      ],
-      "staticMethods": [],
-      "demos": [
-        {
-          "url": "demo-furo-vertical-scroller",
-          "description": "Basic usage"
-        }
-      ],
-      "metadata": {},
-      "sourceRange": {
-        "start": {
-          "line": 19,
-          "column": 0
-        },
-        "end": {
-          "line": 86,
-          "column": 1
-        }
-      },
-      "privacy": "public",
-      "superclass": "HTMLElement",
-      "name": "FuroVerticalScroller",
-      "attributes": [],
-      "events": [],
-      "styling": {
-        "cssVariables": [],
-        "selectors": []
-      },
-      "slots": [],
-      "tagname": "furo-vertical-scroller",
-      "mixins": [
-        "FBP"
-      ]
-    },
-    {
-      "description": "`furo-split-view`  is a layouter for master detail views.\n\nYou can add the attribute scroll on the detail view to make the content scrollable.\n\n\n```html\n<furo-split-view>\n  <div slot=\"master\">Master</div>\n  <big-component scroll> </big-component>\n</furo-split-view>\n```\n### Styling\nThe following custom properties are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--split-master-width` | width of the master slot | 270px | --\n\nLeft right layout for master detail views",
-      "summary": "splitted layout",
-      "path": "src/furo-split-view.js",
-      "properties": [
-        {
-          "name": "reverse",
-          "type": "boolean | null | undefined",
-          "description": "flip the left and right side",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 39,
-              "column": 6
-            },
-            "end": {
-              "line": 39,
-              "column": 32
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        }
-      ],
-      "methods": [
-        {
-          "name": "render",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 86,
-              "column": 2
-            },
-            "end": {
-              "line": 98,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "TemplateResult"
-          }
-        }
-      ],
-      "staticMethods": [],
-      "demos": [
-        {
-          "url": "demo-furo-split-view",
-          "description": "Basic usage"
-        }
-      ],
-      "metadata": {},
-      "sourceRange": {
-        "start": {
-          "line": 33,
-          "column": 0
-        },
-        "end": {
-          "line": 99,
-          "column": 1
-        }
-      },
-      "privacy": "public",
-      "superclass": "HTMLElement",
-      "name": "FuroSplitView",
-      "attributes": [
-        {
-          "name": "reverse",
-          "description": "flip the left and right side",
-          "sourceRange": {
-            "start": {
-              "line": 39,
-              "column": 6
-            },
-            "end": {
-              "line": 39,
-              "column": 32
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        }
-      ],
-      "events": [],
-      "styling": {
-        "cssVariables": [],
-        "selectors": []
-      },
-      "slots": [],
-      "tagname": "furo-split-view",
-      "mixins": [
-        "FBP"
-      ]
-    },
-    {
-      "description": "`furo-vertical-flex`\n\n Für vertikales anordnen von Komponenten. Die Höhe ist automatisch auf 100% gesetzt (display block).\n\n Setze auf dem flexiblen Element das Attribut **flex**\n\n\n```html\n<furo-vertical-flex>\n  <div>small</div>\n  <div flex>full width</div>\n  <div>small</div>\n</furo-vertical-flex>\n```\n Tags: layout",
-      "summary": "vertical alignment of stuff",
-      "path": "src/furo-vertical-flex.js",
-      "properties": [],
-      "methods": [
-        {
-          "name": "render",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 76,
-              "column": 2
-            },
-            "end": {
-              "line": 81,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "TemplateResult"
-          }
-        }
-      ],
-      "staticMethods": [],
-      "demos": [
-        {
-          "url": "demo-furo-vertical-flex",
-          "description": "Basic usage"
-        }
-      ],
-      "metadata": {},
-      "sourceRange": {
-        "start": {
-          "line": 25,
-          "column": 0
-        },
-        "end": {
-          "line": 82,
-          "column": 1
-        }
-      },
-      "privacy": "public",
-      "superclass": "LitElement",
-      "name": "FuroVerticalFlex",
-      "attributes": [],
-      "events": [],
-      "styling": {
-        "cssVariables": [],
-        "selectors": []
-      },
-      "slots": [],
-      "tagname": "furo-vertical-flex",
       "mixins": [
         "FBP"
       ]
@@ -1097,6 +1056,336 @@
       },
       "slots": [],
       "tagname": "furo-resizer",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-ripple` gives the ripple effect to a element\n\n > Note: Add a `position:relative` to the parent element.\n\n use it directly in an element:\n<furo-demo-snippet source>\n<template>\n<!-- without position relative -->\n <button>\n      click here\n     <furo-ripple></furo-ripple>\n </button>\n</template>\n</furo-demo-snippet>\n\n## trigger the ripple effect via wire\n<furo-demo-snippet source>\n<template>\n<button @-click=\"--actionClicked\">\n      click here\n</button>\n\n<div style=\"position:relative; width:80px;height:80px; border:1px solid black;\">\n  <furo-ripple noink ƒ-trigger=\"--actionClicked\"></furo-ripple>\n  Ripple here\n</div>\n</template>\n</furo-demo-snippet>\n\n\n## style vars\n with variable `--furo-ripple-bg-color` you can modify the backgroud color of the ripple effect",
+      "summary": "add a ripple effect",
+      "path": "src/furo-ripple.js",
+      "properties": [
+        {
+          "name": "noink",
+          "type": "boolean | null | undefined",
+          "description": "Disables the click, only ripples with `trigger()`",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 115,
+              "column": 6
+            },
+            "end": {
+              "line": 115,
+              "column": 45
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "connectedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 47,
+              "column": 2
+            },
+            "end": {
+              "line": 53,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "trigger",
+          "description": "animate the ripple effect",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 122,
+              "column": 2
+            },
+            "end": {
+              "line": 127,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 41,
+          "column": 0
+        },
+        "end": {
+          "line": 128,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "LitElement",
+      "name": "FuroRipple",
+      "attributes": [
+        {
+          "name": "noink",
+          "description": "Disables the click, only ripples with `trigger()`",
+          "sourceRange": {
+            "start": {
+              "line": 115,
+              "column": 6
+            },
+            "end": {
+              "line": 115,
+              "column": 45
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ripple"
+    },
+    {
+      "description": "`furo-vertical-scroller`\n\n```html\n<furo-vertical-scroller>\n  <your-content></your-content>\n</furo-vertical-scroller>\n```",
+      "summary": "vertical scroll",
+      "path": "src/furo-vertical-scroller.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 80,
+              "column": 2
+            },
+            "end": {
+              "line": 85,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-vertical-scroller",
+          "description": "Basic usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 19,
+          "column": 0
+        },
+        "end": {
+          "line": 86,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroVerticalScroller",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-vertical-scroller",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-split-view`  is a layouter for master detail views.\n\nYou can add the attribute scroll on the detail view to make the content scrollable.\n\n\n```html\n<furo-split-view>\n  <div slot=\"master\">Master</div>\n  <big-component scroll> </big-component>\n</furo-split-view>\n```\n### Styling\nThe following custom properties are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--split-master-width` | width of the master slot | 270px | --\n\nLeft right layout for master detail views",
+      "summary": "splitted layout",
+      "path": "src/furo-split-view.js",
+      "properties": [
+        {
+          "name": "reverse",
+          "type": "boolean | null | undefined",
+          "description": "flip the left and right side",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 39,
+              "column": 6
+            },
+            "end": {
+              "line": 39,
+              "column": 32
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 86,
+              "column": 2
+            },
+            "end": {
+              "line": 98,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-split-view",
+          "description": "Basic usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 33,
+          "column": 0
+        },
+        "end": {
+          "line": 99,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroSplitView",
+      "attributes": [
+        {
+          "name": "reverse",
+          "description": "flip the left and right side",
+          "sourceRange": {
+            "start": {
+              "line": 39,
+              "column": 6
+            },
+            "end": {
+              "line": 39,
+              "column": 32
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-split-view",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-vertical-flex`\n\n Für vertikales anordnen von Komponenten. Die Höhe ist automatisch auf 100% gesetzt (display block).\n\n Setze auf dem flexiblen Element das Attribut **flex**\n\n\n```html\n<furo-vertical-flex>\n  <div>small</div>\n  <div flex>full width</div>\n  <div>small</div>\n</furo-vertical-flex>\n```\n Tags: layout",
+      "summary": "vertical alignment of stuff",
+      "path": "src/furo-vertical-flex.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 76,
+              "column": 2
+            },
+            "end": {
+              "line": 81,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-vertical-flex",
+          "description": "Basic usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 25,
+          "column": 0
+        },
+        "end": {
+          "line": 82,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "LitElement",
+      "name": "FuroVerticalFlex",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-vertical-flex",
       "mixins": [
         "FBP"
       ]
