@@ -4,6 +4,7 @@ import { FBP } from '@furo/fbp';
 
 /**
  * `furo-backdrop-display`
+ *
  * This components receives and displays the backdrop requests from furo-backdrop components.
  *
  * The backdrop display can be placed anywhere in the dom. The higher the better.
@@ -24,6 +25,10 @@ import { FBP } from '@furo/fbp';
 class FuroBackdropDisplay extends FBP(LitElement) {
   constructor() {
     super();
+    /**
+     * timeout duration
+     * @type {number}
+     */
     this.toDuration = 100;
   }
 
@@ -34,10 +39,28 @@ class FuroBackdropDisplay extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Description
+       * Needed to start the animation.
+       * @private
        */
       start: { type: Boolean, reflect: true },
+      /**
+       * Indicates that the backdrop is shown.
+       * @private
+       */
       show: { type: Boolean, reflect: true },
+      /**
+       * Timeout duration, to wait to notify the changes.
+       *
+       * Note: the animations in the css are set with 250ms.
+       *
+       * If you are interested to use @-opened to load some data, set this value lower. This gives you 250 ms extra time to load content, without feeling slow.
+       *
+       * If you are interested to use @-opened to show some ui stuff, set this value higher or equal 250.
+       */
+      toDuration:{
+        type: Number,
+        attribute: "to-duration"
+      }
     };
   }
 

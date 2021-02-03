@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`furo-backdrop`\nPlace your elements which have to be displayed in the backdrop.\n\n\n```html\n  <furo-backdrop @-opened=\"--BackdropFocus\" @-closed=\"--backdropClosed\"\n    ƒ-show=\"--expandIconClicked\"\n    ƒ-close=\"--closeRequested, --recordSelected\"\n    >\n     <any-component @-item-selected=\"--recordSelected\" style=\"width: 90vw; height: 90vh\"></any-component>\n  </furo-backdrop>\n ```\n\nYou can wire and use the elements in furo-backrop as if they were local elements.\n\nDo not forget to add the furo-backdrop-display somewhere in the parent dom.",
-      "summary": "backdrop initiator",
+      "description": "`furo-backdrop`\n\nDisplays content with a backdrop.\n\nThe element you place in to furo-backdrop will be displayed centered.\n\n\n```html\n  <furo-backdrop @-opened=\"--BackdropFocus\" @-closed=\"--backdropClosed\"\n    ƒ-show=\"--expandIconClicked\"\n    ƒ-close=\"--closeRequested, --recordSelected\"\n    >\n     <any-component @-item-selected=\"--recordSelected\" style=\"width: 90vw; height: 90vh\"></any-component>\n  </furo-backdrop>\n\n```\n\nYou can wire and use the elements in furo-backrop as if they were local elements.\n\nDo not forget to add the furo-backdrop-display somewhere in the parent dom.",
+      "summary": "show content with backdrop",
       "path": "src/furo-backdrop.js",
       "properties": [],
       "methods": [
@@ -13,11 +13,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 28,
+              "line": 33,
               "column": 2
             },
             "end": {
-              "line": 35,
+              "line": 40,
               "column": 3
             }
           },
@@ -29,15 +29,15 @@
         },
         {
           "name": "show",
-          "description": "Initiates the backdrop and shows the content in the backdrop area.",
+          "description": "Initiates the backdrop and shows the content on top of the backdrop area.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 60,
               "column": 2
             },
             "end": {
-              "line": 57,
+              "line": 64,
               "column": 3
             }
           },
@@ -49,15 +49,15 @@
         },
         {
           "name": "close",
-          "description": "Closes the display.\nThe display will also get closed when the user clicks on the background.",
+          "description": "Hides the display.\n\n**Note:** The display will also get closed when the user clicks on the backdrop.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 63,
+              "line": 71,
               "column": 2
             },
             "end": {
-              "line": 67,
+              "line": 75,
               "column": 3
             }
           },
@@ -78,11 +78,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 27,
+          "line": 31,
           "column": 0
         },
         "end": {
-          "line": 85,
+          "line": 93,
           "column": 1
         }
       },
@@ -94,13 +94,13 @@
         {
           "type": "CustomEvent",
           "name": "closed",
-          "description": "closed\nFired when backdrop is closed.\n\nTipp: Maybe you want to use this event to refocus the initiator.",
+          "description": "closed\nThe **closed** event will be fired when the displayed content is invisible and the backdrop is closed.\n\nTipp: Maybe you want to use this event to refocus the initiator.",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
           "name": "opened",
-          "description": "opened\nFired when displayed component on the backdrop is opened",
+          "description": "opened\nThe **opened** event will be fired when the content is visible on the backdrop.\n\nTipp: you can use this to focus something on the shown content.",
           "metadata": {}
         }
       ],
@@ -115,22 +115,42 @@
       ]
     },
     {
-      "description": "`furo-backdrop-display`\nThis components receives and displays the backdrop requests from furo-backdrop components.\n\nThe backdrop display can be placed anywhere in the dom. The higher the better.\n\nTipp: place it below or inside the component which applies the style vars. Othewise the displayed components\ndo not know these vars.\n\n```html\n <!-- place the display in your main-stage -->\n <furo-backdrop-display></furo-backdrop-display>\n ```",
+      "description": "`furo-backdrop-display`\n\nThis components receives and displays the backdrop requests from furo-backdrop components.\n\nThe backdrop display can be placed anywhere in the dom. The higher the better.\n\nTipp: place it below or inside the component which applies the style vars. Othewise the displayed components\ndo not know these vars.\n\n```html\n <!-- place the display in your main-stage -->\n <furo-backdrop-display></furo-backdrop-display>\n ```",
       "summary": "Display component for furo-backdrop",
       "path": "src/furo-backdrop-display.js",
       "properties": [
         {
-          "name": "start",
-          "type": "boolean | null | undefined",
-          "description": "Description",
+          "name": "toDuration",
+          "type": "number",
+          "description": "Timeout duration, to wait to notify the changes.\n\nNote: the animations in the css are set with 250ms.\n\nIf you are interested to use @-opened to load some data, set this value lower. This gives you 250 ms extra time to load content, without feeling slow.\n\nIf you are interested to use @-opened to show some ui stuff, set this value higher or equal 250.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 77,
+              "line": 31,
+              "column": 4
+            },
+            "end": {
+              "line": 31,
+              "column": 19
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "100"
+        },
+        {
+          "name": "start",
+          "type": "boolean | null | undefined",
+          "description": "Needed to start the animation.",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 44,
               "column": 6
             },
             "end": {
-              "line": 77,
+              "line": 44,
               "column": 45
             }
           },
@@ -143,15 +163,15 @@
         {
           "name": "show",
           "type": "boolean | null | undefined",
-          "description": "",
-          "privacy": "public",
+          "description": "Indicates that the backdrop is shown.",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 78,
+              "line": 49,
               "column": 6
             },
             "end": {
-              "line": 78,
+              "line": 49,
               "column": 44
             }
           },
@@ -169,11 +189,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 69,
               "column": 2
             },
             "end": {
-              "line": 93,
+              "line": 117,
               "column": 3
             }
           },
@@ -189,11 +209,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 126,
               "column": 2
             },
             "end": {
-              "line": 114,
+              "line": 138,
               "column": 3
             }
           },
@@ -209,11 +229,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 196,
+              "line": 220,
               "column": 2
             },
             "end": {
-              "line": 202,
+              "line": 226,
               "column": 3
             }
           },
@@ -234,11 +254,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 23,
+          "line": 24,
           "column": 0
         },
         "end": {
-          "line": 203,
+          "line": 227,
           "column": 1
         }
       },
@@ -247,36 +267,20 @@
       "name": "FuroBackdropDisplay",
       "attributes": [
         {
-          "name": "start",
-          "description": "Description",
+          "name": "to-duration",
+          "description": "Timeout duration, to wait to notify the changes.\n\nNote: the animations in the css are set with 250ms.\n\nIf you are interested to use @-opened to load some data, set this value lower. This gives you 250 ms extra time to load content, without feeling slow.\n\nIf you are interested to use @-opened to show some ui stuff, set this value higher or equal 250.",
           "sourceRange": {
             "start": {
-              "line": 77,
-              "column": 6
+              "line": 31,
+              "column": 4
             },
             "end": {
-              "line": 77,
-              "column": 45
+              "line": 31,
+              "column": 19
             }
           },
           "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "show",
-          "description": "",
-          "sourceRange": {
-            "start": {
-              "line": 78,
-              "column": 6
-            },
-            "end": {
-              "line": 78,
-              "column": 44
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
+          "type": "number"
         }
       ],
       "events": [],

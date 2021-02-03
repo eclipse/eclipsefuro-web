@@ -4,7 +4,10 @@ import { FBP } from '@furo/fbp';
 
 /**
  * `furo-backdrop`
- * Place your elements which have to be displayed in the backdrop.
+ *
+ * Displays content with a backdrop.
+ *
+ * The element you place in to furo-backdrop will be displayed centered.
  *
  *
  * ```html
@@ -14,13 +17,14 @@ import { FBP } from '@furo/fbp';
  *     >
  *      <any-component @-item-selected="--recordSelected" style="width: 90vw; height: 90vh"></any-component>
  *   </furo-backdrop>
- *  ```
+ *
+ * ```
  *
  * You can wire and use the elements in furo-backrop as if they were local elements.
  *
  * Do not forget to add the furo-backdrop-display somewhere in the parent dom.
  *
- * @summary backdrop initiator
+ * @summary show content with backdrop
  * @demo demo-furo-backdrop Basic usage
  * @customElement
  * @appliesMixin FBP
@@ -38,19 +42,21 @@ class FuroBackdrop extends FBP(LitElement) {
 
   /**
    * @event opened
-   * Fired when displayed component on the backdrop is opened
+   * The **opened** event will be fired when the content is visible on the backdrop.
+   *
+   * Tipp: you can use this to focus something on the shown content.
    *
    */
 
   /**
    * @event closed
-   * Fired when backdrop is closed.
+   * The **closed** event will be fired when the displayed content is invisible and the backdrop is closed.
    *
    * Tipp: Maybe you want to use this event to refocus the initiator.
    */
 
   /**
-   * Initiates the backdrop and shows the content in the backdrop area.
+   * Initiates the backdrop and shows the content on top of the backdrop area.
    */
   show() {
     const customEvent = new Event('show-backdrop-requested', { composed: true, bubbles: true });
@@ -59,8 +65,9 @@ class FuroBackdrop extends FBP(LitElement) {
   }
 
   /**
-   * Closes the display.
-   * The display will also get closed when the user clicks on the background.
+   * Hides the display.
+   *
+   * **Note:** The display will also get closed when the user clicks on the backdrop.
    */
   close() {
     const customEvent = new Event('close-backdrop-requested', { composed: true, bubbles: true });
