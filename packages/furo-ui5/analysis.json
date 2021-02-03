@@ -292,7 +292,7 @@
       "tagname": "furo-ui5-data-checkbox-input"
     },
     {
-      "description": "`furo-ui5-form-field-container`\nThe furo-ui5-form-field-container gives the user a layout to manage\ninput field and labels according to the design specification of SAP Fiori.\n\nExample\n\n```html\n<furo-ui5-form-field-container>\n  <ui5-label label slot=\"label\" for=\"Custom\" show-colon>Currency / Units (custom)</ui5-label>\n  <furo-horizontal-flex id=\"Custom\" content space>\n    <furo-ui5-data-text-input flex ƒ-bind-data=\"--entity(*.data.furo_data_money_input.currency_code)\"></furo-ui5-data-text-input>\n    <furo-ui5-data-number-input flex ƒ-bind-data=\"--entity(*.data.furo_data_money_input.units)\"></furo-ui5-data-number-input>\n </furo-horizontal-flex>\n</furo-ui5-form-field-container>\n```\n\n\nThe form and simple form in size L use a two-column layout within the responsive grid layout by default.\nThat means that the form groups are placed next to each other to have all the information on one screen and to\navoid scrolling. In these columns, the labels are positioned in the same row as the corresponding input field or value.\nSo the form groups adopt the Z layout (reading direction in rows, not in columns).\n\nThe label-field ratio is 4:8:0 by default:\n\n4 grid columns of the responsive grid layout are used by the labels.\n8 grid columns of the responsive grid layout are used by fields.\n0 grid columns of the responsive grid layout are used by empty columns.\n\n\nSize M of the form and simple form also has a single-column layout within the responsive grid layout by default.\nHowever, in size M the labels are positioned in the same row as the corresponding input field or value, and form\ngroups are positioned below each other.\n\nThe label-field ratio is 2:10:0 by default:\n\n2 grid columns of the responsive grid layout are used by the labels.\n10 grid columns of the responsive grid layout are used by the fields.\n0 columns of the responsive grid layout are used by empty columns.\n\n\nSize S (Smartphones and Dialogs)\nThe form and simple form use a single-column layout within the responsive grid layout in size S by default.\nThis means that the form groups are positioned below each other in a single column and the labels are positioned\n`above` the fields to avoid truncation of the labels.\n\nThe label-field ratio is 12:12:0 by default:\n\n12 grid columns of the responsive grid layout are used by the labels.\n(A label handles the space of a whole row.)\n12 grid columns of the responsive grid layout are used by the fields.\n(A field handles the space of a whole row.)\n0 grid columns of the responsive grid layout are used by empty columns.\n(There is no empty space on the right of the field.)\n\nStyling\nCustom property | Description | Default\n----------------|-------------|----------\n`--furo-ui5-form-field-container-grid-row-gap` | `grid row gap` | `1em`\n`--furo-ui5-form-field-container-grid-column-gap` | `grid column gap` | `1em`\n`--furo-ui5-form-field-container-label-justify` | `label alignment (start, end)` | `end`",
+      "description": "`furo-ui5-form-field-container`\nThe furo-ui5-form-field-container gives the user a layout to manage\ninput field and labels according to the design specification of SAP Fiori.\n\nExample\n\n```html\n<furo-ui5-form-field-container>\n  <ui5-label label slot=\"label\" for=\"Custom\" show-colon>Currency / Units (custom)</ui5-label>\n  <furo-horizontal-flex id=\"Custom\" content space>\n    <furo-ui5-data-text-input flex ƒ-bind-data=\"--entity(*.data.furo_data_money_input.currency_code)\"></furo-ui5-data-text-input>\n    <furo-ui5-data-number-input flex ƒ-bind-data=\"--entity(*.data.furo_data_money_input.units)\"></furo-ui5-data-number-input>\n </furo-horizontal-flex>\n</furo-ui5-form-field-container>\n```\n\n\nThe form and simple form in size L use a two-column layout within the responsive grid layout by default.\nThat means that the form groups are placed next to each other to have all the information on one screen and to\navoid scrolling. In these columns, the labels are positioned in the same row as the corresponding input field or value.\nSo the form groups adopt the Z layout (reading direction in rows, not in columns).\n\nThe label-field ratio is 4:8:0 by default:\n\n4 grid columns of the responsive grid layout are used by the labels.\n8 grid columns of the responsive grid layout are used by fields.\n0 grid columns of the responsive grid layout are used by empty columns.\n\n\nSize M of the form and simple form also has a single-column layout within the responsive grid layout by default.\nHowever, in size M the labels are positioned in the same row as the corresponding input field or value, and form\ngroups are positioned below each other.\n\nThe label-field ratio is 3:9:0 by default:\n\n2 grid columns of the responsive grid layout are used by the labels.\n10 grid columns of the responsive grid layout are used by the fields.\n0 columns of the responsive grid layout are used by empty columns.\n\n\nSize S (Smartphones and Dialogs)\nThe form and simple form use a single-column layout within the responsive grid layout in size S by default.\nThis means that the form groups are positioned below each other in a single column and the labels are positioned\n`above` the fields to avoid truncation of the labels.\n\nThe label-field ratio is 12:12:0 by default:\n\n12 grid columns of the responsive grid layout are used by the labels.\n(A label handles the space of a whole row.)\n12 grid columns of the responsive grid layout are used by the fields.\n(A field handles the space of a whole row.)\n0 grid columns of the responsive grid layout are used by empty columns.\n(There is no empty space on the right of the field.)\n\nStyling\nCustom property | Description | Default\n----------------|-------------|----------\n`--furo-ui5-form-field-container-grid-row-gap` | `grid row gap` | `1em`\n`--furo-ui5-form-field-container-grid-column-gap` | `grid column gap` | `1em`\n`--furo-ui5-form-field-container-label-justify` | `label alignment (start, end)` | `end`",
       "summary": "form field container",
       "path": "src/furo-ui5-form-field-container.js",
       "properties": [],
@@ -1937,7 +1937,7 @@
               "column": 6
             },
             "end": {
-              "line": 55,
+              "line": 57,
               "column": 7
             }
           },
@@ -1975,11 +1975,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 77,
+              "line": 79,
               "column": 2
             },
             "end": {
-              "line": 79,
+              "line": 81,
               "column": 3
             }
           },
@@ -1999,11 +1999,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 87,
               "column": 2
             },
             "end": {
-              "line": 102,
+              "line": 104,
               "column": 3
             }
           },
@@ -2028,7 +2028,7 @@
           "column": 0
         },
         "end": {
-          "line": 103,
+          "line": 105,
           "column": 1
         }
       },
@@ -2077,7 +2077,7 @@
               "column": 6
             },
             "end": {
-              "line": 55,
+              "line": 57,
               "column": 7
             }
           },
@@ -2115,11 +2115,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 166,
+              "line": 172,
               "column": 6
             },
             "end": {
-              "line": 166,
+              "line": 172,
               "column": 29
             }
           },
@@ -2136,11 +2136,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 170,
+              "line": 176,
               "column": 6
             },
             "end": {
-              "line": 173,
+              "line": 179,
               "column": 7
             }
           },
@@ -2264,11 +2264,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 181,
+              "line": 187,
               "column": 2
             },
             "end": {
-              "line": 186,
+              "line": 192,
               "column": 3
             }
           },
@@ -2293,7 +2293,7 @@
           "column": 7
         },
         "end": {
-          "line": 187,
+          "line": 193,
           "column": 1
         }
       },
@@ -2306,11 +2306,11 @@
           "description": "the locale value of timestamp.",
           "sourceRange": {
             "start": {
-              "line": 166,
+              "line": 172,
               "column": 6
             },
             "end": {
-              "line": 166,
+              "line": 172,
               "column": 29
             }
           },
@@ -2322,11 +2322,11 @@
           "description": "Determines the format, displayed in the input field.",
           "sourceRange": {
             "start": {
-              "line": 170,
+              "line": 176,
               "column": 6
             },
             "end": {
-              "line": 173,
+              "line": 179,
               "column": 7
             }
           },
@@ -2451,11 +2451,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 77,
+              "line": 80,
               "column": 2
             },
             "end": {
-              "line": 79,
+              "line": 82,
               "column": 3
             }
           },
@@ -2475,11 +2475,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 88,
               "column": 2
             },
             "end": {
-              "line": 102,
+              "line": 105,
               "column": 3
             }
           },
@@ -2504,7 +2504,7 @@
           "column": 0
         },
         "end": {
-          "line": 103,
+          "line": 106,
           "column": 1
         }
       },
@@ -2971,11 +2971,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 192,
+              "line": 200,
               "column": 2
             },
             "end": {
-              "line": 194,
+              "line": 202,
               "column": 3
             }
           },
@@ -3047,6 +3047,27 @@
               "attributeType": "String"
             }
           }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 58,
+              "column": 6
+            },
+            "end": {
+              "line": 58,
+              "column": 71
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
         }
       ],
       "methods": [
@@ -3076,11 +3097,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 109,
               "column": 2
             },
             "end": {
-              "line": 106,
+              "line": 113,
               "column": 3
             }
           },
@@ -3096,11 +3117,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 113,
+              "line": 120,
               "column": 2
             },
             "end": {
-              "line": 136,
+              "line": 144,
               "column": 3
             }
           },
@@ -3116,11 +3137,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 143,
+              "line": 151,
               "column": 2
             },
             "end": {
-              "line": 156,
+              "line": 164,
               "column": 3
             }
           },
@@ -3140,11 +3161,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 162,
+              "line": 170,
               "column": 2
             },
             "end": {
-              "line": 185,
+              "line": 193,
               "column": 3
             }
           },
@@ -3160,11 +3181,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 210,
               "column": 2
             },
             "end": {
-              "line": 216,
+              "line": 224,
               "column": 3
             }
           },
@@ -3180,11 +3201,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 222,
+              "line": 230,
               "column": 2
             },
             "end": {
-              "line": 230,
+              "line": 238,
               "column": 3
             }
           },
@@ -3217,7 +3238,7 @@
           "column": 0
         },
         "end": {
-          "line": 231,
+          "line": 239,
           "column": 1
         }
       },
@@ -3272,6 +3293,22 @@
           },
           "metadata": {},
           "type": "string | null | undefined"
+        },
+        {
+          "name": "disabled",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 58,
+              "column": 6
+            },
+            "end": {
+              "line": 58,
+              "column": 71
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
         }
       ],
       "events": [],
@@ -7908,11 +7945,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 392,
+              "line": 410,
               "column": 6
             },
             "end": {
-              "line": 396,
+              "line": 414,
               "column": 7
             }
           },
@@ -7929,11 +7966,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 400,
+              "line": 418,
               "column": 6
             },
             "end": {
-              "line": 404,
+              "line": 422,
               "column": 7
             }
           },
@@ -7950,11 +7987,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 410,
+              "line": 428,
               "column": 6
             },
             "end": {
-              "line": 413,
+              "line": 431,
               "column": 7
             }
           },
@@ -7971,11 +8008,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 417,
+              "line": 435,
               "column": 6
             },
             "end": {
-              "line": 419,
+              "line": 437,
               "column": 7
             }
           },
@@ -7992,11 +8029,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 423,
+              "line": 441,
               "column": 6
             },
             "end": {
-              "line": 425,
+              "line": 443,
               "column": 7
             }
           },
@@ -8013,11 +8050,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 429,
+              "line": 447,
               "column": 6
             },
             "end": {
-              "line": 432,
+              "line": 450,
               "column": 7
             }
           },
@@ -8034,11 +8071,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 436,
+              "line": 454,
               "column": 6
             },
             "end": {
-              "line": 440,
+              "line": 458,
               "column": 7
             }
           },
@@ -8055,11 +8092,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 446,
+              "line": 464,
               "column": 6
             },
             "end": {
-              "line": 449,
+              "line": 467,
               "column": 7
             }
           },
@@ -8076,11 +8113,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 455,
+              "line": 473,
               "column": 6
             },
             "end": {
-              "line": 458,
+              "line": 476,
               "column": 7
             }
           },
@@ -8097,11 +8134,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 464,
+              "line": 482,
               "column": 6
             },
             "end": {
-              "line": 468,
+              "line": 486,
               "column": 7
             }
           },
@@ -8118,11 +8155,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 473,
+              "line": 491,
               "column": 6
             },
             "end": {
-              "line": 477,
+              "line": 495,
               "column": 7
             }
           },
@@ -8139,11 +8176,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 481,
+              "line": 499,
               "column": 6
             },
             "end": {
-              "line": 485,
+              "line": 503,
               "column": 7
             }
           },
@@ -8160,11 +8197,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 491,
+              "line": 509,
               "column": 6
             },
             "end": {
-              "line": 495,
+              "line": 513,
               "column": 7
             }
           },
@@ -8181,11 +8218,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 501,
+              "line": 519,
               "column": 6
             },
             "end": {
-              "line": 504,
+              "line": 522,
               "column": 7
             }
           },
@@ -8202,11 +8239,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 508,
+              "line": 526,
               "column": 6
             },
             "end": {
-              "line": 511,
+              "line": 529,
               "column": 7
             }
           },
@@ -8223,11 +8260,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 516,
+              "line": 534,
               "column": 6
             },
             "end": {
-              "line": 518,
+              "line": 536,
               "column": 7
             }
           },
@@ -8244,11 +8281,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 522,
+              "line": 540,
               "column": 6
             },
             "end": {
-              "line": 525,
+              "line": 543,
               "column": 7
             }
           },
@@ -8265,11 +8302,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 529,
+              "line": 547,
               "column": 6
             },
             "end": {
-              "line": 532,
+              "line": 550,
               "column": 7
             }
           },
@@ -8286,11 +8323,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 536,
+              "line": 554,
               "column": 6
             },
             "end": {
-              "line": 539,
+              "line": 557,
               "column": 7
             }
           },
@@ -8438,7 +8475,7 @@
               "column": 2
             },
             "end": {
-              "line": 253,
+              "line": 271,
               "column": 3
             }
           },
@@ -8454,11 +8491,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 255,
+              "line": 273,
               "column": 2
             },
             "end": {
-              "line": 291,
+              "line": 309,
               "column": 3
             }
           },
@@ -8478,11 +8515,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 293,
+              "line": 311,
               "column": 2
             },
             "end": {
-              "line": 302,
+              "line": 320,
               "column": 3
             }
           },
@@ -8498,11 +8535,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 304,
+              "line": 322,
               "column": 2
             },
             "end": {
-              "line": 325,
+              "line": 343,
               "column": 3
             }
           },
@@ -8518,11 +8555,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 332,
+              "line": 350,
               "column": 2
             },
             "end": {
-              "line": 373,
+              "line": 391,
               "column": 3
             }
           },
@@ -8538,11 +8575,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 378,
+              "line": 396,
               "column": 2
             },
             "end": {
-              "line": 381,
+              "line": 399,
               "column": 3
             }
           },
@@ -8558,11 +8595,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 605,
+              "line": 623,
               "column": 2
             },
             "end": {
-              "line": 645,
+              "line": 663,
               "column": 3
             }
           },
@@ -8587,7 +8624,7 @@
           "column": 7
         },
         "end": {
-          "line": 646,
+          "line": 664,
           "column": 1
         }
       },
@@ -8600,11 +8637,11 @@
           "description": "the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object",
           "sourceRange": {
             "start": {
-              "line": 392,
+              "line": 410,
               "column": 6
             },
             "end": {
-              "line": 396,
+              "line": 414,
               "column": 7
             }
           },
@@ -8616,11 +8653,11 @@
           "description": "the field name of reference-item which should be used as display which will be showed in the dropdown.",
           "sourceRange": {
             "start": {
-              "line": 400,
+              "line": 418,
               "column": 6
             },
             "end": {
-              "line": 404,
+              "line": 422,
               "column": 7
             }
           },
@@ -8632,11 +8669,11 @@
           "description": "if you bind a complex type, declare here the field which gets updated of value by selecting an item.\n\nIf you bind a scalar, you dont need this attribute.",
           "sourceRange": {
             "start": {
-              "line": 410,
+              "line": 428,
               "column": 6
             },
             "end": {
-              "line": 413,
+              "line": 431,
               "column": 7
             }
           },
@@ -8648,11 +8685,11 @@
           "description": "the placeholder of the search input field",
           "sourceRange": {
             "start": {
-              "line": 429,
+              "line": 447,
               "column": 6
             },
             "end": {
-              "line": 432,
+              "line": 450,
               "column": 7
             }
           },
@@ -8664,39 +8701,7 @@
           "description": "hint text when result not found by search",
           "sourceRange": {
             "start": {
-              "line": 436,
-              "column": 6
-            },
-            "end": {
-              "line": 440,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "required",
-          "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 446,
-              "column": 6
-            },
-            "end": {
-              "line": 449,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "hint",
-          "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 455,
+              "line": 454,
               "column": 6
             },
             "end": {
@@ -8708,15 +8713,47 @@
           "type": "string | null | undefined"
         },
         {
-          "name": "min-term-length",
-          "description": "the minimal length of search term to trigger the search event.\n\nUse with caution, normally the specs defines this value.",
+          "name": "required",
+          "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
               "line": 464,
               "column": 6
             },
             "end": {
-              "line": 468,
+              "line": 467,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "hint",
+          "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "sourceRange": {
+            "start": {
+              "line": 473,
+              "column": 6
+            },
+            "end": {
+              "line": 476,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "min-term-length",
+          "description": "the minimal length of search term to trigger the search event.\n\nUse with caution, normally the specs defines this value.",
+          "sourceRange": {
+            "start": {
+              "line": 482,
+              "column": 6
+            },
+            "end": {
+              "line": 486,
               "column": 7
             }
           },
@@ -8728,11 +8765,11 @@
           "description": "The maximal number of items to display. If the collection contains more data then then this value,\nthe **max-results-hint** will be displayed at the bottom of the list.",
           "sourceRange": {
             "start": {
-              "line": 473,
+              "line": 491,
               "column": 6
             },
             "end": {
-              "line": 477,
+              "line": 495,
               "column": 7
             }
           },
@@ -8744,11 +8781,11 @@
           "description": "hint text to display when the result set is bigger then  **maxItemsToDisplay**.",
           "sourceRange": {
             "start": {
-              "line": 481,
+              "line": 499,
               "column": 6
             },
             "end": {
-              "line": 485,
+              "line": 503,
               "column": 7
             }
           },
@@ -8760,11 +8797,11 @@
           "description": "Enable this, to avoid the automatic triggering of \"search\".\n\nThe user have to press enter to trigger the search. Min-term-length is respected.",
           "sourceRange": {
             "start": {
-              "line": 491,
+              "line": 509,
               "column": 6
             },
             "end": {
-              "line": 495,
+              "line": 513,
               "column": 7
             }
           },
@@ -8776,11 +8813,11 @@
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 501,
+              "line": 519,
               "column": 6
             },
             "end": {
-              "line": 504,
+              "line": 522,
               "column": 7
             }
           },
@@ -8792,11 +8829,11 @@
           "description": "A Boolean attribute which, if present, means this.binder.fieldNodecannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 508,
+              "line": 526,
               "column": 6
             },
             "end": {
-              "line": 511,
+              "line": 529,
               "column": 7
             }
           },
@@ -8808,11 +8845,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 516,
+              "line": 534,
               "column": 6
             },
             "end": {
-              "line": 518,
+              "line": 536,
               "column": 7
             }
           },
@@ -8824,11 +8861,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 522,
+              "line": 540,
               "column": 6
             },
             "end": {
-              "line": 525,
+              "line": 543,
               "column": 7
             }
           },
@@ -8840,11 +8877,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 529,
+              "line": 547,
               "column": 6
             },
             "end": {
-              "line": 532,
+              "line": 550,
               "column": 7
             }
           },
@@ -8856,11 +8893,11 @@
           "description": "passes always float the label",
           "sourceRange": {
             "start": {
-              "line": 536,
+              "line": 554,
               "column": 6
             },
             "end": {
-              "line": 539,
+              "line": 557,
               "column": 7
             }
           },
@@ -8873,6 +8910,12 @@
           "type": "CustomEvent",
           "name": "item-selected",
           "description": "item-selected\nFired from inner element when item is selected\ndetail payload: {Object} item",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "reset",
+          "description": "reset\nTriggered when the search term is empty and the bound field is set to empty\ndetail payload: {Object} fieldNode",
           "metadata": {}
         },
         {
@@ -10168,7 +10211,7 @@
               "column": 2
             },
             "end": {
-              "line": 58,
+              "line": 57,
               "column": 3
             }
           },
@@ -10184,11 +10227,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 86,
+              "line": 85,
               "column": 2
             },
             "end": {
-              "line": 89,
+              "line": 88,
               "column": 3
             }
           },
@@ -10208,11 +10251,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 65,
+              "line": 64,
               "column": 2
             },
             "end": {
-              "line": 80,
+              "line": 79,
               "column": 3
             }
           },
@@ -10302,11 +10345,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 91,
+              "line": 90,
               "column": 2
             },
             "end": {
-              "line": 113,
+              "line": 112,
               "column": 3
             }
           },
@@ -10331,7 +10374,7 @@
           "column": 7
         },
         "end": {
-          "line": 114,
+          "line": 113,
           "column": 1
         }
       },
@@ -10401,6 +10444,27 @@
               "attributeType": "Boolean"
             }
           }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | null | undefined",
+          "description": "Disabled state",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 46,
+              "column": 6
+            },
+            "end": {
+              "line": 50,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
         }
       ],
       "methods": [
@@ -10430,11 +10494,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 64,
+              "line": 73,
               "column": 2
             },
             "end": {
-              "line": 66,
+              "line": 75,
               "column": 3
             }
           },
@@ -10454,11 +10518,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 72,
+              "line": 81,
               "column": 2
             },
             "end": {
-              "line": 82,
+              "line": 96,
               "column": 3
             }
           },
@@ -10483,7 +10547,7 @@
           "column": 0
         },
         "end": {
-          "line": 83,
+          "line": 97,
           "column": 1
         }
       },
@@ -10517,6 +10581,22 @@
             },
             "end": {
               "line": 42,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "disabled",
+          "description": "Disabled state",
+          "sourceRange": {
+            "start": {
+              "line": 46,
+              "column": 6
+            },
+            "end": {
+              "line": 50,
               "column": 7
             }
           },
