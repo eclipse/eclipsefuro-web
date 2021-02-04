@@ -95,7 +95,7 @@ class DemoFuroFatType extends FBP(LitElement) {
       <li>'readonly': ui5 component is disabled </li>
       <li>'required': input is required  </li>
       <li>'disabled': ui5 component is disabled  </li>
-      <li>'pristine': data is not changed. it is pristine  </li>
+      <li>'modified': data is changed </li>
       <li>'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text. </li>
 
       <p><b>furo-ui5-data-input can work with following default attributes of fat types:</b></p>
@@ -121,18 +121,16 @@ class DemoFuroFatType extends FBP(LitElement) {
 
 
             <p>the following demo shows the changes of labels of fat object.</p>
-          <li>first the fat object has an initial label 'pristine'. [
-            "pristine"
-            ] </li>
+          <li>first the fat object is pristine and has no label 'modified'. [] </li>
              <li> after data injection the object has received 3 additional labels from server.
                [
                "before",
                "show-suggestions",
                "required",
-               "pristine"
                ]</li>
-          <li>when the text of input filed is changed. the 'pristine' label will be automatically removed. [
+          <li>when the text of input filed is changed. the 'modified' label will be automatically added. [
             "before",
+            "modified",
             "show-suggestions",
             "required"
             ]</li>

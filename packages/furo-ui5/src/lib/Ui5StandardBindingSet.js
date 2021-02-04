@@ -46,7 +46,7 @@ export class Ui5StandardBindingSet {
       readonly: 'readonly',
       required: 'required',
       disabled: 'disabled',
-      pristine: 'pristine',
+      modified: 'modified',
       highlight: 'highlight',
       'show-suggestions': 'showSuggestions',
     };
@@ -76,7 +76,7 @@ export class Ui5StandardBindingSet {
         this.inputElement.binder.addLabel('empty');
       }
       // if something was entered the field is not empty
-      this.inputElement.binder.deleteLabel('pristine');
+      this.inputElement.binder.addLabel('modified');
 
       // update the value
       this.inputElement.binder.fieldValue = val.target.value;
