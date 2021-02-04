@@ -4,7 +4,7 @@ import 'markdown-it/dist/markdown-it.js';
 import '@ui5/webcomponents-fiori/dist/NotificationListItem.js';
 import '@ui5/webcomponents-fiori/dist/NotificationAction.js';
 import '@ui5/webcomponents/dist/List.js';
-import { Theme } from '@furo/framework';
+import { Theme } from '@furo/framework/src/theme.js';
 import '@ui5/webcomponents/dist/MessageStrip';
 
 /**

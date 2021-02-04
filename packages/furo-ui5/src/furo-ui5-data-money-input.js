@@ -142,7 +142,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
         this.binder.addLabel('empty');
       }
       // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
+      this.binder.addLabel('modified');
     });
   }
 
@@ -210,19 +210,8 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
+        this._updateField();
       });
 
       this.binder.fieldNode.addEventListener('field-value-changed', () => {

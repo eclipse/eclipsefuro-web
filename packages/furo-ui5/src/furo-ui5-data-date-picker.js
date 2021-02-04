@@ -90,7 +90,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
       readonly: 'readonly',
       required: 'required',
       disabled: 'disabled',
-      pristine: 'pristine',
+      modified: 'modified',
       highlight: 'highlight',
     };
 
@@ -161,7 +161,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
         this.binder.addLabel('empty');
       }
       // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
+      this.binder.addLabel('modified');
     });
   }
 
@@ -211,19 +211,8 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
+        this._updateInputDateValue();
       });
 
       this.binder.fieldNode.addEventListener('field-value-changed', () => {

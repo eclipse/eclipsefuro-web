@@ -211,7 +211,7 @@
               "column": 2
             },
             "end": {
-              "line": 149,
+              "line": 137,
               "column": 3
             }
           },
@@ -233,11 +233,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 154,
+              "line": 142,
               "column": 2
             },
             "end": {
-              "line": 156,
+              "line": 144,
               "column": 3
             }
           },
@@ -262,7 +262,7 @@
           "column": 7
         },
         "end": {
-          "line": 157,
+          "line": 145,
           "column": 1
         }
       },
@@ -906,7 +906,7 @@
               "column": 2
             },
             "end": {
-              "line": 336,
+              "line": 327,
               "column": 3
             }
           },
@@ -928,11 +928,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 342,
+              "line": 333,
               "column": 2
             },
             "end": {
-              "line": 344,
+              "line": 335,
               "column": 3
             }
           },
@@ -952,11 +952,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 350,
+              "line": 341,
               "column": 2
             },
             "end": {
-              "line": 355,
+              "line": 346,
               "column": 3
             }
           },
@@ -976,11 +976,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 361,
+              "line": 352,
               "column": 2
             },
             "end": {
-              "line": 363,
+              "line": 354,
               "column": 3
             }
           },
@@ -1009,7 +1009,7 @@
           "column": 7
         },
         "end": {
-          "line": 364,
+          "line": 355,
           "column": 1
         }
       },
@@ -1693,7 +1693,7 @@
               "column": 2
             },
             "end": {
-              "line": 239,
+              "line": 228,
               "column": 3
             }
           },
@@ -1715,11 +1715,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 234,
               "column": 2
             },
             "end": {
-              "line": 278,
+              "line": 267,
               "column": 3
             }
           },
@@ -1764,11 +1764,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 286,
+              "line": 275,
               "column": 2
             },
             "end": {
-              "line": 293,
+              "line": 282,
               "column": 3
             }
           },
@@ -1788,11 +1788,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 301,
+              "line": 290,
               "column": 2
             },
             "end": {
-              "line": 312,
+              "line": 301,
               "column": 3
             }
           },
@@ -1812,11 +1812,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 322,
+              "line": 311,
               "column": 2
             },
             "end": {
-              "line": 342,
+              "line": 331,
               "column": 3
             }
           },
@@ -1850,7 +1850,7 @@
           "column": 7
         },
         "end": {
-          "line": 343,
+          "line": 332,
           "column": 1
         }
       },
@@ -3355,11 +3355,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 228,
+              "line": 218,
               "column": 2
             },
             "end": {
-              "line": 238,
+              "line": 228,
               "column": 3
             }
           },
@@ -3376,7 +3376,28 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 252,
+              "line": 242,
+              "column": 2
+            },
+            "end": {
+              "line": 249,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_errorMsg",
+          "type": "?",
+          "description": "store the error message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 256,
               "column": 2
             },
             "end": {
@@ -3391,9 +3412,9 @@
           }
         },
         {
-          "name": "_errorMsg",
+          "name": "_informationMsg",
           "type": "?",
-          "description": "store the error message and update the value state message",
+          "description": "store the information message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "start": {
@@ -3412,9 +3433,9 @@
           }
         },
         {
-          "name": "_informationMsg",
+          "name": "_warningMsg",
           "type": "?",
-          "description": "store the information message and update the value state message",
+          "description": "store the warning message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "start": {
@@ -3433,9 +3454,9 @@
           }
         },
         {
-          "name": "_warningMsg",
+          "name": "_successMsg",
           "type": "?",
-          "description": "store the warning message and update the value state message",
+          "description": "store the success message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "start": {
@@ -3454,9 +3475,9 @@
           }
         },
         {
-          "name": "_successMsg",
+          "name": "_valueState",
           "type": "?",
-          "description": "store the success message and update the value state message",
+          "description": "Update the value state on change",
           "privacy": "private",
           "sourceRange": {
             "start": {
@@ -3475,9 +3496,9 @@
           }
         },
         {
-          "name": "_valueState",
+          "name": "_hint",
           "type": "?",
-          "description": "Update the value state on change",
+          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
           "privacy": "private",
           "sourceRange": {
             "start": {
@@ -3485,28 +3506,7 @@
               "column": 2
             },
             "end": {
-              "line": 309,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_hint",
-          "type": "?",
-          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
               "line": 316,
-              "column": 2
-            },
-            "end": {
-              "line": 326,
               "column": 3
             }
           },
@@ -3523,11 +3523,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 380,
+              "line": 370,
               "column": 2
             },
             "end": {
-              "line": 428,
+              "line": 418,
               "column": 3
             }
           },
@@ -3581,7 +3581,7 @@
         },
         {
           "name": "applyBindingSet",
-          "description": "apply the binding set to the universal field node binder.\n\n### following labels of fat types are supported by binding:\n\n- 'error': valueState of ui5 component is set as error\n- 'readonly': ui5 component is disabled\n- 'required': input is required\n- 'disabled': ui5 component is disabled\n- 'pristine': data is not changed. it is pristine\n- 'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text.\n\n### following attributes of fat types are supported by binding:\n\n- 'label': label will be used as the placeholder of the ui5 input\n- 'placeholder': placeholder of the ui5 input\n- 'hint': title of the ui5 input\n- 'icon': ui5 icon in the ui5 input\n- 'leading-icon': the same as 'icon'\n- 'value-state': Defines the state of the info.Available options are: \"None\" (by default), \"Success\", \"Warning\" and \"Erorr\".\n- 'errortext': Defines the error value state message that will be displayed as pop up under the ui5-input.\n- 'error-msg': the same as 'errortext'\n- 'warning-msg': Defines the warning value state message that will be displayed as pop up under the ui5-input.\n- 'success-msg': Defines the success value state message that will be displayed as pop up under the ui5-input.\n- 'information-msg': Defines the information value state message that will be displayed as pop up under the ui5-input.\n- 'pattern': Defines the pattern of the ui5-input.\n- 'name': Defines the name of the ui5-input.\n- 'maxlength': Sets the maximum number of characters available in the input field.\n- 'suggestions': Defines the suggestion items. e.g. [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'max': is mapped to 'maxlength' attribute\n- 'min': is mapped to 'minlength' attribute\n- 'pattern': is mapped to 'pattern' attribute\n- 'required': is mapped to 'required' attribute",
+          "description": "apply the binding set to the universal field node binder.\n\n### following labels of fat types are supported by binding:\n\n- 'error': valueState of ui5 component is set as error\n- 'readonly': ui5 component is disabled\n- 'required': input is required\n- 'disabled': ui5 component is disabled\n- 'modified': data is changed\n- 'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text.\n\n### following attributes of fat types are supported by binding:\n\n- 'label': label will be used as the placeholder of the ui5 input\n- 'placeholder': placeholder of the ui5 input\n- 'hint': title of the ui5 input\n- 'icon': ui5 icon in the ui5 input\n- 'leading-icon': the same as 'icon'\n- 'value-state': Defines the state of the info.Available options are: \"None\" (by default), \"Success\", \"Warning\" and \"Erorr\".\n- 'errortext': Defines the error value state message that will be displayed as pop up under the ui5-input.\n- 'error-msg': the same as 'errortext'\n- 'warning-msg': Defines the warning value state message that will be displayed as pop up under the ui5-input.\n- 'success-msg': Defines the success value state message that will be displayed as pop up under the ui5-input.\n- 'information-msg': Defines the information value state message that will be displayed as pop up under the ui5-input.\n- 'pattern': Defines the pattern of the ui5-input.\n- 'name': Defines the name of the ui5-input.\n- 'maxlength': Sets the maximum number of characters available in the input field.\n- 'suggestions': Defines the suggestion items. e.g. [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'max': is mapped to 'maxlength' attribute\n- 'min': is mapped to 'minlength' attribute\n- 'pattern': is mapped to 'pattern' attribute\n- 'required': is mapped to 'required' attribute",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -3633,7 +3633,7 @@
               "column": 2
             },
             "end": {
-              "line": 222,
+              "line": 212,
               "column": 3
             }
           },
@@ -3655,11 +3655,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 243,
+              "line": 233,
               "column": 2
             },
             "end": {
-              "line": 245,
+              "line": 235,
               "column": 3
             }
           },
@@ -3675,11 +3675,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 328,
+              "line": 318,
               "column": 2
             },
             "end": {
-              "line": 353,
+              "line": 343,
               "column": 3
             }
           },
@@ -3695,11 +3695,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 360,
+              "line": 350,
               "column": 2
             },
             "end": {
-              "line": 372,
+              "line": 362,
               "column": 3
             }
           },
@@ -3728,7 +3728,7 @@
           "column": 7
         },
         "end": {
-          "line": 429,
+          "line": 419,
           "column": 1
         }
       },
@@ -3787,11 +3787,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 228,
+              "line": 218,
               "column": 2
             },
             "end": {
-              "line": 238,
+              "line": 228,
               "column": 3
             }
           },
@@ -3810,7 +3810,30 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 252,
+              "line": 242,
+              "column": 2
+            },
+            "end": {
+              "line": 249,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "_errorMsg",
+          "type": "?",
+          "description": "store the error message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 256,
               "column": 2
             },
             "end": {
@@ -3826,9 +3849,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_errorMsg",
+          "name": "_informationMsg",
           "type": "?",
-          "description": "store the error message and update the value state message",
+          "description": "store the information message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -3849,9 +3872,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_informationMsg",
+          "name": "_warningMsg",
           "type": "?",
-          "description": "store the information message and update the value state message",
+          "description": "store the warning message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -3872,9 +3895,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_warningMsg",
+          "name": "_successMsg",
           "type": "?",
-          "description": "store the warning message and update the value state message",
+          "description": "store the success message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -3895,9 +3918,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_successMsg",
+          "name": "_valueState",
           "type": "?",
-          "description": "store the success message and update the value state message",
+          "description": "Update the value state on change",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -3918,9 +3941,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_valueState",
+          "name": "_hint",
           "type": "?",
-          "description": "Update the value state on change",
+          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -3929,30 +3952,7 @@
               "column": 2
             },
             "end": {
-              "line": 309,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "_hint",
-          "type": "?",
-          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
               "line": 316,
-              "column": 2
-            },
-            "end": {
-              "line": 326,
               "column": 3
             }
           },
@@ -3971,11 +3971,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 380,
+              "line": 370,
               "column": 2
             },
             "end": {
-              "line": 428,
+              "line": 418,
               "column": 3
             }
           },
@@ -4034,7 +4034,7 @@
         },
         {
           "name": "applyBindingSet",
-          "description": "apply the binding set to the universal field node binder.\n\n### following labels of fat types are supported by binding:\n\n- 'error': valueState of ui5 component is set as error\n- 'readonly': ui5 component is disabled\n- 'required': input is required\n- 'disabled': ui5 component is disabled\n- 'pristine': data is not changed. it is pristine\n- 'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text.\n\n### following attributes of fat types are supported by binding:\n\n- 'label': label will be used as the placeholder of the ui5 input\n- 'placeholder': placeholder of the ui5 input\n- 'hint': title of the ui5 input\n- 'icon': ui5 icon in the ui5 input\n- 'leading-icon': the same as 'icon'\n- 'value-state': Defines the state of the info.Available options are: \"None\" (by default), \"Success\", \"Warning\" and \"Erorr\".\n- 'errortext': Defines the error value state message that will be displayed as pop up under the ui5-input.\n- 'error-msg': the same as 'errortext'\n- 'warning-msg': Defines the warning value state message that will be displayed as pop up under the ui5-input.\n- 'success-msg': Defines the success value state message that will be displayed as pop up under the ui5-input.\n- 'information-msg': Defines the information value state message that will be displayed as pop up under the ui5-input.\n- 'pattern': Defines the pattern of the ui5-input.\n- 'name': Defines the name of the ui5-input.\n- 'maxlength': Sets the maximum number of characters available in the input field.\n- 'suggestions': Defines the suggestion items. e.g. [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'max': is mapped to 'maxlength' attribute\n- 'min': is mapped to 'minlength' attribute\n- 'pattern': is mapped to 'pattern' attribute\n- 'required': is mapped to 'required' attribute",
+          "description": "apply the binding set to the universal field node binder.\n\n### following labels of fat types are supported by binding:\n\n- 'error': valueState of ui5 component is set as error\n- 'readonly': ui5 component is disabled\n- 'required': input is required\n- 'disabled': ui5 component is disabled\n- 'modified': data is changed\n- 'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text.\n\n### following attributes of fat types are supported by binding:\n\n- 'label': label will be used as the placeholder of the ui5 input\n- 'placeholder': placeholder of the ui5 input\n- 'hint': title of the ui5 input\n- 'icon': ui5 icon in the ui5 input\n- 'leading-icon': the same as 'icon'\n- 'value-state': Defines the state of the info.Available options are: \"None\" (by default), \"Success\", \"Warning\" and \"Erorr\".\n- 'errortext': Defines the error value state message that will be displayed as pop up under the ui5-input.\n- 'error-msg': the same as 'errortext'\n- 'warning-msg': Defines the warning value state message that will be displayed as pop up under the ui5-input.\n- 'success-msg': Defines the success value state message that will be displayed as pop up under the ui5-input.\n- 'information-msg': Defines the information value state message that will be displayed as pop up under the ui5-input.\n- 'pattern': Defines the pattern of the ui5-input.\n- 'name': Defines the name of the ui5-input.\n- 'maxlength': Sets the maximum number of characters available in the input field.\n- 'suggestions': Defines the suggestion items. e.g. [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'max': is mapped to 'maxlength' attribute\n- 'min': is mapped to 'minlength' attribute\n- 'pattern': is mapped to 'pattern' attribute\n- 'required': is mapped to 'required' attribute",
           "privacy": "public",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -4091,7 +4091,7 @@
               "column": 2
             },
             "end": {
-              "line": 222,
+              "line": 212,
               "column": 3
             }
           },
@@ -4115,11 +4115,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 243,
+              "line": 233,
               "column": 2
             },
             "end": {
-              "line": 245,
+              "line": 235,
               "column": 3
             }
           },
@@ -4137,11 +4137,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 328,
+              "line": 318,
               "column": 2
             },
             "end": {
-              "line": 353,
+              "line": 343,
               "column": 3
             }
           },
@@ -4159,11 +4159,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 360,
+              "line": 350,
               "column": 2
             },
             "end": {
-              "line": 372,
+              "line": 362,
               "column": 3
             }
           },
@@ -4233,11 +4233,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 269,
+              "line": 258,
               "column": 2
             },
             "end": {
-              "line": 271,
+              "line": 260,
               "column": 3
             }
           },
@@ -4252,11 +4252,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 297,
+              "line": 286,
               "column": 2
             },
             "end": {
-              "line": 303,
+              "line": 292,
               "column": 3
             }
           },
@@ -4384,7 +4384,7 @@
               "column": 2
             },
             "end": {
-              "line": 233,
+              "line": 222,
               "column": 3
             }
           },
@@ -4406,11 +4406,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 243,
+              "line": 232,
               "column": 2
             },
             "end": {
-              "line": 263,
+              "line": 252,
               "column": 3
             }
           },
@@ -4426,11 +4426,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 277,
+              "line": 266,
               "column": 2
             },
             "end": {
-              "line": 291,
+              "line": 280,
               "column": 3
             }
           },
@@ -4450,11 +4450,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 309,
+              "line": 298,
               "column": 2
             },
             "end": {
-              "line": 320,
+              "line": 309,
               "column": 3
             }
           },
@@ -4474,11 +4474,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 322,
+              "line": 311,
               "column": 2
             },
             "end": {
-              "line": 334,
+              "line": 323,
               "column": 3
             }
           },
@@ -4494,11 +4494,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 369,
+              "line": 358,
               "column": 2
             },
             "end": {
-              "line": 389,
+              "line": 378,
               "column": 3
             }
           },
@@ -4523,7 +4523,7 @@
           "column": 0
         },
         "end": {
-          "line": 390,
+          "line": 379,
           "column": 1
         }
       },
@@ -4536,11 +4536,11 @@
           "description": "the option object defines the currencies dropdown\n'{\"list\": [ \"chf\",\"eur\",\"usd\" ]}'\n'{\"list\": [ {\"id\":\"CHF\",\"label\":\"Schweiz\"},{\"id\":\"EUR\",\"label\":\"Europa\", \"selected\": true}'",
           "sourceRange": {
             "start": {
-              "line": 269,
+              "line": 258,
               "column": 2
             },
             "end": {
-              "line": 271,
+              "line": 260,
               "column": 3
             }
           },
@@ -4552,11 +4552,11 @@
           "description": "the string list of currencies for the dropdown. e.g. \"CHF,EUR,USD\"",
           "sourceRange": {
             "start": {
-              "line": 297,
+              "line": 286,
               "column": 2
             },
             "end": {
-              "line": 303,
+              "line": 292,
               "column": 3
             }
           },
@@ -4902,7 +4902,7 @@
               "column": 2
             },
             "end": {
-              "line": 181,
+              "line": 171,
               "column": 3
             }
           },
@@ -4924,11 +4924,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 183,
+              "line": 173,
               "column": 2
             },
             "end": {
-              "line": 189,
+              "line": 179,
               "column": 3
             }
           },
@@ -4944,11 +4944,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 192,
+              "line": 182,
               "column": 2
             },
             "end": {
-              "line": 199,
+              "line": 189,
               "column": 3
             }
           },
@@ -4965,11 +4965,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 201,
+              "line": 191,
               "column": 2
             },
             "end": {
-              "line": 210,
+              "line": 200,
               "column": 3
             }
           },
@@ -4985,11 +4985,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 212,
+              "line": 202,
               "column": 2
             },
             "end": {
-              "line": 214,
+              "line": 204,
               "column": 3
             }
           },
@@ -5014,7 +5014,7 @@
           "column": 7
         },
         "end": {
-          "line": 215,
+          "line": 205,
           "column": 1
         }
       },
@@ -5290,11 +5290,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 228,
+              "line": 218,
               "column": 2
             },
             "end": {
-              "line": 238,
+              "line": 228,
               "column": 3
             }
           },
@@ -5313,7 +5313,30 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 252,
+              "line": 242,
+              "column": 2
+            },
+            "end": {
+              "line": 249,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "_errorMsg",
+          "type": "?",
+          "description": "store the error message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 256,
               "column": 2
             },
             "end": {
@@ -5329,9 +5352,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_errorMsg",
+          "name": "_informationMsg",
           "type": "?",
-          "description": "store the error message and update the value state message",
+          "description": "store the information message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -5352,9 +5375,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_informationMsg",
+          "name": "_warningMsg",
           "type": "?",
-          "description": "store the information message and update the value state message",
+          "description": "store the warning message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -5375,9 +5398,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_warningMsg",
+          "name": "_successMsg",
           "type": "?",
-          "description": "store the warning message and update the value state message",
+          "description": "store the success message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -5398,9 +5421,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_successMsg",
+          "name": "_valueState",
           "type": "?",
-          "description": "store the success message and update the value state message",
+          "description": "Update the value state on change",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -5421,9 +5444,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_valueState",
+          "name": "_hint",
           "type": "?",
-          "description": "Update the value state on change",
+          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -5432,30 +5455,7 @@
               "column": 2
             },
             "end": {
-              "line": 309,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "_hint",
-          "type": "?",
-          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
               "line": 316,
-              "column": 2
-            },
-            "end": {
-              "line": 326,
               "column": 3
             }
           },
@@ -5474,11 +5474,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 380,
+              "line": 370,
               "column": 2
             },
             "end": {
-              "line": 428,
+              "line": 418,
               "column": 3
             }
           },
@@ -5535,7 +5535,7 @@
         },
         {
           "name": "applyBindingSet",
-          "description": "apply the binding set to the universal field node binder.\n\n### following labels of fat types are supported by binding:\n\n- 'error': valueState of ui5 component is set as error\n- 'readonly': ui5 component is disabled\n- 'required': input is required\n- 'disabled': ui5 component is disabled\n- 'pristine': data is not changed. it is pristine\n- 'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text.\n\n### following attributes of fat types are supported by binding:\n\n- 'label': label will be used as the placeholder of the ui5 input\n- 'placeholder': placeholder of the ui5 input\n- 'hint': title of the ui5 input\n- 'icon': ui5 icon in the ui5 input\n- 'leading-icon': the same as 'icon'\n- 'value-state': Defines the state of the info.Available options are: \"None\" (by default), \"Success\", \"Warning\" and \"Erorr\".\n- 'errortext': Defines the error value state message that will be displayed as pop up under the ui5-input.\n- 'error-msg': the same as 'errortext'\n- 'warning-msg': Defines the warning value state message that will be displayed as pop up under the ui5-input.\n- 'success-msg': Defines the success value state message that will be displayed as pop up under the ui5-input.\n- 'information-msg': Defines the information value state message that will be displayed as pop up under the ui5-input.\n- 'pattern': Defines the pattern of the ui5-input.\n- 'name': Defines the name of the ui5-input.\n- 'maxlength': Sets the maximum number of characters available in the input field.\n- 'suggestions': Defines the suggestion items. e.g. [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'max': is mapped to 'maxlength' attribute\n- 'min': is mapped to 'minlength' attribute\n- 'pattern': is mapped to 'pattern' attribute\n- 'required': is mapped to 'required' attribute",
+          "description": "apply the binding set to the universal field node binder.\n\n### following labels of fat types are supported by binding:\n\n- 'error': valueState of ui5 component is set as error\n- 'readonly': ui5 component is disabled\n- 'required': input is required\n- 'disabled': ui5 component is disabled\n- 'modified': data is changed\n- 'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text.\n\n### following attributes of fat types are supported by binding:\n\n- 'label': label will be used as the placeholder of the ui5 input\n- 'placeholder': placeholder of the ui5 input\n- 'hint': title of the ui5 input\n- 'icon': ui5 icon in the ui5 input\n- 'leading-icon': the same as 'icon'\n- 'value-state': Defines the state of the info.Available options are: \"None\" (by default), \"Success\", \"Warning\" and \"Erorr\".\n- 'errortext': Defines the error value state message that will be displayed as pop up under the ui5-input.\n- 'error-msg': the same as 'errortext'\n- 'warning-msg': Defines the warning value state message that will be displayed as pop up under the ui5-input.\n- 'success-msg': Defines the success value state message that will be displayed as pop up under the ui5-input.\n- 'information-msg': Defines the information value state message that will be displayed as pop up under the ui5-input.\n- 'pattern': Defines the pattern of the ui5-input.\n- 'name': Defines the name of the ui5-input.\n- 'maxlength': Sets the maximum number of characters available in the input field.\n- 'suggestions': Defines the suggestion items. e.g. [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'max': is mapped to 'maxlength' attribute\n- 'min': is mapped to 'minlength' attribute\n- 'pattern': is mapped to 'pattern' attribute\n- 'required': is mapped to 'required' attribute",
           "privacy": "public",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -5592,7 +5592,7 @@
               "column": 2
             },
             "end": {
-              "line": 222,
+              "line": 212,
               "column": 3
             }
           },
@@ -5616,11 +5616,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 243,
+              "line": 233,
               "column": 2
             },
             "end": {
-              "line": 245,
+              "line": 235,
               "column": 3
             }
           },
@@ -5638,11 +5638,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 328,
+              "line": 318,
               "column": 2
             },
             "end": {
-              "line": 353,
+              "line": 343,
               "column": 3
             }
           },
@@ -5660,11 +5660,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 360,
+              "line": 350,
               "column": 2
             },
             "end": {
-              "line": 372,
+              "line": 362,
               "column": 3
             }
           },
@@ -6045,11 +6045,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 228,
+              "line": 218,
               "column": 2
             },
             "end": {
-              "line": 238,
+              "line": 228,
               "column": 3
             }
           },
@@ -6068,7 +6068,30 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 252,
+              "line": 242,
+              "column": 2
+            },
+            "end": {
+              "line": 249,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "_errorMsg",
+          "type": "?",
+          "description": "store the error message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 256,
               "column": 2
             },
             "end": {
@@ -6084,9 +6107,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_errorMsg",
+          "name": "_informationMsg",
           "type": "?",
-          "description": "store the error message and update the value state message",
+          "description": "store the information message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -6107,9 +6130,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_informationMsg",
+          "name": "_warningMsg",
           "type": "?",
-          "description": "store the information message and update the value state message",
+          "description": "store the warning message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -6130,9 +6153,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_warningMsg",
+          "name": "_successMsg",
           "type": "?",
-          "description": "store the warning message and update the value state message",
+          "description": "store the success message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -6153,9 +6176,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_successMsg",
+          "name": "_valueState",
           "type": "?",
-          "description": "store the success message and update the value state message",
+          "description": "Update the value state on change",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -6176,9 +6199,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_valueState",
+          "name": "_hint",
           "type": "?",
-          "description": "Update the value state on change",
+          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -6187,30 +6210,7 @@
               "column": 2
             },
             "end": {
-              "line": 309,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "_hint",
-          "type": "?",
-          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
               "line": 316,
-              "column": 2
-            },
-            "end": {
-              "line": 326,
               "column": 3
             }
           },
@@ -6229,11 +6229,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 380,
+              "line": 370,
               "column": 2
             },
             "end": {
-              "line": 428,
+              "line": 418,
               "column": 3
             }
           },
@@ -6290,7 +6290,7 @@
         },
         {
           "name": "applyBindingSet",
-          "description": "apply the binding set to the universal field node binder.\n\n### following labels of fat types are supported by binding:\n\n- 'error': valueState of ui5 component is set as error\n- 'readonly': ui5 component is disabled\n- 'required': input is required\n- 'disabled': ui5 component is disabled\n- 'pristine': data is not changed. it is pristine\n- 'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text.\n\n### following attributes of fat types are supported by binding:\n\n- 'label': label will be used as the placeholder of the ui5 input\n- 'placeholder': placeholder of the ui5 input\n- 'hint': title of the ui5 input\n- 'icon': ui5 icon in the ui5 input\n- 'leading-icon': the same as 'icon'\n- 'value-state': Defines the state of the info.Available options are: \"None\" (by default), \"Success\", \"Warning\" and \"Erorr\".\n- 'errortext': Defines the error value state message that will be displayed as pop up under the ui5-input.\n- 'error-msg': the same as 'errortext'\n- 'warning-msg': Defines the warning value state message that will be displayed as pop up under the ui5-input.\n- 'success-msg': Defines the success value state message that will be displayed as pop up under the ui5-input.\n- 'information-msg': Defines the information value state message that will be displayed as pop up under the ui5-input.\n- 'pattern': Defines the pattern of the ui5-input.\n- 'name': Defines the name of the ui5-input.\n- 'maxlength': Sets the maximum number of characters available in the input field.\n- 'suggestions': Defines the suggestion items. e.g. [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'max': is mapped to 'maxlength' attribute\n- 'min': is mapped to 'minlength' attribute\n- 'pattern': is mapped to 'pattern' attribute\n- 'required': is mapped to 'required' attribute",
+          "description": "apply the binding set to the universal field node binder.\n\n### following labels of fat types are supported by binding:\n\n- 'error': valueState of ui5 component is set as error\n- 'readonly': ui5 component is disabled\n- 'required': input is required\n- 'disabled': ui5 component is disabled\n- 'modified': data is changed\n- 'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text.\n\n### following attributes of fat types are supported by binding:\n\n- 'label': label will be used as the placeholder of the ui5 input\n- 'placeholder': placeholder of the ui5 input\n- 'hint': title of the ui5 input\n- 'icon': ui5 icon in the ui5 input\n- 'leading-icon': the same as 'icon'\n- 'value-state': Defines the state of the info.Available options are: \"None\" (by default), \"Success\", \"Warning\" and \"Erorr\".\n- 'errortext': Defines the error value state message that will be displayed as pop up under the ui5-input.\n- 'error-msg': the same as 'errortext'\n- 'warning-msg': Defines the warning value state message that will be displayed as pop up under the ui5-input.\n- 'success-msg': Defines the success value state message that will be displayed as pop up under the ui5-input.\n- 'information-msg': Defines the information value state message that will be displayed as pop up under the ui5-input.\n- 'pattern': Defines the pattern of the ui5-input.\n- 'name': Defines the name of the ui5-input.\n- 'maxlength': Sets the maximum number of characters available in the input field.\n- 'suggestions': Defines the suggestion items. e.g. [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'max': is mapped to 'maxlength' attribute\n- 'min': is mapped to 'minlength' attribute\n- 'pattern': is mapped to 'pattern' attribute\n- 'required': is mapped to 'required' attribute",
           "privacy": "public",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -6347,7 +6347,7 @@
               "column": 2
             },
             "end": {
-              "line": 222,
+              "line": 212,
               "column": 3
             }
           },
@@ -6371,11 +6371,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 243,
+              "line": 233,
               "column": 2
             },
             "end": {
-              "line": 245,
+              "line": 235,
               "column": 3
             }
           },
@@ -6393,11 +6393,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 328,
+              "line": 318,
               "column": 2
             },
             "end": {
-              "line": 353,
+              "line": 343,
               "column": 3
             }
           },
@@ -6415,11 +6415,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 360,
+              "line": 350,
               "column": 2
             },
             "end": {
-              "line": 372,
+              "line": 362,
               "column": 3
             }
           },
@@ -6948,7 +6948,7 @@
               "column": 2
             },
             "end": {
-              "line": 145,
+              "line": 129,
               "column": 3
             }
           },
@@ -6970,11 +6970,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 151,
+              "line": 135,
               "column": 2
             },
             "end": {
-              "line": 153,
+              "line": 137,
               "column": 3
             }
           },
@@ -7003,7 +7003,7 @@
           "column": 7
         },
         "end": {
-          "line": 154,
+          "line": 138,
           "column": 1
         }
       },
@@ -7467,7 +7467,7 @@
               "column": 2
             },
             "end": {
-              "line": 512,
+              "line": 497,
               "column": 3
             }
           },
@@ -7489,11 +7489,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 518,
+              "line": 503,
               "column": 2
             },
             "end": {
-              "line": 520,
+              "line": 505,
               "column": 3
             }
           },
@@ -7513,11 +7513,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 523,
+              "line": 508,
               "column": 2
             },
             "end": {
-              "line": 533,
+              "line": 518,
               "column": 3
             }
           },
@@ -7533,11 +7533,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 539,
+              "line": 524,
               "column": 2
             },
             "end": {
-              "line": 541,
+              "line": 526,
               "column": 3
             }
           },
@@ -7557,11 +7557,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 543,
+              "line": 528,
               "column": 2
             },
             "end": {
-              "line": 554,
+              "line": 539,
               "column": 3
             }
           },
@@ -7578,11 +7578,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 574,
+              "line": 559,
               "column": 2
             },
             "end": {
-              "line": 590,
+              "line": 575,
               "column": 3
             }
           },
@@ -7602,11 +7602,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 596,
+              "line": 581,
               "column": 2
             },
             "end": {
-              "line": 598,
+              "line": 583,
               "column": 3
             }
           },
@@ -7635,7 +7635,7 @@
           "column": 7
         },
         "end": {
-          "line": 599,
+          "line": 584,
           "column": 1
         }
       },
@@ -7934,7 +7934,7 @@
       ]
     },
     {
-      "description": "The furo-ui5-data-reference-search\n search a reference\n bounded data should be furo.reference\n\n the furo-ui5-data-reference-search should be used together with the fur-collection-agent:\n```\n<!--  furo-data-object -->\n<furo-data-object type=\"task.Task\" @-object-ready=\"--entityReady\"></furo-data-object>\n\n<furo-horizontal-flex>\n   <furo-ui5-data-reference-search autofocus  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-ui5-data-reference-search>\n</furo-horizontal-flex>\n\n<furo-collection-agent service=\"tasks\" ƒ-search=\"--term\" ƒ-hts-in=\"--entityReady(*.fields.ref._value)\" @-response=\"--refCol\"></furo-collection-agent>\n\n```\n\n * ### following labels of fat types are supported:\n\n- 'error': state of input is error\n- 'readonly': input is disabled\n- 'required': input is required\n- 'disabled': input is disabled\n- 'pristine': data is not changed. it is pristine\n- 'condensed': input has condensed display\n\n### following attributes of fat types are supported:\n\n- 'placeholder': placeholder of the search field\n- 'hint': input hint\n- 'min_term_length': the minimum number of characters that use should to input to trigger the search\n- 'no_result_hint': hint text when result not found by search\n- 'errortext': the error text of the input\n- 'error-msg': the same as errortext\n\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'required': is mapped to 'required' attribute",
+      "description": "The furo-ui5-data-reference-search\n search a reference\n bounded data should be furo.reference\n\n the furo-ui5-data-reference-search should be used together with the fur-collection-agent:\n```\n<!--  furo-data-object -->\n<furo-data-object type=\"task.Task\" @-object-ready=\"--entityReady\"></furo-data-object>\n\n<furo-horizontal-flex>\n   <furo-ui5-data-reference-search autofocus  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-ui5-data-reference-search>\n</furo-horizontal-flex>\n\n<furo-collection-agent service=\"tasks\" ƒ-search=\"--term\" ƒ-hts-in=\"--entityReady(*.fields.ref._value)\" @-response=\"--refCol\"></furo-collection-agent>\n\n```\n\n * ### following labels of fat types are supported:\n\n- 'error': state of input is error\n- 'readonly': input is disabled\n- 'required': input is required\n- 'disabled': input is disabled\n- 'modified': data is changed\n- 'condensed': input has condensed display\n\n### following attributes of fat types are supported:\n\n- 'placeholder': placeholder of the search field\n- 'hint': input hint\n- 'min_term_length': the minimum number of characters that use should to input to trigger the search\n- 'no_result_hint': hint text when result not found by search\n- 'errortext': the error text of the input\n- 'error-msg': the same as errortext\n\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'required': is mapped to 'required' attribute",
       "summary": "furo ui5 data reference search",
       "path": "src/furo-ui5-data-reference-search.js",
       "properties": [
@@ -7945,11 +7945,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 410,
+              "line": 395,
               "column": 6
             },
             "end": {
-              "line": 414,
+              "line": 399,
               "column": 7
             }
           },
@@ -7966,11 +7966,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 418,
+              "line": 403,
               "column": 6
             },
             "end": {
-              "line": 422,
+              "line": 407,
               "column": 7
             }
           },
@@ -7987,11 +7987,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 428,
+              "line": 413,
               "column": 6
             },
             "end": {
-              "line": 431,
+              "line": 416,
               "column": 7
             }
           },
@@ -8008,11 +8008,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 435,
+              "line": 420,
               "column": 6
             },
             "end": {
-              "line": 437,
+              "line": 422,
               "column": 7
             }
           },
@@ -8029,11 +8029,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 441,
+              "line": 426,
               "column": 6
             },
             "end": {
-              "line": 443,
+              "line": 428,
               "column": 7
             }
           },
@@ -8050,11 +8050,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 447,
+              "line": 432,
               "column": 6
             },
             "end": {
-              "line": 450,
+              "line": 435,
               "column": 7
             }
           },
@@ -8071,11 +8071,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 454,
+              "line": 439,
               "column": 6
             },
             "end": {
-              "line": 458,
+              "line": 443,
               "column": 7
             }
           },
@@ -8092,11 +8092,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 464,
+              "line": 449,
               "column": 6
             },
             "end": {
-              "line": 467,
+              "line": 452,
               "column": 7
             }
           },
@@ -8113,11 +8113,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 473,
+              "line": 458,
               "column": 6
             },
             "end": {
-              "line": 476,
+              "line": 461,
               "column": 7
             }
           },
@@ -8134,11 +8134,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 482,
+              "line": 467,
               "column": 6
             },
             "end": {
-              "line": 486,
+              "line": 471,
               "column": 7
             }
           },
@@ -8155,11 +8155,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 491,
+              "line": 476,
               "column": 6
             },
             "end": {
-              "line": 495,
+              "line": 480,
               "column": 7
             }
           },
@@ -8176,11 +8176,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 499,
+              "line": 484,
               "column": 6
             },
             "end": {
-              "line": 503,
+              "line": 488,
               "column": 7
             }
           },
@@ -8197,11 +8197,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 509,
+              "line": 494,
               "column": 6
             },
             "end": {
-              "line": 513,
+              "line": 498,
               "column": 7
             }
           },
@@ -8218,11 +8218,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 519,
+              "line": 504,
               "column": 6
             },
             "end": {
-              "line": 522,
+              "line": 507,
               "column": 7
             }
           },
@@ -8239,11 +8239,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 526,
+              "line": 511,
               "column": 6
             },
             "end": {
-              "line": 529,
+              "line": 514,
               "column": 7
             }
           },
@@ -8260,11 +8260,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 534,
+              "line": 519,
               "column": 6
             },
             "end": {
-              "line": 536,
+              "line": 521,
               "column": 7
             }
           },
@@ -8281,11 +8281,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 540,
+              "line": 525,
               "column": 6
             },
             "end": {
-              "line": 543,
+              "line": 528,
               "column": 7
             }
           },
@@ -8302,11 +8302,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 547,
+              "line": 532,
               "column": 6
             },
             "end": {
-              "line": 550,
+              "line": 535,
               "column": 7
             }
           },
@@ -8323,11 +8323,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 554,
+              "line": 539,
               "column": 6
             },
             "end": {
-              "line": 557,
+              "line": 542,
               "column": 7
             }
           },
@@ -8349,7 +8349,7 @@
               "column": 2
             },
             "end": {
-              "line": 115,
+              "line": 100,
               "column": 3
             }
           },
@@ -8371,11 +8371,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 117,
+              "line": 102,
               "column": 2
             },
             "end": {
-              "line": 119,
+              "line": 104,
               "column": 3
             }
           },
@@ -8391,11 +8391,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 121,
+              "line": 106,
               "column": 2
             },
             "end": {
-              "line": 124,
+              "line": 109,
               "column": 3
             }
           },
@@ -8411,11 +8411,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 111,
               "column": 2
             },
             "end": {
-              "line": 222,
+              "line": 207,
               "column": 3
             }
           },
@@ -8431,11 +8431,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 224,
+              "line": 209,
               "column": 2
             },
             "end": {
-              "line": 230,
+              "line": 215,
               "column": 3
             }
           },
@@ -8451,11 +8451,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 232,
+              "line": 217,
               "column": 2
             },
             "end": {
-              "line": 235,
+              "line": 220,
               "column": 3
             }
           },
@@ -8471,11 +8471,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 237,
+              "line": 222,
               "column": 2
             },
             "end": {
-              "line": 271,
+              "line": 256,
               "column": 3
             }
           },
@@ -8491,11 +8491,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 273,
+              "line": 258,
               "column": 2
             },
             "end": {
-              "line": 309,
+              "line": 294,
               "column": 3
             }
           },
@@ -8515,11 +8515,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 311,
+              "line": 296,
               "column": 2
             },
             "end": {
-              "line": 320,
+              "line": 305,
               "column": 3
             }
           },
@@ -8535,11 +8535,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 322,
+              "line": 307,
               "column": 2
             },
             "end": {
-              "line": 343,
+              "line": 328,
               "column": 3
             }
           },
@@ -8555,11 +8555,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 350,
+              "line": 335,
               "column": 2
             },
             "end": {
-              "line": 391,
+              "line": 376,
               "column": 3
             }
           },
@@ -8575,11 +8575,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 396,
+              "line": 381,
               "column": 2
             },
             "end": {
-              "line": 399,
+              "line": 384,
               "column": 3
             }
           },
@@ -8595,11 +8595,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 623,
+              "line": 608,
               "column": 2
             },
             "end": {
-              "line": 663,
+              "line": 648,
               "column": 3
             }
           },
@@ -8624,7 +8624,7 @@
           "column": 7
         },
         "end": {
-          "line": 664,
+          "line": 649,
           "column": 1
         }
       },
@@ -8637,11 +8637,11 @@
           "description": "the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object",
           "sourceRange": {
             "start": {
-              "line": 410,
+              "line": 395,
               "column": 6
             },
             "end": {
-              "line": 414,
+              "line": 399,
               "column": 7
             }
           },
@@ -8653,11 +8653,11 @@
           "description": "the field name of reference-item which should be used as display which will be showed in the dropdown.",
           "sourceRange": {
             "start": {
-              "line": 418,
+              "line": 403,
               "column": 6
             },
             "end": {
-              "line": 422,
+              "line": 407,
               "column": 7
             }
           },
@@ -8669,11 +8669,11 @@
           "description": "if you bind a complex type, declare here the field which gets updated of value by selecting an item.\n\nIf you bind a scalar, you dont need this attribute.",
           "sourceRange": {
             "start": {
-              "line": 428,
+              "line": 413,
               "column": 6
             },
             "end": {
-              "line": 431,
+              "line": 416,
               "column": 7
             }
           },
@@ -8685,11 +8685,11 @@
           "description": "the placeholder of the search input field",
           "sourceRange": {
             "start": {
-              "line": 447,
+              "line": 432,
               "column": 6
             },
             "end": {
-              "line": 450,
+              "line": 435,
               "column": 7
             }
           },
@@ -8701,11 +8701,11 @@
           "description": "hint text when result not found by search",
           "sourceRange": {
             "start": {
-              "line": 454,
+              "line": 439,
               "column": 6
             },
             "end": {
-              "line": 458,
+              "line": 443,
               "column": 7
             }
           },
@@ -8717,11 +8717,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 464,
+              "line": 449,
               "column": 6
             },
             "end": {
-              "line": 467,
+              "line": 452,
               "column": 7
             }
           },
@@ -8733,11 +8733,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 473,
+              "line": 458,
               "column": 6
             },
             "end": {
-              "line": 476,
+              "line": 461,
               "column": 7
             }
           },
@@ -8749,11 +8749,11 @@
           "description": "the minimal length of search term to trigger the search event.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 482,
+              "line": 467,
               "column": 6
             },
             "end": {
-              "line": 486,
+              "line": 471,
               "column": 7
             }
           },
@@ -8765,11 +8765,11 @@
           "description": "The maximal number of items to display. If the collection contains more data then then this value,\nthe **max-results-hint** will be displayed at the bottom of the list.",
           "sourceRange": {
             "start": {
-              "line": 491,
+              "line": 476,
               "column": 6
             },
             "end": {
-              "line": 495,
+              "line": 480,
               "column": 7
             }
           },
@@ -8781,11 +8781,11 @@
           "description": "hint text to display when the result set is bigger then  **maxItemsToDisplay**.",
           "sourceRange": {
             "start": {
-              "line": 499,
+              "line": 484,
               "column": 6
             },
             "end": {
-              "line": 503,
+              "line": 488,
               "column": 7
             }
           },
@@ -8797,11 +8797,11 @@
           "description": "Enable this, to avoid the automatic triggering of \"search\".\n\nThe user have to press enter to trigger the search. Min-term-length is respected.",
           "sourceRange": {
             "start": {
-              "line": 509,
+              "line": 494,
               "column": 6
             },
             "end": {
-              "line": 513,
+              "line": 498,
               "column": 7
             }
           },
@@ -8813,11 +8813,11 @@
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 519,
+              "line": 504,
               "column": 6
             },
             "end": {
-              "line": 522,
+              "line": 507,
               "column": 7
             }
           },
@@ -8829,11 +8829,11 @@
           "description": "A Boolean attribute which, if present, means this.binder.fieldNodecannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 526,
+              "line": 511,
               "column": 6
             },
             "end": {
-              "line": 529,
+              "line": 514,
               "column": 7
             }
           },
@@ -8845,11 +8845,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 534,
+              "line": 519,
               "column": 6
             },
             "end": {
-              "line": 536,
+              "line": 521,
               "column": 7
             }
           },
@@ -8861,11 +8861,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 540,
+              "line": 525,
               "column": 6
             },
             "end": {
-              "line": 543,
+              "line": 528,
               "column": 7
             }
           },
@@ -8877,11 +8877,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 547,
+              "line": 532,
               "column": 6
             },
             "end": {
-              "line": 550,
+              "line": 535,
               "column": 7
             }
           },
@@ -8893,11 +8893,11 @@
           "description": "passes always float the label",
           "sourceRange": {
             "start": {
-              "line": 554,
+              "line": 539,
               "column": 6
             },
             "end": {
-              "line": 557,
+              "line": 542,
               "column": 7
             }
           },
@@ -9958,11 +9958,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 228,
+              "line": 218,
               "column": 2
             },
             "end": {
-              "line": 238,
+              "line": 228,
               "column": 3
             }
           },
@@ -9981,7 +9981,30 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 252,
+              "line": 242,
+              "column": 2
+            },
+            "end": {
+              "line": 249,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "FuroUi5DataInput"
+        },
+        {
+          "name": "_errorMsg",
+          "type": "?",
+          "description": "store the error message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-ui5-data-input.js",
+            "start": {
+              "line": 256,
               "column": 2
             },
             "end": {
@@ -9997,9 +10020,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_errorMsg",
+          "name": "_informationMsg",
           "type": "?",
-          "description": "store the error message and update the value state message",
+          "description": "store the information message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -10020,9 +10043,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_informationMsg",
+          "name": "_warningMsg",
           "type": "?",
-          "description": "store the information message and update the value state message",
+          "description": "store the warning message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -10043,9 +10066,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_warningMsg",
+          "name": "_successMsg",
           "type": "?",
-          "description": "store the warning message and update the value state message",
+          "description": "store the success message and update the value state message",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -10066,9 +10089,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_successMsg",
+          "name": "_valueState",
           "type": "?",
-          "description": "store the success message and update the value state message",
+          "description": "Update the value state on change",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -10089,9 +10112,9 @@
           "inheritedFrom": "FuroUi5DataInput"
         },
         {
-          "name": "_valueState",
+          "name": "_hint",
           "type": "?",
-          "description": "Update the value state on change",
+          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
           "privacy": "private",
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
@@ -10100,30 +10123,7 @@
               "column": 2
             },
             "end": {
-              "line": 309,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "_hint",
-          "type": "?",
-          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
               "line": 316,
-              "column": 2
-            },
-            "end": {
-              "line": 326,
               "column": 3
             }
           },
@@ -10142,11 +10142,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 380,
+              "line": 370,
               "column": 2
             },
             "end": {
-              "line": 428,
+              "line": 418,
               "column": 3
             }
           },
@@ -10276,11 +10276,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 243,
+              "line": 233,
               "column": 2
             },
             "end": {
-              "line": 245,
+              "line": 235,
               "column": 3
             }
           },
@@ -10298,11 +10298,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 328,
+              "line": 318,
               "column": 2
             },
             "end": {
-              "line": 353,
+              "line": 343,
               "column": 3
             }
           },
@@ -10320,11 +10320,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 360,
+              "line": 350,
               "column": 2
             },
             "end": {
-              "line": 372,
+              "line": 362,
               "column": 3
             }
           },
@@ -11050,7 +11050,7 @@
               "column": 2
             },
             "end": {
-              "line": 508,
+              "line": 493,
               "column": 3
             }
           },
@@ -11072,11 +11072,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 514,
+              "line": 499,
               "column": 2
             },
             "end": {
-              "line": 516,
+              "line": 501,
               "column": 3
             }
           },
@@ -11096,11 +11096,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 519,
+              "line": 504,
               "column": 2
             },
             "end": {
-              "line": 529,
+              "line": 514,
               "column": 3
             }
           },
@@ -11116,11 +11116,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 535,
+              "line": 520,
               "column": 2
             },
             "end": {
-              "line": 537,
+              "line": 522,
               "column": 3
             }
           },
@@ -11140,11 +11140,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 539,
+              "line": 524,
               "column": 2
             },
             "end": {
-              "line": 550,
+              "line": 535,
               "column": 3
             }
           },
@@ -11161,11 +11161,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 570,
+              "line": 555,
               "column": 2
             },
             "end": {
-              "line": 586,
+              "line": 571,
               "column": 3
             }
           },
@@ -11185,11 +11185,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 592,
+              "line": 577,
               "column": 2
             },
             "end": {
-              "line": 594,
+              "line": 579,
               "column": 3
             }
           },
@@ -11218,7 +11218,7 @@
           "column": 7
         },
         "end": {
-          "line": 595,
+          "line": 580,
           "column": 1
         }
       },
@@ -11863,7 +11863,7 @@
               "column": 2
             },
             "end": {
-              "line": 299,
+              "line": 295,
               "column": 3
             }
           },
@@ -11875,6 +11875,26 @@
               "description": "a Field object"
             }
           ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_requestUpdate",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 300,
+              "column": 2
+            },
+            "end": {
+              "line": 302,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
           "return": {
             "type": "void"
           }
@@ -11894,7 +11914,7 @@
           "column": 7
         },
         "end": {
-          "line": 300,
+          "line": 303,
           "column": 1
         }
       },
@@ -12277,7 +12297,7 @@
               "column": 2
             },
             "end": {
-              "line": 155,
+              "line": 141,
               "column": 3
             }
           },
@@ -12308,7 +12328,7 @@
           "column": 7
         },
         "end": {
-          "line": 156,
+          "line": 142,
           "column": 1
         }
       },
@@ -13579,11 +13599,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 213,
               "column": 6
             },
             "end": {
-              "line": 214,
+              "line": 216,
               "column": 7
             }
           },
@@ -13600,11 +13620,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 220,
               "column": 6
             },
             "end": {
-              "line": 221,
+              "line": 223,
               "column": 7
             }
           },
@@ -13694,7 +13714,7 @@
               "column": 2
             },
             "end": {
-              "line": 194,
+              "line": 196,
               "column": 3
             }
           },
@@ -13710,11 +13730,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 201,
               "column": 2
             },
             "end": {
-              "line": 201,
+              "line": 203,
               "column": 3
             }
           },
@@ -13730,11 +13750,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 246,
+              "line": 248,
               "column": 2
             },
             "end": {
-              "line": 250,
+              "line": 252,
               "column": 3
             }
           },
@@ -13759,7 +13779,7 @@
           "column": 0
         },
         "end": {
-          "line": 251,
+          "line": 253,
           "column": 1
         }
       },
@@ -13772,11 +13792,11 @@
           "description": "the header text of the notification",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 213,
               "column": 6
             },
             "end": {
-              "line": 214,
+              "line": 216,
               "column": 7
             }
           },
@@ -13788,11 +13808,11 @@
           "description": "Defines if the close button would be displayed.",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 220,
               "column": 6
             },
             "end": {
-              "line": 221,
+              "line": 223,
               "column": 7
             }
           },

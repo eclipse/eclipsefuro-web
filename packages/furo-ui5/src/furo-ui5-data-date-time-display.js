@@ -87,7 +87,7 @@ export class FuroUi5DataDateTimeDisplay extends FBP(LitElement) {
       readonly: 'readonly', // Determines whether the ui5-date-picker is displayed as read-only.
       required: 'required', // Defines whether the ui5-date-picker is required.
       disabled: 'disabled', // Determines whether the ui5-date-picker is displayed as disabled.
-      pristine: 'pristine',
+      modified: 'modified',
       'hide-week-numbers': 'hideWeekNumbers', // Defines the visibility of the week numbers column.  Note: For calendars other than Gregorian, the week numbers are not displayed regardless of what is set.
     };
 
