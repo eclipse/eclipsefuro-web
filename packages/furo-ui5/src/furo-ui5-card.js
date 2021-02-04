@@ -9,8 +9,28 @@ import '@ui5/webcomponents/dist/Card.js';
 import '@ui5/webcomponents/dist/Icon.js';
 
 /**
- * `furo-ui5-card`
- * Lit element
+ * `furo-ui5-card` is a bindable card that represents information in the form of a tile with separate header and content areas.
+ *
+ * ```html
+ *  <furo-ui5-card
+ *    heading="Title"
+ *    subheading="Secondary text"
+ *    icon="card"
+ *  >
+ *      <div slot="action"><furo-ui5-button>Action</furo-ui5-button></div>
+ *      <div slot="content">content goes here</div>
+ *  </furo-ui5-card>
+ *```
+ *
+ * ## Slots
+ * ### action
+ * Defines an action, displayed in the right most part of the header.
+ *
+ * Note: If status is set, the status text will be displayed, you can either have action, or status.
+ *
+ * ### content
+ * Defines the content of the card
+ *
  *
  * @customElement
  * @demo demo-furo-ui5-card Basic Usage
@@ -22,6 +42,7 @@ class FuroUi5Card extends FBP(LitElement) {
     this.icon = '';
     this.heading = '';
     this.subheading = '';
+    this.status = '';
     this.headerInteractive = false;
   }
 
@@ -73,7 +94,13 @@ class FuroUi5Card extends FBP(LitElement) {
   }
 
   /**
-   * bind a tree.Navigationnode field
+   * bind a field with the signature of furo.navigation.Navigationnode
+   *
+   * Used fields are:
+   * - display_name
+   * - secondary_text
+   * - icon
+   *
    * @param fieldNode
    */
   bindNavNode(fieldNode) {
@@ -92,7 +119,7 @@ class FuroUi5Card extends FBP(LitElement) {
   }
 
   /**
-   * update attributes according to the value of tree.Navigationnode signature
+   * update attributes according to the value of furo.navigation.Navigationnode signature
    * @private
    */
   _setNavNodeSignatureValues() {
@@ -182,6 +209,12 @@ class FuroUi5Card extends FBP(LitElement) {
        */
       icon: {type: String, reflect: true, attribute: 'icon'},
       /**
+       * Defines the status text displayed in the card header (upper right).
+       *
+       * By enabling the status, actions are not visible.
+       */
+      status: {type: String},
+      /**
        * Defines if the ui5-card header would be interactive, e.g gets hover effect, gets focused and header-click event is fired, when it is pressed.
        * @event header-click
        */
@@ -198,13 +231,14 @@ class FuroUi5Card extends FBP(LitElement) {
       <ui5-card
         heading="${this.heading}"
         subheading="${this.subheading}"
+        status="${this.status}"
         ?header-interactive="${this.headerInteractive}"
       >
         ${this.icon.length ? html`<ui5-icon name="${this.icon}" slot="avatar"></ui5-icon>` : html``}
 
-        <div slot="action">
+        ${this.status !== '' ? html`` : html`<div slot="action">
           <slot name="action"></slot>
-        </div>
+        </div>`}
 
           <slot name="content"></slot>
 

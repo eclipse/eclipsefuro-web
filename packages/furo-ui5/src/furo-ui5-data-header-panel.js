@@ -3,14 +3,22 @@ import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 import slideDown from '@ui5/webcomponents-base/dist/animations/slideDown.js';
 import slideUp from '@ui5/webcomponents-base/dist/animations/slideUp.js';
-import '@furo/ui5/src/lib/ui5-icons.js';
+
+import '@ui5/webcomponents-icons/dist/slim-arrow-up.js';
+
 import '@ui5/webcomponents/dist/Label';
 import '@ui5/webcomponents/dist/Icon.js';
 import '@ui5/webcomponents/dist/Panel';
 
 /**
  * `furo-ui5-data-header-panel`
- *  A bindable header panel. Bind a navigation node...
+ *  A bindable **header** panel.
+ *
+ *  **Info**: This component is intended to use as a header panel, if you need panels in your view, consider to use
+ *  a ui5-panel directly. That is also the reason that the api does not match with ui5-panel.
+ *
+ *  This component is a container which has a header and a content area and is used for grouping and displaying information.
+ *  It can be collapsed to save space on the screen.
  *
  * ### Styling
  * The following custom properties and mixins are available for styling:
@@ -22,6 +30,13 @@ import '@ui5/webcomponents/dist/Panel';
  * `--furo-ui5-data-header-panel-splitter-start-color` |  the gradient-start hex-Color of the splitter | --primary-dark | #0854a0
  * `--furo-ui5-data-header-panel-splitter-end-rgba-color` | the gradient-end rgba-Color of the splitter | --primary-rgb | rgba(8, 84, 16, 0)
  *
+ * ## Slots
+ * ### action
+ * Defines an action, displayed in the right most part of the header panel.
+ *
+ * ### content
+ * Defines the content of the card
+ *
  *
  * @summary A bindable header panel
  * @customElement
@@ -29,6 +44,16 @@ import '@ui5/webcomponents/dist/Panel';
  * @appliesMixin FBP
  */
 class FuroUi5DataHeaderPanel extends FBP(LitElement) {
+
+  constructor() {
+    super();
+    this.icon = '';
+    this.headerText = '';
+    this.secondaryText = '';
+    this.collapsed = false;
+  }
+
+
   /**
    * @private
    * @return {Object}
@@ -43,12 +68,14 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
       /**
        * sub title
        */
-      subTitle: { type: String, attribute: 'sub-title' },
+      secondaryText: { type: String, attribute: 'secondary-text' },
 
       /**
        * icon
        */
       icon: { type: String, attribute: 'icon' },
+      collapsed: { type: Boolean },
+
     };
   }
 
@@ -62,31 +89,31 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
       return;
     }
     this.headerText = fieldNode._value;
-    fieldNode.addEventListener("field-value-changed", () => {
+    fieldNode.addEventListener('field-value-changed', () => {
       this.headerText = fieldNode._value;
-    })
+    });
   }
 
   /**
-   * Bind any **scalar** field to set the subtitle of the panel.
+   * Bind any **scalar** field to set the secondaryText of the panel.
    * @param fieldNode
    */
-  bindsubTitle(fieldNode) {
+  bindsecondaryText(fieldNode) {
     if (fieldNode === undefined) {
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
-    this.subTitle = fieldNode._value;
-    fieldNode.addEventListener("field-value-changed", () => {
-      this.subTitle = fieldNode._value;
-    })
+    this.secondaryText = fieldNode._value;
+    fieldNode.addEventListener('field-value-changed', () => {
+      this.secondaryText = fieldNode._value;
+    });
   }
 
   /**
-   * bind a tree.Navigationnode field
+   * bind a furo.navigation.Navigationnode field
    * @param fieldNode
    */
-   bindNavNode(fieldNode) {
+  bindNavNode(fieldNode) {
     if (fieldNode === undefined || fieldNode.display_name !== undefined) {
       console.warn('Invalid fieldNode in bindData', this);
       return;
@@ -101,15 +128,15 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
   }
 
   /**
-   * update attributes according to the value of tree.Navigationnode signature
+   * update attributes according to the value of furo.navigation.Navigationnode signature
    * @private
    */
   _setNavNodeSignatureValues() {
     this.headerText = this._field.display_name._value;
-    if(this._field.secondary_text !== undefined){
-      this.subTitle = this._field.secondary_text._value;
+    if (this._field.secondary_text !== undefined) {
+      this.secondaryText = this._field.secondary_text._value;
     }
-    if(this._field.icon !== undefined) {
+    if (this._field.icon !== undefined) {
       this.icon = this._field.icon._value;
     }
   }
@@ -224,7 +251,7 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
           background-color: var(--furo-ui5-data-header-panel-icon-background-color, #354a5f);
         }
 
-        :host([fixed]) .splitter_bar{
+        :host([fixed]) .splitter_bar {
           display: none;
         }
 
@@ -258,7 +285,7 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
           background-image: linear-gradient(
             to right,
             var(--furo-ui5-data-header-panel-splitter-start-color, var(--primary-dark, #0854a0)),
-            var(--furo-ui5-data-header-panel-splitter-end-rgba-color,  rgba(var(--primary-rgb, 8, 84, 160), 0))
+            var(--furo-ui5-data-header-panel-splitter-end-rgba-color, rgba(var(--primary-rgb, 8, 84, 160), 0))
           );
         }
 
@@ -266,7 +293,7 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
           background-image: linear-gradient(
             to left,
             var(--furo-ui5-data-header-panel-splitter-start-color, var(--primary-dark, #0854a0)),
-            var(--furo-ui5-data-header-panel-splitter-end-rgba-color,  rgba(var(--primary-rgb, 8, 84, 160), 0))
+            var(--furo-ui5-data-header-panel-splitter-end-rgba-color, rgba(var(--primary-rgb, 8, 84, 160), 0))
           );
         }
       `
@@ -281,20 +308,26 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-       <ui5-panel fixed>
-          <div slot="header" class="header">
-            <ui5-title>${this.headerText}</ui5-icon></ui5-title>
-            <ui5-label>${this.subTitle}</ui5-label>
-            <slot name="action" class="action"></slot>
+      <ui5-panel fixed
+                 ?collapsed="${this.collapsed}"
+      >
+        <div slot="header" class="header">
+          <ui5-title>${this.headerText}</ui5-icon></ui5-title>
+          <ui5-label>${this.secondaryText}</ui5-label>
+          <slot name="action" class="action"></slot>
+        </div>
+        <div class="wrapper">
+          ${this.icon ? html`
+            <ui5-icon class="icon" name="${this.icon}"></ui5-icon> ` : html``}
+          <div class="content">
+            <slot></slot>
           </div>
-          <div class="wrapper">
-            ${this.icon ? html` <ui5-icon class="icon" name="${this.icon}"></ui5-icon> ` : html``}
-            <div class="content"><slot></slot></div>
-          </div>
+        </div>
       </ui5-panel>
       <div class="splitter_bar">
         <div class="splitter before"></div>
-        <ui5-button @-click="--collapserClicked" class="collapser-button" icon="slim-arrow-up" design="Transparent" ui5-button="" icon-only="" ></ui5-button>
+        <ui5-button @-click="--collapserClicked" class="collapser-button" icon="slim-arrow-up" design="Transparent"
+                    ui5-button="" icon-only=""></ui5-button>
         <div class="splitter after"></div>
       </div>
     `;

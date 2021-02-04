@@ -58,9 +58,12 @@ class DemoFuroUi5Card extends FBP(LitElement) {
               <furo-ui5-card heading="heading"
                              subheading="subheading"
                              icon="card"
+                             status="enabled"
               >
                 <div slot="action"><furo-ui5-button>Action</furo-ui5-button></div>
-                <div slot="content">content goes here</div>
+                <div slot="content">content goes here
+                <p>Status is set (enabled), so the action is not visible</p>
+                </div>
               </furo-ui5-card>
 
               <furo-ui5-card heading="Without icon"

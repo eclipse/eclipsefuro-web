@@ -156,7 +156,7 @@
       "tagname": "furo-ui5-button"
     },
     {
-      "description": "`furo-ui5-card`\nLit element",
+      "description": "`furo-ui5-card` is a bindable card that represents information in the form of a tile with separate header and content areas.\n\n```html\n <furo-ui5-card\n   heading=\"Title\"\n   subheading=\"Secondary text\"\n   icon=\"card\"\n >\n     <div slot=\"action\"><furo-ui5-button>Action</furo-ui5-button></div>\n     <div slot=\"content\">content goes here</div>\n </furo-ui5-card>\n```\n\n## Slots\n### action\nDefines an action, displayed in the right most part of the header.\n\nNote: If status is set, the status text will be displayed, you can either have action, or status.\n\n### content\nDefines the content of the card",
       "summary": "",
       "path": "src/furo-ui5-card.js",
       "properties": [
@@ -167,11 +167,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 200,
               "column": 6
             },
             "end": {
-              "line": 172,
+              "line": 200,
               "column": 29
             }
           },
@@ -188,11 +188,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 176,
+              "line": 204,
               "column": 6
             },
             "end": {
-              "line": 176,
+              "line": 204,
               "column": 32
             }
           },
@@ -209,12 +209,33 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 181,
+              "line": 209,
               "column": 6
             },
             "end": {
-              "line": 181,
+              "line": 209,
               "column": 60
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "status",
+          "type": "string | null | undefined",
+          "description": "Defines the status text displayed in the card header (upper right).\n\nBy enabling the status, actions are not visible.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 215,
+              "column": 6
+            },
+            "end": {
+              "line": 215,
+              "column": 28
             }
           },
           "metadata": {
@@ -230,11 +251,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 186,
+              "line": 220,
               "column": 6
             },
             "end": {
-              "line": 186,
+              "line": 220,
               "column": 88
             }
           },
@@ -252,11 +273,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 32,
+              "line": 53,
               "column": 2
             },
             "end": {
-              "line": 41,
+              "line": 62,
               "column": 3
             }
           },
@@ -276,11 +297,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 48,
+              "line": 69,
               "column": 2
             },
             "end": {
-              "line": 57,
+              "line": 78,
               "column": 3
             }
           },
@@ -300,11 +321,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 63,
+              "line": 84,
               "column": 2
             },
             "end": {
-              "line": 72,
+              "line": 93,
               "column": 3
             }
           },
@@ -320,15 +341,15 @@
         },
         {
           "name": "bindNavNode",
-          "description": "bind a tree.Navigationnode field",
+          "description": "bind a field with the signature of furo.navigation.Navigationnode\n\nUsed fields are:\n- display_name\n- secondary_text\n- icon",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 78,
+              "line": 105,
               "column": 2
             },
             "end": {
-              "line": 90,
+              "line": 118,
               "column": 3
             }
           },
@@ -344,15 +365,15 @@
         },
         {
           "name": "_setNavNodeSignatureValues",
-          "description": "update attributes according to the value of tree.Navigationnode signature",
+          "description": "update attributes according to the value of furo.navigation.Navigationnode signature",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 96,
+              "line": 124,
               "column": 2
             },
             "end": {
-              "line": 104,
+              "line": 132,
               "column": 3
             }
           },
@@ -368,11 +389,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 194,
+              "line": 228,
               "column": 2
             },
             "end": {
-              "line": 211,
+              "line": 246,
               "column": 3
             }
           },
@@ -397,11 +418,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 18,
+          "line": 38,
           "column": 0
         },
         "end": {
-          "line": 212,
+          "line": 247,
           "column": 1
         }
       },
@@ -414,11 +435,11 @@
           "description": "Defines the title displayed in the ui5-card header.",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 200,
               "column": 6
             },
             "end": {
-              "line": 172,
+              "line": 200,
               "column": 29
             }
           },
@@ -430,11 +451,11 @@
           "description": "Defines the subheading displayed in the ui5-card header.",
           "sourceRange": {
             "start": {
-              "line": 176,
+              "line": 204,
               "column": 6
             },
             "end": {
-              "line": 176,
+              "line": 204,
               "column": 32
             }
           },
@@ -446,12 +467,28 @@
           "description": "Defines the visual representation in the header of the card. Supports images and icons.\nhttps://openui5.hana.ondemand.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html",
           "sourceRange": {
             "start": {
-              "line": 181,
+              "line": 209,
               "column": 6
             },
             "end": {
-              "line": 181,
+              "line": 209,
               "column": 60
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "status",
+          "description": "Defines the status text displayed in the card header (upper right).\n\nBy enabling the status, actions are not visible.",
+          "sourceRange": {
+            "start": {
+              "line": 215,
+              "column": 6
+            },
+            "end": {
+              "line": 215,
+              "column": 28
             }
           },
           "metadata": {},
@@ -462,11 +499,11 @@
           "description": "Defines if the ui5-card header would be interactive, e.g gets hover effect, gets focused and header-click event is fired, when it is pressed.",
           "sourceRange": {
             "start": {
-              "line": 186,
+              "line": 220,
               "column": 6
             },
             "end": {
-              "line": 186,
+              "line": 220,
               "column": 88
             }
           },
