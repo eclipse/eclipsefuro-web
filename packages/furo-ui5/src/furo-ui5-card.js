@@ -84,7 +84,7 @@ class FuroUi5Card extends FBP(LitElement) {
     }
 
     this._field = fieldNode;
-    this._field.addEventListener('this-branch-value-changed', () => {
+    this._field.addEventListener('field-value-changed', () => {
       this._setNavNodeSignatureValues();
     });
 

@@ -8,7 +8,7 @@ import '@furo/doc-helper';
 import '@furo/ui5/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 
-
+import "@ui5/webcomponents-icons/dist/card.js"
 /**
  * `demo-furo-ui5-card`
  *
@@ -56,13 +56,15 @@ class DemoFuroUi5Card extends FBP(LitElement) {
             <furo-vertical-scroller>
 
               <furo-ui5-card heading="heading"
-                             subheading="subheading">
+                             subheading="subheading"
+                             icon="card"
+              >
                 <div slot="action"><furo-ui5-button>Action</furo-ui5-button></div>
                 <div slot="content">content goes here</div>
               </furo-ui5-card>
 
-              <furo-ui5-card heading="heading"
-                             subheading="subheading"
+              <furo-ui5-card heading="Without icon"
+                             subheading="but with header-interactive"
                              header-interactive>
                 <div slot="action"><furo-ui5-button>Action</furo-ui5-button></div>
                 <div slot="content">With heading-interactive</div>

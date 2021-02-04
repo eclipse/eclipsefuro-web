@@ -4,7 +4,7 @@ version: "v1.0.0"
 specDir: "./specs"
 specFormat: "yaml" #set to yaml or json
 dependencies:
-  - "git@github.com:theNorstroem/furoBaseSpecs.git v1.13.1" # The importer looks for all **/*.type.spec files recursive The importer looks for all **/*.service.spec files recursive
+  - "git@github.com:theNorstroem/furoBaseSpecs.git v1.14.2" # The importer looks for all **/*.type.spec files recursive The importer looks for all **/*.service.spec files recursive
 dependenciesDir: dependencies
 muSpec:
   types:
