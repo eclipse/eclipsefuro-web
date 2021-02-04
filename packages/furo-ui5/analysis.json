@@ -156,6 +156,340 @@
       "tagname": "furo-ui5-button"
     },
     {
+      "description": "`furo-ui5-card`\nLit element",
+      "summary": "",
+      "path": "src/furo-ui5-card.js",
+      "properties": [
+        {
+          "name": "heading",
+          "type": "string | null | undefined",
+          "description": "Defines the title displayed in the ui5-card header.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 172,
+              "column": 6
+            },
+            "end": {
+              "line": 172,
+              "column": 29
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "subheading",
+          "type": "string | null | undefined",
+          "description": "Defines the subheading displayed in the ui5-card header.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 176,
+              "column": 6
+            },
+            "end": {
+              "line": 176,
+              "column": 32
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "icon",
+          "type": "string | null | undefined",
+          "description": "Defines the visual representation in the header of the card. Supports images and icons.\nhttps://openui5.hana.ondemand.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 181,
+              "column": 6
+            },
+            "end": {
+              "line": 181,
+              "column": 60
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "headerInteractive",
+          "type": "boolean | null | undefined",
+          "description": "Defines if the ui5-card header would be interactive, e.g gets hover effect, gets focused and header-click event is fired, when it is pressed.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 186,
+              "column": 6
+            },
+            "end": {
+              "line": 186,
+              "column": 88
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "bindHeading",
+          "description": "Bind any **scalar** field to set the title of the panel.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 32,
+              "column": 2
+            },
+            "end": {
+              "line": 41,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindIcon",
+          "description": "Bind any **scalar** field to set the title of the panel.\nDo not forget to import the icon you will use in your component.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 48,
+              "column": 2
+            },
+            "end": {
+              "line": 57,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindSubheading",
+          "description": "Bind any **scalar** field to set the subtitle of the panel.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 63,
+              "column": 2
+            },
+            "end": {
+              "line": 72,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindNavNode",
+          "description": "bind a tree.Navigationnode field",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 78,
+              "column": 2
+            },
+            "end": {
+              "line": 90,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_setNavNodeSignatureValues",
+          "description": "update attributes according to the value of tree.Navigationnode signature",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 96,
+              "column": 2
+            },
+            "end": {
+              "line": 104,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 194,
+              "column": 2
+            },
+            "end": {
+              "line": 211,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-card",
+          "description": "Basic Usage"
+        },
+        {
+          "url": "demo-furo-ui5-card-binding",
+          "description": "With data binding"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 18,
+          "column": 0
+        },
+        "end": {
+          "line": 212,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroUi5Card",
+      "attributes": [
+        {
+          "name": "heading",
+          "description": "Defines the title displayed in the ui5-card header.",
+          "sourceRange": {
+            "start": {
+              "line": 172,
+              "column": 6
+            },
+            "end": {
+              "line": 172,
+              "column": 29
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "subheading",
+          "description": "Defines the subheading displayed in the ui5-card header.",
+          "sourceRange": {
+            "start": {
+              "line": 176,
+              "column": 6
+            },
+            "end": {
+              "line": 176,
+              "column": 32
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "icon",
+          "description": "Defines the visual representation in the header of the card. Supports images and icons.\nhttps://openui5.hana.ondemand.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html",
+          "sourceRange": {
+            "start": {
+              "line": 181,
+              "column": 6
+            },
+            "end": {
+              "line": 181,
+              "column": 60
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "header-interactive",
+          "description": "Defines if the ui5-card header would be interactive, e.g gets hover effect, gets focused and header-click event is fired, when it is pressed.",
+          "sourceRange": {
+            "start": {
+              "line": 186,
+              "column": 6
+            },
+            "end": {
+              "line": 186,
+              "column": 88
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "header-click",
+          "description": "Defines if the ui5-card header would be interactive, e.g gets hover effect, gets focused and header-click event is fired, when it is pressed.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-card"
+    },
+    {
       "description": "Allows the user to set a binary value, such as true/false or yes/no for an item.\nThe furo-ui5-data-checkbox-input component consists of a box and a label that describes its purpose. If it's checked,\nan indicator is displayed inside the box. To check/uncheck the furo-ui5-data-checkbox-input, the user has to click or tap the square box or its label.\n\nThe furo-ui5-data-checkbox-input component only has 2 states - checked and unchecked. Clicking or tapping toggles\nthe furo-ui5-data-checkbox-input between checked and unchecked state.\n\nUsage\nYou can manually set the width of the element containing the box and the label using the width property.\nIf the text exceeds the available width, it is truncated. The touchable area for toggling the\nfuro-ui5-data-checkbox-input ends where the text ends.\n\nYou can disable the furo-ui5-data-checkbox-input by setting the disabled property to true, or use the\nfuro-ui5-data-checkbox-input in read-only mode by setting the readonly property to true.",
       "summary": "data checkbox input field",
       "path": "src/furo-ui5-data-checkbox-input.js",
@@ -11863,7 +12197,7 @@
               "column": 2
             },
             "end": {
-              "line": 299,
+              "line": 304,
               "column": 3
             }
           },
@@ -11875,6 +12209,26 @@
               "description": "a Field object"
             }
           ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_requestUpdate",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 309,
+              "column": 2
+            },
+            "end": {
+              "line": 311,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
           "return": {
             "type": "void"
           }
@@ -11894,7 +12248,7 @@
           "column": 7
         },
         "end": {
-          "line": 300,
+          "line": 312,
           "column": 1
         }
       },
@@ -12330,6 +12684,291 @@
       },
       "slots": [],
       "tagname": "furo-ui5-data-toggle-button"
+    },
+    {
+      "description": "`furo-ui5-data-header-panel`\n A bindable header panel. Bind a navigation node...\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--furo-ui5-data-header-panel-icon-color` | Color of the icon  | #ffffff | --\n`--furo-ui5-data-header-panel-icon-background-color` | background Color of the icon | #354a5f | --\n`--furo-ui5-data-header-panel-splitter-start-color` |  the gradient-start hex-Color of the splitter | --primary-dark | #0854a0\n`--furo-ui5-data-header-panel-splitter-end-rgba-color` | the gradient-end rgba-Color of the splitter | --primary-rgb | rgba(8, 84, 16, 0)",
+      "summary": "A bindable header panel",
+      "path": "src/furo-ui5-data-header-panel.js",
+      "properties": [
+        {
+          "name": "headerText",
+          "type": "string | null | undefined",
+          "description": "Header Text",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 40,
+              "column": 6
+            },
+            "end": {
+              "line": 40,
+              "column": 60
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "subTitle",
+          "type": "string | null | undefined",
+          "description": "sub title",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 45,
+              "column": 6
+            },
+            "end": {
+              "line": 45,
+              "column": 56
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "icon",
+          "type": "string | null | undefined",
+          "description": "icon",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 50,
+              "column": 6
+            },
+            "end": {
+              "line": 50,
+              "column": 47
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "bindheaderText",
+          "description": "Bind any **scalar** field to set the title of the panel.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 58,
+              "column": 2
+            },
+            "end": {
+              "line": 67,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindsubTitle",
+          "description": "Bind any **scalar** field to set the subtitle of the panel.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 73,
+              "column": 2
+            },
+            "end": {
+              "line": 82,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindNavNode",
+          "description": "bind a tree.Navigationnode field",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 88,
+              "column": 3
+            },
+            "end": {
+              "line": 100,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_setNavNodeSignatureValues",
+          "description": "update attributes according to the value of tree.Navigationnode signature",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 2
+            },
+            "end": {
+              "line": 114,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 119,
+              "column": 2
+            },
+            "end": {
+              "line": 163,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 280,
+              "column": 2
+            },
+            "end": {
+              "line": 300,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-header-panel",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 30,
+          "column": 0
+        },
+        "end": {
+          "line": 301,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroUi5DataHeaderPanel",
+      "attributes": [
+        {
+          "name": "header-text",
+          "description": "Header Text",
+          "sourceRange": {
+            "start": {
+              "line": 40,
+              "column": 6
+            },
+            "end": {
+              "line": 40,
+              "column": 60
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "sub-title",
+          "description": "sub title",
+          "sourceRange": {
+            "start": {
+              "line": 45,
+              "column": 6
+            },
+            "end": {
+              "line": 45,
+              "column": 56
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "icon",
+          "description": "icon",
+          "sourceRange": {
+            "start": {
+              "line": 50,
+              "column": 6
+            },
+            "end": {
+              "line": 50,
+              "column": 47
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-header-panel",
+      "mixins": [
+        "FBP"
+      ]
     },
     {
       "description": "`furo-ui5-message-strip`\nLit element\n\n furo-ui5-message-strip should be used together witch furo-ui5-message-strip-display. you can place those two components into different places.\n best place the furo-ui5-message-strip-display on the main site. then you only need one furo-ui5-message-strip-display. it can work with n furo-ui5-message-strip.",
@@ -13579,11 +14218,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 213,
               "column": 6
             },
             "end": {
-              "line": 214,
+              "line": 216,
               "column": 7
             }
           },
@@ -13600,11 +14239,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 220,
               "column": 6
             },
             "end": {
-              "line": 221,
+              "line": 223,
               "column": 7
             }
           },
@@ -13694,7 +14333,7 @@
               "column": 2
             },
             "end": {
-              "line": 194,
+              "line": 196,
               "column": 3
             }
           },
@@ -13710,11 +14349,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 201,
               "column": 2
             },
             "end": {
-              "line": 201,
+              "line": 203,
               "column": 3
             }
           },
@@ -13730,11 +14369,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 246,
+              "line": 248,
               "column": 2
             },
             "end": {
-              "line": 250,
+              "line": 252,
               "column": 3
             }
           },
@@ -13759,7 +14398,7 @@
           "column": 0
         },
         "end": {
-          "line": 251,
+          "line": 253,
           "column": 1
         }
       },
@@ -13772,11 +14411,11 @@
           "description": "the header text of the notification",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 213,
               "column": 6
             },
             "end": {
-              "line": 214,
+              "line": 216,
               "column": 7
             }
           },
@@ -13788,11 +14427,11 @@
           "description": "Defines if the close button would be displayed.",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 220,
               "column": 6
             },
             "end": {
-              "line": 221,
+              "line": 223,
               "column": 7
             }
           },

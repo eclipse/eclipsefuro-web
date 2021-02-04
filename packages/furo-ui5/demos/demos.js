@@ -1,3 +1,5 @@
+import './demo-furo-ui5-card.js';
+import './demo-furo-ui5-card-binding.js';
 import './demo-furo-ui5-pagination-bar.js';
 import './demo-furo-ui5-data-text-input.js';
 import './demo-furo-ui5-data-text-input-together.js';
