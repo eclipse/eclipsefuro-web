@@ -80,6 +80,9 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
         p::first-line {
           line-height: var(--_ui5_input_height, 36px);
         }
+        p[data-size='size-s']::first-line {
+          line-height: var(--sapElement_Compact_Height, 26px);
+        }
         :host([value-state='Information']) p {
           color: var(--sapInformativeColor, #0a6ed1);
         }
