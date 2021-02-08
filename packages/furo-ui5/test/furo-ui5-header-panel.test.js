@@ -6,7 +6,7 @@ import '@furo/testhelper/initEnv.js';
 import '@furo/data/src/furo-data-object.js';
 import '../src/furo-catalog.js';
 
-describe('furo-ui5-data-header-panel', () => {
+describe('furo-ui5-header-panel', () => {
   let host;
   let panel;
   let dao;
@@ -15,7 +15,7 @@ describe('furo-ui5-data-header-panel', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-data-header-panel ƒ-bind-nav-node="--Navnode"></furo-ui5-data-header-panel>
+          <furo-ui5-header-panel ƒ-bind-nav-node="--Navnode"></furo-ui5-header-panel>
           <furo-data-object
             type="furo.navigation.Navigationnode"
             @-object-ready="--Navnode"
@@ -31,9 +31,9 @@ describe('furo-ui5-data-header-panel', () => {
     await dao.updateComplete;
   });
 
-  it('should be a furo-ui5-data-header-panel element', done => {
+  it('should be a furo-ui5-header-panel element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(panel.nodeName.toLowerCase(), 'furo-ui5-data-header-panel');
+    assert.equal(panel.nodeName.toLowerCase(), 'furo-ui5-header-panel');
     done();
   });
 

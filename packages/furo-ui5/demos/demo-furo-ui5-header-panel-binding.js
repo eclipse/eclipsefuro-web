@@ -11,12 +11,12 @@ import '@furo/ui5/src/furo-catalog.js';
 import '@ui5/webcomponents-icons/dist/account.js';
 
 /**
- * `demo-furo-ui5-data-header-panel`
+ * `demo-furo-ui5-header-panel`
  *
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroUi5DataHeaderPanel extends FBP(LitElement) {
+class DemoFuroUi5HeaderPanelBinding extends FBP(LitElement) {
   /**
    * Themable Styles
    * @private
@@ -83,54 +83,29 @@ class DemoFuroUi5DataHeaderPanel extends FBP(LitElement) {
               <h3>Default</h3>
               <p>By default the panel is collapsible</p>
               <div class="demopanel">
-                <furo-ui5-data-header-panel
-                  header-text="heading"
-                  secondary-text="a secondary text"
-                  icon="card"
-                  status="enabled"
-                >
-                  <div slot="action">
-                    <furo-ui5-button>Action</furo-ui5-button>
-                  </div>
+                <furo-ui5-header-panel ƒ-bind-nav-node="--Navnode">
                   <div>
                     <p>content goes here</p>
                   </div>
-                </furo-ui5-data-header-panel>
+                </furo-ui5-header-panel>
               </div>
 
-              <h3>Collapsed</h3>
-              <p>The panel can be started in collapsed mode too</p>
-              <div class="demopanel">
-                <furo-ui5-data-header-panel
-                  header-text="heading"
-                  secondary-text="a secondary text"
-                  icon="card"
-                  collapsed
-                >
-                  <div slot="action">
-                    <furo-ui5-button>Action</furo-ui5-button>
-                  </div>
-                  <div>
-                    content goes here
-                    <p>Start collapsed</p>
-                  </div>
-                </furo-ui5-data-header-panel>
-              </div>
+              <furo-data-object
+                type="furo.navigation.Navigationnode"
+                @-object-ready="--Navnode"
+              ></furo-data-object>
 
-              <h3>Fixed</h3>
-              <p>With the fixed attribute, the panel is not collapsible.</p>
-              <div class="demopanel">
-                <furo-ui5-data-header-panel
-                  header-text="Without icon"
-                  secondary-text="but with header-interactive"
-                  fixed
-                >
-                  <div slot="action">
-                    <furo-ui5-button>Action</furo-ui5-button>
-                  </div>
-                  <div>With heading-interactive</div>
-                </furo-ui5-data-header-panel>
-              </div>
+              <!-- demo ends here -->
+
+              <!-- edit a Navigationnode -->
+              <furo-ui5-card
+                flex
+                heading="Edit the data"
+                subheading="icons: action, account, badge, bell"
+                icon="card"
+              >
+                <nav-node-form slot="content" ƒ-bind-data="--Navnode"></nav-node-form>
+              </furo-ui5-card>
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>
@@ -139,4 +114,7 @@ class DemoFuroUi5DataHeaderPanel extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-ui5-data-header-panel', DemoFuroUi5DataHeaderPanel);
+window.customElements.define(
+  'demo-furo-ui5-header-panel-binding',
+  DemoFuroUi5HeaderPanelBinding,
+);

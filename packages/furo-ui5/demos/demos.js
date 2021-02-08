@@ -1,6 +1,6 @@
 import './demo-furo-ui5-card.js';
-import './demo-furo-ui5-data-header-panel.js';
-import './demo-furo-ui5-data-header-panel-binding.js';
+import './demo-furo-ui5-header-panel.js';
+import './demo-furo-ui5-header-panel-binding.js';
 import './demo-furo-ui5-card-binding.js';
 import './demo-furo-ui5-pagination-bar.js';
 import './demo-furo-ui5-data-text-input.js';

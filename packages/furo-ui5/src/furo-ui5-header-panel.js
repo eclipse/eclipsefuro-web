@@ -11,7 +11,7 @@ import '@ui5/webcomponents/dist/Icon.js';
 import '@ui5/webcomponents/dist/Panel';
 
 /**
- * `furo-ui5-data-header-panel`
+ * `furo-ui5-header-panel`
  *  A bindable **header** panel.
  *
  *  **Info**: This component is intended to use as a header panel, if you need panels in your view, consider to use
@@ -25,10 +25,10 @@ import '@ui5/webcomponents/dist/Panel';
  *
  * Custom property | Description | Default  | Fallback
  * ----------------|-------------|----------|----------
- * `--furo-ui5-data-header-panel-icon-color` | Color of the icon  | #ffffff | --
- * `--furo-ui5-data-header-panel-icon-background-color` | background Color of the icon | #354a5f | --
- * `--furo-ui5-data-header-panel-splitter-start-color` |  the gradient-start hex-Color of the splitter | --primary-dark | #0854a0
- * `--furo-ui5-data-header-panel-splitter-end-rgba-color` | the gradient-end rgba-Color of the splitter | --primary-rgb | rgba(8, 84, 16, 0)
+ * `--furo-ui5-header-panel-icon-color` | Color of the icon  | #ffffff | --
+ * `--furo-ui5-header-panel-icon-background-color` | background Color of the icon | #354a5f | --
+ * `--furo-ui5-header-panel-splitter-start-color` |  the gradient-start hex-Color of the splitter | --primary-dark | #0854a0
+ * `--furo-ui5-header-panel-splitter-end-rgba-color` | the gradient-end rgba-Color of the splitter | --primary-rgb | rgba(8, 84, 16, 0)
  *
  * ## Slots
  * ### action
@@ -40,11 +40,11 @@ import '@ui5/webcomponents/dist/Panel';
  *
  * @summary A bindable header panel
  * @customElement
- * @demo demo-furo-ui5-data-header-panel Without data binding
- * @demo demo-furo-ui5-data-header-panel-binding With data binding
+ * @demo demo-furo-ui5-header-panel Without data binding
+ * @demo demo-furo-ui5-header-panel-binding With data binding
  * @appliesMixin FBP
  */
-class FuroUi5DataHeaderPanel extends FBP(LitElement) {
+class FuroUi5HeaderPanel extends FBP(LitElement) {
   constructor() {
     super();
     this.icon = '';
@@ -222,7 +222,7 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroUi5DataHeaderPanel') ||
+      Theme.getThemeForComponent('FuroUi5HeaderPanel') ||
       css`
         :host {
           display: block;
@@ -273,8 +273,8 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
           padding: 19px 20px 21px 20px;
           border-radius: 4px;
           display: inline-block;
-          color: var(--furo-ui5-data-header-panel-icon-color, #ffffff);
-          background-color: var(--furo-ui5-data-header-panel-icon-background-color, #354a5f);
+          color: var(--furo-ui5-header-panel-icon-color, #ffffff);
+          background-color: var(--furo-ui5-header-panel-icon-background-color, #354a5f);
         }
 
         :host([fixed]) .splitter_bar {
@@ -310,9 +310,9 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
         .splitter.after {
           background-image: linear-gradient(
             to right,
-            var(--furo-ui5-data-header-panel-splitter-start-color, var(--primary-dark, #0854a0)),
+            var(--furo-ui5-header-panel-splitter-start-color, var(--primary-dark, #0854a0)),
             var(
-              --furo-ui5-data-header-panel-splitter-end-rgba-color,
+              --furo-ui5-header-panel-splitter-end-rgba-color,
               rgba(var(--primary-rgb, 8, 84, 160), 0)
             )
           );
@@ -321,9 +321,9 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
         .splitter.before {
           background-image: linear-gradient(
             to left,
-            var(--furo-ui5-data-header-panel-splitter-start-color, var(--primary-dark, #0854a0)),
+            var(--furo-ui5-header-panel-splitter-start-color, var(--primary-dark, #0854a0)),
             var(
-              --furo-ui5-data-header-panel-splitter-end-rgba-color,
+              --furo-ui5-header-panel-splitter-end-rgba-color,
               rgba(var(--primary-rgb, 8, 84, 160), 0)
             )
           );
@@ -371,4 +371,4 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('furo-ui5-data-header-panel', FuroUi5DataHeaderPanel);
+window.customElements.define('furo-ui5-header-panel', FuroUi5HeaderPanel);
