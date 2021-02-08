@@ -13,6 +13,7 @@ import { FBP } from '@furo/fbp';
 class FuroInputRow extends FBP(LitElement) {
   constructor() {
     super();
+    console.warn("furo-input-row is DEPRECATED since 2020.03.21")
     /**
      *
      * @type {string}
