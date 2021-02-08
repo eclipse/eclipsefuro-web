@@ -75,7 +75,7 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
        * icon
        */
       icon: { type: String, attribute: 'icon' },
-      collapsed: { type: Boolean },
+      collapsed: { type: Boolean, reflect: true },
 
     };
   }
@@ -84,7 +84,7 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
    * Bind any **scalar** field to set the title of the panel.
    * @param fieldNode
    */
-  bindheaderText(fieldNode) {
+  bindHeaderText(fieldNode) {
     if (fieldNode === undefined) {
       console.warn('Invalid fieldNode in bindData', this);
       return;
@@ -99,7 +99,7 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
    * Bind any **scalar** field to set the secondaryText of the panel.
    * @param fieldNode
    */
-  bindsecondaryText(fieldNode) {
+  bindSecondaryText(fieldNode) {
     if (fieldNode === undefined) {
       console.warn('Invalid fieldNode in bindData', this);
       return;
@@ -128,6 +128,31 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
     this._setNavNodeSignatureValues(fieldNode);
   }
 
+
+  /**
+   * Bind any **scalar** field to set the title of the panel.
+   * Do not forget to import the icon you will use in your component.
+   * @param fieldNode
+   */
+  bindIcon(fieldNode) {
+    if (fieldNode === undefined) {
+      console.warn('Invalid fieldNode in bindData', this);
+      return;
+    }
+    this.icon = fieldNode._value;
+    fieldNode.addEventListener("field-value-changed", () => {
+      this.icon = fieldNode._value;
+    })
+  }
+
+  /**
+   * toggles the collapse state
+   */
+  toggleCollapse(){
+    this._FBPTriggerWire("--collapserClicked", null)
+  }
+
+
   /**
    * update attributes according to the value of furo.navigation.Navigationnode signature
    * @private
@@ -154,8 +179,9 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
     const panel = this.shadowRoot.querySelector('ui5-panel');
 
     this._FBPAddWireHook('--collapserClicked', () => {
+      // toggle the panel
       panel.collapsed = !panel.collapsed;
-
+      this.collapsed = panel.collapsed;
       if (!panel.shouldAnimate()) {
         panel.fireEvent('toggle');
         return;
@@ -184,14 +210,11 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
       Promise.all(animations).then(() => {
         panel._animationRunning = false;
         panel._contentExpanded = !panel.collapsed;
+
         panel.fireEvent('toggle');
       });
 
-      if (panel.collapsed) {
-        this.setAttribute('collapsed', '');
-      } else {
-        this.removeAttribute('collapsed');
-      }
+
     });
   }
 
