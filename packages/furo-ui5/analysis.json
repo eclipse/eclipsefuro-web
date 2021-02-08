@@ -12723,7 +12723,7 @@
       "tagname": "furo-ui5-data-toggle-button"
     },
     {
-      "description": "`furo-ui5-data-header-panel`\n A bindable header panel. Bind a navigation node...\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--furo-ui5-data-header-panel-icon-color` | Color of the icon  | #ffffff | --\n`--furo-ui5-data-header-panel-icon-background-color` | background Color of the icon | #354a5f | --\n`--furo-ui5-data-header-panel-splitter-start-color` |  the gradient-start hex-Color of the splitter | --primary-dark | #0854a0\n`--furo-ui5-data-header-panel-splitter-end-rgba-color` | the gradient-end rgba-Color of the splitter | --primary-rgb | rgba(8, 84, 16, 0)",
+      "description": "`furo-ui5-data-header-panel`\n A bindable **header** panel.\n\n **Info**: This component is intended to use as a header panel, if you need panels in your view, consider to use\n a ui5-panel directly. That is also the reason that the api does not match with ui5-panel.\n\n This component is a container which has a header and a content area and is used for grouping and displaying information.\n It can be collapsed to save space on the screen.\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--furo-ui5-data-header-panel-icon-color` | Color of the icon  | #ffffff | --\n`--furo-ui5-data-header-panel-icon-background-color` | background Color of the icon | #354a5f | --\n`--furo-ui5-data-header-panel-splitter-start-color` |  the gradient-start hex-Color of the splitter | --primary-dark | #0854a0\n`--furo-ui5-data-header-panel-splitter-end-rgba-color` | the gradient-end rgba-Color of the splitter | --primary-rgb | rgba(8, 84, 16, 0)\n\n## Slots\n### action\nDefines an action, displayed in the right most part of the header panel.\n\n### content\nDefines the content of the card",
       "summary": "A bindable header panel",
       "path": "src/furo-ui5-data-header-panel.js",
       "properties": [
@@ -12734,11 +12734,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 40,
+              "line": 65,
               "column": 6
             },
             "end": {
-              "line": 40,
+              "line": 65,
               "column": 60
             }
           },
@@ -12749,18 +12749,18 @@
           }
         },
         {
-          "name": "subTitle",
+          "name": "secondaryText",
           "type": "string | null | undefined",
           "description": "sub title",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 45,
+              "line": 70,
               "column": 6
             },
             "end": {
-              "line": 45,
-              "column": 56
+              "line": 70,
+              "column": 66
             }
           },
           "metadata": {
@@ -12776,17 +12776,38 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 50,
+              "line": 75,
               "column": 6
             },
             "end": {
-              "line": 50,
+              "line": 75,
               "column": 47
             }
           },
           "metadata": {
             "polymer": {
               "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "collapsed",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 76,
+              "column": 6
+            },
+            "end": {
+              "line": 76,
+              "column": 34
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
             }
           }
         }
@@ -12798,11 +12819,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 58,
+              "line": 85,
               "column": 2
             },
             "end": {
-              "line": 67,
+              "line": 94,
               "column": 3
             }
           },
@@ -12817,16 +12838,16 @@
           }
         },
         {
-          "name": "bindsubTitle",
-          "description": "Bind any **scalar** field to set the subtitle of the panel.",
+          "name": "bindsecondaryText",
+          "description": "Bind any **scalar** field to set the secondaryText of the panel.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 100,
               "column": 2
             },
             "end": {
-              "line": 82,
+              "line": 109,
               "column": 3
             }
           },
@@ -12842,15 +12863,15 @@
         },
         {
           "name": "bindNavNode",
-          "description": "bind a tree.Navigationnode field",
+          "description": "bind a furo.navigation.Navigationnode field",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 88,
-              "column": 3
+              "line": 115,
+              "column": 2
             },
             "end": {
-              "line": 100,
+              "line": 127,
               "column": 3
             }
           },
@@ -12866,20 +12887,24 @@
         },
         {
           "name": "_setNavNodeSignatureValues",
-          "description": "update attributes according to the value of tree.Navigationnode signature",
+          "description": "update attributes according to the value of furo.navigation.Navigationnode signature",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 133,
               "column": 2
             },
             "end": {
-              "line": 114,
+              "line": 145,
               "column": 3
             }
           },
           "metadata": {},
-          "params": [],
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
           "return": {
             "type": "void"
           }
@@ -12890,11 +12915,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 119,
+              "line": 150,
               "column": 2
             },
             "end": {
-              "line": 163,
+              "line": 194,
               "column": 3
             }
           },
@@ -12910,11 +12935,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 280,
+              "line": 313,
               "column": 2
             },
             "end": {
-              "line": 300,
+              "line": 339,
               "column": 3
             }
           },
@@ -12935,11 +12960,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 30,
+          "line": 45,
           "column": 0
         },
         "end": {
-          "line": 301,
+          "line": 340,
           "column": 1
         }
       },
@@ -12952,11 +12977,11 @@
           "description": "Header Text",
           "sourceRange": {
             "start": {
-              "line": 40,
+              "line": 65,
               "column": 6
             },
             "end": {
-              "line": 40,
+              "line": 65,
               "column": 60
             }
           },
@@ -12964,16 +12989,16 @@
           "type": "string | null | undefined"
         },
         {
-          "name": "sub-title",
+          "name": "secondary-text",
           "description": "sub title",
           "sourceRange": {
             "start": {
-              "line": 45,
+              "line": 70,
               "column": 6
             },
             "end": {
-              "line": 45,
-              "column": 56
+              "line": 70,
+              "column": 66
             }
           },
           "metadata": {},
@@ -12984,16 +13009,32 @@
           "description": "icon",
           "sourceRange": {
             "start": {
-              "line": 50,
+              "line": 75,
               "column": 6
             },
             "end": {
-              "line": 50,
+              "line": 75,
               "column": 47
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
+        },
+        {
+          "name": "collapsed",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 76,
+              "column": 6
+            },
+            "end": {
+              "line": 76,
+              "column": 34
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
         }
       ],
       "events": [],

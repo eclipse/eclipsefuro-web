@@ -114,30 +114,34 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
    * @param fieldNode
    */
   bindNavNode(fieldNode) {
-    if (fieldNode === undefined || fieldNode.display_name !== undefined) {
+    if (fieldNode === undefined || fieldNode.display_name === undefined) {
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
 
     this._field = fieldNode;
-    this._field.addEventListener('this-branch-value-changed', () => {
-      this._setNavNodeSignatureValues();
+    this._field.addEventListener('branch-value-changed', () => {
+      this._setNavNodeSignatureValues(fieldNode);
     });
 
-    this._setNavNodeSignatureValues();
+    this._setNavNodeSignatureValues(fieldNode);
   }
 
   /**
    * update attributes according to the value of furo.navigation.Navigationnode signature
    * @private
    */
-  _setNavNodeSignatureValues() {
-    this.headerText = this._field.display_name._value;
-    if (this._field.secondary_text !== undefined) {
-      this.secondaryText = this._field.secondary_text._value;
+  _setNavNodeSignatureValues(fieldNode) {
+    this.headerText = fieldNode.display_name._value;
+    if (fieldNode.secondary_text !== undefined) {
+      this.secondaryText = fieldNode.secondary_text._value;
+    } else if (fieldNode.description !== undefined) {
+      this.secondaryText = fieldNode.description._value;
     }
-    if (this._field.icon !== undefined) {
-      this.icon = this._field.icon._value;
+
+
+    if (fieldNode.icon !== undefined) {
+      this.icon = fieldNode.icon._value;
     }
   }
 
@@ -215,6 +219,8 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
         ui5-panel {
           padding: var(--spacing, 24px) var(--spacing, 24px) 0 var(--spacing, 24px);
           background: var(--surface, white);
+          min-height: 5rem;
+          box-sizing: border-box;
         }
 
         .header {

@@ -55,24 +55,41 @@ class DemoFuroUi5DataHeaderPanel extends FBP(LitElement) {
         <furo-demo-snippet flex>
           <template>
             <furo-vertical-scroller>
+              <style>
+                .demopanel{
+                  padding: 15px;
+                  margin-bottom: 40px;
+                  height: 190px;
+                  background: #eee;
+                  background-image: linear-gradient(45deg,rgba(0,0,0,.2) 25%, transparent 0, transparent 75%, rgba(0,0,0,.2) 0),
+                  linear-gradient(45deg,rgba(0,0,0,.2) 25%, transparent 0, transparent 75%, rgba(0,0,0,.2) 0);
+                  background-size: 30px 30px;
+                  background-position: 0 0,15px 15px;
+                  border: 1px solid #666666;
+                }
+              </style>
               <h3>Default</h3>
+              <p>By default the panel is collapsible </p>
+              <div class="demopanel">
               <furo-ui5-data-header-panel header-text="heading"
-                                          sub-title="subheading"
+                                          secondary-text="a secondary text"
                                           icon="card"
                                           status="enabled"
-
               >
                 <div slot="action">
                   <furo-ui5-button>Action</furo-ui5-button>
                 </div>
-                <div>content goes here
-                  <p>Start collapsed</p>
+                <div>
+                  <p>content goes here</p>
                 </div>
               </furo-ui5-data-header-panel>
+              </div>
 
               <h3>Collapsed</h3>
+              <p>The panel can be started in collapsed mode too</p>
+              <div class="demopanel">
               <furo-ui5-data-header-panel header-text="heading"
-                                          sub-title="subheading"
+                                          secondary-text="a secondary text"
                                           icon="card"
                                           collapsed
 
@@ -84,12 +101,13 @@ class DemoFuroUi5DataHeaderPanel extends FBP(LitElement) {
                   <p>Start collapsed</p>
                 </div>
               </furo-ui5-data-header-panel>
-              <br>
-              <br>
-              <br>
+              </div>
+
               <h3>Fixed</h3>
+              <p>With the fixed attribute, the panel is not collapsible.</p>
+              <div class="demopanel">
               <furo-ui5-data-header-panel header-text="Without icon"
-                                          sub-title="but with header-interactive"
+                                          secondary-text="but with header-interactive"
                                           fixed
               >
                 <div slot="action">
@@ -97,6 +115,7 @@ class DemoFuroUi5DataHeaderPanel extends FBP(LitElement) {
                 </div>
                 <div>With heading-interactive</div>
               </furo-ui5-data-header-panel>
+              </div>
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>
