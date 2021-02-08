@@ -40,7 +40,8 @@ import '@ui5/webcomponents/dist/Panel';
  *
  * @summary A bindable header panel
  * @customElement
- * @demo demo-furo-ui5-data-header-panel
+ * @demo demo-furo-ui5-data-header-panel Without data binding
+ * @demo demo-furo-ui5-data-header-panel-binding With data binding
  * @appliesMixin FBP
  */
 class FuroUi5DataHeaderPanel extends FBP(LitElement) {
@@ -120,7 +121,7 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
     }
 
     this._field = fieldNode;
-    this._field.addEventListener('branch-value-changed', () => {
+    this._field.addEventListener('field-value-changed', () => {
       this._setNavNodeSignatureValues(fieldNode);
     });
 
