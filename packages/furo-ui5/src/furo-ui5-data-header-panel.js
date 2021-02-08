@@ -45,7 +45,6 @@ import '@ui5/webcomponents/dist/Panel';
  * @appliesMixin FBP
  */
 class FuroUi5DataHeaderPanel extends FBP(LitElement) {
-
   constructor() {
     super();
     this.icon = '';
@@ -53,7 +52,6 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
     this.secondaryText = '';
     this.collapsed = false;
   }
-
 
   /**
    * @private
@@ -76,7 +74,6 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
        */
       icon: { type: String, attribute: 'icon' },
       collapsed: { type: Boolean, reflect: true },
-
     };
   }
 
@@ -86,6 +83,7 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
    */
   bindHeaderText(fieldNode) {
     if (fieldNode === undefined) {
+      // eslint-disable-next-line no-console
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
@@ -101,6 +99,7 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
    */
   bindSecondaryText(fieldNode) {
     if (fieldNode === undefined) {
+      // eslint-disable-next-line no-console
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
@@ -116,6 +115,7 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
    */
   bindNavNode(fieldNode) {
     if (fieldNode === undefined || fieldNode.display_name === undefined) {
+      // eslint-disable-next-line no-console
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
@@ -128,7 +128,6 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
     this._setNavNodeSignatureValues(fieldNode);
   }
 
-
   /**
    * Bind any **scalar** field to set the title of the panel.
    * Do not forget to import the icon you will use in your component.
@@ -136,22 +135,22 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
    */
   bindIcon(fieldNode) {
     if (fieldNode === undefined) {
+      // eslint-disable-next-line no-console
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
     this.icon = fieldNode._value;
-    fieldNode.addEventListener("field-value-changed", () => {
+    fieldNode.addEventListener('field-value-changed', () => {
       this.icon = fieldNode._value;
-    })
+    });
   }
 
   /**
    * toggles the collapse state
    */
-  toggleCollapse(){
-    this._FBPTriggerWire("--collapserClicked", null)
+  toggleCollapse() {
+    this._FBPTriggerWire('--collapserClicked', null);
   }
-
 
   /**
    * update attributes according to the value of furo.navigation.Navigationnode signature
@@ -164,7 +163,6 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
     } else if (fieldNode.description !== undefined) {
       this.secondaryText = fieldNode.description._value;
     }
-
 
     if (fieldNode.icon !== undefined) {
       this.icon = fieldNode.icon._value;
@@ -213,8 +211,6 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
 
         panel.fireEvent('toggle');
       });
-
-
     });
   }
 
@@ -315,7 +311,10 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
           background-image: linear-gradient(
             to right,
             var(--furo-ui5-data-header-panel-splitter-start-color, var(--primary-dark, #0854a0)),
-            var(--furo-ui5-data-header-panel-splitter-end-rgba-color, rgba(var(--primary-rgb, 8, 84, 160), 0))
+            var(
+              --furo-ui5-data-header-panel-splitter-end-rgba-color,
+              rgba(var(--primary-rgb, 8, 84, 160), 0)
+            )
           );
         }
 
@@ -323,7 +322,10 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
           background-image: linear-gradient(
             to left,
             var(--furo-ui5-data-header-panel-splitter-start-color, var(--primary-dark, #0854a0)),
-            var(--furo-ui5-data-header-panel-splitter-end-rgba-color, rgba(var(--primary-rgb, 8, 84, 160), 0))
+            var(
+              --furo-ui5-data-header-panel-splitter-end-rgba-color,
+              rgba(var(--primary-rgb, 8, 84, 160), 0)
+            )
           );
         }
       `
@@ -347,8 +349,13 @@ class FuroUi5DataHeaderPanel extends FBP(LitElement) {
           <slot name="action" class="action"></slot>
         </div>
         <div class="wrapper">
-          ${this.icon ? html`
-            <ui5-icon class="icon" name="${this.icon}"></ui5-icon> ` : html``}
+          ${
+            this.icon
+              ? html`
+                  <ui5-icon class="icon" name="${this.icon}"></ui5-icon>
+                `
+              : html``
+          }
           <div class="content">
             <slot></slot>
           </div>

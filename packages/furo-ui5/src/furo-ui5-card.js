@@ -46,20 +46,20 @@ class FuroUi5Card extends FBP(LitElement) {
     this.headerInteractive = false;
   }
 
-
   /**
    * Bind any **scalar** field to set the title of the panel.
    * @param fieldNode
    */
   bindHeading(fieldNode) {
     if (fieldNode === undefined) {
+      // eslint-disable-next-line no-console
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
     this.heading = fieldNode._value;
-    fieldNode.addEventListener("field-value-changed", () => {
+    fieldNode.addEventListener('field-value-changed', () => {
       this.heading = fieldNode._value;
-    })
+    });
   }
 
   /**
@@ -69,13 +69,14 @@ class FuroUi5Card extends FBP(LitElement) {
    */
   bindIcon(fieldNode) {
     if (fieldNode === undefined) {
+      // eslint-disable-next-line no-console
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
     this.icon = fieldNode._value;
-    fieldNode.addEventListener("field-value-changed", () => {
+    fieldNode.addEventListener('field-value-changed', () => {
       this.icon = fieldNode._value;
-    })
+    });
   }
 
   /**
@@ -84,13 +85,14 @@ class FuroUi5Card extends FBP(LitElement) {
    */
   bindSubheading(fieldNode) {
     if (fieldNode === undefined) {
+      // eslint-disable-next-line no-console
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
     this.subheading = fieldNode._value;
-    fieldNode.addEventListener("field-value-changed", () => {
+    fieldNode.addEventListener('field-value-changed', () => {
       this.subheading = fieldNode._value;
-    })
+    });
   }
 
   /**
@@ -104,8 +106,8 @@ class FuroUi5Card extends FBP(LitElement) {
    * @param fieldNode
    */
   bindNavNode(fieldNode) {
-
     if (fieldNode === undefined || fieldNode.display_name === undefined) {
+      // eslint-disable-next-line no-console
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
@@ -124,10 +126,10 @@ class FuroUi5Card extends FBP(LitElement) {
    */
   _setNavNodeSignatureValues() {
     this.heading = this._field.display_name._value;
-    if(this._field.secondary_text !== undefined){
+    if (this._field.secondary_text !== undefined) {
       this.subheading = this._field.secondary_text._value;
     }
-    if(this._field.icon !== undefined && this._field.icon._value !== undefined) {
+    if (this._field.icon !== undefined && this._field.icon._value !== undefined) {
       this.icon = this._field.icon._value;
     }
   }
@@ -172,7 +174,6 @@ class FuroUi5Card extends FBP(LitElement) {
         background-color: var(--sapNeutralColor);
       }
 
-
       ui5-icon {
         width: 3rem;
         height: 2rem;
@@ -182,10 +183,9 @@ class FuroUi5Card extends FBP(LitElement) {
         background-color: var(--sapShellColor);
       }
 
-      ::slotted([slot=content]) {
-        padding: var(--_ui5_card_content_padding) ;
+      ::slotted([slot='content']) {
+        padding: var(--_ui5_card_content_padding);
       }
-
     `;
   }
 
@@ -198,27 +198,27 @@ class FuroUi5Card extends FBP(LitElement) {
       /**
        * Defines the title displayed in the ui5-card header.
        */
-      heading: {type: String},
+      heading: { type: String },
       /**
        * Defines the subheading displayed in the ui5-card header.
        */
-      subheading: {type: String},
+      subheading: { type: String },
       /**
        * Defines the visual representation in the header of the card. Supports images and icons.
        * https://openui5.hana.ondemand.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html
        */
-      icon: {type: String, reflect: true, attribute: 'icon'},
+      icon: { type: String, reflect: true, attribute: 'icon' },
       /**
        * Defines the status text displayed in the card header (upper right).
        *
        * By enabling the status, actions are not visible.
        */
-      status: {type: String},
+      status: { type: String },
       /**
        * Defines if the ui5-card header would be interactive, e.g gets hover effect, gets focused and header-click event is fired, when it is pressed.
        * @event header-click
        */
-      headerInteractive: {type: Boolean, reflect: true, attribute: 'header-interactive'},
+      headerInteractive: { type: Boolean, reflect: true, attribute: 'header-interactive' },
     };
   }
 
@@ -234,14 +234,20 @@ class FuroUi5Card extends FBP(LitElement) {
         status="${this.status}"
         ?header-interactive="${this.headerInteractive}"
       >
-        ${this.icon.length ? html`<ui5-icon name="${this.icon}" slot="avatar"></ui5-icon>` : html``}
+        ${this.icon.length
+          ? html`
+              <ui5-icon name="${this.icon}" slot="avatar"></ui5-icon>
+            `
+          : html``}
+        ${this.status !== ''
+          ? html``
+          : html`
+              <div slot="action">
+                <slot name="action"></slot>
+              </div>
+            `}
 
-        ${this.status !== '' ? html`` : html`<div slot="action">
-          <slot name="action"></slot>
-        </div>`}
-
-          <slot name="content"></slot>
-
+        <slot name="content"></slot>
       </ui5-card>
     `;
   }

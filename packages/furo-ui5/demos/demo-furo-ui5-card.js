@@ -8,7 +8,7 @@ import '@furo/doc-helper';
 import '@furo/ui5/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 
-import "@ui5/webcomponents-icons/dist/card.js"
+import '@ui5/webcomponents-icons/dist/card.js';
 /**
  * `demo-furo-ui5-card`
  *
@@ -16,7 +16,6 @@ import "@ui5/webcomponents-icons/dist/card.js"
  * @appliesMixin FBP
  */
 class DemoFuroUi5Card extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -24,20 +23,21 @@ class DemoFuroUi5Card extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return (
+      Theme.getThemeForComponent(this.name) ||
+      css`
         :host {
-            display: block;
-            height: 100%;
-            padding-right: var(--spacing);
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -54,21 +54,19 @@ class DemoFuroUi5Card extends FBP(LitElement) {
         <furo-demo-snippet flex>
           <template>
             <furo-vertical-scroller>
-
-              <furo-ui5-card heading="heading"
-                             subheading="subheading"
-                             icon="card"
-                             status="enabled"
-              >
+              <furo-ui5-card heading="heading" subheading="subheading" icon="card" status="enabled">
                 <div slot="action"><furo-ui5-button>Action</furo-ui5-button></div>
-                <div slot="content">content goes here
-                <p>Status is set (enabled), so the action is not visible</p>
+                <div slot="content">
+                  content goes here
+                  <p>Status is set (enabled), so the action is not visible</p>
                 </div>
               </furo-ui5-card>
 
-              <furo-ui5-card heading="Without icon"
-                             subheading="but with header-interactive"
-                             header-interactive>
+              <furo-ui5-card
+                heading="Without icon"
+                subheading="but with header-interactive"
+                header-interactive
+              >
                 <div slot="action"><furo-ui5-button>Action</furo-ui5-button></div>
                 <div slot="content">With heading-interactive</div>
               </furo-ui5-card>
@@ -80,4 +78,4 @@ class DemoFuroUi5Card extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-ui5-card', DemoFuroUi5Card );
+window.customElements.define('demo-furo-ui5-card', DemoFuroUi5Card);

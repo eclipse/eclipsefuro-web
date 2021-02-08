@@ -12,13 +12,14 @@ import { FBP } from '@furo/fbp';
  * @appliesMixin FBP
  */
 class NavNodeForm extends FBP(LitElement) {
-
-  bindData(navnode){
-    navnode.display_name._value = "Display_name"
-    navnode.secondary_text._value = "secondary"
-    navnode.icon._value = "action"
-    this._FBPTriggerWire("--navNode", navnode)
-
+  bindData(navnode) {
+    // eslint-disable-next-line no-param-reassign
+    navnode.display_name._value = 'Display_name';
+    // eslint-disable-next-line no-param-reassign
+    navnode.secondary_text._value = 'secondary';
+    // eslint-disable-next-line no-param-reassign
+    navnode.icon._value = 'action';
+    this._FBPTriggerWire('--navNode', navnode);
   }
 
   /**
@@ -28,17 +29,19 @@ class NavNodeForm extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent('NavNodeForm') || css`
+    return (
+      Theme.getThemeForComponent('NavNodeForm') ||
+      css`
         :host {
-            display: block;
+          display: block;
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-    `;
+      `
+    );
   }
-
 
   /**
    * @private
@@ -49,11 +52,15 @@ class NavNodeForm extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-form-layouter one>
-        <furo-ui5-data-text-input-labeled ƒ-bind-data="--navNode(*.display_name)"></furo-ui5-data-text-input-labeled>
-        <furo-ui5-data-text-input-labeled ƒ-bind-data="--navNode(*.secondary_text)"></furo-ui5-data-text-input-labeled>
-        <furo-ui5-data-text-input-labeled ƒ-bind-data="--navNode(*.icon)"></furo-ui5-data-text-input-labeled>
-
-
+        <furo-ui5-data-text-input-labeled
+          ƒ-bind-data="--navNode(*.display_name)"
+        ></furo-ui5-data-text-input-labeled>
+        <furo-ui5-data-text-input-labeled
+          ƒ-bind-data="--navNode(*.secondary_text)"
+        ></furo-ui5-data-text-input-labeled>
+        <furo-ui5-data-text-input-labeled
+          ƒ-bind-data="--navNode(*.icon)"
+        ></furo-ui5-data-text-input-labeled>
       </furo-form-layouter>
     `;
   }

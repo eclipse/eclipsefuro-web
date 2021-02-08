@@ -17,7 +17,9 @@ describe('furo-ui5-data-header-panel', () => {
         <template>
           <furo-ui5-data-header-panel ƒ-bind-nav-node="--Navnode"></furo-ui5-data-header-panel>
           <furo-data-object
-            type="furo.navigation.Navigationnode" @-object-ready="--Navnode"></furo-data-object>
+            type="furo.navigation.Navigationnode"
+            @-object-ready="--Navnode"
+          ></furo-data-object>
         </template>
       </test-bind>
     `);
@@ -35,19 +37,22 @@ describe('furo-ui5-data-header-panel', () => {
     done();
   });
 
-  it('should collapse on toggleCollapse', (done) => {
-    assert.equal(panel.collapsed, false, "should start open");
+  it('should collapse on toggleCollapse', done => {
+    assert.equal(panel.collapsed, false, 'should start open');
 
-    panel.shadowRoot.querySelector('ui5-panel').addEventListener('toggle', () => {
-      assert.equal(panel.collapsed, true, "should be closed");
-      done();
-    }, { once: true });
+    panel.shadowRoot.querySelector('ui5-panel').addEventListener(
+      'toggle',
+      () => {
+        assert.equal(panel.collapsed, true, 'should be closed');
+        done();
+      },
+      { once: true },
+    );
 
     panel.toggleCollapse();
-
   });
 
-  it('should update the title with binding on header text', (done) => {
+  it('should update the title with binding on header text', done => {
     const enitity = dao.getData();
     panel.bindHeaderText(enitity.display_name);
     enitity.display_name._value = 'Title';
@@ -55,7 +60,7 @@ describe('furo-ui5-data-header-panel', () => {
     done();
   });
 
-  it('should update the icon with binding on icon ', (done) => {
+  it('should update the icon with binding on icon ', done => {
     const enitity = dao.getData();
     panel.bindIcon(enitity.icon);
     enitity.icon._value = 'Title';
@@ -63,13 +68,11 @@ describe('furo-ui5-data-header-panel', () => {
     done();
   });
 
-  it('should update the secondaryText with binding on bindSecondaryText ', (done) => {
+  it('should update the secondaryText with binding on bindSecondaryText ', done => {
     const enitity = dao.getData();
     panel.bindSecondaryText(enitity.secondary_text);
     enitity.secondary_text._value = 'subtitle';
     assert.equal(panel.secondaryText, 'subtitle');
     done();
   });
-
-
 });

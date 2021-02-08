@@ -17,7 +17,6 @@ import '@ui5/webcomponents-icons/dist/account.js';
  * @appliesMixin FBP
  */
 class DemoFuroUi5DataHeaderPanelBinding extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -25,20 +24,21 @@ class DemoFuroUi5DataHeaderPanelBinding extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
-      :host {
-        display: block;
-        height: 100%;
-        padding-right: var(--spacing);
-      }
+    return (
+      Theme.getThemeForComponent(this.name) ||
+      css`
+        :host {
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
-
-    `;
+        :host([hidden]) {
+          display: none;
+        }
+      `
+    );
   }
-
 
   /**
    * @private
@@ -56,42 +56,56 @@ class DemoFuroUi5DataHeaderPanelBinding extends FBP(LitElement) {
           <template>
             <furo-vertical-scroller>
               <style>
-                .demopanel{
+                .demopanel {
                   padding: 15px;
                   margin-bottom: 40px;
                   height: 190px;
                   background: #eee;
-                  background-image: linear-gradient(45deg,rgba(0,0,0,.2) 25%, transparent 0, transparent 75%, rgba(0,0,0,.2) 0),
-                  linear-gradient(45deg,rgba(0,0,0,.2) 25%, transparent 0, transparent 75%, rgba(0,0,0,.2) 0);
+                  background-image: linear-gradient(
+                      45deg,
+                      rgba(0, 0, 0, 0.2) 25%,
+                      transparent 0,
+                      transparent 75%,
+                      rgba(0, 0, 0, 0.2) 0
+                    ),
+                    linear-gradient(
+                      45deg,
+                      rgba(0, 0, 0, 0.2) 25%,
+                      transparent 0,
+                      transparent 75%,
+                      rgba(0, 0, 0, 0.2) 0
+                    );
                   background-size: 30px 30px;
-                  background-position: 0 0,15px 15px;
+                  background-position: 0 0, 15px 15px;
                   border: 1px solid #666666;
                 }
               </style>
               <h3>Default</h3>
-              <p>By default the panel is collapsible </p>
+              <p>By default the panel is collapsible</p>
               <div class="demopanel">
-              <furo-ui5-data-header-panel ƒ-bind-nav-node="--Navnode"
-              >
-                <div>
-                  <p>content goes here</p>
-                </div>
-              </furo-ui5-data-header-panel>
+                <furo-ui5-data-header-panel ƒ-bind-nav-node="--Navnode">
+                  <div>
+                    <p>content goes here</p>
+                  </div>
+                </furo-ui5-data-header-panel>
               </div>
 
               <furo-data-object
-                type="furo.navigation.Navigationnode" @-object-ready="--Navnode"></furo-data-object>
+                type="furo.navigation.Navigationnode"
+                @-object-ready="--Navnode"
+              ></furo-data-object>
 
               <!-- demo ends here -->
 
               <!-- edit a Navigationnode -->
-              <furo-ui5-card flex heading="Edit the data"
-                             subheading="icons: action, account, badge, bell"
-                             icon="card">
-
+              <furo-ui5-card
+                flex
+                heading="Edit the data"
+                subheading="icons: action, account, badge, bell"
+                icon="card"
+              >
                 <nav-node-form slot="content" ƒ-bind-data="--Navnode"></nav-node-form>
               </furo-ui5-card>
-
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>
@@ -100,4 +114,7 @@ class DemoFuroUi5DataHeaderPanelBinding extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-ui5-data-header-panel-binding', DemoFuroUi5DataHeaderPanelBinding);
+window.customElements.define(
+  'demo-furo-ui5-data-header-panel-binding',
+  DemoFuroUi5DataHeaderPanelBinding,
+);

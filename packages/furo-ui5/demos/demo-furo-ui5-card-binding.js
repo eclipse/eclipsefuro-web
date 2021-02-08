@@ -7,13 +7,13 @@ import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/ui5/src/furo-catalog.js';
 
-import "@ui5/webcomponents-icons/dist/action.js"
-import "@ui5/webcomponents-icons/dist/account.js"
-import "@ui5/webcomponents-icons/dist/badge.js"
-import "@ui5/webcomponents-icons/dist/bell.js"
-import "@ui5/webcomponents-icons/dist/card.js"
+import '@ui5/webcomponents-icons/dist/action.js';
+import '@ui5/webcomponents-icons/dist/account.js';
+import '@ui5/webcomponents-icons/dist/badge.js';
+import '@ui5/webcomponents-icons/dist/bell.js';
+import '@ui5/webcomponents-icons/dist/card.js';
 
-import "./helper/nav-node-form.js"
+import './helper/nav-node-form.js';
 /**
  * `demo-furo-ui5-card`
  *
@@ -21,7 +21,6 @@ import "./helper/nav-node-form.js"
  * @appliesMixin FBP
  */
 class DemoFuroUi5CardBinding extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -29,21 +28,21 @@ class DemoFuroUi5CardBinding extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
-      :host {
-        display: block;
-        height: 100%;
-        padding-right: var(--spacing);
-      }
+    return (
+      Theme.getThemeForComponent(this.name) ||
+      css`
+        :host {
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
-
-
-    `;
+        :host([hidden]) {
+          display: none;
+        }
+      `
+    );
   }
-
 
   /**
    * @private
@@ -55,18 +54,26 @@ class DemoFuroUi5CardBinding extends FBP(LitElement) {
       <furo-vertical-flex>
         <div>
           <h2>furo-ui5-card with data binding</h2>
-          <p>The <strong>ƒ-bind-nav-node</strong> method accepts a data object with the tree.Navigationnode signature.
+          <p>
+            The <strong>ƒ-bind-nav-node</strong> method accepts a data object with the
+            tree.Navigationnode signature.
           </p>
-          <p>This means your data object can or should have a field display_name, secondary_text and icon.</p>
+          <p>
+            This means your data object can or should have a field display_name, secondary_text and
+            icon.
+          </p>
         </div>
         <furo-demo-snippet flex>
           <template>
             <furo-vertical-scroller>
               <furo-horizontal-flex>
                 <!-- demo -->
-                <furo-ui5-card flex heading="heading"
-                               subheading="subheading"
-                               ƒ-bind-nav-node="--Navnode">
+                <furo-ui5-card
+                  flex
+                  heading="heading"
+                  subheading="subheading"
+                  ƒ-bind-nav-node="--Navnode"
+                >
                   <div slot="action">
                     <furo-ui5-button>Action</furo-ui5-button>
                   </div>
@@ -74,24 +81,27 @@ class DemoFuroUi5CardBinding extends FBP(LitElement) {
                 </furo-ui5-card>
 
                 <furo-data-object
-                  type="furo.navigation.Navigationnode" @-object-ready="--Navnode"></furo-data-object>
+                  type="furo.navigation.Navigationnode"
+                  @-object-ready="--Navnode"
+                ></furo-data-object>
 
                 <!-- demo ends here -->
 
                 <!-- edit a Navigationnode -->
-                <furo-ui5-card flex heading="Edit the data"
-                               subheading="icons: action, account, badge, bell"
-                               icon="card">
-
-                <nav-node-form slot="content" ƒ-bind-data="--Navnode"></nav-node-form>
+                <furo-ui5-card
+                  flex
+                  heading="Edit the data"
+                  subheading="icons: action, account, badge, bell"
+                  icon="card"
+                >
+                  <nav-node-form slot="content" ƒ-bind-data="--Navnode"></nav-node-form>
                 </furo-ui5-card>
               </furo-horizontal-flex>
-
             </furo-vertical-scroller>
 
             <!-- Styles are only set for the demo -->
             <style>
-              furo-horizontal-flex > *{
+              furo-horizontal-flex > * {
                 margin: 10px;
               }
             </style>
