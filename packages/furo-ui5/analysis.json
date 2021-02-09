@@ -164,18 +164,18 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-button",
+          "url": "demo-furo-ui5-button-bar",
           "description": "Basic usage"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 19,
+          "line": 20,
           "column": 0
         },
         "end": {
-          "line": 52,
+          "line": 53,
           "column": 1
         }
       },

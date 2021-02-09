@@ -15,7 +15,7 @@ import { FuroButtonBar } from '@furo/form/src/furo-button-bar.js';
  *
  *
  * @customElement
- * @demo demo-furo-ui5-button Basic usage
+ * @demo demo-furo-ui5-button-bar Basic usage
  */
 class FuroUi5ButtonBar extends FuroButtonBar {
   /**
@@ -28,8 +28,9 @@ class FuroUi5ButtonBar extends FuroButtonBar {
       css`
         :host {
           display: block;
-          width: 100%;
           border-radius: 4px;
+          margin-left: 1px;
+          margin-right: 1px;
           box-shadow: var(
             --furo-ui5-content-shadow,
             var(
