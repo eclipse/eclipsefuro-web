@@ -4,7 +4,10 @@ import { FuroButtonBar } from '@furo/form/src/furo-button-bar.js';
 
 /**
  * `furo-ui5-button-bar`
- * Lit element
+ *  is a wrapper for buttons which gives a nice border and paddings to a group of buttons.
+ *
+ *  It uses the furo-button-bar which allows you to bind a entitiy.
+ *
  *
  * ### Styling
  * The following custom properties and mixins are available for styling:
@@ -13,6 +16,8 @@ import { FuroButtonBar } from '@furo/form/src/furo-button-bar.js';
  * ----------------|-------------|----------|----------
  * `--furo-ui5-content-shadow` | shadow of button bar  | rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 2px 8px 0px) | --sapContent_Shadow0
  *
+ *  ## Methods and Attributes
+ *  All methods, attributes  are inherited from [furo-button-bar](/?t=FuroButtonBar)
  *
  * @customElement
  * @demo demo-furo-ui5-button-bar Basic usage

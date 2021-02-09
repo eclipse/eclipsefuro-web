@@ -156,7 +156,7 @@
       "tagname": "furo-ui5-button"
     },
     {
-      "description": "`furo-ui5-button-bar`\nLit element\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--furo-ui5-content-shadow` | shadow of button bar  | rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 2px 8px 0px) | --sapContent_Shadow0",
+      "description": "`furo-ui5-button-bar`\n is a wrapper for buttons which gives a nice border and paddings to a group of buttons.\n\n It uses the furo-button-bar which allows you to bind a entitiy.\n\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--furo-ui5-content-shadow` | shadow of button bar  | rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 2px 8px 0px) | --sapContent_Shadow0\n\n ## Methods and Attributes\n All methods, attributes  are inherited from [furo-button-bar](/?t=FuroButtonBar)",
       "summary": "",
       "path": "src/furo-ui5-button-bar.js",
       "properties": [],
@@ -171,11 +171,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 20,
+          "line": 25,
           "column": 0
         },
         "end": {
-          "line": 53,
+          "line": 59,
           "column": 1
         }
       },
