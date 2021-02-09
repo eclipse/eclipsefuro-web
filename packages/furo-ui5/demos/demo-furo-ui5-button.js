@@ -41,7 +41,7 @@ class DemoFuroUi5Button extends FBP(LitElement) {
         }
 
         furo-demo-snippet {
-          height: 100%;
+         padding: 10px;
         }
       `
     );
@@ -54,9 +54,11 @@ class DemoFuroUi5Button extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
+      <furo-vertical-flex>
       <h2>Demo furo-ui5-button</h2>
-      <furo-demo-snippet>
+      <furo-demo-snippet flex>
         <template>
+          <furo-vertical-scroller>
           <furo-form-layouter one>
             <p>Button state default:</p>
             <furo-ui5-button>Action</furo-ui5-button>
@@ -109,8 +111,10 @@ class DemoFuroUi5Button extends FBP(LitElement) {
               ></furo-ui5-button>
             </furo-ui5-button-bar>
           </furo-form-layouter>
+          </furo-vertical-scroller>
         </template>
       </furo-demo-snippet>
+      </furo-vertical-flex>
     `;
   }
 }
