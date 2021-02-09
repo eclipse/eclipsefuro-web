@@ -1,5 +1,6 @@
 import './furo-ui5-busyindicator.js';
 import './furo-ui5-button.js';
+import './furo-ui5-button-bar.js';
 import './furo-ui5-data-checkbox-input.js';
 import './furo-ui5-data-checkbox-input-labeled.js';
 import './furo-ui5-data-collection-dropdown.js';
