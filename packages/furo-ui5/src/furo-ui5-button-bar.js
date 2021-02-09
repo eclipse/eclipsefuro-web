@@ -1,5 +1,6 @@
 import { css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { FuroButtonBar } from '@furo/form/src/furo-button-bar.js';
 
 /**
