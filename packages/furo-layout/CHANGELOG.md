@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.3.28...@furo/layout@1.4.0) (2021-02-09)
+
+
+### Features
+
+* coverage 100% :-) ([653794b](https://github.com/theNorstroem/FuroBaseComponents/commit/653794b7a40c8b293f0ea0c199dd800d6385bfdf))
+* documentation improved ([1b5b4f8](https://github.com/theNorstroem/FuroBaseComponents/commit/1b5b4f822245b4d6c474f3323184dc13f743e7d2))
+* init backdrop with demos ([3522edc](https://github.com/theNorstroem/FuroBaseComponents/commit/3522edca7f348422327e3a5e8d4c8eb33cebe443))
+* inital tests added ([3b3da83](https://github.com/theNorstroem/FuroBaseComponents/commit/3b3da83ee73ff6fff550668d839620fc41fb185e))
+
+
+
+
+
 ## [1.3.28](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.3.27...@furo/layout@1.3.28) (2021-02-02)
 
 **Note:** Version bump only for package @furo/layout

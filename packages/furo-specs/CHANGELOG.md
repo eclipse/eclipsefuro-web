@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.19.1...@furo/specs@1.20.0) (2021-02-09)
+
+
+### Features
+
+* furo-ui5-card demos init ([5d8f568](https://github.com/theNorstroem/FuroBaseComponents/commit/5d8f568d910e4f1174aaf90dcd6cf64fceceffb2))
+
+
+
+
+
 ## [1.19.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.19.0...@furo/specs@1.19.1) (2021-02-02)
 
 

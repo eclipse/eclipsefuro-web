@@ -1,7 +1,7 @@
 {
   "name": "@furo/logic",
   "description": "logic components for furo",
-  "version": "1.3.23",
+  "version": "1.3.24",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-logic",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -28,14 +28,14 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/fbp": "^5.3.7",
+    "@furo/fbp": "^5.3.8",
     "lit-element": "^2.3.1",
     "lit-html": "^1.1.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/math": "^1.3.28",
+    "@furo/math": "^1.3.29",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

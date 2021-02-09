@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.17.1...@furo/ui5@0.18.0) (2021-02-09)
+
+
+### Bug Fixes
+
+* demo scrolling ([693d10b](https://github.com/theNorstroem/FuroBaseComponents/commit/693d10b7ebae64f4e6bc20c792a3291eda95dbe2))
+* dereference should fire event. Display component should handle value NULL ([7a28904](https://github.com/theNorstroem/FuroBaseComponents/commit/7a2890400a80ce201383a2279c1d7082fb6d3a73))
+* display field is always readonly. Removed labelMapping ([6144b08](https://github.com/theNorstroem/FuroBaseComponents/commit/6144b080d533e31a7fae15ed1cc5e8f4cafb2fc4))
+* line-height data-size s should be more compact ([0731bd2](https://github.com/theNorstroem/FuroBaseComponents/commit/0731bd24b42bfb1793648e02aa4a5dea9e69ff51))
+* linting ([0dfe871](https://github.com/theNorstroem/FuroBaseComponents/commit/0dfe871c352feb3e1bb4bf09b4a041c05d94050d))
+* minor disable state changes. ([8c4f36f](https://github.com/theNorstroem/FuroBaseComponents/commit/8c4f36f1d0f80e49c14e8697acbbf0610b4f91a3))
+* missing dependencies added ([82bfcf4](https://github.com/theNorstroem/FuroBaseComponents/commit/82bfcf4ccffa0f1a5d2d89ff5f6079ece8f358e3))
+* no padding data-size s ([c191c58](https://github.com/theNorstroem/FuroBaseComponents/commit/c191c58c2f1e0a7a77d53d94cb331ccdf95f087a))
+* scrollable demo ([3c616c4](https://github.com/theNorstroem/FuroBaseComponents/commit/3c616c4ceddb4fa7fd03f505d118a1123576b880))
+* ui5-notification-list should show close button according to the show-close attribute. ([e2a84e2](https://github.com/theNorstroem/FuroBaseComponents/commit/e2a84e2a923047c97c0a6ef9a2ff750e5b79f0db))
+* update ui5-data-textarea-input by data-initiate and value-change. ([46daa7a](https://github.com/theNorstroem/FuroBaseComponents/commit/46daa7a05ec959739ec82d8770ed06962b424da6))
+
+
+### Features
+
+* change label 'pristine' to 'modified' for furo.fat types. ([502ae41](https://github.com/theNorstroem/FuroBaseComponents/commit/502ae419c3a299f625c0d3c254772f1e52793564))
+* furo-ui5-button-bar ([1da2f7c](https://github.com/theNorstroem/FuroBaseComponents/commit/1da2f7cd09e1c449dd2f8b9a9e23a58317950a2f))
+* furo-ui5-button-bar ([619a20c](https://github.com/theNorstroem/FuroBaseComponents/commit/619a20cb36d32ccb39c3c05550ce835b010c6999))
+* furo-ui5-card demos init ([f60671d](https://github.com/theNorstroem/FuroBaseComponents/commit/f60671d34865d185b70b95d8189756762fa34097))
+* furo-ui5-card demos init ([5d8f568](https://github.com/theNorstroem/FuroBaseComponents/commit/5d8f568d910e4f1174aaf90dcd6cf64fceceffb2))
+* furo-ui5-card demos init ([8870efd](https://github.com/theNorstroem/FuroBaseComponents/commit/8870efd1d5501d87ea267b43b4a29d582bfd5dda))
+* furo-ui5-header-panel demo init ([b9231fc](https://github.com/theNorstroem/FuroBaseComponents/commit/b9231fc4982cf837b0b8823d34426c95b0769415))
+* furo-ui5-header-panel demo init ([f875ea0](https://github.com/theNorstroem/FuroBaseComponents/commit/f875ea0cd3fa9803796b08524303806fc4ff2566))
+* furo-ui5-header-panel lint and format ([6c36741](https://github.com/theNorstroem/FuroBaseComponents/commit/6c36741539b13f7e9dcccac99fc5605f6e869f2c))
+* furo-ui5-header-panel lint and format ([4976d98](https://github.com/theNorstroem/FuroBaseComponents/commit/4976d98ac4b2b08fe4b70aaec47b03fee67a46dd))
+* furo-ui5-header-panel tests ([b3329b2](https://github.com/theNorstroem/FuroBaseComponents/commit/b3329b2063d1bb061b6cfe877ed4b7fc5aa0f700))
+
+
+
+
+
 ## [0.17.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.17.0...@furo/ui5@0.17.1) (2021-02-02)
 
 
