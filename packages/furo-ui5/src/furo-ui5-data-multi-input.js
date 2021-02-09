@@ -87,7 +87,7 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
       readonly: 'readonly',
       required: 'required',
       disabled: 'disabled',
-      pristine: 'pristine',
+      modified: 'modified',
       highlight: 'highlight',
     };
 
@@ -128,7 +128,7 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
         this.binder.addLabel('empty');
       }
       // if something was entered the field is not empty
-      this.binder.deleteLabel('pristine');
+      this.binder.addLabel('modified');
     });
   }
 
@@ -157,18 +157,8 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
 
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
       // set pristine on new data
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
         this._updateItems();
         this._triggerValueChangedEvent();
       });

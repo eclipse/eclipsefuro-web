@@ -4,7 +4,7 @@ import 'markdown-it/dist/markdown-it.js';
 import '@ui5/webcomponents-fiori/dist/NotificationListItem.js';
 import '@ui5/webcomponents-fiori/dist/NotificationAction.js';
 import '@ui5/webcomponents/dist/List.js';
-import { Theme } from '@furo/framework';
+import { Theme } from '@furo/framework/src/theme.js';
 
 /**
  * `furo-ui5-notification-list`
@@ -248,7 +248,7 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    */
   render() {
     return html`
-      <ui5-list id="ui5-list" header-text="${this.headerText}"></ui5-list>
+      <ui5-list id="ui5-list" header-text="${this.headerText}"></dic></ui5-list>
     `;
   }
 }

@@ -466,21 +466,6 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
-      });
-
       if (this.valueSubField) {
         this._fieldNodeToUpdate = this._getValueByPath(this.binder.fieldNode, this.valueSubField);
         this._fieldDisplayNodeToUpdate = this._getValueByPath(

@@ -10,7 +10,7 @@ import '@furo/layout/src/furo-horizontal-flex';
  * @customElement
  * @demo demo-furo-button-bar Demo button bar
  */
-class FuroButtonBar extends LitElement {
+export class FuroButtonBar extends LitElement {
   constructor() {
     super();
     this._entity = {};

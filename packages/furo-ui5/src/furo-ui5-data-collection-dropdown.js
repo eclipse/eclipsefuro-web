@@ -109,7 +109,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
           );
         }
 
-        this.binder.deleteLabel('pristine');
+        this.binder.addLabel('modified');
       }
       setTimeout(() => {
         this.updateLock = false;
@@ -289,15 +289,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (!this.binder.fieldNode._pristine) {
-        this.binder.deleteLabel('pristine');
-      }
-
       if (this.valueSubField && this.valueSubField !== 'null') {
         this._fieldNodeToUpdate = CollectionDropdownHelper.getValueByPath(
           this.binder.fieldNode,

@@ -80,6 +80,12 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
         p::first-line {
           line-height: var(--_ui5_input_height, 36px);
         }
+        p[data-size='size-s']::first-line {
+          line-height: var(--sapElement_Compact_Height, 26px);
+        }
+        ui5-label[data-size='size-s'] {
+          padding-top: 0;
+        }
         :host([value-state='Information']) p {
           color: var(--sapInformativeColor, #0a6ed1);
         }
@@ -133,8 +139,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
     // set the label mappings
     this.binder.labelMappings = {
       error: '_error',
-      disabled: 'disabled',
-      readonly: 'disabled',
+      disabled: 'disabled'
     };
 
     // set attributes to constrains mapping for furo.fat types

@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
 import { FBP } from '@furo/fbp';
-import { Theme } from '@furo/framework';
+import { Theme } from '@furo/framework/src/theme.js';
 import '@furo/fbp/src/flow-repeat';
 import '@ui5/webcomponents/dist/List.js';
 import './ui5-reference-search-item.js';
@@ -31,7 +31,7 @@ import './ui5-reference-search-item.js';
  * - 'readonly': input is disabled
  * - 'required': input is required
  * - 'disabled': input is disabled
- * - 'pristine': data is not changed. it is pristine
+ * - 'modified': data is changed
  * - 'condensed': input has condensed display
  *
  * ### following attributes of fat types are supported:
@@ -87,26 +87,11 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
           this.binder.addLabel('empty');
         }
         // if something was entered the field is not empty
-        this.binder.deleteLabel('pristine');
+        this.binder.addLabel('modified');
 
         this._FBPTriggerWire('--listDeselectAll');
 
         this._updateField();
-      });
-
-      /**
-       * handle pristine
-       *
-       * Set to pristine label to the same _pristine from the fieldNode
-       */
-      if (this.binder.fieldNode._pristine) {
-        this.binder.addLabel('pristine');
-      } else {
-        this.binder.deleteLabel('pristine');
-      }
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this.binder.addLabel('pristine');
       });
 
       this._updateField();
