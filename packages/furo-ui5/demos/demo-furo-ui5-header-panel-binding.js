@@ -114,7 +114,4 @@ class DemoFuroUi5HeaderPanelBinding extends FBP(LitElement) {
   }
 }
 
-window.customElements.define(
-  'demo-furo-ui5-header-panel-binding',
-  DemoFuroUi5HeaderPanelBinding,
-);
+window.customElements.define('demo-furo-ui5-header-panel-binding', DemoFuroUi5HeaderPanelBinding);

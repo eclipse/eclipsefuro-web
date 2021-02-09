@@ -85,8 +85,8 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
 
               <h2>furo-ui5-button-bar with bound entity</h2>
               <p>
-                Please throttle your network connection in the dev console to see the pending request
-                state.
+                Please throttle your network connection in the dev console to see the pending
+                request state.
               </p>
 
               <produce-qp-data
@@ -95,7 +95,11 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
                 qpescaped="%7B%22tsk%22%3A1%7D"
               ></produce-qp-data>
 
-              <furo-deep-link service="TaskService" ƒ-qp-in="--qp" @-hts-out="--hts"></furo-deep-link>
+              <furo-deep-link
+                service="TaskService"
+                ƒ-qp-in="--qp"
+                @-hts-out="--hts"
+              ></furo-deep-link>
               <furo-entity-agent
                 service="TaskService"
                 ƒ-hts-in="--hts"
@@ -122,22 +126,19 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
                 ƒ-enable-all="--response"
               >
                 <furo-ui5-button rel="self" hide-no-rel primary unelevated
-                >hidden if no relation self
+                  >hidden if no relation self
                 </furo-ui5-button>
                 <furo-ui5-button rel="update" disable-no-rel outline
-                >disabled if no relation update
-                </furo-ui5-button
-                >
+                  >disabled if no relation update
+                </furo-ui5-button>
                 <furo-ui5-button disable-pristine disable-not-valid secondary unelevated
-                >disabled if pristine (e.g. save)
-                </furo-ui5-button
-                >
+                  >disabled if pristine (e.g. save)
+                </furo-ui5-button>
 
                 <furo-empty-spacer></furo-empty-spacer>
                 <furo-ui5-button rel="delete" disable-no-rel design="Negative" unelevated
-                >Danger Action
-                </furo-ui5-button
-                >
+                  >Danger Action
+                </furo-ui5-button>
               </furo-ui5-button-bar>
             </furo-vertical-scroller>
           </template>
