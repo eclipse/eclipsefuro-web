@@ -62,30 +62,30 @@ class DemoFuroUi5Button extends FBP(LitElement) {
             <furo-ui5-button>Action</furo-ui5-button>
 
             <p>Buttons with various designs:</p>
-            <furo-button-bar>
+            <furo-ui5-button-bar>
               <furo-ui5-button>Default</furo-ui5-button>
               <furo-ui5-button design="Transparent">Transparent</furo-ui5-button>
               <furo-ui5-button design="Positive">Positive</furo-ui5-button>
               <furo-ui5-button design="Negative">Negative</furo-ui5-button>
               <furo-ui5-button design="Emphasized">Emphasized</furo-ui5-button>
-            </furo-button-bar>
+            </furo-ui5-button-bar>
 
             <p>Button disabled:</p>
             <furo-ui5-button ƒ-enable="--enableRequested" ƒ-disable="--disableRequested" disabled
               >Disabled or Enabled</furo-ui5-button
             >
             <p>Use of the convenience functions enable/disable</p>
-            <furo-button-bar>
+            <furo-ui5-button-bar>
               <furo-ui5-button @-click="--enableRequested" design="Positive"
                 >ƒ-enable</furo-ui5-button
               >
               <furo-ui5-button @-click="--disableRequested" design="Negative"
                 >ƒ-disable</furo-ui5-button
               >
-            </furo-button-bar>
+            </furo-ui5-button-bar>
 
             <p>Buttons with icons:</p>
-            <furo-button-bar>
+            <furo-ui5-button-bar>
               <furo-ui5-button
                 icon="accept"
                 design="Positive"
@@ -107,7 +107,7 @@ class DemoFuroUi5Button extends FBP(LitElement) {
                 aria-labelledby="lblSettings"
                 design="Transparent"
               ></furo-ui5-button>
-            </furo-button-bar>
+            </furo-ui5-button-bar>
           </furo-form-layouter>
         </template>
       </furo-demo-snippet>

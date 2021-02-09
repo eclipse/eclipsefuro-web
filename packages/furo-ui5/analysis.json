@@ -156,6 +156,42 @@
       "tagname": "furo-ui5-button"
     },
     {
+      "description": "`furo-ui5-button-bar`\nLit element\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--furo-ui5-content-shadow` | shadow of button bar  | rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 2px 8px 0px) | --sapContent_Shadow0",
+      "summary": "",
+      "path": "src/furo-ui5-button-bar.js",
+      "properties": [],
+      "methods": [],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-button",
+          "description": "Basic usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 19,
+          "column": 0
+        },
+        "end": {
+          "line": 52,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "FuroButtonBar",
+      "name": "FuroUi5ButtonBar",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-button-bar"
+    },
+    {
       "description": "Allows the user to set a binary value, such as true/false or yes/no for an item.\nThe furo-ui5-data-checkbox-input component consists of a box and a label that describes its purpose. If it's checked,\nan indicator is displayed inside the box. To check/uncheck the furo-ui5-data-checkbox-input, the user has to click or tap the square box or its label.\n\nThe furo-ui5-data-checkbox-input component only has 2 states - checked and unchecked. Clicking or tapping toggles\nthe furo-ui5-data-checkbox-input between checked and unchecked state.\n\nUsage\nYou can manually set the width of the element containing the box and the label using the width property.\nIf the text exceeds the available width, it is truncated. The touchable area for toggling the\nfuro-ui5-data-checkbox-input ends where the text ends.\n\nYou can disable the furo-ui5-data-checkbox-input by setting the disabled property to true, or use the\nfuro-ui5-data-checkbox-input in read-only mode by setting the readonly property to true.",
       "summary": "data checkbox input field",
       "path": "src/furo-ui5-data-checkbox-input.js",
@@ -2971,11 +3007,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 200,
+              "line": 205,
               "column": 2
             },
             "end": {
-              "line": 202,
+              "line": 207,
               "column": 3
             }
           },
@@ -3097,11 +3133,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 109,
+              "line": 115,
               "column": 2
             },
             "end": {
-              "line": 113,
+              "line": 119,
               "column": 3
             }
           },
@@ -3117,11 +3153,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 120,
+              "line": 126,
               "column": 2
             },
             "end": {
-              "line": 144,
+              "line": 149,
               "column": 3
             }
           },
@@ -3137,11 +3173,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 151,
+              "line": 156,
               "column": 2
             },
             "end": {
-              "line": 164,
+              "line": 169,
               "column": 3
             }
           },
@@ -3161,11 +3197,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 170,
+              "line": 175,
               "column": 2
             },
             "end": {
-              "line": 193,
+              "line": 198,
               "column": 3
             }
           },
@@ -3181,11 +3217,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 210,
+              "line": 215,
               "column": 2
             },
             "end": {
-              "line": 224,
+              "line": 229,
               "column": 3
             }
           },
@@ -3201,11 +3237,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 230,
+              "line": 235,
               "column": 2
             },
             "end": {
-              "line": 238,
+              "line": 243,
               "column": 3
             }
           },
@@ -3238,7 +3274,7 @@
           "column": 0
         },
         "end": {
-          "line": 239,
+          "line": 244,
           "column": 1
         }
       },
