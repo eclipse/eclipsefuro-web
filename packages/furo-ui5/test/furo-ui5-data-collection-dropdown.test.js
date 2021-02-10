@@ -235,4 +235,14 @@ describe('furo-ui5-data-collection-dropdown', () => {
     assert.equal(dropdown._dropdownList.length, 1);
     done();
   });
+
+  it('should send item-selected event with original entity', done => {
+    dropdown.autoSelectFirst = true;
+    dropdown.addEventListener('item-selected', (e)=>{
+      assert.equal(e.detail.id, 1);
+      done();
+    },{once: true})
+    dropdown.injectEntities(testDataArray);
+
+  });
 });
