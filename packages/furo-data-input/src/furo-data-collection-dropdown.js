@@ -72,6 +72,15 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
    *  **bubbles**
    */
 
+  /**
+   * @event item-selected
+   * Fired when the item of dropdown list is selected.
+   *
+   * detail payload: {*} the original injected data (e.g. entity with link) of the selected item
+   *
+   *  **bubbles**
+   */
+
   constructor() {
     super();
     this.error = false;
