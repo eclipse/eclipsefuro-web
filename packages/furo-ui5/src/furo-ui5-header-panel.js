@@ -344,7 +344,7 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
                  ?collapsed="${this.collapsed}"
       >
         <div slot="header" class="header">
-          <ui5-title>${this.headerText}</ui5-icon></ui5-title>
+          <ui5-title>${this.headerText}</ui5-title>
           <ui5-label>${this.secondaryText}</ui5-label>
           <slot name="action" class="action"></slot>
         </div>
