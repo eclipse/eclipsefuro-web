@@ -140,6 +140,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
     this.binder.labelMappings = {
       error: '_error',
       disabled: 'disabled',
+      readonly: 'disabled'
     };
 
     // set attributes to constrains mapping for furo.fat types
