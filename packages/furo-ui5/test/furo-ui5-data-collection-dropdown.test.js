@@ -7,7 +7,7 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/testhelper/initEnv.js';
 
-import '../src/furo-catalog.js';
+import '../src/furo-ui5-data-collection-dropdown.js';
 
 describe('furo-ui5-data-collection-dropdown', () => {
   let host;
@@ -234,5 +234,18 @@ describe('furo-ui5-data-collection-dropdown', () => {
     dropdown.injectEntities(testDataArray);
     assert.equal(dropdown._dropdownList.length, 1);
     done();
+  });
+
+  it('should send item-selected event with original entity', done => {
+    dropdown.autoSelectFirst = true;
+    dropdown.addEventListener(
+      'item-selected',
+      e => {
+        assert.equal(e.detail.id, 1);
+        done();
+      },
+      { once: true },
+    );
+    dropdown.injectEntities(testDataArray);
   });
 });

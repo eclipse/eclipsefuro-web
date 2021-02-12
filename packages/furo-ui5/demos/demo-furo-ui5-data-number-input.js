@@ -1,26 +1,17 @@
+/* eslint-disable  import/no-extraneous-dependencies */
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/ui5/src/furo-catalog.js';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-data-object.js';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-entity-agent.js';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-deep-link.js';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/form/src/furo-form-layouter.js';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/form/src/furo-button-bar.js';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/input/src/furo-button.js';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/produce-qp-data.js';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/fetch-universal-json.js';
 
 import '@ui5/webcomponents/dist/Icon.js';
@@ -85,81 +76,85 @@ class DemoFuroUi5DataNumberInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>Demo furo-ui5-data-number-input</h2>
-      <furo-demo-snippet>
-        <template>
-          <furo-form-layouter two>
-            <furo-ui5-data-number-input
-              ƒ-bind-data="--entity(*.data.furo_data_number_input)"
-            ></furo-ui5-data-number-input>
-            <furo-ui5-data-number-input
-              ƒ-bind-data="--entity(*.data.furo_data_range_input)"
-            ></furo-ui5-data-number-input>
-          </furo-form-layouter>
+      <furo-vertical-flex>
+        <furo-demo-snippet>
+          <template>
+            <furo-vertical-scroller>
+              <h2>Demo furo-ui5-data-number-input</h2>
+              <furo-form-layouter two>
+                <furo-ui5-data-number-input
+                  ƒ-bind-data="--entity(*.data.furo_data_number_input)"
+                ></furo-ui5-data-number-input>
+                <furo-ui5-data-number-input
+                  ƒ-bind-data="--entity(*.data.furo_data_range_input)"
+                ></furo-ui5-data-number-input>
+              </furo-form-layouter>
 
-          <furo-button-bar>
-            <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A2%7D"></produce-qp-data>
-          </furo-button-bar>
+              <furo-button-bar>
+                <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A2%7D"></produce-qp-data>
+              </furo-button-bar>
 
-          <p>
-            furo-ui5-data-number-input with type google.protobuf.Int32Value binding.
-          </p>
-          <furo-form-layouter two>
-            <furo-ui5-data-number-input
-              ƒ-bind-data="--entityU(*.data.wrapper_int32)"
-            ></furo-ui5-data-number-input>
-          </furo-form-layouter>
+              <p>
+                furo-ui5-data-number-input with type google.protobuf.Int32Value binding.
+              </p>
+              <furo-form-layouter two>
+                <furo-ui5-data-number-input
+                  ƒ-bind-data="--entityU(*.data.wrapper_int32)"
+                ></furo-ui5-data-number-input>
+              </furo-form-layouter>
 
-          <p>
-            furo-ui5-data-number-input with type furo.fat.Int32 binding.
-          </p>
-          <furo-form-layouter two>
-            <furo-ui5-data-number-input
-              ƒ-bind-data="--entityU(*.data.fat_int32)"
-            ></furo-ui5-data-number-input>
-          </furo-form-layouter>
+              <p>
+                furo-ui5-data-number-input with type furo.fat.Int32 binding.
+              </p>
+              <furo-form-layouter two>
+                <furo-ui5-data-number-input
+                  ƒ-bind-data="--entityU(*.data.fat_int32)"
+                ></furo-ui5-data-number-input>
+              </furo-form-layouter>
 
-          <fetch-universal-json
-            file="/mockdata/ui5/demos/fat-universal.json"
-            @-data-loaded="--mockdata"
-          >
-            mockdate with suggestions
-          </fetch-universal-json>
-          <fetch-universal-json
-            file="/mockdata/ui5/demos/fat-universal-unset-label.json"
-            @-data-loaded="--mockdata"
-          ></fetch-universal-json>
-          <fetch-universal-json
-            file="/mockdata/ui5/demos/fat-universal-with-meta.json"
-            @-data-loaded="--mockdata"
-          ></fetch-universal-json>
+              <fetch-universal-json
+                file="/mockdata/ui5/demos/fat-universal.json"
+                @-data-loaded="--mockdata"
+              >
+                mockdate with suggestions
+              </fetch-universal-json>
+              <fetch-universal-json
+                file="/mockdata/ui5/demos/fat-universal-unset-label.json"
+                @-data-loaded="--mockdata"
+              ></fetch-universal-json>
+              <fetch-universal-json
+                file="/mockdata/ui5/demos/fat-universal-with-meta.json"
+                @-data-loaded="--mockdata"
+              ></fetch-universal-json>
 
-          <furo-data-object
-            type="universaltest.UniversaltestEntity"
-            @-object-ready="--entityU"
-            ƒ-inject-raw="--mockdata"
-          ></furo-data-object>
+              <furo-data-object
+                type="universaltest.UniversaltestEntity"
+                @-object-ready="--entityU"
+                ƒ-inject-raw="--mockdata"
+              ></furo-data-object>
 
-          <furo-data-object
-            type="experiment.ExperimentEntity"
-            @-object-ready="--entity"
-            ƒ-inject-raw="--response"
-          ></furo-data-object>
-          <furo-deep-link
-            service="ExperimentService"
-            @-hts-out="--hts"
-            ƒ-qp-in="--qp"
-          ></furo-deep-link>
-          <furo-entity-agent
-            service="ExperimentService"
-            ƒ-hts-in="--hts"
-            load-on-hts-in
-            ƒ-bind-request-data="--entity"
-            @-response="--response"
-          >
-          </furo-entity-agent>
-        </template>
-      </furo-demo-snippet>
+              <furo-data-object
+                type="experiment.ExperimentEntity"
+                @-object-ready="--entity"
+                ƒ-inject-raw="--response"
+              ></furo-data-object>
+              <furo-deep-link
+                service="ExperimentService"
+                @-hts-out="--hts"
+                ƒ-qp-in="--qp"
+              ></furo-deep-link>
+              <furo-entity-agent
+                service="ExperimentService"
+                ƒ-hts-in="--hts"
+                load-on-hts-in
+                ƒ-bind-request-data="--entity"
+                @-response="--response"
+              >
+              </furo-entity-agent>
+            </furo-vertical-scroller>
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
     `;
   }
 }

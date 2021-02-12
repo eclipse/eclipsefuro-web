@@ -193,7 +193,7 @@ export class CollectionDropdownHelper {
         id: e[caller.valueField],
         label: e[caller.displayField],
         selected: !!e.selected,
-        _original: e,
+        _original: e._original,
       }))
     }
     return arr
@@ -276,11 +276,11 @@ export class CollectionDropdownHelper {
                 selected: e.selected || false,
               }
             }
-              return {
-                id: e.id,
-                label: e.label,
-                selected: e.selected || false,
-              }
+            return {
+              id: e.id,
+              label: e.label,
+              selected: e.selected || false,
+            }
 
           },
         )
