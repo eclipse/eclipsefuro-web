@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.20.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.20.0...@furo/specs@1.20.1) (2021-02-12)
+
+
+### Bug Fixes
+
+* change the type of furo_data_range_input field to float to fix demo. ([10f3f06](https://github.com/theNorstroem/FuroBaseComponents/commit/10f3f0631ddebfda63e2a36987ba74f7bd645347))
+
+
+
+
+
 # [1.20.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.19.1...@furo/specs@1.20.0) (2021-02-09)
 
 

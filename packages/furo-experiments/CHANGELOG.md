@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.4.6...@furo/experiments@1.4.7) (2021-02-12)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
 ## [1.4.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.4.5...@furo/experiments@1.4.6) (2021-02-09)
 
 **Note:** Version bump only for package @furo/experiments

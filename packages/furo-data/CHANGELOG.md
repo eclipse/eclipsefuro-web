@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.18.0...@furo/data@1.18.1) (2021-02-12)
+
+
+### Bug Fixes
+
+* init invisible components with display:none ([bdf3464](https://github.com/theNorstroem/FuroBaseComponents/commit/bdf3464a946130ced466bf496eed65ee7a9e1709))
+
+
+
+
+
 # [1.18.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.17.1...@furo/data@1.18.0) (2021-02-09)
 
 

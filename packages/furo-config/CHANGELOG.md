@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.45](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.44...@furo/config@1.3.45) (2021-02-12)
+
+
+### Bug Fixes
+
+* init invisible components with display:none ([bdf3464](https://github.com/theNorstroem/FuroBaseComponents/commit/bdf3464a946130ced466bf496eed65ee7a9e1709))
+
+
+
+
+
 ## [1.3.44](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.43...@furo/config@1.3.44) (2021-02-09)
 
 **Note:** Version bump only for package @furo/config

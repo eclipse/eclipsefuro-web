@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.4.0...@furo/form@1.4.1) (2021-02-12)
+
+
+### Bug Fixes
+
+* remove margin on last element ([5645170](https://github.com/theNorstroem/FuroBaseComponents/commit/5645170736cb4b0575a91b4f6823741f82cb84fd))
+
+
+
+
+
 # [1.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.3.46...@furo/form@1.4.0) (2021-02-09)
 
 

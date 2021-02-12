@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.2...@furo/data-input@1.11.3) (2021-02-12)
+
+
+### Bug Fixes
+
+* init invisible components with display:none ([bdf3464](https://github.com/theNorstroem/FuroBaseComponents/commit/bdf3464a946130ced466bf496eed65ee7a9e1709))
+* original data in item-selected event should be the original entity. ([e5403c2](https://github.com/theNorstroem/FuroBaseComponents/commit/e5403c2156b9158578ae62fd6cf59cdbd3f84a0c))
+
+
+
+
+
 ## [1.11.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.1...@furo/data-input@1.11.2) (2021-02-09)
 
 **Note:** Version bump only for package @furo/data-input

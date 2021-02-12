@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.10](https://github.com/veith/template-component-package/compare/@furo/util@1.4.9...@furo/util@1.4.10) (2021-02-12)
+
+
+### Bug Fixes
+
+* init invisible components with display:none ([bdf3464](https://github.com/veith/template-component-package/commit/bdf3464a946130ced466bf496eed65ee7a9e1709))
+
+
+
+
+
 ## [1.4.9](https://github.com/veith/template-component-package/compare/@furo/util@1.4.8...@furo/util@1.4.9) (2021-02-09)
 
 **Note:** Version bump only for package @furo/util

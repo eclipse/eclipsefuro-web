@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.19](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.4.18...@furo/route@1.4.19) (2021-02-12)
+
+
+### Bug Fixes
+
+* init invisible components with display:none ([bdf3464](https://github.com/theNorstroem/FuroBaseComponents/commit/bdf3464a946130ced466bf496eed65ee7a9e1709))
+
+
+
+
+
 ## [1.4.18](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.4.17...@furo/route@1.4.18) (2021-02-09)
 
 **Note:** Version bump only for package @furo/route

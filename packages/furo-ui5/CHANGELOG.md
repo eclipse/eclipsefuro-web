@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.18.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.18.0...@furo/ui5@0.18.1) (2021-02-12)
+
+
+### Bug Fixes
+
+* change the type of furo_data_range_input field to float to fix demo. ([10f3f06](https://github.com/theNorstroem/FuroBaseComponents/commit/10f3f0631ddebfda63e2a36987ba74f7bd645347))
+* init invisible components with display:none ([034e490](https://github.com/theNorstroem/FuroBaseComponents/commit/034e490ae04c0ba8e841fb36e616ce9ea845ce71))
+* remove catalog imports ([0fc07b3](https://github.com/theNorstroem/FuroBaseComponents/commit/0fc07b3cfc8586f11a4b360de7e1fe07d6943b89))
+* remove margin on last element ([5645170](https://github.com/theNorstroem/FuroBaseComponents/commit/5645170736cb4b0575a91b4f6823741f82cb84fd))
+* remove unused block element. ([120ecec](https://github.com/theNorstroem/FuroBaseComponents/commit/120ecec1d6a180be07f76337e4200e8246e71dfe))
+* spacings changed ([5b249a3](https://github.com/theNorstroem/FuroBaseComponents/commit/5b249a3f3b67e174a8f5eb6a859f95e27cbf4e6f))
+
+
+
+
+
 # [0.18.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.17.1...@furo/ui5@0.18.0) (2021-02-09)
 
 
