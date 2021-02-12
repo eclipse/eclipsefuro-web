@@ -51,7 +51,7 @@ class FuroUi5ButtonBar extends FuroButtonBar {
         }
 
         ::slotted(*) {
-          margin: var(--spacing-xs, 8px) var(--spacing-xs, 8px);
+          margin: var(--spacing-xs, 8px) var(--spacing-s, 16px)  var(--spacing-xs, 8px) var(--spacing-s, 16px);
         }
       `
     );

@@ -2,8 +2,6 @@ import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5/src/furo-catalog.js';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import '@ui5/webcomponents/dist/Card.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@ui5/webcomponents/dist/Icon.js';

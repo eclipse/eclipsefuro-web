@@ -23,11 +23,12 @@ import { CollectionDropdownHelper } from '@furo/data-input/src/lib/CollectionDro
  * @demo demo-furo-ui5-data-collection-dropdown Basic Usage
  */
 export class FuroUi5DataCollectionDropdown extends Select.default {
+
   /**
-   * @event value-changed
-   * Fired when value has changed from the component inside.
+   * @event item-selected
+   * Fired when the item of dropdown list is selected.
    *
-   * detail payload: {*} the value from the value-field. By default the value field is "id"
+   * detail payload: {*} the original injected data (e.g. entity with link) of the selected item
    *
    *  **bubbles**
    */

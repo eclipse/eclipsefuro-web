@@ -146,7 +146,7 @@ fields:
                 is: "5"
                 message: step 5
     furo_data_range_input:
-        type: string
+        type: float
         description: field for furo-data-range-input for testing
         __proto:
             number: 8
