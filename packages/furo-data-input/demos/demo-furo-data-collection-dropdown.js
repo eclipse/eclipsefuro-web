@@ -122,24 +122,22 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
                 label="sex"
                 ƒ-bind-data="--personDO(*.sex)"
               ></furo-data-text-input>
-
             </furo-form-layouter>
 
             <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
 
-            <furo-data-object               ƒ-init="--reset"
-                                            type="task.TaskEntity" @-object-ready="--entity"></furo-data-object>
+            <furo-data-object
+              ƒ-init="--reset"
+              type="task.TaskEntity"
+              @-object-ready="--entity"
+            ></furo-data-object>
             <furo-data-object
               type="task.TaskCollection"
               @-object-ready="--collection"
               ƒ-inject-raw="--response"
             ></furo-data-object>
 
-
-            <furo-data-object
-              type="person.Person"
-              @-object-ready="--personDO"
-            ></furo-data-object>
+            <furo-data-object type="person.Person" @-object-ready="--personDO"></furo-data-object>
 
             <furo-collection-agent
               service="TaskService"

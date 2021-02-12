@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 import { Env } from '@furo/framework';
 
 /**
@@ -164,6 +164,15 @@ class FuroDeepLink extends LitElement {
         this._servicedefinitions,
       );
     }
+  }
+
+  static get styles() {
+    // language=CSS
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 

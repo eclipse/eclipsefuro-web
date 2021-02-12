@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 
 /**
@@ -39,6 +39,15 @@ class FuroDataEmmiter extends FBP(LitElement) {
       customEvent.detail = this.field._value;
       this.dispatchEvent(customEvent);
     }
+  }
+
+  static get styles() {
+    // language=CSS
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 

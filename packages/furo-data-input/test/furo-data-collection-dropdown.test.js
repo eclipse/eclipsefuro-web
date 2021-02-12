@@ -86,10 +86,7 @@ describe('furo-data-collection-dropdown', () => {
             ƒ-inject-entities="--responsePerson(*.entities)"
           ></furo-data-collection-dropdown>
 
-          <furo-data-object
-            type="person.Person"
-            @-object-ready="--personDO"
-          ></furo-data-object>
+          <furo-data-object type="person.Person" @-object-ready="--personDO"></furo-data-object>
         </template>
       </test-bind>
     `);
@@ -135,15 +132,12 @@ describe('furo-data-collection-dropdown', () => {
   xit('a11y', () => axeReport(collectionDropdown1));
 
   it('should receive value with bind', done => {
-    entityObject.data.data.description.addEventListener(
-      'this-metas-changed',
-      () => {
-        assert.equal(collectionDropdown1.binder.fieldNode._meta.options.list.length, 2);
-        assert.equal(collectionDropdown1.binder.fieldNode._value, "Furo Foundation");
-        assert.equal(collectionDropdown1.binder.fieldNode._meta.label, 'ID label from response');
-        done();
-      }
-    );
+    entityObject.data.data.description.addEventListener('this-metas-changed', () => {
+      assert.equal(collectionDropdown1.binder.fieldNode._meta.options.list.length, 2);
+      assert.equal(collectionDropdown1.binder.fieldNode._value, 'Furo Foundation');
+      assert.equal(collectionDropdown1.binder.fieldNode._meta.label, 'ID label from response');
+      done();
+    });
 
     deeplink.qpIn({ prj: 1 });
   });

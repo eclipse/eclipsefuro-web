@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 
 /**
  * `furo-location`
@@ -306,6 +306,15 @@ class FuroLocation extends LitElement {
     const customEvent = new Event('__furoLocationChanged', { composed: true, bubbles: true });
     customEvent.detail = now;
     this.dispatchEvent(customEvent);
+  }
+
+  static get styles() {
+    // language=CSS
+    return css`
+      :host {
+        display: none;
+      }
+    `;
   }
 }
 
