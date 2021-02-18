@@ -210,7 +210,7 @@ export class FuroButtonBar extends LitElement {
         ::slotted(*) {
           margin: var(--spacing-xs, 8px) var(--spacing-xs, 8px) var(--spacing-xs, 8px) 0;
         }
-        ::slotted(*:last-child){
+        ::slotted(*:last-child) {
           margin-right: 0;
         }
 

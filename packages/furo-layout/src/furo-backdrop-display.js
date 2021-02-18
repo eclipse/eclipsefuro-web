@@ -57,10 +57,10 @@ class FuroBackdropDisplay extends FBP(LitElement) {
        *
        * If you are interested to use @-opened to show some ui stuff, set this value higher or equal 250.
        */
-      toDuration:{
+      toDuration: {
         type: Number,
-        attribute: "to-duration"
-      }
+        attribute: 'to-duration',
+      },
     };
   }
 
@@ -75,8 +75,6 @@ class FuroBackdropDisplay extends FBP(LitElement) {
     this.shadowRoot.getElementById('backdrop').addEventListener('click', () => {
       this.close();
     });
-
-
 
     /**
      * items which should be shown in the backdrop must be registered

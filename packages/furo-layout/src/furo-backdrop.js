@@ -30,7 +30,6 @@ import { FBP } from '@furo/fbp';
  * @appliesMixin FBP
  */
 class FuroBackdrop extends FBP(LitElement) {
-
   _FBPReady() {
     // move the content to the backdrop display
     const customEvent = new Event('register-backdrop', { composed: true, bubbles: true });

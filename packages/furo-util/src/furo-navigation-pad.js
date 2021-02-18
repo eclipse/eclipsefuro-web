@@ -61,9 +61,13 @@ class FuroNavigationPad extends FBP(LitElement) {
       /**
        * @event navigated
        * Fired when one of the keys was pressed
+       *
+       * The original event is stored under **initiatiorEvent**.
        * detail payload: key
        */
       const navigatedEvent = new Event('navigated', { composed: true, bubbles: true });
+      navigatedEvent.initiatorEvent = event;
+
       const enterEvent = new Event('enter-pressed', { composed: true, bubbles: true });
       const arrowDownEvent = new Event('arrow-down-pressed', { composed: true, bubbles: true });
       const arrowUpEvent = new Event('arrow-up-pressed', { composed: true, bubbles: true });

@@ -16,7 +16,6 @@ import '@furo/timing/src/furo-de-bounce.js';
  * @appliesMixin FBP
  */
 class DemoFuroBackdrop extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -24,20 +23,21 @@ class DemoFuroBackdrop extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
-      :host {
-        display: block;
-        height: 100%;
-        padding-right: var(--spacing);
-      }
+    return (
+      Theme.getThemeForComponent(this.name) ||
+      css`
+        :host {
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
-
-    `;
+        :host([hidden]) {
+          display: none;
+        }
+      `
+    );
   }
-
 
   /**
    * @private
@@ -46,7 +46,6 @@ class DemoFuroBackdrop extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-
       <furo-vertical-flex>
         <furo-backdrop-display></furo-backdrop-display>
         <div>
@@ -59,8 +58,9 @@ class DemoFuroBackdrop extends FBP(LitElement) {
             <furo-vertical-scroller>
               <button @-click="--btnClicked" ƒ-focus="--itemClosed">show</button>
               <furo-backdrop ƒ-show="--btnClicked" ƒ-close="--closeClicked" @-closed="--itemClosed">
-                <div style="background: gold; padding: 50px;">Here goes the content
-                  <br>
+                <div style="background: gold; padding: 50px;">
+                  Here goes the content
+                  <br />
                   <button @-click="--closeClicked">close me</button>
                 </div>
               </furo-backdrop>
