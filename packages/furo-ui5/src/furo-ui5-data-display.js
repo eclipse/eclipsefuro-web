@@ -84,7 +84,7 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
           line-height: var(--sapElement_Compact_Height, 26px);
         }
         ui5-label[data-size='size-s'],
-        ui5-label[data-size='size-m']{
+        ui5-label[data-size='size-m'] {
           padding-top: 0;
         }
         :host([value-state='Information']) p {

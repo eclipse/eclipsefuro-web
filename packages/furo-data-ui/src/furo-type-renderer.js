@@ -13,6 +13,9 @@ import { LitElement } from 'lit-element';
  *
  * If you want to implement an individual display of a type, you need your own display-[type] component and import it.
  *
+ * for repeated field you should write your own display-[type]-repeats component and import it. if display-[type]-repeats
+ * not exists, the renderer will use the display-[type] component as fallback and display it repeatedly.
+ *
  * # Naming convention
  * - display-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]
  * e.g. display-google-type-timeofday
@@ -57,6 +60,10 @@ class FuroTypeRenderer extends LitElement {
     };
   }
 
+  /**
+   * bind data
+   * @param fieldNode
+   */
   bindData(fieldNode) {
     this._field = fieldNode;
     this.renderName = `display-${this._field._spec.type.replaceAll('.', '-').toLocaleLowerCase()}`;
@@ -120,6 +127,7 @@ class FuroTypeRenderer extends LitElement {
     if (elementRepeat.bindData) {
       this._addElement(elementRepeat);
     } else if (this.defaultElement.bindData) {
+      // fallback , display the display-[type] component repeatedly
       this._field.repeats.forEach(r => {
         const el = document.createElement(this.renderName);
         el.bindData(r);

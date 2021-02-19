@@ -85,7 +85,7 @@ class DisplayFuroFatString extends LitElement {
     }
   }
 
-  _updateMeta(){
+  _updateMeta() {
     /**
      * Sets the attributes from the field node
      */

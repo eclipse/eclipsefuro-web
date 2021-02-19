@@ -69,7 +69,6 @@ class FuroUi5DataTable extends FBP(LitElement) {
     super();
     this.cols = [];
     this._specs = Env.api.specs;
-    this.fields = '';
     this.popinFields = '';
     this.data = [];
     this.noDataText = 'No Data';
@@ -231,7 +230,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
     return {
       /**
        * list of field-paths which should be as columns displayed
-       * comma separated field list
+       * comma separated list of field's path. e.g. data.id, data.display|800 , here `800` represents the the minimum table width required to display this column. By default it is always displayed.
        */
       columns: {
         type: String,
@@ -261,7 +260,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
       },
       /**
        * define the list of popin fields
-       * comma separated field list
+       * comma separated list of field's path. e.g data.id, data.display_name
        */
       popinFields: {
         type: String,
