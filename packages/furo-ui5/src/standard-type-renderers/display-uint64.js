@@ -34,6 +34,25 @@ class DisplayUint64 extends LitElement {
           text-align: right;
         }
 
+        :host([hidden]) {
+          display: none;
+        }
+        :host([disabled]) span {
+          opacity: var(--_ui5_input_disabled_opacity);
+        }
+        span {
+          margin: 0;
+          font-family: var(--sapFontFamily, '72');
+          color: var(--sapTextcolor, '#32363a');
+          word-break: break-word;
+        }
+        span::first-line {
+          line-height: var(--_ui5_input_height, 36px);
+        }
+        span[data-size='size-s']::first-line {
+          line-height: var(--sapElement_Compact_Height, 26px);
+        }
+
         :host([value-state='Positive']),
         :host([value-state='Success']) {
           color: var(--sapPositiveColor, #107e3e);
