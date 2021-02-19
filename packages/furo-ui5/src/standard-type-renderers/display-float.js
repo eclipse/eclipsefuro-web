@@ -1,8 +1,9 @@
 import { LitElement, html, css } from 'lit-element';
+import { Env } from '@furo/framework/src/furo.js';
 
 /**
- * `display-furo-link`
- * The display-furo-link component displays a FieldNode of type `furo.Link` in read only mode.
+ * `display-float`
+ * The display-float component displays a FieldNode of type `float` in read only mode.
  *
  * Every display-xxx component should implement the following API:
  * - function: bindData(fieldNode){...}
@@ -10,9 +11,9 @@ import { LitElement, html, css } from 'lit-element';
  *
  * @summary
  * @customElement
- * @demo demo display-furo-link Basic Usage
+ * @demo demo display-float Basic Usage
  */
-class DisplayFuroLink extends LitElement {
+class DisplayFloat extends LitElement {
   constructor() {
     super();
     this._field = undefined;
@@ -24,10 +25,32 @@ class DisplayFuroLink extends LitElement {
       css`
         :host {
           display: block;
+          word-break: keep-all;
+        }
+
+        :host([tabular-form]) {
+          text-align: right;
         }
 
         :host([hidden]) {
           display: none;
+        }
+
+        :host([value-state='Positive']),
+        :host([value-state='Success']) {
+          color: var(--sapPositiveColor, #107e3e);
+        }
+        :host([value-state='Informative']),
+        :host([value-state='Information']) {
+          color: var(--sapInformativeColor, #0a6ed1);
+        }
+        :host([value-state='Negative']),
+        :host([value-state='Error']) {
+          color: var(--sapNegativeColor, #b00);
+        }
+        :host([value-state='Critical']),
+        :host([value-state='Warning']) {
+          color: var(--sapCrticalColor, #e9730c);
         }
       `,
     ];
@@ -39,7 +62,6 @@ class DisplayFuroLink extends LitElement {
    */
   bindData(fieldNode) {
     this._field = fieldNode;
-
     if (this._field) {
       this._field.addEventListener('field-value-changed', () => {
         this.requestUpdate();
@@ -53,10 +75,9 @@ class DisplayFuroLink extends LitElement {
    * @private
    */
   _getTemplate() {
+    this.displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field);
     return html`
-      <span
-        >[${this._field.rel._value}][this._field.method._value][${this._field.href._value}]</span
-      >
+      <span>${this.displayValue}</span>
     `;
   }
 
@@ -67,8 +88,10 @@ class DisplayFuroLink extends LitElement {
    */
   render() {
     // language=HTML
-    return html` ${this._getTemplate()} `;
+    return html`
+      ${this._getTemplate()}
+    `;
   }
 }
 
-window.customElements.define('display-furo-link', DisplayFuroLink);
+window.customElements.define('display-float', DisplayFloat);

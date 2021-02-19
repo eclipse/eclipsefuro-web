@@ -1,10 +1,8 @@
 import { LitElement, html, css } from 'lit-element';
-// eslint-disable-next-line import/no-unresolved
-import '@ui5/webcomponents/dist/Link.js';
 
 /**
- * `display-furo-reference`
- * The display-furo-reference component displays a FieldNode of type `furo.Reference` in read only mode.
+ * `display-furo-link`
+ * The display-furo-link component displays a FieldNode of type `furo.Link` in read only mode.
  *
  * Every display-xxx component should implement the following API:
  * - function: bindData(fieldNode){...}
@@ -12,13 +10,12 @@ import '@ui5/webcomponents/dist/Link.js';
  *
  * @summary
  * @customElement
- * @demo demo display-furo-reference Basic Usage
+ * @demo demo display-furo-link Basic Usage
  */
-class DisplayFuroReference extends LitElement {
+class DisplayFuroLink extends LitElement {
   constructor() {
     super();
     this._field = undefined;
-    this._displayValue = '';
   }
 
   static get styles() {
@@ -56,13 +53,10 @@ class DisplayFuroReference extends LitElement {
    * @private
    */
   _getTemplate() {
-    if (this._field.display_name._value && this._field.display_name._value.length) {
-      this._displayValue = this._field.display_name._value;
-    } else if (this._field.id._value.length) {
-      this._displayValue = this._field.id._value;
-    }
     return html`
-      <ui5-link href="" wrap>${this._displayValue}</ui5-link>
+      <span
+        >[${this._field.rel._value}][this._field.method._value][${this._field.href._value}]</span
+      >
     `;
   }
 
@@ -73,8 +67,10 @@ class DisplayFuroReference extends LitElement {
    */
   render() {
     // language=HTML
-    return html` ${this._getTemplate()} `;
+    return html`
+      ${this._getTemplate()}
+    `;
   }
 }
 
-window.customElements.define('display-furo-reference', DisplayFuroReference);
+window.customElements.define('display-furo-link', DisplayFuroLink);

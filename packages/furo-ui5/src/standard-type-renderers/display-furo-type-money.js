@@ -2,8 +2,10 @@ import { LitElement, html, css } from 'lit-element';
 import { Env } from '@furo/framework/src/furo.js';
 
 /**
- * `display-google-type-money`
- * The display-google-type-money component displays a FieldNode of type `google.type.Money` in read only mode.
+ * `display-furo-type-money`
+ * The display-furo-type-money component displays a FieldNode of type `furo.type.Money` in read only mode.
+ *
+ * if the field `display_name` is set, the component will use that value for the display.
  *
  * The component uses locale from the environment to display the date value accordingly.
  * https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
@@ -14,9 +16,9 @@ import { Env } from '@furo/framework/src/furo.js';
  *
  * @summary
  * @customElement
- * @demo demo display-google-type-money Basic Usage
+ * @demo demo display-furo-type-money Basic Usage
  */
-class DisplayGoogleTypeMoney extends LitElement {
+class DisplayFuroTypeMoney extends LitElement {
   constructor() {
     super();
     this._field = undefined;
@@ -41,8 +43,21 @@ class DisplayGoogleTypeMoney extends LitElement {
           display: none;
         }
 
-        :host([hidden]) {
-          display: none;
+        :host([value-state='Positive']),
+        :host([value-state='Success']) {
+          color: var(--sapPositiveColor, #107e3e);
+        }
+        :host([value-state='Informative']),
+        :host([value-state='Information']) {
+          color: var(--sapInformativeColor, #0a6ed1);
+        }
+        :host([value-state='Negative']),
+        :host([value-state='Error']) {
+          color: var(--sapNegativeColor, #b00);
+        }
+        :host([value-state='Critical']),
+        :host([value-state='Warning']) {
+          color: var(--sapCrticalColor, #e9730c);
         }
       `,
     ];
@@ -57,12 +72,12 @@ class DisplayGoogleTypeMoney extends LitElement {
 
     if (this._field) {
       this._field.addEventListener('field-value-changed', () => {
-        this._valueObject.amount = DisplayGoogleTypeMoney._convertTypeToNumber(this._field);
+        this._valueObject.amount = DisplayFuroTypeMoney._convertTypeToNumber(this._field);
         this.requestUpdate();
       });
     }
 
-    this._valueObject.amount = DisplayGoogleTypeMoney._convertTypeToNumber(this._field);
+    this._valueObject.amount = DisplayFuroTypeMoney._convertTypeToNumber(this._field);
   }
 
   /**
@@ -87,18 +102,24 @@ class DisplayGoogleTypeMoney extends LitElement {
 
   /**
    * Template logic
+   * https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
    * @returns {*}
    * @private
    */
   _getTemplate() {
-    if (this._field.currency_code._value.length) {
+    if (this._field.display_name._value && this._field.display_name._value.length) {
+      this._displayValue = this._field.display_name._value;
+    } else if (this._field.currency_code._value.length) {
+      // no display_name set - use of Intl.NumberFormat
       this._displayValue = new Intl.NumberFormat(Env.locale, {
         style: 'currency',
         currency: this._field.currency_code._value,
       }).format(this._valueObject.amount);
     }
 
-    return html` <span>${this._displayValue}</span> `;
+    return html`
+      <span>${this._displayValue}</span>
+    `;
   }
 
   /**
@@ -108,8 +129,10 @@ class DisplayGoogleTypeMoney extends LitElement {
    */
   render() {
     // language=HTML
-    return html` ${this._getTemplate()} `;
+    return html`
+      ${this._getTemplate()}
+    `;
   }
 }
 
-window.customElements.define('display-google-type-money', DisplayGoogleTypeMoney);
+window.customElements.define('display-furo-type-money', DisplayFuroTypeMoney);

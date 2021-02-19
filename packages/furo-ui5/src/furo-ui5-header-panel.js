@@ -340,22 +340,18 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <ui5-panel fixed
-                 ?collapsed="${this.collapsed}"
-      >
+      <ui5-panel fixed ?collapsed="${this.collapsed}">
         <div slot="header" class="header">
           <ui5-title>${this.headerText}</ui5-title>
           <ui5-label>${this.secondaryText}</ui5-label>
           <slot name="action" class="action"></slot>
         </div>
         <div class="wrapper">
-          ${
-            this.icon
-              ? html`
-                  <ui5-icon class="icon" name="${this.icon}"></ui5-icon>
-                `
-              : html``
-          }
+          ${this.icon
+            ? html`
+                <ui5-icon class="icon" name="${this.icon}"></ui5-icon>
+              `
+            : html``}
           <div class="content">
             <slot></slot>
           </div>
@@ -363,8 +359,14 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
       </ui5-panel>
       <div class="splitter_bar">
         <div class="splitter before"></div>
-        <ui5-button @-click="--collapserClicked" class="collapser-button" icon="slim-arrow-up" design="Transparent"
-                    ui5-button="" icon-only=""></ui5-button>
+        <ui5-button
+          @-click="--collapserClicked"
+          class="collapser-button"
+          icon="slim-arrow-up"
+          design="Transparent"
+          ui5-button=""
+          icon-only=""
+        ></ui5-button>
         <div class="splitter after"></div>
       </div>
     `;

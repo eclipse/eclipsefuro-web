@@ -45,6 +45,5 @@ import './display-furo-type-money.js';
 import './display-furo-type-date.js';
 import './display-furo-reference.js';
 
-
 import './display-google-type-money.js';
 import './display-google-type-date.js';

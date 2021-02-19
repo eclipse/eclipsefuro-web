@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@furo/data-input": "^1.11.3",
+    "@furo/data-ui": "^1.4.9",
     "@furo/fbp": "^5.3.9",
     "@furo/form": "^1.4.1",
     "@furo/framework": "^1.5.9",

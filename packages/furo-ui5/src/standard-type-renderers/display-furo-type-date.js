@@ -2,8 +2,10 @@ import { LitElement, html, css } from 'lit-element';
 import { Env } from '@furo/framework/src/furo.js';
 
 /**
- * `display-google-type-date`
- * The display-google-type-date component displays a FieldNode of type `google.type.Date` in read only mode.
+ * `display-furo-type-date`
+ * The display-furo-type-date component displays a FieldNode of type `furo.type.Date` in read only mode.
+ *
+ * if the field `display_name` is set, the component will use that value for the display.
  *
  * The component uses locale from the environment to display the date value accordingly.
  * https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/format
@@ -14,9 +16,9 @@ import { Env } from '@furo/framework/src/furo.js';
  *
  * @summary
  * @customElement
- * @demo demo display-google-type-date Basic Usage
+ * @demo demo display-furo-type-date Basic Usage
  */
-class DisplayGoogleTypeDate extends LitElement {
+class DisplayFuroTypeDate extends LitElement {
   constructor() {
     super();
     this._field = undefined;
@@ -34,6 +36,23 @@ class DisplayGoogleTypeDate extends LitElement {
         :host([hidden]) {
           display: none;
         }
+
+        :host([value-state='Positive']),
+        :host([value-state='Success']) {
+          color: var(--sapPositiveColor, #107e3e);
+        }
+        :host([value-state='Informative']),
+        :host([value-state='Information']) {
+          color: var(--sapInformativeColor, #0a6ed1);
+        }
+        :host([value-state='Negative']),
+        :host([value-state='Error']) {
+          color: var(--sapNegativeColor, #b00);
+        }
+        :host([value-state='Critical']),
+        :host([value-state='Warning']) {
+          color: var(--sapCrticalColor, #e9730c);
+        }
       `,
     ];
   }
@@ -47,12 +66,20 @@ class DisplayGoogleTypeDate extends LitElement {
 
     if (this._field) {
       this._field.addEventListener('field-value-changed', () => {
-        this._formattedDateString = DisplayGoogleTypeDate._convertDateToString(this._field);
+        if (this._field.display_name._value && this._field.display_name._value.length) {
+          this._formattedDateString = this._field.display_name._value;
+        } else {
+          this._formattedDateString = DisplayFuroTypeDate._convertDateToString(this._field);
+        }
         this.requestUpdate();
       });
     }
 
-    this._formattedDateString = DisplayGoogleTypeDate._convertDateToString(this._field);
+    if (this._field.display_name._value && this._field.display_name._value.length) {
+      this._formattedDateString = this._field.display_name._value;
+    } else {
+      this._formattedDateString = DisplayFuroTypeDate._convertDateToString(this._field);
+    }
   }
 
   /**
@@ -80,7 +107,9 @@ class DisplayGoogleTypeDate extends LitElement {
    * @private
    */
   _getTemplate() {
-    return html` <span>${this._formattedDateString}</span> `;
+    return html`
+      <span>${this._formattedDateString}</span>
+    `;
   }
 
   /**
@@ -90,8 +119,10 @@ class DisplayGoogleTypeDate extends LitElement {
    */
   render() {
     // language=HTML
-    return html` ${this._getTemplate()} `;
+    return html`
+      ${this._getTemplate()}
+    `;
   }
 }
 
-window.customElements.define('display-google-type-date', DisplayGoogleTypeDate);
+window.customElements.define('display-furo-type-date', DisplayFuroTypeDate);

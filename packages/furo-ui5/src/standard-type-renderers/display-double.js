@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit-element';
-
+import { Env } from '@furo/framework/src/furo.js';
 /**
- * `display-furo-fat-string`
- * The display-furo-fat-string component displays a FieldNode of type `furo.fat.String` in read only mode.
+ * `display-double`
+ * The display-double component displays a FieldNode of type `double` in read only mode.
  *
  * Every display-xxx component should implement the following API:
  * - function: bindData(fieldNode){...}
@@ -10,9 +10,9 @@ import { LitElement, html, css } from 'lit-element';
  *
  * @summary
  * @customElement
- * @demo demo display-furo-fat-string Basic Usage
+ * @demo demo display-double Basic Usage
  */
-class DisplayFuroFatString extends LitElement {
+class DisplayDouble extends LitElement {
   constructor() {
     super();
     this._field = undefined;
@@ -23,7 +23,12 @@ class DisplayFuroFatString extends LitElement {
     return [
       css`
         :host {
-          display: contents;
+          display: block;
+          word-break: keep-all;
+        }
+
+        :host([tabular-form]) {
+          text-align: right;
         }
 
         :host([hidden]) {
@@ -56,16 +61,6 @@ class DisplayFuroFatString extends LitElement {
    */
   bindData(fieldNode) {
     this._field = fieldNode;
-
-    /**
-     * Sets the attributes from the field node
-     */
-    Object.keys(this._field.attributes).forEach(key => {
-      if (!key.startsWith('_')) {
-        this.setAttribute(this._field.attributes[key]._name, this._field.attributes[key]._value);
-      }
-    });
-
     if (this._field) {
       this._field.addEventListener('field-value-changed', () => {
         this.requestUpdate();
@@ -79,7 +74,10 @@ class DisplayFuroFatString extends LitElement {
    * @private
    */
   _getTemplate() {
-    return html` <span>${this._field._value.value}</span> `;
+    this.displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field);
+    return html`
+      <span>${this.displayValue}</span>
+    `;
   }
 
   /**
@@ -89,8 +87,10 @@ class DisplayFuroFatString extends LitElement {
    */
   render() {
     // language=HTML
-    return html` ${this._getTemplate()} `;
+    return html`
+      ${this._getTemplate()}
+    `;
   }
 }
 
-window.customElements.define('display-furo-fat-string', DisplayFuroFatString);
+window.customElements.define('display-double', DisplayDouble);
