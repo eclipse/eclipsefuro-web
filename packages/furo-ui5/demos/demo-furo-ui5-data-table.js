@@ -64,7 +64,7 @@ class DemoFuroUi5DataTable extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>Demo furo-ui5-readonly-card</h2>
+      <h2>Demo furo-ui5-data-table</h2>
       <furo-demo-snippet>
         <template>
           <furo-ui5-card
@@ -75,7 +75,7 @@ class DemoFuroUi5DataTable extends FBP(LitElement) {
             <furo-ui5-data-table
               slot="content"
               show-no-data
-              no-data-text="No data available"
+              no-data-text="No data available. Click on load test data"
               ƒ-bind-data="--dao(*.entities)"
               columns="data.id, data.display_name, data.cost_limit, data.start, data.end, data.description"
             ></furo-ui5-data-table>

@@ -78,7 +78,7 @@ class DisplayFuroFatInt32 extends LitElement {
    * @private
    */
   _getTemplate() {
-    this.displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field);
+    this.displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field._value.value);
     return html`
       <span>${this.displayValue}</span>
     `;

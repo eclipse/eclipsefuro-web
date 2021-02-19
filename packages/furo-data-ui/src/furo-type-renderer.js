@@ -48,6 +48,12 @@ class FuroTypeRenderer extends LitElement {
         type: Boolean,
         attribute: 'tabular-form',
       },
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean,
+      },
     };
   }
 
@@ -91,7 +97,8 @@ class FuroTypeRenderer extends LitElement {
     }
 
     el.bindData(this._field);
-    this.parentNode.replaceChild(el, this);
+    this.replaceWith(el);
+
   }
 
   _warning() {

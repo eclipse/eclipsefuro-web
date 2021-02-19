@@ -26,13 +26,13 @@ class DisplayFuroFatBool extends LitElement {
     return [
       css`
         :host {
-          display: block;
+          display: block
           word-break: keep-all;
-          text-align: center;
+          text-align: left;
         }
 
         :host([tabular-form]) {
-          text-align: right;
+          text-align: center;
         }
 
         :host([hidden]) {

@@ -83,7 +83,8 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
         p[data-size='size-s']::first-line {
           line-height: var(--sapElement_Compact_Height, 26px);
         }
-        ui5-label[data-size='size-s'] {
+        ui5-label[data-size='size-s'],
+        ui5-label[data-size='size-m']{
           padding-top: 0;
         }
         :host([value-state='Information']) p {
@@ -168,6 +169,8 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
     this.binder.fieldNode.addEventListener('field-value-changed', () => {
       this._updateField();
     });
+
+    this._FBPTriggerWire('--data', this.binder.fieldNode);
   }
 
   /**
@@ -237,9 +240,9 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-ui5-form-field-container>
+      <furo-ui5-form-field-container ?disabled=${this.disabled}>
         <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
-        ${this._getTemplate()}
+        <furo-type-renderer content ƒ-bind-data="--data"></furo-type-renderer>
       </furo-ui5-form-field-container>
     `;
   }

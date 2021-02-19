@@ -23,7 +23,7 @@ class DisplayFuroFatString extends LitElement {
     return [
       css`
         :host {
-          display: contents;
+          display: inline-block;
         }
 
         :host([hidden]) {
@@ -75,17 +75,25 @@ class DisplayFuroFatString extends LitElement {
     /**
      * Sets the attributes from the field node
      */
+    this._updateMeta();
+
+    if (this._field) {
+      this._field.addEventListener('field-value-changed', () => {
+        this._updateMeta();
+        this.requestUpdate();
+      });
+    }
+  }
+
+  _updateMeta(){
+    /**
+     * Sets the attributes from the field node
+     */
     Object.keys(this._field.attributes).forEach(key => {
       if (!key.startsWith('_')) {
         this.setAttribute(this._field.attributes[key]._name, this._field.attributes[key]._value);
       }
     });
-
-    if (this._field) {
-      this._field.addEventListener('field-value-changed', () => {
-        this.requestUpdate();
-      });
-    }
   }
 
   /**
