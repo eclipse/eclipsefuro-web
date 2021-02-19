@@ -180,6 +180,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @private
    */
   _findFieldByPath(field, path) {
+
     const arr = path.split('.');
 
     if (arr.length > 1) {

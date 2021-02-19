@@ -33,3 +33,4 @@ import './display-furo-reference.js';
 import './display-google-type-money.js';
 import './display-google-type-date.js';
 import './display-google-protobuf-timestamp.js';
+import './display-google-protobuf-stringvalue.js';
