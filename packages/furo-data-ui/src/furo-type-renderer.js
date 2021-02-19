@@ -47,14 +47,14 @@ class FuroTypeRenderer extends LitElement {
       tabularForm: {
         type: Boolean,
         attribute: 'tabular-form',
-      }
+      },
     };
   }
 
   bindData(fieldNode) {
     this._field = fieldNode;
     this.renderName = `display-${this._field._spec.type.replaceAll('.', '-').toLocaleLowerCase()}`;
-    this.defaultElement =  document.createElement(this.renderName);
+    this.defaultElement = document.createElement(this.renderName);
     if (!this._field._isRepeater) {
       this._createDisplay();
     } else {
@@ -67,7 +67,6 @@ class FuroTypeRenderer extends LitElement {
    * @private
    */
   _createDisplay() {
-
     if (this.defaultElement.bindData) {
       this._addElement(this.defaultElement);
     } else {
@@ -78,7 +77,7 @@ class FuroTypeRenderer extends LitElement {
   _addElement(el) {
     // adding attributes from parent element
     if (this.tabularForm) {
-      el.setAttribute('tabular-form', null)
+      el.setAttribute('tabular-form', null);
     }
 
     const l = this.attributes.length;
@@ -87,7 +86,7 @@ class FuroTypeRenderer extends LitElement {
       const { nodeName } = this.attributes.item(i);
       const { nodeValue } = this.attributes.item(i);
       if (!nodeName.startsWith('@') && !nodeName.startsWith('ƒ')) {
-        el.setAttribute(nodeName,nodeValue);
+        el.setAttribute(nodeName, nodeValue);
       }
     }
 
@@ -108,22 +107,19 @@ class FuroTypeRenderer extends LitElement {
    * @private
    */
   _createRepeatedDisplay() {
+    const rRenderName = `${this.renderName}-repeats`;
 
-    if (this._field._isRepeater) {
-      const rRenderName = `${this.renderName  }-repeats`;
-
-      const elementRepeat = document.createElement(rRenderName);
-      if (elementRepeat.bindData) {
-        this._addElement(elementRepeat);
-      } else if (this.defaultElement.bindData) {
-          this._field.repeats.forEach(r => {
-            const el = document.createElement(this.renderName);
-            el.bindData(r);
-            this.shadowRoot.appendChild(el);
-          });
-        } else {
-          this._warning();
-        }
+    const elementRepeat = document.createElement(rRenderName);
+    if (elementRepeat.bindData) {
+      this._addElement(elementRepeat);
+    } else if (this.defaultElement.bindData) {
+      this._field.repeats.forEach(r => {
+        const el = document.createElement(this.renderName);
+        el.bindData(r);
+        this.shadowRoot.appendChild(el);
+      });
+    } else {
+      this._warning();
     }
   }
 }
