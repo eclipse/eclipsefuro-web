@@ -53,10 +53,10 @@ const ui5HeaderTemplate = fields =>
 
 /**
  * `furo-ui5-data-table`
- * Lit element
+ *
  *
  * @customElement
- * @demo demo/index.html
+ * @demo demo-furo-ui5-data-table Basic usage
  */
 class FuroUi5DataTable extends FBP(LitElement) {
   /**

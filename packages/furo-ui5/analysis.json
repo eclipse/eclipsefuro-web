@@ -15048,6 +15048,396 @@
       "mixins": [
         "FBP"
       ]
+    },
+    {
+      "description": "",
+      "summary": "",
+      "path": "src/furo-ui5-table-row.js",
+      "properties": [],
+      "methods": [],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 2,
+          "column": 7
+        },
+        "end": {
+          "line": 24,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "TableRow.default",
+      "name": "FuroUi5TableRow",
+      "attributes": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "tablerow-selected",
+          "description": "Fired when the row is selected.\nthe event detail is the original entity of the row",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-table-row"
+    },
+    {
+      "description": "`furo-ui5-data-table`\nLit element",
+      "summary": "",
+      "path": "src/furo-ui5-data-table.js",
+      "properties": [
+        {
+          "name": "columns",
+          "type": "string | null | undefined",
+          "description": "list of field-paths which should be as columns displayed\ncomma separated field list",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 227,
+              "column": 6
+            },
+            "end": {
+              "line": 230,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "noDataText",
+          "type": "string | null | undefined",
+          "description": "the text which can be showed when there is no data in table\nstring",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 235,
+              "column": 6
+            },
+            "end": {
+              "line": 238,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "showNoData",
+          "type": "boolean | null | undefined",
+          "description": "define to show the noDataText or not",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 242,
+              "column": 6
+            },
+            "end": {
+              "line": 245,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "stickyColumnHeader",
+          "type": "boolean | null | undefined",
+          "description": "define the header is sticky or not",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 249,
+              "column": 6
+            },
+            "end": {
+              "line": 252,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "popinFields",
+          "type": "string | null | undefined",
+          "description": "define the list of popin fields\ncomma separated field list",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 257,
+              "column": 6
+            },
+            "end": {
+              "line": 260,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "bindData",
+          "description": "bind a repeated data",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 2
+            },
+            "end": {
+              "line": 120,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "data"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_init",
+          "description": "init data table",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 126,
+              "column": 2
+            },
+            "end": {
+              "line": 145,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_bindColumnDataField",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 152,
+              "column": 2
+            },
+            "end": {
+              "line": 165,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldPath"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_findFieldByPath",
+          "description": "resolves a field specification with the given path",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 174,
+              "column": 2
+            },
+            "end": {
+              "line": 197,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "field"
+            },
+            {
+              "name": "path"
+            }
+          ],
+          "return": {
+            "type": "*"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 268,
+              "column": 2
+            },
+            "end": {
+              "line": 284,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-table",
+          "description": "Basic usage"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 60,
+          "column": 0
+        },
+        "end": {
+          "line": 285,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroUi5DataTable",
+      "attributes": [
+        {
+          "name": "columns",
+          "description": "list of field-paths which should be as columns displayed\ncomma separated field list",
+          "sourceRange": {
+            "start": {
+              "line": 227,
+              "column": 6
+            },
+            "end": {
+              "line": 230,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "no-data-text",
+          "description": "the text which can be showed when there is no data in table\nstring",
+          "sourceRange": {
+            "start": {
+              "line": 235,
+              "column": 6
+            },
+            "end": {
+              "line": 238,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "show-no-data",
+          "description": "define to show the noDataText or not",
+          "sourceRange": {
+            "start": {
+              "line": 242,
+              "column": 6
+            },
+            "end": {
+              "line": 245,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "sticky-column-header",
+          "description": "define the header is sticky or not",
+          "sourceRange": {
+            "start": {
+              "line": 249,
+              "column": 6
+            },
+            "end": {
+              "line": 252,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "popin-fields",
+          "description": "define the list of popin fields\ncomma separated field list",
+          "sourceRange": {
+            "start": {
+              "line": 257,
+              "column": 6
+            },
+            "end": {
+              "line": 260,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "data-loaded",
+          "description": "Fired when the data is loaded into data table.\nthe event detail is the data table self",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "tablerow-selected",
+          "description": "Fired when the row is selected.\nthe event detail is the original entity of the row",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-table"
     }
   ],
   "classes": [

@@ -49,7 +49,6 @@ class DisplayFuroTypeMoney extends LitElement {
           margin: 0;
           font-family: var(--sapFontFamily, '72');
           color: var(--sapTextcolor, '#32363a');
-          word-break: break-word;
         }
         span::first-line {
           line-height: var(--_ui5_input_height, 36px);
@@ -109,7 +108,7 @@ class DisplayFuroTypeMoney extends LitElement {
     if (fieldNode.nanos._value > 0) {
       numberStr += `.${fieldNode.nanos._value}`;
     }
-    if (numberStr.length) {
+    if (numberStr > 0) {
       return Number(numberStr);
     }
     return Number.NaN;

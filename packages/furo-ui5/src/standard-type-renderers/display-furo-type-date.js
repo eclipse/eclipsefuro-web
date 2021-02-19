@@ -43,7 +43,6 @@ class DisplayFuroTypeDate extends LitElement {
           margin: 0;
           font-family: var(--sapFontFamily, '72');
           color: var(--sapTextcolor, '#32363a');
-          word-break: break-word;
         }
         span::first-line {
           line-height: var(--_ui5_input_height, 36px);
