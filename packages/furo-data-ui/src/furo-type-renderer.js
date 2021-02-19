@@ -76,12 +76,23 @@ class FuroTypeRenderer extends LitElement {
   }
 
   _addElement(el) {
+    // adding attributes from parent element
     if (this.tabularForm) {
-      el.setAttribute('tabular-form', null);
+      el.setAttribute('tabular-form', null)
+    }
+
+    const l = this.attributes.length;
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < l; ++i) {
+      const { nodeName } = this.attributes.item(i);
+      const { nodeValue } = this.attributes.item(i);
+      if (!nodeName.startsWith('@') && !nodeName.startsWith('ƒ')) {
+        el.setAttribute(nodeName,nodeValue);
+      }
     }
 
     el.bindData(this._field);
-    this.shadowRoot.appendChild(el);
+    this.parentNode.replaceChild(el, this);
   }
 
   _warning() {
