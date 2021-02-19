@@ -30,11 +30,26 @@ class DisplayFuroTypeDate extends LitElement {
     return [
       css`
         :host {
-          display: block;
+          display: inline-block;
         }
 
         :host([hidden]) {
           display: none;
+        }
+        :host([disabled]) span {
+          opacity: var(--_ui5_input_disabled_opacity);
+        }
+        span {
+          margin: 0;
+          font-family: var(--sapFontFamily, '72');
+          color: var(--sapTextcolor, '#32363a');
+          word-break: break-word;
+        }
+        span::first-line {
+          line-height: var(--_ui5_input_height, 36px);
+        }
+        span[data-size='size-s']::first-line {
+          line-height: var(--sapElement_Compact_Height, 26px);
         }
 
         :host([value-state='Positive']),
