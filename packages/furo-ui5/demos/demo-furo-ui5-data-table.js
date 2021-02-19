@@ -16,6 +16,7 @@ import '@furo/data/src/furo-deep-link.js';
 import '@furo/form/src/furo-form-layouter.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/produce-qp-data.js';
+import '@ui5/webcomponents-icons/dist/project-definition-triangle-2'
 
 import '../src/standard-type-renderers/display-registry.js';
 
@@ -66,20 +67,24 @@ class DemoFuroUi5DataTable extends FBP(LitElement) {
       <h2>Demo furo-ui5-readonly-card</h2>
       <furo-demo-snippet>
         <template>
-          <furo-ui5-card heading="Display data in tabular form">
+          <furo-ui5-card heading="Display Data in Tabular Form"
+                         subheading="A table contains a set of line items"
+                         icon="project-definition-triangle-2">
 
             <furo-ui5-data-table
               slot="content"
               show-no-data
-              no-data-text="There is no data"
+              no-data-text="No data available"
               ƒ-bind-data="--dao(*.entities)"
-              columns="data.id, data.display_name, data.cost_limit, data.start, data.end, data.description, data.members"
+              columns="data.id, data.display_name, data.cost_limit, data.start, data.end, data.description"
             ></furo-ui5-data-table>
 
-            <furo-ui5-button-bar slot="action">
-              <produce-qp-data @-data="--qp" qpescaped="%7B%22prj%22%3A1%7D"></produce-qp-data>
-            </furo-ui5-button-bar>
           </furo-ui5-card>
+
+          <furo-ui5-button-bar>
+            <furo-empty-spacer></furo-empty-spacer>
+            <produce-qp-data @-data="--qp" qpescaped="%7B%22prj%22%3A1%7D"></produce-qp-data>
+          </furo-ui5-button-bar>
 
           <furo-data-object
             type="project.ProjectCollection"

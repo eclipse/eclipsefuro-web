@@ -29,6 +29,7 @@ class DisplayGoogleTypeDate extends LitElement {
       css`
         :host {
           display: inline-block;
+          word-break: keep-all;
         }
 
         :host([hidden]) {
@@ -95,6 +96,10 @@ class DisplayGoogleTypeDate extends LitElement {
    * @private
    */
   static _convertDateToString(fieldNode) {
+    if (!fieldNode || fieldNode.year._value === null || fieldNode.month._value === null || fieldNode.day._value === null){
+      return 'N/A'
+    }
+
     const date = new Date(
       Date.UTC(fieldNode.year._value, fieldNode.month._value - 1, fieldNode.day._value, 0, 0, 0, 0),
     );

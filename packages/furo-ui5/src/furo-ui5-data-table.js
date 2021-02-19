@@ -71,7 +71,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
     this._specs = Env.api.specs;
     this.fields = '';
     this.popinFields = '';
-    this.data = '';
+    this.data = [];
     this.noDataText = 'No Data';
     this._showNoData = false;
   }
@@ -86,6 +86,14 @@ class FuroUi5DataTable extends FBP(LitElement) {
       console.warn('Invalid fieldNode in bindData. please bind a repeated field.');
       return;
     }
+
+    data.addEventListener('repeated-fields-added', ()=>{
+      this._FBPTriggerWire('--data', this.data);
+    });
+
+    data.addEventListener('repeated-fields-removed', ()=>{
+      this._FBPTriggerWire('--data', this.data);
+    });
 
     /**
      * new data arrived from CollectionNode
