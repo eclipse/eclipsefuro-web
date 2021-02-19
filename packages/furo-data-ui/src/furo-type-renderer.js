@@ -51,41 +51,68 @@ class FuroTypeRenderer extends LitElement {
     };
   }
 
-  /**
-   * Binds the fieldNode to the component
-   * @param fieldNode
-   */
   bindData(fieldNode) {
     this._field = fieldNode;
-    this._createDisplay();
+    this.renderName = `display-${this._field._spec.type.replaceAll('.', '-').toLocaleLowerCase()}`;
+    this.defaultElement =  document.createElement(this.renderName);
+    if (!this._field._isRepeater) {
+      this._createDisplay();
+    } else {
+      this._createRepeatedDisplay();
+    }
   }
 
   /**
-   * creates the type specific render component and appends this to the shadowRoot
+   *
    * @private
    */
   _createDisplay() {
-    let tagName = `display-${this._field._spec.type.replaceAll('.', '-').toLocaleLowerCase()}`;
 
-    if (this._field._isRepeater) {
-      tagName += '-repeats';
+    if (this.defaultElement.bindData) {
+      this._addElement(this.defaultElement);
+    } else {
+      this._warning();
+    }
+  }
+
+  _addElement(el) {
+    if (this.tabularForm) {
+      el.setAttribute('tabular-form', null);
     }
 
-    const element = document.createElement(tagName);
+    el.bindData(this._field);
+    this.shadowRoot.appendChild(el);
+  }
 
-    if (element.bindData) {
-      if (this.tabularForm) {
-        element.setAttribute('tabular-form', null)
-      }
+  _warning() {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `No type specific renderer ${this.renderName} found. Check your imports.`,
+      this._field._spec.type,
+    );
+  }
 
-      element.bindData(this._field);
-      this.shadowRoot.appendChild(element);
-    } else {
-      // eslint-disable-next-line no-console
-      console.warn(
-        `No type specific renderer ${tagName} found. Check your imports.`,
-        this._field._spec.type,
-      );
+  /**
+   *
+   * @private
+   */
+  _createRepeatedDisplay() {
+
+    if (this._field._isRepeater) {
+      const rRenderName = `${this.renderName  }-repeats`;
+
+      const elementRepeat = document.createElement(rRenderName);
+      if (elementRepeat.bindData) {
+        this._addElement(elementRepeat);
+      } else if (this.defaultElement.bindData) {
+          this._field.repeats.forEach(r => {
+            const el = document.createElement(this.renderName);
+            el.bindData(r);
+            this.shadowRoot.appendChild(el);
+          });
+        } else {
+          this._warning();
+        }
     }
   }
 }
