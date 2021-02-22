@@ -76,7 +76,9 @@ class DisplayGoogleTypeTimeofday extends LitElement {
    */
   static _convertDayTimeToString(fieldNode) {
     if (fieldNode) {
-      const date = new Date(`2000-01-01 ${fieldNode.hours._value}:${fieldNode.minutes._value}:${fieldNode.seconds._value}`);
+      const date = new Date(
+        `2000-01-01 ${fieldNode.hours._value}:${fieldNode.minutes._value}:${fieldNode.seconds._value}`,
+      );
 
       // eslint-disable-next-line eqeqeq
       if (date != 'Invalid Date') {

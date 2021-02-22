@@ -1,27 +1,27 @@
-import { LitElement, html, css } from 'lit-element'
-import { Theme } from '@furo/framework/src/theme'
-import { FBP } from '@furo/fbp/src/fbp.js'
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp/src/fbp.js';
 import { i18n } from '@furo/framework/src/i18n.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/doc-helper'
+import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5/src/furo-catalog.js'
+import '@furo/ui5/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-data-object.js'
+import '@furo/data/src/furo-data-object.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-entity-agent.js'
+import '@furo/data/src/furo-entity-agent.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-deep-link.js'
+import '@furo/data/src/furo-deep-link.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-form-layouter.js'
+import '@furo/form/src/furo-form-layouter.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-input/demos/helper/produce-qp-data.js'
-import '@ui5/webcomponents-icons/dist/project-definition-triangle-2'
+import '@furo/data-input/demos/helper/produce-qp-data.js';
+import '@ui5/webcomponents-icons/dist/project-definition-triangle-2';
 
-import '../src/standard-type-renderers/display-registry.js'
-import './helper/data-table-col-tmpl.js'
-import './helper/data-table-col-tmpl-link.js'
+import '../src/standard-type-renderers/display-registry.js';
+import './helper/data-table-col-tmpl.js';
+import './helper/data-table-col-tmpl-link.js';
 
 /**
  * `demo-furo-ui5-data-table-tmpl`
@@ -57,7 +57,7 @@ class DemoFuroUi5DataTableTmpl extends FBP(LitElement) {
           height: 100%;
         }
       `
-    )
+    );
   }
 
   /**
@@ -83,7 +83,9 @@ class DemoFuroUi5DataTableTmpl extends FBP(LitElement) {
                   no-data-text="No data available. Click on load test data"
                   ƒ-bind-data="--dao(*.entities)"
                   @-template-col-clicked="--rowData"
-                  headers="${i18n.t('header1')}|800,${i18n.t('header2')}:-:|600,${i18n.t('header3')}--:|400,"
+                  headers="${i18n.t('header1')}|800,${i18n.t('header2')}:-:|600,${i18n.t(
+      'header3',
+    )}--:|400,"
                   columns="data.id, data.display_name, {data-table-col-tmpl}, data.cost_limit, data.start, data.end, {data-table-col-tmpl-link}"
                 ></furo-ui5-data-table>
               </furo-ui5-card>
@@ -125,8 +127,8 @@ class DemoFuroUi5DataTableTmpl extends FBP(LitElement) {
       </furo-collection-agent>
       </template>
       </furo-demo-snippet>
-    `
+    `;
   }
 }
 
-window.customElements.define('demo-furo-ui5-data-table-tmpl', DemoFuroUi5DataTableTmpl)
+window.customElements.define('demo-furo-ui5-data-table-tmpl', DemoFuroUi5DataTableTmpl);

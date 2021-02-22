@@ -170,18 +170,18 @@ class FuroUi5DataTable extends FBP(LitElement) {
       this._mitWidth[arr[0]] = arr[1] ? arr[1] : 'Infinity';
     });
 
-    if(this._headers.length>0) {
+    if (this._headers.length > 0) {
       this._mitWidth = [];
       this._headerTexts = [];
-      this._headers.forEach(((h,i)=>{
-        const arr = h.split('|')
-        this._mitWidth[i] = arr[1] ? arr[1] : 'Infinity'
+      this._headers.forEach((h, i) => {
+        const arr = h.split('|');
+        this._mitWidth[i] = arr[1] ? arr[1] : 'Infinity';
         // eslint-disable-next-line prefer-destructuring
-        this._headerTexts[i]=arr[0];
-      }));
+        this._headerTexts[i] = arr[0];
+      });
     }
 
-    _col.forEach((fieldPath,index) => {
+    _col.forEach((fieldPath, index) => {
       if (fieldPath.startsWith('{')) {
         this._bindColumnTmplField(fieldPath, index);
       } else {
@@ -207,19 +207,17 @@ class FuroUi5DataTable extends FBP(LitElement) {
 
     const fieldNode = this._findFieldByPath(this._fields, fieldPath);
 
-    if(fieldNode) {
-      if(this._headerTexts.length>0) {
-
-        let colHeaderText = this._headerTexts[index] || ''
+    if (fieldNode) {
+      if (this._headerTexts.length > 0) {
+        let colHeaderText = this._headerTexts[index] || '';
         const arrR = colHeaderText.split('--:');
-        if(arrR.length>1) {
+        if (arrR.length > 1) {
           // eslint-disable-next-line prefer-destructuring
           colHeaderText = arrR[0];
           field.right = true;
-        }
-        else {
+        } else {
           const arrC = colHeaderText.split(':-:');
-          if(arrC.length>1) {
+          if (arrC.length > 1) {
             // eslint-disable-next-line prefer-destructuring
             colHeaderText = arrC[0];
             field.center = true;
@@ -227,8 +225,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
         }
         field.colHeaderText = colHeaderText;
         field.colMinWidth = this._mitWidth[index] || 'Infinity';
-      }
-      else {
+      } else {
         field.colMinWidth = this._mitWidth[fieldPath];
         field.colHeaderText = fieldNode.meta.label || '';
       }
@@ -251,14 +248,13 @@ class FuroUi5DataTable extends FBP(LitElement) {
 
     const arrR = colHeaderText.split('--:');
 
-    if(arrR.length>1) {
+    if (arrR.length > 1) {
       // eslint-disable-next-line prefer-destructuring
       colHeaderText = arrR[0];
       field.right = true;
-    }
-    else {
+    } else {
       const arrC = colHeaderText.split(':-:');
-      if(arrC.length>1) {
+      if (arrC.length > 1) {
         // eslint-disable-next-line prefer-destructuring
         colHeaderText = arrC[0];
         field.center = true;
@@ -278,7 +274,6 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @private
    */
   _findFieldByPath(field, path) {
-
     const arr = path.split('.');
 
     if (arr.length > 1) {
