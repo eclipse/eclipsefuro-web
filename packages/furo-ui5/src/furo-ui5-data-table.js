@@ -1,19 +1,18 @@
-import { LitElement, html, css } from 'lit-element'
-import { Env } from '@furo/framework'
-import { FBP } from '@furo/fbp/src/fbp.js'
+import { LitElement, html, css } from 'lit-element';
+import { Env } from '@furo/framework';
+import { FBP } from '@furo/fbp/src/fbp.js';
 
-import '@furo/fbp/src/flow-repeat.js'
+import '@furo/fbp/src/flow-repeat.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-ui/src/furo-type-renderer.js'
+import '@furo/data-ui/src/furo-type-renderer.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5/src/furo-ui5-data-display.js'
+import '@furo/ui5/src/furo-ui5-data-display.js';
 
-import '@ui5/webcomponents/dist/Table.js'
-import '@ui5/webcomponents/dist/TableColumn.js'
-import '@ui5/webcomponents/dist/TableCell.js'
+import '@ui5/webcomponents/dist/Table.js';
+import '@ui5/webcomponents/dist/TableColumn.js';
+import '@ui5/webcomponents/dist/TableCell.js';
 
-import './furo-ui5-table-row.js'
-
+import './furo-ui5-table-row.js';
 
 /**
  *
@@ -22,13 +21,14 @@ import './furo-ui5-table-row.js'
  */
 const getTemplateColumn = field => {
   if (field.template && field.template.length) {
-    const el = document.createElement(field.template)
+    const el = document.createElement(field.template);
     el.setAttribute('ƒ-bind-data', field.wire);
-    return el
+    return el;
   }
-  return html`<span>no template found</span>`
-
-}
+  return html`
+    <span>no template found</span>
+  `;
+};
 /**
  * ui5 data table cell template
  * @param fields
@@ -40,13 +40,16 @@ const ui5CellTemplate = fields => html`
     f => html`
       <ui5-table-cell>
         ${f.template
-          ? html`${getTemplateColumn(f)}`
-          : html`<furo-type-renderer tabular-form ƒ-bind-data="${f.wire}"></furo-type-renderer>`
-        }
+          ? html`
+              ${getTemplateColumn(f)}
+            `
+          : html`
+              <furo-type-renderer tabular-form ƒ-bind-data="${f.wire}"></furo-type-renderer>
+            `}
       </ui5-table-cell>
     `,
   )}
-`
+`;
 
 /**
  * ui5 data table header template
@@ -63,11 +66,11 @@ const ui5HeaderTemplate = fields =>
             popin-text="${f.colHeaderText}"
             ?demand-popin="${f.popin}"
             min-width="${f.colMinWidth}"
-          >${f.colHeaderText}
+            >${f.colHeaderText}
           </ui5-table-column>
         `,
     )}
-  `
+  `;
 
 /**
  * `furo-ui5-data-table`
@@ -85,13 +88,13 @@ class FuroUi5DataTable extends FBP(LitElement) {
    */
 
   constructor() {
-    super()
-    this.cols = []
-    this._specs = Env.api.specs
-    this.popinFields = ''
-    this.data = []
-    this.noDataText = 'No Data'
-    this._showNoData = false
+    super();
+    this.cols = [];
+    this._specs = Env.api.specs;
+    this.popinFields = '';
+    this.data = [];
+    this.noDataText = 'No Data';
+    this._showNoData = false;
   }
 
   /**
@@ -101,36 +104,36 @@ class FuroUi5DataTable extends FBP(LitElement) {
   bindData(data) {
     if (!data._isRepeater) {
       // eslint-disable-next-line no-console
-      console.warn('Invalid fieldNode in bindData. please bind a repeated field.')
-      return
+      console.warn('Invalid fieldNode in bindData. please bind a repeated field.');
+      return;
     }
 
     data.addEventListener('repeated-fields-added', () => {
-      this._FBPTriggerWire('--data', this.data)
-    })
+      this._FBPTriggerWire('--data', this.data);
+    });
 
     data.addEventListener('repeated-fields-removed', () => {
-      this._FBPTriggerWire('--data', this.data)
-    })
+      this._FBPTriggerWire('--data', this.data);
+    });
 
     /**
      * new data arrived from CollectionNode
      */
     data.addEventListener('new-data-injected', e => {
-      this.data = e.detail.entities.repeats
-      this._FBPTriggerWire('--data', e.detail.entities.repeats)
+      this.data = e.detail.entities.repeats;
+      this._FBPTriggerWire('--data', e.detail.entities.repeats);
       if (this.data.length > 0) {
-        this._showNoData = false
+        this._showNoData = false;
       } else if (this.showNoData) {
-        this._showNoData = true
+        this._showNoData = true;
       }
 
-      this.requestUpdate()
-    })
+      this.requestUpdate();
+    });
 
-    this._fields = this._specs[data._spec.type].fields
+    this._fields = this._specs[data._spec.type].fields;
 
-    this._init()
+    this._init();
 
     /**
      * Fired when the data is loaded into data table.
@@ -143,7 +146,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
         bubbles: true,
         composed: true,
       }),
-    )
+    );
   }
 
   /**
@@ -151,29 +154,28 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @private
    */
   _init() {
-    const cols = this.columns.replace(/ /g, '').split(',')
-    this._popinFields = this.popinFields.replace(/ /g, '').split(',')
+    const cols = this.columns.replace(/ /g, '').split(',');
+    this._popinFields = this.popinFields.replace(/ /g, '').split(',');
 
-    this._mitWidth = []
-    const _col = []
+    this._mitWidth = [];
+    const _col = [];
     cols.forEach(e => {
-      const arr = e.split('|')
-      _col.push(arr[0])
-      this._mitWidth[arr[0]] = arr[1] ? arr[1] : 'Infinity'
-    })
+      const arr = e.split('|');
+      _col.push(arr[0]);
+      this._mitWidth[arr[0]] = arr[1] ? arr[1] : 'Infinity';
+    });
 
     _col.forEach(fieldPath => {
       if (fieldPath.startsWith('{')) {
-        this._bindColumnTmplField(fieldPath)
+        this._bindColumnTmplField(fieldPath);
       } else {
-        this._bindColumnDataField(fieldPath)
+        this._bindColumnDataField(fieldPath);
       }
+    });
 
-    })
+    this._showNoData = this.showNoData;
 
-    this._showNoData = this.showNoData
-
-    this.requestUpdate()
+    this.requestUpdate();
   }
 
   /**
@@ -182,17 +184,17 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @private
    */
   _bindColumnDataField(fieldPath) {
-    const field = {}
-    field.wire = `--internal(*.item.${fieldPath})`
+    const field = {};
+    field.wire = `--internal(*.item.${fieldPath})`;
 
-    field.popin = !!this._popinFields.includes(fieldPath)
+    field.popin = !!this._popinFields.includes(fieldPath);
 
-    field.colMinWidth = this._mitWidth[fieldPath]
-    const fieldNode = this._findFieldByPath(this._fields, fieldPath)
+    field.colMinWidth = this._mitWidth[fieldPath];
+    const fieldNode = this._findFieldByPath(this._fields, fieldPath);
 
     if (fieldNode) {
-      field.colHeaderText = fieldNode.meta.label || ''
-      this.cols.push(field)
+      field.colHeaderText = fieldNode.meta.label || '';
+      this.cols.push(field);
     }
   }
 
@@ -202,14 +204,13 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @private
    */
   _bindColumnTmplField(fieldPath) {
-    const field = {}
-    field.wire = `--internal(*.item._value)`
+    const field = {};
+    field.wire = `--internal(*.item._value)`;
 
-    field.template = fieldPath.replaceAll('{', '').replaceAll('}', '')
-    field.colHeaderText = ''
-    this.cols.push(field)
+    field.template = fieldPath.replaceAll('{', '').replaceAll('}', '');
+    field.colHeaderText = '';
+    this.cols.push(field);
   }
-
 
   /**
    * resolves a field specification with the given path
@@ -219,29 +220,28 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @private
    */
   _findFieldByPath(field, path) {
-
-    const arr = path.split('.')
+    const arr = path.split('.');
 
     if (arr.length > 1) {
       const subPath = path
         .split('.')
         .slice(1)
-        .join('.')
+        .join('.');
 
       if (field[arr[0]]) {
-        return this._findFieldByPath(field[arr[0]], subPath)
+        return this._findFieldByPath(field[arr[0]], subPath);
       }
       if (field.type && this._specs[field.type]) {
-        return this._findFieldByPath(this._specs[field.type].fields, subPath)
+        return this._findFieldByPath(this._specs[field.type].fields, subPath);
       }
     } else {
       if (field[arr[0]]) {
-        return field[arr[0]]
+        return field[arr[0]];
       }
 
-      return this._specs[field.type].fields[arr[0]]
+      return this._specs[field.type].fields[arr[0]];
     }
-    return undefined
+    return undefined;
   }
 
   /**
@@ -260,7 +260,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
         text-align: center;
         line-height: 3rem;
       }
-    `
+    `;
   }
 
   /**
@@ -306,7 +306,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
         type: String,
         attribute: 'popin-fields',
       },
-    }
+    };
   }
 
   /**
@@ -319,17 +319,17 @@ class FuroUi5DataTable extends FBP(LitElement) {
         ${ui5HeaderTemplate(this.cols)}
         <template is="flow-repeat" ƒ-inject-items="--data" internal-wire="--internal">
           <furo-ui5-table-row ƒ-._data="--internal(*.item._value)"
-          >${ui5CellTemplate(this.cols)}
+            >${ui5CellTemplate(this.cols)}
           </furo-ui5-table-row>
         </template>
       </ui5-table>
       ${this._showNoData
         ? html`
-          <div class="no-data">${this.noDataText}</div>
-        `
+            <div class="no-data">${this.noDataText}</div>
+          `
         : html``}
-    `
+    `;
   }
 }
 
-customElements.define('furo-ui5-data-table', FuroUi5DataTable)
+customElements.define('furo-ui5-data-table', FuroUi5DataTable);

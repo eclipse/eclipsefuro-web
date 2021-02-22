@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/ui5/src/furo-ui5-button.js';
 /**
  * `data-table-col-tmpl`
@@ -58,7 +59,10 @@ class DataTableColTmpl extends FBP(LitElement) {
     this.field.data.members.forEach(item => {
       members.push(item.display_name);
     });
-    this.displayValue = JSON.stringify(members).replaceAll('[', '').replaceAll(']', '').replaceAll('"', '');
+    this.displayValue = JSON.stringify(members)
+      .replaceAll('[', '')
+      .replaceAll(']', '')
+      .replaceAll('"', '');
   }
 
   /**
