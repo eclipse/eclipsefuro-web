@@ -16,7 +16,7 @@ import { Env } from '@furo/framework/src/furo.js';
  * @customElement
  * @demo demo display-int64 Basic Usage
  */
-class DisplayInt64 extends LitElement {
+export class DisplayInt64 extends LitElement {
   constructor() {
     super();
     this._field = undefined;

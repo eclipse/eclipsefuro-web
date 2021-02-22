@@ -15,7 +15,7 @@ import '@ui5/webcomponents-icons/dist/border.js';
  * @customElement
  * @demo demo display-bool Basic Usage
  */
-class DisplayBool extends LitElement {
+export class DisplayBool extends LitElement {
   constructor() {
     super();
     this._field = undefined;

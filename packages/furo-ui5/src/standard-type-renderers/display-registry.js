@@ -30,5 +30,10 @@ import './display-google-type-date.js';
 import './display-google-type-money.js';
 import './display-google-type-timeofday.js';
 // import './display-google-type-color.js';  need  @ui5/webcomponents v1.0.0-rc.12
-import './display-google-protobuf-timestamp.js';
+import './display-google-protobuf-boolvalue.js';
+import './display-google-protobuf-doublevalue.js';
+import './display-google-protobuf-floatvalue.js';
+import './display-google-protobuf-int32value.js';
+import './display-google-protobuf-int64value.js';
 import './display-google-protobuf-stringvalue.js';
+import './display-google-protobuf-timestamp.js';

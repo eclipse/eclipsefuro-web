@@ -13,7 +13,7 @@ import { Env } from '@furo/framework/src/furo.js';
  * @customElement
  * @demo demo display-float Basic Usage
  */
-class DisplayFloat extends LitElement {
+export class DisplayFloat extends LitElement {
   constructor() {
     super();
     this._field = undefined;

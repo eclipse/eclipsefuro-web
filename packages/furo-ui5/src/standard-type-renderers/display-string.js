@@ -13,7 +13,7 @@ import { LitElement, html, css } from 'lit-element';
  * @customElement
  * @demo demo display-string Basic Usage
  */
-class DisplayString extends LitElement {
+export class DisplayString extends LitElement {
   constructor() {
     super();
     this._field = undefined;
