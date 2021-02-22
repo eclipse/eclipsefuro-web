@@ -11801,11 +11801,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 235,
+              "line": 241,
               "column": 6
             },
             "end": {
-              "line": 238,
+              "line": 244,
               "column": 7
             }
           },
@@ -11822,11 +11822,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 243,
+              "line": 249,
               "column": 6
             },
             "end": {
-              "line": 246,
+              "line": 252,
               "column": 7
             }
           },
@@ -11843,11 +11843,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 250,
+              "line": 256,
               "column": 6
             },
             "end": {
-              "line": 253,
+              "line": 259,
               "column": 7
             }
           },
@@ -11864,11 +11864,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 257,
+              "line": 263,
               "column": 6
             },
             "end": {
-              "line": 260,
+              "line": 266,
               "column": 7
             }
           },
@@ -11885,11 +11885,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 265,
+              "line": 271,
               "column": 6
             },
             "end": {
-              "line": 268,
+              "line": 274,
               "column": 7
             }
           },
@@ -11907,11 +11907,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 81,
+              "line": 82,
               "column": 2
             },
             "end": {
-              "line": 127,
+              "line": 128,
               "column": 3
             }
           },
@@ -11931,11 +11931,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 133,
+              "line": 134,
               "column": 2
             },
             "end": {
-              "line": 152,
+              "line": 158,
               "column": 3
             }
           },
@@ -11951,11 +11951,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 159,
+              "line": 165,
               "column": 2
             },
             "end": {
-              "line": 172,
+              "line": 178,
               "column": 3
             }
           },
@@ -11975,11 +11975,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 181,
+              "line": 187,
               "column": 2
             },
             "end": {
-              "line": 205,
+              "line": 211,
               "column": 3
             }
           },
@@ -12002,11 +12002,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 276,
+              "line": 282,
               "column": 2
             },
             "end": {
-              "line": 292,
+              "line": 298,
               "column": 3
             }
           },
@@ -12022,16 +12022,20 @@
         {
           "url": "demo-furo-ui5-data-table",
           "description": "Basic usage"
+        },
+        {
+          "url": "demo-furo-ui5-data-table-tmpl",
+          "description": "Usage of Column Templates"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 60,
+          "line": 61,
           "column": 0
         },
         "end": {
-          "line": 293,
+          "line": 299,
           "column": 1
         }
       },
@@ -12044,11 +12048,11 @@
           "description": "list of field-paths which should be as columns displayed\ncomma separated list of field's path. e.g. data.id, data.display|800 , here `800` represents the the minimum table width required to display this column. By default it is always displayed.",
           "sourceRange": {
             "start": {
-              "line": 235,
+              "line": 241,
               "column": 6
             },
             "end": {
-              "line": 238,
+              "line": 244,
               "column": 7
             }
           },
@@ -12060,11 +12064,11 @@
           "description": "the text which can be showed when there is no data in table\nstring",
           "sourceRange": {
             "start": {
-              "line": 243,
+              "line": 249,
               "column": 6
             },
             "end": {
-              "line": 246,
+              "line": 252,
               "column": 7
             }
           },
@@ -12076,11 +12080,11 @@
           "description": "define to show the noDataText or not",
           "sourceRange": {
             "start": {
-              "line": 250,
+              "line": 256,
               "column": 6
             },
             "end": {
-              "line": 253,
+              "line": 259,
               "column": 7
             }
           },
@@ -12092,11 +12096,11 @@
           "description": "define the header is sticky or not",
           "sourceRange": {
             "start": {
-              "line": 257,
+              "line": 263,
               "column": 6
             },
             "end": {
-              "line": 260,
+              "line": 266,
               "column": 7
             }
           },
@@ -12108,11 +12112,11 @@
           "description": "define the list of popin fields\ncomma separated list of field's path. e.g data.id, data.display_name",
           "sourceRange": {
             "start": {
-              "line": 265,
+              "line": 271,
               "column": 6
             },
             "end": {
-              "line": 268,
+              "line": 274,
               "column": 7
             }
           },

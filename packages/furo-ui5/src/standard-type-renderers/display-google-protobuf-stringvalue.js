@@ -103,7 +103,4 @@ class DisplayGoogleProtobufStringvalue extends LitElement {
   }
 }
 
-window.customElements.define(
-  'display-google-protobuf-stringvalue',
-  DisplayGoogleProtobufStringvalue,
-);
+window.customElements.define('display-google-protobuf-stringvalue', DisplayGoogleProtobufStringvalue);

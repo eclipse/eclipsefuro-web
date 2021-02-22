@@ -105,7 +105,6 @@ class FuroTypeRenderer extends LitElement {
 
     el.bindData(this._field);
     this.replaceWith(el);
-
   }
 
   _warning() {
@@ -132,7 +131,6 @@ class FuroTypeRenderer extends LitElement {
       el.setAttribute('repeated-component', this.renderName);
       el.bindData(this._field);
       this.replaceWith(el);
-
     } else {
       this._warning();
     }

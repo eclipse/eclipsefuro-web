@@ -10,7 +10,6 @@ import '@furo/ui5/src/furo-ui5-button.js';
  * @appliesMixin FBP
  */
 class DataTableColTmpl extends FBP(LitElement) {
-
   constructor() {
     super();
     this.field = undefined;
@@ -24,38 +23,41 @@ class DataTableColTmpl extends FBP(LitElement) {
     super._FBPReady();
     // this._FBPTraceWires();
 
-    this._FBPAddWireHook('--btnClicked', ()=>{
-      this.dispatchEvent(new CustomEvent('template-col-clicked', {
-          detail: this.field, bubbles: true, composed: true
-      }));
-    })
-
+    this._FBPAddWireHook('--btnClicked', () => {
+      this.dispatchEvent(
+        new CustomEvent('template-col-clicked', {
+          detail: this.field,
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    });
   }
 
-  static get properties(){
+  static get properties() {
     return {};
   }
 
   static get styles() {
     // language=CSS
     return [
-        css`
-            :host {
-                display: block;
-            }
-            :host([hidden]){
-                display: none;
-            }
-        `
+      css`
+        :host {
+          display: block;
+        }
+        :host([hidden]) {
+          display: none;
+        }
+      `,
     ];
   }
 
-  bindData(data){
+  bindData(data) {
     this.field = data;
     const members = [];
-    this.field.data.members.forEach((item)=>{
+    this.field.data.members.forEach(item => {
       members.push(item.display_name);
-    })
+    });
     this.displayValue = JSON.stringify(members).toString();
   }
 
@@ -63,13 +65,12 @@ class DataTableColTmpl extends FBP(LitElement) {
    * @private
    * @returns {TemplateResult|TemplateResult}
    */
-  render(){
+  render() {
     // language=HTML
     return html`
       <furo-ui5-button @-click="--btnClicked">${this.displayValue}</furo-ui5-button>
     `;
   }
-
 }
 
 window.customElements.define('data-table-col-tmpl', DataTableColTmpl);
