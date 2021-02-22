@@ -206,9 +206,8 @@ class FuroUi5DataTable extends FBP(LitElement) {
     field.wire = `--internal(*.item._value)`
 
     field.template = fieldPath.replaceAll('{', '').replaceAll('}', '')
-    field.colHeaderText = 'Template column'
+    field.colHeaderText = ''
     this.cols.push(field)
-
   }
 
 

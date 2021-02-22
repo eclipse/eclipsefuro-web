@@ -20,6 +20,7 @@ import '@ui5/webcomponents-icons/dist/project-definition-triangle-2';
 
 import '../src/standard-type-renderers/display-registry.js';
 import './helper/data-table-col-tmpl.js';
+import './helper/data-table-col-tmpl-link.js';
 /**
  * `demo-furo-ui5-data-table-tmpl`
  *
@@ -77,7 +78,7 @@ class DemoFuroUi5DataTableTmpl extends FBP(LitElement) {
               show-no-data
               no-data-text="No data available. Click on load test data"
               ƒ-bind-data="--dao(*.entities)"
-              columns="data.id, data.display_name, data.cost_limit, data.start, data.end, {data-table-col-tmpl}"
+              columns="data.id, data.display_name, {data-table-col-tmpl}, data.cost_limit, data.start, data.end, {data-table-col-tmpl-link}"
             ></furo-ui5-data-table>
           </furo-ui5-card>
 
