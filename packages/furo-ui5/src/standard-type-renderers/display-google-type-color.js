@@ -4,7 +4,7 @@ import '@ui5/webcomponents/dist/ColorPalette.js';
 
 /**
  * `display-google-type-color`
- *  ColorPalette is only supported since version v1.0.0-rc.12 of @ui5/webcomponents
+ *  need  @ui5/webcomponents v1.0.0-rc.12
  * The display-google-type-color component displays a FieldNode of type `google.type.Color` in read only mode.
  *
  * Every display-xxx component should implement the following API:
@@ -52,7 +52,7 @@ class DisplayGoolgeTypeColor extends LitElement {
     this._field = fieldNode;
 
     if (this._field) {
-      if (this._field._spec.type !== 'google.type.Color') {
+      if (this._field._spec.type !== 'google.type.color') {
         // eslint-disable-next-line no-console
         console.warn('Invalid fieldNode in bindData. please bind a google.type.color field.');
         return;
