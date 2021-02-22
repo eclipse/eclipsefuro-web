@@ -343,7 +343,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
       /**
        * list of headers of the columns. if this header is not defined. the datatable will use the labels of cloumns as the headers.
        * comma separated list of markdown string. e.g.  id --:|800,  name :-:|600, here `800` represents the the minimum table width required to display this column. By default it is always displayed.
-       * default position of header is left-justified. left-justified: `--:` , center-justified: `:-:`
+       * default position of header is left-justified. right-justified: `--:` , center-justified: `:-:`
        */
       headers: {
         type: String,
