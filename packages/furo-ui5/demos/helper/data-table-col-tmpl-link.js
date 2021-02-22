@@ -1,15 +1,16 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
-import '@furo/ui5/src/furo-ui5-button.js';
+import '@ui5/webcomponents/dist/Icon.js';
+import '@ui5/webcomponents-icons/dist/navigation-right-arrow.js';
 /**
- * `data-table-col-tmpl`
+ * `data-table-col-tmpl-link`
  * Sample component to demostrate the functionality of column templates within furo-data-table
  *
  * @summary
  * @customElement
  * @appliesMixin FBP
  */
-class DataTableColTmpl extends FBP(LitElement) {
+class DataTableColTmplLink extends FBP(LitElement) {
   constructor() {
     super();
     this.field = undefined;
@@ -54,11 +55,6 @@ class DataTableColTmpl extends FBP(LitElement) {
 
   bindData(data) {
     this.field = data;
-    const members = [];
-    this.field.data.members.forEach(item => {
-      members.push(item.display_name);
-    });
-    this.displayValue = JSON.stringify(members).replaceAll('[', '').replaceAll(']', '').replaceAll('"', '');
   }
 
   /**
@@ -68,9 +64,9 @@ class DataTableColTmpl extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-ui5-button @-click="--btnClicked">${this.displayValue}</furo-ui5-button>
+      <ui5-icon interactive name="navigation-right-arrow" @-click="--btnClicked"></ui5-icon>
     `;
   }
 }
 
-window.customElements.define('data-table-col-tmpl', DataTableColTmpl);
+window.customElements.define('data-table-col-tmpl-link', DataTableColTmplLink);
