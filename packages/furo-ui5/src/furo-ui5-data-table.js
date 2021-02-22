@@ -209,21 +209,11 @@ class FuroUi5DataTable extends FBP(LitElement) {
 
     if (fieldNode) {
       if (this._headerTexts.length > 0) {
-        let colHeaderText = this._headerTexts[index] || '';
-        const arrR = colHeaderText.split('--:');
-        if (arrR.length > 1) {
-          // eslint-disable-next-line prefer-destructuring
-          colHeaderText = arrR[0];
-          field.right = true;
-        } else {
-          const arrC = colHeaderText.split(':-:');
-          if (arrC.length > 1) {
-            // eslint-disable-next-line prefer-destructuring
-            colHeaderText = arrC[0];
-            field.center = true;
-          }
-        }
-        field.colHeaderText = colHeaderText;
+        const obj = this._parsePosition(this._headerTexts[index] || '');
+
+        field.colHeaderText = obj.text;
+        field.right = obj.right;
+        field.center = obj.center;
         field.colMinWidth = this._mitWidth[index] || 'Infinity';
       } else {
         field.colMinWidth = this._mitWidth[fieldPath];
@@ -244,26 +234,40 @@ class FuroUi5DataTable extends FBP(LitElement) {
 
     field.template = fieldPath.replaceAll('{', '').replaceAll('}', '');
 
-    let colHeaderText = this._headerTexts[index] || '';
+    const obj = this._parsePosition(this._headerTexts[index] || '');
 
-    const arrR = colHeaderText.split('--:');
+    field.colHeaderText = obj.text;
+    field.right = obj.right;
+    field.center = obj.center;
+    field.colMinWidth = this._mitWidth[index] || 'Infinity';
+    this.cols.push(field);
+  }
+
+  /**
+   *
+   * @param t
+   * @returns {{center: boolean, text: string, right: boolean}}
+   * @private
+   */
+  // eslint-disable-next-line class-methods-use-this
+  _parsePosition(t) {
+    const obj = { text: t, right: false, center: false };
+    const arrR = t.split('--:');
 
     if (arrR.length > 1) {
       // eslint-disable-next-line prefer-destructuring
-      colHeaderText = arrR[0];
-      field.right = true;
+      obj.text = arrR[0];
+      obj.right = true;
     } else {
-      const arrC = colHeaderText.split(':-:');
+      const arrC = t.split(':-:');
       if (arrC.length > 1) {
         // eslint-disable-next-line prefer-destructuring
-        colHeaderText = arrC[0];
-        field.center = true;
+        obj.text = arrC[0];
+        obj.center = true;
       }
     }
-    field.colHeaderText = colHeaderText;
 
-    field.colMinWidth = this._mitWidth[index] || 'Infinity';
-    this.cols.push(field);
+    return obj;
   }
 
   /**

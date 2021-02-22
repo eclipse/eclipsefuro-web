@@ -19,7 +19,10 @@ describe('furo-ui5-data-repeat', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-data-repeat ƒ-bind-data="--entity(*.repstring)" repeated-component="furo-ui5-data-text-input"></furo-ui5-data-repeat>
+          <furo-ui5-data-repeat
+            ƒ-bind-data="--entity(*.repstring)"
+            repeated-component="furo-ui5-data-text-input"
+          ></furo-ui5-data-repeat>
           <furo-data-object
             type="experiment.Experiment"
             @-object-ready="--entity"
@@ -34,7 +37,6 @@ describe('furo-ui5-data-repeat', () => {
             ƒ-bind-request-data="--entity"
             @-response="--response"
           ></furo-entity-agent>
-
         </template>
       </test-bind>
     `);
@@ -46,7 +48,6 @@ describe('furo-ui5-data-repeat', () => {
     await entityObject.updateComplete;
     await deeplink.updateComplete;
     await agent.updateComplete;
-
   });
 
   it('should be a furo-ui5-data-repeat element', done => {
@@ -86,5 +87,4 @@ describe('furo-ui5-data-repeat', () => {
     });
     deeplink.qpIn({ exp: 1 });
   });
-
 });

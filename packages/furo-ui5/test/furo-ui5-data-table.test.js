@@ -46,9 +46,10 @@ describe('furo-ui5-data-table', () => {
   it('should show empty state message', done => {
     assert.equal(table.noDataText, 'No data available. Click on load test data');
     assert.equal(table.shadowRoot.querySelectorAll('ui5-table-column').length, 7);
-    assert.equal(table.shadowRoot.querySelector('div.no-data').innerText, "No data available. Click on load test data");
+    assert.equal(
+      table.shadowRoot.querySelector('div.no-data').innerText,
+      'No data available. Click on load test data',
+    );
     done();
   });
-
-
 });

@@ -30,5 +30,4 @@ describe('furo-ui5-data-table', () => {
     assert.equal(tablerow.nodeName.toLowerCase(), 'furo-ui5-table-row');
     done();
   });
-
 });
