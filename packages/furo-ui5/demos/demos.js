@@ -33,3 +33,4 @@ import './demo-furo-ui5-data-multi-input.js';
 import './demo-furo-ui5-data-number-input.js';
 import './demo-furo-ui5-data-password-input.js';
 import './demo-furo-ui5-data-table.js';
+import './demo-furo-ui5-data-table-tmpl.js';

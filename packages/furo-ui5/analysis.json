@@ -778,11 +778,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 221,
+              "line": 225,
               "column": 2
             },
             "end": {
-              "line": 229,
+              "line": 233,
               "column": 3
             }
           },
@@ -807,7 +807,7 @@
           "column": 0
         },
         "end": {
-          "line": 230,
+          "line": 234,
           "column": 1
         }
       },
@@ -3378,11 +3378,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 209,
               "column": 2
             },
             "end": {
-              "line": 208,
+              "line": 211,
               "column": 3
             }
           },
@@ -3504,11 +3504,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 115,
+              "line": 116,
               "column": 2
             },
             "end": {
-              "line": 119,
+              "line": 120,
               "column": 3
             }
           },
@@ -3524,11 +3524,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 127,
               "column": 2
             },
             "end": {
-              "line": 150,
+              "line": 151,
               "column": 3
             }
           },
@@ -3544,11 +3544,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 157,
+              "line": 158,
               "column": 2
             },
             "end": {
-              "line": 170,
+              "line": 173,
               "column": 3
             }
           },
@@ -3568,11 +3568,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 176,
+              "line": 179,
               "column": 2
             },
             "end": {
-              "line": 199,
+              "line": 202,
               "column": 3
             }
           },
@@ -3588,11 +3588,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 216,
+              "line": 219,
               "column": 2
             },
             "end": {
-              "line": 230,
+              "line": 233,
               "column": 3
             }
           },
@@ -3608,11 +3608,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 236,
+              "line": 239,
               "column": 2
             },
             "end": {
-              "line": 244,
+              "line": 247,
               "column": 3
             }
           },
@@ -3645,7 +3645,7 @@
           "column": 0
         },
         "end": {
-          "line": 245,
+          "line": 248,
           "column": 1
         }
       },
@@ -11797,15 +11797,15 @@
         {
           "name": "columns",
           "type": "string | null | undefined",
-          "description": "list of field-paths which should be as columns displayed\ncomma separated field list",
+          "description": "list of field-paths which should be as columns displayed\ncomma separated list of field's path. e.g. data.id, data.display|800 , here `800` represents the the minimum table width required to display this column. By default it is always displayed.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 235,
+              "line": 241,
               "column": 6
             },
             "end": {
-              "line": 238,
+              "line": 244,
               "column": 7
             }
           },
@@ -11822,11 +11822,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 243,
+              "line": 249,
               "column": 6
             },
             "end": {
-              "line": 246,
+              "line": 252,
               "column": 7
             }
           },
@@ -11843,11 +11843,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 250,
+              "line": 256,
               "column": 6
             },
             "end": {
-              "line": 253,
+              "line": 259,
               "column": 7
             }
           },
@@ -11864,11 +11864,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 257,
+              "line": 263,
               "column": 6
             },
             "end": {
-              "line": 260,
+              "line": 266,
               "column": 7
             }
           },
@@ -11881,15 +11881,15 @@
         {
           "name": "popinFields",
           "type": "string | null | undefined",
-          "description": "define the list of popin fields\ncomma separated field list",
+          "description": "define the list of popin fields\ncomma separated list of field's path. e.g data.id, data.display_name",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 265,
+              "line": 271,
               "column": 6
             },
             "end": {
-              "line": 268,
+              "line": 274,
               "column": 7
             }
           },
@@ -11935,7 +11935,7 @@
               "column": 2
             },
             "end": {
-              "line": 153,
+              "line": 158,
               "column": 3
             }
           },
@@ -11951,11 +11951,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 160,
+              "line": 165,
               "column": 2
             },
             "end": {
-              "line": 173,
+              "line": 178,
               "column": 3
             }
           },
@@ -11975,11 +11975,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 182,
+              "line": 187,
               "column": 2
             },
             "end": {
-              "line": 205,
+              "line": 211,
               "column": 3
             }
           },
@@ -12002,11 +12002,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 276,
+              "line": 282,
               "column": 2
             },
             "end": {
-              "line": 292,
+              "line": 298,
               "column": 3
             }
           },
@@ -12022,16 +12022,20 @@
         {
           "url": "demo-furo-ui5-data-table",
           "description": "Basic usage"
+        },
+        {
+          "url": "demo-furo-ui5-data-table-tmpl",
+          "description": "Usage of Column Templates"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 60,
+          "line": 61,
           "column": 0
         },
         "end": {
-          "line": 293,
+          "line": 299,
           "column": 1
         }
       },
@@ -12041,14 +12045,14 @@
       "attributes": [
         {
           "name": "columns",
-          "description": "list of field-paths which should be as columns displayed\ncomma separated field list",
+          "description": "list of field-paths which should be as columns displayed\ncomma separated list of field's path. e.g. data.id, data.display|800 , here `800` represents the the minimum table width required to display this column. By default it is always displayed.",
           "sourceRange": {
             "start": {
-              "line": 235,
+              "line": 241,
               "column": 6
             },
             "end": {
-              "line": 238,
+              "line": 244,
               "column": 7
             }
           },
@@ -12060,11 +12064,11 @@
           "description": "the text which can be showed when there is no data in table\nstring",
           "sourceRange": {
             "start": {
-              "line": 243,
+              "line": 249,
               "column": 6
             },
             "end": {
-              "line": 246,
+              "line": 252,
               "column": 7
             }
           },
@@ -12076,11 +12080,11 @@
           "description": "define to show the noDataText or not",
           "sourceRange": {
             "start": {
-              "line": 250,
+              "line": 256,
               "column": 6
             },
             "end": {
-              "line": 253,
+              "line": 259,
               "column": 7
             }
           },
@@ -12092,11 +12096,11 @@
           "description": "define the header is sticky or not",
           "sourceRange": {
             "start": {
-              "line": 257,
+              "line": 263,
               "column": 6
             },
             "end": {
-              "line": 260,
+              "line": 266,
               "column": 7
             }
           },
@@ -12105,14 +12109,14 @@
         },
         {
           "name": "popin-fields",
-          "description": "define the list of popin fields\ncomma separated field list",
+          "description": "define the list of popin fields\ncomma separated list of field's path. e.g data.id, data.display_name",
           "sourceRange": {
             "start": {
-              "line": 265,
+              "line": 271,
               "column": 6
             },
             "end": {
-              "line": 268,
+              "line": 274,
               "column": 7
             }
           },

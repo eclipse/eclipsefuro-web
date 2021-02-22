@@ -2,10 +2,6 @@
  * Standard Set of Type Renderers
  * For every supported type a simple rendering component for value display purposes is provided.
  *
- * List of Types:
- * - google.type.Color
- * - google.type.TimeOfDay
- *
  */
 
 import './display-string.js';
