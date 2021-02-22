@@ -99,6 +99,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
     this._showNoData = false;
     this.headers = '';
     this._headers = [];
+    this._headerTexts = [];
   }
 
   /**
@@ -170,7 +171,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
       this._mitWidth[arr[0]] = arr[1] ? arr[1] : 'Infinity';
     });
 
-    if (this._headers.length > 0) {
+    if (this._headers.length > 1) {
       this._mitWidth = [];
       this._headerTexts = [];
       this._headers.forEach((h, i) => {
@@ -208,7 +209,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
     const fieldNode = this._findFieldByPath(this._fields, fieldPath);
 
     if (fieldNode) {
-      if (this._headerTexts.length > 0) {
+      if (this._headers.length > 1) {
         const obj = this._parsePosition(this._headerTexts[index] || '');
 
         field.colHeaderText = obj.text;
