@@ -62,6 +62,8 @@ const ui5HeaderTemplate = fields =>
       f =>
         html`
           <ui5-table-column
+            ?center="${f.center}"
+            ?right="${f.right}"
             slot="columns"
             popin-text="${f.colHeaderText}"
             ?demand-popin="${f.popin}"
@@ -95,6 +97,8 @@ class FuroUi5DataTable extends FBP(LitElement) {
     this.data = [];
     this.noDataText = 'No Data';
     this._showNoData = false;
+    this.headers = '';
+    this._headers = [];
   }
 
   /**
@@ -155,6 +159,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
    */
   _init() {
     const cols = this.columns.replace(/ /g, '').split(',');
+    this._headers = this.headers.replace(/ /g, '').split(',');
     this._popinFields = this.popinFields.replace(/ /g, '').split(',');
 
     this._mitWidth = [];
@@ -165,11 +170,22 @@ class FuroUi5DataTable extends FBP(LitElement) {
       this._mitWidth[arr[0]] = arr[1] ? arr[1] : 'Infinity';
     });
 
-    _col.forEach(fieldPath => {
+    if(this._headers.length>0) {
+      this._mitWidth = [];
+      this._headerTexts = [];
+      this._headers.forEach(((h,i)=>{
+        const arr = h.split('|')
+        this._mitWidth[i] = arr[1] ? arr[1] : 'Infinity'
+        // eslint-disable-next-line prefer-destructuring
+        this._headerTexts[i]=arr[0];
+      }));
+    }
+
+    _col.forEach((fieldPath,index) => {
       if (fieldPath.startsWith('{')) {
-        this._bindColumnTmplField(fieldPath);
+        this._bindColumnTmplField(fieldPath, index);
       } else {
-        this._bindColumnDataField(fieldPath);
+        this._bindColumnDataField(fieldPath, index);
       }
     });
 
@@ -183,17 +199,39 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @param fieldPath
    * @private
    */
-  _bindColumnDataField(fieldPath) {
+  _bindColumnDataField(fieldPath, index) {
     const field = {};
     field.wire = `--internal(*.item.${fieldPath})`;
 
     field.popin = !!this._popinFields.includes(fieldPath);
 
-    field.colMinWidth = this._mitWidth[fieldPath];
     const fieldNode = this._findFieldByPath(this._fields, fieldPath);
 
-    if (fieldNode) {
-      field.colHeaderText = fieldNode.meta.label || '';
+    if(fieldNode) {
+      if(this._headerTexts.length>0) {
+
+        let colHeaderText = this._headerTexts[index] || ''
+        const arrR = colHeaderText.split('--:');
+        if(arrR.length>1) {
+          // eslint-disable-next-line prefer-destructuring
+          colHeaderText = arrR[0];
+          field.right = true;
+        }
+        else {
+          const arrC = colHeaderText.split(':-:');
+          if(arrC.length>1) {
+            // eslint-disable-next-line prefer-destructuring
+            colHeaderText = arrC[0];
+            field.center = true;
+          }
+        }
+        field.colHeaderText = colHeaderText;
+        field.colMinWidth = this._mitWidth[index] || 'Infinity';
+      }
+      else {
+        field.colMinWidth = this._mitWidth[fieldPath];
+        field.colHeaderText = fieldNode.meta.label || '';
+      }
       this.cols.push(field);
     }
   }
@@ -203,12 +241,32 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @param fieldPath
    * @private
    */
-  _bindColumnTmplField(fieldPath) {
+  _bindColumnTmplField(fieldPath, index) {
     const field = {};
     field.wire = `--internal(*.item._value)`;
 
     field.template = fieldPath.replaceAll('{', '').replaceAll('}', '');
-    field.colHeaderText = '';
+
+    let colHeaderText = this._headerTexts[index] || '';
+
+    const arrR = colHeaderText.split('--:');
+
+    if(arrR.length>1) {
+      // eslint-disable-next-line prefer-destructuring
+      colHeaderText = arrR[0];
+      field.right = true;
+    }
+    else {
+      const arrC = colHeaderText.split(':-:');
+      if(arrC.length>1) {
+        // eslint-disable-next-line prefer-destructuring
+        colHeaderText = arrC[0];
+        field.center = true;
+      }
+    }
+    field.colHeaderText = colHeaderText;
+
+    field.colMinWidth = this._mitWidth[index] || 'Infinity';
     this.cols.push(field);
   }
 
@@ -220,6 +278,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @private
    */
   _findFieldByPath(field, path) {
+
     const arr = path.split('.');
 
     if (arr.length > 1) {
@@ -260,6 +319,16 @@ class FuroUi5DataTable extends FBP(LitElement) {
         text-align: center;
         line-height: 3rem;
       }
+
+      ui5-table-column[center]::part(column) {
+        text-align: center;
+        line-height: 2.5rem;
+      }
+
+      ui5-table-column[right]::part(column) {
+        text-align: right;
+        line-height: 2.5rem;
+      }
     `;
   }
 
@@ -275,6 +344,15 @@ class FuroUi5DataTable extends FBP(LitElement) {
       columns: {
         type: String,
         attribute: 'columns',
+      },
+      /**
+       * list of headers of the columns. if this header is not defined. the datatable will use the labels of cloumns as the headers.
+       * comma separated list of markdown string. e.g.  id --:|800,  name :-:|600, here `800` represents the the minimum table width required to display this column. By default it is always displayed.
+       * default position of header is left-justified. left-justified: `--:` , center-justified: `:-:`
+       */
+      headers: {
+        type: String,
+        attribute: 'headers',
       },
       /**
        * the text which can be showed when there is no data in table

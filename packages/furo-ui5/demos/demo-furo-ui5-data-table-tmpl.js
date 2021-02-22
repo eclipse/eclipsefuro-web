@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit-element'
 import { Theme } from '@furo/framework/src/theme'
 import { FBP } from '@furo/fbp/src/fbp.js'
+import { i18n } from '@furo/framework/src/i18n.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper'
@@ -82,6 +83,7 @@ class DemoFuroUi5DataTableTmpl extends FBP(LitElement) {
                   no-data-text="No data available. Click on load test data"
                   ƒ-bind-data="--dao(*.entities)"
                   @-template-col-clicked="--rowData"
+                  headers="${i18n.t('header1')}|800,${i18n.t('header2')}:-:|600,${i18n.t('header3')}--:|400,"
                   columns="data.id, data.display_name, {data-table-col-tmpl}, data.cost_limit, data.start, data.end, {data-table-col-tmpl-link}"
                 ></furo-ui5-data-table>
               </furo-ui5-card>
