@@ -4629,7 +4629,7 @@
       "tagname": "furo-ui5-data-text-input"
     },
     {
-      "description": "`furo-data-money-input`\nBinds a entityObject field google.type.Money to a furo-number-input and currency dropdown fields\n <sample-furo-data-money-input></sample-furo-data-money-input>\n\n you can set currencies dropdown with options in meta or set options attribute as json in element or set currencies as string in element. the three\n ways have priority : currencies > options as attribute > options in meta. When no currencies is setted. Default currency will be `CHF`\n\n <furo-data-money-input autofocus ƒ-bind-data=\"--entity(*.furo_data_money_input)\" options='{\"list\": [ \"CHF\",\"EUR\",\"USD\" ]}'></furo-data-money-input>\n <furo-data-money-input autofocus ƒ-bind-data=\"--entity(*.furo_data_money_input)\" options='{\"list\": [ {\"id\":\"CHF\",\"label\":\"Schweiz\"},{\"id\":\"EUR\",\"label\":\"Europa\", \"selected\": true}'></furo-data-money-input>\n <furo-data-money-input autofocus ƒ-bind-data=\"--entity(*.furo_data_money_input)\" currencies=\"CHF,EUR,USD\"></furo-data-money-input>\n\nTags: money input",
+      "description": "`furo-data-money-input`\nBinds a entityObject field google.type.Money to a furo-number-input and currency dropdown fields\n <sample-furo-data-money-input></sample-furo-data-money-input>\n\n you can set currencies dropdown with options in meta or set options attribute as json in element or set currencies as string in element. the three\n ways have priority : currencies > options as attribute > options in meta. When no currencies is setted. Default currency will be `CHF`\n\n <furo-ui5-data-money-input autofocus ƒ-bind-data=\"--entity(*.furo_data_money_input)\" options='{\"list\": [ \"CHF\",\"EUR\",\"USD\" ]}'></furo-data-money-input>\n <furo-ui5-data-money-input autofocus ƒ-bind-data=\"--entity(*.furo_data_money_input)\" options='{\"list\": [ {\"id\":\"CHF\",\"label\":\"Schweiz\"},{\"id\":\"EUR\",\"label\":\"Europa\", \"selected\": true}'></furo-data-money-input>\n <furo-ui5-data-money-input autofocus ƒ-bind-data=\"--entity(*.furo_data_money_input)\" currencies=\"CHF,EUR,USD\"></furo-data-money-input>\n\nTags: money input",
       "summary": "Binds a entityObject field google.type.Money to a number-input and currency dropdown fields",
       "path": "src/furo-ui5-data-money-input.js",
       "properties": [
@@ -4640,11 +4640,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 258,
+              "line": 268,
               "column": 2
             },
             "end": {
-              "line": 260,
+              "line": 270,
               "column": 3
             }
           },
@@ -4659,11 +4659,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 286,
+              "line": 296,
               "column": 2
             },
             "end": {
-              "line": 292,
+              "line": 302,
               "column": 3
             }
           },
@@ -4791,7 +4791,7 @@
               "column": 2
             },
             "end": {
-              "line": 222,
+              "line": 228,
               "column": 3
             }
           },
@@ -4813,11 +4813,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 232,
+              "line": 238,
               "column": 2
             },
             "end": {
-              "line": 252,
+              "line": 262,
               "column": 3
             }
           },
@@ -4833,11 +4833,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 266,
+              "line": 276,
               "column": 2
             },
             "end": {
-              "line": 280,
+              "line": 290,
               "column": 3
             }
           },
@@ -4857,11 +4857,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 298,
+              "line": 308,
               "column": 2
             },
             "end": {
-              "line": 309,
+              "line": 319,
               "column": 3
             }
           },
@@ -4881,11 +4881,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 311,
+              "line": 321,
               "column": 2
             },
             "end": {
-              "line": 323,
+              "line": 333,
               "column": 3
             }
           },
@@ -4901,11 +4901,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 358,
+              "line": 368,
               "column": 2
             },
             "end": {
-              "line": 378,
+              "line": 388,
               "column": 3
             }
           },
@@ -4930,7 +4930,7 @@
           "column": 0
         },
         "end": {
-          "line": 379,
+          "line": 389,
           "column": 1
         }
       },
@@ -4943,11 +4943,11 @@
           "description": "the option object defines the currencies dropdown\n'{\"list\": [ \"chf\",\"eur\",\"usd\" ]}'\n'{\"list\": [ {\"id\":\"CHF\",\"label\":\"Schweiz\"},{\"id\":\"EUR\",\"label\":\"Europa\", \"selected\": true}'",
           "sourceRange": {
             "start": {
-              "line": 258,
+              "line": 268,
               "column": 2
             },
             "end": {
-              "line": 260,
+              "line": 270,
               "column": 3
             }
           },
@@ -4959,11 +4959,11 @@
           "description": "the string list of currencies for the dropdown. e.g. \"CHF,EUR,USD\"",
           "sourceRange": {
             "start": {
-              "line": 286,
+              "line": 296,
               "column": 2
             },
             "end": {
-              "line": 292,
+              "line": 302,
               "column": 3
             }
           },
