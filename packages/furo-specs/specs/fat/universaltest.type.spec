@@ -231,13 +231,29 @@ fields:
         type: furo.fat.Float
         description: field of furo.fat.float for the Universaltest
         __proto:
-            number: 12
+            number: 13
             oneof: ""
         __ui: null
         meta:
             default: ""
             hint: ""
             label: fat float
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    fat_int64:
+        type: furo.fat.Int64
+        description: field of a fat int64 for the Universaltest
+        __proto:
+            number: 14
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: fat int64
             options: null
             readonly: false
             repeated: false
