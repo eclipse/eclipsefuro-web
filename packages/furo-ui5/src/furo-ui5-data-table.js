@@ -81,6 +81,7 @@ const ui5HeaderTemplate = fields =>
  * @customElement
  * @demo demo-furo-ui5-data-table Basic usage
  * @demo demo-furo-ui5-data-table-tmpl Usage of Column Templates
+ * @demo demo-furo-ui5-data-table-repeats Usage with Repeatsƒ
  */
 class FuroUi5DataTable extends FBP(LitElement) {
   /**
