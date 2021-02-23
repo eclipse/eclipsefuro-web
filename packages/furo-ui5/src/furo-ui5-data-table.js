@@ -102,8 +102,6 @@ class FuroUi5DataTable extends FBP(LitElement) {
     this.headers = '';
     this._headers = [];
     this._headerTexts = [];
-
-    this.nameOfBoundField = '';
   }
 
   /**
@@ -116,16 +114,6 @@ class FuroUi5DataTable extends FBP(LitElement) {
       console.warn('Invalid fieldNode in bindData. please bind a repeated field.');
       return;
     }
-
-    this.nameOfBoundField = data._name;
-
-    data.addEventListener('repeated-fields-added', () => {
-      this._FBPTriggerWire('--data', this.data);
-    });
-
-    data.addEventListener('repeated-fields-removed', () => {
-      this._FBPTriggerWire('--data', this.data);
-    });
 
     /**
      * new data arrived from CollectionNode
