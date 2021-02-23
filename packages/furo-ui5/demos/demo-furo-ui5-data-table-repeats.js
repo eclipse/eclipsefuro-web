@@ -88,7 +88,7 @@ class DemoFuroUi5DataTableRepeats extends FBP(LitElement) {
             <produce-qp-data @-data="--qp" qpescaped="%7B%22prj%22%3A1%7D"></produce-qp-data>
           </furo-ui5-button-bar>
 
-          <br>
+          <br />
 
           <furo-ui5-card
             heading="Project Members"
@@ -101,7 +101,6 @@ class DemoFuroUi5DataTableRepeats extends FBP(LitElement) {
               no-data-text="No data available. Click on load test data"
               ƒ-bind-data="--daoProjectEntity(*.data.members)"
               columns="first_name, name, phone_nr"
-
             ></furo-ui5-data-table>
           </furo-ui5-card>
 
@@ -125,16 +124,18 @@ class DemoFuroUi5DataTableRepeats extends FBP(LitElement) {
             ƒ-inject-raw="--response"
           ></furo-data-object>
 
-          <furo-entity-agent service="ProjectService"
-                             ƒ-hts-in="--itemSelected(*.links)"
-                             load-on-hts-in @-load-success="--projectLoaded"></furo-entity-agent>
+          <furo-entity-agent
+            service="ProjectService"
+            ƒ-hts-in="--itemSelected(*.links)"
+            load-on-hts-in
+            @-load-success="--projectLoaded"
+          ></furo-entity-agent>
 
           <furo-data-object
             type="project.ProjectEntity"
             @-object-ready="--daoProjectEntity"
             ƒ-inject-raw="--projectLoaded"
           ></furo-data-object>
-
         </template>
       </furo-demo-snippet>
     `;

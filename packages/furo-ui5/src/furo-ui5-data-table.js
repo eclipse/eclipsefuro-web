@@ -256,12 +256,19 @@ class FuroUi5DataTable extends FBP(LitElement) {
   // eslint-disable-next-line class-methods-use-this
   _parseWidth(w) {
     const obj = { style: '', minWidth: 'Infinity' };
-    const arr = w.split('>');
-    if (arr.length > 1) {
-      obj.style = `width:${arr[1]}px`;
+    const arrF = w.split('fix');
+    if (arrF.length > 1) {
+      obj.style = `width:${arrF[1]}px`;
     } else {
-      obj.minWidth = w;
+      const arrM = w.split('min');
+      if (arrM.length > 1) {
+        // eslint-disable-next-line prefer-destructuring
+        obj.minWidth = arrM[1];
+      } else {
+        obj.minWidth = w;
+      }
     }
+
     return obj;
   }
 
@@ -360,7 +367,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
     return {
       /**
        * list of field-paths which should be as columns displayed
-       * comma separated list of field's path. e.g. data.id, data.display|800 , here `800` represents the the minimum table width required to display this column. By default it is always displayed.
+       * comma separated list of field's path. e.g. data.id, data.display|min800 , here `min800` represents the the minimum table width required to display this column. By default it is always displayed.
        */
       columns: {
         type: String,
@@ -368,8 +375,8 @@ class FuroUi5DataTable extends FBP(LitElement) {
       },
       /**
        * list of headers of the columns. if this header is not defined. the datatable will use the labels of cloumns as the headers.
-       * comma separated list of markdown string. e.g.  id --:|&gt;800,  name :-:|400, here `|&gt;800` represents the the minimum table width required to display this column in pixel (`&gt;` is encoded HTML of greater-than).
-       * By default the column is always displayed. also the width of column can be defined as fixed via `|400` notation.
+       * comma separated list of markdown string. e.g.  id --:|min800,  name :-:|min400, here `|min800` represents the the minimum table width required to display this column in pixel (`&gt;` is encoded HTML of greater-than).
+       * By default the column is always displayed. also the width of column can be defined as fixed via `|fix400` notation.
        * default position of header is left-justified. right-justified: `--:` , center-justified: `:-:`
        */
       headers: {
