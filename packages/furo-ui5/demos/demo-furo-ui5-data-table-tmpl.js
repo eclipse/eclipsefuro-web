@@ -87,7 +87,7 @@ class DemoFuroUi5DataTableTmpl extends FBP(LitElement) {
       'header3',
     )}|400,${i18n.t('header4')}--:|400,${i18n.t('header5')}:-:|400,${i18n.t(
       'header6',
-    )}:-:|400,${i18n.t('header7')}|400"
+    )}:-:|&gt;400,${i18n.t('header7')}|&gt;400"
                   columns="data.id, data.display_name, {data-table-col-tmpl}, data.cost_limit, data.start, data.end, {data-table-col-tmpl-link}"
                 ></furo-ui5-data-table>
               </furo-ui5-card>

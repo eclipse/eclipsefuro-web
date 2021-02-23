@@ -14,4 +14,7 @@ import { DisplayUint32 } from './display-uint32.js';
  */
 class DisplayGoolgeProtobufUin32value extends DisplayUint32 {}
 
-window.customElements.define('display-google-protobuf-uint32value', DisplayGoolgeProtobufUin32value);
+window.customElements.define(
+  'display-google-protobuf-uint32value',
+  DisplayGoolgeProtobufUin32value,
+);

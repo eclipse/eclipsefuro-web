@@ -64,6 +64,7 @@ const ui5HeaderTemplate = fields =>
           <ui5-table-column
             ?center="${f.center}"
             ?right="${f.right}"
+            style="${f.style}"
             slot="columns"
             popin-text="${f.colHeaderText}"
             ?demand-popin="${f.popin}"
@@ -164,20 +165,20 @@ class FuroUi5DataTable extends FBP(LitElement) {
     this._headers = this.headers.replace(/ /g, '').split(',');
     this._popinFields = this.popinFields.replace(/ /g, '').split(',');
 
-    this._mitWidth = [];
+    this._colStyle = [];
     const _col = [];
     cols.forEach(e => {
       const arr = e.split('|');
       _col.push(arr[0]);
-      this._mitWidth[arr[0]] = arr[1] ? arr[1] : 'Infinity';
+      this._colStyle[arr[0]] = arr[1] ? arr[1] : 'Infinity';
     });
 
     if (this._headers.length > 1) {
-      this._mitWidth = [];
+      this._colStyle = [];
       this._headerTexts = [];
       this._headers.forEach((h, i) => {
         const arr = h.split('|');
-        this._mitWidth[i] = arr[1] ? arr[1] : 'Infinity';
+        this._colStyle[i] = arr[1] ? arr[1] : 'Infinity';
         // eslint-disable-next-line prefer-destructuring
         this._headerTexts[i] = arr[0];
       });
@@ -216,11 +217,16 @@ class FuroUi5DataTable extends FBP(LitElement) {
         field.colHeaderText = obj.text;
         field.right = obj.right;
         field.center = obj.center;
-        field.colMinWidth = this._mitWidth[index] || 'Infinity';
+        field.colMinWidth = this._colStyle[index] || 'Infinity';
       } else {
-        field.colMinWidth = this._mitWidth[fieldPath];
+        field.colMinWidth = this._colStyle[fieldPath];
         field.colHeaderText = fieldNode.meta.label || '';
       }
+
+      const sObj = this._parseWidth(field.colMinWidth);
+      field.colMinWidth = sObj.minWidth;
+      field.style = sObj.style;
+
       this.cols.push(field);
     }
   }
@@ -241,8 +247,30 @@ class FuroUi5DataTable extends FBP(LitElement) {
     field.colHeaderText = obj.text;
     field.right = obj.right;
     field.center = obj.center;
-    field.colMinWidth = this._mitWidth[index] || 'Infinity';
+
+    const sObj = this._parseWidth(this._colStyle[index]);
+    field.colMinWidth = sObj.minWidth;
+    field.style = sObj.style;
+
     this.cols.push(field);
+  }
+
+  /**
+   *
+   * @param w
+   * @returns {{style: string, minWidth: string}}
+   * @private
+   */
+  // eslint-disable-next-line class-methods-use-this
+  _parseWidth(w) {
+    const obj = { style: '', minWidth: 'Infinity' };
+    const arr = w.split('>');
+    if (arr.length > 1) {
+      obj.style = `width:${arr[1]}px`;
+    } else {
+      obj.minWidth = w;
+    }
+    return obj;
   }
 
   /**
