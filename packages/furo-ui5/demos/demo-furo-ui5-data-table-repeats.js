@@ -87,6 +87,8 @@ class DemoFuroUi5DataTableRepeats extends FBP(LitElement) {
             <produce-qp-data @-data="--qp" qpescaped="%7B%22prj%22%3A1%7D"></produce-qp-data>
           </furo-ui5-button-bar>
 
+          <br>
+
           <furo-ui5-card
             heading="Array of Objects"
             subheading=""

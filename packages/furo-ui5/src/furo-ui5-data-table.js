@@ -82,7 +82,7 @@ const ui5HeaderTemplate = fields =>
  * @customElement
  * @demo demo-furo-ui5-data-table Basic usage
  * @demo demo-furo-ui5-data-table-tmpl Usage of Column Templates
- * @demo demo-furo-ui5-data-table-repeats Usage with Repeatsƒ
+ * @demo demo-furo-ui5-data-table-repeats Usage with Repeats
  */
 class FuroUi5DataTable extends FBP(LitElement) {
   /**
@@ -102,6 +102,8 @@ class FuroUi5DataTable extends FBP(LitElement) {
     this.headers = '';
     this._headers = [];
     this._headerTexts = [];
+
+    this.nameOfBoundField = '';
   }
 
   /**
@@ -115,6 +117,8 @@ class FuroUi5DataTable extends FBP(LitElement) {
       return;
     }
 
+    this.nameOfBoundField = data._name;
+
     data.addEventListener('repeated-fields-added', () => {
       this._FBPTriggerWire('--data', this.data);
     });
@@ -126,9 +130,9 @@ class FuroUi5DataTable extends FBP(LitElement) {
     /**
      * new data arrived from CollectionNode
      */
-    data.addEventListener('new-data-injected', e => {
-      this.data = e.detail.entities.repeats;
-      this._FBPTriggerWire('--data', e.detail.entities.repeats);
+    data.addEventListener('this-repeated-field-changed', e => {
+      this.data = e.detail.repeats;
+      this._FBPTriggerWire('--data', this.data);
       if (this.data.length > 0) {
         this._showNoData = false;
       } else if (this.showNoData) {
