@@ -11801,11 +11801,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 344,
+              "line": 372,
               "column": 6
             },
             "end": {
-              "line": 347,
+              "line": 375,
               "column": 7
             }
           },
@@ -11818,15 +11818,15 @@
         {
           "name": "headers",
           "type": "string | null | undefined",
-          "description": "list of headers of the columns. if this header is not defined. the datatable will use the labels of cloumns as the headers.\ncomma separated list of markdown string. e.g.  id --:|800,  name :-:|600, here `800` represents the the minimum table width required to display this column. By default it is always displayed.\ndefault position of header is left-justified. right-justified: `--:` , center-justified: `:-:`",
+          "description": "list of headers of the columns. if this header is not defined. the datatable will use the labels of cloumns as the headers.\ncomma separated list of markdown string. e.g.  id --:|&gt;800,  name :-:|400, here `|&gt;800` represents the the minimum table width required to display this column in pixel (`&gt;` is encoded HTML of greater-than).\nBy default the column is always displayed. also the width of column can be defined as fixed via `|400` notation.\ndefault position of header is left-justified. right-justified: `--:` , center-justified: `:-:`",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 353,
+              "line": 382,
               "column": 6
             },
             "end": {
-              "line": 356,
+              "line": 385,
               "column": 7
             }
           },
@@ -11843,11 +11843,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 361,
+              "line": 390,
               "column": 6
             },
             "end": {
-              "line": 364,
+              "line": 393,
               "column": 7
             }
           },
@@ -11864,11 +11864,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 368,
+              "line": 397,
               "column": 6
             },
             "end": {
-              "line": 371,
+              "line": 400,
               "column": 7
             }
           },
@@ -11885,11 +11885,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 375,
+              "line": 404,
               "column": 6
             },
             "end": {
-              "line": 378,
+              "line": 407,
               "column": 7
             }
           },
@@ -11906,11 +11906,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 383,
+              "line": 412,
               "column": 6
             },
             "end": {
-              "line": 386,
+              "line": 415,
               "column": 7
             }
           },
@@ -11928,11 +11928,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 109,
+              "line": 110,
               "column": 2
             },
             "end": {
-              "line": 155,
+              "line": 156,
               "column": 3
             }
           },
@@ -11952,11 +11952,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 161,
+              "line": 162,
               "column": 2
             },
             "end": {
-              "line": 196,
+              "line": 197,
               "column": 3
             }
           },
@@ -11972,11 +11972,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 203,
+              "line": 204,
               "column": 2
             },
             "end": {
-              "line": 225,
+              "line": 231,
               "column": 3
             }
           },
@@ -11999,11 +11999,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 232,
+              "line": 238,
               "column": 2
             },
             "end": {
-              "line": 245,
+              "line": 255,
               "column": 3
             }
           },
@@ -12021,16 +12021,37 @@
           }
         },
         {
+          "name": "_parseWidth",
+          "description": "eslint-disable-next-line class-methods-use-this",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 264,
+              "column": 2
+            },
+            "end": {
+              "line": 273,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "w"
+            }
+          ]
+        },
+        {
           "name": "_parsePosition",
           "description": "eslint-disable-next-line class-methods-use-this",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 254,
+              "line": 282,
               "column": 2
             },
             "end": {
-              "line": 272,
+              "line": 300,
               "column": 3
             }
           },
@@ -12047,11 +12068,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 281,
+              "line": 309,
               "column": 2
             },
             "end": {
-              "line": 304,
+              "line": 332,
               "column": 3
             }
           },
@@ -12074,11 +12095,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 394,
+              "line": 423,
               "column": 2
             },
             "end": {
-              "line": 410,
+              "line": 439,
               "column": 3
             }
           },
@@ -12101,17 +12122,17 @@
         },
         {
           "url": "demo-furo-ui5-data-table-repeats",
-          "description": "Usage with Repeats"
+          "description": "Usage with Repeatsƒ"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 85,
+          "line": 86,
           "column": 0
         },
         "end": {
-          "line": 411,
+          "line": 440,
           "column": 1
         }
       },
@@ -12124,11 +12145,11 @@
           "description": "list of field-paths which should be as columns displayed\ncomma separated list of field's path. e.g. data.id, data.display|800 , here `800` represents the the minimum table width required to display this column. By default it is always displayed.",
           "sourceRange": {
             "start": {
-              "line": 344,
+              "line": 372,
               "column": 6
             },
             "end": {
-              "line": 347,
+              "line": 375,
               "column": 7
             }
           },
@@ -12137,14 +12158,14 @@
         },
         {
           "name": "headers",
-          "description": "list of headers of the columns. if this header is not defined. the datatable will use the labels of cloumns as the headers.\ncomma separated list of markdown string. e.g.  id --:|800,  name :-:|600, here `800` represents the the minimum table width required to display this column. By default it is always displayed.\ndefault position of header is left-justified. right-justified: `--:` , center-justified: `:-:`",
+          "description": "list of headers of the columns. if this header is not defined. the datatable will use the labels of cloumns as the headers.\ncomma separated list of markdown string. e.g.  id --:|&gt;800,  name :-:|400, here `|&gt;800` represents the the minimum table width required to display this column in pixel (`&gt;` is encoded HTML of greater-than).\nBy default the column is always displayed. also the width of column can be defined as fixed via `|400` notation.\ndefault position of header is left-justified. right-justified: `--:` , center-justified: `:-:`",
           "sourceRange": {
             "start": {
-              "line": 353,
+              "line": 382,
               "column": 6
             },
             "end": {
-              "line": 356,
+              "line": 385,
               "column": 7
             }
           },
@@ -12156,11 +12177,11 @@
           "description": "the text which can be showed when there is no data in table\nstring",
           "sourceRange": {
             "start": {
-              "line": 361,
+              "line": 390,
               "column": 6
             },
             "end": {
-              "line": 364,
+              "line": 393,
               "column": 7
             }
           },
@@ -12172,11 +12193,11 @@
           "description": "define to show the noDataText or not",
           "sourceRange": {
             "start": {
-              "line": 368,
+              "line": 397,
               "column": 6
             },
             "end": {
-              "line": 371,
+              "line": 400,
               "column": 7
             }
           },
@@ -12188,11 +12209,11 @@
           "description": "define the header is sticky or not",
           "sourceRange": {
             "start": {
-              "line": 375,
+              "line": 404,
               "column": 6
             },
             "end": {
-              "line": 378,
+              "line": 407,
               "column": 7
             }
           },
@@ -12204,11 +12225,11 @@
           "description": "define the list of popin fields\ncomma separated list of field's path. e.g data.id, data.display_name",
           "sourceRange": {
             "start": {
-              "line": 383,
+              "line": 412,
               "column": 6
             },
             "end": {
-              "line": 386,
+              "line": 415,
               "column": 7
             }
           },
