@@ -271,23 +271,41 @@ describe('furo-ui5-data-table', () => {
         assert.equal(table.shadowRoot.querySelectorAll('furo-ui5-table-row')[0].children[4].children[0].tagName, 'DISPLAY-GOOGLE-TYPE-DATE')
 
         done()
-      }, 16)
+      }, 24)
 
     })
     dao.injectRaw(mockdata)
   })
 
-  it('empty RepeaterNode inject should show table empty state', done => {
-    dao.addEventListener('data-injected', () => {
-      assert.equal(table.noDataText, 'No data available. Click on load test data')
-      assert.equal(table.shadowRoot.querySelectorAll('ui5-table-column').length, 5)
-      assert.equal(
-        table.shadowRoot.querySelector('div.no-data').innerText,
-        'No data available. Click on load test data',)
-      done();
+  it('data changes in the data object should automatically update the data table display', done => {
+    // initial data inject
+    dao.injectRaw(mockdata)
+
+    dao.data.entities.addEventListener('this-repeated-field-changed', () => {
+
+      setTimeout(() => {
+        assert.equal(table.shadowRoot.querySelectorAll('furo-ui5-table-row').length, 5)
+        done()
+      }, 32)
+
     })
-    const emptyData = {"entities": []}
-    dao.injectRaw(emptyData);
+    dao.data.entities.add();
+
+  })
+
+  it('injection of an empty RepeaterNode should show table empty state', done => {
+    dao.data.entities.addEventListener('repeated-fields-all-removed', () => {
+      setTimeout(() => {
+        assert.equal(table.noDataText, 'No data available. Click on load test data')
+        assert.equal(table.shadowRoot.querySelectorAll('ui5-table-column').length, 5)
+        assert.equal(
+          table.shadowRoot.querySelector('div.no-data').innerText,
+          'No data available. Click on load test data',)
+        done();
+      }, 32)
+
+    })
+    dao.data.entities.removeAllChildren();
   })
 
 })

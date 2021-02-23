@@ -115,6 +115,15 @@ class FuroUi5DataTable extends FBP(LitElement) {
       return;
     }
 
+    data.addEventListener('repeated-fields-all-removed', (e) => {
+      this.data = e.detail;
+      this._FBPTriggerWire('--data', this.data);
+      if (this.showNoData) {
+        this._showNoData = true;
+      }
+      this.requestUpdate();
+    });
+
     /**
      * new data arrived from CollectionNode
      */
