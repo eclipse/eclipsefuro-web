@@ -1171,6 +1171,292 @@
       ]
     },
     {
+      "description": "`furo-chart-display`\n Generic Component to use apex charts (https://github.com/apexcharts/apexcharts.js)",
+      "summary": "Display charts",
+      "path": "src/furo-chart-display.js",
+      "properties": [
+        {
+          "name": "options",
+          "type": "Object | null | undefined",
+          "description": "APEX options and data",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 24,
+              "column": 6
+            },
+            "end": {
+              "line": 24,
+              "column": 31
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Object"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "injectData",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 28,
+              "column": 2
+            },
+            "end": {
+              "line": 33,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "apexOptions"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "initData",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 36,
+              "column": 2
+            },
+            "end": {
+              "line": 41,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "apexOptions"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 46,
+              "column": 2
+            },
+            "end": {
+              "line": 180,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 871,
+              "column": 2
+            },
+            "end": {
+              "line": 878,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-data-chart",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 14,
+          "column": 0
+        },
+        "end": {
+          "line": 879,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroChartDisplay",
+      "attributes": [
+        {
+          "name": "options",
+          "description": "APEX options and data",
+          "sourceRange": {
+            "start": {
+              "line": 24,
+              "column": 6
+            },
+            "end": {
+              "line": 24,
+              "column": 31
+            }
+          },
+          "metadata": {},
+          "type": "Object | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-chart-display",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-data-chart-binder`\ntodo Describe your element",
+      "summary": "todo shortdescription",
+      "path": "src/furo-data-chart-binder.js",
+      "properties": [
+        {
+          "name": "myBool",
+          "type": "boolean | null | undefined",
+          "description": "Description",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 25,
+              "column": 6
+            },
+            "end": {
+              "line": 25,
+              "column": 31
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 32,
+              "column": 2
+            },
+            "end": {
+              "line": 35,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 61,
+              "column": 2
+            },
+            "end": {
+              "line": 66,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-data-chart",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 67,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroDataChartBinder",
+      "attributes": [
+        {
+          "name": "my-bool",
+          "description": "Description",
+          "sourceRange": {
+            "start": {
+              "line": 25,
+              "column": 6
+            },
+            "end": {
+              "line": 25,
+              "column": 31
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-data-chart-binder",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
       "description": "`furo-data-context-menu`\n A  [material design](https://material.io/components/menus/) context menu or menu element.\n\n You have to put a `furo-data-context-menu-display` element in one of the parent elements of the element where you use the `furo-data-context-menu`.\n The app-shell is a good place for that.\n\n```html\n <furo-data-context-menu condensed position=\"below\" ƒ-trigger=\"--menuClkd\" ƒ-bind-data=\"--menuObject\" @-menu-item-selected=\"--menuItem\">\n     <furo-icon-button icon=\"menu\" @-click=\"--menuClkd\"></furo-icon-button>\n </furo-data-context-menu>\n```",
       "summary": "a context menu",
       "path": "src/furo-data-context-menu.js",

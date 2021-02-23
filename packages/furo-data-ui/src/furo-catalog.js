@@ -1,5 +1,7 @@
 import './furo-data-table.js';
 import './furo-data-hide-content.js';
+import './furo-chart-display.js';
+import './furo-data-chart-binder.js';
 import './furo-data-context-menu.js';
 import './furo-data-context-menu-display.js';
 import './furo-data-filter-date.js';
