@@ -499,3 +499,35 @@ fields:
             repeated: false
             typespecific: null
         constraints: {}
+    double:
+        type: double
+        description: double type
+        __proto:
+            number: 25
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: "double"
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    int64:
+        type: int64
+        description: double type
+        __proto:
+            number: 26
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: "int64"
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
