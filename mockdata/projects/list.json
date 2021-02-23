@@ -58,12 +58,68 @@
     },
     {
       "data": {
+        "id": "1b",
+        "cost_limit": {
+          "currency_code": "CHF",
+          "display_name": "CHF 150'000.00",
+          "nanos": 150000,
+          "units": 220
+        },
+        "description": "Furo",
+        "display_name": "Furo Foundation, CHF 150'000.00",
+        "end": {
+          "day": 12,
+          "display_name": "31.12.2020",
+          "month": 12,
+          "year": 2020
+        },
+        "members": [
+          {
+            "display_name": "John Doe",
+            "first_name": "John",
+            "name": "Doe",
+            "phone_nr": "+41789996655",
+            "skills": [
+              "GO",
+              "Java",
+              "Kotlin",
+              "JS"
+            ]
+          },
+          {
+            "display_name": "Tari Sakota",
+            "first_name": "Tari",
+            "id": "2",
+            "name": "Sakota",
+            "phone_nr": "+41791532244",
+            "skills": []
+          }
+        ],
+        "start": {
+          "day": 5,
+          "display_name": "01.07.2019",
+          "month": 7,
+          "year": 2019
+        }
+      },
+      "links": [
+        {
+          "href": "/mockdata/projects/1/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "project.Project",
+          "service": "ProjectService"
+        }
+      ]
+    },
+    {
+      "data": {
         "id": "2",
         "cost_limit": {
           "currency_code": "CHF",
           "display_name": "CHF 15'000.00",
           "nanos": 15000,
-          "units": 0
+          "units": 30
         },
         "description": "Build Documentation",
         "display_name": "Build documentation CHF 15'000.00",
@@ -111,7 +167,7 @@
           "currency_code": "CHF",
           "display_name": "CHF 9'000.00",
           "nanos": 9000,
-          "units": 0
+          "units": 10
         },
         "description": "Evaluate new build system",
         "display_name": "Simple WebApp Project, CHF 9'000.00",
@@ -136,7 +192,7 @@
           }
         ],
         "start": {
-          "day": 1,
+          "day": 3,
           "display_name": "01.07.2019",
           "month": 7,
           "year": 2019
@@ -159,7 +215,7 @@
           "currency_code": "CHF",
           "display_name": "CHF 5'000.00",
           "nanos": 5000,
-          "units": 0
+          "units": 440
         },
         "description": "Update components",
         "display_name": "Update components, CHF 5'000.00",

@@ -2,6 +2,7 @@ import './demo-furo-data-hide-content.js';
 import './demo-furo-data-context-menu.js';
 import './demo-furo-data-table.js';
 import './demo-furo-data-table-row-selection.js';
+import './demo-furo-data-chart.js';
 
 import { Init } from '@furo/framework/src/furo.js';
 
