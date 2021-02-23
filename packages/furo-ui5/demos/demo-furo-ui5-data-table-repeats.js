@@ -16,7 +16,8 @@ import '@furo/data/src/furo-deep-link.js';
 import '@furo/form/src/furo-form-layouter.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/produce-qp-data.js';
-import '@ui5/webcomponents-icons/dist/project-definition-triangle-2';
+import '@ui5/webcomponents-icons/dist/project-definition-triangle-2.js';
+import '@ui5/webcomponents-icons/dist/collaborate.js';
 
 import '../src/standard-type-renderers/display-registry.js';
 
@@ -90,9 +91,9 @@ class DemoFuroUi5DataTableRepeats extends FBP(LitElement) {
           <br>
 
           <furo-ui5-card
-            heading="Array of Objects"
-            subheading=""
-            icon="project-definition-triangle-2"
+            heading="Project Members"
+            subheading="Simple RepeaterNode Bind"
+            icon="collaborate"
           >
             <furo-ui5-data-table
               slot="content"
