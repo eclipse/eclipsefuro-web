@@ -237,10 +237,10 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       this.binder.fieldNode.nanos._value !== null
     ) {
       let numberStr = '';
-      if (this.binder.fieldNode.units._value > 0) {
+      if (this.binder.fieldNode.units._value !== 0) {
         numberStr = this.binder.fieldNode.units._value;
       }
-      if (this.binder.fieldNode.nanos._value > 0) {
+      if (this.binder.fieldNode.nanos._value !== 0) {
         numberStr += `.${this.binder.fieldNode.nanos._value}`;
       }
       const amount = Number(numberStr);
