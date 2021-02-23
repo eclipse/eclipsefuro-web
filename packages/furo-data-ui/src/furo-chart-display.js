@@ -4,15 +4,83 @@ import { FBP } from '@furo/fbp';
 import ApexCharts from 'apexcharts/dist/apexcharts.esm.js';
 
 /**
- * `furo-apex-chart`
+ * `furo-chart-display`
  *  Generic Component to use apex charts (https://github.com/apexcharts/apexcharts.js)
  *
- * @summary todo shortdescription
+ * @summary Display charts
  * @customElement
- * @demo demo-furo-apex-chart
+ * @demo demo-furo-data-chart
  * @appliesMixin FBP
  */
-class FuroApexChart extends FBP(LitElement) {
+class FuroChartDisplay extends FBP(LitElement) {
+
+  constructor() {
+    super();
+    // set the defaults
+    this.apexOptions = {
+      series: [],
+      yaxis: [],
+      chart: {
+        // height: 550,
+        type: 'line',
+        stacked: false,
+        events: {
+          markerClick(event, chartContext, config) {
+            console.log(config);
+            // The last parameter config contains additional information like `seriesIndex` and `dataPointIndex` for cartesian charts
+          },
+        },
+        noData: {
+          text: 'Loading...',
+        },
+        toolbar: {
+          show: false, // disable by default
+          tools: {
+            download: false,
+            selection: true,
+            zoom: true,
+            zoomin: true,
+            zoomout: true,
+            pan: true,
+            reset: true,
+          },
+        },
+        sparkline: {
+          enabled: false,
+        }
+      },
+      grid: {
+        show: false, // https://apexcharts.com/docs/options/grid/
+      },
+      dataLabels: {
+        enabled: false,
+      },
+
+      title: {
+        // text: 'XYZ - Analysis',
+        align: 'left',
+        // offsetX: 70,
+      },
+       stroke: {},
+
+      tooltip: {
+
+        fixed: {
+          enabled: false,
+          position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
+          offsetY: 30,
+          offsetX: 160,
+        },
+      },
+      legend: {
+        show:false,
+        position: 'bottom',
+        horizontalAlign: 'left',
+        offsetX: 0,
+      },
+    };
+  }
+
   /**
    * @private
    * @return {Object}
@@ -20,13 +88,74 @@ class FuroApexChart extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * APEX options and data
+       *
+       * line, area, bar are mixable
+       *
+       * radar, scatter, heatmap
+       *
+       * pie donut polarArea radialBar can only consume 1 data series
        */
-      options: { type: Object },
+      chartType: { type: String, attribute: 'chart-type' }, //line"
+      titleText: { type: String, attribute: 'title-text' }, //XYZ - Stock Analysis"
+      titleAlign: { type: String, attribute: 'title-align' }, //left"
+      titleOffsetX: { type: Number, attribute: 'title-offset-x' }, //70"
+      titleOffsetY: { type: Number, attribute: 'title-offset-y' }, //70"
+      noDataText: { type: String, attribute: 'no-data-text' }, //Loading..."
+      stacked: { type: Boolean },
+      fixedHeight: { type: Number, attribute: 'fixed-height' }, //350"
+      tooltip: { type: Boolean },
+      legend: { type: Boolean },
+      grid: { type: Boolean },
+      legendAlign: { type: String, attribute: 'legend-align' }, //left"
+      legendPosition: { type: String, attribute: 'legend-position' }, //bottom"
+      legendOffsetX: { type: Number, attribute: 'legend-offset-x' }, //70"
+      legendOffsetY: { type: Number, attribute: 'legend-offset-y' }, //70"
+      toolbar: { type: Boolean },
     };
   }
 
-  initData(apexOptions) {
+  set legend(v){
+    this.apexOptions.legend.show = v;
+  }
+
+
+  set grid(v){
+    this.apexOptions.grid.show = v;
+  }
+
+
+  set chartType(v){
+    this.apexOptions.chart.type = v;
+  }
+
+
+  set stacked(v){
+    this.apexOptions.chart.stacked = v;
+  }
+
+
+  set titleText(v){
+    this.apexOptions.title.text = v;
+  }
+
+  set titleAlign(v){
+    this.apexOptions.title.align = v;
+  }
+
+  set titleOffsetX(v){
+    this.apexOptions.title.offsetX = v;
+  }
+
+  set titleOffsetY(v){
+    this.apexOptions.title.offsetY = v;
+  }
+
+  set fixedHeight(v){
+    this.apexOptions.chart.height = v;
+  }
+
+
+  _initChart(apexOptions) {
     this.options = apexOptions;
     this.chart = new ApexCharts(this.shadowRoot.getElementById('c'), this.options);
 
@@ -39,137 +168,42 @@ class FuroApexChart extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
     // this._FBPTraceWires()
-    setTimeout(() => {
-      this.initData({
-        series: [
-          {
-            name: 'Income',
-            type: 'column',
-            data: [1.4, 2, 2.5, 1.5, 2.5, 2.8, 3.8, 4.6],
-          }, {
-            name: 'Cashflow',
-            type: 'column',
-            data: [1.1, 3, 3.1, 4, 4.1, 4.9, 16.5, 8.5],
-          }, {
-            name: 'Revenue',
-            type: 'line',
-            data: [20, 129, 37, 136, 44, 145, 50, 58, 44, 145, 50, 58],
-          }, {
-            name: 'Rssevenue',
-            type: 'line',
-            data: [10, 129, 37, 136, 244, 145, 50, 58],
-          }],
-        chart: {
-          height: 350,
-          type: 'line',
-          stacked: false,
-          events: {
-            markerClick(event, chartContext, config) {
-              console.log(config);
-              // The last parameter config contains additional information like `seriesIndex` and `dataPointIndex` for cartesian charts
-            },
-          },
-        },
-        dataLabels: {
-          enabled: false,
+    // data sources
+    const dataSources = this.querySelectorAll('*');
+    this.dataSeries = [];
+    dataSources.forEach((s, idx) => {
+      // build the chart from underlying data sources
+      this.apexOptions.yaxis[idx] = s.options;
+      // apexcharts stroke.width option accepts array only for line and area charts. Reverted back to last given Number
+     if(this.apexOptions.chart.type === "line" || this.apexOptions.chart.type === "area"){
+        if(!this.apexOptions.stroke.width){
+          this.apexOptions.stroke.width = []
+        }
+        this.apexOptions.stroke.width.push(s.strokeWidth)
+       if(!this.apexOptions.markers){
+          this.apexOptions.markers = {size:[]}
+        }
+        this.apexOptions.markers.size.push(s.markerSize)
+      }else{
+       this.apexOptions.stroke.width = s.strokeWidth;
+     }
 
-        },
-        stroke: {
-          width: [1, 1, 4, 3],
-          curve: ['smooth', 'straight', 'smooth', 'stepline'],
-        },
-        title: {
-          text: 'XYZ - Stock Analysis (2009 - 2016)',
-          align: 'left',
-          offsetX: 110,
-        },
-        xaxis: {
-          categories: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
-        },
-        yaxis: [
-          {
-            axisTicks: {
-              show: true,
-            },
-            axisBorder: {
-              show: true,
-              color: '#008FFB',
-            },
-            labels: {
-              style: {
-                colors: '#008FFB',
-              },
-            },
-            title: {
-              text: 'Income (thousand crores)',
-              style: {
-                color: '#008FFB',
-              },
-            },
-            tooltip: {
-              enabled: true,
-            },
-          },
-          {
-            seriesName: 'Income',
-            opposite: true,
-            axisTicks: {
-              show: true,
-            },
-            axisBorder: {
-              show: true,
-              color: '#00E396',
-            },
-            labels: {
-              style: {
-                colors: '#00E396',
-              },
-            },
-            title: {
-              text: 'Operating Cashflow (thousand crores)',
-              style: {
-                color: '#00E396',
-              },
-            },
-          },
-          {
-            seriesName: 'Revenue',
-            opposite: true,
-            axisTicks: {
-              show: true,
-            },
-            axisBorder: {
-              show: true,
-              color: '#FEB019',
-            },
-            labels: {
-              style: {
-                colors: '#FEB019',
-              },
-            },
-            title: {
-              text: 'Revenue (thousand crores)',
-              style: {
-                color: '#FEB019',
-              },
-            },
-          },
-        ],
-        tooltip: {
+      if(!this.apexOptions.stroke.curve){
+        this.apexOptions.stroke.curve = []
+      }
+      this.apexOptions.stroke.curve.push(s.strokeCurve);
 
-          fixed: {
-            enabled: false,
-            position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
-            offsetY: 30,
-            offsetX: 160,
-          },
-        },
-        legend: {
-          horizontalAlign: 'left',
-          offsetX: 40,
-        },
+      // init empty chart
+      this.dataSeries[idx] = s.dataSeries;
+
+      s.addEventListener('data-updated', (event) => {
+        this.dataSeries[idx] = event.detail;
+        this.chart.updateSeries(this.dataSeries);
       });
-    }, 400);
+
+    });
+
+      this._initChart(this.apexOptions);
   }
 
   /**
@@ -180,7 +214,7 @@ class FuroApexChart extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroApexChart') ||
+      Theme.getThemeForComponent('FuroDataChartDisplay') ||
       css`
         :host {
           display: block;
@@ -871,4 +905,4 @@ class FuroApexChart extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('furo-apex-chart', FuroApexChart);
+window.customElements.define('furo-chart-display', FuroChartDisplay);

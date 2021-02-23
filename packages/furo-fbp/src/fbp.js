@@ -157,7 +157,7 @@ export const FBP = superClass =>
 
             if (agent) {
               // eslint-disable-next-line no-console
-              console.group('Trace for', `${this.nodeName}: ${wire}`);
+              console.groupCollapsed('Trace for', `${this.nodeName}: ${wire}`);
               // eslint-disable-next-line no-console
               console.table([{ host: self, wire, data: e }]);
 
