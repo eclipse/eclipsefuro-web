@@ -52,7 +52,7 @@ describe('display-bool', () => {
         'check if template is right',
       );
       done();
-    }, 10);
+    }, 0);
   });
 
   it('should show accoring to data value', done => {
@@ -66,7 +66,7 @@ describe('display-bool', () => {
         'check if template is right',
       );
       done();
-    }, 10);
+    }, 0);
   });
 
   // axeReport a11y tests
