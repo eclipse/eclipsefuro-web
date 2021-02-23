@@ -103,7 +103,13 @@ class DisplayFuroFatString extends LitElement {
    */
   _getTemplate() {
     return html`
-      <span>${this._field._value.value}</span>
+      <span
+        >${this._field
+          ? html`
+              ${this._field._value.value}
+            `
+          : ``}</span
+      >
     `;
   }
 

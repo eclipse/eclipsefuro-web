@@ -1,11 +1,11 @@
-import { LitElement, html, css } from 'lit-element'
-import { FBP } from '@furo/fbp/src/fbp.js'
-import './furo-ui5-form-field-container.js'
+import { LitElement, html, css } from 'lit-element';
+import { FBP } from '@furo/fbp/src/fbp.js';
+import './furo-ui5-form-field-container.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder'
-import { Theme } from '@furo/framework'
-import '@ui5/webcomponents/dist/Input'
-import './furo-ui5-data-text-input.js'
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
+import { Theme } from '@furo/framework';
+import '@ui5/webcomponents/dist/Input';
+import './furo-ui5-data-text-input.js';
 
 /**
  * `furo-data-money-input`
@@ -33,8 +33,8 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
    */
 
   constructor() {
-    super()
-    this._initBinder()
+    super();
+    this._initBinder();
   }
 
   /**
@@ -43,13 +43,13 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
    */
   connectedCallback() {
     setTimeout(() => {
-      super.connectedCallback()
-    }, 0)
+      super.connectedCallback();
+    }, 0);
 
-    this.valid = true
-    this._currencies = []
+    this.valid = true;
+    this._currencies = [];
     // init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
-    this.value = { currency_code: '', units: null, nanos: null }
+    this.value = { currency_code: '', units: null, nanos: null };
   }
 
   /**
@@ -58,7 +58,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
    * @private
    */
   _initBinder() {
-    this.binder = new UniversalFieldNodeBinder(this)
+    this.binder = new UniversalFieldNodeBinder(this);
 
     // set the attribute mappings
     this.binder.attributeMappings = {
@@ -66,7 +66,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       hint: 'hint',
       errortext: 'errortext',
       'error-msg': 'errortext',
-    }
+    };
 
     // set the label mappings
     this.binder.labelMappings = {
@@ -75,23 +75,23 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
-    }
+    };
 
     this.binder.fatAttributesToConstraintsMappings = {
       required: 'value._constraints.required.is', // for the fieldnode constraint
-    }
+    };
 
     this.binder.constraintsTofatAttributesMappings = {
       required: 'required',
-    }
+    };
 
     /**
      * check overrides from the used component, attributes set on the component itself overrides all
      */
-    this.binder.checkLabelandAttributeOverrrides()
+    this.binder.checkLabelandAttributeOverrrides();
 
     // the extended furo-text-input component uses _value
-    this.binder.targetValueField = '_value'
+    this.binder.targetValueField = '_value';
   }
 
   /**
@@ -99,14 +99,14 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
    * @private
    */
   _FBPReady() {
-    super._FBPReady()
+    super._FBPReady();
 
     // update value when the amount changed
     this._FBPAddWireHook('--inputInput', e => {
       if (e.inputType === 'deleteContentBackward') {
-        this.binder.fieldNode.reset()
-        this.binder.fieldNode.currency_code._value = ''
-        this._FBPTriggerWire('--valueAmount', '')
+        this.binder.fieldNode.reset();
+        this.binder.fieldNode.currency_code._value = '';
+        this._FBPTriggerWire('--valueAmount', '');
       }
       if (e.composedPath()[0].nodeName === 'UI5-INPUT') {
         this.binder.fieldValue = this._convertDataToMoneyObj(
@@ -126,9 +126,9 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
        * Fired when value changed
        * @type {Event}
        */
-      const customEvent = new Event('value-changed', { composed: true, bubbles: true })
-      customEvent.detail = this.binder.fieldNode._value
-      this.dispatchEvent(customEvent)
+      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+      customEvent.detail = this.binder.fieldNode._value;
+      this.dispatchEvent(customEvent);
 
       // set flag empty on empty object
       if (
@@ -137,13 +137,13 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
         this.binder.fieldValue.units !== 0 &&
         this.binder.fieldValue.nanos !== 0
       ) {
-        this.binder.deleteLabel('empty')
+        this.binder.deleteLabel('empty');
       } else {
-        this.binder.addLabel('empty')
+        this.binder.addLabel('empty');
       }
       // if something was entered the field is not empty
-      this.binder.addLabel('modified')
-    })
+      this.binder.addLabel('modified');
+    });
   }
 
   // convert data to google.type.Money format
@@ -151,26 +151,29 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
   _convertDataToMoneyObj(currency, amount, obj) {
     if (obj == null) {
       // eslint-disable-next-line no-param-reassign
-      obj = {}
+      obj = {};
     }
 
     if (currency) {
       // eslint-disable-next-line no-param-reassign
-      obj.currency_code = currency
+      obj.currency_code = currency;
     }
     if (amount) {
-      const arr = String(amount).split('.')
+      const arr = String(amount).split('.');
       // eslint-disable-next-line no-param-reassign
-      obj.units = Number(arr[0])
+      obj.units = Number(arr[0]);
       if (arr[1]) {
         // eslint-disable-next-line no-param-reassign
-        obj.nanos = obj.units > 0 ? Number.parseInt(Number(`0.${arr[1]}`) * 100000000, 10) : Number.parseInt(Number(`0.${arr[1]}`) * 100000000, 10) * -1
+        obj.nanos =
+          obj.units > 0
+            ? Number.parseInt(Number(`0.${arr[1]}`) * 100000000, 10)
+            : Number.parseInt(Number(`0.${arr[1]}`) * 100000000, 10) * -1;
       } else {
         // eslint-disable-next-line no-param-reassign
-        obj.nanos = 0
+        obj.nanos = 0;
       }
     }
-    return obj
+    return obj;
   }
 
   /**
@@ -199,7 +202,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       disabled: {
         type: Boolean,
       },
-    }
+    };
   }
 
   /**
@@ -208,18 +211,18 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-    this.binder.bindField(fieldNode)
+    this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this._updateField()
-      })
+        this._updateField();
+      });
 
       this.binder.fieldNode.addEventListener('field-value-changed', () => {
-        this._updateField()
-      })
+        this._updateField();
+      });
     }
 
-    this._FBPTriggerWire('--data', fieldNode)
+    this._FBPTriggerWire('--data', fieldNode);
   }
 
   /**
@@ -236,24 +239,24 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       this.binder.fieldNode.units._value !== null &&
       this.binder.fieldNode.nanos._value !== null
     ) {
-      let numberStr = ''
+      let numberStr = '';
       if (this.binder.fieldNode.units._value !== 0) {
-        numberStr = this.binder.fieldNode.units._value
+        numberStr = this.binder.fieldNode.units._value;
       }
       if (this.binder.fieldNode.nanos._value !== 0) {
-        let nanoValue =  this.binder.fieldNode.nanos._value
+        let nanoValue = this.binder.fieldNode.nanos._value;
         if (nanoValue < 0) {
           nanoValue *= -1;
         }
-        numberStr += `.${nanoValue}`
+        numberStr += `.${nanoValue}`;
       }
-      const amount = Number(numberStr)
-      this._FBPTriggerWire('--valueAmount', amount)
+      const amount = Number(numberStr);
+      this._FBPTriggerWire('--valueAmount', amount);
     } else {
-      this._FBPTriggerWire('--valueAmount', '')
+      this._FBPTriggerWire('--valueAmount', '');
     }
 
-    this.requestUpdate()
+    this.requestUpdate();
   }
 
   /**
@@ -261,7 +264,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
    * @param options
    */
   set options(options) {
-    this.setOptions(options)
+    this.setOptions(options);
   }
 
   /**
@@ -271,16 +274,16 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
   setOptions(options) {
     // the attribute currencies has priority than the options in meta
     if (this._currencies && this._currencies.length > 0) {
-      this.updateSuggestions(this._currencies)
+      this.updateSuggestions(this._currencies);
     } else {
-      let collection
+      let collection;
       if (options.list) {
-        collection = options.list
+        collection = options.list;
       } else {
-        collection = options
+        collection = options;
       }
-      this._collection = collection
-      this.updateSuggestions()
+      this._collection = collection;
+      this.updateSuggestions();
     }
   }
 
@@ -289,11 +292,11 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
    * @param c
    */
   set currencies(c) {
-    const arr = c.split(',').map(item => item.trim())
-    this._currencies = arr
-    this._collection = arr
+    const arr = c.split(',').map(item => item.trim());
+    this._currencies = arr;
+    this._collection = arr;
 
-    this.updateSuggestions()
+    this.updateSuggestions();
   }
 
   /**
@@ -301,30 +304,30 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
    * @param entities
    */
   injectEntities(entities) {
-    const ent = { list: [] }
+    const ent = { list: [] };
     entities.forEach(e => {
       if (e.data) {
-        const o = {}
-        o.id = e.id
-        o.label = e.display_name
-        ent.list.push(o)
+        const o = {};
+        o.id = e.id;
+        o.label = e.display_name;
+        ent.list.push(o);
       }
-    })
-    this.setOptions(ent)
+    });
+    this.setOptions(ent);
   }
 
   updateSuggestions() {
-    const collection = this._collection
-    let arr = []
+    const collection = this._collection;
+    let arr = [];
     // convert array list to id, label structure
     if (typeof collection[0] === 'string') {
       // eslint-disable-next-line no-param-reassign
-      arr = collection.map(item => ({ text: item }))
+      arr = collection.map(item => ({ text: item }));
     } else {
-      arr = collection.map(e => ({ text: e.id }))
+      arr = collection.map(e => ({ text: e.id }));
     }
 
-    this._FBPTriggerWire('--suggestions', arr)
+    this._FBPTriggerWire('--suggestions', arr);
   }
 
   /**
@@ -353,7 +356,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
           width: 190px;
         }
       `
-    )
+    );
   }
 
   /**
@@ -379,8 +382,8 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
           @-value-changed=":STOP, --inputInput(*)"
         ></furo-ui5-data-text-input>
       </furo-horizontal-flex>
-    `
+    `;
   }
 }
 
-window.customElements.define('furo-ui5-data-money-input', FuroUi5DataMoneyInput)
+window.customElements.define('furo-ui5-data-money-input', FuroUi5DataMoneyInput);
