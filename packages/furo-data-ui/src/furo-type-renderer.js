@@ -127,7 +127,7 @@ class FuroTypeRenderer extends LitElement {
       this._addElement(elementRepeat);
     } else if (this.defaultElement.bindData) {
       // fallback , display the display-[type] component repeatedly
-      const el = document.createElement('furo-data-repeat');
+      const el = document.createElement('furo-ui5-data-repeat');
       el.setAttribute('repeated-component', this.renderName);
       el.bindData(this._field);
       this.replaceWith(el);

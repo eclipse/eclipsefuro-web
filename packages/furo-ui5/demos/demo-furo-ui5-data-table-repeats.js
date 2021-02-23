@@ -100,7 +100,7 @@ class DemoFuroUi5DataTableRepeats extends FBP(LitElement) {
               show-no-data
               no-data-text="No data available. Click on load test data"
               ƒ-bind-data="--daoProjectEntity(*.data.members)"
-              columns="first_name, name, phone_nr"
+              columns="first_name, name, phone_nr, skills"
             ></furo-ui5-data-table>
           </furo-ui5-card>
 

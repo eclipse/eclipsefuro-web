@@ -11818,15 +11818,15 @@
         {
           "name": "headers",
           "type": "string | null | undefined",
-          "description": "list of headers of the columns. if this header is not defined. the datatable will use the labels of cloumns as the headers.\ncomma separated list of markdown string. e.g.  id --:|min800,  name :-:|min400, here `|min800` represents the the minimum table width required to display this column in pixel (`&gt;` is encoded HTML of greater-than).\nBy default the column is always displayed. also the width of column can be defined as fixed via `|fix400` notation.\ndefault position of header is left-justified. right-justified: `--:` , center-justified: `:-:`",
+          "description": "list of headers of the columns. if this header is not defined. the datatable will use the labels of cloumns as the headers.\ncomma separated list of markdown string.\ne.g.\n- id --:|min800,  name :-:|min400, here `|min800` represents the the minimum table width required to display this column in pixel.\n- id --:|fix120,  name :-:|fix120, here `|fix120` represents a fixed table cell width in pixel.\nBy default the column is always displayed.\n\nDefault position of header is left-justified.\n\nSupported variant:\nright-justified: `--:` , center-justified: `:-:`",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 381,
+              "line": 388,
               "column": 6
             },
             "end": {
-              "line": 384,
+              "line": 391,
               "column": 7
             }
           },
@@ -11843,11 +11843,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 389,
+              "line": 396,
               "column": 6
             },
             "end": {
-              "line": 392,
+              "line": 399,
               "column": 7
             }
           },
@@ -11861,27 +11861,6 @@
           "name": "showNoData",
           "type": "boolean | null | undefined",
           "description": "define to show the noDataText or not",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 396,
-              "column": 6
-            },
-            "end": {
-              "line": 399,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "stickyColumnHeader",
-          "type": "boolean | null | undefined",
-          "description": "define the header is sticky or not",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -11900,17 +11879,38 @@
           }
         },
         {
+          "name": "stickyColumnHeader",
+          "type": "boolean | null | undefined",
+          "description": "define the header is sticky or not",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 410,
+              "column": 6
+            },
+            "end": {
+              "line": 413,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
           "name": "popinFields",
           "type": "string | null | undefined",
           "description": "define the list of popin fields\ncomma separated list of field's path. e.g data.id, data.display_name",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 411,
+              "line": 418,
               "column": 6
             },
             "end": {
-              "line": 414,
+              "line": 421,
               "column": 7
             }
           },
@@ -12095,11 +12095,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 422,
+              "line": 429,
               "column": 2
             },
             "end": {
-              "line": 438,
+              "line": 445,
               "column": 3
             }
           },
@@ -12132,7 +12132,7 @@
           "column": 0
         },
         "end": {
-          "line": 439,
+          "line": 446,
           "column": 1
         }
       },
@@ -12158,14 +12158,14 @@
         },
         {
           "name": "headers",
-          "description": "list of headers of the columns. if this header is not defined. the datatable will use the labels of cloumns as the headers.\ncomma separated list of markdown string. e.g.  id --:|min800,  name :-:|min400, here `|min800` represents the the minimum table width required to display this column in pixel (`&gt;` is encoded HTML of greater-than).\nBy default the column is always displayed. also the width of column can be defined as fixed via `|fix400` notation.\ndefault position of header is left-justified. right-justified: `--:` , center-justified: `:-:`",
+          "description": "list of headers of the columns. if this header is not defined. the datatable will use the labels of cloumns as the headers.\ncomma separated list of markdown string.\ne.g.\n- id --:|min800,  name :-:|min400, here `|min800` represents the the minimum table width required to display this column in pixel.\n- id --:|fix120,  name :-:|fix120, here `|fix120` represents a fixed table cell width in pixel.\nBy default the column is always displayed.\n\nDefault position of header is left-justified.\n\nSupported variant:\nright-justified: `--:` , center-justified: `:-:`",
           "sourceRange": {
             "start": {
-              "line": 381,
+              "line": 388,
               "column": 6
             },
             "end": {
-              "line": 384,
+              "line": 391,
               "column": 7
             }
           },
@@ -12177,22 +12177,6 @@
           "description": "the text which can be showed when there is no data in table\nstring",
           "sourceRange": {
             "start": {
-              "line": 389,
-              "column": 6
-            },
-            "end": {
-              "line": 392,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "show-no-data",
-          "description": "define to show the noDataText or not",
-          "sourceRange": {
-            "start": {
               "line": 396,
               "column": 6
             },
@@ -12202,11 +12186,11 @@
             }
           },
           "metadata": {},
-          "type": "boolean | null | undefined"
+          "type": "string | null | undefined"
         },
         {
-          "name": "sticky-column-header",
-          "description": "define the header is sticky or not",
+          "name": "show-no-data",
+          "description": "define to show the noDataText or not",
           "sourceRange": {
             "start": {
               "line": 403,
@@ -12221,15 +12205,31 @@
           "type": "boolean | null | undefined"
         },
         {
+          "name": "sticky-column-header",
+          "description": "define the header is sticky or not",
+          "sourceRange": {
+            "start": {
+              "line": 410,
+              "column": 6
+            },
+            "end": {
+              "line": 413,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
           "name": "popin-fields",
           "description": "define the list of popin fields\ncomma separated list of field's path. e.g data.id, data.display_name",
           "sourceRange": {
             "start": {
-              "line": 411,
+              "line": 418,
               "column": 6
             },
             "end": {
-              "line": 414,
+              "line": 421,
               "column": 7
             }
           },
