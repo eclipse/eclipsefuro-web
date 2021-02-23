@@ -5,7 +5,7 @@ import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and ho
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/testhelper/initEnv.js';
 import '../../src/standard-type-renderers/display-double.js';
-import { Env } from '@furo/framework'
+import { Env } from '@furo/framework';
 
 describe('display-double', () => {
   let host;
@@ -36,21 +36,21 @@ describe('display-double', () => {
   });
 
   it('should bind data', done => {
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(display._field._value, null);
       done();
-    },0);
+    }, 0);
   });
 
   it('should show template according to the value of the data', done => {
     Env.locale = 'de';
-    dao.injectRaw({"double": 12.21111111});
+    dao.injectRaw({ double: 12.21111111 });
 
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(display._field._value, 12.21111111, 'check if the double value is assigned');
       assert.equal(display.displayValue, '12,211', 'check if the double value is formatted');
       done();
-    },0);
+    }, 0);
   });
 
   // axeReport a11y tests

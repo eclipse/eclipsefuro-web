@@ -60,7 +60,6 @@ describe('furo-ui5-card', () => {
     done();
   });
   it('invalid binding should do nothing ', done => {
-
     card.bindHeading(undefined);
     card.bindIcon(undefined);
     card.bindSubheading(undefined);
@@ -70,5 +69,4 @@ describe('furo-ui5-card', () => {
     assert.equal(card.subheading, '');
     done();
   });
-
 });

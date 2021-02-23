@@ -35,30 +35,38 @@ describe('display-bool', () => {
   });
 
   it('should bind data', done => {
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(display._field._value, null);
       done();
-    },0);
+    }, 0);
   });
 
   it('should show template according to the value of the data', done => {
-    dao.injectRaw({"furo_data_checkbox_input": true});
+    dao.injectRaw({ furo_data_checkbox_input: true });
 
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(display._field._value, true, 'check if bool true');
-      assert.equal(display.shadowRoot.querySelector('ui5-icon').getAttribute('name'), 'accept', 'check if template is right' );
+      assert.equal(
+        display.shadowRoot.querySelector('ui5-icon').getAttribute('name'),
+        'accept',
+        'check if template is right',
+      );
       done();
-    },0);
+    }, 0);
   });
 
   it('should show accoring to data value', done => {
-    dao.injectRaw({"furo_data_checkbox_input": 'false'});
+    dao.injectRaw({ furo_data_checkbox_input: 'false' });
 
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(display._field._value, 'false');
-      assert.equal(display.shadowRoot.querySelector('ui5-icon').getAttribute('name'), 'border', 'check if template is right' );
+      assert.equal(
+        display.shadowRoot.querySelector('ui5-icon').getAttribute('name'),
+        'border',
+        'check if template is right',
+      );
       done();
-    },0);
+    }, 0);
   });
 
   // axeReport a11y tests
