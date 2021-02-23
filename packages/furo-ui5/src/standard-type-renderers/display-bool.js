@@ -78,14 +78,20 @@ export class DisplayBool extends LitElement {
    * @private
    */
   _getTemplate() {
-    if (!this._field._value || this._field._value === 'false') {
-      return html`
-        <ui5-icon name="border"></ui5-icon>
-      `;
+    let tmp = '';
+    if (this._field) {
+      if (!this._field._value || this._field._value === 'false') {
+        tmp = html`
+          <ui5-icon name="border"></ui5-icon>
+        `;
+      } else {
+        tmp = html`
+          <ui5-icon name="accept" value-state="Success"></ui5-icon>
+        `;
+      }
     }
-    return html`
-      <ui5-icon name="accept" value-state="Success"></ui5-icon>
-    `;
+
+    return tmp;
   }
 
   /**

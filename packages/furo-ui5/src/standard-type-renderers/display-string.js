@@ -39,29 +39,6 @@ export class DisplayString extends LitElement {
           color: var(--sapTextcolor, '#32363a');
           word-break: break-word;
         }
-        span::first-line {
-          line-height: var(--_ui5_input_height, 36px);
-        }
-        span[data-size='size-s']::first-line {
-          line-height: var(--sapElement_Compact_Height, 26px);
-        }
-
-        :host([value-state='Positive']),
-        :host([value-state='Success']) {
-          color: var(--sapPositiveColor, #107e3e);
-        }
-        :host([value-state='Informative']),
-        :host([value-state='Information']) {
-          color: var(--sapInformativeColor, #0a6ed1);
-        }
-        :host([value-state='Negative']),
-        :host([value-state='Error']) {
-          color: var(--sapNegativeColor, #b00);
-        }
-        :host([value-state='Critical']),
-        :host([value-state='Warning']) {
-          color: var(--sapCrticalColor, #e9730c);
-        }
       `,
     ];
   }
@@ -86,7 +63,13 @@ export class DisplayString extends LitElement {
    */
   _getTemplate() {
     return html`
-      <span>${this._field._value}</span>
+      <span
+        >${this._field
+          ? html`
+              ${this._field._value}
+            `
+          : html``}
+      </span>
     `;
   }
 
