@@ -4,9 +4,9 @@ import { axeReport } from 'pwa-helpers/axe-report.js';
 import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/testhelper/initEnv.js';
-import '../../src/standard-type-renderers/display-bool.js';
+import '../../src/standard-type-renderers/display-furo-fat-bool.js';
 
-describe('display-bool', () => {
+describe('display-furo-fat-bool', () => {
   let host;
   let display;
   let dao;
@@ -15,8 +15,11 @@ describe('display-bool', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <display-bool ƒ-bind-data="--dao(*.furo_data_checkbox_input)"></display-bool>
-          <furo-data-object type="experiment.Experiment" @-object-ready="--dao"></furo-data-object>
+          <display-furo-fat-bool ƒ-bind-data="--dao(*.fat_bool)"></display-furo-fat-bool>
+          <furo-data-object
+            type="universaltest.Universaltest"
+            @-object-ready="--dao"
+          ></furo-data-object>
         </template>
       </test-bind>
     `);
@@ -28,45 +31,43 @@ describe('display-bool', () => {
     await dao.updateComplete;
   });
 
-  it('should be a display-bool element', done => {
+  it('should be a display-furo-fat-bool element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(display.nodeName.toLowerCase(), 'display-bool');
+    assert.equal(display.nodeName.toLowerCase(), 'display-furo-fat-bool');
     done();
   });
 
   it('should bind data', done => {
-    setTimeout(() => {
-      assert.equal(display._field._value, null);
-      done();
-    }, 0);
+    assert.equal(display._field.value._value, null);
+    done();
   });
 
   it('should show template according to the value of the data', done => {
-    dao.injectRaw({ furo_data_checkbox_input: true });
+    dao.injectRaw({ fat_bool: { value: true } });
 
     setTimeout(() => {
-      assert.equal(display._field._value, true, 'check if bool true');
+      assert.equal(display._field.value._value, true, 'check if bool true');
       assert.equal(
         display.shadowRoot.querySelector('ui5-icon').getAttribute('name'),
         'accept',
         'check if template is right',
       );
       done();
-    }, 10);
+    }, 0);
   });
 
   it('should show accoring to data value', done => {
-    dao.injectRaw({ furo_data_checkbox_input: 'false' });
+    dao.injectRaw({ fat_bool: { value: false } });
 
     setTimeout(() => {
-      assert.equal(display._field._value, 'false');
+      assert.equal(display._field.value._value, false);
       assert.equal(
         display.shadowRoot.querySelector('ui5-icon').getAttribute('name'),
         'border',
         'check if template is right',
       );
       done();
-    }, 10);
+    }, 0);
   });
 
   // axeReport a11y tests

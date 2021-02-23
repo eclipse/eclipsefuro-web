@@ -16,7 +16,10 @@ describe('display-int32', () => {
       <test-bind>
         <template>
           <display-int32 ƒ-bind-data="--dao(*.scalar_int32)"></display-int32>
-          <furo-data-object type="universaltest.Universaltest" @-object-ready="--dao"></furo-data-object>
+          <furo-data-object
+            type="universaltest.Universaltest"
+            @-object-ready="--dao"
+          ></furo-data-object>
         </template>
       </test-bind>
     `);
@@ -35,20 +38,20 @@ describe('display-int32', () => {
   });
 
   it('should bind data', done => {
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(display._field._value, null);
       done();
-    },0);
+    }, 0);
   });
 
   it('should show template according to the value of the data', done => {
-    dao.injectRaw({"scalar_int32": 33});
+    dao.injectRaw({ scalar_int32: 33 });
 
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(display._field._value, 33, 'check if the int32 value is assigned');
       assert.equal(display.displayValue, '33', 'check if the int32 value is formatted');
       done();
-    },0);
+    }, 0);
   });
 
   // axeReport a11y tests

@@ -211,3 +211,35 @@ fields:
             repeated: true
             typespecific: null
         constraints: {}
+    fat_double:
+        type: furo.fat.Double
+        description: field of furo.fat.double for the Universaltest
+        __proto:
+            number: 12
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: fat double
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    fat_float:
+        type: furo.fat.Float
+        description: field of furo.fat.float for the Universaltest
+        __proto:
+            number: 12
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: fat float
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}

@@ -1,9 +1,9 @@
-import { LitElement, html, css } from 'lit-element';
+import { html } from 'lit-element';
 import { Env } from '@furo/framework/src/furo.js';
-
+import { DisplayFloat } from './display-float.js';
 /**
  * `display-furo-fat-float`
- * The display-furo-fat-float component displays a FieldNode of type `furo.fat.float` in read only mode.
+ * The display-furo-fat-float component displays a FieldNode of type `furo.fat.Float` in read only mode.
  *
  * Every display-xxx component should implement the following API:
  * - function: bindData(fieldNode){...}
@@ -13,72 +13,20 @@ import { Env } from '@furo/framework/src/furo.js';
  * @customElement
  * @demo demo display-furo-fat-float Basic Usage
  */
-class DisplayFuroFatFloat extends LitElement {
-  constructor() {
-    super();
-    this._field = undefined;
-  }
-
-  static get styles() {
-    // language=CSS
-    return [
-      css`
-        :host {
-          display: block;
-          word-break: keep-all;
-        }
-
-        :host([tabular-form]) {
-          text-align: right;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-
-        :host([value-state='Positive']),
-        :host([value-state='Success']) {
-          color: var(--sapPositiveColor, #107e3e);
-        }
-        :host([value-state='Informative']),
-        :host([value-state='Information']) {
-          color: var(--sapInformativeColor, #0a6ed1);
-        }
-        :host([value-state='Negative']),
-        :host([value-state='Error']) {
-          color: var(--sapNegativeColor, #b00);
-        }
-        :host([value-state='Critical']),
-        :host([value-state='Warning']) {
-          color: var(--sapCrticalColor, #e9730c);
-        }
-      `,
-    ];
-  }
-
-  /**
-   * Binds a field node to the component
-   * @param fieldNode
-   */
-  bindData(fieldNode) {
-    this._field = fieldNode;
-    if (this._field) {
-      this._field.addEventListener('field-value-changed', () => {
-        this.requestUpdate();
-      });
-    }
-  }
-
+class DisplayFuroFatFloat extends DisplayFloat {
   /**
    * Template logic
    * @returns {*}
    * @private
    */
   _getTemplate() {
-    this.displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field);
-    return html`
-      <span>${this.displayValue}</span>
-    `;
+    if (this._field) {
+      this.displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field.value._value);
+      return html`
+        <span>${this.displayValue}</span>
+      `;
+    }
+    return '';
   }
 
   /**

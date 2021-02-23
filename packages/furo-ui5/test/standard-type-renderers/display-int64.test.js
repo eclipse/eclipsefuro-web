@@ -35,20 +35,20 @@ describe('display-int64', () => {
   });
 
   it('should bind data', done => {
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(display._field._value, null);
       done();
-    },0);
+    }, 0);
   });
 
   it('should show template according to the value of the data', done => {
-    dao.injectRaw({"int64": 33});
+    dao.injectRaw({ int64: 33 });
 
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(display._field._value, 33, 'check if the int32 value is assigned');
       assert.equal(display.displayValue, '33', 'check if the int32 value is formatted');
       done();
-    },0);
+    }, 0);
   });
 
   // axeReport a11y tests
