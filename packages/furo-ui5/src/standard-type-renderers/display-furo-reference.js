@@ -56,14 +56,17 @@ class DisplayFuroReference extends LitElement {
    * @private
    */
   _getTemplate() {
-    if (this._field.display_name._value && this._field.display_name._value.length) {
-      this._displayValue = this._field.display_name._value;
-    } else if (this._field.id._value.length) {
-      this._displayValue = this._field.id._value;
+    if (this._field) {
+      if (this._field.display_name._value && this._field.display_name._value.length) {
+        this._displayValue = this._field.display_name._value;
+      } else if (this._field.id._value.length) {
+        this._displayValue = this._field.id._value;
+      }
+      return html`
+        <ui5-link href="" wrap>${this._displayValue}</ui5-link>
+      `;
     }
-    return html`
-      <ui5-link href="" wrap>${this._displayValue}</ui5-link>
-    `;
+    return '';
   }
 
   /**

@@ -90,14 +90,11 @@ class DemoFuroUi5DataMoneyInput extends FBP(LitElement) {
               <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
             </furo-form-layouter>
 
-            <furo-pretty-json
-              ƒ-inject-data="--dataChanged"
-            ></furo-pretty-json>
+            <furo-pretty-json ƒ-inject-data="--dataChanged"></furo-pretty-json>
 
             <furo-data-object
               type="experiment.ExperimentEntity"
               @-object-ready="--entity"
-
               ƒ-inject-raw="--response"
             ></furo-data-object>
             <furo-deep-link
