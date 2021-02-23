@@ -15,9 +15,9 @@ import './furo-ui5-data-text-input.js'
  *  you can set currencies dropdown with options in meta or set options attribute as json in element or set currencies as string in element. the three
  *  ways have priority : currencies > options as attribute > options in meta. When no currencies is setted. Default currency will be `CHF`
  *
- *  <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" options='{"list": [ "CHF","EUR","USD" ]}'></furo-data-money-input>
- *  <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" options='{"list": [ {"id":"CHF","label":"Schweiz"},{"id":"EUR","label":"Europa", "selected": true}'></furo-data-money-input>
- *  <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" currencies="CHF,EUR,USD"></furo-data-money-input>
+ *  <furo-ui5-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" options='{"list": [ "CHF","EUR","USD" ]}'></furo-data-money-input>
+ *  <furo-ui5-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" options='{"list": [ {"id":"CHF","label":"Schweiz"},{"id":"EUR","label":"Europa", "selected": true}'></furo-data-money-input>
+ *  <furo-ui5-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" currencies="CHF,EUR,USD"></furo-data-money-input>
  *
  * Tags: money input
  * @summary  Binds a entityObject field google.type.Money to a number-input and currency dropdown fields
@@ -214,7 +214,13 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
         this._updateField()
       })
 
-      this.binder.fieldNode.addEventListener('field-value-changed', () => {
+      this.binder.fieldNode.units.addEventListener('field-value-changed', () => {
+        this._updateField()
+      })
+      this.binder.fieldNode.nanos.addEventListener('field-value-changed', () => {
+        this._updateField()
+      })
+      this.binder.fieldNode.currency_code.addEventListener('field-value-changed', () => {
         this._updateField()
       })
     }

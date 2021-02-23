@@ -74,27 +74,30 @@ class DemoFuroUi5DataMoneyInput extends FBP(LitElement) {
                 options='{"list": [ {"id":"CHF","label":"Schweiz"},{"id":"EUR","label":"Europa"}]}'
                 autofocus
                 ƒ-bind-data="--entity(*.data.furo_data_money_input)"
+                @-value-changed="--dataChanged"
               ></furo-ui5-data-money-input>
               <furo-ui5-data-money-input
                 options='{"list": [ "CHF","EUR","USD" ]}'
                 ƒ-bind-data="--entity(*.data.furo_data_money_input)"
+                @-value-changed="--dataChanged"
               ></furo-ui5-data-money-input>
 
               <furo-ui5-data-money-input
                 currencies="CHF,EUR,USD"
                 ƒ-bind-data="--entity(*.data.furo_data_money_input)"
+                @-value-changed="--dataChanged"
               ></furo-ui5-data-money-input>
               <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
             </furo-form-layouter>
 
             <furo-pretty-json
-              ƒ-inject-data="--dataChanged(*.data.furo_data_money_input._value)"
+              ƒ-inject-data="--dataChanged"
             ></furo-pretty-json>
 
             <furo-data-object
               type="experiment.ExperimentEntity"
               @-object-ready="--entity"
-              @-data-changed="--dataChanged"
+
               ƒ-inject-raw="--response"
             ></furo-data-object>
             <furo-deep-link
