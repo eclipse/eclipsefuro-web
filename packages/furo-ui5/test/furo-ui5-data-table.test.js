@@ -283,7 +283,7 @@ describe('furo-ui5-data-table', () => {
       setTimeout(() => {
         assert.equal(table.shadowRoot.querySelectorAll('furo-ui5-table-row').length, 5);
         done();
-      }, 32);
+      }, 48);
     });
     dao.data.entities.add();
   });
