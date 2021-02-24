@@ -71,8 +71,8 @@ class DemoFuroDataChartMini extends FBP(LitElement) {
             <furo-vertical-scroller @-data-point-clicked="--markerData">
               <furo-horizontal-flex>
                 <div flex>
-                  <furo-card header-text="minbar :-)">
-                    <furo-chart-display chart-type="bar" fixed-height="170" sparkline>
+                  <furo-card header-text="minibar :-)">
+                    <furo-chart-display chart-type="bar" stacked fixed-height="170" sparkline>
                       <furo-data-chart-binder
                         ƒ-bind-data="--projectDAO(*.entities)"
                         data-field="data.cost_limit.units"
@@ -154,7 +154,7 @@ class DemoFuroDataChartMini extends FBP(LitElement) {
                   </furo-card>
 
                   <furo-card header-text="pie">
-                    <furo-chart-display chart-type="pie" fixed-height="170" sparkline>
+                    <furo-chart-display chart-type="pie" tooltip fixed-height="170" sparkline>
                       <furo-data-chart-binder
                         ƒ-bind-data="--projectDAO(*.entities)"
                         data-field="data.cost_limit.units"
@@ -164,7 +164,7 @@ class DemoFuroDataChartMini extends FBP(LitElement) {
                   </furo-card>
 
                   <furo-card header-text="donut">
-                    <furo-chart-display chart-type="donut" fixed-height="170" sparkline>
+                    <furo-chart-display chart-type="donut" tooltip fixed-height="170" sparkline>
                       <furo-data-chart-binder
                         ƒ-bind-data="--projectDAO(*.entities)"
                         data-field="data.cost_limit.units"
@@ -190,8 +190,25 @@ class DemoFuroDataChartMini extends FBP(LitElement) {
                     </furo-chart-display>
                   </furo-card>
 
+                  <furo-card header-text="stacked bar">
+                    <furo-chart-display chart-type="bar" stacked fixed-height="170" sparkline>
+                      <furo-data-chart-binder
+                        ƒ-bind-data="--projectDAO(*.entities)"
+                        data-field="data.cost_limit.units"
+                        category-field="data.description"
+                        legend-label="Cost"
+                      ></furo-data-chart-binder>
+                      <furo-data-chart-binder
+                        ƒ-bind-data="--projectDAO(*.entities)"
+                        data-field="data.cost_limit.units"
+                        category-field="data.description"
+                        legend-label="Secondary"
+                      ></furo-data-chart-binder>
+                    </furo-chart-display>
+                  </furo-card>
+
                   <furo-card header-text="polarArea">
-                    <furo-chart-display chart-type="polarArea" fixed-height="170" sparkline>
+                    <furo-chart-display chart-type="polarArea" tooltip fixed-height="170" sparkline>
                       <furo-data-chart-binder
                         ƒ-bind-data="--projectDAO(*.entities)"
                         data-field="data.cost_limit.units"

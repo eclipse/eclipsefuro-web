@@ -67,7 +67,8 @@ class DemoFuroDataChart extends FBP(LitElement) {
             <furo-vertical-scroller>
               <furo-card header-text="Scatter">
                 <furo-chart-display
-                  chart-type="line"
+                  stacked
+                  chart-type="bar"
                   title-text="Chart Title"
                   title-align="center"
                   no-data-text="Loading..."
