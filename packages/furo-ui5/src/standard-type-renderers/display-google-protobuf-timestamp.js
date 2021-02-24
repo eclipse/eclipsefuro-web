@@ -50,15 +50,16 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
     this._field = fieldNode;
 
     if (this._field) {
-      this._field.addEventListener('field-value-changed', () => {
+      this._field.addEventListener('field-value-changed', e => {
         this._formattedDateString = DisplayGoogleProtobufTimestamp._convertDateToString(
-          this._field,
+          e.detail._value,
         );
+
         this.requestUpdate();
       });
+    } else {
+      this._formattedDateString = '';
     }
-
-    this._formattedDateString = DisplayGoogleProtobufTimestamp._convertDateToString(this._field);
   }
 
   /**
@@ -69,13 +70,14 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
    * @returns {string}
    * @private
    */
-  static _convertDateToString(fieldNode) {
-    if (fieldNode._value) {
-      const date = new Date(fieldNode._value);
+  static _convertDateToString(fieldValue) {
+    let strDate = '';
+    if (fieldValue) {
+      const date = new Date(fieldValue);
 
       // eslint-disable-next-line eqeqeq
       if (date != 'Invalid Date') {
-        return new Intl.DateTimeFormat([Env.locale, 'de-CH'], {
+        strDate = Intl.DateTimeFormat([Env.locale, 'de-CH'], {
           year: 'numeric',
           month: '2-digit',
           day: '2-digit',
@@ -85,7 +87,8 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
         }).format(date);
       }
     }
-    return '';
+
+    return strDate;
   }
 
   /**

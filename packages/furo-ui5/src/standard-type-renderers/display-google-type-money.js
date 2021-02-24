@@ -16,7 +16,7 @@ import { Env } from '@furo/framework/src/furo.js';
  * @customElement
  * @demo demo display-google-type-money Basic Usage
  */
-class DisplayGoogleTypeMoney extends LitElement {
+export class DisplayGoogleTypeMoney extends LitElement {
   constructor() {
     super();
     this._field = undefined;
@@ -88,7 +88,7 @@ class DisplayGoogleTypeMoney extends LitElement {
     this._field = fieldNode;
 
     if (this._field) {
-      this._field.addEventListener('field-value-changed', () => {
+      this._field.addEventListener('branch-value-changed', e => {
         this._valueObject.amount = DisplayGoogleTypeMoney._convertTypeToNumber(this._field);
         this.requestUpdate();
       });
@@ -123,7 +123,7 @@ class DisplayGoogleTypeMoney extends LitElement {
    * @private
    */
   _getTemplate() {
-    if (this._field.currency_code._value.length) {
+    if (this._field && this._field.currency_code._value.length) {
       this._displayValue = new Intl.NumberFormat(Env.locale, {
         style: 'currency',
         currency: this._field.currency_code._value,

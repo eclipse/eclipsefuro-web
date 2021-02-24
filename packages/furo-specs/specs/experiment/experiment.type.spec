@@ -547,3 +547,35 @@ fields:
             repeated: false
             typespecific: null
         constraints: {}
+    google_timeofday:
+        type: google.type.TimeOfDay
+        description: google TimeOfDay
+        __proto:
+            number: 28
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: "google TimeOfDay"
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
+    furo_type_money:
+        type: furo.type.Money
+        description: furo Money
+        __proto:
+            number: 29
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: "furo Money"
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
