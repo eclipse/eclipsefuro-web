@@ -1176,63 +1176,374 @@
       "path": "src/furo-chart-display.js",
       "properties": [
         {
-          "name": "options",
-          "type": "Object | null | undefined",
-          "description": "APEX options and data",
+          "name": "sparkline",
+          "type": "boolean | null | undefined",
+          "description": "Hides all elements of the chart other than the primary graphic.\nUse this to visualize data in very small areas.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 24,
+              "line": 126,
+              "column": 2
+            },
+            "end": {
+              "line": 128,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "legend",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 130,
+              "column": 2
+            },
+            "end": {
+              "line": 132,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "plotHorizontal",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 135,
+              "column": 2
+            },
+            "end": {
+              "line": 137,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "grid",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 140,
+              "column": 2
+            },
+            "end": {
+              "line": 142,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "chartType",
+          "type": "string | null | undefined",
+          "description": "line, area, bar are mixable\n\nradar, scatter, heatmap\n\npie donut polarArea radialBar can only consume 1 data series",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 145,
+              "column": 2
+            },
+            "end": {
+              "line": 147,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "stacked",
+          "type": "boolean | null | undefined",
+          "description": "Loading...\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 150,
+              "column": 2
+            },
+            "end": {
+              "line": 152,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "titleText",
+          "type": "string | null | undefined",
+          "description": "line\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 155,
+              "column": 2
+            },
+            "end": {
+              "line": 157,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "titleAlign",
+          "type": "string | null | undefined",
+          "description": "XYZ - Stock Analysis\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 159,
+              "column": 2
+            },
+            "end": {
+              "line": 161,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "titleOffsetX",
+          "type": "number | null | undefined",
+          "description": "left\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 163,
+              "column": 2
+            },
+            "end": {
+              "line": 165,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "titleOffsetY",
+          "type": "number | null | undefined",
+          "description": "70\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 167,
+              "column": 2
+            },
+            "end": {
+              "line": 169,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "fixedHeight",
+          "type": "number | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 171,
+              "column": 2
+            },
+            "end": {
+              "line": 173,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "noDataText",
+          "type": "string | null | undefined",
+          "description": "70\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 105,
               "column": 6
             },
             "end": {
-              "line": 24,
-              "column": 31
+              "line": 105,
+              "column": 61
             }
           },
           "metadata": {
             "polymer": {
-              "attributeType": "Object"
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "tooltip",
+          "type": "boolean | null | undefined",
+          "description": "350\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 108,
+              "column": 6
+            },
+            "end": {
+              "line": 108,
+              "column": 32
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "legendAlign",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 111,
+              "column": 6
+            },
+            "end": {
+              "line": 111,
+              "column": 62
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "legendPosition",
+          "type": "string | null | undefined",
+          "description": "left\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 112,
+              "column": 6
+            },
+            "end": {
+              "line": 112,
+              "column": 68
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "legendOffsetX",
+          "type": "number | null | undefined",
+          "description": "bottom\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 113,
+              "column": 6
+            },
+            "end": {
+              "line": 113,
+              "column": 67
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "legendOffsetY",
+          "type": "number | null | undefined",
+          "description": "70\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 114,
+              "column": 6
+            },
+            "end": {
+              "line": 114,
+              "column": 67
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "toolbar",
+          "type": "boolean | null | undefined",
+          "description": "70\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 115,
+              "column": 6
+            },
+            "end": {
+              "line": 115,
+              "column": 32
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
             }
           }
         }
       ],
       "methods": [
         {
-          "name": "injectData",
+          "name": "_initChart",
           "description": "",
-          "privacy": "public",
+          "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 28,
+              "line": 176,
               "column": 2
             },
             "end": {
-              "line": 33,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "apexOptions"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "initData",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 36,
-              "column": 2
-            },
-            "end": {
-              "line": 41,
+              "line": 181,
               "column": 3
             }
           },
@@ -1252,11 +1563,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 46,
+              "line": 186,
               "column": 2
             },
             "end": {
-              "line": 180,
+              "line": 237,
               "column": 3
             }
           },
@@ -1272,11 +1583,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 871,
+              "line": 928,
               "column": 2
             },
             "end": {
-              "line": 878,
+              "line": 935,
               "column": 3
             }
           },
@@ -1290,18 +1601,26 @@
       "staticMethods": [],
       "demos": [
         {
+          "url": "demo-furo-data-chart-mini",
+          "description": "Small Charts"
+        },
+        {
           "url": "demo-furo-data-chart",
-          "description": ""
+          "description": "Basic Usage"
+        },
+        {
+          "url": "demo-furo-data-chart-mixed",
+          "description": "Mixed Charts"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 14,
+          "line": 16,
           "column": 0
         },
         "end": {
-          "line": 879,
+          "line": 936,
           "column": 1
         }
       },
@@ -1310,20 +1629,292 @@
       "name": "FuroChartDisplay",
       "attributes": [
         {
-          "name": "options",
-          "description": "APEX options and data",
+          "name": "sparkline",
+          "description": "Hides all elements of the chart other than the primary graphic.\nUse this to visualize data in very small areas.",
           "sourceRange": {
             "start": {
-              "line": 24,
-              "column": 6
+              "line": 126,
+              "column": 2
             },
             "end": {
-              "line": 24,
-              "column": 31
+              "line": 128,
+              "column": 3
             }
           },
           "metadata": {},
-          "type": "Object | null | undefined"
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "legend",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 130,
+              "column": 2
+            },
+            "end": {
+              "line": 132,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "plot-horizontal",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 135,
+              "column": 2
+            },
+            "end": {
+              "line": 137,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "grid",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 140,
+              "column": 2
+            },
+            "end": {
+              "line": 142,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "chart-type",
+          "description": "line, area, bar are mixable\n\nradar, scatter, heatmap\n\npie donut polarArea radialBar can only consume 1 data series",
+          "sourceRange": {
+            "start": {
+              "line": 145,
+              "column": 2
+            },
+            "end": {
+              "line": 147,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "stacked",
+          "description": "Loading...\"",
+          "sourceRange": {
+            "start": {
+              "line": 150,
+              "column": 2
+            },
+            "end": {
+              "line": 152,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "title-text",
+          "description": "line\"",
+          "sourceRange": {
+            "start": {
+              "line": 155,
+              "column": 2
+            },
+            "end": {
+              "line": 157,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "title-align",
+          "description": "XYZ - Stock Analysis\"",
+          "sourceRange": {
+            "start": {
+              "line": 159,
+              "column": 2
+            },
+            "end": {
+              "line": 161,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "title-offset-x",
+          "description": "left\"",
+          "sourceRange": {
+            "start": {
+              "line": 163,
+              "column": 2
+            },
+            "end": {
+              "line": 165,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "title-offset-y",
+          "description": "70\"",
+          "sourceRange": {
+            "start": {
+              "line": 167,
+              "column": 2
+            },
+            "end": {
+              "line": 169,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "fixed-height",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 171,
+              "column": 2
+            },
+            "end": {
+              "line": 173,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "no-data-text",
+          "description": "70\"",
+          "sourceRange": {
+            "start": {
+              "line": 105,
+              "column": 6
+            },
+            "end": {
+              "line": 105,
+              "column": 61
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "tooltip",
+          "description": "350\"",
+          "sourceRange": {
+            "start": {
+              "line": 108,
+              "column": 6
+            },
+            "end": {
+              "line": 108,
+              "column": 32
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "legend-align",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 111,
+              "column": 6
+            },
+            "end": {
+              "line": 111,
+              "column": 62
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "legend-position",
+          "description": "left\"",
+          "sourceRange": {
+            "start": {
+              "line": 112,
+              "column": 6
+            },
+            "end": {
+              "line": 112,
+              "column": 68
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "legend-offset-x",
+          "description": "bottom\"",
+          "sourceRange": {
+            "start": {
+              "line": 113,
+              "column": 6
+            },
+            "end": {
+              "line": 113,
+              "column": 67
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "legend-offset-y",
+          "description": "70\"",
+          "sourceRange": {
+            "start": {
+              "line": 114,
+              "column": 6
+            },
+            "end": {
+              "line": 114,
+              "column": 67
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "toolbar",
+          "description": "70\"",
+          "sourceRange": {
+            "start": {
+              "line": 115,
+              "column": 6
+            },
+            "end": {
+              "line": 115,
+              "column": 32
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
         }
       ],
       "events": [],
@@ -1343,39 +1934,381 @@
       "path": "src/furo-data-chart-binder.js",
       "properties": [
         {
-          "name": "myBool",
+          "name": "axisLabelOpposite",
           "type": "boolean | null | undefined",
-          "description": "Description",
+          "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 25,
+              "line": 88,
+              "column": 2
+            },
+            "end": {
+              "line": 90,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "axisLabel",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 93,
+              "column": 2
+            },
+            "end": {
+              "line": 96,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "axisLabelColor",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 98,
+              "column": 2
+            },
+            "end": {
+              "line": 101,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "axisBorder",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 103,
+              "column": 2
+            },
+            "end": {
+              "line": 105,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "axisBorderColor",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 107,
+              "column": 2
+            },
+            "end": {
+              "line": 109,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "axisTicks",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 111,
+              "column": 2
+            },
+            "end": {
+              "line": 113,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "axisTooltip",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 115,
+              "column": 2
+            },
+            "end": {
+              "line": 117,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "axisTicksColor",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 119,
+              "column": 2
+            },
+            "end": {
+              "line": 121,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "legendLabel",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 123,
+              "column": 2
+            },
+            "end": {
+              "line": 125,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "dataField",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 66,
               "column": 6
             },
             "end": {
-              "line": 25,
-              "column": 31
+              "line": 66,
+              "column": 58
             }
           },
           "metadata": {
             "polymer": {
-              "attributeType": "Boolean"
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "categoryField",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 67,
+              "column": 6
+            },
+            "end": {
+              "line": 67,
+              "column": 66
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "chartType",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 69,
+              "column": 6
+            },
+            "end": {
+              "line": 69,
+              "column": 58
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "chartColor",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 70,
+              "column": 6
+            },
+            "end": {
+              "line": 70,
+              "column": 60
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "strokeCurve",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 79,
+              "column": 6
+            },
+            "end": {
+              "line": 79,
+              "column": 61
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "strokeWidth",
+          "type": "number | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 80,
+              "column": 6
+            },
+            "end": {
+              "line": 80,
+              "column": 68
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "markerSize",
+          "type": "number | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 81,
+              "column": 6
+            },
+            "end": {
+              "line": 81,
+              "column": 66
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "xaxis",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 84,
+              "column": 6
+            },
+            "end": {
+              "line": 84,
+              "column": 29
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
             }
           }
         }
       ],
       "methods": [
         {
-          "name": "_FBPReady",
-          "description": "flow is ready lifecycle method",
-          "privacy": "protected",
+          "name": "bindData",
+          "description": "",
+          "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 32,
+              "line": 127,
               "column": 2
             },
             "end": {
-              "line": 35,
+              "line": 137,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "data"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_convertData",
+          "description": "Prepares the data for the according chart display\n\nsome charts want 1 dimensional data (pie, donut) and others expect more dimensions (boxplot,...)",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 147,
+              "column": 2
+            },
+            "end": {
+              "line": 193,
               "column": 3
             }
           },
@@ -1386,24 +2319,77 @@
           }
         },
         {
-          "name": "render",
+          "name": "_initEmptySeries",
           "description": "",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 61,
+              "line": 195,
               "column": 2
             },
             "end": {
-              "line": 66,
+              "line": 207,
               "column": 3
             }
           },
           "metadata": {},
           "params": [],
           "return": {
-            "type": "TemplateResult"
+            "type": "void"
           }
+        },
+        {
+          "name": "_pathGet",
+          "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 218,
+              "column": 2
+            },
+            "end": {
+              "line": 231,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "root",
+              "type": "Object",
+              "description": "Object from which to dereference path from"
+            },
+            {
+              "name": "path",
+              "type": "(string | !Array.<(string | number)>)",
+              "description": "Path to read"
+            }
+          ],
+          "return": {
+            "type": "*",
+            "desc": "Value at path, or `undefined` if the path could not be\n fully dereferenced."
+          }
+        },
+        {
+          "name": "_split",
+          "description": "eslint-disable-next-line class-methods-use-this",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 234,
+              "column": 2
+            },
+            "end": {
+              "line": 236,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "path"
+            }
+          ]
         }
       ],
       "staticMethods": [],
@@ -1416,36 +2402,299 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 13,
+          "line": 12,
           "column": 0
         },
         "end": {
-          "line": 67,
+          "line": 254,
           "column": 1
         }
       },
       "privacy": "public",
-      "superclass": "HTMLElement",
+      "superclass": "LitElement",
       "name": "FuroDataChartBinder",
       "attributes": [
         {
-          "name": "my-bool",
-          "description": "Description",
+          "name": "axis-label-opposite",
+          "description": "",
           "sourceRange": {
             "start": {
-              "line": 25,
-              "column": 6
+              "line": 88,
+              "column": 2
             },
             "end": {
-              "line": 25,
-              "column": 31
+              "line": 90,
+              "column": 3
             }
           },
           "metadata": {},
           "type": "boolean | null | undefined"
+        },
+        {
+          "name": "axis-label",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 93,
+              "column": 2
+            },
+            "end": {
+              "line": 96,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "axis-label-color",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 98,
+              "column": 2
+            },
+            "end": {
+              "line": 101,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "axis-border",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 103,
+              "column": 2
+            },
+            "end": {
+              "line": 105,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "axis-border-color",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 107,
+              "column": 2
+            },
+            "end": {
+              "line": 109,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "axis-ticks",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 111,
+              "column": 2
+            },
+            "end": {
+              "line": 113,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "axis-tooltip",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 115,
+              "column": 2
+            },
+            "end": {
+              "line": 117,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "axis-ticks-color",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 119,
+              "column": 2
+            },
+            "end": {
+              "line": 121,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "legend-label",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 123,
+              "column": 2
+            },
+            "end": {
+              "line": 125,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "data-field",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 66,
+              "column": 6
+            },
+            "end": {
+              "line": 66,
+              "column": 58
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "category-field",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 67,
+              "column": 6
+            },
+            "end": {
+              "line": 67,
+              "column": 66
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "chart-type",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 69,
+              "column": 6
+            },
+            "end": {
+              "line": 69,
+              "column": 58
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "chart-color",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 70,
+              "column": 6
+            },
+            "end": {
+              "line": 70,
+              "column": 60
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "stroke-curve",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 79,
+              "column": 6
+            },
+            "end": {
+              "line": 79,
+              "column": 61
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "stroke-width",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 80,
+              "column": 6
+            },
+            "end": {
+              "line": 80,
+              "column": 68
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "marker-size",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 81,
+              "column": 6
+            },
+            "end": {
+              "line": 81,
+              "column": 66
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "xaxis",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 84,
+              "column": 6
+            },
+            "end": {
+              "line": 84,
+              "column": 29
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "data-updated",
+          "description": "data-updated\nFired when datasource has updated data\ndetail payload: data-series",
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
