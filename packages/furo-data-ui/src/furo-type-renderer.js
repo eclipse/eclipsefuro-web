@@ -1,4 +1,5 @@
-import { LitElement } from 'lit-element';
+import { LitElement, html } from 'lit-element';
+import { FBP } from '@furo/fbp/src/fbp.js';
 
 /**
  * `furo-type-renderer`
@@ -28,11 +29,12 @@ import { LitElement } from 'lit-element';
  * @summary
  * @customElement
  */
-class FuroTypeRenderer extends LitElement {
+class FuroTypeRenderer extends FBP(LitElement) {
   constructor() {
     super();
     // the bound fieldNode
     this._field = undefined;
+    this.tpl = html``;
   }
 
   /**
@@ -127,13 +129,26 @@ class FuroTypeRenderer extends LitElement {
       this._addElement(elementRepeat);
     } else if (this.defaultElement.bindData) {
       // fallback , display the display-[type] component repeatedly
-      const el = document.createElement('furo-ui5-data-repeat');
-      el.setAttribute('repeated-component', this.renderName);
-      el.bindData(this._field);
-      this.replaceWith(el);
+      this.tpl = html`
+        <furo-ui5-data-repeat
+          repeated-component="${this.renderName}"
+          ƒ-bind-data="--data"
+        ></furo-ui5-data-repeat>
+      `;
+      this._FBPTriggerWire('--data', this._field);
     } else {
       this._warning();
     }
+  }
+
+  /**
+   * @private
+   * @returns {TemplateResult}
+   */
+  render() {
+    return html`
+      ${this.tpl}
+    `;
   }
 }
 

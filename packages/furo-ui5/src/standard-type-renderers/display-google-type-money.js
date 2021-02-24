@@ -88,7 +88,7 @@ export class DisplayGoogleTypeMoney extends LitElement {
     this._field = fieldNode;
 
     if (this._field) {
-      this._field.addEventListener('branch-value-changed', e => {
+      this._field.addEventListener('branch-value-changed', () => {
         this._valueObject.amount = DisplayGoogleTypeMoney._convertTypeToNumber(this._field);
         this.requestUpdate();
       });

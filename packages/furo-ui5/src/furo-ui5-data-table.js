@@ -13,6 +13,8 @@ import '@ui5/webcomponents/dist/TableColumn.js';
 import '@ui5/webcomponents/dist/TableCell.js';
 
 import './furo-ui5-table-row.js';
+// this dependence comes from furo-type-renderer
+import './furo-ui5-data-repeat.js';
 
 /**
  *

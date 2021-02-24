@@ -284,22 +284,27 @@ describe('furo-ui5-data-table', () => {
         assert.equal(table.shadowRoot.querySelectorAll('furo-ui5-table-row').length, 5);
         done();
       }, 48);
-    }),{once:true};
+    }),
+      { once: true };
     dao.data.entities.add();
   });
 
   it('injection of an empty RepeaterNode should show table empty state', done => {
-    dao.data.entities.addEventListener('repeated-fields-all-removed', () => {
-      setTimeout(() => {
-        assert.equal(table.noDataText, 'No data available. Click on load test data');
-        assert.equal(table.shadowRoot.querySelectorAll('ui5-table-column').length, 5);
-        assert.equal(
-          table.shadowRoot.querySelector('div.no-data').innerText,
-          'No data available. Click on load test data',
-        );
-        done();
-      }, 32);
-    },{once:true});
+    dao.data.entities.addEventListener(
+      'repeated-fields-all-removed',
+      () => {
+        setTimeout(() => {
+          assert.equal(table.noDataText, 'No data available. Click on load test data');
+          assert.equal(table.shadowRoot.querySelectorAll('ui5-table-column').length, 5);
+          assert.equal(
+            table.shadowRoot.querySelector('div.no-data').innerText,
+            'No data available. Click on load test data',
+          );
+          done();
+        }, 32);
+      },
+      { once: true },
+    );
     dao.data.entities.removeAllChildren();
   });
 });

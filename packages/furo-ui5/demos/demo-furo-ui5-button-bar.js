@@ -81,7 +81,6 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
                 <furo-ui5-button design="Emphasized" unelevated>primary action</furo-ui5-button>
                 <furo-ui5-button design="Default" unelevated>second action</furo-ui5-button>
                 <furo-ui5-button design="Positive" unelevated>another action</furo-ui5-button>
-
               </furo-ui5-button-bar>
 
               <h2>furo-ui5-button-bar with bound entity</h2>
@@ -127,7 +126,7 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
                 ƒ-enable-all="--response"
               >
                 <furo-ui5-button rel="delete" disable-no-rel design="Negative" unelevated
-                >Danger Action
+                  >Danger Action
                 </furo-ui5-button>
                 <furo-empty-spacer></furo-empty-spacer>
 
@@ -140,7 +139,6 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
                 <furo-ui5-button disable-pristine disable-not-valid
                   >disabled if pristine (e.g. save)
                 </furo-ui5-button>
-
               </furo-ui5-button-bar>
             </furo-vertical-scroller>
           </template>
