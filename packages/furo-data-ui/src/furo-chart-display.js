@@ -9,7 +9,9 @@ import ApexCharts from 'apexcharts/dist/apexcharts.esm.js';
  *
  * @summary Display charts
  * @customElement
- * @demo demo-furo-data-chart
+ * @demo demo-furo-data-chart-mini Small Charts
+ * @demo demo-furo-data-chart Basic Usage
+ * @demo demo-furo-data-chart-mixed Mixed Charts
  * @appliesMixin FBP
  */
 class FuroChartDisplay extends FBP(LitElement) {
@@ -31,6 +33,7 @@ class FuroChartDisplay extends FBP(LitElement) {
           },
         },
         noData: {
+
           text: 'Loading...',
         },
         toolbar: {
