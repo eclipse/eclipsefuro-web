@@ -284,7 +284,7 @@ describe('furo-ui5-data-table', () => {
         assert.equal(table.shadowRoot.querySelectorAll('furo-ui5-table-row').length, 5);
         done();
       }, 48);
-    });
+    }),{once:true};
     dao.data.entities.add();
   });
 
@@ -298,8 +298,8 @@ describe('furo-ui5-data-table', () => {
           'No data available. Click on load test data',
         );
         done();
-      }, 32);
-    });
+      }, 332);
+    },{once:true});
     dao.data.entities.removeAllChildren();
   });
 });
