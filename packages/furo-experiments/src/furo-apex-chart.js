@@ -46,19 +46,23 @@ class FuroApexChart extends FBP(LitElement) {
             name: 'Income',
             type: 'column',
             data: [1.4, 2, 2.5, 1.5, 2.5, 2.8, 3.8, 4.6],
-          }, {
+          },
+          {
             name: 'Cashflow',
             type: 'column',
             data: [1.1, 3, 3.1, 4, 4.1, 4.9, 16.5, 8.5],
-          }, {
+          },
+          {
             name: 'Revenue',
             type: 'line',
             data: [20, 129, 37, 136, 44, 145, 50, 58, 44, 145, 50, 58],
-          }, {
+          },
+          {
             name: 'Rssevenue',
             type: 'line',
             data: [10, 129, 37, 136, 244, 145, 50, 58],
-          }],
+          },
+        ],
         chart: {
           height: 350,
           type: 'line',
@@ -72,7 +76,6 @@ class FuroApexChart extends FBP(LitElement) {
         },
         dataLabels: {
           enabled: false,
-
         },
         stroke: {
           width: [1, 1, 4, 3],
@@ -156,7 +159,6 @@ class FuroApexChart extends FBP(LitElement) {
           },
         ],
         tooltip: {
-
           fixed: {
             enabled: false,
             position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft

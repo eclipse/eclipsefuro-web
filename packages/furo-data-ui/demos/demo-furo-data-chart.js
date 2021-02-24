@@ -14,7 +14,6 @@ import '@furo/input';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/app/src/furo-card';
 
-
 /**
  * `demo-furo-data-chart`
  *
@@ -22,7 +21,6 @@ import '@furo/app/src/furo-card';
  * @appliesMixin FBP
  */
 class DemoFuroDataChart extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -30,19 +28,21 @@ class DemoFuroDataChart extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
-      :host {
-        display: block;
-        height: 100%;
-        padding-right: var(--spacing);
-      }
+    return (
+      Theme.getThemeForComponent(this.name) ||
+      css`
+        :host {
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
-    `;
+        :host([hidden]) {
+          display: none;
+        }
+      `
+    );
   }
-
 
   /**
    * @private
@@ -52,68 +52,62 @@ class DemoFuroDataChart extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-vertical-flex>
-
         <div>
           <h2>Demo ...</h2>
           <p>Describe your demo</p>
         </div>
         <furo-demo-snippet flex>
-
           <template>
             <style>
               furo-card {
                 margin: 10px;
-              }</style>
+              }
+            </style>
 
             <furo-vertical-scroller>
-
               <furo-card header-text="Scatter">
-              <furo-chart-display
-                chart-type="line"
-                title-text="Chart Title"
-                title-align="center"
-                no-data-text="Loading..."
-                fixed-height="350"
-                tooltip
-                legend
-                grid
-                legend-align="left"
-                legend-position="bottom"
-                legend-offset-x="70"
-                legend-offset-y="70"
-                toolbar
+                <furo-chart-display
+                  chart-type="line"
+                  title-text="Chart Title"
+                  title-align="center"
+                  no-data-text="Loading..."
+                  fixed-height="350"
+                  tooltip
+                  legend
+                  grid
+                  legend-align="left"
+                  legend-position="bottom"
+                  legend-offset-x="70"
+                  legend-offset-y="70"
+                  toolbar
+                >
+                  <furo-data-chart-binder
+                    ƒ-bind-data="--projectDAO(*.entities)"
+                    data-field="data.cost_limit.units"
+                    category-field="data.description"
+                    legend-label="smooth"
+                    chart-curve="smooth"
+                    axis-label="Units"
+                    axis-ticks
+                    axis-border
+                    axis-tooltip
+                  ></furo-data-chart-binder>
 
-              >
+                  <furo-data-chart-binder
+                    ƒ-bind-data="--projectDAO(*.entities)"
+                    data-field="data.cost_limit.units"
+                    category-field="data.description"
+                    legend-label="straight"
+                    chart-stroke-width="4"
+                  ></furo-data-chart-binder>
+                </furo-chart-display>
 
-
-                <furo-data-chart-binder
-                  ƒ-bind-data="--projectDAO(*.entities)"
-                  data-field="data.cost_limit.units"
-                  category-field="data.description"
-                  legend-label="smooth"
-                  chart-curve="smooth"
-                  axis-label="Units"
-                  axis-ticks
-                  axis-border
-                  axis-tooltip
-                ></furo-data-chart-binder>
-
-                <furo-data-chart-binder
-                  ƒ-bind-data="--projectDAO(*.entities)"
-                  data-field="data.cost_limit.units"
-                  category-field="data.description"
-                  legend-label="straight"
-                  chart-stroke-width="4"
-
-                ></furo-data-chart-binder>
-
-              </furo-chart-display>
-
-
-
-
-
-              <furo-button slot="action" label="load data" primary @-click="--btnListClicked"></furo-button>
+                <furo-button
+                  slot="action"
+                  label="load data"
+                  primary
+                  @-click="--btnListClicked"
+                ></furo-button>
               </furo-card>
               <furo-deep-link
                 ƒ-trigger="--btnListClicked"
@@ -135,7 +129,6 @@ class DemoFuroDataChart extends FBP(LitElement) {
                 @-object-ready="--projectDAO"
               >
               </furo-data-object>
-
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>

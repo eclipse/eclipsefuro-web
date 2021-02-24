@@ -1,6 +1,5 @@
 import { LitElement, css } from 'lit-element';
 
-
 /**
  * `furo-data-chart-binder`
  * todo Describe your element
@@ -11,12 +10,11 @@ import { LitElement, css } from 'lit-element';
  * @appliesMixin FBP
  */
 class FuroDataChartBinder extends LitElement {
-
   constructor() {
     super();
     this.strokeWidth = 1;
     this.markerSize = 0;
-    this.strokeCurve = 'straight'; // 'smooth', 'straight', 'smooth', 'stepline'
+    this.strokeCurve = 'straight'; // 'smooth', 'straight',  'stepline'
 
     this.options = {
       seriesName: undefined,
@@ -41,11 +39,8 @@ class FuroDataChartBinder extends LitElement {
         },
       },
       title: {
-
-
         style: {
           color: '#666666',
-
         },
       },
       tooltip: {
@@ -63,7 +58,6 @@ class FuroDataChartBinder extends LitElement {
    */
   static get properties() {
     return {
-
       dataField: { type: String, attribute: 'data-field' },
       categoryField: { type: String, attribute: 'category-field' },
       legendLabel: { type: String, attribute: 'legend-label' },
@@ -81,7 +75,6 @@ class FuroDataChartBinder extends LitElement {
       strokeWidth: { type: Number, attribute: 'chart-stroke-width' },
       markerSize: { type: Number, attribute: 'chart-marker-size' },
 
-
       xaxis: { type: String },
     };
   }
@@ -89,7 +82,6 @@ class FuroDataChartBinder extends LitElement {
   set axisLabelOpposite(v) {
     this.options.opposite = v;
   }
-
 
   set axisLabel(v) {
     this.options.title.text = v;
@@ -132,49 +124,75 @@ class FuroDataChartBinder extends LitElement {
         this._convertData();
       });
     } else {
+      // eslint-disable-next-line no-console
       console.warn('Please bind a repeater node', this);
     }
   }
 
-
-
-  _dataPointSelection(e,context, config) {
-
-    if(config.dataPointIndex!==undefined){
+  _dataPointSelection(e, context, config) {
+    if (config.dataPointIndex !== undefined) {
       /**
-      * @event data-point-clicked
-      * Fired when a marker for this data source was clicked
-      * detail payload: Fieldnode
-      */
-      const customEvent = new Event('data-point-clicked', {composed:true, bubbles: true});
+       * @event data-point-clicked
+       * Fired when a marker for this data source was clicked
+       * detail payload: Fieldnode
+       */
+      const customEvent = new Event('data-point-clicked', { composed: true, bubbles: true });
       customEvent.detail = this.repeater.repeats[config.dataPointIndex];
-      this.dispatchEvent(customEvent)
-
+      this.dispatchEvent(customEvent);
     }
-
   }
 
-
+  /**
+   * Prepares the data for the according chart display
+   *
+   * some charts want 1 dimensional data (pie, donut) and others expect more dimensions (boxplot,...)
+   *
+   * @private
+   */
   _convertData() {
     this._initEmptySeries();
-    this.repeater.repeats.forEach(row => {
-      const v = { x: '', y: null };
-      if (this.categoryField && this._pathGet(row, this.categoryField)) {
-        v.x = this._pathGet(row, this.categoryField)._value;
-      }
-      if (this._pathGet(row, this.dataField)) {
-        v.y = this._pathGet(row, this.dataField)._value || null;
-      }
-      this.dataSeries.data.push(v);
-    });
 
+    const graphType = this.parentElement.getAttribute('chart-type');
+
+    switch (graphType) {
+      case 'donut':
+      case 'radialBar':
+      case 'polarArea':
+      case 'pie':
+
+        this.repeater.repeats.forEach(row => {
+          if (this.categoryField && this._pathGet(row, this.categoryField)) {
+            this.categories.push(this._pathGet(row, this.categoryField)._value);
+          } else {
+            this.categories.push('');
+          }
+          if (this._pathGet(row, this.dataField)) {
+            this.dataSeries.data.push(this._pathGet(row, this.dataField)._value);
+          } else {
+            this.dataSeries.data.push(null);
+          }
+        });
+        break;
+      case 'line':
+      default:
+        this.repeater.repeats.forEach(row => {
+          const v = { x: '', y: null };
+          if (this.categoryField && this._pathGet(row, this.categoryField)) {
+            v.x = this._pathGet(row, this.categoryField)._value;
+          }
+          if (this._pathGet(row, this.dataField)) {
+            v.y = this._pathGet(row, this.dataField)._value || null;
+          }
+          this.dataSeries.data.push(v);
+        });
+    }
     /**
      * @event data-updated
      * Fired when datasource has updated data
      * detail payload: data-series
      */
     const customEvent = new Event('data-updated', { composed: true, bubbles: true });
-    customEvent.detail = this.dataSeries;
+    customEvent.detail = this;
     this.dispatchEvent(customEvent);
   }
 
@@ -183,8 +201,10 @@ class FuroDataChartBinder extends LitElement {
     this.dataSeries = { name: this.options.seriesName, data: [] };
     this.categories = [];
     // set type if given
+
     if (this.chartType) {
       this.dataSeries.type = this.chartType;
+
     }
     // set color if given
     if (this.chartColor) {
@@ -221,7 +241,6 @@ class FuroDataChartBinder extends LitElement {
     return path.toString().split('.');
   }
 
-
   /**
    * Themable Styles
    * @private
@@ -235,8 +254,6 @@ class FuroDataChartBinder extends LitElement {
       }
     `;
   }
-
-
 }
 
 window.customElements.define('furo-data-chart-binder', FuroDataChartBinder);

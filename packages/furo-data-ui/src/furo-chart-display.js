@@ -15,7 +15,6 @@ import ApexCharts from 'apexcharts/dist/apexcharts.esm.js';
  * @appliesMixin FBP
  */
 class FuroChartDisplay extends FBP(LitElement) {
-
   /**
    * @event data-point-clicked
    * Fired when a marker for this data source was clicked
@@ -31,7 +30,7 @@ class FuroChartDisplay extends FBP(LitElement) {
       series: [],
       yaxis: [],
       noData: {
-        text: "No data.",
+        text: 'No data.',
         align: 'center',
         verticalAlign: 'middle',
         offsetX: 0,
@@ -39,16 +38,14 @@ class FuroChartDisplay extends FBP(LitElement) {
         style: {
           color: undefined,
           fontSize: '14px',
-          fontFamily: undefined
-        }
+          fontFamily: undefined,
+        },
       },
       chart: {
         // height: 550,
         type: 'line',
         stacked: false,
-        events: {
-
-        },
+        events: {},
         toolbar: {
           show: false, // disable by default
           tools: {
@@ -80,7 +77,7 @@ class FuroChartDisplay extends FBP(LitElement) {
       stroke: {},
 
       tooltip: {
-
+        enabled:false,
         fixed: {
           enabled: false,
           position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
@@ -95,7 +92,7 @@ class FuroChartDisplay extends FBP(LitElement) {
         offsetX: 0,
         offsetY: 0,
       },
-      plotOptions:{}
+      plotOptions: {},
     };
   }
 
@@ -144,6 +141,9 @@ class FuroChartDisplay extends FBP(LitElement) {
        * Set a fixed height for the plot. Default is auto, this can be useful if you need to control the heights
        */
       fixedHeight: { type: Number, attribute: 'fixed-height' },
+      /**
+       * show a tooltip on mouseover
+       */
       tooltip: { type: Boolean },
       /**
        * Enables the legend on bottom left with offset 0:0
@@ -184,7 +184,7 @@ class FuroChartDisplay extends FBP(LitElement) {
       /**
        * Enable this to draw the bars horizontally
        */
-      plotHorizontal: { type: Boolean , attribute: 'plot-horizontal' },
+      plotHorizontal: { type: Boolean, attribute: 'plot-horizontal' },
       /**
        * Hides all elements of the chart other than the primary graphic.
        * Use this to visualize data in very small areas.
@@ -206,6 +206,10 @@ class FuroChartDisplay extends FBP(LitElement) {
     this.apexOptions.legend.show = v;
   }
 
+  set tooltip(v) {
+    this.apexOptions.tooltip.enabled = v;
+  }
+
   set legendAlign(v) {
     this.apexOptions.legend.horizontalAlign = v;
   }
@@ -222,36 +226,29 @@ class FuroChartDisplay extends FBP(LitElement) {
     this.apexOptions.legend.offsetY = v;
   }
 
-
   set toolbar(v) {
     this.apexOptions.chart.toolbar.show = v;
   }
-
 
   set toolbarDownload(v) {
     this.apexOptions.chart.toolbar.tools.download = v;
   }
 
-
   set plotHorizontal(v) {
-    this.apexOptions.plotOptions.bar = { horizontal:true } ;
+    this.apexOptions.plotOptions.bar = { horizontal: true };
   }
-
 
   set grid(v) {
     this.apexOptions.grid.show = v;
   }
 
-
   set chartType(v) {
     this.apexOptions.chart.type = v;
   }
 
-
   set stacked(v) {
     this.apexOptions.chart.stacked = v;
   }
-
 
   set titleText(v) {
     this.apexOptions.title.text = v;
@@ -273,7 +270,6 @@ class FuroChartDisplay extends FBP(LitElement) {
     this.apexOptions.chart.height = v;
   }
 
-
   _initChart(apexOptions) {
     this.options = apexOptions;
     this.chart = new ApexCharts(this.shadowRoot.getElementById('c'), this.options);
@@ -291,20 +287,32 @@ class FuroChartDisplay extends FBP(LitElement) {
     this.dataSourceComponents = this.querySelectorAll('*');
     this.dataSeries = [];
 
-    this.apexOptions.chart.events.dataPointSelection= ((e,context, config)=> {
+    this.apexOptions.chart.events.dataPointSelection = (e, context, config) => {
       // notify click
       // The last parameter config contains additional information like `seriesIndex` and `dataPointIndex` for cartesian charts
-      this.dataSourceComponents[config.seriesIndex]._dataPointSelection(e,context, config)
-    });
+      this.dataSourceComponents[config.seriesIndex]._dataPointSelection(e, context, config);
+    };
 
-    this.apexOptions.chart.events.markerClick= ((e,context, config)=> {
+    this.apexOptions.chart.events.markerClick = (e, context, config) => {
       // notify click
       // The last parameter config contains additional information like `seriesIndex` and `dataPointIndex` for cartesian charts
-      this.dataSourceComponents[config.seriesIndex]._dataPointSelection(e,context, config)
-    });
+      this.dataSourceComponents[config.seriesIndex]._dataPointSelection(e, context, config);
+    };
 
+    this._registerDataSourceComponents(this.dataSourceComponents)
+
+  }
+
+
+  async _registerDataSourceComponents(dataSources) {
+    const it = []
+    dataSources.forEach(e=>{
+      it.push(e.updateComplete)
+    })
+    await Promise.all(it)
 
     this.dataSourceComponents.forEach((s, idx) => {
+
       // build the chart from underlying data sources
       this.apexOptions.yaxis[idx] = s.options;
       // apexcharts stroke.width option accepts array only for line and area charts. Reverted back to last given Number
@@ -329,27 +337,25 @@ class FuroChartDisplay extends FBP(LitElement) {
       // init empty chart
       this.dataSeries[idx] = s.dataSeries;
 
-      s.addEventListener('data-updated', (event) => {
+      s.addEventListener('data-updated', event => {
         switch (this.apexOptions.chart.type) {
           case 'radialBar':
           case 'polarArea':
           case 'donut':
           case 'pie':
-            this.chart.updateOptions({ labels: event.detail.categories})
+            this.chart.updateOptions({ labels: event.detail.categories });
             this.chart.updateSeries(event.detail.dataSeries.data);
             break;
           default:
             this.dataSeries[idx] = event.detail.dataSeries;
             this.chart.updateSeries(this.dataSeries);
-
         }
-
       });
-
     });
 
     this._initChart(this.apexOptions);
   }
+
 
   /**
    * Themable Styles
