@@ -29,6 +29,10 @@ class FuroChartDisplay extends FBP(LitElement) {
     this.apexOptions = {
       series: [],
       yaxis: [],
+      // belize qualitative color palete
+      colors: ['#5899DA', '#E8743B', '#19A979', '#ED4A7B',
+        '#945ECF', '#13A4B4', '#525DF4', '#BF399E', '#6C8893',
+        '#EE6868', '#2F6497'],
       noData: {
         text: 'No data.',
         align: 'center',
@@ -77,7 +81,7 @@ class FuroChartDisplay extends FBP(LitElement) {
       stroke: {},
 
       tooltip: {
-        enabled:false,
+        enabled: false,
         fixed: {
           enabled: false,
           position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
@@ -299,17 +303,17 @@ class FuroChartDisplay extends FBP(LitElement) {
       this.dataSourceComponents[config.seriesIndex]._dataPointSelection(e, context, config);
     };
 
-    this._registerDataSourceComponents(this.dataSourceComponents)
+    this._registerDataSourceComponents(this.dataSourceComponents);
 
   }
 
 
   async _registerDataSourceComponents(dataSources) {
-    const it = []
-    dataSources.forEach(e=>{
-      it.push(e.updateComplete)
-    })
-    await Promise.all(it)
+    const it = [];
+    dataSources.forEach(e => {
+      it.push(e.updateComplete);
+    });
+    await Promise.all(it);
 
     this.dataSourceComponents.forEach((s, idx) => {
 
