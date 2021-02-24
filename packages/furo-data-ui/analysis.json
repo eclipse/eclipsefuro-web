@@ -1182,11 +1182,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 191,
+              "line": 196,
               "column": 2
             },
             "end": {
-              "line": 193,
+              "line": 198,
               "column": 3
             }
           },
@@ -1201,11 +1201,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 195,
+              "line": 200,
               "column": 2
             },
             "end": {
-              "line": 197,
+              "line": 202,
               "column": 3
             }
           },
@@ -1220,11 +1220,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 204,
               "column": 2
             },
             "end": {
-              "line": 201,
+              "line": 206,
               "column": 3
             }
           },
@@ -1239,11 +1239,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 203,
+              "line": 208,
               "column": 2
             },
             "end": {
-              "line": 205,
+              "line": 210,
               "column": 3
             }
           },
@@ -1258,11 +1258,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 207,
+              "line": 212,
               "column": 2
             },
             "end": {
-              "line": 209,
+              "line": 214,
               "column": 3
             }
           },
@@ -1277,11 +1277,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 216,
               "column": 2
             },
             "end": {
-              "line": 213,
+              "line": 218,
               "column": 3
             }
           },
@@ -1293,25 +1293,6 @@
           "name": "legendOffsetY",
           "type": "number | null | undefined",
           "description": "Moves the legend in the **y** direction for n pixels from `legend-position`",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 215,
-              "column": 2
-            },
-            "end": {
-              "line": 217,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "toolbar",
-          "type": "boolean | null | undefined",
-          "description": "Enables the toolbar",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -1328,9 +1309,9 @@
           }
         },
         {
-          "name": "toolbarDownload",
+          "name": "toolbar",
           "type": "boolean | null | undefined",
-          "description": "Enables the download option in the toolbar (svg,csv,png)",
+          "description": "Enables the toolbar",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -1347,9 +1328,9 @@
           }
         },
         {
-          "name": "plotHorizontal",
+          "name": "toolbarDownload",
           "type": "boolean | null | undefined",
-          "description": "Enable this to draw the bars horizontally",
+          "description": "Enables the download option in the toolbar (svg,csv,png)",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -1366,9 +1347,9 @@
           }
         },
         {
-          "name": "grid",
+          "name": "plotHorizontal",
           "type": "boolean | null | undefined",
-          "description": "Draw the horizontal grid lines",
+          "description": "Enable this to draw the bars horizontally",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -1385,9 +1366,9 @@
           }
         },
         {
-          "name": "chartType",
-          "type": "string | null | undefined",
-          "description": "line, area, bar are mixable\n\nradar, scatter, heatmap\n\npie donut polarArea radialBar can only consume 1 data series",
+          "name": "grid",
+          "type": "boolean | null | undefined",
+          "description": "Draw the horizontal grid lines",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -1404,9 +1385,9 @@
           }
         },
         {
-          "name": "stacked",
-          "type": "boolean | null | undefined",
-          "description": "",
+          "name": "chartType",
+          "type": "string | null | undefined",
+          "description": "line, area, bar are mixable\n\nradar, scatter, heatmap\n\npie donut polarArea radialBar can only consume 1 data series",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -1423,9 +1404,9 @@
           }
         },
         {
-          "name": "titleText",
-          "type": "string | null | undefined",
-          "description": "Set the title.",
+          "name": "stacked",
+          "type": "boolean | null | undefined",
+          "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -1442,17 +1423,36 @@
           }
         },
         {
+          "name": "titleText",
+          "type": "string | null | undefined",
+          "description": "Set the title.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 255,
+              "column": 2
+            },
+            "end": {
+              "line": 257,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
           "name": "titleAlign",
           "type": "string | null | undefined",
           "description": "Aligns the title. Possible values are 'left', 'center', 'right'\n\nDefault is **left**",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 254,
+              "line": 259,
               "column": 2
             },
             "end": {
-              "line": 256,
+              "line": 261,
               "column": 3
             }
           },
@@ -1467,11 +1467,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 258,
+              "line": 263,
               "column": 2
             },
             "end": {
-              "line": 260,
+              "line": 265,
               "column": 3
             }
           },
@@ -1486,11 +1486,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 262,
+              "line": 267,
               "column": 2
             },
             "end": {
-              "line": 264,
+              "line": 269,
               "column": 3
             }
           },
@@ -1505,11 +1505,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 266,
+              "line": 271,
               "column": 2
             },
             "end": {
-              "line": 268,
+              "line": 273,
               "column": 3
             }
           },
@@ -1524,11 +1524,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 141,
+              "line": 146,
               "column": 6
             },
             "end": {
-              "line": 141,
+              "line": 146,
               "column": 32
             }
           },
@@ -1546,11 +1546,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 271,
+              "line": 276,
               "column": 2
             },
             "end": {
-              "line": 276,
+              "line": 281,
               "column": 3
             }
           },
@@ -1570,11 +1570,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 281,
+              "line": 286,
               "column": 2
             },
             "end": {
-              "line": 332,
+              "line": 351,
               "column": 3
             }
           },
@@ -1590,11 +1590,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 1023,
+              "line": 1042,
               "column": 2
             },
             "end": {
-              "line": 1030,
+              "line": 1049,
               "column": 3
             }
           },
@@ -1627,7 +1627,7 @@
           "column": 0
         },
         "end": {
-          "line": 1031,
+          "line": 1050,
           "column": 1
         }
       },
@@ -1640,11 +1640,11 @@
           "description": "Hides all elements of the chart other than the primary graphic.\nUse this to visualize data in very small areas.",
           "sourceRange": {
             "start": {
-              "line": 191,
+              "line": 196,
               "column": 2
             },
             "end": {
-              "line": 193,
+              "line": 198,
               "column": 3
             }
           },
@@ -1656,11 +1656,11 @@
           "description": "Set the text to display, if no data is given.\n\nIf this option is not set, the default is **No data.**",
           "sourceRange": {
             "start": {
-              "line": 195,
+              "line": 200,
               "column": 2
             },
             "end": {
-              "line": 197,
+              "line": 202,
               "column": 3
             }
           },
@@ -1672,11 +1672,11 @@
           "description": "Enables the legend on bottom left with offset 0:0",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 204,
               "column": 2
             },
             "end": {
-              "line": 201,
+              "line": 206,
               "column": 3
             }
           },
@@ -1688,11 +1688,11 @@
           "description": "Aligns the legend to `left` `center` `right`\n\ndefault is **left**",
           "sourceRange": {
             "start": {
-              "line": 203,
+              "line": 208,
               "column": 2
             },
             "end": {
-              "line": 205,
+              "line": 210,
               "column": 3
             }
           },
@@ -1704,11 +1704,11 @@
           "description": "Set the position of the legend to `top`, `right`, `bottom`, `left`\n\nDefault is **bottom**",
           "sourceRange": {
             "start": {
-              "line": 207,
+              "line": 212,
               "column": 2
             },
             "end": {
-              "line": 209,
+              "line": 214,
               "column": 3
             }
           },
@@ -1720,11 +1720,11 @@
           "description": "Moves the legend in the **x** direction for n pixels from `legend-position`",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 216,
               "column": 2
             },
             "end": {
-              "line": 213,
+              "line": 218,
               "column": 3
             }
           },
@@ -1736,22 +1736,6 @@
           "description": "Moves the legend in the **y** direction for n pixels from `legend-position`",
           "sourceRange": {
             "start": {
-              "line": 215,
-              "column": 2
-            },
-            "end": {
-              "line": 217,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "toolbar",
-          "description": "Enables the toolbar",
-          "sourceRange": {
-            "start": {
               "line": 220,
               "column": 2
             },
@@ -1761,11 +1745,11 @@
             }
           },
           "metadata": {},
-          "type": "boolean | null | undefined"
+          "type": "number | null | undefined"
         },
         {
-          "name": "toolbar-download",
-          "description": "Enables the download option in the toolbar (svg,csv,png)",
+          "name": "toolbar",
+          "description": "Enables the toolbar",
           "sourceRange": {
             "start": {
               "line": 225,
@@ -1780,8 +1764,8 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "plot-horizontal",
-          "description": "Enable this to draw the bars horizontally",
+          "name": "toolbar-download",
+          "description": "Enables the download option in the toolbar (svg,csv,png)",
           "sourceRange": {
             "start": {
               "line": 230,
@@ -1796,8 +1780,8 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "grid",
-          "description": "Draw the horizontal grid lines",
+          "name": "plot-horizontal",
+          "description": "Enable this to draw the bars horizontally",
           "sourceRange": {
             "start": {
               "line": 235,
@@ -1812,8 +1796,8 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "chart-type",
-          "description": "line, area, bar are mixable\n\nradar, scatter, heatmap\n\npie donut polarArea radialBar can only consume 1 data series",
+          "name": "grid",
+          "description": "Draw the horizontal grid lines",
           "sourceRange": {
             "start": {
               "line": 240,
@@ -1825,11 +1809,11 @@
             }
           },
           "metadata": {},
-          "type": "string | null | undefined"
+          "type": "boolean | null | undefined"
         },
         {
-          "name": "stacked",
-          "description": "",
+          "name": "chart-type",
+          "description": "line, area, bar are mixable\n\nradar, scatter, heatmap\n\npie donut polarArea radialBar can only consume 1 data series",
           "sourceRange": {
             "start": {
               "line": 245,
@@ -1841,11 +1825,11 @@
             }
           },
           "metadata": {},
-          "type": "boolean | null | undefined"
+          "type": "string | null | undefined"
         },
         {
-          "name": "title-text",
-          "description": "Set the title.",
+          "name": "stacked",
+          "description": "",
           "sourceRange": {
             "start": {
               "line": 250,
@@ -1857,6 +1841,22 @@
             }
           },
           "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "title-text",
+          "description": "Set the title.",
+          "sourceRange": {
+            "start": {
+              "line": 255,
+              "column": 2
+            },
+            "end": {
+              "line": 257,
+              "column": 3
+            }
+          },
+          "metadata": {},
           "type": "string | null | undefined"
         },
         {
@@ -1864,11 +1864,11 @@
           "description": "Aligns the title. Possible values are 'left', 'center', 'right'\n\nDefault is **left**",
           "sourceRange": {
             "start": {
-              "line": 254,
+              "line": 259,
               "column": 2
             },
             "end": {
-              "line": 256,
+              "line": 261,
               "column": 3
             }
           },
@@ -1880,11 +1880,11 @@
           "description": "Moves the title for n pixels on the x-axis from the alignment direction",
           "sourceRange": {
             "start": {
-              "line": 258,
+              "line": 263,
               "column": 2
             },
             "end": {
-              "line": 260,
+              "line": 265,
               "column": 3
             }
           },
@@ -1896,11 +1896,11 @@
           "description": "Moves the title for n pixels on the y-axis from the alignment direction",
           "sourceRange": {
             "start": {
-              "line": 262,
+              "line": 267,
               "column": 2
             },
             "end": {
-              "line": 264,
+              "line": 269,
               "column": 3
             }
           },
@@ -1912,11 +1912,11 @@
           "description": "Set a fixed height for the plot. Default is auto, this can be useful if you need to control the heights",
           "sourceRange": {
             "start": {
-              "line": 266,
+              "line": 271,
               "column": 2
             },
             "end": {
-              "line": 268,
+              "line": 273,
               "column": 3
             }
           },
@@ -1928,11 +1928,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 141,
+              "line": 146,
               "column": 6
             },
             "end": {
-              "line": 141,
+              "line": 146,
               "column": 32
             }
           },
@@ -1940,7 +1940,14 @@
           "type": "boolean | null | undefined"
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "data-point-clicked",
+          "description": "data-point-clicked\nFired when a marker for this data source was clicked\ndetail payload: Fieldnode\n\nNote: the event is fired from the furo-data-chart-binder",
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -2307,7 +2314,7 @@
               "column": 2
             },
             "end": {
-              "line": 137,
+              "line": 136,
               "column": 3
             }
           },
@@ -2322,16 +2329,46 @@
           }
         },
         {
+          "name": "_dataPointSelection",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 140,
+              "column": 2
+            },
+            "end": {
+              "line": 154,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e"
+            },
+            {
+              "name": "context"
+            },
+            {
+              "name": "config"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "_convertData",
           "description": "Prepares the data for the according chart display\n\nsome charts want 1 dimensional data (pie, donut) and others expect more dimensions (boxplot,...)",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 147,
+              "line": 164,
               "column": 2
             },
             "end": {
-              "line": 193,
+              "line": 210,
               "column": 3
             }
           },
@@ -2347,11 +2384,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 195,
+              "line": 212,
               "column": 2
             },
             "end": {
-              "line": 207,
+              "line": 224,
               "column": 3
             }
           },
@@ -2367,11 +2404,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 235,
               "column": 2
             },
             "end": {
-              "line": 231,
+              "line": 248,
               "column": 3
             }
           },
@@ -2399,11 +2436,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 234,
+              "line": 251,
               "column": 2
             },
             "end": {
-              "line": 236,
+              "line": 253,
               "column": 3
             }
           },
@@ -2429,7 +2466,7 @@
           "column": 0
         },
         "end": {
-          "line": 254,
+          "line": 271,
           "column": 1
         }
       },
@@ -2711,6 +2748,12 @@
         }
       ],
       "events": [
+        {
+          "type": "CustomEvent",
+          "name": "data-point-clicked",
+          "description": "data-point-clicked\nFired when a marker for this data source was clicked\ndetail payload: Fieldnode",
+          "metadata": {}
+        },
         {
           "type": "CustomEvent",
           "name": "data-updated",

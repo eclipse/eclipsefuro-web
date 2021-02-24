@@ -87,11 +87,11 @@ class FuroUi5DataTable extends FBP(LitElement) {
       return;
     }
 
-    data.addEventListener('repeated-fields-added', ()=>{
+    data.addEventListener('repeated-fields-added', () => {
       this._FBPTriggerWire('--data', this.data);
     });
 
-    data.addEventListener('repeated-fields-removed', ()=>{
+    data.addEventListener('repeated-fields-removed', () => {
       this._FBPTriggerWire('--data', this.data);
     });
 

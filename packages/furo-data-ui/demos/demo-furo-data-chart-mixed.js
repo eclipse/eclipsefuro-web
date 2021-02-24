@@ -14,8 +14,6 @@ import '@furo/input';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/app/src/furo-card';
 
-
-
 /**
  * `demo-furo-data-chart`
  *
@@ -23,7 +21,6 @@ import '@furo/app/src/furo-card';
  * @appliesMixin FBP
  */
 class DemoFuroDataChartMixed extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -31,19 +28,21 @@ class DemoFuroDataChartMixed extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
-      :host {
-        display: block;
-        height: 100%;
-        padding-right: var(--spacing);
-      }
+    return (
+      Theme.getThemeForComponent(this.name) ||
+      css`
+        :host {
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
-    `;
+        :host([hidden]) {
+          display: none;
+        }
+      `
+    );
   }
-
 
   /**
    * @private
@@ -53,95 +52,108 @@ class DemoFuroDataChartMixed extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-vertical-flex>
-
         <div>
           <h2>Demo ...</h2>
           <p>Describe your demo</p>
         </div>
         <furo-demo-snippet flex>
-
           <template>
             <style>
               furo-card {
                 margin: 10px;
-
-              }</style>
+              }
+            </style>
 
             <furo-vertical-scroller>
-
               <furo-card header-text="Multiple Data Sources in one chart">
-              <furo-chart-display
-                                  chart-type="line"
-                                  title-text="Title"
-                                  title-align="center"
-                                  no-data-text="Press load data"
-                                  fixed-height="350"
-                                  tooltip
-                                  grid
-                                  legend
-                                  toolbar
-                                  toolbar-download
-
-              >
-
-
-                <furo-data-chart-binder
-                  ƒ-bind-data="--projectDAO(*.entities)"
-                  data-field="data.cost_limit.units"
-                  category-field="data.description"
-                  legend-label="Cost"
-                  chart-type="bar"
-                  chart-color="#cd00fb"
-                  chart-stroke-width="0"
-                  chart-curve="smooth"
-                  axis-label="Units"
-                  axis-label-opposite
-                  axis-ticks
-                  axis-ticks-color="#FEA555"
-                  axis-border
-                  axis-border-color="#FEA555"
-                  axis-label-color="#FEA232"
-                  axis-tooltip
-                ></furo-data-chart-binder>
-
-                <furo-data-chart-binder
-                  ƒ-bind-data="--projectDAO(*.entities)"
-                  data-field="data.cost_limit.units"
-                  category-field="data.description"
-                  legend-label="Unit"
-                  chart-stroke-width="4"
-                  chart-marker-size="12"
-                  chart-curve="stepline"
-                  axis-label="data.Unit._value"
-                  axis-border
-                  axis-tooltip
-                ></furo-data-chart-binder>
-
-                <furo-data-chart-binder
-                  ƒ-bind-data="--projectDAO(*.entities)"
-                  data-field="data.start.day"
-                  category-field="data.description"
-                  legend-label="Day"
-                  axis-label="Day"
-                  axis-ticks
-                  axis-border
-                  axis-tooltip
-                  chart-marker-size="1"
-                  x-chart-color="#cd00fb"
-                  chart-stroke-width="4"
-                  chart-curve="smooth"
-                  y-axis-ticks
-                  y-axis-border
-                  y-axis-border-color="#008FFB"
-                  y-axis-label-color="#008FFB"
+                <furo-chart-display
+                  chart-type="line"
+                  title-text="Title"
+                  title-align="center"
+                  no-data-text="Press load data"
+                  fixed-height="350"
                   tooltip
-                  opposite
-                ></furo-data-chart-binder>
-              </furo-chart-display>
+                  grid
+                  legend
+                  toolbar
+                  toolbar-download
+                >
 
-                <furo-button slot="action" label="load data" primary @-click="--btnListClicked"></furo-button>
+                  <furo-data-chart-binder
+                    ƒ-bind-data="--projectDAO(*.entities)"
+                    data-field="data.start.day"
+                    category-field="data.description"
+                    chart-type="bar"
+                    legend-label="Daxy"
+                    chart-curve="stepline"
+                  ></furo-data-chart-binder>
+
+
+                  <furo-data-chart-binder
+                    ƒ-bind-data="--projectDAO(*.entities)"
+                    data-field="data.cost_limit.units"
+                    category-field="data.description"
+                    chart-type="line"
+                    legend-label="Unit"
+                    chart-stroke-width="4"
+                    chart-curve="straight"
+                    axis-label="data.Unit._value"
+                    axis-border
+                    axis-tooltip
+                  ></furo-data-chart-binder>
+
+
+
+                  <furo-data-chart-binder
+                    ƒ-bind-data="--projectDAO(*.entities)"
+                    data-field="data.cost_limit.units"
+                    category-field="data.description"
+                    legend-label="Cost"
+                    chart-type="bar"
+                    chart-color="#FEA555"
+
+                    axis-label="Cost"
+                    axis-label-opposite
+                    axis-ticks
+                    axis-ticks-color="#FEA555"
+                    axis-border
+                    axis-border-color="#FEA555"
+                    axis-label-color="#FEA232"
+                    axis-tooltip
+                  ></furo-data-chart-binder>
+
+
+                  <furo-data-chart-binder
+                    ƒ-bind-data="--projectDAO(*.entities)"
+                    data-field="data.start.day"
+                    category-field="data.description"
+                    chart-type="area"
+                    legend-label="Day"
+                    axis-label="Day"
+                    axis-ticks
+                    axis-border
+                    axis-tooltip
+                    chart-marker-size="1"
+                    chart-color="#cd00fb"
+                    chart-stroke-width="4"
+                    chart-curve="smooth"
+                    y-axis-ticks
+                    y-axis-border
+                    y-axis-border-color="#008FFB"
+                    y-axis-label-color="#008FFB"
+                    tooltip
+                    opposite
+                  ></furo-data-chart-binder>
+
+                </furo-chart-display>
+
+                <furo-button
+                  slot="action"
+                  label="load data"
+                  primary
+                  @-click="--btnListClicked"
+                ></furo-button>
               </furo-card>
-
 
               <furo-deep-link
                 ƒ-trigger="--btnListClicked"
@@ -163,7 +175,6 @@ class DemoFuroDataChartMixed extends FBP(LitElement) {
                 @-object-ready="--projectDAO"
               >
               </furo-data-object>
-
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>
