@@ -13,6 +13,7 @@ import '@furo/data';
 import '@furo/input';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/app/src/furo-card';
+import '@furo/util/src/furo-pretty-json.js';
 
 
 /**
@@ -68,9 +69,12 @@ class DemoFuroDataChartMini extends FBP(LitElement) {
 float:left
               }</style>
 
-            <furo-vertical-scroller>
+            <furo-vertical-scroller @-data-point-clicked="--markerData"  >
 
-              <furo-card header-text="minbar :-)">
+              <furo-horizontal-flex>
+                <div flex>
+
+                <furo-card header-text="minbar :-)">
                 <furo-chart-display chart-type="bar"  fixed-height="170" sparkline>
                   <furo-data-chart-binder
                     ƒ-bind-data="--projectDAO(*.entities)"
@@ -117,7 +121,7 @@ float:left
                 </furo-chart-display>
               </furo-card>
              <furo-card header-text="radar">
-                <furo-chart-display chart-type="radar" sparkline fixed-height="170">
+                <furo-chart-display chart-type="radar" sparkline  fixed-height="170">
                   <furo-data-chart-binder
                     ƒ-bind-data="--projectDAO(*.entities)"
                     data-field="data.cost_limit.units"
@@ -224,8 +228,10 @@ float:left
               <br clear="all">
 
               <furo-button label="load data" primary @-click="--btnListClicked"></furo-button>
+                </div>
 
-
+              <furo-pretty-json style="width: 300px" ƒ-inject-data="--markerData(*._value)"></furo-pretty-json>
+              </furo-horizontal-flex>
               <furo-deep-link
                 ƒ-trigger="--btnListClicked"
                 service="ProjectService"

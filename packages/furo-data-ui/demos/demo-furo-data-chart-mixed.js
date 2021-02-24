@@ -11,7 +11,9 @@ import '@furo/data-ui/src/furo-catalog.js';
 
 import '@furo/data';
 import '@furo/input';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/app/src/furo-card';
+
 
 
 /**
@@ -70,19 +72,15 @@ class DemoFuroDataChartMixed extends FBP(LitElement) {
               <furo-card header-text="Multiple Data Sources in one chart">
               <furo-chart-display
                                   chart-type="line"
-                                  title-text="XYZ - Stock Analysis"
-                                  title-align="left"
-                                  title-offset-x="70"
-                                  no-data-text="Loading..."
+                                  title-text="Title"
+                                  title-align="center"
+                                  no-data-text="Press load data"
                                   fixed-height="350"
                                   tooltip
-                                  legend
                                   grid
-                                  legend-align="left"
-                                  legend-position="bottom"
-                                  legend-offset-x="70"
-                                  legend-offset-y="70"
+                                  legend
                                   toolbar
+                                  toolbar-download
 
               >
 
@@ -112,6 +110,7 @@ class DemoFuroDataChartMixed extends FBP(LitElement) {
                   category-field="data.description"
                   legend-label="Unit"
                   chart-stroke-width="4"
+                  chart-marker-size="12"
                   chart-curve="stepline"
                   axis-label="data.Unit._value"
                   axis-border

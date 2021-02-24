@@ -11,6 +11,7 @@ import '@furo/data-ui/src/furo-catalog.js';
 
 import '@furo/data';
 import '@furo/input';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/app/src/furo-card';
 
 

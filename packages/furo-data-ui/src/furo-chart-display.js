@@ -16,25 +16,38 @@ import ApexCharts from 'apexcharts/dist/apexcharts.esm.js';
  */
 class FuroChartDisplay extends FBP(LitElement) {
 
+  /**
+   * @event data-point-clicked
+   * Fired when a marker for this data source was clicked
+   * detail payload: Fieldnode
+   *
+   * Note: the event is fired from the furo-data-chart-binder
+   */
+
   constructor() {
     super();
     // set the defaults
     this.apexOptions = {
       series: [],
       yaxis: [],
+      noData: {
+        text: "No data.",
+        align: 'center',
+        verticalAlign: 'middle',
+        offsetX: 0,
+        offsetY: 0,
+        style: {
+          color: undefined,
+          fontSize: '14px',
+          fontFamily: undefined
+        }
+      },
       chart: {
         // height: 550,
         type: 'line',
         stacked: false,
         events: {
-          markerClick(event, chartContext, config) {
-            console.log(config);
-            // The last parameter config contains additional information like `seriesIndex` and `dataPointIndex` for cartesian charts
-          },
-        },
-        noData: {
 
-          text: 'Loading...',
         },
         toolbar: {
           show: false, // disable by default
@@ -80,6 +93,7 @@ class FuroChartDisplay extends FBP(LitElement) {
         position: 'bottom',
         horizontalAlign: 'left',
         offsetX: 0,
+        offsetY: 0,
       },
       plotOptions:{}
     };
@@ -99,22 +113,77 @@ class FuroChartDisplay extends FBP(LitElement) {
        *
        * pie donut polarArea radialBar can only consume 1 data series
        */
-      chartType: { type: String, attribute: 'chart-type' }, //line"
-      titleText: { type: String, attribute: 'title-text' }, //XYZ - Stock Analysis"
-      titleAlign: { type: String, attribute: 'title-align' }, //left"
-      titleOffsetX: { type: Number, attribute: 'title-offset-x' }, //70"
-      titleOffsetY: { type: Number, attribute: 'title-offset-y' }, //70"
-      noDataText: { type: String, attribute: 'no-data-text' }, //Loading..."
+      chartType: { type: String, attribute: 'chart-type' },
+      /**
+       * Set the title.
+       */
+      titleText: { type: String, attribute: 'title-text' },
+      /**
+       * Aligns the title. Possible values are 'left', 'center', 'right'
+       *
+       * Default is **left**
+       *
+       */
+      titleAlign: { type: String, attribute: 'title-align' },
+      /**
+       * Moves the title for n pixels on the x-axis from the alignment direction
+       */
+      titleOffsetX: { type: Number, attribute: 'title-offset-x' },
+      /**
+       * Moves the title for n pixels on the y-axis from the alignment direction
+       */
+      titleOffsetY: { type: Number, attribute: 'title-offset-y' },
+      /**
+       * Set the text to display, if no data is given.
+       *
+       * If this option is not set, the default is **No data.**
+       */
+      noDataText: { type: String, attribute: 'no-data-text' },
       stacked: { type: Boolean },
-      fixedHeight: { type: Number, attribute: 'fixed-height' }, //350"
+      /**
+       * Set a fixed height for the plot. Default is auto, this can be useful if you need to control the heights
+       */
+      fixedHeight: { type: Number, attribute: 'fixed-height' },
       tooltip: { type: Boolean },
+      /**
+       * Enables the legend on bottom left with offset 0:0
+       */
       legend: { type: Boolean },
+      /**
+       * Draw the horizontal grid lines
+       */
       grid: { type: Boolean },
-      legendAlign: { type: String, attribute: 'legend-align' }, //left"
-      legendPosition: { type: String, attribute: 'legend-position' }, //bottom"
-      legendOffsetX: { type: Number, attribute: 'legend-offset-x' }, //70"
-      legendOffsetY: { type: Number, attribute: 'legend-offset-y' }, //70"
+      /**
+       * Aligns the legend to `left` `center` `right`
+       *
+       * default is **left**
+       */
+      legendAlign: { type: String, attribute: 'legend-align' },
+      /**
+       * Set the position of the legend to `top`, `right`, `bottom`, `left`
+       *
+       * Default is **bottom**
+       */
+      legendPosition: { type: String, attribute: 'legend-position' },
+      /**
+       * Moves the legend in the **x** direction for n pixels from `legend-position`
+       */
+      legendOffsetX: { type: Number, attribute: 'legend-offset-x' },
+      /**
+       * Moves the legend in the **y** direction for n pixels from `legend-position`
+       */
+      legendOffsetY: { type: Number, attribute: 'legend-offset-y' },
+      /**
+       * Enables the toolbar
+       */
       toolbar: { type: Boolean },
+      /**
+       * Enables the download option in the toolbar (svg,csv,png)
+       */
+      toolbarDownload: { type: Boolean, attribute: 'toolbar-download' },
+      /**
+       * Enable this to draw the bars horizontally
+       */
       plotHorizontal: { type: Boolean , attribute: 'plot-horizontal' },
       /**
        * Hides all elements of the chart other than the primary graphic.
@@ -129,8 +198,38 @@ class FuroChartDisplay extends FBP(LitElement) {
     this.apexOptions.chart.sparkline.enabled = v;
   }
 
+  set noDataText(v) {
+    this.apexOptions.noData.text = v;
+  }
+
   set legend(v) {
     this.apexOptions.legend.show = v;
+  }
+
+  set legendAlign(v) {
+    this.apexOptions.legend.horizontalAlign = v;
+  }
+
+  set legendPosition(v) {
+    this.apexOptions.legend.position = v;
+  }
+
+  set legendOffsetX(v) {
+    this.apexOptions.legend.offsetX = v;
+  }
+
+  set legendOffsetY(v) {
+    this.apexOptions.legend.offsetY = v;
+  }
+
+
+  set toolbar(v) {
+    this.apexOptions.chart.toolbar.show = v;
+  }
+
+
+  set toolbarDownload(v) {
+    this.apexOptions.chart.toolbar.tools.download = v;
   }
 
 
@@ -189,9 +288,23 @@ class FuroChartDisplay extends FBP(LitElement) {
     super._FBPReady();
     // this._FBPTraceWires()
     // data sources
-    const dataSources = this.querySelectorAll('*');
+    this.dataSourceComponents = this.querySelectorAll('*');
     this.dataSeries = [];
-    dataSources.forEach((s, idx) => {
+
+    this.apexOptions.chart.events.dataPointSelection= ((e,context, config)=> {
+      // notify click
+      // The last parameter config contains additional information like `seriesIndex` and `dataPointIndex` for cartesian charts
+      this.dataSourceComponents[config.seriesIndex]._dataPointSelection(e,context, config)
+    });
+
+    this.apexOptions.chart.events.markerClick= ((e,context, config)=> {
+      // notify click
+      // The last parameter config contains additional information like `seriesIndex` and `dataPointIndex` for cartesian charts
+      this.dataSourceComponents[config.seriesIndex]._dataPointSelection(e,context, config)
+    });
+
+
+    this.dataSourceComponents.forEach((s, idx) => {
       // build the chart from underlying data sources
       this.apexOptions.yaxis[idx] = s.options;
       // apexcharts stroke.width option accepts array only for line and area charts. Reverted back to last given Number
