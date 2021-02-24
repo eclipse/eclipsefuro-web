@@ -4,9 +4,10 @@ import { axeReport } from 'pwa-helpers/axe-report.js';
 import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/testhelper/initEnv.js';
-import '../../src/standard-type-renderers/display-furo-reference.js';
+import '../../src/standard-type-renderers/display-google-type-date.js';
+import { Env } from '@furo/framework';
 
-describe('display-furo-reference', () => {
+describe('display-google-type-date', () => {
   let host;
   let display;
   let dao;
@@ -15,8 +16,10 @@ describe('display-furo-reference', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <display-furo-reference ƒ-bind-data="--dao(*.owner)"></display-furo-reference>
-          <furo-data-object type="task.Task" @-object-ready="--dao"></furo-data-object>
+          <display-google-type-date
+            ƒ-bind-data="--dao(*.furo_data_date_input_google)"
+          ></display-google-type-date>
+          <furo-data-object type="experiment.Experiment" @-object-ready="--dao"></furo-data-object>
         </template>
       </test-bind>
     `);
@@ -28,25 +31,30 @@ describe('display-furo-reference', () => {
     await dao.updateComplete;
   });
 
-  it('should be a display-furo-reference element', done => {
+  it('should be a display-google-type-date element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(display.nodeName.toLowerCase(), 'display-furo-reference');
+    assert.equal(display.nodeName.toLowerCase(), 'display-google-type-date');
     done();
   });
 
   it('should bind data', done => {
     setTimeout(() => {
-      assert.equal(display._field.display_name._value, '');
+      assert.equal(display._field.year._value, null);
+      assert.equal(display._field.month._value, null);
+      assert.equal(display._field.day._value, null);
+      assert.equal(display._formattedDateString, 'N/A');
       done();
     }, 0);
   });
 
   it('should show template according to the value of the data', done => {
+    Env.locale = 'de';
+    dao.injectRaw({ furo_data_date_input_google: { year: '2000', day: '12', month: '11' } });
     setTimeout(() => {
-      assert.equal(display._field.display_name._value, '');
-      assert.equal(display._displayValue, '');
+      assert.equal(display._formattedDateString, '12.11.2000');
+
       done();
-    }, 100);
+    }, 110);
   });
 
   // axeReport a11y tests

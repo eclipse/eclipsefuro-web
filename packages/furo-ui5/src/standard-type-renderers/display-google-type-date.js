@@ -16,7 +16,7 @@ import { Env } from '@furo/framework/src/furo.js';
  * @customElement
  * @demo demo display-google-type-date Basic Usage
  */
-class DisplayGoogleTypeDate extends LitElement {
+export class DisplayGoogleTypeDate extends LitElement {
   constructor() {
     super();
     this._field = undefined;
@@ -101,18 +101,14 @@ class DisplayGoogleTypeDate extends LitElement {
    * @private
    */
   static _convertDateToString(fieldNode) {
-    if (
-      !fieldNode ||
-      fieldNode.year._value === null ||
-      fieldNode.month._value === null ||
-      fieldNode.day._value === null
-    ) {
+    if (!fieldNode || !fieldNode.year._value || !fieldNode.month._value || !fieldNode.day._value) {
       return 'N/A';
     }
 
     const date = new Date(
       Date.UTC(fieldNode.year._value, fieldNode.month._value - 1, fieldNode.day._value, 0, 0, 0, 0),
     );
+
     return new Intl.DateTimeFormat([Env.locale, 'de-CH'], {
       year: 'numeric',
       month: '2-digit',

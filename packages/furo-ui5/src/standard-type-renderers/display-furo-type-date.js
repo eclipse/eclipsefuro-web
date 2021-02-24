@@ -1,5 +1,6 @@
-import { LitElement, html, css } from 'lit-element';
-import { Env } from '@furo/framework/src/furo.js';
+import { html } from 'lit-element';
+// eslint-disable-next-line import/named
+import { DisplayGoogleTypeDate } from './display-google-type-date.js';
 
 /**
  * `display-furo-type-date`
@@ -18,65 +19,7 @@ import { Env } from '@furo/framework/src/furo.js';
  * @customElement
  * @demo demo display-furo-type-date Basic Usage
  */
-class DisplayFuroTypeDate extends LitElement {
-  constructor() {
-    super();
-    this._field = undefined;
-    this._formattedDateString = '';
-  }
-
-  static get styles() {
-    // language=CSS
-    return [
-      css`
-        :host {
-          display: inline-block;
-          word-break: keep-all;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-        :host([disabled]) span {
-          opacity: var(--_ui5_input_disabled_opacity);
-        }
-        span {
-          margin: 0;
-          font-family: var(--sapFontFamily, '72');
-          color: var(--sapTextcolor, '#32363a');
-        }
-        span::first-line {
-          line-height: var(--_ui5_input_height, 36px);
-        }
-        :host([data-size='size-s']) span::first-line {
-          line-height: var(--sapElement_Compact_Height, 26px);
-        }
-
-        :host([data-size='size-l']),
-        :host([data-size='size-xl']) {
-          padding-top: 0.5rem;
-        }
-
-        :host([value-state='Positive']),
-        :host([value-state='Success']) {
-          color: var(--sapPositiveColor, #107e3e);
-        }
-        :host([value-state='Informative']),
-        :host([value-state='Information']) {
-          color: var(--sapInformativeColor, #0a6ed1);
-        }
-        :host([value-state='Negative']),
-        :host([value-state='Error']) {
-          color: var(--sapNegativeColor, #b00);
-        }
-        :host([value-state='Critical']),
-        :host([value-state='Warning']) {
-          color: var(--sapCrticalColor, #e9730c);
-        }
-      `,
-    ];
-  }
-
+class DisplayFuroTypeDate extends DisplayGoogleTypeDate {
   /**
    * Binds a field node to the component
    * @param fieldNode
@@ -102,50 +45,6 @@ class DisplayFuroTypeDate extends LitElement {
     }
   }
 
-  /**
-   * convert date object to String according to Intl DateTimeFormat
-   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat
-   * Example output: locale de-CH 31.12.2021
-   * @param date
-   * @returns {string}
-   * @private
-   */
-  static _convertDateToString(fieldNode) {
-    if (
-      !fieldNode ||
-      fieldNode.year._value === null ||
-      fieldNode.month._value === null ||
-      fieldNode.day._value === null
-    ) {
-      return 'N/A';
-    }
-
-    const date = new Date(
-      Date.UTC(fieldNode.year._value, fieldNode.month._value - 1, fieldNode.day._value, 0, 0, 0, 0),
-    );
-    return new Intl.DateTimeFormat([Env.locale, 'de-CH'], {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    }).format(date);
-  }
-
-  /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    return html`
-      <span>${this._formattedDateString}</span>
-    `;
-  }
-
-  /**
-   * render function
-   * @private
-   * @returns {TemplateResult|TemplateResult}
-   */
   render() {
     // language=HTML
     return html`

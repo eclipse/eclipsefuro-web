@@ -531,3 +531,19 @@ fields:
             repeated: false
             typespecific: null
         constraints: {}
+    furo_type_date:
+        type: furo.type.Date
+        description: furo date
+        __proto:
+            number: 27
+            oneof: ""
+        __ui: null
+        meta:
+            default: ""
+            hint: ""
+            label: "furo date"
+            options: null
+            readonly: false
+            repeated: false
+            typespecific: null
+        constraints: {}
