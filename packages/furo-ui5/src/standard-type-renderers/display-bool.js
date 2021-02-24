@@ -39,6 +39,11 @@ export class DisplayBool extends LitElement {
           display: none;
         }
 
+        :host([data-size='size-l']),
+        :host([data-size='size-xl']) {
+          padding-top: 0.5rem;
+        }
+
         ui5-icon[value-state='Positive'],
         ui5-icon[value-state='Success'] {
           color: var(--sapPositiveColor, #107e3e);
