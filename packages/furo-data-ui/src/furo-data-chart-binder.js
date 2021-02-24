@@ -138,26 +138,58 @@ class FuroDataChartBinder extends LitElement {
   }
 
 
+  /**
+   * Prepares the data for the according chart display
+   *
+   * some charts want 1 dimensional data (pie, donut) and others expect more dimensions (boxplot,...)
+   *
+   * @private
+   */
   _convertData() {
     this._initEmptySeries();
-    this.repeater.repeats.forEach(row => {
-      const v = { x: '', y: null };
-      if (this.categoryField && this._pathGet(row, this.categoryField)) {
-        v.x = this._pathGet(row, this.categoryField)._value;
-      }
-      if (this._pathGet(row, this.dataField)) {
-        v.y = this._pathGet(row, this.dataField)._value || null;
-      }
-      this.dataSeries.data.push(v);
-    });
+    console.log();
 
+    const graphType = this.parentElement.getAttribute('chart-type');
+
+
+    switch (graphType) {
+      case 'donut':
+      case 'radialBar':
+      case 'polarArea':
+      case 'pie':
+        this.repeater.repeats.forEach(row => {
+          if (this.categoryField && this._pathGet(row, this.categoryField)) {
+            this.categories.push(this._pathGet(row, this.categoryField)._value);
+          }else{
+            this.categories.push("");
+          }
+          if (this._pathGet(row, this.dataField)) {
+            this.dataSeries.data.push(this._pathGet(row, this.dataField)._value);
+          }else{
+            this.dataSeries.data.push(null);
+          }
+        });
+        break;
+      case 'line':
+      default:
+        this.repeater.repeats.forEach(row => {
+          const v = { x: '', y: null };
+          if (this.categoryField && this._pathGet(row, this.categoryField)) {
+            v.x = this._pathGet(row, this.categoryField)._value;
+          }
+          if (this._pathGet(row, this.dataField)) {
+            v.y = this._pathGet(row, this.dataField)._value || null;
+          }
+          this.dataSeries.data.push(v);
+        });
+    }
     /**
      * @event data-updated
      * Fired when datasource has updated data
      * detail payload: data-series
      */
     const customEvent = new Event('data-updated', { composed: true, bubbles: true });
-    customEvent.detail = this.dataSeries;
+    customEvent.detail = this;
     this.dispatchEvent(customEvent);
   }
 
