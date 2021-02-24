@@ -140,7 +140,14 @@ class FuroChartDisplay extends FBP(LitElement) {
        * If this option is not set, the default is **No data.**
        */
       noDataText: { type: String, attribute: 'no-data-text' },
+      /**
+       * WORK IN PROGRESS
+       */
       stacked: { type: Boolean },
+      /**
+       * Enable labels with data on every item.
+       */
+      dataLabels: { type: Boolean, attribute: 'data-labels' },
       /**
        * Set a fixed height for the plot. Default is auto, this can be useful if you need to control the heights
        */
@@ -208,6 +215,10 @@ class FuroChartDisplay extends FBP(LitElement) {
 
   set legend(v) {
     this.apexOptions.legend.show = v;
+  }
+
+  set dataLabels(v) {
+    this.apexOptions.dataLabels.enabled = v;
   }
 
   set tooltip(v) {
