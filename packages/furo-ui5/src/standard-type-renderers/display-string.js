@@ -39,6 +39,17 @@ export class DisplayString extends LitElement {
           color: var(--sapTextcolor, '#32363a');
           word-break: break-word;
         }
+        span::first-line {
+          line-height: var(--_ui5_input_height, 36px);
+        }
+        :host([data-size='size-s']) span::first-line {
+          line-height: var(--sapElement_Compact_Height, 26px);
+        }
+
+        :host([data-size='size-l']),
+        :host([data-size='size-xl']) {
+          padding-top: 0.5rem;
+        }
       `,
     ];
   }

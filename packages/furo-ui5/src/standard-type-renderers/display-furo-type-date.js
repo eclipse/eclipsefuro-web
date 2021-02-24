@@ -48,8 +48,13 @@ class DisplayFuroTypeDate extends LitElement {
         span::first-line {
           line-height: var(--_ui5_input_height, 36px);
         }
-        span[data-size='size-s']::first-line {
+        :host([data-size='size-s']) span::first-line {
           line-height: var(--sapElement_Compact_Height, 26px);
+        }
+
+        :host([data-size='size-l']),
+        :host([data-size='size-xl']) {
+          padding-top: 0.5rem;
         }
 
         :host([value-state='Positive']),

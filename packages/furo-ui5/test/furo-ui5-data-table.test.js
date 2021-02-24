@@ -279,7 +279,7 @@ describe('furo-ui5-data-table', () => {
     // initial data inject
     dao.injectRaw(mockdata);
 
-    dao.data.entities.addEventListener('this-repeated-field-changed', () => {
+    dao.data.entities.addEventListener('repeated-fields-changed', () => {
       setTimeout(() => {
         assert.equal(table.shadowRoot.querySelectorAll('furo-ui5-table-row').length, 5);
         done();

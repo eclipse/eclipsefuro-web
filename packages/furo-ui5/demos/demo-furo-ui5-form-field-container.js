@@ -28,6 +28,7 @@ import '@ui5/webcomponents/dist/Tab.js';
 import './helper/form-section-one.js';
 import './helper/form-section-two.js';
 import './helper/form-section-three.js';
+import './helper/form-section-four.js';
 
 /**
  * `demo-furo-ui5-form-field-container`
@@ -88,6 +89,7 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
               <ui5-tab text="First Section" data-id="one" selected></ui5-tab>
               <ui5-tab text="Second Section" data-id="two"></ui5-tab>
               <ui5-tab text="Third Section" data-id="three"></ui5-tab>
+              <ui5-tab text="Read Only Section" data-id="four"></ui5-tab>
             </ui5-tabcontainer>
           </ui5-panel>
 
@@ -110,6 +112,11 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
                 ƒ-inject-entity="--entity"
                 ƒ-disable="--disable"
               ></form-section-three>
+              <form-section-four
+                name="four"
+                ƒ-inject-entity="--entity"
+                ƒ-disable="--disable"
+              ></form-section-four>
             </furo-pages>
           </div>
 
