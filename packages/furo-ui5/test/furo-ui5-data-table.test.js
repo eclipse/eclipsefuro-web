@@ -298,7 +298,7 @@ describe('furo-ui5-data-table', () => {
           'No data available. Click on load test data',
         );
         done();
-      }, 332);
+      }, 32);
     },{once:true});
     dao.data.entities.removeAllChildren();
   });
