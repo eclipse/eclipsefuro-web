@@ -134,6 +134,23 @@ class FuroDataChartBinder extends LitElement {
     } else {
       console.warn('Please bind a repeater node', this);
     }
+  }
+
+
+
+  _dataPointSelection(e,context, config) {
+
+    if(config.dataPointIndex!==undefined){
+      /**
+      * @event data-point-clicked
+      * Fired when a marker for this data source was clicked
+      * detail payload: Fieldnode
+      */
+      const customEvent = new Event('data-point-clicked', {composed:true, bubbles: true});
+      customEvent.detail = this.repeater.repeats[config.dataPointIndex];
+      this.dispatchEvent(customEvent)
+
+    }
 
   }
 
