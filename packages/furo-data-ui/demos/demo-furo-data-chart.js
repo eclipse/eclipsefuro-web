@@ -63,36 +63,159 @@ class DemoFuroDataChart extends FBP(LitElement) {
               furo-card {
                 margin: 10px;
                 width: 200px;
+                height: 250px;
 float:left
               }</style>
 
             <furo-vertical-scroller>
+
               <furo-card header-text="minbar :-)">
-                <furo-chart-display chart-type="bar">
+                <furo-chart-display chart-type="bar" sparkline>
                   <furo-data-chart-binder
                     ƒ-bind-data="--projectDAO(*.entities)"
-                    data-field="data.cost_limit.nanos"
+                    data-field="data.cost_limit.units"
+                    category-field="data.description"
                   ></furo-data-chart-binder>
                 </furo-chart-display>
               </furo-card>
 
              <furo-card header-text="minline">
-                <furo-chart-display chart-type="line">
+                <furo-chart-display chart-type="line" sparkline>
                   <furo-data-chart-binder
                     ƒ-bind-data="--projectDAO(*.entities)"
-                    data-field="data.start.day"
+                    data-field="data.cost_limit.units"
+                    category-field="data.description"
                   ></furo-data-chart-binder>
                 </furo-chart-display>
               </furo-card>
              <furo-card header-text="radar">
-                <furo-chart-display chart-type="radar">
+                <furo-chart-display chart-type="radar" sparkline fixed-height="170">
                   <furo-data-chart-binder
                     ƒ-bind-data="--projectDAO(*.entities)"
-                    data-field="data.start.day"
+                    data-field="data.cost_limit.units"
                   ></furo-data-chart-binder>
                 </furo-chart-display>
               </furo-card>
+
+             <furo-card header-text="radialBar">
+                <furo-chart-display chart-type="radialBar" sparkline>
+                  <furo-data-chart-binder
+                    ƒ-bind-data="--projectDAO(*.entities)"
+                    chart-stroke-width="6"
+                    data-field="data.end.day"
+                  ></furo-data-chart-binder>
+                </furo-chart-display>
+              </furo-card>
+
+
+              <furo-card header-text="bar horizontal">
+                <furo-chart-display chart-type="bar" plot-horizontal sparkline>
+                  <furo-data-chart-binder
+                    ƒ-bind-data="--projectDAO(*.entities)"
+                    data-field="data.cost_limit.units"
+                    category-field="data.description"
+                  ></furo-data-chart-binder>
+                </furo-chart-display>
+              </furo-card>
+
+              <furo-card header-text="pie">
+                <furo-chart-display chart-type="pie" sparkline>
+                  <furo-data-chart-binder
+                    ƒ-bind-data="--projectDAO(*.entities)"
+                    data-field="data.cost_limit.units"
+                    category-field="data.description"
+                  ></furo-data-chart-binder>
+                </furo-chart-display>
+              </furo-card>
+
+              <furo-card header-text="donut">
+                <furo-chart-display chart-type="donut" sparkline>
+                  <furo-data-chart-binder
+                    ƒ-bind-data="--projectDAO(*.entities)"
+                    data-field="data.cost_limit.units"
+                    category-field="data.description"
+                  ></furo-data-chart-binder>
+                </furo-chart-display>
+              </furo-card>
+
+              <furo-card header-text="polarArea">
+                <furo-chart-display chart-type="polarArea" sparkline>
+                  <furo-data-chart-binder
+                    ƒ-bind-data="--projectDAO(*.entities)"
+                    data-field="data.cost_limit.units"
+                    category-field="data.description"
+                  ></furo-data-chart-binder>
+                </furo-chart-display>
+              </furo-card>
+
+ <furo-card header-text="area  colored">
+                <furo-chart-display chart-type="area" sparkline>
+                  <furo-data-chart-binder
+                    chart-stroke-width="4"
+                    chart-color="#FEA234"
+                    ƒ-bind-data="--projectDAO(*.entities)"
+                    data-field="data.cost_limit.units"
+                    category-field="data.description"
+                  ></furo-data-chart-binder>
+                </furo-chart-display>
+              </furo-card>
+
+
+ <furo-card header-text="area">
+                <furo-chart-display chart-type="area" sparkline>
+                  <furo-data-chart-binder
+                    ƒ-bind-data="--projectDAO(*.entities)"
+                    data-field="data.cost_limit.units"
+                    category-field="data.description"
+                  ></furo-data-chart-binder>
+                </furo-chart-display>
+              </furo-card>
+
+
+
               <br clear="all">
+
+              <furo-button label="load data" primary @-click="--btnListClicked"></furo-button>
+
+              <furo-chart-display
+                chart-type="scatter"
+                title-text="XYZ - Stock Analysis"
+                title-align="left"
+                title-offset-x="70"
+                no-data-text="Loading..."
+                fixed-height="350"
+                tooltip
+                legend
+                grid
+                legend-align="left"
+                legend-position="bottom"
+                legend-offset-x="70"
+                legend-offset-y="70"
+                toolbar
+
+              >
+
+
+                <furo-data-chart-binder
+                  ƒ-bind-data="--projectDAO(*.entities)"
+                  data-field="data.cost_limit.units"
+                  category-field="data.description"
+                  legend-label="Cost"
+
+                  chart-color="#cd00fb"
+                  chart-stroke-width="6"
+                  chart-curve="smooth"
+                  axis-label="Units"
+                  axis-label-opposite
+                  axis-ticks
+                  axis-ticks-color="#FEA555"
+                  axis-border
+                  axis-border-color="#FEA555"
+                  axis-label-color="#FEA232"
+                  axis-tooltip
+                ></furo-data-chart-binder>
+
+              </furo-chart-display>
 
               <furo-chart-display
                                   chart-type="line"
@@ -100,7 +223,6 @@ float:left
                                   title-align="left"
                                   title-offset-x="70"
                                   no-data-text="Loading..."
-
                                   fixed-height="350"
                                   tooltip
                                   legend
@@ -116,14 +238,14 @@ float:left
 
                 <furo-data-chart-binder
                   ƒ-bind-data="--projectDAO(*.entities)"
-                  data-field="data.cost_limit.nanos"
+                  data-field="data.cost_limit.units"
                   category-field="data.description"
                   legend-label="Cost"
-
+                  chart-type="bar"
                   chart-color="#cd00fb"
                   chart-stroke-width="6"
                   chart-curve="smooth"
-                  axis-label="Nanos"
+                  axis-label="Units"
                   axis-label-opposite
                   axis-ticks
                   axis-ticks-color="#FEA555"

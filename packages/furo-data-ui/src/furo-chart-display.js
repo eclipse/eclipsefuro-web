@@ -47,7 +47,7 @@ class FuroChartDisplay extends FBP(LitElement) {
         },
         sparkline: {
           enabled: false,
-        }
+        },
       },
       grid: {
         show: false, // https://apexcharts.com/docs/options/grid/
@@ -61,7 +61,7 @@ class FuroChartDisplay extends FBP(LitElement) {
         align: 'left',
         // offsetX: 70,
       },
-       stroke: {},
+      stroke: {},
 
       tooltip: {
 
@@ -73,11 +73,12 @@ class FuroChartDisplay extends FBP(LitElement) {
         },
       },
       legend: {
-        show:false,
+        show: false,
         position: 'bottom',
         horizontalAlign: 'left',
         offsetX: 0,
       },
+      plotOptions:{}
     };
   }
 
@@ -111,46 +112,62 @@ class FuroChartDisplay extends FBP(LitElement) {
       legendOffsetX: { type: Number, attribute: 'legend-offset-x' }, //70"
       legendOffsetY: { type: Number, attribute: 'legend-offset-y' }, //70"
       toolbar: { type: Boolean },
+      plotHorizontal: { type: Boolean , attribute: 'plot-horizontal' },
+      /**
+       * Hides all elements of the chart other than the primary graphic.
+       * Use this to visualize data in very small areas.
+       */
+      sparkline: { type: Boolean },
     };
   }
 
-  set legend(v){
+  // https://apexcharts.com/docs/options/chart/sparkline/
+  set sparkline(v) {
+    this.apexOptions.chart.sparkline.enabled = v;
+  }
+
+  set legend(v) {
     this.apexOptions.legend.show = v;
   }
 
 
-  set grid(v){
+  set plotHorizontal(v) {
+    this.apexOptions.plotOptions.bar = { horizontal:true } ;
+  }
+
+
+  set grid(v) {
     this.apexOptions.grid.show = v;
   }
 
 
-  set chartType(v){
+  set chartType(v) {
     this.apexOptions.chart.type = v;
   }
 
 
-  set stacked(v){
+  set stacked(v) {
     this.apexOptions.chart.stacked = v;
   }
 
 
-  set titleText(v){
+  set titleText(v) {
     this.apexOptions.title.text = v;
   }
 
-  set titleAlign(v){
+  set titleAlign(v) {
     this.apexOptions.title.align = v;
   }
 
-  set titleOffsetX(v){
+  set titleOffsetX(v) {
     this.apexOptions.title.offsetX = v;
   }
 
-  set titleOffsetY(v){
+  set titleOffsetY(v) {
     this.apexOptions.title.offsetY = v;
   }
 
-  set fixedHeight(v){
+  set fixedHeight(v) {
     this.apexOptions.chart.height = v;
   }
 
@@ -175,21 +192,21 @@ class FuroChartDisplay extends FBP(LitElement) {
       // build the chart from underlying data sources
       this.apexOptions.yaxis[idx] = s.options;
       // apexcharts stroke.width option accepts array only for line and area charts. Reverted back to last given Number
-     if(this.apexOptions.chart.type === "line" || this.apexOptions.chart.type === "area"){
-        if(!this.apexOptions.stroke.width){
-          this.apexOptions.stroke.width = []
+      if (this.apexOptions.chart.type === 'line' || this.apexOptions.chart.type === 'area') {
+        if (!this.apexOptions.stroke.width) {
+          this.apexOptions.stroke.width = [];
         }
-        this.apexOptions.stroke.width.push(s.strokeWidth)
-       if(!this.apexOptions.markers){
-          this.apexOptions.markers = {size:[]}
+        this.apexOptions.stroke.width.push(s.strokeWidth);
+        if (!this.apexOptions.markers) {
+          this.apexOptions.markers = { size: [] };
         }
-        this.apexOptions.markers.size.push(s.markerSize)
-      }else{
-       this.apexOptions.stroke.width = s.strokeWidth;
-     }
+        this.apexOptions.markers.size.push(s.markerSize);
+      } else {
+        this.apexOptions.stroke.width = s.strokeWidth;
+      }
 
-      if(!this.apexOptions.stroke.curve){
-        this.apexOptions.stroke.curve = []
+      if (!this.apexOptions.stroke.curve) {
+        this.apexOptions.stroke.curve = [];
       }
       this.apexOptions.stroke.curve.push(s.strokeCurve);
 
@@ -197,13 +214,25 @@ class FuroChartDisplay extends FBP(LitElement) {
       this.dataSeries[idx] = s.dataSeries;
 
       s.addEventListener('data-updated', (event) => {
-        this.dataSeries[idx] = event.detail;
-        this.chart.updateSeries(this.dataSeries);
+        switch (this.apexOptions.chart.type) {
+          case 'radialBar':
+          case 'polarArea':
+          case 'donut':
+          case 'pie':
+            this.chart.updateOptions({ labels: event.detail.categories})
+            this.chart.updateSeries(event.detail.dataSeries.data);
+            break;
+          default:
+            this.dataSeries[idx] = event.detail.dataSeries;
+            this.chart.updateSeries(this.dataSeries);
+
+        }
+
       });
 
     });
 
-      this._initChart(this.apexOptions);
+    this._initChart(this.apexOptions);
   }
 
   /**

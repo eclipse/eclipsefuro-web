@@ -63,7 +63,7 @@
           "currency_code": "CHF",
           "display_name": "CHF 15'000.00",
           "nanos": 0,
-          "units": 150000
+          "units": 15000
         },
         "description": "Build Documentation",
         "display_name": "Build documentation CHF 15'000.00",
