@@ -3,12 +3,12 @@
     "id": "3",
     "cost_limit": {
       "currency_code": "CHF",
-      "display_name": "CHF 9'000.00",
-      "nanos": 150000,
-      "units": 0
+      "display_name": "CHF 9'000.90",
+      "nanos": 900000,
+      "units": 9000
     },
     "description": "Evaluate new build system",
-    "display_name": "Simple WebApp Project, CHF 9'000.00",
+    "display_name": "Simple WebApp Project, CHF 9'000.90",
     "end": {
       "day": 31,
       "display_name": "31.12.2020",
@@ -17,12 +17,16 @@
     },
     "members": [
       {
-        "display_name": "John Doe, +41783332244",
+        "display_name": "John Doe",
         "first_name": "John",
-        "id": "1",
         "name": "Doe",
-        "phone_nr": "+41783332244",
-        "skills": []
+        "phone_nr": "+41789996655",
+        "skills": [
+          "GO",
+          "Java",
+          "Kotlin",
+          "JS"
+        ]
       }
     ],
     "start": {

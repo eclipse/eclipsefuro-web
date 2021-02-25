@@ -9,6 +9,7 @@ import '@furo/ui5/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-data-object.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
+import '@furo/data/src/furo-collection-agent.js';
 import '@furo/data/src/furo-entity-agent.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-deep-link.js';
