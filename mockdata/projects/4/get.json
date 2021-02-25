@@ -4,8 +4,8 @@
     "cost_limit": {
       "currency_code": "CHF",
       "display_name": "CHF 5'000.00",
-      "nanos": 5000,
-      "units": 0
+      "nanos": 0,
+      "units": 5000
     },
     "description": "Update components",
     "display_name": "Update components, CHF 5'000.00",

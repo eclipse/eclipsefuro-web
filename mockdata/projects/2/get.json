@@ -4,8 +4,8 @@
     "cost_limit": {
       "currency_code": "CHF",
       "display_name": "CHF 15'000.00",
-      "nanos": 150000,
-      "units": 0
+      "nanos": 0,
+      "units": 15000
     },
     "description": "Build Documentation",
     "display_name": "Build documentation CHF 15'000.00",

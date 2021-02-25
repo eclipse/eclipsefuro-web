@@ -10,7 +10,7 @@ import '@furo/ui5/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-data-object.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-entity-agent.js';
+import '@furo/data/src/furo-collection-agent.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data/src/furo-deep-link.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -118,15 +118,6 @@ class DemoFuroUi5DataTableTmpl extends FBP(LitElement) {
       >
       </furo-collection-agent>
 
-      <furo-data-object type="task.Task" @-object-ready="--entityTaskReady"></furo-data-object>
-      <furo-collection-agent
-        service="PersonService"
-        ƒ-hts-in="--entityTaskReady(*.owner.link._value)"
-        list-on-hts-in
-        ƒ-search="--term"
-        @-response="--refCol"
-      >
-      </furo-collection-agent>
       </template>
       </furo-demo-snippet>
     `;
