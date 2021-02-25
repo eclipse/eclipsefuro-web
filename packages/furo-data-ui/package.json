@@ -1,7 +1,7 @@
 {
   "name": "@furo/data-ui",
   "description": "Visual furo-data compatible components",
-  "version": "1.4.9",
+  "version": "1.4.10",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-data-ui",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -28,18 +28,18 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/data": "^1.18.1",
-    "@furo/fbp": "^5.3.9",
-    "@furo/framework": "^1.5.9",
+    "@furo/data": "^1.18.2",
+    "@furo/fbp": "^5.3.10",
+    "@furo/framework": "^1.5.10",
     "lit-element": "^2.3.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data-input": "^1.11.3",
-    "@furo/input": "^1.6.3",
-    "@furo/specs": "^1.20.1",
-    "@furo/util": "^1.4.10",
+    "@furo/data-input": "^1.11.4",
+    "@furo/input": "^1.6.4",
+    "@furo/specs": "^1.20.2",
+    "@furo/util": "^1.4.11",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",

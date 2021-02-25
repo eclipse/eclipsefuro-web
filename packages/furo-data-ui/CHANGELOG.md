@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.9...@furo/data-ui@1.4.10) (2021-02-25)
+
+
+### Bug Fixes
+
+* disabled state ([15eceab](https://github.com/theNorstroem/FuroBaseComponents/commit/15eceab60983c7fd81b26552b02f5f1303ff9936))
+* repeat fallback with furo-data-repeat ([ef92118](https://github.com/theNorstroem/FuroBaseComponents/commit/ef92118b3934a457d02b891b71f01a347b08deae))
+
+
+
+
+
 ## [1.4.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.8...@furo/data-ui@1.4.9) (2021-02-12)
 
 **Note:** Version bump only for package @furo/data-ui
