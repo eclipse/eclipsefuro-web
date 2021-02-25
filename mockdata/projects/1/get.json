@@ -17,11 +17,23 @@
     },
     "members": [
       {
-        "display_name": "John Doe, +41783332244",
+        "display_name": "John Doe",
         "first_name": "John",
-        "id": "1",
         "name": "Doe",
-        "phone_nr": "+41783332244",
+        "phone_nr": "+41789996655",
+        "skills": [
+          "GO",
+          "Java",
+          "Kotlin",
+          "JS"
+        ]
+      },
+      {
+        "display_name": "Tari Sakota",
+        "first_name": "Tari",
+        "id": "2",
+        "name": "Sakota",
+        "phone_nr": "+41791532244",
         "skills": []
       }
     ],

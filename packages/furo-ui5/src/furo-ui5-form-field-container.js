@@ -168,6 +168,10 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
           padding-top: 0.5rem;
         }
 
+        :host([disabled]) ::slotted(*[content]) {
+          opacity: var(--_ui5_input_disabled_opacity);
+        }
+
         ::slotted(*[content][data-size*='size-s']) {
           grid-column: span 12;
           width: 100%;
