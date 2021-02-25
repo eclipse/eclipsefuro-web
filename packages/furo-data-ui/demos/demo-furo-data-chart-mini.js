@@ -242,6 +242,11 @@ class DemoFuroDataChartMini extends FBP(LitElement) {
                   <br clear="all" />
 
                   <furo-button label="load data" primary @-click="--btnListClicked"></furo-button>
+                  <furo-button
+                    label="change loaded data"
+                    primary
+                    @-click="--changeDataClicked"
+                  ></furo-button>
                 </div>
 
                 <furo-pretty-json
@@ -257,6 +262,7 @@ class DemoFuroDataChartMini extends FBP(LitElement) {
               <furo-collection-agent
                 service="ProjectService"
                 ƒ-hts-in="--hts"
+                ƒ-list="--changeDataClicked"
                 list-on-hts-in
                 @-response-hts-updated="--responseHts"
                 @-response="--collectionResponse"

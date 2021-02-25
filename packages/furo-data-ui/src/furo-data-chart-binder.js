@@ -4,9 +4,27 @@ import { LitElement, css } from 'lit-element';
  * `furo-data-chart-binder`
  *  Connects data objects (repeaterNodes) with the charting lib.
  *
+ *  Use multiple binders if you need more then one series per chart.
+ *
+ *  ```html
+ *  <furo-chart-display chart-type="bar">
+ *     <furo-data-chart-binder
+ *         ƒ-bind-data="--projectDAO(*.entities)"
+ *         data-field="data.cost_limit.units"
+ *         category-field="data.description"
+ *     ></furo-data-chart-binder>
+ *  </furo-chart-display>
+ *  ```
+ *
  * @summary connect data to a chart
  * @customElement
- * @demo demo-furo-data-chart
+ * @demo demo-furo-data-chart-mini Small Charts
+ * @demo demo-furo-data-chart Basic Usage
+ * @demo demo-furo-data-chart-mixed Mixed Charts
+ * @demo demo-furo-data-chart-stacked Stacked Charts
+ * @demo demo-furo-data-chart-timeline Timeline Chart
+ * @demo demo-furo-data-chart-treemap Treemap
+ * @demo demo-furo-data-chart-bubble Bubble
  * @appliesMixin FBP
  */
 class FuroDataChartBinder extends LitElement {
@@ -58,25 +76,75 @@ class FuroDataChartBinder extends LitElement {
    */
   static get properties() {
     return {
+      /**
+       * Define the data field or fields here. For most charts this is **the y axis**.
+       *
+       * Some charts requires more then one data field (i.e. bubbles want at least 3 fields `data-field="data.start.day, data.end.day, data.start.day"` ).
+       */
       dataField: { type: String, attribute: 'data-field' },
+      /**
+       * Define the category field here (only 1 field). You can think of this as it is the x axis for your chart.
+       */
       categoryField: { type: String, attribute: 'category-field' },
+      /**
+       * Label the Series for the legend. This text is also shown on the tooltips. This is useful when you have more then one data series.
+       */
       legendLabel: { type: String, attribute: 'legend-label' },
       /**
-       * Use this for mixed charts
-       * Specify the default type on the display and set the custom type on this binder
+       * **Use this for mixed charts scenarios only**, prefer to define the chart-type on the chart-display.
+       * Specify the default type on the display and set the custom type on this binder.
+       *
        */
       chartType: { type: String, attribute: 'chart-type' },
+      /**
+       * If you need to give an explicit color for the series you can use this attribute.
+       */
       chartColor: { type: String, attribute: 'chart-color' },
+      /**
+       * Put the axis label on the opposite site (usually right)
+       */
       axisLabelOpposite: { type: Boolean, attribute: 'axis-label-opposite' },
+      /**
+       * Text for the y axis
+       */
       axisLabel: { type: String, attribute: 'axis-label' },
+      /**
+       * Custom color for the y axis description text
+       */
       axisLabelColor: { type: String, attribute: 'axis-label-color' },
+      /**
+       * Show a border on the right side of the y axis descriptions and labels.
+       */
       axisBorder: { type: Boolean, attribute: 'axis-border' },
+      /**
+       * Custom color for the border.
+       */
       axisBorderColor: { type: String, attribute: 'axis-border-color' },
+      /**
+       * Show tick marks on the y axis.
+       */
       axisTicks: { type: Boolean, attribute: 'axis-ticks' },
+      /**
+       * Show a tooltip with the current value while hovering.
+       */
       axisTooltip: { type: Boolean, attribute: 'axis-tooltip' },
+      /**
+       * Custom color for the ticks
+       */
       axisTicksColor: { type: String, attribute: 'axis-ticks-color' },
+      /**
+       * Define the curve style for line and area charts.
+       *
+       *  Possible values: 'smooth', 'straight',  'stepline'
+       */
       strokeCurve: { type: String, attribute: 'chart-curve' },
+      /**
+       * Define the thickness of the lines in px.
+       */
       strokeWidth: { type: Number, attribute: 'chart-stroke-width' },
+      /**
+       * Set the size of the markers (hover state) in px.
+       */
       markerSize: { type: Number, attribute: 'chart-marker-size' },
 
       xaxis: { type: String },

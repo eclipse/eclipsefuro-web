@@ -5,7 +5,9 @@ import ApexCharts from 'apexcharts/dist/apexcharts.esm.js';
 
 /**
  * `furo-chart-display`
- *  Component to display charts with apex charts(https://github.com/apexcharts/apexcharts.js).
+ *  Component to display charts with apex the apex charts lib (https://github.com/apexcharts/apexcharts.js).
+ *
+ *  Use `furo-data-chart-binder` to connect your data.
  *
  *  ```html
  *  <furo-chart-display chart-type="bar">
@@ -18,7 +20,7 @@ import ApexCharts from 'apexcharts/dist/apexcharts.esm.js';
  *  ```
  *
  *
- * @summary Display charts
+ * @summary Display charts with data objects
  * @customElement
  * @demo demo-furo-data-chart-mini Small Charts
  * @demo demo-furo-data-chart Basic Usage

@@ -109,6 +109,11 @@ class DemoFuroDataChart extends FBP(LitElement) {
                   primary
                   @-click="--btnListClicked"
                 ></furo-button>
+                <furo-button
+                  label="change loaded data"
+                  primary
+                  @-click="--changeDataClicked"
+                ></furo-button>
               </furo-card>
               <furo-deep-link
                 ƒ-trigger="--btnListClicked"
@@ -118,6 +123,7 @@ class DemoFuroDataChart extends FBP(LitElement) {
               <furo-collection-agent
                 service="ProjectService"
                 ƒ-hts-in="--hts"
+                ƒ-list="--changeDataClicked"
                 list-on-hts-in
                 @-response-hts-updated="--responseHts"
                 @-response="--collectionResponse"

@@ -90,12 +90,14 @@ class DemoFuroDataChartBubble extends FBP(LitElement) {
                   ></furo-data-chart-binder>
                 </furo-chart-display>
 
-                <furo-button
-                  slot="action"
-                  label="load data"
-                  primary
-                  @-click="--btnListClicked"
-                ></furo-button>
+                <div slot="action">
+                  <furo-button label="load data" primary @-click="--btnListClicked"></furo-button>
+                  <furo-button
+                    label="change loaded data"
+                    primary
+                    @-click="--changeDataClicked"
+                  ></furo-button>
+                </div>
               </furo-card>
 
               <furo-deep-link
@@ -106,6 +108,7 @@ class DemoFuroDataChartBubble extends FBP(LitElement) {
               <furo-collection-agent
                 service="ProjectService"
                 ƒ-hts-in="--hts"
+                ƒ-list="--changeDataClicked"
                 list-on-hts-in
                 @-response-hts-updated="--responseHts"
                 @-response="--collectionResponse"
