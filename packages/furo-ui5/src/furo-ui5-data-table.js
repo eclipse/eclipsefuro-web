@@ -169,11 +169,13 @@ class FuroUi5DataTable extends FBP(LitElement) {
     this._popinFields = this.popinFields.replace(/ /g, '').split(',');
 
     this._colStyle = [];
+    this.__colStyle = [];
     const _col = [];
-    cols.forEach(e => {
+    cols.forEach((e, index) => {
       const arr = e.split('|');
       _col.push(arr[0]);
       this._colStyle[arr[0]] = arr[1] ? arr[1] : 'Infinity';
+      this.__colStyle[index] = arr[1] ? arr[1] : 'Infinity';
     });
 
     if (this._headers.length > 1) {
@@ -250,8 +252,12 @@ class FuroUi5DataTable extends FBP(LitElement) {
     field.colHeaderText = obj.text;
     field.right = obj.right;
     field.center = obj.center;
-
-    const sObj = this._parseWidth(this._colStyle[index]);
+    let sObj;
+    if (this._headers.length > 1) {
+      sObj = this._parseWidth(this._colStyle[index]);
+    } else {
+      sObj = this._parseWidth(this.__colStyle[index]);
+    }
     field.colMinWidth = sObj.minWidth;
     field.style = sObj.style;
 
@@ -361,12 +367,10 @@ class FuroUi5DataTable extends FBP(LitElement) {
 
       ui5-table-column[center]::part(column) {
         text-align: center;
-        line-height: 2.5rem;
       }
 
       ui5-table-column[right]::part(column) {
         text-align: right;
-        line-height: 2.5rem;
       }
     `;
   }
