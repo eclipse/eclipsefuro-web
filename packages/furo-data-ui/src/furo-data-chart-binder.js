@@ -2,9 +2,9 @@ import { LitElement, css } from 'lit-element';
 
 /**
  * `furo-data-chart-binder`
- * todo Describe your element
+ *  Connects data objects (repeaterNodes) with the charting lib.
  *
- * @summary todo shortdescription
+ * @summary connect data to a chart
  * @customElement
  * @demo demo-furo-data-chart
  * @appliesMixin FBP
@@ -61,6 +61,10 @@ class FuroDataChartBinder extends LitElement {
       dataField: { type: String, attribute: 'data-field' },
       categoryField: { type: String, attribute: 'category-field' },
       legendLabel: { type: String, attribute: 'legend-label' },
+      /**
+       * Use this for mixed charts
+       * Specify the default type on the display and set the custom type on this binder
+       */
       chartType: { type: String, attribute: 'chart-type' },
       chartColor: { type: String, attribute: 'chart-color' },
       axisLabelOpposite: { type: Boolean, attribute: 'axis-label-opposite' },
@@ -153,7 +157,7 @@ class FuroDataChartBinder extends LitElement {
     this._initEmptySeries();
 
     const graphType = this.parentElement.getAttribute('chart-type');
-
+    const dataFields = this.dataField.replace(/ /g,'').split(',')
     switch (graphType) {
       case 'donut':
       case 'radialBar':
@@ -166,8 +170,8 @@ class FuroDataChartBinder extends LitElement {
           } else {
             this.categories.push('');
           }
-          if (this._pathGet(row, this.dataField)) {
-            this.dataSeries.data.push(this._pathGet(row, this.dataField)._value);
+          if (this._pathGet(row, dataFields[0])) {
+            this.dataSeries.data.push(this._pathGet(row, dataFields[0])._value);
           } else {
             this.dataSeries.data.push(null);
           }
@@ -180,9 +184,25 @@ class FuroDataChartBinder extends LitElement {
           if (this.categoryField && this._pathGet(row, this.categoryField)) {
             v.x = this._pathGet(row, this.categoryField)._value;
           }
-          if (this._pathGet(row, this.dataField)) {
-            v.y = this._pathGet(row, this.dataField)._value || null;
+          if (dataFields.length === 1){
+            if(this._pathGet(row, dataFields[0])) {
+              v.y = this._pathGet(row, this.dataField)._value;
+            }else{
+              v.y = null;
+            }
           }
+          // build multidimensional data
+          if (dataFields.length > 1){
+            v.y = [];
+            dataFields.forEach(field=>{
+              if(this._pathGet(row, field)) {
+                v.y.push(this._pathGet(row, field)._value);
+              }else{
+                v.y.push(null);
+              }
+            })
+          }
+
           this.dataSeries.data.push(v);
         });
     }

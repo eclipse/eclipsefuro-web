@@ -5,6 +5,8 @@ import './demo-furo-data-table-row-selection.js';
 import './demo-furo-data-chart.js';
 import './demo-furo-data-chart-mini.js';
 import './demo-furo-data-chart-mixed.js';
+import './demo-furo-data-chart-stacked.js';
+import './demo-furo-data-chart-timeline.js';
 
 import { Init } from '@furo/framework/src/furo.js';
 

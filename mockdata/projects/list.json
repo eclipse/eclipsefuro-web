@@ -5,9 +5,9 @@
         "id": "1",
         "cost_limit": {
           "currency_code": "CHF",
-          "display_name": "CHF 150'000.00",
+          "display_name": "CHF 15'000.00",
           "nanos": 0,
-          "units": 150000
+          "units": 15000
         },
         "description": "Furo Foundation",
         "display_name": "Furo Foundation, CHF 150'000.00",
@@ -61,14 +61,14 @@
         "id": "2",
         "cost_limit": {
           "currency_code": "CHF",
-          "display_name": "CHF 15'000.00",
+          "display_name": "CHF 13'000.00",
           "nanos": 0,
-          "units": 15000
+          "units": 13000
         },
         "description": "Build Documentation",
         "display_name": "Build documentation CHF 15'000.00",
         "end": {
-          "day": 31,
+          "day": 34,
           "display_name": "31.10.2020",
           "month": 10,
           "year": 2020
@@ -88,8 +88,8 @@
           }
         ],
         "start": {
-          "day": 1,
-          "display_name": "01.09.2019",
+          "day": 6,
+          "display_name": "06.09.2019",
           "month": 9,
           "year": 2019
         }
@@ -116,7 +116,7 @@
         "description": "Evaluate new build system",
         "display_name": "Simple WebApp Project, CHF 9'000.90",
         "end": {
-          "day": 31,
+          "day": 15,
           "display_name": "31.12.2020",
           "month": 12,
           "year": 2020
@@ -136,8 +136,8 @@
           }
         ],
         "start": {
-          "day": 1,
-          "display_name": "01.07.2019",
+          "day": 7,
+          "display_name": "07.07.2019",
           "month": 7,
           "year": 2019
         }
@@ -164,7 +164,7 @@
         "description": "Update components",
         "display_name": "Update components, CHF 5'000.00",
         "end": {
-          "day": 31,
+          "day": 23,
           "display_name": "31.11.2020",
           "month": 11,
           "year": 2020
@@ -184,8 +184,8 @@
           }
         ],
         "start": {
-          "day": 1,
-          "display_name": "01.07.2019",
+          "day": 2,
+          "display_name": "02.07.2019",
           "month": 7,
           "year": 2019
         }

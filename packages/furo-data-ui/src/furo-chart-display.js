@@ -5,13 +5,26 @@ import ApexCharts from 'apexcharts/dist/apexcharts.esm.js';
 
 /**
  * `furo-chart-display`
- *  Generic Component to use apex charts (https://github.com/apexcharts/apexcharts.js)
+ *  Component to display charts with apex charts(https://github.com/apexcharts/apexcharts.js).
+ *
+ *  ```html
+ *  <furo-chart-display chart-type="bar">
+ *     <furo-data-chart-binder
+ *         ƒ-bind-data="--projectDAO(*.entities)"
+ *         data-field="data.cost_limit.units"
+ *         category-field="data.description"
+ *     ></furo-data-chart-binder>
+ *  </furo-chart-display>
+ *  ```
+ *
  *
  * @summary Display charts
  * @customElement
  * @demo demo-furo-data-chart-mini Small Charts
  * @demo demo-furo-data-chart Basic Usage
  * @demo demo-furo-data-chart-mixed Mixed Charts
+ * @demo demo-furo-data-chart-stacked Stacked Charts
+ * @demo demo-furo-data-chart-timeline Timeline Chart
  * @appliesMixin FBP
  */
 class FuroChartDisplay extends FBP(LitElement) {
@@ -68,6 +81,10 @@ class FuroChartDisplay extends FBP(LitElement) {
       },
       grid: {
         show: false, // https://apexcharts.com/docs/options/grid/
+        // zebra
+        // row: {
+        //  colors: ["#f3f4f5", "#fff"],
+        // }
       },
       dataLabels: {
         enabled: false,
@@ -142,6 +159,7 @@ class FuroChartDisplay extends FBP(LitElement) {
       noDataText: { type: String, attribute: 'no-data-text' },
       /**
        * WORK IN PROGRESS
+       * Stacked bar charts are not mixable
        */
       stacked: { type: Boolean },
       /**
@@ -201,12 +219,24 @@ class FuroChartDisplay extends FBP(LitElement) {
        * Use this to visualize data in very small areas.
        */
       sparkline: { type: Boolean },
+      /**
+       * set zebra color like zebra="#f3f4f5, #fff" to get stripes
+       */
+      zebra: { type: String},
     };
   }
 
   // https://apexcharts.com/docs/options/chart/sparkline/
   set sparkline(v) {
     this.apexOptions.chart.sparkline.enabled = v;
+  }
+
+  set zebra(v) {
+    const colors = v.replace(/ /g,'').split(',')
+    this.apexOptions.grid.show = true;
+    this.apexOptions.grid.row = {
+      colors,
+    }
   }
 
   set noDataText(v) {
