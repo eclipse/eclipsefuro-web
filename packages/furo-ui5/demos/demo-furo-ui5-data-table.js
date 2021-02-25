@@ -104,7 +104,6 @@ class DemoFuroUi5DataTable extends FBP(LitElement) {
             @-response="--response"
           >
           </furo-collection-agent>
-
         </template>
       </furo-demo-snippet>
     `;
