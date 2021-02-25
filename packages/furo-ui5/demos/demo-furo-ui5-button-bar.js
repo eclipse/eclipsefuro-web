@@ -75,12 +75,12 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
               <div class="hr"></div>
 
               <furo-ui5-button-bar ƒ-disable-all="--disableRequest" ƒ-enable-all="--enableRequest">
+                <furo-ui5-button design="Negative">Danger Action</furo-ui5-button>
+                <furo-empty-spacer></furo-empty-spacer>
+
                 <furo-ui5-button design="Emphasized" unelevated>primary action</furo-ui5-button>
                 <furo-ui5-button design="Default" unelevated>second action</furo-ui5-button>
                 <furo-ui5-button design="Positive" unelevated>another action</furo-ui5-button>
-
-                <furo-empty-spacer></furo-empty-spacer>
-                <furo-ui5-button design="Negative">Danger Action</furo-ui5-button>
               </furo-ui5-button-bar>
 
               <h2>furo-ui5-button-bar with bound entity</h2>
@@ -125,19 +125,19 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
                 ƒ-disable-all="--reqStarted"
                 ƒ-enable-all="--response"
               >
-                <furo-ui5-button rel="self" hide-no-rel primary unelevated
-                  >hidden if no relation self
-                </furo-ui5-button>
-                <furo-ui5-button rel="update" disable-no-rel outline
-                  >disabled if no relation update
-                </furo-ui5-button>
-                <furo-ui5-button disable-pristine disable-not-valid secondary unelevated
-                  >disabled if pristine (e.g. save)
-                </furo-ui5-button>
-
-                <furo-empty-spacer></furo-empty-spacer>
                 <furo-ui5-button rel="delete" disable-no-rel design="Negative" unelevated
                   >Danger Action
+                </furo-ui5-button>
+                <furo-empty-spacer></furo-empty-spacer>
+
+                <furo-ui5-button rel="self" hide-no-rel design="Emphasized"
+                  >hidden if no relation self
+                </furo-ui5-button>
+                <furo-ui5-button rel="update" disable-no-rel
+                  >disabled if no relation update
+                </furo-ui5-button>
+                <furo-ui5-button disable-pristine disable-not-valid
+                  >disabled if pristine (e.g. save)
                 </furo-ui5-button>
               </furo-ui5-button-bar>
             </furo-vertical-scroller>

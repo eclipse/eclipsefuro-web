@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.18.1...@furo/ui5@0.19.0) (2021-02-25)
+
+
+### Bug Fixes
+
+* disabled state ([15eceab](https://github.com/theNorstroem/FuroBaseComponents/commit/15eceab60983c7fd81b26552b02f5f1303ff9936))
+* display and value transmission according to google spec ([3779007](https://github.com/theNorstroem/FuroBaseComponents/commit/37790079b9628018db5f915e7635a56126b05810))
+* listener on repeats (add, remove), minor errors in display renderers ([0931748](https://github.com/theNorstroem/FuroBaseComponents/commit/0931748303d313e68f9c5ffe1cdc7ad9119aea6f))
+* negative values in money input ([556b7a6](https://github.com/theNorstroem/FuroBaseComponents/commit/556b7a648fa3d5f2bf69497a930a15fbf9f8f97e))
+* speed up demo with changed listeners ([1a00851](https://github.com/theNorstroem/FuroBaseComponents/commit/1a008513c3d539a5f4af7e56c13a74cf5b6c0e13))
+
+
+### Features
+
+* add templates to the furo-ui5-data-table ([220c05e](https://github.com/theNorstroem/FuroBaseComponents/commit/220c05e062a42409d5bdcd828c61597f9ec6d80d))
+* demo update ([1b7cffe](https://github.com/theNorstroem/FuroBaseComponents/commit/1b7cffe7e3c404f34b53e0440a8e039837c5765f))
+
+
+
+
+
 ## [0.18.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.18.0...@furo/ui5@0.18.1) (2021-02-12)
 
 

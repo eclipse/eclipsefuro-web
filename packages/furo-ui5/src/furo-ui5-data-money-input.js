@@ -15,9 +15,9 @@ import './furo-ui5-data-text-input.js';
  *  you can set currencies dropdown with options in meta or set options attribute as json in element or set currencies as string in element. the three
  *  ways have priority : currencies > options as attribute > options in meta. When no currencies is setted. Default currency will be `CHF`
  *
- *  <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" options='{"list": [ "CHF","EUR","USD" ]}'></furo-data-money-input>
- *  <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" options='{"list": [ {"id":"CHF","label":"Schweiz"},{"id":"EUR","label":"Europa", "selected": true}'></furo-data-money-input>
- *  <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" currencies="CHF,EUR,USD"></furo-data-money-input>
+ *  <furo-ui5-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" options='{"list": [ "CHF","EUR","USD" ]}'></furo-data-money-input>
+ *  <furo-ui5-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" options='{"list": [ {"id":"CHF","label":"Schweiz"},{"id":"EUR","label":"Europa", "selected": true}'></furo-data-money-input>
+ *  <furo-ui5-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" currencies="CHF,EUR,USD"></furo-data-money-input>
  *
  * Tags: money input
  * @summary  Binds a entityObject field google.type.Money to a number-input and currency dropdown fields
@@ -134,8 +134,8 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       if (
         this.binder.fieldValue &&
         this.binder.fieldValue.currency_code &&
-        this.binder.fieldValue.units &&
-        this.binder.fieldValue.nanos
+        this.binder.fieldValue.units !== 0 &&
+        this.binder.fieldValue.nanos !== 0
       ) {
         this.binder.deleteLabel('empty');
       } else {
@@ -164,7 +164,10 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       obj.units = Number(arr[0]);
       if (arr[1]) {
         // eslint-disable-next-line no-param-reassign
-        obj.nanos = Number.parseInt(Number(`0.${arr[1]}`) * 100000000, 10);
+        obj.nanos =
+          obj.units > 0
+            ? Number.parseInt(Number(`0.${arr[1]}`) * 100000000, 10)
+            : Number.parseInt(Number(`0.${arr[1]}`) * 100000000, 10) * -1;
       } else {
         // eslint-disable-next-line no-param-reassign
         obj.nanos = 0;
@@ -214,7 +217,13 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
         this._updateField();
       });
 
-      this.binder.fieldNode.addEventListener('field-value-changed', () => {
+      this.binder.fieldNode.units.addEventListener('field-value-changed', () => {
+        this._updateField();
+      });
+      this.binder.fieldNode.nanos.addEventListener('field-value-changed', () => {
+        this._updateField();
+      });
+      this.binder.fieldNode.currency_code.addEventListener('field-value-changed', () => {
         this._updateField();
       });
     }
@@ -237,11 +246,15 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       this.binder.fieldNode.nanos._value !== null
     ) {
       let numberStr = '';
-      if (this.binder.fieldNode.units._value > 0) {
+      if (this.binder.fieldNode.units._value !== 0) {
         numberStr = this.binder.fieldNode.units._value;
       }
-      if (this.binder.fieldNode.nanos._value > 0) {
-        numberStr += `.${this.binder.fieldNode.nanos._value}`;
+      if (this.binder.fieldNode.nanos._value !== 0) {
+        let nanoValue = this.binder.fieldNode.nanos._value;
+        if (nanoValue < 0) {
+          nanoValue *= -1;
+        }
+        numberStr += `.${nanoValue}`;
       }
       const amount = Number(numberStr);
       this._FBPTriggerWire('--valueAmount', amount);

@@ -1,0 +1,227 @@
+{
+  "entities": [
+    {
+      "data": {
+        "id": "1",
+        "cost_limit": {
+          "currency_code": "CHF",
+          "display_name": "CHF 5'000.00",
+          "nanos": 0,
+          "units": 5000
+        },
+        "description": "Furo Foundation",
+        "display_name": "Furo Foundation, CHF 150'000.00",
+        "end": {
+          "day": 12,
+
+          "month": 11,
+          "year": 2020
+        },
+        "members": [
+          {
+            "display_name": "John Doe",
+            "first_name": "John",
+            "name": "Doe",
+            "phone_nr": "+41789996655",
+            "skills": [
+              "GO",
+              "Java",
+              "Kotlin",
+              "JS"
+            ]
+          },
+          {
+            "display_name": "Tari Sakota",
+            "first_name": "Tari",
+            "id": "2",
+            "name": "Sakota",
+            "phone_nr": "+41791532244",
+            "skills": []
+          }
+        ],
+        "start": {
+          "day": 13,
+          "display_name": "01.07.2019",
+          "month": 8,
+          "year": 2019
+        }
+      },
+      "links": [
+        {
+          "href": "/mockdata/projects/1/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "project.Project",
+          "service": "ProjectService"
+        }
+      ]
+    },
+    {
+      "data": {
+        "id": "2",
+        "cost_limit": {
+          "currency_code": "CHF",
+          "display_name": "CHF 3'000.00",
+          "nanos": 0,
+          "units": 3000
+        },
+        "description": "Build Documentation",
+        "display_name": "Build documentation CHF 15'000.00",
+        "end": {
+          "day": 12,
+          "display_name": "31.10.2020",
+          "month": 11,
+          "year": 2020
+        },
+        "members": [
+          {
+            "display_name": "John Doe",
+            "first_name": "John",
+            "name": "Doe",
+            "phone_nr": "+41789996655",
+            "skills": [
+              "GO",
+              "Java",
+              "Kotlin",
+              "JS"
+            ]
+          }
+        ],
+        "start": {
+          "day": 7,
+          "display_name": "06.09.2019",
+          "month": 10,
+          "year": 2019
+        }
+      },
+      "links": [
+        {
+          "href": "/mockdata/projects/2/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "project.Project",
+          "service": "ProjectService"
+        }
+      ]
+    },
+    {
+      "data": {
+        "id": "3",
+        "cost_limit": {
+          "currency_code": "CHF",
+          "display_name": "CHF 11'000.90",
+          "nanos": 900000,
+          "units": 11000
+        },
+        "description": "Evaluate new build system",
+        "display_name": "Simple WebApp Project, CHF 9'000.90",
+        "end": {
+          "day": 17,
+          "display_name": "31.12.2020",
+          "month": 12,
+          "year": 2020
+        },
+        "members": [
+          {
+            "display_name": "John Doe",
+            "first_name": "John",
+            "name": "Doe",
+            "phone_nr": "+41789996655",
+            "skills": [
+              "GO",
+              "Java",
+              "Kotlin",
+              "JS"
+            ]
+          }
+        ],
+        "start": {
+          "day": 8,
+          "display_name": "07.07.2019",
+          "month": 8,
+          "year": 2019
+        }
+      },
+      "links": [
+        {
+          "href": "/mockdata/projects/3/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "project.Project",
+          "service": "ProjectService"
+        }
+      ]
+    },
+    {
+      "data": {
+        "id": "4",
+        "cost_limit": {
+          "currency_code": "CHF",
+          "display_name": "CHF 5'500.00",
+          "nanos": 0,
+          "units": 5500
+        },
+        "description": "Update components",
+        "display_name": "Update components, CHF 5'000.00",
+        "end": {
+          "day": 20,
+          "display_name": "31.11.2020",
+          "month": 10,
+          "year": 2020
+        },
+        "members": [
+          {
+            "display_name": "John Doe",
+            "first_name": "John",
+            "name": "Doe",
+            "phone_nr": "+41789996655",
+            "skills": [
+              "GO",
+              "Java",
+              "Kotlin",
+              "JS"
+            ]
+          }
+        ],
+        "start": {
+          "day": 4,
+          "display_name": "02.07.2019",
+          "month": 8,
+          "year": 2019
+        }
+      },
+      "links": [
+        {
+          "href": "/mockdata/projects/4/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "project.Project",
+          "service": "ProjectService"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "href": "/mockdata/projects/list.json",
+      "method": "GET",
+      "rel": "list",
+      "type": "project.ProjectCollection",
+      "service": "ProjectService"
+    },
+    {
+      "href": "/mockdata/projects/list.json?page=2",
+      "method": "GET",
+      "rel": "next",
+      "type": "project.ProjectCollection",
+      "service": "ProjectService"
+    },
+    {
+      "href": "/mockdata/projects/list.json?page=3",
+      "method": "GET",
+      "rel": "last",
+      "type": "project.ProjectCollection",
+      "service": "ProjectService"
+    }
+  ]
+}

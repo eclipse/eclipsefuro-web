@@ -23,7 +23,6 @@ import { CollectionDropdownHelper } from '@furo/data-input/src/lib/CollectionDro
  * @demo demo-furo-ui5-data-collection-dropdown Basic Usage
  */
 export class FuroUi5DataCollectionDropdown extends Select.default {
-
   /**
    * @event item-selected
    * Fired when the item of dropdown list is selected.

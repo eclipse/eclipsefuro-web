@@ -41,20 +41,134 @@ class FuroApexChart extends FBP(LitElement) {
     // this._FBPTraceWires()
     setTimeout(() => {
       this.initData({
-        chart: {
-          type: 'bar',
-        },
         series: [
           {
-            name: 'sales',
-            data: [30, 40, 45, 50, 49, 60, 70, 91, 125],
+            name: 'Income',
+            type: 'column',
+            data: [1.4, 2, 2.5, 1.5, 2.5, 2.8, 3.8, 4.6],
+          },
+          {
+            name: 'Cashflow',
+            type: 'column',
+            data: [1.1, 3, 3.1, 4, 4.1, 4.9, 16.5, 8.5],
+          },
+          {
+            name: 'Revenue',
+            type: 'line',
+            data: [20, 129, 37, 136, 44, 145, 50, 58, 44, 145, 50, 58],
+          },
+          {
+            name: 'Rssevenue',
+            type: 'line',
+            data: [10, 129, 37, 136, 244, 145, 50, 58],
           },
         ],
-        xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+        chart: {
+          height: 350,
+          type: 'line',
+          stacked: false,
+          events: {
+            markerClick(event, chartContext, config) {
+              console.log(config);
+              // The last parameter config contains additional information like `seriesIndex` and `dataPointIndex` for cartesian charts
+            },
+          },
         },
-        theme: {
-          palette: 'palette2', // upto palette10
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          width: [1, 1, 4, 3],
+          curve: ['smooth', 'straight', 'smooth', 'stepline'],
+        },
+        title: {
+          text: 'XYZ - Stock Analysis (2009 - 2016)',
+          align: 'left',
+          offsetX: 110,
+        },
+        xaxis: {
+          categories: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
+        },
+        yaxis: [
+          {
+            axisTicks: {
+              show: true,
+            },
+            axisBorder: {
+              show: true,
+              color: '#008FFB',
+            },
+            labels: {
+              style: {
+                colors: '#008FFB',
+              },
+            },
+            title: {
+              text: 'Income (thousand crores)',
+              style: {
+                color: '#008FFB',
+              },
+            },
+            tooltip: {
+              enabled: true,
+            },
+          },
+          {
+            seriesName: 'Income',
+            opposite: true,
+            axisTicks: {
+              show: true,
+            },
+            axisBorder: {
+              show: true,
+              color: '#00E396',
+            },
+            labels: {
+              style: {
+                colors: '#00E396',
+              },
+            },
+            title: {
+              text: 'Operating Cashflow (thousand crores)',
+              style: {
+                color: '#00E396',
+              },
+            },
+          },
+          {
+            seriesName: 'Revenue',
+            opposite: true,
+            axisTicks: {
+              show: true,
+            },
+            axisBorder: {
+              show: true,
+              color: '#FEB019',
+            },
+            labels: {
+              style: {
+                colors: '#FEB019',
+              },
+            },
+            title: {
+              text: 'Revenue (thousand crores)',
+              style: {
+                color: '#FEB019',
+              },
+            },
+          },
+        ],
+        tooltip: {
+          fixed: {
+            enabled: false,
+            position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
+            offsetY: 30,
+            offsetX: 160,
+          },
+        },
+        legend: {
+          horizontalAlign: 'left',
+          offsetX: 40,
         },
       });
     }, 400);

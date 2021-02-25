@@ -59,4 +59,14 @@ describe('furo-ui5-card', () => {
     assert.equal(card.subheading, 'subtitle');
     done();
   });
+  it('invalid binding should do nothing ', done => {
+    card.bindHeading(undefined);
+    card.bindIcon(undefined);
+    card.bindSubheading(undefined);
+
+    assert.equal(card.icon, '');
+    assert.equal(card.heading, '');
+    assert.equal(card.subheading, '');
+    done();
+  });
 });
