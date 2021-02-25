@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.19.0...@furo/ui5@0.19.1) (2021-02-25)
+
+
+### Bug Fixes
+
+* template should also work in ui5-data-table without define a headers attribute. ([a571b4f](https://github.com/theNorstroem/FuroBaseComponents/commit/a571b4fb9749fc7471f9494188c652f1a6db4d8b))
+* update demo data ([0496d5c](https://github.com/theNorstroem/FuroBaseComponents/commit/0496d5ccddf3bb97e45156b15b78850483f6f9a0))
+
+
+
+
+
 # [0.19.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.18.1...@furo/ui5@0.19.0) (2021-02-25)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.4.8...@furo/experiments@1.5.0) (2021-02-25)
+
+
+### Features
+
+* charting init ([10178e9](https://github.com/theNorstroem/FuroBaseComponents/commit/10178e985fed6e4d4781be16f24be6c113504524))
+* tooltip flag ([c13dcc6](https://github.com/theNorstroem/FuroBaseComponents/commit/c13dcc6c5e2509a643658b3ac0ef9121c234b1c0))
+
+
+
+
+
 ## [1.4.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.4.7...@furo/experiments@1.4.8) (2021-02-25)
 
 **Note:** Version bump only for package @furo/experiments

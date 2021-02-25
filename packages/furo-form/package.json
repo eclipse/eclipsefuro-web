@@ -1,6 +1,6 @@
 {
   "name": "@furo/form",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "form",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-form",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
@@ -28,17 +28,17 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/fbp": "^5.3.10",
-    "@furo/framework": "^1.5.10",
-    "@furo/layout": "^1.4.2",
+    "@furo/fbp": "^5.4.0",
+    "@furo/framework": "^1.5.11",
+    "@furo/layout": "^1.4.3",
     "lit-element": "^2.3.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data": "^1.18.2",
-    "@furo/data-input": "^1.11.4",
-    "@furo/input": "^1.6.4",
+    "@furo/data": "^1.18.3",
+    "@furo/data-input": "^1.11.5",
+    "@furo/input": "^1.6.5",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",
