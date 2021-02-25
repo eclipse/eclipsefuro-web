@@ -65,7 +65,6 @@ class DemoFuroDataChartTimeline extends FBP(LitElement) {
             </style>
 
             <furo-vertical-scroller>
-
               <furo-card header-text="Timeline aka rangeBar">
                 <furo-chart-display
                   chart-type="rangeBar"
@@ -80,15 +79,12 @@ class DemoFuroDataChartTimeline extends FBP(LitElement) {
                   data-labels
                   grid
                 >
-
                   <furo-data-chart-binder
                     ƒ-bind-data="--projectDAO(*.entities)"
                     data-field="data.start.day, data.end.day"
                     category-field="data.description"
                     axis-label="Project"
                   ></furo-data-chart-binder>
-
-
                 </furo-chart-display>
 
                 <furo-button
@@ -98,7 +94,6 @@ class DemoFuroDataChartTimeline extends FBP(LitElement) {
                   @-click="--btnListClicked"
                 ></furo-button>
               </furo-card>
-
 
               <furo-deep-link
                 ƒ-trigger="--btnListClicked"

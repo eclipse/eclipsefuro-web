@@ -65,7 +65,6 @@ class DemoFuroDataChartStacked extends FBP(LitElement) {
             </style>
 
             <furo-vertical-scroller>
-
               <furo-card header-text="Stacked bars">
                 <furo-chart-display
                   chart-type="bar"
@@ -94,9 +93,6 @@ class DemoFuroDataChartStacked extends FBP(LitElement) {
                     data-field="data.end.day"
                     category-field="data.description"
                   ></furo-data-chart-binder>
-
-
-
                 </furo-chart-display>
 
                 <furo-button
@@ -152,8 +148,6 @@ class DemoFuroDataChartStacked extends FBP(LitElement) {
                   @-click="--btnListClicked"
                 ></furo-button>
               </furo-card>
-
-
 
               <furo-deep-link
                 ƒ-trigger="--btnListClicked"

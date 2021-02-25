@@ -25,6 +25,8 @@ import ApexCharts from 'apexcharts/dist/apexcharts.esm.js';
  * @demo demo-furo-data-chart-mixed Mixed Charts
  * @demo demo-furo-data-chart-stacked Stacked Charts
  * @demo demo-furo-data-chart-timeline Timeline Chart
+ * @demo demo-furo-data-chart-treemap Treemap
+ * @demo demo-furo-data-chart-bubble Bubble
  * @appliesMixin FBP
  */
 class FuroChartDisplay extends FBP(LitElement) {
@@ -43,9 +45,19 @@ class FuroChartDisplay extends FBP(LitElement) {
       series: [],
       yaxis: [],
       // belize qualitative color palete
-      colors: ['#5899DA', '#E8743B', '#19A979', '#ED4A7B',
-        '#945ECF', '#13A4B4', '#525DF4', '#BF399E', '#6C8893',
-        '#EE6868', '#2F6497'],
+      colors: [
+        '#5899DA',
+        '#E8743B',
+        '#19A979',
+        '#ED4A7B',
+        '#945ECF',
+        '#13A4B4',
+        '#525DF4',
+        '#BF399E',
+        '#6C8893',
+        '#EE6868',
+        '#2F6497',
+      ],
       noData: {
         text: 'No data.',
         align: 'center',
@@ -222,7 +234,7 @@ class FuroChartDisplay extends FBP(LitElement) {
       /**
        * set zebra color like zebra="#f3f4f5, #fff" to get stripes
        */
-      zebra: { type: String},
+      zebra: { type: String },
     };
   }
 
@@ -232,11 +244,11 @@ class FuroChartDisplay extends FBP(LitElement) {
   }
 
   set zebra(v) {
-    const colors = v.replace(/ /g,'').split(',')
+    const colors = v.replace(/ /g, '').split(',');
     this.apexOptions.grid.show = true;
     this.apexOptions.grid.row = {
       colors,
-    }
+    };
   }
 
   set noDataText(v) {
@@ -317,6 +329,10 @@ class FuroChartDisplay extends FBP(LitElement) {
 
   _initChart(apexOptions) {
     this.options = apexOptions;
+
+    // fill initial data (workaround, because we update the data later)
+    this._fillInitialData();
+
     this.chart = new ApexCharts(this.shadowRoot.getElementById('c'), this.options);
 
     this.chart.render();
@@ -345,9 +361,7 @@ class FuroChartDisplay extends FBP(LitElement) {
     };
 
     this._registerDataSourceComponents(this.dataSourceComponents);
-
   }
-
 
   async _registerDataSourceComponents(dataSources) {
     const it = [];
@@ -357,15 +371,19 @@ class FuroChartDisplay extends FBP(LitElement) {
     await Promise.all(it);
 
     this.dataSourceComponents.forEach((s, idx) => {
-
       // build the chart from underlying data sources
       this.apexOptions.yaxis[idx] = s.options;
       // apexcharts stroke.width option accepts array only for line and area charts. Reverted back to last given Number
-      if (this.apexOptions.chart.type === 'line' || this.apexOptions.chart.type === 'area') {
+      if (
+        this.apexOptions.chart.type === 'line' ||
+        this.apexOptions.chart.type === 'area' ||
+        this.apexOptions.chart.type === 'bar'
+      ) {
         if (!this.apexOptions.stroke.width) {
           this.apexOptions.stroke.width = [];
         }
         this.apexOptions.stroke.width.push(s.strokeWidth);
+
         if (!this.apexOptions.markers) {
           this.apexOptions.markers = { size: [] };
         }
@@ -400,7 +418,6 @@ class FuroChartDisplay extends FBP(LitElement) {
 
     this._initChart(this.apexOptions);
   }
-
 
   /**
    * Themable Styles
@@ -1098,6 +1115,24 @@ class FuroChartDisplay extends FBP(LitElement) {
         <div id="c"></div>
       </div>
     `;
+  }
+
+  _fillInitialData() {
+    // eslint-disable-next-line default-case
+    switch (this.apexOptions.chart.type) {
+      case 'treemap':
+        this.apexOptions.series = [
+          {
+            data: [
+              {
+                x: '',
+                y: 0,
+              },
+            ],
+          },
+        ];
+        break;
+    }
   }
 }
 

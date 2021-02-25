@@ -157,13 +157,12 @@ class FuroDataChartBinder extends LitElement {
     this._initEmptySeries();
 
     const graphType = this.parentElement.getAttribute('chart-type');
-    const dataFields = this.dataField.replace(/ /g,'').split(',')
+    const dataFields = this.dataField.replace(/ /g, '').split(',');
     switch (graphType) {
       case 'donut':
       case 'radialBar':
       case 'polarArea':
       case 'pie':
-
         this.repeater.repeats.forEach(row => {
           if (this.categoryField && this._pathGet(row, this.categoryField)) {
             this.categories.push(this._pathGet(row, this.categoryField)._value);
@@ -177,6 +176,41 @@ class FuroDataChartBinder extends LitElement {
           }
         });
         break;
+      case 'bubble':
+        /**
+         * bubble series expects following format:
+         * series = [{
+         *   data: [
+         *     [3, 3, 3],
+         *     [4, 4, 4],
+         *     [1, 1, 1],
+         *   ],
+         * }];
+         *
+         */
+
+        this.repeater.repeats.forEach(row => {
+          const v = [];
+
+          // build multidimensional data
+          if (dataFields.length === 3) {
+            v.y = [];
+            dataFields.forEach(field => {
+              if (this._pathGet(row, field)) {
+                v.push(this._pathGet(row, field)._value);
+              } else {
+                v.push(null);
+              }
+            });
+          } else {
+            // eslint-disable-next-line no-console
+            console.warn('You must give exact 3 fields for bubble charts');
+          }
+
+          this.dataSeries.data.push(v);
+        });
+
+        break;
       case 'line':
       default:
         this.repeater.repeats.forEach(row => {
@@ -184,23 +218,23 @@ class FuroDataChartBinder extends LitElement {
           if (this.categoryField && this._pathGet(row, this.categoryField)) {
             v.x = this._pathGet(row, this.categoryField)._value;
           }
-          if (dataFields.length === 1){
-            if(this._pathGet(row, dataFields[0])) {
+          if (dataFields.length === 1) {
+            if (this._pathGet(row, dataFields[0])) {
               v.y = this._pathGet(row, this.dataField)._value;
-            }else{
+            } else {
               v.y = null;
             }
           }
           // build multidimensional data
-          if (dataFields.length > 1){
+          if (dataFields.length > 1) {
             v.y = [];
-            dataFields.forEach(field=>{
-              if(this._pathGet(row, field)) {
+            dataFields.forEach(field => {
+              if (this._pathGet(row, field)) {
                 v.y.push(this._pathGet(row, field)._value);
-              }else{
+              } else {
                 v.y.push(null);
               }
-            })
+            });
           }
 
           this.dataSeries.data.push(v);
@@ -224,7 +258,6 @@ class FuroDataChartBinder extends LitElement {
 
     if (this.chartType) {
       this.dataSeries.type = this.chartType;
-
     }
     // set color if given
     if (this.chartColor) {
