@@ -140,6 +140,7 @@ class DemoFuroDataChartStacked extends FBP(LitElement) {
                     category-field="data.description"
                     chart-stroke-width="4"
                   ></furo-data-chart-binder>
+
                 </furo-chart-display>
 
                 <div slot="action">

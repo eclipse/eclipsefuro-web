@@ -128,6 +128,10 @@ class FuroChartDisplay extends FBP(LitElement) {
         offsetY: 0,
       },
       plotOptions: {},
+      xaxis:{
+        title: {
+          text: undefined,
+      }}
     };
   }
 
@@ -237,12 +241,20 @@ class FuroChartDisplay extends FBP(LitElement) {
        * set zebra color like zebra="#f3f4f5, #fff" to get stripes
        */
       zebra: { type: String },
+      /**
+       * Give the x-axis a title which will be displayed below the axis labels by default.
+       */
+      xaxisTitle:{type:String, attribute:"xaxis-title"}
     };
   }
 
   // https://apexcharts.com/docs/options/chart/sparkline/
   set sparkline(v) {
     this.apexOptions.chart.sparkline.enabled = v;
+  }
+
+  set xaxisTitle(v) {
+    this.apexOptions.xaxis.title.text = v;
   }
 
   set zebra(v) {

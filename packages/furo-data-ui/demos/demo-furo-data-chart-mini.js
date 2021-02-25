@@ -204,6 +204,12 @@ class DemoFuroDataChartMini extends FBP(LitElement) {
                         category-field="data.description"
                         legend-label="Secondary"
                       ></furo-data-chart-binder>
+                      <furo-data-chart-binder
+                        ƒ-bind-data="--projectDAO(*.entities)"
+                        data-field="data.start.day"
+                        category-field="data.description"
+                      ></furo-data-chart-binder>
+
                     </furo-chart-display>
                   </furo-card>
 

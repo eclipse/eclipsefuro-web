@@ -73,6 +73,7 @@ class DemoFuroDataChartTimeline extends FBP(LitElement) {
                   no-data-text="Loading..."
                   fixed-height="350"
                   zebra="#f3f4f5, #fff"
+                  xaxis-title="Duration"
                   plot-horizontal
                   tooltip
                   legend
