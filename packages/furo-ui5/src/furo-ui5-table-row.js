@@ -23,7 +23,7 @@ export class FuroUi5TableRow extends TableRow.default {
     });
 
     /**
-     * listen to keyboard events
+     * listen to the keyboard events
      */
     this.shadowRoot.addEventListener('keydown', event => {
       const key = event.key || event.keyCode;

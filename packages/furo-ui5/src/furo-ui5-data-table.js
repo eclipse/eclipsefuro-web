@@ -160,7 +160,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
   }
 
   /**
-   * focus the header of datatable
+   * focus on the header of the table
    */
   focus() {
     const header = this.shadowRoot.querySelector('ui5-table').shadowRoot.querySelector('tr');
