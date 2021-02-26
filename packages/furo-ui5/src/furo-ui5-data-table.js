@@ -160,6 +160,14 @@ class FuroUi5DataTable extends FBP(LitElement) {
   }
 
   /**
+   * focus the header of datatable
+   */
+  focus() {
+    const header = this.shadowRoot.querySelector('ui5-table').shadowRoot.querySelector('tr');
+    header.focus();
+  }
+
+  /**
    * init data table
    * @private
    */
@@ -371,6 +379,10 @@ class FuroUi5DataTable extends FBP(LitElement) {
 
       ui5-table-column[right]::part(column) {
         text-align: right;
+      }
+
+      ui5-table-cell::part(cell):focus {
+        outline: none;
       }
     `;
   }

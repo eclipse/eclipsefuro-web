@@ -21,6 +21,27 @@ export class FuroUi5TableRow extends TableRow.default {
         }),
       );
     });
+
+    /**
+     * listen to keyboard events
+     */
+    this.shadowRoot.addEventListener('keydown', event => {
+      const key = event.key || event.keyCode;
+
+      if (key === 'Enter' || key === 13) {
+        this.dispatchEvent(
+          new CustomEvent('tablerow-selected', {
+            detail: this._data,
+            bubbles: true,
+            composed: true,
+          }),
+        );
+      } else if (key === 'ArrowDown' || key === 40) {
+        if (this.nextSibling && this.nextSibling.tagName !== 'FURO-UI5-TABLE-ROW') {
+          event.stopPropagation();
+        }
+      }
+    });
   }
 }
 window.customElements.define('furo-ui5-table-row', FuroUi5TableRow);
