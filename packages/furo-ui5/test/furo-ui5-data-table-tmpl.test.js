@@ -9,6 +9,13 @@ import '../src/standard-type-renderers/display-registry.js';
 import '../src/furo-catalog.js';
 import '../demos/helper/data-table-col-tmpl-link.js';
 
+function keydown(TargetElement, key) {
+  const customEvent = new Event('keydown', { composed: true, bubbles: true });
+  customEvent.code = key; // Deprecated, prefer .key instead.
+  customEvent.key = key;
+  TargetElement.dispatchEvent(customEvent);
+}
+
 describe('furo-ui5-data-table-tmpl', () => {
   const mockdata = {
     entities: [
@@ -206,7 +213,7 @@ describe('furo-ui5-data-table-tmpl', () => {
             show-no-data
             no-data-text="No data available. Click on load test data"
             ƒ-bind-data="--dao(*.entities)"
-            columns="data.id, data.display_name, data.cost_limit, data.start, data.end, {data-table-col-tmpl-link}|fix100"
+            columns="data.id, data.display_name, data.cost_limit, data.start, data.end, {data-table-col-tmpl-link}"
           ></furo-ui5-data-table>
 
           <furo-data-object
@@ -235,11 +242,44 @@ describe('furo-ui5-data-table-tmpl', () => {
     done();
   });
 
-  it('should show set fix width to the header column', done => {
+  it('should focus header via method focus', done => {
+    table.focus();
     assert.equal(
-      table.shadowRoot.querySelectorAll('ui5-table-column')[5].getAttribute('style'),
-      'width:100px',
+      table.shadowRoot.querySelector('ui5-table').shadowRoot.activeElement.tagName,
+      'TR',
     );
     done();
+  });
+
+  it('should send tablerow-selected event when click on a row', done => {
+    table.addEventListener('tablerow-selected', e => {
+      assert.equal(e.detail.data.id, 1);
+      done();
+    });
+    // initial data inject
+    dao.injectRaw(mockdata);
+
+    setTimeout(() => {
+      table.shadowRoot
+        .querySelector('furo-ui5-table-row')
+        .shadowRoot.querySelector('tr')
+        .click();
+    }, 0);
+  });
+
+  it('should send tablerow-selected event when press enter on a row', done => {
+    table.addEventListener('tablerow-selected', e => {
+      assert.equal(e.detail.data.id, 1);
+      done();
+    });
+    // initial data inject
+    dao.injectRaw(mockdata);
+
+    setTimeout(() => {
+      keydown(
+        table.shadowRoot.querySelector('furo-ui5-table-row').shadowRoot.querySelector('tr'),
+        'Enter',
+      );
+    }, 0);
   });
 });
