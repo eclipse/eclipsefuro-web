@@ -202,7 +202,6 @@ describe('furo-ui5-data-table', () => {
       <test-bind>
         <template>
           <furo-ui5-data-table
-            show-no-data
             no-data-text="No data available. Click on load test data"
             ƒ-bind-data="--dao(*.entities)"
             headers="id,display name,cost limit,start:-:|min200,end--:|fix100"
