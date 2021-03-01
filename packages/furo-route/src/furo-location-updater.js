@@ -3,10 +3,10 @@ import { FBP } from '@furo/fbp';
 
 /**
  * `furo-location-updater`
- * updates parts of the url location.
+ * updates parts of the url location with pushState
  *
- * You can set the query params and hashes. Use this component for proper deep linking.
- * The furo-location component will fire the location events as ususal.
+ * You can set query params and hashes. Use this component for proper deep linking.
+ * The furo-location component will fire the location events as usual.
  *
  * ```html
  *  <furo-location-updater ƒ-set-qp="--QueryParamKeyValuePairs" ƒ-set-hash="--HashKeyValuePairs"></furo-location-updater>
@@ -23,11 +23,11 @@ class FuroLocationUpdater extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Comma separated list of qp to clear if they are not explizitly set with `setQp`
+       * Comma separated list of qp keys to clear if they are not explicitly set with `ƒ-set-qp`
        */
       clearQp: { type: String, attribute: 'clear-qp' },
       /**
-       * Comma separated list of hashes to clear if they are not explizitly set with `setQp`
+       * Comma separated list of hashes to clear if they are not explicitly set with `ƒ-set-hash`
        */
       clearHash: { type: String, attribute: 'clear-hash' },
     };
@@ -40,7 +40,7 @@ class FuroLocationUpdater extends FBP(LitElement) {
    * @param newQP
    */
   setQp(newQP) {
-    // read current qp and update incomming qp
+    // read current qp and update incoming qp
 
     const newQuery = window.location.search.slice(1);
     const queryObject = {};
@@ -93,7 +93,7 @@ class FuroLocationUpdater extends FBP(LitElement) {
    * @param newHASH
    */
   setHash(newHASH) {
-    // read current hash and update incomming hash
+    // read current hash and update incoming hash
 
     const currentHash = window.location.hash.slice(1);
 
