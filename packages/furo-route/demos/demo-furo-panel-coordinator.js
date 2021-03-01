@@ -104,7 +104,7 @@ class DemoFuroPanelCoordinator extends FBP(LitElement) {
 
               <furo-app-flow event="goback-requested" ƒ-trigger="--escapeOnTree"></furo-app-flow>
 
-              <furo-qp-changer ƒ-set-qp="--qpchangerequest"></furo-qp-changer>
+              <furo-location-updater ƒ-set-qp="--qpchangerequest"></furo-location-updater>
               <furo-data-object
                 type="tree.TreeEntity"
                 ƒ-inject-raw="--data"

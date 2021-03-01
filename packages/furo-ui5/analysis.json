@@ -203,11 +203,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 204,
               "column": 6
             },
             "end": {
-              "line": 198,
+              "line": 204,
               "column": 31
             }
           },
@@ -224,11 +224,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 208,
               "column": 6
             },
             "end": {
-              "line": 202,
+              "line": 208,
               "column": 34
             }
           },
@@ -245,11 +245,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 207,
+              "line": 213,
               "column": 6
             },
             "end": {
-              "line": 207,
+              "line": 213,
               "column": 62
             }
           },
@@ -266,11 +266,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 213,
+              "line": 219,
               "column": 6
             },
             "end": {
-              "line": 213,
+              "line": 219,
               "column": 30
             }
           },
@@ -287,11 +287,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 224,
               "column": 6
             },
             "end": {
-              "line": 218,
+              "line": 224,
               "column": 90
             }
           },
@@ -309,11 +309,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 50,
+              "line": 56,
               "column": 2
             },
             "end": {
-              "line": 60,
+              "line": 66,
               "column": 3
             }
           },
@@ -333,11 +333,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 67,
+              "line": 73,
               "column": 2
             },
             "end": {
-              "line": 77,
+              "line": 83,
               "column": 3
             }
           },
@@ -357,11 +357,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 83,
+              "line": 89,
               "column": 2
             },
             "end": {
-              "line": 93,
+              "line": 99,
               "column": 3
             }
           },
@@ -381,11 +381,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 111,
               "column": 2
             },
             "end": {
-              "line": 118,
+              "line": 124,
               "column": 3
             }
           },
@@ -405,11 +405,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 124,
+              "line": 130,
               "column": 2
             },
             "end": {
-              "line": 132,
+              "line": 138,
               "column": 3
             }
           },
@@ -425,11 +425,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 226,
+              "line": 232,
               "column": 2
             },
             "end": {
-              "line": 250,
+              "line": 257,
               "column": 3
             }
           },
@@ -458,7 +458,7 @@
           "column": 0
         },
         "end": {
-          "line": 251,
+          "line": 258,
           "column": 1
         }
       },
@@ -471,11 +471,11 @@
           "description": "Defines the title displayed in the ui5-card header.",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 204,
               "column": 6
             },
             "end": {
-              "line": 198,
+              "line": 204,
               "column": 31
             }
           },
@@ -487,11 +487,11 @@
           "description": "Defines the subheading displayed in the ui5-card header.",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 208,
               "column": 6
             },
             "end": {
-              "line": 202,
+              "line": 208,
               "column": 34
             }
           },
@@ -503,11 +503,11 @@
           "description": "Defines the visual representation in the header of the card. Supports images and icons.\nhttps://openui5.hana.ondemand.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html",
           "sourceRange": {
             "start": {
-              "line": 207,
+              "line": 213,
               "column": 6
             },
             "end": {
-              "line": 207,
+              "line": 213,
               "column": 62
             }
           },
@@ -519,11 +519,11 @@
           "description": "Defines the status text displayed in the card header (upper right).\n\nBy enabling the status, actions are not visible.",
           "sourceRange": {
             "start": {
-              "line": 213,
+              "line": 219,
               "column": 6
             },
             "end": {
-              "line": 213,
+              "line": 219,
               "column": 30
             }
           },
@@ -535,11 +535,11 @@
           "description": "Defines if the ui5-card header would be interactive, e.g gets hover effect, gets focused and header-click event is fired, when it is pressed.",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 224,
               "column": 6
             },
             "end": {
-              "line": 218,
+              "line": 224,
               "column": 90
             }
           },
@@ -552,6 +552,12 @@
           "type": "CustomEvent",
           "name": "header-click",
           "description": "Defines if the ui5-card header would be interactive, e.g gets hover effect, gets focused and header-click event is fired, when it is pressed.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "header-clicked",
+          "description": "fired when the card head is clicked. The header-interactive attribute must be set.",
           "metadata": {}
         }
       ],
