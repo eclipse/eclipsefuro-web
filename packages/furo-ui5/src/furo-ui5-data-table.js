@@ -104,7 +104,6 @@ class FuroUi5DataTable extends FBP(LitElement) {
     this._specs = Env.api.specs;
     this.popinFields = '';
     this.data = [];
-    this.noDataText = 'No Data';
     this.headers = '';
     this._headers = [];
     this._headerTexts = [];
@@ -124,7 +123,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
     data.addEventListener('repeated-fields-all-removed', e => {
       this.data = e.detail;
       this._FBPTriggerWire('--data', this.data);
-      if (!this.hideNoDataText) {
+      if (this.noDataText) {
         this._showNoData = true;
       }
       this.requestUpdate();
@@ -138,7 +137,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
       this._FBPTriggerWire('--data', this.data);
       if (this.data.length > 0) {
         this._showNoData = false;
-      } else if (!this.hideNoDataText) {
+      } else if (this.noDataText) {
         this._showNoData = true;
       }
 
@@ -216,7 +215,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
       }
     });
 
-    this._showNoData = !this.hideNoDataText;
+    this._showNoData = !!this.noDataText;
 
     this.requestUpdate();
   }
@@ -430,19 +429,11 @@ class FuroUi5DataTable extends FBP(LitElement) {
       },
       /**
        * the text which can be showed when there is no data in table.
-       * the text will not be showed when the attribute hide-no-data-text presents.
        * string
        */
       noDataText: {
         type: String,
         attribute: 'no-data-text',
-      },
-      /**
-       * define to hide the noDataText or not
-       */
-      hideNoDataText: {
-        type: Boolean,
-        attribute: 'hide-no-data-text',
       },
       /**
        * define the header is sticky or not
