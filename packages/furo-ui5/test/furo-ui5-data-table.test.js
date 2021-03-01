@@ -205,6 +205,7 @@ describe('furo-ui5-data-table', () => {
             show-no-data
             no-data-text="No data available. Click on load test data"
             ƒ-bind-data="--dao(*.entities)"
+            headers="id,display name,cost limit,start:-:|min200,end--:|fix100"
             columns="data.id, data.display_name, data.cost_limit, data.start, data.end"
           ></furo-ui5-data-table>
 
@@ -235,6 +236,39 @@ describe('furo-ui5-data-table', () => {
     assert.equal(
       table.shadowRoot.querySelector('div.no-data').innerText,
       'No data available. Click on load test data',
+    );
+    done();
+  });
+
+  it('should set fix width to the header column via |fix notation', done => {
+    assert.equal(
+      table.shadowRoot.querySelectorAll('ui5-table-column')[4].getAttribute('style'),
+      'width:100px',
+    );
+
+    done();
+  });
+
+  it('should set min-width to the header column via |min notation', done => {
+    assert.equal(
+      table.shadowRoot.querySelectorAll('ui5-table-column')[3].getAttribute('min-width'),
+      '200',
+    );
+    done();
+  });
+
+  it('should center-justified the cell via :-: notation', done => {
+    assert.equal(
+      table.shadowRoot.querySelectorAll('ui5-table-column')[3].getAttribute('center'),
+      '',
+    );
+    done();
+  });
+
+  it('should right-justified the cell via --: notation', done => {
+    assert.equal(
+      table.shadowRoot.querySelectorAll('ui5-table-column')[4].getAttribute('right'),
+      '',
     );
     done();
   });
