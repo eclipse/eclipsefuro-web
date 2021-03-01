@@ -25,11 +25,11 @@ class FuroLocationUpdater extends FBP(LitElement) {
       /**
        * Comma separated list of qp to clear if they are not explizitly set with `setQp`
        */
-      clearQp: { type: String ,attribute:"clear-qp" },
+      clearQp: { type: String, attribute: 'clear-qp' },
       /**
        * Comma separated list of hashes to clear if they are not explizitly set with `setQp`
        */
-      clearHash: { type: String, attribute:"clear-hash" },
+      clearHash: { type: String, attribute: 'clear-hash' },
     };
   }
 

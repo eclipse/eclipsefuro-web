@@ -29,7 +29,6 @@ describe('furo-location-updater', () => {
     done();
   });
 
-
   it('should dispatch a __locationchanged event on changed QP', done => {
     element.addEventListener('__furoLocationChanged', e => {
       assert.equal(e.type, '__furoLocationChanged');
@@ -47,7 +46,6 @@ describe('furo-location-updater', () => {
 
     element.setHash({ a: 4 });
   });
-
 
   it('should add additional hashes on changed Hash', done => {
     element.setHash({ a: 4444 });
@@ -67,27 +65,23 @@ describe('furo-location-updater', () => {
     done();
   });
 
-
   it('should clear other qps', done => {
     element.setQp({ a: 4444 });
     element.setQp({ b: 457 });
     assert.equal(window.location.search.slice(1), 'a=4444&b=457');
-    element.setAttribute("clear-qp","a,c")
+    element.setAttribute('clear-qp', 'a,c');
     element.setQp({ c: 333 });
     assert.equal(window.location.search.slice(1), 'b=457&c=333');
     done();
   });
 
-
   it('should clear other hash', done => {
     element.setHash({ a: 4444 });
     element.setHash({ b: 457 });
     assert.equal(window.location.hash.slice(1), 'a=4444&b=457');
-    element.setAttribute("clear-hash","a,c")
+    element.setAttribute('clear-hash', 'a,c');
     element.setHash({ c: 333 });
     assert.equal(window.location.hash.slice(1), 'b=457&c=333');
     done();
   });
-
-
 });

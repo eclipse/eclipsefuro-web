@@ -721,7 +721,7 @@
         {
           "name": "location",
           "type": "?",
-          "description": "set location via attribute\nwill forward to ƒ-inject-location",
+          "description": "Deprecated: use ƒ-inject-location.",
           "privacy": "public",
           "sourceRange": {
             "start": {
