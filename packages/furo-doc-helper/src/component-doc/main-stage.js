@@ -18,7 +18,7 @@ import '@furo/input/src/furo-search-input.js';
 import '@furo/data/src/furo-data-object.js';
 import '@furo/util/src/furo-fetch-json.js';
 import '@furo/navigation/src/furo-tree.js';
-import '@furo/route/src/furo-qp-changer.js';
+import '@furo/route/src/furo-location-updater.js';
 import '@furo/route/src/furo-panel-coordinator.js';
 import '@furo/navigation/src/furo-panel-coordinator-tabs.js';
 import '@furo/util/src/furo-navigation-pad.js';
@@ -289,7 +289,7 @@ class MainStage extends FBP(LitElement) {
         @-data="--data"
       ></furo-fetch-json>
 
-      <furo-qp-changer ƒ-set-qp="--qpchangerequest"></furo-qp-changer>
+      <furo-location-updater ƒ-set-qp="--qpchangerequest"></furo-location-updater>
       <furo-location url-space-regex="^/" @-location-query-changed="--qp"></furo-location>
 
       <furo-location @-location-changed="--locationChanged"></furo-location>
