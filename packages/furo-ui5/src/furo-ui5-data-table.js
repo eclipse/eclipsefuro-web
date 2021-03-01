@@ -12,7 +12,7 @@ import '@ui5/webcomponents/dist/Table.js';
 import '@ui5/webcomponents/dist/TableColumn.js';
 import '@ui5/webcomponents/dist/TableCell.js';
 
-import './furo-ui5-table-row.js';
+import './lib/furo-ui5-table-row.js';
 // this dependence comes from furo-type-renderer
 import './furo-ui5-data-repeat.js';
 
@@ -78,8 +78,13 @@ const ui5HeaderTemplate = fields =>
   `;
 
 /**
- * `furo-ui5-data-table`
+ * `furo-ui5-data-table` display entities in a ui5-table
  *
+ * <furo-ui5-data-table
+ *  no-data-text="No data available."
+ *  ƒ-bind-data="--dao(*.entities)"
+ *  columns="data.id|min800, data.display_name|fix200, data.cost_limit, data.start"
+ * ></furo-ui5-data-table>
  *
  * @customElement
  * @demo demo-furo-ui5-data-table Basic usage
@@ -99,8 +104,6 @@ class FuroUi5DataTable extends FBP(LitElement) {
     this._specs = Env.api.specs;
     this.popinFields = '';
     this.data = [];
-    this.noDataText = 'No Data';
-    this._showNoData = false;
     this.headers = '';
     this._headers = [];
     this._headerTexts = [];
@@ -120,7 +123,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
     data.addEventListener('repeated-fields-all-removed', e => {
       this.data = e.detail;
       this._FBPTriggerWire('--data', this.data);
-      if (this.showNoData) {
+      if (this.noDataText) {
         this._showNoData = true;
       }
       this.requestUpdate();
@@ -134,7 +137,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
       this._FBPTriggerWire('--data', this.data);
       if (this.data.length > 0) {
         this._showNoData = false;
-      } else if (this.showNoData) {
+      } else if (this.noDataText) {
         this._showNoData = true;
       }
 
@@ -164,6 +167,13 @@ class FuroUi5DataTable extends FBP(LitElement) {
    */
   focus() {
     const header = this.shadowRoot.querySelector('ui5-table').shadowRoot.querySelector('tr');
+    // fix error when navigate without data
+    header.addEventListener('keydown', e => {
+      const key = e.key || e.keyCode;
+      if ((key === 'ArrowDown' || key === 40) && this.data.length === 0) {
+        e.stopPropagation();
+      }
+    });
     header.focus();
   }
 
@@ -205,7 +215,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
       }
     });
 
-    this._showNoData = this.showNoData;
+    this._showNoData = !!this.noDataText;
 
     this.requestUpdate();
   }
@@ -418,19 +428,12 @@ class FuroUi5DataTable extends FBP(LitElement) {
         attribute: 'headers',
       },
       /**
-       * the text which can be showed when there is no data in table
+       * the text which can be showed when there is no data in table.
        * string
        */
       noDataText: {
         type: String,
         attribute: 'no-data-text',
-      },
-      /**
-       * define to show the noDataText or not
-       */
-      showNoData: {
-        type: Boolean,
-        attribute: 'show-no-data',
       },
       /**
        * define the header is sticky or not

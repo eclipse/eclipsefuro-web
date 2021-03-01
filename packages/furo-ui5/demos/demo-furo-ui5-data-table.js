@@ -74,7 +74,6 @@ class DemoFuroUi5DataTable extends FBP(LitElement) {
           >
             <furo-ui5-data-table
               slot="content"
-              show-no-data
               popin-fields="data.id"
               no-data-text="No data available. Click on load test data"
               ƒ-bind-data="--dao(*.entities)"

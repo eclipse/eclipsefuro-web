@@ -1,5 +1,8 @@
 import * as TableRow from '@ui5/webcomponents/dist/TableRow.js';
 
+/**
+ * this is a helper component to send `tablerow-selected` event by clicking the row or pressing the enter on the row.
+ */
 export class FuroUi5TableRow extends TableRow.default {
   constructor() {
     super();

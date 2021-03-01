@@ -210,7 +210,6 @@ describe('furo-ui5-data-table-tmpl', () => {
       <test-bind>
         <template>
           <furo-ui5-data-table
-            show-no-data
             no-data-text="No data available. Click on load test data"
             ƒ-bind-data="--dao(*.entities)"
             columns="data.id, data.display_name, data.cost_limit, data.start, data.end, {data-table-col-tmpl-link}"

@@ -76,7 +76,6 @@ class DemoFuroUi5DataTableRepeats extends FBP(LitElement) {
           >
             <furo-ui5-data-table
               slot="content"
-              show-no-data
               ƒ-focus="--qp"
               no-data-text="No data available. Click on load test data"
               ƒ-bind-data="--dao(*.entities)"
@@ -99,7 +98,6 @@ class DemoFuroUi5DataTableRepeats extends FBP(LitElement) {
           >
             <furo-ui5-data-table
               slot="content"
-              show-no-data
               no-data-text="No data available. Click on load test data"
               ƒ-bind-data="--daoProjectEntity(*.data.members)"
               columns="first_name, name, phone_nr, skills"
