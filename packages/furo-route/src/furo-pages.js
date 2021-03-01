@@ -60,8 +60,8 @@ class FuroPages extends LitElement {
   }
 
   /**
-   * set location via attribute
-   * will forward to ƒ-inject-location
+   * Deprecated: use ƒ-inject-location.
+   *
    * @param location
    */
   set location(location) {
