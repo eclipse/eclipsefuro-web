@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.4.21...@furo/route@1.5.0) (2021-03-01)
+
+
+### Features
+
+* furo-location-updater ([b4b5ff7](https://github.com/theNorstroem/FuroBaseComponents/commit/b4b5ff7452c821b450c8ca370a9c1a6b76447198))
+* furo-location-updater ([1c0fd4b](https://github.com/theNorstroem/FuroBaseComponents/commit/1c0fd4b084d5101501c79344f1257c90ef04ed72))
+
+
+
+
+
 ## [1.4.21](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.4.20...@furo/route@1.4.21) (2021-02-25)
 
 **Note:** Version bump only for package @furo/route

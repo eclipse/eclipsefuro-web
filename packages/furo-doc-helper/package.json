@@ -1,7 +1,7 @@
 {
   "name": "@furo/doc-helper",
   "description": "Helper components for the furo documentation system",
-  "version": "1.5.50",
+  "version": "1.6.0",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-doc-helper",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -38,7 +38,7 @@
     "@furo/layout": "^1.4.3",
     "@furo/navigation": "^1.6.34",
     "@furo/notification": "^1.4.22",
-    "@furo/route": "^1.4.21",
+    "@furo/route": "^1.5.0",
     "@furo/specs": "^1.20.3",
     "@furo/util": "^1.4.12",
     "@svgdotjs/svg.js": "^3.0.13",

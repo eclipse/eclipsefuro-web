@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.19.1...@furo/ui5@0.20.0) (2021-03-01)
+
+
+### Bug Fixes
+
+* markup error ([8b4baaf](https://github.com/theNorstroem/FuroBaseComponents/commit/8b4baaf9712399da837449a042a66e5408e0bccc))
+* the head-click event from sap can not cross the shadow root borders. Additional event with better naming and composed=true ([b959f95](https://github.com/theNorstroem/FuroBaseComponents/commit/b959f95a928af6457ab902204aaeb47868ab00f3))
+
+
+### Features
+
+* add key board navigation to ui5-data-table. fix bugs. ([061bcae](https://github.com/theNorstroem/FuroBaseComponents/commit/061bcae8adf08d6b3216d74ab139e1a3b82451a0))
+* show noDataText as default. use hide-no-data-text attribute to hide the noDataText. ([6087a8a](https://github.com/theNorstroem/FuroBaseComponents/commit/6087a8ac24a35c756f2c3589c6bbfdef44154bdb))
+
+
+
+
+
 ## [0.19.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.19.0...@furo/ui5@0.19.1) (2021-02-25)
 
 

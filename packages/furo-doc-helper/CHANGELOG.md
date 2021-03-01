@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.5.50...@furo/doc-helper@1.6.0) (2021-03-01)
+
+
+### Features
+
+* furo-location-updater ([1c0fd4b](https://github.com/theNorstroem/FuroBaseComponents/commit/1c0fd4b084d5101501c79344f1257c90ef04ed72))
+
+
+
+
+
 ## [1.5.50](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.5.49...@furo/doc-helper@1.5.50) (2021-02-25)
 
 **Note:** Version bump only for package @furo/doc-helper
