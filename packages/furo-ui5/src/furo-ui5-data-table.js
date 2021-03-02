@@ -174,7 +174,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
         e.stopPropagation();
       }
     });
-    header.focus();
+    header.click();
   }
 
   /**

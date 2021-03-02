@@ -237,8 +237,10 @@ describe('furo-ui5-data-table-tmpl', () => {
   });
 
   it('should show template in the columns event the attribute headers is not set', done => {
-    assert.equal(table.shadowRoot.querySelectorAll('ui5-table-column').length, 6);
-    done();
+    setTimeout(() => {
+      assert.equal(table.shadowRoot.querySelectorAll('ui5-table-column').length, 6);
+      done();
+    }, 0);
   });
 
   it('should focus header via method focus', done => {
@@ -267,12 +269,13 @@ describe('furo-ui5-data-table-tmpl', () => {
   });
 
   it('should send tablerow-selected event when press enter on a row', done => {
+    // initial data inject
+    dao.injectRaw(mockdata);
+
     table.addEventListener('tablerow-selected', e => {
       assert.equal(e.detail.data.id, 1);
       done();
     });
-    // initial data inject
-    dao.injectRaw(mockdata);
 
     setTimeout(() => {
       keydown(

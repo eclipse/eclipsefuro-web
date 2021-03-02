@@ -35,7 +35,6 @@ import '@ui5/webcomponents/dist/Icon.js';
  * @demo demo-furo-ui5-card-binding With data binding
  */
 class FuroUi5Card extends FBP(LitElement) {
-
   /**
    * fired when the card head is clicked. The header-interactive attribute must be set.
    * @event header-clicked

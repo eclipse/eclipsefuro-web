@@ -249,11 +249,13 @@ describe('furo-ui5-data-table', () => {
   });
 
   it('should set min-width to the header column via |min notation', done => {
-    assert.equal(
-      table.shadowRoot.querySelectorAll('ui5-table-column')[3].getAttribute('min-width'),
-      '200',
-    );
-    done();
+    setTimeout(() => {
+      assert.equal(
+        table.shadowRoot.querySelectorAll('ui5-table-column')[3].getAttribute('min-width'),
+        '200',
+      );
+      done();
+    }, 0);
   });
 
   it('should center-justified the cell via :-: notation', done => {
@@ -309,16 +311,18 @@ describe('furo-ui5-data-table', () => {
   });
 
   it('data changes in the data object should automatically update the data table display', done => {
+    dao.data.entities.addEventListener(
+      'repeated-fields-changed',
+      () => {
+        setTimeout(() => {
+          assert.equal(table.shadowRoot.querySelectorAll('furo-ui5-table-row').length, 5);
+          done();
+        }, 48);
+      },
+      { once: 'true' },
+    );
     // initial data inject
     dao.injectRaw(mockdata);
-
-    dao.data.entities.addEventListener('repeated-fields-changed', () => {
-      setTimeout(() => {
-        assert.equal(table.shadowRoot.querySelectorAll('furo-ui5-table-row').length, 5);
-        done();
-      }, 48);
-    }),
-      { once: true };
     dao.data.entities.add();
   });
 
