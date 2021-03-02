@@ -178,14 +178,6 @@ class FuroUi5Card extends FBP(LitElement) {
         background-color: var(--sapNeutralColor);
       }
 
-      ui5-icon {
-        width: 3rem;
-        height: 2rem;
-        padding: var(--spacing-xs);
-        border-radius: 4px;
-        color: var(--sapBaseColor);
-        background-color: var(--sapShellColor);
-      }
 
       ::slotted([slot='content']) {
         padding: var(--_ui5_card_content_padding);
