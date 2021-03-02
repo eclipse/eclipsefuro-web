@@ -342,28 +342,35 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @private
    */
   _findFieldByPath(field, path) {
-    const arr = path.split('.');
-
-    if (arr.length > 1) {
-      const subPath = path
-        .split('.')
-        .slice(1)
-        .join('.');
-
-      if (field[arr[0]]) {
-        return this._findFieldByPath(field[arr[0]], subPath);
+    let prop = field;
+    const parts = this._split(path);
+    // Loop over path parts[0..n-1] and dereference
+    for (let i = 0; i < parts.length; i += 1) {
+      if (!prop) {
+        return false;
       }
-      if (field.type && this._specs[field.type]) {
-        return this._findFieldByPath(this._specs[field.type].fields, subPath);
+      const part = parts[i];
+      if (!prop.fields) {
+        if (prop[part]) {
+          prop = prop[part].type.split('.').length > 1 ? this._specs[prop[part].type] : prop[part];
+        } else {
+          return undefined;
+        }
+      } else if (prop.fields[part]) {
+        prop =
+          prop.fields[part].type.split('.').length > 1
+            ? this._specs[prop.fields[part].type]
+            : prop.fields[part];
+      } else {
+        return undefined;
       }
-    } else {
-      if (field[arr[0]]) {
-        return field[arr[0]];
-      }
-
-      return this._specs[field.type].fields[arr[0]];
     }
-    return undefined;
+
+    if (prop.fields) {
+      // in case of a complex field
+      return this._specs[field[parts[0]].type].fields[parts[parts.length - 1]];
+    }
+    return prop;
   }
 
   /**
