@@ -221,22 +221,22 @@
       "tagname": "furo-api-fetch"
     },
     {
-      "description": "`furo-collection-agent` is an interface component to handle collection requests. It helps you with paginating collection data.\n\n\n\n\nHow to use:\n```html\n<furo-collection-agent ƒ-hts-in=\"--x\"\n                     service=\"\"\n                     ƒ-prev-page=\"\"\n                     ƒ-next-page=\"\"\n                     ƒ-last-page=\"\"\n                     ƒ-first-page=\"\"\n                     ƒ-list=\"--triggerGetCollection\"\n                     ƒ-hts-in=\"--hts\"\n                     list-on-hts-in",
-      "summary": "",
+      "description": "`furo-collection-agent` is an interface component to handle collection requests. It helps you with paginating collection data.\n\n\n\n\nHow to use:\n```html\n   <furo-collection-agent\n                     service=\"Servicename\"\n                     ƒ-hts-in=\"--hts\"\n                     list-on-hts-in\n                   ></furo-collection-agent>\n```",
+      "summary": "interface component to handle collection requests",
       "path": "src/furo-collection-agent.js",
       "properties": [
         {
           "name": "filter",
-          "type": "Array | null | undefined",
-          "description": "",
+          "type": "string | null | undefined",
+          "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 175,
+              "line": 242,
               "column": 2
             },
             "end": {
-              "line": 185,
+              "line": 252,
               "column": 3
             }
           },
@@ -247,15 +247,15 @@
         {
           "name": "service",
           "type": "string | null | undefined",
-          "description": "The service name. Like ProjectService",
+          "description": "The service name from the specs.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 210,
+              "line": 270,
               "column": 2
             },
             "end": {
-              "line": 230,
+              "line": 290,
               "column": 3
             }
           },
@@ -266,15 +266,15 @@
         {
           "name": "pageSize",
           "type": "number | null | undefined",
-          "description": "",
+          "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 125,
               "column": 6
             },
             "end": {
-              "line": 126,
+              "line": 125,
               "column": 56
             }
           },
@@ -287,15 +287,15 @@
         {
           "name": "fields",
           "type": "string | null | undefined",
-          "description": "",
+          "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 127,
+              "line": 132,
               "column": 6
             },
             "end": {
-              "line": 127,
+              "line": 132,
               "column": 47
             }
           },
@@ -308,15 +308,15 @@
         {
           "name": "orderBy",
           "type": "string | null | undefined",
-          "description": "",
+          "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 145,
               "column": 6
             },
             "end": {
-              "line": 128,
+              "line": 145,
               "column": 54
             }
           },
@@ -329,15 +329,15 @@
         {
           "name": "view",
           "type": "string | null | undefined",
-          "description": "",
+          "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 130,
+              "line": 167,
               "column": 6
             },
             "end": {
-              "line": 130,
+              "line": 167,
               "column": 45
             }
           },
@@ -350,21 +350,84 @@
         {
           "name": "listOnHtsIn",
           "type": "boolean | null | undefined",
-          "description": "",
+          "description": "Executes a list when a rel=\"list\" is injected.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 131,
+              "line": 171,
               "column": 6
             },
             "end": {
-              "line": 131,
+              "line": 171,
               "column": 65
             }
           },
           "metadata": {
             "polymer": {
               "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "loadRelOnHtsIn",
+          "type": "boolean | null | undefined",
+          "description": "Executes a loadRel when a rel=\"XXXX\" is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting \"custom\" collections.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 179,
+              "column": 6
+            },
+            "end": {
+              "line": 179,
+              "column": 72
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "rel",
+          "type": "string | null | undefined",
+          "description": "rel which should be used on load rel",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 183,
+              "column": 6
+            },
+            "end": {
+              "line": 183,
+              "column": 44
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "method",
+          "type": "string | null | undefined",
+          "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 189,
+              "column": 6
+            },
+            "end": {
+              "line": 189,
+              "column": 47
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
             }
           }
         }
@@ -376,11 +439,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 79,
               "column": 2
             },
             "end": {
-              "line": 118,
+              "line": 112,
               "column": 3
             }
           },
@@ -396,15 +459,15 @@
         },
         {
           "name": "setFields",
-          "description": "Partielle Repräsentation\nhttps://cloud.google.com/apis/design/design_patterns#partial_response\n\netwas seltsam, aber google sieht hier $fields vor. Wird aber nicht so verwendet",
+          "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 146,
+              "line": 204,
               "column": 2
             },
             "end": {
-              "line": 148,
+              "line": 206,
               "column": 3
             }
           },
@@ -420,15 +483,15 @@
         },
         {
           "name": "setOrderBy",
-          "description": "Sortierreihenfolge\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send sql like syntax!\n\norder-by=\"foo,-bar\"  means foo asc and bar desc",
+          "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 220,
               "column": 2
             },
             "end": {
-              "line": 160,
+              "line": 222,
               "column": 3
             }
           },
@@ -444,15 +507,15 @@
         },
         {
           "name": "clearFilter",
-          "description": "clear filter",
+          "description": "clear the setted filter",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 165,
+              "line": 227,
               "column": 2
             },
             "end": {
-              "line": 167,
+              "line": 229,
               "column": 3
             }
           },
@@ -464,15 +527,15 @@
         },
         {
           "name": "setFilter",
-          "description": "if you throw in an object or array, it will get encoded when the request is fired",
+          "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 171,
+              "line": 238,
               "column": 2
             },
             "end": {
-              "line": 173,
+              "line": 240,
               "column": 3
             }
           },
@@ -488,15 +551,15 @@
         },
         {
           "name": "setPageSize",
-          "description": "Sets pagination size in the List request.",
+          "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 191,
+              "line": 259,
               "column": 2
             },
             "end": {
-              "line": 193,
+              "line": 261,
               "column": 3
             }
           },
@@ -516,11 +579,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 239,
+              "line": 299,
               "column": 2
             },
             "end": {
-              "line": 241,
+              "line": 301,
               "column": 3
             }
           },
@@ -540,11 +603,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 250,
+              "line": 310,
               "column": 2
             },
             "end": {
-              "line": 252,
+              "line": 312,
               "column": 3
             }
           },
@@ -564,11 +627,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 257,
+              "line": 317,
               "column": 2
             },
             "end": {
-              "line": 259,
+              "line": 319,
               "column": 3
             }
           },
@@ -584,11 +647,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 261,
+              "line": 321,
               "column": 2
             },
             "end": {
-              "line": 350,
+              "line": 410,
               "column": 3
             }
           },
@@ -608,11 +671,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 359,
+              "line": 419,
               "column": 2
             },
             "end": {
-              "line": 368,
+              "line": 428,
               "column": 3
             }
           },
@@ -635,11 +698,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 373,
+              "line": 433,
               "column": 2
             },
             "end": {
-              "line": 375,
+              "line": 435,
               "column": 3
             }
           },
@@ -652,11 +715,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 380,
+              "line": 440,
               "column": 2
             },
             "end": {
-              "line": 382,
+              "line": 442,
               "column": 3
             }
           },
@@ -664,16 +727,57 @@
           "params": []
         },
         {
+          "name": "loadRel",
+          "description": "loads the entity following the link which is specified on the attribute **rel** if it is available.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 447,
+              "column": 2
+            },
+            "end": {
+              "line": 449,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "searchRel",
+          "description": "search for a term following the link which is specified on the attribute **rel**\n\nThis will set the query param q and execute the query.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 458,
+              "column": 2
+            },
+            "end": {
+              "line": 461,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "term"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "search",
           "description": "search for a term.\n\nThis will set the query param q and triggers a list()",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 391,
+              "line": 470,
               "column": 2
             },
             "end": {
-              "line": 394,
+              "line": 473,
               "column": 3
             }
           },
@@ -693,11 +797,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 399,
+              "line": 478,
               "column": 2
             },
             "end": {
-              "line": 401,
+              "line": 480,
               "column": 3
             }
           },
@@ -713,11 +817,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 406,
+              "line": 485,
               "column": 2
             },
             "end": {
-              "line": 408,
+              "line": 487,
               "column": 3
             }
           },
@@ -733,11 +837,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 413,
+              "line": 492,
               "column": 2
             },
             "end": {
-              "line": 415,
+              "line": 494,
               "column": 3
             }
           },
@@ -753,11 +857,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 420,
+              "line": 499,
               "column": 2
             },
             "end": {
-              "line": 422,
+              "line": 501,
               "column": 3
             }
           },
@@ -773,11 +877,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 424,
+              "line": 503,
               "column": 2
             },
             "end": {
-              "line": 448,
+              "line": 527,
               "column": 3
             }
           },
@@ -790,15 +894,15 @@
         },
         {
           "name": "htsIn",
-          "description": "",
+          "description": "Inject HATEOAS links.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 450,
+              "line": 533,
               "column": 2
             },
             "end": {
-              "line": 470,
+              "line": 556,
               "column": 3
             }
           },
@@ -815,31 +919,39 @@
         {
           "name": "render",
           "description": "",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 472,
+              "line": 562,
               "column": 2
             },
             "end": {
-              "line": 492,
+              "line": 582,
               "column": 3
             }
           },
           "metadata": {},
-          "params": []
+          "params": [],
+          "return": {
+            "type": "*"
+          }
         }
       ],
       "staticMethods": [],
-      "demos": [],
+      "demos": [
+        {
+          "url": "demo-furo-collection-agent",
+          "description": "Basic usage"
+        }
+      ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 33,
+          "line": 27,
           "column": 0
         },
         "end": {
-          "line": 493,
+          "line": 583,
           "column": 1
         }
       },
@@ -849,30 +961,30 @@
       "attributes": [
         {
           "name": "filter",
-          "description": "",
+          "description": "Set the filter.\n\nHint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.\n\nOnly useable if your service has implemented this feature.",
           "sourceRange": {
             "start": {
-              "line": 175,
+              "line": 242,
               "column": 2
             },
             "end": {
-              "line": 185,
+              "line": 252,
               "column": 3
             }
           },
           "metadata": {},
-          "type": "Array | null | undefined"
+          "type": "string | null | undefined"
         },
         {
           "name": "service",
-          "description": "The service name. Like ProjectService",
+          "description": "The service name from the specs.",
           "sourceRange": {
             "start": {
-              "line": 210,
+              "line": 270,
               "column": 2
             },
             "end": {
-              "line": 230,
+              "line": 290,
               "column": 3
             }
           },
@@ -881,14 +993,14 @@
         },
         {
           "name": "page-size",
-          "description": "",
+          "description": "Sets pagination size in the List request.\n\nOnly useful if your service supports pagination.",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 125,
               "column": 6
             },
             "end": {
-              "line": 126,
+              "line": 125,
               "column": 56
             }
           },
@@ -897,14 +1009,14 @@
         },
         {
           "name": "fields",
-          "description": "",
+          "description": "Comma separated list of fields (like a fieldmask)\nused for partial representation / partial responses.\n\nIf your services supports this feature, you will receive a subset of the fields.",
           "sourceRange": {
             "start": {
-              "line": 127,
+              "line": 132,
               "column": 6
             },
             "end": {
-              "line": 127,
+              "line": 132,
               "column": 47
             }
           },
@@ -913,14 +1025,14 @@
         },
         {
           "name": "order-by",
-          "description": "",
+          "description": "Sorting order\n\norder-by=\"foo,-bar\"  means foo asc and bar desc\n\nhttps://cloud.google.com/apis/design/design_patterns#sorting_order\n\nTo avoid sql injection errors we do not send any sql like syntax!\n\nOnly useable if your service has implemented this feature.",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 145,
               "column": 6
             },
             "end": {
-              "line": 128,
+              "line": 145,
               "column": 54
             }
           },
@@ -929,14 +1041,14 @@
         },
         {
           "name": "view",
-          "description": "",
+          "description": "Parameter for contextual representations\n\nTo reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,\nreturning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.\n\nhttps://cloud.google.com/apis/design/design_patterns#resource_view\n\nview=smallcards\n\nOnly useable if your service has implemented this feature.",
           "sourceRange": {
             "start": {
-              "line": 130,
+              "line": 167,
               "column": 6
             },
             "end": {
-              "line": 130,
+              "line": 167,
               "column": 45
             }
           },
@@ -945,19 +1057,67 @@
         },
         {
           "name": "list-on-hts-in",
-          "description": "",
+          "description": "Executes a list when a rel=\"list\" is injected.",
           "sourceRange": {
             "start": {
-              "line": 131,
+              "line": 171,
               "column": 6
             },
             "end": {
-              "line": 131,
+              "line": 171,
               "column": 65
             }
           },
           "metadata": {},
           "type": "boolean | null | undefined"
+        },
+        {
+          "name": "load-rel-on-hts-in",
+          "description": "Executes a loadRel when a rel=\"XXXX\" is injected.\n\nYou have to set the attributes *rel* and *method* to have this working.\n\nThis is useful for getting \"custom\" collections.",
+          "sourceRange": {
+            "start": {
+              "line": 179,
+              "column": 6
+            },
+            "end": {
+              "line": 179,
+              "column": 72
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "rel",
+          "description": "rel which should be used on load rel",
+          "sourceRange": {
+            "start": {
+              "line": 183,
+              "column": 6
+            },
+            "end": {
+              "line": 183,
+              "column": 44
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "method",
+          "description": "for compatibility reasons you have to specify the method inside of the service.\n\nThis attribute should not be needed in future versions, because the rel already contains all relevant information.",
+          "sourceRange": {
+            "start": {
+              "line": 189,
+              "column": 6
+            },
+            "end": {
+              "line": 189,
+              "column": 47
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
         }
       ],
       "events": [
@@ -997,7 +1157,10 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-collection-agent"
+      "tagname": "furo-collection-agent",
+      "mixins": [
+        "FBP"
+      ]
     },
     {
       "description": "`furo-custom-method`\ninterface component to handle custom methods",
@@ -1495,19 +1658,16 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 185,
+              "line": 177,
               "column": 2
             },
             "end": {
-              "line": 189,
+              "line": 179,
               "column": 3
             }
           },
           "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
+          "params": []
         },
         {
           "name": "_checkType",
@@ -1515,11 +1675,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 196,
+              "line": 186,
               "column": 2
             },
             "end": {
-              "line": 323,
+              "line": 313,
               "column": 3
             }
           },
@@ -1549,7 +1709,7 @@
           "column": 7
         },
         "end": {
-          "line": 324,
+          "line": 323,
           "column": 1
         }
       },
@@ -1615,12 +1775,6 @@
           "type": "CustomEvent",
           "name": "init-completed",
           "description": "init-completed\nFired when the object init was done\n\n*detail payload:** A EntityNode object\n\n*bubbles**",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "object-data",
-          "description": "object-data\nFired when the getData method is called\n\n*detail payload:** the data of a data object\n\n*bubbles**",
           "metadata": {}
         },
         {
@@ -1783,7 +1937,7 @@
           "column": 0
         },
         "end": {
-          "line": 167,
+          "line": 176,
           "column": 1
         }
       },
@@ -1886,7 +2040,7 @@
           "column": 0
         },
         "end": {
-          "line": 42,
+          "line": 51,
           "column": 1
         }
       },
@@ -2598,7 +2752,7 @@
           "column": 0
         },
         "end": {
-          "line": 57,
+          "line": 66,
           "column": 1
         }
       },
@@ -3077,7 +3231,7 @@
           "column": 0
         },
         "end": {
-          "line": 78,
+          "line": 87,
           "column": 1
         }
       },
@@ -3245,7 +3399,7 @@
           "column": 0
         },
         "end": {
-          "line": 140,
+          "line": 149,
           "column": 1
         }
       },
@@ -4372,11 +4526,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 628,
+              "line": 639,
               "column": 2
             },
             "end": {
-              "line": 639,
+              "line": 650,
               "column": 3
             }
           },
@@ -4389,11 +4543,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 592,
+              "line": 603,
               "column": 2
             },
             "end": {
-              "line": 621,
+              "line": 632,
               "column": 3
             }
           },
@@ -4406,11 +4560,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 646,
+              "line": 657,
               "column": 2
             },
             "end": {
-              "line": 648,
+              "line": 659,
               "column": 3
             }
           },
@@ -4423,11 +4577,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 665,
+              "line": 676,
               "column": 2
             },
             "end": {
-              "line": 700,
+              "line": 711,
               "column": 3
             }
           },
@@ -4440,11 +4594,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 707,
+              "line": 718,
               "column": 2
             },
             "end": {
-              "line": 724,
+              "line": 735,
               "column": 3
             }
           },
@@ -4457,11 +4611,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 732,
+              "line": 743,
               "column": 2
             },
             "end": {
-              "line": 755,
+              "line": 766,
               "column": 3
             }
           },
@@ -4541,15 +4695,35 @@
         },
         {
           "name": "reinit",
-          "description": "resets the field to the initial values from the spec",
+          "description": "sets the field to the initial values from the spec\ndefault values are applied",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 219,
+              "line": 220,
               "column": 2
             },
             "end": {
-              "line": 221,
+              "line": 222,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "reset",
+          "description": "resets the field to empty values\nno default values are applied",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 230,
+              "column": 2
+            },
+            "end": {
+              "line": 232,
               "column": 3
             }
           },
@@ -4565,11 +4739,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 223,
+              "line": 234,
               "column": 2
             },
             "end": {
-              "line": 248,
+              "line": 259,
               "column": 3
             }
           },
@@ -4589,11 +4763,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 394,
+              "line": 405,
               "column": 2
             },
             "end": {
-              "line": 437,
+              "line": 448,
               "column": 3
             }
           },
@@ -4606,11 +4780,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 439,
+              "line": 450,
               "column": 2
             },
             "end": {
-              "line": 508,
+              "line": 519,
               "column": 3
             }
           },
@@ -4633,11 +4807,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 516,
+              "line": 527,
               "column": 2
             },
             "end": {
-              "line": 527,
+              "line": 538,
               "column": 3
             }
           },
@@ -4657,11 +4831,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 529,
+              "line": 540,
               "column": 2
             },
             "end": {
-              "line": 548,
+              "line": 559,
               "column": 3
             }
           },
@@ -4681,11 +4855,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 550,
+              "line": 561,
               "column": 2
             },
             "end": {
-              "line": 572,
+              "line": 583,
               "column": 3
             }
           },
@@ -4708,11 +4882,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 577,
+              "line": 588,
               "column": 2
             },
             "end": {
-              "line": 590,
+              "line": 601,
               "column": 3
             }
           },
@@ -4728,11 +4902,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 757,
+              "line": 768,
               "column": 2
             },
             "end": {
-              "line": 782,
+              "line": 793,
               "column": 3
             }
           },
@@ -4748,11 +4922,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 789,
+              "line": 800,
               "column": 2
             },
             "end": {
-              "line": 810,
+              "line": 821,
               "column": 3
             }
           },
@@ -4773,11 +4947,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 812,
+              "line": 823,
               "column": 2
             },
             "end": {
-              "line": 817,
+              "line": 828,
               "column": 3
             }
           },
@@ -4794,7 +4968,7 @@
           "column": 7
         },
         "end": {
-          "line": 818,
+          "line": 829,
           "column": 1
         }
       },
