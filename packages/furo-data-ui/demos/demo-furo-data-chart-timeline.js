@@ -97,7 +97,7 @@ class DemoFuroDataChartTimeline extends FBP(LitElement) {
                   tooltip
                   legend
                   data-labels
-                  grid
+
                   xaxis-datetime
                 >
                   <furo-data-chart-binder
