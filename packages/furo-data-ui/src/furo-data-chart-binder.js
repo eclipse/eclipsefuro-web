@@ -288,26 +288,40 @@ class FuroDataChartBinder extends LitElement {
             const fieldNode = this._pathGet(row, this.categoryField);
             if (fieldNode._spec.type === 'google.type.Date') {
               const date = new Date(
-                Date.UTC(fieldNode.year._value, fieldNode.month._value - 1, fieldNode.day._value, 0, 0, 0, 0),
+                Date.UTC(
+                  fieldNode.year._value,
+                  fieldNode.month._value - 1,
+                  fieldNode.day._value,
+                  0,
+                  0,
+                  0,
+                  0,
+                ),
               );
               v.x = date.getTime();
             } else {
               v.x = fieldNode._value;
             }
-
           }
           if (dataFields.length === 1) {
             if (this._pathGet(row, dataFields[0])) {
               const fieldNode = this._pathGet(row, this.dataField);
               if (fieldNode._spec.type === 'google.type.Date') {
                 const date = new Date(
-                  Date.UTC(fieldNode.year._value, fieldNode.month._value - 1, fieldNode.day._value, 0, 0, 0, 0),
+                  Date.UTC(
+                    fieldNode.year._value,
+                    fieldNode.month._value - 1,
+                    fieldNode.day._value,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ),
                 );
                 v.y = date.getTime();
               } else {
                 v.y = fieldNode._value;
               }
-
             } else {
               v.y = null;
             }
@@ -321,13 +335,20 @@ class FuroDataChartBinder extends LitElement {
 
                 if (fieldNode._spec.type === 'google.type.Date') {
                   const date = new Date(
-                    Date.UTC(fieldNode.year._value, fieldNode.month._value - 1, fieldNode.day._value, 0, 0, 0, 0),
+                    Date.UTC(
+                      fieldNode.year._value,
+                      fieldNode.month._value - 1,
+                      fieldNode.day._value,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ),
                   );
                   v.y.push(date.getTime());
                 } else {
                   v.y.push(fieldNode._value);
                 }
-
               } else {
                 v.y.push(null);
               }

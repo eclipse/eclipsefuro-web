@@ -209,7 +209,6 @@ class DemoFuroDataChartMini extends FBP(LitElement) {
                         data-field="data.start.day"
                         category-field="data.description"
                       ></furo-data-chart-binder>
-
                     </furo-chart-display>
                   </furo-card>
 
