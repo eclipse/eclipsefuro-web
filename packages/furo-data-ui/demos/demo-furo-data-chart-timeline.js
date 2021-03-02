@@ -68,21 +68,41 @@ class DemoFuroDataChartTimeline extends FBP(LitElement) {
               <furo-card header-text="Timeline aka rangeBar">
                 <furo-chart-display
                   chart-type="rangeBar"
-                  title-text="Chart Title"
+                  title-text="Just numbers"
                   title-align="center"
                   no-data-text="Loading..."
-                  fixed-height="350"
+                  fixed-height="300"
                   zebra="#f3f4f5, #fff"
                   xaxis-title="Duration"
                   plot-horizontal
                   tooltip
                   legend
-                  data-labels
                   grid
                 >
                   <furo-data-chart-binder
                     ƒ-bind-data="--projectDAO(*.entities)"
                     data-field="data.start.day, data.end.day"
+                    category-field="data.description"
+                    axis-label="Project"
+                  ></furo-data-chart-binder>
+                </furo-chart-display>
+                <furo-chart-display
+                  chart-type="rangeBar"
+                  title-text="With dates"
+                  title-align="center"
+                  no-data-text="Loading..."
+                  fixed-height="300"
+                  xaxis-title="Duration"
+                  plot-horizontal
+                  tooltip
+                  legend
+                  data-labels
+
+                  xaxis-datetime
+                >
+                  <furo-data-chart-binder
+                    ƒ-bind-data="--projectDAO(*.entities)"
+                    data-field="data.start, data.end"
                     category-field="data.description"
                     axis-label="Project"
                   ></furo-data-chart-binder>

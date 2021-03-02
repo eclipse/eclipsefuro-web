@@ -128,10 +128,14 @@ class FuroChartDisplay extends FBP(LitElement) {
         offsetY: 0,
       },
       plotOptions: {},
-      xaxis:{
+      xaxis: {
+        // type: "datetime",
+
+        // tickAmount: 6,
         title: {
           text: undefined,
-      }}
+        },
+      },
     };
   }
 
@@ -244,7 +248,11 @@ class FuroChartDisplay extends FBP(LitElement) {
       /**
        * Give the x-axis a title which will be displayed below the axis labels by default.
        */
-      xaxisTitle:{type:String, attribute:"xaxis-title"}
+      xaxisTitle: { type: String, attribute: 'xaxis-title' },
+      /**
+       * Set this to true if you have datetime, google.type.date or timestamp data on the x-axis
+       */
+      xaxisDatetime: { type: Boolean, attribute: 'xaxis-datetime' },
     };
   }
 
@@ -255,6 +263,17 @@ class FuroChartDisplay extends FBP(LitElement) {
 
   set xaxisTitle(v) {
     this.apexOptions.xaxis.title.text = v;
+  }
+
+  set xaxisDatetime(v) {
+    // type: "datetime",
+    this.apexOptions.xaxis.type = 'datetime';
+    // todo this can be done better?
+    this.apexOptions.dataLabels.formatter = (val, opts) => {
+      const label = opts.w.globals.labels[opts.dataPointIndex];
+      const diff = Math.abs(val[0] - val[1]) / 86400000;
+      return `${label}: ${diff}d`;
+    };
   }
 
   set zebra(v) {

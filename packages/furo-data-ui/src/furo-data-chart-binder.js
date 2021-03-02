@@ -226,6 +226,7 @@ class FuroDataChartBinder extends LitElement {
 
     const graphType = this.parentElement.getAttribute('chart-type');
     const dataFields = this.dataField.replace(/ /g, '').split(',');
+
     switch (graphType) {
       case 'donut':
       case 'radialBar':
@@ -284,11 +285,43 @@ class FuroDataChartBinder extends LitElement {
         this.repeater.repeats.forEach(row => {
           const v = { x: '', y: null };
           if (this.categoryField && this._pathGet(row, this.categoryField)) {
-            v.x = this._pathGet(row, this.categoryField)._value;
+            const fieldNode = this._pathGet(row, this.categoryField);
+            if (fieldNode._spec.type === 'google.type.Date') {
+              const date = new Date(
+                Date.UTC(
+                  fieldNode.year._value,
+                  fieldNode.month._value - 1,
+                  fieldNode.day._value,
+                  0,
+                  0,
+                  0,
+                  0,
+                ),
+              );
+              v.x = date.getTime();
+            } else {
+              v.x = fieldNode._value;
+            }
           }
           if (dataFields.length === 1) {
             if (this._pathGet(row, dataFields[0])) {
-              v.y = this._pathGet(row, this.dataField)._value;
+              const fieldNode = this._pathGet(row, this.dataField);
+              if (fieldNode._spec.type === 'google.type.Date') {
+                const date = new Date(
+                  Date.UTC(
+                    fieldNode.year._value,
+                    fieldNode.month._value - 1,
+                    fieldNode.day._value,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ),
+                );
+                v.y = date.getTime();
+              } else {
+                v.y = fieldNode._value;
+              }
             } else {
               v.y = null;
             }
@@ -298,7 +331,24 @@ class FuroDataChartBinder extends LitElement {
             v.y = [];
             dataFields.forEach(field => {
               if (this._pathGet(row, field)) {
-                v.y.push(this._pathGet(row, field)._value);
+                const fieldNode = this._pathGet(row, field);
+
+                if (fieldNode._spec.type === 'google.type.Date') {
+                  const date = new Date(
+                    Date.UTC(
+                      fieldNode.year._value,
+                      fieldNode.month._value - 1,
+                      fieldNode.day._value,
+                      0,
+                      0,
+                      0,
+                      0,
+                    ),
+                  );
+                  v.y.push(date.getTime());
+                } else {
+                  v.y.push(fieldNode._value);
+                }
               } else {
                 v.y.push(null);
               }
