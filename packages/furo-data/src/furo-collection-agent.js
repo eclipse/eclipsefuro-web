@@ -124,12 +124,15 @@ class FuroCollectionAgent extends FBP(LitElement) {
        * The service name. Like ProjectService
        */
       service: { type: String, attribute: true },
+      rel: { type: String, attribute: true },
+      method: { type: String, attribute: true },
       pageSize: { type: Number, attribute: 'page-size' },
       fields: { type: String, attribute: true },
       orderBy: { type: String, attribute: 'order-by' },
       filter: { type: Array, attribute: true },
       view: { type: String, attribute: true },
       listOnHtsIn: { type: Boolean, attribute: 'list-on-hts-in' },
+      loadRelOnHtsIn: { type: Boolean, attribute: 'load-rel-on-hts-in' },
     };
   }
 
@@ -383,6 +386,18 @@ class FuroCollectionAgent extends FBP(LitElement) {
   }
 
   /**
+   * loads the entity if hts is available
+   */
+  loadRel() {
+    return this._followRelService(this.rel, this.method);
+  }
+
+  searchRel(term) {
+    this._queryParams.q = term;
+    this.loadRel();
+  }
+
+  /**
    * search for a term.
    *
    * This will set the query param q and triggers a list()
@@ -461,6 +476,9 @@ class FuroCollectionAgent extends FBP(LitElement) {
 
       if (this.listOnHtsIn) {
         this.list();
+      }
+      if (this.loadRelOnHtsIn) {
+        this.loadRel();
       }
       // there was a list,last,next call before the hts was set
       if (this._singleElementQueue.length > 0) {
