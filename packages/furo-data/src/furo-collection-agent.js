@@ -13,19 +13,13 @@ import { AgentHelper } from './lib/AgentHelper.js';
  *
  * How to use:
  * ```html
- * <furo-collection-agent ƒ-hts-in="--x"
- *                      service=""
- *                      ƒ-prev-page=""
- *                      ƒ-next-page=""
- *                      ƒ-last-page=""
- *                      ƒ-first-page=""
- *                      ƒ-list="--triggerGetCollection"
+ *    <furo-collection-agent
+ *                      service="Servicename"
  *                      ƒ-hts-in="--hts"
  *                      list-on-hts-in
- *                      @-hts-out="--x"
- *                    >
- * </furo-collection-agent>
+ *                    ></furo-collection-agent>
  * ```
+ *
  * @summary interface component to handle collection requests
  * @customElement
  * @demo demo-furo-collection-agent Basic usage
@@ -121,18 +115,79 @@ class FuroCollectionAgent extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * The service name. Like ProjectService
+       * The service name from the specs.
        */
       service: { type: String, attribute: true },
-      rel: { type: String, attribute: true },
-      method: { type: String, attribute: true },
+      /**
+       * Sets pagination size in the List request.
+       *
+       * Only useful if your service supports pagination.
+       */
       pageSize: { type: Number, attribute: 'page-size' },
+      /**
+       * Comma separated list of fields (like a fieldmask)
+       * used for partial representation / partial responses.
+       *
+       * If your services supports this feature, you will receive a subset of the fields.
+       */
       fields: { type: String, attribute: true },
+      /**
+       * Sorting order
+       *
+       * order-by="foo,-bar"  means foo asc and bar desc
+       *
+       * https://cloud.google.com/apis/design/design_patterns#sorting_order
+       *
+       * To avoid sql injection errors we do not send any sql like syntax!
+       *
+       * Only useable if your service has implemented this feature.
+       *
+       */
       orderBy: { type: String, attribute: 'order-by' },
-      filter: { type: Array, attribute: true },
+      /**
+       * Set the filter.
+       *
+       * Hint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.
+       *
+       * Only useable if your service has implemented this feature.
+       */
+      filter: { type: String, attribute: true },
+      /**
+       * Parameter for contextual representations
+       *
+       * To reduce network traffic, it is sometimes useful to allow the client to limit which parts of the resource the server should return in its responses,
+       * returning a view of the resource (i.e. specialized version for dropdowns ) instead of the full resource representation.
+       *
+       * https://cloud.google.com/apis/design/design_patterns#resource_view
+       *
+       * view=smallcards
+       *
+       * Only useable if your service has implemented this feature.
+       *
+       */
       view: { type: String, attribute: true },
+      /**
+       * Executes a list when a rel="list" is injected.
+       */
       listOnHtsIn: { type: Boolean, attribute: 'list-on-hts-in' },
+      /**
+       * Executes a loadRel when a rel="XXXX" is injected.
+       *
+       * You have to set the attributes *rel* and *method* to have this working.
+       *
+       * This is useful for getting "custom" collections.
+       */
       loadRelOnHtsIn: { type: Boolean, attribute: 'load-rel-on-hts-in' },
+      /**
+       * rel which should be used on load rel
+       */
+      rel: { type: String, attribute: true },
+      /**
+       * for compatibility reasons you have to specify the method inside of the service.
+       *
+       * This attribute should not be needed in future versions, because the rel already contains all relevant information.
+       */
+      method: { type: String, attribute: true },
     };
   }
 
@@ -141,37 +196,46 @@ class FuroCollectionAgent extends FBP(LitElement) {
    */
 
   /**
-   * Partielle Repräsentation
-   * https://cloud.google.com/apis/design/design_patterns#partial_response
    *
-   * etwas seltsam, aber google sieht hier $fields vor. Wird aber nicht so verwendet
+   * Comma separated list of fields (like a fieldmask)
+   * used for partial representation / partial responses.
    *
+   * If your services supports this feature, you will receive a subset of the fields.
    */
   setFields(fields) {
     this.fields = fields;
   }
 
   /**
-   * Sortierreihenfolge
-   * https://cloud.google.com/apis/design/design_patterns#sorting_order
-   *
-   * To avoid sql injection errors we do not send sql like syntax!
+   * Sorting order
    *
    * order-by="foo,-bar"  means foo asc and bar desc
+   *
+   * https://cloud.google.com/apis/design/design_patterns#sorting_order
+   *
+   * To avoid sql injection errors we do not send any sql like syntax!
+   *
+   * Only useable if your service has implemented this feature.
+   *
    */
   setOrderBy(order) {
     this.orderBy = order;
   }
 
   /**
-   * clear filter
+   * clear the setted filter
    */
   clearFilter() {
     this._filter = undefined;
   }
 
-  // Filtern  [["user","eq","12345"], ["abgeschlossen","eq", true]]
-  // if you throw in an object or array, it will get encoded when the request is fired
+  /**
+   * Set the filter.
+   *
+   * Hint: use the FieldNode._base64 property to send complex objects as a filter and decode it on the server side.
+   *
+   * Only useable if your service has implemented this feature.
+   */
   setFilter(filterstring) {
     this.filter = filterstring;
   }
@@ -190,22 +254,15 @@ class FuroCollectionAgent extends FBP(LitElement) {
 
   /**
    * Sets pagination size in the List request.
-   * @param s
+   *
+   * Only useful if your service supports pagination.
    */
   setPageSize(size) {
     this.pageSize = size;
   }
 
-  // Meta für die Anzahl der Elemente der Resource
 
-  /**
-   * contextbezogene Darstellung
-   *
-   * https://cloud.google.com/apis/design/design_patterns#resource_view
-   *
-   * view=smallcards
-   *
-   */
+
 
   /**
    * Setze den Service
@@ -386,12 +443,19 @@ class FuroCollectionAgent extends FBP(LitElement) {
   }
 
   /**
-   * loads the entity if hts is available
+   * loads the entity following the link which is specified on the attribute **rel** if it is available.
    */
   loadRel() {
     return this._followRelService(this.rel, this.method);
   }
 
+  /**
+   * search for a term following the link which is specified on the attribute **rel**
+   *
+   * This will set the query param q and execute the query.
+   *
+   * @param term
+   */
   searchRel(term) {
     this._queryParams.q = term;
     this.loadRel();
@@ -463,6 +527,10 @@ class FuroCollectionAgent extends FBP(LitElement) {
     return false;
   }
 
+  /**
+   * Inject HATEOAS links.
+   * @param hts
+   */
   htsIn(hts) {
     if (this._updateInternalHTS(hts)) {
       /**
@@ -488,6 +556,10 @@ class FuroCollectionAgent extends FBP(LitElement) {
     }
   }
 
+  /**
+   * @private
+   * @return {*}
+   */
   render() {
     // language=HTML
     return html`
