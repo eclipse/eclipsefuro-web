@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { Env } from '@furo/framework';
+import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
 import '@furo/fbp/src/flow-repeat.js';
@@ -371,30 +372,33 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @returns {CSSResult}
    */
   static get styles() {
-    return css`
-      :host {
-        display: block;
-        overflow: auto;
-      }
+    return (
+      Theme.getThemeForComponent('FuroUi5DataTable') ||
+      css`
+        :host {
+          display: block;
+          overflow: auto;
+        }
 
-      .no-data {
-        height: 3rem;
-        text-align: center;
-        line-height: 3rem;
-      }
+        .no-data {
+          height: 3rem;
+          text-align: center;
+          line-height: 3rem;
+        }
 
-      ui5-table-column[center]::part(column) {
-        text-align: center;
-      }
+        ui5-table-column[center]::part(column) {
+          text-align: center;
+        }
 
-      ui5-table-column[right]::part(column) {
-        text-align: right;
-      }
+        ui5-table-column[right]::part(column) {
+          text-align: right;
+        }
 
-      ui5-table-cell::part(cell):focus {
-        outline: none;
-      }
-    `;
+        ui5-table-cell::part(cell):focus {
+          outline: none;
+        }
+      `
+    );
   }
 
   /**

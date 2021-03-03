@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -142,46 +143,48 @@ class FuroUi5Card extends FBP(LitElement) {
    * @returns {CSSResult}
    */
   static get styles() {
-    return css`
-      :host {
-        display: block;
-        opacity: 1;
-        transition: opacity ease-in-out 120ms;
-      }
+    return (
+      Theme.getThemeForComponent('FuroUi5Card') ||
+      css`
+        :host {
+          display: block;
+          opacity: 1;
+          transition: opacity ease-in-out 120ms;
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
+        :host([hidden]) {
+          display: none;
+        }
 
-      :host([transparent]) {
-        opacity: 0;
-      }
+        :host([transparent]) {
+          opacity: 0;
+        }
 
-      ui5-card {
-        height: 100%;
-      }
+        ui5-card {
+          height: 100%;
+        }
 
-      :host([design='Positive']) ui5-icon {
-        background-color: var(--sapPositiveColor);
-      }
+        :host([design='Positive']) ui5-icon {
+          background-color: var(--sapPositiveColor);
+        }
 
-      :host([design='Negative']) ui5-icon {
-        background-color: var(--sapNegativeColor);
-      }
+        :host([design='Negative']) ui5-icon {
+          background-color: var(--sapNegativeColor);
+        }
 
-      :host([design='Critical']) ui5-icon {
-        background-color: var(--sapCriticalColor);
-      }
+        :host([design='Critical']) ui5-icon {
+          background-color: var(--sapCriticalColor);
+        }
 
-      :host([design='Neutral']) ui5-icon {
-        background-color: var(--sapNeutralColor);
-      }
+        :host([design='Neutral']) ui5-icon {
+          background-color: var(--sapNeutralColor);
+        }
 
-
-      ::slotted([slot='content']) {
-        padding: var(--_ui5_card_content_padding);
-      }
-    `;
+        ::slotted([slot='content']) {
+          padding: var(--_ui5_card_content_padding);
+        }
+      `
+    );
   }
 
   /**

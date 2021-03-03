@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
+import { Theme } from '@furo/framework/src/theme';
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 
 import '@ui5/webcomponents/dist/Label.js';
@@ -106,8 +107,8 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
   }
 
   static get styles() {
-    // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('FuroUi5DataCollectionDropdownLabeled') ||
       css`
         :host {
           display: block;
@@ -115,8 +116,8 @@ class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**

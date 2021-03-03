@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 
 /**
@@ -140,7 +141,8 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
 
   static get styles() {
     // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('FuroUi5FormFieldContainer') ||
       css`
         :host {
           display: block;
@@ -215,8 +217,8 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
           place-self: start var(--furo-ui5-form-field-container-label-justify, end);
           padding-top: 0.5rem;
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**
