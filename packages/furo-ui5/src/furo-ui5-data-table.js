@@ -231,7 +231,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
 
     field.popin = !!this._popinFields.includes(fieldPath);
 
-    const fieldNode = this._findFieldByPath(this._fields, fieldPath);
+    const fieldNode = this._getSpecFieldFromPath(this._fields, fieldPath);
 
     if (fieldNode) {
       if (this._headers.length > 1) {
@@ -341,29 +341,24 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @returns {*}
    * @private
    */
-  _findFieldByPath(field, path) {
-    const arr = path.split('.');
-
-    if (arr.length > 1) {
-      const subPath = path
-        .split('.')
-        .slice(1)
-        .join('.');
-
-      if (field[arr[0]]) {
-        return this._findFieldByPath(field[arr[0]], subPath);
+  _getSpecFieldFromPath(field, path) {
+    const prop = field;
+    const parts = this._split(path);
+    if (parts.length > 1) {
+      if (field.fields && field.fields[parts[0]]) {
+        return this._getSpecFieldFromPath(field.fields[parts[0]], parts.slice(1).join('.'));
       }
-      if (field.type && this._specs[field.type]) {
-        return this._findFieldByPath(this._specs[field.type].fields, subPath);
+      if (!field[parts[0]]) {
+        return this._getSpecFieldFromPath(this._specs[field.type], parts.join('.'));
       }
-    } else {
-      if (field[arr[0]]) {
-        return field[arr[0]];
-      }
-
-      return this._specs[field.type].fields[arr[0]];
+      return this._getSpecFieldFromPath(field[parts[0]], parts.slice(1).join('.'));
     }
-    return undefined;
+    const part = parts[0];
+
+    if (prop.fields && prop.fields[part] !== undefined) {
+      return prop.fields[part];
+    }
+    return this._getSpecFieldFromPath(this._specs[field.type], part);
   }
 
   /**
