@@ -119,12 +119,6 @@ class FuroChartDisplay extends FBP(LitElement) {
           offsetY: 30,
           offsetX: 160,
         },
-        //    _y: {
-        //     title:{ formatter: (seriesName, opts) =>{
-        //        return [opts.w.config.yaxis[opts.seriesIndex].legendLabel]
-        //      }
-        //     }
-        //   }
       },
       legend: {
         show: false,
