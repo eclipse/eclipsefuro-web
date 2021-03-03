@@ -133,7 +133,7 @@ class FuroChartDisplay extends FBP(LitElement) {
         offsetX: 0,
         offsetY: 0,
         formatter: (seriesName, opts) => {
-          if (opts.w.config.yaxis[opts.seriesIndex].legendLabel) {
+          if (opts.w.config.yaxis[opts.seriesIndex] && opts.w.config.yaxis[opts.seriesIndex].legendLabel) {
             return [opts.w.config.yaxis[opts.seriesIndex].legendLabel];
           }
           return [seriesName];
