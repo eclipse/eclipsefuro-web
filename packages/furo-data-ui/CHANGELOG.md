@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.5.0...@furo/data-ui@1.6.0) (2021-03-03)
+
+
+### Features
+
+* datetime on any axis ([c27c6e0](https://github.com/theNorstroem/FuroBaseComponents/commit/c27c6e00c030026e749bbd65a6228dd336bd33f5))
+* datetime on any axis ([c4b54a0](https://github.com/theNorstroem/FuroBaseComponents/commit/c4b54a03c25542b6a3fbff82107ae308f5f1f0ed))
+
+
+
+
+
 # [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.4.10...@furo/data-ui@1.5.0) (2021-02-25)
 
 

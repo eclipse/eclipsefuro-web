@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.19.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.18.3...@furo/data@1.19.0) (2021-03-03)
+
+
+### Features
+
+* load rel on collection-agent ([6d8030f](https://github.com/theNorstroem/FuroBaseComponents/commit/6d8030fc2321f5d2a1181719453f7c60a573d9b3))
+* load rel on collection-agent ([3c917b3](https://github.com/theNorstroem/FuroBaseComponents/commit/3c917b323b360b595a78438d89ab6f3fe58ec432))
+
+
+
+
+
 ## [1.18.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.18.2...@furo/data@1.18.3) (2021-02-25)
 
 **Note:** Version bump only for package @furo/data

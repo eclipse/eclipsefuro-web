@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.20.0...@furo/ui5@0.21.0) (2021-03-03)
+
+
+### Bug Fixes
+
+* arrow-down should work when man focusout the table by pressing the tab and then focus it again. ([ef74d80](https://github.com/theNorstroem/FuroBaseComponents/commit/ef74d809f52de2ef66130b56bc5ef4080cd18aa3))
+* path depth should be unlimited ([f49ecf0](https://github.com/theNorstroem/FuroBaseComponents/commit/f49ecf03fd3e074039d8617a85add88ffa33ef76))
+
+
+### Features
+
+* add css theme supports. ([33eb477](https://github.com/theNorstroem/FuroBaseComponents/commit/33eb477c851cf6daac6d5f1e9f3679c66acc334f))
+* datetime on any axis ([c4b54a0](https://github.com/theNorstroem/FuroBaseComponents/commit/c4b54a03c25542b6a3fbff82107ae308f5f1f0ed))
+
+
+
+
+
 # [0.20.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.19.1...@furo/ui5@0.20.0) (2021-03-01)
 
 
