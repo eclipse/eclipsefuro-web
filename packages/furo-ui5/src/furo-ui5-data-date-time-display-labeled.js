@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
+import { Theme } from '@furo/framework/src/theme';
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 import '@ui5/webcomponents/dist/Label.js';
 
@@ -58,8 +59,8 @@ class FuroUi5DataDateTimeDisplayLabeled extends FBP(LitElement) {
   }
 
   static get styles() {
-    // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('FuroUi5DataDateTimeDisplayLabeled') ||
       css`
         :host {
           display: block;
@@ -70,8 +71,8 @@ class FuroUi5DataDateTimeDisplayLabeled extends FBP(LitElement) {
         ui5-label {
          var(--_ui5_input_height);
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**
