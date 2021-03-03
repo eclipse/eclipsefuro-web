@@ -119,6 +119,12 @@ class FuroChartDisplay extends FBP(LitElement) {
           offsetY: 30,
           offsetX: 160,
         },
+        //    _y: {
+        //     title:{ formatter: (seriesName, opts) =>{
+        //        return [opts.w.config.yaxis[opts.seriesIndex].legendLabel]
+        //      }
+        //     }
+        //   }
       },
       legend: {
         show: false,
@@ -126,6 +132,12 @@ class FuroChartDisplay extends FBP(LitElement) {
         horizontalAlign: 'left',
         offsetX: 0,
         offsetY: 0,
+        formatter: (seriesName, opts) => {
+          if (opts.w.config.yaxis[opts.seriesIndex].legendLabel) {
+            return [opts.w.config.yaxis[opts.seriesIndex].legendLabel];
+          }
+          return [seriesName];
+        },
       },
       plotOptions: {},
       xaxis: {

@@ -36,6 +36,7 @@ class FuroDataChartBinder extends LitElement {
 
     this.options = {
       seriesName: undefined,
+      legendLabel: undefined, // custom field
       opposite: false,
       axisTicks: {
         show: false,
@@ -90,6 +91,10 @@ class FuroDataChartBinder extends LitElement {
        * Label the Series for the legend. This text is also shown on the tooltips. This is useful when you have more then one data series.
        */
       legendLabel: { type: String, attribute: 'legend-label' },
+      /**
+       * Series with same name will get the same y-axis
+       */
+      seriesName: { type: String, attribute: 'series-name' },
       /**
        * **Use this for mixed charts scenarios only**, prefer to define the chart-type on the chart-display.
        * Specify the default type on the display and set the custom type on this binder.
@@ -185,8 +190,12 @@ class FuroDataChartBinder extends LitElement {
     this.options.axisTicks.color = v;
   }
 
-  set legendLabel(v) {
+  set seriesName(v) {
     this.options.seriesName = v;
+  }
+
+  set legendLabel(v) {
+    this.options.legendLabel = v;
   }
 
   bindData(data) {
