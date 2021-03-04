@@ -72,5 +72,15 @@ export class FuroUi5TableRow extends TableRow.default {
       }
     });
   }
+
+  /**
+   * focus this row
+   */
+  focus() {
+    const tr = this.shadowRoot.querySelector('tr');
+    if (tr) {
+      tr.focus();
+    }
+  }
 }
 window.customElements.define('furo-ui5-table-row', FuroUi5TableRow);

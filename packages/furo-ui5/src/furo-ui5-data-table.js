@@ -191,6 +191,20 @@ class FuroUi5DataTable extends FBP(LitElement) {
   }
 
   /**
+   * focus the first row
+   */
+  focusLast() {
+    this._FBPTriggerWire('--triggerLast');
+  }
+
+  /**
+   * focus the last row
+   */
+  focusFirst() {
+    this._FBPTriggerWire('--triggerFirst');
+  }
+
+  /**
    * init data table
    * @private
    */
@@ -480,8 +494,14 @@ class FuroUi5DataTable extends FBP(LitElement) {
     return html`
       <ui5-table ?sticky-column-header="${this.stickyColumnHeader}">
         ${ui5HeaderTemplate(this.cols)}
-        <template is="flow-repeat" ƒ-inject-items="--data" internal-wire="--internal">
-          <furo-ui5-table-row ƒ-._data="--internal(*.item._value)"
+        <template
+          is="flow-repeat"
+          ƒ-inject-items="--data"
+          internal-wire="--internal"
+          ƒ-trigger-first="--triggerFirst"
+          ƒ-trigger-last="--triggerLast"
+        >
+          <furo-ui5-table-row ƒ-._data="--internal(*.item._value)" ƒ-focus="--trigger"
             >${ui5CellTemplate(this.cols)}
           </furo-ui5-table-row>
         </template>
