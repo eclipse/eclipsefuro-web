@@ -5,6 +5,7 @@ import slideDown from '@ui5/webcomponents-base/dist/animations/slideDown.js';
 import slideUp from '@ui5/webcomponents-base/dist/animations/slideUp.js';
 
 import '@ui5/webcomponents-icons/dist/slim-arrow-up.js';
+import '@ui5/webcomponents/dist/Avatar.js';
 
 import '@ui5/webcomponents/dist/Label';
 import '@ui5/webcomponents/dist/Icon.js';
@@ -25,8 +26,8 @@ import '@ui5/webcomponents/dist/Panel';
  *
  * Custom property | Description | Default  | Fallback
  * ----------------|-------------|----------|----------
- * `--furo-ui5-header-panel-icon-color` | Color of the icon  | #ffffff | --
- * `--furo-ui5-header-panel-icon-background-color` | background Color of the icon | #354a5f | --
+ * `--furo-ui5-header-panel-icon-color` | Color of the icon  | --ui5-avatar-initials-color | #ffffff
+ * `--furo-ui5-header-panel-icon-background-color` | background Color of the icon | --ui5-avatar-accent6 | #354a5f
  * `--furo-ui5-header-panel-splitter-start-color` |  the gradient-start hex-Color of the splitter | --primary-dark | #0854a0
  * `--furo-ui5-header-panel-splitter-end-rgba-color` | the gradient-end rgba-Color of the splitter | --primary-rgb | rgba(8, 84, 16, 0)
  *
@@ -48,6 +49,7 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
   constructor() {
     super();
     this.icon = '';
+    this.iconSize = 'S';
     this.headerText = '';
     this.secondaryText = '';
     this.collapsed = false;
@@ -73,6 +75,12 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
        * icon
        */
       icon: { type: String, attribute: 'icon' },
+
+      /**
+       * size of the icon. Available options are: XS S M L XL. Default is S.
+       */
+      iconSize: { type: String, attribute: 'icon-size' },
+
       collapsed: { type: Boolean, reflect: true },
     };
   }
@@ -266,15 +274,13 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
           display: none;
         }
 
-        .icon {
-          width: 40px;
-          height: 40px;
-          margin: 2px 32px 0 0;
-          padding: 19px 20px 21px 20px;
-          border-radius: 4px;
-          display: inline-block;
-          color: var(--furo-ui5-header-panel-icon-color, #ffffff);
-          background-color: var(--furo-ui5-header-panel-icon-background-color, #354a5f);
+        ui5-avatar {
+          color: var(--furo-ui5-header-panel-icon-color, var(--ui5-avatar-initials-color, #fffff));
+          background-color: var(
+            --furo-ui5-header-panel-icon-background-color,
+            var(--ui5-avatar-accent6, #354a5f)
+          );
+          margin-right: var(--spacing-xs);
         }
 
         :host([fixed]) .splitter_bar {
@@ -292,11 +298,13 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
         }
 
         .collapser-button {
-          width: 1.5rem;
-          height: 1.5rem;
-          min-width: 1.5rem;
+          width: 1rem;
+          height: 1rem;
+          min-width: 1rem;
           will-change: transform;
           overflow: visible;
+          cursor: pointer;
+          color: var(--primary-dark);
         }
 
         .splitter {
@@ -349,7 +357,12 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
         <div class="wrapper">
           ${this.icon
             ? html`
-                <ui5-icon class="icon" name="${this.icon}"></ui5-icon>
+                <ui5-avatar
+                  class="icon"
+                  icon="${this.icon}"
+                  size="${this.iconSize}"
+                  shape="Square"
+                ></ui5-avatar>
               `
             : html``}
           <div class="content">
@@ -359,14 +372,15 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
       </ui5-panel>
       <div class="splitter_bar">
         <div class="splitter before"></div>
-        <ui5-button
+        <ui5-icon
+          tab-index="-1"
           @-click="--collapserClicked"
           class="collapser-button"
-          icon="slim-arrow-up"
+          name="slim-arrow-up"
           design="Transparent"
           ui5-button=""
           icon-only=""
-        ></ui5-button>
+        ></ui5-icon>
         <div class="splitter after"></div>
       </div>
     `;

@@ -342,24 +342,32 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @returns {*}
    * @private
    */
+  // eslint-disable-next-line consistent-return
   _getSpecFieldFromPath(field, path) {
-    const prop = field;
-    const parts = this._split(path);
-    if (parts.length > 1) {
-      if (field.fields && field.fields[parts[0]]) {
-        return this._getSpecFieldFromPath(field.fields[parts[0]], parts.slice(1).join('.'));
-      }
-      if (!field[parts[0]]) {
-        return this._getSpecFieldFromPath(this._specs[field.type], parts.join('.'));
-      }
-      return this._getSpecFieldFromPath(field[parts[0]], parts.slice(1).join('.'));
-    }
-    const part = parts[0];
+    if (field) {
+      const prop = field;
 
-    if (prop.fields && prop.fields[part] !== undefined) {
-      return prop.fields[part];
+      const parts = this._split(path);
+      if (parts.length > 1) {
+        if (field.fields && field.fields[parts[0]]) {
+          return this._getSpecFieldFromPath(field.fields[parts[0]], parts.slice(1).join('.'));
+        }
+        if (!field[parts[0]]) {
+          return this._getSpecFieldFromPath(this._specs[field.type], parts.join('.'));
+        }
+        return this._getSpecFieldFromPath(field[parts[0]], parts.slice(1).join('.'));
+      }
+      const part = parts[0];
+
+      if (prop.fields && prop.fields[part] !== undefined) {
+        return prop.fields[part];
+      }
+      return this._getSpecFieldFromPath(this._specs[field.type], part);
     }
-    return this._getSpecFieldFromPath(this._specs[field.type], part);
+    // eslint-disable-next-line no-console
+    console.warn(
+      `Invalid subfield '${path}' in the field-path. please set a correct field-path in cloumn.`,
+    );
   }
 
   /**
