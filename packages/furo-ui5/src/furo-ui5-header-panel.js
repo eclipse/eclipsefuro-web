@@ -373,7 +373,6 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
       <div class="splitter_bar">
         <div class="splitter before"></div>
         <ui5-icon
-          tab-index="-1"
           @-click="--collapserClicked"
           class="collapser-button"
           name="slim-arrow-up"

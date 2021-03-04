@@ -42,6 +42,32 @@ export class FuroUi5TableRow extends TableRow.default {
       } else if (key === 'ArrowDown' || key === 40) {
         if (this.nextSibling && this.nextSibling.tagName !== 'FURO-UI5-TABLE-ROW') {
           event.stopPropagation();
+
+          /**
+           * Fired when the ArrowDown is pressed on the last row.
+           * the event detail is the original entity of the row
+           * @event arrow-down-on-last-row
+           */
+          this.dispatchEvent(
+            new CustomEvent('arrow-down-on-last-row', {
+              bubbles: true,
+              composed: true,
+            }),
+          );
+        }
+      } else if (key === 'ArrowUp' || key === 38) {
+        if (this.previousSibling && this.previousSibling.tagName === undefined) {
+          /**
+           * Fired when the ArrowUp is pressed on the first row.
+           * the event detail is the original entity of the row
+           * @event arrow-up-on-first-row
+           */
+          this.dispatchEvent(
+            new CustomEvent('arrow-up-on-first-row', {
+              bubbles: true,
+              composed: true,
+            }),
+          );
         }
       }
     });
