@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.21.0...@furo/ui5@0.21.1) (2021-03-05)
+
+
+### Bug Fixes
+
+* display values on init too ([632b4dd](https://github.com/theNorstroem/FuroBaseComponents/commit/632b4dd7db7de99e1817e332fc17ce01300498c5))
+* path resolving and wire ([d13b1a6](https://github.com/theNorstroem/FuroBaseComponents/commit/d13b1a69f8f2bb78fb58cdff0b44cb9b2862da85))
+* ui5-data-table should warn wrong field path in column. use ui5 avatar in Header panel. ([84777fe](https://github.com/theNorstroem/FuroBaseComponents/commit/84777fe6ad6364719d1b84fc31e977e339f6fe71))
+
+
+
+
+
 # [0.21.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.20.0...@furo/ui5@0.21.0) (2021-03-03)
 
 

@@ -1,7 +1,7 @@
 {
   "name": "@furo/data-ui",
   "description": "Visual furo-data compatible components",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-data-ui",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {

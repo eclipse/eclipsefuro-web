@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.6.0...@furo/data-ui@1.6.1) (2021-03-05)
+
+
+### Bug Fixes
+
+* data labels formatter ([51652c9](https://github.com/theNorstroem/FuroBaseComponents/commit/51652c9455d637d66cb20654bb55b89f502d21ff))
+
+
+
+
+
 # [1.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.5.0...@furo/data-ui@1.6.0) (2021-03-03)
 
 
