@@ -57,6 +57,11 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
 
         this.requestUpdate();
       });
+
+      this._formattedDateString = DisplayGoogleProtobufTimestamp._convertDateToString(
+        this._field._value,
+      );
+
     } else {
       this._formattedDateString = '';
     }

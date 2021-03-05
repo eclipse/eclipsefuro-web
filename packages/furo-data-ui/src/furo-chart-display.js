@@ -278,11 +278,13 @@ class FuroChartDisplay extends FBP(LitElement) {
     // type: "datetime",
     this.apexOptions.xaxis.type = 'datetime';
     // todo this can be done better?
-    this.apexOptions.dataLabels.formatter = (val, opts) => {
-      const label = opts.w.globals.labels[opts.dataPointIndex];
-      const diff = Math.abs(val[0] - val[1]) / 86400000;
-      return `${label}: ${diff}d`;
-    };
+    if (this.apexOptions.chart.type === 'rangeBar') {
+      this.apexOptions.dataLabels.formatter = (val, opts) => {
+        const label = opts.w.globals.labels[opts.dataPointIndex];
+        const diff = Math.abs(val[0] - val[1]) / 86400000;
+        return `${label}: ${diff}d`;
+      };
+    }
   }
 
   set zebra(v) {
