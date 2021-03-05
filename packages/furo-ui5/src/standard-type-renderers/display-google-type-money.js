@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
 import { Env } from '@furo/framework/src/furo.js';
 
 /**
@@ -26,7 +27,8 @@ export class DisplayGoogleTypeMoney extends LitElement {
 
   static get styles() {
     // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('DisplayGoogleTypeMoney') ||
       css`
         :host {
           display: block;
@@ -76,8 +78,8 @@ export class DisplayGoogleTypeMoney extends LitElement {
         :host([value-state='Warning']) {
           color: var(--sapCrticalColor, #e9730c);
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**

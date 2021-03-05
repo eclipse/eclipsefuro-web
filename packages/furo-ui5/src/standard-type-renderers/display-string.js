@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
 
 /**
  * `display-string`
@@ -21,7 +22,8 @@ export class DisplayString extends LitElement {
 
   static get styles() {
     // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('DisplayString') ||
       css`
         :host {
           display: inline-block;
@@ -50,8 +52,8 @@ export class DisplayString extends LitElement {
         :host([data-size='size-xl']) {
           padding-top: 0.5rem;
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**

@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
 import { Env } from '@furo/framework/src/furo.js';
 
 /**
@@ -25,7 +26,8 @@ class DisplayGoogleTypeTimeofday extends LitElement {
 
   static get styles() {
     // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('DisplayGoogleTypeTimeofday') ||
       css`
         :host {
           display: block;
@@ -38,8 +40,8 @@ class DisplayGoogleTypeTimeofday extends LitElement {
         :host([tabular-form]) {
           text-align: right;
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**

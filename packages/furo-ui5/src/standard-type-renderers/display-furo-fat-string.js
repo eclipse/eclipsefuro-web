@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
 
 /**
  * `display-furo-fat-string`
@@ -20,7 +21,8 @@ class DisplayFuroFatString extends LitElement {
 
   static get styles() {
     // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('DisplayFuroFatString') ||
       css`
         :host {
           display: inline-block;
@@ -66,8 +68,8 @@ class DisplayFuroFatString extends LitElement {
         :host([value-state='Warning']) {
           color: var(--sapCrticalColor, #e9730c);
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**

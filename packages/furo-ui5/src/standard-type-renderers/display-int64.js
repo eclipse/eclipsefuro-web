@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
 import { Env } from '@furo/framework/src/furo.js';
 
 /**
@@ -24,7 +25,8 @@ export class DisplayInt64 extends LitElement {
 
   static get styles() {
     // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('DisplayInt64') ||
       css`
         :host {
           display: block;
@@ -74,8 +76,8 @@ export class DisplayInt64 extends LitElement {
         :host([value-state='Warning']) {
           color: var(--sapCrticalColor, #e9730c);
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**

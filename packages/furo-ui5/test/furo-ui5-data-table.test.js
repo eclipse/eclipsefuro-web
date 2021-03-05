@@ -344,4 +344,37 @@ describe('furo-ui5-data-table', () => {
     );
     dao.data.entities.removeAllChildren();
   });
+
+  it('should focus the first row via focusFirst method', done => {
+    // initial data inject
+    dao.injectRaw(mockdata);
+
+    setTimeout(() => {
+      table.focusFirst();
+      const tr = table.shadowRoot
+        .querySelectorAll('furo-ui5-table-row')[0]
+        .shadowRoot.querySelector('tr');
+      assert.equal(
+        table.shadowRoot.querySelectorAll('furo-ui5-table-row')[0].shadowRoot.activeElement,
+        tr,
+      );
+      done();
+    }, 50);
+  });
+
+  it('should focus the last row via focusLast method', done => {
+    // initial data inject
+    dao.injectRaw(mockdata);
+    setTimeout(() => {
+      table.focusLast();
+      const tr3 = table.shadowRoot
+        .querySelectorAll('furo-ui5-table-row')[4]
+        .shadowRoot.querySelector('tr');
+      assert.equal(
+        table.shadowRoot.querySelectorAll('furo-ui5-table-row')[4].shadowRoot.activeElement,
+        tr3,
+      );
+      done();
+    }, 100);
+  });
 });
