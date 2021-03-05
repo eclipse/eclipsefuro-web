@@ -345,7 +345,7 @@ describe('furo-ui5-data-table', () => {
     dao.data.entities.removeAllChildren();
   });
 
-/*  it('should focus the first row via focusFirst method', done => {
+  /*  it('should focus the first row via focusFirst method', done => {
     // initial data inject
     dao.injectRaw(mockdata);
 
