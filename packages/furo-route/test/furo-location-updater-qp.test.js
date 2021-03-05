@@ -4,8 +4,9 @@ import 'axe-core/axe.min.js';
 import '../src/furo-catalog.js';
 import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
 
-describe('furo-location-updater', () => {
+describe('furo-location-updater-qps', () => {
   let element;
+  let furoLocation;
   let host;
 
   beforeEach(async () => {
@@ -13,14 +14,16 @@ describe('furo-location-updater', () => {
       <test-bind>
         <template>
           <furo-location-updater></furo-location-updater>
+          <furo-location></furo-location>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, element] = testbind.parentNode.children;
+    [, element,furoLocation] = testbind.parentNode.children;
     await host.updateComplete;
     await element.updateComplete;
+    await furoLocation.updateComplete;
   });
 
   it('should be a furo-location-updater', done => {
@@ -29,32 +32,15 @@ describe('furo-location-updater', () => {
     done();
   });
 
-  it('should dispatch a __locationchanged event on changed QP', done => {
-    element.addEventListener('__furoLocationChanged', e => {
-      assert.equal(e.type, '__furoLocationChanged');
+
+  it('should dispatch a location-changed event on changed QP', done => {
+    furoLocation.addEventListener('location-changed', e => {
+      assert.equal(e.type, 'location-changed');
       done();
     });
-
-    element.setQp({ a: 4 });
+    element.setQp({ j: 8 });
   });
 
-  it('should dispatch a __locationchanged event on changed Hash', done => {
-    element.addEventListener('__furoLocationChanged', e => {
-      assert.equal(e.type, '__furoLocationChanged');
-      done();
-    });
-
-    element.setHash({ a: 4 });
-  });
-
-  it('should add additional hashes on changed Hash', done => {
-    element.setHash({ a: 4444 });
-    element.setHash({ b: 3333 });
-
-    assert.equal(window.location.hash.slice(1), 'a=4444&b=3333');
-
-    done();
-  });
 
   it('should add additional qps', done => {
     element.setQp({ a: 4444 });
@@ -75,13 +61,4 @@ describe('furo-location-updater', () => {
     done();
   });
 
-  it('should clear other hash', done => {
-    element.setHash({ a: 4444 });
-    element.setHash({ b: 457 });
-    assert.equal(window.location.hash.slice(1), 'a=4444&b=457');
-    element.setAttribute('clear-hash', 'a,c');
-    element.setHash({ c: 333 });
-    assert.equal(window.location.hash.slice(1), 'b=457&c=333');
-    done();
-  });
 });

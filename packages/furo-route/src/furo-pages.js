@@ -56,7 +56,44 @@ class FuroPages extends LitElement {
    * @param String pageName
    */
   activatePage(pageName) {
-    return this.injectLocation({ pathSegments: [pageName] });
+
+    /**
+     * imitate a location object like furo-location would send, to have a consisten behavior
+     * @type {{pathSegments: [*]}}
+     */
+    const pseudolocation = {pathSegments: [pageName]};
+
+    pseudolocation.path = window
+      .decodeURIComponent(window.location.pathname)
+      .replace(new RegExp(this.urlSpaceRegex), '');
+
+    const newHash = window.decodeURIComponent(window.location.hash.slice(1));
+    pseudolocation.hashstring = newHash;
+
+    // build the hash object
+    pseudolocation.hash = {};
+    if (newHash.length > 0) {
+      newHash.split('&').forEach(qstr => {
+        const p = qstr.split('=');
+        // eslint-disable-next-line prefer-destructuring
+        pseudolocation.hash[p[0]] = p[1];
+      });
+    }
+
+    // query-changed
+    const newQuery = window.location.search.slice(1);
+    pseudolocation.querystring = newQuery;
+    pseudolocation.query = {};
+    if (newQuery.length > 0) {
+      newQuery.split('&').forEach(qstr => {
+        const p = qstr.split('=');
+        // eslint-disable-next-line prefer-destructuring
+        pseudolocation.query[p[0]] = p[1];
+      });
+    }
+
+
+    return this.injectLocation(pseudolocation);
   }
 
   /**
