@@ -11,18 +11,7 @@ export class FuroUi5TableRow extends TableRow.default {
     this.shadowRoot.addEventListener('click', e => {
       e.stopPropagation();
       e.preventDefault();
-      /**
-       * Fired when the row is selected.
-       * the event detail is the original entity of the row
-       * @event tablerow-selected
-       */
-      this.dispatchEvent(
-        new CustomEvent('tablerow-selected', {
-          detail: this._data,
-          bubbles: true,
-          composed: true,
-        }),
-      );
+      this._select();
     });
 
     /**
@@ -31,44 +20,21 @@ export class FuroUi5TableRow extends TableRow.default {
     this.shadowRoot.addEventListener('keydown', event => {
       const key = event.key || event.keyCode;
 
-      if (key === 'Enter' || key === 13) {
-        this.dispatchEvent(
-          new CustomEvent('tablerow-selected', {
-            detail: this._data,
-            bubbles: true,
-            composed: true,
-          }),
-        );
-      } else if (key === 'ArrowDown' || key === 40) {
-        if (this.nextSibling && this.nextSibling.tagName !== 'FURO-UI5-TABLE-ROW') {
-          event.stopPropagation();
-
-          /**
-           * Fired when the ArrowDown is pressed on the last row.
-           * the event detail is the original entity of the row
-           * @event arrow-down-on-last-row
-           */
-          this.dispatchEvent(
-            new CustomEvent('arrow-down-on-last-row', {
-              bubbles: true,
-              composed: true,
-            }),
-          );
-        }
-      } else if (key === 'ArrowUp' || key === 38) {
-        if (this.previousSibling && this.previousSibling.tagName === undefined) {
-          /**
-           * Fired when the ArrowUp is pressed on the first row.
-           * the event detail is the original entity of the row
-           * @event arrow-up-on-first-row
-           */
-          this.dispatchEvent(
-            new CustomEvent('arrow-up-on-first-row', {
-              bubbles: true,
-              composed: true,
-            }),
-          );
-        }
+      switch (key) {
+        case 'Enter':
+        case 13:
+          this._select();
+          break;
+        case 'ArrowDown':
+        case 40:
+          this._arrowDownPressed(event);
+          break;
+        case 'ArrowUp':
+        case 38:
+          this._arrowUpPressed();
+          break;
+        default:
+          break;
       }
     });
   }
@@ -80,6 +46,55 @@ export class FuroUi5TableRow extends TableRow.default {
     const tr = this.shadowRoot.querySelector('tr');
     if (tr) {
       tr.focus();
+    }
+  }
+
+  _select() {
+    /**
+     * Fired when the row is selected.
+     * the event detail is the original entity of the row
+     * @event tablerow-selected
+     */
+    this.dispatchEvent(
+      new CustomEvent('tablerow-selected', {
+        detail: this._data,
+        bubbles: true,
+        composed: true,
+      }),
+    );
+  }
+
+  _arrowDownPressed(event) {
+    if (this.nextSibling && this.nextSibling.tagName !== 'FURO-UI5-TABLE-ROW') {
+      event.stopPropagation();
+
+      /**
+       * Fired when the ArrowDown is pressed on the last row.
+       * the event detail is the original entity of the row
+       * @event arrow-down-on-last-row
+       */
+      this.dispatchEvent(
+        new CustomEvent('arrow-down-on-last-row', {
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    }
+  }
+
+  _arrowUpPressed() {
+    if (this.previousSibling && this.previousSibling.tagName === undefined) {
+      /**
+       * Fired when the ArrowUp is pressed on the first row.
+       * the event detail is the original entity of the row
+       * @event arrow-up-on-first-row
+       */
+      this.dispatchEvent(
+        new CustomEvent('arrow-up-on-first-row', {
+          bubbles: true,
+          composed: true,
+        }),
+      );
     }
   }
 }

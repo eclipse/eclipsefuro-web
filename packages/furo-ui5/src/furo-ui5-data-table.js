@@ -179,15 +179,18 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * focus on the header of the table
    */
   focus() {
-    const header = this.shadowRoot.querySelector('ui5-table').shadowRoot.querySelector('tr');
-    // fix error when navigate without data
-    header.addEventListener('keydown', e => {
-      const key = e.key || e.keyCode;
-      if ((key === 'ArrowDown' || key === 40) && this.data.length === 0) {
-        e.stopPropagation();
-      }
-    });
-    header.click();
+    const table = this.shadowRoot.querySelector('ui5-table');
+    if (table && table.shadowRoot) {
+      const header = table.shadowRoot.querySelector('tr');
+      // fix error when navigate without data
+      header.addEventListener('keydown', e => {
+        const key = e.key || e.keyCode;
+        if ((key === 'ArrowDown' || key === 40) && this.data.length === 0) {
+          e.stopPropagation();
+        }
+      });
+      header.click();
+    }
   }
 
   /**
