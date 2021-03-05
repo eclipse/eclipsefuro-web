@@ -291,7 +291,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
    */
   _bindColumnTmplField(fieldPath, index) {
     const field = {};
-    field.wire = `--internal(*.item._value)`;
+    field.wire = `--internal(*.item)`;
 
     field.template = fieldPath.replaceAll('{', '').replaceAll('}', '');
 
@@ -390,6 +390,9 @@ class FuroUi5DataTable extends FBP(LitElement) {
 
       if (prop.fields && prop.fields[part] !== undefined) {
         return prop.fields[part];
+      }
+      if(field[path]){
+        return field[path];
       }
       return this._getSpecFieldFromPath(this._specs[field.type], part);
     }
