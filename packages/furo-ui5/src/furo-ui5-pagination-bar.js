@@ -158,6 +158,8 @@ class FuroUi5PaginationBar extends FBP(LitElement) {
    * @param href
    */
   getCurrentPage(href) {
+    // assume that we are on the first page, if the qp "page" is not set
+    this.currentPage = 1;
     if (href) {
       const regex = /page=[\d]*/;
       const page = href.match(regex);
