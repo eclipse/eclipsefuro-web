@@ -99,6 +99,18 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @event tablerow-selected
    */
 
+  /**
+   * Fired when the ArrowDown is pressed on the last row.
+   * the event detail is the original entity of the row
+   * @event arrow-down-on-last-row
+   */
+
+  /**
+   * Fired when the ArrowUp is pressed on the first row.
+   * the event detail is the original entity of the row
+   * @event arrow-up-on-first-row
+   */
+
   constructor() {
     super();
     this.cols = [];
@@ -167,15 +179,32 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * focus on the header of the table
    */
   focus() {
-    const header = this.shadowRoot.querySelector('ui5-table').shadowRoot.querySelector('tr');
-    // fix error when navigate without data
-    header.addEventListener('keydown', e => {
-      const key = e.key || e.keyCode;
-      if ((key === 'ArrowDown' || key === 40) && this.data.length === 0) {
-        e.stopPropagation();
-      }
-    });
-    header.click();
+    const table = this.shadowRoot.querySelector('ui5-table');
+    if (table && table.shadowRoot) {
+      const header = table.shadowRoot.querySelector('tr');
+      // fix error when navigate without data
+      header.addEventListener('keydown', e => {
+        const key = e.key || e.keyCode;
+        if ((key === 'ArrowDown' || key === 40) && this.data.length === 0) {
+          e.stopPropagation();
+        }
+      });
+      header.click();
+    }
+  }
+
+  /**
+   * focus the first row
+   */
+  focusLast() {
+    this._FBPTriggerWire('--triggerLast');
+  }
+
+  /**
+   * focus the last row
+   */
+  focusFirst() {
+    this._FBPTriggerWire('--triggerFirst');
   }
 
   /**
@@ -342,24 +371,32 @@ class FuroUi5DataTable extends FBP(LitElement) {
    * @returns {*}
    * @private
    */
+  // eslint-disable-next-line consistent-return
   _getSpecFieldFromPath(field, path) {
-    const prop = field;
-    const parts = this._split(path);
-    if (parts.length > 1) {
-      if (field.fields && field.fields[parts[0]]) {
-        return this._getSpecFieldFromPath(field.fields[parts[0]], parts.slice(1).join('.'));
-      }
-      if (!field[parts[0]]) {
-        return this._getSpecFieldFromPath(this._specs[field.type], parts.join('.'));
-      }
-      return this._getSpecFieldFromPath(field[parts[0]], parts.slice(1).join('.'));
-    }
-    const part = parts[0];
+    if (field) {
+      const prop = field;
 
-    if (prop.fields && prop.fields[part] !== undefined) {
-      return prop.fields[part];
+      const parts = this._split(path);
+      if (parts.length > 1) {
+        if (field.fields && field.fields[parts[0]]) {
+          return this._getSpecFieldFromPath(field.fields[parts[0]], parts.slice(1).join('.'));
+        }
+        if (!field[parts[0]]) {
+          return this._getSpecFieldFromPath(this._specs[field.type], parts.join('.'));
+        }
+        return this._getSpecFieldFromPath(field[parts[0]], parts.slice(1).join('.'));
+      }
+      const part = parts[0];
+
+      if (prop.fields && prop.fields[part] !== undefined) {
+        return prop.fields[part];
+      }
+      return this._getSpecFieldFromPath(this._specs[field.type], part);
     }
-    return this._getSpecFieldFromPath(this._specs[field.type], part);
+    // eslint-disable-next-line no-console
+    console.warn(
+      `Invalid subfield '${path}' in the field-path. please set a correct field-path in cloumn.`,
+    );
   }
 
   /**
@@ -460,8 +497,14 @@ class FuroUi5DataTable extends FBP(LitElement) {
     return html`
       <ui5-table ?sticky-column-header="${this.stickyColumnHeader}">
         ${ui5HeaderTemplate(this.cols)}
-        <template is="flow-repeat" ƒ-inject-items="--data" internal-wire="--internal">
-          <furo-ui5-table-row ƒ-._data="--internal(*.item._value)"
+        <template
+          is="flow-repeat"
+          ƒ-inject-items="--data"
+          internal-wire="--internal"
+          ƒ-trigger-first="--triggerFirst"
+          ƒ-trigger-last="--triggerLast"
+        >
+          <furo-ui5-table-row ƒ-._data="--internal(*.item._value)" ƒ-focus="--trigger"
             >${ui5CellTemplate(this.cols)}
           </furo-ui5-table-row>
         </template>
