@@ -550,14 +550,14 @@
       "tagname": "furo-location"
     },
     {
-      "description": "`furo-location-updater`\nupdates parts of the url location.\n\nYou can set the query params and hashes. Use this component for proper deep linking.\nThe furo-location component will fire the location events as ususal.\n\n```html\n <furo-location-updater ƒ-set-qp=\"--QueryParamKeyValuePairs\" ƒ-set-hash=\"--HashKeyValuePairs\"></furo-location-updater>\n```",
+      "description": "`furo-location-updater`\nupdates parts of the url location with pushState\n\nYou can set query params and hashes. Use this component for proper deep linking.\nThe furo-location component will fire the location events as usual.\n\n```html\n <furo-location-updater ƒ-set-qp=\"--QueryParamKeyValuePairs\" ƒ-set-hash=\"--HashKeyValuePairs\"></furo-location-updater>\n```",
       "summary": "deep linking helper",
       "path": "src/furo-location-updater.js",
       "properties": [
         {
           "name": "clearQp",
           "type": "string | null | undefined",
-          "description": "Comma separated list of qp to clear if they are not explizitly set with `setQp`",
+          "description": "Comma separated list of qp keys to clear if they are not explicitly set with `ƒ-set-qp`",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -566,7 +566,7 @@
             },
             "end": {
               "line": 27,
-              "column": 53
+              "column": 52
             }
           },
           "metadata": {
@@ -578,7 +578,7 @@
         {
           "name": "clearHash",
           "type": "string | null | undefined",
-          "description": "Comma separated list of hashes to clear if they are not explizitly set with `setQp`",
+          "description": "Comma separated list of hashes to clear if they are not explicitly set with `ƒ-set-hash`",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -587,7 +587,7 @@
             },
             "end": {
               "line": 31,
-              "column": 57
+              "column": 56
             }
           },
           "metadata": {
@@ -608,7 +608,7 @@
               "column": 2
             },
             "end": {
-              "line": 86,
+              "line": 87,
               "column": 3
             }
           },
@@ -628,11 +628,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 94,
+              "line": 95,
               "column": 2
             },
             "end": {
-              "line": 143,
+              "line": 144,
               "column": 3
             }
           },
@@ -661,7 +661,7 @@
           "column": 0
         },
         "end": {
-          "line": 153,
+          "line": 154,
           "column": 1
         }
       },
@@ -671,7 +671,7 @@
       "attributes": [
         {
           "name": "clear-qp",
-          "description": "Comma separated list of qp to clear if they are not explizitly set with `setQp`",
+          "description": "Comma separated list of qp keys to clear if they are not explicitly set with `ƒ-set-qp`",
           "sourceRange": {
             "start": {
               "line": 27,
@@ -679,7 +679,7 @@
             },
             "end": {
               "line": 27,
-              "column": 53
+              "column": 52
             }
           },
           "metadata": {},
@@ -687,7 +687,7 @@
         },
         {
           "name": "clear-hash",
-          "description": "Comma separated list of hashes to clear if they are not explizitly set with `setQp`",
+          "description": "Comma separated list of hashes to clear if they are not explicitly set with `ƒ-set-hash`",
           "sourceRange": {
             "start": {
               "line": 31,
@@ -695,7 +695,7 @@
             },
             "end": {
               "line": 31,
-              "column": 57
+              "column": 56
             }
           },
           "metadata": {},
@@ -714,7 +714,7 @@
       ]
     },
     {
-      "description": "`furo-pages` is used to select one of its children to show.\n\n### caveat\nYou have to implement a `:host([hidden]){display:none}` in your views css\n\n### flowbased auto wires\nfuro-pages provides auto wires, which are automatically injected if\nthe element inside has flowbased enabled.\n\n| wire               | timing           |\n|:-------------------|:-----------------|\n| --pageDeActivated  | Every time the page changes to hidden   |\n| --pageActivated    | Every time the page changes its attribute _attrForSelected or selected",
+      "description": "`furo-pages` is used to select one of its children to show.\n\nUse this to build tabs, views, subviews,...\n\n### preconditions:\nYou have to implement a `:host([hidden]){display:none}` in your views css\n\n### flowbased auto wires\nfuro-pages provides auto wires, which are automatically triggered in the child elements if\nthey have flowbased enabled.\n\n| wire               | timing           |\n|:-------------------|:-----------------|\n| --pageDeActivated  | Every time the element changes to hidden   |\n| --pageActivated    | Triggered when the element is activated. Comes with a location object.\n\n## Attributes\n**default** set the default page to show\n\n**attr-for-selected** *(default: selected)*\n\n\nIf you want to use an attribute value or property of an element for selected instead of the 'selected' attribute, set this to the name of the attribute or property.",
       "summary": "Simple content switcher",
       "path": "src/furo-pages.js",
       "properties": [
@@ -725,11 +725,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 66,
+              "line": 113,
               "column": 2
             },
             "end": {
-              "line": 68,
+              "line": 115,
               "column": 3
             }
           },
@@ -747,11 +747,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 43,
+              "line": 53,
               "column": 2
             },
             "end": {
-              "line": 51,
+              "line": 61,
               "column": 3
             }
           },
@@ -771,11 +771,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 57,
+              "line": 67,
               "column": 2
             },
             "end": {
-              "line": 59,
+              "line": 106,
               "column": 3
             }
           },
@@ -788,15 +788,15 @@
         },
         {
           "name": "injectLocation",
-          "description": "Inject the location Object from furo-location",
+          "description": "Inject the location Object from furo-location. The page which is defined in location.pathSegments[0] will get activated.\n\nTo meke \"sub\" pages do not forget to enable the `url-space-regex` property on the *furo-location* component which feeds this component.\n\nIf the page/view does not exist and you have a page \"404\" defined, the 404 will be shown\n\nIf the page/view does not exist AND 404 does not exist, the default page gets activated.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 75,
+              "line": 128,
               "column": 2
             },
             "end": {
-              "line": 129,
+              "line": 182,
               "column": 3
             }
           },
@@ -813,11 +813,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 149,
+              "line": 202,
               "column": 2
             },
             "end": {
-              "line": 154,
+              "line": 207,
               "column": 3
             }
           },
@@ -838,11 +838,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 21,
+          "line": 31,
           "column": 0
         },
         "end": {
-          "line": 155,
+          "line": 208,
           "column": 1
         }
       },

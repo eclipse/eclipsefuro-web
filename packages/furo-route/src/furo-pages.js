@@ -3,17 +3,27 @@ import { LitElement, html, css } from 'lit-element';
 /**
  * `furo-pages` is used to select one of its children to show.
  *
- * ### caveat
+ * Use this to build tabs, views, subviews,...
+ *
+ * ### preconditions:
  * You have to implement a `:host([hidden]){display:none}` in your views css
  *
  * ### flowbased auto wires
- * furo-pages provides auto wires, which are automatically injected if
- * the element inside has flowbased enabled.
+ * furo-pages provides auto wires, which are automatically triggered in the child elements if
+ * they have flowbased enabled.
  *
  * | wire               | timing           |
  * |:-------------------|:-----------------|
- * | --pageDeActivated  | Every time the page changes to hidden   |
- * | --pageActivated    | Every time the page changes its attribute _attrForSelected or selected
+ * | --pageDeActivated  | Every time the element changes to hidden   |
+ * | --pageActivated    | Triggered when the element is activated. Comes with a location object.
+ *
+ * ## Attributes
+ * **default** set the default page to show
+ *
+ * **attr-for-selected** *(default: selected)*
+ *
+ *
+ * If you want to use an attribute value or property of an element for selected instead of the 'selected' attribute, set this to the name of the attribute or property.
  *
  * @summary Simple content switcher
  * @demo demo-furo-panel-coordinator with panel coordinator
@@ -106,7 +116,13 @@ class FuroPages extends LitElement {
   }
 
   /**
-   * Inject the location Object from furo-location
+   * Inject the location Object from furo-location. The page which is defined in location.pathSegments[0] will get activated.
+   *
+   * To meke "sub" pages do not forget to enable the `url-space-regex` property on the *furo-location* component which feeds this component.
+   *
+   * If the page/view does not exist and you have a page "404" defined, the 404 will be shown
+   *
+   * If the page/view does not exist AND 404 does not exist, the default page gets activated.
    *
    * @param location
    */
