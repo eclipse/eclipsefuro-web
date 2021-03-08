@@ -8,7 +8,7 @@ import '@furo/data/src/furo-data-object.js';
 import '../src/standard-type-renderers/display-registry.js';
 import '../src/furo-catalog.js';
 
-describe('furo-ui5-data-table', () => {
+describe('furo-ui5-data-table-focus-tests', () => {
   const mockdata = {
     entities: [
       {
@@ -229,119 +229,38 @@ describe('furo-ui5-data-table', () => {
     done();
   });
 
-  it('should show empty state message', done => {
-    assert.equal(table.noDataText, 'No data available. Click on load test data');
-    assert.equal(table.shadowRoot.querySelectorAll('ui5-table-column').length, 5);
-    assert.equal(
-      table.shadowRoot.querySelector('div.no-data').innerText,
-      'No data available. Click on load test data',
-    );
-    done();
-  });
+  it('should focus the first row via focusFirst method', done => {
+    // initial data inject
+    dao.injectRaw(mockdata);
 
-  it('should set fix width to the header column via |fix notation', done => {
-    assert.equal(
-      table.shadowRoot.querySelectorAll('ui5-table-column')[4].getAttribute('style'),
-      'width:100px',
-    );
-
-    done();
-  });
-
-  it('should set min-width to the header column via |min notation', done => {
     setTimeout(() => {
+      table.focusFirst();
+      const tr = table.shadowRoot
+        .querySelectorAll('furo-ui5-table-row')[0]
+        .shadowRoot.querySelector('tr');
+      console.log(table.shadowRoot.querySelectorAll('furo-ui5-table-row')[0].shadowRoot);
       assert.equal(
-        table.shadowRoot.querySelectorAll('ui5-table-column')[3].getAttribute('min-width'),
-        '200',
+        table.shadowRoot.querySelectorAll('furo-ui5-table-row')[0].shadowRoot.activeElement,
+        tr,
       );
       done();
     }, 0);
   });
 
-  it('should center-justified the cell via :-: notation', done => {
-    assert.equal(
-      table.shadowRoot.querySelectorAll('ui5-table-column')[3].getAttribute('center'),
-      '',
-    );
-    done();
-  });
-
-  it('should right-justified the cell via --: notation', done => {
-    assert.equal(
-      table.shadowRoot.querySelectorAll('ui5-table-column')[4].getAttribute('right'),
-      '',
-    );
-    done();
-  });
-
-  it('should bind to a RepeaterNode', done => {
-    dao.addEventListener('data-injected', () => {
-      assert.equal(table.shadowRoot.querySelectorAll('furo-ui5-table-row').length, 4);
-      setTimeout(() => {
-        assert.equal(
-          table.shadowRoot.querySelectorAll('furo-ui5-table-row')[0].children[0].children[0]
-            .tagName,
-          'DISPLAY-STRING',
-        );
-        assert.equal(
-          table.shadowRoot.querySelectorAll('furo-ui5-table-row')[0].children[1].children[0]
-            .tagName,
-          'DISPLAY-STRING',
-        );
-        assert.equal(
-          table.shadowRoot.querySelectorAll('furo-ui5-table-row')[0].children[2].children[0]
-            .tagName,
-          'DISPLAY-GOOGLE-TYPE-MONEY',
-        );
-        assert.equal(
-          table.shadowRoot.querySelectorAll('furo-ui5-table-row')[0].children[3].children[0]
-            .tagName,
-          'DISPLAY-GOOGLE-TYPE-DATE',
-        );
-        assert.equal(
-          table.shadowRoot.querySelectorAll('furo-ui5-table-row')[0].children[4].children[0]
-            .tagName,
-          'DISPLAY-GOOGLE-TYPE-DATE',
-        );
-
-        done();
-      }, 24);
-    });
-    dao.injectRaw(mockdata);
-  });
-
-  it('data changes in the data object should automatically update the data table display', done => {
-    dao.data.entities.addEventListener(
-      'repeated-fields-changed',
-      () => {
-        setTimeout(() => {
-          assert.equal(table.shadowRoot.querySelectorAll('furo-ui5-table-row').length, 5);
-          done();
-        }, 48);
-      },
-      { once: 'true' },
-    );
+  it('should focus the last row via focusLast method', done => {
     // initial data inject
     dao.injectRaw(mockdata);
-    dao.data.entities.add();
-  });
+    setTimeout(() => {
+      table.focusLast();
 
-  it('injection of an empty RepeaterNode should show table empty state', done => {
-    dao.data.entities.addEventListener(
-      'repeated-fields-all-removed',
-      () => {
-        setTimeout(() => {
-          assert.equal(table.noDataText, 'No data available. Click on load test data');
-          assert.equal(table.shadowRoot.querySelectorAll('ui5-table-column').length, 5);
-          assert.equal(
-            table.shadowRoot.querySelector('div.no-data').innerText,
-            'No data available. Click on load test data',
-          );
-          done();
-        }, 32);
-      },
-      { once: true },
-    );
-    dao.data.entities.removeAllChildren();
+      const tr3 = table.shadowRoot
+        .querySelectorAll('furo-ui5-table-row')[3]
+        .shadowRoot.querySelector('tr');
+      assert.equal(
+        table.shadowRoot.querySelectorAll('furo-ui5-table-row')[3].shadowRoot.activeElement,
+        tr3,
+      );
+      done();
+    }, 200);
   });
 });
