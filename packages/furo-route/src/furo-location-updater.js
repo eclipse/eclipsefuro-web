@@ -1,5 +1,5 @@
-import { LitElement, css } from 'lit-element';
-import { FBP } from '@furo/fbp';
+import {LitElement, css} from 'lit-element';
+import {FBP} from '@furo/fbp';
 
 /**
  * `furo-location-updater`
@@ -25,11 +25,11 @@ class FuroLocationUpdater extends FBP(LitElement) {
       /**
        * Comma separated list of qp keys to clear if they are not explicitly set with `ƒ-set-qp`
        */
-      clearQp: { type: String, attribute: 'clear-qp' },
+      clearQp: {type: String, attribute: 'clear-qp'},
       /**
        * Comma separated list of hashes to clear if they are not explicitly set with `ƒ-set-hash`
        */
-      clearHash: { type: String, attribute: 'clear-hash' },
+      clearHash: {type: String, attribute: 'clear-hash'},
     };
   }
 
@@ -43,6 +43,7 @@ class FuroLocationUpdater extends FBP(LitElement) {
     // read current qp and update incoming qp
 
     const newQuery = window.location.search.slice(1);
+
     const queryObject = {};
     if (newQuery.length > 0) {
       newQuery.split('&').forEach(qstr => {
@@ -97,6 +98,7 @@ class FuroLocationUpdater extends FBP(LitElement) {
 
     const currentHash = window.location.hash.slice(1);
 
+
     const hashObject = {};
     if (currentHash.length > 0) {
       currentHash.split('&').forEach(qstr => {
@@ -127,10 +129,9 @@ class FuroLocationUpdater extends FBP(LitElement) {
         hash.push(`${segment}=${hashObject[segment]}`);
       }
     }
-    window.location.hash = hash.join('&');
-    // eslint-disable-next-line prefer-destructuring
-    const location = window.location;
 
+    // eslint-disable-next-line prefer-destructuring
+    const location = `${window.location.pathname}${window.location.search}#${hash.join('&')}`;
     if (this._lastLocation !== location) {
       // notify furo location
       window.history.pushState({}, '', location);
