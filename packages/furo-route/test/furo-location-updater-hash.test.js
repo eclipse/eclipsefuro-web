@@ -49,7 +49,7 @@ describe('furo-location-updater-hash', () => {
     element.setHash({ b: 3333 });
     element.setHash({ xb: 3333 });
 
-    assert.equal(window.location.hash , 'a=4444&b=3333');
+    assert.equal(window.location.hash , '#a=4444&b=3333&xb=3333');
 
     done();
   });
@@ -57,12 +57,13 @@ describe('furo-location-updater-hash', () => {
 
 
   it('should clear other hash', done => {
+    // attention XB comes from test before
     element.setHash({ a: 4444 });
     element.setHash({ b: 457 });
-    assert.equal(window.location.hash , 'a=4444&b=457');
-    element.setAttribute('clear-hash', 'a,c');
+    assert.equal(window.location.hash , '#a=4444&b=457&xb=3333');
+    element.setAttribute('clear-hash', 'xb,a,c');
     element.setHash({ c: 333 });
-    assert.equal(window.location.hash , 'b=457&c=333');
+    assert.equal(window.location.hash , '#b=457&c=333');
     done();
   });
 });

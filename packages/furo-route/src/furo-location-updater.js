@@ -129,10 +129,9 @@ class FuroLocationUpdater extends FBP(LitElement) {
         hash.push(`${segment}=${hashObject[segment]}`);
       }
     }
-    window.location.hash = hash.join('&');
-    // eslint-disable-next-line prefer-destructuring
-    const location = `${window.location.pathname}${window.location.search}${hash.join('&')}`;
 
+    // eslint-disable-next-line prefer-destructuring
+    const location = `${window.location.pathname}${window.location.search}#${hash.join('&')}`;
     if (this._lastLocation !== location) {
       // notify furo location
       window.history.pushState({}, '', location);
