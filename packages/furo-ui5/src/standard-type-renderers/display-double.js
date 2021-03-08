@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
 import { Env } from '@furo/framework/src/furo.js';
 /**
  * `display-double`
@@ -20,7 +21,8 @@ export class DisplayDouble extends LitElement {
 
   static get styles() {
     // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('DisplayDouble') ||
       css`
         :host {
           display: block;
@@ -70,8 +72,8 @@ export class DisplayDouble extends LitElement {
         :host([value-state='Warning']) {
           color: var(--sapCrticalColor, #e9730c);
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**

@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
 // eslint-disable-next-line import/no-unresolved
 import '@ui5/webcomponents/dist/ColorPalette.js';
 
@@ -23,7 +24,8 @@ class DisplayGoolgeTypeColor extends LitElement {
 
   static get styles() {
     // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('DisplayGoolgeTypeColor') ||
       css`
         :host {
           display: block;
@@ -40,8 +42,8 @@ class DisplayGoolgeTypeColor extends LitElement {
         :host([disabled]) span {
           opacity: var(--_ui5_input_disabled_opacity);
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**

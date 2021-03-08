@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
 // eslint-disable-next-line import/no-unresolved
 import '@ui5/webcomponents/dist/Link.js';
 
@@ -23,7 +24,8 @@ class DisplayFuroReference extends LitElement {
 
   static get styles() {
     // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('DisplayFuroReference') ||
       css`
         :host {
           display: block;
@@ -32,8 +34,8 @@ class DisplayFuroReference extends LitElement {
         :host([hidden]) {
           display: none;
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**

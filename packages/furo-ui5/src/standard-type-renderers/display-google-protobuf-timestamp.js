@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
 import { Env } from '@furo/framework/src/furo.js';
 
 /**
@@ -25,7 +26,8 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
 
   static get styles() {
     // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('DisplayGoogleProtobufTimestamp') ||
       css`
         :host {
           display: block;
@@ -38,8 +40,8 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
         :host([tabular-form]) {
           text-align: right;
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**
@@ -61,7 +63,6 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
       this._formattedDateString = DisplayGoogleProtobufTimestamp._convertDateToString(
         this._field._value,
       );
-
     } else {
       this._formattedDateString = '';
     }

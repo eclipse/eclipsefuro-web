@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp/src/fbp.js';
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 
@@ -58,7 +59,8 @@ class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
 
   static get styles() {
     // language=CSS
-    return [
+    return (
+      Theme.getThemeForComponent('FuroUi5DataMoneyInputLabeled') ||
       css`
         :host {
           display: block;
@@ -66,8 +68,8 @@ class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
-      `,
-    ];
+      `
+    );
   }
 
   /**
