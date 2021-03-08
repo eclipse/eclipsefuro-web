@@ -27,7 +27,7 @@ class DataTableColTmplLink extends FBP(LitElement) {
     this._FBPAddWireHook('--btnClicked', () => {
       this.dispatchEvent(
         new CustomEvent('template-col-clicked', {
-          detail: this.field,
+          detail: this.field.data._value,
           bubbles: true,
           composed: true,
         }),

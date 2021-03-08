@@ -20,7 +20,6 @@ import { Env } from '@furo/framework/src/furo.js';
 class DisplayGoogleTypeTimeofday extends LitElement {
   constructor() {
     super();
-    this._field = undefined;
     this._formattedDayTimeString = '';
   }
 
@@ -66,6 +65,7 @@ class DisplayGoogleTypeTimeofday extends LitElement {
     }
 
     this._formattedDayTimeString = DisplayGoogleTypeTimeofday._convertDayTimeToString(this._field);
+    this.requestUpdate();
   }
 
   /**

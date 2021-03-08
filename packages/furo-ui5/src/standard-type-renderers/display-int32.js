@@ -18,11 +18,6 @@ import { Env } from '@furo/framework/src/furo.js';
  * @demo demo display-int32 Basic Usage
  */
 export class DisplayInt32 extends LitElement {
-  constructor() {
-    super();
-    this._field = undefined;
-  }
-
   static get styles() {
     // language=CSS
     return (
@@ -90,6 +85,7 @@ export class DisplayInt32 extends LitElement {
       this._field.addEventListener('field-value-changed', () => {
         this.requestUpdate();
       });
+      this.requestUpdate();
     }
   }
 

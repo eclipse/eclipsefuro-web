@@ -20,7 +20,6 @@ import { Env } from '@furo/framework/src/furo.js';
 export class DisplayGoogleTypeMoney extends LitElement {
   constructor() {
     super();
-    this._field = undefined;
     this._displayValue = 'N/A';
     this._valueObject = { amount: Number.NaN };
   }
@@ -97,6 +96,7 @@ export class DisplayGoogleTypeMoney extends LitElement {
     }
 
     this._valueObject.amount = DisplayGoogleTypeMoney._convertTypeToNumber(this._field);
+    this.requestUpdate();
   }
 
   /**

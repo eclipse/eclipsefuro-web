@@ -17,11 +17,6 @@ import '@ui5/webcomponents/dist/ColorPalette.js';
  * @demo demo display-google-type-color Basic Usage
  */
 class DisplayGoolgeTypeColor extends LitElement {
-  constructor() {
-    super();
-    this._field = undefined;
-  }
-
   static get styles() {
     // language=CSS
     return (
@@ -62,6 +57,8 @@ class DisplayGoolgeTypeColor extends LitElement {
       this._field.addEventListener('field-value-changed', () => {
         this.requestUpdate();
       });
+
+      this.requestUpdate();
     }
   }
 

@@ -14,11 +14,6 @@ import { Theme } from '@furo/framework/src/theme';
  * @demo demo display-furo-fat-string Basic Usage
  */
 class DisplayFuroFatString extends LitElement {
-  constructor() {
-    super();
-    this._field = undefined;
-  }
-
   static get styles() {
     // language=CSS
     return (
@@ -89,6 +84,7 @@ class DisplayFuroFatString extends LitElement {
         this._updateMeta();
         this.requestUpdate();
       });
+      this.requestUpdate();
     }
   }
 

@@ -20,7 +20,6 @@ import { Env } from '@furo/framework/src/furo.js';
 class DisplayGoogleProtobufTimestamp extends LitElement {
   constructor() {
     super();
-    this._field = undefined;
     this._formattedDateString = '';
   }
 
@@ -63,9 +62,8 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
       this._formattedDateString = DisplayGoogleProtobufTimestamp._convertDateToString(
         this._field._value,
       );
-    } else {
-      this._formattedDateString = '';
     }
+    this.requestUpdate();
   }
 
   /**

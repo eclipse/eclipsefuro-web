@@ -14,11 +14,6 @@ import { Env } from '@furo/framework/src/furo.js';
  * @demo demo display-double Basic Usage
  */
 export class DisplayDouble extends LitElement {
-  constructor() {
-    super();
-    this._field = undefined;
-  }
-
   static get styles() {
     // language=CSS
     return (
@@ -86,6 +81,7 @@ export class DisplayDouble extends LitElement {
       this._field.addEventListener('field-value-changed', () => {
         this.requestUpdate();
       });
+      this.requestUpdate();
     }
   }
 

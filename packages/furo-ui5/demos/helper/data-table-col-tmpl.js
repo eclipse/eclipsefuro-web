@@ -27,7 +27,7 @@ class DataTableColTmpl extends FBP(LitElement) {
     this._FBPAddWireHook('--btnClicked', () => {
       this.dispatchEvent(
         new CustomEvent('template-col-clicked', {
-          detail: this.field,
+          detail: this.field.data._value,
           bubbles: true,
           composed: true,
         }),
@@ -56,9 +56,10 @@ class DataTableColTmpl extends FBP(LitElement) {
   bindData(data) {
     this.field = data;
     const members = [];
-    this.field.data.members.forEach(item => {
+    this.field.data.members._value.forEach(item => {
       members.push(item.display_name);
     });
+
     this.displayValue = JSON.stringify(members)
       .replaceAll('[', '')
       .replaceAll(']', '')

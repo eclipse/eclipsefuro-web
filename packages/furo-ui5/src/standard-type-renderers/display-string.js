@@ -15,11 +15,6 @@ import { Theme } from '@furo/framework/src/theme';
  * @demo demo display-string Basic Usage
  */
 export class DisplayString extends LitElement {
-  constructor() {
-    super();
-    this._field = undefined;
-  }
-
   static get styles() {
     // language=CSS
     return (
@@ -66,6 +61,8 @@ export class DisplayString extends LitElement {
       this._field.addEventListener('field-value-changed', () => {
         this.requestUpdate();
       });
+
+      this.requestUpdate();
     }
   }
 

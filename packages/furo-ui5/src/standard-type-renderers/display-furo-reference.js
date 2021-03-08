@@ -18,7 +18,6 @@ import '@ui5/webcomponents/dist/Link.js';
 class DisplayFuroReference extends LitElement {
   constructor() {
     super();
-    this._field = undefined;
     this._displayValue = '';
   }
 
@@ -49,6 +48,7 @@ class DisplayFuroReference extends LitElement {
       this._field.addEventListener('field-value-changed', () => {
         this.requestUpdate();
       });
+      this.requestUpdate();
     }
   }
 
@@ -59,9 +59,9 @@ class DisplayFuroReference extends LitElement {
    */
   _getTemplate() {
     if (this._field) {
-      if (this._field.display_name._value && this._field.display_name._value.length) {
+      if (this._field.display_name._value) {
         this._displayValue = this._field.display_name._value;
-      } else if (this._field.id._value.length) {
+      } else if (this._field.id._value) {
         this._displayValue = this._field.id._value;
       }
       return html`

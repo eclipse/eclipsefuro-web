@@ -17,11 +17,6 @@ import '@ui5/webcomponents-icons/dist/border.js';
  * @demo demo display-bool Basic Usage
  */
 export class DisplayBool extends LitElement {
-  constructor() {
-    super();
-    this._field = undefined;
-  }
-
   static get styles() {
     // language=CSS
     return (
@@ -76,6 +71,7 @@ export class DisplayBool extends LitElement {
       this._field.addEventListener('field-value-changed', () => {
         this.requestUpdate();
       });
+      this.requestUpdate();
     }
   }
 

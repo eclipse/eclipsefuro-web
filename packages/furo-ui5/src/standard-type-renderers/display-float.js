@@ -15,11 +15,6 @@ import { Env } from '@furo/framework/src/furo.js';
  * @demo demo display-float Basic Usage
  */
 export class DisplayFloat extends LitElement {
-  constructor() {
-    super();
-    this._field = undefined;
-  }
-
   static get styles() {
     // language=CSS
     return (
@@ -86,6 +81,7 @@ export class DisplayFloat extends LitElement {
       this._field.addEventListener('field-value-changed', () => {
         this.requestUpdate();
       });
+      this.requestUpdate();
     }
   }
 

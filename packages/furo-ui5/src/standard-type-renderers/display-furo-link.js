@@ -14,11 +14,6 @@ import { Theme } from '@furo/framework/src/theme';
  * @demo demo display-furo-link Basic Usage
  */
 class DisplayFuroLink extends LitElement {
-  constructor() {
-    super();
-    this._field = undefined;
-  }
-
   static get styles() {
     // language=CSS
     return (
@@ -46,6 +41,7 @@ class DisplayFuroLink extends LitElement {
       this._field.addEventListener('field-value-changed', () => {
         this.requestUpdate();
       });
+      this.requestUpdate();
     }
   }
 

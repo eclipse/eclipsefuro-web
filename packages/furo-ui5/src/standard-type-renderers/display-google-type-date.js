@@ -20,7 +20,6 @@ import { Env } from '@furo/framework/src/furo.js';
 export class DisplayGoogleTypeDate extends LitElement {
   constructor() {
     super();
-    this._field = undefined;
     this._formattedDateString = '';
   }
 
@@ -92,6 +91,7 @@ export class DisplayGoogleTypeDate extends LitElement {
     }
 
     this._formattedDateString = DisplayGoogleTypeDate._convertDateToString(this._field);
+    this.requestUpdate();
   }
 
   /**
