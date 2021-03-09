@@ -20,7 +20,7 @@ import { Env } from '@furo/framework/src/furo.js';
 class DisplayGoogleProtobufTimestamp extends LitElement {
   constructor() {
     super();
-    this._formattedDateString = '';
+    this._displayValue = '';
   }
 
   static get styles() {
@@ -29,7 +29,7 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
       Theme.getThemeForComponent('DisplayGoogleProtobufTimestamp') ||
       css`
         :host {
-          display: block;
+          display: inline-block;
         }
 
         :host([hidden]) {
@@ -37,7 +37,12 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
         }
 
         :host([tabular-form]) {
+          display: block;
           text-align: right;
+        }
+
+        :host([disabled]) span {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
       `
     );
@@ -51,19 +56,12 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
     this._field = fieldNode;
 
     if (this._field) {
-      this._field.addEventListener('field-value-changed', e => {
-        this._formattedDateString = DisplayGoogleProtobufTimestamp._convertDateToString(
-          e.detail._value,
-        );
-
-        this.requestUpdate();
+      this._field.addEventListener('field-value-changed', () => {
+        this._formatDisplay();
       });
 
-      this._formattedDateString = DisplayGoogleProtobufTimestamp._convertDateToString(
-        this._field._value,
-      );
+      this._formatDisplay();
     }
-    this.requestUpdate();
   }
 
   /**
@@ -95,15 +93,9 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
     return strDate;
   }
 
-  /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    return html`
-      <span>${this._formattedDateString}</span>
-    `;
+  _formatDisplay() {
+    this._displayValue = DisplayGoogleProtobufTimestamp._convertDateToString(this._field._value);
+    this.requestUpdate();
   }
 
   /**
@@ -114,7 +106,7 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      <span>${this._displayValue}</span>
     `;
   }
 }

@@ -413,6 +413,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
         :host {
           display: block;
           overflow: auto;
+          font-variant-numeric: lining-nums tabular-nums;
         }
 
         .no-data {

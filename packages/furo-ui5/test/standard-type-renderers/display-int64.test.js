@@ -46,7 +46,7 @@ describe('display-int64', () => {
 
     setTimeout(() => {
       assert.equal(display._field._value, 33, 'check if the int32 value is assigned');
-      assert.equal(display.displayValue, '33', 'check if the int32 value is formatted');
+      assert.equal(display._displayValue, '33', 'check if the int32 value is formatted');
       done();
     }, 0);
   });

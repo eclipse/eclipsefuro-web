@@ -20,7 +20,7 @@ import { Env } from '@furo/framework/src/furo.js';
 class DisplayGoogleTypeTimeofday extends LitElement {
   constructor() {
     super();
-    this._formattedDayTimeString = '';
+    this._displayValue = '';
   }
 
   static get styles() {
@@ -29,7 +29,7 @@ class DisplayGoogleTypeTimeofday extends LitElement {
       Theme.getThemeForComponent('DisplayGoogleTypeTimeofday') ||
       css`
         :host {
-          display: block;
+          display: inline-block;
         }
 
         :host([hidden]) {
@@ -37,7 +37,12 @@ class DisplayGoogleTypeTimeofday extends LitElement {
         }
 
         :host([tabular-form]) {
+          display: block;
           text-align: right;
+        }
+
+        :host([disabled]) span {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
       `
     );
@@ -57,15 +62,10 @@ class DisplayGoogleTypeTimeofday extends LitElement {
         return;
       }
       this._field.addEventListener('field-value-changed', () => {
-        this._formattedDayTimeString = DisplayGoogleTypeTimeofday._convertDayTimeToString(
-          this._field,
-        );
-        this.requestUpdate();
+        this._formatDisplay();
       });
+      this._formatDisplay();
     }
-
-    this._formattedDayTimeString = DisplayGoogleTypeTimeofday._convertDayTimeToString(this._field);
-    this.requestUpdate();
   }
 
   /**
@@ -77,28 +77,20 @@ class DisplayGoogleTypeTimeofday extends LitElement {
    * @private
    */
   static _convertDayTimeToString(fieldNode) {
-    if (fieldNode) {
-      const date = new Date(
-        `2000-01-01 ${fieldNode.hours._value}:${fieldNode.minutes._value}:${fieldNode.seconds._value}`,
-      );
+    const date = new Date(
+      `2000-01-01 ${fieldNode.hours._value}:${fieldNode.minutes._value}:${fieldNode.seconds._value}`,
+    );
 
-      // eslint-disable-next-line eqeqeq
-      if (date != 'Invalid Date') {
-        return date.toLocaleTimeString([Env.locale, 'de-CH']);
-      }
+    // eslint-disable-next-line eqeqeq
+    if (date != 'Invalid Date') {
+      return date.toLocaleTimeString([Env.locale, 'de-CH']);
     }
     return '';
   }
 
-  /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    return html`
-      <span>${this._formattedDayTimeString}</span>
-    `;
+  _formatDisplay() {
+    this._displayValue = DisplayGoogleTypeTimeofday._convertDayTimeToString(this._field);
+    this.requestUpdate();
   }
 
   /**
@@ -109,7 +101,7 @@ class DisplayGoogleTypeTimeofday extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      <span>${this._displayValue}</span>
     `;
   }
 }

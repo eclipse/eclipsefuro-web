@@ -14,6 +14,11 @@ import { Theme } from '@furo/framework/src/theme';
  * @demo demo display-furo-fat-string Basic Usage
  */
 class DisplayFuroFatString extends LitElement {
+  constructor() {
+    super();
+    this._displayValue = '';
+  }
+
   static get styles() {
     // language=CSS
     return (
@@ -26,9 +31,11 @@ class DisplayFuroFatString extends LitElement {
         :host([hidden]) {
           display: none;
         }
+
         :host([disabled]) span {
-          opacity: var(--_ui5_input_disabled_opacity);
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
+
         span {
           margin: 0;
           font-family: var(--sapFontFamily, '72');
@@ -82,9 +89,9 @@ class DisplayFuroFatString extends LitElement {
     if (this._field) {
       this._field.addEventListener('field-value-changed', () => {
         this._updateMeta();
-        this.requestUpdate();
+        this._formatDisplay();
       });
-      this.requestUpdate();
+      this._formatDisplay();
     }
   }
 
@@ -99,21 +106,9 @@ class DisplayFuroFatString extends LitElement {
     });
   }
 
-  /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    return html`
-      <span
-        >${this._field
-          ? html`
-              ${this._field._value.value}
-            `
-          : ``}</span
-      >
-    `;
+  _formatDisplay() {
+    this._displayValue = this._field._value.value;
+    this.requestUpdate();
   }
 
   /**
@@ -124,7 +119,7 @@ class DisplayFuroFatString extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      <span>${this._displayValue}</span>
     `;
   }
 }

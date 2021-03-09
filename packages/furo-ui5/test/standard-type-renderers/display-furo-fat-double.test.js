@@ -56,7 +56,7 @@ describe('display-furo-fat-double', () => {
         12.21111111,
         'check if the fat.double value is assigned',
       );
-      assert.equal(display.displayValue, '12,211', 'check if the fat.double value is formatted');
+      assert.equal(display._displayValue, '12,211', 'check if the fat.double value is formatted');
       done();
     }, 10);
   });

@@ -18,17 +18,23 @@ import { Env } from '@furo/framework/src/furo.js';
  * @demo demo display-int32 Basic Usage
  */
 export class DisplayInt32 extends LitElement {
+  constructor() {
+    super();
+    this._displayValue = '';
+  }
+
   static get styles() {
     // language=CSS
     return (
       Theme.getThemeForComponent('DisplayInt32') ||
       css`
         :host {
-          display: block;
+          display: inline-block;
           word-break: keep-all;
         }
 
         :host([tabular-form]) {
+          display: block;
           text-align: right;
         }
 
@@ -36,7 +42,7 @@ export class DisplayInt32 extends LitElement {
           display: none;
         }
         :host([disabled]) span {
-          opacity: var(--_ui5_input_disabled_opacity);
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
         span {
           margin: 0;
@@ -83,22 +89,18 @@ export class DisplayInt32 extends LitElement {
     this._field = fieldNode;
     if (this._field) {
       this._field.addEventListener('field-value-changed', () => {
-        this.requestUpdate();
+        this._formatDisplay();
       });
-      this.requestUpdate();
+      this._formatDisplay();
     }
   }
 
-  /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    this.displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field);
-    return html`
-      <span>${this.displayValue}</span>
-    `;
+  _formatDisplay() {
+    const displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field);
+    if (displayValue !== 'NaN') {
+      this._displayValue = displayValue;
+      this.requestUpdate();
+    }
   }
 
   /**
@@ -109,7 +111,7 @@ export class DisplayInt32 extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      <span>${this._displayValue}</span>
     `;
   }
 }

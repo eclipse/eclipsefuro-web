@@ -27,7 +27,11 @@ class DisplayFuroReference extends LitElement {
       Theme.getThemeForComponent('DisplayFuroReference') ||
       css`
         :host {
-          display: block;
+          display: inline-block;
+        }
+
+        :host([disabled]) {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
 
         :host([hidden]) {
@@ -46,9 +50,9 @@ class DisplayFuroReference extends LitElement {
 
     if (this._field) {
       this._field.addEventListener('field-value-changed', () => {
-        this.requestUpdate();
+        this._formatDisplay();
       });
-      this.requestUpdate();
+      this._formatDisplay();
     }
   }
 
@@ -57,18 +61,12 @@ class DisplayFuroReference extends LitElement {
    * @returns {*}
    * @private
    */
-  _getTemplate() {
-    if (this._field) {
-      if (this._field.display_name._value) {
-        this._displayValue = this._field.display_name._value;
-      } else if (this._field.id._value) {
-        this._displayValue = this._field.id._value;
-      }
-      return html`
-        <ui5-link href="" wrap>${this._displayValue}</ui5-link>
-      `;
+  _formatDisplay() {
+    if (this._field.display_name._value) {
+      this._displayValue = this._field.display_name._value;
+    } else if (this._field.id._value) {
+      this._displayValue = this._field.id._value;
     }
-    return '';
   }
 
   /**
@@ -79,7 +77,7 @@ class DisplayFuroReference extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      <ui5-link href="" wrap>${this._displayValue}</ui5-link>
     `;
   }
 }

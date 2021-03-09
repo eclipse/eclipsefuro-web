@@ -49,7 +49,7 @@ describe('display-furo-fat-int64', () => {
 
     setTimeout(() => {
       assert.equal(display._field.value._value, 33, 'check if the fat.int64 value is assigned');
-      assert.equal(display.displayValue, '33', 'check if the fat.int64 value is formatted');
+      assert.equal(display._displayValue, '33', 'check if the fat.int64 value is formatted');
       done();
     }, 0);
   });

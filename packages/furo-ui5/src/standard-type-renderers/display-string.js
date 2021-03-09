@@ -28,7 +28,7 @@ export class DisplayString extends LitElement {
           display: none;
         }
         :host([disabled]) span {
-          opacity: var(--_ui5_input_disabled_opacity);
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
         span {
           margin: 0;

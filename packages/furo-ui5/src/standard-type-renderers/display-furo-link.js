@@ -20,7 +20,11 @@ class DisplayFuroLink extends LitElement {
       Theme.getThemeForComponent('DisplayFuroLink') ||
       css`
         :host {
-          display: block;
+          display: inline-block;
+        }
+
+        :host([disabled]) span {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
 
         :host([hidden]) {

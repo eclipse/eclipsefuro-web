@@ -20,7 +20,7 @@ import { Env } from '@furo/framework/src/furo.js';
 export class DisplayGoogleTypeMoney extends LitElement {
   constructor() {
     super();
-    this._displayValue = 'N/A';
+    this._displayValue = '';
     this._valueObject = { amount: Number.NaN };
   }
 
@@ -30,11 +30,12 @@ export class DisplayGoogleTypeMoney extends LitElement {
       Theme.getThemeForComponent('DisplayGoogleTypeMoney') ||
       css`
         :host {
-          display: block;
+          display: inline-block;
           word-break: keep-all;
         }
 
         :host([tabular-form]) {
+          display: block;
           text-align: right;
         }
 
@@ -42,7 +43,7 @@ export class DisplayGoogleTypeMoney extends LitElement {
           display: none;
         }
         :host([disabled]) span {
-          opacity: var(--_ui5_input_disabled_opacity);
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
         span {
           margin: 0;
@@ -90,13 +91,11 @@ export class DisplayGoogleTypeMoney extends LitElement {
 
     if (this._field) {
       this._field.addEventListener('branch-value-changed', () => {
-        this._valueObject.amount = DisplayGoogleTypeMoney._convertTypeToNumber(this._field);
-        this.requestUpdate();
+        this._formatDisplay();
       });
-    }
 
-    this._valueObject.amount = DisplayGoogleTypeMoney._convertTypeToNumber(this._field);
-    this.requestUpdate();
+      this._formatDisplay();
+    }
   }
 
   /**
@@ -119,22 +118,16 @@ export class DisplayGoogleTypeMoney extends LitElement {
     return Number.NaN;
   }
 
-  /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    if (this._field && this._field.currency_code._value.length) {
+  _formatDisplay() {
+    this._valueObject.amount = DisplayGoogleTypeMoney._convertTypeToNumber(this._field);
+    if (this._valueObject.amount !== Number.NaN && this._field.currency_code._value.length) {
       this._displayValue = new Intl.NumberFormat(Env.locale, {
         style: 'currency',
         currency: this._field.currency_code._value,
       }).format(this._valueObject.amount);
     }
 
-    return html`
-      <span>${this._displayValue}</span>
-    `;
+    this.requestUpdate();
   }
 
   /**
@@ -145,7 +138,7 @@ export class DisplayGoogleTypeMoney extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      <span>${this._displayValue}</span>
     `;
   }
 }

@@ -23,13 +23,18 @@ export class DisplayBool extends LitElement {
       Theme.getThemeForComponent('DisplayBool') ||
       css`
         :host {
-          display: block;
+          display: inline-block;
           word-break: keep-all;
           text-align: left;
         }
 
         :host([tabular-form]) {
+          display: block;
           text-align: center;
+        }
+
+        :host([disabled]) {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
 
         :host([hidden]) {
@@ -81,20 +86,20 @@ export class DisplayBool extends LitElement {
    * @private
    */
   _getTemplate() {
-    let tmp = '';
+    let tmpl = '';
     if (this._field) {
       if (!this._field._value || this._field._value === 'false') {
-        tmp = html`
+        tmpl = html`
           <ui5-icon name="border"></ui5-icon>
         `;
       } else {
-        tmp = html`
+        tmpl = html`
           <ui5-icon name="accept" value-state="Success"></ui5-icon>
         `;
       }
     }
 
-    return tmp;
+    return tmpl;
   }
 
   /**

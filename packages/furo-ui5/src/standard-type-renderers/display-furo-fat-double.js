@@ -1,4 +1,3 @@
-import { html } from 'lit-element';
 import { Env } from '@furo/framework/src/furo.js';
 import { DisplayDouble } from './display-double.js';
 /**
@@ -14,31 +13,12 @@ import { DisplayDouble } from './display-double.js';
  * @demo demo display-furo-fat-double Basic Usage
  */
 class DisplayFuroFatDouble extends DisplayDouble {
-  /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    if (this._field) {
-      this.displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field.value._value);
-      return html`
-        <span>${this.displayValue}</span>
-      `;
+  _formatDisplay() {
+    const displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field.value._value);
+    if (displayValue !== 'NaN') {
+      this._displayValue = displayValue;
+      this.requestUpdate();
     }
-    return '';
-  }
-
-  /**
-   * render function
-   * @private
-   * @returns {TemplateResult|TemplateResult}
-   */
-  render() {
-    // language=HTML
-    return html`
-      ${this._getTemplate()}
-    `;
   }
 }
 

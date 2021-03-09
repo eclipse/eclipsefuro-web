@@ -1,4 +1,3 @@
-import { html } from 'lit-element';
 // eslint-disable-next-line import/named
 import { DisplayGoogleTypeDate } from './display-google-type-date.js';
 
@@ -20,36 +19,16 @@ import { DisplayGoogleTypeDate } from './display-google-type-date.js';
  * @demo demo display-furo-type-date Basic Usage
  */
 class DisplayFuroTypeDate extends DisplayGoogleTypeDate {
-  /**
-   * Binds a field node to the component
-   * @param fieldNode
-   */
-  bindData(fieldNode) {
-    this._field = fieldNode;
-
-    if (this._field) {
-      this._field.addEventListener('field-value-changed', () => {
-        if (this._field.display_name._value && this._field.display_name._value.length) {
-          this._formattedDateString = this._field.display_name._value;
-        } else {
-          this._formattedDateString = DisplayFuroTypeDate._convertDateToString(this._field);
-        }
-        this.requestUpdate();
-      });
-    }
-
+  _formatDisplay() {
     if (this._field.display_name._value && this._field.display_name._value.length) {
-      this._formattedDateString = this._field.display_name._value;
+      this._displayValue = this._field.display_name._value;
     } else {
-      this._formattedDateString = DisplayFuroTypeDate._convertDateToString(this._field);
+      const displayValue = DisplayGoogleTypeDate._convertDateToString(this._field);
+      if (displayValue !== 'N/A') {
+        this._displayValue = displayValue;
+      }
     }
-  }
-
-  render() {
-    // language=HTML
-    return html`
-      ${this._getTemplate()}
-    `;
+    this.requestUpdate();
   }
 }
 

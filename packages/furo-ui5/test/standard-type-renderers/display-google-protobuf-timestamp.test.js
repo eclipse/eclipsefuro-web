@@ -48,7 +48,7 @@ describe('display-google-protobuf-timestamp', () => {
     Env.locale = 'de';
     dao.injectRaw({ google_timestamp: '1970-01-01T00:00:00Z' });
     setTimeout(() => {
-      assert.equal(display._formattedDateString, '01.01.1970, 01:00:00');
+      assert.equal(display._displayValue, '01.01.1970, 01:00:00');
 
       done();
     }, 110);

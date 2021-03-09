@@ -48,7 +48,7 @@ describe('display-double', () => {
 
     setTimeout(() => {
       assert.equal(display._field._value, 12.21111111, 'check if the double value is assigned');
-      assert.equal(display.displayValue, '12,211', 'check if the double value is formatted');
+      assert.equal(display._displayValue, '12,211', 'check if the double value is formatted');
       done();
     }, 0);
   });

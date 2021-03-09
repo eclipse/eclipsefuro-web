@@ -42,7 +42,7 @@ describe('display-google-type-date', () => {
       assert.equal(display._field.year._value, null);
       assert.equal(display._field.month._value, null);
       assert.equal(display._field.day._value, null);
-      assert.equal(display._formattedDateString, 'N/A');
+      assert.equal(display._displayValue, '');
       done();
     }, 0);
   });
@@ -51,7 +51,7 @@ describe('display-google-type-date', () => {
     Env.locale = 'de';
     dao.injectRaw({ furo_data_date_input_google: { year: '2000', day: '12', month: '11' } });
     setTimeout(() => {
-      assert.equal(display._formattedDateString, '12.11.2000');
+      assert.equal(display._displayValue, '12.11.2000');
 
       done();
     }, 110);

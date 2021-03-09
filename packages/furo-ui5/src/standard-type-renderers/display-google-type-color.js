@@ -23,19 +23,20 @@ class DisplayGoolgeTypeColor extends LitElement {
       Theme.getThemeForComponent('DisplayGoolgeTypeColor') ||
       css`
         :host {
-          display: block;
+          display: inline-block;
           word-break: keep-all;
         }
 
         :host([tabular-form]) {
+          display: block;
           text-align: right;
         }
 
         :host([hidden]) {
           display: none;
         }
-        :host([disabled]) span {
-          opacity: var(--_ui5_input_disabled_opacity);
+        :host([disabled]) {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
       `
     );

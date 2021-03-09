@@ -15,19 +15,30 @@ import { Env } from '@furo/framework/src/furo.js';
  * @demo demo display-float Basic Usage
  */
 export class DisplayFloat extends LitElement {
+  constructor() {
+    super();
+    this._displayValue = '';
+  }
+
   static get styles() {
     // language=CSS
     return (
       Theme.getThemeForComponent('DisplayFloat') ||
       css`
         :host {
-          display: block;
+          display: inline-block;
           word-break: keep-all;
         }
 
         :host([tabular-form]) {
+          display: block;
           text-align: right;
         }
+
+        :host([disabled]) span {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
+        }
+
         :host([hidden]) {
           display: none;
         }
@@ -79,22 +90,18 @@ export class DisplayFloat extends LitElement {
     this._field = fieldNode;
     if (this._field) {
       this._field.addEventListener('field-value-changed', () => {
-        this.requestUpdate();
+        this._formatDisplay();
       });
-      this.requestUpdate();
+      this._formatDisplay();
     }
   }
 
-  /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    this.displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field);
-    return html`
-      <span>${this.displayValue}</span>
-    `;
+  _formatDisplay() {
+    const displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field);
+    if (displayValue !== 'NaN') {
+      this._displayValue = displayValue;
+      this.requestUpdate();
+    }
   }
 
   /**
@@ -105,7 +112,7 @@ export class DisplayFloat extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      <span>${this._displayValue}</span>
     `;
   }
 }

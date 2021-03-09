@@ -20,7 +20,7 @@ import { Env } from '@furo/framework/src/furo.js';
 export class DisplayGoogleTypeDate extends LitElement {
   constructor() {
     super();
-    this._formattedDateString = '';
+    this._displayValue = '';
   }
 
   static get styles() {
@@ -37,7 +37,7 @@ export class DisplayGoogleTypeDate extends LitElement {
           display: none;
         }
         :host([disabled]) span {
-          opacity: var(--_ui5_input_disabled_opacity);
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
         span {
           margin: 0;
@@ -85,13 +85,19 @@ export class DisplayGoogleTypeDate extends LitElement {
 
     if (this._field) {
       this._field.addEventListener('field-value-changed', () => {
-        this._formattedDateString = DisplayGoogleTypeDate._convertDateToString(this._field);
-        this.requestUpdate();
+        this._formatDisplay();
       });
     }
 
-    this._formattedDateString = DisplayGoogleTypeDate._convertDateToString(this._field);
-    this.requestUpdate();
+    this._formatDisplay();
+  }
+
+  _formatDisplay() {
+    const displayValue = DisplayGoogleTypeDate._convertDateToString(this._field);
+    if (displayValue !== 'N/A') {
+      this._displayValue = displayValue;
+      this.requestUpdate();
+    }
   }
 
   /**
@@ -119,17 +125,6 @@ export class DisplayGoogleTypeDate extends LitElement {
   }
 
   /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    return html`
-      <span>${this._formattedDateString}</span>
-    `;
-  }
-
-  /**
    * render function
    * @private
    * @returns {TemplateResult|TemplateResult}
@@ -137,7 +132,7 @@ export class DisplayGoogleTypeDate extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      <span>${this._displayValue}</span>
     `;
   }
 }
