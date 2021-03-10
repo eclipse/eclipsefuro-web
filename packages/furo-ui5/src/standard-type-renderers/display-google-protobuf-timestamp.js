@@ -29,7 +29,7 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
       Theme.getThemeForComponent('DisplayGoogleProtobufTimestamp') ||
       css`
         :host {
-          display: inline-block;
+          display: inline;
         }
 
         :host([hidden]) {

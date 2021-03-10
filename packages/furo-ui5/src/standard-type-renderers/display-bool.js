@@ -23,7 +23,7 @@ export class DisplayBool extends LitElement {
       Theme.getThemeForComponent('DisplayBool') ||
       css`
         :host {
-          display: inline-block;
+          display: inline;
           word-break: keep-all;
           text-align: left;
         }

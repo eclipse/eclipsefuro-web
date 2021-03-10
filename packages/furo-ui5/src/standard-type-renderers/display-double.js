@@ -25,7 +25,7 @@ export class DisplayDouble extends LitElement {
       Theme.getThemeForComponent('DisplayDouble') ||
       css`
         :host {
-          display: inline-block;
+          display: inline;
           word-break: keep-all;
         }
 

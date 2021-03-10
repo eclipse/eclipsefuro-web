@@ -25,7 +25,7 @@ class DisplayFuroFatString extends LitElement {
       Theme.getThemeForComponent('DisplayFuroFatString') ||
       css`
         :host {
-          display: inline-block;
+          display: inline;
         }
 
         :host([hidden]) {

@@ -21,7 +21,7 @@ export class DisplayString extends LitElement {
       Theme.getThemeForComponent('DisplayString') ||
       css`
         :host {
-          display: inline-block;
+          display: inline;
         }
 
         :host([hidden]) {

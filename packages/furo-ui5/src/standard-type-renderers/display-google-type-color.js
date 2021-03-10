@@ -23,7 +23,7 @@ class DisplayGoolgeTypeColor extends LitElement {
       Theme.getThemeForComponent('DisplayGoolgeTypeColor') ||
       css`
         :host {
-          display: inline-block;
+          display: inline;
           word-break: keep-all;
         }
 

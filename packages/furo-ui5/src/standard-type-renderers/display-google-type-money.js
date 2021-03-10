@@ -30,7 +30,7 @@ export class DisplayGoogleTypeMoney extends LitElement {
       Theme.getThemeForComponent('DisplayGoogleTypeMoney') ||
       css`
         :host {
-          display: inline-block;
+          display: inline;
           word-break: keep-all;
         }
 

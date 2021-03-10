@@ -26,7 +26,7 @@ export class DisplayFloat extends LitElement {
       Theme.getThemeForComponent('DisplayFloat') ||
       css`
         :host {
-          display: inline-block;
+          display: inline;
           word-break: keep-all;
         }
 

@@ -29,7 +29,7 @@ class DisplayGoogleTypeTimeofday extends LitElement {
       Theme.getThemeForComponent('DisplayGoogleTypeTimeofday') ||
       css`
         :host {
-          display: inline-block;
+          display: inline;
         }
 
         :host([hidden]) {

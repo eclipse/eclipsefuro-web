@@ -29,7 +29,7 @@ export class DisplayGoogleTypeDate extends LitElement {
       Theme.getThemeForComponent('DisplayGoogleTypeDate') ||
       css`
         :host {
-          display: inline-block;
+          display: inline;
           word-break: keep-all;
         }
 

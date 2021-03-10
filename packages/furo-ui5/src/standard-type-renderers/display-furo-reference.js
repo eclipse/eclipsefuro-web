@@ -27,7 +27,7 @@ class DisplayFuroReference extends LitElement {
       Theme.getThemeForComponent('DisplayFuroReference') ||
       css`
         :host {
-          display: inline-block;
+          display: inline;
         }
 
         :host([disabled]) {

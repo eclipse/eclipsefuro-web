@@ -29,7 +29,7 @@ export class DisplayInt32 extends LitElement {
       Theme.getThemeForComponent('DisplayInt32') ||
       css`
         :host {
-          display: inline-block;
+          display: inline;
           word-break: keep-all;
         }
 
