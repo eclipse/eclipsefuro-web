@@ -25,7 +25,6 @@ export class DisplayBool extends LitElement {
         :host {
           display: inline;
           word-break: keep-all;
-          text-align: left;
         }
 
         :host([tabular-form]) {
