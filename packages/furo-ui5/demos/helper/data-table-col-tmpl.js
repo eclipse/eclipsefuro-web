@@ -49,6 +49,11 @@ class DataTableColTmpl extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
+
+        furo-ui5-button{
+          border: none;
+          display: block;
+        }
       `,
     ];
   }
