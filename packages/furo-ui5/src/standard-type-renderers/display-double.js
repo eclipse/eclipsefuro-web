@@ -26,7 +26,6 @@ export class DisplayDouble extends LitElement {
       css`
         :host {
           display: inline;
-          word-break: keep-all;
         }
 
         :host([tabular-form]) {

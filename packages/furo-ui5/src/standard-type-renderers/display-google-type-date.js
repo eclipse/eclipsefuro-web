@@ -30,7 +30,6 @@ export class DisplayGoogleTypeDate extends LitElement {
       css`
         :host {
           display: inline;
-          word-break: keep-all;
         }
 
         :host([hidden]) {
