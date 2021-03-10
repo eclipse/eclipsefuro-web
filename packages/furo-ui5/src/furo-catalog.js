@@ -8,8 +8,6 @@ import './furo-ui5-data-collection-dropdown.js';
 import './furo-ui5-data-collection-dropdown-labeled.js';
 import './furo-ui5-data-date-picker.js';
 import './furo-ui5-data-date-picker-labeled.js';
-import './furo-ui5-data-date-time-display.js';
-import './furo-ui5-data-date-time-display-labeled.js';
 import './furo-ui5-data-date-time-picker.js';
 import './furo-ui5-data-date-time-picker-labeled.js';
 import './furo-ui5-data-display.js';
