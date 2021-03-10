@@ -32,8 +32,6 @@ import { FBP } from '@furo/fbp/src/fbp.js';
 class FuroTypeRenderer extends FBP(LitElement) {
   constructor() {
     super();
-    // the bound fieldNode
-    this._field = undefined;
     this.tpl = html``;
   }
 
@@ -54,7 +52,11 @@ class FuroTypeRenderer extends FBP(LitElement) {
         attribute: 'tabular-form',
       },
       /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       * Value State
+       */
+      valueState: { type: String, reflect: true, attribute: 'value-state' },
+      /**
+       * A Boolean attribute which, if present, means this field is displayed in disabled state.
        */
       disabled: {
         type: Boolean,
@@ -68,12 +70,14 @@ class FuroTypeRenderer extends FBP(LitElement) {
    */
   bindData(fieldNode) {
     this._field = fieldNode;
-    this.renderName = `display-${this._field._spec.type.replaceAll('.', '-').toLocaleLowerCase()}`;
-    this.defaultElement = document.createElement(this.renderName);
-    if (!this._field._isRepeater) {
-      this._createDisplay();
-    } else {
-      this._createRepeatedDisplay();
+    if (this._field){
+      this.renderName = `display-${this._field._spec.type.replaceAll('.', '-').toLocaleLowerCase()}`;
+      this.defaultElement = document.createElement(this.renderName);
+      if (!this._field._isRepeater) {
+        this._createDisplay();
+      } else {
+        this._createRepeatedDisplay();
+      }
     }
   }
 
@@ -129,26 +133,13 @@ class FuroTypeRenderer extends FBP(LitElement) {
       this._addElement(elementRepeat);
     } else if (this.defaultElement.bindData) {
       // fallback , display the display-[type] component repeatedly
-      this.tpl = html`
-        <furo-ui5-data-repeat
-          repeated-component="${this.renderName}"
-          ƒ-bind-data="--data"
-        ></furo-ui5-data-repeat>
-      `;
-      this._FBPTriggerWire('--data', this._field);
+      const el = document.createElement('furo-ui5-data-repeat');
+      el.setAttribute('repeated-component', this.renderName);
+      el.bindData(this._field);
+      this.replaceWith(el);
     } else {
       this._warning();
     }
-  }
-
-  /**
-   * @private
-   * @returns {TemplateResult}
-   */
-  render() {
-    return html`
-      ${this.tpl}
-    `;
   }
 }
 

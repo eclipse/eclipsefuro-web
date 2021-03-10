@@ -108,7 +108,7 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
               ></furo-ui5-data-display>
 
               <furo-ui5-data-display
-                display-field="currency_code"
+                value-state="Critical"
                 ƒ-bind-data="--entity(*.data.furo_data_money_input)"
               ></furo-ui5-data-display>
 
