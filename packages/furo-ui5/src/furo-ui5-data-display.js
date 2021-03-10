@@ -145,7 +145,11 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
     return html`
       <furo-ui5-form-field-container ?disabled=${this.disabled}>
         <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
-        <furo-type-renderer content ƒ-bind-data="--data" value-state=${this.valueState}></furo-type-renderer>
+        <furo-type-renderer
+          content
+          ƒ-bind-data="--data"
+          value-state=${this.valueState}
+        ></furo-type-renderer>
       </furo-ui5-form-field-container>
     `;
   }
