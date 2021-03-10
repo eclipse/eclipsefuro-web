@@ -37,6 +37,11 @@ export class DisplayGoogleTypeDate extends LitElement {
           display: none;
         }
 
+        :host([tabular-form]) {
+          display: block;
+          text-align: right;
+        }
+
         :host([disabled]) {
           opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
