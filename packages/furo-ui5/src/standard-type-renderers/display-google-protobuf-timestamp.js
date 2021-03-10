@@ -30,6 +30,7 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
       css`
         :host {
           display: inline;
+          white-space: nowrap;
         }
 
         :host([hidden]) {

@@ -30,6 +30,7 @@ export class DisplayInt32 extends LitElement {
       css`
         :host {
           display: inline;
+          white-space: nowrap;
         }
 
         :host([tabular-form]) {

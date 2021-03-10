@@ -27,6 +27,7 @@ export class DisplayFloat extends LitElement {
       css`
         :host {
           display: inline;
+          white-space: nowrap;
         }
 
         :host([tabular-form]) {
