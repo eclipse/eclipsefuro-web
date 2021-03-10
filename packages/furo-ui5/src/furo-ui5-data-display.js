@@ -20,7 +20,8 @@ import './furo-ui5-form-field-container.js';
  * @customElement
  * @demo demo-furo-ui5-data-display Simple use
  * @demo demo-furo-ui5-readonly-card Card Sample
- * @demo demo-furo-ui5-form-field-container Sample Form
+ * @demo demo-furo-ui5-data-display-form Read only Form
+ * @demo demo-furo-ui5-form-field-container Mixed Form
  * @appliesMixin FBP
  */
 class FuroUi5DataDisplay extends FBP(LitElement) {
