@@ -1,27 +1,27 @@
-import { LitElement, html, css } from 'lit-element'
-import { Theme } from '@furo/framework/src/theme'
-import { FBP } from '@furo/fbp/src/fbp.js'
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp/src/fbp.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/doc-helper'
+import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5/src/furo-catalog.js'
+import '@furo/ui5/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-data-object.js'
+import '@furo/data/src/furo-data-object.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-entity-agent.js'
+import '@furo/data/src/furo-entity-agent.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-deep-link.js'
+import '@furo/data/src/furo-deep-link.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-form-layouter.js'
+import '@furo/form/src/furo-form-layouter.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-button-bar.js'
+import '@furo/form/src/furo-button-bar.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/input/src/furo-button.js'
+import '@furo/input/src/furo-button.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-input/demos/helper/produce-qp-data.js'
+import '@furo/data-input/demos/helper/produce-qp-data.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-input/demos/helper/fetch-universal-json.js'
+import '@furo/data-input/demos/helper/fetch-universal-json.js';
 
 /**
  * `demo-furo-ui5-data-display`
@@ -72,7 +72,7 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
           grid-column: span 8;
         }
       `
-    )
+    );
   }
 
   /**
@@ -109,9 +109,7 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
             ƒ-bind-data="--entity(*.data.furo_data_money_input)"
           ></furo-ui5-data-display>
 
-          <furo-ui5-data-display
-            ƒ-bind-data="--entity(*.data.repstring)"
-          ></furo-ui5-data-display>
+          <furo-ui5-data-display ƒ-bind-data="--entity(*.data.repstring)"></furo-ui5-data-display>
 
           <furo-ui5-data-display ƒ-bind-data="--entity(*.data.furo_data_text_input)">
           </furo-ui5-data-display>
@@ -122,17 +120,12 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
             qpescaped="%7B%22exp%22%3A1%7D"
           ></produce-qp-data>
 
-
           <h4>furo.fat and Google Types</h4>
-          <furo-ui5-data-display
-            ƒ-bind-data="--entityU(*.data.fat_string)"
-          ></furo-ui5-data-display>
+          <furo-ui5-data-display ƒ-bind-data="--entityU(*.data.fat_string)"></furo-ui5-data-display>
           <furo-ui5-data-display
             ƒ-bind-data="--entityU(*.data.wrapper_string)"
           ></furo-ui5-data-display>
-          <furo-ui5-data-display
-            ƒ-bind-data="--entityU(*.data.fat_int32)"
-          ></furo-ui5-data-display>
+          <furo-ui5-data-display ƒ-bind-data="--entityU(*.data.fat_int32)"></furo-ui5-data-display>
 
           <fetch-universal-json
             file="/mockdata/ui5/demos/fat-universal.json"
@@ -175,8 +168,8 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
           </furo-entity-agent>
         </template>
       </furo-demo-snippet>
-    `
+    `;
   }
 }
 
-window.customElements.define('demo-furo-ui5-data-display', DemoFuroUi5DataDisplay)
+window.customElements.define('demo-furo-ui5-data-display', DemoFuroUi5DataDisplay);
