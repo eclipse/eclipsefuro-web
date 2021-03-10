@@ -84,7 +84,12 @@ class DisplayGoogleTypeTimeofday extends LitElement {
 
     // eslint-disable-next-line eqeqeq
     if (date != 'Invalid Date') {
-      return date.toLocaleTimeString([Env.locale, 'de-CH']);
+      return date.toLocaleTimeString([Env.locale, 'de-CH'], {
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      });
     }
     return '';
   }
