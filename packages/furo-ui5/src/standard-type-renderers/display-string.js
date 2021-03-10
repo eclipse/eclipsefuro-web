@@ -27,25 +27,26 @@ export class DisplayString extends LitElement {
         :host([hidden]) {
           display: none;
         }
-        :host([disabled]) span {
+
+        :host([disabled]) {
           opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
-        span {
-          margin: 0;
-          font-family: var(--sapFontFamily, '72');
-          color: var(--sapTextcolor, '#32363a');
-          word-break: break-word;
-        }
-        span::first-line {
-          line-height: var(--_ui5_input_height, 36px);
-        }
-        :host([data-size='size-s']) span::first-line {
-          line-height: var(--sapElement_Compact_Height, 26px);
-        }
 
-        :host([data-size='size-l']),
-        :host([data-size='size-xl']) {
-          padding-top: 0.5rem;
+        :host([value-state='Positive']),
+        :host([value-state='Success']) {
+          color: var(--sapPositiveColor, #107e3e);
+        }
+        :host([value-state='Informative']),
+        :host([value-state='Information']) {
+          color: var(--sapInformativeColor, #0a6ed1);
+        }
+        :host([value-state='Negative']),
+        :host([value-state='Error']) {
+          color: var(--sapNegativeColor, #b00);
+        }
+        :host([value-state='Critical']),
+        :host([value-state='Warning']) {
+          color: var(--sapCrticalColor, #e9730c);
         }
       `
     );
@@ -67,23 +68,6 @@ export class DisplayString extends LitElement {
   }
 
   /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    return html`
-      <span
-        >${this._field
-          ? html`
-              ${this._field._value}
-            `
-          : html``}
-      </span>
-    `;
-  }
-
-  /**
    * render function
    * @private
    * @returns {TemplateResult|TemplateResult}
@@ -91,7 +75,11 @@ export class DisplayString extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      ${this._field
+        ? html`
+            ${this._field._value}
+          `
+        : html``}
     `;
   }
 }

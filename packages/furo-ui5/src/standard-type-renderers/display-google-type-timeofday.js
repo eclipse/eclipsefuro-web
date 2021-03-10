@@ -37,13 +37,13 @@ class DisplayGoogleTypeTimeofday extends LitElement {
           display: none;
         }
 
+        :host([disabled]) {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
+        }
+
         :host([tabular-form]) {
           display: block;
           text-align: right;
-        }
-
-        :host([disabled]) span {
-          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
       `
     );
@@ -102,7 +102,7 @@ class DisplayGoogleTypeTimeofday extends LitElement {
   render() {
     // language=HTML
     return html`
-      <span>${this._displayValue}</span>
+      ${this._displayValue}
     `;
   }
 }

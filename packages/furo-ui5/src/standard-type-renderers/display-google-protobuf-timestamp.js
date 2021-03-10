@@ -42,7 +42,7 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
           text-align: right;
         }
 
-        :host([disabled]) span {
+        :host([disabled]) {
           opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
       `
@@ -107,7 +107,7 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
   render() {
     // language=HTML
     return html`
-      <span>${this._displayValue}</span>
+      ${this._displayValue}
     `;
   }
 }

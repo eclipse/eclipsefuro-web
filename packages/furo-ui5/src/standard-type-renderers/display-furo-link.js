@@ -23,12 +23,12 @@ class DisplayFuroLink extends LitElement {
           display: inline;
         }
 
-        :host([disabled]) span {
-          opacity: var(--_ui5_input_disabled_opacity, 0.4);
-        }
-
         :host([hidden]) {
           display: none;
+        }
+
+        :host([disabled]) {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
       `
     );
@@ -50,24 +50,6 @@ class DisplayFuroLink extends LitElement {
   }
 
   /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    return html`
-      ${this._field
-        ? html`
-            <span
-              >[${this._field.rel._value}][this._field.method._value][${this._field.href
-                ._value}]</span
-            >
-          `
-        : html``}
-    `;
-  }
-
-  /**
    * render function
    * @private
    * @returns {TemplateResult|TemplateResult}
@@ -75,7 +57,11 @@ class DisplayFuroLink extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      ${this._field
+        ? html`
+            [${this._field.rel._value}][this._field.method._value][${this._field.href._value}]
+          `
+        : html``}
     `;
   }
 }

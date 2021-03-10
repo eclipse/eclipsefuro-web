@@ -32,26 +32,8 @@ class DisplayFuroFatString extends LitElement {
           display: none;
         }
 
-        :host([disabled]) span {
+        :host([disabled]) {
           opacity: var(--_ui5_input_disabled_opacity, 0.4);
-        }
-
-        span {
-          margin: 0;
-          font-family: var(--sapFontFamily, '72');
-          color: var(--sapTextcolor, '#32363a');
-          word-break: break-word;
-        }
-        span::first-line {
-          line-height: var(--_ui5_input_height, 36px);
-        }
-        :host([data-size='size-s']) span::first-line {
-          line-height: var(--sapElement_Compact_Height, 26px);
-        }
-
-        :host([data-size='size-l']),
-        :host([data-size='size-xl']) {
-          padding-top: 0.5rem;
         }
 
         :host([value-state='Positive']),
@@ -119,7 +101,7 @@ class DisplayFuroFatString extends LitElement {
   render() {
     // language=HTML
     return html`
-      <span>${this._displayValue}</span>
+      ${this._displayValue}
     `;
   }
 }

@@ -26,38 +26,33 @@ export class DisplayBool extends LitElement {
           display: inline;
         }
 
-        :host([tabular-form]) {
-          display: block;
-          text-align: center;
+        :host([hidden]) {
+          display: none;
         }
 
         :host([disabled]) {
           opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
 
-        :host([hidden]) {
-          display: none;
+        :host([tabular-form]) {
+          display: block;
+          text-align: center;
         }
 
-        :host([data-size='size-l']),
-        :host([data-size='size-xl']) {
-          padding-top: 0.5rem;
-        }
-
-        ui5-icon[value-state='Positive'],
-        ui5-icon[value-state='Success'] {
+        :host([value-state='Positive']) ui5-icon,
+        :host([value-state='Success']) ui5-icon {
           color: var(--sapPositiveColor, #107e3e);
         }
-        ui5-icon[value-state='Informative'],
-        ui5-icon[value-state='Information'] {
+        :host([value-state='Informative']) ui5-icon,
+        :host([value-state='Information']) ui5-icon {
           color: var(--sapInformativeColor, #0a6ed1);
         }
-        ui5-icon[value-state='Negative'],
-        ui5-icon[value-state='Error'] {
+        :host([value-state='Negative']) ui5-icon,
+        :host([value-state='Error']) ui5-icon {
           color: var(--sapNegativeColor, #b00);
         }
-        ui5-icon[value-state='Critical'],
-        ui5-icon[value-state='Warning'] {
+        :host([value-state='Critical']) ui5-icon,
+        :host([value-state='Warning']) ui5-icon {
           color: var(--sapCrticalColor, #e9730c);
         }
       `
@@ -92,11 +87,10 @@ export class DisplayBool extends LitElement {
         `;
       } else {
         tmpl = html`
-          <ui5-icon name="accept" value-state="Success"></ui5-icon>
+          <ui5-icon name="accept"></ui5-icon>
         `;
       }
     }
-
     return tmpl;
   }
 

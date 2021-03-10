@@ -30,12 +30,12 @@ class DisplayFuroReference extends LitElement {
           display: inline;
         }
 
-        :host([disabled]) {
-          opacity: var(--_ui5_input_disabled_opacity, 0.4);
-        }
-
         :host([hidden]) {
           display: none;
+        }
+
+        :host([disabled]) {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
       `
     );
