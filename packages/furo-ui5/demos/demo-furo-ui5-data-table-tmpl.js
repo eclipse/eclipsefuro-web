@@ -80,9 +80,12 @@ class DemoFuroUi5DataTableTmpl extends FBP(LitElement) {
               no-data-text="No data available. Click on load test data"
               ƒ-bind-data="--dao(*.entities)"
               @-template-col-clicked="--rowData"
-              headers="${i18n.t('header1')},${i18n.t('header2')},${i18n.t('header3')},${i18n.t(
-                'header4',
-              )}--:,${i18n.t('header5')},${i18n.t('header6')}|fix400,${i18n.t('header7')}|min400"
+              headers=",
+                       ${i18n.t('header2')},
+                       ${i18n.t('header3')}:-:,
+                       ${i18n.t('header4',)}--:,
+                       ${i18n.t('header5')}|fix85,
+                       ${i18n.t('header6')}--:|fix400,|fix50"
               columns="data.id, data.display_name, {data-table-col-tmpl}, data.cost_limit, data.start, data.end, {data-table-col-tmpl-link}"
             ></furo-ui5-data-table>
           </furo-ui5-card>

@@ -45,6 +45,7 @@ class DataTableColTmplLink extends FBP(LitElement) {
       css`
         :host {
           display: block;
+          text-align: center;
         }
         :host([hidden]) {
           display: none;
