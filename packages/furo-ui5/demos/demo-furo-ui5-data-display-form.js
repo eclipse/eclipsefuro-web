@@ -124,6 +124,10 @@ class DemoFuroUi5DataDisplayForm extends FBP(LitElement) {
                 ƒ-bind-data="--entity(*.data.google_timestamp)"
               ></furo-ui5-data-display>
 
+              <furo-ui5-data-display
+                ƒ-bind-data="--entity(*.data.furo_data_color_input)"
+              ></furo-ui5-data-display>
+
               <furo-ui5-data-display ƒ-bind-data="--entity(*.data.furo_data_text_input)">
               </furo-ui5-data-display>
             </furo-form-layouter>

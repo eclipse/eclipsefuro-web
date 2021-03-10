@@ -104,11 +104,11 @@ class FuroTypeRenderer extends FBP(LitElement) {
     for (let i = 0; i < l; ++i) {
       const { nodeName } = this.attributes.item(i);
       const { nodeValue } = this.attributes.item(i);
+      // eslint-disable-next-line eqeqeq
       if (!nodeName.startsWith('@') && !nodeName.startsWith('ƒ')) {
         el.setAttribute(nodeName, nodeValue);
       }
     }
-
     el.bindData(this._field);
     this.replaceWith(el);
   }

@@ -83,7 +83,7 @@ class DemoFuroUi5DataTableTmpl extends FBP(LitElement) {
               headers=",
                        ${i18n.t('header2')},
                        ${i18n.t('header3')}:-:,
-                       ${i18n.t('header4',)}--:,
+                       ${i18n.t('header4')}--:,
                        ${i18n.t('header5')}|fix85,
                        ${i18n.t('header6')}--:|fix400,|fix50"
               columns="data.id, data.display_name, {data-table-col-tmpl}, data.cost_limit, data.start, data.end, {data-table-col-tmpl-link}"

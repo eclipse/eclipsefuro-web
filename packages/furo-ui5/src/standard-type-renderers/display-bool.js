@@ -34,6 +34,11 @@ export class DisplayBool extends LitElement {
           opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
 
+        :host([data-size*='size-l']),
+        :host([data-size*='size-xl']) {
+          padding-top: 0.5rem;
+        }
+
         :host([tabular-form]) {
           display: block;
           text-align: center;

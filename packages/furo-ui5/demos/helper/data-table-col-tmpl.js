@@ -50,7 +50,7 @@ class DataTableColTmpl extends FBP(LitElement) {
           display: none;
         }
 
-        furo-ui5-button{
+        furo-ui5-button {
           border: none;
           display: block;
         }

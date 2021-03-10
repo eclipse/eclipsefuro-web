@@ -36,6 +36,11 @@ class DisplayFuroFatString extends LitElement {
           opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
 
+        :host([data-size*='size-l']),
+        :host([data-size*='size-xl']) {
+          padding-top: 0.5rem;
+        }
+
         :host([value-state='Positive']),
         :host([value-state='Success']) {
           color: var(--sapPositiveColor, #107e3e);
@@ -82,7 +87,7 @@ class DisplayFuroFatString extends LitElement {
      * Sets the attributes from the field node
      */
     Object.keys(this._field.attributes).forEach(key => {
-      if (!key.startsWith('_')) {
+      if (!key.startsWith('_') && key !== 'label') {
         this.setAttribute(this._field.attributes[key]._name, this._field.attributes[key]._value);
       }
     });

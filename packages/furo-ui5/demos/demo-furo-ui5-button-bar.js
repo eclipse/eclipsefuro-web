@@ -89,12 +89,6 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
                 request state.
               </p>
 
-              <produce-qp-data
-                ƒ-produce="--load"
-                @-data="--qp"
-                qpescaped="%7B%22tsk%22%3A1%7D"
-              ></produce-qp-data>
-
               <furo-deep-link
                 service="TaskService"
                 ƒ-qp-in="--qp"
@@ -113,13 +107,6 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
                 ƒ-inject-raw="--response"
               ></furo-data-object>
 
-              <furo-horizontal-flex>
-                <furo-data-text-input
-                  flex
-                  ƒ-bind-data="--entity(*.data.description)"
-                ></furo-data-text-input>
-              </furo-horizontal-flex>
-              <div class="hr"></div>
               <furo-ui5-button-bar
                 ƒ-bind-entity="--entity"
                 ƒ-disable-all="--reqStarted"
@@ -140,6 +127,13 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
                   >disabled if pristine (e.g. save)
                 </furo-ui5-button>
               </furo-ui5-button-bar>
+
+              <br />
+              <produce-qp-data
+                ƒ-produce="--load"
+                @-data="--qp"
+                qpescaped="%7B%22tsk%22%3A1%7D"
+              ></produce-qp-data>
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>

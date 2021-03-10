@@ -65,7 +65,12 @@ class DataTableColTmplLink extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <ui5-icon style="cursor: zoom-in" interactive name="navigation-right-arrow" @-click="--btnClicked"></ui5-icon>
+      <ui5-icon
+        style="cursor: zoom-in"
+        interactive
+        name="navigation-right-arrow"
+        @-click="--btnClicked"
+      ></ui5-icon>
     `;
   }
 }
