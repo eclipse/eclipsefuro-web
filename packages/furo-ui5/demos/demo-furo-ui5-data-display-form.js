@@ -24,13 +24,13 @@ import '@furo/data-input/demos/helper/produce-qp-data.js';
 import '@furo/data-input/demos/helper/fetch-universal-json.js';
 
 /**
- * `demo-furo-ui5-data-display`
+ * `demo-furo-ui5-data-display-form`
  *
  * @Summary basic usage of furo-ui5-data-display
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroUi5DataDisplay extends FBP(LitElement) {
+class DemoFuroUi5DataDisplayForm extends FBP(LitElement) {
   /**
    * Themable Styles
    * @private
@@ -39,7 +39,7 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DemoFuroUi5DataDisplay') ||
+      Theme.getThemeForComponent('DemoFuroUi5DataDisplayForm') ||
       css`
         :host {
           display: block;
@@ -85,47 +85,75 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
       <h2>Demo furo-ui5-data-display</h2>
       <furo-demo-snippet>
         <template>
-          <h4>Scalar and complex Types</h4>
-          <p>One component fits all types</p>
-          <furo-ui5-data-display
-            ƒ-bind-data="--entity(*.data.display_name)"
-            value-state="Information"
+          <ui5-card
+            heading="Usage of furo-ui5-data-display in forms"
+            subheading="Read only visualisation inside of a form."
           >
-          </furo-ui5-data-display>
+            <furo-form-layouter two style="padding: var(--spacing-s)">
+              <furo-ui5-data-display
+                ƒ-bind-data="--entity(*.data.display_name)"
+                value-state="Information"
+              >
+              </furo-ui5-data-display>
 
-          <furo-ui5-data-display ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)">
-          </furo-ui5-data-display>
+              <furo-ui5-data-display ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)">
+              </furo-ui5-data-display>
 
-          <furo-ui5-data-display
-            ƒ-bind-data="--entity(*.data.furo_data_date_input_google)"
-          ></furo-ui5-data-display>
+              <furo-ui5-data-display
+                ƒ-bind-data="--entity(*.data.furo_data_date_input_google)"
+              ></furo-ui5-data-display>
 
-          <furo-ui5-data-display
-            ƒ-bind-data="--entity(*.data.furo_data_money_input)"
-          ></furo-ui5-data-display>
+              <furo-ui5-data-display
+                ƒ-bind-data="--entity(*.data.furo_data_money_input)"
+              ></furo-ui5-data-display>
 
-          <furo-ui5-data-display
-            value-state="Critical"
-            ƒ-bind-data="--entity(*.data.furo_data_money_input)"
-          ></furo-ui5-data-display>
+              <furo-ui5-data-display
+                value-state="Critical"
+                ƒ-bind-data="--entity(*.data.furo_data_money_input)"
+              ></furo-ui5-data-display>
 
-          <furo-ui5-data-display ƒ-bind-data="--entity(*.data.repstring)"></furo-ui5-data-display>
+              <furo-ui5-data-display
+                ƒ-bind-data="--entity(*.data.repstring)"
+              ></furo-ui5-data-display>
 
-          <furo-ui5-data-display ƒ-bind-data="--entity(*.data.furo_data_text_input)">
-          </furo-ui5-data-display>
+              <furo-ui5-data-display
+                ƒ-bind-data="--entity(*.data.furo_data_time_input)"
+              ></furo-ui5-data-display>
 
-          <produce-qp-data
-            slot="action"
-            @-data="--qp"
-            qpescaped="%7B%22exp%22%3A1%7D"
-          ></produce-qp-data>
+              <furo-ui5-data-display
+                ƒ-bind-data="--entity(*.data.google_timestamp)"
+              ></furo-ui5-data-display>
 
-          <h4>furo.fat and Google Types</h4>
-          <furo-ui5-data-display ƒ-bind-data="--entityU(*.data.fat_string)"></furo-ui5-data-display>
-          <furo-ui5-data-display
-            ƒ-bind-data="--entityU(*.data.wrapper_string)"
-          ></furo-ui5-data-display>
-          <furo-ui5-data-display ƒ-bind-data="--entityU(*.data.fat_int32)"></furo-ui5-data-display>
+              <furo-ui5-data-display
+                ƒ-bind-data="--entity(*.data.furo_data_color_input)"
+              ></furo-ui5-data-display>
+
+              <furo-ui5-data-display ƒ-bind-data="--entity(*.data.furo_data_text_input)">
+              </furo-ui5-data-display>
+            </furo-form-layouter>
+            <produce-qp-data
+              slot="action"
+              @-data="--qp"
+              qpescaped="%7B%22exp%22%3A1%7D"
+            ></produce-qp-data>
+          </ui5-card>
+
+          <ui5-card
+            heading="furo.fat Types"
+            subheading="furo-ui5-data-display with type furo.fat.String bindings."
+          >
+            <furo-form-layouter two style="padding: var(--spacing-s)">
+              <furo-ui5-data-display
+                ƒ-bind-data="--entityU(*.data.fat_string)"
+              ></furo-ui5-data-display>
+              <furo-ui5-data-display
+                ƒ-bind-data="--entityU(*.data.wrapper_string)"
+              ></furo-ui5-data-display>
+              <furo-ui5-data-display
+                ƒ-bind-data="--entityU(*.data.fat_int32)"
+              ></furo-ui5-data-display>
+            </furo-form-layouter>
+          </ui5-card>
 
           <fetch-universal-json
             file="/mockdata/ui5/demos/fat-universal.json"
@@ -172,4 +200,4 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-ui5-data-display', DemoFuroUi5DataDisplay);
+window.customElements.define('demo-furo-ui5-data-display-form', DemoFuroUi5DataDisplayForm);

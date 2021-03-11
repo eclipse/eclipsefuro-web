@@ -1,4 +1,3 @@
-import { html } from 'lit-element';
 import { Env } from '@furo/framework/src/furo.js';
 // eslint-disable-next-line no-unused-vars
 import { DisplayInt32 } from './display-int32.js';
@@ -19,31 +18,14 @@ import { DisplayInt32 } from './display-int32.js';
  * @demo demo display-int32 Basic Usage
  */
 export class DisplayFuroFatInt32 extends DisplayInt32 {
-  /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    if (this._field) {
-      this.displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field._value.value);
-      return html`
-        <span>${this.displayValue}</span>
-      `;
+  _formatDisplay() {
+    if (this._field.value._value !== null) {
+      const displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field.value._value);
+      if (displayValue !== 'NaN') {
+        this._displayValue = displayValue;
+        this.requestUpdate();
+      }
     }
-    return '';
-  }
-
-  /**
-   * render function
-   * @private
-   * @returns {TemplateResult|TemplateResult}
-   */
-  render() {
-    // language=HTML
-    return html`
-      ${this._getTemplate()}
-    `;
   }
 }
 

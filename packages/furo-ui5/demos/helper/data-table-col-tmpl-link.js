@@ -27,7 +27,7 @@ class DataTableColTmplLink extends FBP(LitElement) {
     this._FBPAddWireHook('--btnClicked', () => {
       this.dispatchEvent(
         new CustomEvent('template-col-clicked', {
-          detail: this.field,
+          detail: this.field.data._value,
           bubbles: true,
           composed: true,
         }),
@@ -45,6 +45,7 @@ class DataTableColTmplLink extends FBP(LitElement) {
       css`
         :host {
           display: block;
+          text-align: center;
         }
         :host([hidden]) {
           display: none;
@@ -64,7 +65,12 @@ class DataTableColTmplLink extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <ui5-icon interactive name="navigation-right-arrow" @-click="--btnClicked"></ui5-icon>
+      <ui5-icon
+        style="cursor: zoom-in"
+        interactive
+        name="navigation-right-arrow"
+        @-click="--btnClicked"
+      ></ui5-icon>
     `;
   }
 }

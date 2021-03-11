@@ -20,8 +20,7 @@ import { Env } from '@furo/framework/src/furo.js';
 export class DisplayGoogleTypeMoney extends LitElement {
   constructor() {
     super();
-    this._field = undefined;
-    this._displayValue = 'N/A';
+    this._displayValue = '';
     this._valueObject = { amount: Number.NaN };
   }
 
@@ -31,49 +30,43 @@ export class DisplayGoogleTypeMoney extends LitElement {
       Theme.getThemeForComponent('DisplayGoogleTypeMoney') ||
       css`
         :host {
-          display: block;
-          word-break: keep-all;
-        }
-
-        :host([tabular-form]) {
-          text-align: right;
+          display: inline;
+          white-space: nowrap;
         }
 
         :host([hidden]) {
           display: none;
         }
-        :host([disabled]) span {
-          opacity: var(--_ui5_input_disabled_opacity);
-        }
-        span {
-          margin: 0;
-          font-family: var(--sapFontFamily, '72');
-          color: var(--sapTextcolor, '#32363a');
-        }
-        span::first-line {
-          line-height: var(--_ui5_input_height, 36px);
-        }
-        :host([data-size='size-s']) span::first-line {
-          line-height: var(--sapElement_Compact_Height, 26px);
+
+        :host([disabled]) {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
 
-        :host([data-size='size-l']),
-        :host([data-size='size-xl']) {
+        :host([data-size*='size-l']),
+        :host([data-size*='size-xl']) {
           padding-top: 0.5rem;
+        }
+
+        :host([tabular-form]) {
+          display: block;
+          text-align: right;
         }
 
         :host([value-state='Positive']),
         :host([value-state='Success']) {
           color: var(--sapPositiveColor, #107e3e);
         }
+
         :host([value-state='Informative']),
         :host([value-state='Information']) {
           color: var(--sapInformativeColor, #0a6ed1);
         }
+
         :host([value-state='Negative']),
         :host([value-state='Error']) {
           color: var(--sapNegativeColor, #b00);
         }
+
         :host([value-state='Critical']),
         :host([value-state='Warning']) {
           color: var(--sapCrticalColor, #e9730c);
@@ -91,12 +84,11 @@ export class DisplayGoogleTypeMoney extends LitElement {
 
     if (this._field) {
       this._field.addEventListener('branch-value-changed', () => {
-        this._valueObject.amount = DisplayGoogleTypeMoney._convertTypeToNumber(this._field);
-        this.requestUpdate();
+        this._formatDisplay();
       });
-    }
 
-    this._valueObject.amount = DisplayGoogleTypeMoney._convertTypeToNumber(this._field);
+      this._formatDisplay();
+    }
   }
 
   /**
@@ -119,22 +111,16 @@ export class DisplayGoogleTypeMoney extends LitElement {
     return Number.NaN;
   }
 
-  /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    if (this._field && this._field.currency_code._value.length) {
+  _formatDisplay() {
+    this._valueObject.amount = DisplayGoogleTypeMoney._convertTypeToNumber(this._field);
+    if (this._valueObject.amount !== Number.NaN && this._field.currency_code._value.length) {
       this._displayValue = new Intl.NumberFormat(Env.locale, {
         style: 'currency',
         currency: this._field.currency_code._value,
       }).format(this._valueObject.amount);
     }
 
-    return html`
-      <span>${this._displayValue}</span>
-    `;
+    this.requestUpdate();
   }
 
   /**
@@ -145,7 +131,7 @@ export class DisplayGoogleTypeMoney extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      <span>${this._displayValue}</span>
     `;
   }
 }

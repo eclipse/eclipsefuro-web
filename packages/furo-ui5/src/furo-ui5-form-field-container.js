@@ -182,7 +182,6 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
         ::slotted(*[label][data-size*='size-s']) {
           grid-column: span 12;
           justify-self: start;
-          padding-top: 0;
         }
 
         ::slotted(*[content][data-size*='size-m']) {
@@ -193,7 +192,6 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
         ::slotted(*[label][data-size*='size-m']) {
           grid-column: span 3;
           place-self: start var(--furo-ui5-form-field-container-label-justify, end);
-          padding-top: 0.5rem;
         }
 
         ::slotted(*[content][data-size*='size-l']) {
@@ -204,7 +202,6 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
         ::slotted(*[label][data-size*='size-l']) {
           grid-column: span 4;
           place-self: start var(--furo-ui5-form-field-container-label-justify, end);
-          padding-top: 0.5rem;
         }
 
         ::slotted(*[content][data-size*='size-xl']) {
@@ -215,7 +212,6 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
         ::slotted(*[label][data-size*='size-xl']) {
           grid-column: span 4;
           place-self: start var(--furo-ui5-form-field-container-label-justify, end);
-          padding-top: 0.5rem;
         }
       `
     );

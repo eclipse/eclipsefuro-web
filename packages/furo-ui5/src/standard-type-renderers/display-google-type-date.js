@@ -20,8 +20,7 @@ import { Env } from '@furo/framework/src/furo.js';
 export class DisplayGoogleTypeDate extends LitElement {
   constructor() {
     super();
-    this._field = undefined;
-    this._formattedDateString = '';
+    this._displayValue = '';
   }
 
   static get styles() {
@@ -30,30 +29,25 @@ export class DisplayGoogleTypeDate extends LitElement {
       Theme.getThemeForComponent('DisplayGoogleTypeDate') ||
       css`
         :host {
-          display: inline-block;
-          word-break: keep-all;
+          display: inline;
+          white-space: nowrap;
         }
 
         :host([hidden]) {
           display: none;
         }
-        :host([disabled]) span {
-          opacity: var(--_ui5_input_disabled_opacity);
-        }
-        span {
-          margin: 0;
-          font-family: var(--sapFontFamily, '72');
-          color: var(--sapTextcolor, '#32363a');
-        }
-        span::first-line {
-          line-height: var(--_ui5_input_height, 36px);
-        }
-        :host([data-size='size-s']) span::first-line {
-          line-height: var(--sapElement_Compact_Height, 26px);
+
+        :host([tabular-form]) {
+          display: block;
+          text-align: right;
         }
 
-        :host([data-size='size-l']),
-        :host([data-size='size-xl']) {
+        :host([disabled]) {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
+        }
+
+        :host([data-size*='size-l']),
+        :host([data-size*='size-xl']) {
           padding-top: 0.5rem;
         }
 
@@ -61,14 +55,17 @@ export class DisplayGoogleTypeDate extends LitElement {
         :host([value-state='Success']) {
           color: var(--sapPositiveColor, #107e3e);
         }
+
         :host([value-state='Informative']),
         :host([value-state='Information']) {
           color: var(--sapInformativeColor, #0a6ed1);
         }
+
         :host([value-state='Negative']),
         :host([value-state='Error']) {
           color: var(--sapNegativeColor, #b00);
         }
+
         :host([value-state='Critical']),
         :host([value-state='Warning']) {
           color: var(--sapCrticalColor, #e9730c);
@@ -86,12 +83,19 @@ export class DisplayGoogleTypeDate extends LitElement {
 
     if (this._field) {
       this._field.addEventListener('field-value-changed', () => {
-        this._formattedDateString = DisplayGoogleTypeDate._convertDateToString(this._field);
-        this.requestUpdate();
+        this._formatDisplay();
       });
     }
 
-    this._formattedDateString = DisplayGoogleTypeDate._convertDateToString(this._field);
+    this._formatDisplay();
+  }
+
+  _formatDisplay() {
+    const displayValue = DisplayGoogleTypeDate._convertDateToString(this._field);
+    if (displayValue !== 'N/A') {
+      this._displayValue = displayValue;
+      this.requestUpdate();
+    }
   }
 
   /**
@@ -119,17 +123,6 @@ export class DisplayGoogleTypeDate extends LitElement {
   }
 
   /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    return html`
-      <span>${this._formattedDateString}</span>
-    `;
-  }
-
-  /**
    * render function
    * @private
    * @returns {TemplateResult|TemplateResult}
@@ -137,7 +130,7 @@ export class DisplayGoogleTypeDate extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      ${this._displayValue}
     `;
   }
 }

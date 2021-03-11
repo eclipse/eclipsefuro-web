@@ -1,5 +1,4 @@
 import { html } from 'lit-element';
-
 // eslint-disable-next-line no-unused-vars
 import { DisplayBool } from './display-bool.js';
 
@@ -22,20 +21,20 @@ class DisplayFuroFatBool extends DisplayBool {
    * @private
    */
   _getTemplate() {
-    let tmp = '';
+    let tmpl = '';
     if (this._field) {
       if (!this._field.value._value || this._field.value._value === 'false') {
-        tmp = html`
+        tmpl = html`
           <ui5-icon name="border"></ui5-icon>
         `;
       } else {
-        tmp = html`
+        tmpl = html`
           <ui5-icon name="accept" value-state="Success"></ui5-icon>
         `;
       }
     }
 
-    return tmp;
+    return tmpl;
   }
 
   /**

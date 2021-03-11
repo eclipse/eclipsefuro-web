@@ -16,7 +16,7 @@ import { Theme } from '@furo/framework/src/theme';
 class DisplayFuroFatString extends LitElement {
   constructor() {
     super();
-    this._field = undefined;
+    this._displayValue = '';
   }
 
   static get styles() {
@@ -25,30 +25,19 @@ class DisplayFuroFatString extends LitElement {
       Theme.getThemeForComponent('DisplayFuroFatString') ||
       css`
         :host {
-          display: inline-block;
+          display: inline;
         }
 
         :host([hidden]) {
           display: none;
         }
-        :host([disabled]) span {
-          opacity: var(--_ui5_input_disabled_opacity);
-        }
-        span {
-          margin: 0;
-          font-family: var(--sapFontFamily, '72');
-          color: var(--sapTextcolor, '#32363a');
-          word-break: break-word;
-        }
-        span::first-line {
-          line-height: var(--_ui5_input_height, 36px);
-        }
-        :host([data-size='size-s']) span::first-line {
-          line-height: var(--sapElement_Compact_Height, 26px);
+
+        :host([disabled]) {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
         }
 
-        :host([data-size='size-l']),
-        :host([data-size='size-xl']) {
+        :host([data-size*='size-l']),
+        :host([data-size*='size-xl']) {
           padding-top: 0.5rem;
         }
 
@@ -87,8 +76,9 @@ class DisplayFuroFatString extends LitElement {
     if (this._field) {
       this._field.addEventListener('field-value-changed', () => {
         this._updateMeta();
-        this.requestUpdate();
+        this._formatDisplay();
       });
+      this._formatDisplay();
     }
   }
 
@@ -97,27 +87,15 @@ class DisplayFuroFatString extends LitElement {
      * Sets the attributes from the field node
      */
     Object.keys(this._field.attributes).forEach(key => {
-      if (!key.startsWith('_')) {
+      if (!key.startsWith('_') && key !== 'label') {
         this.setAttribute(this._field.attributes[key]._name, this._field.attributes[key]._value);
       }
     });
   }
 
-  /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    return html`
-      <span
-        >${this._field
-          ? html`
-              ${this._field._value.value}
-            `
-          : ``}</span
-      >
-    `;
+  _formatDisplay() {
+    this._displayValue = this._field._value.value;
+    this.requestUpdate();
   }
 
   /**
@@ -128,7 +106,7 @@ class DisplayFuroFatString extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      ${this._displayValue}
     `;
   }
 }

@@ -96,11 +96,6 @@ class FormSectionOne extends FBP(LitElement) {
           ƒ-bind-data="--entity(*.data.google_timestamp)"
         ></furo-ui5-data-date-time-picker-labeled>
 
-        <furo-ui5-data-date-time-display-labeled
-          ƒ-.disabled="--disable"
-          ƒ-bind-data="--entity(*.data.google_timestamp)"
-        ></furo-ui5-data-date-time-display-labeled>
-
         <furo-ui5-data-reference-search-labeled
           @-search="--term"
           ƒ-.disabled="--disable"

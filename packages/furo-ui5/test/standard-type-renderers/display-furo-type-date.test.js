@@ -40,7 +40,7 @@ describe('display-furo-type-date', () => {
       assert.equal(display._field.year._value, null);
       assert.equal(display._field.month._value, null);
       assert.equal(display._field.day._value, null);
-      assert.equal(display._formattedDateString, 'N/A');
+      assert.equal(display._displayValue, '');
       done();
     }, 0);
   });
@@ -49,7 +49,7 @@ describe('display-furo-type-date', () => {
     Env.locale = 'de';
     dao.injectRaw({ furo_type_date: { year: '2000', day: '12', month: '11' } });
     setTimeout(() => {
-      assert.equal(display._formattedDateString, '12.11.2000');
+      assert.equal(display._displayValue, '12.11.2000');
 
       done();
     }, 110);
@@ -61,7 +61,7 @@ describe('display-furo-type-date', () => {
       furo_type_date: { year: '2000', day: '12', month: '11', display_name: '10.10.2000' },
     });
     setTimeout(() => {
-      assert.equal(display._formattedDateString, '10.10.2000');
+      assert.equal(display._displayValue, '10.10.2000');
 
       done();
     }, 110);

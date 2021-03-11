@@ -20,8 +20,7 @@ import { Env } from '@furo/framework/src/furo.js';
 class DisplayGoogleTypeTimeofday extends LitElement {
   constructor() {
     super();
-    this._field = undefined;
-    this._formattedDayTimeString = '';
+    this._displayValue = '';
   }
 
   static get styles() {
@@ -30,14 +29,25 @@ class DisplayGoogleTypeTimeofday extends LitElement {
       Theme.getThemeForComponent('DisplayGoogleTypeTimeofday') ||
       css`
         :host {
-          display: block;
+          display: inline;
+          white-space: nowrap;
         }
 
         :host([hidden]) {
           display: none;
         }
 
+        :host([disabled]) {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
+        }
+
+        :host([data-size*='size-l']),
+        :host([data-size*='size-xl']) {
+          padding-top: 0.5rem;
+        }
+
         :host([tabular-form]) {
+          display: block;
           text-align: right;
         }
       `
@@ -58,14 +68,10 @@ class DisplayGoogleTypeTimeofday extends LitElement {
         return;
       }
       this._field.addEventListener('field-value-changed', () => {
-        this._formattedDayTimeString = DisplayGoogleTypeTimeofday._convertDayTimeToString(
-          this._field,
-        );
-        this.requestUpdate();
+        this._formatDisplay();
       });
+      this._formatDisplay();
     }
-
-    this._formattedDayTimeString = DisplayGoogleTypeTimeofday._convertDayTimeToString(this._field);
   }
 
   /**
@@ -77,28 +83,25 @@ class DisplayGoogleTypeTimeofday extends LitElement {
    * @private
    */
   static _convertDayTimeToString(fieldNode) {
-    if (fieldNode) {
-      const date = new Date(
-        `2000-01-01 ${fieldNode.hours._value}:${fieldNode.minutes._value}:${fieldNode.seconds._value}`,
-      );
+    const date = new Date(
+      `2000-01-01 ${fieldNode.hours._value}:${fieldNode.minutes._value}:${fieldNode.seconds._value}`,
+    );
 
-      // eslint-disable-next-line eqeqeq
-      if (date != 'Invalid Date') {
-        return date.toLocaleTimeString([Env.locale, 'de-CH']);
-      }
+    // eslint-disable-next-line eqeqeq
+    if (date != 'Invalid Date') {
+      return date.toLocaleTimeString([Env.locale, 'de-CH'], {
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+      });
     }
     return '';
   }
 
-  /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    return html`
-      <span>${this._formattedDayTimeString}</span>
-    `;
+  _formatDisplay() {
+    this._displayValue = DisplayGoogleTypeTimeofday._convertDayTimeToString(this._field);
+    this.requestUpdate();
   }
 
   /**
@@ -109,7 +112,7 @@ class DisplayGoogleTypeTimeofday extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      ${this._displayValue}
     `;
   }
 }

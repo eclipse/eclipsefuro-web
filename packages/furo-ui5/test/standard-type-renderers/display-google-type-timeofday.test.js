@@ -50,7 +50,7 @@ describe('display-google-type-timeofday', () => {
     Env.locale = 'de';
     dao.injectRaw({ google_timeofday: { hours: 13, minutes: 23, seconds: 45 } });
     setTimeout(() => {
-      assert.equal(display._formattedDayTimeString, '13:23:45');
+      assert.equal(display._displayValue, '13:23:45');
 
       done();
     }, 110);

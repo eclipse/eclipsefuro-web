@@ -391,7 +391,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
       if (prop.fields && prop.fields[part] !== undefined) {
         return prop.fields[part];
       }
-      if(field[path]){
+      if (field[path]) {
         return field[path];
       }
       return this._getSpecFieldFromPath(this._specs[field.type], part);
@@ -413,6 +413,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
         :host {
           display: block;
           overflow: auto;
+          font-variant-numeric: lining-nums tabular-nums;
         }
 
         .no-data {

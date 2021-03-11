@@ -14,22 +14,26 @@ import { Theme } from '@furo/framework/src/theme';
  * @demo demo display-furo-link Basic Usage
  */
 class DisplayFuroLink extends LitElement {
-  constructor() {
-    super();
-    this._field = undefined;
-  }
-
   static get styles() {
     // language=CSS
     return (
       Theme.getThemeForComponent('DisplayFuroLink') ||
       css`
         :host {
-          display: block;
+          display: inline;
         }
 
         :host([hidden]) {
           display: none;
+        }
+
+        :host([disabled]) {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
+        }
+
+        :host([data-size*='size-l']),
+        :host([data-size*='size-xl']) {
+          padding-top: 0.5rem;
         }
       `
     );
@@ -46,25 +50,8 @@ class DisplayFuroLink extends LitElement {
       this._field.addEventListener('field-value-changed', () => {
         this.requestUpdate();
       });
+      this.requestUpdate();
     }
-  }
-
-  /**
-   * Template logic
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    return html`
-      ${this._field
-        ? html`
-            <span
-              >[${this._field.rel._value}][this._field.method._value][${this._field.href
-                ._value}]</span
-            >
-          `
-        : html``}
-    `;
   }
 
   /**
@@ -75,7 +62,11 @@ class DisplayFuroLink extends LitElement {
   render() {
     // language=HTML
     return html`
-      ${this._getTemplate()}
+      ${this._field
+        ? html`
+            [${this._field.rel._value}][this._field.method._value][${this._field.href._value}]
+          `
+        : html``}
     `;
   }
 }

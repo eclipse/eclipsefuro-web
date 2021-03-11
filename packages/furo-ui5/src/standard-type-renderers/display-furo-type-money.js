@@ -1,4 +1,3 @@
-import { html } from 'lit-element';
 import { Env } from '@furo/framework/src/furo.js';
 // eslint-disable-next-line import/named
 import { DisplayGoogleTypeMoney } from './display-google-type-money.js';
@@ -21,34 +20,19 @@ import { DisplayGoogleTypeMoney } from './display-google-type-money.js';
  * @demo demo display-furo-type-money Basic Usage
  */
 class DisplayFuroTypeMoney extends DisplayGoogleTypeMoney {
-  /**
-   * Template logic
-   * https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
-   * @returns {*}
-   * @private
-   */
-  _getTemplate() {
-    if (this._field) {
-      if (this._field.display_name._value) {
-        this._displayValue = this._field.display_name._value;
-      } else if (this._field.currency_code._value.length) {
-        // no display_name set - use of Intl.NumberFormat
-        this._displayValue = new Intl.NumberFormat(Env.locale, {
-          style: 'currency',
-          currency: this._field.currency_code._value,
-        }).format(this._valueObject.amount);
-      }
-    }
-    return html`
-      <span>${this._displayValue}</span>
-    `;
-  }
+  _formatDisplay() {
+    this._valueObject.amount = DisplayGoogleTypeMoney._convertTypeToNumber(this._field);
 
-  render() {
-    // language=HTML
-    return html`
-      ${this._getTemplate()}
-    `;
+    if (this._field.display_name._value) {
+      this._displayValue = this._field.display_name._value;
+    } else if (this._valueObject.amount !== Number.NaN && this._field.currency_code._value.length) {
+      this._displayValue = new Intl.NumberFormat(Env.locale, {
+        style: 'currency',
+        currency: this._field.currency_code._value,
+      }).format(this._valueObject.amount);
+    }
+
+    this.requestUpdate();
   }
 }
 

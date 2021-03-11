@@ -17,30 +17,30 @@ import '@ui5/webcomponents/dist/ColorPalette.js';
  * @demo demo display-google-type-color Basic Usage
  */
 class DisplayGoolgeTypeColor extends LitElement {
-  constructor() {
-    super();
-    this._field = undefined;
-  }
-
   static get styles() {
     // language=CSS
     return (
       Theme.getThemeForComponent('DisplayGoolgeTypeColor') ||
       css`
         :host {
-          display: block;
-          word-break: keep-all;
+          display: inline;
         }
 
         :host([tabular-form]) {
+          display: block;
           text-align: right;
         }
 
         :host([hidden]) {
           display: none;
         }
-        :host([disabled]) span {
-          opacity: var(--_ui5_input_disabled_opacity);
+        :host([disabled]) {
+          opacity: var(--_ui5_input_disabled_opacity, 0.4);
+        }
+
+        :host([data-size*='size-l']),
+        :host([data-size*='size-xl']) {
+          padding-top: 0.5rem;
         }
       `
     );
@@ -62,6 +62,8 @@ class DisplayGoolgeTypeColor extends LitElement {
       this._field.addEventListener('field-value-changed', () => {
         this.requestUpdate();
       });
+
+      this.requestUpdate();
     }
   }
 
