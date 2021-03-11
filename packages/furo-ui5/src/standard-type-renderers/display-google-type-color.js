@@ -5,7 +5,6 @@ import '@ui5/webcomponents/dist/ColorPalette.js';
 
 /**
  * `display-google-type-color`
- *  need  @ui5/webcomponents v1.0.0-rc.12
  * The display-google-type-color component displays a FieldNode of type `google.type.Color` in read only mode.
  *
  * Every display-xxx component should implement the following API:
