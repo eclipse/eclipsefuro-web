@@ -29,7 +29,7 @@ import './display-furo-reference.js';
 import './display-google-type-date.js';
 import './display-google-type-money.js';
 import './display-google-type-timeofday.js';
-// import './display-google-type-color.js';  need  @ui5/webcomponents v1.0.0-rc.12
+import './display-google-type-color.js';
 import './display-google-protobuf-boolvalue.js';
 import './display-google-protobuf-doublevalue.js';
 import './display-google-protobuf-floatvalue.js';

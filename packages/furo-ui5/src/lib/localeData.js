@@ -1,37 +1,29 @@
-import {
-  registerCldr,
-  setCldrData,
-} from '@ui5/webcomponents-base/dist/asset-registries/LocaleData.js';
+import { registerLocaleDataLoader } from '@ui5/webcomponents-base/dist/asset-registries/LocaleData.js';
 
-import { setLanguage } from '@ui5/webcomponents-base/dist/config/Language.js';
+// en
+// eslint-disable-next-line no-unused-vars
+registerLocaleDataLoader('en', async runtimeLocaleId => (await fetch(`assets/cldr/en.json`)).json());
 
-// eslint-disable-next-line camelcase
-import de_CH from '../../assets/cldr/de_CH.js';
-// en as fallback
-import en from '../../assets/cldr/en.js';
-import de from '../../assets/cldr/de.js';
-import fr from '../../assets/cldr/fr.js';
-import it from '../../assets/cldr/it.js';
-import es from '../../assets/cldr/es.js';
-// eslint-disable-next-line camelcase
-import zh_CN from '../../assets/cldr/zh_CN.js';
+// de
+// eslint-disable-next-line no-unused-vars
+registerLocaleDataLoader('de', async runtimeLocaleId => (await fetch(`assets/cldr/de.json`)).json());
 
-setLanguage('en');
+// de_CH
+// eslint-disable-next-line no-unused-vars
+registerLocaleDataLoader('de_CH', async runtimeLocaleId => (await fetch(`assets/cldr/de_CH.json`)).json());
 
-const cldrData = {
-  de_CH,
-  en,
-  de,
-  fr,
-  it,
-  es,
-  zh_CN,
-};
+// de_CH
+// eslint-disable-next-line no-unused-vars
+registerLocaleDataLoader('es', async runtimeLocaleId => (await fetch(`assets/cldr/de_CH.json`)).json());
 
-Object.entries(cldrData).forEach(([key, value]) => {
-  if (typeof value === 'object') {
-    setCldrData(key, value);
-  } else {
-    registerCldr(key, value);
-  }
-});
+// de_CH
+// eslint-disable-next-line no-unused-vars
+registerLocaleDataLoader('fr', async runtimeLocaleId => (await fetch(`assets/cldr/de_CH.json`)).json());
+
+// de_CH
+// eslint-disable-next-line no-unused-vars
+registerLocaleDataLoader('it', async runtimeLocaleId => (await fetch(`assets/cldr/de_CH.json`)).json());
+
+// de_CH
+// eslint-disable-next-line no-unused-vars
+registerLocaleDataLoader('zh_CN', async runtimeLocaleId => (await fetch(`assets/cldr/de_CH.json`)).json());
