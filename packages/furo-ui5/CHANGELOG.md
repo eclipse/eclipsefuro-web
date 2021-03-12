@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.21.1...@furo/ui5@0.21.2) (2021-03-12)
+
+
+### Bug Fixes
+
+* alignment label and content ([9cfea04](https://github.com/theNorstroem/FuroBaseComponents/commit/9cfea0439b2c968f1b4e7f8a807fcde2dbb04ed2))
+* content padding size-s, size-m ([e637545](https://github.com/theNorstroem/FuroBaseComponents/commit/e637545d44b3090a4a8d3f4aeb99bea3dc2c084c))
+* display fat int32 empty ([ea520eb](https://github.com/theNorstroem/FuroBaseComponents/commit/ea520ebffe1d81514248ba30b0b67c16e91e8600))
+* if you have a mixed form with display and inputs, the alignment of the label is slightly different. ([203dc36](https://github.com/theNorstroem/FuroBaseComponents/commit/203dc36d9fa7c43e5203ee4561769933375d3205))
+* Problem in col-templ is fixed. add requestUpdate in bindData for display renderers. ([aa9beaa](https://github.com/theNorstroem/FuroBaseComponents/commit/aa9beaabc5f36258a6f5e0e347f578c5f99af390))
+* refactoring of furo-ui5-data-display, attribute handling ([efae61a](https://github.com/theNorstroem/FuroBaseComponents/commit/efae61a69e143cbf8a972aa82a5a4e7f034d25f0))
+* removed invalid field ([c1ddffd](https://github.com/theNorstroem/FuroBaseComponents/commit/c1ddffd17f2a19cbe01f746f9607c9ac42a6722e))
+* show current page on paginator ([4ec81fc](https://github.com/theNorstroem/FuroBaseComponents/commit/4ec81fc3e11db5d826783093e56f01d9b5849754))
+* tabular form of date is right oriented ([1e4746b](https://github.com/theNorstroem/FuroBaseComponents/commit/1e4746b8f8980cce501790b2a2c72c97ef1919eb))
+
+
+
+
+
 ## [0.21.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.21.0...@furo/ui5@0.21.1) (2021-03-05)
 
 

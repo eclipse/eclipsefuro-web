@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.6.1...@furo/data-ui@1.6.2) (2021-03-12)
+
+
+### Bug Fixes
+
+* if you have a mixed form with display and inputs, the alignment of the label is slightly different. ([203dc36](https://github.com/theNorstroem/FuroBaseComponents/commit/203dc36d9fa7c43e5203ee4561769933375d3205))
+* refactoring of furo-ui5-data-display, attribute handling ([efae61a](https://github.com/theNorstroem/FuroBaseComponents/commit/efae61a69e143cbf8a972aa82a5a4e7f034d25f0))
+
+
+
+
+
 ## [1.6.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.6.0...@furo/data-ui@1.6.1) (2021-03-05)
 
 
