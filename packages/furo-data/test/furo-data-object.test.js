@@ -497,7 +497,7 @@ describe('furo-data-object', () => {
       });
   });
 
-  it('should be possible remove  a item in a repeated by the FieldNode itself', done => {
+  it('should be possible remove an item in a repeated by the FieldNode itself', done => {
     element.setAttribute('type', 'project.ProjectEntity');
 
     fetch('/mockdata/projects/1/get.json')
@@ -507,18 +507,18 @@ describe('furo-data-object', () => {
         p.then(ObjectDataRoot => {
           const EntityRoot = ObjectDataRoot.data;
 
-          assert.equal(EntityRoot.members.repeats.length, 1);
+          assert.equal(EntityRoot.members.repeats.length, 2);
           // add
           EntityRoot.members.add();
-          assert.equal(EntityRoot.members.repeats.length, 2);
+          assert.equal(EntityRoot.members.repeats.length, 3);
           EntityRoot.members.repeats[1].deleteNode();
-          assert.equal(EntityRoot.members.repeats.length, 1);
+          assert.equal(EntityRoot.members.repeats.length, 2);
           done();
         });
       });
   });
 
-  it('should be possible to add and remove all a repeated item on repeated fields', done => {
+  it('should be possible to add and remove all repeated items on a repeated fields', done => {
     element.setAttribute('type', 'project.ProjectEntity');
 
     fetch('/mockdata/projects/1/get.json')
@@ -528,17 +528,17 @@ describe('furo-data-object', () => {
         p.then(ObjectDataRoot => {
           const EntityRoot = ObjectDataRoot.data;
 
-          assert.equal(EntityRoot.members.repeats.length, 1);
+          assert.equal(EntityRoot.members.repeats.length, 2);
           // add
           EntityRoot.members.add();
-          assert.equal(EntityRoot.members.repeats.length, 2);
+          assert.equal(EntityRoot.members.repeats.length, 3);
           EntityRoot.members.removeAllChildren();
           assert.equal(EntityRoot.members.repeats.length, 0);
           done();
         });
       });
   });
-  it('should be possible to remove  repeated item by index fields', done => {
+  it('should be possible to remove a repeated item by index fields', done => {
     element.setAttribute('type', 'project.ProjectEntity');
 
     fetch('/mockdata/projects/1/get.json')
@@ -548,12 +548,12 @@ describe('furo-data-object', () => {
         p.then(ObjectDataRoot => {
           const EntityRoot = ObjectDataRoot.data;
 
-          assert.equal(EntityRoot.members.repeats.length, 1);
+          assert.equal(EntityRoot.members.repeats.length, 2);
           // add
           EntityRoot.members.add();
-          assert.equal(EntityRoot.members.repeats.length, 2);
+          assert.equal(EntityRoot.members.repeats.length, 3);
           EntityRoot.members.deleteChild(1);
-          assert.equal(EntityRoot.members.repeats.length, 1);
+          assert.equal(EntityRoot.members.repeats.length, 2);
           done();
         });
       });

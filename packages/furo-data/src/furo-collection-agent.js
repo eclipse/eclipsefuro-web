@@ -261,9 +261,6 @@ class FuroCollectionAgent extends FBP(LitElement) {
     this.pageSize = size;
   }
 
-
-
-
   /**
    * Setze den Service
    * @param service

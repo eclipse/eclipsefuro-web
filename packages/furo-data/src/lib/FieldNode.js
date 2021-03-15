@@ -736,32 +736,20 @@ export class FieldNode extends EventTreeNode {
   }
 
   /**
-   * Returns required fields with all children which are modified or
-   * not readonly
-   * ! readonly || req || modified
+   * Returns required fields with all children
    * @private
    */
   get _requiredValue() {
     if (
-      (this._meta && !this._meta.readonly) ||
-      (this._constraints &&
-        this._constraints.required &&
-        this._constraints.required.is === 'true') ||
-      !this._pristine
+      this._constraints &&
+      this._constraints.required &&
+      this._constraints.required.is === 'true'
     ) {
-      if (this.__childNodes.length > 0) {
-        this.__value = {};
-        // nur reine Daten zurück geben
-        // eslint-disable-next-line guard-for-in,no-restricted-syntax
-        for (const index in this.__childNodes) {
-          const field = this.__childNodes[index];
-          const val = field._requiredValue;
-          if (val !== undefined) {
-            this.__value[field._name] = val;
-          }
-        }
-      }
-      return this.__value;
+      /**
+       * No further checks. The complete FieldNode structure will be
+       * transmitted.
+       */
+      return this._value;
     }
     return undefined;
   }
