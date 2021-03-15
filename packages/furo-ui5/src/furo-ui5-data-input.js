@@ -52,14 +52,20 @@ export class FuroUi5DataInput extends Input.default {
     if (this.icon === undefined) {
       this.icon = [];
     }
-    if (this.valueStateMessage === undefined) {
-      this.valueStateMessage = '';
-    }
+
     if (this.suggestionItems === undefined) {
       this.suggestionItems = [];
     }
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
+  }
+
+  /**
+   * overwrite to fix error
+   * @returns {*|{}}
+   */
+  get valueStateMessage() {
+    return super.valueStateMessage || {};
   }
 
   /**
@@ -360,6 +366,8 @@ export class FuroUi5DataInput extends Input.default {
     } else {
       this._valueStateElement.remove();
     }
+
+    this._requestUpdate();
   }
 
   /**
