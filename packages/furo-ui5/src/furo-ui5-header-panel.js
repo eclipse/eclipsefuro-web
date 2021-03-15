@@ -294,7 +294,6 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
           justify-content: center;
           align-items: center;
           background-color: var(--sapGroup_TitleBackground);
-          margin-top: -24px;
         }
 
         .collapser-button {
