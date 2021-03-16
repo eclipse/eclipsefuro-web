@@ -4607,15 +4607,15 @@
         {
           "name": "_requiredValue",
           "type": "?",
-          "description": "Returns required fields with all children which are modified or\nnot readonly\n! readonly || req || modified",
+          "description": "Returns required fields with all children",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 743,
+              "line": 741,
               "column": 2
             },
             "end": {
-              "line": 766,
+              "line": 754,
               "column": 3
             }
           },
@@ -4902,11 +4902,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 768,
+              "line": 756,
               "column": 2
             },
             "end": {
-              "line": 793,
+              "line": 781,
               "column": 3
             }
           },
@@ -4922,11 +4922,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 800,
+              "line": 788,
               "column": 2
             },
             "end": {
-              "line": 821,
+              "line": 809,
               "column": 3
             }
           },
@@ -4947,11 +4947,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 823,
+              "line": 811,
               "column": 2
             },
             "end": {
-              "line": 828,
+              "line": 816,
               "column": 3
             }
           },
@@ -4968,7 +4968,7 @@
           "column": 7
         },
         "end": {
-          "line": 829,
+          "line": 817,
           "column": 1
         }
       },

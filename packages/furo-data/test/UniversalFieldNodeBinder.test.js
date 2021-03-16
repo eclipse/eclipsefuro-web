@@ -213,19 +213,19 @@ describe('UniversalFieldNodeBinder.test', () => {
 
         dataobj.addEventListener('data-injected', () => {
           // remove labels which are not in the dataset and restore spec values
-          assert.equal(pseudocomponent.binder.virtualNode.attributes.other, 6);
+          assert.equal(pseudocomponent.binder.virtualNode.attributes.other, 'otherattribute');
           assert.equal('maxlength' in pseudocomponent.binder.virtualNode.attributes, false);
-          assert.equal(pseudocomponent.before, true);
+          assert.equal(pseudocomponent.before, false);
           assert.equal(pseudocomponent.after, undefined);
           assert.equal(pseudocomponent.valueState, '');
-          assert.equal(pseudocomponent.maxLength, '');
+          assert.equal(pseudocomponent.maxLength, null);
 
           done();
         });
 
         fetchData('/mockdata/tests/universalfieldnodebinder/fat-universal-unset-label.json');
 
-        done();
+        // done();
       },
       { once: true },
     );
