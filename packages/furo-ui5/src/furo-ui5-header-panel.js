@@ -249,6 +249,7 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
           background: var(--surface, white);
           min-height: 5rem;
           box-sizing: border-box;
+          border-bottom: none;
         }
 
         .header {
@@ -293,7 +294,8 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
           text-align: center;
           justify-content: center;
           align-items: center;
-          background-color: var(--sapGroup_TitleBackground);
+          background: var(--surface, white);
+          border-bottom: 1px solid var(--sapGroup_TitleBorderColor);
         }
 
         .collapser-button {
