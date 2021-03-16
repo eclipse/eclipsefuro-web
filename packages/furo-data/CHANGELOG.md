@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.19.1...@furo/data@1.19.2) (2021-03-16)
+
+
+### Bug Fixes
+
+* If required, the complete FieldNode structure will be transmitted. ([034017d](https://github.com/theNorstroem/FuroBaseComponents/commit/034017de1335c74b18c4a058a3cc3b9bdc532c7b))
+
+
+
+
+
 ## [1.19.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.19.0...@furo/data@1.19.1) (2021-03-12)
 
 **Note:** Version bump only for package @furo/data

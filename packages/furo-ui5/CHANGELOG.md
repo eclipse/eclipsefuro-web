@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.21.2...@furo/ui5@0.21.3) (2021-03-16)
+
+
+### Bug Fixes
+
+* valueStateMessage in data-ui5-input should not be initiated. ([897750c](https://github.com/theNorstroem/FuroBaseComponents/commit/897750c71fff525a2482343efb38dcc549afd619))
+
+
+
+
+
 ## [0.21.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.21.1...@furo/ui5@0.21.2) (2021-03-12)
 
 
