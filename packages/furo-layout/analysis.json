@@ -13,11 +13,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 33,
+              "line": 32,
               "column": 2
             },
             "end": {
-              "line": 40,
+              "line": 39,
               "column": 3
             }
           },
@@ -33,11 +33,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 60,
+              "line": 59,
               "column": 2
             },
             "end": {
-              "line": 64,
+              "line": 63,
               "column": 3
             }
           },
@@ -53,11 +53,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 71,
+              "line": 70,
               "column": 2
             },
             "end": {
-              "line": 75,
+              "line": 74,
               "column": 3
             }
           },
@@ -82,7 +82,7 @@
           "column": 0
         },
         "end": {
-          "line": 93,
+          "line": 92,
           "column": 1
         }
       },
@@ -193,7 +193,7 @@
               "column": 2
             },
             "end": {
-              "line": 117,
+              "line": 115,
               "column": 3
             }
           },
@@ -209,11 +209,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 124,
               "column": 2
             },
             "end": {
-              "line": 138,
+              "line": 136,
               "column": 3
             }
           },
@@ -229,11 +229,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 220,
+              "line": 218,
               "column": 2
             },
             "end": {
-              "line": 226,
+              "line": 224,
               "column": 3
             }
           },
@@ -258,7 +258,7 @@
           "column": 0
         },
         "end": {
-          "line": 227,
+          "line": 225,
           "column": 1
         }
       },
@@ -1176,6 +1176,149 @@
       "tagname": "furo-ripple"
     },
     {
+      "description": "`split-grid` will split your screen contents horizontally (in cols) and put them vertically (left at top) when the available space is to small.\n\n```html\n <!-- a simple layout manager with two columns  -->\n<furo-split-grid padding>\n  <div hspan=\"2\" full-on-size-medium full-on-size-small class=\"left\">\n     <slot name=\"left\"></slot>\n  </div>\n  <!-- this will start at pos 3 and goes to the end of the screen -->\n  <furo-z-grid hstart=\"3\" fill>\n    <slot></slot>\n  </furo-z-grid>\n</furo-split-grid>\n```\n\n## Setting column width\nTo set the width of a column use the `hspan` attribute.\n\n## Fill column to the end of the screen\nTo make a column that uses the available space you have to set a starting point. This can be done with `hstart=\"3\"`\n(begin on cell 3) and the attribute `fill` (fill to the right)\n\n ## full-on-[size]\n To set full width on a specific current size, use `full-on-size-small` , `full-on-size-medium` , `full-on-size-large` ,`full-on-size-xlarge`.\n\n When the available space has the given size, the default hspan are overridden and the full width is used.\n\n ## hstart\n Set the starting point of a filling row with `hstart=\"3\"`.\n\n Available values are `hstart=\"2\"`,...`hstart=\"9\"`\n\n ## hspan\n Set the horizontal space (the width) with the *hspan* attribute.\n\n Available ranges are from 1 to 9.\n\n `hspan=\"1\"`, `hspan=\"2\"`,...`hspan=\"9\"`\n\n## Named lines and columns\n**last-col** refers to the last column.\nThere is no line name available",
+      "summary": "a grid splitter",
+      "path": "src/furo-split-grid.js",
+      "properties": [
+        {
+          "name": "sizeSmall",
+          "type": "number | null | undefined",
+          "description": "Breakpoint size for small",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 64,
+              "column": 6
+            },
+            "end": {
+              "line": 64,
+              "column": 58
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 71,
+              "column": 2
+            },
+            "end": {
+              "line": 95,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_checkSize",
+          "description": "Form breakpoints according to SAP Fiori Design System\nhttps://experience.sap.com/fiori-design-web/form/",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 103,
+              "column": 2
+            },
+            "end": {
+              "line": 115,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "size"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 305,
+              "column": 2
+            },
+            "end": {
+              "line": 312,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-split-grid",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 54,
+          "column": 0
+        },
+        "end": {
+          "line": 313,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroSplitGrid",
+      "attributes": [
+        {
+          "name": "size-small",
+          "description": "Breakpoint size for small",
+          "sourceRange": {
+            "start": {
+              "line": 64,
+              "column": 6
+            },
+            "end": {
+              "line": 64,
+              "column": 58
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-split-grid",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
       "description": "`furo-vertical-scroller`\n\n```html\n<furo-vertical-scroller>\n  <your-content></your-content>\n</furo-vertical-scroller>\n```",
       "summary": "vertical scroll",
       "path": "src/furo-vertical-scroller.js",
@@ -1390,6 +1533,110 @@
       },
       "slots": [],
       "tagname": "furo-vertical-flex",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`z-grid` is a grid which places your elements in a **z** pattern.\n\nIt creates a grid which can be imagined as a grid with cells of the size *8rem x 8rem*.~\n\nThe size on the x-axis can vary a little bit, according to the the available space.\n\nThis component is nestable.\n\n```html\n\n <furo-z-grid>\n   <your-component hspace=\"2\" vspace=\"4\"></your-component>\n   <your-component hspace=\"2\" vspace=\"2\"></your-component>\n </furo-z-grid>\n\n <!-- with automatic padding -->\n <furo-z-grid padding>\n   <your-component hspace=\"2\" vspace=\"4\"></your-component>\n   <your-component hspace=\"2\" vspace=\"2\"></your-component>\n </furo-z-grid>\n```\n ## sizes\n The sizes are calculated from the available space that the grid becomes from its parent.\n\n ### Sizes are calculated as following\n\n ```\n  |  small  |   medium   |    large    |    xlarge   |\n  |         |            |             |             |\n  | 0...599 | 600...1023 | 1024...1439 | 1440...nnnn |\n\n ```\n\n ## hspan\n Set the horizontal space (the width) with the *hspan* attribute.\n\n Available ranges are from 1 to 9 and full.\n\n To tell a element that it has to use the full width use `hspan=\"full\"` or use the alias `full` or `full-width`.\n\n `hspan=\"1\"`, `hspan=\"2\"`,...`hspan=\"9\"`, `hspan=\"full\"`\n\n ## vspan\n Set the vertical space (the height) with the *vspan* attribute.\n\n Available ranges are from 1 to 9.\n\n `vspan=\"1\"`, `vspan=\"2\"`,...`vspan=\"9\"`\n\n ## padding\n Set the attribute *padding* to add paddings according to the size of the furo-z-grid automatically.\n\n :host([size='size-s']) ==> **0.25rem 1rem;**\n\n :host([size='size-m'] ==> **0.25rem 2rem;**\n\n :host([size='size-l'] ==> **1rem 2rem;**\n\n :host([size='size-xl'] ==> **1rem 3rem;**\n\n\n\n ## full-on-[size]\n To set full width on a specific current size, use `full-on-size-small` , `full-on-size-medium` , `full-on-size-large` ,`full-on-size-xlarge`.\n\n When the available space has the given size, the default hspan are overridden and the full width is used.\n\n ## hide-on-[size]\n To hide a element on a specific current size, use `hide-on-size-small` , `hide-on-size-medium` , `hide-on-size-large` ,`hide-on-size-xlarge`.\n\n ## show-on-[size]\n To show a element only on a specific current size, use `show-on-size-small` , `show-on-size-medium` , `show-on-size-large` ,`show-on-size-xlarge`.\n\n ## custom span sizes on different sizes (hspan-on-[size])\n To set a specific width (hspan) on a specific current size, use `hspan-on-size-small=\"1...9\"` , `hspan-on-size-medium=\"1...9\"` , `hspan-on-size-large=\"1...9\"` , `hspan-on-size-xlarge=\"1...9\"` .\n\n ## Ohter attributes\n\n The attributes *full* and *full-width* are aliases for `hspan=\"full\"`.\n\n## Named lines and columns\n**last-col** refers to the last column.\n**last-row** refers to the last line/row.",
+      "summary": "grid with a z pattern",
+      "path": "src/furo-z-grid.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "_FBPReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 101,
+              "column": 2
+            },
+            "end": {
+              "line": 125,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_checkSize",
+          "description": "Form breakpoints according to SAP Fiori Design System\nhttps://experience.sap.com/fiori-design-web/form/",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 133,
+              "column": 2
+            },
+            "end": {
+              "line": 157,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "size"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 417,
+              "column": 2
+            },
+            "end": {
+              "line": 424,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-z-grid",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 94,
+          "column": 0
+        },
+        "end": {
+          "line": 425,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroZGrid",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-z-grid",
       "mixins": [
         "FBP"
       ]

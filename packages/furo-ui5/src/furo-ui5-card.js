@@ -185,8 +185,7 @@ class FuroUi5Card extends FBP(LitElement) {
         }
         /* this is used to make the card height from the consumer of the card (i.e. z-grid) */
         .content{
-          height: var(--furo-ui5-cardContnetHeight, initial);
-          overflow-y: auto;
+          height: var(--furo-ui5-cardContentHeight, initial);
         }
       `
     );
