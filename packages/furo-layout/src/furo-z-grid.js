@@ -52,6 +52,9 @@ import { FBP } from '@furo/fbp';
  *
  *  `vspan="1"`, `vspan="2"`,...,`vspan="9"`
  *
+ *  ## newline
+ *  To force a placement on a new line use `newline`
+ *
  *  ## padding
  *  Set the attribute *padding* to add paddings according to the size of the furo-z-grid automatically.
  *
@@ -89,7 +92,7 @@ import { FBP } from '@furo/fbp';
  *
  * @summary grid with a z pattern
  * @customElement
- * @demo demo-z-grid
+ * @demo demo-furo-z-grid
  * @appliesMixin FBP
  */
 class FuroZGrid extends FBP(LitElement) {

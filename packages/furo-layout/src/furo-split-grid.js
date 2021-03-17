@@ -49,7 +49,7 @@ import { FBP } from '@furo/fbp';
  *
  * @summary a grid splitter
  * @customElement
- * @demo demo-split-grid
+ * @demo demo-furo-split-grid
  * @appliesMixin FBP
  */
 class FuroSplitGrid extends FBP(LitElement) {
