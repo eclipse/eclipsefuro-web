@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.21.3...@furo/ui5@0.22.0) (2021-03-17)
+
+
+### Features
+
+* make card height controllable by the grid ([daf0354](https://github.com/theNorstroem/FuroBaseComponents/commit/daf0354cc2633326a23f4e95d76ac494bd2e7ff7))
+* make card height controllable by the grid ([0efa2ec](https://github.com/theNorstroem/FuroBaseComponents/commit/0efa2ecac73aea120823c59a46625b8de1981a9d))
+
+
+
+
+
 ## [0.21.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.21.2...@furo/ui5@0.21.3) (2021-03-16)
 
 

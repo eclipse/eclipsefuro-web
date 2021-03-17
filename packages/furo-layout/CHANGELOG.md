@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.4.3...@furo/layout@1.5.0) (2021-03-17)
+
+
+### Features
+
+* make card height controllable by the grid ([530653f](https://github.com/theNorstroem/FuroBaseComponents/commit/530653f2b61d8ea678ecc2f35372734da443e4f6))
+* make card height controllable by the grid ([d57011f](https://github.com/theNorstroem/FuroBaseComponents/commit/d57011f77e3392287271c445e43c37bf1388f277))
+* make card height controllable by the grid ([daf0354](https://github.com/theNorstroem/FuroBaseComponents/commit/daf0354cc2633326a23f4e95d76ac494bd2e7ff7))
+
+
+
+
+
 ## [1.4.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@1.4.2...@furo/layout@1.4.3) (2021-02-25)
 
 **Note:** Version bump only for package @furo/layout

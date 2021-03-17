@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.54](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.53...@furo/timing@1.3.54) (2021-03-17)
+
+**Note:** Version bump only for package @furo/timing
+
+
+
+
+
 ## [1.3.53](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.52...@furo/timing@1.3.53) (2021-03-16)
 
 **Note:** Version bump only for package @furo/timing
