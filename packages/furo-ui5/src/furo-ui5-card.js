@@ -165,19 +165,19 @@ class FuroUi5Card extends FBP(LitElement) {
         }
 
         :host([design='Positive']) ui5-icon {
-          background-color: var(--sapPositiveColor);
+          color: var(--sapPositiveColor);
         }
 
         :host([design='Negative']) ui5-icon {
-          background-color: var(--sapNegativeColor);
+          color: var(--sapNegativeColor);
         }
 
         :host([design='Critical']) ui5-icon {
-          background-color: var(--sapCriticalColor);
+          color: var(--sapCriticalColor);
         }
 
         :host([design='Neutral']) ui5-icon {
-          background-color: var(--sapNeutralColor);
+          color: var(--sapNeutralColor);
         }
 
         ::slotted([slot='content']) {
