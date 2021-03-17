@@ -183,6 +183,11 @@ class FuroUi5Card extends FBP(LitElement) {
         ::slotted([slot='content']) {
           padding: var(--_ui5_card_content_padding);
         }
+        /* this is used to make the card height from the consumer of the card (i.e. z-grid) */
+        .content{
+          height: var(--furo-ui5-cardContnetHeight, initial);
+          overflow-y: auto;
+        }
       `
     );
   }
@@ -234,19 +239,20 @@ class FuroUi5Card extends FBP(LitElement) {
         @-header-click="^^header-clicked"
       >
         ${this.icon.length
-          ? html`
+      ? html`
               <ui5-icon name="${this.icon}" slot="avatar"></ui5-icon>
             `
-          : html``}
+      : html``}
         ${this.status !== ''
-          ? html``
-          : html`
+      ? html``
+      : html`
               <div slot="action">
                 <slot name="action"></slot>
               </div>
             `}
-
+        <div class="content">
         <slot name="content"></slot>
+        </div>
       </ui5-card>
     `;
   }
