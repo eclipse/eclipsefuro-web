@@ -4,4 +4,5 @@ import './demo-furo-vertical-scroller.js';
 import './demo-furo-split-view.js';
 import './demo-furo-panel.js';
 import './demo-furo-resizer.js';
-import './demo-furo-backdrop.js';
+import './demo-furo-z-grid.js';
+import './demo-furo-split-grid.js';
