@@ -52,6 +52,9 @@ export class FuroUi5DataInput extends Input.default {
       // save the value of attribute 'value-state'
       this.orginalValueState = this.valueState;
     }
+
+    this.orginalMaxlength = this.maxlength;
+
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
   }
@@ -146,7 +149,7 @@ export class FuroUi5DataInput extends Input.default {
       pattern: 'pattern',
       name: 'name',
       suggestions: 'suggestions', // suggestion items
-      maxlength: 'maxlength', // for the input element itself
+      maxlength: '_maxlength', // for the input element itself
     };
 
     // set the label mappings
@@ -227,6 +230,12 @@ export class FuroUi5DataInput extends Input.default {
       this.binder.fieldNode.addEventListener('field-value-changed', () => {
         this._requestUpdate();
       });
+    }
+  }
+
+  set _maxlength(maxlength) {
+    if (!this.orginalMaxlength) {
+      this.maxlength = maxlength;
     }
   }
 
