@@ -13,7 +13,7 @@ import './furo-ui5-data-text-input.js';
  *
  * @summary labeled input field
  * @customElement
- * @demo demo-furo-ui5-form-field-container Simple use
+ * @demo demo-furo-ui5-data-text-input-labeled Basic Usage
  * @appliesMixin FBP
  */
 class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
@@ -26,6 +26,8 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.label = '';
+    this.placeholder = '';
+    this.valueState= 'None';
   }
 
   /**
@@ -57,11 +59,37 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
         type: Boolean,
       },
       /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       * A Boolean attribute which, if present, means this field cannot be edited by the user and
+       * appears in disabled state.
        */
       disabled: {
         type: Boolean,
       },
+      /**
+       * A Boolean attribute which, if present, means this field is readonly.
+       */
+      readonly: {
+        type: Boolean,
+      },
+      /**
+       * Defines a short hint intended to aid the user with data entry when the furo-ui5-data-input-labeled has no value.
+       */
+      placeholder: {
+        type: String
+      },
+      /**
+       * Defines the value state of the furo-ui5-data-input-labeled
+       *
+       * Available options are:
+       * None
+       * Error
+       * Warning
+       * Success
+       * Information
+       */
+      valueState: {
+        type: String, reflect: true, attribute: 'value-state'
+      }
     };
   }
 
@@ -102,10 +130,17 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
         <furo-ui5-data-text-input
           content
           id="Input"
+          placeholder="${this.placeholder}"
+          value-state="${this.valueState}"
           ?disabled=${this.disabled}
+          ?readonly=${this.readonly}
           ƒ-bind-data="--data"
           ƒ-focus="--focus"
-        ></furo-ui5-data-text-input>
+        >
+          <slot></slot>
+          <div slot="icon"><slot name="icon"></slot></div>
+          <div slot="valueStateMessage"><slot name="valueStateMessage"></slot></div>
+        </furo-ui5-data-text-input>
       </furo-ui5-form-field-container>
     `;
   }
