@@ -86,7 +86,7 @@ class DemoFuroDataChartMini extends FBP(LitElement) {
                       <furo-data-chart-binder
                         chart-type="area"
                         ƒ-bind-data="--projectDAO(*.entities)"
-                        data-field="data.cost_limit.units"
+                        data-field="data.start.month"
                         legend-label="Cost"
                         category-field="data.description"
                       ></furo-data-chart-binder>
