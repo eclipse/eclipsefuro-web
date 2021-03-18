@@ -54,6 +54,9 @@ export class FuroUi5DataInput extends Input.default {
     }
 
     this.orginalMaxlength = this.maxlength;
+    this.orginalReadonly = this.readonly;
+    this.orginalRequired = this.required;
+    this.orginalPlaceholder = this.placeholder;
 
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
@@ -136,7 +139,7 @@ export class FuroUi5DataInput extends Input.default {
     // set the attribute mappings
     this.binder.attributeMappings = {
       label: 'label', // map label to placeholder
-      placeholder: 'placeholder', // map placeholder to placeholder
+      placeholder: '_placeholder', // map placeholder to placeholder
       hint: '_hint',
       icon: 'ui5Icon', // icon and leading icon maps to the same
       'leading-icon': 'ui5Icon', // icon and leading icon maps to the same
@@ -155,8 +158,8 @@ export class FuroUi5DataInput extends Input.default {
     // set the label mappings
     this.binder.labelMappings = {
       error: '_error',
-      readonly: 'readonly',
-      required: 'required',
+      readonly: '_readonly',
+      required: '_required',
       disabled: 'disabled',
       modified: 'modified',
       highlight: 'highlight',
@@ -230,6 +233,24 @@ export class FuroUi5DataInput extends Input.default {
       this.binder.fieldNode.addEventListener('field-value-changed', () => {
         this._requestUpdate();
       });
+    }
+  }
+
+  set _readonly(readonly) {
+    if (!this.orginalReadonly) {
+      this.readonly = readonly;
+    }
+  }
+
+  set _placeholder(placeholder) {
+    if (!this.orginalPlaceholder) {
+      this.placeholder = placeholder;
+    }
+  }
+
+  set _required(required) {
+    if (!this.orginalRequired) {
+      this.required = required;
     }
   }
 
