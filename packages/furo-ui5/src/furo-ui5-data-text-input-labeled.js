@@ -130,8 +130,8 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
         <furo-ui5-data-text-input
           content
           id="Input"
-          placeholder="${this.placeholder}"
-          value-state="${this.valueState}"
+          .placeholder="${this.placeholder}"
+          .value-state="${this.valueState}"
           ?disabled=${this.disabled}
           ?readonly=${this.readonly}
           ƒ-bind-data="--data"

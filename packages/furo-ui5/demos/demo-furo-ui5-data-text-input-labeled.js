@@ -97,8 +97,7 @@ class DemoFuroUi5DataTextInputLabeled extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <ui5-demo-playground heading="Text Input Playground" @-test-data-requested="--demoDataRequested">
-            <furo-ui5-data-text-input-labeled hspan="full"
-                                              placeholder="Fill in a description"
+            <furo-ui5-data-text-input-labeled placeholder="Fill in a description"
                                               value-state="Critical"
                                               title="The title attribute specifies extra information about an element."
                                               ƒ-bind-data="--entity(*.data.description)">
