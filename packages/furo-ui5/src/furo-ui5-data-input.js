@@ -48,13 +48,9 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   connectedCallback() {
-    // initiate icon slot when it is undefined to avoid error in InputTemplate.lit.js
-    if (this.icon === undefined) {
-      this.icon = [];
-    }
-
-    if (this.suggestionItems === undefined) {
-      this.suggestionItems = [];
+    if (this.valueState && this.valueState !== 'None') {
+      // save the value of attribute 'value-state'
+      this.orginalValueState = this.valueState;
     }
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
@@ -66,6 +62,22 @@ export class FuroUi5DataInput extends Input.default {
    */
   get valueStateMessage() {
     return super.valueStateMessage || {};
+  }
+
+  /**
+   * overwrite to fix error
+   * @returns {*|[]}
+   */
+  get suggestionItems() {
+    return super.suggestionItems || [];
+  }
+
+  /**
+   * overwrite to fix error
+   * @returns {*|[]}
+   */
+  get icon() {
+    return super.icon || [];
   }
 
   /**
@@ -247,11 +259,13 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _error(err) {
-    if (err) {
-      this._lastValueState = this.valueState;
-      this.valueState = 'Error';
-    } else if (this.valueState === 'Error') {
-      this.valueState = this._lastValueState;
+    if (!this.orginalValueState) {
+      if (err) {
+        this._lastValueState = this.valueState;
+        this.valueState = 'Error';
+      } else if (this.valueState === 'Error') {
+        this.valueState = this._lastValueState;
+      }
     }
   }
 
@@ -261,8 +275,7 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _errorMsg(msg) {
-    this.__errorMsg = msg;
-    this._updateVS();
+    this.setValueStateMessage(msg);
   }
 
   /**
@@ -271,8 +284,14 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _informationMsg(msg) {
-    this.__informationMsg = msg;
-    this._updateVS();
+    this.setValueStateMessage(msg);
+  }
+
+  setValueStateMessage(msg) {
+    if (msg !== undefined && msg !== null) {
+      this.__valueStateMessage = msg;
+      this._updateVS();
+    }
   }
 
   /**
@@ -281,8 +300,7 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _warningMsg(msg) {
-    this.__warningMsg = msg;
-    this._updateVS();
+    this.setValueStateMessage(msg);
   }
 
   /**
@@ -291,8 +309,7 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _successMsg(msg) {
-    this.__successMsg = msg;
-    this._updateVS();
+    this.setValueStateMessage(msg);
   }
 
   /**
@@ -301,8 +318,10 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _valueState(state) {
-    this.valueState = state || 'None';
-    this._updateVS();
+    if (!this.orginalValueState) {
+      this.valueState = state || 'None';
+      this._updateVS();
+    }
   }
 
   /**
@@ -320,32 +339,12 @@ export class FuroUi5DataInput extends Input.default {
     }
 
     this.__hint = h;
+    this._updateVS();
   }
 
   _updateVS() {
     // set the correct valueStateMessage
-    switch (this.valueState) {
-      case 'Error':
-        this._vsm = this._valueStateMessage || this.__errorMsg || this.__hint;
-        this.removeAttribute('title');
-        break;
-      case 'Information':
-        this._vsm = this._valueStateMessage || this.__informationMsg || this.__hint;
-        this.removeAttribute('title');
-        break;
-      case 'Success':
-        this._vsm = this._valueStateMessage || this.__successMsg || this.__hint;
-        this.removeAttribute('title');
-        break;
-      case 'Warning':
-        this._vsm = this._valueStateMessage || this.__warningMsg || this.__hint;
-        this.removeAttribute('title');
-        break;
-
-      default:
-        this._vsm = this._valueStateMessage || this.__hint;
-        this.setAttribute('title', this._vsm);
-    }
+    this._vsm = this._valueStateMessage || this.__valueStateMessage || this.__hint;
     this._setValueStateMessage(this._vsm);
   }
 
