@@ -23,10 +23,10 @@ import '@furo/data-input/demos/helper/produce-qp-data.js'
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/fetch-universal-json.js'
 
-import '@ui5/webcomponents-icons/dist/filter.js';
-import '@ui5/webcomponents-icons/dist/edit.js';
-import '@ui5/webcomponents-icons/dist/home.js';
-import '@ui5/webcomponents-icons/dist/accept.js';
+import '@ui5/webcomponents-icons/dist/filter.js'
+import '@ui5/webcomponents-icons/dist/edit.js'
+import '@ui5/webcomponents-icons/dist/home.js'
+import '@ui5/webcomponents-icons/dist/accept.js'
 
 import './helper/ui5-demo-playground.js'
 
@@ -53,7 +53,6 @@ class DemoFuroUi5DataTextInputLabeled extends FBP(LitElement) {
           display: block;
           height: 100%;
           padding-right: var(--spacing);
-          --furo-form-layouter-row-gap: var(--spacing-xs);
         }
 
         :host([hidden]) {
@@ -97,13 +96,21 @@ class DemoFuroUi5DataTextInputLabeled extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <ui5-demo-playground heading="Text Input Playground" @-test-data-requested="--demoDataRequested">
-            <furo-ui5-data-text-input-labeled placeholder="Fill in a description"
-                                              value-state="Critical"
-                                              title="The title attribute specifies extra information about an element."
-                                              ƒ-bind-data="--entity(*.data.description)">
-              <ui5-icon slot="icon" name="filter"></ui5-icon>
-              <div slot="valueStateMessage">This is an error message. Extra long text used as an error message.</div>
-            </furo-ui5-data-text-input-labeled>
+              <furo-ui5-data-text-input-labeled placeholder="Fill in a description"
+                                                value-state="Critical"
+                                                title="The title attribute specifies extra information about an element."
+                                                ƒ-bind-data="--entity(*.data.description)">
+                <ui5-icon slot="icon" name="filter"></ui5-icon>
+                <div slot="valueStateMessage">This is an error message. Extra long text used as an error message.</div>
+              </furo-ui5-data-text-input-labeled>
+
+              <furo-ui5-data-text-input-labeled placeholder="Fill in a text"
+                                                value-state="None"
+                                                title="The title attribute specifies extra information about an element."
+                                                ƒ-bind-data="--entity(*.data.furo_data_text_input)">
+                <ui5-icon slot="icon" name=""></ui5-icon>
+              </furo-ui5-data-text-input-labeled>
+
           </ui5-demo-playground>
 
           <produce-qp-data hidden ƒ-produce="--demoDataRequested" @-data="--qp"

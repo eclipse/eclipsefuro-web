@@ -52,22 +52,6 @@ class Ui5DemoPlayground extends FBP(LitElement) {
         this._FBPTriggerWire('--flagRemoved', 'disabled')
       }
     })
-
-    /**
-     * icon handling
-     */
-    this._FBPAddWireHook('--iconChanged', (e)=>{
-      this._FBPTriggerWire('--iconSet', e.target.value)
-    })
-
-    /**
-     * placeholder handling
-     */
-    this._FBPAddWireHook('--placeholderChanged', (e)=>{
-      this._FBPTriggerWire('--placeholderSet', e.target.value)
-    })
-
-
   }
 
   static get properties(){
@@ -109,8 +93,6 @@ class Ui5DemoPlayground extends FBP(LitElement) {
             <furo-form-layouter one slot="content">
               <ui5-togglebutton @-click="--readonlyClicked(*)">readonly</ui5-togglebutton>
               <ui5-togglebutton @-click="--disableClicked(*)">disabled</ui5-togglebutton>
-              <ui5-input @-change="--iconChanged(*)" placeholder="Available icons: edit, filter, home, accept" value=""></ui5-input>
-              <ui5-input @-change="--placeholderChanged(*)" placeholder="Fill in a placeholder" value=""></ui5-input>
 
             </furo-form-layouter>
 
@@ -123,9 +105,7 @@ class Ui5DemoPlayground extends FBP(LitElement) {
         <furo-z-grid hstart="5" fill>
           <element-attribute-setter hspan="full"
                                     ƒ-set-flag="--flagSet"
-                                    ƒ-remove-flag="--flagRemoved"
-                                    ƒ-set-icon="--iconSet"
-                                    ƒ-set-placeholder="--placeholderSet"><slot></slot></element-attribute-setter>
+                                    ƒ-remove-flag="--flagRemoved"><slot></slot></element-attribute-setter>
         </furo-z-grid>
       </furo-split-grid>
     `;

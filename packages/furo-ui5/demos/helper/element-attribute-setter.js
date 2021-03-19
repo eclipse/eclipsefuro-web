@@ -55,23 +55,6 @@ class ElementAttributeSetter extends FBP(LitElement) {
     })
   }
 
-  setIcon(icon){
-    const slottedNodes = this.assignedSlot.assignedNodes()[1].childNodes[0].assignedNodes();
-    slottedNodes.forEach((node)=>{
-      if (node.nodeName.toLocaleLowerCase().startsWith('furo-ui5')){
-        node.querySelector('ui5-icon').setAttribute('name', icon);
-      }
-    })
-  }
-
-  setPlaceholder(placeholder) {
-    const slottedNodes = this.assignedSlot.assignedNodes()[1].childNodes[0].assignedNodes();
-    slottedNodes.forEach((node)=>{
-      if (node.nodeName.toLocaleLowerCase().startsWith('furo-ui5')){
-        node.setAttribute('placeholder', placeholder);
-      }
-    })
-  }
 
   /**
    * @private
