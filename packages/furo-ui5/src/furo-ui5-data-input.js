@@ -50,13 +50,13 @@ export class FuroUi5DataInput extends Input.default {
   connectedCallback() {
     if (this.valueState && this.valueState !== 'None') {
       // save the value of attribute 'value-state'
-      this.orginalValueState = this.valueState;
+      this.attributeValueState = this.valueState;
     }
 
-    this.orginalMaxlength = this.maxlength;
-    this.orginalReadonly = this.readonly;
-    this.orginalRequired = this.required;
-    this.orginalPlaceholder = this.placeholder;
+    this.attributeMaxlength = this.maxlength;
+    this.attributeReadonly = this.readonly;
+    this.attributeRequired = this.required;
+    this.attributePlaceholder = this.placeholder;
 
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
@@ -139,7 +139,7 @@ export class FuroUi5DataInput extends Input.default {
     // set the attribute mappings
     this.binder.attributeMappings = {
       label: 'label', // map label to placeholder
-      placeholder: '_placeholder', // map placeholder to placeholder
+      placeholder: 'placeholder_', // map placeholder to placeholder
       hint: '_hint',
       icon: 'ui5Icon', // icon and leading icon maps to the same
       'leading-icon': 'ui5Icon', // icon and leading icon maps to the same
@@ -158,8 +158,8 @@ export class FuroUi5DataInput extends Input.default {
     // set the label mappings
     this.binder.labelMappings = {
       error: '_error',
-      readonly: '_readonly',
-      required: '_required',
+      readonly: 'readonly_',
+      required: 'required_',
       disabled: 'disabled',
       modified: 'modified',
       highlight: 'highlight',
@@ -236,26 +236,26 @@ export class FuroUi5DataInput extends Input.default {
     }
   }
 
-  set _readonly(readonly) {
-    if (!this.orginalReadonly) {
+  set readonly_(readonly) {
+    if (!this.attributeReadonly) {
       this.readonly = readonly;
     }
   }
 
-  set _placeholder(placeholder) {
-    if (!this.orginalPlaceholder) {
+  set placeholder_(placeholder) {
+    if (!this.attributePlaceholder) {
       this.placeholder = placeholder;
     }
   }
 
-  set _required(required) {
-    if (!this.orginalRequired) {
+  set required_(required) {
+    if (!this.attributeRequired) {
       this.required = required;
     }
   }
 
   set _maxlength(maxlength) {
-    if (!this.orginalMaxlength) {
+    if (!this.attributeMaxlength) {
       this.maxlength = maxlength;
     }
   }
@@ -289,7 +289,7 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _error(err) {
-    if (!this.orginalValueState) {
+    if (!this.attributeValueState) {
       if (err) {
         this._lastValueState = this.valueState;
         this.valueState = 'Error';
@@ -348,7 +348,7 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _valueState(state) {
-    if (!this.orginalValueState) {
+    if (!this.attributeValueState) {
       this.valueState = state || 'None';
       this._updateVS();
     }
