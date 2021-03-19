@@ -359,17 +359,13 @@ export class FuroUi5DataInput extends Input.default {
    * @param h
    * @private
    */
-  set _hint(h) {
-    this.__hint = h;
-    // do not set an empty attribute
-    if (h) {
-      this.setAttribute('title', h);
-    } else {
-      this.removeAttribute('title');
+  set _hint(msg) {
+    if (!this.attributeHint) {
+      if(!this.attributeValueState) {
+        this.valueState='Information';
+      }
+      this.setValueStateMessage(msg);
     }
-
-    this.__hint = h;
-    this._updateVS();
   }
 
   _updateVS() {
