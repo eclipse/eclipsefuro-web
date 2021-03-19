@@ -378,9 +378,15 @@ export class FuroUi5DataInput extends Input.default {
         const suggestion = document.createElement('ui5-suggestion-item');
 
         // suggestions from furo.optionItem
-        if (e.display_name !== undefined) {
-          suggestion.text = e.display_name;
+        if (e.id !== undefined) {
+          suggestion.text = e.id;
         }
+
+        // suggestions from furo.optionItem
+        if (e.display_name !== undefined && e.display_name !== e.id) {
+          suggestion.description = e.display_name;
+        }
+
         // suggestions from fat attribute
         if (e.text !== undefined) {
           suggestion.text = e.text;
