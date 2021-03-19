@@ -10,7 +10,6 @@ import { FBP } from '@furo/fbp/src/fbp.js';
  * @appliesMixin FBP
  */
 class ElementAttributeSetter extends FBP(LitElement) {
-
   /**
    * flow is ready lifecycle method
    */
@@ -19,54 +18,52 @@ class ElementAttributeSetter extends FBP(LitElement) {
     // this._FBPTraceWires();
   }
 
-  static get properties(){
+  static get properties() {
     return {};
   }
 
   static get styles() {
     // language=CSS
     return [
-        css`
-            :host {
-                display: block;
-            }
-            :host([hidden]){
-                display: none;
-            }
-        `
+      css`
+        :host {
+          display: block;
+        }
+        :host([hidden]) {
+          display: none;
+        }
+      `,
     ];
   }
 
   setFlag(flag) {
     const slottedNodes = this.assignedSlot.assignedNodes()[1].childNodes[0].assignedNodes();
-    slottedNodes.forEach((node)=>{
-      if (node.nodeName.toLocaleLowerCase().startsWith('furo-ui5')){
+    slottedNodes.forEach(node => {
+      if (node.nodeName.toLocaleLowerCase().startsWith('furo-ui5')) {
         node.setAttribute(flag, null);
       }
-    })
+    });
   }
 
   removeFlag(flag) {
     const slottedNodes = this.assignedSlot.assignedNodes()[1].childNodes[0].assignedNodes();
-    slottedNodes.forEach((node)=>{
-      if (node.nodeName.toLocaleLowerCase().startsWith('furo-ui5')){
+    slottedNodes.forEach(node => {
+      if (node.nodeName.toLocaleLowerCase().startsWith('furo-ui5')) {
         node.removeAttribute(flag);
       }
-    })
+    });
   }
-
 
   /**
    * @private
    * @returns {TemplateResult|TemplateResult}
    */
-  render(){
+  render() {
     // language=HTML
     return html`
       <slot></slot>
     `;
   }
-
 }
 
 window.customElements.define('element-attribute-setter', ElementAttributeSetter);

@@ -68,7 +68,7 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
        */
       readonly: {
         type: Boolean,
-      }
+      },
     };
   }
 
