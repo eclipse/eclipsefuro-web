@@ -43,26 +43,6 @@ export class FuroUi5DataInput extends Input.default {
   }
 
   /**
-   * connectedCallback() method is called when an element is added to the DOM.
-   * webcomponent lifecycle event
-   * @private
-   */
-  connectedCallback() {
-    if (this.valueState && this.valueState !== 'None') {
-      // save the value of attribute 'value-state'
-      this.attributeValueState = this.valueState;
-    }
-
-    this.attributeMaxlength = this.maxlength;
-    this.attributeReadonly = this.readonly;
-    this.attributeRequired = this.required;
-    this.attributePlaceholder = this.placeholder;
-
-    // eslint-disable-next-line wc/guard-super-call
-    super.connectedCallback();
-  }
-
-  /**
    * overwrite to fix error
    * @returns {*|{}}
    */
@@ -139,7 +119,7 @@ export class FuroUi5DataInput extends Input.default {
     // set the attribute mappings
     this.binder.attributeMappings = {
       label: 'label', // map label to placeholder
-      placeholder: 'placeholder_', // map placeholder to placeholder
+      placeholder: 'placeholder', // map placeholder to placeholder
       hint: '_hint',
       icon: 'ui5Icon', // icon and leading icon maps to the same
       'leading-icon': 'ui5Icon', // icon and leading icon maps to the same
@@ -152,14 +132,14 @@ export class FuroUi5DataInput extends Input.default {
       pattern: 'pattern',
       name: 'name',
       suggestions: 'suggestions', // suggestion items
-      maxlength: '_maxlength', // for the input element itself
+      maxlength: 'maxlength', // for the input element itself
     };
 
     // set the label mappings
     this.binder.labelMappings = {
       error: '_error',
-      readonly: 'readonly_',
-      required: 'required_',
+      readonly: 'readonly',
+      required: 'required',
       disabled: 'disabled',
       modified: 'modified',
       highlight: 'highlight',
@@ -236,30 +216,6 @@ export class FuroUi5DataInput extends Input.default {
     }
   }
 
-  set readonly_(readonly) {
-    if (!this.attributeReadonly) {
-      this.readonly = readonly;
-    }
-  }
-
-  set placeholder_(placeholder) {
-    if (!this.attributePlaceholder) {
-      this.placeholder = placeholder;
-    }
-  }
-
-  set required_(required) {
-    if (!this.attributeRequired) {
-      this.required = required;
-    }
-  }
-
-  set _maxlength(maxlength) {
-    if (!this.attributeMaxlength) {
-      this.maxlength = maxlength;
-    }
-  }
-
   /**
    * Set the ui5 icon
    * @param icon
@@ -289,13 +245,11 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _error(err) {
-    if (!this.attributeValueState) {
-      if (err) {
-        this._lastValueState = this.valueState;
-        this.valueState = 'Error';
-      } else if (this.valueState === 'Error') {
-        this.valueState = this._lastValueState;
-      }
+    if (err) {
+      this._lastValueState = this.valueState;
+      this.valueState = 'Error';
+    } else if (this.valueState === 'Error') {
+      this.valueState = this._lastValueState;
     }
   }
 
@@ -305,7 +259,8 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _errorMsg(msg) {
-    this.setValueStateMessage(msg);
+    this.__errorMsg = msg;
+    this._updateVS();
   }
 
   /**
@@ -314,14 +269,8 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _informationMsg(msg) {
-    this.setValueStateMessage(msg);
-  }
-
-  setValueStateMessage(msg) {
-    if (msg !== undefined && msg !== null) {
-      this.__valueStateMessage = msg;
-      this._updateVS();
-    }
+    this.__informationMsg = msg;
+    this._updateVS();
   }
 
   /**
@@ -330,7 +279,8 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _warningMsg(msg) {
-    this.setValueStateMessage(msg);
+    this.__warningMsg = msg;
+    this._updateVS();
   }
 
   /**
@@ -339,7 +289,8 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _successMsg(msg) {
-    this.setValueStateMessage(msg);
+    this.__successMsg = msg;
+    this._updateVS();
   }
 
   /**
@@ -348,10 +299,8 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _valueState(state) {
-    if (!this.attributeValueState) {
-      this.valueState = state || 'None';
-      this._updateVS();
-    }
+    this.valueState = state || 'None';
+    this._updateVS();
   }
 
   /**
@@ -359,18 +308,31 @@ export class FuroUi5DataInput extends Input.default {
    * @param h
    * @private
    */
-  set _hint(msg) {
-    if (!this.attributeHint) {
-      if(!this.attributeValueState) {
-        this.valueState='Information';
-      }
-      this.setValueStateMessage(msg);
-    }
+  set _hint(h) {
+    this.__hint = h;
+    this.valueState = 'Information';
+    this._updateVS();
   }
 
   _updateVS() {
     // set the correct valueStateMessage
-    this._vsm = this._valueStateMessage || this.__valueStateMessage || this.__hint;
+    switch (this.valueState) {
+      case 'Error':
+        this._vsm = this._valueStateMessage || this.__errorMsg || this.__hint;
+        break;
+      case 'Information':
+        this._vsm = this._valueStateMessage || this.__informationMsg || this.__hint;
+        break;
+      case 'Success':
+        this._vsm = this._valueStateMessage || this.__successMsg || this.__hint;
+        break;
+      case 'Warning':
+        this._vsm = this._valueStateMessage || this.__warningMsg || this.__hint;
+        break;
+
+      default:
+        this._vsm = this._valueStateMessage || this.__hint;
+    }
     this._setValueStateMessage(this._vsm);
   }
 
