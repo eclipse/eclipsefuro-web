@@ -1,34 +1,34 @@
-import { LitElement, html, css } from 'lit-element'
-import { Theme } from '@furo/framework/src/theme'
-import { FBP } from '@furo/fbp/src/fbp.js'
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp/src/fbp.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/doc-helper'
+import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/ui5/src/furo-catalog.js'
+import '@furo/ui5/src/furo-catalog.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-data-object.js'
+import '@furo/data/src/furo-data-object.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-entity-agent.js'
+import '@furo/data/src/furo-entity-agent.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data/src/furo-deep-link.js'
+import '@furo/data/src/furo-deep-link.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-form-layouter.js'
+import '@furo/form/src/furo-form-layouter.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/form/src/furo-button-bar.js'
+import '@furo/form/src/furo-button-bar.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/input/src/furo-button.js'
+import '@furo/input/src/furo-button.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-input/demos/helper/produce-qp-data.js'
+import '@furo/data-input/demos/helper/produce-qp-data.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/data-input/demos/helper/fetch-universal-json.js'
+import '@furo/data-input/demos/helper/fetch-universal-json.js';
 
 import '@ui5/webcomponents-icons/dist/filter.js';
 import '@ui5/webcomponents-icons/dist/edit.js';
 import '@ui5/webcomponents-icons/dist/home.js';
 import '@ui5/webcomponents-icons/dist/accept.js';
 
-import './helper/ui5-demo-playground.js'
+import './helper/ui5-demo-playground.js';
 
 /**
  * `demo-furo-ui5-data-text-input-labeled`
@@ -38,7 +38,6 @@ import './helper/ui5-demo-playground.js'
  * @appliesMixin FBP
  */
 class DemoFuroUi5DataTextInputLabeled extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -80,9 +79,8 @@ class DemoFuroUi5DataTextInputLabeled extends FBP(LitElement) {
           grid-column: span 8;
         }
       `
-    )
+    );
   }
-
 
   /**
    * @private
@@ -96,18 +94,29 @@ class DemoFuroUi5DataTextInputLabeled extends FBP(LitElement) {
       </h2>
       <furo-demo-snippet>
         <template>
-          <ui5-demo-playground heading="Text Input Playground" @-test-data-requested="--demoDataRequested">
-            <furo-ui5-data-text-input-labeled placeholder="Fill in a description"
-                                              value-state="Critical"
-                                              title="The title attribute specifies extra information about an element."
-                                              ƒ-bind-data="--entity(*.data.description)">
+          <ui5-demo-playground
+            heading="Text Input Playground"
+            @-test-data-requested="--demoDataRequested"
+          >
+            <furo-ui5-data-text-input-labeled
+              placeholder="Fill in a description"
+              value-state="Critical"
+              title="The title attribute specifies extra information about an element."
+              ƒ-bind-data="--entity(*.data.description)"
+            >
               <ui5-icon slot="icon" name="filter"></ui5-icon>
-              <div slot="valueStateMessage">This is an error message. Extra long text used as an error message.</div>
+              <div slot="valueStateMessage">
+                This is an error message. Extra long text used as an error message.
+              </div>
             </furo-ui5-data-text-input-labeled>
           </ui5-demo-playground>
 
-          <produce-qp-data hidden ƒ-produce="--demoDataRequested" @-data="--qp"
-                           qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
+          <produce-qp-data
+            hidden
+            ƒ-produce="--demoDataRequested"
+            @-data="--qp"
+            qpescaped="%7B%22exp%22%3A1%7D"
+          ></produce-qp-data>
 
           <furo-data-object
             type="experiment.ExperimentEntity"
@@ -129,8 +138,11 @@ class DemoFuroUi5DataTextInputLabeled extends FBP(LitElement) {
           </furo-entity-agent>
         </template>
       </furo-demo-snippet>
-    `
+    `;
   }
 }
 
-window.customElements.define('demo-furo-ui5-data-text-input-labeled', DemoFuroUi5DataTextInputLabeled)
+window.customElements.define(
+  'demo-furo-ui5-data-text-input-labeled',
+  DemoFuroUi5DataTextInputLabeled,
+);

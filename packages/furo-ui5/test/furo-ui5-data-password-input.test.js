@@ -85,7 +85,6 @@ describe('furo-ui5-data-password-input', () => {
           meta: {
             label: 'My description',
             readonly: false,
-            hint: 'Please enter a description',
           },
           constraints: {
             required: {
@@ -182,7 +181,6 @@ describe('furo-ui5-data-password-input', () => {
       assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
       assert.equal(input._state.maxlength, undefined, 'check maxlength');
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
-      assert.equal(input.__hint, 'Please enter a description', 'check hint');
       assert.equal(input.binder.fieldFormat, 'scalar', 'check fieldFormat');
 
       done();

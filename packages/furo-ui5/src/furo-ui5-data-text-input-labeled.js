@@ -27,7 +27,7 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
     super(props);
     this.label = '';
     this.placeholder = '';
-    this.valueState= 'None';
+    this.valueState = 'None';
   }
 
   /**
@@ -75,7 +75,7 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
        * Defines a short hint intended to aid the user with data entry when the furo-ui5-data-input-labeled has no value.
        */
       placeholder: {
-        type: String
+        type: String,
       },
       /**
        * Defines the value state of the furo-ui5-data-input-labeled
@@ -88,8 +88,10 @@ class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
        * Information
        */
       valueState: {
-        type: String, reflect: true, attribute: 'value-state'
-      }
+        type: String,
+        reflect: true,
+        attribute: 'value-state',
+      },
     };
   }
 

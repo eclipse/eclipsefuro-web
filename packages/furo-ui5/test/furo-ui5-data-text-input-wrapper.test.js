@@ -149,7 +149,7 @@ describe('furo-ui5-data-text-input-wrapper', () => {
       assert.equal(input._state.required, false, 'check required');
       assert.equal(input._state.type, 'Text', 'check type');
       assert.equal(input._state.value, 'this is a google wrapper string', 'check value');
-      assert.equal(input._state.valueState, 'None', 'check valueState');
+      assert.equal(input._state.valueState, 'Information', 'check valueState');
       assert.equal(input._state.name, '', 'check name');
       assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
