@@ -108,7 +108,7 @@
         "code": "option",
         "meta": {
           "fields": {
-            "data": {
+            "data.value": {
               "meta": {
                 "label": "Google string",
                 "hint": "Type in int"
