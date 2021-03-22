@@ -60,10 +60,7 @@ class DemoFuroUi5DataProperty extends FBP(LitElement) {
                   ƒ-bind-data="--entity(*.data.type_property)"
                 ></furo-ui5-data-property>
 
-                <!-- single Property -->
-                <furo-ui5-data-property
-                  ƒ-bind-data="--entity(*.data.single_type_property)"
-                ></furo-ui5-data-property>
+
               </furo-form-layouter>
 
               <furo-button @-click="--reload">reload</furo-button>
@@ -75,7 +72,7 @@ class DemoFuroUi5DataProperty extends FBP(LitElement) {
               <furo-data-object
                 type="experiment.ExperimentEntity"
                 @-object-ready="--entity"
-                @-data-changed="--dataChanged"
+                @-data-changed-after-inject="--dataChanged"
                 ƒ-inject-raw="--response"
               ></furo-data-object>
 

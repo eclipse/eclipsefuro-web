@@ -22,7 +22,7 @@
     "type_property": [{
       "code": "c0a7f550-0fbe-4046-8fa9-60c86327b6b1",
       "data": {
-        "@type": "type.googleapis.com/furo.StringProperty",
+        "@type": "type.furo.com/furo.StringProperty",
         "data": "01012020"
       },
       "display_name": "Vertragsbeginn",

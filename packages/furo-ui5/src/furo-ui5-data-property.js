@@ -204,15 +204,17 @@ class FuroUi5DataProperty extends FBP(LitElement) {
           case 'google.protobuf.UInt32Value':
           case 'google.protobuf.StringValue':
           case 'google.protobuf.BoolValue':
+            e.bindData(propertyField.data.value);
+            break;
           case 'furo.fat.String':
           case 'furo.fat.Int32':
           case 'furo.fat.Int64':
           case 'furo.fat.Bool':
-            e.bindData(propertyField.data.value);
-            break;
-          case 'furo.StringOptionProperty':
             e.bindData(propertyField.data);
+            break
+          case 'furo.StringOptionProperty':
             e.setAttribute('value-sub-field', 'id');
+            e.bindData(propertyField.data);
             break;
           default:
             e.bindData(propertyField.data);
