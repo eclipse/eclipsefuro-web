@@ -316,8 +316,10 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _valueState(state) {
-    this.valueState = state || 'None';
-    this._updateVS();
+    if (state) {
+      this.valueState = state;
+      this._updateVS();
+    }
   }
 
   /**
@@ -327,8 +329,8 @@ export class FuroUi5DataInput extends Input.default {
    */
   set _hint(h) {
     if (h) {
-      this.__hint = h;
       this.valueState = 'Information';
+      this.__hint = h;
       this._updateVS();
     }
   }

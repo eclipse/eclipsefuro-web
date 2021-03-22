@@ -136,19 +136,30 @@ class GenDemoData extends LitElement {
         link: '/mockdata/ui5/demos/fat-universal-error.json',
       },
       {
-        id: '3',
+        id: '2',
         display_name: 'Warning State and Text via Fat Attribute',
         link: '/mockdata/ui5/demos/fat-universal-warning.json',
       },
       {
-        id: '4',
+        id: '3',
         display_name: 'Success State and Text via Fat Attribute',
         link: '/mockdata/ui5/demos/fat-universal-success.json',
       },
       {
-        id: '5',
+        id: '4',
         display_name: 'Information State and Text via Fat Attribute',
         link: '/mockdata/ui5/demos/fat-universal-info.json',
+      },
+      {
+        id: '5',
+        display_name: 'Hint Text via Fat Attribute',
+        link: '/mockdata/ui5/demos/fat-universal-hint-attribute.json',
+      },
+
+      {
+        id: '6',
+        display_name: 'Hint Text via response Meta',
+        link: '/mockdata/ui5/demos/fat-universal-with-meta.json',
       },
     ];
 

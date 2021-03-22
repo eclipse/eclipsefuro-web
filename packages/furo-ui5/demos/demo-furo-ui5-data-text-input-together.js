@@ -88,7 +88,7 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
                                                        value-field="display_name"
                                                        @-item-selected="--itemSelected"
                                                        auto-select-first
-                                                       ƒ-bind-data="--DataObject(*.data.fat_string.attributes.value-state)"
+                                                       ƒ-bind-data="--DataFRObject(*.id)"
                                                        ƒ-inject-entities="--valueStateList"></furo-ui5-data-collection-dropdown>
 
                     <fetch-universal-json hidden
@@ -115,6 +115,11 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
                 @-object-ready="--DataObject"
                 @-data-changed="--data"
                 ƒ-inject-raw="--response"
+              ></furo-data-object>
+
+              <furo-data-object
+                type="furo.Reference"
+                @-object-ready="--DataFRObject"
               ></furo-data-object>
               <!-- Demo data Generator -->
               <gen-demo-data ƒ-generate="--DataObject" ƒ-generate-ui5-value-state-list="--DataObject"

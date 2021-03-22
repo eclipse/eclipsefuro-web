@@ -14,6 +14,7 @@
         "max": "16",
         "maxlength": "6",
         "label": "override",
+        "errortext": "Error",
         "placeholder": "overridePH"
 
       }
