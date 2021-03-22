@@ -59,7 +59,6 @@ export class FuroUi5DataPasswordInput extends FuroUi5DataInput {
    */
   connectedCallback() {
     this.type = 'Password';
-    this.ui5Icon = 'shield';
 
     setTimeout(() => {
       super.connectedCallback();

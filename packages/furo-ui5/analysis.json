@@ -6880,8 +6880,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-form-field-container",
-          "description": "Simple use"
+          "url": "demo-furo-ui5-data-password-input-labeled",
+          "description": "Basic Usage"
         }
       ],
       "metadata": {},

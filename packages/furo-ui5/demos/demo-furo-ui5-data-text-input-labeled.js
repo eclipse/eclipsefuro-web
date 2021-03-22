@@ -97,13 +97,15 @@ class DemoFuroUi5DataTextInputLabeled extends FBP(LitElement) {
         <li>set a custom icon</li>
         <li>disabled</li>
         <li>readonly</li>
+        <li>required</li>
       </ol>
       <furo-demo-snippet>
         <template>
           <furo-form-layouter two>
             <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested">Load Demo Data</furo-ui5-button>
-            <p full>The title is set in the markup and will show up as hint. Custom icons have also been set.</p>
+            <p full>The title is set in the markup and will show up as hint. Custom icons and required have also been set.</p>
             <furo-ui5-data-text-input-labeled
+              required
               title="The title attribute specifies extra information about an element."
               ƒ-bind-data="--entity(*.data.description)"
             >

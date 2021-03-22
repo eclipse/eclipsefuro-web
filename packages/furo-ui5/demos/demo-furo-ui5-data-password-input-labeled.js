@@ -24,18 +24,19 @@ import '@furo/data-input/demos/helper/produce-qp-data.js';
 import '@furo/data-input/demos/helper/fetch-universal-json.js';
 
 import '@ui5/webcomponents-icons/dist/filter.js';
+import '@ui5/webcomponents-icons/dist/shield.js';
 import '@ui5/webcomponents-icons/dist/edit.js';
 import '@ui5/webcomponents-icons/dist/home.js';
 import '@ui5/webcomponents-icons/dist/accept.js';
 
 /**
- * `demo-furo-ui5-data-number-input-labeled`
+ * `demo-furo-ui5-data-password-input-labeled`
  *
- * @Summary basic usage of furo-ui5-data-number-input-labeled
+ * @Summary basic usage of furo-ui5-data-password-input-labeled
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroUi5DataNumberInputLabeled extends FBP(LitElement) {
+class DemoFuroUi5DataPasswordInputLabeled extends FBP(LitElement) {
   /**
    * Themable Styles
    * @private
@@ -44,7 +45,7 @@ class DemoFuroUi5DataNumberInputLabeled extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DemoFuroUi5DataNumberInputLabeled') ||
+      Theme.getThemeForComponent('DemoFuroUi5DataPasswordInputLabeled') ||
       css`
         :host {
           display: block;
@@ -89,7 +90,7 @@ class DemoFuroUi5DataNumberInputLabeled extends FBP(LitElement) {
     // language=HTML
     return html`
       <h2>
-        Basic usage of furo-ui5-data-number-input-labeled
+        Basic usage of furo-ui5-data-password-input-labeled
       </h2>
       <p>If you want to simply use a data bound text field with automatic label handling.</p>
       <p>The following markup overwrites are possible:</p>
@@ -104,58 +105,58 @@ class DemoFuroUi5DataNumberInputLabeled extends FBP(LitElement) {
           <furo-form-layouter two>
             <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested">Load Demo Data</furo-ui5-button>
             <p full>The title is set in the markup and will show up as hint. Custom icons and required have also been set.</p>
-            <furo-ui5-data-number-input-labeled
+            <furo-ui5-data-password-input-labeled
               required
               title="The title attribute specifies extra information about an element."
-              ƒ-bind-data="--entity(*.data.furo_data_number_input)"
+              ƒ-bind-data="--entity(*.data.furo_data_password_input)"
             >
-              <ui5-icon slot="icon" name="filter"></ui5-icon>
-            </furo-ui5-data-number-input-labeled>
+              <ui5-icon slot="icon" name="shield"></ui5-icon>
+            </furo-ui5-data-password-input-labeled>
 
-            <furo-ui5-data-number-input-labeled
+            <furo-ui5-data-password-input-labeled
               title="The title attribute specifies extra information about an element."
-              ƒ-bind-data="--entity(*.data.furo_data_range_input)"
+              ƒ-bind-data="--entity(*.data.furo_data_text_input)"
             >
               <ui5-icon slot="icon" name="edit"></ui5-icon>
-            </furo-ui5-data-number-input-labeled>
+            </furo-ui5-data-password-input-labeled>
           </furo-form-layouter>
 
           <furo-form-layouter two>
             <p full>With readonly overwrite:</p>
-            <furo-ui5-data-number-input-labeled
+            <furo-ui5-data-password-input-labeled
               readonly
               title="READONLY. The title attribute specifies extra information about an element."
-              ƒ-bind-data="--entity(*.data.furo_data_number_input)"
+              ƒ-bind-data="--entity(*.data.furo_data_password_input)"
             >
-              <ui5-icon slot="icon" name="filter"></ui5-icon>
-            </furo-ui5-data-number-input-labeled>
 
-            <furo-ui5-data-number-input-labeled
+            </furo-ui5-data-password-input-labeled>
+
+            <furo-ui5-data-password-input-labeled
               readonly
               title="READONLY. The title attribute specifies extra information about an element."
-              ƒ-bind-data="--entity(*.data.furo_data_range_input)"
+              ƒ-bind-data="--entity(*.data.furo_data_text_input)"
             >
               <ui5-icon slot="icon" name="edit"></ui5-icon>
-            </furo-ui5-data-number-input-labeled>
+            </furo-ui5-data-password-input-labeled>
           </furo-form-layouter>
 
           <furo-form-layouter two>
             <p full>With disabled overwrite:</p>
-            <furo-ui5-data-number-input-labeled
+            <furo-ui5-data-password-input-labeled
               disabled
               title="DISABLED. The title attribute specifies extra information about an element."
-              ƒ-bind-data="--entity(*.data.furo_data_number_input)"
+              ƒ-bind-data="--entity(*.data.furo_data_password_input)"
             >
               <ui5-icon slot="icon" name="filter"></ui5-icon>
-            </furo-ui5-data-number-input-labeled>
+            </furo-ui5-data-password-input-labeled>
 
-            <furo-ui5-data-number-input-labeled
+            <furo-ui5-data-password-input-labeled
               disabled
               title="DISABLED. The title attribute specifies extra information about an element."
-              ƒ-bind-data="--entity(*.data.furo_data_range_input)"
+              ƒ-bind-data="--entity(*.data.furo_data_text_input)"
             >
               <ui5-icon slot="icon" name="edit"></ui5-icon>
-            </furo-ui5-data-number-input-labeled>
+            </furo-ui5-data-password-input-labeled>
           </furo-form-layouter>
 
 
@@ -191,6 +192,6 @@ class DemoFuroUi5DataNumberInputLabeled extends FBP(LitElement) {
 }
 
 window.customElements.define(
-  'demo-furo-ui5-data-number-input-labeled',
-  DemoFuroUi5DataNumberInputLabeled,
+  'demo-furo-ui5-data-password-input-labeled',
+  DemoFuroUi5DataPasswordInputLabeled,
 );

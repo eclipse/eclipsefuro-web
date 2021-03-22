@@ -35,6 +35,7 @@ import './demo-furo-ui5-busyindicator.js';
 import './demo-furo-ui5-data-multi-input.js';
 import './demo-furo-ui5-data-number-input.js';
 import './demo-furo-ui5-data-password-input.js';
+import './demo-furo-ui5-data-password-input-labeled.js';
 import './demo-furo-ui5-data-table.js';
 import './demo-furo-ui5-data-table-tmpl.js';
 import './demo-furo-ui5-data-table-repeats.js';
