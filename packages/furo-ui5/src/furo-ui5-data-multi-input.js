@@ -49,11 +49,13 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
     });
 
     this.addEventListener('token-delete', event => {
-      this.binder.fieldNode._value = this.binder.fieldNode._value.filter(
-        item => item !== event.detail.token.text,
-      );
-      this._updateItems();
-      this._triggerValueChangedEvent();
+      if (!this.readonly && !this.disabled) {
+        this.binder.fieldNode._value = this.binder.fieldNode._value.filter(
+          item => item !== event.detail.token.text,
+        );
+        this._updateItems();
+        this._triggerValueChangedEvent();
+      }
     });
   }
 
