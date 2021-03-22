@@ -116,7 +116,6 @@ class FuroUi5DataPasswordInputLabeled extends FBP(LitElement) {
           ƒ-bind-data="--data"
           ƒ-focus="--focus"
         >
-          <slot></slot>
           <div slot="icon"><slot name="icon"></slot></div>
         </furo-ui5-data-password-input>
       </furo-ui5-form-field-container>

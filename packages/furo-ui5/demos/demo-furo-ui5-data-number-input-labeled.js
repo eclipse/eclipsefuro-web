@@ -102,8 +102,13 @@ class DemoFuroUi5DataNumberInputLabeled extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter two>
-            <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested">Load Demo Data</furo-ui5-button>
-            <p full>The title is set in the markup and will show up as hint. Custom icons and required have also been set.</p>
+            <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
+              >Load Demo Data</furo-ui5-button
+            >
+            <p full>
+              The title is set in the markup and will show up as hint. Custom icons and required
+              have also been set.
+            </p>
             <furo-ui5-data-number-input-labeled
               required
               title="The title attribute specifies extra information about an element."
@@ -157,7 +162,6 @@ class DemoFuroUi5DataNumberInputLabeled extends FBP(LitElement) {
               <ui5-icon slot="icon" name="edit"></ui5-icon>
             </furo-ui5-data-number-input-labeled>
           </furo-form-layouter>
-
 
           <produce-qp-data
             hidden

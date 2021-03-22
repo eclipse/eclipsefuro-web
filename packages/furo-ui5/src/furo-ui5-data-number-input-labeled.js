@@ -114,8 +114,8 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
           ƒ-bind-data="--data"
           ƒ-focus="--focus"
         >
-          <slot></slot>
-          <div slot="icon"><slot name="icon"></slot></div></furo-ui5-data-number-input>
+          <div slot="icon"><slot name="icon"></slot></div
+        ></furo-ui5-data-number-input>
       </furo-ui5-form-field-container>
     `;
   }
