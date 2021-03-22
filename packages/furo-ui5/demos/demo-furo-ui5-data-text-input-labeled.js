@@ -101,9 +101,8 @@ class DemoFuroUi5DataTextInputLabeled extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter two>
-            <div>
-              <p>The title is set in the markup and will show up as hint. Custom icons have also been set.</p>
-            </div>
+            <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested">Load Demo Data</furo-ui5-button>
+            <p full>The title is set in the markup and will show up as hint. Custom icons have also been set.</p>
             <furo-ui5-data-text-input-labeled
               title="The title attribute specifies extra information about an element."
               ƒ-bind-data="--entity(*.data.description)"
@@ -120,9 +119,7 @@ class DemoFuroUi5DataTextInputLabeled extends FBP(LitElement) {
           </furo-form-layouter>
 
           <furo-form-layouter two>
-            <div>
-              <p>With readonly overwrite.</p>
-            </div>
+            <p full>With readonly overwrite:</p>
             <furo-ui5-data-text-input-labeled
               readonly
               title="READONLY. The title attribute specifies extra information about an element."
@@ -141,9 +138,7 @@ class DemoFuroUi5DataTextInputLabeled extends FBP(LitElement) {
           </furo-form-layouter>
 
           <furo-form-layouter two>
-            <div>
-              <p>With disabled overwrite.</p>
-            </div>
+            <p full>With disabled overwrite:</p>
             <furo-ui5-data-text-input-labeled
               disabled
               title="DISABLED. The title attribute specifies extra information about an element."
