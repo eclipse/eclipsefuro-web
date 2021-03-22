@@ -28,6 +28,19 @@ export class FuroUi5DataInput extends Input.default {
     this._initBinder();
   }
 
+
+  /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   * @private
+   */
+  connectedCallback() {
+    this.attributeReadonly = this.readonly;
+
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
+  }
+
   /**
    * rewrite get accInfo function
    * initiate _inputAccInfo in order to avoid error
@@ -137,7 +150,7 @@ export class FuroUi5DataInput extends Input.default {
     // set the label mappings
     this.binder.labelMappings = {
       error: '_error',
-      readonly: 'readonly',
+      readonly: '__readonly',
       required: 'required',
       disabled: 'disabled',
       modified: 'modified',
@@ -270,6 +283,12 @@ export class FuroUi5DataInput extends Input.default {
   set _informationMsg(msg) {
     this.__informationMsg = msg;
     this._updateVS();
+  }
+
+  set __readonly(readonly) {
+    if (!this.attributeReadonly) {
+      this.readonly = readonly;
+    }
   }
 
   /**
