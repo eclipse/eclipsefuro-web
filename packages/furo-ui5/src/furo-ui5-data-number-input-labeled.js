@@ -13,7 +13,7 @@ import './furo-ui5-data-number-input.js';
  *
  * @summary labeled input field
  * @customElement
- * @demo demo-furo-ui5-form-field-container Simple use
+ * @demo demo-furo-ui5-data-number-input-labeled Basic Usage
  * @appliesMixin FBP
  */
 class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
