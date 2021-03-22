@@ -338,7 +338,6 @@ export class CollectionDropdownHelper {
       });
 
       this.updateField(caller);
-
     }
   }
 }

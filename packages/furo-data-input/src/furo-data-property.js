@@ -238,7 +238,7 @@ class FuroDataProperty extends FBP(LitElement) {
             e.setAttribute('value-sub-field', 'id');
             e.bindData(propertyField.data);
 
-            break
+            break;
           default:
             e.bindData(propertyField.data);
         }
