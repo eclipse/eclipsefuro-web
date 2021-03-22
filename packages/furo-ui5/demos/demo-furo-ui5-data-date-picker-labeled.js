@@ -29,13 +29,13 @@ import '@ui5/webcomponents-icons/dist/home.js';
 import '@ui5/webcomponents-icons/dist/accept.js';
 
 /**
- * `demo-furo-ui5-data-textarea-input-labeled`
+ * `demo-furo-ui5-data-date-picker-labeled`
  *
  * @Summary basic usage of furo-ui5-data-text-input-labeled
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroUi5DataTextAreaInputLabeled extends FBP(LitElement) {
+class DemoFuroUi5DataDatePickerLabeled extends FBP(LitElement) {
   /**
    * Themable Styles
    * @private
@@ -44,7 +44,7 @@ class DemoFuroUi5DataTextAreaInputLabeled extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DemoFuroUi5DataTextAreaInputLabeled') ||
+      Theme.getThemeForComponent('DemoFuroUi5DataDatePickerLabeled') ||
       css`
         :host {
           display: block;
@@ -89,18 +89,14 @@ class DemoFuroUi5DataTextAreaInputLabeled extends FBP(LitElement) {
     // language=HTML
     return html`
       <h2>
-        Basic usage of furo-ui5-data-textarea-input-labeled
+        Basic usage of furo-ui5-data-date-picker-labeled
       </h2>
-      <p>If you want to simply use a data bound text field with automatic label handling.</p>
+      <p>If you want to simply use a data bound date picker field with automatic label handling.</p>
       <p>The following markup overwrites are possible:</p>
       <ol>
         <li>disabled</li>
         <li>readonly</li>
         <li>required</li>
-        <li>show-exceeded-text</li>
-        <li>growing</li>
-        <li>rows</li>
-        <li>growing-max-lines</li>
       </ol>
       <furo-demo-snippet>
         <template>
@@ -112,69 +108,46 @@ class DemoFuroUi5DataTextAreaInputLabeled extends FBP(LitElement) {
               The title is set in the markup and will show up as hint. Custom icons and required
               have also been set.
             </p>
-            <furo-ui5-data-textarea-input-labeled
+            <furo-ui5-data-date-picker-labeled
               required
-              growing
-              rows="6"
-              show-exceeded-text
               title="The title attribute specifies extra information about an element."
-              ƒ-bind-data="--entity(*.data.description)"
-            >
-              <ui5-icon slot="icon" name="filter"></ui5-icon>
-            </furo-ui5-data-textarea-input-labeled>
+              ƒ-bind-data="--entity(*.data.furo_data_date_input)"
+            ></furo-ui5-data-date-picker-labeled>
 
-            <furo-ui5-data-textarea-input-labeled
+            <furo-ui5-data-date-picker-labeled
               title="The title attribute specifies extra information about an element."
-              ƒ-bind-data="--entity(*.data.furo_data_text_input)"
-            >
-              <ui5-icon slot="icon" name="edit"></ui5-icon>
-            </furo-ui5-data-textarea-input-labeled>
+              ƒ-bind-data="--entity(*.data.furo_data_date_input_google)"
+            ></furo-ui5-data-date-picker-labeled>
           </furo-form-layouter>
 
           <furo-form-layouter two>
             <p full>With readonly overwrite:</p>
-            <furo-ui5-data-textarea-input-labeled
-              required
-              growing
-              rows="6"
-              show-exceeded-text
+            <furo-ui5-data-date-picker-labeled
               readonly
               title="READONLY. The title attribute specifies extra information about an element."
-              ƒ-bind-data="--entity(*.data.description)"
-            >
-              <ui5-icon slot="icon" name="filter"></ui5-icon>
-            </furo-ui5-data-textarea-input-labeled>
+              ƒ-bind-data="--entity(*.data.furo_data_date_input)"
+            ></furo-ui5-data-date-picker-labeled>
 
-            <furo-ui5-data-textarea-input-labeled
+            <furo-ui5-data-date-picker-labeled
               readonly
               title="READONLY. The title attribute specifies extra information about an element."
-              ƒ-bind-data="--entity(*.data.furo_data_text_input)"
-            >
-              <ui5-icon slot="icon" name="edit"></ui5-icon>
-            </furo-ui5-data-textarea-input-labeled>
+              ƒ-bind-data="--entity(*.data.furo_data_date_input_google)"
+            ></furo-ui5-data-date-picker-labeled>
           </furo-form-layouter>
 
           <furo-form-layouter two>
             <p full>With disabled overwrite:</p>
-            <furo-ui5-data-textarea-input-labeled
-              required
-              growing
-              rows="6"
-              show-exceeded-text
+            <furo-ui5-data-date-picker-labeled
               disabled
               title="DISABLED. The title attribute specifies extra information about an element."
-              ƒ-bind-data="--entity(*.data.description)"
-            >
-              <ui5-icon slot="icon" name="filter"></ui5-icon>
-            </furo-ui5-data-textarea-input-labeled>
+              ƒ-bind-data="--entity(*.data.furo_data_date_input)"
+            ></furo-ui5-data-date-picker-labeled>
 
-            <furo-ui5-data-textarea-input-labeled
+            <furo-ui5-data-date-picker-labeled
               disabled
               title="DISABLED. The title attribute specifies extra information about an element."
-              ƒ-bind-data="--entity(*.data.furo_data_text_input)"
-            >
-              <ui5-icon slot="icon" name="edit"></ui5-icon>
-            </furo-ui5-data-textarea-input-labeled>
+              ƒ-bind-data="--entity(*.data.furo_data_date_input_google)"
+            ></furo-ui5-data-date-picker-labeled>
           </furo-form-layouter>
 
           <produce-qp-data
@@ -209,6 +182,6 @@ class DemoFuroUi5DataTextAreaInputLabeled extends FBP(LitElement) {
 }
 
 window.customElements.define(
-  'demo-furo-ui5-data-textarea-input-labeled',
-  DemoFuroUi5DataTextAreaInputLabeled,
+  'demo-furo-ui5-data-date-picker-labeled',
+  DemoFuroUi5DataDatePickerLabeled,
 );

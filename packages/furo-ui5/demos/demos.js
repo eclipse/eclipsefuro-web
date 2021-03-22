@@ -11,6 +11,7 @@ import './demo-furo-ui5-data-number-input-labeled.js';
 import './demo-furo-ui5-collection-dropdown.js';
 import './demo-furo-ui5-collection-dropdown-labeled.js';
 import './demo-furo-ui5-data-date-picker.js';
+import './demo-furo-ui5-data-date-picker-labeled.js';
 import './demo-furo-ui5-data-date-time-picker.js';
 import './demo-furo-ui5-data-checkbox-input.js';
 import './demo-furo-ui5-data-checkbox-input-labeled.js';

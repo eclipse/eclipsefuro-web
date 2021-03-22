@@ -14,7 +14,7 @@ import './furo-ui5-form-field-container.js';
  *
  * @summary labeled input field
  * @customElement
- * @demo demo-furo-ui5-form-field-container Simple use
+ * @demo demo-furo-ui5-data-date-picker-labeled Basic Usage
  * @appliesMixin FBP
  */
 class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
@@ -56,6 +56,12 @@ class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
         type: Boolean,
         reflect: true,
         attribute: 'disabled',
+      },
+      /**
+       * A Boolean attribute which, if present, means this field is readonly.
+       */
+      readonly: {
+        type: Boolean,
       },
     };
   }
@@ -100,6 +106,7 @@ class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
           min-date="0001-01-01"
           max-date="9999-12-31"
           ?disabled=${this.disabled}
+          ?readonly=${this.readonly}
           ƒ-bind-data="--data"
         ></furo-ui5-data-date-picker>
       </furo-ui5-form-field-container>
