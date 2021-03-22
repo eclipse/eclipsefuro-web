@@ -66,6 +66,7 @@ class Ui5DemoPlayground extends FBP(LitElement) {
       css`
         :host {
           display: block;
+          --furo-form-layouter-row-gap: var(--spacing-xs);
         }
         :host([hidden]) {
           display: none;

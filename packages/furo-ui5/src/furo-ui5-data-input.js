@@ -10,7 +10,6 @@ import '@ui5/webcomponents/dist/features/InputSuggestions.js';
  *
  * @summary data text input base
  * @customElement
- * @demo demo-furo-fat-type furo fat type
  */
 export class FuroUi5DataInput extends Input.default {
   /**

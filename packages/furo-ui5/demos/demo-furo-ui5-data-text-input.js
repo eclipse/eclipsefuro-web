@@ -48,7 +48,6 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
           display: block;
           height: 100%;
           padding-right: var(--spacing);
-          --furo-form-layouter-row-gap: var(--spacing-xs);
         }
 
         :host([hidden]) {
@@ -94,7 +93,7 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
             <furo-ui5-data-text-input
               style="width: 100%"
               ƒ-bind-data="--entity(*.data.display_name)"
-              value-state="Information"
+              value-state="Error"
             >
               <ui5-icon slot="icon" name="signature"></ui5-icon>
             </furo-ui5-data-text-input>

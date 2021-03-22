@@ -28,8 +28,6 @@ import '@ui5/webcomponents-icons/dist/edit.js';
 import '@ui5/webcomponents-icons/dist/home.js';
 import '@ui5/webcomponents-icons/dist/accept.js';
 
-import './helper/ui5-demo-playground.js';
-
 /**
  * `demo-furo-ui5-data-text-input-labeled`
  *
@@ -52,6 +50,8 @@ class DemoFuroUi5DataTextInputLabeled extends FBP(LitElement) {
           display: block;
           height: 100%;
           padding-right: var(--spacing);
+          --furo-form-layouter-row-gap: var(--spacing-xs);
+          --furo-form-layouter-column-gap: var(--spacing-xs);
         }
 
         :host([hidden]) {
@@ -91,33 +91,76 @@ class DemoFuroUi5DataTextInputLabeled extends FBP(LitElement) {
       <h2>
         Basic usage of furo-ui5-data-text-input-labeled
       </h2>
+      <p>If you want to simply use a data bound text field with automatic label handling.</p>
+      <p>The following markup overwrites are possible:</p>
+      <ol>
+        <li>set a custom icon</li>
+        <li>disabled</li>
+        <li>readonly</li>
+      </ol>
       <furo-demo-snippet>
         <template>
-          <ui5-demo-playground
-            heading="Text Input Playground"
-            @-test-data-requested="--demoDataRequested"
-          >
+          <furo-form-layouter two>
+            <div>
+              <p>The title is set in the markup and will show up as hint. Custom icons have also been set.</p>
+            </div>
             <furo-ui5-data-text-input-labeled
-              placeholder="Fill in a description"
-              value-state="Critical"
               title="The title attribute specifies extra information about an element."
               ƒ-bind-data="--entity(*.data.description)"
             >
               <ui5-icon slot="icon" name="filter"></ui5-icon>
-              <div slot="valueStateMessage">
-                This is an error message. Extra long text used as an error message.
-              </div>
             </furo-ui5-data-text-input-labeled>
 
             <furo-ui5-data-text-input-labeled
-              placeholder="Fill in a text"
-              value-state="None"
               title="The title attribute specifies extra information about an element."
               ƒ-bind-data="--entity(*.data.furo_data_text_input)"
             >
-              <ui5-icon slot="icon" name=""></ui5-icon>
+              <ui5-icon slot="icon" name="edit"></ui5-icon>
             </furo-ui5-data-text-input-labeled>
-          </ui5-demo-playground>
+          </furo-form-layouter>
+
+          <furo-form-layouter two>
+            <div>
+              <p>With readonly overwrite.</p>
+            </div>
+            <furo-ui5-data-text-input-labeled
+              readonly
+              title="READONLY. The title attribute specifies extra information about an element."
+              ƒ-bind-data="--entity(*.data.description)"
+            >
+              <ui5-icon slot="icon" name="filter"></ui5-icon>
+            </furo-ui5-data-text-input-labeled>
+
+            <furo-ui5-data-text-input-labeled
+              readonly
+              title="READONLY. The title attribute specifies extra information about an element."
+              ƒ-bind-data="--entity(*.data.furo_data_text_input)"
+            >
+              <ui5-icon slot="icon" name="edit"></ui5-icon>
+            </furo-ui5-data-text-input-labeled>
+          </furo-form-layouter>
+
+          <furo-form-layouter two>
+            <div>
+              <p>With disabled overwrite.</p>
+            </div>
+            <furo-ui5-data-text-input-labeled
+              disabled
+              title="DISABLED. The title attribute specifies extra information about an element."
+              ƒ-bind-data="--entity(*.data.description)"
+            >
+              <ui5-icon slot="icon" name="filter"></ui5-icon>
+            </furo-ui5-data-text-input-labeled>
+
+            <furo-ui5-data-text-input-labeled
+              disabled
+              title="DISABLED. The title attribute specifies extra information about an element."
+              ƒ-bind-data="--entity(*.data.furo_data_text_input)"
+            >
+              <ui5-icon slot="icon" name="edit"></ui5-icon>
+            </furo-ui5-data-text-input-labeled>
+          </furo-form-layouter>
+
 
           <produce-qp-data
             hidden

@@ -80,6 +80,9 @@ export class Styling {
         --spacing-l: 32px;
         --spacing-xl: 48px;
         --spacing-xxl: 96px;
+
+        --furo-form-layouter-row-gap: var(--spacing-xs);
+        --furo-form-layouter-column-gap: var(--spacing-xs);
       }
     `;
   }
