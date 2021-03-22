@@ -127,6 +127,35 @@ class GenDemoData extends LitElement {
     customEvent.detail = list;
     this.dispatchEvent(customEvent);
   }
+
+  generateUi5ValueStateList() {
+    const list = [
+      {
+        id: '1',
+        display_name: 'Error State and Text via Fat Attribute',
+        link: '/mockdata/ui5/demos/fat-universal-error.json',
+      },
+      {
+        id: '3',
+        display_name: 'Warning State and Text via Fat Attribute',
+        link: '/mockdata/ui5/demos/fat-universal-warning.json',
+      },
+      {
+        id: '4',
+        display_name: 'Success State and Text via Fat Attribute',
+        link: '/mockdata/ui5/demos/fat-universal-success.json',
+      },
+      {
+        id: '5',
+        display_name: 'Information State and Text via Fat Attribute',
+        link: '/mockdata/ui5/demos/fat-universal-info.json',
+      },
+    ];
+
+    const customEvent = new Event('value-state-list', { composed: true, bubbles: true });
+    customEvent.detail = list;
+    this.dispatchEvent(customEvent);
+  }
 }
 
 window.customElements.define('gen-demo-data', GenDemoData);

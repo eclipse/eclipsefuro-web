@@ -1,0 +1,21 @@
+{
+  "data": {
+    "fat_string": {
+      "value": "furo fat string with error msg",
+      "labels": {
+        "before": true,
+        "show-suggestions": true,
+        "required": true
+      },
+      "attributes": {
+        "value-state": "Error",
+        "errortext": "this is an errortext",
+        "maxlength": 6,
+        "label": "response label",
+        "placeholder": "place holder"
+      }
+    }
+  },
+  "links": [],
+  "meta": {}
+}

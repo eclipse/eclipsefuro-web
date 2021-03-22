@@ -93,7 +93,10 @@ class DemoFuroUi5DataTextInputMarkupOverwrite extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
-            <p>This input field is set to readonly. A custom icon is used (shield). The server response should not overwrite the values set.</p>
+            <p>
+              This input field is set to readonly. A custom icon is used (shield). The server
+              response should not overwrite the values set.
+            </p>
             <furo-ui5-data-text-input
               style="width: 100%"
               ƒ-bind-data="--entity(*.data.furo_data_text_input)"
@@ -131,4 +134,7 @@ class DemoFuroUi5DataTextInputMarkupOverwrite extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-ui5-data-text-input-markup-overwrite', DemoFuroUi5DataTextInputMarkupOverwrite);
+window.customElements.define(
+  'demo-furo-ui5-data-text-input-markup-overwrite',
+  DemoFuroUi5DataTextInputMarkupOverwrite,
+);

@@ -15,6 +15,7 @@ import '@furo/layout/src/furo-catalog.js';
 import '@furo/data-input/src/furo-catalog.js';
 import '@ui5/webcomponents/dist/Card.js';
 import '@ui5/webcomponents/dist/Label.js';
+import '@furo/data-input/demos/helper/fetch-universal-json.js';
 import './gen-demo-data.js';
 import '../src/lib/ui5-icons.js';
 
@@ -79,23 +80,21 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
             <furo-vertical-scroller>
               <div class="grid">
 <!--                Playground Settings-->
-                <ui5-card heading="Settings" slot="master">
+                <ui5-card heading="Control furo-data-ui5-text-input via responses" slot="master">
 
                   <furo-form-layouter two class="card-content">
-                    <ui5-label for="LeadingIcon">Icon (e.g. play, stop, display-more, signature, ...)</ui5-label>
-                    <furo-ui5-data-text-input id="LeadingIcon" placeholder="leading-icon"
-                                          ƒ-bind-data="--DataObject(*.data.fat_string.attributes.leading-icon)"></furo-ui5-data-text-input>
 
-                    <ui5-label for="ValueStates">Value States</ui5-label>
                     <furo-ui5-data-collection-dropdown id="ValueStates"
                                                        value-field="display_name"
+                                                       @-item-selected="--itemSelected"
+                                                       auto-select-first
                                                        ƒ-bind-data="--DataObject(*.data.fat_string.attributes.value-state)"
                                                        ƒ-inject-entities="--valueStateList"></furo-ui5-data-collection-dropdown>
 
-                    <ui5-label for="FieldValue">Field Value</ui5-label>
-                    <furo-ui5-data-text-input id="FieldValue" placeholder="value"
-                                          ƒ-bind-data="--DataObject(*.data.fat_string.value)"></furo-ui5-data-text-input>
-
+                    <fetch-universal-json hidden
+                                          @-data-loaded="--response"
+                                          ƒ-fetch-mock="--itemSelected(*.link)"
+                    ></fetch-universal-json>
                   </furo-form-layouter>
                 </ui5-card>
 
@@ -106,8 +105,6 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
                     <!-- fat -->
                     <furo-ui5-data-text-input id="input1"
                                               ƒ-bind-data="--DataObject(*.data.fat_string)"></furo-ui5-data-text-input>
-                    <furo-ui5-data-text-input id="input2" placeholder="override placeholder"
-                                              ƒ-bind-data="--DataObject(*.data.fat_string_list)"></furo-ui5-data-text-input>
                   </furo-form-layouter>
                 </ui5-card>
               </div>
@@ -117,11 +114,10 @@ class DemoFuroUi5DataTextInputTogether extends FBP(LitElement) {
                 type="universaltest.UniversaltestEntity"
                 @-object-ready="--DataObject"
                 @-data-changed="--data"
-                @-data-injected="--DataInjected"
-                ƒ-inject-raw="--entity"
+                ƒ-inject-raw="--response"
               ></furo-data-object>
               <!-- Demo data Generator -->
-              <gen-demo-data ƒ-generate="--DataObject" ƒ-generate-value-state-list="--DataObject"
+              <gen-demo-data ƒ-generate="--DataObject" ƒ-generate-ui5-value-state-list="--DataObject"
                              @-data="--entity"
                              @-value-state-list="--valueStateList"></gen-demo-data>
 

@@ -28,7 +28,6 @@ export class FuroUi5DataInput extends Input.default {
     this._initBinder();
   }
 
-
   /**
    * connectedCallback() method is called when an element is added to the DOM.
    * webcomponent lifecycle event
@@ -384,58 +383,60 @@ export class FuroUi5DataInput extends Input.default {
    * @param arr
    */
   set suggestions(arr) {
-    // remove previous suggestion items.
-    this.querySelectorAll('ui5-suggestion-item').forEach(e => {
-      e.remove();
-    });
-
-    if (Array.isArray(arr) && arr.length > 0) {
-      this.showSuggestions = true;
-      this.highlight = true;
-
-      // add current suggestion items
-      arr.forEach(e => {
-        const suggestion = document.createElement('ui5-suggestion-item');
-
-        // suggestions from furo.optionItem
-        if (e.id !== undefined) {
-          suggestion.text = e.id;
-        }
-
-        // suggestions from furo.optionItem
-        if (e.display_name !== undefined && e.display_name !== e.id) {
-          suggestion.description = e.display_name;
-        }
-
-        // suggestions from fat attribute
-        if (e.text !== undefined) {
-          suggestion.text = e.text;
-        }
-
-        // appends only when suggestion text exists
-        if (suggestion.text !== undefined) {
-          if (e.icon !== undefined) {
-            suggestion.icon = e.icon;
-          }
-          if (e.image !== undefined) {
-            suggestion.image = e.image;
-          }
-          if (e.type !== undefined) {
-            suggestion.type = e.type;
-          }
-          if (e.infoState !== undefined) {
-            suggestion.infoState = e.infoState;
-          }
-          if (e.group !== undefined) {
-            suggestion.group = e.group;
-          }
-          if (e.key !== undefined) {
-            suggestion.key = e.key;
-          }
-
-          this.appendChild(suggestion);
-        }
+    if (!this.readonly && !this.disabled) {
+      // remove previous suggestion items.
+      this.querySelectorAll('ui5-suggestion-item').forEach(e => {
+        e.remove();
       });
+
+      if (Array.isArray(arr) && arr.length > 0) {
+        this.showSuggestions = true;
+        this.highlight = true;
+
+        // add current suggestion items
+        arr.forEach(e => {
+          const suggestion = document.createElement('ui5-suggestion-item');
+
+          // suggestions from furo.optionItem
+          if (e.id !== undefined) {
+            suggestion.text = e.id;
+          }
+
+          // suggestions from furo.optionItem
+          if (e.display_name !== undefined && e.display_name !== e.id) {
+            suggestion.description = e.display_name;
+          }
+
+          // suggestions from fat attribute
+          if (e.text !== undefined) {
+            suggestion.text = e.text;
+          }
+
+          // appends only when suggestion text exists
+          if (suggestion.text !== undefined) {
+            if (e.icon !== undefined) {
+              suggestion.icon = e.icon;
+            }
+            if (e.image !== undefined) {
+              suggestion.image = e.image;
+            }
+            if (e.type !== undefined) {
+              suggestion.type = e.type;
+            }
+            if (e.infoState !== undefined) {
+              suggestion.infoState = e.infoState;
+            }
+            if (e.group !== undefined) {
+              suggestion.group = e.group;
+            }
+            if (e.key !== undefined) {
+              suggestion.key = e.key;
+            }
+
+            this.appendChild(suggestion);
+          }
+        });
+      }
     }
   }
 }

@@ -1,0 +1,22 @@
+{
+  "data": {
+    "fat_string": {
+      "value": "furo fat string with information msg",
+      "labels": {
+        "before": true,
+        "show-suggestions": true,
+        "required": true
+      },
+      "attributes": {
+        "value-state": "Information",
+        "information-msg": "this is an information msg",
+        "maxlength": 6,
+        "label": "response label",
+        "placeholder": "place holder",
+        "icon": "world"
+      }
+    }
+  },
+  "links": [],
+  "meta": {}
+}
