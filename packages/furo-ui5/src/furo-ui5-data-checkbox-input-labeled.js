@@ -82,7 +82,6 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
-
       `
     );
   }
@@ -94,9 +93,9 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
   bindData(fieldNode) {
     Ui5LabelDataBinding.bindData(this, fieldNode);
 
-    fieldNode.addEventListener('this-metas-changed', ()=>{
+    fieldNode.addEventListener('this-metas-changed', () => {
       this._FBPTriggerWire('--placeholder', fieldNode._meta.placeholder || '');
-    })
+    });
 
     this._FBPTriggerWire('--placeholder', this.placeholder || '');
   }

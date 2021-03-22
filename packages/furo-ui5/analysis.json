@@ -859,9 +859,9 @@
           }
         },
         {
-          "name": "required",
-          "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field is required and marked with *.",
+          "name": "placeholder",
+          "type": "string | null | undefined",
+          "description": "html placeholder attribute",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -869,7 +869,28 @@
               "column": 6
             },
             "end": {
-              "line": 50,
+              "line": 48,
+              "column": 35
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "required",
+          "type": "boolean | null | undefined",
+          "description": "A Boolean attribute which, if present, means this field is required and marked with *.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 6
+            },
+            "end": {
+              "line": 55,
               "column": 7
             }
           },
@@ -886,11 +907,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 55,
+              "line": 60,
               "column": 6
             },
             "end": {
-              "line": 57,
+              "line": 62,
               "column": 7
             }
           },
@@ -907,11 +928,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 67,
               "column": 6
             },
             "end": {
-              "line": 64,
+              "line": 69,
               "column": 7
             }
           },
@@ -949,11 +970,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 90,
+              "line": 93,
               "column": 2
             },
             "end": {
-              "line": 93,
+              "line": 101,
               "column": 3
             }
           },
@@ -973,11 +994,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 107,
               "column": 2
             },
             "end": {
-              "line": 115,
+              "line": 125,
               "column": 3
             }
           },
@@ -1002,7 +1023,7 @@
           "column": 0
         },
         "end": {
-          "line": 116,
+          "line": 126,
           "column": 1
         }
       },
@@ -1027,15 +1048,31 @@
           "type": "string | null | undefined"
         },
         {
-          "name": "required",
-          "description": "A Boolean attribute which, if present, means this field is required and marked with *.",
+          "name": "placeholder",
+          "description": "html placeholder attribute",
           "sourceRange": {
             "start": {
               "line": 48,
               "column": 6
             },
             "end": {
-              "line": 50,
+              "line": 48,
+              "column": 35
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "required",
+          "description": "A Boolean attribute which, if present, means this field is required and marked with *.",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 6
+            },
+            "end": {
+              "line": 55,
               "column": 7
             }
           },
@@ -1047,11 +1084,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 55,
+              "line": 60,
               "column": 6
             },
             "end": {
-              "line": 57,
+              "line": 62,
               "column": 7
             }
           },
@@ -1063,11 +1100,11 @@
           "description": "A Boolean attribute which, if present, means this field is readonly.",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 67,
               "column": 6
             },
             "end": {
-              "line": 64,
+              "line": 69,
               "column": 7
             }
           },
@@ -3449,7 +3486,7 @@
               "column": 2
             },
             "end": {
-              "line": 320,
+              "line": 322,
               "column": 3
             }
           },
@@ -3466,11 +3503,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 327,
+              "line": 329,
               "column": 2
             },
             "end": {
-              "line": 333,
+              "line": 335,
               "column": 3
             }
           },
@@ -3487,11 +3524,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 384,
+              "line": 386,
               "column": 2
             },
             "end": {
-              "line": 440,
+              "line": 442,
               "column": 3
             }
           },
@@ -3639,11 +3676,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 335,
+              "line": 337,
               "column": 2
             },
             "end": {
-              "line": 355,
+              "line": 357,
               "column": 3
             }
           },
@@ -3659,11 +3696,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 362,
+              "line": 364,
               "column": 2
             },
             "end": {
-              "line": 376,
+              "line": 378,
               "column": 3
             }
           },
@@ -3687,7 +3724,7 @@
           "column": 7
         },
         "end": {
-          "line": 441,
+          "line": 443,
           "column": 1
         }
       },
@@ -3980,7 +4017,7 @@
               "column": 2
             },
             "end": {
-              "line": 320,
+              "line": 322,
               "column": 3
             }
           },
@@ -3999,11 +4036,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 327,
+              "line": 329,
               "column": 2
             },
             "end": {
-              "line": 333,
+              "line": 335,
               "column": 3
             }
           },
@@ -4022,11 +4059,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 384,
+              "line": 386,
               "column": 2
             },
             "end": {
-              "line": 440,
+              "line": 442,
               "column": 3
             }
           },
@@ -4188,11 +4225,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 335,
+              "line": 337,
               "column": 2
             },
             "end": {
-              "line": 355,
+              "line": 357,
               "column": 3
             }
           },
@@ -4210,11 +4247,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 362,
+              "line": 364,
               "column": 2
             },
             "end": {
-              "line": 376,
+              "line": 378,
               "column": 3
             }
           },
@@ -5658,7 +5695,7 @@
               "column": 2
             },
             "end": {
-              "line": 320,
+              "line": 322,
               "column": 3
             }
           },
@@ -5677,11 +5714,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 327,
+              "line": 329,
               "column": 2
             },
             "end": {
-              "line": 333,
+              "line": 335,
               "column": 3
             }
           },
@@ -5700,11 +5737,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 384,
+              "line": 386,
               "column": 2
             },
             "end": {
-              "line": 440,
+              "line": 442,
               "column": 3
             }
           },
@@ -5864,11 +5901,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 335,
+              "line": 337,
               "column": 2
             },
             "end": {
-              "line": 355,
+              "line": 357,
               "column": 3
             }
           },
@@ -5886,11 +5923,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 362,
+              "line": 364,
               "column": 2
             },
             "end": {
-              "line": 376,
+              "line": 378,
               "column": 3
             }
           },
@@ -6542,7 +6579,7 @@
               "column": 2
             },
             "end": {
-              "line": 320,
+              "line": 322,
               "column": 3
             }
           },
@@ -6561,11 +6598,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 327,
+              "line": 329,
               "column": 2
             },
             "end": {
-              "line": 333,
+              "line": 335,
               "column": 3
             }
           },
@@ -6584,11 +6621,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 384,
+              "line": 386,
               "column": 2
             },
             "end": {
-              "line": 440,
+              "line": 442,
               "column": 3
             }
           },
@@ -6748,11 +6785,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 335,
+              "line": 337,
               "column": 2
             },
             "end": {
-              "line": 355,
+              "line": 357,
               "column": 3
             }
           },
@@ -6770,11 +6807,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 362,
+              "line": 364,
               "column": 2
             },
             "end": {
-              "line": 376,
+              "line": 378,
               "column": 3
             }
           },
@@ -10584,7 +10621,7 @@
               "column": 2
             },
             "end": {
-              "line": 320,
+              "line": 322,
               "column": 3
             }
           },
@@ -10603,11 +10640,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 327,
+              "line": 329,
               "column": 2
             },
             "end": {
-              "line": 333,
+              "line": 335,
               "column": 3
             }
           },
@@ -10626,11 +10663,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 384,
+              "line": 386,
               "column": 2
             },
             "end": {
-              "line": 440,
+              "line": 442,
               "column": 3
             }
           },
@@ -10782,11 +10819,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 335,
+              "line": 337,
               "column": 2
             },
             "end": {
-              "line": 355,
+              "line": 357,
               "column": 3
             }
           },
@@ -10804,11 +10841,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 362,
+              "line": 364,
               "column": 2
             },
             "end": {
-              "line": 376,
+              "line": 378,
               "column": 3
             }
           },
@@ -13268,8 +13305,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-form-field-container",
-          "description": "Simple use"
+          "url": "demo-furo-ui5-data-textarea-input-labeled",
+          "description": "Basic Usage"
         }
       ],
       "metadata": {},
