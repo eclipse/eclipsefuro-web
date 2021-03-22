@@ -13,7 +13,7 @@ import './furo-ui5-data-checkbox-input.js';
  *
  * @summary labeled input field
  * @customElement
- * @demo demo-furo-ui5-form-field-container Simple use
+ * @demo demo-furo-ui5-data-checkbox-input-labeled Basic Usage
  * @appliesMixin FBP
  */
 class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
@@ -44,6 +44,11 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
       label: { type: String },
 
       /**
+       * html placeholder attribute
+       */
+      placeholder: { type: String },
+
+      /**
        * A Boolean attribute which, if present, means this field is required and marked with *.
        */
       required: {
@@ -54,6 +59,13 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       disabled: {
+        type: Boolean,
+      },
+
+      /**
+       * A Boolean attribute which, if present, means this field is readonly.
+       */
+      readonly: {
         type: Boolean,
       },
     };
@@ -70,9 +82,7 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
-        furo-ui5-data-checkbox-input {
-          width: 44px;
-        }
+
       `
     );
   }
@@ -83,7 +93,12 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
    */
   bindData(fieldNode) {
     Ui5LabelDataBinding.bindData(this, fieldNode);
-    this._FBPTriggerWire('--label', '');
+
+    fieldNode.addEventListener('this-metas-changed', ()=>{
+      this._FBPTriggerWire('--placeholder', fieldNode._meta.placeholder || '');
+    })
+
+    this._FBPTriggerWire('--placeholder', this.placeholder || '');
   }
 
   /**
@@ -101,7 +116,9 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
           content
           id="Input"
           ?disabled=${this.disabled}
-          ƒ-.text="--label"
+          ?readonly=${this.readonly}
+          ?required=${this.required}
+          ƒ-.text="--placeholder"
           ƒ-bind-data="--data"
         ></furo-ui5-data-checkbox-input>
       </furo-ui5-form-field-container>

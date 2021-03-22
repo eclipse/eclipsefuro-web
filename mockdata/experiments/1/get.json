@@ -342,7 +342,8 @@
       "data.furo_data_checkbox_input": {
         "meta": {
           "label": "checkbox label via meta",
-          "readonly": false
+          "readonly": false,
+          "placeholder": "Additional checkbox text"
         }
       },
       "data.furo_data_text_input": {
