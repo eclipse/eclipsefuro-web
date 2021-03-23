@@ -202,6 +202,12 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       disabled: {
         type: Boolean,
       },
+      /**
+       * A Boolean attribute which, if present, means this field is readonly.
+       */
+      readonly: {
+        type: Boolean,
+      },
     };
   }
 
@@ -375,13 +381,15 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       <furo-horizontal-flex>
         <ui5-input
           type="Number"
-          ?disabled=${this.readonly || this.disabled}
+          ?disabled=${this.disabled}
+          ?readonly=${this.readonly}
           ?required=${this.required}
           ƒ-.value="--valueAmount"
           @-input="--inputInput(*)"
         ></ui5-input>
         <furo-ui5-data-text-input
-          ?disabled=${this.readonly || this.disabled}
+          ?disabled=${this.disabled}
+          ?readonly=${this.readonly}
           ?required=${this.required}
           ƒ-bind-data="--data(*.currency_code)"
           ƒ-.suggestions="--suggestions"
