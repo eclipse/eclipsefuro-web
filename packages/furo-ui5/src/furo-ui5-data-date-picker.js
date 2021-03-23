@@ -40,13 +40,24 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
    * webcomponent lifecycle event
    */
   connectedCallback() {
-    // initiate valueStateMessage to avoid error in InputTemplate.lit.js
-    if (this.valueStateMessage === undefined) {
-      this.valueStateMessage = '';
-    }
+    this.attributeReadonly = this.readonly;
     setTimeout(() => {
       super.connectedCallback();
     }, 0);
+  }
+
+  /**
+   * overwrite to fix error
+   * @returns {*|{}}
+   */
+  get valueStateMessage() {
+    return super.valueStateMessage || {};
+  }
+
+  set _readonly(readonly) {
+    if (!this.attributeReadonly) {
+      this.readonly = readonly;
+    }
   }
 
   /**
@@ -87,7 +98,7 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
     // set the label mappings
     this.binder.labelMappings = {
       error: '_error',
-      readonly: 'readonly',
+      readonly: '_readonly',
       required: 'required',
       disabled: 'disabled',
       modified: 'modified',

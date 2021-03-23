@@ -71,7 +71,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
     // set the label mappings
     this.binder.labelMappings = {
       error: 'error',
-      readonly: 'readonly',
+      readonly: '_readonly',
       required: 'required',
       disabled: 'disabled',
       condensed: 'condensed',
@@ -92,6 +92,25 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
 
     // the extended furo-text-input component uses _value
     this.binder.targetValueField = '_value';
+  }
+
+  /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   * @private
+   */
+  // eslint-disable-next-line no-dupe-class-members
+  connectedCallback() {
+    this.attributeReadonly = this.readonly;
+
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
+  }
+
+  set _readonly(readonly) {
+    if (!this.attributeReadonly) {
+      this.readonly = readonly;
+    }
   }
 
   /**

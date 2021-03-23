@@ -91,7 +91,7 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
         <template>
           <furo-form-layouter two>
             <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
-            >Load Demo Data</furo-ui5-button
+              >Load Demo Data</furo-ui5-button
             >
             <furo-ui5-data-text-input
               style="width: 100%"
@@ -145,7 +145,12 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
           </furo-form-layouter>
 
           <furo-button-bar>
-            <produce-qp-data hidden ƒ-produce="--demoDataRequested" @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
+            <produce-qp-data
+              hidden
+              ƒ-produce="--demoDataRequested"
+              @-data="--qp"
+              qpescaped="%7B%22exp%22%3A1%7D"
+            ></produce-qp-data>
           </furo-button-bar>
 
           <p>
