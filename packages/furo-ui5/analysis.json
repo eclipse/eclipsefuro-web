@@ -2433,6 +2433,27 @@
               "attributeType": "Boolean"
             }
           }
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | null | undefined",
+          "description": "A Boolean attribute which, if present, means this field is readonly.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 62,
+              "column": 6
+            },
+            "end": {
+              "line": 64,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
         }
       ],
       "methods": [
@@ -2462,11 +2483,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 81,
+              "line": 87,
               "column": 2
             },
             "end": {
-              "line": 83,
+              "line": 89,
               "column": 3
             }
           },
@@ -2486,11 +2507,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 89,
+              "line": 95,
               "column": 2
             },
             "end": {
-              "line": 106,
+              "line": 113,
               "column": 3
             }
           },
@@ -2515,7 +2536,7 @@
           "column": 0
         },
         "end": {
-          "line": 107,
+          "line": 114,
           "column": 1
         }
       },
@@ -2565,6 +2586,22 @@
             },
             "end": {
               "line": 58,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "readonly",
+          "description": "A Boolean attribute which, if present, means this field is readonly.",
+          "sourceRange": {
+            "start": {
+              "line": 62,
+              "column": 6
+            },
+            "end": {
+              "line": 64,
               "column": 7
             }
           },
@@ -2813,6 +2850,27 @@
               "attributeType": "Boolean"
             }
           }
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | null | undefined",
+          "description": "A Boolean attribute which, if present, means this field is readonly.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 60,
+              "column": 6
+            },
+            "end": {
+              "line": 62,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
         }
       ],
       "methods": [
@@ -2842,11 +2900,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 79,
+              "line": 85,
               "column": 2
             },
             "end": {
-              "line": 81,
+              "line": 87,
               "column": 3
             }
           },
@@ -2866,11 +2924,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 93,
               "column": 2
             },
             "end": {
-              "line": 104,
+              "line": 111,
               "column": 3
             }
           },
@@ -2884,8 +2942,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-form-field-container",
-          "description": "Simple use"
+          "url": "demo-furo-ui5-data-date-time-picker-labeled",
+          "description": "Basic Usage"
         }
       ],
       "metadata": {},
@@ -2895,7 +2953,7 @@
           "column": 0
         },
         "end": {
-          "line": 105,
+          "line": 112,
           "column": 1
         }
       },
@@ -2945,6 +3003,22 @@
             },
             "end": {
               "line": 56,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "readonly",
+          "description": "A Boolean attribute which, if present, means this field is readonly.",
+          "sourceRange": {
+            "start": {
+              "line": 60,
+              "column": 6
+            },
+            "end": {
+              "line": 62,
               "column": 7
             }
           },
@@ -4828,8 +4902,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-form-field-container",
-          "description": "Simple use"
+          "url": "demo-furo-ui5-data-money-input-labeled",
+          "description": "Basic Usage"
         }
       ],
       "metadata": {},

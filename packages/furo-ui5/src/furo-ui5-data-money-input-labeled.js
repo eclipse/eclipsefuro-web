@@ -13,7 +13,7 @@ import './furo-ui5-data-money-input.js';
  *
  * @summary labeled input field
  * @customElement
- * @demo demo-furo-ui5-form-field-container Simple use
+ * @demo demo-furo-ui5-data-money-input-labeled Basic Usage
  * @appliesMixin FBP
  */
 class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
@@ -52,6 +52,12 @@ class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       disabled: {
+        type: Boolean,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field is readonly.
+       */
+      readonly: {
         type: Boolean,
       },
     };
@@ -95,6 +101,7 @@ class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
           content
           id="Input"
           ?disabled=${this.disabled}
+          ?readonly=${this.readonly}
           ƒ-bind-data="--data"
         ></furo-ui5-data-money-input>
       </furo-ui5-form-field-container>
