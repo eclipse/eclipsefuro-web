@@ -39,10 +39,6 @@ class DemoFuroUi5Button extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
-
-        furo-demo-snippet {
-          padding: 10px;
-        }
       `
     );
   }
@@ -59,65 +55,70 @@ class DemoFuroUi5Button extends FBP(LitElement) {
         <furo-demo-snippet flex>
           <template>
             <furo-vertical-scroller>
-              <furo-form-layouter one>
-                <p>Button state default:</p>
-                <furo-ui5-button>Action</furo-ui5-button>
+              <ui5-panel>
+                <furo-form-layouter one>
+                  <p>Button state default:</p>
+                  <furo-ui5-button>Action</furo-ui5-button>
 
-                <p>Buttons with various designs:</p>
-                <furo-ui5-button-bar>
-                  <furo-ui5-button>Default</furo-ui5-button>
-                  <furo-ui5-button design="Transparent">Transparent</furo-ui5-button>
-                  <furo-ui5-button design="Positive">Positive</furo-ui5-button>
-                  <furo-ui5-button design="Negative">Negative</furo-ui5-button>
-                  <furo-ui5-button design="Emphasized">Emphasized</furo-ui5-button>
-                </furo-ui5-button-bar>
+                  <p>Buttons with various designs:</p>
+                  <furo-ui5-button-bar>
+                    <furo-ui5-button design="Negative">Negative</furo-ui5-button>
+                    <furo-empty-spacer></furo-empty-spacer>
+                    <furo-ui5-button design="Emphasized">Emphasized</furo-ui5-button>
+                    <furo-ui5-button design="Positive">Positive</furo-ui5-button>
+                    <furo-ui5-button design="Transparent">Transparent</furo-ui5-button>
+                    <furo-ui5-button>Default</furo-ui5-button>
+                  </furo-ui5-button-bar>
 
-                <p>Button disabled:</p>
-                <furo-ui5-button
-                  ƒ-enable="--enableRequested"
-                  ƒ-disable="--disableRequested"
-                  disabled
-                  >Disabled or Enabled</furo-ui5-button
-                >
-                <p>Use of the convenience functions enable/disable</p>
-                <furo-ui5-button-bar>
-                  <furo-ui5-button @-click="--enableRequested" design="Positive"
-                    >ƒ-enable</furo-ui5-button
+                  <p>Button disabled:</p>
+                  <furo-ui5-button
+                    ƒ-enable="--enableRequested"
+                    ƒ-disable="--disableRequested"
+                    disabled
+                    >Disabled or Enabled</furo-ui5-button
                   >
-                  <furo-ui5-button @-click="--disableRequested" design="Negative"
-                    >ƒ-disable</furo-ui5-button
-                  >
-                </furo-ui5-button-bar>
+                  <p>Use of the convenience functions enable/disable</p>
+                  <furo-ui5-button-bar>
+                    <furo-empty-spacer></furo-empty-spacer>
+                    <furo-ui5-button @-click="--enableRequested" design="Positive"
+                      >ƒ-enable</furo-ui5-button
+                    >
+                    <furo-ui5-button @-click="--disableRequested" design="Negative"
+                      >ƒ-disable</furo-ui5-button
+                    >
+                  </furo-ui5-button-bar>
 
-                <p>Buttons with icons:</p>
-                <furo-ui5-button-bar>
-                  <furo-ui5-button
-                    icon="accept"
-                    design="Positive"
-                    aria-labelledby="lblAccept"
-                  ></furo-ui5-button>
-                  <furo-ui5-button icon="accept" design="Positive" aria-labelledby="lblAccept"
-                    >With leading icon</furo-ui5-button
-                  >
-                  <furo-ui5-button
-                    icon="accept"
-                    icon-end
-                    design="Positive"
-                    aria-labelledby="lblAccept"
-                    >With trailing icon</furo-ui5-button
-                  >
-                  <furo-ui5-button
-                    icon="away"
-                    design="Negative"
-                    aria-labelledby="lblAway"
-                  ></furo-ui5-button>
-                  <furo-ui5-button
-                    icon="action-settings"
-                    aria-labelledby="lblSettings"
-                    design="Transparent"
-                  ></furo-ui5-button>
-                </furo-ui5-button-bar>
-              </furo-form-layouter>
+                  <p>Buttons with icons:</p>
+                  <furo-ui5-button-bar>
+                    <furo-ui5-button
+                      icon="away"
+                      design="Negative"
+                      aria-labelledby="lblAway"
+                    ></furo-ui5-button>
+                    <furo-empty-spacer></furo-empty-spacer>
+                    <furo-ui5-button
+                      icon="accept"
+                      design="Positive"
+                      aria-labelledby="lblAccept"
+                    ></furo-ui5-button>
+                    <furo-ui5-button icon="accept" design="Positive" aria-labelledby="lblAccept"
+                      >With leading icon</furo-ui5-button
+                    >
+                    <furo-ui5-button
+                      icon="accept"
+                      icon-end
+                      design="Positive"
+                      aria-labelledby="lblAccept"
+                      >With trailing icon</furo-ui5-button
+                    >
+                    <furo-ui5-button
+                      icon="action-settings"
+                      aria-labelledby="lblSettings"
+                      design="Transparent"
+                    ></furo-ui5-button>
+                  </furo-ui5-button-bar>
+                </furo-form-layouter>
+              </ui5-panel>
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>

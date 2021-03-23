@@ -107,7 +107,16 @@ class DemoFuroUi5DataTextInputMarkupOverwrite extends FBP(LitElement) {
           </furo-form-layouter>
 
           <furo-button-bar>
-            <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
+            <furo-empty-spacer></furo-empty-spacer>
+            <furo-ui5-button design="Emphasized" @-click="--demoDataRequested"
+              >Load Demo Data</furo-ui5-button
+            >
+            <produce-qp-data
+              hidden
+              ƒ-produce="--demoDataRequested"
+              @-data="--qp"
+              qpescaped="%7B%22exp%22%3A1%7D"
+            ></produce-qp-data>
           </furo-button-bar>
 
           <furo-data-object

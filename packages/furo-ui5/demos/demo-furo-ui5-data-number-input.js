@@ -77,11 +77,17 @@ class DemoFuroUi5DataNumberInput extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-vertical-flex>
+        <h2>
+          Basic usage of furo-ui5-data-number-input
+        </h2>
+        <p>If you want to simply use a data bound number field with automatic label handling.</p>
         <furo-demo-snippet>
           <template>
             <furo-vertical-scroller>
-              <h2>Demo furo-ui5-data-number-input</h2>
               <furo-form-layouter two>
+                <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
+                  >Load Demo Data</furo-ui5-button
+                >
                 <furo-ui5-data-number-input
                   ƒ-bind-data="--entity(*.data.furo_data_number_input)"
                 ></furo-ui5-data-number-input>
@@ -91,7 +97,12 @@ class DemoFuroUi5DataNumberInput extends FBP(LitElement) {
               </furo-form-layouter>
 
               <furo-button-bar>
-                <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A2%7D"></produce-qp-data>
+                <produce-qp-data
+                  hidden
+                  ƒ-produce="--demoDataRequested"
+                  @-data="--qp"
+                  qpescaped="%7B%22exp%22%3A2%7D"
+                ></produce-qp-data>
               </furo-button-bar>
 
               <p>
