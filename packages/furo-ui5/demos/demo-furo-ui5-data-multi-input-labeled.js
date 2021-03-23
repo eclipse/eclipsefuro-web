@@ -104,7 +104,6 @@ class DemoFuroUi5DataMultiInputLabeled extends FBP(LitElement) {
       <p>If you want to simply use a data bound text field with automatic label handling.</p>
       <p>The following markup overwrites are possible:</p>
       <ol>
-        <li>set a custom icon</li>
         <li>disabled</li>
         <li>readonly</li>
         <li>required</li>
@@ -123,9 +122,7 @@ class DemoFuroUi5DataMultiInputLabeled extends FBP(LitElement) {
               required
               title="The title attribute specifies extra information about an element."
               ƒ-bind-data="--entity(*.data.repstring)"
-            >
-              <ui5-icon slot="icon" name="filter"></ui5-icon>
-            </furo-ui5-data-multi-input-labeled>
+            ></furo-ui5-data-multi-input-labeled>
           </furo-form-layouter>
 
           <furo-form-layouter one>
@@ -134,9 +131,7 @@ class DemoFuroUi5DataMultiInputLabeled extends FBP(LitElement) {
               readonly
               title="READONLY. The title attribute specifies extra information about an element."
               ƒ-bind-data="--entity(*.data.repstring)"
-            >
-              <ui5-icon slot="icon" name="filter"></ui5-icon>
-            </furo-ui5-data-multi-input-labeled>
+            ></furo-ui5-data-multi-input-labeled>
           </furo-form-layouter>
 
           <furo-form-layouter one>
@@ -145,9 +140,7 @@ class DemoFuroUi5DataMultiInputLabeled extends FBP(LitElement) {
               disabled
               title="DISABLED. The title attribute specifies extra information about an element."
               ƒ-bind-data="--entity(*.data.repstring)"
-            >
-              <ui5-icon slot="icon" name="filter"></ui5-icon>
-            </furo-ui5-data-multi-input-labeled>
+            ></furo-ui5-data-multi-input-labeled>
           </furo-form-layouter>
 
           <produce-qp-data
