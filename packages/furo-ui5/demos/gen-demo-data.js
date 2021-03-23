@@ -161,6 +161,21 @@ class GenDemoData extends LitElement {
         display_name: 'Hint Text via response Meta',
         link: '/mockdata/ui5/demos/fat-universal-with-meta.json',
       },
+      {
+        id: '7',
+        display_name: 'readonly via response Meta',
+        link: '/mockdata/ui5/demos/fat-universal-readonly.json',
+      },
+      {
+        id: '8',
+        display_name: 'maxlength 4 via response constraint',
+        link: '/mockdata/ui5/demos/fat-universal-with-meta.json',
+      },
+      {
+        id: '9',
+        display_name: 'suggestions via Fat Attribute',
+        link: '/mockdata/ui5/demos/fat-universal-suggestions.json',
+      },
     ];
 
     const customEvent = new Event('value-state-list', { composed: true, bubbles: true });

@@ -91,7 +91,9 @@ class DemoFuroUi5DataDateTimePickerLabeled extends FBP(LitElement) {
       <h2>
         Basic usage of furo-ui5-data-date-tiem-picker-labeled
       </h2>
-      <p>If you want to simply use a data bound date time picker field with automatic label handling.</p>
+      <p>
+        If you want to simply use a data bound date time picker field with automatic label handling.
+      </p>
       <p>The following markup overwrites are possible:</p>
       <ol>
         <li>disabled</li>

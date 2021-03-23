@@ -1,0 +1,58 @@
+{
+  "data": {
+    "fat_string": {
+      "value": "furo fat string with suggestions",
+      "labels": {
+        "before": true,
+        "show-suggestions": true,
+        "required": true
+      },
+      "attributes": {
+        "value-state": "Error",
+        "min": 6,
+        "max": 16,
+        "maxlength": 6,
+        "label": "override",
+        "placeholder": "overridePH",
+        "errortext": "this is an errortext",
+        "icon": "world",
+        "suggestions": [
+          {
+            "text": "Spain",
+            "icon": "world",
+            "type": "Active",
+            "infoState": "None",
+            "group": false,
+            "key": 0
+          },
+          {
+            "text": "Sweden",
+            "icon": "world",
+            "type": "Active",
+            "infoState": "None",
+            "group": false,
+            "key": 1
+          },
+          {
+            "text": "Sri Lanka",
+            "icon": "world",
+            "type": "Active",
+            "infoState": "None",
+            "group": false,
+            "key": 9
+          },
+          {
+            "text": "Senegal",
+            "icon": "world",
+            "type": "Active",
+            "infoState": "None",
+            "group": false,
+            "key": 3
+          }
+        ]
+      }
+    }
+  },
+  "links": [],
+  "meta": {}
+}

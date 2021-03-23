@@ -88,7 +88,9 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
           <h4>Scalar and complex Types</h4>
           <p>One component fits all types</p>
           <furo-form-layouter one>
-            <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested">Load Demo Data</furo-ui5-button>
+            <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
+              >Load Demo Data</furo-ui5-button
+            >
           </furo-form-layouter>
 
           <furo-ui5-data-display
