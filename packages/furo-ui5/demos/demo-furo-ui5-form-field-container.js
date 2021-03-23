@@ -78,20 +78,30 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <!-- Sub navigation bar -->
-          <ui5-panel>
-            <ui5-tabcontainer
-              class="full-width"
-              collapsed
-              fixed
-              show-overflow
-              @-tab-select="--subTabSelected"
-            >
-              <ui5-tab text="First Section" data-id="one" selected></ui5-tab>
-              <ui5-tab text="Second Section" data-id="two"></ui5-tab>
-              <ui5-tab text="Third Section" data-id="three"></ui5-tab>
-              <ui5-tab text="Read Only Section" data-id="four"></ui5-tab>
-            </ui5-tabcontainer>
-          </ui5-panel>
+          <ui5-tabcontainer
+            class="full-width"
+            collapsed
+            fixed
+            show-overflow
+            @-tab-select="--subTabSelected"
+          >
+            <ui5-tab text="First Section" data-id="one" selected></ui5-tab>
+            <ui5-tab text="Second Section" data-id="two"></ui5-tab>
+            <ui5-tab text="Third Section" data-id="three"></ui5-tab>
+            <ui5-tab text="Read Only Section" data-id="four"></ui5-tab>
+          </ui5-tabcontainer>
+
+          <furo-button-bar slot="action">
+            <produce-qp-data
+              hidden
+              ƒ-produce="--demoDataRequested"
+              @-data="--qp"
+              qpescaped="%7B%22exp%22%3A1%7D"
+            ></produce-qp-data>
+            <furo-empty-spacer></furo-empty-spacer>
+            <furo-ui5-button @-click="--demoDataRequested">Load Demo Data</furo-ui5-button>
+            <furo-ui5-button @-click="--disable">Disable input fields</furo-ui5-button>
+          </furo-button-bar>
 
           <div
             style="padding: var(--spacing) var(--spacing); background-color: var(--sapBackgroundColor)"
@@ -119,11 +129,6 @@ class DemoFuroUi5FormFieldContainer extends FBP(LitElement) {
               ></form-section-four>
             </furo-pages>
           </div>
-
-          <furo-button-bar slot="action">
-            <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
-            <furo-button @-click="--disable" outline label="disable"></furo-button>
-          </furo-button-bar>
 
           <furo-data-object
             type="experiment.ExperimentEntity"

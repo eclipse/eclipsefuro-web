@@ -38,11 +38,6 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
         :host([hidden]) {
           display: none;
         }
-
-        furo-demo-snippet {
-          --furo-form-background: white;
-          padding: 10px;
-        }
       `
     );
   }
@@ -69,25 +64,59 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
         <furo-demo-snippet flex>
           <template>
             <furo-vertical-scroller>
-              <h2>Default furo-ui5-button-bar without bind-entity</h2>
-              <furo-ui5-button outline @-click="--disableRequest">disable actions</furo-ui5-button>
-              <furo-ui5-button outline @-click="--enableRequest">enable actions</furo-ui5-button>
-              <div class="hr"></div>
+              <ui5-panel header-text="Default furo-ui5-button-bar without bind-entity">
+                <furo-form-layouter two>
+                  <furo-ui5-button outline @-click="--disableRequest">disable actions</furo-ui5-button>
+                  <furo-ui5-button outline @-click="--enableRequest">enable actions</furo-ui5-button>
+                </furo-form-layouter>
+                </br>
+                <furo-ui5-button-bar ƒ-disable-all="--disableRequest" ƒ-enable-all="--enableRequest">
+                  <furo-ui5-button design="Negative">Danger Action</furo-ui5-button>
+                  <furo-empty-spacer></furo-empty-spacer>
 
-              <furo-ui5-button-bar ƒ-disable-all="--disableRequest" ƒ-enable-all="--enableRequest">
-                <furo-ui5-button design="Negative">Danger Action</furo-ui5-button>
-                <furo-empty-spacer></furo-empty-spacer>
+                  <furo-ui5-button design="Emphasized" unelevated>primary action</furo-ui5-button>
+                  <furo-ui5-button design="Default" unelevated>second action</furo-ui5-button>
+                  <furo-ui5-button design="Positive" unelevated>another action</furo-ui5-button>
+                </furo-ui5-button-bar>
+              </ui5-panel>
 
-                <furo-ui5-button design="Emphasized" unelevated>primary action</furo-ui5-button>
-                <furo-ui5-button design="Default" unelevated>second action</furo-ui5-button>
-                <furo-ui5-button design="Positive" unelevated>another action</furo-ui5-button>
-              </furo-ui5-button-bar>
+              <ui5-panel header-text="Furo-ui5-button-bar with bound entity">
+                <p>
+                  Please throttle your network connection in the dev console to see the pending
+                  request state.
+                </p>
+                <furo-form-layouter two>
+                  <furo-ui5-button @-click="--load">Load response with HATEOAS</furo-ui5-button>
+                </furo-form-layouter>
+                </br>
+                <furo-ui5-button-bar
+                  ƒ-bind-entity="--entity"
+                  ƒ-disable-all="--reqStarted"
+                  ƒ-enable-all="--response"
+                >
+                  <furo-ui5-button rel="delete" disable-no-rel design="Negative" unelevated
+                  >Danger Action
+                  </furo-ui5-button>
+                  <furo-empty-spacer></furo-empty-spacer>
 
-              <h2>furo-ui5-button-bar with bound entity</h2>
-              <p>
-                Please throttle your network connection in the dev console to see the pending
-                request state.
-              </p>
+                  <furo-ui5-button rel="self" hide-no-rel design="Emphasized"
+                  >hidden if no relation self
+                  </furo-ui5-button>
+                  <furo-ui5-button rel="update" disable-no-rel
+                  >disabled if no relation update
+                  </furo-ui5-button>
+                  <furo-ui5-button disable-pristine disable-not-valid
+                  >disabled if pristine (e.g. save)
+                  </furo-ui5-button>
+                </furo-ui5-button-bar>
+
+                <produce-qp-data
+                  hidden
+                  ƒ-produce="--load"
+                  @-data="--qp"
+                  qpescaped="%7B%22tsk%22%3A1%7D"
+                ></produce-qp-data>
+              </ui5-panel>
 
               <furo-deep-link
                 service="TaskService"
@@ -107,33 +136,7 @@ class DemoFuroUi5ButtonBar extends FBP(LitElement) {
                 ƒ-inject-raw="--response"
               ></furo-data-object>
 
-              <furo-ui5-button-bar
-                ƒ-bind-entity="--entity"
-                ƒ-disable-all="--reqStarted"
-                ƒ-enable-all="--response"
-              >
-                <furo-ui5-button rel="delete" disable-no-rel design="Negative" unelevated
-                  >Danger Action
-                </furo-ui5-button>
-                <furo-empty-spacer></furo-empty-spacer>
 
-                <furo-ui5-button rel="self" hide-no-rel design="Emphasized"
-                  >hidden if no relation self
-                </furo-ui5-button>
-                <furo-ui5-button rel="update" disable-no-rel
-                  >disabled if no relation update
-                </furo-ui5-button>
-                <furo-ui5-button disable-pristine disable-not-valid
-                  >disabled if pristine (e.g. save)
-                </furo-ui5-button>
-              </furo-ui5-button-bar>
-
-              <br />
-              <produce-qp-data
-                ƒ-produce="--load"
-                @-data="--qp"
-                qpescaped="%7B%22tsk%22%3A1%7D"
-              ></produce-qp-data>
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>
