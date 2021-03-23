@@ -24,15 +24,15 @@
       {
         "code": "c0a7f550-0fbe-4046-8fa9-60c86327b6b1",
         "data": {
-          "@type": "type.googleapis.com/furo.StringProperty",
-          "data": "01032020"
+          "@type": "type.furo.com/furo.StringProperty",
+          "data": "String01032020"
         },
         "flags": ["is-overwritable", "my-prop"],
         "display_name": "Vertragsbeginn",
         "id": "246d79a0-0a15-43c5-b18f-ac8a4a449df1",
         "meta": {
           "fields": {
-            "data": {
+            "data.data": {
               "constraints": {
                 "required": {
                   "is": "true",
@@ -41,7 +41,7 @@
               },
               "meta": {
                 "label": "Vertragsbeginn custom label",
-                "readonly": true
+                "readonly": false
               }
             }
           }
@@ -99,9 +99,10 @@
       {
         "data": {
           "@type": "xx/google.protobuf.StringValue",
-          "value": "text google.protobuf.StringValue",
-          "display_name": "342"
+          "value": "text google.protobuf.StringValue"
         },
+
+
         "display_name": "Display",
         "id": "op33t",
         "code": "option",
@@ -120,9 +121,9 @@
         "data": {
           "@type": "xx/furo.StringOptionProperty",
           "id": "bb",
-          "display_name": "Display"
+          "display_name": "The display b"
         },
-        "display_name": "Display",
+
         "id": "444",
         "code": "option",
         "meta": {
@@ -135,7 +136,7 @@
                 "options": {
                   "list": [
                     {
-                      "id": "",
+                      "id": "0",
                       "display_name": "Please select"
                     },
                     {
@@ -191,16 +192,15 @@
       },
       {
         "data": {
-          "@type": "furo.fat.String",
-          "value": "text furo.fat.String",
-          "display_name": "furo.fat.String"
+          "@type": "xxx/furo.fat.String",
+          "value": "text furo.fat.String"
         },
         "display_name": "Display",
         "id": "op33t",
         "code": "option",
         "meta": {
           "fields": {
-            "data.value": {
+            "data": {
               "meta": {
                 "label": "fat string",
                 "hint": "Type in fat string"
@@ -220,7 +220,7 @@
         "code": "option",
         "meta": {
           "fields": {
-            "data.value": {
+            "data": {
               "meta": {
                 "label": "fat int",
                 "hint": "Type in fat int"
@@ -240,7 +240,7 @@
         "code": "option",
         "meta": {
           "fields": {
-            "data.value": {
+            "data": {
               "meta": {
                 "label": "fat Bool",
                 "hint": "Type in fat Bool"
@@ -321,17 +321,17 @@
           "options": {
             "list": [
               {
-                "@type": "type.googleapis.com/furo.Optionitem",
+                "@type": "type.furo.com/furo.Optionitem",
                 "id": "1",
                 "display_name": "Most used description"
               },
               {
-                "@type": "type.googleapis.com/furo.Optionitem",
+                "@type": "type.furo.com/furo.Optionitem",
                 "id": "2",
                 "display_name": "Most used description 2"
               },
               {
-                "@type": "type.googleapis.com/furo.Optionitem",
+                "@type": "type.furo.com/furo.Optionitem",
                 "id": "2",
                 "display_name": "Most used description 3"
               }
@@ -404,17 +404,17 @@
           "options": {
             "list": [
               {
-                "@type": "type.googleapis.com/furo.Optionitem",
+                "@type": "type.furo.com/furo.Optionitem",
                 "id": "CHF",
                 "display_name": "CHF"
               },
               {
-                "@type": "type.googleapis.com/furo.Optionitem",
+                "@type": "type.furo.com/furo.Optionitem",
                 "id": "EUR",
                 "display_name": "EUR"
               },
               {
-                "@type": "type.googleapis.com/furo.Optionitem",
+                "@type": "type.furo.com/furo.Optionitem",
                 "id": "USD",
                 "display_name": "USD"
               }
