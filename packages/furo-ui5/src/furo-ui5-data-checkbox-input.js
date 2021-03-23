@@ -56,6 +56,30 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
   }
 
   /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   */
+  connectedCallback() {
+    this.attributeReadonly = this.readonly;
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
+  }
+
+  /**
+   * overwrite to fix error
+   * @returns {*|{}}
+   */
+  get valueStateMessage() {
+    return super.valueStateMessage || {};
+  }
+
+  set _readonly(readonly) {
+    if (!this.attributeReadonly) {
+      this.readonly = readonly;
+    }
+  }
+
+  /**
    * apply the binding set to the binder
    * binding set can be customised here otherwise the standard set in the ui5-data-input will be used
    * @param fieldNode
@@ -79,7 +103,7 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
     // set the label mappings
     this.binder.labelMappings = {
       error: '_error',
-      readonly: 'readonly',
+      readonly: '_readonly',
       required: 'required',
       disabled: 'disabled',
       modified: 'modified',
