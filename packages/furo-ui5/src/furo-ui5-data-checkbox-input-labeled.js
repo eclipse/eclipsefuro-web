@@ -113,6 +113,7 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
         >
         <furo-ui5-data-checkbox-input
           content
+          wrap
           id="Input"
           ?disabled=${this.disabled}
           ?readonly=${this.readonly}
