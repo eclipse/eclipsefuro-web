@@ -170,8 +170,7 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
   static get styles() {
     return `${css`` + super.styles}
         :host([left]) .ui5-checkbox-root{
-          display: inline-block;
-          padding-left: 0;
+          width: auto;
         }
       `;
   }
