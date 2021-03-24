@@ -1,4 +1,6 @@
 import * as CheckBox from '@ui5/webcomponents/dist/CheckBox.js';
+import { css } from 'lit-element';
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
 
@@ -159,6 +161,19 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
         this._requestUpdate();
       });
     }
+  }
+
+  /**
+   * extend styling
+   * @returns {string}
+   */
+  static get styles() {
+    return `${css`` + super.styles}
+        :host([left]) .ui5-checkbox-root{
+          display: inline-block;
+          padding-left: 0;
+        }
+      `;
   }
 
   /**
