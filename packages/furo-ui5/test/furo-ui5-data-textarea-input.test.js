@@ -165,8 +165,8 @@ describe('furo-ui5-data-textarea-input', () => {
 
   it('should update the fieldNode', done => {
     input.setValue('new text set');
-    assert.equal(input._state.value, 'new text set', 'check internal text');
     setTimeout(() => {
+      assert.equal(input._state.value, 'new text set', 'check internal text');
       assert.equal(dao.data.data.furo_data_textarea_input._value, 'new text set', 'check dao');
       done();
     }, 16);
@@ -188,17 +188,19 @@ describe('furo-ui5-data-textarea-input', () => {
 
   it('should apply valueState to the bound field ', done => {
     daoFat.addEventListener('data-injected', () => {
-      assert.equal(inputFat._state.disabled, false, 'check disabled');
-      assert.equal(inputFat._state.readonly, false, 'check readonly');
-      assert.equal(inputFat._state.required, false, 'check required');
-      assert.equal(inputFat._state.value, 'fat string from record', 'check value');
-      assert.equal(inputFat._state.valueState, 'Error', 'check valueState');
-      assert.equal(
-        inputFat.__errorMsg,
-        'Your fat string is valid',
-        'check valueStateMessage content',
-      );
-      done();
+      setTimeout(() => {
+        assert.equal(inputFat._state.disabled, false, 'check disabled');
+        assert.equal(inputFat._state.readonly, false, 'check readonly');
+        assert.equal(inputFat._state.required, false, 'check required');
+        assert.equal(inputFat._state.value, 'fat string from record', 'check value');
+        assert.equal(inputFat._state.valueState, 'Error', 'check valueState');
+        assert.equal(
+          inputFat.__errorMsg,
+          'Your fat string is valid',
+          'check valueStateMessage content',
+        );
+        done();
+      }, 0);
     });
 
     daoFat.injectRaw(testRecordMeta);

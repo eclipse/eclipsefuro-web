@@ -156,8 +156,10 @@ describe('furo-ui5-data-password-input', () => {
 
   it('an update of a scalar value on the data object should be synchronized with the input field', done => {
     dao.data.data.description._value = 'Set data in the inner input element';
-    assert.equal(input._state.value, 'Set data in the inner input element');
-    done();
+    setTimeout(() => {
+      assert.equal(input._state.value, 'Set data in the inner input element');
+      done();
+    }, 0);
   });
 
   it('should set ui5 icon to the component', done => {
