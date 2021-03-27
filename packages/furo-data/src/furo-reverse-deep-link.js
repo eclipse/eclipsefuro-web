@@ -55,12 +55,12 @@ class FuroReverseDeepLink extends LitElement {
         this.rel = 'self';
       }
 
-      [linkObject] = data.links.filter(e => e.rel.toLowerCase() === this.rel.toLowerCase());
+      [linkObject] = data.links.filter(e => e.rel.toLowerCase() === this.rel.toLowerCase() && e.service.toLowerCase() === this.service.toLowerCase());
     }
 
     // Links Array
     if (Array.isArray(data)) {
-      [linkObject] = data.filter(e => e.rel === this.rel);
+      [linkObject] = data.filter(e => (e.rel.toLowerCase() === this.rel.toLowerCase() && e.service.toLowerCase() === this.service.toLowerCase()));
     }
 
     if (linkObject) {
