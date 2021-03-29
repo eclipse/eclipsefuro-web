@@ -271,6 +271,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       });
     }
 
+    this._updateField();
     this._FBPTriggerWire('--data', fieldNode);
   }
 
