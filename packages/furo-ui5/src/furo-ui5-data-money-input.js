@@ -237,6 +237,8 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
    */
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
+    const amount = this.shadowRoot.getElementById('amount');
+    const currency = this.shadowRoot.getElementById('currency');
     if (this.binder.fieldNode) {
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
         this._updateField();
@@ -250,6 +252,22 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       });
       this.binder.fieldNode.currency_code.addEventListener('field-value-changed', () => {
         this._updateField();
+      });
+
+      this.binder.fieldNode.addEventListener('field-became-invalid', e => {
+        amount._error = true;
+        currency._error = true;
+        if (e && e.detail._validity && e.detail._validity.description) {
+          amount._errorMsg = e.detail._validity.description;
+          currency._errorMsg = e.detail._validity.description;
+        }
+      });
+
+      this.binder.fieldNode.addEventListener('field-became-valid', () => {
+        amount._error = false;
+        currency._error = false;
+        amount._errorMsg = '';
+        currency._errorMsg = '';
       });
     }
 
@@ -373,13 +391,13 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
       css`
         /* https://material.io/design/components/text-fields.html#theming */
 
-        furo-ui5-data-text-input {
+        #currency {
           width: 100px;
           min-width: 100px;
           margin-left: var(--spacing-xs);
         }
 
-        ui5-input {
+        #amount {
           width: calc(100% - var(--spacing-xs) - 100px);
         }
 
@@ -398,15 +416,17 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-horizontal-flex>
-        <ui5-input
+        <furo-ui5-data-text-input
+          id="amount"
           type="Number"
           ?disabled=${this.disabled}
           ?readonly=${this.readonly}
           ?required=${this.required}
           ƒ-.value="--valueAmount"
           @-input="--inputInput(*)"
-        ></ui5-input>
+        ></furo-ui5-data-text-input>
         <furo-ui5-data-text-input
+          id="currency"
           ?disabled=${this.disabled}
           ?readonly=${this.readonly}
           ?required=${this.required}
