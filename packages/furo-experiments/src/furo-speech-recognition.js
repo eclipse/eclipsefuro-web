@@ -21,6 +21,7 @@ class FuroSpeechRecognition extends LitElement {
   constructor() {
     super();
     window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+    // eslint-disable-next-line no-undef
     this.recognition = new SpeechRecognition();
     this.recognition.interimResults = false;
 

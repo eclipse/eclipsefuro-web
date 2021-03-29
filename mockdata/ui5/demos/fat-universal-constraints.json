@@ -1,0 +1,35 @@
+{
+  "data": {
+    "id": "1",
+    "fat_string": {
+      "value": "max length 15",
+      "labels": {
+        "condensed": true
+      },
+      "attributes": {
+        "banane": "6",
+        "emotion": "friendly"
+      }
+    }
+  },
+  "links": [],
+  "meta": {
+    "fields": {
+      "data.fat_string": {
+        "meta": {
+          "hint": "max length 15",
+          "label": "fat string label set via response meta",
+          "default": "new",
+          "readonly": true
+        },
+        "constraints": {
+          "max": {"is": 15,"message": "MAX 15"},
+          "required": {
+            "is": true,
+            "message": "Bitte ausfüllen!"
+          }
+        }
+      }
+    }
+  }
+}

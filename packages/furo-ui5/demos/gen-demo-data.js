@@ -168,8 +168,8 @@ class GenDemoData extends LitElement {
       },
       {
         id: '8',
-        display_name: 'maxlength 4 via response constraint',
-        link: '/mockdata/ui5/demos/fat-universal-with-meta.json',
+        display_name: 'maxlength 15 via response constraint',
+        link: '/mockdata/ui5/demos/fat-universal-constraints.json',
       },
       {
         id: '9',

@@ -96,9 +96,6 @@ import { FBP } from '@furo/fbp';
  * @appliesMixin FBP
  */
 class FuroZGrid extends FBP(LitElement) {
-
-
-
   /**
    * flow is ready lifecycle method
    */
@@ -135,23 +132,21 @@ class FuroZGrid extends FBP(LitElement) {
    * @private
    */
   _checkSize(size) {
-
     if (size <= 600) {
       this.setAttribute('size', 'size-s');
-
     } else if (size > 600 && size <= 1023) {
       this.setAttribute('size', 'size-m');
-      if (size > 700){
-        this.setAttribute('oversize','true')
-      }else{
-        this.setAttribute('oversize','false')
+      if (size > 700) {
+        this.setAttribute('oversize', 'true');
+      } else {
+        this.setAttribute('oversize', 'false');
       }
     } else if (size > 1023 && size <= 1439) {
       this.setAttribute('size', 'size-l');
-      if (size > 1256){
-        this.setAttribute('oversize','true')
-      }else{
-        this.setAttribute('oversize','false')
+      if (size > 1256) {
+        this.setAttribute('oversize', 'true');
+      } else {
+        this.setAttribute('oversize', 'false');
       }
     } else if (size > 1439) {
       this.setAttribute('size', 'size-xl');
@@ -215,47 +210,47 @@ class FuroZGrid extends FBP(LitElement) {
         /* --furo-ui5-cardContentHeight is calculated by span * 2 - cardHeaderHeight , cardHeaderHeight is 6rem, factor 2 comes from the gaps*/
         ::slotted(*[vspan='1']) {
           grid-row: auto / span 4;
-          --furo-ui5-cardContentHeight:4rem
+          --furo-ui5-cardContentHeight: 4rem;
         }
 
         ::slotted(*[vspan='2']) {
           grid-row: auto / span 8;
-          --furo-ui5-cardContentHeight:12rem
+          --furo-ui5-cardContentHeight: 12rem;
         }
 
         ::slotted(*[vspan='3']) {
           grid-row: auto / span 12;
-          --furo-ui5-cardContentHeight:18rem
+          --furo-ui5-cardContentHeight: 18rem;
         }
 
         ::slotted(*[vspan='4']) {
           grid-row: auto / span 16;
-          --furo-ui5-cardContentHeight:26rem
+          --furo-ui5-cardContentHeight: 26rem;
         }
 
         ::slotted(*[vspan='5']) {
           grid-row: auto / span 20;
-          --furo-ui5-cardContentHeight:34rem
+          --furo-ui5-cardContentHeight: 34rem;
         }
 
         ::slotted(*[vspan='6']) {
           grid-row: auto / span 24;
-          --furo-ui5-cardContentHeight:42rem
+          --furo-ui5-cardContentHeight: 42rem;
         }
 
         ::slotted(*[vspan='7']) {
           grid-row: auto / span 28;
-          --furo-ui5-cardContentHeight:50rem
+          --furo-ui5-cardContentHeight: 50rem;
         }
 
         ::slotted(*[vspan='8']) {
           grid-row: auto / span 32;
-          --furo-ui5-cardContentHeight:58rem
+          --furo-ui5-cardContentHeight: 58rem;
         }
 
         ::slotted(*[vspan='9']) {
           grid-row: auto / span 36;
-          --furo-ui5-cardContentHeight:66rem
+          --furo-ui5-cardContentHeight: 66rem;
         }
 
         ::slotted(*[hspan='2']) {
@@ -272,7 +267,7 @@ class FuroZGrid extends FBP(LitElement) {
         ::slotted(*[hspan='4']),
         :host([size='size-m']) ::slotted(*[hspan-on-size-medium='4']),
         :host([size='size-l']) ::slotted(*[hspan-on-size-large='4']),
-        :host([size='size-xl']) ::slotted(*[hspan-on-size-xlarge='4'])  {
+        :host([size='size-xl']) ::slotted(*[hspan-on-size-xlarge='4']) {
           grid-column: auto / span 4;
         }
 
@@ -296,15 +291,14 @@ class FuroZGrid extends FBP(LitElement) {
         }
         ::slotted(*[hspan='8']),
         :host([size='size-l']) ::slotted(*[hspan-on-size-large='8']),
-        :host([size='size-xl']) ::slotted(*[hspan-on-size-xlarge='8'])  {
+        :host([size='size-xl']) ::slotted(*[hspan-on-size-xlarge='8']) {
           grid-column: auto / span 8;
         }
 
         ::slotted(*[hspan='9']),
-        :host([size='size-xl']) ::slotted(*[hspan-on-size-xlarge='9'])  {
+        :host([size='size-xl']) ::slotted(*[hspan-on-size-xlarge='9']) {
           grid-column: auto / span 9;
         }
-
 
         /* Full width cell*/
         :host([size='size-s']) ::slotted([full-on-size-small]),
