@@ -135,8 +135,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     });
   }
 
-
-
   /**
    * connectedCallback() method is called when an element is added to the DOM.
    * webcomponent lifecycle event
@@ -290,7 +288,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
       if (this.valueSubField && this.valueSubField !== 'null') {
@@ -318,6 +315,10 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         }
       });
 
+      this._fieldDisplayNodeToUpdate.addEventListener('field-value-changed', () => {
+        CollectionDropdownHelper.updateField(this);
+      });
+
       this.binder.fieldNode.addEventListener('field-value-changed', e => {
         if (
           this.binder.fieldFormat === 'scalar' ||
@@ -326,10 +327,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
           CollectionDropdownHelper.updateField(this);
         }
       });
-
-      console.log(this._fieldNodeToUpdate)
-      console.log(fieldNode._pristine)
-
+      CollectionDropdownHelper.updateField(this);
     }
   }
 

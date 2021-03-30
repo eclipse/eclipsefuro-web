@@ -4,8 +4,6 @@
 
 /* eslint-disable no-param-reassign */
 export class CollectionDropdownHelper {
-
-
   static triggerSetOptionItem(caller) {
     if (caller._injectedDropdownList.length > 0) {
       caller._dropdownList = caller._injectedDropdownList;
@@ -29,8 +27,12 @@ export class CollectionDropdownHelper {
     return path.split('.').reduce((res, prop) => res[prop], obj) || obj;
   }
 
+  /**
+   * Triggers the item selected event
+   * @param caller
+   * @param obj
+   */
   static notifiySelectedItem(caller, obj) {
-
     if (obj) {
       const customEvent = new Event('item-selected', { composed: true, bubbles: true });
       customEvent.detail = obj._original;
@@ -266,12 +268,8 @@ export class CollectionDropdownHelper {
       }
 
       caller.addItems(arr);
-
-
       // this.notifiySelectedItem(caller, selectedObj);
       caller._optionNeedToBeRendered = true;
     }
   }
-
-
 }

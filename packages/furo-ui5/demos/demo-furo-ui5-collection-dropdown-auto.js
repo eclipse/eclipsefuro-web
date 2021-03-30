@@ -65,8 +65,6 @@ class DemoFuroUi5DataCollectionDropdownAuto extends FBP(LitElement) {
             <furo-vertical-scroller>
               <h2>Demo furo-ui5-data-collection-dropdown</h2>
               <furo-form-layouter one>
-
-
                 <div>
                   <p>auto-select-first attribute</p>
                   <p>
@@ -92,7 +90,6 @@ class DemoFuroUi5DataCollectionDropdownAuto extends FBP(LitElement) {
                 <furo-ui5-data-text-input-labeled
                   ƒ-bind-data="--entityPerson(*.data.display_name)"
                 ></furo-ui5-data-text-input-labeled>
-
               </furo-form-layouter>
 
               <furo-button-bar>
@@ -101,23 +98,19 @@ class DemoFuroUi5DataCollectionDropdownAuto extends FBP(LitElement) {
                     file="/mockdata/persons/2/get.json"
                     @-data-loaded="--responseProject"
                   ></fetch-universal-json
-                  ></ui5-button>
+                ></ui5-button>
 
                 <ui5-button design="Emphasized" @-click="--loadCollection"
                   >load and inject entities into dropdown list</ui5-button
                 >
                 <ui5-button @-click="--reset">reset</ui5-button>
-
-
               </furo-button-bar>
 
               <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
 
-
               <furo-data-object
                 type="person.PersonEntity"
-                @-data-injected="--entityPerson"
-                xx-object-ready="--entityPerson"
+                @-object-ready="--entityPerson"
                 ƒ-inject-raw="--responseProject"
                 ƒ-init="--reset"
               ></furo-data-object>
