@@ -1,0 +1,19 @@
+{
+  "data": {
+    "display_name": "Tari Sakota, +41791532244",
+    "first_name": "Tari",
+    "id": "2",
+    "name": "Sakota",
+    "phone_nr": "+41791532244",
+    "skills": []
+  },
+  "links": [
+    {
+      "href": "/mockdata/persons/2/get.json",
+      "method": "GET",
+      "rel": "self",
+      "type": "person.Person",
+      "service": "PersonService"
+    }
+  ]
+}

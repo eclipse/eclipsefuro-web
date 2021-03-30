@@ -21,6 +21,7 @@ import { CollectionDropdownHelper } from '@furo/data-input/src/lib/CollectionDro
  * @summary data collection dropdown
  * @customElement
  * @demo demo-furo-ui5-data-collection-dropdown Basic Usage
+ * @demo demo-furo-ui5-data-collection-dropdown-auto Autoselect first
  */
 export class FuroUi5DataCollectionDropdown extends Select.default {
   /**
