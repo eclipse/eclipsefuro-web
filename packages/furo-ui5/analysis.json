@@ -859,38 +859,17 @@
           }
         },
         {
-          "name": "placeholder",
-          "type": "string | null | undefined",
-          "description": "html placeholder attribute",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 48,
-              "column": 6
-            },
-            "end": {
-              "line": 48,
-              "column": 35
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
           "name": "required",
           "type": "boolean | null | undefined",
           "description": "A Boolean attribute which, if present, means this field is required and marked with *.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 48,
               "column": 6
             },
             "end": {
-              "line": 55,
+              "line": 50,
               "column": 7
             }
           },
@@ -907,32 +886,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 60,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 62,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "readonly",
-          "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 67,
-              "column": 6
-            },
-            "end": {
-              "line": 69,
+              "line": 57,
               "column": 7
             }
           },
@@ -970,11 +928,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 92,
+              "line": 83,
               "column": 2
             },
             "end": {
-              "line": 100,
+              "line": 86,
               "column": 3
             }
           },
@@ -994,11 +952,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 92,
               "column": 2
             },
             "end": {
-              "line": 124,
+              "line": 108,
               "column": 3
             }
           },
@@ -1012,8 +970,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-data-checkbox-input-labeled",
-          "description": "Basic Usage"
+          "url": "demo-furo-ui5-form-field-container",
+          "description": "Simple use"
         }
       ],
       "metadata": {},
@@ -1023,7 +981,7 @@
           "column": 0
         },
         "end": {
-          "line": 125,
+          "line": 109,
           "column": 1
         }
       },
@@ -1048,31 +1006,15 @@
           "type": "string | null | undefined"
         },
         {
-          "name": "placeholder",
-          "description": "html placeholder attribute",
-          "sourceRange": {
-            "start": {
-              "line": 48,
-              "column": 6
-            },
-            "end": {
-              "line": 48,
-              "column": 35
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
           "name": "required",
           "description": "A Boolean attribute which, if present, means this field is required and marked with *.",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 48,
               "column": 6
             },
             "end": {
-              "line": 55,
+              "line": 50,
               "column": 7
             }
           },
@@ -1084,27 +1026,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 60,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 62,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "readonly",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "sourceRange": {
-            "start": {
-              "line": 67,
-              "column": 6
-            },
-            "end": {
-              "line": 69,
+              "line": 57,
               "column": 7
             }
           },
@@ -1142,11 +1068,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 43,
+              "line": 44,
               "column": 4
             },
             "end": {
-              "line": 43,
+              "line": 44,
               "column": 17
             }
           },
@@ -1164,11 +1090,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 48,
+              "line": 49,
               "column": 4
             },
             "end": {
-              "line": 48,
+              "line": 49,
               "column": 21
             }
           },
@@ -1186,11 +1112,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 54,
+              "line": 55,
               "column": 4
             },
             "end": {
-              "line": 54,
+              "line": 55,
               "column": 19
             }
           },
@@ -1208,11 +1134,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 63,
               "column": 4
             },
             "end": {
-              "line": 62,
+              "line": 63,
               "column": 22
             }
           },
@@ -1230,11 +1156,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 70,
+              "line": 71,
               "column": 4
             },
             "end": {
-              "line": 70,
+              "line": 71,
               "column": 24
             }
           },
@@ -1252,11 +1178,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 76,
+              "line": 77,
               "column": 4
             },
             "end": {
-              "line": 76,
+              "line": 77,
               "column": 24
             }
           },
@@ -1275,11 +1201,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 140,
+              "line": 141,
               "column": 2
             },
             "end": {
-              "line": 147,
+              "line": 148,
               "column": 3
             }
           },
@@ -1295,11 +1221,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 164,
+              "line": 165,
               "column": 2
             },
             "end": {
-              "line": 190,
+              "line": 191,
               "column": 3
             }
           },
@@ -1325,11 +1251,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 197,
+              "line": 198,
               "column": 2
             },
             "end": {
-              "line": 245,
+              "line": 246,
               "column": 3
             }
           },
@@ -1345,11 +1271,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 251,
+              "line": 252,
               "column": 2
             },
             "end": {
-              "line": 266,
+              "line": 267,
               "column": 3
             }
           },
@@ -1369,11 +1295,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 271,
+              "line": 272,
               "column": 2
             },
             "end": {
-              "line": 281,
+              "line": 282,
               "column": 3
             }
           },
@@ -1389,11 +1315,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 288,
+              "line": 289,
               "column": 2
             },
             "end": {
-              "line": 327,
+              "line": 328,
               "column": 3
             }
           },
@@ -1415,11 +1341,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 333,
+              "line": 334,
               "column": 2
             },
             "end": {
-              "line": 335,
+              "line": 336,
               "column": 3
             }
           },
@@ -1439,11 +1365,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 341,
+              "line": 342,
               "column": 2
             },
             "end": {
-              "line": 346,
+              "line": 347,
               "column": 3
             }
           },
@@ -1463,11 +1389,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 352,
+              "line": 353,
               "column": 2
             },
             "end": {
-              "line": 354,
+              "line": 355,
               "column": 3
             }
           },
@@ -1487,16 +1413,20 @@
         {
           "url": "demo-furo-ui5-data-collection-dropdown",
           "description": "Basic Usage"
+        },
+        {
+          "url": "demo-furo-ui5-data-collection-dropdown-auto",
+          "description": "Autoselect first"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 7
         },
         "end": {
-          "line": 355,
+          "line": 356,
           "column": 1
         }
       },
@@ -1509,11 +1439,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 156,
               "column": 6
             },
             "end": {
-              "line": 155,
+              "line": 156,
               "column": 19
             }
           },
@@ -1524,11 +1454,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 156,
+              "line": 157,
               "column": 6
             },
             "end": {
-              "line": 156,
+              "line": 157,
               "column": 21
             }
           },
@@ -1539,11 +1469,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 157,
+              "line": 158,
               "column": 6
             },
             "end": {
-              "line": 157,
+              "line": 158,
               "column": 17
             }
           },
@@ -1554,11 +1484,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 159,
               "column": 6
             },
             "end": {
-              "line": 158,
+              "line": 159,
               "column": 23
             }
           },
@@ -1569,11 +1499,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 159,
+              "line": 160,
               "column": 6
             },
             "end": {
-              "line": 159,
+              "line": 160,
               "column": 25
             }
           },
@@ -1584,11 +1514,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 160,
+              "line": 161,
               "column": 6
             },
             "end": {
-              "line": 160,
+              "line": 161,
               "column": 25
             }
           },
@@ -2433,27 +2363,6 @@
               "attributeType": "Boolean"
             }
           }
-        },
-        {
-          "name": "readonly",
-          "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 62,
-              "column": 6
-            },
-            "end": {
-              "line": 64,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
         }
       ],
       "methods": [
@@ -2483,11 +2392,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 81,
               "column": 2
             },
             "end": {
-              "line": 89,
+              "line": 83,
               "column": 3
             }
           },
@@ -2507,11 +2416,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 95,
+              "line": 89,
               "column": 2
             },
             "end": {
-              "line": 113,
+              "line": 106,
               "column": 3
             }
           },
@@ -2525,8 +2434,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-data-date-picker-labeled",
-          "description": "Basic Usage"
+          "url": "demo-furo-ui5-form-field-container",
+          "description": "Simple use"
         }
       ],
       "metadata": {},
@@ -2536,7 +2445,7 @@
           "column": 0
         },
         "end": {
-          "line": 114,
+          "line": 107,
           "column": 1
         }
       },
@@ -2586,22 +2495,6 @@
             },
             "end": {
               "line": 58,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "readonly",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "sourceRange": {
-            "start": {
-              "line": 62,
-              "column": 6
-            },
-            "end": {
-              "line": 64,
               "column": 7
             }
           },
@@ -2850,27 +2743,6 @@
               "attributeType": "Boolean"
             }
           }
-        },
-        {
-          "name": "readonly",
-          "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 60,
-              "column": 6
-            },
-            "end": {
-              "line": 62,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
         }
       ],
       "methods": [
@@ -2900,11 +2772,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 79,
               "column": 2
             },
             "end": {
-              "line": 87,
+              "line": 81,
               "column": 3
             }
           },
@@ -2924,11 +2796,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 87,
               "column": 2
             },
             "end": {
-              "line": 111,
+              "line": 104,
               "column": 3
             }
           },
@@ -2942,8 +2814,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-data-date-time-picker-labeled",
-          "description": "Basic Usage"
+          "url": "demo-furo-ui5-form-field-container",
+          "description": "Simple use"
         }
       ],
       "metadata": {},
@@ -2953,7 +2825,7 @@
           "column": 0
         },
         "end": {
-          "line": 112,
+          "line": 105,
           "column": 1
         }
       },
@@ -3003,22 +2875,6 @@
             },
             "end": {
               "line": 56,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "readonly",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "sourceRange": {
-            "start": {
-              "line": 60,
-              "column": 6
-            },
-            "end": {
-              "line": 62,
               "column": 7
             }
           },
@@ -3325,11 +3181,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 48,
+              "line": 37,
               "column": 2
             },
             "end": {
-              "line": 53,
+              "line": 42,
               "column": 3
             }
           },
@@ -3346,53 +3202,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 66,
               "column": 2
             },
             "end": {
-              "line": 61,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          }
-        },
-        {
-          "name": "suggestionItems",
-          "type": "(* | [])",
-          "description": "overwrite to fix error",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 67,
-              "column": 2
-            },
-            "end": {
-              "line": 69,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          }
-        },
-        {
-          "name": "icon",
-          "type": "(* | [])",
-          "description": "overwrite to fix error",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 75,
-              "column": 2
-            },
-            "end": {
-              "line": 77,
+              "line": 68,
               "column": 3
             }
           },
@@ -3409,11 +3223,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 224,
               "column": 2
             },
             "end": {
-              "line": 243,
+              "line": 234,
               "column": 3
             }
           },
@@ -3430,11 +3244,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 257,
+              "line": 248,
               "column": 2
             },
             "end": {
-              "line": 264,
+              "line": 255,
               "column": 3
             }
           },
@@ -3451,11 +3265,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 271,
+              "line": 262,
               "column": 2
             },
             "end": {
-              "line": 274,
+              "line": 265,
               "column": 3
             }
           },
@@ -3472,32 +3286,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 281,
+              "line": 272,
               "column": 2
             },
             "end": {
-              "line": 284,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "__readonly",
-          "type": "?",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 286,
-              "column": 2
-            },
-            "end": {
-              "line": 290,
+              "line": 275,
               "column": 3
             }
           },
@@ -3514,11 +3307,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 297,
+              "line": 282,
               "column": 2
             },
             "end": {
-              "line": 300,
+              "line": 285,
               "column": 3
             }
           },
@@ -3535,11 +3328,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 307,
+              "line": 292,
               "column": 2
             },
             "end": {
-              "line": 310,
+              "line": 295,
               "column": 3
             }
           },
@@ -3556,11 +3349,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 317,
+              "line": 302,
               "column": 2
             },
             "end": {
-              "line": 322,
+              "line": 305,
               "column": 3
             }
           },
@@ -3577,11 +3370,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 329,
+              "line": 312,
               "column": 2
             },
             "end": {
-              "line": 335,
+              "line": 322,
               "column": 3
             }
           },
@@ -3598,11 +3391,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 386,
+              "line": 378,
               "column": 2
             },
             "end": {
-              "line": 442,
+              "line": 426,
               "column": 3
             }
           },
@@ -3620,11 +3413,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 35,
+              "line": 49,
               "column": 2
             },
             "end": {
-              "line": 40,
+              "line": 60,
               "column": 3
             }
           },
@@ -3640,11 +3433,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 84,
+              "line": 75,
               "column": 2
             },
             "end": {
-              "line": 88,
+              "line": 79,
               "column": 3
             }
           },
@@ -3660,11 +3453,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 119,
               "column": 2
             },
             "end": {
-              "line": 200,
+              "line": 191,
               "column": 3
             }
           },
@@ -3680,11 +3473,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 197,
               "column": 2
             },
             "end": {
-              "line": 208,
+              "line": 199,
               "column": 3
             }
           },
@@ -3704,11 +3497,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 215,
+              "line": 206,
               "column": 2
             },
             "end": {
-              "line": 227,
+              "line": 218,
               "column": 3
             }
           },
@@ -3730,11 +3523,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 248,
+              "line": 239,
               "column": 2
             },
             "end": {
-              "line": 250,
+              "line": 241,
               "column": 3
             }
           },
@@ -3750,11 +3543,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 337,
+              "line": 324,
               "column": 2
             },
             "end": {
-              "line": 357,
+              "line": 349,
               "column": 3
             }
           },
@@ -3770,11 +3563,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 364,
+              "line": 356,
               "column": 2
             },
             "end": {
-              "line": 378,
+              "line": 370,
               "column": 3
             }
           },
@@ -3790,15 +3583,20 @@
         }
       ],
       "staticMethods": [],
-      "demos": [],
+      "demos": [
+        {
+          "url": "demo-furo-fat-type",
+          "description": "furo fat type"
+        }
+      ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 13,
+          "line": 14,
           "column": 7
         },
         "end": {
-          "line": 443,
+          "line": 427,
           "column": 1
         }
       },
@@ -3834,11 +3632,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 48,
+              "line": 37,
               "column": 2
             },
             "end": {
-              "line": 53,
+              "line": 42,
               "column": 3
             }
           },
@@ -3857,57 +3655,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 59,
+              "line": 66,
               "column": 2
             },
             "end": {
-              "line": 61,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "suggestionItems",
-          "type": "(* | [])",
-          "description": "overwrite to fix error",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 67,
-              "column": 2
-            },
-            "end": {
-              "line": 69,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "icon",
-          "type": "(* | [])",
-          "description": "overwrite to fix error",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 75,
-              "column": 2
-            },
-            "end": {
-              "line": 77,
+              "line": 68,
               "column": 3
             }
           },
@@ -3926,11 +3678,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 233,
+              "line": 224,
               "column": 2
             },
             "end": {
-              "line": 243,
+              "line": 234,
               "column": 3
             }
           },
@@ -3949,11 +3701,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 257,
+              "line": 248,
               "column": 2
             },
             "end": {
-              "line": 264,
+              "line": 255,
               "column": 3
             }
           },
@@ -3972,11 +3724,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 271,
+              "line": 262,
               "column": 2
             },
             "end": {
-              "line": 274,
+              "line": 265,
               "column": 3
             }
           },
@@ -3995,34 +3747,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 281,
+              "line": 272,
               "column": 2
             },
             "end": {
-              "line": 284,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "__readonly",
-          "type": "?",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 286,
-              "column": 2
-            },
-            "end": {
-              "line": 290,
+              "line": 275,
               "column": 3
             }
           },
@@ -4041,11 +3770,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 297,
+              "line": 282,
               "column": 2
             },
             "end": {
-              "line": 300,
+              "line": 285,
               "column": 3
             }
           },
@@ -4064,11 +3793,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 307,
+              "line": 292,
               "column": 2
             },
             "end": {
-              "line": 310,
+              "line": 295,
               "column": 3
             }
           },
@@ -4087,11 +3816,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 317,
+              "line": 302,
               "column": 2
             },
             "end": {
-              "line": 322,
+              "line": 305,
               "column": 3
             }
           },
@@ -4110,11 +3839,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 329,
+              "line": 312,
               "column": 2
             },
             "end": {
-              "line": 335,
+              "line": 322,
               "column": 3
             }
           },
@@ -4133,11 +3862,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 386,
+              "line": 378,
               "column": 2
             },
             "end": {
-              "line": 442,
+              "line": 426,
               "column": 3
             }
           },
@@ -4157,11 +3886,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 35,
+              "line": 49,
               "column": 2
             },
             "end": {
-              "line": 40,
+              "line": 60,
               "column": 3
             }
           },
@@ -4179,11 +3908,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 84,
+              "line": 75,
               "column": 2
             },
             "end": {
-              "line": 88,
+              "line": 79,
               "column": 3
             }
           },
@@ -4201,11 +3930,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 128,
+              "line": 119,
               "column": 2
             },
             "end": {
-              "line": 200,
+              "line": 191,
               "column": 3
             }
           },
@@ -4223,11 +3952,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 206,
+              "line": 197,
               "column": 2
             },
             "end": {
-              "line": 208,
+              "line": 199,
               "column": 3
             }
           },
@@ -4249,11 +3978,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 215,
+              "line": 206,
               "column": 2
             },
             "end": {
-              "line": 227,
+              "line": 218,
               "column": 3
             }
           },
@@ -4277,11 +4006,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 248,
+              "line": 239,
               "column": 2
             },
             "end": {
-              "line": 250,
+              "line": 241,
               "column": 3
             }
           },
@@ -4299,11 +4028,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 337,
+              "line": 324,
               "column": 2
             },
             "end": {
-              "line": 357,
+              "line": 349,
               "column": 3
             }
           },
@@ -4321,11 +4050,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 364,
+              "line": 356,
               "column": 2
             },
             "end": {
-              "line": 378,
+              "line": 370,
               "column": 3
             }
           },
@@ -4348,10 +4077,6 @@
           "description": "Basic usage (scalar , fat, wrapper values)"
         },
         {
-          "url": "demo-furo-ui5-data-text-input-markup-overwrite",
-          "description": "Use Markup Overwrites"
-        },
-        {
           "url": "demo-furo-ui5-data-text-input-together",
           "description": "playground"
         }
@@ -4359,11 +4084,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 16,
+          "line": 15,
           "column": 7
         },
         "end": {
-          "line": 60,
+          "line": 59,
           "column": 1
         }
       },
@@ -4902,8 +4627,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-data-money-input-labeled",
-          "description": "Basic Usage"
+          "url": "demo-furo-ui5-form-field-container",
+          "description": "Simple use"
         }
       ],
       "metadata": {},
@@ -4992,61 +4717,19 @@
       "description": "`furo-ui5-data-multi-input`\n\nThe furo-ui5-data-multi-input component represents the repeated strings. e.g. [\"aaa\",\"bbb\",\"ccc\"]",
       "summary": "data ui5 data multi input",
       "path": "src/furo-ui5-data-multi-input.js",
-      "properties": [
-        {
-          "name": "__readonly",
-          "type": "?",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 156,
-              "column": 2
-            },
-            "end": {
-              "line": 160,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        }
-      ],
+      "properties": [],
       "methods": [
-        {
-          "name": "connectedCallback",
-          "description": "connectedCallback() method is called when an element is added to the DOM.\nwebcomponent lifecycle event",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 66,
-              "column": 2
-            },
-            "end": {
-              "line": 71,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
         {
           "name": "_initBinder",
           "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 78,
+              "line": 64,
               "column": 2
             },
             "end": {
-              "line": 82,
+              "line": 68,
               "column": 3
             }
           },
@@ -5062,11 +4745,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 73,
               "column": 2
             },
             "end": {
-              "line": 146,
+              "line": 132,
               "column": 3
             }
           },
@@ -5082,11 +4765,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 138,
               "column": 2
             },
             "end": {
-              "line": 154,
+              "line": 140,
               "column": 3
             }
           },
@@ -5106,11 +4789,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 167,
+              "line": 147,
               "column": 2
             },
             "end": {
-              "line": 191,
+              "line": 171,
               "column": 3
             }
           },
@@ -5132,11 +4815,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 193,
+              "line": 173,
               "column": 2
             },
             "end": {
-              "line": 199,
+              "line": 179,
               "column": 3
             }
           },
@@ -5152,11 +4835,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 182,
               "column": 2
             },
             "end": {
-              "line": 209,
+              "line": 189,
               "column": 3
             }
           },
@@ -5173,11 +4856,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 191,
               "column": 2
             },
             "end": {
-              "line": 220,
+              "line": 200,
               "column": 3
             }
           },
@@ -5193,11 +4876,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 222,
+              "line": 202,
               "column": 2
             },
             "end": {
-              "line": 224,
+              "line": 204,
               "column": 3
             }
           },
@@ -5222,7 +4905,7 @@
           "column": 7
         },
         "end": {
-          "line": 225,
+          "line": 205,
           "column": 1
         }
       },
@@ -5305,27 +4988,6 @@
               "attributeType": "Boolean"
             }
           }
-        },
-        {
-          "name": "readonly",
-          "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 59,
-              "column": 6
-            },
-            "end": {
-              "line": 61,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
         }
       ],
       "methods": [
@@ -5355,11 +5017,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 84,
+              "line": 78,
               "column": 2
             },
             "end": {
-              "line": 86,
+              "line": 80,
               "column": 3
             }
           },
@@ -5379,11 +5041,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 92,
+              "line": 86,
               "column": 2
             },
             "end": {
-              "line": 108,
+              "line": 101,
               "column": 3
             }
           },
@@ -5397,8 +5059,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-data-multi-input-labeled",
-          "description": "Basic Usage"
+          "url": "demo-furo-ui5-form-field-container",
+          "description": "Simple use"
         }
       ],
       "metadata": {},
@@ -5408,7 +5070,7 @@
           "column": 0
         },
         "end": {
-          "line": 109,
+          "line": 102,
           "column": 1
         }
       },
@@ -5463,22 +5125,6 @@
           },
           "metadata": {},
           "type": "boolean | null | undefined"
-        },
-        {
-          "name": "readonly",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "sourceRange": {
-            "start": {
-              "line": 59,
-              "column": 6
-            },
-            "end": {
-              "line": 61,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
         }
       ],
       "events": [
@@ -5512,11 +5158,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 48,
+              "line": 37,
               "column": 2
             },
             "end": {
-              "line": 53,
+              "line": 42,
               "column": 3
             }
           },
@@ -5535,57 +5181,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 59,
+              "line": 66,
               "column": 2
             },
             "end": {
-              "line": 61,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "suggestionItems",
-          "type": "(* | [])",
-          "description": "overwrite to fix error",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 67,
-              "column": 2
-            },
-            "end": {
-              "line": 69,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "icon",
-          "type": "(* | [])",
-          "description": "overwrite to fix error",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 75,
-              "column": 2
-            },
-            "end": {
-              "line": 77,
+              "line": 68,
               "column": 3
             }
           },
@@ -5604,11 +5204,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 233,
+              "line": 224,
               "column": 2
             },
             "end": {
-              "line": 243,
+              "line": 234,
               "column": 3
             }
           },
@@ -5627,11 +5227,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 257,
+              "line": 248,
               "column": 2
             },
             "end": {
-              "line": 264,
+              "line": 255,
               "column": 3
             }
           },
@@ -5650,11 +5250,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 271,
+              "line": 262,
               "column": 2
             },
             "end": {
-              "line": 274,
+              "line": 265,
               "column": 3
             }
           },
@@ -5673,34 +5273,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 281,
+              "line": 272,
               "column": 2
             },
             "end": {
-              "line": 284,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "__readonly",
-          "type": "?",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 286,
-              "column": 2
-            },
-            "end": {
-              "line": 290,
+              "line": 275,
               "column": 3
             }
           },
@@ -5719,11 +5296,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 297,
+              "line": 282,
               "column": 2
             },
             "end": {
-              "line": 300,
+              "line": 285,
               "column": 3
             }
           },
@@ -5742,11 +5319,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 307,
+              "line": 292,
               "column": 2
             },
             "end": {
-              "line": 310,
+              "line": 295,
               "column": 3
             }
           },
@@ -5765,11 +5342,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 317,
+              "line": 302,
               "column": 2
             },
             "end": {
-              "line": 322,
+              "line": 305,
               "column": 3
             }
           },
@@ -5788,11 +5365,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 329,
+              "line": 312,
               "column": 2
             },
             "end": {
-              "line": 335,
+              "line": 322,
               "column": 3
             }
           },
@@ -5811,11 +5388,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 386,
+              "line": 378,
               "column": 2
             },
             "end": {
-              "line": 442,
+              "line": 426,
               "column": 3
             }
           },
@@ -5855,11 +5432,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 84,
+              "line": 75,
               "column": 2
             },
             "end": {
-              "line": 88,
+              "line": 79,
               "column": 3
             }
           },
@@ -5877,11 +5454,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 128,
+              "line": 119,
               "column": 2
             },
             "end": {
-              "line": 200,
+              "line": 191,
               "column": 3
             }
           },
@@ -5899,11 +5476,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 206,
+              "line": 197,
               "column": 2
             },
             "end": {
-              "line": 208,
+              "line": 199,
               "column": 3
             }
           },
@@ -5925,11 +5502,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 215,
+              "line": 206,
               "column": 2
             },
             "end": {
-              "line": 227,
+              "line": 218,
               "column": 3
             }
           },
@@ -5953,11 +5530,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 248,
+              "line": 239,
               "column": 2
             },
             "end": {
-              "line": 250,
+              "line": 241,
               "column": 3
             }
           },
@@ -5975,11 +5552,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 337,
+              "line": 324,
               "column": 2
             },
             "end": {
-              "line": 357,
+              "line": 349,
               "column": 3
             }
           },
@@ -5997,11 +5574,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 364,
+              "line": 356,
               "column": 2
             },
             "end": {
-              "line": 378,
+              "line": 370,
               "column": 3
             }
           },
@@ -6148,36 +5725,15 @@
         {
           "name": "disabled",
           "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user and\nappears in disabled state.",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 61,
               "column": 6
             },
             "end": {
-              "line": 64,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "readonly",
-          "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 68,
-              "column": 6
-            },
-            "end": {
-              "line": 70,
+              "line": 63,
               "column": 7
             }
           },
@@ -6239,11 +5795,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 86,
               "column": 2
             },
             "end": {
-              "line": 95,
+              "line": 88,
               "column": 3
             }
           },
@@ -6263,11 +5819,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 101,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 120,
+              "line": 110,
               "column": 3
             }
           },
@@ -6281,8 +5837,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-data-number-input-labeled",
-          "description": "Basic Usage"
+          "url": "demo-furo-ui5-form-field-container",
+          "description": "Simple use"
         }
       ],
       "metadata": {},
@@ -6292,7 +5848,7 @@
           "column": 0
         },
         "end": {
-          "line": 121,
+          "line": 111,
           "column": 1
         }
       },
@@ -6334,30 +5890,14 @@
         },
         {
           "name": "disabled",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user and\nappears in disabled state.",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 61,
               "column": 6
             },
             "end": {
-              "line": 64,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "readonly",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "sourceRange": {
-            "start": {
-              "line": 68,
-              "column": 6
-            },
-            "end": {
-              "line": 70,
+              "line": 63,
               "column": 7
             }
           },
@@ -6396,11 +5936,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 48,
+              "line": 37,
               "column": 2
             },
             "end": {
-              "line": 53,
+              "line": 42,
               "column": 3
             }
           },
@@ -6419,57 +5959,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 59,
+              "line": 66,
               "column": 2
             },
             "end": {
-              "line": 61,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "suggestionItems",
-          "type": "(* | [])",
-          "description": "overwrite to fix error",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 67,
-              "column": 2
-            },
-            "end": {
-              "line": 69,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "icon",
-          "type": "(* | [])",
-          "description": "overwrite to fix error",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 75,
-              "column": 2
-            },
-            "end": {
-              "line": 77,
+              "line": 68,
               "column": 3
             }
           },
@@ -6488,11 +5982,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 233,
+              "line": 224,
               "column": 2
             },
             "end": {
-              "line": 243,
+              "line": 234,
               "column": 3
             }
           },
@@ -6511,11 +6005,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 257,
+              "line": 248,
               "column": 2
             },
             "end": {
-              "line": 264,
+              "line": 255,
               "column": 3
             }
           },
@@ -6534,11 +6028,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 271,
+              "line": 262,
               "column": 2
             },
             "end": {
-              "line": 274,
+              "line": 265,
               "column": 3
             }
           },
@@ -6557,34 +6051,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 281,
+              "line": 272,
               "column": 2
             },
             "end": {
-              "line": 284,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "__readonly",
-          "type": "?",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 286,
-              "column": 2
-            },
-            "end": {
-              "line": 290,
+              "line": 275,
               "column": 3
             }
           },
@@ -6603,11 +6074,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 297,
+              "line": 282,
               "column": 2
             },
             "end": {
-              "line": 300,
+              "line": 285,
               "column": 3
             }
           },
@@ -6626,11 +6097,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 307,
+              "line": 292,
               "column": 2
             },
             "end": {
-              "line": 310,
+              "line": 295,
               "column": 3
             }
           },
@@ -6649,11 +6120,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 317,
+              "line": 302,
               "column": 2
             },
             "end": {
-              "line": 322,
+              "line": 305,
               "column": 3
             }
           },
@@ -6672,11 +6143,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 329,
+              "line": 312,
               "column": 2
             },
             "end": {
-              "line": 335,
+              "line": 322,
               "column": 3
             }
           },
@@ -6695,11 +6166,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 386,
+              "line": 378,
               "column": 2
             },
             "end": {
-              "line": 442,
+              "line": 426,
               "column": 3
             }
           },
@@ -6722,7 +6193,7 @@
               "column": 2
             },
             "end": {
-              "line": 65,
+              "line": 66,
               "column": 3
             }
           },
@@ -6739,11 +6210,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 84,
+              "line": 75,
               "column": 2
             },
             "end": {
-              "line": 88,
+              "line": 79,
               "column": 3
             }
           },
@@ -6761,11 +6232,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 128,
+              "line": 119,
               "column": 2
             },
             "end": {
-              "line": 200,
+              "line": 191,
               "column": 3
             }
           },
@@ -6783,11 +6254,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 206,
+              "line": 197,
               "column": 2
             },
             "end": {
-              "line": 208,
+              "line": 199,
               "column": 3
             }
           },
@@ -6809,11 +6280,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 215,
+              "line": 206,
               "column": 2
             },
             "end": {
-              "line": 227,
+              "line": 218,
               "column": 3
             }
           },
@@ -6837,11 +6308,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 248,
+              "line": 239,
               "column": 2
             },
             "end": {
-              "line": 250,
+              "line": 241,
               "column": 3
             }
           },
@@ -6859,11 +6330,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 337,
+              "line": 324,
               "column": 2
             },
             "end": {
-              "line": 357,
+              "line": 349,
               "column": 3
             }
           },
@@ -6881,11 +6352,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 364,
+              "line": 356,
               "column": 2
             },
             "end": {
-              "line": 378,
+              "line": 370,
               "column": 3
             }
           },
@@ -6923,7 +6394,7 @@
           "column": 7
         },
         "end": {
-          "line": 80,
+          "line": 81,
           "column": 1
         }
       },
@@ -6994,11 +6465,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 51,
               "column": 6
             },
             "end": {
-              "line": 53,
+              "line": 51,
               "column": 29
             }
           },
@@ -7015,11 +6486,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 57,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 59,
+              "line": 57,
               "column": 7
             }
           },
@@ -7032,36 +6503,15 @@
         {
           "name": "disabled",
           "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user and\nappears in disabled state.",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 64,
+              "line": 61,
               "column": 6
             },
             "end": {
-              "line": 66,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "readonly",
-          "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 70,
-              "column": 6
-            },
-            "end": {
-              "line": 72,
+              "line": 63,
               "column": 7
             }
           },
@@ -7079,11 +6529,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 36,
+              "line": 34,
               "column": 2
             },
             "end": {
-              "line": 38,
+              "line": 36,
               "column": 3
             }
           },
@@ -7103,11 +6553,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 43,
+              "line": 41,
               "column": 2
             },
             "end": {
-              "line": 46,
+              "line": 44,
               "column": 3
             }
           },
@@ -7123,11 +6573,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 95,
+              "line": 86,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 88,
               "column": 3
             }
           },
@@ -7147,11 +6597,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 103,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 122,
+              "line": 110,
               "column": 3
             }
           },
@@ -7165,18 +6615,18 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-data-password-input-labeled",
-          "description": "Basic Usage"
+          "url": "demo-furo-ui5-form-field-container",
+          "description": "Simple use"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 20,
+          "line": 18,
           "column": 0
         },
         "end": {
-          "line": 123,
+          "line": 111,
           "column": 1
         }
       },
@@ -7189,11 +6639,11 @@
           "description": "the label for the data-password-input",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 51,
               "column": 6
             },
             "end": {
-              "line": 53,
+              "line": 51,
               "column": 29
             }
           },
@@ -7205,11 +6655,11 @@
           "description": "A Boolean attribute which, if present, means this field is required and marked with *.",
           "sourceRange": {
             "start": {
-              "line": 57,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 59,
+              "line": 57,
               "column": 7
             }
           },
@@ -7218,30 +6668,14 @@
         },
         {
           "name": "disabled",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user and\nappears in disabled state.",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 64,
+              "line": 61,
               "column": 6
             },
             "end": {
-              "line": 66,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "readonly",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "sourceRange": {
-            "start": {
-              "line": 70,
-              "column": 6
-            },
-            "end": {
-              "line": 72,
+              "line": 63,
               "column": 7
             }
           },
@@ -7307,7 +6741,7 @@
               "column": 2
             },
             "end": {
-              "line": 230,
+              "line": 232,
               "column": 3
             }
           },
@@ -7327,11 +6761,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 232,
+              "line": 234,
               "column": 2
             },
             "end": {
-              "line": 239,
+              "line": 241,
               "column": 3
             }
           },
@@ -7356,7 +6790,7 @@
           "column": 0
         },
         "end": {
-          "line": 252,
+          "line": 254,
           "column": 1
         }
       },
@@ -10438,11 +9872,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 48,
+              "line": 37,
               "column": 2
             },
             "end": {
-              "line": 53,
+              "line": 42,
               "column": 3
             }
           },
@@ -10461,57 +9895,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 59,
+              "line": 66,
               "column": 2
             },
             "end": {
-              "line": 61,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "suggestionItems",
-          "type": "(* | [])",
-          "description": "overwrite to fix error",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 67,
-              "column": 2
-            },
-            "end": {
-              "line": 69,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "icon",
-          "type": "(* | [])",
-          "description": "overwrite to fix error",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 75,
-              "column": 2
-            },
-            "end": {
-              "line": 77,
+              "line": 68,
               "column": 3
             }
           },
@@ -10530,11 +9918,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 233,
+              "line": 224,
               "column": 2
             },
             "end": {
-              "line": 243,
+              "line": 234,
               "column": 3
             }
           },
@@ -10553,11 +9941,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 257,
+              "line": 248,
               "column": 2
             },
             "end": {
-              "line": 264,
+              "line": 255,
               "column": 3
             }
           },
@@ -10576,11 +9964,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 271,
+              "line": 262,
               "column": 2
             },
             "end": {
-              "line": 274,
+              "line": 265,
               "column": 3
             }
           },
@@ -10599,34 +9987,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 281,
+              "line": 272,
               "column": 2
             },
             "end": {
-              "line": 284,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "__readonly",
-          "type": "?",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 286,
-              "column": 2
-            },
-            "end": {
-              "line": 290,
+              "line": 275,
               "column": 3
             }
           },
@@ -10645,11 +10010,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 297,
+              "line": 282,
               "column": 2
             },
             "end": {
-              "line": 300,
+              "line": 285,
               "column": 3
             }
           },
@@ -10668,11 +10033,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 307,
+              "line": 292,
               "column": 2
             },
             "end": {
-              "line": 310,
+              "line": 295,
               "column": 3
             }
           },
@@ -10691,11 +10056,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 317,
+              "line": 302,
               "column": 2
             },
             "end": {
-              "line": 322,
+              "line": 305,
               "column": 3
             }
           },
@@ -10714,11 +10079,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 329,
+              "line": 312,
               "column": 2
             },
             "end": {
-              "line": 335,
+              "line": 322,
               "column": 3
             }
           },
@@ -10737,11 +10102,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 386,
+              "line": 378,
               "column": 2
             },
             "end": {
-              "line": 442,
+              "line": 426,
               "column": 3
             }
           },
@@ -10781,11 +10146,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 84,
+              "line": 75,
               "column": 2
             },
             "end": {
-              "line": 88,
+              "line": 79,
               "column": 3
             }
           },
@@ -10871,11 +10236,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 248,
+              "line": 239,
               "column": 2
             },
             "end": {
-              "line": 250,
+              "line": 241,
               "column": 3
             }
           },
@@ -10893,11 +10258,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 337,
+              "line": 324,
               "column": 2
             },
             "end": {
-              "line": 357,
+              "line": 349,
               "column": 3
             }
           },
@@ -10915,11 +10280,11 @@
           "sourceRange": {
             "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 364,
+              "line": 356,
               "column": 2
             },
             "end": {
-              "line": 378,
+              "line": 370,
               "column": 3
             }
           },
@@ -12625,36 +11990,15 @@
         {
           "name": "disabled",
           "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user and\nappears in disabled state.",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 61,
               "column": 6
             },
             "end": {
-              "line": 64,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "readonly",
-          "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 68,
-              "column": 6
-            },
-            "end": {
-              "line": 70,
+              "line": 63,
               "column": 7
             }
           },
@@ -12716,11 +12060,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 86,
               "column": 2
             },
             "end": {
-              "line": 95,
+              "line": 88,
               "column": 3
             }
           },
@@ -12740,11 +12084,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 101,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 120,
+              "line": 110,
               "column": 3
             }
           },
@@ -12758,8 +12102,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-data-text-input-labeled",
-          "description": "Basic Usage"
+          "url": "demo-furo-ui5-form-field-container",
+          "description": "Simple use"
         }
       ],
       "metadata": {},
@@ -12769,7 +12113,7 @@
           "column": 0
         },
         "end": {
-          "line": 121,
+          "line": 111,
           "column": 1
         }
       },
@@ -12811,30 +12155,14 @@
         },
         {
           "name": "disabled",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user and\nappears in disabled state.",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 61,
               "column": 6
             },
             "end": {
-              "line": 64,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "readonly",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "sourceRange": {
-            "start": {
-              "line": 68,
-              "column": 6
-            },
-            "end": {
-              "line": 70,
+              "line": 63,
               "column": 7
             }
           },
@@ -13229,11 +12557,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 51,
               "column": 6
             },
             "end": {
-              "line": 53,
+              "line": 51,
               "column": 29
             }
           },
@@ -13250,11 +12578,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 57,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 59,
+              "line": 57,
               "column": 7
             }
           },
@@ -13271,116 +12599,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
+              "line": 61,
+              "column": 6
+            },
+            "end": {
               "line": 63,
-              "column": 6
-            },
-            "end": {
-              "line": 65,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "readonly",
-          "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 69,
-              "column": 6
-            },
-            "end": {
-              "line": 71,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "showExceededText",
-          "type": "boolean | null | undefined",
-          "description": "Determines whether the characters exceeding the maximum allowed character count are visible in the furo-ui5-data-textarea-input.\n\nIf set to false, the user is not allowed to enter more characters than what is set in the maxlength property.\nIf set to true the characters exceeding the maxlength value are selected on paste and the counter below\nthe furo-ui5-data-textarea-input displays their number.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 79,
-              "column": 6
-            },
-            "end": {
-              "line": 82,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "rows",
-          "type": "number | null | undefined",
-          "description": "Defines the number of visible text lines for the component.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 86,
-              "column": 6
-            },
-            "end": {
-              "line": 88,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "growingMaxLines",
-          "type": "number | null | undefined",
-          "description": "Defines the maximum number of lines that the Web Component can grow.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 92,
-              "column": 6
-            },
-            "end": {
-              "line": 95,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "growing",
-          "type": "boolean | null | undefined",
-          "description": "Enables the furo-ui5-data-textarea to automatically grow and shrink dynamically with its content.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 99,
-              "column": 6
-            },
-            "end": {
-              "line": 101,
               "column": 7
             }
           },
@@ -13398,11 +12621,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 36,
+              "line": 34,
               "column": 2
             },
             "end": {
-              "line": 38,
+              "line": 36,
               "column": 3
             }
           },
@@ -13422,11 +12645,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 43,
+              "line": 41,
               "column": 2
             },
             "end": {
-              "line": 46,
+              "line": 44,
               "column": 3
             }
           },
@@ -13442,11 +12665,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 124,
+              "line": 86,
               "column": 2
             },
             "end": {
-              "line": 126,
+              "line": 88,
               "column": 3
             }
           },
@@ -13466,11 +12689,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 132,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 153,
+              "line": 110,
               "column": 3
             }
           },
@@ -13484,8 +12707,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-data-textarea-input-labeled",
-          "description": "Basic Usage"
+          "url": "demo-furo-ui5-form-field-container",
+          "description": "Simple use"
         }
       ],
       "metadata": {},
@@ -13495,7 +12718,7 @@
           "column": 0
         },
         "end": {
-          "line": 154,
+          "line": 111,
           "column": 1
         }
       },
@@ -13508,11 +12731,11 @@
           "description": "the label for the data-textarea-input",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 51,
               "column": 6
             },
             "end": {
-              "line": 53,
+              "line": 51,
               "column": 29
             }
           },
@@ -13524,11 +12747,11 @@
           "description": "A Boolean attribute which, if present, means this field is required and marked with *.",
           "sourceRange": {
             "start": {
-              "line": 57,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 59,
+              "line": 57,
               "column": 7
             }
           },
@@ -13540,91 +12763,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
+              "line": 61,
+              "column": 6
+            },
+            "end": {
               "line": 63,
-              "column": 6
-            },
-            "end": {
-              "line": 65,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "readonly",
-          "description": "A Boolean attribute which, if present, means this field is readonly.",
-          "sourceRange": {
-            "start": {
-              "line": 69,
-              "column": 6
-            },
-            "end": {
-              "line": 71,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "show-exceeded-text",
-          "description": "Determines whether the characters exceeding the maximum allowed character count are visible in the furo-ui5-data-textarea-input.\n\nIf set to false, the user is not allowed to enter more characters than what is set in the maxlength property.\nIf set to true the characters exceeding the maxlength value are selected on paste and the counter below\nthe furo-ui5-data-textarea-input displays their number.",
-          "sourceRange": {
-            "start": {
-              "line": 79,
-              "column": 6
-            },
-            "end": {
-              "line": 82,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "rows",
-          "description": "Defines the number of visible text lines for the component.",
-          "sourceRange": {
-            "start": {
-              "line": 86,
-              "column": 6
-            },
-            "end": {
-              "line": 88,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "growing-max-lines",
-          "description": "Defines the maximum number of lines that the Web Component can grow.",
-          "sourceRange": {
-            "start": {
-              "line": 92,
-              "column": 6
-            },
-            "end": {
-              "line": 95,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "growing",
-          "description": "Enables the furo-ui5-data-textarea to automatically grow and shrink dynamically with its content.",
-          "sourceRange": {
-            "start": {
-              "line": 99,
-              "column": 6
-            },
-            "end": {
-              "line": 101,
               "column": 7
             }
           },
