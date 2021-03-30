@@ -2,7 +2,7 @@ import * as Select from '@ui5/webcomponents/dist/Select.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js'; // eslint-disable-next-line import/no-extraneous-dependencies
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { CollectionDropdownHelper } from '@furo/data-input/src/lib/CollectionDropdownHelper.js';
+import { CollectionDropdownHelper } from './lib/DELETEMECollectionDropdownHelper.js';
 
 /**
  * `furo-ui5-data-collection-dropdown`
@@ -134,6 +134,8 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
       }
     });
   }
+
+
 
   /**
    * connectedCallback() method is called when an element is added to the DOM.
@@ -288,6 +290,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
+
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
       if (this.valueSubField && this.valueSubField !== 'null') {
@@ -324,7 +327,9 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         }
       });
 
-      CollectionDropdownHelper.updateField(this);
+      console.log(this._fieldNodeToUpdate)
+      console.log(fieldNode._pristine)
+
     }
   }
 

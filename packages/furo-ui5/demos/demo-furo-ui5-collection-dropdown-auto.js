@@ -92,6 +92,7 @@ class DemoFuroUi5DataCollectionDropdownAuto extends FBP(LitElement) {
                 <furo-ui5-data-text-input-labeled
                   ƒ-bind-data="--entityPerson(*.data.display_name)"
                 ></furo-ui5-data-text-input-labeled>
+
               </furo-form-layouter>
 
               <furo-button-bar>
@@ -115,7 +116,8 @@ class DemoFuroUi5DataCollectionDropdownAuto extends FBP(LitElement) {
 
               <furo-data-object
                 type="person.PersonEntity"
-                @-object-ready="--entityPerson"
+                @-data-injected="--entityPerson"
+                xx-object-ready="--entityPerson"
                 ƒ-inject-raw="--responseProject"
                 ƒ-init="--reset"
               ></furo-data-object>
