@@ -85,7 +85,6 @@ describe('furo-ui5-data-password-input', () => {
           meta: {
             label: 'My description',
             readonly: false,
-            hint: 'Please enter a description',
           },
           constraints: {
             required: {
@@ -157,8 +156,10 @@ describe('furo-ui5-data-password-input', () => {
 
   it('an update of a scalar value on the data object should be synchronized with the input field', done => {
     dao.data.data.description._value = 'Set data in the inner input element';
-    assert.equal(input._state.value, 'Set data in the inner input element');
-    done();
+    setTimeout(() => {
+      assert.equal(input._state.value, 'Set data in the inner input element');
+      done();
+    }, 0);
   });
 
   it('should set ui5 icon to the component', done => {
@@ -182,7 +183,6 @@ describe('furo-ui5-data-password-input', () => {
       assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
       assert.equal(input._state.maxlength, undefined, 'check maxlength');
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
-      assert.equal(input.__hint, 'Please enter a description', 'check hint');
       assert.equal(input.binder.fieldFormat, 'scalar', 'check fieldFormat');
 
       done();

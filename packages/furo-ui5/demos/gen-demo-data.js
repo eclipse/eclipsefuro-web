@@ -127,6 +127,61 @@ class GenDemoData extends LitElement {
     customEvent.detail = list;
     this.dispatchEvent(customEvent);
   }
+
+  generateUi5ValueStateList() {
+    const list = [
+      {
+        id: '1',
+        display_name: 'Error State and Text via Fat Attribute',
+        link: '/mockdata/ui5/demos/fat-universal-error.json',
+      },
+      {
+        id: '2',
+        display_name: 'Warning State and Text via Fat Attribute',
+        link: '/mockdata/ui5/demos/fat-universal-warning.json',
+      },
+      {
+        id: '3',
+        display_name: 'Success State and Text via Fat Attribute',
+        link: '/mockdata/ui5/demos/fat-universal-success.json',
+      },
+      {
+        id: '4',
+        display_name: 'Information State and Text via Fat Attribute',
+        link: '/mockdata/ui5/demos/fat-universal-info.json',
+      },
+      {
+        id: '5',
+        display_name: 'Hint Text via Fat Attribute',
+        link: '/mockdata/ui5/demos/fat-universal-hint-attribute.json',
+      },
+
+      {
+        id: '6',
+        display_name: 'Hint Text via response Meta',
+        link: '/mockdata/ui5/demos/fat-universal-with-meta.json',
+      },
+      {
+        id: '7',
+        display_name: 'readonly via response Meta',
+        link: '/mockdata/ui5/demos/fat-universal-readonly.json',
+      },
+      {
+        id: '8',
+        display_name: 'maxlength 15 via response constraint',
+        link: '/mockdata/ui5/demos/fat-universal-constraints.json',
+      },
+      {
+        id: '9',
+        display_name: 'suggestions via Fat Attribute',
+        link: '/mockdata/ui5/demos/fat-universal-suggestions.json',
+      },
+    ];
+
+    const customEvent = new Event('value-state-list', { composed: true, bubbles: true });
+    customEvent.detail = list;
+    this.dispatchEvent(customEvent);
+  }
 }
 
 window.customElements.define('gen-demo-data', GenDemoData);

@@ -66,12 +66,11 @@ class FuroPages extends LitElement {
    * @param String pageName
    */
   activatePage(pageName) {
-
     /**
      * imitate a location object like furo-location would send, to have a consisten behavior
      * @type {{pathSegments: [*]}}
      */
-    const pseudolocation = {pathSegments: [pageName]};
+    const pseudolocation = { pathSegments: [pageName] };
 
     pseudolocation.path = window
       .decodeURIComponent(window.location.pathname)
@@ -101,7 +100,6 @@ class FuroPages extends LitElement {
         pseudolocation.query[p[0]] = p[1];
       });
     }
-
 
     return this.injectLocation(pseudolocation);
   }

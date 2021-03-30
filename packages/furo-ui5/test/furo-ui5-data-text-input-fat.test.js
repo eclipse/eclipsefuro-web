@@ -62,7 +62,6 @@ describe('furo-ui5-data-text-input-fat', () => {
           meta: {
             label: 'fat string label set via response meta',
             default: 'new',
-            hint: 'hint',
             readonly: false,
           },
           constraints: {
@@ -155,8 +154,7 @@ describe('furo-ui5-data-text-input-fat', () => {
       assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
       assert.equal(input._state.maxlength, 40, 'check maxlength');
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
-      assert.equal(input.__errorMsg, 'Your fat string is valid', 'check valueStateMessage content');
-      assert.equal(input.__hint, 'hint', 'check hint');
+      assert.equal(input._vsm, 'Your fat string is valid', 'check valueStateMessage content');
       assert.equal(input.binder.fieldFormat, 'fat', 'check fieldFormat');
       assert.equal(input.querySelector('ui5-icon')._state.name, 'thumb-up', 'check icon');
 

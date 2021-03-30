@@ -99,10 +99,6 @@ class FuroUi5MessageStripDisplay extends FBP(LitElement) {
         :host {
           display: block;
         }
-
-        ui5-messagestrip {
-          margin: var(--spacing-xxs);
-        }
       `
     );
   }

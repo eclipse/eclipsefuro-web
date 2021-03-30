@@ -13,7 +13,7 @@ import './furo-ui5-data-textarea-input.js';
  *
  * @summary labeled textarea field
  * @customElement
- * @demo demo-furo-ui5-form-field-container Simple use
+ * @demo demo-furo-ui5-data-textarea-input-labeled Basic Usage
  * @appliesMixin FBP
  */
 class FuroUi5DataTextareaInputLabeled extends FBP(LitElement) {
@@ -26,6 +26,8 @@ class FuroUi5DataTextareaInputLabeled extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.label = '';
+    this.rows = 0;
+    this.growingMaxLines = 0;
   }
 
   /**
@@ -60,6 +62,42 @@ class FuroUi5DataTextareaInputLabeled extends FBP(LitElement) {
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       disabled: {
+        type: Boolean,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field is readonly.
+       */
+      readonly: {
+        type: Boolean,
+      },
+      /**
+       * Determines whether the characters exceeding the maximum allowed character count are visible in the furo-ui5-data-textarea-input.
+       *
+       * If set to false, the user is not allowed to enter more characters than what is set in the maxlength property.
+       * If set to true the characters exceeding the maxlength value are selected on paste and the counter below
+       * the furo-ui5-data-textarea-input displays their number.
+       */
+      showExceededText: {
+        type: Boolean,
+        attribute: 'show-exceeded-text',
+      },
+      /**
+       * Defines the number of visible text lines for the component.
+       */
+      rows: {
+        type: Number,
+      },
+      /**
+       * Defines the maximum number of lines that the Web Component can grow.
+       */
+      growingMaxLines: {
+        type: Number,
+        attribute: 'growing-max-lines',
+      },
+      /**
+       * Enables the furo-ui5-data-textarea to automatically grow and shrink dynamically with its content.
+       */
+      growing: {
         type: Boolean,
       },
     };
@@ -102,7 +140,12 @@ class FuroUi5DataTextareaInputLabeled extends FBP(LitElement) {
         <furo-ui5-data-textarea-input
           content
           id="Input"
+          ?readonly=${this.readonly}
           ?disabled=${this.disabled}
+          ?show-exceeded-text="${this.showExceededText}"
+          ?growing="${this.growing}"
+          .rows="${this.rows}"
+          .growing-max-lines="${this.growingMaxLines}"
           ƒ-bind-data="--data"
           ƒ-focus="--focus"
         ></furo-ui5-data-textarea-input>

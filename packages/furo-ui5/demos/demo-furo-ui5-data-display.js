@@ -87,6 +87,12 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
         <template>
           <h4>Scalar and complex Types</h4>
           <p>One component fits all types</p>
+          <furo-form-layouter one>
+            <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
+              >Load Demo Data</furo-ui5-button
+            >
+          </furo-form-layouter>
+
           <furo-ui5-data-display
             ƒ-bind-data="--entity(*.data.display_name)"
             value-state="Information"
@@ -115,7 +121,9 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
           </furo-ui5-data-display>
 
           <produce-qp-data
+            hidden
             slot="action"
+            ƒ-produce="--demoDataRequested"
             @-data="--qp"
             qpescaped="%7B%22exp%22%3A1%7D"
           ></produce-qp-data>

@@ -1,0 +1,22 @@
+{
+  "data": {
+    "fat_string": {
+      "value": "furo fat string with success msg",
+      "labels": {
+        "before": true,
+        "show-suggestions": true,
+        "required": true
+      },
+      "attributes": {
+        "value-state": "Success",
+        "success-msg": "this is an success msg",
+        "maxlength": 6,
+        "label": "response label",
+        "placeholder": "place holder",
+        "icon": "world"
+      }
+    }
+  },
+  "links": [],
+  "meta": {}
+}

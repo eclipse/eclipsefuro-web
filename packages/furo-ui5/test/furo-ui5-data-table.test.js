@@ -303,27 +303,12 @@ describe('furo-ui5-data-table', () => {
             .tagName,
           'DISPLAY-GOOGLE-TYPE-DATE',
         );
+        assert.equal(table.shadowRoot.querySelectorAll('furo-ui5-table-row').length, 4);
 
         done();
       }, 24);
     });
     dao.injectRaw(mockdata);
-  });
-
-  it('data changes in the data object should automatically update the data table display', done => {
-    dao.data.entities.addEventListener(
-      'repeated-fields-changed',
-      () => {
-        setTimeout(() => {
-          assert.equal(table.shadowRoot.querySelectorAll('furo-ui5-table-row').length, 5);
-          done();
-        }, 48);
-      },
-      { once: 'true' },
-    );
-    // initial data inject
-    dao.injectRaw(mockdata);
-    dao.data.entities.add();
   });
 
   it('injection of an empty RepeaterNode should show table empty state', done => {

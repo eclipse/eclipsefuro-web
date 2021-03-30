@@ -182,6 +182,12 @@ export class Init {
               Env.api.specs[type].fields[field].meta.hint,
             );
           }
+          // translate static placeholder text
+          if (Env.api.specs[type].fields[field].meta.placeholder) {
+            Env.api.specs[type].fields[field].meta.placeholder = i18n.t(
+              Env.api.specs[type].fields[field].meta.placeholder,
+            );
+          }
           // translate option list if set
           if (
             Env.api.specs[type].fields[field].meta.options &&

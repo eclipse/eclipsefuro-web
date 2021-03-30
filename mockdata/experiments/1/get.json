@@ -331,8 +331,8 @@
                 "display_name": "Most used description 2"
               },
               {
-                "@type": "type.furo.com/furo.Optionitem",
-                "id": "2",
+                "@type": "type.googleapis.com/furo.Optionitem",
+                "id": "3",
                 "display_name": "Most used description 3"
               }
             ]
@@ -342,7 +342,8 @@
       "data.furo_data_checkbox_input": {
         "meta": {
           "label": "checkbox label via meta",
-          "readonly": false
+          "readonly": false,
+          "placeholder": "Additional checkbox text"
         }
       },
       "data.furo_data_text_input": {

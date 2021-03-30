@@ -465,6 +465,15 @@ export class UniversalFieldNodeBinder {
       this._metastore.label = fieldmeta.label;
     }
 
+    if ('placeholder' in fieldmeta) {
+      if (fieldmeta.placeholder) {
+        this._addVirtualAttribute('placeholder', fieldmeta.placeholder);
+      } else {
+        this._removeVirtualAttribute('placeholder');
+      }
+      this._metastore.placeholder = fieldmeta.placeholder;
+    }
+
     if ('hint' in fieldmeta) {
       if (fieldmeta.hint) {
         this._addVirtualAttribute('hint', fieldmeta.hint);

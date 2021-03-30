@@ -42,14 +42,18 @@ export class FuroUi5DataDateTimePicker extends DateTimePicker.default {
    * webcomponent lifecycle event
    */
   connectedCallback() {
-    // initiate valueStateMessage to avoid error in InputTemplate.lit.js
-    if (this.valueStateMessage === undefined) {
-      this.valueStateMessage = '';
-    }
+    this.attributeReadonly = this.readonly;
     setTimeout(() => {
       super.connectedCallback();
     }, 0);
-    this.placeholder = 'dd.MM.yyyy hh:mm aa';
+  }
+
+  /**
+   * overwrite to fix error
+   * @returns {*|{}}
+   */
+  get valueStateMessage() {
+    return super.valueStateMessage || {};
   }
 
   /**
@@ -81,7 +85,7 @@ export class FuroUi5DataDateTimePicker extends DateTimePicker.default {
     // set the label mappings
     this.binder.labelMappings = {
       error: '_error',
-      readonly: 'readonly', // Determines whether the ui5-date-picker is displayed as read-only.
+      readonly: '_readonly', // Determines whether the ui5-date-picker is displayed as read-only.
       required: 'required', // Defines whether the ui5-date-picker is required.
       disabled: 'disabled', // Determines whether the ui5-date-picker is displayed as disabled.
       modified: 'modified',
@@ -138,6 +142,12 @@ export class FuroUi5DataDateTimePicker extends DateTimePicker.default {
       // if something was entered the field is not empty
       this.binder.addLabel('modified');
     });
+  }
+
+  set _readonly(readonly) {
+    if (!this.attributeReadonly) {
+      this.readonly = readonly;
+    }
   }
 
   /**

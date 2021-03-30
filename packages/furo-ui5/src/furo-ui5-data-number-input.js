@@ -59,7 +59,7 @@ export class FuroUi5DataNumberInput extends FuroUi5DataInput {
    */
   connectedCallback() {
     this.type = 'Number';
-
+    this.attributeReadonly = this.readonly;
     setTimeout(() => {
       super.connectedCallback();
     }, 0);

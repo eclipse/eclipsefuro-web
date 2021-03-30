@@ -65,6 +65,16 @@ class DemoFuroUi5DataMultiInput extends FBP(LitElement) {
     // language=HTML
     return html`
       <h2>Demo furo-ui5-data-multi-input</h2>
+      <p>
+        A furo-ui5-data-multi-input field allows the user to enter multiple values, which are
+        displayed as token.
+      </p>
+      <ul>
+        <li>
+          Type a value in the input and press enter or focus out the input field (change event is
+          fired)
+        </li>
+      </ul>
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
@@ -75,7 +85,16 @@ class DemoFuroUi5DataMultiInput extends FBP(LitElement) {
           </furo-form-layouter>
 
           <furo-button-bar>
-            <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
+            <furo-empty-spacer></furo-empty-spacer>
+            <furo-ui5-button design="Emphasized" @-click="--demoDataRequested"
+              >Load Demo Data</furo-ui5-button
+            >
+            <produce-qp-data
+              hidden
+              ƒ-produce="--demoDataRequested"
+              @-data="--qp"
+              qpescaped="%7B%22exp%22%3A1%7D"
+            ></produce-qp-data>
           </furo-button-bar>
           <furo-pretty-json ƒ-inject-data="--valueChanged"></furo-pretty-json>
           <furo-data-object

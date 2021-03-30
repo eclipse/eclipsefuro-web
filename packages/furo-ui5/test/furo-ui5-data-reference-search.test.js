@@ -233,19 +233,19 @@ describe('furo-ui5-data-reference-search', () => {
     referenceSearch._fireSearchEvent();
   });
 
+  it('should show list', done => {
+    referenceSearch.maxItemsToDisplay = 2;
+    referenceSearch.collectionIn(testCollection);
+    setTimeout(() => {
+      referenceSearch._showList();
+      assert.equal(referenceSearch._listIsOpen, true, '_showList check');
+      done();
+    }, 20);
+  });
+
   it('should show no result hint by empty response', done => {
     referenceSearch.collectionIn({});
     assert.equal(referenceSearch.noResultHint, 'no result found');
     done();
-  });
-
-  it('should show list', done => {
-    referenceSearch.maxItemsToDisplay = 2;
-    referenceSearch.collectionIn(testCollection);
-    referenceSearch._showList();
-    setTimeout(() => {
-      assert.equal(referenceSearch._listIsOpen, true, '_showList check');
-      done();
-    }, 10);
   });
 });

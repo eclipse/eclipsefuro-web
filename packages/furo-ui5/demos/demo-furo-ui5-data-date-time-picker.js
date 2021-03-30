@@ -63,14 +63,15 @@ class DemoFuroUi5DataDateTimePicker extends FBP(LitElement) {
                   ƒ-bind-data="--entity(*.data.google_timestamp)"
                 ></furo-ui5-data-date-time-picker>
               </furo-form-layouter>
-              <furo-pretty-json ƒ-inject-data="--data(*._value)"></furo-pretty-json>
-
               <furo-button-bar>
                 <fetch-universal-json
                   file="/mockdata/ui5/demos/experiment-get.json"
                   @-data-loaded="--mockdata"
                 ></fetch-universal-json>
               </furo-button-bar>
+
+              <furo-pretty-json ƒ-inject-data="--data(*._value)"></furo-pretty-json>
+
               <furo-data-object
                 type="experiment.ExperimentEntity"
                 @-object-ready="--entity"

@@ -128,7 +128,7 @@ describe('furo-ui5-data-text-input-scalar', () => {
         assert.equal(input._state.required, true, 'check required');
         assert.equal(input._state.type, 'Text', 'check type');
         assert.equal(input._state.value, 'Description from record', 'check value');
-        assert.equal(input._state.valueState, 'None', 'check valueState');
+        assert.equal(input._state.valueState, 'Information', 'check valueState');
         assert.equal(input._state.name, '', 'check name');
         assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
         assert.equal(input._state.maxlength, undefined, 'check maxlength');

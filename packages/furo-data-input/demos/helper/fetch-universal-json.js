@@ -20,34 +20,31 @@ class FetchUniversalJson extends FBP(LitElement) {
     // this._FBPTraceWires()
 
     if (!this.file) {
-      fetch('/mockdata/tests/universalfieldnodebinder/fat-universal.json')
-        .then(res => res.json())
-        .then(response => {
-          /**
-           * @event data-loaded
-           * Fired when universal.json is loaded
-           * detail payload:
-           */
-          const customEvent = new Event('data-loaded', { composed: true, bubbles: true });
-          customEvent.detail = response;
-          this.dispatchEvent(customEvent);
-        });
+      this.fetchMock('/mockdata/tests/universalfieldnodebinder/fat-universal.json');
     }
 
     this.addEventListener('click', () => {
-      fetch(this.file)
-        .then(res => res.json())
-        .then(response => {
-          /**
-           * @event data-loaded
-           * Fired when universal.json is loaded
-           * detail payload:
-           */
-          const customEvent = new Event('data-loaded', { composed: true, bubbles: true });
-          customEvent.detail = response;
-          this.dispatchEvent(customEvent);
-        });
+      this.fetchMock(this.file);
     });
+  }
+
+  /**
+   * fetch mockdata
+   * @param file
+   */
+  fetchMock(file) {
+    fetch(file)
+      .then(res => res.json())
+      .then(response => {
+        /**
+         * @event data-loaded
+         * Fired when universal.json is loaded
+         * detail payload:
+         */
+        const customEvent = new Event('data-loaded', { composed: true, bubbles: true });
+        customEvent.detail = response;
+        this.dispatchEvent(customEvent);
+      });
   }
 
   static get properties() {

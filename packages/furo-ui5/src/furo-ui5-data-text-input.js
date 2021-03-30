@@ -11,6 +11,7 @@ import { FuroUi5DataInput } from './furo-ui5-data-input.js';
  * @summary data text input field
  * @customElement
  * @demo demo-furo-ui5-data-text-input Basic usage (scalar , fat, wrapper values)
+ * @demo demo-furo-ui5-data-text-input-markup-overwrite Use Markup Overwrites
  * @demo demo-furo-ui5-data-text-input-together playground
  */
 export class FuroUi5DataTextInput extends FuroUi5DataInput {

@@ -70,8 +70,10 @@ class FuroTypeRenderer extends FBP(LitElement) {
    */
   bindData(fieldNode) {
     this._field = fieldNode;
-    if (this._field){
-      this.renderName = `display-${this._field._spec.type.replaceAll('.', '-').toLocaleLowerCase()}`;
+    if (this._field) {
+      this.renderName = `display-${this._field._spec.type
+        .replaceAll('.', '-')
+        .toLocaleLowerCase()}`;
       this.defaultElement = document.createElement(this.renderName);
       if (!this._field._isRepeater) {
         this._createDisplay();

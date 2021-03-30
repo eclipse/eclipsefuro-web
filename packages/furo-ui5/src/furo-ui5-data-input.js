@@ -10,7 +10,6 @@ import '@ui5/webcomponents/dist/features/InputSuggestions.js';
  *
  * @summary data text input base
  * @customElement
- * @demo demo-furo-fat-type furo fat type
  */
 export class FuroUi5DataInput extends Input.default {
   /**
@@ -30,6 +29,18 @@ export class FuroUi5DataInput extends Input.default {
   }
 
   /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   * @private
+   */
+  connectedCallback() {
+    this.attributeReadonly = this.readonly;
+
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
+  }
+
+  /**
    * rewrite get accInfo function
    * initiate _inputAccInfo in order to avoid error
    * @private
@@ -43,29 +54,27 @@ export class FuroUi5DataInput extends Input.default {
   }
 
   /**
-   * connectedCallback() method is called when an element is added to the DOM.
-   * webcomponent lifecycle event
-   * @private
-   */
-  connectedCallback() {
-    // initiate icon slot when it is undefined to avoid error in InputTemplate.lit.js
-    if (this.icon === undefined) {
-      this.icon = [];
-    }
-
-    if (this.suggestionItems === undefined) {
-      this.suggestionItems = [];
-    }
-    // eslint-disable-next-line wc/guard-super-call
-    super.connectedCallback();
-  }
-
-  /**
    * overwrite to fix error
    * @returns {*|{}}
    */
   get valueStateMessage() {
     return super.valueStateMessage || {};
+  }
+
+  /**
+   * overwrite to fix error
+   * @returns {*|[]}
+   */
+  get suggestionItems() {
+    return super.suggestionItems || [];
+  }
+
+  /**
+   * overwrite to fix error
+   * @returns {*|[]}
+   */
+  get icon() {
+    return super.icon || [];
   }
 
   /**
@@ -140,7 +149,7 @@ export class FuroUi5DataInput extends Input.default {
     // set the label mappings
     this.binder.labelMappings = {
       error: '_error',
-      readonly: 'readonly',
+      readonly: '__readonly',
       required: 'required',
       disabled: 'disabled',
       modified: 'modified',
@@ -275,6 +284,12 @@ export class FuroUi5DataInput extends Input.default {
     this._updateVS();
   }
 
+  set __readonly(readonly) {
+    if (!this.attributeReadonly) {
+      this.readonly = readonly;
+    }
+  }
+
   /**
    * store the warning message and update the value state message
    * @param msg
@@ -301,8 +316,10 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _valueState(state) {
-    this.valueState = state || 'None';
-    this._updateVS();
+    if (state) {
+      this.valueState = state;
+      this._updateVS();
+    }
   }
 
   /**
@@ -311,15 +328,11 @@ export class FuroUi5DataInput extends Input.default {
    * @private
    */
   set _hint(h) {
-    this.__hint = h;
-    // do not set an empty attribute
     if (h) {
-      this.setAttribute('title', h);
-    } else {
-      this.removeAttribute('title');
+      this.valueState = 'Information';
+      this.__hint = h;
+      this._updateVS();
     }
-
-    this.__hint = h;
   }
 
   _updateVS() {
@@ -327,24 +340,19 @@ export class FuroUi5DataInput extends Input.default {
     switch (this.valueState) {
       case 'Error':
         this._vsm = this._valueStateMessage || this.__errorMsg || this.__hint;
-        this.removeAttribute('title');
         break;
       case 'Information':
         this._vsm = this._valueStateMessage || this.__informationMsg || this.__hint;
-        this.removeAttribute('title');
         break;
       case 'Success':
         this._vsm = this._valueStateMessage || this.__successMsg || this.__hint;
-        this.removeAttribute('title');
         break;
       case 'Warning':
         this._vsm = this._valueStateMessage || this.__warningMsg || this.__hint;
-        this.removeAttribute('title');
         break;
 
       default:
         this._vsm = this._valueStateMessage || this.__hint;
-        this.setAttribute('title', this._vsm);
     }
     this._setValueStateMessage(this._vsm);
   }
@@ -377,52 +385,60 @@ export class FuroUi5DataInput extends Input.default {
    * @param arr
    */
   set suggestions(arr) {
-    // remove previous suggestion items.
-    this.querySelectorAll('ui5-suggestion-item').forEach(e => {
-      e.remove();
-    });
-
-    if (Array.isArray(arr) && arr.length > 0) {
-      this.showSuggestions = true;
-      this.highlight = true;
-
-      // add current suggestion items
-      arr.forEach(e => {
-        const suggestion = document.createElement('ui5-suggestion-item');
-
-        // suggestions from furo.optionItem
-        if (e.display_name !== undefined) {
-          suggestion.text = e.display_name;
-        }
-        // suggestions from fat attribute
-        if (e.text !== undefined) {
-          suggestion.text = e.text;
-        }
-
-        // appends only when suggestion text exists
-        if (suggestion.text !== undefined) {
-          if (e.icon !== undefined) {
-            suggestion.icon = e.icon;
-          }
-          if (e.image !== undefined) {
-            suggestion.image = e.image;
-          }
-          if (e.type !== undefined) {
-            suggestion.type = e.type;
-          }
-          if (e.infoState !== undefined) {
-            suggestion.infoState = e.infoState;
-          }
-          if (e.group !== undefined) {
-            suggestion.group = e.group;
-          }
-          if (e.key !== undefined) {
-            suggestion.key = e.key;
-          }
-
-          this.appendChild(suggestion);
-        }
+    if (!this.readonly && !this.disabled) {
+      // remove previous suggestion items.
+      this.querySelectorAll('ui5-suggestion-item').forEach(e => {
+        e.remove();
       });
+
+      if (Array.isArray(arr) && arr.length > 0) {
+        this.showSuggestions = true;
+        this.highlight = true;
+
+        // add current suggestion items
+        arr.forEach(e => {
+          const suggestion = document.createElement('ui5-suggestion-item');
+
+          // suggestions from furo.optionItem
+          if (e.id !== undefined) {
+            suggestion.text = e.id;
+          }
+
+          // suggestions from furo.optionItem
+          if (e.display_name !== undefined && e.display_name !== e.id) {
+            suggestion.description = e.display_name;
+          }
+
+          // suggestions from fat attribute
+          if (e.text !== undefined) {
+            suggestion.text = e.text;
+          }
+
+          // appends only when suggestion text exists
+          if (suggestion.text !== undefined) {
+            if (e.icon !== undefined) {
+              suggestion.icon = e.icon;
+            }
+            if (e.image !== undefined) {
+              suggestion.image = e.image;
+            }
+            if (e.type !== undefined) {
+              suggestion.type = e.type;
+            }
+            if (e.infoState !== undefined) {
+              suggestion.infoState = e.infoState;
+            }
+            if (e.group !== undefined) {
+              suggestion.group = e.group;
+            }
+            if (e.key !== undefined) {
+              suggestion.key = e.key;
+            }
+
+            this.appendChild(suggestion);
+          }
+        });
+      }
     }
   }
 }

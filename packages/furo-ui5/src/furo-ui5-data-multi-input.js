@@ -49,12 +49,26 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
     });
 
     this.addEventListener('token-delete', event => {
-      this.binder.fieldNode._value = this.binder.fieldNode._value.filter(
-        item => item !== event.detail.token.text,
-      );
-      this._updateItems();
-      this._triggerValueChangedEvent();
+      if (!this.readonly && !this.disabled) {
+        this.binder.fieldNode._value = this.binder.fieldNode._value.filter(
+          item => item !== event.detail.token.text,
+        );
+        this._updateItems();
+        this._triggerValueChangedEvent();
+      }
     });
+  }
+
+  /**
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
+   * @private
+   */
+  connectedCallback() {
+    this.attributeReadonly = this.readonly;
+
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
   }
 
   /**
@@ -84,7 +98,7 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
     this.binder.labelMappings = {
       'show-value-help-icon': 'showValueHelpIcon',
       'show-suggestions': 'showSuggestions',
-      readonly: 'readonly',
+      readonly: '__readonly',
       required: 'required',
       disabled: 'disabled',
       modified: 'modified',
@@ -140,6 +154,12 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
     this.binder.fieldValue = val;
   }
 
+  set __readonly(readonly) {
+    if (!this.attributeReadonly) {
+      this.readonly = readonly;
+    }
+  }
+
   /**
    * Bind a entity field to the text-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
@@ -163,7 +183,7 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
         this._triggerValueChangedEvent();
       });
 
-      this.binder.fieldNode.addEventListener('repeated-field-changed', () => {
+      this.binder.fieldNode.addEventListener('this-repeated-field-changed', () => {
         this._updateItems();
       });
 

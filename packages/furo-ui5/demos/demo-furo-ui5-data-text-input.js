@@ -48,7 +48,6 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
           display: block;
           height: 100%;
           padding-right: var(--spacing);
-          --furo-form-layouter-row-gap: var(--spacing-xs);
         }
 
         :host([hidden]) {
@@ -91,20 +90,17 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter two>
+            <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
+              >Load Demo Data</furo-ui5-button
+            >
             <furo-ui5-data-text-input
               style="width: 100%"
               ƒ-bind-data="--entity(*.data.display_name)"
-              value-state="Information"
+              value-state="Error"
             >
               <ui5-icon slot="icon" name="signature"></ui5-icon>
             </furo-ui5-data-text-input>
 
-            <!--            SAP Fiori Design System -->
-            <!--            The label-field ratio is 4:8:0 by default:-->
-
-            <!--            4 grid columns of the responsive grid layout are used by the labels.-->
-            <!--            8 grid columns of the responsive grid layout are used by fields.-->
-            <!--            0 grid columns of the responsive grid layout are used by empty columns.-->
             <div style="display: grid; grid-template-columns: repeat(12, 1fr); grid-gap: 1em;">
               <div style="grid-column: span 4; justify-self: end; align-self: center;">
                 <ui5-label for="Input" show-colon>Description</ui5-label>
@@ -113,6 +109,7 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
                 <furo-ui5-data-text-input
                   id="Input"
                   style="width: 100%"
+                  placeholder="Please fill in a description"
                   ƒ-bind-data="--entity(*.data.description)"
                 ></furo-ui5-data-text-input>
               </div>
@@ -148,7 +145,12 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
           </furo-form-layouter>
 
           <furo-button-bar>
-            <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
+            <produce-qp-data
+              hidden
+              ƒ-produce="--demoDataRequested"
+              @-data="--qp"
+              qpescaped="%7B%22exp%22%3A1%7D"
+            ></produce-qp-data>
           </furo-button-bar>
 
           <p>

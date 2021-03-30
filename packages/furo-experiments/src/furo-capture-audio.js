@@ -58,7 +58,6 @@ class FuroCaptureAudio extends LitElement {
   }
 
   _err(e) {
-    console.error(e);
     /**
      * @event error
      * Fired when

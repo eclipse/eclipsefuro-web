@@ -244,7 +244,7 @@ describe('furo-ui5-data-table-focus-tests', () => {
         tr,
       );
       done();
-    }, 0);
+    }, 10);
   });
 
   it('should focus the last row via focusLast method', done => {

@@ -1,0 +1,18 @@
+{
+  "data": {
+    "fat_string": {
+      "value": "furo fat string with hint",
+      "labels": {
+        "before": true,
+        "show-suggestions": true,
+        "required": true
+      },
+      "attributes": {
+        "hint": "hint via attribute",
+        "icon": "world"
+      }
+    }
+  },
+  "links": [],
+  "meta": {}
+}

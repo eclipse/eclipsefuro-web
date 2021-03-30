@@ -1,5 +1,5 @@
-import {LitElement, css} from 'lit-element';
-import {FBP} from '@furo/fbp';
+import { LitElement, css } from 'lit-element';
+import { FBP } from '@furo/fbp';
 
 /**
  * `furo-location-updater`
@@ -25,11 +25,11 @@ class FuroLocationUpdater extends FBP(LitElement) {
       /**
        * Comma separated list of qp keys to clear if they are not explicitly set with `ƒ-set-qp`
        */
-      clearQp: {type: String, attribute: 'clear-qp'},
+      clearQp: { type: String, attribute: 'clear-qp' },
       /**
        * Comma separated list of hashes to clear if they are not explicitly set with `ƒ-set-hash`
        */
-      clearHash: {type: String, attribute: 'clear-hash'},
+      clearHash: { type: String, attribute: 'clear-hash' },
     };
   }
 
@@ -97,7 +97,6 @@ class FuroLocationUpdater extends FBP(LitElement) {
     // read current hash and update incoming hash
 
     const currentHash = window.location.hash.slice(1);
-
 
     const hashObject = {};
     if (currentHash.length > 0) {

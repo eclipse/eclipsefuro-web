@@ -71,6 +71,9 @@ class DemoFuroUi5DataCheckboxInput extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
+            <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
+              >Load Demo Data</furo-ui5-button
+            >
             <div>
               <furo-ui5-data-checkbox-input
                 ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
@@ -102,7 +105,12 @@ class DemoFuroUi5DataCheckboxInput extends FBP(LitElement) {
           </furo-form-layouter>
 
           <furo-button-bar>
-            <produce-qp-data @-data="--qp" qpescaped="%7B%22exp%22%3A1%7D"></produce-qp-data>
+            <produce-qp-data
+              hidden
+              ƒ-produce="--demoDataRequested"
+              @-data="--qp"
+              qpescaped="%7B%22exp%22%3A1%7D"
+            ></produce-qp-data>
           </furo-button-bar>
 
           <furo-data-object

@@ -169,7 +169,7 @@ class FuroSplitGrid extends FBP(LitElement) {
         ::slotted(*[hspan='4']),
         :host([size='size-m']) ::slotted(*[hspan-on-size-medium='4']),
         :host([size='size-l']) ::slotted(*[hspan-on-size-large='4']),
-        :host([size='size-xl']) ::slotted(*[hspan-on-size-xlarge='4'])  {
+        :host([size='size-xl']) ::slotted(*[hspan-on-size-xlarge='4']) {
           grid-column: auto / span 4;
         }
 
@@ -193,16 +193,14 @@ class FuroSplitGrid extends FBP(LitElement) {
         }
         ::slotted(*[hspan='8']),
         :host([size='size-l']) ::slotted(*[hspan-on-size-large='8']),
-        :host([size='size-xl']) ::slotted(*[hspan-on-size-xlarge='8'])  {
+        :host([size='size-xl']) ::slotted(*[hspan-on-size-xlarge='8']) {
           grid-column: auto / span 8;
         }
 
         ::slotted(*[hspan='9']),
-        :host([size='size-xl']) ::slotted(*[hspan-on-size-xlarge='9'])  {
+        :host([size='size-xl']) ::slotted(*[hspan-on-size-xlarge='9']) {
           grid-column: auto / span 9;
         }
-
-
 
         /* start at position x*/
         ::slotted(*[hstart='2']) {

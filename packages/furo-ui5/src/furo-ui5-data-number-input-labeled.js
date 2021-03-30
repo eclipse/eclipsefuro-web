@@ -13,7 +13,7 @@ import './furo-ui5-data-number-input.js';
  *
  * @summary labeled input field
  * @customElement
- * @demo demo-furo-ui5-form-field-container Simple use
+ * @demo demo-furo-ui5-data-number-input-labeled Basic Usage
  * @appliesMixin FBP
  */
 class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
@@ -57,9 +57,16 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
         type: Boolean,
       },
       /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       * A Boolean attribute which, if present, means this field cannot be edited by the user and
+       * appears in disabled state.
        */
       disabled: {
+        type: Boolean,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field is readonly.
+       */
+      readonly: {
         type: Boolean,
       },
     };
@@ -103,8 +110,11 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
           content
           id="Input"
           ?disabled=${this.disabled}
+          ?readonly=${this.readonly}
           ƒ-bind-data="--data"
           ƒ-focus="--focus"
+        >
+          <div slot="icon"><slot name="icon"></slot></div
         ></furo-ui5-data-number-input>
       </furo-ui5-form-field-container>
     `;
