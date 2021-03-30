@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.22.0...@furo/ui5@0.22.1) (2021-03-23)
+
+
+### Bug Fixes
+
+* data properties, lint and format ([ff11f26](https://github.com/theNorstroem/FuroBaseComponents/commit/ff11f265cb037f05258c5af1c6368fcdc326f17a))
+* data prperties ([da47ba0](https://github.com/theNorstroem/FuroBaseComponents/commit/da47ba0eccd2bcab11ae640522b0b70b346c27b2))
+* only the icon color should react ([bfdc55a](https://github.com/theNorstroem/FuroBaseComponents/commit/bfdc55a3da387293e0d55e69c35d7cbe745e93c7))
+
+
+
+
+
 # [0.22.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.21.3...@furo/ui5@0.22.0) (2021-03-17)
 
 

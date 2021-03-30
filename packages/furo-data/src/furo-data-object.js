@@ -121,6 +121,48 @@ export class FuroDataObject extends LitElement {
     }
   }
 
+
+  /**
+   * Append errors from custom methods or other agents or sources to the data object.
+   * The error object must have a grpc status error signature like:
+   * ```json
+   * {
+   *  "code":3,
+   *  "message":"invalid username",
+   *  "details":[{
+   *          "@type":"type.googleapis.com/google.rpc.BadRequest",
+   *          "field_violations":[{
+   *              "field":"user.name",
+   *              "description":"The username must only contain alphanumeric characters"
+   *           }]
+   *     }]
+   * }
+   * ```
+   * @param grpcStatus
+   */
+  appendErrors(grpcStatus) {
+    grpcStatus.details.forEach(errorSet => {
+      if (errorSet.field_violations) {
+        const fieldViolations = JSON.parse(JSON.stringify(errorSet.field_violations));
+        fieldViolations.forEach(error => {
+          const path = error.field.split('.');
+          if (path.length > 0) {
+            // rest wieder in error reinwerfen
+            // eslint-disable-next-line no-param-reassign
+            error.field = path.slice(1).join('.');
+            if (this.data.data[path[0]]) {
+              this.data.data[path[0]]._setInvalid(error);
+            } else {
+              // eslint-disable-next-line no-console
+              console.warn('Unknown field', path);
+            }
+          }
+        });
+      }
+    });
+  }
+
+
   /**
    * Set the type. The type must be available in the environment
    * @param type

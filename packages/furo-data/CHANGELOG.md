@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.19.3...@furo/data@1.19.4) (2021-03-23)
+
+
+### Bug Fixes
+
+* data prperties ([3a5b7ef](https://github.com/theNorstroem/FuroBaseComponents/commit/3a5b7ef4c9d15db26bbc7ec9784786ede2f7710c))
+
+
+
+
+
 ## [1.19.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.19.2...@furo/data@1.19.3) (2021-03-17)
 
 **Note:** Version bump only for package @furo/data

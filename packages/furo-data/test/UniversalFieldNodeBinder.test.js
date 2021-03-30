@@ -207,8 +207,8 @@ describe('UniversalFieldNodeBinder.test', () => {
       () => {
         pseudocomponent.binder.bindField(dataobj.data.data.fat_string);
         assert.equal(pseudocomponent.val, pseudocomponent.binder._fieldValue);
-        assert.equal(pseudocomponent.valueState, 'Error');
         assert.equal(pseudocomponent.maxLength, '6');
+        assert.equal(pseudocomponent.valueState, 'Error');
         assert.equal(pseudocomponent.before, true);
 
         dataobj.addEventListener('data-injected', () => {
@@ -217,7 +217,7 @@ describe('UniversalFieldNodeBinder.test', () => {
           assert.equal('maxlength' in pseudocomponent.binder.virtualNode.attributes, false);
           assert.equal(pseudocomponent.before, false);
           assert.equal(pseudocomponent.after, undefined);
-          assert.equal(pseudocomponent.valueState, '');
+          assert.equal(pseudocomponent.valueState, 'Error');
           assert.equal(pseudocomponent.maxLength, null);
 
           done();

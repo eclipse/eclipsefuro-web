@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.9...@furo/data-input@1.11.10) (2021-03-23)
+
+
+### Bug Fixes
+
+* data properties, lint and format ([ff11f26](https://github.com/theNorstroem/FuroBaseComponents/commit/ff11f265cb037f05258c5af1c6368fcdc326f17a))
+* data prperties ([da47ba0](https://github.com/theNorstroem/FuroBaseComponents/commit/da47ba0eccd2bcab11ae640522b0b70b346c27b2))
+
+
+
+
+
 ## [1.11.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.8...@furo/data-input@1.11.9) (2021-03-17)
 
 **Note:** Version bump only for package @furo/data-input
