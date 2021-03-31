@@ -142,7 +142,7 @@ export class FuroUi5DataInput extends Input.default {
       'information-msg': '_informationMsg',
       pattern: 'pattern',
       name: 'name',
-      suggestions: 'suggestions', // suggestion items
+      options: 'suggestions', // suggestion items
       maxlength: 'maxlength', // for the input element itself
     };
 
