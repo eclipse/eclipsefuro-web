@@ -123,10 +123,11 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
     // update value when the amount changed
     this._FBPAddWireHook('--inputInput', e => {
       if (e.inputType === 'deleteContentBackward') {
-        this.binder.fieldNode.reset();
-        this.binder.fieldNode.currency_code._value = '';
-        this._FBPTriggerWire('--valueAmount', '');
+        // this.binder.fieldNode.reset();
+        // this.binder.fieldNode.currency_code._value = '';
+        // this._FBPTriggerWire('--valueAmount', '');
       }
+
       if (e.composedPath()[0].nodeName === 'UI5-INPUT') {
         this.binder.fieldValue = this._convertDataToMoneyObj(
           '',

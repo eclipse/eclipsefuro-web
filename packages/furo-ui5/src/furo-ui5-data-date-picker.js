@@ -129,7 +129,8 @@ export class FuroUi5DataDatePicker extends DatePicker.default {
       let dateIOS8601 = '';
 
       if (val.detail.value === '') {
-        this.binder.fieldNode.reset();
+        // @maltenorstroem this is to hard and would kill nodes which are of type "any"
+        // this.binder.fieldNode.reset();
       } else {
         dateIOS8601 = FuroUi5DataDatePicker._convertDateToString(new Date(dateValue));
         if (this.binder.fieldNode) {
