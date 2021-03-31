@@ -179,10 +179,9 @@ export class FuroUi5DataInput extends Input.default {
     this.addEventListener('input', val => {
       if (val.inputType === 'deleteContentBackward') {
         this.binder.fieldValue = null;
-      }else{
+      } else {
         this.binder.fieldValue = val.target.value;
       }
-
 
       /**
        * Fired when value changed
