@@ -2,7 +2,7 @@ import * as Select from '@ui5/webcomponents/dist/Select.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js'; // eslint-disable-next-line import/no-extraneous-dependencies
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { CollectionDropdownHelper } from '@furo/data-input/src/lib/CollectionDropdownHelper.js';
+import { CollectionDropdownHelper } from './lib/DELETEMECollectionDropdownHelper.js';
 
 /**
  * `furo-ui5-data-collection-dropdown`
@@ -21,6 +21,7 @@ import { CollectionDropdownHelper } from '@furo/data-input/src/lib/CollectionDro
  * @summary data collection dropdown
  * @customElement
  * @demo demo-furo-ui5-data-collection-dropdown Basic Usage
+ * @demo demo-furo-ui5-data-collection-dropdown-auto Autoselect first
  */
 export class FuroUi5DataCollectionDropdown extends Select.default {
   /**
@@ -314,6 +315,10 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         }
       });
 
+      this._fieldDisplayNodeToUpdate.addEventListener('field-value-changed', () => {
+        CollectionDropdownHelper.updateField(this);
+      });
+
       this.binder.fieldNode.addEventListener('field-value-changed', e => {
         if (
           this.binder.fieldFormat === 'scalar' ||
@@ -322,7 +327,6 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
           CollectionDropdownHelper.updateField(this);
         }
       });
-
       CollectionDropdownHelper.updateField(this);
     }
   }

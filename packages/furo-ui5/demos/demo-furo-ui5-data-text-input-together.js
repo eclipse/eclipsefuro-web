@@ -15,6 +15,7 @@ import '@furo/layout/src/furo-catalog.js';
 import '@furo/data-input/src/furo-catalog.js';
 import '@ui5/webcomponents/dist/Card.js';
 import '@ui5/webcomponents/dist/Label.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/fetch-universal-json.js';
 import './gen-demo-data.js';
 import '../src/lib/ui5-icons.js';

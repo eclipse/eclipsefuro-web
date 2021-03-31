@@ -28,7 +28,6 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/data-input": "^1.11.10",
     "@furo/data-ui": "^1.6.5",
     "@furo/fbp": "^5.4.0",
     "@furo/form": "^1.5.3",
