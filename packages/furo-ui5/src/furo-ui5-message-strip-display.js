@@ -1,6 +1,5 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
-import 'markdown-it/dist/markdown-it.js';
 import '@ui5/webcomponents-fiori/dist/NotificationListItem.js';
 import '@ui5/webcomponents-fiori/dist/NotificationAction.js';
 import '@ui5/webcomponents/dist/List.js';
@@ -9,15 +8,20 @@ import '@ui5/webcomponents/dist/MessageStrip';
 
 /**
  * `furo-ui5-message-strip-display`
- * Lit element
  *
- *  best place the furo-ui5-message-strip-display on the main site. then you only need one furo-ui5-message-strip-display.
- *  you can also use more furo-ui5-message-strip for special needs. but You have to be sure the furo-ui5-message-strip-display can receive the message events.
+ *  The furo-ui5-message-strip-display is the render component for the furo-ui5-message-strip component.
+ *  The display component can be controlled by several furo-ui5-message-strip components.
  *
+ * ```
+ *  <furo-ui5-message-strip-display></furo-ui5-message-strip-display>
  *
- * @summary ui5 notification list
+ *  <furo-ui5-message-strip ƒ-show-information="--wire"></furo-ui5-message-strip>
+ *  <furo-ui5-message-strip ƒ-show-warning="--wire" message="Static warning message"></furo-ui5-message-strip>
+ *  ```
+ *
+ * @summary furo ui5 message strip
  * @customElement
- * @demo demo-furo-ui5-message-strip-display ui5 notification display demo
+ * @demo demo-furo-ui5-message-strip-display Basic Usage
  */
 class FuroUi5MessageStripDisplay extends FBP(LitElement) {
   constructor() {
@@ -57,31 +61,24 @@ class FuroUi5MessageStripDisplay extends FBP(LitElement) {
    * show notification list item.
    * @param text
    */
-  show(message) {
+  show(source) {
     const messagestrip = document.createElement('ui5-messagestrip');
-    messagestrip.setAttribute('type', message.type ? message.type : 'Information');
+    messagestrip.setAttribute('type', source.type ? source.type : 'Information');
 
-    if (message.noCloseButton) {
+    if (source.noCloseButton) {
       messagestrip.setAttribute('no-close-button', true);
     }
 
-    if (message.noIcon) {
+    if (source.noIcon) {
       messagestrip.setAttribute('no-icon', true);
     }
 
-    if (message.size) {
-      messagestrip.setAttribute('style', `width: ${message.size}`);
+    if (source.size) {
+      messagestrip.setAttribute('style', `width: ${source.size}`);
     }
 
-    if (message.icon) {
-      const icon = document.createElement('ui5-icon');
-      icon.setAttribute('name', message.icon);
-      icon.setAttribute('slot', 'icon');
-      messagestrip.appendChild(icon);
-    }
-
-    messagestrip.target = this.target;
-    messagestrip.innerHTML = message.message;
+    messagestrip.target = source;
+    messagestrip.innerHTML = source.displayMessage;
 
     this.shadowRoot.appendChild(messagestrip);
   }
@@ -99,16 +96,12 @@ class FuroUi5MessageStripDisplay extends FBP(LitElement) {
         :host {
           display: block;
         }
+
+        ui5-messagestrip {
+          margin: var(--spacing-xxs);
+        }
       `
     );
-  }
-
-  /**
-   * @private
-   * @returns {TemplateResult}
-   */
-  render() {
-    return html``;
   }
 }
 

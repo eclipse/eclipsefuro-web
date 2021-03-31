@@ -5,10 +5,8 @@ import { FBP } from '@furo/fbp';
 import '@furo/notification/src/furo-banner.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/notification/demos/produce-banner-data.js';
-
-import '../src/lib/ui5-icons.js';
+import '@ui5/webcomponents/dist/Title.js';
+import './helper/notification-producer.js';
 
 /**
  * `demo-furo-ui5-notification-list`
@@ -61,49 +59,51 @@ class DemoFuroUi5MessageStripDisplay extends FBP(LitElement) {
         <furo-demo-snippet flex>
           <template>
            <furo-ui5-message-strip-display autofocus></furo-ui5-message-strip-display>
-            <furo-vertical-scroller>
-              <h2>Parse grpc status message</h2>
-                <furo-ui5-message-strip
-                ƒ-parse-grpc-status="--notification-grpc-status"
-                @-message-strip-closed="--closed"
-                ></furo-ui5-message-strip>
-              <produce-banner-data
-                @-response-error="--notification-grpc-status"
-            @-notification-closed="--notificationAction"
-                label="Generate GRPC ERROR"
-              ></produce-banner-data>
-                            <h2>trigger the wire to show message strip </h2>
+            </br>
 
-                <furo-ui5-message-strip
-                ƒ-show="--show"
-                size="200px"
-                message="MessageStrip with size"
-                @-message-strip-closed="--closed"
-                ></furo-ui5-message-strip>
+            <furo-ui5-message-strip
+              message="Static message from attribute &apos; message &apos;"
+              ƒ-show-error="--staticError, --errorReady"
+              ƒ-show-information="--staticInformation, --informationReady"
+              ƒ-show-warning="--staticWarning, --warningReady"
+              ƒ-show-success="--staticSuccess, --successReady"
+              ƒ-show-grpc-localized-message="--grpcReady"
+              @-message-strip-closed="--closed"
+            ></furo-ui5-message-strip>
 
-              <furo-button label="show" @-click="--show"></furo-button>
+            <h4>Message strips with static message</h4>
 
-                 <h2>Display the payload by notification custom action </h2>
-            <furo-pretty-json ƒ-inject-data="--closed"></furo-pretty-json>
-          <furo-data-object
-            type="task.Task"
-            @-object-ready="--entity"
-            ƒ-inject-raw="--response(*.data)"
-          ></furo-data-object>
-          <furo-deep-link
-            service="TaskService"
-            @-hts-out="--hts"
-            ƒ-qp-in="--qp"
-          ></furo-deep-link>
-          <furo-entity-agent
-            service="TaskService"
-            ƒ-hts-in="--hts"
-            ƒ-load="--hts"
-            ƒ-bind-request-data="--entity"
-            @-response="--response"
-          >
-              <hr />
-            </furo-vertical-scroller>
+            <furo-ui5-button-bar>
+              <furo-ui5-button @-click="--staticError" design="Negative">show static error message</furo-ui5-button>
+              <furo-ui5-button @-click="--staticInformation" design="Informative">show static information message</furo-ui5-button>
+              <furo-ui5-button @-click="--staticWarning" design="Negative">show static warning message</furo-ui5-button>
+              <furo-ui5-button @-click="--staticSuccess" design="Positive">show static success message</furo-ui5-button>
+            </furo-ui5-button-bar>
+
+            <h4>Message strips with dynamic message</h4>
+
+            <notification-producer ƒ-get-information-message="--information"
+                                   @-information-msg-ready="--informationReady"
+                                   ƒ-get-error-message="--error"
+                                   @-error-msg-ready="--errorReady"
+                                   ƒ-get-success-message="--success"
+                                   @-success-msg-ready="--successReady"
+                                   ƒ-get-warning-message="--warning"
+                                   @-warning-msg-ready="--warningReady"
+                                   ƒ-get-grpc-status="--grpc"
+                                   @-grpc-status-ready="--grpcReady"></notification-producer>
+
+            <furo-ui5-button-bar>
+              <furo-ui5-button @-click="--error" design="Negative">show error message</furo-ui5-button>
+              <furo-ui5-button @-click="--information" design="Informative">show information message</furo-ui5-button>
+              <furo-ui5-button @-click="--warning" design="Negative">show warning message</furo-ui5-button>
+              <furo-ui5-button @-click="--success" design="Positive">show success message</furo-ui5-button>
+            </furo-ui5-button-bar>
+
+            <h4>Message strips with gRPC status</h4>
+            <furo-ui5-button-bar>
+              <furo-ui5-button @-click="--grpc" design="Emphasized">show grpc localized messages</furo-ui5-button>
+            </furo-ui5-button-bar>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

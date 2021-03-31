@@ -3,20 +3,30 @@ import { FBP } from '@furo/fbp';
 
 /**
  * `furo-ui5-message-strip`
- * Lit element
  *
- *  furo-ui5-message-strip should be used together witch furo-ui5-message-strip-display. you can place those two components into different places.
- *  best place the furo-ui5-message-strip-display on the main site. then you only need one furo-ui5-message-strip-display. it can work with n furo-ui5-message-strip.
+ * The furo-ui5-message-strip component enables the embedding of app-related messages. It displays 4 types of messages,
+ * each with corresponding semantic color and icon: Information, Positive, Warning and Negative.
+ * Each message can have a Close button, so that it can be removed from the UI, if needed.
  *
- * @summary ui5 message strip
+ * It should be used together witch furo-ui5-message-strip-display. You can place those two components into different places.
+ * Best place the furo-ui5-message-strip-display on the main site. then you only need one furo-ui5-message-strip-display. It can work with n furo-ui5-message-strip.
+ * https://experience.sap.com/fiori-design-web/message-strip/
+ *
+ *  ```
+ *  <furo-ui5-message-strip-display></furo-ui5-message-strip-display>
+ *  <furo-ui5-message-strip ƒ-show-information="--wire"></furo-ui5-message-strip>
+ *  ```
+ *
+ * @summary furo ui5 message strip
  * @customElement
- * @demo demo-furo-ui5-message-strip-display message strip demo
+ * @demo demo-furo-ui5-message-strip-display Basic Usage
  */
 class FuroUi5MessageStrip extends FBP(LitElement) {
   constructor() {
     super();
     this.noCloseButton = false;
     this.noIcon = false;
+    this.displayMessage = '';
   }
 
   /**
@@ -41,13 +51,6 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
       },
 
       /**
-       * Defines the ui5-messagestrip type. Note: Available options are "Information", "Positive", "Negative", and "Warning".
-       */
-      type: {
-        type: String,
-      },
-
-      /**
        * define the width of ui5-messagestrip. e.g. 200px
        */
       size: {
@@ -55,25 +58,10 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
       },
 
       /**
-       * Defines the content to be displayed as graphical element within the ui5-messagestrip.
-       * ui5-icon: https://openui5.hana.ondemand.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html
-       */
-      icon: {
-        type: String,
-      },
-
-      /**
-       * the message content of MessageStrip
+       * the text message of the message strip
        */
       message: {
         type: String,
-      },
-
-      /**
-       * payload
-       */
-      payload: {
-        type: Object,
       },
     };
   }
@@ -84,8 +72,7 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
    * @param p
    * @private
    */
-  _requestDisplay(p) {
-    this.payload = p;
+  _requestDisplay() {
     /**
      * @event open-furo-ui5-message-strip-requested
      * Fired when open message strip is requested
@@ -97,14 +84,6 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
     });
     customEvent.detail = this;
     this.dispatchEvent(customEvent);
-  }
-
-  /**
-   * show MessageStrip
-   * @param p
-   */
-  show(p) {
-    this._requestDisplay(p);
   }
 
   /**
@@ -123,7 +102,7 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
 
   /**
    * Defines whether the MessageStrip renders close icon.
-   * @param t
+   * @param b
    */
   noCloseButton(b) {
     this.noCloseButton = b;
@@ -131,42 +110,126 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
 
   /**
    * Defines whether the MessageStrip will show an icon in the beginning.
-   * @param t
+   * @param b
    */
   noIcon(b) {
     this.noIcon = b;
   }
 
   /**
-   * set the type of the MessageStrip
-   * Available options are "Information", "Positive", "Negative", and "Warning".
-   * @param t
+   * shows an information message
+   * if the param msg is empty, the attribute message is used.
+   * @param msg
    */
-  setType(t) {
-    this.type = t;
+  showInformation(msg) {
+    if (Object.prototype.toString.call(msg) === '[object String]') {
+      this.displayMessage = msg;
+    } else {
+      this.displayMessage = this.message;
+    }
+
+    this.type = 'Information';
+    this._requestDisplay();
   }
 
   /**
-   * set the message content of the MessageStrip
-   * @param m
+   * shows a success message
+   * if the param msg is empty, the attribute message is used.
+   * @param msg
    */
-  setMessage(m) {
-    this.message = m;
+  showSuccess(msg) {
+    if (Object.prototype.toString.call(msg) === '[object String]') {
+      this.displayMessage = msg;
+    } else {
+      this.displayMessage = this.message;
+    }
+
+    this.type = 'Positive';
+    this._requestDisplay();
   }
 
   /**
-   * parse grpc status object. the message in grpc status will be used as the content massage
-   * @param s
+   * shows a warning message
+   * if the param msg is empty, the attribute message is used.
+   * @param msg
    */
-  parseGrpcStatus(s) {
-    if (s.message) {
-      this.setMessage(s.message);
+  showWarning(msg) {
+    if (Object.prototype.toString.call(msg) === '[object String]') {
+      this.displayMessage = msg;
+    } else {
+      this.displayMessage = this.message;
+    }
+
+    this.type = 'Warning';
+    this._requestDisplay();
+  }
+
+  /**
+   * shows an error message
+   * if the param msg is empty, the attribute message is used.
+   * @param msg
+   */
+  showError(msg) {
+    if (Object.prototype.toString.call(msg) === '[object String]') {
+      this.displayMessage = msg;
+    } else {
+      this.displayMessage = this.message;
+    }
+
+    this.type = 'Negative';
+    this._requestDisplay();
+  }
+
+  /**
+   * shows a google rpc status message (message LocalizedMessage)
+   * Provides a localized error message that is safe to return to the user
+   * which can be attached to an RPC error.
+   *
+   * Rendering rules:
+   * - Every @type LocalizedMessage inside of details[] is displayed with a line break in the message strip.
+   * - One message strip element is created per RPC status.
+   *
+   * Example rpc status:
+   * {
+   *  "code":3,
+   *  "message":"Missing mandatory values",
+   *  "details":[
+   *    {"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-GB","message":"Please register all the mandatory values."},
+   *    {"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-GB","message":"If you need help completing the data, call 0800-HELP-FURO."},
+   *    {"@type":"type.googleapis.com/google.rpc.BadRequest","field_violations":[
+   *      {"field":"short_form","description":"The country designation (short form) should be set."},
+   *      {"field":"id","description":"The id should be ISO Alpha-2 code as described in the ISO 3166 international standard"},
+   *      {"field":"area","description":"Please set a value for the field area."}]
+   *    }
+   *   ]}
+   *
+   * Example message strip display:
+   * ```
+   * | X  Please register all the mandatory values.
+   * |    If you need help completing the data, call 0800-HELP-FURO.
+   * ```
+   *
+   * https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto
+   * https://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto
+   *
+   * @param rpcStatus
+   */
+  showGrpcLocalizedMessage(rpcStatus) {
+    if (rpcStatus && rpcStatus.details && rpcStatus.details.length) {
+      let messages = [];
+      messages = messages.concat(
+        rpcStatus.details
+          .filter(det => det['@type'].includes('LocalizedMessage'))
+          .map(det => det.message),
+      );
+
+      this.displayMessage = messages.join('</br>');
 
       /**
        * https://github.com/grpc/grpc/blob/master/doc/statuscodes.md
        */
-      if (s.code) {
-        switch (s.code) {
+      if (rpcStatus.code) {
+        switch (rpcStatus.code) {
           case 0:
             this.type = 'Positive';
             break;
@@ -178,11 +241,23 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
             break;
         }
       } else {
-        this.type = 'Negative';
+        this.type = 'Error';
       }
 
-      this._requestDisplay(s);
+      this._requestDisplay();
     }
+  }
+
+  /**
+   * Deprecated function! Use showGrpcLocalizedMessage
+   * parse grpc status object. the message in grpc status will be used as the content massage
+   * @deprecated
+   * @param rpcStatus
+   */
+  parseGrpcStatus(rpcStatus){
+    // eslint-disable-next-line no-console
+    console.warn('Deprecated function. Use showGrpcLocalizedMessage instead.')
+    this.showGrpcLocalizedMessage(rpcStatus);
   }
 
   // set display none
