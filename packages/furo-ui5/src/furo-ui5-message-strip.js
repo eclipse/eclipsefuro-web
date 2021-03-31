@@ -190,6 +190,8 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
    * - One message strip element is created per RPC status.
    *
    * Example rpc status:
+   *
+   * ```json
    * {
    *  "code":3,
    *  "message":"Missing mandatory values",
@@ -202,6 +204,7 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
    *      {"field":"area","description":"Please set a value for the field area."}]
    *    }
    *   ]}
+   *```
    *
    * Example message strip display:
    * ```
