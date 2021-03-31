@@ -142,7 +142,7 @@ export class FuroUi5DataInput extends Input.default {
       'information-msg': '_informationMsg',
       pattern: 'pattern',
       name: 'name',
-      suggestions: 'suggestions', // suggestion items
+      options: 'suggestions', // suggestion items
       maxlength: 'maxlength', // for the input element itself
     };
 
@@ -162,6 +162,7 @@ export class FuroUi5DataInput extends Input.default {
       minlength: 'value._constraints.min.is', // for the fieldnode constraint
       pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
       required: 'value._constraints.required.is', // for the fieldnode constraint
+      'required-msg': 'value._constraints.required.message', // for the fieldnode constraint
       'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
       'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
     };
@@ -177,9 +178,10 @@ export class FuroUi5DataInput extends Input.default {
     // update the value on input changes
     this.addEventListener('input', val => {
       if (val.inputType === 'deleteContentBackward') {
-        this.binder.fieldNode.reset();
+        this.binder.fieldValue = null;
+      } else {
+        this.binder.fieldValue = val.target.value;
       }
-      this.binder.fieldValue = val.target.value;
 
       /**
        * Fired when value changed
