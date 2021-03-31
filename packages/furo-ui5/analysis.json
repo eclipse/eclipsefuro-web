@@ -1338,11 +1338,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 143,
+              "line": 141,
               "column": 2
             },
             "end": {
-              "line": 150,
+              "line": 148,
               "column": 3
             }
           },
@@ -1358,11 +1358,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 167,
+              "line": 165,
               "column": 2
             },
             "end": {
-              "line": 193,
+              "line": 191,
               "column": 3
             }
           },
@@ -1388,11 +1388,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 200,
+              "line": 198,
               "column": 2
             },
             "end": {
-              "line": 248,
+              "line": 246,
               "column": 3
             }
           },
@@ -1408,11 +1408,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 254,
+              "line": 252,
               "column": 2
             },
             "end": {
-              "line": 269,
+              "line": 267,
               "column": 3
             }
           },
@@ -1432,11 +1432,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 274,
+              "line": 272,
               "column": 2
             },
             "end": {
-              "line": 284,
+              "line": 282,
               "column": 3
             }
           },
@@ -1452,11 +1452,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 291,
+              "line": 289,
               "column": 2
             },
             "end": {
-              "line": 333,
+              "line": 331,
               "column": 3
             }
           },
@@ -1478,11 +1478,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 339,
+              "line": 337,
               "column": 2
             },
             "end": {
-              "line": 341,
+              "line": 339,
               "column": 3
             }
           },
@@ -1502,11 +1502,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 347,
+              "line": 345,
               "column": 2
             },
             "end": {
-              "line": 352,
+              "line": 350,
               "column": 3
             }
           },
@@ -1526,11 +1526,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 358,
+              "line": 356,
               "column": 2
             },
             "end": {
-              "line": 360,
+              "line": 358,
               "column": 3
             }
           },
@@ -1563,7 +1563,7 @@
           "column": 7
         },
         "end": {
-          "line": 361,
+          "line": 359,
           "column": 1
         }
       },
@@ -1576,11 +1576,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 156,
               "column": 6
             },
             "end": {
-              "line": 158,
+              "line": 156,
               "column": 19
             }
           },
@@ -1591,11 +1591,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 159,
+              "line": 157,
               "column": 6
             },
             "end": {
-              "line": 159,
+              "line": 157,
               "column": 21
             }
           },
@@ -1606,11 +1606,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 160,
+              "line": 158,
               "column": 6
             },
             "end": {
-              "line": 160,
+              "line": 158,
               "column": 17
             }
           },
@@ -1621,11 +1621,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 161,
+              "line": 159,
               "column": 6
             },
             "end": {
-              "line": 161,
+              "line": 159,
               "column": 23
             }
           },
@@ -1636,11 +1636,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 162,
+              "line": 160,
               "column": 6
             },
             "end": {
-              "line": 162,
+              "line": 160,
               "column": 25
             }
           },
@@ -1651,11 +1651,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 163,
+              "line": 161,
               "column": 6
             },
             "end": {
-              "line": 163,
+              "line": 161,
               "column": 25
             }
           },
@@ -14506,8 +14506,8 @@
       ]
     },
     {
-      "description": "`furo-ui5-message-strip`\nLit element\n\n furo-ui5-message-strip should be used together witch furo-ui5-message-strip-display. you can place those two components into different places.\n best place the furo-ui5-message-strip-display on the main site. then you only need one furo-ui5-message-strip-display. it can work with n furo-ui5-message-strip.",
-      "summary": "ui5 message strip",
+      "description": "`furo-ui5-message-strip`\n\nThe furo-ui5-message-strip component enables the embedding of app-related messages. It displays 4 types of messages,\neach with corresponding semantic color and icon: Information, Positive, Warning and Negative.\nEach message can have a Close button, so that it can be removed from the UI, if needed.\n\nIt should be used together witch furo-ui5-message-strip-display. You can place those two components into different places.\nBest place the furo-ui5-message-strip-display on the main site. then you only need one furo-ui5-message-strip-display. It can work with n furo-ui5-message-strip.\nhttps://experience.sap.com/fiori-design-web/message-strip/\n\n ```\n <furo-ui5-message-strip-display></furo-ui5-message-strip-display>\n <furo-ui5-message-strip ƒ-show-information=\"--wire\"></furo-ui5-message-strip>\n ```",
+      "summary": "furo ui5 message strip",
       "path": "src/furo-ui5-message-strip.js",
       "properties": [
         {
@@ -14517,11 +14517,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 29,
+              "line": 39,
               "column": 6
             },
             "end": {
-              "line": 32,
+              "line": 42,
               "column": 7
             }
           },
@@ -14538,11 +14538,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 37,
+              "line": 47,
               "column": 6
             },
             "end": {
-              "line": 40,
+              "line": 50,
               "column": 7
             }
           },
@@ -14553,59 +14553,17 @@
           }
         },
         {
-          "name": "type",
-          "type": "string | null | undefined",
-          "description": "Defines the ui5-messagestrip type. Note: Available options are \"Information\", \"Positive\", \"Negative\", and \"Warning\".",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 45,
-              "column": 6
-            },
-            "end": {
-              "line": 47,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
           "name": "size",
           "type": "string | null | undefined",
           "description": "define the width of ui5-messagestrip. e.g. 200px",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 52,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 54,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "icon",
-          "type": "string | null | undefined",
-          "description": "Defines the content to be displayed as graphical element within the ui5-messagestrip.\nui5-icon: https://openui5.hana.ondemand.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 60,
-              "column": 6
-            },
-            "end": {
-              "line": 62,
+              "line": 57,
               "column": 7
             }
           },
@@ -14618,42 +14576,21 @@
         {
           "name": "message",
           "type": "string | null | undefined",
-          "description": "the message content of MessageStrip",
+          "description": "the text message of the message strip",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 67,
+              "line": 62,
               "column": 6
             },
             "end": {
-              "line": 69,
+              "line": 64,
               "column": 7
             }
           },
           "metadata": {
             "polymer": {
               "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "payload",
-          "type": "Object | null | undefined",
-          "description": "payload",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 74,
-              "column": 6
-            },
-            "end": {
-              "line": 76,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Object"
             }
           }
         }
@@ -14665,44 +14602,16 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
+              "line": 74,
+              "column": 2
+            },
+            "end": {
               "line": 86,
-              "column": 2
-            },
-            "end": {
-              "line": 99,
               "column": 3
             }
           },
           "metadata": {},
-          "params": [
-            {
-              "name": "p"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "show",
-          "description": "show MessageStrip",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 105,
-              "column": 2
-            },
-            "end": {
-              "line": 107,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "p"
-            }
-          ],
+          "params": [],
           "return": {
             "type": "void"
           }
@@ -14713,11 +14622,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 112,
+              "line": 91,
               "column": 2
             },
             "end": {
-              "line": 121,
+              "line": 100,
               "column": 3
             }
           },
@@ -14733,11 +14642,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 127,
+              "line": 106,
               "column": 2
             },
             "end": {
-              "line": 129,
+              "line": 108,
               "column": 3
             }
           },
@@ -14757,11 +14666,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 135,
+              "line": 114,
               "column": 2
             },
             "end": {
-              "line": 137,
+              "line": 116,
               "column": 3
             }
           },
@@ -14776,23 +14685,23 @@
           }
         },
         {
-          "name": "setType",
-          "description": "set the type of the MessageStrip\nAvailable options are \"Information\", \"Positive\", \"Negative\", and \"Warning\".",
+          "name": "showInformation",
+          "description": "shows an information message\nif the param msg is empty, the attribute message is used.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 144,
+              "line": 123,
               "column": 2
             },
             "end": {
-              "line": 146,
+              "line": 132,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "t"
+              "name": "msg"
             }
           ],
           "return": {
@@ -14800,23 +14709,95 @@
           }
         },
         {
-          "name": "setMessage",
-          "description": "set the message content of the MessageStrip",
+          "name": "showSuccess",
+          "description": "shows a success message\nif the param msg is empty, the attribute message is used.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 139,
               "column": 2
             },
             "end": {
-              "line": 154,
+              "line": 148,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "m"
+              "name": "msg"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "showWarning",
+          "description": "shows a warning message\nif the param msg is empty, the attribute message is used.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 155,
+              "column": 2
+            },
+            "end": {
+              "line": 164,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "msg"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "showError",
+          "description": "shows an error message\nif the param msg is empty, the attribute message is used.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 171,
+              "column": 2
+            },
+            "end": {
+              "line": 180,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "msg"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "showGrpcLocalizedMessage",
+          "description": "shows a google rpc status message (message LocalizedMessage)\nProvides a localized error message that is safe to return to the user\nwhich can be attached to an RPC error.\n\nRendering rules:\n- Every @type LocalizedMessage inside of details[] is displayed with a line break in the message strip.\n- One message strip element is created per RPC status.\n\nExample rpc status:\n{\n \"code\":3,\n \"message\":\"Missing mandatory values\",\n \"details\":[\n   {\"@type\":\"type.googleapis.com/google.rpc.LocalizedMessage\",\"locale\":\"en-GB\",\"message\":\"Please register all the mandatory values.\"},\n   {\"@type\":\"type.googleapis.com/google.rpc.LocalizedMessage\",\"locale\":\"en-GB\",\"message\":\"If you need help completing the data, call 0800-HELP-FURO.\"},\n   {\"@type\":\"type.googleapis.com/google.rpc.BadRequest\",\"field_violations\":[\n     {\"field\":\"short_form\",\"description\":\"The country designation (short form) should be set.\"},\n     {\"field\":\"id\",\"description\":\"The id should be ISO Alpha-2 code as described in the ISO 3166 international standard\"},\n     {\"field\":\"area\",\"description\":\"Please set a value for the field area.\"}]\n   }\n  ]}\n\nExample message strip display:\n```\n| X  Please register all the mandatory values.\n|    If you need help completing the data, call 0800-HELP-FURO.\n```\n\nhttps://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto\nhttps://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 216,
+              "column": 2
+            },
+            "end": {
+              "line": 248,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "rpcStatus"
             }
           ],
           "return": {
@@ -14825,22 +14806,22 @@
         },
         {
           "name": "parseGrpcStatus",
-          "description": "parse grpc status object. the message in grpc status will be used as the content massage",
+          "description": "Deprecated function! Use showGrpcLocalizedMessage\nparse grpc status object. the message in grpc status will be used as the content massage",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 160,
+              "line": 256,
               "column": 2
             },
             "end": {
-              "line": 185,
+              "line": 260,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "s"
+              "name": "rpcStatus"
             }
           ],
           "return": {
@@ -14852,17 +14833,17 @@
       "demos": [
         {
           "url": "demo-furo-ui5-message-strip-display",
-          "description": "message strip demo"
+          "description": "Basic Usage"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 14,
+          "line": 23,
           "column": 0
         },
         "end": {
-          "line": 196,
+          "line": 271,
           "column": 1
         }
       },
@@ -14875,11 +14856,11 @@
           "description": "Defines whether the MessageStrip renders close icon.",
           "sourceRange": {
             "start": {
-              "line": 29,
+              "line": 39,
               "column": 6
             },
             "end": {
-              "line": 32,
+              "line": 42,
               "column": 7
             }
           },
@@ -14891,11 +14872,11 @@
           "description": "Defines whether the MessageStrip will show an icon in the beginning. You can directly provide an icon with the icon slot. Otherwise, the default icon for the type will be used.",
           "sourceRange": {
             "start": {
-              "line": 37,
+              "line": 47,
               "column": 6
             },
             "end": {
-              "line": 40,
+              "line": 50,
               "column": 7
             }
           },
@@ -14903,47 +14884,15 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "type",
-          "description": "Defines the ui5-messagestrip type. Note: Available options are \"Information\", \"Positive\", \"Negative\", and \"Warning\".",
-          "sourceRange": {
-            "start": {
-              "line": 45,
-              "column": 6
-            },
-            "end": {
-              "line": 47,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
           "name": "size",
           "description": "define the width of ui5-messagestrip. e.g. 200px",
           "sourceRange": {
             "start": {
-              "line": 52,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 54,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "icon",
-          "description": "Defines the content to be displayed as graphical element within the ui5-messagestrip.\nui5-icon: https://openui5.hana.ondemand.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html",
-          "sourceRange": {
-            "start": {
-              "line": 60,
-              "column": 6
-            },
-            "end": {
-              "line": 62,
+              "line": 57,
               "column": 7
             }
           },
@@ -14952,35 +14901,19 @@
         },
         {
           "name": "message",
-          "description": "the message content of MessageStrip",
+          "description": "the text message of the message strip",
           "sourceRange": {
             "start": {
-              "line": 67,
+              "line": 62,
               "column": 6
             },
             "end": {
-              "line": 69,
+              "line": 64,
               "column": 7
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
-        },
-        {
-          "name": "payload",
-          "description": "payload",
-          "sourceRange": {
-            "start": {
-              "line": 74,
-              "column": 6
-            },
-            "end": {
-              "line": 76,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "Object | null | undefined"
         }
       ],
       "events": [
@@ -15005,8 +14938,8 @@
       "tagname": "furo-ui5-message-strip"
     },
     {
-      "description": "`furo-ui5-message-strip-display`\nLit element\n\n best place the furo-ui5-message-strip-display on the main site. then you only need one furo-ui5-message-strip-display.\n you can also use more furo-ui5-message-strip for special needs. but You have to be sure the furo-ui5-message-strip-display can receive the message events.",
-      "summary": "ui5 notification list",
+      "description": "`furo-ui5-message-strip-display`\n\n The furo-ui5-message-strip-display is the render component for the furo-ui5-message-strip component.\n The display component can be controlled by several furo-ui5-message-strip components.\n\n```\n <furo-ui5-message-strip-display></furo-ui5-message-strip-display>\n\n <furo-ui5-message-strip ƒ-show-information=\"--wire\"></furo-ui5-message-strip>\n <furo-ui5-message-strip ƒ-show-warning=\"--wire\" message=\"Static warning message\"></furo-ui5-message-strip>\n ```",
+      "summary": "furo ui5 message strip",
       "path": "src/furo-ui5-message-strip-display.js",
       "properties": [],
       "methods": [
@@ -15016,11 +14949,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 30,
+              "line": 34,
               "column": 2
             },
             "end": {
-              "line": 53,
+              "line": 57,
               "column": 3
             }
           },
@@ -15036,42 +14969,22 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 63,
               "column": 2
             },
             "end": {
-              "line": 86,
+              "line": 83,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "message"
+              "name": "source"
             }
           ],
           "return": {
             "type": "void"
-          }
-        },
-        {
-          "name": "render",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 109,
-              "column": 2
-            },
-            "end": {
-              "line": 111,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "TemplateResult"
           }
         }
       ],
@@ -15079,17 +14992,17 @@
       "demos": [
         {
           "url": "demo-furo-ui5-message-strip-display",
-          "description": "ui5 notification display demo"
+          "description": "Basic Usage"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 21,
+          "line": 25,
           "column": 0
         },
         "end": {
-          "line": 112,
+          "line": 105,
           "column": 1
         }
       },
@@ -16511,11 +16424,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 8,
+              "line": 6,
               "column": 2
             },
             "end": {
-              "line": 17,
+              "line": 15,
               "column": 3
             }
           },
@@ -16535,11 +16448,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 27,
+              "line": 25,
               "column": 2
             },
             "end": {
-              "line": 29,
+              "line": 27,
               "column": 3
             }
           },
@@ -16555,15 +16468,15 @@
         },
         {
           "name": "notifiySelectedItem",
-          "description": "",
+          "description": "Triggers the item selected event",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 31,
+              "line": 34,
               "column": 2
             },
             "end": {
-              "line": 38,
+              "line": 40,
               "column": 3
             }
           },
@@ -16586,11 +16499,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 40,
+              "line": 42,
               "column": 2
             },
             "end": {
-              "line": 50,
+              "line": 52,
               "column": 3
             }
           },
@@ -16610,11 +16523,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 52,
+              "line": 54,
               "column": 2
             },
             "end": {
-              "line": 64,
+              "line": 66,
               "column": 3
             }
           },
@@ -16634,11 +16547,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 66,
+              "line": 68,
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 112,
               "column": 3
             }
           },
@@ -16658,11 +16571,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 112,
+              "line": 114,
               "column": 2
             },
             "end": {
-              "line": 122,
+              "line": 124,
               "column": 3
             }
           },
@@ -16682,11 +16595,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 124,
+              "line": 126,
               "column": 2
             },
             "end": {
-              "line": 161,
+              "line": 163,
               "column": 3
             }
           },
@@ -16706,11 +16619,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 163,
+              "line": 165,
               "column": 2
             },
             "end": {
-              "line": 174,
+              "line": 176,
               "column": 3
             }
           },
@@ -16730,11 +16643,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 176,
+              "line": 178,
               "column": 2
             },
             "end": {
-              "line": 192,
+              "line": 194,
               "column": 3
             }
           },
@@ -16757,11 +16670,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 194,
+              "line": 196,
               "column": 2
             },
             "end": {
-              "line": 218,
+              "line": 220,
               "column": 3
             }
           },
@@ -16781,7 +16694,7 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 224,
+              "line": 226,
               "column": 2
             },
             "end": {
@@ -16808,7 +16721,7 @@
           "column": 7
         },
         "end": {
-          "line": 276,
+          "line": 274,
           "column": 1
         }
       },
