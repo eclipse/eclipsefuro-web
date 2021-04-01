@@ -1,6 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
-import 'markdown-it/dist/markdown-it.js';
 import '@ui5/webcomponents-fiori/dist/NotificationListItem.js';
 import '@ui5/webcomponents-fiori/dist/NotificationAction.js';
 import '@ui5/webcomponents/dist/List.js';
@@ -22,6 +21,72 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
   constructor() {
     super();
     this.headerText = '';
+    this.noDataText = 'No messages';
+    this._notificationCount = '';
+    this.groupTitleHelp = 'Help';
+    this.groupTitleBadRequest = 'Bad Request';
+  }
+
+  /**
+   *@private
+   */
+  static get properties() {
+    return {
+      /**
+       * the header text of the notification
+       */
+      headerText: {
+        type: String,
+        attribute: 'header-text',
+      },
+      /**
+       * Defines if the close button would be displayed.
+       */
+      showClose: {
+        type: Boolean,
+        attribute: 'show-close',
+      },
+      /**
+       * Defines the text that is displayed when the list contains no items.
+       */
+      noDataText: {
+        type: String,
+        attribute: 'no-data-text',
+      },
+      /**
+       * Defines the notification group element title for notifications of type
+       * "type.googleapis.com/google.rpc.Help"
+       */
+      groupTitleHelp: {
+        type: String,
+        attribute: 'group-title-help',
+      },
+      /**
+       * Defines the notification group element title for notifications of type
+       * "type.googleapis.com/google.rpc.BadRequest"
+       */
+      groupTitleBadRequest: {
+        type: String,
+        attribute: 'group-title-bad-request',
+      },
+    };
+  }
+
+  /**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return (
+      Theme.getThemeForComponent('FuroUi5NotificationListDisplay') ||
+      css`
+        :host {
+          display: block;
+        }
+      `
+    );
   }
 
   /**
@@ -55,6 +120,14 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     this.shadowRoot.getElementById('ui5-list').addEventListener('item-close', e => {
       e.detail.item.target._close(e.detail.item.message);
       e.detail.item.remove();
+      // update notification counter
+      if (e.detail.item.nodeName === 'UI5-LI-NOTIFICATION-GROUP') {
+        this._notificationCount -= e.detail.item.childElementCount;
+      } else {
+        // eslint-disable-next-line no-plusplus
+        --this._notificationCount;
+      }
+      this._dispatchNotificationCounterUpdates(this._notificationCount);
     });
 
     /**
@@ -78,10 +151,9 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
   parseGrpcStatus(d) {
     const status = d.payload;
 
-    // fallback, if no localized message was given
-    this.text = d.text ? d.text : d.payload.message;
+    this._notificationCount = status.details.length || 0;
+    this._dispatchNotificationCounterUpdates(this._notificationCount);
 
-    // log developper message
     if (status.details && status.details.length > 0) {
       this.multilineText = [];
       // _show localized messages first
@@ -91,27 +163,25 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
           .map(det => det.message),
       );
 
-      // list descriptions of badRequest errors
-      this.multilineText = this.multilineText.concat(
-        status.details
-          .filter(det => det['@type'].includes('google.rpc.BadRequest'))
-          // eslint-disable-next-line array-callback-return
-          .map(det => {
-            if (det.field_violations) {
-              return det.field_violations.map(violation => violation.description);
-            }
-            return {};
-          })[0],
+      // @type: "type.googleapis.com/google.rpc.BadRequest"
+      this.badRequests = [];
+      this.badRequests = status.details.filter(det =>
+        det['@type'].includes('google.rpc.BadRequest'),
       );
-      // todo: implement the other error types from https://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto
-      // Help, RequestInfo, ResourceInfo, PreconditionFailure
+
+      // @type: "type.googleapis.com/google.rpc.Help"
+      this.help = [];
+      this.help = status.details.filter(det => det['@type'].includes('google.rpc.Help'));
+
+      // @TODO: implement the other error types from https://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto
+      // RequestInfo, ResourceInfo, PreconditionFailure
     }
 
     if (this.multilineText) {
-      this.text = this.multilineText.join('\n\n');
+      this.text = this.multilineText.join(' ');
     }
 
-    this.heading = status.code ? status.code : '';
+    this.heading = '';
     this.priority = 'High';
     this.actions = [];
     this.message = status;
@@ -145,7 +215,7 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    * @param message
    */
   parseNotificationMessage(message) {
-    this.priority = message.message_priority ? message.message_priority : 'low';
+    this.priority = message.message_priority ? message.message_priority : 'Low';
     this.heading = message.heading ? message.heading : null;
     this.text = message.message;
     this.actions = message.actions;
@@ -155,45 +225,144 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
   }
 
   /**
-   * show notification list item.
-   * @param text
+   * shows grpc status notifications
+   * implemented types are:
+   * - Bad Request with Field Violations
+   * -
    */
   _show() {
+    // show localized messages first
     if (this.text) {
-      const md = window.markdownit({
-        html: false,
-        linkify: true,
-        typographer: true,
-      });
-
-      const notification = document.createElement('ui5-li-notification');
+      const localizedMessages = document.createElement('ui5-li-notification');
       if (this.showClose) {
-        notification.setAttribute('show-close', this.showClose);
+        localizedMessages.setAttribute('show-close', this.showClose);
       }
-      notification.setAttribute('heading', this.heading);
-      notification.setAttribute('priority', this.priority);
-      notification.target = this.target;
-      notification.innerHTML = md.render(this.text);
+      localizedMessages.target = this.target;
+      localizedMessages.heading = this.text;
       // save the initial message for the later usage
-      notification.message = this.message;
+      localizedMessages.message = this.message;
+      this.shadowRoot.getElementById('ui5-list').appendChild(localizedMessages);
+    }
 
-      /**
-       * add actions
-       */
-      if (this.actions && Array.isArray(this.actions)) {
-        this.actions.forEach(a => {
-          const action = document.createElement('ui5-notification-overflow-action');
-          action.setAttribute('icon', a.icon);
-          action.setAttribute('text', a.text);
-          action.setAttribute('action', a.command);
-          action.setAttribute('slot', 'actions');
-          action.notification = notification;
-          notification.appendChild(action);
+    /**
+     * Handling of Help
+     */
+    this._createHelpElements().then(g => {
+      this.shadowRoot.getElementById('ui5-list').appendChild(g);
+    });
+
+    /**
+     * Handling of Bad Request Field Violations
+     */
+    this._createBadRequestElements().then(g => {
+      this.shadowRoot.getElementById('ui5-list').appendChild(g);
+    });
+  }
+
+  /**
+   * Fires a notification counter update event
+   * Use this event to show the amount of notifications to the user.
+   * @private
+   * @event notification-counter-update
+   */
+  _dispatchNotificationCounterUpdates(count) {
+    const VALUE = count > 0 ? count : '';
+    this.dispatchEvent(
+      new CustomEvent('notification-counter-update', {
+        detail: VALUE.toString(),
+        bubbles: true,
+        composed: true,
+      }),
+    );
+  }
+
+  /**
+   * Creates notification items of type @type: "type.googleapis.com/google.rpc.Help"
+   * @returns {Promise<unknown>}
+   * @private
+   */
+  _createHelpElements() {
+    return new Promise(resolve => {
+      if (this.help) {
+        this.help.forEach(help => {
+          /**
+           * Bad Request group element
+           */
+          const group = document.createElement('ui5-li-notification-group');
+          group.setAttribute('show-close', '');
+          group.setAttribute('show-counter', '');
+          group.heading = this.groupTitleHelp;
+          group.target = this.target;
+
+          /**
+           * Link List
+           */
+          help.links.forEach(item => {
+            const notification = document.createElement('ui5-li-notification');
+            notification.setAttribute('show-close', '');
+            notification.setAttribute('priority', 'Low');
+            notification.read = true;
+            notification.heading = item.description;
+            notification.target = this.target;
+            // save the initial message for the later usage
+            notification.message = this.message;
+
+            const fieldItem = document.createElement('span');
+            fieldItem.innerHTML = `<a href='${item.url}' title='${item.description}' target='_blank'>${item.url}</a>`;
+            fieldItem.slot = 'footnotes';
+            notification.appendChild(fieldItem);
+            // add to group element
+            group.appendChild(notification);
+          });
+          resolve(group);
         });
       }
+    });
+  }
 
-      this.shadowRoot.getElementById('ui5-list').appendChild(notification);
-    }
+  /**
+   * Creates notification items of type @type: "type.googleapis.com/google.rpc.BadRequest"
+   * @returns {Promise<unknown>}
+   * @private
+   */
+  _createBadRequestElements() {
+    return new Promise(resolve => {
+      if (this.badRequests) {
+        this.badRequests.forEach(err => {
+          /**
+           * Bad Request group element
+           * @type {HTMLElement}
+           */
+          const group = document.createElement('ui5-li-notification-group');
+          group.setAttribute('show-close', '');
+          group.setAttribute('show-counter', '');
+          group.heading = this.groupTitleBadRequest;
+          group.target = this.target;
+
+          /**
+           * Field Violation list
+           */
+          err.field_violations.forEach(item => {
+            const notification = document.createElement('ui5-li-notification');
+            notification.setAttribute('show-close', '');
+            notification.setAttribute('priority', this.priority);
+            notification.read = true;
+            notification.heading = item.description;
+            notification.target = this.target;
+            // save the initial message for the later usage
+            notification.message = this.message;
+
+            const fieldItem = document.createElement('span');
+            fieldItem.innerText = item.field;
+            fieldItem.slot = 'footnotes';
+            notification.appendChild(fieldItem);
+            // add to group element
+            group.appendChild(notification);
+          });
+          resolve(group);
+        });
+      }
+    });
   }
 
   /**
@@ -201,45 +370,8 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    */
   clearAll() {
     this.shadowRoot.getElementById('ui5-list').innerHTML = '';
-  }
-
-  /**
-   *@private
-   */
-  static get properties() {
-    return {
-      /**
-       * the header text of the notification
-       */
-      headerText: {
-        type: String,
-        attribute: 'header-text',
-      },
-      /**
-       * Defines if the close button would be displayed.
-       */
-      showClose: {
-        type: Boolean,
-        attribute: 'show-close',
-      },
-    };
-  }
-
-  /**
-   * Themable Styles
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('FuroUi5NotificationListDisplay') ||
-      css`
-        :host {
-          display: block;
-        }
-      `
-    );
+    this._notificationCount = "";
+    this._dispatchNotificationCounterUpdates(this._notificationCount);
   }
 
   /**
@@ -248,7 +380,11 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    */
   render() {
     return html`
-      <ui5-list id="ui5-list" header-text="${this.headerText}"></dic></ui5-list>
+      <ui5-list
+        id="ui5-list"
+        no-data-text=${this.noDataText}
+        header-text="${this.headerText}"
+      ></ui5-list>
     `;
   }
 }

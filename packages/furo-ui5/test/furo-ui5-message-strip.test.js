@@ -5,7 +5,6 @@ import '../src/furo-catalog.js';
 import '@furo/fbp/src/testhelper/test-bind'; // for testing with wires and hooks
 
 describe('furo-ui5-message-strip', () => {
-
   const grpcStatus = {
     code: 3,
     message: 'Missing mandatory values',

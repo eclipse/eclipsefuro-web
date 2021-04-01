@@ -9,7 +9,46 @@ describe('furo-ui5-notification-list-display', () => {
   let notificationList;
   let notification;
   let host;
-
+  const grpcMessage = {
+    code: 3,
+    message: 'Missing mandatory values',
+    details: [
+      {
+        '@type': 'type.googleapis.com/google.rpc.LocalizedMessage',
+        locale: 'en-GB',
+        message: 'Please register all the mandatory values.',
+      },
+      {
+        '@type': 'type.googleapis.com/google.rpc.LocalizedMessage',
+        locale: 'en-GB',
+        message: 'If you need help completing the data, call 0800-HELP-FURO.',
+      },
+      {
+        '@type': 'type.googleapis.com/google.rpc.Help',
+        links: [
+          {
+            description: 'SAP Fiori Message Handling',
+            url: 'https://experience.sap.com/fiori-design-web/message-page/',
+          },
+        ],
+      },
+      {
+        '@type': 'type.googleapis.com/google.rpc.BadRequest',
+        field_violations: [
+          {
+            field: 'short_form',
+            description: 'The country designation (short form) should be set.',
+          },
+          {
+            field: 'id',
+            description:
+              'The id should be ISO Alpha-2 code as described in the ISO 3166 international standard',
+          },
+          { field: 'area', description: 'Please set a value for the field area.' },
+        ],
+      },
+    ],
+  };
   const notificationsMessage = [
     {
       id: 1,
@@ -108,57 +147,12 @@ describe('furo-ui5-notification-list-display', () => {
   // it('a11y', () => axeReport(notificationList));
 
   it('should handle grpc error objects', done => {
-    notificationList.parseGrpcStatus({
-      payload: {
-        code: 400,
-        message: 'Request had invalid credentials.',
-        status: 'SOMETHING',
-        details: [
-          {
-            '@type': 'type.googleapis.com/google.rpc.LocalizedMessage',
-            message: 'Some localized message\n\nwith newline',
-            locale: 'de-ch',
-          },
-          {
-            '@type': 'type.googleapis.com/google.rpc.LocalizedMessage',
-            message: 'Other localized message with newline',
-            locale: 'de-ch',
-          },
-          {
-            '@type': 'type.googleapis.com/google.rpc.BadRequest',
-            message: 'This should not be visible',
-            locale: 'de-ch',
-            field_violations: [],
-          },
-        ],
-      },
-    });
+    notification.parseGrpcStatus(grpcMessage);
     setTimeout(() => {
-      const items = notificationList.shadowRoot.querySelectorAll('p');
+      const items = notificationList.shadowRoot.querySelectorAll('ui5-li-notification');
 
-      assert.equal(items[0].innerHTML, 'Some localized message');
-      assert.equal(items[1].innerHTML, 'with newline');
-      assert.equal(items[2].textContent, 'Other localized message with newline');
-      assert.equal(items.length, 3);
+      assert.equal(items.length, 5);
 
-      done();
-    }, 0);
-  });
-
-  it('should listening open-furo-ui5-notification-requested event ', done => {
-    const customEvent = new Event('open-furo-ui5-notification-requested', {
-      bubbles: true,
-      composed: true,
-    });
-
-    customEvent.detail = {
-      payload: notificationsMessage,
-    };
-    notification.dispatchEvent(customEvent);
-
-    setTimeout(() => {
-      const items = notificationList.shadowRoot.querySelectorAll('table');
-      assert.equal(items.length, 3);
       done();
     }, 0);
   });
