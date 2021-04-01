@@ -315,9 +315,9 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
         }
       });
 
-      this._fieldDisplayNodeToUpdate.addEventListener('field-value-changed', () => {
-        CollectionDropdownHelper.updateField(this);
-      });
+      // this._fieldDisplayNodeToUpdate.addEventListener('field-value-changed', () => {
+      //   CollectionDropdownHelper.updateField(this);
+      // });
 
       this.binder.fieldNode.addEventListener('field-value-changed', e => {
         if (

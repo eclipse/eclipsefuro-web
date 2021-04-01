@@ -10,25 +10,42 @@ describe('furo-ui5-notification', () => {
   let notification;
   let host;
   const grpcMessage = {
-    code: 400,
-    message: 'Request had invalid credentials.',
-    status: 'SOMETHING',
+    code: 3,
+    message: 'Missing mandatory values',
     details: [
       {
         '@type': 'type.googleapis.com/google.rpc.LocalizedMessage',
-        message: 'Some localized message\n\nwith newline',
-        locale: 'de-ch',
+        locale: 'en-GB',
+        message: 'Please register all the mandatory values.',
       },
       {
         '@type': 'type.googleapis.com/google.rpc.LocalizedMessage',
-        message: 'Other localized message with newline',
-        locale: 'de-ch',
+        locale: 'en-GB',
+        message: 'If you need help completing the data, call 0800-HELP-FURO.',
+      },
+      {
+        '@type': 'type.googleapis.com/google.rpc.Help',
+        links: [
+          {
+            description: 'SAP Fiori Message Handling',
+            url: 'https://experience.sap.com/fiori-design-web/message-page/',
+          },
+        ],
       },
       {
         '@type': 'type.googleapis.com/google.rpc.BadRequest',
-        message: 'This should not be visible',
-        locale: 'de-ch',
-        field_violations: [],
+        field_violations: [
+          {
+            field: 'short_form',
+            description: 'The country designation (short form) should be set.',
+          },
+          {
+            field: 'id',
+            description:
+              'The id should be ISO Alpha-2 code as described in the ISO 3166 international standard',
+          },
+          { field: 'area', description: 'Please set a value for the field area.' },
+        ],
       },
     ],
   };
@@ -133,23 +150,10 @@ describe('furo-ui5-notification', () => {
     notification.parseGrpcStatus(grpcMessage);
 
     setTimeout(() => {
-      const items = notificationList.shadowRoot.querySelectorAll('p');
+      const items = notificationList.shadowRoot.querySelectorAll('ui5-li-notification');
 
-      assert.equal(items[0].innerHTML, 'Some localized message');
-      assert.equal(items[1].innerHTML, 'with newline');
-      assert.equal(items[2].textContent, 'Other localized message with newline');
-      assert.equal(items.length, 3);
+      assert.equal(items.length, 5);
 
-      done();
-    }, 0);
-  });
-
-  it('should handle notification messages ', done => {
-    notification.injectNotificationCollection(notificationsMessage);
-
-    setTimeout(() => {
-      const items = notificationList.shadowRoot.querySelectorAll('table');
-      assert.equal(items.length, 3);
       done();
     }, 0);
   });

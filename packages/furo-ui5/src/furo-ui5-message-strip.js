@@ -257,9 +257,9 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
    * @deprecated
    * @param rpcStatus
    */
-  parseGrpcStatus(rpcStatus){
+  parseGrpcStatus(rpcStatus) {
     // eslint-disable-next-line no-console
-    console.warn('Deprecated function. Use showGrpcLocalizedMessage instead.')
+    console.warn('Deprecated function. Use showGrpcLocalizedMessage instead.');
     this.showGrpcLocalizedMessage(rpcStatus);
   }
 

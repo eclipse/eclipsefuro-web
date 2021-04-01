@@ -76,6 +76,15 @@ class NotificationProducer extends FBP(LitElement) {
           message: 'If you need help completing the data, call 0800-HELP-FURO.',
         },
         {
+          '@type': 'type.googleapis.com/google.rpc.Help',
+          links: [
+            {
+              description: 'SAP Fiori Message Handling',
+              url: 'https://experience.sap.com/fiori-design-web/message-page/',
+            },
+          ],
+        },
+        {
           '@type': 'type.googleapis.com/google.rpc.BadRequest',
           field_violations: [
             {

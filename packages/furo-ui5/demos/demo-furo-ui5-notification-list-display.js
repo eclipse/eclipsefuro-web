@@ -1,18 +1,21 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/notification/src/furo-banner.js';
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/notification/demos/produce-banner-data.js';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/input/src/furo-text-input.js';
+import '@furo/ui5/src/furo-catalog.js';
+
+import '@ui5/webcomponents-fiori/dist/ShellBar.js';
+import '@ui5/webcomponents-fiori/dist/ShellBarItem.js';
+import '@ui5/webcomponents/dist/Popover.js';
+import '@ui5/webcomponents-icons/dist/message-error.js';
+
+import './helper/notification-producer.js';
 
 /**
  * `demo-furo-ui5-notification-list`
- * Lit element
  *
  * @customElement
  * @demo demo/index.html
@@ -62,55 +65,46 @@ class DemoFuroUi5NotificationListDisplay extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-           <furo-ui5-notification-list-display show-close></furo-ui5-notification-list-display>
-           <furo-ui5-notification-group-display show-close show-counter></furo-ui5-notification-group-display>
+            <ui5-shellbar @-notifications-click="--notificationsRequested(*.target)"
+                          primary-title="gRPC Status Notifications"
+                          secondary-title=""
+                          show-notifications
+            ></ui5-shellbar>
 
-            <furo-vertical-scroller>
+            <ui5-popover ƒ-open-by="--notificationsRequested" placement-type="bottom">
+              <div class="popover-content">
+                <!-- gRPC Error Handling, display and creator components-->
+                <furo-ui5-notification-list-display header-text="Notifications"
+                                                    ƒ-clear-all="--clearRequested"></furo-ui5-notification-list-display>
 
-              <h2>Parse grpc status message</h2>
-                <furo-ui5-notification
-                ƒ-parse-grpc-status="--notification-grpc-status"
-                ƒ-inject-notification-collection="--response(*.notifications)"
-                @-notification-closed="--notificationAction"
-                @-notification-custom-action="--notificationAction"
-                @-notification-custom-action-reject="--notificationAction"
-                ></furo-ui5-notification>
-              <produce-banner-data
-                @-response-error="--notification-grpc-status"
-            @-notification-closed="--notificationAction"
-                label="Generate GRPC ERROR"
-              ></produce-banner-data>
+                <furo-ui5-notification ƒ-parse-grpc-status="--grpcReady" ></furo-ui5-notification>
+              </div>
+              <div slot="footer" class="popover-footer"></div>
+            </ui5-popover>
 
-                            <h2>show notification messages </h2>
+            </br>
 
-               <produce-qp-data @-data="--qp" qpescaped="%7B%22tsk%22%3A2%7D"></produce-qp-data>
+            <furo-ui5-button-bar>
+              <furo-ui5-button design="Negative"
+                               @-click="--notificationsRequested(*.target)"
+              >Errors</furo-ui5-button>
+              <furo-empty-spacer></furo-empty-spacer>
+              <furo-ui5-button @-click="--grpc" design="Emphasized">show grpc localized messages</furo-ui5-button>
+              <furo-ui5-button @-click="--clearRequested">clear messages</furo-ui5-button>
 
-                                           <h2>show notification messages in group </h2>
-               <produce-qp-data @-data="--qp" qpescaped="%7B%22tsk%22%3A1%7D"></produce-qp-data>
+            </furo-ui5-button-bar>
+
+            <p>The Status type defines a logical error model that is suitable for
+              different programming environments, including REST APIs and RPC APIs. It is
+              used by [gRPC](https://github.com/grpc). Each \`Status\` message contains
+              three pieces of data: error code, error message, and error details.</p>
+            <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto">github.com/googleapis/...</a>
 
 
-                 <h2>Display the payload by notification custom action </h2>
-            <furo-pretty-json ƒ-inject-data="--notificationAction"></furo-pretty-json>
+            <notification-producer ƒ-get-grpc-status="--grpc"
+                                   @-grpc-status-ready="--grpcReady"></notification-producer>
 
-          <furo-data-object
-            type="task.Task"
-            @-object-ready="--entity"
-            ƒ-inject-raw="--response(*.data)"
-          ></furo-data-object>
-          <furo-deep-link
-            service="TaskService"
-            @-hts-out="--hts"
-            ƒ-qp-in="--qp"
-          ></furo-deep-link>
-          <furo-entity-agent
-            service="TaskService"
-            ƒ-hts-in="--hts"
-            ƒ-load="--hts"
-            ƒ-bind-request-data="--entity"
-            @-response="--response"
-          >
-              <hr />
-            </furo-vertical-scroller>
+
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

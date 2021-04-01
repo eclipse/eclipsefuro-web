@@ -34,22 +34,4 @@ describe('furo-ui5-message-strip-display', () => {
     assert.equal(messageStripDisplay.nodeName.toLowerCase(), 'furo-ui5-message-strip-display');
     done();
   });
-
-  // axeReport a11y tests
-  // it('a11y', () => axeReport(messageStripDisplay));
-
-  it('should handle grpc error objects', done => {
-    messageStrip.parseGrpcStatus({
-      code: 12,
-      message: 'Request had invalid credentials.',
-      status: 'SOMETHING',
-    });
-    setTimeout(() => {
-      const items = messageStripDisplay.shadowRoot.querySelectorAll('ui5-messagestrip');
-
-      assert.equal(items.length, 1);
-
-      done();
-    }, 0);
-  });
 });

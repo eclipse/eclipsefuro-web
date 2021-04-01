@@ -1,9 +1,9 @@
-import {LitElement, html, css} from 'lit-element';
-import {FBP} from '@furo/fbp';
+import { LitElement, html, css } from 'lit-element';
+import { FBP } from '@furo/fbp';
 import '@ui5/webcomponents-fiori/dist/NotificationListItem.js';
 import '@ui5/webcomponents-fiori/dist/NotificationAction.js';
 import '@ui5/webcomponents/dist/List.js';
-import {Theme} from '@furo/framework/src/theme.js';
+import { Theme } from '@furo/framework/src/theme.js';
 
 /**
  * `furo-ui5-notification-list`
@@ -22,6 +22,70 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     super();
     this.headerText = '';
     this.noDataText = 'No messages';
+    this.groupTitleHelp = 'Help';
+    this.groupTitleBadRequest = 'Bad Request';
+  }
+
+  /**
+   *@private
+   */
+  static get properties() {
+    return {
+      /**
+       * the header text of the notification
+       */
+      headerText: {
+        type: String,
+        attribute: 'header-text',
+      },
+      /**
+       * Defines if the close button would be displayed.
+       */
+      showClose: {
+        type: Boolean,
+        attribute: 'show-close',
+      },
+      /**
+       * Defines the text that is displayed when the list contains no items.
+       */
+      noDataText: {
+        type: String,
+        attribute: 'no-data-text',
+      },
+      /**
+       * Defines the notification group element title for notifications of type
+       * "type.googleapis.com/google.rpc.Help"
+       */
+      groupTitleHelp: {
+        type: String,
+        attribute: 'group-title-help',
+      },
+      /**
+       * Defines the notification group element title for notifications of type
+       * "type.googleapis.com/google.rpc.BadRequest"
+       */
+      groupTitleBadRequest: {
+        type: String,
+        attribute: 'group-title-bad-request',
+      },
+    };
+  }
+
+  /**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return (
+      Theme.getThemeForComponent('FuroUi5NotificationListDisplay') ||
+      css`
+        :host {
+          display: block;
+        }
+      `
+    );
   }
 
   /**
@@ -89,7 +153,9 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
 
       // @type: "type.googleapis.com/google.rpc.BadRequest"
       this.badRequests = [];
-      this.badRequests = status.details.filter(det => det['@type'].includes('google.rpc.BadRequest'));
+      this.badRequests = status.details.filter(det =>
+        det['@type'].includes('google.rpc.BadRequest'),
+      );
 
       // @type: "type.googleapis.com/google.rpc.Help"
       this.help = [];
@@ -153,7 +219,6 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    * -
    */
   _show() {
-
     // show localized messages first
     if (this.text) {
       const localizedMessages = document.createElement('ui5-li-notification');
@@ -170,17 +235,16 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     /**
      * Handling of Help
      */
-    this._createHelpElements().then((g)=>{
+    this._createHelpElements().then(g => {
       this.shadowRoot.getElementById('ui5-list').appendChild(g);
-    })
+    });
 
     /**
      * Handling of Bad Request Field Violations
      */
-    this._createBadRequestElements().then((g)=>{
+    this._createBadRequestElements().then(g => {
       this.shadowRoot.getElementById('ui5-list').appendChild(g);
-    })
-
+    });
   }
 
   /**
@@ -188,17 +252,17 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    * @returns {Promise<unknown>}
    * @private
    */
-  _createHelpElements(){
+  _createHelpElements() {
     return new Promise(resolve => {
-      if (this.help){
-        this.help.forEach(help =>{
+      if (this.help) {
+        this.help.forEach(help => {
           /**
            * Bad Request group element
            */
           const group = document.createElement('ui5-li-notification-group');
           group.setAttribute('show-close', '');
           group.setAttribute('show-counter', '');
-          group.heading = help['@type'];
+          group.heading = this.groupTitleHelp;
           group.target = this.target;
 
           /**
@@ -215,18 +279,16 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
             notification.message = this.message;
 
             const fieldItem = document.createElement('span');
-            fieldItem.innerHTML = "<a href='"+item.url+"' target='_blank'>"+item.url+"</a>";
-            fieldItem.slot='footnotes';
+            fieldItem.innerHTML = `<a href='${item.url}' title='${item.description}' target='_blank'>${item.url}</a>`;
+            fieldItem.slot = 'footnotes';
             notification.appendChild(fieldItem);
             // add to group element
             group.appendChild(notification);
-          })
+          });
           resolve(group);
-
-        })
+        });
       }
     });
-
   }
 
   /**
@@ -234,11 +296,10 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    * @returns {Promise<unknown>}
    * @private
    */
-  _createBadRequestElements(){
+  _createBadRequestElements() {
     return new Promise(resolve => {
       if (this.badRequests) {
-
-        this.badRequests.forEach(err =>{
+        this.badRequests.forEach(err => {
           /**
            * Bad Request group element
            * @type {HTMLElement}
@@ -246,7 +307,7 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
           const group = document.createElement('ui5-li-notification-group');
           group.setAttribute('show-close', '');
           group.setAttribute('show-counter', '');
-          group.heading = err['@type'];
+          group.heading = this.groupTitleBadRequest;
           group.target = this.target;
 
           /**
@@ -264,17 +325,15 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
 
             const fieldItem = document.createElement('span');
             fieldItem.innerText = item.field;
-            fieldItem.slot='footnotes';
+            fieldItem.slot = 'footnotes';
             notification.appendChild(fieldItem);
             // add to group element
             group.appendChild(notification);
-          })
+          });
           resolve(group);
-        })
+        });
       }
-
     });
-
   }
 
   /**
@@ -285,51 +344,16 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
   }
 
   /**
-   *@private
-   */
-  static get properties() {
-    return {
-      /**
-       * the header text of the notification
-       */
-      headerText: {
-        type: String,
-        attribute: 'header-text',
-      },
-      /**
-       * Defines if the close button would be displayed.
-       */
-      showClose: {
-        type: Boolean,
-        attribute: 'show-close',
-      },
-    };
-  }
-
-  /**
-   * Themable Styles
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('FuroUi5NotificationListDisplay') ||
-      css`
-        :host {
-          display: block;
-        }
-      `
-    );
-  }
-
-  /**
    * @private
    * @returns {TemplateResult}
    */
   render() {
     return html`
-      <ui5-list id="ui5-list" no-data-text=${this.noDataText} header-text="${this.headerText}"></ui5-list>
+      <ui5-list
+        id="ui5-list"
+        no-data-text=${this.noDataText}
+        header-text="${this.headerText}"
+      ></ui5-list>
     `;
   }
 }
