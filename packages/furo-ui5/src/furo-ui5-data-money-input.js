@@ -418,7 +418,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-horizontal-flex>
-        <furo-ui5-data-text-input
+        <ui5-input
           id="amount"
           type="Number"
           ?disabled=${this.disabled}
@@ -426,7 +426,7 @@ class FuroUi5DataMoneyInput extends FBP(LitElement) {
           ?required=${this.required}
           ƒ-.value="--valueAmount"
           @-input="--inputInput(*)"
-        ></furo-ui5-data-text-input>
+        ></ui5-input>
         <furo-ui5-data-text-input
           id="currency"
           ?disabled=${this.disabled}
