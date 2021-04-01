@@ -22,6 +22,7 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     super();
     this.headerText = '';
     this.noDataText = 'No messages';
+    this._notificationCount = '';
     this.groupTitleHelp = 'Help';
     this.groupTitleBadRequest = 'Bad Request';
   }
@@ -119,6 +120,14 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     this.shadowRoot.getElementById('ui5-list').addEventListener('item-close', e => {
       e.detail.item.target._close(e.detail.item.message);
       e.detail.item.remove();
+      // update notification counter
+      if (e.detail.item.nodeName === 'UI5-LI-NOTIFICATION-GROUP') {
+        this._notificationCount -= e.detail.item.childElementCount;
+      } else {
+        // eslint-disable-next-line no-plusplus
+        --this._notificationCount;
+      }
+      this._dispatchNotificationCounterUpdates(this._notificationCount);
     });
 
     /**
@@ -141,6 +150,9 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    */
   parseGrpcStatus(d) {
     const status = d.payload;
+
+    this._notificationCount = status.details.length || 0;
+    this._dispatchNotificationCounterUpdates(this._notificationCount);
 
     if (status.details && status.details.length > 0) {
       this.multilineText = [];
@@ -245,6 +257,23 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
     this._createBadRequestElements().then(g => {
       this.shadowRoot.getElementById('ui5-list').appendChild(g);
     });
+  }
+
+  /**
+   * Fires a notification counter update event
+   * Use this event to show the amount of notifications to the user.
+   * @private
+   * @event notification-counter-update
+   */
+  _dispatchNotificationCounterUpdates(count) {
+    const VALUE = count > 0 ? count : '';
+    this.dispatchEvent(
+      new CustomEvent('notification-counter-update', {
+        detail: VALUE.toString(),
+        bubbles: true,
+        composed: true,
+      }),
+    );
   }
 
   /**

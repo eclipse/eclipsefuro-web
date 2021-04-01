@@ -15776,7 +15776,7 @@
               "column": 2
             },
             "end": {
-              "line": 135,
+              "line": 143,
               "column": 3
             }
           },
@@ -15792,11 +15792,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 142,
+              "line": 150,
               "column": 2
             },
             "end": {
-              "line": 175,
+              "line": 188,
               "column": 3
             }
           },
@@ -15816,11 +15816,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 203,
+              "line": 216,
               "column": 2
             },
             "end": {
-              "line": 211,
+              "line": 224,
               "column": 3
             }
           },
@@ -15840,11 +15840,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 219,
+              "line": 232,
               "column": 2
             },
             "end": {
-              "line": 248,
+              "line": 259,
               "column": 3
             }
           },
@@ -15855,16 +15855,40 @@
           }
         },
         {
+          "name": "_dispatchNotificationCounterUpdates",
+          "description": "Fires a notification counter update event\nUse this event to show the amount of notifications to the user.",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 267,
+              "column": 2
+            },
+            "end": {
+              "line": 276,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "count"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "_createHelpElements",
           "description": "Creates notification items of type @type: \"type.googleapis.com/google.rpc.Help\"",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 255,
+              "line": 283,
               "column": 2
             },
             "end": {
-              "line": 294,
+              "line": 320,
               "column": 3
             }
           },
@@ -15880,11 +15904,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 301,
+              "line": 327,
               "column": 2
             },
             "end": {
-              "line": 342,
+              "line": 365,
               "column": 3
             }
           },
@@ -15900,11 +15924,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 347,
+              "line": 370,
               "column": 2
             },
             "end": {
-              "line": 349,
+              "line": 372,
               "column": 3
             }
           },
@@ -15920,11 +15944,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 355,
+              "line": 378,
               "column": 2
             },
             "end": {
-              "line": 359,
+              "line": 386,
               "column": 3
             }
           },
@@ -15949,7 +15973,7 @@
           "column": 0
         },
         "end": {
-          "line": 360,
+          "line": 387,
           "column": 1
         }
       },
@@ -16038,7 +16062,14 @@
           "type": "string | null | undefined"
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "notification-counter-update",
+          "description": "Fires a notification counter update event\nUse this event to show the amount of notifications to the user.",
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []

@@ -68,6 +68,7 @@ class DemoFuroUi5NotificationListDisplay extends FBP(LitElement) {
             <ui5-shellbar @-notifications-click="--notificationsRequested(*.target)"
                           primary-title="gRPC Status Notifications"
                           secondary-title=""
+                          ƒ-.notification-count="--notificationCounterUpdated"
                           show-notifications
             ></ui5-shellbar>
 
@@ -75,9 +76,10 @@ class DemoFuroUi5NotificationListDisplay extends FBP(LitElement) {
               <div class="popover-content">
                 <!-- gRPC Error Handling, display and creator components-->
                 <furo-ui5-notification-list-display header-text="Notifications"
-                                                    ƒ-clear-all="--clearRequested"></furo-ui5-notification-list-display>
+                                                    ƒ-clear-all="--clearRequested"
+                                                    @-notification-counter-update="--notificationCounterUpdated"></furo-ui5-notification-list-display>
 
-                <furo-ui5-notification ƒ-parse-grpc-status="--grpcReady" ></furo-ui5-notification>
+                <furo-ui5-notification ƒ-parse-grpc-status="--grpcReady"></furo-ui5-notification>
               </div>
               <div slot="footer" class="popover-footer"></div>
             </ui5-popover>
