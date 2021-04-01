@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.19.4...@furo/data@1.20.0) (2021-04-01)
+
+
+### Features
+
+* append grpc error response to data objects ([47e1202](https://github.com/theNorstroem/FuroBaseComponents/commit/47e1202d3e30cd741ffe6fe418edc43244abe19a))
+
+
+
+
+
 ## [1.19.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.19.3...@furo/data@1.19.4) (2021-03-23)
 
 

@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.22.1...@furo/ui5@0.23.0) (2021-04-01)
+
+
+### Bug Fixes
+
+* attribute placeholder, value-state removed. Slot valueStateMessage removed ([4c7a02d](https://github.com/theNorstroem/FuroBaseComponents/commit/4c7a02d773141eae7d9412093b059c63b0a96d63))
+* autoselect-first simulate the possible states ([daab21d](https://github.com/theNorstroem/FuroBaseComponents/commit/daab21dfac0b60a7fd3bce4b59ef28c4979affdd))
+* autoselect-first simulate the possible states ([fdbc1af](https://github.com/theNorstroem/FuroBaseComponents/commit/fdbc1afef9fb7ed91df8e74554a35f0895d5d90c))
+* autoselect-first simulate the possible states ([8ebaaa1](https://github.com/theNorstroem/FuroBaseComponents/commit/8ebaaa13a9c40ccb03594dc34d43f4affdded0d4))
+* clear all should set counter to empty string ([060fa8a](https://github.com/theNorstroem/FuroBaseComponents/commit/060fa8abacdf46b7e14528da153f3dce279c4c07))
+* disable the fieldnode reset ([6f8c8a8](https://github.com/theNorstroem/FuroBaseComponents/commit/6f8c8a8a25ebed89eb42c28fb4f19885287fcafb))
+* disable the fieldnode reset ([b757191](https://github.com/theNorstroem/FuroBaseComponents/commit/b757191fa31cbf6b79fb44788f09a313f03b14c1))
+* disable the fieldnode reset ([2fea72b](https://github.com/theNorstroem/FuroBaseComponents/commit/2fea72ba0f8d777b7e56d13f317319cfd6a2a8bf))
+* initialize field when data object is already given ([0334ddf](https://github.com/theNorstroem/FuroBaseComponents/commit/0334ddf4b6ee9f9ac3195223cbdacd17e7a99c0e))
+* new clear api, shows a google rpc status message (LocalizedMessage) ([313ca05](https://github.com/theNorstroem/FuroBaseComponents/commit/313ca055347de8b1c7ed897ca15ab6fc6c28448e))
+* new structure, more supported types, WIP ([7079e37](https://github.com/theNorstroem/FuroBaseComponents/commit/7079e37c5125fa47e9dcaa30636b2686b503b6cc))
+* new structure, supported types are Bad Request, Help ([5ffba60](https://github.com/theNorstroem/FuroBaseComponents/commit/5ffba6098d26af1c887c768a7112aef5de4c11ec))
+* valueState and valueStateMessage should behavior correctly. ([b4597e4](https://github.com/theNorstroem/FuroBaseComponents/commit/b4597e48e755559ce54dacddae16cbb4f59d03a3))
+
+
+### Features
+
+* new event to update notification counter ([a919bd9](https://github.com/theNorstroem/FuroBaseComponents/commit/a919bd97dde194f7fb3b211b5630c18b628df4c2))
+
+
+
+
+
 ## [0.22.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.22.0...@furo/ui5@0.22.1) (2021-03-23)
 
 
