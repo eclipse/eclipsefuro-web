@@ -1,6 +1,6 @@
-import { LitElement, css } from 'lit-element';
-import { Env } from '@furo/framework';
-import { DataObject } from './lib/DataObject.js';
+import {LitElement, css} from 'lit-element';
+import {Env} from '@furo/framework';
+import {DataObject} from './lib/DataObject.js';
 
 /**
  * `furo-data-object` gives you a object which is built based on the **type** spec.
@@ -42,7 +42,7 @@ export class FuroDataObject extends LitElement {
       /**
        * The name of the type you want to use. The type must be registered in Env
        */
-      type: { type: String },
+      type: {type: String},
     };
   }
 
@@ -106,7 +106,7 @@ export class FuroDataObject extends LitElement {
        * Fired when validation results in a valid state
        * detail payload: DataObject
        */
-      const customEvent = new Event('validation-success', { composed: true, bubbles: true });
+      const customEvent = new Event('validation-success', {composed: true, bubbles: true});
       customEvent.detail = this.data;
       this.dispatchEvent(customEvent);
     } else {
@@ -115,7 +115,7 @@ export class FuroDataObject extends LitElement {
        * Fired when validation results in a invalid state
        * detail payload: DataObject
        */
-      const customEvent = new Event('validation-failed', { composed: true, bubbles: true });
+      const customEvent = new Event('validation-failed', {composed: true, bubbles: true});
       customEvent.detail = this.data;
       this.dispatchEvent(customEvent);
     }
@@ -206,12 +206,22 @@ export class FuroDataObject extends LitElement {
    */
   init() {
     // inject the initial value created below without breaking any bindings
-    this.data.injectRaw(this._initial);
-    const customEvent = new Event('init-completed', { composed: true, bubbles: true });
-    customEvent.detail = this.data;
-    setTimeout(() => {
+    this._injectingCompleted = false;
+    this._injectPromise = new Promise(resolve => {
+      // queue inject bis entity bereit ist
+      this.data.injectRaw(this._initial);
+      resolve(this.data);
+
+    });
+
+    this._injectPromise.then(() => {
+      this._injectingCompleted = true;
+      const customEvent = new Event('init-completed', {composed: true, bubbles: true});
+      customEvent.detail = this.data;
       this.dispatchEvent(customEvent);
-    }, 0);
+    });
+
+    return this._injectPromise;
   }
 
   /**
@@ -254,7 +264,7 @@ export class FuroDataObject extends LitElement {
      *
      * **bubbles**
      */
-    const customEvent = new Event('object-ready', { composed: true, bubbles: true });
+    const customEvent = new Event('object-ready', {composed: true, bubbles: true});
     customEvent.detail = this.data;
     setTimeout(() => {
       this.dispatchEvent(customEvent);
@@ -269,7 +279,7 @@ export class FuroDataObject extends LitElement {
        *
        * **bubbles**
        */
-      const validEvent = new Event('data-object-became-valid', { composed: true, bubbles: true });
+      const validEvent = new Event('data-object-became-valid', {composed: true, bubbles: true});
       validEvent.detail = e.detail;
       this.dispatchEvent(validEvent);
     });
@@ -300,7 +310,7 @@ export class FuroDataObject extends LitElement {
        *
        * **bubbles**
        */
-      const injectedEvent = new Event('data-injected', { composed: true, bubbles: true });
+      const injectedEvent = new Event('data-injected', {composed: true, bubbles: true});
       injectedEvent.detail = e.detail;
       this.dispatchEvent(injectedEvent);
     });
@@ -317,7 +327,7 @@ export class FuroDataObject extends LitElement {
        *   **bubbles**
        */
 
-      const dataEvent = new Event('data-changed', { composed: true, bubbles: true });
+      const dataEvent = new Event('data-changed', {composed: true, bubbles: true});
       dataEvent.detail = this.data;
       this.dispatchEvent(dataEvent);
 
@@ -345,7 +355,7 @@ export class FuroDataObject extends LitElement {
        * Fired when a field has changed
        * detail payload: {Object} the field node
        */
-      const valueChangedEvent = new Event('field-value-changed', { composed: true, bubbles: true });
+      const valueChangedEvent = new Event('field-value-changed', {composed: true, bubbles: true});
       valueChangedEvent.detail = e.detail;
       this.dispatchEvent(valueChangedEvent);
     });
