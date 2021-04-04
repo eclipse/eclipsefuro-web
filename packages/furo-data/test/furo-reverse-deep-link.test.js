@@ -57,12 +57,14 @@ describe('furo-reverse-deep-link', () => {
           method: 'GET',
           href: '/deeemmmo/api/v1/tasks/LIST.json',
           type: 'application/task.Task+json',
+          service: "ProjectMembersService"
         },
         {
           rel: 'next',
           method: 'GET',
           href: '/deeemmmo/api/v1/tasks/NEXT:release',
           type: 'application/task.Task+json',
+          service: "ProjectMembersService"
         },
       ],
     });
@@ -75,6 +77,7 @@ describe('furo-reverse-deep-link', () => {
       method: 'GET',
       href: '/demo/api/v1/tasks/31337.json',
       type: 'application/task.Task+json',
+      service: "ProjectMembersService"
     });
 
     expect(res.message).to.equal('Service is not defined');
@@ -100,12 +103,14 @@ describe('furo-reverse-deep-link', () => {
           method: 'GET',
           href: '/demo/api/v1/tasks/31337.json',
           type: 'application/task.Task+json',
+          service: "ProjectMembersService"
         },
         {
           rel: 'unsubscribe',
           method: 'GET',
           href: '/api/v1/tasks/THISONE:unsubscribe',
           type: 'application/task.Task+json',
+          service: "ProjectMembersService"
         },
       ],
     });
@@ -130,12 +135,14 @@ describe('furo-reverse-deep-link', () => {
         method: 'GET',
         href: '/demo/api/v1/tasks/31337.json',
         type: 'application/task.Task+json',
+        service: "ProjectMembersService"
       },
       {
         rel: 'unsubscribe',
         method: 'GET',
         href: '/demo/api/v1/tasks/THISONE:unsubscribe',
         type: 'application/task.Task+json',
+        service: "ProjectMembersService"
       },
     ]);
   });
@@ -153,6 +160,7 @@ describe('furo-reverse-deep-link', () => {
       method: 'GET',
       href: '/demo/api/v1/tasks/31337.json',
       type: 'application/task.Task+json',
+      service: "ProjectMembersService"
     });
   });
 });
