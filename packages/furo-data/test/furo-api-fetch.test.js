@@ -88,6 +88,15 @@ describe('furo-api-fetch', () => {
     element.invokeRequest(request);
   });
 
+  it('status codes from 300 up should fire group error events, 4xx, 5xx', done => {
+    const request = new Request('https://httpstat.us/500', { method: 'GET' });
+    element.addEventListener('response-error-5xx', r => {
+      assert.equal(r.detail, '500 Internal Server Error');
+      done();
+    });
+    element.invokeRequest(request);
+  });
+
   it('should be able to parse json', done => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
