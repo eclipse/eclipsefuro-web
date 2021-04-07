@@ -57,6 +57,12 @@ class FuroApiFetch extends HTMLElement {
    * @event response-error-[status-code]
    */
 
+  /**
+   * Fired when an error has occoured.
+   * This is a group error event. E.g. response-error-5xx, response-error-4xx
+   * @event response-error-[status-code.firstChar]xx
+   */
+
   constructor() {
     super();
     /**
@@ -255,10 +261,42 @@ class FuroApiFetch extends HTMLElement {
               composed: true,
             }),
           );
+          this.dispatchEvent(
+            new CustomEvent(`response-error-${response.status.toString().charAt(0)}xx`, {
+              detail: r,
+              bubbles: true,
+              composed: true,
+            }),
+          );
         })
+        /**
+         * error parsing is not possible, empty response
+         * the dispatched event will have the raw error object in the event detail
+         */
         .catch(error => {
           this.dispatchEvent(
             new CustomEvent('parse-error', {
+              detail: error,
+              bubbles: true,
+              composed: true,
+            }),
+          );
+          this.dispatchEvent(
+            new CustomEvent('response-error', {
+              detail: error,
+              bubbles: true,
+              composed: true,
+            }),
+          );
+          this.dispatchEvent(
+            new CustomEvent(`response-error-${response.status}`, {
+              detail: error,
+              bubbles: true,
+              composed: true,
+            }),
+          );
+          this.dispatchEvent(
+            new CustomEvent(`response-error-${response.status.toString().charAt(0)}xx`, {
               detail: error,
               bubbles: true,
               composed: true,
