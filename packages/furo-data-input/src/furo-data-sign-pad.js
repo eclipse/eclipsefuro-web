@@ -31,6 +31,11 @@ export class FuroDataSignPad extends FuroSignPad {
     });
   }
 
+  clear() {
+    // super.clear();
+    this.field._value = '';
+  }
+
   /**
    * update field._value  on new drawing
    */
