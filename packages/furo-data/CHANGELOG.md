@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.21.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.20.0...@furo/data@1.21.0) (2021-04-13)
+
+
+### Bug Fixes
+
+* added tests with services, which are needed to know for the reverse deep linker ([2dee98d](https://github.com/theNorstroem/FuroBaseComponents/commit/2dee98dc5d886a4a26a8614b1ca439f5f290da43))
+* init on data object triggers data-changed-after-inject removed. ([33b34f1](https://github.com/theNorstroem/FuroBaseComponents/commit/33b34f150aa0ff722ade26307e09e8c4e1b33606))
+* we should also fire all error events including parse-error if we are not able to parse the response. A standard 401 will not have response data. ([be0b39e](https://github.com/theNorstroem/FuroBaseComponents/commit/be0b39eca9ab05635b727104089d4a4ec6a91b1f))
+
+
+### Features
+
+* append grpc error response to data objects ([0b21656](https://github.com/theNorstroem/FuroBaseComponents/commit/0b216560d730a50338c239e4931a762ce8c63ada))
+* new group error event added. E.g. response-error-4xx, response-error-5xx ([b404b23](https://github.com/theNorstroem/FuroBaseComponents/commit/b404b23b2b19e2b00a93f2e2ce5d32e98fac3519))
+
+
+
+
+
 # [1.20.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.19.4...@furo/data@1.20.0) (2021-04-01)
 
 
