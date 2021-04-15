@@ -20,7 +20,7 @@ describe('furo-location-updater-hash', () => {
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, element,furoLocation] = testbind.parentNode.children;
+    [, element, furoLocation] = testbind.parentNode.children;
     await host.updateComplete;
     await element.updateComplete;
     await furoLocation.updateComplete;
@@ -41,29 +41,24 @@ describe('furo-location-updater-hash', () => {
     element.setHash({ a: 3 });
   });
 
-
-
-
   it('should add additional hashes on changed Hash', done => {
     element.setHash({ a: 4444 });
     element.setHash({ b: 3333 });
     element.setHash({ xb: 3333 });
 
-    assert.equal(window.location.hash , '#a=4444&b=3333&xb=3333');
+    assert.equal(window.location.hash, '#a=4444&b=3333&xb=3333');
 
     done();
   });
-
-
 
   it('should clear other hash', done => {
     // attention XB comes from test before
     element.setHash({ a: 4444 });
     element.setHash({ b: 457 });
-    assert.equal(window.location.hash , '#a=4444&b=457&xb=3333');
+    assert.equal(window.location.hash, '#a=4444&b=457&xb=3333');
     element.setAttribute('clear-hash', 'xb,a,c');
     element.setHash({ c: 333 });
-    assert.equal(window.location.hash , '#b=457&c=333');
+    assert.equal(window.location.hash, '#b=457&c=333');
     done();
   });
 });
