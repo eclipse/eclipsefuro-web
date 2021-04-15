@@ -146,12 +146,12 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
   /**
    * parse grpc status object and set the notification text according to the LocalizedMessage in status.
    * https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto.
-   * @param s
+   * @param d
    */
   parseGrpcStatus(d) {
     const status = d.payload;
 
-    this._notificationCount = status.details.length || 0;
+    this._notificationCount = status.details ? status.details.length : 0;
     this._dispatchNotificationCounterUpdates(this._notificationCount);
 
     if (status.details && status.details.length > 0) {
@@ -370,7 +370,7 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    */
   clearAll() {
     this.shadowRoot.getElementById('ui5-list').innerHTML = '';
-    this._notificationCount = "";
+    this._notificationCount = '';
     this._dispatchNotificationCounterUpdates(this._notificationCount);
   }
 
