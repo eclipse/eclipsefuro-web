@@ -61,6 +61,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
        *    ['view-main', 'button-tap', 'detail-view',  'task => id],
        *    ["*", "search", "EXTERNAL_LINK: https://google.com/"],
        *    ["*", "searchInNewWindow", "EXTERNAL_LINK_BLANK: https://google.com/"]
+       *    ["*", "searchInNewWindow", "EXTERNAL_LINK_BLANK:", *]
        *  ]
        *  ```
        *
@@ -149,13 +150,26 @@ class FuroAppFlowRouter extends FBP(LitElement) {
       if (selection.target === 'HISTORY-BACK') {
         this.back();
       } else {
-        if (selection.target.startsWith('EXTERNAL_LINK:')) {
-          window.location.href = selection.target.substr(14).trim();
-        } else if (selection.target.startsWith('EXTERNAL_LINK_BLANK:')) {
-          window.open(selection.target.substr(20).trim());
-        } else {
-          window.history.pushState({}, '', prefix + selection.target + search);
+        const sa = [];
+        // eslint-disable-next-line guard-for-in,no-restricted-syntax
+        for (const k in flowEvent.data) {
+          sa.push(flowEvent.data[k]);
         }
+
+        if (selection.target.startsWith('EXTERNAL_LINK:')) {
+          // eslint-disable-next-line babel/no-unused-expressions
+          sa.length
+            ? window.open(sa.join(''))
+            : (window.location.href = selection.target.substr(14).trim());
+          return true;
+        }
+        if (selection.target.startsWith('EXTERNAL_LINK_BLANK:')) {
+          // eslint-disable-next-line babel/no-unused-expressions
+          sa.length ? window.open(sa.join('')) : window.open(selection.target.substr(20).trim());
+          return true;
+        }
+
+        window.history.pushState({}, '', prefix + selection.target + search);
 
         /**
          * Internal notyfication

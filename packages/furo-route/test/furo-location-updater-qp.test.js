@@ -20,7 +20,7 @@ describe('furo-location-updater-qps', () => {
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, element,furoLocation] = testbind.parentNode.children;
+    [, element, furoLocation] = testbind.parentNode.children;
     await host.updateComplete;
     await element.updateComplete;
     await furoLocation.updateComplete;
@@ -32,7 +32,6 @@ describe('furo-location-updater-qps', () => {
     done();
   });
 
-
   it('should dispatch a location-changed event on changed QP', done => {
     furoLocation.addEventListener('location-changed', e => {
       assert.equal(e.type, 'location-changed');
@@ -41,9 +40,7 @@ describe('furo-location-updater-qps', () => {
     element.setQp({ j: 8 });
   });
 
-
   it('should add additional qps', done => {
-
     element.setQp({ a: 4444 });
     element.setQp({ b: 457 });
     // attention: the j comes from test before
@@ -62,5 +59,4 @@ describe('furo-location-updater-qps', () => {
     assert.equal(window.location.search.slice(1), 'b=457&c=333');
     done();
   });
-
 });
