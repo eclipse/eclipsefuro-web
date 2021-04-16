@@ -37,7 +37,7 @@
     "@ui5/webcomponents-base": "0.34.0",
     "@ui5/webcomponents-fiori": "1.0.0-rc.14",
     "@ui5/webcomponents-icons": "1.0.0-rc.14",
-   "lit-element": "^2.3.1",
+    "lit-element": "^2.3.1",
     "markdown-it": "^9.0.1"
   },
   "devDependencies": {
