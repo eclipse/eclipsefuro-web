@@ -144,8 +144,6 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
       }
       // if something was entered the field is not empty
       this.binder.addLabel('modified');
-
-      this._requestUpdate();
     });
   }
 
@@ -158,7 +156,7 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
     this.binder.bindField(fieldNode);
     if (this.binder.fieldNode) {
       this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this._requestUpdate();
+        this._updateSlots();
       });
     }
   }
@@ -173,13 +171,6 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
           width: auto;
         }
       `;
-  }
-
-  /**
-   * @private
-   */
-  _requestUpdate() {
-    this._updateSlots();
   }
 }
 window.customElements.define('furo-ui5-data-checkbox-input', FuroUi5DataCheckboxInput);

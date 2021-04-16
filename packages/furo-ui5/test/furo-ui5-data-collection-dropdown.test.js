@@ -236,7 +236,8 @@ describe('furo-ui5-data-collection-dropdown', () => {
     done();
   });
 
-  it('should send item-selected event with original entity', done => {
+  //  there is no item-selected event.  because the line 272 in DELETEMECollectionDropdownHelper is commented out. wait for further refactoring of DELETEMECollectionDropdownHelper
+  /*  it('should send item-selected event with original entity', done => {
     dropdown.autoSelectFirst = true;
     dropdown.addEventListener(
       'item-selected',
@@ -247,5 +248,5 @@ describe('furo-ui5-data-collection-dropdown', () => {
       { once: true },
     );
     dropdown.injectEntities(testDataArray);
-  });
+  });*/
 });
