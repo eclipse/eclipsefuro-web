@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.6.5...@furo/route@1.6.6) (2021-04-16)
+
+
+### Bug Fixes
+
+* external links should not notify location change in the caller ([c931171](https://github.com/theNorstroem/FuroBaseComponents/commit/c931171530ca585fd87af3297533ebd94f3dc4c5))
+
+
+
+
+
 ## [1.6.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.6.4...@furo/route@1.6.5) (2021-04-13)
 
 **Note:** Version bump only for package @furo/route

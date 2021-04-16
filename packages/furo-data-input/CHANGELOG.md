@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.12...@furo/data-input@1.11.13) (2021-04-16)
+
+
+### Bug Fixes
+
+* clear data on clearing furo-data-sign-pad [closes:[#202](https://github.com/theNorstroem/FuroBaseComponents/issues/202)] ([693ab66](https://github.com/theNorstroem/FuroBaseComponents/commit/693ab660e130e5b79ca01ac7e7dd7befa0f0e94b))
+
+
+
+
+
 ## [1.11.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.11...@furo/data-input@1.11.12) (2021-04-13)
 
 **Note:** Version bump only for package @furo/data-input
