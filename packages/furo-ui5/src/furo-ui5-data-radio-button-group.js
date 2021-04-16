@@ -455,7 +455,7 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
    */
   // eslint-disable-next-line class-methods-use-this
   _getValueByPath(obj, path) {
-    return path.split('.').reduce((res, prop) => res[prop], obj);
+    return path.split('.').reduce((res, prop) => res[prop], obj) || {};
   }
 
   /**
@@ -474,7 +474,7 @@ export class FuroUi5DataRadioButtonGroup extends HTMLElement {
         );
       } else {
         this._fieldNodeToUpdate = this.binder.fieldNode[this.valueField] || this.binder.fieldNode;
-        this._fieldDisplayNodeToUpdate = this.binder.fieldNode[this.displayField];
+        this._fieldDisplayNodeToUpdate = this.binder.fieldNode[this.displayField] || {};
       }
 
       // inject options from meta which is defined in spec
