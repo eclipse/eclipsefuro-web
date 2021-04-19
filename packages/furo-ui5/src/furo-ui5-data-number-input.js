@@ -26,13 +26,13 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *
  *
  * ## supported FAT attributes
- *  - **"readonly":"true"** set the field to readonly
- *  - **"required":"true"** set the field to required
- *  - **"disabled":"true"** set the field to disabled
+ *  - **"readonly":"true"** set the element to readonly
+ *  - **"required":"true"** set the element to required
+ *  - **"disabled":"true"** set the element to disabled
  *  - **"placeholder":"string"** set the placeholder for the element
  *
  * ## supported meta and constraints
- * - **readonly: true** , set the field to readonly
+ * - **readonly: true** , set the element to readonly
  * - **placeholder:"some string"** set the placeholder for the element
  *
  * The constraint **required** will mark the element as required
