@@ -2,7 +2,7 @@ import { FieldNode } from './FieldNode.js';
 import { RepeaterNode } from './RepeaterNode.js';
 
 /**
- * `UniversalFieldNodeBinder` consumes a FieldNode of any type, google wrapper or FAT and exposes
+ *  DEPRECATED `UniversalFieldNodeBinder` consumes a FieldNode of any type, google wrapper or FAT and exposes
  * a API for data binding purposes.
  *
  * Google wrapper types are handled like skalar values

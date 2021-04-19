@@ -26,6 +26,7 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.label = '';
+    this.icon = '';
   }
 
   /**
@@ -69,6 +70,9 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
       readonly: {
         type: Boolean,
       },
+      icon: {
+        type: String,
+      }
     };
   }
 
@@ -111,10 +115,10 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
           id="Input"
           ?disabled=${this.disabled}
           ?readonly=${this.readonly}
+          icon="${this.icon}"
           ƒ-bind-data="--data"
           ƒ-focus="--focus"
         >
-          <div slot="icon"><slot name="icon"></slot></div
         ></furo-ui5-data-number-input>
       </furo-ui5-form-field-container>
     `;

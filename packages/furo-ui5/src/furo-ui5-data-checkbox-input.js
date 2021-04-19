@@ -154,11 +154,6 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
    */
   bindData(fieldNode) {
     this.binder.bindField(fieldNode);
-    if (this.binder.fieldNode) {
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this._updateSlots();
-      });
-    }
   }
 
   /**
