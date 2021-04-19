@@ -5728,7 +5728,7 @@
       ]
     },
     {
-      "description": "The 'furo-ui5-data-number-input' component allows the user to enter and edit numbers with data binding.\n\nIt supports all features from the [SAP ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).\n\nYou can bind any `number` type, any 'furo.fat.xxx' number type or the `google.wrapper.xxx` number types.\n\n### Specificity\n1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.\n2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.\n\n\n\n### supported FAT attributes\n - **\"readonly\":\"true\"** set the field to readonly\n - **\"required\":\"true\"** set the field to required\n - **\"disabled\":\"true\"** set the field to disabled\n - **\"placeholder\":\"string\"** set the placeholder for the element\n\n### supported meta and constraints\n- **readonly: true** , set the field to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n\nThe constraint **required** will mark the element as required",
+      "description": "The 'furo-ui5-data-number-input' component allows the user to enter and edit numbers with data binding.\n\nIt supports all features from the [SAP ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).\n\nYou can bind any `number` type, any `furo.fat.xxx` number type or the `google.wrapper.xxx` number types.\n\n```html\n <furo-ui5-data-number-input\n    ƒ-bind-data=\"--daoCountry(*.data.population)\"\n ></furo-ui5-data-number-input>\n```\n\n### Specificity\n1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.\n2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.\n\n| meta \t| fat \t| html \t|\n|------\t|-----\t|------\t|\n| 1    \t| 10  \t| 100  \t|\n\n\n## supported FAT attributes\n - **\"readonly\":\"true\"** set the field to readonly\n - **\"required\":\"true\"** set the field to required\n - **\"disabled\":\"true\"** set the field to disabled\n - **\"placeholder\":\"string\"** set the placeholder for the element\n\n## supported meta and constraints\n- **readonly: true** , set the field to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)",
       "summary": "data number input field",
       "path": "src/furo-ui5-data-number-input.js",
       "properties": [
@@ -5739,11 +5739,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 114,
+              "line": 130,
               "column": 2
             },
             "end": {
-              "line": 116,
+              "line": 132,
               "column": 3
             }
           },
@@ -5760,11 +5760,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 259,
+              "line": 275,
               "column": 2
             },
             "end": {
-              "line": 264,
+              "line": 280,
               "column": 3
             }
           },
@@ -5781,11 +5781,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 271,
+              "line": 287,
               "column": 2
             },
             "end": {
-              "line": 273,
+              "line": 289,
               "column": 3
             }
           },
@@ -5802,11 +5802,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 280,
+              "line": 296,
               "column": 2
             },
             "end": {
-              "line": 282,
+              "line": 298,
               "column": 3
             }
           },
@@ -5823,11 +5823,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 289,
+              "line": 305,
               "column": 2
             },
             "end": {
-              "line": 291,
+              "line": 307,
               "column": 3
             }
           },
@@ -5845,11 +5845,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 119,
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 123,
               "column": 3
             }
           },
@@ -5865,11 +5865,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 124,
+              "line": 140,
               "column": 2
             },
             "end": {
-              "line": 135,
+              "line": 151,
               "column": 3
             }
           },
@@ -5885,11 +5885,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 143,
+              "line": 159,
               "column": 2
             },
             "end": {
-              "line": 164,
+              "line": 180,
               "column": 3
             }
           },
@@ -5909,11 +5909,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 170,
+              "line": 186,
               "column": 2
             },
             "end": {
-              "line": 251,
+              "line": 267,
               "column": 3
             }
           },
@@ -5933,11 +5933,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 298,
+              "line": 314,
               "column": 2
             },
             "end": {
-              "line": 306,
+              "line": 322,
               "column": 3
             }
           },
@@ -5957,11 +5957,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 313,
+              "line": 329,
               "column": 2
             },
             "end": {
-              "line": 321,
+              "line": 337,
               "column": 3
             }
           },
@@ -5981,11 +5981,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 328,
+              "line": 344,
               "column": 2
             },
             "end": {
-              "line": 336,
+              "line": 352,
               "column": 3
             }
           },
@@ -6005,11 +6005,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 343,
+              "line": 359,
               "column": 2
             },
             "end": {
-              "line": 347,
+              "line": 363,
               "column": 3
             }
           },
@@ -6029,11 +6029,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 354,
+              "line": 370,
               "column": 2
             },
             "end": {
-              "line": 365,
+              "line": 381,
               "column": 3
             }
           },
@@ -6053,11 +6053,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 372,
+              "line": 388,
               "column": 2
             },
             "end": {
-              "line": 376,
+              "line": 392,
               "column": 3
             }
           },
@@ -6077,11 +6077,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 382,
+              "line": 398,
               "column": 2
             },
             "end": {
-              "line": 384,
+              "line": 400,
               "column": 3
             }
           },
@@ -6097,11 +6097,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 395,
+              "line": 411,
               "column": 2
             },
             "end": {
-              "line": 458,
+              "line": 474,
               "column": 3
             }
           },
@@ -6121,11 +6121,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 465,
+              "line": 481,
               "column": 2
             },
             "end": {
-              "line": 483,
+              "line": 499,
               "column": 3
             }
           },
@@ -6148,11 +6148,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 490,
+              "line": 506,
               "column": 2
             },
             "end": {
-              "line": 497,
+              "line": 513,
               "column": 3
             }
           },
@@ -6172,11 +6172,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 504,
+              "line": 520,
               "column": 2
             },
             "end": {
-              "line": 514,
+              "line": 530,
               "column": 3
             }
           },
@@ -6209,11 +6209,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 37,
+          "line": 51,
           "column": 7
         },
         "end": {
-          "line": 515,
+          "line": 531,
           "column": 1
         }
       },
@@ -6224,12 +6224,6 @@
       "events": [
         {
           "type": "CustomEvent",
-          "name": "***",
-          "description": "***\nAll events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
           "name": "change",
           "description": "change\nFired when the input operation has finished by pressing Enter or on focusout.\n\ndetail payload: `number`",
           "metadata": {}
@@ -6238,6 +6232,12 @@
           "type": "CustomEvent",
           "name": "input",
           "description": "input\nFired when the value of the ui5-input changes at each keystroke, and when a suggestion item has been selected.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "xxxx",
+          "description": "xxxx\nAll events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).",
           "metadata": {}
         }
       ],

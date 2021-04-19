@@ -10,24 +10,38 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *
  * You can bind any `number` type, any `furo.fat.xxx` number type or the `google.wrapper.xxx` number types.
  *
+ * ```html
+ *  <furo-ui5-data-number-input
+ *     ƒ-bind-data="--daoCountry(*.data.population)"
+ *  ></furo-ui5-data-number-input>
+ * ```
+ *
  * ### Specificity
  * 1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.
  * 2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.
  *
+ * | meta 	| fat 	| html 	|
+ * |------	|-----	|------	|
+ * | 1    	| 10  	| 100  	|
  *
  *
- * ### supported FAT attributes
+ * ## supported FAT attributes
  *  - **"readonly":"true"** set the field to readonly
  *  - **"required":"true"** set the field to required
  *  - **"disabled":"true"** set the field to disabled
  *  - **"placeholder":"string"** set the placeholder for the element
  *
- * ### supported meta and constraints
+ * ## supported meta and constraints
  * - **readonly: true** , set the field to readonly
  * - **placeholder:"some string"** set the placeholder for the element
  *
  * The constraint **required** will mark the element as required
  *
+ * ## Methods
+ * **bind-data(fieldNode)**
+ * Bind a entity field. You can use the entity even when no data was received.
+ *
+ * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  *
  * @summary data number input field
  * @customElement
@@ -50,7 +64,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
    *
    */
   /**
-   * @event ***
+   * @event xxxx
    * All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
    *
    */
@@ -104,14 +118,17 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
    * @private
    */
   connectedCallback() {
-
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
     this.readAttributes();
   }
 
-  // overwrite. fix for ui5 input error under rc14
-  // eslint-disable-next-line class-methods-use-this
+
+   // overwrite. fix for ui5 input error under rc14
+   //
+   //  @private
+   //
+   // eslint-disable-next-line class-methods-use-this
   get nativeInputAttributes() {
     return {};
   }
