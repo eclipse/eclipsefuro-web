@@ -4,12 +4,30 @@ import '@ui5/webcomponents/dist/features/InputSuggestions.js';
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 
 /**
- * The ui5-input component allows the user to enter and edit numbers.
- * Additionally, you can provide suggestionItems, that are displayed in a popover right under the input.
+ * The 'furo-ui5-data-number-input' component allows the user to enter and edit numbers with data binding.
  *
- * The text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).
- * To visualize semantic states, such as "error" or "warning", the valueState property is provided.
- * When the user makes changes to the text, the change event is fired, which enables you to react on any text change.
+ * It supports all features from the [SAP ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
+ *
+ * You can bind any `number` type, any `furo.fat.xxx` number type or the `google.wrapper.xxx` number types.
+ *
+ * ### Specificity
+ * 1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.
+ * 2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.
+ *
+ *
+ *
+ * ### supported FAT attributes
+ *  - **"readonly":"true"** set the field to readonly
+ *  - **"required":"true"** set the field to required
+ *  - **"disabled":"true"** set the field to disabled
+ *  - **"placeholder":"string"** set the placeholder for the element
+ *
+ * ### supported meta and constraints
+ * - **readonly: true** , set the field to readonly
+ * - **placeholder:"some string"** set the placeholder for the element
+ *
+ * The constraint **required** will mark the element as required
+ *
  *
  * @summary data number input field
  * @customElement
@@ -18,6 +36,25 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-text-input-together playground
  */
 export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
+
+  /**
+   * @event change
+   * Fired when the input operation has finished by pressing Enter or on focusout.
+   *
+   * detail payload: `number`
+   */
+
+  /**
+   * @event input
+   * Fired when the value of the ui5-input changes at each keystroke, and when a suggestion item has been selected.
+   *
+   */
+  /**
+   * @event ***
+   * All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
+   *
+   */
+
   constructor() {
     super();
 
@@ -25,7 +62,6 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
     this._attributesFromFNA = {
       readonly: undefined,
-      disabled: undefined,
       placeholder: undefined,
     };
 
@@ -83,6 +119,8 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * Reads the attributes which are set on the component dom.
+   *
+   * Use this after manual or scripted update of the attributes.
    */
   readAttributes() {
     // save the original attribute for later usages, we do this, because some components reflect
@@ -140,7 +178,6 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     this._attributesFromFAT.required = fatAttributes.required;
     this._attributesFromFAT.disabled = fatAttributes.disabled;
     this._attributesFromFAT.placeholder = fatAttributes.placeholder;
-    this._attributesFromFAT.required = fatAttributes.required;
     this._attributesFromFAT.icon = fatAttributes.icon;
 
     // readonly
@@ -229,6 +266,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite to fix error
+   * @private
    * @returns {*|{}}
    */
   get valueStateMessage() {
@@ -237,6 +275,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite to fix error
+   * @private
    * @returns {*|[]}
    */
   get suggestionItems() {
@@ -245,6 +284,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite to fix error
+   * @private
    * @returns {*|[]}
    */
   get icon() {
@@ -253,6 +293,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite onFnaFieldValueChanged
+   * @private
    * @param val
    */
   onFnaFieldValueChanged(val) {
@@ -267,6 +308,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite onFnaPlaceholderChanged function
+   * @private
    * @param placeholder
    */
   onFnaPlaceholderChanged(placeholder) {
@@ -281,6 +323,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite onFnaReadonlyChanged function
+   * @private
    * @param readonly
    */
   onFnaReadonlyChanged(readonly) {
@@ -295,6 +338,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite onFnaOptionsChanged function
+   * @private
    * @param options
    */
   onFnaOptionsChanged(options) {
@@ -305,6 +349,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite onFnaConstraintsChanged function
+   * @private
    * @param constraints
    */
   onFnaConstraintsChanged(constraints) {
@@ -322,6 +367,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite onFnaFieldNodeBecameInvalid function
+   * @private
    * @param validaty
    */
   onFnaFieldNodeBecameInvalid(validaty) {
@@ -332,6 +378,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite onFnaFieldNodeBecameValid function
+   * @private
    */
   onFnaFieldNodeBecameValid() {
     this._removeValueStateMessage('Error');
@@ -342,6 +389,8 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
    * ui5 suggestions sample data: [{"text":"Spain","icon":"world","type":"Active","infoState":"None","group":false,"key":0},.. ]
    * furo.Fieldoption as suggestions: [{"id": 1,"display_name":"show 1"}, ..]
    * if the suggestion item has icon , the ui5 icons should be imported in your ui component
+   *
+   * @private
    * @param arr
    */
   _setSuggestions(arr) {
