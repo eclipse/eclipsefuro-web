@@ -325,12 +325,12 @@ export const FieldNodeAdapter = superClass =>
      * @private
      */
     __detachEventListeners() {
+      // check is needed, because on no binding there is no fieldNode to detach from
       if (this.__fieldNode instanceof FieldNode || this.__fieldNode instanceof RepeaterNode) {
         this.__fieldNode.removeEventListener('field-value-changed', this.__fieldValueChangedHandler);
         this.__fieldNode.removeEventListener('field-became-valid', this.__fieldBecamesValidHandler);
         this.__fieldNode.removeEventListener('field-became-invalid', this.__fieldBecamesInvalidHandler);
         this.__fieldNode.removeEventListener('this-metas-changed', this.__fieldMetasChangedHandler);
-
       }
     }
   };
