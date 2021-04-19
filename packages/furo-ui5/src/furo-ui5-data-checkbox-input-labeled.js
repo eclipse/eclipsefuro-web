@@ -8,6 +8,7 @@ import './furo-ui5-data-checkbox-input.js';
 
 /**
  * `furo-ui5-data-checkbox-input-labeled`
+ * DEPRECATED
  * The furo-ui5-data-checkbox-input-labeled is a composition to easily use a complete input field with label according
  * to the design specification of SAP Fiori Design System.
  *
