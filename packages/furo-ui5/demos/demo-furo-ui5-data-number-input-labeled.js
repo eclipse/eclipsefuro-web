@@ -112,16 +112,16 @@ class DemoFuroUi5DataNumberInputLabeled extends FBP(LitElement) {
             <furo-ui5-data-number-input-labeled
               required
               title="The title attribute specifies extra information about an element."
+              icon="filter"
               ƒ-bind-data="--entity(*.data.furo_data_number_input)"
             >
-              <ui5-icon slot="icon" name="filter"></ui5-icon>
             </furo-ui5-data-number-input-labeled>
 
             <furo-ui5-data-number-input-labeled
               title="The title attribute specifies extra information about an element."
+              icon="edit"
               ƒ-bind-data="--entity(*.data.furo_data_range_input)"
             >
-              <ui5-icon slot="icon" name="edit"></ui5-icon>
             </furo-ui5-data-number-input-labeled>
           </furo-form-layouter>
 
@@ -129,18 +129,18 @@ class DemoFuroUi5DataNumberInputLabeled extends FBP(LitElement) {
             <p full>With readonly overwrite:</p>
             <furo-ui5-data-number-input-labeled
               readonly
+              icon="filter"
               title="READONLY. The title attribute specifies extra information about an element."
               ƒ-bind-data="--entity(*.data.furo_data_number_input)"
             >
-              <ui5-icon slot="icon" name="filter"></ui5-icon>
             </furo-ui5-data-number-input-labeled>
 
             <furo-ui5-data-number-input-labeled
               readonly
+              icon="edit"
               title="READONLY. The title attribute specifies extra information about an element."
               ƒ-bind-data="--entity(*.data.furo_data_range_input)"
             >
-              <ui5-icon slot="icon" name="edit"></ui5-icon>
             </furo-ui5-data-number-input-labeled>
           </furo-form-layouter>
 
@@ -148,18 +148,18 @@ class DemoFuroUi5DataNumberInputLabeled extends FBP(LitElement) {
             <p full>With disabled overwrite:</p>
             <furo-ui5-data-number-input-labeled
               disabled
+              icon="filter"
               title="DISABLED. The title attribute specifies extra information about an element."
               ƒ-bind-data="--entity(*.data.furo_data_number_input)"
             >
-              <ui5-icon slot="icon" name="filter"></ui5-icon>
             </furo-ui5-data-number-input-labeled>
 
             <furo-ui5-data-number-input-labeled
               disabled
+              icon="edit"
               title="DISABLED. The title attribute specifies extra information about an element."
               ƒ-bind-data="--entity(*.data.furo_data_range_input)"
             >
-              <ui5-icon slot="icon" name="edit"></ui5-icon>
             </furo-ui5-data-number-input-labeled>
           </furo-form-layouter>
 
