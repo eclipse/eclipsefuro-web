@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.22.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.21.1...@furo/data@1.22.0) (2021-04-19)
+
+
+### Features
+
+* initial FieldNodeAdapter.js ([c17fba4](https://github.com/theNorstroem/FuroBaseComponents/commit/c17fba43fcf832a0d15444e63eb51b2b784e3c86))
+
+
+
+
+
 ## [1.21.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.21.0...@furo/data@1.21.1) (2021-04-16)
 
 **Note:** Version bump only for package @furo/data
