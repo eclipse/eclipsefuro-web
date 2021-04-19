@@ -86,12 +86,13 @@ describe('furo-ui5-data-number-input', () => {
   it('should log invalid bindings', done => {
     setTimeout(() => {
       // invalid binding
-      assert.equal(invalidNumberInput.binder.fieldNode, undefined);
+      assert.equal(invalidNumberInput.__fieldNode._isValid, undefined);
       // valid binding
-      assert.equal(dataNumberInput.binder.fieldNode._isValid, true);
+      assert.equal(dataNumberInput.__fieldNode._isValid, true);
       done();
     }, 0);
   });
+
 
   it('should override hints ', done => {
     setTimeout(() => {
@@ -107,13 +108,4 @@ describe('furo-ui5-data-number-input', () => {
     }, 0);
   });
 
-  it('should log invalid bindings', done => {
-    setTimeout(() => {
-      // invalid binding
-      assert.equal(invalidNumberInput.binder.fieldNode, undefined);
-      // valid binding
-      assert.equal(secondNumberInput.binder.fieldNode._isValid, true);
-      done();
-    }, 0);
-  });
 });
