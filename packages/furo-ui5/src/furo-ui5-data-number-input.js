@@ -73,6 +73,8 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
     this.type = 'Number';
 
+    this._valueState = { state: 'None', message: '' };
+
     this._attributesFromFNA = {
       readonly: undefined,
       placeholder: undefined,
@@ -97,6 +99,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
       placeholder: null,
       required: null,
       disabled: null,
+      hint: null,
       icon: null,
     };
 
@@ -133,10 +136,16 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * Reads the attributes which are set on the component dom.
-   *
+   * those attributes can be set. `value-state`, `value-state-message`, `hint`, `icon`, `placeholder`, `required`,`readonly`,`disabled`
    * Use this after manual or scripted update of the attributes.
    */
   readAttributes() {
+    this._valueState.state = this.getAttribute('value-state')
+      ? this.getAttribute('value-state')
+      : 'None';
+    this._valueState.message = this.getAttribute('value-state-message')
+      ? this.getAttribute('value-state-message')
+      : '';
     // save the original attribute for later usages, we do this, because some components reflect
     Object.keys(this._privilegedAttributes).forEach(attr => {
       this._privilegedAttributes[attr] = this.getAttribute(attr);
@@ -144,7 +153,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     if (this._privilegedAttributes.icon) {
       this._setIcon(this._privilegedAttributes.icon);
     }
-    if (this._privilegedAttributes.hint) {
+    if (!this.getAttribute('value-state') && this._privilegedAttributes.hint) {
       this._setValueStateMessage('Information', this._privilegedAttributes.hint);
     }
   }
@@ -386,7 +395,8 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
    */
   onFnaFieldNodeBecameInvalid(validaty) {
     if (validaty.description) {
-      this._setValueStateMessage('Error', validaty.description);
+      // this value state should not be saved as a previous value state
+      this._setValueStateMessage('Error', validaty.description, true);
     }
   }
 
@@ -395,7 +405,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
    * @private
    */
   onFnaFieldNodeBecameValid() {
-    this._removeValueStateMessage('Error');
+    this._resetValueStateMessage();
   }
 
   /**
@@ -473,42 +483,41 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
   }
 
   /**
-   * Updates the vs and creates the element in the slot on demand
+   * update the value state and the value state message on demand
+
+   * @param valueState
    * @param msg
+   * @param notSave, ture means this value state should not be save as a previous value state
    * @private
    */
-  _setValueStateMessage(valueState, msg) {
+  _setValueStateMessage(valueState, msg, notSave) {
     if (msg) {
+      if (!notSave) {
+        // save state as previous state
+        this._valueState.state = valueState;
+        this._valueState.message = msg;
+      }
+
       this.valueState = valueState;
       // create element
       if (!this._valueStateElement) {
         this._valueStateElement = document.createElement('div');
-        this._valueStateElement.id = valueState;
         this._valueStateElement.slot = 'valueStateMessage';
       }
-      this._valueStateElement.innerText = msg;
-      if (msg) {
-        this.appendChild(this._valueStateElement);
-      } else {
-        this._valueStateElement.remove();
-      }
 
-      this._updateSlots();
+      this._valueStateElement.innerText = msg;
+      this.appendChild(this._valueStateElement);
+
+      this._render();
     }
   }
 
   /**
-   * remove valueStateMessage and set valueState to 'None' for ui5-input
-   * @param valueState
+   * reset to previous value state
    * @private
    */
-  _removeValueStateMessage(valueState) {
-    this.valueState = 'None';
-    this.querySelectorAll('div').forEach(elm => {
-      if (elm.id && elm.id === valueState) {
-        elm.remove();
-      }
-    });
+  _resetValueStateMessage() {
+    this._setValueStateMessage(this._valueState.state, this._valueState.message, true);
   }
 
   /**
