@@ -165,17 +165,29 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
    * @private
    */
   _updateFNA(val) {
-    // clear value when by deleting
-    if (val.inputType === 'deleteContentBackward') {
-      this.value = '';
-    }
+    const value = this.value;
     if (this.isFat()) {
-      this._tmpFAT.value = this.value === '' ? null : this.value;
+      if (value === '') {
+        this._tmpFAT.value = null;
+        // add empty state
+        if (this._tmpFAT.labels === null) {
+          this._tmpFAT.labels = {}
+        }
+        this._tmpFAT.labels.empty = true;
+      } else {
+        this._tmpFAT.value = value;
+        // remove empty state
+        if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
+          delete (this._tmpFAT.labels.empty);
+        }
+        this._tmpFAT.labels.modified = true;
+      }
       this.setFnaFieldValue(this._tmpFAT);
     } else if (this.isWrapper()) {
-      this.setFnaFieldValue(this.value === '' ? null : this.value);
+
+      this.setFnaFieldValue(value === '' ? null : value);
     } else {
-      this.setFnaFieldValue(this.value === '' ? 0 : this.value);
+      this.setFnaFieldValue(value === '' ? 0 : value);
     }
 
     /**
@@ -322,7 +334,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
   onFnaFieldValueChanged(val) {
     if (this.isFat()) {
       this._tmpFAT = val;
-      this.value = val.value ? val.value : '';
+      this.value = val.value;
       this._updateAttributesFromFat(this._tmpFAT.attributes);
     } else {
       this.value = val;
@@ -484,7 +496,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * update the value state and the value state message on demand
-
+   *
    * @param valueState
    * @param msg
    * @param notSave, ture means this value state should not be save as a previous value state
