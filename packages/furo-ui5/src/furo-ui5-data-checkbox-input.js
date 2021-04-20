@@ -211,6 +211,26 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
     }
   }
 
+
+
+  /**
+   * overwrite onFnaFieldNodeBecameInvalid function
+   * @param validaty
+   */
+  onFnaFieldNodeBecameInvalid(validaty) {
+    if (validaty.description) {
+      this._setValueStateMessage('Error', validaty.description);
+    }
+  }
+
+  /**
+   * overwrite onFnaFieldNodeBecameValid function
+   */
+  onFnaFieldNodeBecameValid() {
+    this._removeValueStateMessage('Error');
+  }
+
+
   /**
    * Updates the vs and creates the element in the slot on demand
    * ui5 checkbox has only 3 states: Warning, Error, and None (default) https://sap.github.io/ui5-webcomponents/playground/components/CheckBox/
