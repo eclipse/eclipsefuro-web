@@ -187,49 +187,45 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
 
     // error-msg
     if (fatAttributes['error-msg'] !== undefined) {
-      this._setValueStateMessage('Error', fatAttributes['error-msg']);
+      this._setValueState('Error');
     }
 
     // error-msg
     if (fatAttributes.errortext !== undefined) {
-      this._setValueStateMessage('Error', fatAttributes.errortext);
+      this._setValueState('Error');
     }
 
     // warning-msg
     if (fatAttributes['warning-msg'] !== undefined) {
-      this._setValueStateMessage('Warning', fatAttributes['warning-msg']);
+      this._setValueState('Warning');
     }
 
     // success-msg
     if (fatAttributes['success-msg'] !== undefined) {
-      this._setValueStateMessage('None', fatAttributes['success-msg']);
+      this._setValueState('None');
     }
 
     // information-msg
     if (fatAttributes['information-msg'] !== undefined) {
-      this._setValueStateMessage('None', fatAttributes['information-msg']);
+      this._setValueState('None');
     }
   }
-
-
 
   /**
    * overwrite onFnaFieldNodeBecameInvalid function
    * @param validaty
    */
-  onFnaFieldNodeBecameInvalid(validaty) {
-    if (validaty.description) {
-      this._setValueStateMessage('Error', validaty.description);
-    }
+  onFnaFieldNodeBecameInvalid() {
+    this._setValueState('Error');
   }
 
   /**
    * overwrite onFnaFieldNodeBecameValid function
+   * @private
    */
   onFnaFieldNodeBecameValid() {
-    this._removeValueStateMessage('Error');
+    this._setValueState('None');
   }
-
 
   /**
    * Updates the vs and creates the element in the slot on demand
@@ -237,10 +233,8 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
    * @param msg
    * @private
    */
-  _setValueStateMessage(valueState, msg) {
-    if (msg) {
-      this.valueState = valueState;
-    }
+  _setValueState(valueState) {
+    this.valueState = valueState;
   }
 
   /**
