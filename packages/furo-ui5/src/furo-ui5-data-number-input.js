@@ -50,7 +50,6 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-text-input-together playground
  */
 export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
-
   /**
    * @event change
    * Fired when the input operation has finished by pressing Enter or on focusout.
@@ -123,16 +122,14 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     this.readAttributes();
   }
 
-
-   // overwrite. fix for ui5 input error under rc14
-   //
-   //  @private
-   //
-   // eslint-disable-next-line class-methods-use-this
+  // overwrite. fix for ui5 input error under rc14
+  //
+  //  @private
+  //
+  // eslint-disable-next-line class-methods-use-this
   get nativeInputAttributes() {
     return {};
   }
-
 
   /**
    * Reads the attributes which are set on the component dom.
