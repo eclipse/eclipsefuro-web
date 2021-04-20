@@ -102,6 +102,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
    * Reads the attributes which are set on the component dom.
    */
   readAttributes() {
+    this._valueState = this.getAttribute('value-state') ? this.getAttribute('value-state') : 'None';
     // save the original attribute for later usages, we do this, because some components reflect
     Object.keys(this._privilegedAttributes).forEach(attr => {
       this._privilegedAttributes[attr] = this.getAttribute(attr);
@@ -187,26 +188,31 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
 
     // error-msg
     if (fatAttributes['error-msg'] !== undefined) {
+      this._valueState = 'Error';
       this._setValueState('Error');
     }
 
     // error-msg
     if (fatAttributes.errortext !== undefined) {
+      this._valueState = 'Error';
       this._setValueState('Error');
     }
 
     // warning-msg
     if (fatAttributes['warning-msg'] !== undefined) {
+      this._valueState = 'Warning';
       this._setValueState('Warning');
     }
 
     // success-msg
     if (fatAttributes['success-msg'] !== undefined) {
+      this._valueState = 'None';
       this._setValueState('None');
     }
 
     // information-msg
     if (fatAttributes['information-msg'] !== undefined) {
+      this._valueState = 'None';
       this._setValueState('None');
     }
   }
@@ -224,7 +230,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
    * @private
    */
   onFnaFieldNodeBecameValid() {
-    this._setValueState('None');
+    this._resetValueState();
   }
 
   /**
@@ -238,6 +244,14 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   }
 
   /**
+   * reset to previous value state
+   * @private
+   */
+  _resetValueState() {
+    this._setValueState(this._valueState);
+  }
+
+  /**
    * overwrite onFnaLabelChanged function
    * label is mapped to text
    * @param placeholder
@@ -246,6 +260,21 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
     this._attributesFromFNA.label = text;
     if (this._privilegedAttributes.text === null && this._attributesFromFAT.label === undefined) {
       this.text = text;
+    }
+  }
+
+  /**
+   * overwrite onFnaReadonlyChanged function
+   * @private
+   * @param readonly
+   */
+  onFnaReadonlyChanged(readonly) {
+    this._attributesFromFNA.readonly = readonly;
+    if (
+      this._privilegedAttributes.readonly === null &&
+      this._attributesFromFAT.readonly === undefined
+    ) {
+      this.readonly = readonly;
     }
   }
 
