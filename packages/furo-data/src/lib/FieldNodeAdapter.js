@@ -250,7 +250,9 @@ export const FieldNodeAdapter = superClass =>
         if (!this.__internalUpdateInProgress) {
           // debounce
           clearTimeout(this.___timeout);
+
           if(this.__fieldNode._spec.type === 'google.protobuf.Any') {
+            // notify when the type field is available.
             if(this.__fieldNode['@type'] !== undefined){
               this.___timeout = setTimeout(
                 () => this.onFnaFieldValueChanged(this.__fieldNode._value),
