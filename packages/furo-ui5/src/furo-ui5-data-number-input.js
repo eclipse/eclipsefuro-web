@@ -180,6 +180,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
         if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
           delete (this._tmpFAT.labels.empty);
         }
+        // set modified on changes
         this._tmpFAT.labels.modified = true;
       }
       this.setFnaFieldValue(this._tmpFAT);
@@ -335,6 +336,10 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     if (this.isFat()) {
       this._tmpFAT = val;
       this.value = val.value;
+      // set empty value when label empty was given
+      if(this._tmpFAT.labels && this._tmpFAT.labels.empty){
+        this.value = null
+      }
       this._updateAttributesFromFat(this._tmpFAT.attributes);
     } else {
       this.value = val;
