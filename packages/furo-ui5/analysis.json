@@ -580,11 +580,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 96,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 100,
+              "line": 98,
               "column": 3
             }
           },
@@ -600,11 +600,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 103,
               "column": 2
             },
             "end": {
-              "line": 111,
+              "line": 109,
               "column": 3
             }
           },
@@ -620,11 +620,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 118,
+              "line": 116,
               "column": 2
             },
             "end": {
-              "line": 134,
+              "line": 131,
               "column": 3
             }
           },
@@ -640,11 +640,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 141,
+              "line": 137,
               "column": 2
             },
             "end": {
-              "line": 149,
+              "line": 145,
               "column": 3
             }
           },
@@ -664,7 +664,7 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 151,
               "column": 2
             },
             "end": {
@@ -683,16 +683,56 @@
           }
         },
         {
-          "name": "_setValueStateMessage",
+          "name": "onFnaFieldNodeBecameInvalid",
+          "description": "overwrite onFnaFieldNodeBecameInvalid function",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 223,
+              "column": 2
+            },
+            "end": {
+              "line": 225,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaFieldNodeBecameValid",
+          "description": "overwrite onFnaFieldNodeBecameValid function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 231,
+              "column": 2
+            },
+            "end": {
+              "line": 233,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_setValueState",
           "description": "Updates the vs and creates the element in the slot on demand\nui5 checkbox has only 3 states: Warning, Error, and None (default) https://sap.github.io/ui5-webcomponents/playground/components/CheckBox/",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 241,
               "column": 2
             },
             "end": {
-              "line": 229,
+              "line": 243,
               "column": 3
             }
           },
@@ -700,11 +740,28 @@
           "params": [
             {
               "name": "valueState"
-            },
-            {
-              "name": "msg"
             }
           ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_resetValueState",
+          "description": "reset to previous value state",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 249,
+              "column": 2
+            },
+            "end": {
+              "line": 251,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
           "return": {
             "type": "void"
           }
@@ -715,11 +772,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 236,
+              "line": 258,
               "column": 2
             },
             "end": {
-              "line": 244,
+              "line": 263,
               "column": 3
             }
           },
@@ -727,6 +784,30 @@
           "params": [
             {
               "name": "text"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaReadonlyChanged",
+          "description": "overwrite onFnaReadonlyChanged function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 270,
+              "column": 2
+            },
+            "end": {
+              "line": 278,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "readonly"
             }
           ],
           "return": {
@@ -748,7 +829,7 @@
           "column": 7
         },
         "end": {
-          "line": 257,
+          "line": 291,
           "column": 1
         }
       },
@@ -5769,11 +5850,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 131,
+              "line": 132,
               "column": 2
             },
             "end": {
-              "line": 133,
+              "line": 134,
               "column": 3
             }
           },
@@ -5790,11 +5871,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 276,
+              "line": 282,
               "column": 2
             },
             "end": {
-              "line": 281,
+              "line": 287,
               "column": 3
             }
           },
@@ -5811,11 +5892,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 288,
+              "line": 294,
               "column": 2
             },
             "end": {
-              "line": 290,
+              "line": 296,
               "column": 3
             }
           },
@@ -5832,11 +5913,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 297,
+              "line": 303,
               "column": 2
             },
             "end": {
-              "line": 299,
+              "line": 305,
               "column": 3
             }
           },
@@ -5853,11 +5934,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 306,
+              "line": 312,
               "column": 2
             },
             "end": {
-              "line": 308,
+              "line": 314,
               "column": 3
             }
           },
@@ -5875,11 +5956,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 119,
+              "line": 121,
               "column": 2
             },
             "end": {
-              "line": 123,
+              "line": 125,
               "column": 3
             }
           },
@@ -5891,7 +5972,7 @@
         },
         {
           "name": "readAttributes",
-          "description": "Reads the attributes which are set on the component dom.\n\nUse this after manual or scripted update of the attributes.",
+          "description": "Reads the attributes which are set on the component dom.\nthose attributes can be set. `value-state`, `value-state-message`, `hint`, `icon`, `placeholder`, `required`,`readonly`,`disabled`\nUse this after manual or scripted update of the attributes.",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -5899,7 +5980,7 @@
               "column": 2
             },
             "end": {
-              "line": 152,
+              "line": 158,
               "column": 3
             }
           },
@@ -5915,11 +5996,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 160,
+              "line": 166,
               "column": 2
             },
             "end": {
-              "line": 181,
+              "line": 187,
               "column": 3
             }
           },
@@ -5939,11 +6020,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 187,
+              "line": 193,
               "column": 2
             },
             "end": {
-              "line": 268,
+              "line": 274,
               "column": 3
             }
           },
@@ -5963,11 +6044,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 315,
+              "line": 321,
               "column": 2
             },
             "end": {
-              "line": 323,
+              "line": 329,
               "column": 3
             }
           },
@@ -5987,11 +6068,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 330,
+              "line": 336,
               "column": 2
             },
             "end": {
-              "line": 338,
+              "line": 344,
               "column": 3
             }
           },
@@ -6011,11 +6092,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 345,
+              "line": 351,
               "column": 2
             },
             "end": {
-              "line": 353,
+              "line": 359,
               "column": 3
             }
           },
@@ -6035,11 +6116,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 360,
+              "line": 366,
               "column": 2
             },
             "end": {
-              "line": 364,
+              "line": 370,
               "column": 3
             }
           },
@@ -6059,11 +6140,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 371,
+              "line": 377,
               "column": 2
             },
             "end": {
-              "line": 382,
+              "line": 388,
               "column": 3
             }
           },
@@ -6083,11 +6164,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 389,
+              "line": 395,
               "column": 2
             },
             "end": {
-              "line": 393,
+              "line": 400,
               "column": 3
             }
           },
@@ -6107,11 +6188,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 399,
+              "line": 406,
               "column": 2
             },
             "end": {
-              "line": 401,
+              "line": 408,
               "column": 3
             }
           },
@@ -6127,11 +6208,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 412,
+              "line": 419,
               "column": 2
             },
             "end": {
-              "line": 475,
+              "line": 482,
               "column": 3
             }
           },
@@ -6147,15 +6228,15 @@
         },
         {
           "name": "_setValueStateMessage",
-          "description": "Updates the vs and creates the element in the slot on demand",
+          "description": "update the value state and the value state message on demand",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 482,
+              "line": 492,
               "column": 2
             },
             "end": {
-              "line": 500,
+              "line": 512,
               "column": 3
             }
           },
@@ -6166,6 +6247,10 @@
             },
             {
               "name": "msg"
+            },
+            {
+              "name": "notSave",
+              "description": ", ture means this value state should not be save as a previous value state"
             }
           ],
           "return": {
@@ -6173,25 +6258,21 @@
           }
         },
         {
-          "name": "_removeValueStateMessage",
-          "description": "remove valueStateMessage and set valueState to 'None' for ui5-input",
+          "name": "_resetValueStateMessage",
+          "description": "reset to previous value state",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 507,
+              "line": 518,
               "column": 2
             },
             "end": {
-              "line": 514,
+              "line": 520,
               "column": 3
             }
           },
           "metadata": {},
-          "params": [
-            {
-              "name": "valueState"
-            }
-          ],
+          "params": [],
           "return": {
             "type": "void"
           }
@@ -6202,11 +6283,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 521,
+              "line": 527,
               "column": 2
             },
             "end": {
-              "line": 531,
+              "line": 537,
               "column": 3
             }
           },
@@ -6243,7 +6324,7 @@
           "column": 7
         },
         "end": {
-          "line": 532,
+          "line": 538,
           "column": 1
         }
       },
@@ -6468,7 +6549,7 @@
               "column": 2
             },
             "end": {
-              "line": 124,
+              "line": 125,
               "column": 3
             }
           },
@@ -6493,7 +6574,7 @@
           "column": 0
         },
         "end": {
-          "line": 125,
+          "line": 126,
           "column": 1
         }
       },
