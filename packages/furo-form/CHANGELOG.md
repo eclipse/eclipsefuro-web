@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.5.7...@furo/form@1.5.8) (2021-04-21)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
 ## [1.5.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.5.6...@furo/form@1.5.7) (2021-04-19)
 
 **Note:** Version bump only for package @furo/form

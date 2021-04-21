@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.24.1...@furo/ui5@0.25.0) (2021-04-21)
+
+
+### Bug Fixes
+
+* check validity ([f5f6ea5](https://github.com/theNorstroem/FuroBaseComponents/commit/f5f6ea5c2e0578fc89db97a07c604390a2d2f4e2))
+* trigger item-selected after autoselecting the first item ([85bd636](https://github.com/theNorstroem/FuroBaseComponents/commit/85bd6362b8b9f26ab995de939be0c529e9962c5e))
+* trigger item-selected after autoselecting the first item ([15173b0](https://github.com/theNorstroem/FuroBaseComponents/commit/15173b06925ccfb05e37858de266ab20c60b69b9))
+
+
+### Features
+
+* empty and modified FAT attributes/labels ([10f3793](https://github.com/theNorstroem/FuroBaseComponents/commit/10f3793fc1625e1b6e6e3161b2586a1998aa9bf6))
+* empty and modified FAT labels ([005ecc2](https://github.com/theNorstroem/FuroBaseComponents/commit/005ecc22bd1a4bd99e9ec6a00ed5f8fd9394b78e))
+* empty/modified label ([3d9e70d](https://github.com/theNorstroem/FuroBaseComponents/commit/3d9e70d40a38c6bddfbd0e94ed6b31049845a517))
+* value-state fat ([bb85414](https://github.com/theNorstroem/FuroBaseComponents/commit/bb8541493ae9f83dbecaa32fbf0efb8c47646e95))
+
+
+
+
+
 ## [0.24.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.24.0...@furo/ui5@0.24.1) (2021-04-19)
 
 **Note:** Version bump only for package @furo/ui5

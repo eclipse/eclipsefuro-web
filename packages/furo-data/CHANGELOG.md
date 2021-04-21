@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.23.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.22.0...@furo/data@1.23.0) (2021-04-21)
+
+
+### Features
+
+* empty and modified FAT attributes/labels ([10f3793](https://github.com/theNorstroem/FuroBaseComponents/commit/10f3793fc1625e1b6e6e3161b2586a1998aa9bf6))
+
+
+
+
+
 # [1.22.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.21.1...@furo/data@1.22.0) (2021-04-19)
 
 
