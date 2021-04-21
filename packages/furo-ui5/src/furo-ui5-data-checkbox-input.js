@@ -61,6 +61,10 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   constructor() {
     super();
 
+    // used to restore the state after a invalidation -> validation change
+    this._previousValueState = 'None';
+
+
     this._attributesFromFNA = {
       readonly: undefined,
       disabled: undefined,
@@ -102,7 +106,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
    * Reads the attributes which are set on the component dom.
    */
   readAttributes() {
-    this._valueState = this.getAttribute('value-state') ? this.getAttribute('value-state') : 'None';
+    this._previousValueState = this.getAttribute('value-state') ? this.getAttribute('value-state') : 'None';
     // save the original attribute for later usages, we do this, because some components reflect
     Object.keys(this._privilegedAttributes).forEach(attr => {
       this._privilegedAttributes[attr] = this.getAttribute(attr);
@@ -117,6 +121,12 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   _updateFNA() {
     if (this.isFat()) {
       this._tmpFAT.value = this.checked;
+      // set modified on changes
+      if (this._tmpFAT.labels === null) {
+        this._tmpFAT.labels = {}
+      }
+      this._tmpFAT.labels.modified = true;
+
       this.setFnaFieldValue(this._tmpFAT);
     } else {
       this.setFnaFieldValue(this.checked);
@@ -186,40 +196,22 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
       }
     }
 
-    // error-msg
-    if (fatAttributes['error-msg'] !== undefined) {
-      this._valueState = 'Error';
-      this._setValueState('Error');
-    }
-
-    // error-msg
-    if (fatAttributes.errortext !== undefined) {
-      this._valueState = 'Error';
-      this._setValueState('Error');
-    }
-
-    // warning-msg
-    if (fatAttributes['warning-msg'] !== undefined) {
-      this._valueState = 'Warning';
-      this._setValueState('Warning');
-    }
-
-    // success-msg
-    if (fatAttributes['success-msg'] !== undefined) {
-      this._valueState = 'None';
+    // value-state and corresponding message
+    if (fatAttributes['value-state'] !== undefined) {
+      // save state as previous state
+      this._previousValueState = fatAttributes['value-state'];
+      this._setValueState(fatAttributes['value-state'])
+    } else {
+      // remove state if fat does not have state, even it is set in the html
+      // save state as previous state
+      this._previousValueState = 'None';
       this._setValueState('None');
     }
 
-    // information-msg
-    if (fatAttributes['information-msg'] !== undefined) {
-      this._valueState = 'None';
-      this._setValueState('None');
-    }
   }
 
   /**
    * overwrite onFnaFieldNodeBecameInvalid function
-   * @param validaty
    */
   onFnaFieldNodeBecameInvalid() {
     this._setValueState('Error');
@@ -234,9 +226,8 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   }
 
   /**
-   * Updates the vs and creates the element in the slot on demand
+   * Updates the valueState
    * ui5 checkbox has only 3 states: Warning, Error, and None (default) https://sap.github.io/ui5-webcomponents/playground/components/CheckBox/
-   * @param msg
    * @private
    */
   _setValueState(valueState) {
@@ -248,7 +239,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
    * @private
    */
   _resetValueState() {
-    this._setValueState(this._valueState);
+    this._setValueState(this._previousValueState);
   }
 
   /**
