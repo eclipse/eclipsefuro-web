@@ -577,7 +577,7 @@ export class FieldNode extends EventTreeNode {
 
     for (let i = this.__childNodes.length - 1; i >= 0; i -= 1) {
       const field = this.__childNodes[i];
-      if (!val || !val[field._name]) {
+      if (val === undefined || val[field._name] === undefined) {
         field.deleteNode();
       }
     }
