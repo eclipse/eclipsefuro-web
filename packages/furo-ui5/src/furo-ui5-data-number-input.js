@@ -258,7 +258,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
       this._previousValueState = {state : fatAttributes['value-state'], message : fatAttributes['value-state-message']};
       this._setValueStateMessage(fatAttributes['value-state'] , fatAttributes['value-state-message'] );
     }else{
-      // remove state if fat does not have state
+      // remove state if fat does not have state, even it is set in the html
       this._previousValueState = {state : "None", message : fatAttributes['value-state-message']};
       this._setValueStateMessage("None" , fatAttributes['value-state-message'] );
     }
@@ -396,12 +396,12 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
   /**
    * overwrite onFnaFieldNodeBecameInvalid function
    * @private
-   * @param validaty
+   * @param validity
    */
-  onFnaFieldNodeBecameInvalid(validaty) {
-    if (validaty.description) {
+  onFnaFieldNodeBecameInvalid(validity) {
+    if (validity.description) {
       // this value state should not be saved as a previous value state
-      this._setValueStateMessage('Error', validaty.description);
+      this._setValueStateMessage('Error', validity.description);
     }
   }
 
