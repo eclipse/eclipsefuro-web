@@ -72,8 +72,8 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     super();
 
     this.type = 'Number';
-
-    this._valueState = { state: 'None', message: '' };
+    // used to restore the state after a invalidation -> validation change
+    this._previousValueState = { state: 'None', message: '' };
 
     this._attributesFromFNA = {
       readonly: undefined,
@@ -99,7 +99,6 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
       placeholder: null,
       required: null,
       disabled: null,
-      hint: null,
       icon: null,
     };
 
@@ -112,6 +111,11 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
         this.value = 0;
       }
     });
+
+    // created to avoid the default messages from ui5
+    this._valueStateElement = document.createElement('div');
+    this._valueStateElement.slot = 'valueStateMessage';
+    this.appendChild(this._valueStateElement);
   }
 
   /**
@@ -136,14 +140,14 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * Reads the attributes which are set on the component dom.
-   * those attributes can be set. `value-state`, `value-state-message`, `hint`, `icon`, `placeholder`, `required`,`readonly`,`disabled`
+   * those attributes can be set. `value-state`, `value-state-message`,  `icon`, `placeholder`, `required`,`readonly`,`disabled`
    * Use this after manual or scripted update of the attributes.
    */
   readAttributes() {
-    this._valueState.state = this.getAttribute('value-state')
+    this._previousValueState.state = this.getAttribute('value-state')
       ? this.getAttribute('value-state')
       : 'None';
-    this._valueState.message = this.getAttribute('value-state-message')
+    this._previousValueState.message = this.getAttribute('value-state-message')
       ? this.getAttribute('value-state-message')
       : '';
     // save the original attribute for later usages, we do this, because some components reflect
@@ -153,9 +157,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     if (this._privilegedAttributes.icon) {
       this._setIcon(this._privilegedAttributes.icon);
     }
-    if (!this.getAttribute('value-state') && this._privilegedAttributes.hint) {
-      this._setValueStateMessage('Information', this._privilegedAttributes.hint);
-    }
+
   }
 
   /**
@@ -250,29 +252,15 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
       }
     }
 
-    // error-msg
-    if (fatAttributes['error-msg'] !== undefined) {
-      this._setValueStateMessage('Error', fatAttributes['error-msg']);
-    }
-
-    // error-msg
-    if (fatAttributes.errortext !== undefined) {
-      this._setValueStateMessage('Error', fatAttributes.errortext);
-    }
-
-    // warning-msg
-    if (fatAttributes['warning-msg'] !== undefined) {
-      this._setValueStateMessage('Warning', fatAttributes['warning-msg']);
-    }
-
-    // success-msg
-    if (fatAttributes['success-msg'] !== undefined) {
-      this._setValueStateMessage('Success', fatAttributes['success-msg']);
-    }
-
-    // information-msg
-    if (fatAttributes['information-msg'] !== undefined) {
-      this._setValueStateMessage('Information', fatAttributes['information-msg']);
+    // value-state and corresponding message
+    if (fatAttributes['value-state'] !== undefined) {
+      // save state as previous state
+      this._previousValueState = {state : fatAttributes['value-state'], message : fatAttributes['value-state-message']};
+      this._setValueStateMessage(fatAttributes['value-state'] , fatAttributes['value-state-message'] );
+    }else{
+      // remove state if fat does not have state
+      this._previousValueState = {state : "None", message : fatAttributes['value-state-message']};
+      this._setValueStateMessage("None" , fatAttributes['value-state-message'] );
     }
 
     // suggestions
@@ -413,7 +401,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
   onFnaFieldNodeBecameInvalid(validaty) {
     if (validaty.description) {
       // this value state should not be saved as a previous value state
-      this._setValueStateMessage('Error', validaty.description, true);
+      this._setValueStateMessage('Error', validaty.description);
     }
   }
 
@@ -503,30 +491,13 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
    * update the value state and the value state message on demand
    *
    * @param valueState
-   * @param msg
-   * @param notSave, ture means this value state should not be save as a previous value state
+   * @param message
    * @private
    */
-  _setValueStateMessage(valueState, msg, notSave) {
-    if (msg) {
-      if (!notSave) {
-        // save state as previous state
-        this._valueState.state = valueState;
-        this._valueState.message = msg;
-      }
-
-      this.valueState = valueState;
-      // create element
-      if (!this._valueStateElement) {
-        this._valueStateElement = document.createElement('div');
-        this._valueStateElement.slot = 'valueStateMessage';
-      }
-
-      this._valueStateElement.innerText = msg;
-      this.appendChild(this._valueStateElement);
-
-      this._render();
-    }
+  _setValueStateMessage(valueState, message) {
+    this.valueState = valueState;
+    // element was created in constructor
+    this._valueStateElement.innerText = message;
   }
 
   /**
@@ -534,7 +505,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
    * @private
    */
   _resetValueStateMessage() {
-    this._setValueStateMessage(this._valueState.state, this._valueState.message, true);
+    this._setValueStateMessage(this._previousValueState.state, this._previousValueState.message);
   }
 
   /**
