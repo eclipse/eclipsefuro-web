@@ -2,158 +2,271 @@ import * as CheckBox from '@ui5/webcomponents/dist/CheckBox.js';
 import { css } from 'lit-element';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
+import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 
 /**
- * Allows the user to set a binary value, such as true/false or yes/no for an item.
- * The furo-ui5-data-checkbox-input component consists of a box and a label that describes its purpose. If it's checked,
- * an indicator is displayed inside the box. To check/uncheck the furo-ui5-data-checkbox-input, the user has to click or tap the square box or its label.
+ * The 'furo-ui5-data-checkbox-input' component allows the user to switch true and false for Bool with data binding.
  *
- * The furo-ui5-data-checkbox-input component only has 2 states - checked and unchecked. Clicking or tapping toggles
- * the furo-ui5-data-checkbox-input between checked and unchecked state.
+ * It supports all features from the [SAP ui5 checkbox element](https://sap.github.io/ui5-webcomponents/playground/components/CheckBox/).
+
+ * You can bind  `bool` type, `furo.fat.Bool` type or the `google.wrapper.BoolValue`  type.
  *
- * Usage
- * You can manually set the width of the element containing the box and the label using the width property.
- * If the text exceeds the available width, it is truncated. The touchable area for toggling the
- * furo-ui5-data-checkbox-input ends where the text ends.
+ *  * ```html
+ *  <furo-ui5-data-checkbox-input
+ *     ƒ-bind-data="--daoCountry(*.data.classified_as_risk_area)"
+ *  ></furo-ui5-data-checkbox-input>
+ * ```
  *
- * You can disable the furo-ui5-data-checkbox-input by setting the disabled property to true, or use the
- * furo-ui5-data-checkbox-input in read-only mode by setting the readonly property to true.
+ * ### Specificity
+ * 1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.
+ * 2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.
  *
+ * | meta 	| fat 	| html 	|
+ * |------	|-----	|------	|
+ * | 1    	| 10  	| 100  	|
+ *
+ *
+ * ## supported FAT attributes
+ *  - **"readonly":"true"** set the element to readonly
+ *  - **"disabled":"true"** set the element to disabled
+ *
+ * ## supported meta and constraints
+ * - **readonly: true** , set the element to readonly
+ *
+ * The constraint **required** will mark the element as required
+ *
+ * ## Methods
+ * **bind-data(fieldNode)**
+ * Bind a entity field. You can use the entity even when no data was received.
+ *
+ * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  * @summary data checkbox input field
  * @customElement
  * @demo demo-furo-ui5-data-checkbox-input Basic usage (scalar , fat, wrapper values)
  */
-export class FuroUi5DataCheckboxInput extends CheckBox.default {
+export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default) {
   /**
-   * Fired when the input operation has finished by pressing Enter or on focusout.
    * @event change
-   */
-
-  /**
-   * Fired when the checkbox value changed.
-   * the event detail is the value of the checkbox
-   * @event value-changed
-   */
-
-  /**
+   * Fired when the checkbox checked state changes.
    *
-   * @param props
+   * detail payload: `bool`
    */
-  constructor(props) {
-    super(props);
-
-    this._initBinder();
-  }
 
   /**
-   * inits the universalFieldNodeBinder.
-   * Set the mapped attributes and labels.
-   * @private
+   * @event xxxx
+   * All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/CheckBox/).
+   *
    */
-  _initBinder() {
-    this.binder = new UniversalFieldNodeBinder(this);
-    this.binder.targetValueField = 'checked';
-    this.applyBindingSet();
+
+  constructor() {
+    super();
+
+    // used to restore the state after a invalidation -> validation change
+    this._previousValueState = 'None';
+
+
+    this._attributesFromFNA = {
+      readonly: undefined,
+      disabled: undefined,
+      label: undefined,
+    };
+
+    this._constraintsFromFNA = {};
+
+    this._attributesFromFAT = {
+      readonly: undefined,
+      disabled: undefined,
+      label: undefined,
+    };
+
+    // a list of privileged attributes. when those attributes are set in number-input components initially.
+    // they can not be modified later via response or spec
+    // null is used because getAttribute returns null or value
+    this._privilegedAttributes = {
+      readonly: null,
+      disabled: null,
+      text: null,
+    };
+
+    this.addEventListener('change', this._updateFNA);
   }
 
   /**
    * connectedCallback() method is called when an element is added to the DOM.
    * webcomponent lifecycle event
+   * @private
    */
   connectedCallback() {
-    this.attributeReadonly = this.readonly;
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
+    this.readAttributes();
   }
 
   /**
-   * overwrite to fix error
-   * @returns {*|{}}
+   * Reads the attributes which are set on the component dom.
    */
-  get valueStateMessage() {
-    return super.valueStateMessage || {};
-  }
-
-  set _readonly(readonly) {
-    if (!this.attributeReadonly) {
-      this.readonly = readonly;
-    }
-  }
-
-  /**
-   * apply the binding set to the binder
-   * binding set can be customised here otherwise the standard set in the ui5-data-input will be used
-   * @param fieldNode
-   */
-  applyBindingSet() {
-    // set the attribute mappings
-    this.binder.attributeMappings = {
-      text: 'text', // text of checkbox
-      label: 'text', // map label to text
-      placeholder: 'placeholder', // map placeholder to placeholder
-      'value-state': '_valueState',
-      errortext: '_errorMsg', // name errortext is for compatibility with spec
-      'error-msg': '_errorMsg',
-      'warning-msg': '_warningMsg',
-      'success-msg': '_successMsg',
-      'information-msg': '_informationMsg',
-      pattern: 'pattern',
-      name: 'name',
-    };
-
-    // set the label mappings
-    this.binder.labelMappings = {
-      error: '_error',
-      readonly: '_readonly',
-      required: 'required',
-      disabled: 'disabled',
-      modified: 'modified',
-      highlight: 'highlight',
-      wrap: 'wrap',
-    };
-
-    // set attributes to constrains mapping for furo.fat types
-    this.binder.fatAttributesToConstraintsMappings = {
-      required: 'value._constraints.required.is', // for the fieldnode constraint
-    };
-
-    // set constrains to attributes mapping for furo.fat types
-    this.binder.constraintsTofatAttributesMappings = {
-      required: 'required',
-    };
-
-    // update the value on input changes
-    this.addEventListener('change', val => {
-      // update the value
-      this.binder.fieldValue = val.target.checked;
-
-      /**
-       * Fired when value changed
-       * @type {Event}
-       */
-      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
-      customEvent.detail = val.target.checked;
-      this.dispatchEvent(customEvent);
-
-      // set flag empty on empty strings (for fat types)
-      if (val.target.checked) {
-        this.binder.deleteLabel('empty');
-      } else {
-        this.binder.addLabel('empty');
-      }
-      // if something was entered the field is not empty
-      this.binder.addLabel('modified');
+  readAttributes() {
+    this._previousValueState = this.getAttribute('value-state') ? this.getAttribute('value-state') : 'None';
+    // save the original attribute for later usages, we do this, because some components reflect
+    Object.keys(this._privilegedAttributes).forEach(attr => {
+      this._privilegedAttributes[attr] = this.getAttribute(attr);
     });
   }
 
   /**
-   * Bind a entity field to the text-input. You can use the entity even when no data was received.
-   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
-   * @param {Object|FieldNode} fieldNode a Field object
+   * Handler function for the checkbox changes.
+   * @return {(function(): void)|*}
+   * @private
    */
-  bindData(fieldNode) {
-    this.binder.bindField(fieldNode);
+  _updateFNA() {
+    if (this.isFat()) {
+      this._tmpFAT.value = this.checked;
+      // set modified on changes
+      if (this._tmpFAT.labels === null) {
+        this._tmpFAT.labels = {}
+      }
+      this._tmpFAT.labels.modified = true;
+
+      this.setFnaFieldValue(this._tmpFAT);
+    } else {
+      this.setFnaFieldValue(this.checked);
+    }
+
+    /**
+     * Fired when value changed
+     * @type {Event}
+     */
+    const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+    customEvent.detail = this.checked;
+    this.dispatchEvent(customEvent);
+  }
+
+  /**
+   * overwrite onFnaFieldValueChanged
+   * @param val
+   */
+  onFnaFieldValueChanged(val) {
+    if (this.isFat()) {
+      this._tmpFAT = val;
+      this.checked = !!val.value;
+      this._updateAttributesFromFat(this._tmpFAT.attributes);
+    } else {
+      this.checked = !!val;
+    }
+  }
+
+  /**
+   * sync input attributes according to fat attributes
+   * @private
+   */
+  _updateAttributesFromFat(fatAttributes) {
+    if (fatAttributes === null || fatAttributes === undefined) {
+      return;
+    }
+
+    // this is needed to check the specifity in the onFnaXXXXChanged callback functions
+    this._attributesFromFAT.readonly = fatAttributes.readonly;
+    this._attributesFromFAT.disabled = fatAttributes.disabled;
+    this._attributesFromFAT.text = fatAttributes.text;
+    this._attributesFromFAT.label = fatAttributes.label;
+
+    // readonly
+    if (this._privilegedAttributes.readonly === null) {
+      if (fatAttributes.readonly !== undefined) {
+        this.readonly = fatAttributes.readonly === 'true';
+      } else if (this._attributesFromFNA.readonly !== undefined) {
+        this.readonly = this._attributesFromFNA.readonly;
+      }
+    }
+
+    // text
+    if (this._privilegedAttributes.text === null) {
+      if (fatAttributes.label !== undefined) {
+        this.text = fatAttributes.label;
+      } else if (this._attributesFromFNA.label !== undefined) {
+        this.text = this._attributesFromFNA.label;
+      }
+      this._render();
+    }
+
+    // disabled
+    if (this._privilegedAttributes.disabled === null) {
+      if (fatAttributes.disabled !== undefined) {
+        this.disabled = fatAttributes.disabled === 'true';
+      }
+    }
+
+    // value-state and corresponding message
+    if (fatAttributes['value-state'] !== undefined) {
+      // save state as previous state
+      this._previousValueState = fatAttributes['value-state'];
+      this._setValueState(fatAttributes['value-state'])
+    } else {
+      // remove state if fat does not have state, even it is set in the html
+      // save state as previous state
+      this._previousValueState = 'None';
+      this._setValueState('None');
+    }
+
+  }
+
+  /**
+   * overwrite onFnaFieldNodeBecameInvalid function
+   */
+  onFnaFieldNodeBecameInvalid() {
+    this._setValueState('Error');
+  }
+
+  /**
+   * overwrite onFnaFieldNodeBecameValid function
+   * @private
+   */
+  onFnaFieldNodeBecameValid() {
+    this._resetValueState();
+  }
+
+  /**
+   * Updates the valueState
+   * ui5 checkbox has only 3 states: Warning, Error, and None (default) https://sap.github.io/ui5-webcomponents/playground/components/CheckBox/
+   * @private
+   */
+  _setValueState(valueState) {
+    this.valueState = valueState;
+  }
+
+  /**
+   * reset to previous value state
+   * @private
+   */
+  _resetValueState() {
+    this._setValueState(this._previousValueState);
+  }
+
+  /**
+   * overwrite onFnaLabelChanged function
+   * label is mapped to text
+   * @param placeholder
+   */
+  onFnaLabelChanged(text) {
+    this._attributesFromFNA.label = text;
+    if (this._privilegedAttributes.text === null && this._attributesFromFAT.label === undefined) {
+      this.text = text;
+    }
+  }
+
+  /**
+   * overwrite onFnaReadonlyChanged function
+   * @private
+   * @param readonly
+   */
+  onFnaReadonlyChanged(readonly) {
+    this._attributesFromFNA.readonly = readonly;
+    if (
+      this._privilegedAttributes.readonly === null &&
+      this._attributesFromFAT.readonly === undefined
+    ) {
+      this.readonly = readonly;
+    }
   }
 
   /**
@@ -168,4 +281,5 @@ export class FuroUi5DataCheckboxInput extends CheckBox.default {
       `;
   }
 }
+
 window.customElements.define('furo-ui5-data-checkbox-input', FuroUi5DataCheckboxInput);

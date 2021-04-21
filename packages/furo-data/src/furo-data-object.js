@@ -84,6 +84,15 @@ export class FuroDataObject extends LitElement {
   }
 
   /**
+   * Set all nodes to pristine
+   *
+   * Useful for working with deltas
+   */
+  setPristine(){
+    this.data.setAllToPristine();
+  }
+
+  /**
    * Clears all errors on children without any validation!
    */
   clearAllErrors() {

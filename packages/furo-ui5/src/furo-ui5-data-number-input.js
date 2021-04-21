@@ -4,12 +4,44 @@ import '@ui5/webcomponents/dist/features/InputSuggestions.js';
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 
 /**
- * The ui5-input component allows the user to enter and edit numbers.
- * Additionally, you can provide suggestionItems, that are displayed in a popover right under the input.
+ * The 'furo-ui5-data-number-input' component allows the user to enter and edit numbers with data binding.
  *
- * The text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).
- * To visualize semantic states, such as "error" or "warning", the valueState property is provided.
- * When the user makes changes to the text, the change event is fired, which enables you to react on any text change.
+ * It supports all features from the [SAP ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
+ *
+ * You can bind any `number` type, any `furo.fat.xxx` number type or the `google.wrapper.xxx` number types.
+ *
+ * ```html
+ *  <furo-ui5-data-number-input
+ *     ƒ-bind-data="--daoCountry(*.data.population)"
+ *  ></furo-ui5-data-number-input>
+ * ```
+ *
+ * ### Specificity
+ * 1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.
+ * 2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.
+ *
+ * | meta 	| fat 	| html 	|
+ * |------	|-----	|------	|
+ * | 1    	| 10  	| 100  	|
+ *
+ *
+ * ## supported FAT attributes
+ *  - **"readonly":"true"** set the element to readonly
+ *  - **"required":"true"** set the element to required
+ *  - **"disabled":"true"** set the element to disabled
+ *  - **"placeholder":"string"** set the placeholder for the element
+ *
+ * ## supported meta and constraints
+ * - **readonly: true** , set the element to readonly
+ * - **placeholder:"some string"** set the placeholder for the element
+ *
+ * The constraint **required** will mark the element as required
+ *
+ * ## Methods
+ * **bind-data(fieldNode)**
+ * Bind a entity field. You can use the entity even when no data was received.
+ *
+ * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  *
  * @summary data number input field
  * @customElement
@@ -18,14 +50,33 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-text-input-together playground
  */
 export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
+  /**
+   * @event change
+   * Fired when the input operation has finished by pressing Enter or on focusout.
+   *
+   * detail payload: `number`
+   */
+
+  /**
+   * @event input
+   * Fired when the value of the ui5-input changes at each keystroke, and when a suggestion item has been selected.
+   *
+   */
+  /**
+   * @event xxxx
+   * All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
+   *
+   */
+
   constructor() {
     super();
 
     this.type = 'Number';
+    // used to restore the state after a invalidation -> validation change
+    this._previousValueState = { state: 'None', message: '' };
 
     this._attributesFromFNA = {
       readonly: undefined,
-      disabled: undefined,
       placeholder: undefined,
     };
 
@@ -60,6 +111,12 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
         this.value = 0;
       }
     });
+
+    // created to avoid the default messages from ui5
+    this._valueStateElement = document.createElement('div');
+    this._valueStateElement.setAttribute("slot", 'valueStateMessage');
+    // eslint-disable-next-line wc/no-constructor-attributes
+    this.appendChild(this._valueStateElement);
   }
 
   /**
@@ -68,23 +125,32 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
    * @private
    */
   connectedCallback() {
-
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
     this.readAttributes();
   }
 
   // overwrite. fix for ui5 input error under rc14
+  //
+  //  @private
+  //
   // eslint-disable-next-line class-methods-use-this
   get nativeInputAttributes() {
     return {};
   }
 
-
   /**
    * Reads the attributes which are set on the component dom.
+   * those attributes can be set. `value-state`, `value-state-message`,  `icon`, `placeholder`, `required`,`readonly`,`disabled`
+   * Use this after manual or scripted update of the attributes.
    */
   readAttributes() {
+    this._previousValueState.state = this.getAttribute('value-state')
+      ? this.getAttribute('value-state')
+      : 'None';
+    this._previousValueState.message = this.getAttribute('value-state-message')
+      ? this.getAttribute('value-state-message')
+      : '';
     // save the original attribute for later usages, we do this, because some components reflect
     Object.keys(this._privilegedAttributes).forEach(attr => {
       this._privilegedAttributes[attr] = this.getAttribute(attr);
@@ -92,9 +158,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     if (this._privilegedAttributes.icon) {
       this._setIcon(this._privilegedAttributes.icon);
     }
-    if (this._privilegedAttributes.hint) {
-      this._setValueStateMessage('Information', this._privilegedAttributes.hint);
-    }
+
   }
 
   /**
@@ -104,17 +168,30 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
    * @private
    */
   _updateFNA(val) {
-    // clear value when by deleting
-    if (val.inputType === 'deleteContentBackward') {
-      this.value = '';
-    }
+    const value = this.value;
     if (this.isFat()) {
-      this._tmpFAT.value = this.value === '' ? null : this.value;
+      if (value === '') {
+        this._tmpFAT.value = null;
+        // add empty state
+        if (this._tmpFAT.labels === null) {
+          this._tmpFAT.labels = {}
+        }
+        this._tmpFAT.labels.empty = true;
+      } else {
+        this._tmpFAT.value = value;
+        // remove empty state
+        if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
+          delete (this._tmpFAT.labels.empty);
+        }
+        // set modified on changes
+        this._tmpFAT.labels.modified = true;
+      }
       this.setFnaFieldValue(this._tmpFAT);
     } else if (this.isWrapper()) {
-      this.setFnaFieldValue(this.value === '' ? null : this.value);
+
+      this.setFnaFieldValue(value === '' ? null : value);
     } else {
-      this.setFnaFieldValue(this.value === '' ? 0 : this.value);
+      this.setFnaFieldValue(value === '' ? 0 : value);
     }
 
     /**
@@ -140,7 +217,6 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     this._attributesFromFAT.required = fatAttributes.required;
     this._attributesFromFAT.disabled = fatAttributes.disabled;
     this._attributesFromFAT.placeholder = fatAttributes.placeholder;
-    this._attributesFromFAT.required = fatAttributes.required;
     this._attributesFromFAT.icon = fatAttributes.icon;
 
     // readonly
@@ -177,29 +253,15 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
       }
     }
 
-    // error-msg
-    if (fatAttributes['error-msg'] !== undefined) {
-      this._setValueStateMessage('Error', fatAttributes['error-msg']);
-    }
-
-    // error-msg
-    if (fatAttributes.errortext !== undefined) {
-      this._setValueStateMessage('Error', fatAttributes.errortext);
-    }
-
-    // warning-msg
-    if (fatAttributes['warning-msg'] !== undefined) {
-      this._setValueStateMessage('Warning', fatAttributes['warning-msg']);
-    }
-
-    // success-msg
-    if (fatAttributes['success-msg'] !== undefined) {
-      this._setValueStateMessage('Success', fatAttributes['success-msg']);
-    }
-
-    // information-msg
-    if (fatAttributes['information-msg'] !== undefined) {
-      this._setValueStateMessage('Information', fatAttributes['information-msg']);
+    // value-state and corresponding message
+    if (fatAttributes['value-state'] !== undefined) {
+      // save state as previous state
+      this._previousValueState = {state : fatAttributes['value-state'], message : fatAttributes['value-state-message']};
+      this._setValueStateMessage(fatAttributes['value-state'] , fatAttributes['value-state-message'] );
+    }else{
+      // remove state if fat does not have state, even it is set in the html
+      this._previousValueState = {state : "None", message : fatAttributes['value-state-message']};
+      this._setValueStateMessage("None" , fatAttributes['value-state-message'] );
     }
 
     // suggestions
@@ -229,6 +291,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite to fix error
+   * @private
    * @returns {*|{}}
    */
   get valueStateMessage() {
@@ -237,6 +300,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite to fix error
+   * @private
    * @returns {*|[]}
    */
   get suggestionItems() {
@@ -245,6 +309,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite to fix error
+   * @private
    * @returns {*|[]}
    */
   get icon() {
@@ -253,12 +318,17 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite onFnaFieldValueChanged
+   * @private
    * @param val
    */
   onFnaFieldValueChanged(val) {
     if (this.isFat()) {
       this._tmpFAT = val;
-      this.value = val.value ? val.value : '';
+      this.value = val.value;
+      // set empty value when label empty was given
+      if(this._tmpFAT.labels && this._tmpFAT.labels.empty){
+        this.value = null
+      }
       this._updateAttributesFromFat(this._tmpFAT.attributes);
     } else {
       this.value = val;
@@ -267,6 +337,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite onFnaPlaceholderChanged function
+   * @private
    * @param placeholder
    */
   onFnaPlaceholderChanged(placeholder) {
@@ -281,6 +352,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite onFnaReadonlyChanged function
+   * @private
    * @param readonly
    */
   onFnaReadonlyChanged(readonly) {
@@ -295,6 +367,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite onFnaOptionsChanged function
+   * @private
    * @param options
    */
   onFnaOptionsChanged(options) {
@@ -305,6 +378,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite onFnaConstraintsChanged function
+   * @private
    * @param constraints
    */
   onFnaConstraintsChanged(constraints) {
@@ -322,19 +396,22 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   /**
    * overwrite onFnaFieldNodeBecameInvalid function
-   * @param validaty
+   * @private
+   * @param validity
    */
-  onFnaFieldNodeBecameInvalid(validaty) {
-    if (validaty.description) {
-      this._setValueStateMessage('Error', validaty.description);
+  onFnaFieldNodeBecameInvalid(validity) {
+    if (validity.description) {
+      // this value state should not be saved as a previous value state
+      this._setValueStateMessage('Error', validity.description);
     }
   }
 
   /**
    * overwrite onFnaFieldNodeBecameValid function
+   * @private
    */
   onFnaFieldNodeBecameValid() {
-    this._removeValueStateMessage('Error');
+    this._resetValueStateMessage();
   }
 
   /**
@@ -342,6 +419,8 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
    * ui5 suggestions sample data: [{"text":"Spain","icon":"world","type":"Active","infoState":"None","group":false,"key":0},.. ]
    * furo.Fieldoption as suggestions: [{"id": 1,"display_name":"show 1"}, ..]
    * if the suggestion item has icon , the ui5 icons should be imported in your ui component
+   *
+   * @private
    * @param arr
    */
   _setSuggestions(arr) {
@@ -410,42 +489,24 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
   }
 
   /**
-   * Updates the vs and creates the element in the slot on demand
-   * @param msg
+   * update the value state and the value state message on demand
+   *
+   * @param valueState
+   * @param message
    * @private
    */
-  _setValueStateMessage(valueState, msg) {
-    if (msg) {
-      this.valueState = valueState;
-      // create element
-      if (!this._valueStateElement) {
-        this._valueStateElement = document.createElement('div');
-        this._valueStateElement.id = valueState;
-        this._valueStateElement.slot = 'valueStateMessage';
-      }
-      this._valueStateElement.innerText = msg;
-      if (msg) {
-        this.appendChild(this._valueStateElement);
-      } else {
-        this._valueStateElement.remove();
-      }
-
-      this._updateSlots();
-    }
+  _setValueStateMessage(valueState, message) {
+    this.valueState = valueState;
+    // element was created in constructor
+    this._valueStateElement.innerText = message;
   }
 
   /**
-   * remove valueStateMessage and set valueState to 'None' for ui5-input
-   * @param valueState
+   * reset to previous value state
    * @private
    */
-  _removeValueStateMessage(valueState) {
-    this.valueState = 'None';
-    this.querySelectorAll('div').forEach(elm => {
-      if (elm.id && elm.id === valueState) {
-        elm.remove();
-      }
-    });
+  _resetValueStateMessage() {
+    this._setValueStateMessage(this._previousValueState.state, this._previousValueState.message);
   }
 
   /**

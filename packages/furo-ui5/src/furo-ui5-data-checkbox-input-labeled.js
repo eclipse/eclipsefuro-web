@@ -45,7 +45,7 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
       label: { type: String },
 
       /**
-       * html placeholder attribute
+       * the placeholder is the additional information beside the label. it will be showed on the right side of the checkbox.
        */
       placeholder: { type: String },
 

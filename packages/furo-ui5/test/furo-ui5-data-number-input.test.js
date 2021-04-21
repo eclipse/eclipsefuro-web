@@ -93,7 +93,6 @@ describe('furo-ui5-data-number-input', () => {
     }, 0);
   });
 
-
   it('should override hints ', done => {
     setTimeout(() => {
       assert.equal(secondNumberInput.getAttribute('hint'), 'FromTPL');
@@ -107,5 +106,4 @@ describe('furo-ui5-data-number-input', () => {
       done();
     }, 0);
   });
-
 });

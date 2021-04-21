@@ -74,12 +74,16 @@ class DemoFuroUi5DataCheckboxInput extends FBP(LitElement) {
             <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
               >Load Demo Data</furo-ui5-button
             >
+            <p full>
+              Label will be showed on the right side of the checkbox as information text.
+
+            </p>
             <div>
               <furo-ui5-data-checkbox-input
                 ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
               ></furo-ui5-data-checkbox-input>
               <furo-ui5-data-checkbox-input
-                value-state="Information"
+                value-state="Error"
                 wrap
                 ƒ-bind-data="--entity(*.data.furo_data_bool_icon)"
               ></furo-ui5-data-checkbox-input>

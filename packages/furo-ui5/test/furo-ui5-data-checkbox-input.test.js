@@ -144,7 +144,7 @@ describe('furo-ui5-data-checkbox-input-scalar', () => {
 
   it('should have set the value of the injected data', done => {
     setTimeout(() => {
-      input.binder.fieldNode.addEventListener('new-data-injected', () => {
+      input.__fieldNode.addEventListener('new-data-injected', () => {
         assert.equal(dao.data.data.furo_data_checkbox_input._value, true, 'dao check checked');
         done();
       });
@@ -155,7 +155,7 @@ describe('furo-ui5-data-checkbox-input-scalar', () => {
 
   it('should update the fieldNode', done => {
     setTimeout(() => {
-      input.binder.fieldNode.addEventListener('field-value-changed', () => {
+      input.__fieldNode.addEventListener('field-value-changed', () => {
         assert.equal(dao.data.data.furo_data_checkbox_input._value, true, 'dao check checked');
         done();
       });

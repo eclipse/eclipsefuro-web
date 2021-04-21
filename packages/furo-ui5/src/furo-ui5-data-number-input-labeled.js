@@ -72,7 +72,7 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
       },
       icon: {
         type: String,
-      }
+      },
     };
   }
 
@@ -119,7 +119,8 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
           ƒ-bind-data="--data"
           ƒ-focus="--focus"
         >
-        ></furo-ui5-data-number-input>
+          ></furo-ui5-data-number-input
+        >
       </furo-ui5-form-field-container>
     `;
   }
