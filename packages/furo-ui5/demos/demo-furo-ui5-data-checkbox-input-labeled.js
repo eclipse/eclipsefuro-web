@@ -106,8 +106,8 @@ class DemoFuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
               >Load Demo Data</furo-ui5-button
             >
             <p full>
-              Label will be showed on the left side of the checkbox as label. The information text on the right side of the
-              checkbox can be set via placeholder.
+              Label will be showed on the left side of the checkbox as label. The information text
+              on the right side of the checkbox can be set via placeholder.
             </p>
             <furo-ui5-data-checkbox-input-labeled
               required

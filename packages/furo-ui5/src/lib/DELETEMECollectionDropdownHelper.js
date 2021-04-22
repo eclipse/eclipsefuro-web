@@ -106,7 +106,7 @@ export class CollectionDropdownHelper {
         caller._fieldDisplayNodeToUpdate._value = caller._dropdownList[0].label;
       }
       this.setOptionItems(caller);
-      this.notifiySelectedItem(caller,caller._dropdownList[0])
+      this.notifiySelectedItem(caller, caller._dropdownList[0]);
     } else if (caller._pseudoDropdownList.length > 0) {
       caller._dropdownList = caller._pseudoDropdownList;
       this.setOptionItems(caller);
