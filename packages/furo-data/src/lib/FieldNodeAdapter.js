@@ -47,6 +47,10 @@ export const FieldNodeAdapter = superClass =>
      * @return boolean
      */
     isFat() {
+      if(this.__fieldNode._spec.type === 'google.protobuf.Any'){
+        // check in @type field
+        return this.__fieldNode["@type"]._value.replace(/.*\//, '').startsWith('furo.fat');
+      }
       return this.__fieldNode._spec && this.__fieldNode._spec.type.startsWith('furo.fat');
     }
 
@@ -55,6 +59,10 @@ export const FieldNodeAdapter = superClass =>
      * @return boolean
      */
     isWrapper() {
+      if(this.__fieldNode._spec.type === 'google.protobuf.Any'){
+        // check in @type field
+        return this.__fieldNode["@type"]._value.replace(/.*\//, '').startsWith('google.protobuf');
+      }
       return this.__fieldNode._spec && this.__fieldNode._spec.type.startsWith('google.protobuf');
     }
 
@@ -242,10 +250,21 @@ export const FieldNodeAdapter = superClass =>
         if (!this.__internalUpdateInProgress) {
           // debounce
           clearTimeout(this.___timeout);
+
+          if(this.__fieldNode._spec.type === 'google.protobuf.Any') {
+            // notify when the type field is available.
+            if(this.__fieldNode['@type'] !== undefined){
+              this.___timeout = setTimeout(
+                () => this.onFnaFieldValueChanged(this.__fieldNode._value),
+                1,
+              );
+            }
+          }else{
           this.___timeout = setTimeout(
             () => this.onFnaFieldValueChanged(this.__fieldNode._value),
             1,
           );
+        }
         }
       };
 
