@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.26.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.25.0...@furo/ui5@0.26.0) (2021-04-22)
+
+
+### Features
+
+* usage of fat labels for boolean values ([4977bd8](https://github.com/theNorstroem/FuroBaseComponents/commit/4977bd83668305ead7c1bbda49c16db4bd413b3a))
+* usage of fat labels for boolean values ([86d77eb](https://github.com/theNorstroem/FuroBaseComponents/commit/86d77eb7e6fa1f49819783dea39c8995bcd7067a))
+
+
+
+
+
 # [0.25.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.24.1...@furo/ui5@0.25.0) (2021-04-21)
 
 

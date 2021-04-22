@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.23.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.23.0...@furo/data@1.23.1) (2021-04-22)
+
+
+### Bug Fixes
+
+* set empty map vals ([b1f1ec9](https://github.com/theNorstroem/FuroBaseComponents/commit/b1f1ec9bcadd973989d5a9186749d3c6bb90d374))
+* set empty map vals ([83fc43d](https://github.com/theNorstroem/FuroBaseComponents/commit/83fc43d0ee881ba8814d29399aa827693bfe44da))
+
+
+
+
+
 # [1.23.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.22.0...@furo/data@1.23.0) (2021-04-21)
 
 
