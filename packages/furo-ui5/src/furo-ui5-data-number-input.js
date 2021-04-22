@@ -84,10 +84,14 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
       required: undefined,
     };
 
-    this._attributesFromFAT = {
+    this._labelsFromFAT = {
       readonly: undefined,
-      required: undefined,
       disabled: undefined,
+      required: undefined,
+    };
+
+
+    this._attributesFromFAT = {
       placeholder: undefined,
     };
 
@@ -203,6 +207,53 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     this.dispatchEvent(customEvent);
   }
 
+
+
+  /**
+   * labels are map <string,bool>, we handle every boolean attribute with the labels
+   *
+   * @param fatLabels
+   * @private
+   */
+  _updateLabelsFromFat(fatLabels) {
+    if (fatLabels === null || fatLabels === undefined) {
+      return;
+    }
+    // this is needed to check the specifity in the onFnaXXXXChanged callback functions
+    this._labelsFromFAT.readonly = fatLabels.readonly;
+    this._labelsFromFAT.required = fatLabels.required;
+
+    // readonly
+    if (this._privilegedAttributes.readonly === null) {
+      if (fatLabels.readonly !== undefined) {
+        // apply from fat
+        this.readonly = fatLabels.readonly;
+      } else if (this._attributesFromFNA.readonly !== undefined) {
+        // apply from fieldnode (meta)
+        this.readonly = this._attributesFromFNA.readonly;
+      }
+    }
+
+    // CONSTRAINT required
+    if (this._privilegedAttributes.required === null) {
+      if (fatLabels.required !== undefined) {
+        this.required = fatLabels.required;
+      } else if (this._constraintsFromFNA.required !== undefined) {
+        this.required = this._constraintsFromFNA.required.is === 'true';
+      }
+    }
+
+
+    // disabled
+    if (this._privilegedAttributes.disabled === null) {
+      if (fatLabels.disabled !== undefined) {
+        this.disabled = fatLabels.disabled;
+      }
+    }
+
+
+  }
+
   /**
    * sync input attributes according to fat attributes
    * @private
@@ -213,36 +264,10 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     }
 
     // this is needed to check the specifity in the onFnaXXXXChanged callback functions
-    this._attributesFromFAT.readonly = fatAttributes.readonly;
-    this._attributesFromFAT.required = fatAttributes.required;
     this._attributesFromFAT.disabled = fatAttributes.disabled;
     this._attributesFromFAT.placeholder = fatAttributes.placeholder;
     this._attributesFromFAT.icon = fatAttributes.icon;
 
-    // readonly
-    if (this._privilegedAttributes.readonly === null) {
-      if (fatAttributes.readonly !== undefined) {
-        this.readonly = fatAttributes.readonly === 'true';
-      } else if (this._attributesFromFNA.readonly !== undefined) {
-        this.readonly = this._attributesFromFNA.readonly;
-      }
-    }
-
-    // CONSTRAINT required
-    if (this._privilegedAttributes.required === null) {
-      if (fatAttributes.required !== undefined) {
-        this.required = fatAttributes.required === 'true';
-      } else if (this._constraintsFromFNA.required !== undefined) {
-        this.required = this._constraintsFromFNA.required.is === 'true';
-      }
-    }
-
-    // disabled
-    if (this._privilegedAttributes.disabled === null) {
-      if (fatAttributes.disabled !== undefined) {
-        this.disabled = fatAttributes.disabled === 'true';
-      }
-    }
 
     // placeholder
     if (this._privilegedAttributes.placeholder === null) {
@@ -330,6 +355,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
         this.value = null
       }
       this._updateAttributesFromFat(this._tmpFAT.attributes);
+      this._updateLabelsFromFat(this._tmpFAT.labels);
     } else {
       this.value = val;
     }
@@ -359,7 +385,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     this._attributesFromFNA.readonly = readonly;
     if (
       this._privilegedAttributes.readonly === null &&
-      this._attributesFromFAT.readonly === undefined
+      this._labelsFromFAT.readonly === undefined
     ) {
       this.readonly = readonly;
     }
@@ -387,7 +413,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
       this._constraintsFromFNA.required = constraints.required;
       if (
         this._privilegedAttributes.required === null &&
-        this._attributesFromFAT.required === undefined
+        this._labelsFromFAT.required === undefined
       ) {
         this.required = constraints.required.is === 'true';
       }
