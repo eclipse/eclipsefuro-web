@@ -76,7 +76,6 @@ class DemoFuroUi5DataCheckboxInput extends FBP(LitElement) {
             >
             <p full>
               Label will be showed on the right side of the checkbox as information text.
-
             </p>
             <div>
               <furo-ui5-data-checkbox-input

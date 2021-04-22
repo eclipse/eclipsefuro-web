@@ -68,8 +68,8 @@ class DemoFuroUi5DataCollectionDropdownAuto extends FBP(LitElement) {
                 <div>
                   <p>auto-select-first attribute</p>
                   <p>
-                    In this example, the first element will be selected after injecting the
-                    entities (when no data was set before)
+                    In this example, the first element will be selected after injecting the entities
+                    (when no data was set before)
                   </p>
                   <furo-ui5-data-collection-dropdown
                     style="width: 100%;"
@@ -100,9 +100,9 @@ class DemoFuroUi5DataCollectionDropdownAuto extends FBP(LitElement) {
               ></fetch-universal-json>
 
               <furo-button-bar>
-                <ui5-button design="Emphasized"  @-click="--loadPerson">
+                <ui5-button design="Emphasized" @-click="--loadPerson">
                   Load Person
-                  </ui5-button>
+                </ui5-button>
 
                 <ui5-button design="Emphasized" @-click="--loadCollection"
                   >load and inject the collection into dropdown list</ui5-button

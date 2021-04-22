@@ -90,7 +90,6 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
       required: undefined,
     };
 
-
     this._attributesFromFAT = {
       placeholder: undefined,
     };
@@ -118,7 +117,7 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
     // created to avoid the default messages from ui5
     this._valueStateElement = document.createElement('div');
-    this._valueStateElement.setAttribute("slot", 'valueStateMessage');
+    this._valueStateElement.setAttribute('slot', 'valueStateMessage');
     // eslint-disable-next-line wc/no-constructor-attributes
     this.appendChild(this._valueStateElement);
   }
@@ -162,7 +161,6 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     if (this._privilegedAttributes.icon) {
       this._setIcon(this._privilegedAttributes.icon);
     }
-
   }
 
   /**
@@ -171,28 +169,27 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
    * @return {(function(): void)|*}
    * @private
    */
-  _updateFNA(val) {
-    const value = this.value;
+  _updateFNA() {
+    const { value } = this;
     if (this.isFat()) {
       if (value === '') {
         this._tmpFAT.value = null;
         // add empty state
         if (this._tmpFAT.labels === null) {
-          this._tmpFAT.labels = {}
+          this._tmpFAT.labels = {};
         }
         this._tmpFAT.labels.empty = true;
       } else {
         this._tmpFAT.value = value;
         // remove empty state
         if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
-          delete (this._tmpFAT.labels.empty);
+          delete this._tmpFAT.labels.empty;
         }
         // set modified on changes
         this._tmpFAT.labels.modified = true;
       }
       this.setFnaFieldValue(this._tmpFAT);
     } else if (this.isWrapper()) {
-
       this.setFnaFieldValue(value === '' ? null : value);
     } else {
       this.setFnaFieldValue(value === '' ? 0 : value);
@@ -206,8 +203,6 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     customEvent.detail = this.value;
     this.dispatchEvent(customEvent);
   }
-
-
 
   /**
    * labels are map <string,bool>, we handle every boolean attribute with the labels
@@ -243,15 +238,12 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
       }
     }
 
-
     // disabled
     if (this._privilegedAttributes.disabled === null) {
       if (fatLabels.disabled !== undefined) {
         this.disabled = fatLabels.disabled;
       }
     }
-
-
   }
 
   /**
@@ -268,7 +260,6 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     this._attributesFromFAT.placeholder = fatAttributes.placeholder;
     this._attributesFromFAT.icon = fatAttributes.icon;
 
-
     // placeholder
     if (this._privilegedAttributes.placeholder === null) {
       if (fatAttributes.placeholder !== undefined) {
@@ -281,12 +272,18 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     // value-state and corresponding message
     if (fatAttributes['value-state'] !== undefined) {
       // save state as previous state
-      this._previousValueState = {state : fatAttributes['value-state'], message : fatAttributes['value-state-message']};
-      this._setValueStateMessage(fatAttributes['value-state'] , fatAttributes['value-state-message'] );
-    }else{
+      this._previousValueState = {
+        state: fatAttributes['value-state'],
+        message: fatAttributes['value-state-message'],
+      };
+      this._setValueStateMessage(
+        fatAttributes['value-state'],
+        fatAttributes['value-state-message'],
+      );
+    } else {
       // remove state if fat does not have state, even it is set in the html
-      this._previousValueState = {state : "None", message : fatAttributes['value-state-message']};
-      this._setValueStateMessage("None" , fatAttributes['value-state-message'] );
+      this._previousValueState = { state: 'None', message: fatAttributes['value-state-message'] };
+      this._setValueStateMessage('None', fatAttributes['value-state-message']);
     }
 
     // suggestions
@@ -351,8 +348,8 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
       this._tmpFAT = val;
       this.value = val.value;
       // set empty value when label empty was given
-      if(this._tmpFAT.labels && this._tmpFAT.labels.empty){
-        this.value = null
+      if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
+        this.value = null;
       }
       this._updateAttributesFromFat(this._tmpFAT.attributes);
       this._updateLabelsFromFat(this._tmpFAT.labels);

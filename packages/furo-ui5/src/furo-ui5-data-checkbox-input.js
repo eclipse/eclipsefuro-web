@@ -64,7 +64,6 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
     // used to restore the state after a invalidation -> validation change
     this._previousValueState = 'None';
 
-
     this._attributesFromFNA = {
       readonly: undefined,
       disabled: undefined,
@@ -109,7 +108,9 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
    * Reads the attributes which are set on the component dom.
    */
   readAttributes() {
-    this._previousValueState = this.getAttribute('value-state') ? this.getAttribute('value-state') : 'None';
+    this._previousValueState = this.getAttribute('value-state')
+      ? this.getAttribute('value-state')
+      : 'None';
     // save the original attribute for later usages, we do this, because some components reflect
     Object.keys(this._privilegedAttributes).forEach(attr => {
       this._privilegedAttributes[attr] = this.getAttribute(attr);
@@ -126,7 +127,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
       this._tmpFAT.value = this.checked;
       // set modified on changes
       if (this._tmpFAT.labels === null) {
-        this._tmpFAT.labels = {}
+        this._tmpFAT.labels = {};
       }
       this._tmpFAT.labels.modified = true;
 
@@ -165,7 +166,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
    * @param fatLabels
    * @private
    */
-  _updateLabelsFromFat(fatLabels){
+  _updateLabelsFromFat(fatLabels) {
     if (fatLabels === null || fatLabels === undefined) {
       return;
     }
@@ -176,7 +177,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
     if (this._privilegedAttributes.readonly === null) {
       if (fatLabels.readonly !== undefined) {
         // apply from fat
-        this.readonly = fatLabels.readonly ;
+        this.readonly = fatLabels.readonly;
       } else if (this._attributesFromFNA.readonly !== undefined) {
         // apply from fieldnode (meta)
         this.readonly = this._attributesFromFNA.readonly;
@@ -186,7 +187,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
     // disabled
     if (this._privilegedAttributes.disabled === null) {
       if (fatLabels.disabled !== undefined) {
-        this.disabled = fatLabels.disabled ;
+        this.disabled = fatLabels.disabled;
       }
     }
   }
@@ -203,7 +204,6 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
     // this is needed to check the specifity in the onFnaXXXXChanged callback functions
     this._attributesFromFAT.label = fatAttributes.label;
 
-
     // text
     if (this._privilegedAttributes.text === null) {
       if (fatAttributes.label !== undefined) {
@@ -214,20 +214,17 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
       this._render();
     }
 
-
-
     // value-state and corresponding message
     if (fatAttributes['value-state'] !== undefined) {
       // save state as previous state
       this._previousValueState = fatAttributes['value-state'];
-      this._setValueState(fatAttributes['value-state'])
+      this._setValueState(fatAttributes['value-state']);
     } else {
       // remove state if fat does not have state, even it is set in the html
       // save state as previous state
       this._previousValueState = 'None';
       this._setValueState('None');
     }
-
   }
 
   /**
