@@ -14,7 +14,7 @@
   "scripts": {
     "start": "../../node_modules/.bin/es-dev-server --root-dir ../../ --app-index packages/furo-ui5/index.html --open",
     "update-docs": "../../node_modules/@furo/doc-helper/src/component-doc/buildTree.js",
-    "gen:cldr": "./scripts/generate-cldr-modules.sh de_CH it_CH fr_CH de de_AT en",
+    "gen:cldr": "./scripts/generate-cldr-modules.sh de_CH it_CH fr_CH de de_AT en en_GB",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "lint:eslint": "../../node_modules/.bin/eslint --ext .js . --ignore-path .gitignore",
     "lint:prettier": "../../node_modules/.bin/prettier \"**/*.js\" --check --ignore-path .gitignore",
