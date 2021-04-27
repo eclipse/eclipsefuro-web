@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.26.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.26.0...@furo/ui5@0.26.1) (2021-04-27)
+
+
+### Bug Fixes
+
+* cldr assets wrapped with js module. More to come ([15876a0](https://github.com/theNorstroem/FuroBaseComponents/commit/15876a08b54974ab508ecde0efb5c6263cf27043))
+
+
+
+
+
 # [0.26.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.25.0...@furo/ui5@0.26.0) (2021-04-22)
 
 
