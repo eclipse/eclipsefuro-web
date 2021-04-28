@@ -2263,7 +2263,7 @@
       ]
     },
     {
-      "description": "The furo-ui5-data-date-picker component allows the user to bind an date object like google.type.Date or a date string\nwith ISO 8061 format likes \"2020-12-31\" to the ui5 datepicker and edit it.\n\nIt supports all features from the [SAP ui5 DatePicker element](https://sap.github.io/ui5-webcomponents/playground/components/DatePicker/).\n\n\nyou can define the formatPattern (e.g. 'dd.MM.yyyy' ) to show the date according to format pattern. but the data in\nthe payload will still be in format ISO 8061 (yyyy-MM-dd)\n\nYou can bind a `string`, `furo.type.Date` or `google.type.Date`.\n\n```html\n <furo-ui5-data-date-picker\n    ƒ-bind-data=\"--data(*.validity_to)\">\n </furo-ui5-data-date-picker>\n```\n\nThe text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.\nWhen the user makes changes to the date, the change event is fired, which enables you to react on any date change.\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **min:\"1999-12-31\"** set the minDate for the element (use iso date in the constraint)\n- **max:\"1999-12-31\"** set the maxDate for the element (use iso date in the constraint)\n- **pattern:\"1999-12-31\"** set the pattern for the element\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)",
+      "description": "The furo-ui5-data-date-picker component allows the user to bind an date object like google.type.Date or a date string\nwith ISO 8061 format like \"2020-12-31\" to the ui5 datepicker and edit it.\n\nIt supports all features from the [SAP ui5 DatePicker element](https://sap.github.io/ui5-webcomponents/playground/components/DatePicker/).\n\n\nyou can define the formatPattern (e.g. 'dd.MM.yyyy' ) to show the date according to format pattern.\n\nYou can bind a `string`, `furo.type.Date` or `google.type.Date`.\n\n```html\n <furo-ui5-data-date-picker\n    ƒ-bind-data=\"--data(*.validity_to)\">\n </furo-ui5-data-date-picker>\n```\n\nThe text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.\nWhen the user makes changes to the date, the change event is fired, which enables you to react on any date change.\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **min:\"1999-12-31\"** set the minDate for the element (use iso date in the constraint)\n- **max:\"1999-12-31\"** set the maxDate for the element (use iso date in the constraint)\n- **pattern:\"1999-12-31\"** set the pattern for the element\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)",
       "summary": "furo data datepicker field",
       "path": "src/furo-ui5-data-date-picker.js",
       "properties": [],
@@ -2274,11 +2274,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 136,
+              "line": 135,
               "column": 2
             },
             "end": {
-              "line": 152,
+              "line": 151,
               "column": 3
             }
           },
@@ -2298,11 +2298,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 157,
+              "line": 156,
               "column": 2
             },
             "end": {
-              "line": 173,
+              "line": 172,
               "column": 3
             }
           },
@@ -2318,11 +2318,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 181,
+              "line": 180,
               "column": 2
             },
             "end": {
-              "line": 190,
+              "line": 189,
               "column": 3
             }
           },
@@ -2338,11 +2338,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 196,
+              "line": 195,
               "column": 2
             },
             "end": {
-              "line": 203,
+              "line": 202,
               "column": 3
             }
           },
@@ -2362,11 +2362,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 209,
+              "line": 208,
               "column": 2
             },
             "end": {
-              "line": 211,
+              "line": 210,
               "column": 3
             }
           },
@@ -2382,11 +2382,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 220,
+              "line": 219,
               "column": 2
             },
             "end": {
-              "line": 224,
+              "line": 223,
               "column": 3
             }
           },
@@ -2409,11 +2409,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 230,
+              "line": 229,
               "column": 2
             },
             "end": {
-              "line": 232,
+              "line": 231,
               "column": 3
             }
           },
@@ -2429,11 +2429,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 239,
+              "line": 238,
               "column": 2
             },
             "end": {
-              "line": 244,
+              "line": 243,
               "column": 3
             }
           },
@@ -2453,11 +2453,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 251,
+              "line": 250,
               "column": 2
             },
             "end": {
-              "line": 256,
+              "line": 255,
               "column": 3
             }
           },
@@ -2477,11 +2477,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 263,
+              "line": 262,
               "column": 2
             },
             "end": {
-              "line": 295,
+              "line": 294,
               "column": 3
             }
           },
@@ -2506,11 +2506,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 46,
+          "line": 45,
           "column": 7
         },
         "end": {
-          "line": 296,
+          "line": 295,
           "column": 1
         }
       },

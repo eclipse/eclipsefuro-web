@@ -5,13 +5,12 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 
 /**
  * The furo-ui5-data-date-picker component allows the user to bind an date object like google.type.Date or a date string
- * with ISO 8061 format likes "2020-12-31" to the ui5 datepicker and edit it.
+ * with ISO 8061 format like "2020-12-31" to the ui5 datepicker and edit it.
  *
  * It supports all features from the [SAP ui5 DatePicker element](https://sap.github.io/ui5-webcomponents/playground/components/DatePicker/).
  *
  *
- * you can define the formatPattern (e.g. 'dd.MM.yyyy' ) to show the date according to format pattern. but the data in
- * the payload will still be in format ISO 8061 (yyyy-MM-dd)
+ * you can define the formatPattern (e.g. 'dd.MM.yyyy' ) to show the date according to format pattern.
  *
  * You can bind a `string`, `furo.type.Date` or `google.type.Date`.
  *
