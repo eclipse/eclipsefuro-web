@@ -87,8 +87,8 @@ describe('furo-ui5-data-date-picker', () => {
 
   it('should set min- and max-date via spec', done => {
     setTimeout(() => {
-      assert.equal(datepicker._state.minDate, '1800-01-01', 'check if set minDate from spec');
-      assert.equal(datepicker._state.maxDate, '2099-12-31', 'check if set maxDate from spec');
+      assert.equal(datepicker._state.minDate, datepicker.formatValue(new Date(1800,0,1)), 'check if set minDate from spec \'1800-01-01\'');
+      assert.equal(datepicker._state.maxDate, datepicker.formatValue(new Date(2099,11,31)), '2099-12-31', 'check if set maxDate from spec');
       done();
     }, 10);
   });
@@ -115,72 +115,5 @@ describe('furo-ui5-data-date-picker', () => {
     }, 0);
   });
 
-  it('should update the value of the bound fieldNode (google.type.Date)', done => {
-    setTimeout(() => {
-      datepicker.formatPattern = 'dd.MM.yy';
-      datepicker.setValue({ day: 9, month: 8, year: 2020 });
-      assert.equal(datepicker._state.value, '09.08.20');
-      assert.equal(dao.data.data.furo_data_date_input_google.year._value, 2020);
-      assert.equal(dao.data.data.furo_data_date_input_google.month._value, 8);
-      assert.equal(dao.data.data.furo_data_date_input_google.day._value, 9);
-      done();
-    }, 0);
-  });
 
-  it('should update the value of the bound fieldNode (string type)', done => {
-    setTimeout(() => {
-      datepicker2.formatPattern = 'dd.MM.yyyy';
-      datepicker2.setValue('2012-12-13');
-      assert.equal(datepicker2._state.value, '2012-12-13');
-      assert.equal(dao.data.data.furo_data_date_input._value, '2012-12-13');
-      done();
-    }, 0);
-  });
-
-  it('should apply meta and constraints to the bound field (google.type.Date)', done => {
-    dao.injectRaw(testRecordMeta);
-    setTimeout(() => {
-      assert.equal(datepicker._state.disabled, false, 'check disabled');
-      assert.equal(datepicker._state.placeholder, undefined, 'check placeholder');
-      assert.equal(datepicker._state.readonly, false, 'check readonly');
-      assert.equal(datepicker._state.value, '31.12.20', 'check value');
-      assert.equal(datepicker._state.valueState, 'None', 'check valueState');
-      assert.equal(
-        datepicker._state.minDate,
-        '2020-07-30',
-        'check if set minDate from response meta',
-      );
-      assert.equal(
-        datepicker._state.maxDate,
-        '2020-09-30',
-        'check if set maxDate from response meta',
-      );
-      assert.equal(datepicker._state.formatPattern, 'dd.MM.yy', 'check formatPattern');
-      done();
-    }, 0);
-  });
-
-  it('should apply meta and constraints to the bound field (type string)', done => {
-    datepicker2.formatPattern = 'dd.MM.yyyy';
-    dao.injectRaw(testRecordMeta);
-    setTimeout(() => {
-      assert.equal(datepicker2._state.disabled, false, 'check disabled');
-      assert.equal(datepicker2._state.placeholder, undefined, 'check placeholder');
-      assert.equal(datepicker2._state.readonly, false, 'check readonly');
-      assert.equal(datepicker2._state.value, '22.02.2019', 'check value');
-      assert.equal(datepicker2._state.valueState, 'None', 'check valueState');
-      assert.equal(
-        datepicker2._state.maxDate,
-        '2099-12-31',
-        'check if set MaxDate from response meta',
-      );
-      assert.equal(
-        datepicker2._state.minDate,
-        '1800-01-01',
-        'check if set minDate from response meta',
-      );
-      assert.equal(datepicker2._state.formatPattern, 'dd.MM.yyyy', 'check formatPattern');
-      done();
-    }, 10);
-  });
 });
