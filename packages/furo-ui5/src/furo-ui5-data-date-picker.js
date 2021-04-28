@@ -50,12 +50,6 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
    * @event change
    */
 
-  /**
-   * Fired when the input operation has finished by pressing Enter or on focusout.
-   * the event detail is the date in ISO 8601 format
-   * @event value-changed
-   */
-
   constructor() {
     super();
 
@@ -123,10 +117,12 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
           }
       }
 
+
       /**
-       * Fired when value changed
+       * @event value-changed
+       * Fired when the input operation has finished by pressing Enter or on focusout.
        *
-       * Payload: {Date}
+       * detail payload: {Date}
        * @type {Event}
        */
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
@@ -135,13 +131,16 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
     });
   }
 
+  /**
+   * @private
+   */
   onFnaFieldValueChanged(value) {
     const type = this.getDataType();
     switch (type) {
       case 'furo.type.Date':
       case 'google.type.Date':
         if (value.month && value.day) {
-          this.value = this.formatValue(new Date(value.year, value.month -1, value.day));
+          this.value = this.formatValue(new Date(value.year, value.month - 1, value.day));
         }
         break;
       case 'string':
@@ -153,6 +152,9 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
     }
   }
 
+  /**
+   * @private
+   */
   connectedCallback() {
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
@@ -171,6 +173,12 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
     }
   }
 
+
+  /**
+   * Reads the attributes which are set on the component dom.
+   * Attributes that can be se are  `value-state`,  `placeholder`, `required`,`readonly`,`disabled` `max-date`,  `min-date`,  `format-pattern`,
+   * Use this after manual or scripted update of the attributes.
+   */
   readAttributes() {
     this._previousValueState.state = this.getAttribute('value-state')
       ? this.getAttribute('value-state')
@@ -184,6 +192,7 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
 
   /**
    * overwrite onFnaFieldNodeBecameInvalid function
+   * @private
    */
   onFnaFieldNodeBecameInvalid(validity) {
     if (validity.description) {
