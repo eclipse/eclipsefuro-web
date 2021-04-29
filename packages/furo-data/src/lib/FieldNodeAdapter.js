@@ -300,10 +300,12 @@ export const FieldNodeAdapter = superClass =>
           this.onFnaHintChanged(this.__meta.hint);
         }
 
-        const opts = JSON.stringify(fnMeta.options);
-        if (this.__meta.options !== opts) {
-          this.__meta.options = opts;
-          this.onFnaOptionsChanged(JSON.parse(opts));
+        if(fnMeta.options !== undefined){
+          const opts = JSON.stringify(fnMeta.options);
+          if (this.__meta.options !== opts) {
+            this.__meta.options = opts;
+            this.onFnaOptionsChanged(JSON.parse(opts));
+          }
         }
 
         if (this.__meta.readonly !== fnMeta.readonly) {
