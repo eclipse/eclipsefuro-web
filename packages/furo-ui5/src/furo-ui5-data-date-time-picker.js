@@ -17,7 +17,9 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * When the user makes changes to the datetime, the change event is fired, which enables you to react on any date change.
  *
  *
- * You can bind a `string`, `google.protobuf.Timestamp`.
+ * You can bind a `string`, `google.protobuf.Timestamp`, `int32`, `int64`.
+ *
+ * `int32`, `int64` will be handled as unix timestamps (seconds since epoc) and can not be *empty*.
  *
  * ```html
  *  <furo-ui5-data-date-time-picker
