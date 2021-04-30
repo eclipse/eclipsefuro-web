@@ -123,6 +123,13 @@ export const FieldNodeAdapter = superClass =>
      * @param value the raw json value for the fieldNode.
      */
     setFnaFieldValue(value) {
+
+      // keep fields of any type
+      if(this.__fieldNode["@type"] && this.__fieldNode["@type"]._value  ){
+        // eslint-disable-next-line no-param-reassign
+        value["@type"]  = this.__fieldNode["@type"]._value;
+      }
+
       this.__internalUpdateInProgress = true;
       this.__fieldNode._value = value;
       this.__internalUpdateInProgress = false;
