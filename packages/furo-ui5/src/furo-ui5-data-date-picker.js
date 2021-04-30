@@ -264,7 +264,7 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
     // set this first if available, the following constraints uses formatValue()
     if (constraints.pattern !== undefined) {
       this._constraintsFromFNA.pattern = constraints.pattern;
-      if (this._privilegedAttributes.patternDate === null) {
+      if (this._privilegedAttributes.formatPattern === null) {
         this.formatPattern = constraints.pattern.is;
       }
     }
