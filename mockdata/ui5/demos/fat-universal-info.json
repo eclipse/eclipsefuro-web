@@ -9,7 +9,7 @@
       },
       "attributes": {
         "value-state": "Information",
-        "information-msg": "this is an information msg",
+        "value-state-message": "this is an information msg",
         "maxlength": 6,
         "label": "response label",
         "placeholder": "place holder",

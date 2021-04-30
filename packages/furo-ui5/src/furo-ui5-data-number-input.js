@@ -289,8 +289,12 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     // suggestions
     // see Properties/Attributes from ui5 on https://sap.github.io/ui5-webcomponents/playground/components/Input/
     if (fatAttributes.suggestions !== undefined) {
-      this._setSuggestions(JSON.parse(fatAttributes.suggestions));
-    }
+      if(typeof fatAttributes.suggestions === 'string') {
+        this._setSuggestions(JSON.parse(fatAttributes.suggestions));
+      }
+      else if(Array.isArray(fatAttributes.suggestions)) {
+        this._setSuggestions(fatAttributes.suggestions);
+      }    }
 
     // icon
     if (this._privilegedAttributes.icon === null && fatAttributes.icon !== undefined) {

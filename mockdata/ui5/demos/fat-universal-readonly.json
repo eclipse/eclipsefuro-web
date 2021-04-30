@@ -1,0 +1,39 @@
+{
+  "data": {
+    "fat_string": {
+      "value": "furo fat string with readonly meta",
+      "labels": {
+        "condensed": true
+      }
+    }
+  },
+  "links": [],
+  "meta": {
+    "fields": {
+      "data.fat_string": {
+        "meta": {
+          "label": "fat string label set via response meta",
+          "default": "new",
+          "hint": "hint",
+          "readonly": true,
+          "options": {
+            "list": [
+              {
+                "id": "",
+                "display_name": "Please select"
+              },
+              {
+                "id": "aa",
+                "display_name": "The display a"
+              },
+              {
+                "id": "bb",
+                "text": "The display b"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

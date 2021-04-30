@@ -14,7 +14,7 @@
         "maxlength": 6,
         "label": "override",
         "placeholder": "overridePH",
-        "errortext": "this is an errortext",
+        "value-state-message": "this is an errortext",
         "icon": "world",
         "suggestions": [
           {
