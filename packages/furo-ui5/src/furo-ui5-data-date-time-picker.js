@@ -99,6 +99,15 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DateTimePicker.defau
       const e = v.detail;
       const type = this.getDataType();
       switch (type) {
+        case 'int32':
+        case 'int64':
+          if (e.value !== '' && e.valid) {
+            this.setFnaFieldValue(this.dateValue.getTime() / 1000);
+          } else {
+            this.setFnaFieldValue(0);
+          }
+          break
+
         case 'google.protobuf.Timestamp':
           if (e.value !== '' && e.valid) {
             this.setFnaFieldValue(this.dateValue.toISOString());
@@ -130,6 +139,10 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DateTimePicker.defau
   onFnaFieldValueChanged(value) {
     const type = this.getDataType();
     switch (type) {
+      case 'int32':
+      case 'int64':
+        this.value = this.formatValue(new Date(value * 1000));
+        break
       case 'google.protobuf.Timestamp':
       case 'string':
       default:
