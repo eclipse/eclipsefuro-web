@@ -32,7 +32,6 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * When the user makes changes to the date, the change event is fired, which enables you to react on any date change.
  *
  * ## supported meta and constraints
- * TODO:!!! check this
  * - **readonly: true** , set the element to readonly
  * - **placeholder:"some string"** set the placeholder for the element
  * - **min:"1999-12-31"** set the minDate for the element (use iso date in the constraint)
