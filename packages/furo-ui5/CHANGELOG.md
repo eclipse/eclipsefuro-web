@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.26.2...@furo/ui5@0.27.0) (2021-04-30)
+
+
+### Features
+
+* handle numeric values as unix timestamp (int32,int64) ([f7b0b6b](https://github.com/theNorstroem/FuroBaseComponents/commit/f7b0b6bd307f06a093c519bd14a9ee3d837604f1))
+* handle numeric values as unix timestamp (int32,int64) ([580b253](https://github.com/theNorstroem/FuroBaseComponents/commit/580b253a8fa8c16b13438a2bfd1e256fc9817a7d))
+* handle numeric values as unix timestamp (int32,int64) ([e740d21](https://github.com/theNorstroem/FuroBaseComponents/commit/e740d21bb5131fcc72387543c85b3dbb24138b25))
+* handle numeric values as unix timestamp (int32,int64) ([f73ac05](https://github.com/theNorstroem/FuroBaseComponents/commit/f73ac0528061f0f85680ab95a89167b84d5cc578))
+
+
+
+
+
 ## [0.26.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.26.1...@furo/ui5@0.26.2) (2021-04-29)
 
 **Note:** Version bump only for package @furo/ui5

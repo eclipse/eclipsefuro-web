@@ -1,7 +1,7 @@
 {
   "name": "@furo/data",
   "description": "Furo data components",
-  "version": "1.23.3",
+  "version": "1.23.4",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-data",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -35,10 +35,10 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data-input": "^1.11.18",
-    "@furo/form": "^1.5.11",
+    "@furo/data-input": "^1.11.19",
+    "@furo/form": "^1.5.12",
     "@furo/input": "^1.6.7",
-    "@furo/util": "^1.4.25",
+    "@furo/util": "^1.4.26",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",
