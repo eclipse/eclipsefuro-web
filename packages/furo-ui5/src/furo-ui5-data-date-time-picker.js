@@ -47,7 +47,7 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *
  * @summary furo data datepicker field
  * @customElement
- * @demo demo-furo-ui5-data-date-picker Basic Usage
+ * @demo demo-furo-ui5-data-date-time-picker Basic Usage
  */
 export class FuroUi5DataDatePicker extends FieldNodeAdapter(DateTimePicker.default) {
   /**
