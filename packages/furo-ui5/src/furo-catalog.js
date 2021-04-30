@@ -43,3 +43,4 @@ import './furo-ui5-notification-group-display.js';
 import './furo-ui5-notification-list-display.js';
 import './furo-ui5-pagination-bar.js';
 import './furo-ui5-radiogroup.js';
+import './furo-ui5-data-property-display.js';

@@ -120,6 +120,15 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
           <furo-ui5-data-display ƒ-bind-data="--entity(*.data.furo_data_text_input)">
           </furo-ui5-data-display>
 
+          <furo-ui5-data-display
+            ƒ-bind-data="--entity(*.data.furo_data_date_input_google)"
+          ></furo-ui5-data-display>
+
+          <furo-ui5-data-display
+            value-state="Positive"
+            ƒ-bind-data="--entity(*.data.the_any_type)"
+          ></furo-ui5-data-display>
+
           <produce-qp-data
             hidden
             slot="action"

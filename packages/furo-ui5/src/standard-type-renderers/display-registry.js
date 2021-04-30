@@ -37,3 +37,4 @@ import './display-google-protobuf-int32value.js';
 import './display-google-protobuf-int64value.js';
 import './display-google-protobuf-stringvalue.js';
 import './display-google-protobuf-timestamp.js';
+import './display-google-protobuf-any.js';

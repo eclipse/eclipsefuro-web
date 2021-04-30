@@ -116,7 +116,6 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
           }
       }
 
-
       /**
        * @event value-changed
        * Fired when the input operation has finished by pressing Enter or on focusout.
@@ -171,7 +170,6 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
       this._previousValueState.message = vse.innerText;
     }
   }
-
 
   /**
    * Reads the attributes which are set on the component dom.

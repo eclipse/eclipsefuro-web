@@ -13,243 +13,599 @@
     "furo_data_password_input": "password",
     "furo_data_date_input_google": {
       "day": 31,
-      "display_name": "31.12.2020",
       "month": 12,
       "year": 2020
     },
     "google_timestamp": "1970-11-01T02:46:40.000000022Z",
     "furo_data_range_input": 31,
     "furo_data_bool_icon": false,
-    "type_property": [
-      {
-        "code": "c0a7f550-0fbe-4046-8fa9-60c86327b6b1",
-        "data": {
-          "@type": "type.furo.com/furo.StringProperty",
-          "data": "String01032020"
-        },
-        "flags": ["is-overwritable", "my-prop"],
-        "display_name": "Vertragsbeginn",
-        "id": "246d79a0-0a15-43c5-b18f-ac8a4a449df1",
-        "meta": {
-          "fields": {
-            "data.data": {
-              "constraints": {
-                "required": {
-                  "is": "true",
-                  "message": "Bitte ausfüllen!"
-                }
+    "the_any_type": {
+      "@type": "type.googleapis.com/google.type.Money",
+      "units": 1000,
+      "nanos": 55000000,
+      "currency_code": "EUR"
+    },
+    "type_property": [{
+      "id": "1d46fef0-e8e8-490f-9869-4b250b6af539",
+      "display_name": "Wagniskennziffer",
+      "data": {
+        "@type": "type.googleapis.com/furo.StringOptionProperty",
+        "display_name": "Personenkraftwagen",
+        "id": "-2010017900"
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Wagniskennziffer",
+              "options": {
+                "list": [{
+                  "@type": "furo.Optionitem",
+                  "id": "-2010017900",
+                  "display_name": "Personenkraftwagen"
+                }]
+              }
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
+              }
+            }
+          }
+        }
+      },
+      "code": "4820e41c-cb92-4eed-b388-d777dd2871ed"
+    }, {
+      "id": "94278bf3-6de3-45f0-a056-cd930976a072",
+      "display_name": "Marke",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.String",
+        "value": "Audi"
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Marke"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
+              }
+            }
+          }
+        }
+      },
+      "code": "73701587-525b-4245-90c9-9cd14f614e0f"
+    }, {
+      "id": "7da0c6a0-831c-4362-9a91-748300f9e32e",
+      "display_name": "Fahrzeugtyp",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.String",
+        "value": "typ"
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Fahrzeugtyp"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
+              }
+            }
+          }
+        }
+      },
+      "code": "9291e499-8407-46f8-ad57-f0dd0496fb8c"
+    }, {
+      "id": "abfdec32-f3ea-4484-a8e4-0f7c8ff24681",
+      "display_name": "Typ-Bezeichnung",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.String",
+        "value": "XXC"
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Typ-Bezeichnung"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
+              }
+            }
+          }
+        }
+      },
+      "code": "a1b9dee6-49df-4f82-ad59-138ecea0856c"
+    }, {
+      "id": "a1e1e31f-e782-4884-844b-c7295eb063a8",
+      "display_name": "Herstellername",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.String",
+        "value": "Audi"
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Herstellername"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
+              }
+            }
+          }
+        }
+      },
+      "code": "2a75301e-ef24-4bcc-8cb0-22f49973b351"
+    }, {
+      "id": "68f6913c-a068-4e12-a54e-265988bdeca0",
+      "display_name": "Herstellerschlüsselnummer (HSN)",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.String",
+        "value": "0000"
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Herstellerschlüsselnummer (HSN)"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
+              }
+            }
+          }
+        }
+      },
+      "code": "cb0b0406-695e-48cb-ae3c-250873e36f10"
+    }, {
+      "id": "fd29bc7b-0504-4e35-940e-76ea72c7bbd6",
+      "display_name": "Typschlüsselnummer (TSN)",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.String",
+        "value": "0000"
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Typschlüsselnummer (TSN)"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
+              }
+            }
+          }
+        }
+      },
+      "code": "82665094-5a58-497f-b7f0-9d0ade6c16ca"
+    }, {
+      "id": "7e390ea1-fb7f-4dc2-ab99-99c0c53e5308",
+      "display_name": "Referenzdatentyp",
+      "data": {
+        "@type": "type.googleapis.com/furo.StringOptionProperty",
+        "display_name": "HSN/TSN",
+        "id": "-2010017917"
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Referenzdatentyp",
+              "options": {
+                "list": [{
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014980",
+                  "display_name": "Eurotax"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010017917",
+                  "display_name": "HSN/TSN"
+                }]
+              }
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
+              }
+            }
+          }
+        }
+      },
+      "code": "82c0efe0-1b5b-4e78-8ed7-23d079c164bc",
+      "flags": ["is-overwritable"]
+    }, {
+      "id": "f940d703-97a3-408d-82e0-ba8a498b44c9",
+      "display_name": "Referenzdatenschlüssel",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.String",
+        "value": "XXX"
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Referenzdatenschlüssel"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
+              }
+            }
+          }
+        }
+      },
+      "code": "0e1d8633-cfab-402b-acf1-ca165db65bd6"
+    }, {
+      "id": "d4b1bbd1-8997-4d3c-bbe2-138c31fa2c98",
+      "display_name": "Erstinverkehrsetzung",
+      "data": {
+        "@type": "type.googleapis.com/furo.type.Date",
+        "year": 2020,
+        "month": 1,
+        "day": 1
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Erstinverkehrsetzung"
+            },
+            "constraints": {
+              "max": {
+                "is": "9999-12-31"
               },
-              "meta": {
-                "label": "Vertragsbeginn custom label",
-                "readonly": false
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
               }
             }
           }
         }
       },
-      {
-        "data": {
-          "@type": "xx/google.type.Date",
-          "day": 8,
-          "month": 11,
-          "year": 2022,
-          "display_name": "8.11.2022"
-        },
-        "display_name": "a date",
-        "id": "a",
-        "code": "date",
-        "meta": {
-          "fields": {
-            "data": {
-              "meta": {
-                "label": "datelabel",
-                "hint": "datehint is data",
-                "readonly": true
-              },
-              "constraints": {
-                "min": {
-                  "is": "2019-09-09",
-                  "message": "to small"
-                }
+      "code": "50556a14-f883-47c7-9b3e-028729b918b7"
+    }, {
+      "id": "980c01d1-04f5-4a27-b17d-118afa4bcf65",
+      "display_name": "Fahrzeug-Identifizierungsnummer",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.String",
+        "value": "0000"
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Fahrzeug-Identifizierungsnummer"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
               }
             }
           }
         }
       },
-      {
-        "data": {
-          "@type": "xx/furo.NumberProperty",
-          "data": 34.23,
-          "display_name": "34.23"
-        },
-        "display_name": "Display",
-        "id": "bb",
-        "code": "option",
-        "meta": {
-          "fields": {
-            "data.data": {
-              "meta": {
-                "label": "Float",
-                "hint": "Type in int"
+      "code": "9647ad69-7abd-4a22-b6a7-c10f7838ce6c"
+    }, {
+      "id": "af1421cc-e85f-4c7f-82f1-e85bb0e7d52d",
+      "display_name": "Katalogpreis",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.Float",
+        "value": 9999
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Katalogpreis"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
               }
             }
           }
         }
       },
-      {
-        "data": {
-          "@type": "xx/google.protobuf.StringValue",
-          "value": "text google.protobuf.StringValue"
-        },
-
-
-        "display_name": "Display",
-        "id": "op33t",
-        "code": "option",
-        "meta": {
-          "fields": {
-            "data.value": {
-              "meta": {
-                "label": "Google string",
-                "hint": "Type in int"
+      "code": "cd622636-a24c-4277-bf4a-64dc03cacc62"
+    }, {
+      "id": "d4300664-7e13-4783-a0a2-accfc60c0f33",
+      "display_name": "Zubehörpreis",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.Float",
+        "value": 5000
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Zubehörpreis"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
               }
             }
           }
         }
       },
-      {
-        "data": {
-          "@type": "xx/furo.StringOptionProperty",
-          "id": "bb",
-          "display_name": "The display b"
-        },
-
-        "id": "444",
-        "code": "option",
-        "meta": {
-          "fields": {
-            "data": {
-              "meta": {
-                "label": "Please select",
-                "hint": "datehint is data",
-                "repeated": false,
-                "options": {
-                  "list": [
-                    {
-                      "id": "0",
-                      "display_name": "Please select"
-                    },
-                    {
-                      "id": "aa",
-                      "display_name": "The display a"
-                    },
-                    {
-                      "id": "bb",
-                      "display_name": "The display b"
-                    }
-                  ]
-                }
+      "code": "78d30b3a-11ac-427d-b909-62ab6f7082fd"
+    }, {
+      "id": "02ab8be4-dd73-4142-9a0d-d90b2c32ec75",
+      "display_name": "Leistung (PS)",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.Float",
+        "value": 99
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Leistung (PS)"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
               }
             }
           }
         }
       },
-      {
-        "data": {
-          "@type": "xx/furo.StringProperty",
-          "data": "32 32 23",
-          "display_name": "a date"
-        },
-        "id": "bv3",
-        "code": "date",
-        "meta": {
-          "fields": {
-            "data.data": {
-              "meta": {
-                "label": "repeated fields",
-                "hint": "this is data"
+      "code": "3f483861-2b27-4647-816a-1da405291db3"
+    }, {
+      "id": "8768fbf7-a852-40b8-9780-cd5af496a76e",
+      "display_name": "Leistung (kW)",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.Float",
+        "value": 99
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Leistung (kW)"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
               }
             }
           }
         }
       },
-      {
-        "data": {
-          "@type": "xx/google.protobuf.BoolValue",
-          "value": true
-        },
-        "display_name": "Display",
-        "id": "xxxxxx",
-        "meta": {
-          "fields": {
-            "data.value": {
-              "meta": {
-                "label": "is online"
+      "code": "e80e5ae3-0384-44f5-ac40-aa50a3b85028"
+    }, {
+      "id": "1c652c09-11e9-4ae9-9bdc-bcf0fdedd515",
+      "display_name": "Hubraum",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.Float",
+        "value": 650
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Hubraum"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
               }
             }
           }
         }
       },
-      {
-        "data": {
-          "@type": "xxx/furo.fat.String",
-          "value": "text furo.fat.String"
-        },
-        "display_name": "Display",
-        "id": "op33t",
-        "code": "option",
-        "meta": {
-          "fields": {
-            "data": {
-              "meta": {
-                "label": "fat string",
-                "hint": "Type in fat string"
+      "code": "c4fcc05a-f749-4d36-b4d3-be2e6cd8d464"
+    }, {
+      "id": "5720848d-6d8c-48ce-802f-4001d425e4a9",
+      "display_name": "Treibstoffart",
+      "data": {
+        "@type": "type.googleapis.com/furo.StringOptionProperty",
+        "display_name": "2-Takt-Gemisch",
+        "id": "-2010014972"
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Treibstoffart",
+              "options": {
+                "list": [{
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014963",
+                  "display_name": "Benzin bleifrei"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014964",
+                  "display_name": "Benzin verbleit"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014965",
+                  "display_name": "Diesel"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014966",
+                  "display_name": "Elektrisch (Plug-in)"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014967",
+                  "display_name": "Wasserstoff (via Brennstoffzelle)"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014968",
+                  "display_name": "Erdgas (CNG) / Benzin"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014969",
+                  "display_name": "Flüssiggas (LPG) / Benzin"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014970",
+                  "display_name": "Wasserstoff"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014971",
+                  "display_name": "Ethanol E85 / Benzin"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014972",
+                  "display_name": "2-Takt-Gemisch"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014973",
+                  "display_name": "Erdgas (CNG)"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014974",
+                  "display_name": "Elektrisch (Plug-in) / Benzin"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014975",
+                  "display_name": "Elektrisch (Plug-in) / Diesel"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014976",
+                  "display_name": "Flüssiggas (LPG)"
+                }, {
+                  "@type": "furo.Optionitem",
+                  "id": "-2010014977",
+                  "display_name": "Andere / Unbekannt"
+                }]
+              }
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
               }
             }
           }
         }
       },
-      {
-        "data": {
-          "@type": "furo.fat.Int32",
-          "value": 22,
-          "display_name": "furo.fat.Int32"
-        },
-        "display_name": "Display",
-        "id": "op33t",
-        "code": "option",
-        "meta": {
-          "fields": {
-            "data": {
-              "meta": {
-                "label": "fat int",
-                "hint": "Type in fat int"
+      "code": "38c5f66e-5209-45e0-86bf-4cd1b577a654"
+    }, {
+      "id": "8319ce4f-44b7-42fd-88da-265938bc4fed",
+      "display_name": "Gesamtgewicht",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.Float",
+        "labels": {
+          "empty": true
+        }
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Gesamtgewicht"
+            }
+          }
+        }
+      },
+      "code": "ef747d8c-294b-4c11-b5cd-eb1082f50546"
+    }, {
+      "id": "9dd328ca-43ab-4050-8c1e-a06db673c693",
+      "display_name": "Anzahl Plätze",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.Int32",
+        "labels": {
+          "empty": true
+        }
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Anzahl Plätze"
+            }
+          }
+        }
+      },
+      "code": "c7dc9eee-aaec-4cbf-bc9a-d2eddd4bcf53"
+    }, {
+      "id": "1714eb8e-3675-4cc6-9a12-3178fd5d302c",
+      "display_name": "Abweichende PS",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.Float"
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Abweichende PS"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
               }
             }
           }
         }
       },
-      {
-        "data": {
-          "@type": "furo.fat.Bool",
-          "value": true,
-          "display_name": "furo.fat.Bool"
-        },
-        "display_name": "Display",
-        "id": "op33t",
-        "code": "option",
-        "meta": {
-          "fields": {
-            "data": {
-              "meta": {
-                "label": "fat Bool",
-                "hint": "Type in fat Bool"
+      "code": "ecd8e63b-d3ed-4295-967c-e8b6782d8320"
+    }, {
+      "id": "21036d47-a0f7-4ce3-b19d-b8a6ddde7220",
+      "display_name": "Abweichende Anzahl Sitzplätze",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.Int32"
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Abweichende Anzahl Sitzplätze"
+            },
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
               }
             }
           }
         }
-      }
-    ],
+      },
+      "code": "3acfc749-cde5-4f3a-b80b-14a5e4444ecd"
+    }, {
+      "id": "425c096d-f62c-4883-8150-4b7f59e9f013",
+      "display_name": "Kennzeichen",
+      "data": {
+        "@type": "type.googleapis.com/furo.fat.String",
+        "value": "BL ED 436"
+      },
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Kennzeichen"
+            }
+          }
+        }
+      },
+      "code": "46fe95c4-c7ec-4364-b6e9-f8880280a705"
+    }],
     "single_type_property": {
       "data": {
         "@type": "xx/google.type.Date",

@@ -37,7 +37,12 @@ export const FieldNodeAdapter = superClass =>
      */
     getDataType() {
       if (this.__fieldNode._spec) {
-        return this.__fieldNode._spec.type;
+        if(this.__fieldNode._spec.type === 'google.protobuf.Any'){
+          // check in @type field
+          return this.__fieldNode["@type"]._value.replace(/.*\//, '');
+        } else {
+          return this.__fieldNode._spec.type;
+        }
       }
       return undefined;
     }

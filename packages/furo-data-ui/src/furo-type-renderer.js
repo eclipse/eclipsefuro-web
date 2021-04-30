@@ -1,5 +1,5 @@
-import { LitElement, html } from 'lit-element';
-import { FBP } from '@furo/fbp/src/fbp.js';
+import { LitElement, html } from 'lit-element'
+import { FBP } from '@furo/fbp/src/fbp.js'
 
 /**
  * `furo-type-renderer`
@@ -31,8 +31,8 @@ import { FBP } from '@furo/fbp/src/fbp.js';
  */
 class FuroTypeRenderer extends FBP(LitElement) {
   constructor() {
-    super();
-    this.tpl = html``;
+    super()
+    this.tpl = html``
   }
 
   /**
@@ -61,7 +61,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
       disabled: {
         type: Boolean,
       },
-    };
+    }
   }
 
   /**
@@ -69,18 +69,33 @@ class FuroTypeRenderer extends FBP(LitElement) {
    * @param fieldNode
    */
   bindData(fieldNode) {
-    this._field = fieldNode;
+    this._field = fieldNode
     if (this._field) {
-      this.renderName = `display-${this._field._spec.type
-        .replaceAll('.', '-')
-        .toLocaleLowerCase()}`;
-      this.defaultElement = document.createElement(this.renderName);
-      if (!this._field._isRepeater) {
-        this._createDisplay();
+
+      if (this._field['@type']) {
+        /**
+         * creates render component name according @type information
+         */
+        this.renderName = `display-${this._field['@type']._value.replace(/.*\//, '')
+          .replaceAll('.', '-')
+          .toLocaleLowerCase()}`
       } else {
-        this._createRepeatedDisplay();
+        /**
+         * Normal type flow
+         */
+        this.renderName = `display-${this._field._spec.type
+          .replaceAll('.', '-')
+          .toLocaleLowerCase()}`
+      }
+
+      this.defaultElement = document.createElement(this.renderName)
+      if (!this._field._isRepeater) {
+        this._createDisplay()
+      } else {
+        this._createRepeatedDisplay()
       }
     }
+
   }
 
   /**
@@ -89,30 +104,30 @@ class FuroTypeRenderer extends FBP(LitElement) {
    */
   _createDisplay() {
     if (this.defaultElement.bindData) {
-      this._addElement(this.defaultElement);
+      this._addElement(this.defaultElement)
     } else {
-      this._warning();
+      this._warning()
     }
   }
 
   _addElement(el) {
     // adding attributes from parent element
     if (this.tabularForm) {
-      el.setAttribute('tabular-form', null);
+      el.setAttribute('tabular-form', null)
     }
 
-    const l = this.attributes.length;
+    const l = this.attributes.length
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < l; ++i) {
-      const { nodeName } = this.attributes.item(i);
-      const { nodeValue } = this.attributes.item(i);
+      const { nodeName } = this.attributes.item(i)
+      const { nodeValue } = this.attributes.item(i)
       // eslint-disable-next-line eqeqeq
       if (!nodeName.startsWith('@') && !nodeName.startsWith('ƒ')) {
-        el.setAttribute(nodeName, nodeValue);
+        el.setAttribute(nodeName, nodeValue)
       }
     }
-    el.bindData(this._field);
-    this.replaceWith(el);
+    el.bindData(this._field)
+    this.replaceWith(el)
   }
 
   _warning() {
@@ -120,7 +135,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
     console.warn(
       `No type specific renderer ${this.renderName} found. Check your imports.`,
       this._field._spec.type,
-    );
+    )
   }
 
   /**
@@ -128,21 +143,27 @@ class FuroTypeRenderer extends FBP(LitElement) {
    * @private
    */
   _createRepeatedDisplay() {
-    const rRenderName = `${this.renderName}-repeats`;
+    const rRenderName = `${this.renderName}-repeats`
 
-    const elementRepeat = document.createElement(rRenderName);
+    const elementRepeat = document.createElement(rRenderName)
     if (elementRepeat.bindData) {
-      this._addElement(elementRepeat);
+      this._addElement(elementRepeat)
     } else if (this.defaultElement.bindData) {
       // fallback , display the display-[type] component repeatedly
-      const el = document.createElement('furo-ui5-data-repeat');
-      el.setAttribute('repeated-component', this.renderName);
-      el.bindData(this._field);
-      this.replaceWith(el);
+      const el = document.createElement('furo-ui5-data-repeat')
+      el.setAttribute('repeated-component', this.renderName)
+      el.bindData(this._field)
+      this.replaceWith(el)
     } else {
-      this._warning();
+      this._warning()
     }
   }
 }
 
-window.customElements.define('furo-type-renderer', FuroTypeRenderer);
+window
+  .customElements
+  .define(
+    'furo-type-renderer'
+    ,
+    FuroTypeRenderer,
+  )

@@ -87,8 +87,17 @@ describe('furo-ui5-data-date-picker', () => {
 
   it('should set min- and max-date via spec', done => {
     setTimeout(() => {
-      assert.equal(datepicker._state.minDate, datepicker.formatValue(new Date(1800,0,1)), 'check if set minDate from spec \'1800-01-01\'');
-      assert.equal(datepicker._state.maxDate, datepicker.formatValue(new Date(2099,11,31)), '2099-12-31', 'check if set maxDate from spec');
+      assert.equal(
+        datepicker._state.minDate,
+        datepicker.formatValue(new Date(1800, 0, 1)),
+        "check if set minDate from spec '1800-01-01'",
+      );
+      assert.equal(
+        datepicker._state.maxDate,
+        datepicker.formatValue(new Date(2099, 11, 31)),
+        '2099-12-31',
+        'check if set maxDate from spec',
+      );
       done();
     }, 10);
   });
@@ -114,6 +123,4 @@ describe('furo-ui5-data-date-picker', () => {
       done();
     }, 0);
   });
-
-
 });
