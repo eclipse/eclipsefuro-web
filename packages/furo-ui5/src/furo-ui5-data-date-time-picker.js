@@ -3,7 +3,6 @@ import * as DateTimePicker from '@ui5/webcomponents/dist/DateTimePicker.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 
-
 /**
  * The furo-ui5-data-date-time-picker component allows the user to bind a date string
  * with IOS 8061 standard in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format likes "2017-01-15T01:30:15.01Z" to the ui5 date time picker and edit it.
@@ -107,7 +106,7 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DateTimePicker.defau
           } else {
             this.setFnaFieldValue(0);
           }
-          break
+          break;
 
         case 'google.protobuf.Timestamp':
           if (e.value !== '' && e.valid) {
@@ -115,13 +114,13 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DateTimePicker.defau
           } else {
             this.setFnaFieldValue(null);
           }
-          break
+          break;
         case 'string':
         default:
           if (e.value !== '' && e.valid) {
             this.setFnaFieldValue(this.dateValue.toISOString());
           } else {
-            this.setFnaFieldValue("");
+            this.setFnaFieldValue('');
           }
       }
 
@@ -143,7 +142,7 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DateTimePicker.defau
       case 'int32':
       case 'int64':
         this.value = this.formatValue(new Date(value * 1000));
-        break
+        break;
       case 'google.protobuf.Timestamp':
       case 'string':
       default:

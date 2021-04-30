@@ -76,8 +76,16 @@ describe('furo-ui5-data-date-time-picker', () => {
   it('should set min- and max-date via spec', done => {
     dao.injectRaw(testRecordMeta);
     setTimeout(() => {
-      assert.equal(datepicker.minDate, datepicker.formatValue(new Date(2020,6,30)), 'check if set minDate from spec');
-      assert.equal(datepicker.maxDate, datepicker.formatValue(new Date(2020,8,30)), 'check if set maxDate from spec');
+      assert.equal(
+        datepicker.minDate,
+        datepicker.formatValue(new Date(2020, 6, 30)),
+        'check if set minDate from spec',
+      );
+      assert.equal(
+        datepicker.maxDate,
+        datepicker.formatValue(new Date(2020, 8, 30)),
+        'check if set maxDate from spec',
+      );
       done();
     }, 10);
   });
@@ -95,7 +103,6 @@ describe('furo-ui5-data-date-time-picker', () => {
   it('should display date according to the defined pattern', done => {
     dao.injectRaw(testRecordMeta);
     setTimeout(() => {
-
       assert.equal(datepicker.formatPattern, 'dd.MM.yyyy hh:mm aa', 'pattern applied');
       assert.equal(datepicker._state.value, '15.10.2017 03:30 AM', 'check value');
       done();

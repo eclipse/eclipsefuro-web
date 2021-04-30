@@ -2801,7 +2801,7 @@
       ]
     },
     {
-      "description": "The furo-ui5-data-date-time-picker component allows the user to bind a date string\nwith IOS 8061 standard in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format likes \"2017-01-15T01:30:15.01Z\" to the ui5 date time picker and edit it.\n\n\nyou can define the formatPattern (e.g. 'dd.MM.yyyy hh:mm aa' ) to show the date according to format pattern. but the data in\nthe payload will still be in format [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt)  (2017-01-15T01:30:15.01Z)\n\nThe text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.\nWhen the user makes changes to the datetime, the change event is fired, which enables you to react on any date change.\n\n\nYou can bind a `string`, `google.protobuf.Timestamp`.\n\n```html\n <furo-ui5-data-date-time-picker\n    ƒ-bind-data=\"--data(*.validity_to)\">\n </furo-ui5-data-date-time-picker>\n```\n\nThe field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.\nWhen the user makes changes to the date, the change event is fired, which enables you to react on any date change.\n\n## supported meta and constraints\nTODO:!!! check this\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **min:\"1999-12-31\"** set the minDate for the element (use iso date in the constraint)\n- **max:\"1999-12-31\"** set the maxDate for the element (use iso date in the constraint)\n- **pattern:\"1999-12-31\"** set the pattern for the element\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)",
+      "description": "The furo-ui5-data-date-time-picker component allows the user to bind a date string\nwith IOS 8061 standard in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format likes \"2017-01-15T01:30:15.01Z\" to the ui5 date time picker and edit it.\n\n\nyou can define the formatPattern (e.g. 'dd.MM.yyyy hh:mm aa' ) to show the date according to format pattern. but the data in\nthe payload will still be in format [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt)  (2017-01-15T01:30:15.01Z)\n\nThe text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.\nWhen the user makes changes to the datetime, the change event is fired, which enables you to react on any date change.\n\n\nYou can bind a `string`, `google.protobuf.Timestamp`, `int32`, `int64`.\n\n`int32`, `int64` will be handled as unix timestamps (seconds since epoc) and can not be *empty*.\n\n```html\n <furo-ui5-data-date-time-picker\n    ƒ-bind-data=\"--data(*.validity_to)\">\n </furo-ui5-data-date-time-picker>\n```\n\nThe field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.\nWhen the user makes changes to the date, the change event is fired, which enables you to react on any date change.\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **min:\"1999-12-31\"** set the minDate for the element (use iso date in the constraint)\n- **max:\"1999-12-31\"** set the maxDate for the element (use iso date in the constraint)\n- **pattern:\"1999-12-31\"** set the pattern for the element\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)",
       "summary": "furo data datepicker field",
       "path": "src/furo-ui5-data-date-time-picker.js",
       "properties": [],
@@ -2812,11 +2812,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 129,
+              "line": 139,
               "column": 2
             },
             "end": {
-              "line": 141,
+              "line": 155,
               "column": 3
             }
           },
@@ -2836,11 +2836,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 143,
+              "line": 157,
               "column": 2
             },
             "end": {
-              "line": 159,
+              "line": 173,
               "column": 3
             }
           },
@@ -2856,11 +2856,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 161,
+              "line": 175,
               "column": 2
             },
             "end": {
-              "line": 170,
+              "line": 184,
               "column": 3
             }
           },
@@ -2876,11 +2876,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 175,
+              "line": 189,
               "column": 2
             },
             "end": {
-              "line": 182,
+              "line": 196,
               "column": 3
             }
           },
@@ -2900,11 +2900,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 188,
+              "line": 202,
               "column": 2
             },
             "end": {
-              "line": 190,
+              "line": 204,
               "column": 3
             }
           },
@@ -2920,11 +2920,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 213,
               "column": 2
             },
             "end": {
-              "line": 203,
+              "line": 217,
               "column": 3
             }
           },
@@ -2947,11 +2947,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 209,
+              "line": 223,
               "column": 2
             },
             "end": {
-              "line": 211,
+              "line": 225,
               "column": 3
             }
           },
@@ -2967,11 +2967,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 232,
               "column": 2
             },
             "end": {
-              "line": 223,
+              "line": 237,
               "column": 3
             }
           },
@@ -2991,11 +2991,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 230,
+              "line": 244,
               "column": 2
             },
             "end": {
-              "line": 235,
+              "line": 249,
               "column": 3
             }
           },
@@ -3015,11 +3015,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 242,
+              "line": 256,
               "column": 2
             },
             "end": {
-              "line": 274,
+              "line": 288,
               "column": 3
             }
           },
@@ -3044,11 +3044,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 51,
+          "line": 52,
           "column": 7
         },
         "end": {
-          "line": 275,
+          "line": 289,
           "column": 1
         }
       },
