@@ -79,10 +79,12 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
     this._attributesFromFNA = {
       readonly: undefined,
       placeholder: undefined,
+
     };
 
     this._constraintsFromFNA = {
       required: undefined,
+      max: undefined, // maps to maxlength
     };
 
     this._labelsFromFAT = {
@@ -93,7 +95,8 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
 
     this._attributesFromFAT = {
       placeholder: undefined,
-      maxlength: undefined,
+      max: undefined,  // maps to maxlength
+      icon: undefined,  // updates the icon
     };
 
     // a list of privileged attributes. when those attributes are set in text-input components initially.
@@ -270,7 +273,7 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
     this._attributesFromFAT.disabled = fatAttributes.disabled;
     this._attributesFromFAT.placeholder = fatAttributes.placeholder;
     this._attributesFromFAT.icon = fatAttributes.icon;
-    this._attributesFromFAT.maxlength = fatAttributes.maxlength;
+    this._attributesFromFAT.max = fatAttributes.max;
 
     // placeholder
     if (this._privilegedAttributes.placeholder === null) {
@@ -315,10 +318,10 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
 
     // maxlength
     if (this._privilegedAttributes.maxlength === null) {
-      if (fatAttributes.maxlength !== undefined) {
-        this.maxlength = fatAttributes.maxlength;
-      } else if (this._attributesFromFNA.maxlength !== undefined) {
-        this.maxlength = this._attributesFromFNA.maxlength;
+      if (fatAttributes.max !== undefined) {
+        this.maxlength = fatAttributes.max;
+      } else if (this._constraintsFromFNA.max !== undefined) {
+        this.maxlength = this._constraintsFromFNA.max;
       }
     }
   }
@@ -440,6 +443,13 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
         this._labelsFromFAT.required === undefined
       ) {
         this.required = constraints.required.is === 'true';
+      }
+    }
+
+    if (constraints.max !== undefined) {
+      this._constraintsFromFNA.max = constraints.max;
+      if (this._privilegedAttributes.maxlength === null) {
+        this.maxlength = constraints.max.is;
       }
     }
   }
