@@ -188,6 +188,10 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
         if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
           delete this._tmpFAT.labels.empty;
         }
+        // init labels in_tmpFAT
+        if (this._tmpFAT.labels === null) {
+          this._tmpFAT.labels = {};
+        }
         // set modified on changes
         this._tmpFAT.labels.modified = true;
       }
@@ -297,10 +301,9 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
     // suggestions
     // see Properties/Attributes from ui5 on https://sap.github.io/ui5-webcomponents/playground/components/Input/
     if (fatAttributes.suggestions !== undefined) {
-      if(typeof fatAttributes.suggestions === 'string') {
+      if (typeof fatAttributes.suggestions === 'string') {
         this._setSuggestions(JSON.parse(fatAttributes.suggestions));
-      }
-      else if(Array.isArray(fatAttributes.suggestions)) {
+      } else if (Array.isArray(fatAttributes.suggestions)) {
         this._setSuggestions(fatAttributes.suggestions);
       }
     }

@@ -51,6 +51,7 @@ describe('furo-ui5-data-text-input-scalar', () => {
       <test-bind>
         <template>
           <furo-ui5-data-text-input
+            icon="filter"
             ƒ-bind-data="--entity(*.data.description)"
           ></furo-ui5-data-text-input>
           <furo-data-object
@@ -96,22 +97,34 @@ describe('furo-ui5-data-text-input-scalar', () => {
   });
 
   it('should update the value of the bound fieldNode', done => {
-    dao.data.data.description.addEventListener('field-value-changed', () => {
-      assert.equal(input._state.value, 'New description set');
-      assert.equal(dao.data.data.description._value, 'New description set');
-      done();
-    });
-    input.setValue('New description set');
+    dao.data.data.description.addEventListener(
+      'field-value-changed',
+      () => {
+        assert.equal(input._state.value, 'New description set');
+        assert.equal(dao.data.data.description._value, 'New description set');
+        done();
+      },
+      { once: true },
+    );
+
+    input.value = 'New description set';
+    input.dispatchEvent(
+      new CustomEvent('input', {
+        bubbles: true,
+        detail: 'New description set',
+      }),
+    );
   });
 
   it('an update of a scalar value on the data object should be synchronized with the input field', done => {
     dao.data.data.description._value = 'Set data in the inner input element';
-    assert.equal(input._state.value, 'Set data in the inner input element');
-    done();
+    setTimeout(() => {
+      assert.equal(input.value, 'Set data in the inner input element');
+      done();
+    });
   });
 
   it('should set ui5 icon to the component', done => {
-    input.ui5Icon = 'filter';
     const icon = input.querySelector('ui5-icon');
     assert.equal(icon.name, 'filter');
     assert.equal(icon.slot, 'icon');
@@ -128,15 +141,13 @@ describe('furo-ui5-data-text-input-scalar', () => {
         assert.equal(input._state.required, true, 'check required');
         assert.equal(input._state.type, 'Text', 'check type');
         assert.equal(input._state.value, 'Description from record', 'check value');
-        assert.equal(input._state.valueState, 'Information', 'check valueState');
+        assert.equal(input._state.valueState, 'None', 'check valueState');
         assert.equal(input._state.name, '', 'check name');
         assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
         assert.equal(input._state.maxlength, undefined, 'check maxlength');
         assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
-        assert.equal(input.__hint, 'Please enter a description', 'check hint');
-        assert.equal(input.binder.fieldFormat, 'scalar', 'check fieldFormat');
+        assert.equal(input.isFat(), false, 'check fieldFormat');
 
-        console.log(input.binder.fieldNode);
         assert.equal(
           input.shadowRoot.querySelector('input').value,
           'Description from record',
