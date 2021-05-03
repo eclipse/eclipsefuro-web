@@ -20,21 +20,20 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * 1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.
  * 2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.
  *
- * | meta 	| fat 	| html 	|
- * |------	|-----	|------	|
- * | 1    	| 10  	| 100  	|
- *
+ * ** meta 	<  fat 	< html 	**
  *
  * ## supported FAT attributes
  *  - **"readonly":"true"** set the element to readonly
  *  - **"required":"true"** set the element to required
  *  - **"disabled":"true"** set the element to disabled
+ *  - **"icon":"home"** set the icon
  *  - **"placeholder":"string"** set the placeholder for the element
- *  - **"maxlength":"number"** set the maximum number of characters available in the input field.
+ *  - **"max":"number"** set the maximum number of characters available in the input field.
  *
  * ## supported meta and constraints
  * - **readonly: true** , set the element to readonly
  * - **placeholder:"some string"** set the placeholder for the element
+ * - **max:"number"** set the maximum number of characters available in the input field.
  *
  * The constraint **required** will mark the element as required
  *
