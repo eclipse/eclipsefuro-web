@@ -39,19 +39,47 @@ describe('display-google-protobuf-any', () => {
 
   it('should bind data', done => {
     setTimeout(() => {
-      assert.equal(display._field['@type']._value, 'type.googleapis.com/google.type.Money');
+      assert.equal(display._field._spec.type, 'google.protobuf.Any');
       done();
     }, 0);
   });
 
-  it('should show template according to the value of the data', done => {
+  it('should update the dynamic type any to google.type.Money', done => {
     Env.locale = 'de';
-    dao.injectRaw({ the_any_type: { "@type": 'type.googleapis.com/google.type.Money', units: 1000, nanos: 55000000, currency_code: 'EUR' } });
-    setTimeout(() => {
-      assert.equal(display._displayValue, 'EUR 1’000.55');
-
+    dao.addEventListener('data-injected', () => {
+      assert.equal(display._field['@type']._value, 'type.googleapis.com/google.type.Money');
+      assert.equal(display._field.units._value, '1000');
+      assert.equal(display._field.nanos._value, '55000000');
+      assert.equal(display._field.currency_code._value, 'EUR');
       done();
-    }, 110);
+    });
+    dao.injectRaw({
+      the_any_type: {
+        '@type': 'type.googleapis.com/google.type.Money',
+        units: 1000,
+        nanos: 55000000,
+        currency_code: 'EUR',
+      },
+    });
+  });
+
+  it('should update the dynamic type any to google.type.Date', done => {
+    Env.locale = 'de';
+    dao.addEventListener('data-injected', () => {
+      assert.equal(display._field['@type']._value, 'type.googleapis.com/google.type.Date');
+      assert.equal(display._field.day._value, '1');
+      assert.equal(display._field.month._value, '12');
+      assert.equal(display._field.year._value, '2025');
+      done();
+    });
+    dao.injectRaw({
+      the_any_type: {
+        '@type': 'type.googleapis.com/google.type.Date',
+        day: 1,
+        month: 12,
+        year: 2025,
+      },
+    });
   });
 
   // axeReport a11y tests

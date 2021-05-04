@@ -17,8 +17,6 @@ import '@furo/form/src/furo-form-layouter.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/form/src/furo-button-bar.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import '@furo/input/src/furo-button.js';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/produce-qp-data.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/fetch-universal-json.js';
@@ -127,6 +125,18 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
           <furo-ui5-data-display
             value-state="Positive"
             ƒ-bind-data="--entity(*.data.the_any_type)"
+          ></furo-ui5-data-display>
+
+          <furo-ui5-data-display
+            ƒ-bind-data="--entity(*.data.single_type_property)"
+          ></furo-ui5-data-display>
+
+          <!--          <furo-ui5-data-display-->
+          <!--            ƒ-bind-data="&#45;&#45;entity(*.data.type_property)"-->
+          <!--          ></furo-ui5-data-display>-->
+
+          <furo-ui5-data-display
+            ƒ-bind-data="--entity(*.data.furo_data_color_input)"
           ></furo-ui5-data-display>
 
           <produce-qp-data

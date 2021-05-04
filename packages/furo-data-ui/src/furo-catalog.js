@@ -8,3 +8,4 @@ import './furo-data-filter-date.js';
 import './furo-data-filter-text.js';
 import './furo-data-filter-slot.js';
 import './furo-data-filter-checkbox.js';
+import './furo-type-renderer.js';

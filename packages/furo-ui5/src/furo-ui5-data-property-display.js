@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
-import '@furo/data-ui/src/furo-type-renderer.js';
+import { FBP } from '@furo/fbp';
 import { FieldNode } from '@furo/data/src/lib/FieldNode';
 import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
 
@@ -35,7 +35,7 @@ import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
  * @demo demo-furo-ui5-data-property-display Basic Usage
  * @appliesMixin FBP
  */
-class FuroUi5DataPropertyDisplay extends LitElement {
+class FuroUi5DataPropertyDisplay extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
    */
@@ -82,15 +82,7 @@ class FuroUi5DataPropertyDisplay extends LitElement {
       return false;
     }
 
-    // single furo.Property
-    if (fieldNode instanceof FieldNode) {
-      console.log(fieldNode);
-    }
-
-    // repeated furo.Property
-    if (fieldNode instanceof RepeaterNode) {
-      console.log(fieldNode);
-    }
+    this._FBPTriggerWire('--data', fieldNode);
 
     return true;
   }
@@ -101,9 +93,7 @@ class FuroUi5DataPropertyDisplay extends LitElement {
    */
   render() {
     // language=HTML
-    return html`
-      <furo-type-renderer ƒ-bind-data=""></furo-type-renderer>
-    `;
+    return html``;
   }
 }
 

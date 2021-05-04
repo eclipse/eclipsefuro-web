@@ -1,7 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework';
-
-import '@furo/data-ui/src/furo-type-renderer';
+import { LitElement } from 'lit-element';
 
 /**
  * `display-google-protobuf-any`
@@ -18,72 +15,8 @@ import '@furo/data-ui/src/furo-type-renderer';
 class DisplayGoolgeProtobufAny extends LitElement {
   constructor(props) {
     super(props);
-    this.noDataText = 'N/A';
     this.tabularForm = false;
-  }
-
-  /**
-   * @private
-   * @return {Object}
-   */
-  static get properties() {
-    return {
-      /**
-       * Defines the empty state display
-       * With a google.protobuf.Any type, the effective type is only known when the data is transmitted.
-       * Default: N/A
-       */
-      noDataText: { type: String },
-    };
-  }
-
-  /**
-   * CSS Styles
-   * @returns {*}
-   */
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('DisplayString') ||
-      css`
-        :host {
-          display: inline;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-
-        :host([disabled]) {
-          opacity: var(--_ui5_input_disabled_opacity, 0.4);
-        }
-
-        :host([data-size*='size-l']),
-        :host([data-size*='size-xl']) {
-          padding-top: 0.5rem;
-        }
-
-        :host([value-state='Positive']),
-        :host([value-state='Success']) {
-          color: var(--sapPositiveColor, #107e3e);
-        }
-
-        :host([value-state='Informative']),
-        :host([value-state='Information']) {
-          color: var(--sapInformativeColor, #0a6ed1);
-        }
-
-        :host([value-state='Negative']),
-        :host([value-state='Error']) {
-          color: var(--sapNegativeColor, #b00);
-        }
-
-        :host([value-state='Critical']),
-        :host([value-state='Warning']) {
-          color: var(--sapCrticalColor, #e9730c);
-        }
-      `
-    );
+    this._typeResolved = false;
   }
 
   /**
@@ -94,12 +27,14 @@ class DisplayGoolgeProtobufAny extends LitElement {
    */
   bindData(fieldNode) {
     this._field = fieldNode;
+    this._typeResolved = false;
+
     /**
      * check if bound fieldNode is of type google.protobuf.Any
      * if the data is already available, create the renderName according the @type information.
      * If NOT, register event listener and create the component as soon as the @type information is available.
      */
-    if (this._field['@type'] === undefined && this._field._spec.type === 'google.protobuf.Any') {
+    if (this._field._spec.type === 'google.protobuf.Any') {
       this._waitForType(this._field);
     }
   }
@@ -112,17 +47,26 @@ class DisplayGoolgeProtobufAny extends LitElement {
    */
   _waitForType(field) {
     const anyTypeHandler = () => {
-      if (field['@type'] && field['@type']._value !== undefined) {
+      if (this.defaultElement) {
+        this.defaultElement.remove();
+        this.defaultElement = undefined;
+      }
+
+      if (field['@type'] && field['@type']._value !== undefined && this._typeResolved === false) {
+        this._typeResolved = true;
         this.renderName = `display-${this._field['@type']._value
           .replace(/.*\//, '')
           .replaceAll('.', '-')
           .toLocaleLowerCase()}`;
         this.defaultElement = document.createElement(this.renderName);
         this._createContreteType();
-        // field.removeEventListener('field-value-changed', anyTypeHandler, true)
       }
     };
-    field.addEventListener('field-value-changed', anyTypeHandler);
+    if (field['@type'] && field['@type']._value !== undefined && this._typeResolved === false) {
+      anyTypeHandler();
+    } else {
+      field.addEventListener('field-value-changed', anyTypeHandler);
+    }
   }
 
   /**
@@ -147,7 +91,7 @@ class DisplayGoolgeProtobufAny extends LitElement {
         }
       }
       this.defaultElement.bindData(this._field);
-      this.replaceWith(this.defaultElement);
+      this.parentNode.appendChild(this.defaultElement);
     } else {
       this._warning();
     }
@@ -163,17 +107,6 @@ class DisplayGoolgeProtobufAny extends LitElement {
       `No type specific renderer ${this.renderName} found. Check your imports.`,
       this._field._spec.type,
     );
-  }
-
-  /**
-   * @private
-   * @returns {TemplateResult|TemplateResult}
-   */
-  render() {
-    // language=HTML
-    return html`
-      ${this.noDataText}
-    `;
   }
 }
 

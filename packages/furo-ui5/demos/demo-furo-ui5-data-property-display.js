@@ -55,7 +55,6 @@ class DemoFuroUi5DataPropertyDisplay extends FBP(LitElement) {
             <furo-vertical-scroller>
               <furo-form-layouter two>
                 <!-- repeated Property -->
-
                 <furo-ui5-data-property-display
                   ƒ-bind-data="--entity(*.data.type_property)"
                 ></furo-ui5-data-property-display>

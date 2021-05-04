@@ -35,6 +35,12 @@ describe('furo-ui5-data-display', () => {
       },
       furo_data_range_input: 31,
       furo_data_bool_icon: false,
+      the_any_type: {
+        '@type': 'type.googleapis.com/google.type.Money',
+        units: 1000,
+        nanos: 55000000,
+        currency_code: 'EUR',
+      },
       type_property: [
         {
           code: 'c0a7f550-0fbe-4046-8fa9-60c86327b6b1',
@@ -102,13 +108,8 @@ describe('furo-ui5-data-display', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-data-display
-            ƒ-bind-data="--entity(*.data.furo_data_date_input)"
-          ></furo-ui5-data-display>
-          <furo-data-object
-            type="experiment.ExperimentEntity"
-            @-object-ready="--entity"
-          ></furo-data-object>
+          <furo-ui5-data-display></furo-ui5-data-display>
+          <furo-data-object></furo-data-object>
         </template>
       </test-bind>
     `);
@@ -124,14 +125,6 @@ describe('furo-ui5-data-display', () => {
     // keep this test on top, so you can recognize a wrong assignment
     assert.equal(display.nodeName.toLowerCase(), 'furo-ui5-data-display');
     done();
-  });
-
-  it('should update the display part of the component', done => {
-    dao.injectRaw(testRecordMeta);
-    setTimeout(() => {
-      assert.equal(display.value, '2019-02-22');
-      done();
-    }, 16);
   });
 
   // axeReport a11y tests
