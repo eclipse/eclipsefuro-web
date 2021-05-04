@@ -9,7 +9,7 @@
       },
       "attributes": {
         "value-state": "Error",
-        "errortext": "this is an errortext",
+        "value-state-message": "this is an errortext",
         "maxlength": 6,
         "label": "response label",
         "placeholder": "place holder"

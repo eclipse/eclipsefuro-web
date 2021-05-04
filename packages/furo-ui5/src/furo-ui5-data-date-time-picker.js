@@ -63,6 +63,7 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DateTimePicker.defau
 
   constructor() {
     super();
+    this.formatPattern = '';
 
     // used to restore the state after a invalidation -> validation change
     this._previousValueState = { state: 'None', message: '' };
@@ -134,6 +135,14 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DateTimePicker.defau
       customEvent.detail = this.dateValue;
       this.dispatchEvent(customEvent);
     });
+  }
+
+  /**
+   * Workaround
+   * @private
+   */
+  get valueStateMessage() {
+    return super.valueStateMessage || [];
   }
 
   onFnaFieldValueChanged(value) {

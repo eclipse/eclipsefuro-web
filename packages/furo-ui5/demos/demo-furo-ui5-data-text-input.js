@@ -98,6 +98,9 @@ class DemoFuroUi5DataTextInput extends FBP(LitElement) {
               ƒ-bind-data="--entity(*.data.display_name)"
               value-state="Error"
             >
+              <div slot="valueStateMessage">
+                This is an error message. Extra long text used as an error message.
+              </div>
               <ui5-icon slot="icon" name="signature"></ui5-icon>
             </furo-ui5-data-text-input>
 

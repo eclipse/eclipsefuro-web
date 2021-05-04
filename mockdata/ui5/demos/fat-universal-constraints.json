@@ -19,11 +19,13 @@
         "meta": {
           "hint": "max length 15",
           "label": "fat string label set via response meta",
-          "default": "new",
-          "readonly": true
+          "default": "new"
         },
         "constraints": {
-          "max": {"is": 15,"message": "MAX 15"},
+          "max": {
+            "is": "15",
+            "message": "MAX 15"
+          },
           "required": {
             "is": true,
             "message": "Bitte ausfüllen!"
