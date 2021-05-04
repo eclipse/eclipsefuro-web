@@ -328,8 +328,8 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
     if (this._privilegedAttributes.maxlength === null) {
       if (fatAttributes.max !== undefined) {
         this.maxlength = fatAttributes.max;
-      } else if (this._constraintsFromFNA.max !== undefined) {
-        this.maxlength = this._constraintsFromFNA.max;
+      } else if (this._constraintsFromFNA.max !== undefined && this._constraintsFromFNA.max.is) {
+        this.maxlength = parseInt(this._constraintsFromFNA.max.is, 10);
       }
     }
   }
@@ -457,7 +457,7 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
     if (constraints.max !== undefined) {
       this._constraintsFromFNA.max = constraints.max;
       if (this._privilegedAttributes.maxlength === null) {
-        this.maxlength = constraints.max.is;
+        this.maxlength = parseInt(constraints.max.is, 10);
       }
     }
   }
