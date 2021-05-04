@@ -131,6 +131,18 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
     this.readAttributes();
+
+    // created to avoid the default messages from ui5
+    const vse = this.querySelector('div[slot="valueStateMessage"]');
+    if (vse === null) {
+      this._valueStateElement = document.createElement('div');
+      this._valueStateElement.setAttribute('slot', 'valueStateMessage');
+      // eslint-disable-next-line wc/no-constructor-attributes
+      this.appendChild(this._valueStateElement);
+    } else {
+      this._valueStateElement = vse;
+      this._previousValueState.message = vse.innerText;
+    }
   }
 
   // overwrite. fix for ui5 input error under rc14
@@ -151,9 +163,6 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
     this._previousValueState.state = this.getAttribute('value-state')
       ? this.getAttribute('value-state')
       : 'None';
-    this._previousValueState.message = this.getAttribute('value-state-message')
-      ? this.getAttribute('value-state-message')
-      : '';
     // save the original attribute for later usages, we do this, because some components reflect
     Object.keys(this._privilegedAttributes).forEach(attr => {
       this._privilegedAttributes[attr] = this.getAttribute(attr);
