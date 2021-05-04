@@ -52,8 +52,8 @@ export const FieldNodeAdapter = superClass =>
      */
     isFat() {
       if (this.__fieldNode._spec.type === 'google.protobuf.Any') {
-        // check in @type field
-        return this.__fieldNode['@type']._value.replace(/.*\//, '').startsWith('furo.fat');
+        // check in @type field, return false if it not known at the moment
+        return this.__fieldNode['@type']._value !== null && this.__fieldNode['@type']._value.replace(/.*\//, '').startsWith('furo.fat');
       }
       return this.__fieldNode._spec && this.__fieldNode._spec.type.startsWith('furo.fat');
     }
@@ -64,8 +64,8 @@ export const FieldNodeAdapter = superClass =>
      */
     isWrapper() {
       if (this.__fieldNode._spec.type === 'google.protobuf.Any') {
-        // check in @type field
-        return this.__fieldNode['@type']._value.replace(/.*\//, '').startsWith('google.protobuf');
+        // check in @type field, return false if it not known at the moment
+        return this.__fieldNode['@type']._value !== null && this.__fieldNode['@type']._value.replace(/.*\//, '').startsWith('google.protobuf');
       }
       return this.__fieldNode._spec && this.__fieldNode._spec.type.startsWith('google.protobuf');
     }
