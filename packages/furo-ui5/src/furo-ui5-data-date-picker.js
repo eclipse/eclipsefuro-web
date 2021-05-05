@@ -129,6 +129,15 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
     });
   }
 
+
+  /**
+   * Workaround for language request
+   * @private
+   */
+  get valueStateMessage() {
+    return super.valueStateMessage || [];
+  }
+
   /**
    * @private
    */

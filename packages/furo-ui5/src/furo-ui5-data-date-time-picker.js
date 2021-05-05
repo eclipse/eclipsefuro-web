@@ -138,7 +138,7 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DateTimePicker.defau
   }
 
   /**
-   * Workaround
+   * Workaround for language request
    * @private
    */
   get valueStateMessage() {
