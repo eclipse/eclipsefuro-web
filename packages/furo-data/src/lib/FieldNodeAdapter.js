@@ -53,7 +53,10 @@ export const FieldNodeAdapter = superClass =>
     isFat() {
       if (this.__fieldNode._spec.type === 'google.protobuf.Any') {
         // check in @type field, return false if it not known at the moment
-        return this.__fieldNode['@type']._value !== null && this.__fieldNode['@type']._value.replace(/.*\//, '').startsWith('furo.fat');
+        return (
+          this.__fieldNode['@type']._value !== null &&
+          this.__fieldNode['@type']._value.replace(/.*\//, '').startsWith('furo.fat')
+        );
       }
       return this.__fieldNode._spec && this.__fieldNode._spec.type.startsWith('furo.fat');
     }
@@ -65,7 +68,10 @@ export const FieldNodeAdapter = superClass =>
     isWrapper() {
       if (this.__fieldNode._spec.type === 'google.protobuf.Any') {
         // check in @type field, return false if it not known at the moment
-        return this.__fieldNode['@type']._value !== null && this.__fieldNode['@type']._value.replace(/.*\//, '').startsWith('google.protobuf');
+        return (
+          this.__fieldNode['@type']._value !== null &&
+          this.__fieldNode['@type']._value.replace(/.*\//, '').startsWith('google.protobuf')
+        );
       }
       return this.__fieldNode._spec && this.__fieldNode._spec.type.startsWith('google.protobuf');
     }
@@ -123,11 +129,10 @@ export const FieldNodeAdapter = superClass =>
      * @param value the raw json value for the fieldNode.
      */
     setFnaFieldValue(value) {
-
       // keep fields of any type
-      if(this.__fieldNode["@type"] && this.__fieldNode["@type"]._value  ){
+      if (this.__fieldNode['@type'] && this.__fieldNode['@type']._value) {
         // eslint-disable-next-line no-param-reassign
-        value["@type"]  = this.__fieldNode["@type"]._value;
+        value['@type'] = this.__fieldNode['@type']._value;
       }
 
       this.__internalUpdateInProgress = true;
@@ -146,8 +151,7 @@ export const FieldNodeAdapter = superClass =>
      * @param value the raw json value for the fieldNode.
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaFieldValueChanged(value) {
-    }
+    onFnaFieldValueChanged(value) {}
 
     /**
      * Notifies changes on the constraints.
@@ -178,55 +182,48 @@ export const FieldNodeAdapter = superClass =>
      * @param constraints
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaConstraintsChanged(constraints) {
-    }
+    onFnaConstraintsChanged(constraints) {}
 
     /**
      * Notifies when the options for the field is changed or set.
      * @param options
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaOptionsChanged(options) {
-    }
+    onFnaOptionsChanged(options) {}
 
     /**
      * Notifies when the readonly flag for the field is changed or set.
      * @param readonly
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaReadonlyChanged(readonly) {
-    }
+    onFnaReadonlyChanged(readonly) {}
 
     /**
      * Notifies when the hint for the field is changed or set.
      * @param hint
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaHintChanged(hint) {
-    }
+    onFnaHintChanged(hint) {}
 
     /**
      * Notifies when the label for the field is changed or set.
      * @param label
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaLabelChanged(label) {
-    }
+    onFnaLabelChanged(label) {}
 
     /**
      * Notifies when the placeholder for the field is changed or set.
      * @param placeholder
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaPlaceholderChanged(placeholder) {
-    }
+    onFnaPlaceholderChanged(placeholder) {}
 
     /**
      * Notifies that a field gets valid.
      */
     // eslint-disable-next-line class-methods-use-this
-    onFnaFieldNodeBecameValid() {
-    }
+    onFnaFieldNodeBecameValid() {}
 
     /**
      * Notifies that a field gets invalid.
@@ -234,8 +231,7 @@ export const FieldNodeAdapter = superClass =>
      * @param validity Object like {constraint: "min", description: "too small", field: ""}
      */
     // eslint-disable-next-line class-methods-use-this,no-unused-vars
-    onFnaFieldNodeBecameInvalid(validity) {
-    }
+    onFnaFieldNodeBecameInvalid(validity) {}
 
     // clean up on disconnect
     disconnectedCallback() {
@@ -359,9 +355,15 @@ export const FieldNodeAdapter = superClass =>
     __detachEventListeners() {
       // check is needed, because on no binding there is no fieldNode to detach from
       if (this.__fieldNode instanceof FieldNode || this.__fieldNode instanceof RepeaterNode) {
-        this.__fieldNode.removeEventListener('field-value-changed', this.__fieldValueChangedHandler);
+        this.__fieldNode.removeEventListener(
+          'field-value-changed',
+          this.__fieldValueChangedHandler,
+        );
         this.__fieldNode.removeEventListener('field-became-valid', this.__fieldBecamesValidHandler);
-        this.__fieldNode.removeEventListener('field-became-invalid', this.__fieldBecamesInvalidHandler);
+        this.__fieldNode.removeEventListener(
+          'field-became-invalid',
+          this.__fieldBecamesInvalidHandler,
+        );
         this.__fieldNode.removeEventListener('this-metas-changed', this.__fieldMetasChangedHandler);
       }
     }

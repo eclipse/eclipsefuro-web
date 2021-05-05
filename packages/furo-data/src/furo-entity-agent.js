@@ -156,7 +156,6 @@ class FuroEntityAgent extends FBP(LitElement) {
                   body[field._name][key] = val[key];
                 }
               }
-
             } else {
               body[field._name] = val;
             }

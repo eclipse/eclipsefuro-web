@@ -88,7 +88,7 @@ export class FuroDataObject extends LitElement {
    *
    * Useful for working with deltas
    */
-  setPristine(){
+  setPristine() {
     this.data.setAllToPristine();
   }
 

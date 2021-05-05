@@ -68,13 +68,14 @@ export class DataObject extends EventTreeNode {
    * set all children to pristine
    * useful for deltas
    */
-  setAllToPristine(){
+  setAllToPristine() {
     /**
      * Broadcast Event
      * this will set all fields as pristine and end enable the validation
      */
     this.broadcastEvent(new NodeEvent('new-data-injected', this));
   }
+
   /**
    * Injecten eines raw models wie bspw body oder entity einer collection
    * @param rawEntity

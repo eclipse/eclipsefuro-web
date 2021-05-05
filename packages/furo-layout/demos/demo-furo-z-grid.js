@@ -7,9 +7,7 @@ import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/layout/src/furo-catalog.js';
 
-
 class DemoFuroZGrid extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -17,20 +15,21 @@ class DemoFuroZGrid extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return (
+      Theme.getThemeForComponent(this.name) ||
+      css`
         :host {
-            display: block;
-            height: 100%;
-            padding-right: var(--spacing);
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
         }
 
         :host([hidden]) {
-            display: none;
+          display: none;
         }
-
-    `
+      `
+    );
   }
-
 
   /**
    * @private
@@ -42,18 +41,17 @@ class DemoFuroZGrid extends FBP(LitElement) {
       <furo-vertical-flex>
         <div>
           <h2>Resize your screen ...</h2>
-
         </div>
         <furo-demo-snippet flex>
           <template>
             <furo-vertical-scroller>
-                <style>
-                  .demopanel {
-                    padding: 0;
-                    margin-bottom: 40px;
-                    height: 100%;
-                    background: #eee;
-                    background-image: linear-gradient(
+              <style>
+                .demopanel {
+                  padding: 0;
+                  margin-bottom: 40px;
+                  height: 100%;
+                  background: #eee;
+                  background-image: linear-gradient(
                       45deg,
                       rgba(0, 0, 0, 0.2) 25%,
                       transparent 0,
@@ -67,14 +65,14 @@ class DemoFuroZGrid extends FBP(LitElement) {
                       transparent 75%,
                       rgba(0, 0, 0, 0.2) 0
                     );
-                    background-size: 30px 30px;
-                    background-position: 0 0, 15px 15px;
-                    border: 1px solid #666666;
-                  }
-                  furo-z-grid div{
-                    border: 1px solid black;
-                  }
-                </style>
+                  background-size: 30px 30px;
+                  background-position: 0 0, 15px 15px;
+                  border: 1px solid #666666;
+                }
+                furo-z-grid div {
+                  border: 1px solid black;
+                }
+              </style>
 
               <h3>Default</h3>
               <p>By default the panel is collapsible</p>
@@ -89,7 +87,9 @@ class DemoFuroZGrid extends FBP(LitElement) {
                   <div newline vspan="1" hspan="4" style="background: rebeccapurple;">4x1</div>
                   <div vspan="1" hspan="4" style="background: rebeccapurple;">4x1</div>
                   <div vspan="1" hspan="5" style="background: darkolivegreen;">5x1</div>
-                  <div hspan="full" style="background: papayawhip;">full width, no height given</div>
+                  <div hspan="full" style="background: papayawhip;">
+                    full width, no height given
+                  </div>
                 </furo-z-grid>
               </div>
             </furo-vertical-scroller>
@@ -100,4 +100,4 @@ class DemoFuroZGrid extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-z-grid', DemoFuroZGrid );
+window.customElements.define('demo-furo-z-grid', DemoFuroZGrid);
