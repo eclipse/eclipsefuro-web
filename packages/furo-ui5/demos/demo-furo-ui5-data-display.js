@@ -131,9 +131,9 @@ class DemoFuroUi5DataDisplay extends FBP(LitElement) {
             ƒ-bind-data="--entity(*.data.single_type_property)"
           ></furo-ui5-data-display>
 
-          <!--          <furo-ui5-data-display-->
-          <!--            ƒ-bind-data="&#45;&#45;entity(*.data.type_property)"-->
-          <!--          ></furo-ui5-data-display>-->
+          <furo-ui5-data-propertylist-display
+            ƒ-bind-data="--entity(*.data.type_property)"
+          ></furo-ui5-data-propertylist-display>
 
           <furo-ui5-data-display
             ƒ-bind-data="--entity(*.data.furo_data_color_input)"
