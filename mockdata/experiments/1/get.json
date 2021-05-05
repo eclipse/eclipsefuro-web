@@ -180,6 +180,25 @@
       },
       {
         "data": {
+          "@type": "xx/furo.IntegerProperty",
+          "data": "313144",
+          "display_name": "Integer Property"
+        },
+        "id": "int3",
+        "code": "integer",
+        "meta": {
+          "fields": {
+            "data.data": {
+              "meta": {
+                "label": "furo integer property",
+                "hint": "this is a integer property"
+              }
+            }
+          }
+        }
+      },
+      {
+        "data": {
           "@type": "xx/google.protobuf.BoolValue",
           "value": true
         },

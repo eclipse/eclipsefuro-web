@@ -35,7 +35,8 @@ export class DisplayFuroPropertyRepeatsLabeled extends DisplayFuroPropertyRepeat
         const label = document.createElement('ui5-label');
         label.setAttribute('slot', 'label');
         label.setAttribute('label', '');
-        label.innerText = item.display_name || '';
+
+        label.innerText = this._getPropertyLabel(item);
         wrapper.appendChild(label);
         wrapper.appendChild(element);
 
@@ -49,6 +50,23 @@ export class DisplayFuroPropertyRepeatsLabeled extends DisplayFuroPropertyRepeat
       });
       this.requestUpdate();
     }
+  }
+
+  /**
+   * resolve label for furo.Property repeated item
+   * @param item
+   * @returns {string}
+   * @private
+   */
+  _getPropertyLabel(item){
+    let label = item.display_name || '';
+
+    if (item.meta && item.meta.fields && item.meta.fields['data.data']){
+      if (item.meta.fields['data.data'] && item.meta.fields['data.data'].meta) {
+        label = item.meta.fields['data.data'].meta.label || label;
+      }
+    }
+    return label;
   }
 }
 
