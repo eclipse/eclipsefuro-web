@@ -1,4 +1,5 @@
-import { LitElement } from 'lit-element';
+import { LitElement, css } from 'lit-element';
+import { Theme } from '@furo/framework'
 
 /**
  * `display-google-protobuf-any`
@@ -17,6 +18,22 @@ class DisplayGoolgeProtobufAny extends LitElement {
     super(props);
     this.tabularForm = false;
     this._typeResolved = false;
+  }
+
+  /**
+   * Component styles
+   * @returns {*}
+   */
+  static get styles() {
+    // language=CSS
+    return (
+      Theme.getThemeForComponent('DisplayDouble') ||
+      css`
+        :host {
+          display: none;
+        }
+      `
+    );
   }
 
   /**

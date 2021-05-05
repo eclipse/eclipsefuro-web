@@ -1,6 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
-import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 import { FieldNode } from '@furo/data/src/lib/FieldNode';
 import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
 
@@ -24,7 +23,8 @@ import './furo-ui5-form-field-container.js';
  * @demo demo-furo-ui5-form-field-container Mixed Form
  * @appliesMixin FBP
  */
-export class FuroUi5DataDisplay extends FBP(FieldNodeAdapter(LitElement)) {
+export class FuroUi5DataDisplay extends FBP(LitElement) {
+
   constructor(props) {
     super(props);
     this.label = '';
@@ -89,7 +89,15 @@ export class FuroUi5DataDisplay extends FBP(FieldNodeAdapter(LitElement)) {
    * @param fieldNode
    */
   bindData(fieldNode) {
-    if (fieldNode instanceof FieldNode || fieldNode instanceof RepeaterNode) {
+    this.__fieldMetasChangedHandler = () => {
+      const fnMeta = fieldNode._meta;
+
+      if (this.label !== fnMeta.label) {
+        this.label = fnMeta.label;
+      }
+    };
+
+    if (!(fieldNode instanceof FieldNode || fieldNode instanceof RepeaterNode)) {
       // eslint-disable-next-line no-console
       console.warn('Invalid fieldNode in bindData', this);
       return;
@@ -98,6 +106,7 @@ export class FuroUi5DataDisplay extends FBP(FieldNodeAdapter(LitElement)) {
     if (fieldNode._meta && fieldNode._meta.label) {
       this.label = fieldNode._meta.label;
     }
+    fieldNode.addEventListener('this-metas-changed', this.__fieldMetasChangedHandler);
 
     this._FBPTriggerWire('--data', fieldNode);
   }
