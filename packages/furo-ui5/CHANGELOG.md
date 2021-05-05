@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.27.0...@furo/ui5@0.27.1) (2021-05-05)
+
+
+### Bug Fixes
+
+* map fat attribute max to maxlength ([5a6865f](https://github.com/theNorstroem/FuroBaseComponents/commit/5a6865fedb8ce94ca7fcd78b56034af420033e69))
+
+
+
+
+
 # [0.27.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.26.2...@furo/ui5@0.27.0) (2021-04-30)
 
 
