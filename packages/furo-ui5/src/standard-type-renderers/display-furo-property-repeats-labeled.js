@@ -59,14 +59,19 @@ export class DisplayFuroPropertyRepeatsLabeled extends DisplayFuroPropertyRepeat
    * @private
    */
   _getPropertyLabel(item){
-    let label = item.display_name || '';
+    let label =  '';
 
     if (item.meta && item.meta.fields && item.meta.fields['data.data']){
       if (item.meta.fields['data.data'] && item.meta.fields['data.data'].meta) {
         label = item.meta.fields['data.data'].meta.label || label;
       }
     }
-    return label;
+    if (item.meta && item.meta.fields && item.meta.fields.data){
+      if (item.meta.fields.data && item.meta.fields.data.meta) {
+        label = item.meta.fields.data.meta.label || label;
+      }
+    }
+    return label || item.display_name;
   }
 }
 
