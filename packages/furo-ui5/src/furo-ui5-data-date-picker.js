@@ -52,6 +52,8 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
   constructor() {
     super();
 
+    this.formatPattern = ''; // needed to avoid cldr errors
+
     // used to restore the state after a invalidation -> validation change
     this._previousValueState = { state: 'None', message: '' };
 
