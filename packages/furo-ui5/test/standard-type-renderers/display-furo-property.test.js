@@ -15,7 +15,9 @@ describe('display-furo-property', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <display-furo-property ƒ-bind-data="--dao(*.data.single_type_property)"></display-furo-property>
+          <display-furo-property
+            ƒ-bind-data="--dao(*.data.single_type_property)"
+          ></display-furo-property>
           <furo-data-object type="experiment.Experiment" @-object-ready="--dao"></furo-data-object>
         </template>
       </test-bind>
@@ -35,34 +37,38 @@ describe('display-furo-property', () => {
   });
 
   it('should accept a field of type furo.Property', done => {
-    dao.injectRaw({data: {single_type_property: {
-          "data": {
-            "@type": "xx/google.type.Date",
-            "day": 8,
-            "month": 11,
-            "year": 2022,
-            "display_name": "8.11.2022"
+    dao.injectRaw({
+      data: {
+        single_type_property: {
+          data: {
+            '@type': 'xx/google.type.Date',
+            day: 8,
+            month: 11,
+            year: 2022,
+            display_name: '8.11.2022',
           },
-          "display_name": "a date",
-          "id": "date",
-          "code": "date",
-          "meta": {
-            "fields": {
-              "data": {
-                "meta": {
-                  "label": "Additional fields",
-                  "hint": "this is data"
+          display_name: 'a date',
+          id: 'date',
+          code: 'date',
+          meta: {
+            fields: {
+              data: {
+                meta: {
+                  label: 'Additional fields',
+                  hint: 'this is data',
                 },
-                "constraints": {
-                  "min": {
-                    "is": "2019-09-09",
-                    "message": "to small"
-                  }
-                }
-              }
-            }
-          }
-        }}})
+                constraints: {
+                  min: {
+                    is: '2019-09-09',
+                    message: 'to small',
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
 
     assert.equal(display.nodeName.toLowerCase(), 'display-furo-property');
     done();

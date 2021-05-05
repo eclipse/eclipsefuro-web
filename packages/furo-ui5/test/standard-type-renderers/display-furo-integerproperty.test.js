@@ -12,25 +12,25 @@ describe('display-furo-integerproperty', () => {
   let dao;
 
   const testData = {
-    "data": {
-      "@type": "xx/furo.IntegerProperty",
-      "data": 342,
-      "display_name": "342"
+    data: {
+      '@type': 'xx/furo.IntegerProperty',
+      data: 342,
+      display_name: '342',
     },
-    "display_name": "Display",
-    "id": "op33t",
-    "code": "option",
-    "meta": {
-      "fields": {
-        "data.data": {
-          "meta": {
-            "label": "Integer",
-            "hint": "Type in int"
-          }
-        }
-      }
-    }
-  }
+    display_name: 'Display',
+    id: 'op33t',
+    code: 'option',
+    meta: {
+      fields: {
+        'data.data': {
+          meta: {
+            label: 'Integer',
+            hint: 'Type in int',
+          },
+        },
+      },
+    },
+  };
 
   beforeEach(async () => {
     const testbind = await fixture(html`
@@ -56,16 +56,14 @@ describe('display-furo-integerproperty', () => {
   });
 
   it('should accept a fieldNode of type furo.integerproperty', done => {
-    dao.data.type_property.addEventListener('this-repeated-field-changed', ()=>{
-      setTimeout(()=>{
+    dao.data.type_property.addEventListener('this-repeated-field-changed', () => {
+      setTimeout(() => {
         assert.equal(display._displayValue, '342');
         done();
-      },16)
-
-    })
+      }, 16);
+    });
     dao.data.type_property.add(testData);
     display.bindData(dao.data.type_property.repeats[0].data);
-
   });
 
   // axeReport a11y tests

@@ -27,6 +27,7 @@ import './display-furo-type-date.js';
 import './display-furo-reference.js';
 import './display-furo-property.js';
 import './display-furo-property-repeats.js';
+import './display-furo-property-repeats-labeled.js';
 import './display-furo-numberproperty.js';
 import './display-furo-integerproperty.js';
 import './display-furo-stringoptionproperty.js';

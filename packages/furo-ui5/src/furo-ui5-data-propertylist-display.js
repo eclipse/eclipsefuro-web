@@ -1,8 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
-import { FieldNode } from '@furo/data/src/lib/FieldNode';
 import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
-
 /**
  * `furo-ui5-data-propertylist-display` allows the user to show repeated properties (furo.Property) in a readonly mode.
  * For all other types you can use furo-ui5-data-display.
@@ -52,12 +50,25 @@ class FuroUi5DataPropertylistDisplay extends FBP(LitElement) {
     return {};
   }
 
+  /**
+   * Component styles
+   * @returns {*[]}
+   */
   static get styles() {
     // language=CSS
     return [
       css`
         :host {
+          display: inline;
+          --furo-ui5-form-field-container-grid-row-gap: 0;
+        }
+        :host([hidden]) {
           display: none;
+        }
+
+        ui5-label[data-size='size-s'],
+        ui5-label[data-size='size-m'] {
+          padding-top: 0;
         }
       `,
     ];
@@ -70,14 +81,15 @@ class FuroUi5DataPropertylistDisplay extends FBP(LitElement) {
    */
   bindData(fieldNode) {
     // check if we have a RepeaterNode of type furo.Property
-    if (
-      !(
-        fieldNode instanceof RepeaterNode &&
-        fieldNode._spec.type === 'furo.Property'
-      )
-    ) {
+    if (!(fieldNode instanceof RepeaterNode && fieldNode._spec.type === 'furo.Property')) {
       // eslint-disable-next-line no-console
-      console.warn('Invalid binding ', fieldNode, 'is not a RepeaterNode of type furo.Property', this, this.parentNode);
+      console.warn(
+        'Invalid binding ',
+        fieldNode,
+        'is not a RepeaterNode of type furo.Property',
+        this,
+        this.parentNode,
+      );
       return false;
     }
 
@@ -92,7 +104,11 @@ class FuroUi5DataPropertylistDisplay extends FBP(LitElement) {
    */
   render() {
     // language=HTML
-    return html``;
+    return html`
+      <display-furo-property-repeats-labeled
+        ƒ-bind-data="--data"
+      ></display-furo-property-repeats-labeled>
+    `;
   }
 }
 

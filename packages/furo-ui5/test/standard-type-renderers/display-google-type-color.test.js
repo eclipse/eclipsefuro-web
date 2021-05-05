@@ -34,7 +34,6 @@ describe('display-google-type-color', () => {
     done();
   });
 
-
   // axeReport a11y tests
   xit('a11y', () => axeReport(display));
 });

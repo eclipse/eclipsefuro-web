@@ -15,7 +15,9 @@ describe('display-furo-property-repeats', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <display-furo-property-repeats ƒ-bind-data="--dao(*.data.type_property)"></display-furo-property-repeats>
+          <display-furo-property-repeats
+            ƒ-bind-data="--dao(*.data.type_property)"
+          ></display-furo-property-repeats>
           <furo-data-object type="experiment.Experiment" @-object-ready="--dao"></furo-data-object>
         </template>
       </test-bind>

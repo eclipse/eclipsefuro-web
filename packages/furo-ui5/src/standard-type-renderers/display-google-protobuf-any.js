@@ -1,5 +1,5 @@
 import { LitElement, css } from 'lit-element';
-import { Theme } from '@furo/framework'
+import { Theme } from '@furo/framework';
 
 /**
  * `display-google-protobuf-any`
