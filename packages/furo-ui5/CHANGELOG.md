@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.27.2...@furo/ui5@0.27.3) (2021-05-05)
+
+
+### Bug Fixes
+
+* cldr workaround for date picker ([04d0420](https://github.com/theNorstroem/FuroBaseComponents/commit/04d04208030c3056d56fbe13a17a2fd616adb3ee))
+
+
+
+
+
 ## [0.27.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.27.1...@furo/ui5@0.27.2) (2021-05-05)
 
 
