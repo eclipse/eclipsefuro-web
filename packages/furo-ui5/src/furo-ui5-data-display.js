@@ -105,6 +105,7 @@ export class FuroUi5DataDisplay extends FBP(FieldNodeAdapter(LitElement)) {
   /**
    * Get label changes of bound fieldNode
    * @param label
+   * @private
    */
   onFnaLabelChanged(label) {
     this.label = label;

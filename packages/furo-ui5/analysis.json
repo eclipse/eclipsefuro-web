@@ -3377,14 +3377,14 @@
         {
           "name": "onFnaLabelChanged",
           "description": "Get label changes of bound fieldNode",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 108,
+              "line": 109,
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 111,
               "column": 3
             }
           },
@@ -3404,11 +3404,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 116,
+              "line": 117,
               "column": 2
             },
             "end": {
-              "line": 128,
+              "line": 129,
               "column": 3
             }
           },
@@ -3445,7 +3445,7 @@
           "column": 7
         },
         "end": {
-          "line": 129,
+          "line": 130,
           "column": 1
         }
       },
@@ -16599,7 +16599,7 @@
               "column": 2
             },
             "end": {
-              "line": 98,
+              "line": 96,
               "column": 3
             }
           },
@@ -16624,7 +16624,7 @@
           "column": 0
         },
         "end": {
-          "line": 99,
+          "line": 97,
           "column": 1
         }
       },
