@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.27.3...@furo/ui5@0.27.4) (2021-05-05)
+
+
+### Bug Fixes
+
+* createing of elements in constructor removed ([3252259](https://github.com/theNorstroem/FuroBaseComponents/commit/325225952193e559233f7ced0f04106ba5cfbbfc))
+
+
+
+
+
 ## [0.27.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.27.2...@furo/ui5@0.27.3) (2021-05-05)
 
 
