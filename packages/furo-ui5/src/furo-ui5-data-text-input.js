@@ -119,11 +119,6 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
       }
     });
 
-    // created to avoid the default messages from ui5
-    this._valueStateElement = document.createElement('div');
-    this._valueStateElement.setAttribute('slot', 'valueStateMessage');
-    // eslint-disable-next-line wc/no-constructor-attributes
-    this.appendChild(this._valueStateElement);
   }
 
   /**
