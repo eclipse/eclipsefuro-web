@@ -1,5 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
-import { FBP } from '@furo/fbp';
+import { LitElement } from 'lit-element';
 import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
 /**
  * `furo-ui5-data-propertylist-display` allows the user to show repeated properties (furo.Property) in a readonly mode.
@@ -37,42 +36,7 @@ import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
  * @demo demo-furo-ui5-data-propertylist-display Basic Usage
  * @appliesMixin FBP
  */
-class FuroUi5DataPropertylistDisplay extends FBP(LitElement) {
-  /**
-   * flow is ready lifecycle method
-   */
-  _FBPReady() {
-    super._FBPReady();
-    // this._FBPTraceWires();
-  }
-
-  static get properties() {
-    return {};
-  }
-
-  /**
-   * Component styles
-   * @returns {*[]}
-   */
-  static get styles() {
-    // language=CSS
-    return [
-      css`
-        :host {
-          display: inline;
-          --furo-ui5-form-field-container-grid-row-gap: 0;
-        }
-        :host([hidden]) {
-          display: none;
-        }
-
-        ui5-label[data-size='size-s'],
-        ui5-label[data-size='size-m'] {
-          padding-top: 0;
-        }
-      `,
-    ];
-  }
+class FuroUi5DataPropertylistDisplay extends LitElement {
 
   /**
    * Binds a RepeaterNode of type furo.Property.
@@ -93,23 +57,13 @@ class FuroUi5DataPropertylistDisplay extends FBP(LitElement) {
       return false;
     }
 
-    this._FBPTriggerWire('--data', fieldNode);
+    const displayProxyElement = document.createElement('display-furo-property-repeats-labeled');
+    displayProxyElement.bindData(fieldNode);
+    this.parentNode.insertBefore(displayProxyElement, this);
 
     return true;
   }
 
-  /**
-   * @private
-   * @returns {TemplateResult|TemplateResult}
-   */
-  render() {
-    // language=HTML
-    return html`
-      <display-furo-property-repeats-labeled
-        ƒ-bind-data="--data"
-      ></display-furo-property-repeats-labeled>
-    `;
-  }
 }
 
 window.customElements.define('furo-ui5-data-propertylist-display', FuroUi5DataPropertylistDisplay);
