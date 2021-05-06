@@ -33,7 +33,7 @@ import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
  *
  * @summary
  * @customElement
- * @demo demo-furo-ui5-data-propertylist-display Basic Usage
+ * @demo demo-furo-ui5-data-display Basic Usage
  * @appliesMixin FBP
  */
 class FuroUi5DataPropertylistDisplay extends LitElement {
