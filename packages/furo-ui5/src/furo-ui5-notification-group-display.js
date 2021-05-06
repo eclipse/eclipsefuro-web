@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
 import 'markdown-it/dist/markdown-it.js';
 import '@ui5/webcomponents-fiori/dist/NotificationListGroupItem.js';
+import '@ui5/webcomponents-fiori/dist/NotificationListItem.js';
 import '@ui5/webcomponents-fiori/dist/NotificationAction.js';
 import '@ui5/webcomponents/dist/List.js';
 import { Theme } from '@furo/framework/src/theme.js';
@@ -16,7 +17,7 @@ import { Theme } from '@furo/framework/src/theme.js';
  *
  * @summary ui5 notification group display
  * @customElement
- * @demo demo-furo-ui5-notification-list-display ui5 notification display demo
+ * @demo demo-furo-ui5-notification-group-display Basic Usage
  */
 class FuroUi5NotificationGroupDisplay extends FBP(LitElement) {
   constructor() {
@@ -143,7 +144,7 @@ class FuroUi5NotificationGroupDisplay extends FBP(LitElement) {
          */
         if (n.actions && Array.isArray(n.actions)) {
           n.actions.forEach(a => {
-            const action = document.createElement('ui5-notification-overflow-action');
+            const action = document.createElement('ui5-notification-action');
             action.setAttribute('icon', a.icon);
             action.setAttribute('text', a.text);
             action.setAttribute('action', a.command);

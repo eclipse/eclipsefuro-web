@@ -65,7 +65,7 @@ class DemoFuroUi5NotificationListDisplay extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-            <ui5-shellbar @-notifications-click="--notificationsRequested(*.target)"
+            <ui5-shellbar @-notifications-click="--notificationsRequested(*.detail.targetRef)"
                           primary-title="gRPC Status Notifications"
                           secondary-title=""
                           ƒ-.notification-count="--notificationCounterUpdated"
