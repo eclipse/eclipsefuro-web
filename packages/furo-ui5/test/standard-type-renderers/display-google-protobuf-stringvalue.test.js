@@ -4,9 +4,9 @@ import { axeReport } from 'pwa-helpers/axe-report.js';
 import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/testhelper/initEnv.js';
-import '../../src/standard-type-renderers/display-google-type-color.js';
+import '../../src/standard-type-renderers/display-google-protobuf-stringvalue.js';
 
-describe('display-google-type-color', () => {
+describe('display-google-protobuf-stringvalue', () => {
   let host;
   let display;
   let dao;
@@ -15,7 +15,7 @@ describe('display-google-type-color', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <display-google-type-color></display-google-type-color>
+          <display-google-protobuf-stringvalue ƒ-bind-data="--dao(*.single_type_property)"></display-google-protobuf-stringvalue>
           <furo-data-object type="experiment.Experiment" @-object-ready="--dao"></furo-data-object>
         </template>
       </test-bind>
@@ -28,17 +28,10 @@ describe('display-google-type-color', () => {
     await dao.updateComplete;
   });
 
-  it('should be a display-google-type-color element', done => {
+  it('should be a display-google-protobuf-stringvalue element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(display.nodeName.toLowerCase(), 'display-google-type-color');
+    assert.equal(display.nodeName.toLowerCase(), 'display-google-protobuf-stringvalue');
     done();
-  });
-
-  it('should only be bindable with google.type.Color', done => {
-    if (!display.bindData(dao.data.display_name)){
-      done();
-    }
-
   });
 
   // axeReport a11y tests

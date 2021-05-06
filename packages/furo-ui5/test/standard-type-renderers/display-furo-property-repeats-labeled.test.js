@@ -4,9 +4,9 @@ import { axeReport } from 'pwa-helpers/axe-report.js';
 import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/testhelper/initEnv.js';
-import '../../src/standard-type-renderers/display-google-type-color.js';
+import '../../src/standard-type-renderers/display-furo-property-repeats.js';
 
-describe('display-google-type-color', () => {
+describe('display-furo-property-repeats-labeled', () => {
   let host;
   let display;
   let dao;
@@ -15,7 +15,9 @@ describe('display-google-type-color', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <display-google-type-color></display-google-type-color>
+          <display-furo-property-repeats-labeled
+            ƒ-bind-data="--dao(*.data.type_property)"
+          ></display-furo-property-repeats-labeled>
           <furo-data-object type="experiment.Experiment" @-object-ready="--dao"></furo-data-object>
         </template>
       </test-bind>
@@ -28,17 +30,10 @@ describe('display-google-type-color', () => {
     await dao.updateComplete;
   });
 
-  it('should be a display-google-type-color element', done => {
+  it('should be a display-furo-property-repeats-labeled element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(display.nodeName.toLowerCase(), 'display-google-type-color');
+    assert.equal(display.nodeName.toLowerCase(), 'display-furo-property-repeats-labeled');
     done();
-  });
-
-  it('should only be bindable with google.type.Color', done => {
-    if (!display.bindData(dao.data.display_name)){
-      done();
-    }
-
   });
 
   // axeReport a11y tests

@@ -33,7 +33,7 @@
           "data": "String01032020"
         },
         "flags": ["is-overwritable", "my-prop"],
-        "display_name": "Vertragsbeginn",
+        "display_name": "Contract",
         "id": "246d79a0-0a15-43c5-b18f-ac8a4a449df1",
         "meta": {
           "fields": {
@@ -41,11 +41,11 @@
               "constraints": {
                 "required": {
                   "is": "true",
-                  "message": "Bitte ausfüllen!"
+                  "message": "Please register a value!"
                 }
               },
               "meta": {
-                "label": "Vertragsbeginn custom label",
+                "label": "Custom label",
                 "readonly": false
               }
             }
@@ -60,15 +60,15 @@
           "year": 2022,
           "display_name": "8.11.2022"
         },
-        "display_name": "a date",
+        "display_name": "A google.type.Date",
         "id": "a",
         "code": "date",
         "meta": {
           "fields": {
             "data": {
               "meta": {
-                "label": "datelabel",
-                "hint": "datehint is data",
+                "label": "Google Date",
+                "hint": "Additional information",
                 "readonly": true
               },
               "constraints": {
