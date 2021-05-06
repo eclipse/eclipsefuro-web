@@ -62,19 +62,18 @@ class DemoFuroUi5NotificationGroupDisplay extends FBP(LitElement) {
       <furo-vertical-flex>
         <div>
           <h2>Demo furo-ui5-notification-group-display</h2>
+          <p>The furo-ui5-notification-group-display is a special type of list item, that unlike others can group items within self. Use it together with the furo-ui5-notification component.</p>
         </div>
         <furo-demo-snippet flex>
           <template>
             <ui5-shellbar primary-title="gRPC Status Notifications"
                           secondary-title=""
-                          ƒ-.notification-count="--notificationCounterUpdated"
                           show-notifications
             ></ui5-shellbar>
 
             <!-- Notification Handling, display and creator components-->
             <furo-ui5-notification-group-display ƒ-clear-all="--clearRequested"
-                                                 show-counter
-                                                 @-notification-counter-update="--notificationCounterUpdated"></furo-ui5-notification-group-display>
+                                                 show-counter></furo-ui5-notification-group-display>
 
             <furo-ui5-notification ƒ-inject-notification-collection="--notificationReady"></furo-ui5-notification>
 

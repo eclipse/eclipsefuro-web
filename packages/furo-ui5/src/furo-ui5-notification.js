@@ -141,8 +141,8 @@ class FuroUi5Notification extends LitElement {
   }
 
   /**
-   * inject a collection of notification messages.
-   * the notification message should be a furo.notification type:
+   * inject an array of notification messages.
+   * the notification message should be an array of the following object signature:
    * {
    *  "id": 1,
    *  "display_name": "",

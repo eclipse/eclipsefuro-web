@@ -15360,7 +15360,7 @@
         },
         {
           "name": "injectNotificationCollection",
-          "description": "inject a collection of notification messages.\nthe notification message should be a furo.notification type:\n{\n \"id\": 1,\n \"display_name\": \"\",\n \"heading\": \"heading 1\",\n \"message_priority\": \"High\",\n \"category\": \"warning\",\n \"category_priority\": \"High\",\n \"actions\": [\n   {\n     \"icon\":\"accept\",\n     \"command\":\"accept\",\n     \"text\": \"accept\"\n   },\n   {\n     \"icon\":\"message-error\",\n     \"command\":\"reject\",\n     \"text\": \"Reject\"\n   }\n ],\n \"message\": \"Markdown | Less | Pretty\\n--- | --- | ---\\n*Still* | `renders` | **nicely**\\n1 | 2 | 3\"\n}",
+          "description": "inject an array of notification messages.\nthe notification message should be an array of the following object signature:\n{\n \"id\": 1,\n \"display_name\": \"\",\n \"heading\": \"heading 1\",\n \"message_priority\": \"High\",\n \"category\": \"warning\",\n \"category_priority\": \"High\",\n \"actions\": [\n   {\n     \"icon\":\"accept\",\n     \"command\":\"accept\",\n     \"text\": \"accept\"\n   },\n   {\n     \"icon\":\"message-error\",\n     \"command\":\"reject\",\n     \"text\": \"Reject\"\n   }\n ],\n \"message\": \"Markdown | Less | Pretty\\n--- | --- | ---\\n*Still* | `renders` | **nicely**\\n1 | 2 | 3\"\n}",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -15611,7 +15611,7 @@
         },
         {
           "name": "_groupNotifications",
-          "description": "group the notification messages\nthe notification message should be a furo.notification type:\n{\n \"id\": 1,\n \"display_name\": \"\",\n \"heading\": \"heading 1\",\n \"message_priority\": \"High\",\n \"category\": \"warning\",  // this attribute will be also used as group heading\n \"category_priority\": \"High\",\n \"actions\": [\n   {\n     \"icon\":\"accept\",\n     \"command\":\"accept\",\n     \"text\": \"accept\"\n   },\n   {\n     \"icon\":\"message-error\",\n     \"command\":\"reject\",\n     \"text\": \"Reject\"\n   }\n ],\n \"message\": \"Markdown | Less | Pretty\\n--- | --- | ---\\n*Still* | `renders` | **nicely**\\n1 | 2 | 3\"\n}",
+          "description": "group the notification messages\nthe notification message should be an array of the following object signature:\n{\n \"id\": 1,\n \"display_name\": \"\",\n \"heading\": \"heading 1\",\n \"message_priority\": \"High\",\n \"category\": \"warning\",  // this attribute will be also used as group heading\n \"category_priority\": \"High\",\n \"actions\": [\n   {\n     \"icon\":\"accept\",\n     \"command\":\"accept\",\n     \"text\": \"accept\"\n   },\n   {\n     \"icon\":\"message-error\",\n     \"command\":\"reject\",\n     \"text\": \"Reject\"\n   }\n ],\n \"message\": \"Markdown | Less | Pretty\\n--- | --- | ---\\n*Still* | `renders` | **nicely**\\n1 | 2 | 3\"\n}",
           "privacy": "private",
           "sourceRange": {
             "start": {

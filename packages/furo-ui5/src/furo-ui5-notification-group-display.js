@@ -69,7 +69,7 @@ class FuroUi5NotificationGroupDisplay extends FBP(LitElement) {
 
   /**
    * group the notification messages
-   * the notification message should be a furo.notification type:
+   * the notification message should be an array of the following object signature:
    * {
    *  "id": 1,
    *  "display_name": "",
