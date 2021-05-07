@@ -189,7 +189,13 @@ export class DataObject extends EventTreeNode {
       } else if (fieldNode._isRepeater) {
         // const initialSize = fieldNode.repeats.length;
 
-        // fieldNode.removeAllChildren();
+        fieldNode.dispatchNodeEvent(
+          new NodeEvent('before-repeated-field-changed', fieldNode, false)
+        );
+
+        if(fieldNode.clearListOnNewData){
+          fieldNode.removeAllChildren();
+        }
 
         // update records
         data[fieldName].forEach((repdata, i) => {
