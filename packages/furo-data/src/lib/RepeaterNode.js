@@ -168,9 +168,6 @@ export class RepeaterNode extends EventTreeNode {
 
     if (Array.isArray(val)) {
 
-      this.__parentNode.dispatchNodeEvent(
-        new NodeEvent('before-repeated-field-changed', this, false),
-      );
       this.dispatchNodeEvent(new NodeEvent('before-repeated-field-changed', this, false));
 
       if(this.clearListOnNewData){
