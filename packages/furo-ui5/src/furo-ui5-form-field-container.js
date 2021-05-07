@@ -155,7 +155,7 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
         .container {
           display: grid;
           grid-template-columns: repeat(12, 1fr);
-          grid-row-gap: var(--furo-ui5-form-field-container-grid-row-gap, 1em);
+          grid-row-gap: var(--furo-ui5-form-field-container-grid-row-gap, 0);
           grid-column-gap: var(--furo-ui5-form-field-container-grid-column-gap, 1em);
         }
 
@@ -180,6 +180,7 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
         }
 
         ::slotted(*[label][data-size*='size-s']) {
+          padding-top: 0;
           grid-column: span 12;
           justify-self: start;
         }
@@ -190,6 +191,7 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
         }
 
         ::slotted(*[label][data-size*='size-m']) {
+          padding-top: 0;
           grid-column: span 3;
           place-self: start var(--furo-ui5-form-field-container-label-justify, end);
         }

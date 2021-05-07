@@ -16,6 +16,13 @@ import '@ui5/webcomponents/dist/ColorPalette.js';
  * @demo demo display-google-type-color Basic Usage
  */
 class DisplayGoolgeTypeColor extends LitElement {
+  constructor() {
+    super();
+    this._red = '';
+    this._green = '';
+    this._blue = '';
+  }
+
   static get styles() {
     // language=CSS
     return (
@@ -55,15 +62,28 @@ class DisplayGoolgeTypeColor extends LitElement {
     if (this._field) {
       if (this._field._spec.type !== 'google.type.color') {
         // eslint-disable-next-line no-console
-        console.warn('Invalid fieldNode in bindData. please bind a google.type.color field.');
+        console.warn('Invalid fieldNode in bindData. Please bind a google.type.color field.');
         return;
       }
+      this._updateValue();
+
       this._field.addEventListener('field-value-changed', () => {
+        this._updateValue();
         this.requestUpdate();
       });
 
       this.requestUpdate();
     }
+  }
+
+  /**
+   * update value properties rgb
+   * @private
+   */
+  _updateValue() {
+    this._red = this._field.red._value || '';
+    this._green = this._field.green._value || '';
+    this._blue = this._field.blue._value || '';
   }
 
   /**
@@ -75,8 +95,7 @@ class DisplayGoolgeTypeColor extends LitElement {
     return html`
       <ui5-color-palette>
         <ui5-color-palette-item
-          value="rgb(${this._field.red._value},${this._field.green._value},${this._field.blue
-            ._value})"
+          value="rgb(${this._red},${this._green},${this._blue})"
         ></ui5-color-palette-item
       ></ui5-color-palette>
     `;

@@ -99,10 +99,10 @@ export class DisplayGoogleTypeMoney extends LitElement {
    */
   static _convertTypeToNumber(fieldNode) {
     let numberStr = '';
-    if (fieldNode.units._value > 0) {
+    if (fieldNode.units && fieldNode.units._value && fieldNode.units._value > 0) {
       numberStr = fieldNode.units._value;
     }
-    if (fieldNode.nanos._value > 0) {
+    if (fieldNode.nanos && fieldNode.nanos._value && fieldNode.nanos._value > 0) {
       numberStr += `.${fieldNode.nanos._value}`;
     }
     if (numberStr > 0) {
@@ -113,7 +113,12 @@ export class DisplayGoogleTypeMoney extends LitElement {
 
   _formatDisplay() {
     this._valueObject.amount = DisplayGoogleTypeMoney._convertTypeToNumber(this._field);
-    if (this._valueObject.amount !== Number.NaN && this._field.currency_code._value.length) {
+    if (
+      this._valueObject.amount !== Number.NaN &&
+      this._field.currency_code &&
+      this._field.currency_code._value &&
+      this._field.currency_code._value.length
+    ) {
       this._displayValue = new Intl.NumberFormat(Env.locale, {
         style: 'currency',
         currency: this._field.currency_code._value,

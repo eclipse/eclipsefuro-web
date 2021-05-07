@@ -85,7 +85,7 @@ describe('furo-ui5-data-property', () => {
   it('should display properties with furo ui5 data components', done => {
     entityObject.addEventListener('data-injected', () => {
       setTimeout(() => {
-        assert.equal(dataProperty2.querySelectorAll('furo-ui5-data-property').length, 11);
+        assert.equal(dataProperty2.querySelectorAll('furo-ui5-data-property').length, 12);
         done();
       }, 100);
     });

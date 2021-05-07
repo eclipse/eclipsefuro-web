@@ -13,13 +13,18 @@
     "furo_data_password_input": "password",
     "furo_data_date_input_google": {
       "day": 31,
-      "display_name": "31.12.2020",
       "month": 12,
       "year": 2020
     },
     "google_timestamp": "1970-11-01T02:46:40.000000022Z",
     "furo_data_range_input": 31,
     "furo_data_bool_icon": false,
+    "the_any_type": {
+      "@type": "type.googleapis.com/google.type.Money",
+      "units": 1000,
+      "nanos": 55000000,
+      "currency_code": "EUR"
+    },
     "type_property": [
       {
         "code": "c0a7f550-0fbe-4046-8fa9-60c86327b6b1",
@@ -28,7 +33,7 @@
           "data": "String01032020"
         },
         "flags": ["is-overwritable", "my-prop"],
-        "display_name": "Vertragsbeginn",
+        "display_name": "Contract",
         "id": "246d79a0-0a15-43c5-b18f-ac8a4a449df1",
         "meta": {
           "fields": {
@@ -36,11 +41,11 @@
               "constraints": {
                 "required": {
                   "is": "true",
-                  "message": "Bitte ausfüllen!"
+                  "message": "Please register a value!"
                 }
               },
               "meta": {
-                "label": "Vertragsbeginn custom label",
+                "label": "Custom label",
                 "readonly": false
               }
             }
@@ -55,15 +60,15 @@
           "year": 2022,
           "display_name": "8.11.2022"
         },
-        "display_name": "a date",
+        "display_name": "A google.type.Date",
         "id": "a",
         "code": "date",
         "meta": {
           "fields": {
             "data": {
               "meta": {
-                "label": "datelabel",
-                "hint": "datehint is data",
+                "label": "Google Date",
+                "hint": "Additional information",
                 "readonly": true
               },
               "constraints": {
@@ -168,6 +173,25 @@
               "meta": {
                 "label": "repeated fields",
                 "hint": "this is data"
+              }
+            }
+          }
+        }
+      },
+      {
+        "data": {
+          "@type": "xx/furo.IntegerProperty",
+          "data": "313144",
+          "display_name": "Integer Property"
+        },
+        "id": "int3",
+        "code": "integer",
+        "meta": {
+          "fields": {
+            "data.data": {
+              "meta": {
+                "label": "furo integer property",
+                "hint": "this is a integer property"
               }
             }
           }

@@ -190,10 +190,10 @@ export class DataObject extends EventTreeNode {
         // const initialSize = fieldNode.repeats.length;
 
         fieldNode.dispatchNodeEvent(
-          new NodeEvent('before-repeated-field-changed', fieldNode, false)
+          new NodeEvent('before-repeated-field-changed', fieldNode, false),
         );
 
-        if(fieldNode.clearListOnNewData){
+        if (fieldNode.clearListOnNewData) {
           fieldNode.removeAllChildren();
         }
 

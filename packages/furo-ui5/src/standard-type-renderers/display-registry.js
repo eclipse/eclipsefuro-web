@@ -25,6 +25,13 @@ import './display-furo-link.js';
 import './display-furo-type-money.js';
 import './display-furo-type-date.js';
 import './display-furo-reference.js';
+import './display-furo-property.js';
+import './display-furo-property-repeats.js';
+import './display-furo-property-repeats-labeled.js';
+import './display-furo-numberproperty.js';
+import './display-furo-integerproperty.js';
+import './display-furo-stringoptionproperty.js';
+import './display-furo-stringproperty.js';
 
 import './display-google-type-date.js';
 import './display-google-type-money.js';
@@ -37,3 +44,4 @@ import './display-google-protobuf-int32value.js';
 import './display-google-protobuf-int64value.js';
 import './display-google-protobuf-stringvalue.js';
 import './display-google-protobuf-timestamp.js';
+import './display-google-protobuf-any.js';

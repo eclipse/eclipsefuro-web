@@ -164,13 +164,10 @@ export class RepeaterNode extends EventTreeNode {
   }
 
   set _value(val) {
-
-
     if (Array.isArray(val)) {
-
       this.dispatchNodeEvent(new NodeEvent('before-repeated-field-changed', this, false));
 
-      if(this.clearListOnNewData){
+      if (this.clearListOnNewData) {
         this.removeAllChildren();
       }
 

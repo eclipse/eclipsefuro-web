@@ -1,8 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
-import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
+import { FieldNode } from '@furo/data/src/lib/FieldNode';
+import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
 
 import '@ui5/webcomponents/dist/Label.js';
 import '@ui5/webcomponents/dist/Icon.js';
@@ -24,12 +23,11 @@ import './furo-ui5-form-field-container.js';
  * @demo demo-furo-ui5-form-field-container Mixed Form
  * @appliesMixin FBP
  */
-class FuroUi5DataDisplay extends FBP(LitElement) {
+export class FuroUi5DataDisplay extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.label = '';
     this.valueState = '';
-    this._initBinder();
   }
 
   /**
@@ -40,6 +38,9 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
     // this._FBPTraceWires();
   }
 
+  /**
+   * Component properties
+   */
   static get properties() {
     return {
       /**
@@ -57,6 +58,10 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
     };
   }
 
+  /**
+   * Component styles
+   * @returns {*[]}
+   */
   static get styles() {
     // language=CSS
     return [
@@ -78,63 +83,31 @@ class FuroUi5DataDisplay extends FBP(LitElement) {
   }
 
   /**
-   * inits the universalFieldNodeBinder.
-   * Set the mapped attributes and labels.
-   * @private
-   */
-  _initBinder() {
-    this.binder = new UniversalFieldNodeBinder(this);
-
-    this.applyBindingSet();
-  }
-
-  /**
-   * apply the binding set to the binder
-   * binding set can be customised here otherwise the standard set in the ui5-data-input will be used
-   * @param fieldNode
-   */
-  applyBindingSet() {
-    // set the attribute mappings
-    this.binder.attributeMappings = {
-      label: 'label', // map label to placeholder
-      placeholder: 'placeholder', // map placeholder to placeholder
-      hint: '_hint',
-      icon: 'ui5Icon', // icon and leading icon maps to the same
-      'leading-icon': 'ui5Icon', // icon and leading icon maps to the same
-      'value-state': '_valueState',
-      name: 'name',
-    };
-
-    // set the label mappings
-    this.binder.labelMappings = {
-      error: '_error',
-      disabled: 'disabled',
-      readonly: 'disabled',
-    };
-
-    // set attributes to constrains mapping for furo.fat types
-    this.binder.fatAttributesToConstraintsMappings = {};
-
-    // set constrains to attributes mapping for furo.fat types
-    this.binder.constraintsTofatAttributesMappings = {};
-  }
-
-  /**
    * Binds the fieldNode to the component
    * binding set can be customised here otherwise the standard bindData in the ui5-data-input will be used
    * @param fieldNode
    */
   bindData(fieldNode) {
-    if (fieldNode === undefined) {
+    this.__fieldMetasChangedHandler = () => {
+      const fnMeta = fieldNode._meta;
+
+      if (this.label !== fnMeta.label) {
+        this.label = fnMeta.label;
+      }
+    };
+
+    if (!(fieldNode instanceof FieldNode || fieldNode instanceof RepeaterNode)) {
       // eslint-disable-next-line no-console
       console.warn('Invalid fieldNode in bindData', this);
       return;
     }
 
-    Ui5LabelDataBinding.bindData(this, fieldNode);
+    if (fieldNode._meta && fieldNode._meta.label) {
+      this.label = fieldNode._meta.label;
+    }
+    fieldNode.addEventListener('this-metas-changed', this.__fieldMetasChangedHandler);
 
-    this.binder.bindField(fieldNode);
-    this._FBPTriggerWire('--data', this.binder.fieldNode);
+    this._FBPTriggerWire('--data', fieldNode);
   }
 
   /**

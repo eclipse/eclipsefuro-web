@@ -9,6 +9,7 @@ import './demo-furo-data-chart-stacked.js';
 import './demo-furo-data-chart-treemap.js';
 import './demo-furo-data-chart-bubble.js';
 import './demo-furo-data-chart-timeline.js';
+import './demo-furo-type-renderer.js';
 
 import { Init } from '@furo/framework/src/furo.js';
 
