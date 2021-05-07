@@ -58,15 +58,16 @@ export class DisplayFuroPropertyRepeatsLabeled extends DisplayFuroPropertyRepeat
    * @returns {string}
    * @private
    */
-  _getPropertyLabel(item){
-    let label =  '';
+  // eslint-disable-next-line class-methods-use-this
+  _getPropertyLabel(item) {
+    let label = '';
 
-    if (item.meta && item.meta.fields && item.meta.fields['data.data']){
+    if (item.meta && item.meta.fields && item.meta.fields['data.data']) {
       if (item.meta.fields['data.data'] && item.meta.fields['data.data'].meta) {
         label = item.meta.fields['data.data'].meta.label || label;
       }
     }
-    if (item.meta && item.meta.fields && item.meta.fields.data){
+    if (item.meta && item.meta.fields && item.meta.fields.data) {
       if (item.meta.fields.data && item.meta.fields.data.meta) {
         label = item.meta.fields.data.meta.label || label;
       }

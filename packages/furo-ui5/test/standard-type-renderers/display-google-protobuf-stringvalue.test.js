@@ -15,7 +15,9 @@ describe('display-google-protobuf-stringvalue', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <display-google-protobuf-stringvalue ƒ-bind-data="--dao(*.single_type_property)"></display-google-protobuf-stringvalue>
+          <display-google-protobuf-stringvalue
+            ƒ-bind-data="--dao(*.single_type_property)"
+          ></display-google-protobuf-stringvalue>
           <furo-data-object type="experiment.Experiment" @-object-ready="--dao"></furo-data-object>
         </template>
       </test-bind>

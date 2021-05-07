@@ -151,7 +151,7 @@ describe('furo-ui5-notification-list-display', () => {
     setTimeout(() => {
       const items = notificationList.shadowRoot.querySelectorAll('ui5-li-notification');
 
-      assert.equal(items.length, 5);
+      assert.equal(items.length, 6);
 
       done();
     }, 0);
