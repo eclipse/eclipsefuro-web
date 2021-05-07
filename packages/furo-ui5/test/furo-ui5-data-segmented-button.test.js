@@ -194,7 +194,7 @@ describe('furo-ui5-data-segmented-button', () => {
         done();
       });
 
-      input.binder.fieldNode._value = '2';
+      dao.data.owner.id._value = '2';
     });
     segmentedButton.injectEntities(testData.entities);
   });
