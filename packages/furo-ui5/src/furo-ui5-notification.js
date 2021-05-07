@@ -141,8 +141,8 @@ class FuroUi5Notification extends LitElement {
   }
 
   /**
-   * inject a collection of notification messages.
-   * the notification message should be a furo.notification type:
+   * inject an array of notification messages.
+   * the notification message should be an array of the following object signature:
    * {
    *  "id": 1,
    *  "display_name": "",
@@ -169,15 +169,7 @@ class FuroUi5Notification extends LitElement {
   injectNotificationCollection(c) {
     this.payload = c;
     this._type = 'notification';
-
-    if (c) {
-      // if notification has category. show notifications in group
-      if (c[0] && c[0].category) {
-        this._requestGroupDisplay();
-      } else {
-        this._requestListDisplay();
-      }
-    }
+    this._requestGroupDisplay();
   }
 
   static get styles() {

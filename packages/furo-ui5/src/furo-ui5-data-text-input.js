@@ -118,7 +118,6 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
         this.value = '';
       }
     });
-
   }
 
   /**

@@ -114,7 +114,6 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
         this.value = 0;
       }
     });
-
   }
 
   /**
