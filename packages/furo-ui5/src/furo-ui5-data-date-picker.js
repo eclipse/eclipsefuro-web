@@ -52,6 +52,8 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
   constructor() {
     super();
 
+    this.formatPattern = ''; // needed to avoid cldr errors
+
     // used to restore the state after a invalidation -> validation change
     this._previousValueState = { state: 'None', message: '' };
 
@@ -127,6 +129,14 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
       customEvent.detail = this.dateValue;
       this.dispatchEvent(customEvent);
     });
+  }
+
+  /**
+   * Workaround for language request
+   * @private
+   */
+  get valueStateMessage() {
+    return super.valueStateMessage || [];
   }
 
   /**
@@ -262,7 +272,7 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
     // set this first if available, the following constraints uses formatValue()
     if (constraints.pattern !== undefined) {
       this._constraintsFromFNA.pattern = constraints.pattern;
-      if (this._privilegedAttributes.patternDate === null) {
+      if (this._privilegedAttributes.formatPattern === null) {
         this.formatPattern = constraints.pattern.is;
       }
     }

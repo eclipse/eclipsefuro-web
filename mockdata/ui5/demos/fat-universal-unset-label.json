@@ -10,7 +10,7 @@
       },
       "attributes": {
         "value-state": "Warning",
-        "warning-msg": "Warning message",
+        "value-state-message": "Warning message",
         "other": "otherattribute"
       }
     },

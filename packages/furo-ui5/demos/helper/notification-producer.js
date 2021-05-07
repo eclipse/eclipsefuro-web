@@ -60,6 +60,96 @@ class NotificationProducer extends FBP(LitElement) {
     );
   }
 
+  /**
+   * Returns a notification signature object
+   *
+   */
+  getNotifications() {
+    const notifications = [
+      {
+        id: 1,
+        display_name: 'Field display_name',
+        heading: 'Heading 1',
+        message_priority: 'High',
+        category: 'Error', // this attribute will be also used as group heading
+        category_priority: 'High',
+        actions: [
+          {
+            icon: 'accept',
+            command: 'accept',
+            text: 'Accept',
+          },
+          {
+            icon: 'message-error',
+            command: 'reject',
+            text: 'Reject',
+          },
+        ],
+        message:
+          'Critical Error | Less | Pretty\n--- | --- | ---\n*Still* | `renders` | **nicely**\n1 | 2 | 3',
+      },
+      {
+        id: 2,
+        display_name: 'Field display_name',
+        heading: 'Heading 1',
+        message_priority: 'Low',
+        category: 'Information', // this attribute will be also used as group heading
+        category_priority: 'Low',
+        actions: [
+          {
+            icon: 'accept',
+            command: 'accept',
+            text: 'Accept',
+          },
+        ],
+        message: 'Please register all mandatory fields.',
+      },
+      {
+        id: 3,
+        display_name: 'Field display_name',
+        heading: 'Heading 1',
+        message_priority: 'Medium',
+        category: 'Warning', // this attribute will be also used as group heading
+        category_priority: 'Medium',
+        actions: [
+          {
+            icon: 'accept',
+            command: 'accept',
+            text: 'Accept',
+          },
+        ],
+        message: 'The number of cases has been exceeded',
+      },
+      {
+        id: 4,
+        display_name: 'Another warning message',
+        heading: 'Heading 4',
+        message_priority: 'Low',
+        category: 'Information', // this attribute will be also used as group heading
+        category_priority: 'Low',
+        actions: [
+          {
+            icon: 'accept',
+            command: 'accept',
+            text: 'Accept',
+          },
+        ],
+        message: 'If you need help please call 0800-HELP-YOURSELF',
+      },
+    ];
+
+    this.dispatchEvent(
+      new CustomEvent('notifications-ready', {
+        detail: notifications,
+        bubbles: true,
+        composed: true,
+      }),
+    );
+  }
+
+  /**
+   * Returns a google.rpc.Status Object
+   */
   getGrpcStatus() {
     const grpcStatus = {
       code: 3,

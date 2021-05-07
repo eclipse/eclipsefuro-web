@@ -26,7 +26,7 @@ describe('furo-ui5-data-text-input-fat', () => {
         labels: ['cozy'],
         attributes: {
           'value-state': 'Error',
-          errortext: 'Your fat string is valid',
+          'value-state-message': 'Your fat string is valid',
           icon: 'thumb-up',
         },
       },
@@ -65,9 +65,8 @@ describe('furo-ui5-data-text-input-fat', () => {
             readonly: false,
           },
           constraints: {
-            max: { is: 40, message: 'MAX 40' },
             required: {
-              is: true,
+              is: 'true',
               message: 'Bitte ausfüllen!',
             },
           },
@@ -126,39 +125,56 @@ describe('furo-ui5-data-text-input-fat', () => {
   });
 
   it('should update the value of the bound fieldNode (fat)', done => {
-    dao.data.data.fat_string.addEventListener('field-value-changed', () => {
-      assert.equal(input._state.value, 'New FAT String value changed');
-      assert.equal(dao.data.data.fat_string.value._value, 'New FAT String value changed');
-      done();
-    });
-    input.setValue('New FAT String value changed');
+    dao.data.data.fat_string.addEventListener(
+      'field-value-changed',
+      () => {
+        assert.equal(input._state.value, 'New FAT String value changed');
+        assert.equal(dao.data.data.fat_string.value._value, 'New FAT String value changed');
+        done();
+      },
+      { once: true },
+    );
+
+    input.value = 'New FAT String value changed';
+    input.dispatchEvent(
+      new CustomEvent('input', {
+        bubbles: true,
+        detail: 'New FAT String value changed',
+      }),
+    );
   });
 
   it('an update of a fat value on the data object should be synchronized with the input field (fat)', done => {
     dao.data.data.fat_string.value._value = 'Set data in the inner input element';
-    assert.equal(input._state.value, 'Set data in the inner input element');
-    done();
+    setTimeout(() => {
+      assert.equal(input.value, 'Set data in the inner input element');
+      done();
+    });
   });
 
   it('should apply meta and constraints to the bound field (fat)', done => {
     dao.addEventListener('data-injected', () => {
-      assert.equal(input._state.disabled, false, 'check disabled');
-      assert.equal(input._state.highlight, false, 'check highlight');
-      assert.equal(input._state.placeholder, '', 'check placeholder');
-      assert.equal(input._state.readonly, false, 'check readonly');
-      assert.equal(input._state.required, true, 'check required');
-      assert.equal(input._state.type, 'Text', 'check type');
-      assert.equal(input._state.value, 'fat string from record', 'check value');
-      assert.equal(input._state.valueState, 'Error', 'check valueState');
-      assert.equal(input._state.name, '', 'check name');
-      assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
-      assert.equal(input._state.maxlength, 40, 'check maxlength');
-      assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
-      assert.equal(input._vsm, 'Your fat string is valid', 'check valueStateMessage content');
-      assert.equal(input.binder.fieldFormat, 'fat', 'check fieldFormat');
-      assert.equal(input.querySelector('ui5-icon')._state.name, 'thumb-up', 'check icon');
+      setTimeout(() => {
+        assert.equal(input._state.disabled, false, 'check disabled');
+        assert.equal(input._state.highlight, false, 'check highlight');
+        assert.equal(input._state.placeholder, '', 'check placeholder');
+        assert.equal(input._state.readonly, false, 'check readonly');
+        assert.equal(input._state.required, true, 'check required');
+        assert.equal(input._state.type, 'Text', 'check type');
+        assert.equal(input._state.value, 'fat string from record', 'check value');
+        assert.equal(input._state.valueState, 'Error', 'check valueState');
+        assert.equal(input._state.name, '', 'check name');
+        assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
+        assert.equal(
+          input._previousValueState.message,
+          'Your fat string is valid',
+          'check valueStateMessage content',
+        );
+        assert.equal(input.isFat(), true, 'check fieldFormat');
+        assert.equal(input.querySelector('ui5-icon')._state.name, 'thumb-up', 'check icon');
 
-      done();
+        done();
+      }, 10);
     });
 
     dao.injectRaw(testRecordMeta);

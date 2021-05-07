@@ -147,7 +147,8 @@ class FuroEntityAgent extends FBP(LitElement) {
           const field = dataObject.__childNodes[index];
           const val = field._deltaValue;
           if (val !== undefined) {
-            if (typeof val === 'object' && !Array.isArray(val)) {
+            // send null if null was set!!
+            if (val !== null && typeof val === 'object' && !Array.isArray(val)) {
               body[field._name] = {};
               // eslint-disable-next-line guard-for-in,no-restricted-syntax
               for (const key in val) {
@@ -180,7 +181,7 @@ class FuroEntityAgent extends FBP(LitElement) {
         }
       }
 
-      body = this._removeNullValues(body);
+      // body = this._removeNullValues(body);
       return JSON.stringify(body);
     }
     return undefined;

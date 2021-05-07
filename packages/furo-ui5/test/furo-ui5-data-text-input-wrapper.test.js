@@ -127,36 +127,45 @@ describe('furo-ui5-data-text-input-wrapper', () => {
 
   it('should update the value of the bound fieldNode (wrapper)', done => {
     dao.data.data.wrapper_string.addEventListener('field-value-changed', () => {
-      assert.equal(input._state.value, 'New FAT String value changed');
-      assert.equal(dao.data.data.wrapper_string._value, 'New FAT String value changed');
+      assert.equal(input._state.value, 'New String value changed');
+      assert.equal(dao.data.data.wrapper_string._value, 'New String value changed');
       done();
     });
-    input.setValue('New FAT String value changed');
+
+    input.value = 'New String value changed';
+    input.dispatchEvent(
+      new CustomEvent('input', {
+        bubbles: true,
+        detail: 'New String value changed',
+      }),
+    );
   });
 
   it('an update of a fat value on the data object should be synchronized with the input field (wrapper)', done => {
     dao.data.data.wrapper_string._value = 'Set data in the inner input element';
-    assert.equal(input._state.value, 'Set data in the inner input element');
-    done();
+    setTimeout(() => {
+      assert.equal(input._state.value, 'Set data in the inner input element');
+      done();
+    });
   });
 
   it('should apply meta and constraints to the bound field (wrapper)', done => {
     dao.addEventListener('data-injected', () => {
-      assert.equal(input._state.disabled, false, 'check disabled');
-      assert.equal(input._state.highlight, false, 'check highlight');
-      assert.equal(input._state.placeholder, '', 'check placeholder');
-      assert.equal(input._state.readonly, false, 'check readonly');
-      assert.equal(input._state.required, false, 'check required');
-      assert.equal(input._state.type, 'Text', 'check type');
-      assert.equal(input._state.value, 'this is a google wrapper string', 'check value');
-      assert.equal(input._state.valueState, 'Information', 'check valueState');
-      assert.equal(input._state.name, '', 'check name');
-      assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
-      assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
-      assert.equal(input.__hint, 'hint', 'check hint');
-      assert.equal(input.binder.fieldFormat, 'scalar', 'check fieldFormat');
-
-      done();
+      setTimeout(() => {
+        assert.equal(input._state.disabled, false, 'check disabled');
+        assert.equal(input._state.highlight, false, 'check highlight');
+        assert.equal(input._state.placeholder, '', 'check placeholder');
+        assert.equal(input._state.readonly, false, 'check readonly');
+        assert.equal(input._state.required, false, 'check required');
+        assert.equal(input._state.type, 'Text', 'check type');
+        assert.equal(input._state.value, 'this is a google wrapper string', 'check value');
+        assert.equal(input._state.valueState, 'None', 'check valueState');
+        assert.equal(input._state.name, '', 'check name');
+        assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
+        assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
+        assert.equal(input.isWrapper(), true, 'check fieldFormat');
+        done();
+      }, 10);
     });
 
     dao.injectRaw(testRecordMeta);

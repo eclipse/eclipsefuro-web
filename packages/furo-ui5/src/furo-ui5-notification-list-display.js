@@ -1,9 +1,9 @@
-import { LitElement, html, css } from 'lit-element';
-import { FBP } from '@furo/fbp';
-import '@ui5/webcomponents-fiori/dist/NotificationListItem.js';
-import '@ui5/webcomponents-fiori/dist/NotificationAction.js';
-import '@ui5/webcomponents/dist/List.js';
-import { Theme } from '@furo/framework/src/theme.js';
+import { LitElement, html, css } from 'lit-element'
+import { FBP } from '@furo/fbp'
+import '@ui5/webcomponents-fiori/dist/NotificationListItem.js'
+import '@ui5/webcomponents-fiori/dist/NotificationAction.js'
+import '@ui5/webcomponents/dist/List.js'
+import { Theme } from '@furo/framework/src/theme.js'
 
 /**
  * `furo-ui5-notification-list`
@@ -19,12 +19,12 @@ import { Theme } from '@furo/framework/src/theme.js';
  */
 class FuroUi5NotificationListDisplay extends FBP(LitElement) {
   constructor() {
-    super();
-    this.headerText = '';
-    this.noDataText = 'No messages';
-    this._notificationCount = '';
-    this.groupTitleHelp = 'Help';
-    this.groupTitleBadRequest = 'Bad Request';
+    super()
+    this.headerText = ''
+    this.noDataText = 'No messages'
+    this._notificationCount = ''
+    this.groupTitleHelp = 'Help'
+    this.groupTitleBadRequest = 'Bad Request'
   }
 
   /**
@@ -69,7 +69,7 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
         type: String,
         attribute: 'group-title-bad-request',
       },
-    };
+    }
   }
 
   /**
@@ -86,14 +86,14 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
           display: block;
         }
       `
-    );
+    )
   }
 
   /**
    * flow is ready lifecycle method
    */
   _FBPReady() {
-    super._FBPReady();
+    super._FBPReady()
 
     /**
      * listening the 'open-furo-ui5-notification-requested' event
@@ -101,46 +101,46 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
      * https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto.
      */
     this.parentNode.addEventListener('open-furo-ui5-notification-requested', e => {
-      e.stopPropagation();
-      this.target = e.detail;
+      e.stopPropagation()
+      this.target = e.detail
 
       if (e.detail._type === 'grpc') {
-        this.parseGrpcStatus(e.detail);
+        this.parseGrpcStatus(e.detail)
       } else if (e.detail.payload && Array.isArray(e.detail.payload)) {
         e.detail.payload.forEach(n => {
-          this.parseNotificationMessage(n);
-        });
+          this.parseNotificationMessage(n)
+        })
       }
-    });
+    })
 
     /**
      * listening the `item-close` event from ui5-li-notification element. when the close button is clicked, close the notification and
      * call the _close function on the target element (furo-ui5-notification).
      */
     this.shadowRoot.getElementById('ui5-list').addEventListener('item-close', e => {
-      e.detail.item.target._close(e.detail.item.message);
-      e.detail.item.remove();
+      e.detail.item.target._close(e.detail.item.message)
+      e.detail.item.remove()
       // update notification counter
       if (e.detail.item.nodeName === 'UI5-LI-NOTIFICATION-GROUP') {
-        this._notificationCount -= e.detail.item.childElementCount;
+        this._notificationCount -= e.detail.item.childElementCount
       } else {
         // eslint-disable-next-line no-plusplus
-        --this._notificationCount;
+        --this._notificationCount
       }
-      this._dispatchNotificationCounterUpdates(this._notificationCount);
-    });
+      this._dispatchNotificationCounterUpdates(this._notificationCount)
+    })
 
     /**
      * listening the `click` event on the action buttons. when the action button is clicked, close the notification and
      * call the _customAction function on the target element (furo-ui5-notification).
      */
     this.shadowRoot.getElementById('ui5-list').addEventListener('click', e => {
-      const action = e.target.getAttribute('action');
+      const action = e.target.getAttribute('action')
       if (action) {
-        e.target.notification.target._customAction(action, e.target.notification.message);
-        e.target.notification.remove();
+        e.target.notification.target._customAction(action, e.target.notification.message)
+        e.target.notification.remove()
       }
-    });
+    })
   }
 
   /**
@@ -149,43 +149,43 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    * @param d
    */
   parseGrpcStatus(d) {
-    const status = d.payload;
+    const status = d.payload
 
-    this._notificationCount = status.details ? status.details.length : 0;
-    this._dispatchNotificationCounterUpdates(this._notificationCount);
+    this._notificationCount = status.details ? status.details.length : 0
+    this._dispatchNotificationCounterUpdates(this._notificationCount)
 
     if (status.details && status.details.length > 0) {
-      this.multilineText = [];
+      this.multilineText = []
       // _show localized messages first
       this.multilineText = this.multilineText.concat(
         status.details
           .filter(det => det['@type'].includes('LocalizedMessage'))
           .map(det => det.message),
-      );
+      )
 
       // @type: "type.googleapis.com/google.rpc.BadRequest"
-      this.badRequests = [];
+      this.badRequests = []
       this.badRequests = status.details.filter(det =>
         det['@type'].includes('google.rpc.BadRequest'),
-      );
+      )
 
       // @type: "type.googleapis.com/google.rpc.Help"
-      this.help = [];
-      this.help = status.details.filter(det => det['@type'].includes('google.rpc.Help'));
+      this.help = []
+      this.help = status.details.filter(det => det['@type'].includes('google.rpc.Help'))
 
       // @TODO: implement the other error types from https://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto
       // RequestInfo, ResourceInfo, PreconditionFailure
     }
 
     if (this.multilineText) {
-      this.text = this.multilineText.join(' ');
+      this.text = this.multilineText.join(' ')
     }
 
-    this.heading = '';
-    this.priority = 'High';
-    this.actions = [];
-    this.message = status;
-    this._show();
+    this.heading = ''
+    this.priority = 'High'
+    this.actions = []
+    this.message = status
+    this._show()
   }
 
   /**
@@ -215,13 +215,13 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    * @param message
    */
   parseNotificationMessage(message) {
-    this.priority = message.message_priority ? message.message_priority : 'Low';
-    this.heading = message.heading ? message.heading : null;
-    this.text = message.message;
-    this.actions = message.actions;
-    this.message = message;
+    this.priority = message.message_priority ? message.message_priority : 'Low'
+    this.heading = message.heading ? message.heading : null
+    this.text = message.message
+    this.actions = message.actions
+    this.message = message
 
-    this._show();
+    this._show()
   }
 
   /**
@@ -232,31 +232,23 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    */
   _show() {
     // show localized messages first
-    if (this.text) {
-      const localizedMessages = document.createElement('ui5-li-notification');
-      if (this.showClose) {
-        localizedMessages.setAttribute('show-close', this.showClose);
-      }
-      localizedMessages.target = this.target;
-      localizedMessages.heading = this.text;
-      // save the initial message for the later usage
-      localizedMessages.message = this.message;
-      this.shadowRoot.getElementById('ui5-list').appendChild(localizedMessages);
-    }
+    this._createLocalizedMessageElement().then(g => {
+      this.shadowRoot.getElementById('ui5-list').appendChild(g)
+    })
 
     /**
      * Handling of Help
      */
     this._createHelpElements().then(g => {
-      this.shadowRoot.getElementById('ui5-list').appendChild(g);
-    });
+      this.shadowRoot.getElementById('ui5-list').appendChild(g)
+    })
 
     /**
      * Handling of Bad Request Field Violations
      */
     this._createBadRequestElements().then(g => {
-      this.shadowRoot.getElementById('ui5-list').appendChild(g);
-    });
+      this.shadowRoot.getElementById('ui5-list').appendChild(g)
+    })
   }
 
   /**
@@ -266,14 +258,38 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    * @event notification-counter-update
    */
   _dispatchNotificationCounterUpdates(count) {
-    const VALUE = count > 0 ? count : '';
+    const VALUE = count > 0 ? count : ''
     this.dispatchEvent(
       new CustomEvent('notification-counter-update', {
         detail: VALUE.toString(),
         bubbles: true,
         composed: true,
       }),
-    );
+    )
+  }
+
+  /**
+   * Creates notification items of type @type: "type.googleapis.com/google.rpc.LocalizedMessage"
+   * @returns {Promise<unknown>}
+   * @private
+   */
+  _createLocalizedMessageElement() {
+    return new Promise(resolve => {
+      if (this.text) {
+        /**
+         * Localized Messages
+         */
+        const notification = document.createElement('ui5-li-notification')
+        notification.setAttribute('show-close', '')
+        notification.setAttribute('priority', 'Low')
+        notification.read = true
+        notification.heading = this.text
+        notification.target = this.target
+        // save the initial message for the later usage
+        notification.message = this.message
+        resolve(notification)
+      }
+    })
   }
 
   /**
@@ -288,36 +304,36 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
           /**
            * Bad Request group element
            */
-          const group = document.createElement('ui5-li-notification-group');
-          group.setAttribute('show-close', '');
-          group.setAttribute('show-counter', '');
-          group.heading = this.groupTitleHelp;
-          group.target = this.target;
+          const group = document.createElement('ui5-li-notification-group')
+          group.setAttribute('show-close', '')
+          group.setAttribute('show-counter', '')
+          group.heading = this.groupTitleHelp
+          group.target = this.target
 
           /**
            * Link List
            */
           help.links.forEach(item => {
-            const notification = document.createElement('ui5-li-notification');
-            notification.setAttribute('show-close', '');
-            notification.setAttribute('priority', 'Low');
-            notification.read = true;
-            notification.heading = item.description;
-            notification.target = this.target;
+            const notification = document.createElement('ui5-li-notification')
+            notification.setAttribute('show-close', '')
+            notification.setAttribute('priority', 'Low')
+            notification.read = true
+            notification.heading = item.description
+            notification.target = this.target
             // save the initial message for the later usage
-            notification.message = this.message;
+            notification.message = this.message
 
-            const fieldItem = document.createElement('span');
-            fieldItem.innerHTML = `<a href='${item.url}' title='${item.description}' target='_blank'>${item.url}</a>`;
-            fieldItem.slot = 'footnotes';
-            notification.appendChild(fieldItem);
+            const fieldItem = document.createElement('span')
+            fieldItem.innerHTML = `<a href='${item.url}' title='${item.description}' target='_blank'>${item.url}</a>`
+            fieldItem.slot = 'footnotes'
+            notification.appendChild(fieldItem)
             // add to group element
-            group.appendChild(notification);
-          });
-          resolve(group);
-        });
+            group.appendChild(notification)
+          })
+          resolve(group)
+        })
       }
-    });
+    })
   }
 
   /**
@@ -333,45 +349,45 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
            * Bad Request group element
            * @type {HTMLElement}
            */
-          const group = document.createElement('ui5-li-notification-group');
-          group.setAttribute('show-close', '');
-          group.setAttribute('show-counter', '');
-          group.heading = this.groupTitleBadRequest;
-          group.target = this.target;
+          const group = document.createElement('ui5-li-notification-group')
+          group.setAttribute('show-close', '')
+          group.setAttribute('show-counter', '')
+          group.heading = this.groupTitleBadRequest
+          group.target = this.target
 
           /**
            * Field Violation list
            */
           err.field_violations.forEach(item => {
-            const notification = document.createElement('ui5-li-notification');
-            notification.setAttribute('show-close', '');
-            notification.setAttribute('priority', this.priority);
-            notification.read = true;
-            notification.heading = item.description;
-            notification.target = this.target;
+            const notification = document.createElement('ui5-li-notification')
+            notification.setAttribute('show-close', '')
+            notification.setAttribute('priority', this.priority)
+            notification.read = true
+            notification.heading = item.description
+            notification.target = this.target
             // save the initial message for the later usage
-            notification.message = this.message;
+            notification.message = this.message
 
-            const fieldItem = document.createElement('span');
-            fieldItem.innerText = item.field;
-            fieldItem.slot = 'footnotes';
-            notification.appendChild(fieldItem);
+            const fieldItem = document.createElement('span')
+            fieldItem.innerText = item.field
+            fieldItem.slot = 'footnotes'
+            notification.appendChild(fieldItem)
             // add to group element
-            group.appendChild(notification);
-          });
-          resolve(group);
-        });
+            group.appendChild(notification)
+          })
+          resolve(group)
+        })
       }
-    });
+    })
   }
 
   /**
    * clear all notifications
    */
   clearAll() {
-    this.shadowRoot.getElementById('ui5-list').innerHTML = '';
-    this._notificationCount = '';
-    this._dispatchNotificationCounterUpdates(this._notificationCount);
+    this.shadowRoot.getElementById('ui5-list').innerHTML = ''
+    this._notificationCount = ''
+    this._dispatchNotificationCounterUpdates(this._notificationCount)
   }
 
   /**
@@ -385,8 +401,8 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
         no-data-text=${this.noDataText}
         header-text="${this.headerText}"
       ></ui5-list>
-    `;
+    `
   }
 }
 
-customElements.define('furo-ui5-notification-list-display', FuroUi5NotificationListDisplay);
+customElements.define('furo-ui5-notification-list-display', FuroUi5NotificationListDisplay)

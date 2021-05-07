@@ -79,7 +79,7 @@ describe('furo-ui5-data-repeat', () => {
             .querySelector('*')
             .shadowRoot.querySelector('slot')
             .assignedNodes()[0]
-            .querySelector('*').binder.fieldNode._value,
+            .querySelector('*').__fieldNode._value,
           'AAA',
         );
         done();

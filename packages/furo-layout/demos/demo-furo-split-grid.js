@@ -7,9 +7,7 @@ import '@furo/doc-helper';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/layout/src/furo-catalog.js';
 
-
 class DemoFuroSplitGrid extends FBP(LitElement) {
-
   /**
    * Themable Styles
    * @private
@@ -17,20 +15,21 @@ class DemoFuroSplitGrid extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
-      :host {
-        display: block;
-        height: 100%;
-        padding-right: var(--spacing);
-      }
+    return (
+      Theme.getThemeForComponent(this.name) ||
+      css`
+        :host {
+          display: block;
+          height: 100%;
+          padding-right: var(--spacing);
+        }
 
-      :host([hidden]) {
-        display: none;
-      }
-
-    `;
+        :host([hidden]) {
+          display: none;
+        }
+      `
+    );
   }
-
 
   /**
    * @private
@@ -42,7 +41,6 @@ class DemoFuroSplitGrid extends FBP(LitElement) {
       <furo-vertical-flex>
         <div>
           <h2>Resize your screen ...</h2>
-
         </div>
         <furo-demo-snippet flex>
           <template>
@@ -54,19 +52,19 @@ class DemoFuroSplitGrid extends FBP(LitElement) {
                   height: 100%;
                   background: #eee;
                   background-image: linear-gradient(
-                    45deg,
-                    rgba(0, 0, 0, 0.2) 25%,
-                    transparent 0,
-                    transparent 75%,
-                    rgba(0, 0, 0, 0.2) 0
-                  ),
-                  linear-gradient(
-                    45deg,
-                    rgba(0, 0, 0, 0.2) 25%,
-                    transparent 0,
-                    transparent 75%,
-                    rgba(0, 0, 0, 0.2) 0
-                  );
+                      45deg,
+                      rgba(0, 0, 0, 0.2) 25%,
+                      transparent 0,
+                      transparent 75%,
+                      rgba(0, 0, 0, 0.2) 0
+                    ),
+                    linear-gradient(
+                      45deg,
+                      rgba(0, 0, 0, 0.2) 25%,
+                      transparent 0,
+                      transparent 75%,
+                      rgba(0, 0, 0, 0.2) 0
+                    );
                   background-size: 30px 30px;
                   background-position: 0 0, 15px 15px;
                   border: 1px solid #666666;
@@ -89,14 +87,13 @@ class DemoFuroSplitGrid extends FBP(LitElement) {
               <h3>Resize your screen</h3>
 
               <div class="demopanel">
-                <furo-split-grid >
+                <furo-split-grid>
+                  <furo-z-grid class="left" hspan="3" full-on-size-medium full-on-size-small>
+                    <div vspan="1" hspan="2" style="background: lightblue;">2x1</div>
+                    <div vspan="1" hspan="2" style="background: lightblue;">2x1</div>
 
-                    <furo-z-grid class="left" hspan="3" full-on-size-medium full-on-size-small>
-                      <div vspan="1" hspan="2" style="background: lightblue;">2x1</div>
-                      <div vspan="1" hspan="2" style="background: lightblue;">2x1</div>
-
-                      <div vspan="1" hspan="4" style="background: rebeccapurple;">4x1</div>
-                    </furo-z-grid>
+                    <div vspan="1" hspan="4" style="background: rebeccapurple;">4x1</div>
+                  </furo-z-grid>
 
                   <furo-z-grid hstart="4" fill>
                     <div vspan="2" hspan="1" style="background: whitesmoke;">1x2</div>
@@ -104,10 +101,11 @@ class DemoFuroSplitGrid extends FBP(LitElement) {
                     <div vspan="2" hspan="2" style="background: papayawhip;">2x2</div>
                     <div vspan="1" hspan="2" style="background: lightblue;">2x1</div>
 
-                    <div hspan="full" style="background: papayawhip;">full width, no height given</div>
+                    <div hspan="full" style="background: papayawhip;">
+                      full width, no height given
+                    </div>
                   </furo-z-grid>
                 </furo-split-grid>
-
               </div>
             </furo-vertical-scroller>
           </template>
