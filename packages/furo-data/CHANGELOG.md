@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.24.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.23.5...@furo/data@1.24.0) (2021-05-07)
+
+
+### Bug Fixes
+
+* repeate ([d36033d](https://github.com/theNorstroem/FuroBaseComponents/commit/d36033dab6779edbea7fde10dfc68ef8eed23500))
+
+
+### Features
+
+* event before-repeated-field-changed on RepeaterNode only, not on the parent or children ([a7854a6](https://github.com/theNorstroem/FuroBaseComponents/commit/a7854a694053be6edb49f82eb58b01c56d5ae82b))
+* standard renderer for google.protobuf.Any type, WIP ([5fe4507](https://github.com/theNorstroem/FuroBaseComponents/commit/5fe450768441c27b523e9eef12ea76f436ed5800))
+
+
+
+
+
 ## [1.23.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.23.4...@furo/data@1.23.5) (2021-05-05)
 
 

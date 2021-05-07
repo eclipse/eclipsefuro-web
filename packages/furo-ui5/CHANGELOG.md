@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.28.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.27.4...@furo/ui5@0.28.0) (2021-05-07)
+
+
+### Bug Fixes
+
+* actions with icon and text, demo ([995f974](https://github.com/theNorstroem/FuroBaseComponents/commit/995f974945a84cb055d686c65eee1ffbc49f8690))
+* callback removed ([2581311](https://github.com/theNorstroem/FuroBaseComponents/commit/25813116f06697d2bbd7e77b0982061abad627c0))
+* closeable google.rpc.LocalizedMessage ([9ea8cdf](https://github.com/theNorstroem/FuroBaseComponents/commit/9ea8cdfe746ba020c7c8925cba21003be095a181))
+* label information for furo.Property repeated items ([fb231a5](https://github.com/theNorstroem/FuroBaseComponents/commit/fb231a576264d9e3b455e54abeb13df2ec626f93))
+* label information for furo.Property repeated items ([367aae1](https://github.com/theNorstroem/FuroBaseComponents/commit/367aae11ad763d57c30e77f25b2b32426e8b729d))
+* meta.label changes added. Unset is not possible if you transmit an empty meta object ([5b58b89](https://github.com/theNorstroem/FuroBaseComponents/commit/5b58b895a7c8b5073660b87fe649fcbfdd6fea4f))
+* more label variants ([b32c304](https://github.com/theNorstroem/FuroBaseComponents/commit/b32c30467aa8e4cfd2b9783592c6dec3b3a70602))
+* repeate ([d36033d](https://github.com/theNorstroem/FuroBaseComponents/commit/d36033dab6779edbea7fde10dfc68ef8eed23500))
+* styling and dom structure ([9040901](https://github.com/theNorstroem/FuroBaseComponents/commit/904090152f37070e68fae308c13592b11a977620))
+* styling of the label ([4518aad](https://github.com/theNorstroem/FuroBaseComponents/commit/4518aad059e762b20044bf6c9749eeb84eb66d63))
+
+
+### Features
+
+* standard renderer for google.protobuf.Any type (sinlge, repeated) and furo.Property ([275997f](https://github.com/theNorstroem/FuroBaseComponents/commit/275997fd4a9901eaabc3b9196c99b2015b021957))
+* standard renderer for google.protobuf.Any type, WIP ([5fe4507](https://github.com/theNorstroem/FuroBaseComponents/commit/5fe450768441c27b523e9eef12ea76f436ed5800))
+* WIP, propertlist-display ([682a681](https://github.com/theNorstroem/FuroBaseComponents/commit/682a6813973fa9463469f25c2da9fadf3cca22f7))
+
+
+
+
+
 ## [0.27.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.27.3...@furo/ui5@0.27.4) (2021-05-05)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.6.15...@furo/data-ui@1.7.0) (2021-05-07)
+
+
+### Features
+
+* standard renderer for google.protobuf.Any type (sinlge, repeated) and furo.Property ([275997f](https://github.com/theNorstroem/FuroBaseComponents/commit/275997fd4a9901eaabc3b9196c99b2015b021957))
+* standard renderer for google.protobuf.Any type, WIP ([5fe4507](https://github.com/theNorstroem/FuroBaseComponents/commit/5fe450768441c27b523e9eef12ea76f436ed5800))
+
+
+
+
+
 ## [1.6.15](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.6.14...@furo/data-ui@1.6.15) (2021-05-05)
 
 **Note:** Version bump only for package @furo/data-ui
