@@ -66,7 +66,7 @@ class DemoFuroUi5NotificationGroupDisplay extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-            <ui5-shellbar primary-title="gRPC Status Notifications"
+            <ui5-shellbar primary-title="Notifications"
                           secondary-title=""
                           show-notifications
             ></ui5-shellbar>
