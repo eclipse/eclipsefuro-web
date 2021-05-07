@@ -11,6 +11,12 @@ export class RepeaterNode extends EventTreeNode {
     this._spec = spec;
     this._name = fieldName;
 
+    /**
+     * Set this to true to clear the list on new data instead updating the current list.
+     * @type {boolean}
+     */
+    this.clearListOnNewData = false;
+
     if (this._spec.meta) {
       this._meta = JSON.parse(JSON.stringify(this._spec.meta));
     } else {
@@ -158,14 +164,14 @@ export class RepeaterNode extends EventTreeNode {
   }
 
   set _value(val) {
+
+
     if (Array.isArray(val)) {
-      // remove all items if type is furo.Property
-      if (this._spec.type === 'furo.Property') {
+
+      this.dispatchNodeEvent(new NodeEvent('before-repeated-field-changed', this, false));
+
+      if(this.clearListOnNewData){
         this.removeAllChildren();
-        this.__parentNode.dispatchNodeEvent(
-          new NodeEvent('this-repeated-field-changed', this, false),
-        );
-        this.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', this, false));
       }
 
       val.forEach((repdata, i) => {
