@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.28.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.28.1...@furo/ui5@0.28.2) (2021-05-10)
+
+
+### Bug Fixes
+
+* notification count ([0dde603](https://github.com/theNorstroem/FuroBaseComponents/commit/0dde603e25de9bfc7508c99e90fdf962e6cc319b))
+
+
+
+
+
 ## [0.28.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.28.0...@furo/ui5@0.28.1) (2021-05-10)
 
 
