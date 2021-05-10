@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.28.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.28.0...@furo/ui5@0.28.1) (2021-05-10)
+
+
+### Bug Fixes
+
+* new grpc localized message structure. The messages are grouped. Markdown support in furo-ui5-message-strip and furo-ui5-notification-list-display. ([3a8077d](https://github.com/theNorstroem/FuroBaseComponents/commit/3a8077d8b76a6c679217de6e3c3e9be20f8f3bdd))
+* wrong title ([49d03ff](https://github.com/theNorstroem/FuroBaseComponents/commit/49d03ffc30f82cf4f21f55cdb0b01bc0760bf767))
+
+
+
+
+
 # [0.28.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.27.4...@furo/ui5@0.28.0) (2021-05-07)
 
 
