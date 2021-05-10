@@ -76,7 +76,7 @@ export class FieldNode extends EventTreeNode {
     // inherit _validationDisabled from parent
     this._validationDisabled = this.__parentNode._validationDisabled;
 
-    // Build custom type if a spec exists
+    // this types are not complex types in the json representation
     if (
       this.__specdefinitions[this._spec.type] !== undefined &&
       this._spec.type !== 'google.protobuf.StringValue' &&
@@ -90,10 +90,11 @@ export class FieldNode extends EventTreeNode {
       this._spec.type !== 'google.protobuf.FieldMask' &&
       this._spec.type !== 'google.protobuf.BytesValue' &&
       this._spec.type !== 'google.protobuf.UInt32Value' &&
-      this._spec.type !== 'google.protobuf.UInt64Value'
+      this._spec.type !== 'google.protobuf.UInt64Value' &&
+      this._spec.type !== 'google.protobuf.Struct'
     ) {
       // check for recursion
-
+      // Build custom type if a spec exists
       if (!this.__parentNode._hasAncestorOfType(this._spec.type)) {
         if (this._spec.type !== 'google.protobuf.Any') {
           this._createVendorType(this._spec.type);
