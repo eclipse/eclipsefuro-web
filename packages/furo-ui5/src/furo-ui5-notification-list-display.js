@@ -427,7 +427,7 @@ class FuroUi5NotificationListDisplay extends FBP(LitElement) {
    */
   clearAll() {
     this.shadowRoot.getElementById('ui5-list').innerHTML = '';
-    this._notificationCount = '';
+    this._notificationCount = 0;
     this._dispatchNotificationCounterUpdates(this._notificationCount);
   }
 
