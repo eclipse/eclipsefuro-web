@@ -25,6 +25,7 @@ import '@furo/data-input/demos/helper/fetch-universal-json.js';
 
 import '@ui5/webcomponents/dist/Icon.js';
 import '../src/lib/ui5-icons.js';
+import './helper/data-password-icon.js';
 
 /**
  * `demo-furo-ui5-data-password-input`
@@ -92,8 +93,20 @@ class DemoFuroUi5DataPasswordInput extends FBP(LitElement) {
             <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
               >Load Demo Data</furo-ui5-button
             >
-            <furo-ui5-data-password-input ƒ-bind-data="--entity(*.data.furo_data_password_input)">
-              <ui5-icon name="shield" slot="icon"></ui5-icon>
+            <data-password-icon-demo-helper
+              @-set-icon="--setIcon"
+              ƒ-show-icon="--iconShow"
+              ƒ-hide-icon="--iconHide"
+            ></data-password-icon-demo-helper>
+            <furo-ui5-data-password-input
+              icon="show"
+              ƒ-toggle-password="--toggle"
+              ƒ-_set-icon="--setIcon"
+              @-icon-clicked="--toggle"
+              @-password-hidden="--iconShow"
+              @-password-showed="--iconHide"
+              ƒ-bind-data="--entity(*.data.furo_data_password_input)"
+            >
             </furo-ui5-data-password-input>
           </furo-form-layouter>
 
