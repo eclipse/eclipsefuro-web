@@ -76,7 +76,7 @@ export class FieldNode extends EventTreeNode {
     // inherit _validationDisabled from parent
     this._validationDisabled = this.__parentNode._validationDisabled;
 
-   // this types are not complex types in the json representation
+    // this types are not complex types in the json representation
     if (
       this.__specdefinitions[this._spec.type] !== undefined &&
       this._spec.type !== 'google.protobuf.StringValue' &&
