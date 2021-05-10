@@ -158,12 +158,12 @@ class NotificationProducer extends FBP(LitElement) {
         {
           '@type': 'type.googleapis.com/google.rpc.LocalizedMessage',
           locale: 'en-GB',
-          message: 'Please register all the mandatory values.',
+          message: 'Please register all the mandatory values. You can use markdown syntax.',
         },
         {
           '@type': 'type.googleapis.com/google.rpc.LocalizedMessage',
           locale: 'en-GB',
-          message: 'If you need help completing the data, call 0800-HELP-FURO.',
+          message: 'If you need help completing the data, call **0800-HELP-FURO**.',
         },
         {
           '@type': 'type.googleapis.com/google.rpc.Help',
@@ -184,7 +184,7 @@ class NotificationProducer extends FBP(LitElement) {
             {
               field: 'id',
               description:
-                'The id should be ISO Alpha-2 code as described in the ISO 3166 international standard',
+                'The id should be **ISO Alpha-2** code as described in the **ISO 3166** international standard',
             },
             { field: 'area', description: 'Please set a value for the field area.' },
           ],

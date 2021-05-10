@@ -35,10 +35,9 @@ describe('display-google-type-color', () => {
   });
 
   it('should only be bindable with google.type.Color', done => {
-    if (!display.bindData(dao.data.display_name)){
+    if (!display.bindData(dao.data.display_name)) {
       done();
     }
-
   });
 
   // axeReport a11y tests

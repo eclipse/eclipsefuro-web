@@ -69,6 +69,10 @@ export class DisplayFuroPropertyRepeats extends FBP(LitElement) {
      * If NOT, register event listener and create the component as soon as the @type information is available.
      */
     if (this._field instanceof RepeaterNode && this._field._spec.type === 'furo.Property') {
+      // we want a fresh list on every update of the list, because the types and order of the list items can change
+      // eslint-disable-next-line no-param-reassign
+      this._field.clearListOnNewData = true;
+
       this._field.addEventListener('this-repeated-field-changed', () => {
         this._updateFieldList();
       });

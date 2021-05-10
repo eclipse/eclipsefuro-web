@@ -102,7 +102,6 @@ class FuroUi5DataProperty extends FBP(LitElement) {
     this.field = propertyField;
 
     if (propertyField._isRepeater) {
-
       // we want a fresh list on every update of the list, because the types and order of the list items can change
       // eslint-disable-next-line no-param-reassign
       propertyField.clearListOnNewData = true;

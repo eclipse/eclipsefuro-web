@@ -1,5 +1,6 @@
 import { LitElement, css } from 'lit-element';
 import { FBP } from '@furo/fbp';
+import 'markdown-it/dist/markdown-it.js';
 
 /**
  * `furo-ui5-message-strip`
@@ -27,6 +28,12 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
     this.noCloseButton = false;
     this.noIcon = false;
     this.displayMessage = '';
+
+    this._md = window.markdownit({
+      html: false,
+      linkify: true,
+      typographer: true,
+    });
   }
 
   /**
@@ -136,7 +143,7 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
    */
   showInformation(msg) {
     if (Object.prototype.toString.call(msg) === '[object String]') {
-      this.displayMessage = msg;
+      this.displayMessage = this._md.renderInline(msg);
     } else {
       this.displayMessage = this.message;
     }
@@ -152,7 +159,7 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
    */
   showSuccess(msg) {
     if (Object.prototype.toString.call(msg) === '[object String]') {
-      this.displayMessage = msg;
+      this.displayMessage = this._md.renderInline(msg);
     } else {
       this.displayMessage = this.message;
     }
@@ -168,7 +175,7 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
    */
   showWarning(msg) {
     if (Object.prototype.toString.call(msg) === '[object String]') {
-      this.displayMessage = msg;
+      this.displayMessage = this._md.renderInline(msg);
     } else {
       this.displayMessage = this.message;
     }
@@ -184,7 +191,7 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
    */
   showError(msg) {
     if (Object.prototype.toString.call(msg) === '[object String]') {
-      this.displayMessage = msg;
+      this.displayMessage = this._md.renderInline(msg);
     } else {
       this.displayMessage = this.message;
     }
@@ -236,7 +243,7 @@ class FuroUi5MessageStrip extends FBP(LitElement) {
       messages = messages.concat(
         rpcStatus.details
           .filter(det => det['@type'].includes('LocalizedMessage'))
-          .map(det => det.message),
+          .map(det => this._md.renderInline(det.message)),
       );
 
       this.displayMessage = messages.join('</br>');

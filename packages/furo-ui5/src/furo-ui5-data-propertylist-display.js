@@ -37,7 +37,6 @@ import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
  * @appliesMixin FBP
  */
 class FuroUi5DataPropertylistDisplay extends LitElement {
-
   /**
    * Binds a RepeaterNode of type furo.Property.
    * @param fieldNode
@@ -63,7 +62,6 @@ class FuroUi5DataPropertylistDisplay extends LitElement {
 
     return true;
   }
-
 }
 
 window.customElements.define('furo-ui5-data-propertylist-display', FuroUi5DataPropertylistDisplay);

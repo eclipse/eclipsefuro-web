@@ -75,8 +75,11 @@ class DemoFuroUi5NotificationListDisplay extends FBP(LitElement) {
             <ui5-popover ƒ-open-by="--notificationsRequested" placement-type="bottom">
               <div class="popover-content">
                 <!-- gRPC Error Handling, display and creator components-->
-                <furo-ui5-notification-list-display header-text="Notifications"
+                <furo-ui5-notification-list-display header-text="Notifications &amp; Errors"
                                                     ƒ-clear-all="--clearRequested"
+                                                    group-title-message="Localized Messages"
+                                                    group-title-help="Helpful information"
+                                                    group-title-bad-request="Field Violations"
                                                     @-notification-counter-update="--notificationCounterUpdated"></furo-ui5-notification-list-display>
 
                 <furo-ui5-notification ƒ-parse-grpc-status="--grpcReady"></furo-ui5-notification>
