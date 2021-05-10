@@ -27,6 +27,7 @@ class FuroUi5MessageStripDisplay extends FBP(LitElement) {
   constructor() {
     super();
     this.headerText = '';
+    this._messageStrips = []; // holds a list (reference to dom node) of displayed strips
   }
 
   /**
@@ -58,6 +59,14 @@ class FuroUi5MessageStripDisplay extends FBP(LitElement) {
   }
 
   /**
+   * Removes all strips
+   */
+  clearAll(){
+    this._messageStrips.forEach(s =>{
+      s.remove();
+    })
+  }
+  /**
    * show notification list item.
    * @param text
    */
@@ -80,7 +89,7 @@ class FuroUi5MessageStripDisplay extends FBP(LitElement) {
     messagestrip.target = source;
     messagestrip.innerHTML = source.displayMessage;
 
-    this.shadowRoot.appendChild(messagestrip);
+    this._messageStrips.push( this.shadowRoot.appendChild(messagestrip));
   }
 
   /**
