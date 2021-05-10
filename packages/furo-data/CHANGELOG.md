@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.25.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.24.0...@furo/data@1.25.0) (2021-05-10)
+
+
+### Bug Fixes
+
+* notification count ([62a4626](https://github.com/theNorstroem/FuroBaseComponents/commit/62a46261a6ec22093305540ecf881a2a3b4def56))
+
+
+### Features
+
+* struct support ([6d8b8ba](https://github.com/theNorstroem/FuroBaseComponents/commit/6d8b8bab3ec35314ee98f7493925ad12084b7cb3))
+
+
+
+
+
 # [1.24.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.23.5...@furo/data@1.24.0) (2021-05-07)
 
 

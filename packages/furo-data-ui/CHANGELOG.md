@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.7.0...@furo/data-ui@1.7.1) (2021-05-10)
+
+
+### Bug Fixes
+
+* notification count ([62a4626](https://github.com/theNorstroem/FuroBaseComponents/commit/62a46261a6ec22093305540ecf881a2a3b4def56))
+
+
+
+
+
 # [1.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.6.15...@furo/data-ui@1.7.0) (2021-05-07)
 
 
