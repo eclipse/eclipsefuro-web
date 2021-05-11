@@ -4076,7 +4076,7 @@
               "column": 2
             },
             "end": {
-              "line": 588,
+              "line": 591,
               "column": 3
             }
           },
@@ -4113,7 +4113,7 @@
           "column": 7
         },
         "end": {
-          "line": 589,
+          "line": 592,
           "column": 1
         }
       },
@@ -6215,531 +6215,43 @@
       ]
     },
     {
-      "description": "`furo-ui5-data-input`\nThe furo-ui5-data-input is the base component for all furo-ui5-data-input components.\nDO NOT USE DIRECTLY",
-      "summary": "data text input base",
-      "path": "src/furo-ui5-data-input.js",
-      "properties": [
-        {
-          "name": "accInfo",
-          "type": "*",
-          "description": "rewrite get accInfo function\ninitiate _inputAccInfo in order to avoid error",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 48,
-              "column": 2
-            },
-            "end": {
-              "line": 53,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          }
-        },
-        {
-          "name": "valueStateMessage",
-          "type": "(* | {})",
-          "description": "overwrite to fix error",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 59,
-              "column": 2
-            },
-            "end": {
-              "line": 61,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          }
-        },
-        {
-          "name": "suggestionItems",
-          "type": "(* | [])",
-          "description": "overwrite to fix error",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 67,
-              "column": 2
-            },
-            "end": {
-              "line": 69,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          }
-        },
-        {
-          "name": "icon",
-          "type": "(* | [])",
-          "description": "overwrite to fix error",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 75,
-              "column": 2
-            },
-            "end": {
-              "line": 77,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": true
-            }
-          }
-        },
-        {
-          "name": "ui5Icon",
-          "type": "?",
-          "description": "Set the ui5 icon",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 235,
-              "column": 2
-            },
-            "end": {
-              "line": 245,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_error",
-          "type": "?",
-          "description": "sets and remove the error state",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 259,
-              "column": 2
-            },
-            "end": {
-              "line": 266,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_errorMsg",
-          "type": "?",
-          "description": "store the error message and update the value state message",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 273,
-              "column": 2
-            },
-            "end": {
-              "line": 276,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_informationMsg",
-          "type": "?",
-          "description": "store the information message and update the value state message",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 283,
-              "column": 2
-            },
-            "end": {
-              "line": 286,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "__readonly",
-          "type": "?",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 288,
-              "column": 2
-            },
-            "end": {
-              "line": 292,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_warningMsg",
-          "type": "?",
-          "description": "store the warning message and update the value state message",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 299,
-              "column": 2
-            },
-            "end": {
-              "line": 302,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_successMsg",
-          "type": "?",
-          "description": "store the success message and update the value state message",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 309,
-              "column": 2
-            },
-            "end": {
-              "line": 312,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_valueState",
-          "type": "?",
-          "description": "Update the value state on change",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 319,
-              "column": 2
-            },
-            "end": {
-              "line": 324,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_hint",
-          "type": "?",
-          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 331,
-              "column": 2
-            },
-            "end": {
-              "line": 337,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "suggestions",
-          "type": "?",
-          "description": "set suggestions as the ui5-suggestion-item element\nsample data of the suggestions: [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},.. ]\nif the suggestion item has icon , the ui5 icons should be imported in your ui component",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 388,
-              "column": 2
-            },
-            "end": {
-              "line": 444,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        }
-      ],
-      "methods": [
-        {
-          "name": "connectedCallback",
-          "description": "connectedCallback() method is called when an element is added to the DOM.\nwebcomponent lifecycle event",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 35,
-              "column": 2
-            },
-            "end": {
-              "line": 40,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_initBinder",
-          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 84,
-              "column": 2
-            },
-            "end": {
-              "line": 88,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "applyBindingSet",
-          "description": "apply the binding set to the universal field node binder.\n\n### following labels of fat types are supported by binding:\n\n- 'error': valueState of ui5 component is set as error\n- 'readonly': ui5 component is disabled\n- 'required': input is required\n- 'disabled': ui5 component is disabled\n- 'modified': data is changed\n- 'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text.\n\n### following attributes of fat types are supported by binding:\n\n- 'label': label will be used as the placeholder of the ui5 input\n- 'placeholder': placeholder of the ui5 input\n- 'hint': title of the ui5 input\n- 'icon': ui5 icon in the ui5 input\n- 'leading-icon': the same as 'icon'\n- 'value-state': Defines the state of the info.Available options are: \"None\" (by default), \"Success\", \"Warning\" and \"Erorr\".\n- 'errortext': Defines the error value state message that will be displayed as pop up under the ui5-input.\n- 'error-msg': the same as 'errortext'\n- 'warning-msg': Defines the warning value state message that will be displayed as pop up under the ui5-input.\n- 'success-msg': Defines the success value state message that will be displayed as pop up under the ui5-input.\n- 'information-msg': Defines the information value state message that will be displayed as pop up under the ui5-input.\n- 'pattern': Defines the pattern of the ui5-input.\n- 'name': Defines the name of the ui5-input.\n- 'maxlength': Sets the maximum number of characters available in the input field.\n- 'suggestions': Defines the suggestion items. e.g. [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'max': is mapped to 'maxlength' attribute\n- 'min': is mapped to 'minlength' attribute\n- 'pattern': is mapped to 'pattern' attribute\n- 'required': is mapped to 'required' attribute",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 128,
-              "column": 2
-            },
-            "end": {
-              "line": 202,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "setValue",
-          "description": "Sets the value for the field. This will update the fieldNode.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 208,
-              "column": 2
-            },
-            "end": {
-              "line": 210,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "val"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "bindData",
-          "description": "Bind a entity field to the text-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 217,
-              "column": 2
-            },
-            "end": {
-              "line": 229,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "fieldNode",
-              "type": "(Object | FieldNode)",
-              "description": "a Field object"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_requestUpdate",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 250,
-              "column": 2
-            },
-            "end": {
-              "line": 252,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_updateVS",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 339,
-              "column": 2
-            },
-            "end": {
-              "line": 359,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_setValueStateMessage",
-          "description": "Updates the vs and creates the element in the slot on demand",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 366,
-              "column": 2
-            },
-            "end": {
-              "line": 380,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "msg"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        }
-      ],
-      "staticMethods": [],
-      "demos": [],
-      "metadata": {},
-      "sourceRange": {
-        "start": {
-          "line": 13,
-          "column": 7
-        },
-        "end": {
-          "line": 445,
-          "column": 1
-        }
-      },
-      "privacy": "public",
-      "superclass": "Input.default",
-      "name": "FuroUi5DataInput",
-      "attributes": [],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "value-changed",
-          "description": "Fired when the input value changed.\nthe event detail is the value of the input field",
-          "metadata": {}
-        }
-      ],
-      "styling": {
-        "cssVariables": [],
-        "selectors": []
-      },
-      "slots": [],
-      "tagname": "furo-ui5-data-input"
-    },
-    {
-      "description": "The ui5-input component allows the user to enter and edit numbers.\nAdditionally, you can provide suggestionItems, that are displayed in a popover right under the input.\n\nThe text field can be editable or read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.\nWhen the user makes changes to the text, the change event is fired, which enables you to react on any text change.",
-      "summary": "data number input field",
+      "description": "The 'furo-ui5-data-password-input' component allows the user to enter and edit password with data binding.\n\nIt supports all features from the [SAP ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).\n\nYou can bind any `string` type, like `furo.fat.String` type or the `google.protobuf.StringValue` type.\n\n```html\n <furo-ui5-data-password-input\n    ƒ-bind-data=\"--daoCountry(*.data.name)\"\n ></furo-ui5-data-password-input>\n```\n\n### Specificity\n1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.\n2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.\n\n** meta \t<  fat \t< html \t**\n\n## supported FAT attributes\n - **\"readonly\":\"true\"** set the element to readonly\n - **\"required\":\"true\"** set the element to required\n - **\"disabled\":\"true\"** set the element to disabled\n - **\"icon\":\"home\"** set the icon\n - **\"placeholder\":\"string\"** set the placeholder for the element\n - **\"max\":\"number\"** set the maximum number of characters available in the input field.\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **max:\"number\"** set the maximum number of characters available in the input field.\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)",
+      "summary": "data password input field",
       "path": "src/furo-ui5-data-password-input.js",
       "properties": [
         {
+          "name": "nativeInputAttributes",
+          "type": "?",
+          "description": " eslint-disable-next-line class-methods-use-this",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 148,
+              "column": 2
+            },
+            "end": {
+              "line": 150,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
+          }
+        },
+        {
           "name": "accInfo",
           "type": "*",
           "description": "rewrite get accInfo function\ninitiate _inputAccInfo in order to avoid error",
           "privacy": "private",
           "sourceRange": {
-            "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 48,
+              "line": 334,
               "column": 2
             },
             "end": {
-              "line": 53,
+              "line": 339,
               "column": 3
             }
           },
@@ -6747,22 +6259,20 @@
             "polymer": {
               "readOnly": true
             }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
+          }
         },
         {
           "name": "valueStateMessage",
           "type": "(* | {})",
           "description": "overwrite to fix error",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
-            "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 59,
+              "line": 346,
               "column": 2
             },
             "end": {
-              "line": 61,
+              "line": 348,
               "column": 3
             }
           },
@@ -6770,22 +6280,20 @@
             "polymer": {
               "readOnly": true
             }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
+          }
         },
         {
           "name": "suggestionItems",
           "type": "(* | [])",
           "description": "overwrite to fix error",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
-            "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 67,
+              "line": 355,
               "column": 2
             },
             "end": {
-              "line": 69,
+              "line": 357,
               "column": 3
             }
           },
@@ -6793,22 +6301,20 @@
             "polymer": {
               "readOnly": true
             }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
+          }
         },
         {
           "name": "icon",
           "type": "(* | [])",
           "description": "overwrite to fix error",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
-            "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 75,
+              "line": 364,
               "column": 2
             },
             "end": {
-              "line": 77,
+              "line": 366,
               "column": 3
             }
           },
@@ -6816,252 +6322,21 @@
             "polymer": {
               "readOnly": true
             }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "ui5Icon",
-          "type": "?",
-          "description": "Set the ui5 icon",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 235,
-              "column": 2
-            },
-            "end": {
-              "line": 245,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "_error",
-          "type": "?",
-          "description": "sets and remove the error state",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 259,
-              "column": 2
-            },
-            "end": {
-              "line": 266,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "_errorMsg",
-          "type": "?",
-          "description": "store the error message and update the value state message",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 273,
-              "column": 2
-            },
-            "end": {
-              "line": 276,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "_informationMsg",
-          "type": "?",
-          "description": "store the information message and update the value state message",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 283,
-              "column": 2
-            },
-            "end": {
-              "line": 286,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "__readonly",
-          "type": "?",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 288,
-              "column": 2
-            },
-            "end": {
-              "line": 292,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "_warningMsg",
-          "type": "?",
-          "description": "store the warning message and update the value state message",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 299,
-              "column": 2
-            },
-            "end": {
-              "line": 302,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "_successMsg",
-          "type": "?",
-          "description": "store the success message and update the value state message",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 309,
-              "column": 2
-            },
-            "end": {
-              "line": 312,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "_valueState",
-          "type": "?",
-          "description": "Update the value state on change",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 319,
-              "column": 2
-            },
-            "end": {
-              "line": 324,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "_hint",
-          "type": "?",
-          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 331,
-              "column": 2
-            },
-            "end": {
-              "line": 337,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
-        },
-        {
-          "name": "suggestions",
-          "type": "?",
-          "description": "set suggestions as the ui5-suggestion-item element\nsample data of the suggestions: [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},.. ]\nif the suggestion item has icon , the ui5 icons should be imported in your ui component",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "furo-ui5-data-input.js",
-            "start": {
-              "line": 388,
-              "column": 2
-            },
-            "end": {
-              "line": 444,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "inheritedFrom": "FuroUi5DataInput"
+          }
         }
       ],
       "methods": [
         {
           "name": "connectedCallback",
           "description": "connectedCallback() method is called when an element is added to the DOM.\nwebcomponent lifecycle event",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 125,
               "column": 2
             },
             "end": {
-              "line": 65,
+              "line": 141,
               "column": 3
             }
           },
@@ -7072,61 +6347,104 @@
           }
         },
         {
-          "name": "_initBinder",
-          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
+          "name": "readAttributes",
+          "description": "Reads the attributes which are set on the component dom.\nthose attributes can be set. `value-state`, `value-state-message`,  `icon`, `placeholder`, `required`,`readonly`,`disabled`\nUse this after manual or scripted update of the attributes.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 157,
+              "column": 2
+            },
+            "end": {
+              "line": 169,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateFNA",
+          "description": "Handler function for the input value changes.\nThis is done to be able to remove the event-listeners as a protection for multiple calls",
           "privacy": "private",
           "sourceRange": {
-            "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 84,
+              "line": 177,
               "column": 2
             },
             "end": {
-              "line": 88,
+              "line": 214,
               "column": 3
             }
           },
           "metadata": {},
           "params": [],
           "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FuroUi5DataInput"
+            "type": "((function (): void) | *)"
+          }
         },
         {
-          "name": "applyBindingSet",
-          "description": "apply the binding set to the universal field node binder.\n\n### following labels of fat types are supported by binding:\n\n- 'error': valueState of ui5 component is set as error\n- 'readonly': ui5 component is disabled\n- 'required': input is required\n- 'disabled': ui5 component is disabled\n- 'modified': data is changed\n- 'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text.\n\n### following attributes of fat types are supported by binding:\n\n- 'label': label will be used as the placeholder of the ui5 input\n- 'placeholder': placeholder of the ui5 input\n- 'hint': title of the ui5 input\n- 'icon': ui5 icon in the ui5 input\n- 'leading-icon': the same as 'icon'\n- 'value-state': Defines the state of the info.Available options are: \"None\" (by default), \"Success\", \"Warning\" and \"Erorr\".\n- 'errortext': Defines the error value state message that will be displayed as pop up under the ui5-input.\n- 'error-msg': the same as 'errortext'\n- 'warning-msg': Defines the warning value state message that will be displayed as pop up under the ui5-input.\n- 'success-msg': Defines the success value state message that will be displayed as pop up under the ui5-input.\n- 'information-msg': Defines the information value state message that will be displayed as pop up under the ui5-input.\n- 'pattern': Defines the pattern of the ui5-input.\n- 'name': Defines the name of the ui5-input.\n- 'maxlength': Sets the maximum number of characters available in the input field.\n- 'suggestions': Defines the suggestion items. e.g. [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'max': is mapped to 'maxlength' attribute\n- 'min': is mapped to 'minlength' attribute\n- 'pattern': is mapped to 'pattern' attribute\n- 'required': is mapped to 'required' attribute",
-          "privacy": "public",
+          "name": "_updateLabelsFromFat",
+          "description": "labels are map <string,bool>, we handle every boolean attribute with the labels",
+          "privacy": "private",
           "sourceRange": {
-            "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 128,
+              "line": 222,
               "column": 2
             },
             "end": {
-              "line": 202,
+              "line": 260,
               "column": 3
             }
           },
           "metadata": {},
-          "params": [],
+          "params": [
+            {
+              "name": "fatLabels"
+            }
+          ],
           "return": {
             "type": "void"
-          },
-          "inheritedFrom": "FuroUi5DataInput"
+          }
         },
         {
-          "name": "setValue",
-          "description": "Sets the value for the field. This will update the fieldNode.",
-          "privacy": "public",
+          "name": "_updateAttributesFromFat",
+          "description": "sync input attributes according to fat attributes",
+          "privacy": "private",
           "sourceRange": {
-            "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 208,
+              "line": 266,
               "column": 2
             },
             "end": {
-              "line": 210,
+              "line": 326,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fatAttributes"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaFieldValueChanged",
+          "description": "overwrite onFnaFieldValueChanged",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 373,
+              "column": 2
+            },
+            "end": {
+              "line": 386,
               "column": 3
             }
           },
@@ -7138,71 +6456,139 @@
           ],
           "return": {
             "type": "void"
-          },
-          "inheritedFrom": "FuroUi5DataInput"
+          }
         },
         {
-          "name": "bindData",
-          "description": "Bind a entity field to the text-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
-          "privacy": "public",
+          "name": "onFnaPlaceholderChanged",
+          "description": "overwrite onFnaPlaceholderChanged function",
+          "privacy": "private",
           "sourceRange": {
-            "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 217,
+              "line": 393,
               "column": 2
             },
             "end": {
-              "line": 229,
+              "line": 401,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "fieldNode",
-              "type": "(Object | FieldNode)",
-              "description": "a Field object"
+              "name": "placeholder"
             }
           ],
           "return": {
             "type": "void"
-          },
-          "inheritedFrom": "FuroUi5DataInput"
+          }
         },
         {
-          "name": "_requestUpdate",
-          "description": "",
+          "name": "onFnaReadonlyChanged",
+          "description": "overwrite onFnaReadonlyChanged function",
           "privacy": "private",
           "sourceRange": {
-            "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 250,
+              "line": 408,
               "column": 2
             },
             "end": {
-              "line": 252,
+              "line": 418,
               "column": 3
             }
           },
           "metadata": {},
-          "params": [],
+          "params": [
+            {
+              "name": "readonly"
+            }
+          ],
           "return": {
             "type": "void"
-          },
-          "inheritedFrom": "FuroUi5DataInput"
+          }
         },
         {
-          "name": "_updateVS",
-          "description": "",
-          "privacy": "protected",
+          "name": "onFnaOptionsChanged",
+          "description": "overwrite onFnaOptionsChanged function",
+          "privacy": "private",
           "sourceRange": {
-            "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 339,
+              "line": 425,
               "column": 2
             },
             "end": {
-              "line": 359,
+              "line": 429,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "options"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaConstraintsChanged",
+          "description": "overwrite onFnaConstraintsChanged function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 436,
+              "column": 2
+            },
+            "end": {
+              "line": 454,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "constraints"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaFieldNodeBecameInvalid",
+          "description": "overwrite onFnaFieldNodeBecameInvalid function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 461,
+              "column": 2
+            },
+            "end": {
+              "line": 466,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "validity"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaFieldNodeBecameValid",
+          "description": "overwrite onFnaFieldNodeBecameValid function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 472,
+              "column": 2
+            },
+            "end": {
+              "line": 474,
               "column": 3
             }
           },
@@ -7210,34 +6596,162 @@
           "params": [],
           "return": {
             "type": "void"
+          }
+        },
+        {
+          "name": "_setSuggestions",
+          "description": "set suggestions as the ui5-suggestion-item element\nui5 suggestions sample data: [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},.. ]\nfuro.Fieldoption as suggestions: [{\"id\": 1,\"display_name\":\"show 1\"}, ..]\nif the suggestion item has icon , the ui5 icons should be imported in your ui component",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 485,
+              "column": 2
+            },
+            "end": {
+              "line": 548,
+              "column": 3
+            }
           },
-          "inheritedFrom": "FuroUi5DataInput"
+          "metadata": {},
+          "params": [
+            {
+              "name": "arr"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
         },
         {
           "name": "_setValueStateMessage",
-          "description": "Updates the vs and creates the element in the slot on demand",
+          "description": "update the value state and the value state message on demand",
           "privacy": "private",
           "sourceRange": {
-            "file": "furo-ui5-data-input.js",
             "start": {
-              "line": 366,
+              "line": 557,
               "column": 2
             },
             "end": {
-              "line": 380,
+              "line": 561,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "msg"
+              "name": "valueState"
+            },
+            {
+              "name": "message"
             }
           ],
           "return": {
             "type": "void"
+          }
+        },
+        {
+          "name": "_resetValueStateMessage",
+          "description": "reset to previous value state",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 567,
+              "column": 2
+            },
+            "end": {
+              "line": 569,
+              "column": 3
+            }
           },
-          "inheritedFrom": "FuroUi5DataInput"
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_setIcon",
+          "description": "set ui5 icon",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 576,
+              "column": 2
+            },
+            "end": {
+              "line": 597,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "icon"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "show",
+          "description": "show password",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 602,
+              "column": 2
+            },
+            "end": {
+              "line": 610,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "hide",
+          "description": "hide password",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 615,
+              "column": 2
+            },
+            "end": {
+              "line": 623,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "togglePassword",
+          "description": "toggle (show/hide) password",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 628,
+              "column": 2
+            },
+            "end": {
+              "line": 634,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
         }
       ],
       "staticMethods": [],
@@ -7245,72 +6759,64 @@
         {
           "url": "demo-furo-ui5-data-password-input",
           "description": "Basic usage (scalar , fat, wrapper values)"
-        },
-        {
-          "url": "demo-furo-ui5-data-text-input",
-          "description": "Usage with different types (scalar , fat, wrapper values)"
-        },
-        {
-          "url": "demo-furo-ui5-data-text-input-together",
-          "description": "playground"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 16,
+          "line": 49,
           "column": 7
         },
         "end": {
-          "line": 80,
+          "line": 635,
           "column": 1
         }
       },
       "privacy": "public",
-      "superclass": "FuroUi5DataInput",
-      "name": "FuroUi5DataPasswordInput",
+      "superclass": "HTMLElement",
+      "name": "FuroUi5PasswordInput",
       "attributes": [],
       "events": [
         {
           "type": "CustomEvent",
-          "name": "value-changed",
-          "description": "Fired when the input value changed.\nthe event detail is the value of the input field",
+          "name": "change",
+          "description": "change\nFired when the input operation has finished by pressing Enter or on focusout.\n\ndetail payload: `text`",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
-          "name": "change",
-          "description": "Fired when the input operation has finished by pressing Enter or on focusout.",
+          "name": "icon-clicked",
+          "description": "Fired when icon is clicked",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
           "name": "input",
-          "description": "Fired when the value of the furo-ui5-data-password-input changes at each keystroke, and when a suggestion item has been selected.",
+          "description": "input\nFired when the value of the ui5-input changes at each keystroke, and when a suggestion item has been selected.",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
-          "name": "submit",
-          "description": "Fired when user presses Enter key on the ui5-input.\nNote: The event is fired independent of whether there was a change before or not. If change was performed,\nthe event is fired after the change event. The event is also fired when an item of the select list is selected by pressing Enter.",
+          "name": "password-hidden",
+          "description": "Fired when the password is hidden",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
-          "name": "suggestion-item-preview",
-          "description": "Fired when the user navigates to a suggestion item via the ARROW keys, as a preview, before the final selection.",
+          "name": "password-showed",
+          "description": "Fired when the password is showed",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
-          "name": "suggestion-item-select",
-          "description": "Fired when a suggestion item, that is displayed in the suggestion popup, is selected.",
+          "name": "value-changed",
+          "description": "Fired when value changed",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
-          "name": "suggestion-scroll",
-          "description": "Fired when the user scrolls the suggestion popover.",
+          "name": "xxxx",
+          "description": "xxxx\nAll events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).",
           "metadata": {}
         }
       ],
@@ -7622,7 +7128,7 @@
               "column": 2
             },
             "end": {
-              "line": 153,
+              "line": 152,
               "column": 3
             }
           },
@@ -7642,11 +7148,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 154,
               "column": 2
             },
             "end": {
-              "line": 237,
+              "line": 236,
               "column": 3
             }
           },
@@ -7666,11 +7172,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 239,
+              "line": 238,
               "column": 2
             },
             "end": {
-              "line": 246,
+              "line": 245,
               "column": 3
             }
           },
@@ -7695,7 +7201,7 @@
           "column": 0
         },
         "end": {
-          "line": 259,
+          "line": 258,
           "column": 1
         }
       },
@@ -10763,6 +10269,514 @@
       "mixins": [
         "FBP"
       ]
+    },
+    {
+      "description": "`furo-ui5-data-input`\nThe furo-ui5-data-input is the base component for all furo-ui5-data-input components.\nDO NOT USE DIRECTLY",
+      "summary": "data text input base",
+      "path": "src/furo-ui5-data-input.js",
+      "properties": [
+        {
+          "name": "accInfo",
+          "type": "*",
+          "description": "rewrite get accInfo function\ninitiate _inputAccInfo in order to avoid error",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 48,
+              "column": 2
+            },
+            "end": {
+              "line": 53,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
+          }
+        },
+        {
+          "name": "valueStateMessage",
+          "type": "(* | {})",
+          "description": "overwrite to fix error",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 59,
+              "column": 2
+            },
+            "end": {
+              "line": 61,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
+          }
+        },
+        {
+          "name": "suggestionItems",
+          "type": "(* | [])",
+          "description": "overwrite to fix error",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 67,
+              "column": 2
+            },
+            "end": {
+              "line": 69,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
+          }
+        },
+        {
+          "name": "icon",
+          "type": "(* | [])",
+          "description": "overwrite to fix error",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 75,
+              "column": 2
+            },
+            "end": {
+              "line": 77,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
+          }
+        },
+        {
+          "name": "ui5Icon",
+          "type": "?",
+          "description": "Set the ui5 icon",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 235,
+              "column": 2
+            },
+            "end": {
+              "line": 245,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_error",
+          "type": "?",
+          "description": "sets and remove the error state",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 259,
+              "column": 2
+            },
+            "end": {
+              "line": 266,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_errorMsg",
+          "type": "?",
+          "description": "store the error message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 273,
+              "column": 2
+            },
+            "end": {
+              "line": 276,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_informationMsg",
+          "type": "?",
+          "description": "store the information message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 283,
+              "column": 2
+            },
+            "end": {
+              "line": 286,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "__readonly",
+          "type": "?",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 288,
+              "column": 2
+            },
+            "end": {
+              "line": 292,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_warningMsg",
+          "type": "?",
+          "description": "store the warning message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 299,
+              "column": 2
+            },
+            "end": {
+              "line": 302,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_successMsg",
+          "type": "?",
+          "description": "store the success message and update the value state message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 309,
+              "column": 2
+            },
+            "end": {
+              "line": 312,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_valueState",
+          "type": "?",
+          "description": "Update the value state on change",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 319,
+              "column": 2
+            },
+            "end": {
+              "line": 324,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_hint",
+          "type": "?",
+          "description": "Sets the title attribute when hint is given, because ui5 only shows the messages when valueState is not None",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 331,
+              "column": 2
+            },
+            "end": {
+              "line": 337,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "suggestions",
+          "type": "?",
+          "description": "set suggestions as the ui5-suggestion-item element\nsample data of the suggestions: [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},.. ]\nif the suggestion item has icon , the ui5 icons should be imported in your ui component",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 388,
+              "column": 2
+            },
+            "end": {
+              "line": 444,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "connectedCallback",
+          "description": "connectedCallback() method is called when an element is added to the DOM.\nwebcomponent lifecycle event",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 35,
+              "column": 2
+            },
+            "end": {
+              "line": 40,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_initBinder",
+          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 84,
+              "column": 2
+            },
+            "end": {
+              "line": 88,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "applyBindingSet",
+          "description": "apply the binding set to the universal field node binder.\n\n### following labels of fat types are supported by binding:\n\n- 'error': valueState of ui5 component is set as error\n- 'readonly': ui5 component is disabled\n- 'required': input is required\n- 'disabled': ui5 component is disabled\n- 'modified': data is changed\n- 'highlight': Defines if characters within the suggestions are to be highlighted in case the input value matches parts of the suggestions text.\n\n### following attributes of fat types are supported by binding:\n\n- 'label': label will be used as the placeholder of the ui5 input\n- 'placeholder': placeholder of the ui5 input\n- 'hint': title of the ui5 input\n- 'icon': ui5 icon in the ui5 input\n- 'leading-icon': the same as 'icon'\n- 'value-state': Defines the state of the info.Available options are: \"None\" (by default), \"Success\", \"Warning\" and \"Erorr\".\n- 'errortext': Defines the error value state message that will be displayed as pop up under the ui5-input.\n- 'error-msg': the same as 'errortext'\n- 'warning-msg': Defines the warning value state message that will be displayed as pop up under the ui5-input.\n- 'success-msg': Defines the success value state message that will be displayed as pop up under the ui5-input.\n- 'information-msg': Defines the information value state message that will be displayed as pop up under the ui5-input.\n- 'pattern': Defines the pattern of the ui5-input.\n- 'name': Defines the name of the ui5-input.\n- 'maxlength': Sets the maximum number of characters available in the input field.\n- 'suggestions': Defines the suggestion items. e.g. [{\"text\":\"Spain\",\"icon\":\"world\",\"type\":\"Active\",\"infoState\":\"None\",\"group\":false,\"key\":0},\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'max': is mapped to 'maxlength' attribute\n- 'min': is mapped to 'minlength' attribute\n- 'pattern': is mapped to 'pattern' attribute\n- 'required': is mapped to 'required' attribute",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 128,
+              "column": 2
+            },
+            "end": {
+              "line": 202,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "setValue",
+          "description": "Sets the value for the field. This will update the fieldNode.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 208,
+              "column": 2
+            },
+            "end": {
+              "line": 210,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "val"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Bind a entity field to the text-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 217,
+              "column": 2
+            },
+            "end": {
+              "line": 229,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode",
+              "type": "(Object | FieldNode)",
+              "description": "a Field object"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_requestUpdate",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 250,
+              "column": 2
+            },
+            "end": {
+              "line": 252,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateVS",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 339,
+              "column": 2
+            },
+            "end": {
+              "line": 359,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_setValueStateMessage",
+          "description": "Updates the vs and creates the element in the slot on demand",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 366,
+              "column": 2
+            },
+            "end": {
+              "line": 380,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "msg"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 13,
+          "column": 7
+        },
+        "end": {
+          "line": 445,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "Input.default",
+      "name": "FuroUi5DataInput",
+      "attributes": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "value-changed",
+          "description": "Fired when the input value changed.\nthe event detail is the value of the input field",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-input"
     },
     {
       "description": "The furo-ui5-data-ro component allows the user to show text information.\n\nThe text field is read-only (readonly property), and it can be enabled or disabled (enabled property).\nTo visualize semantic states, such as \"error\" or \"warning\", the valueState property is provided.",
@@ -14608,11 +14622,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 39,
+              "line": 46,
               "column": 6
             },
             "end": {
-              "line": 42,
+              "line": 49,
               "column": 7
             }
           },
@@ -14629,11 +14643,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 47,
+              "line": 54,
               "column": 6
             },
             "end": {
-              "line": 50,
+              "line": 57,
               "column": 7
             }
           },
@@ -14650,11 +14664,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 55,
+              "line": 62,
               "column": 6
             },
             "end": {
-              "line": 57,
+              "line": 64,
               "column": 7
             }
           },
@@ -14671,11 +14685,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 69,
               "column": 6
             },
             "end": {
-              "line": 64,
+              "line": 71,
               "column": 7
             }
           },
@@ -14693,11 +14707,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 74,
+              "line": 81,
               "column": 2
             },
             "end": {
-              "line": 86,
+              "line": 93,
               "column": 3
             }
           },
@@ -14713,11 +14727,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 91,
+              "line": 98,
               "column": 2
             },
             "end": {
-              "line": 100,
+              "line": 107,
               "column": 3
             }
           },
@@ -14733,11 +14747,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 113,
               "column": 2
             },
             "end": {
-              "line": 108,
+              "line": 115,
               "column": 3
             }
           },
@@ -14757,11 +14771,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 114,
+              "line": 121,
               "column": 2
             },
             "end": {
-              "line": 116,
+              "line": 123,
               "column": 3
             }
           },
@@ -14781,11 +14795,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 130,
               "column": 2
             },
             "end": {
-              "line": 129,
+              "line": 136,
               "column": 3
             }
           },
@@ -14805,11 +14819,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 136,
+              "line": 143,
               "column": 2
             },
             "end": {
-              "line": 145,
+              "line": 152,
               "column": 3
             }
           },
@@ -14829,11 +14843,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 159,
               "column": 2
             },
             "end": {
-              "line": 161,
+              "line": 168,
               "column": 3
             }
           },
@@ -14853,11 +14867,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 168,
+              "line": 175,
               "column": 2
             },
             "end": {
-              "line": 177,
+              "line": 184,
               "column": 3
             }
           },
@@ -14877,11 +14891,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 184,
+              "line": 191,
               "column": 2
             },
             "end": {
-              "line": 193,
+              "line": 200,
               "column": 3
             }
           },
@@ -14901,11 +14915,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 232,
+              "line": 239,
               "column": 2
             },
             "end": {
-              "line": 264,
+              "line": 271,
               "column": 3
             }
           },
@@ -14925,11 +14939,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 272,
+              "line": 279,
               "column": 2
             },
             "end": {
-              "line": 276,
+              "line": 283,
               "column": 3
             }
           },
@@ -14954,11 +14968,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 23,
+          "line": 24,
           "column": 0
         },
         "end": {
-          "line": 287,
+          "line": 294,
           "column": 1
         }
       },
@@ -14971,11 +14985,11 @@
           "description": "Defines whether the MessageStrip renders close icon.",
           "sourceRange": {
             "start": {
-              "line": 39,
+              "line": 46,
               "column": 6
             },
             "end": {
-              "line": 42,
+              "line": 49,
               "column": 7
             }
           },
@@ -14987,11 +15001,11 @@
           "description": "Defines whether the MessageStrip will show an icon in the beginning. You can directly provide an icon with the icon slot. Otherwise, the default icon for the type will be used.",
           "sourceRange": {
             "start": {
-              "line": 47,
+              "line": 54,
               "column": 6
             },
             "end": {
-              "line": 50,
+              "line": 57,
               "column": 7
             }
           },
@@ -15003,11 +15017,11 @@
           "description": "define the width of ui5-messagestrip. e.g. 200px",
           "sourceRange": {
             "start": {
-              "line": 55,
+              "line": 62,
               "column": 6
             },
             "end": {
-              "line": 57,
+              "line": 64,
               "column": 7
             }
           },
@@ -15019,11 +15033,11 @@
           "description": "the text message of the message strip",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 69,
               "column": 6
             },
             "end": {
-              "line": 64,
+              "line": 71,
               "column": 7
             }
           },
@@ -15064,11 +15078,31 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 34,
+              "line": 35,
               "column": 2
             },
             "end": {
-              "line": 57,
+              "line": 58,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "clearAll",
+          "description": "Removes all strips",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 63,
+              "column": 2
+            },
+            "end": {
+              "line": 67,
               "column": 3
             }
           },
@@ -15084,11 +15118,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 63,
+              "line": 73,
               "column": 2
             },
             "end": {
-              "line": 83,
+              "line": 93,
               "column": 3
             }
           },
@@ -15117,7 +15151,7 @@
           "column": 0
         },
         "end": {
-          "line": 105,
+          "line": 115,
           "column": 1
         }
       },
@@ -15770,7 +15804,7 @@
       "tagname": "furo-ui5-notification-group-display"
     },
     {
-      "description": "`furo-ui5-notification-list`\nLit element\n\n best place the furo-ui5-notification-list on the main site. then you only need one furo-ui5-notification-list.\n you can also use more furo-ui5-notification-list for special needs. but You have to be sure the furo-ui5-notification-list can receive the notification events.",
+      "description": "`furo-ui5-notification-list`\n Displays google.rpc.Status messages in a grouped list.\n https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto.\n\n Best place the furo-ui5-notification-list on the main site. then you only need one furo-ui5-notification-list.\n you can also use more than one furo-ui5-notification-list for special needs.\n But you have to be sure the furo-ui5-notification-list can receive the notification events from furo-ui5-notification.",
       "summary": "ui5 notification list",
       "path": "src/furo-ui5-notification-list-display.js",
       "properties": [
@@ -15781,11 +15815,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 37,
+              "line": 47,
               "column": 6
             },
             "end": {
-              "line": 40,
+              "line": 50,
               "column": 7
             }
           },
@@ -15802,11 +15836,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 44,
+              "line": 54,
               "column": 6
             },
             "end": {
-              "line": 47,
+              "line": 57,
               "column": 7
             }
           },
@@ -15823,11 +15857,32 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 51,
+              "line": 61,
               "column": 6
             },
             "end": {
-              "line": 54,
+              "line": 64,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "groupTitleMessage",
+          "type": "string | null | undefined",
+          "description": "Defines the notification group element title for notifications of type\n\"type.googleapis.com/google.rpc.LocalizedMessage\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 69,
+              "column": 6
+            },
+            "end": {
+              "line": 72,
               "column": 7
             }
           },
@@ -15844,11 +15899,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 77,
               "column": 6
             },
             "end": {
-              "line": 62,
+              "line": 80,
               "column": 7
             }
           },
@@ -15865,11 +15920,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 67,
+              "line": 85,
               "column": 6
             },
             "end": {
-              "line": 70,
+              "line": 88,
               "column": 7
             }
           },
@@ -15887,11 +15942,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 94,
+              "line": 112,
               "column": 2
             },
             "end": {
-              "line": 143,
+              "line": 161,
               "column": 3
             }
           },
@@ -15907,11 +15962,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 150,
+              "line": 168,
               "column": 2
             },
             "end": {
-              "line": 188,
+              "line": 209,
               "column": 3
             }
           },
@@ -15931,11 +15986,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 216,
+              "line": 237,
               "column": 2
             },
             "end": {
-              "line": 224,
+              "line": 245,
               "column": 3
             }
           },
@@ -15955,11 +16010,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 232,
+              "line": 253,
               "column": 2
             },
             "end": {
-              "line": 251,
+              "line": 272,
               "column": 3
             }
           },
@@ -15975,11 +16030,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 259,
+              "line": 280,
               "column": 2
             },
             "end": {
-              "line": 268,
+              "line": 289,
               "column": 3
             }
           },
@@ -15999,11 +16054,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 275,
+              "line": 296,
               "column": 2
             },
             "end": {
-              "line": 292,
+              "line": 326,
               "column": 3
             }
           },
@@ -16019,11 +16074,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 299,
+              "line": 333,
               "column": 2
             },
             "end": {
-              "line": 336,
+              "line": 373,
               "column": 3
             }
           },
@@ -16039,11 +16094,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 343,
+              "line": 380,
               "column": 2
             },
             "end": {
-              "line": 381,
+              "line": 422,
               "column": 3
             }
           },
@@ -16059,11 +16114,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 386,
+              "line": 427,
               "column": 2
             },
             "end": {
-              "line": 390,
+              "line": 431,
               "column": 3
             }
           },
@@ -16079,11 +16134,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 396,
+              "line": 437,
               "column": 2
             },
             "end": {
-              "line": 404,
+              "line": 445,
               "column": 3
             }
           },
@@ -16104,11 +16159,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 19,
+          "line": 22,
           "column": 0
         },
         "end": {
-          "line": 405,
+          "line": 446,
           "column": 1
         }
       },
@@ -16121,11 +16176,11 @@
           "description": "the header text of the notification",
           "sourceRange": {
             "start": {
-              "line": 37,
+              "line": 47,
               "column": 6
             },
             "end": {
-              "line": 40,
+              "line": 50,
               "column": 7
             }
           },
@@ -16137,11 +16192,11 @@
           "description": "Defines if the close button would be displayed.",
           "sourceRange": {
             "start": {
-              "line": 44,
+              "line": 54,
               "column": 6
             },
             "end": {
-              "line": 47,
+              "line": 57,
               "column": 7
             }
           },
@@ -16153,11 +16208,27 @@
           "description": "Defines the text that is displayed when the list contains no items.",
           "sourceRange": {
             "start": {
-              "line": 51,
+              "line": 61,
               "column": 6
             },
             "end": {
-              "line": 54,
+              "line": 64,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "group-title-message",
+          "description": "Defines the notification group element title for notifications of type\n\"type.googleapis.com/google.rpc.LocalizedMessage\"",
+          "sourceRange": {
+            "start": {
+              "line": 69,
+              "column": 6
+            },
+            "end": {
+              "line": 72,
               "column": 7
             }
           },
@@ -16169,11 +16240,11 @@
           "description": "Defines the notification group element title for notifications of type\n\"type.googleapis.com/google.rpc.Help\"",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 77,
               "column": 6
             },
             "end": {
-              "line": 62,
+              "line": 80,
               "column": 7
             }
           },
@@ -16185,11 +16256,11 @@
           "description": "Defines the notification group element title for notifications of type\n\"type.googleapis.com/google.rpc.BadRequest\"",
           "sourceRange": {
             "start": {
-              "line": 67,
+              "line": 85,
               "column": 6
             },
             "end": {
-              "line": 70,
+              "line": 88,
               "column": 7
             }
           },
@@ -16664,11 +16735,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 45,
+              "line": 44,
               "column": 2
             },
             "end": {
-              "line": 64,
+              "line": 63,
               "column": 3
             }
           },
@@ -16697,7 +16768,7 @@
           "column": 0
         },
         "end": {
-          "line": 66,
+          "line": 64,
           "column": 1
         }
       },

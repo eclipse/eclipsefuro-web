@@ -89,15 +89,15 @@ class DemoFuroUi5DataPasswordInput extends FBP(LitElement) {
       <h2>Demo furo-ui5-data-password-input</h2>
       <furo-demo-snippet>
         <template>
+          <data-password-icon-demo-helper
+            @-set-icon="--setIcon"
+            ƒ-show-icon="--iconShow"
+            ƒ-hide-icon="--iconHide"
+          ></data-password-icon-demo-helper>
           <furo-form-layouter two>
             <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
               >Load Demo Data</furo-ui5-button
             >
-            <data-password-icon-demo-helper
-              @-set-icon="--setIcon"
-              ƒ-show-icon="--iconShow"
-              ƒ-hide-icon="--iconHide"
-            ></data-password-icon-demo-helper>
             <furo-ui5-data-password-input
               icon="show"
               ƒ-toggle-password="--toggle"

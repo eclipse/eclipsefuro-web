@@ -46,7 +46,6 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @summary data password input field
  * @customElement
  * @demo demo-furo-ui5-data-password-input Basic usage (scalar , fat, wrapper values)
- * @demo demo-furo-ui5-data-password-input-markup-overwrite Use Markup Overwrites
  */
 export class FuroUi5PasswordInput extends FieldNodeAdapter(Input.default) {
   /**
@@ -208,7 +207,7 @@ export class FuroUi5PasswordInput extends FieldNodeAdapter(Input.default) {
 
     /**
      * Fired when value changed
-     * @type {Event}
+     * @event value-changed
      */
     const customEvent = new Event('value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.value;
