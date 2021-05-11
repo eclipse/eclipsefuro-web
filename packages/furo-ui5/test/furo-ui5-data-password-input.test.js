@@ -151,7 +151,14 @@ describe('furo-ui5-data-password-input', () => {
       assert.equal(dao.data.data.description._value, 'New description set');
       done();
     });
-    input.setValue('New description set');
+
+    input.value = 'New description set';
+    input.dispatchEvent(
+      new CustomEvent('input', {
+        bubbles: true,
+        detail: 'New description set',
+      }),
+    );
   });
 
   it('an update of a scalar value on the data object should be synchronized with the input field', done => {
@@ -163,7 +170,7 @@ describe('furo-ui5-data-password-input', () => {
   });
 
   it('should set ui5 icon to the component', done => {
-    input.ui5Icon = 'filter';
+    input._setIcon('filter');
     const icon = input.querySelector('ui5-icon');
     assert.equal(icon.name, 'filter');
     assert.equal(icon.slot, 'icon');
@@ -172,20 +179,22 @@ describe('furo-ui5-data-password-input', () => {
 
   it('should apply meta and constraints to the bound field', done => {
     dao.addEventListener('data-injected', () => {
-      assert.equal(input._state.disabled, false, 'check disabled');
-      assert.equal(input._state.highlight, false, 'check highlight');
-      assert.equal(input._state.readonly, false, 'check readonly');
-      assert.equal(input._state.required, true, 'check required');
-      assert.equal(input._state.type, 'Password', 'check type');
-      assert.equal(input._state.value, 'Description from record', 'check value');
-      assert.equal(input._state.valueState, 'None', 'check valueState');
-      assert.equal(input._state.name, '', 'check name');
-      assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
-      assert.equal(input._state.maxlength, undefined, 'check maxlength');
-      assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
-      assert.equal(input.binder.fieldFormat, 'scalar', 'check fieldFormat');
+      setTimeout(() => {
+        assert.equal(input._state.disabled, false, 'check disabled');
+        assert.equal(input._state.highlight, false, 'check highlight');
+        assert.equal(input._state.readonly, false, 'check readonly');
+        assert.equal(input._state.required, true, 'check required');
+        assert.equal(input._state.type, 'Password', 'check type');
+        assert.equal(input._state.value, 'Description from record', 'check value');
+        assert.equal(input._state.valueState, 'None', 'check valueState');
+        assert.equal(input._state.name, '', 'check name');
+        assert.equal(input._state.showSuggestions, false, 'check showSuggestions');
+        assert.equal(input._state.maxlength, undefined, 'check maxlength');
+        assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
+        assert.equal(input.isFat(), false, 'check fieldFormat');
 
-      done();
+        done();
+      }, 10);
     });
 
     dao.injectRaw(testRecordMeta);
