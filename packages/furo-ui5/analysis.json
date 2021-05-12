@@ -6670,7 +6670,7 @@
           }
         },
         {
-          "name": "_setIcon",
+          "name": "setIcon",
           "description": "set ui5 icon",
           "privacy": "private",
           "sourceRange": {
