@@ -26,6 +26,9 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *  - **"disabled":"true"** set the element to disabled
  *  - **"placeholder":"string"** set the placeholder for the element
  *  - **"rows":"number"** set the number of rows.
+ *  - **"growing":"true"** Enables the ui5-textarea to automatically grow and shrink dynamically with its content.
+ *  - **"show-exceeded-text":"true"** if set to true. the characters exceeding the maxlength value are selected on paste and the counter below the ui5-textarea displays their number. If set to false, the user is not allowed to enter more characters than what is set in the maxlength property.
+ *  - **"growing-max-lines":"number"** Defines the maximum number of lines that the Web Component can grow.
  *  - **"max":"number"** set the maximum number of characters available in the input field.
  *
  * ## supported meta and constraints
@@ -91,6 +94,9 @@ export class FuroUi5DataTextareaInput extends FieldNodeAdapter(TextArea.default)
       placeholder: undefined,
       max: undefined, // maps to maxlength
       rows: undefined,
+      growing: undefined,
+      growingMaxLines: undefined,
+      showExceededText: undefined,
     };
 
     // a list of privileged attributes. when those attributes are set in textarea-input components initially.
@@ -103,6 +109,9 @@ export class FuroUi5DataTextareaInput extends FieldNodeAdapter(TextArea.default)
       disabled: null,
       maxlength: null,
       rows: null,
+      growing: null,
+      growingMaxLines: null,
+      showExceededText: null,
     };
 
     this.addEventListener('input', this._updateFNA);
@@ -294,7 +303,7 @@ export class FuroUi5DataTextareaInput extends FieldNodeAdapter(TextArea.default)
     // maxlength
     if (this._privilegedAttributes.maxlength === null) {
       if (fatAttributes.max !== undefined) {
-        this.maxlength = fatAttributes.max;
+        this.maxlength = parseInt(fatAttributes.max, 10);
       } else if (this._constraintsFromFNA.max !== undefined && this._constraintsFromFNA.max.is) {
         this.maxlength = parseInt(this._constraintsFromFNA.max.is, 10);
       }
@@ -303,7 +312,28 @@ export class FuroUi5DataTextareaInput extends FieldNodeAdapter(TextArea.default)
     // rows, Defines the number of visible text lines for the component.
     if (this._privilegedAttributes.rows === null) {
       if (fatAttributes.rows !== undefined) {
-        this.rows = fatAttributes.rows;
+        this.rows = parseInt(fatAttributes.rows, 10);
+      }
+    }
+
+    // growing, Enables the ui5-textarea to automatically grow and shrink dynamically with its content.
+    if (this._privilegedAttributes.growing === null) {
+      if (fatAttributes.growing !== undefined) {
+        this.growing = fatAttributes.growing === 'true';
+      }
+    }
+
+    // growingMaxLines, Defines the maximum number of lines that the Web Component can grow.
+    if (this._privilegedAttributes.growingMaxLines === null) {
+      if (fatAttributes['growing-max-lines'] !== undefined) {
+        this.growingMaxLines = parseInt(fatAttributes['growing-max-lines'], 10);
+      }
+    }
+
+    // showExceededText, Determines whether the characters exceeding the maximum allowed character count are visible in the ui5-textarea.
+    if (this._privilegedAttributes.showExceededText === null) {
+      if (fatAttributes['show-exceeded-text'] !== undefined) {
+        this.showExceededText = fatAttributes['show-exceeded-text'] === 'true';
       }
     }
   }

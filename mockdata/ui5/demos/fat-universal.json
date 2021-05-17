@@ -19,7 +19,10 @@
         "placeholder": "overridePH",
         "value-state-message": "this is an errortext",
         "icon": "world",
-        "rows": 10,
+        "rows": "3",
+        "show-exceeded-text": "true",
+        "growing-max-lines": "4",
+        "growing": "true",
         "suggestions": [
           {
             "text": "Spain",

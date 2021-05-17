@@ -13214,7 +13214,7 @@
       ]
     },
     {
-      "description": "The 'furo-ui5-data-textarea-input' component allows the user to enter and edit texts with data binding.\n\nIt supports all features from the [SAP ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).\n\nYou can bind any `string` type, like `furo.fat.String` type or the `google.protobuf.StringValue` type.\n\n```html\n <furo-ui5-data-textarea-input\n    ƒ-bind-data=\"--daoCountry(*.data.name)\"\n ></furo-ui5-data-textarea-input>\n```\n\n### Specificity\n1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.\n2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.\n\n** meta \t<  fat \t< html \t**\n\n## supported FAT attributes\n - **\"readonly\":\"true\"** set the element to readonly\n - **\"required\":\"true\"** set the element to required\n - **\"disabled\":\"true\"** set the element to disabled\n - **\"placeholder\":\"string\"** set the placeholder for the element\n - **\"rows\":\"number\"** set the number of rows.\n - **\"max\":\"number\"** set the maximum number of characters available in the input field.\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **max:\"number\"** set the maximum number of characters available in the input field.\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)",
+      "description": "The 'furo-ui5-data-textarea-input' component allows the user to enter and edit texts with data binding.\n\nIt supports all features from the [SAP ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).\n\nYou can bind any `string` type, like `furo.fat.String` type or the `google.protobuf.StringValue` type.\n\n```html\n <furo-ui5-data-textarea-input\n    ƒ-bind-data=\"--daoCountry(*.data.name)\"\n ></furo-ui5-data-textarea-input>\n```\n\n### Specificity\n1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.\n2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.\n\n** meta \t<  fat \t< html \t**\n\n## supported FAT attributes\n - **\"readonly\":\"true\"** set the element to readonly\n - **\"required\":\"true\"** set the element to required\n - **\"disabled\":\"true\"** set the element to disabled\n - **\"placeholder\":\"string\"** set the placeholder for the element\n - **\"rows\":\"number\"** set the number of rows.\n - **\"growing\":\"true\"** Enables the ui5-textarea to automatically grow and shrink dynamically with its content.\n - **\"show-exceeded-text\":\"true\"** if set to true. the characters exceeding the maxlength value are selected on paste and the counter below the ui5-textarea displays their number. If set to false, the user is not allowed to enter more characters than what is set in the maxlength property.\n - **\"growing-max-lines\":\"number\"** Defines the maximum number of lines that the Web Component can grow.\n - **\"max\":\"number\"** set the maximum number of characters available in the input field.\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **max:\"number\"** set the maximum number of characters available in the input field.\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)",
       "summary": "data textarea input field",
       "path": "src/furo-ui5-data-textarea-input.js",
       "properties": [
@@ -13225,11 +13225,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 146,
+              "line": 155,
               "column": 2
             },
             "end": {
-              "line": 148,
+              "line": 157,
               "column": 3
             }
           },
@@ -13246,11 +13246,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 315,
+              "line": 345,
               "column": 2
             },
             "end": {
-              "line": 317,
+              "line": 347,
               "column": 3
             }
           },
@@ -13268,11 +13268,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 132,
               "column": 2
             },
             "end": {
-              "line": 139,
+              "line": 148,
               "column": 3
             }
           },
@@ -13288,11 +13288,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 164,
               "column": 2
             },
             "end": {
-              "line": 164,
+              "line": 173,
               "column": 3
             }
           },
@@ -13308,11 +13308,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 181,
               "column": 2
             },
             "end": {
-              "line": 209,
+              "line": 218,
               "column": 3
             }
           },
@@ -13328,11 +13328,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 226,
               "column": 2
             },
             "end": {
-              "line": 251,
+              "line": 260,
               "column": 3
             }
           },
@@ -13352,11 +13352,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 257,
+              "line": 266,
               "column": 2
             },
             "end": {
-              "line": 308,
+              "line": 338,
               "column": 3
             }
           },
@@ -13376,11 +13376,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 324,
+              "line": 354,
               "column": 2
             },
             "end": {
-              "line": 337,
+              "line": 367,
               "column": 3
             }
           },
@@ -13400,11 +13400,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 344,
+              "line": 374,
               "column": 2
             },
             "end": {
-              "line": 352,
+              "line": 382,
               "column": 3
             }
           },
@@ -13424,11 +13424,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 359,
+              "line": 389,
               "column": 2
             },
             "end": {
-              "line": 367,
+              "line": 397,
               "column": 3
             }
           },
@@ -13448,11 +13448,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 374,
+              "line": 404,
               "column": 2
             },
             "end": {
-              "line": 392,
+              "line": 422,
               "column": 3
             }
           },
@@ -13472,11 +13472,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 399,
+              "line": 429,
               "column": 2
             },
             "end": {
-              "line": 404,
+              "line": 434,
               "column": 3
             }
           },
@@ -13496,11 +13496,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 410,
+              "line": 440,
               "column": 2
             },
             "end": {
-              "line": 412,
+              "line": 442,
               "column": 3
             }
           },
@@ -13516,11 +13516,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 421,
+              "line": 451,
               "column": 2
             },
             "end": {
-              "line": 425,
+              "line": 455,
               "column": 3
             }
           },
@@ -13543,11 +13543,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 431,
+              "line": 461,
               "column": 2
             },
             "end": {
-              "line": 433,
+              "line": 463,
               "column": 3
             }
           },
@@ -13568,11 +13568,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 48,
+          "line": 51,
           "column": 7
         },
         "end": {
-          "line": 434,
+          "line": 464,
           "column": 1
         }
       },
