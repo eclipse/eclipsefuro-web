@@ -25,6 +25,7 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *  - **"required":"true"** set the element to required
  *  - **"disabled":"true"** set the element to disabled
  *  - **"placeholder":"string"** set the placeholder for the element
+ *  - **"rows":"number"** set the number of rows.
  *  - **"max":"number"** set the maximum number of characters available in the input field.
  *
  * ## supported meta and constraints
