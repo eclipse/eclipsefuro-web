@@ -83,7 +83,6 @@ class DemoFuroUi5DataTextareaInput extends FBP(LitElement) {
               ƒ-bind-data="--entity(*.data.furo_data_textarea_input)"
             >
               <div slot="valueStateMessage">Informative</div>
-
             </furo-ui5-data-textarea-input>
             <furo-ui5-data-textarea-input
               maxlength="10"

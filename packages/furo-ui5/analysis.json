@@ -13214,7 +13214,7 @@
       ]
     },
     {
-      "description": "The 'furo-ui5-data-textarea-input' component allows the user to enter and edit texts with data binding.\n\nIt supports all features from the [SAP ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).\n\nYou can bind any `string` type, like `furo.fat.String` type or the `google.protobuf.StringValue` type.\n\n```html\n <furo-ui5-data-textarea-input\n    ƒ-bind-data=\"--daoCountry(*.data.name)\"\n ></furo-ui5-data-textarea-input>\n```\n\n### Specificity\n1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.\n2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.\n\n** meta \t<  fat \t< html \t**\n\n## supported FAT attributes\n - **\"readonly\":\"true\"** set the element to readonly\n - **\"required\":\"true\"** set the element to required\n - **\"disabled\":\"true\"** set the element to disabled\n - **\"placeholder\":\"string\"** set the placeholder for the element\n - **\"max\":\"number\"** set the maximum number of characters available in the input field.\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **max:\"number\"** set the maximum number of characters available in the input field.\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)",
+      "description": "The 'furo-ui5-data-textarea-input' component allows the user to enter and edit texts with data binding.\n\nIt supports all features from the [SAP ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).\n\nYou can bind any `string` type, like `furo.fat.String` type or the `google.protobuf.StringValue` type.\n\n```html\n <furo-ui5-data-textarea-input\n    ƒ-bind-data=\"--daoCountry(*.data.name)\"\n ></furo-ui5-data-textarea-input>\n```\n\n### Specificity\n1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.\n2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.\n\n** meta \t<  fat \t< html \t**\n\n## supported FAT attributes\n - **\"readonly\":\"true\"** set the element to readonly\n - **\"required\":\"true\"** set the element to required\n - **\"disabled\":\"true\"** set the element to disabled\n - **\"placeholder\":\"string\"** set the placeholder for the element\n - **\"rows\":\"number\"** set the number of rows.\n - **\"max\":\"number\"** set the maximum number of characters available in the input field.\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **max:\"number\"** set the maximum number of characters available in the input field.\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)",
       "summary": "data textarea input field",
       "path": "src/furo-ui5-data-textarea-input.js",
       "properties": [
@@ -13225,11 +13225,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 146,
               "column": 2
             },
             "end": {
-              "line": 147,
+              "line": 148,
               "column": 3
             }
           },
@@ -13246,11 +13246,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 314,
+              "line": 315,
               "column": 2
             },
             "end": {
-              "line": 316,
+              "line": 317,
               "column": 3
             }
           },
@@ -13268,11 +13268,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 122,
+              "line": 123,
               "column": 2
             },
             "end": {
-              "line": 138,
+              "line": 139,
               "column": 3
             }
           },
@@ -13288,11 +13288,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 154,
+              "line": 155,
               "column": 2
             },
             "end": {
-              "line": 163,
+              "line": 164,
               "column": 3
             }
           },
@@ -13308,11 +13308,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 171,
+              "line": 172,
               "column": 2
             },
             "end": {
-              "line": 208,
+              "line": 209,
               "column": 3
             }
           },
@@ -13328,11 +13328,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 216,
+              "line": 217,
               "column": 2
             },
             "end": {
-              "line": 250,
+              "line": 251,
               "column": 3
             }
           },
@@ -13352,11 +13352,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 257,
               "column": 2
             },
             "end": {
-              "line": 307,
+              "line": 308,
               "column": 3
             }
           },
@@ -13376,11 +13376,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 323,
+              "line": 324,
               "column": 2
             },
             "end": {
-              "line": 336,
+              "line": 337,
               "column": 3
             }
           },
@@ -13400,11 +13400,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 343,
+              "line": 344,
               "column": 2
             },
             "end": {
-              "line": 351,
+              "line": 352,
               "column": 3
             }
           },
@@ -13424,11 +13424,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 358,
+              "line": 359,
               "column": 2
             },
             "end": {
-              "line": 366,
+              "line": 367,
               "column": 3
             }
           },
@@ -13448,11 +13448,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 373,
+              "line": 374,
               "column": 2
             },
             "end": {
-              "line": 391,
+              "line": 392,
               "column": 3
             }
           },
@@ -13472,11 +13472,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 398,
+              "line": 399,
               "column": 2
             },
             "end": {
-              "line": 403,
+              "line": 404,
               "column": 3
             }
           },
@@ -13496,11 +13496,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 409,
+              "line": 410,
               "column": 2
             },
             "end": {
-              "line": 411,
+              "line": 412,
               "column": 3
             }
           },
@@ -13516,11 +13516,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 420,
+              "line": 421,
               "column": 2
             },
             "end": {
-              "line": 424,
+              "line": 425,
               "column": 3
             }
           },
@@ -13543,11 +13543,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 430,
+              "line": 431,
               "column": 2
             },
             "end": {
-              "line": 432,
+              "line": 433,
               "column": 3
             }
           },
@@ -13568,11 +13568,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 47,
+          "line": 48,
           "column": 7
         },
         "end": {
-          "line": 433,
+          "line": 434,
           "column": 1
         }
       },
