@@ -6734,8 +6734,8 @@
           }
         },
         {
-          "name": "togglePassword",
-          "description": "toggle (show/hide) password",
+          "name": "toggleVisibility",
+          "description": "toggle visibility of the password. (show/hide) password",
           "privacy": "public",
           "sourceRange": {
             "start": {

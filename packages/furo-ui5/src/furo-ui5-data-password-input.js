@@ -624,9 +624,9 @@ export class FuroUi5PasswordInput extends FieldNodeAdapter(Input.default) {
   }
 
   /**
-   * toggle (show/hide) password
+   * toggle visibility of the password. (show/hide) password
    */
-  togglePassword() {
+  toggleVisibility() {
     if (this.type === 'Text') {
       this.hide();
     } else {
