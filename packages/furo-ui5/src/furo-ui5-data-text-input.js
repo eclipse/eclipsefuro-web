@@ -580,6 +580,9 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
     if (this._icon) {
       this._icon.remove();
     }
+    this.querySelectorAll('ui5-icon').forEach(e => {
+      e.remove();
+    });
     if (icon) {
       this._icon = document.createElement('ui5-icon');
       this._icon.slot = 'icon';
