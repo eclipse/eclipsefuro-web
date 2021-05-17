@@ -19,6 +19,7 @@
         "placeholder": "overridePH",
         "value-state-message": "this is an errortext",
         "icon": "world",
+        "rows": 10,
         "suggestions": [
           {
             "text": "Spain",
