@@ -170,7 +170,7 @@ describe('furo-ui5-data-password-input', () => {
   });
 
   it('should set ui5 icon to the component', done => {
-    input._setIcon('filter');
+    input.setIcon('filter');
     const icon = input.querySelector('ui5-icon');
     assert.equal(icon.name, 'filter');
     assert.equal(icon.slot, 'icon');

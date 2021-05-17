@@ -165,7 +165,7 @@ export class FuroUi5PasswordInput extends FieldNodeAdapter(Input.default) {
       this._privilegedAttributes[attr] = this.getAttribute(attr);
     });
     if (this._privilegedAttributes.icon) {
-      this._setIcon(this._privilegedAttributes.icon);
+      this.setIcon(this._privilegedAttributes.icon);
     }
   }
 
@@ -313,7 +313,7 @@ export class FuroUi5PasswordInput extends FieldNodeAdapter(Input.default) {
 
     // icon
     if (this._privilegedAttributes.icon === null && fatAttributes.icon !== undefined) {
-      this._setIcon(fatAttributes.icon);
+      this.setIcon(fatAttributes.icon);
     }
 
     // maxlength
@@ -574,7 +574,7 @@ export class FuroUi5PasswordInput extends FieldNodeAdapter(Input.default) {
    * @param icon
    * @private
    */
-  _setIcon(icon) {
+  setIcon(icon) {
     if (this._icon) {
       this._icon.remove();
     }
@@ -624,9 +624,9 @@ export class FuroUi5PasswordInput extends FieldNodeAdapter(Input.default) {
   }
 
   /**
-   * toggle (show/hide) password
+   * toggle visibility of the password. (show/hide) password
    */
-  togglePassword() {
+  toggleVisibility() {
     if (this.type === 'Text') {
       this.hide();
     } else {

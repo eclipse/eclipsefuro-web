@@ -100,8 +100,8 @@ class DemoFuroUi5DataPasswordInput extends FBP(LitElement) {
             >
             <furo-ui5-data-password-input
               icon="show"
-              ƒ-toggle-password="--toggle"
-              ƒ-_set-icon="--setIcon"
+              ƒ-toggle-visibility="--toggle"
+              ƒ-set-icon="--setIcon"
               @-icon-clicked="--toggle"
               @-password-hidden="--iconShow"
               @-password-showed="--iconHide"
