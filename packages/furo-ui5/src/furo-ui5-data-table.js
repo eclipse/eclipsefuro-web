@@ -213,7 +213,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
    */
   _init() {
     const cols = this.columns.replace(/ /g, '').split(',');
-    this._headers = this.headers.replace(/ /g, '').split(',');
+    this._headers = this.headers.split(',');
     this._popinFields = this.popinFields.replace(/ /g, '').split(',');
 
     this._colStyle = [];
