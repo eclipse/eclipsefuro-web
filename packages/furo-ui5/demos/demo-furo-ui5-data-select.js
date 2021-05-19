@@ -94,12 +94,12 @@ class DemoFuroUi5DataSelect extends FBP(LitElement) {
                 content
                 style="max-width: 100%;"
                 value-state="Information"
-                ƒ-bind-data="--entity(*.data.id)"
+                ƒ-bind-data="--entity(*.data.display_name)"
               >
-                <ui5-option data-id="1" selected>Tomato</ui5-option>
-                <ui5-option data-id="2">Salad</ui5-option>
-                <ui5-option data-id="3">Strawberry</ui5-option>
-                <ui5-option data-id="4">Red Chili Pepper</ui5-option>
+                <ui5-option selected>Tomato</ui5-option>
+                <ui5-option>Salad</ui5-option>
+                <ui5-option>Strawberry</ui5-option>
+                <ui5-option>Red Chili Pepper</ui5-option>
                 <div slot="valueStateMessage">
                   Information message. If you use ui5-option elements without data-id attribute, the
                   selected value is the innerText of the option.
@@ -118,7 +118,7 @@ class DemoFuroUi5DataSelect extends FBP(LitElement) {
                 ƒ-bind-options="--collection(*.entities)"
                 id-field-path="data.id"
                 display-field-path="data.display_name"
-                value-field-path="data.id"
+                value-field-path="data.display_name"
                 value-state="Information"
               >
                 <ui5-option data-id="" selected>Options not yet available</ui5-option>
@@ -129,6 +129,8 @@ class DemoFuroUi5DataSelect extends FBP(LitElement) {
                 </div>
               </furo-ui5-data-select>
             </furo-ui5-form-field-container>
+
+            <furo-ui5-data-text-input-labeled ƒ-bind-data="--entity(*.data.display_name)"></furo-ui5-data-text-input-labeled>
           </furo-form-layouter>
 
           <furo-button-bar>
