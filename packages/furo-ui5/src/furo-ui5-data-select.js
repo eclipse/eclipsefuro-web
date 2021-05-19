@@ -430,55 +430,65 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
    * @private
    */
   _updateFNA(e) {
-    const selectedOption = this._optionList.repeats.find(
-      obj =>
-        FuroUi5DataSelect.getValueByPath(obj, this._privilegedAttributes['id-field-path'])
-          ._value === e.detail.selectedOption.dataset.id,
-    );
+    let newValue = '';
+    let selectedOption = {};
 
-    if (selectedOption) {
-      const newValue = FuroUi5DataSelect.getValueByPath(
-        selectedOption,
-        this._privilegedAttributes['value-field-path'],
-      )._value;
+    if (this._optionList && this._optionList.repeats) {
+      selectedOption = this._optionList.repeats.find(
+        obj =>
+          FuroUi5DataSelect.getValueByPath(obj, this._privilegedAttributes['id-field-path'])
+            ._value === e.detail.selectedOption.dataset.id,
+      );
 
-      if (this.isFat()) {
-        if (newValue === '') {
-          this._tmpFAT.value = null;
-          // add empty state
-          if (this._tmpFAT.labels === null) {
-            this._tmpFAT.labels = {};
-          }
-          this._tmpFAT.labels.empty = true;
-        } else {
-          this._tmpFAT.value = newValue;
-          // remove empty state
-          if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
-            delete this._tmpFAT.labels.empty;
-          }
-          // init labels in_tmpFAT
-          if (this._tmpFAT.labels === null) {
-            this._tmpFAT.labels = {};
-          }
-          // set modified on changes
-          this._tmpFAT.labels.modified = true;
-        }
-        this.setFnaFieldValue(this._tmpFAT);
-      } else if (this.isWrapper()) {
-        this.setFnaFieldValue(newValue === '' ? null : newValue);
-      } else {
-        this.setFnaFieldValue(newValue === '' ? '' : newValue);
+      if (selectedOption) {
+        newValue = FuroUi5DataSelect.getValueByPath(
+          selectedOption,
+          this._privilegedAttributes['value-field-path'],
+        )._value;
       }
-
-      /**
-       * Fired when value changed
-       * @event value-changed
-       * @type {Event}
-       */
-      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
-      customEvent.detail = selectedOption;
-      this.dispatchEvent(customEvent);
+    } else {
+      // no option binding available
+      newValue = e.detail.selectedOption.dataset.id || e.detail.selectedOption.innerText;
+      selectedOption = e.detail.selectedOption;
     }
+
+    if (this.isFat()) {
+      if (newValue === '') {
+        this._tmpFAT.value = null;
+        // add empty state
+        if (this._tmpFAT.labels === null) {
+          this._tmpFAT.labels = {};
+        }
+        this._tmpFAT.labels.empty = true;
+      } else {
+        this._tmpFAT.value = newValue;
+        // remove empty state
+        if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
+          delete this._tmpFAT.labels.empty;
+        }
+        // init labels in_tmpFAT
+        if (this._tmpFAT.labels === null) {
+          this._tmpFAT.labels = {};
+        }
+        // set modified on changes
+        this._tmpFAT.labels.modified = true;
+      }
+      this.setFnaFieldValue(this._tmpFAT);
+    } else if (this.isWrapper()) {
+      this.setFnaFieldValue(newValue === '' ? null : newValue);
+    } else {
+      this.setFnaFieldValue(newValue === '' ? '' : newValue);
+    }
+
+    /**
+     * Fired when value changed
+     * @event value-changed
+     * @type {Event}
+     */
+    const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+    customEvent.detail = selectedOption;
+    this.dispatchEvent(customEvent);
   }
 }
+
 window.customElements.define('furo-ui5-data-select', FuroUi5DataSelect);

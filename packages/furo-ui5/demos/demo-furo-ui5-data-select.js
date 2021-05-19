@@ -86,31 +86,49 @@ class DemoFuroUi5DataSelect extends FBP(LitElement) {
             <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
               >Load Demo Data</furo-ui5-button
             >
-            <furo-ui5-data-select
-              ƒ-bind-data="--entity(*.data.id)"
-              ƒ-bind-options="--collection(*.entities)"
-              id-field-path="data.id"
-              display-field-path="data.display_name"
-              value-field-path="data.id"
-            >
-              <ui5-option selected>Options not yet available</ui5-option>
-            </furo-ui5-data-select>
+            <furo-ui5-form-field-container>
+              <ui5-label label slot="label" for="Custom" show-colon
+                >Use it without option binding
+              </ui5-label>
+              <furo-ui5-data-select
+                content
+                style="max-width: 100%;"
+                value-state="Information"
+                ƒ-bind-data="--entity(*.data.id)"
+              >
+                <ui5-option data-id="1" selected>Tomato</ui5-option>
+                <ui5-option data-id="2">Salad</ui5-option>
+                <ui5-option data-id="3">Strawberry</ui5-option>
+                <ui5-option data-id="4">Red Chili Pepper</ui5-option>
+                <div slot="valueStateMessage">
+                  Information message. If you use ui5-option elements without data-id attribute, the
+                  selected value is the innerText of the option.
+                </div>
+              </furo-ui5-data-select>
+            </furo-ui5-form-field-container>
 
-            <furo-ui5-data-select
-              ƒ-bind-data="--entity(*.data.display_name)"
-              ƒ-bind-options="--collection(*.entities)"
-              id-field-path="data.id"
-              display-field-path="data.display_name"
-              value-field-path="data.id"
-              value-state="Information"
-            >
-              <ui5-option selected>Options not yet available</ui5-option>
-              <div slot="valueStateMessage">
-                Information message. This is a <a href="#">Link</a>. Extra long text used as an
-                information message. Extra long text used as an information message - 2. Extra long
-                text used as an information message - 3.
-              </div>
-            </furo-ui5-data-select>
+            <furo-ui5-form-field-container>
+              <ui5-label label slot="label" for="Custom" show-colon
+                >Use it with option binding (RepeaterNode)
+              </ui5-label>
+              <furo-ui5-data-select
+                content
+                style="max-width: 100%;"
+                ƒ-bind-data="--entity(*.data.display_name)"
+                ƒ-bind-options="--collection(*.entities)"
+                id-field-path="data.id"
+                display-field-path="data.display_name"
+                value-field-path="data.id"
+                value-state="Information"
+              >
+                <ui5-option data-id="" selected>Options not yet available</ui5-option>
+                <div slot="valueStateMessage">
+                  Information message. This is a <a href="#">Link</a>. Extra long text used as an
+                  information message. Extra long text used as an information message - 2. Extra
+                  long text used as an information message - 3.
+                </div>
+              </furo-ui5-data-select>
+            </furo-ui5-form-field-container>
           </furo-form-layouter>
 
           <furo-button-bar>
