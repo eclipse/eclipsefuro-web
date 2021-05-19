@@ -48,3 +48,4 @@ import './demo-furo-ui5-data-table.js';
 import './demo-furo-ui5-data-table-tmpl.js';
 import './demo-furo-ui5-data-table-repeats.js';
 import './demo-furo-ui5-data-property-display.js';
+import './demo-furo-ui5-data-select.js';

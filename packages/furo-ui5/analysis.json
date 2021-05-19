@@ -16786,6 +16786,550 @@
       "mixins": [
         "FBP"
       ]
+    },
+    {
+      "description": "The furo-ui5-data-select component is used to create a drop-down list. The items inside the furo-ui5-data-select define\nthe available options by using the ui5-option component. Use the function bindOptions to bind a RepeaterNode as a option list.",
+      "summary": "data select field",
+      "path": "src/furo-ui5-data-select.js",
+      "properties": [
+        {
+          "name": "idFieldPath",
+          "type": "string",
+          "description": "Defines the field path that is used from the injected RepeaterNode to identify the option items.\nPoint-separated path to the field\nE.g. data.partner.ulid",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 25,
+              "column": 4
+            },
+            "end": {
+              "line": 25,
+              "column": 20
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "''"
+        },
+        {
+          "name": "displayFieldPath",
+          "type": "string",
+          "description": "Defines the field path that is used from the injected RepeaterNode to display the option items.\nPoint-separated path to the field\nE.g. data.partner.display_name",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 33,
+              "column": 4
+            },
+            "end": {
+              "line": 33,
+              "column": 25
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "''"
+        },
+        {
+          "name": "valueFieldPath",
+          "type": "string",
+          "description": "Defines the field path that is used to update the bound component if the user has selected an option.\nPoint-separated path to the field\nMust be set if a data binding is specified.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 41,
+              "column": 4
+            },
+            "end": {
+              "line": 41,
+              "column": 23
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "''"
+        },
+        {
+          "name": "_optionList",
+          "type": "Array.<*>",
+          "description": "Internal RepeaterNode\nDefines the ui5-select options.\nNote: Only one selected option is allowed. If more than one option is defined as selected, the last one would be considered as the selected one.",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 50,
+              "column": 4
+            },
+            "end": {
+              "line": 50,
+              "column": 20
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "[]"
+        }
+      ],
+      "methods": [
+        {
+          "name": "connectedCallback",
+          "description": "connectedCallback() method is called when an element is added to the DOM.\nwebcomponent lifecycle event",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 98,
+              "column": 2
+            },
+            "end": {
+              "line": 122,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "readOptions",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 124,
+              "column": 2
+            },
+            "end": {
+              "line": 129,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "readAttributes",
+          "description": "Reads the attributes which are set on the component dom.\nthose attributes can be set. `value-state`, `required`,`readonly`,`disabled`, `value-field-path`, `display-field-path`\nUse this after manual or scripted update of the attributes.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 136,
+              "column": 2
+            },
+            "end": {
+              "line": 145,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaFieldValueChanged",
+          "description": "overwrite onFnaFieldValueChanged",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 152,
+              "column": 2
+            },
+            "end": {
+              "line": 165,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "val"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaPlaceholderChanged",
+          "description": "overwrite onFnaPlaceholderChanged function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 172,
+              "column": 2
+            },
+            "end": {
+              "line": 180,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "placeholder"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaReadonlyChanged",
+          "description": "overwrite onFnaReadonlyChanged function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 187,
+              "column": 2
+            },
+            "end": {
+              "line": 195,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "readonly"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaOptionsChanged",
+          "description": "overwrite onFnaOptionsChanged function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 202,
+              "column": 2
+            },
+            "end": {
+              "line": 206,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "options"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaConstraintsChanged",
+          "description": "overwrite onFnaConstraintsChanged function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 213,
+              "column": 2
+            },
+            "end": {
+              "line": 224,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "constraints"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaFieldNodeBecameInvalid",
+          "description": "overwrite onFnaFieldNodeBecameInvalid function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 231,
+              "column": 2
+            },
+            "end": {
+              "line": 236,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "validity"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaFieldNodeBecameValid",
+          "description": "overwrite onFnaFieldNodeBecameValid function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 242,
+              "column": 2
+            },
+            "end": {
+              "line": 244,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindOptions",
+          "description": "Here a RepeaterNode can be connected to the component as an option list.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 251,
+              "column": 2
+            },
+            "end": {
+              "line": 268,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "repeaterNode"
+            }
+          ]
+        },
+        {
+          "name": "_updateLabelsFromFat",
+          "description": "labels are map <string,bool>, we handle every boolean attribute with the labels",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 277,
+              "column": 2
+            },
+            "end": {
+              "line": 311,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fatLabels"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateAttributesFromFat",
+          "description": "sync input attributes according to fat attributes",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 317,
+              "column": 2
+            },
+            "end": {
+              "line": 351,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fatAttributes"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_setValueStateMessage",
+          "description": "update the value state and the value state message on demand",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 360,
+              "column": 2
+            },
+            "end": {
+              "line": 364,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "valueState"
+            },
+            {
+              "name": "message"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_resetValueStateMessage",
+          "description": "reset to previous value state",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 370,
+              "column": 2
+            },
+            "end": {
+              "line": 372,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateOptions",
+          "description": "Maps and updates array of option",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 379,
+              "column": 2
+            },
+            "end": {
+              "line": 392,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_getValueByPath",
+          "description": "Let you get an attribute value by path",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 401,
+              "column": 2
+            },
+            "end": {
+              "line": 403,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "obj"
+            },
+            {
+              "name": "path"
+            }
+          ],
+          "return": {
+            "type": "T"
+          }
+        },
+        {
+          "name": "_updateFNA",
+          "description": "Handler function for the input value changes.\nThis is done to be able to remove the event-listeners as a protection for multiple calls",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 411,
+              "column": 2
+            },
+            "end": {
+              "line": 457,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e"
+            }
+          ],
+          "return": {
+            "type": "((function (): void) | *)"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-ui5-data-select",
+          "description": "Basic usage (scalar , fat, wrapper values)"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 14,
+          "column": 7
+        },
+        "end": {
+          "line": 460,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroUi5DataSelect",
+      "attributes": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "value-changed",
+          "description": "Fired when value changed",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-ui5-data-select"
     }
   ],
   "classes": [
