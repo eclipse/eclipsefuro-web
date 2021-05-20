@@ -2,13 +2,10 @@ import { LitElement, html, css } from 'lit-element';
 import { FBP } from '@furo/fbp/src/fbp.js';
 import './furo-ui5-form-field-container.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
-
+import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
 import { Theme } from '@furo/framework';
 import '@ui5/webcomponents/dist/Input';
 import './furo-ui5-data-text-input.js';
-import { FieldNode } from '@furo/data/src/lib/FieldNode';
-import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
 
 /**
  * `furo-data-money-input`
@@ -22,39 +19,22 @@ import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
  *  <furo-ui5-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" options='{"list": [ {"id":"CHF","label":"Schweiz"},{"id":"EUR","label":"Europa", "selected": true}'></furo-data-money-input>
  *  <furo-ui5-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" currencies="CHF,EUR,USD"></furo-data-money-input>
  *
- * ## supported meta and constraints
- * - **readonly: true** , set the element to readonly
- * - **required: true** , set the element to required
- *
  * Tags: money input
  * @summary  Binds a entityObject field google.type.Money to a number-input and currency dropdown fields
  * @customElement
  * @demo demo-furo-ui5-data-money-input Basic Usage
  * @mixes FBP
  */
-class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
+class FuroUi5DataMoneyInput extends FBP(LitElement) {
+  /**
+   * Fired when the input value changed.
+   * the event detail is the value of google.type.Money object
+   * @event value-changed
+   */
+
   constructor() {
     super();
-
-    // used to restore the state after a invalidation -> validation change
-    this._previousValueState = { state: 'None', message: '' };
-
-    this._attributesFromFNA = {
-      readonly: undefined,
-    };
-
-    this._constraintsFromFNA = {
-      required: undefined,
-    };
-
-    // a list of privileged attributes. when those attributes are set in number-input components initially.
-    // they can not be modified later via response or spec
-    // null is used because getAttribute returns null or value
-    this._privilegedAttributes = {
-      readonly: null,
-      required: null,
-      disabled: null,
-    };
+    this._initBinder();
   }
 
   /**
@@ -62,99 +42,74 @@ class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
    * webcomponent lifecycle event
    */
   connectedCallback() {
-    // eslint-disable-next-line wc/guard-super-call
-    super.connectedCallback();
-    this.readAttributes();
+    setTimeout(() => {
+      super.connectedCallback();
+    }, 0);
+
+    this.valid = true;
+    this._currencies = [];
+    // init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
+    this.value = { currency_code: '', units: null, nanos: null };
   }
 
   /**
-   * Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.
-   * @param fieldNode
+   * inits the universalFieldNodeBinder.
+   * Set the mapped attributes and labels.
+   * @private
    */
-  bindData(fieldNode) {
-    // check if we have a FieldNode or RepeaterNode
-    if (!(fieldNode instanceof FieldNode || fieldNode instanceof RepeaterNode)) {
-      // eslint-disable-next-line no-console
-      console.warn('Invalid binding ', fieldNode, 'is not a FieldNode', this, this.parentNode);
-      return false;
-    }
+  _initBinder() {
+    this.binder = new UniversalFieldNodeBinder(this);
 
-    // initial empty metas
-    this.__meta = {
-      default: '',
-      hint: '',
-      label: '',
-      options: {},
-      readonly: false,
-      repeated: false,
-      typespecific: null,
+    // set the attribute mappings
+    this.binder.attributeMappings = {
+      label: 'label',
+      hint: 'hint',
+      errortext: 'errortext',
+      'error-msg': 'errortext',
     };
 
-    // protection against multiple calls of bindData
-    if (this.__fieldNode.removeEventListener) {
-      this.__detachEventListeners();
-    }
+    // set the label mappings
+    this.binder.labelMappings = {
+      error: 'error',
+      readonly: '_readonly',
+      required: 'required',
+      disabled: 'disabled',
+      condensed: 'condensed',
+    };
 
-    // add the main event listeners
-    fieldNode.addEventListener('field-value-changed', this.__fieldValueChangedHandler);
-    fieldNode.addEventListener('field-became-valid', this.__fieldBecamesValidHandler);
-    fieldNode.addEventListener('field-became-invalid', this.__fieldBecamesInvalidHandler);
-    fieldNode.addEventListener('this-metas-changed', this.__fieldMetasChangedHandler);
+    this.binder.fatAttributesToConstraintsMappings = {
+      required: 'value._constraints.required.is', // for the fieldnode constraint
+    };
 
-    // this is for easier debugging with the inspector
-    this.__fieldNode = fieldNode;
+    this.binder.constraintsTofatAttributesMappings = {
+      required: 'required',
+    };
 
-    // notify for initial data
-    this.__fieldValueChangedHandler();
+    /**
+     * check overrides from the used component, attributes set on the component itself overrides all
+     */
+    this.binder.checkLabelandAttributeOverrrides();
 
-    // run meta checks on initial bind
-    this.__fieldMetasChangedHandler();
-
-    this._FBPTriggerWire('--data', fieldNode);
-
-    return true;
+    // the extended furo-text-input component uses _value
+    this.binder.targetValueField = '_value';
   }
 
   /**
-   * Reads the attributes which are set on the component dom.
-   * Attributes that can be se are   `required`,`readonly`,`disabled` ,
-   * Use this after manual or scripted update of the attributes.
-   */
-  readAttributes() {
-    this._previousValueState.state = this.getAttribute('value-state')
-      ? this.getAttribute('value-state')
-      : 'None';
-
-    // save the original attribute for later usages, we do this, because some components reflect
-    Object.keys(this._privilegedAttributes).forEach(attr => {
-      this._privilegedAttributes[attr] = this.getAttribute(attr);
-    });
-  }
-
-  /**
-   * overwrite onFnaReadonlyChanged function
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
    * @private
-   * @param readonly
    */
-  onFnaReadonlyChanged(readonly) {
-    this._attributesFromFNA.readonly = readonly;
-    if (this._privilegedAttributes.readonly === null) {
+  // eslint-disable-next-line no-dupe-class-members
+  connectedCallback() {
+    this.attributeReadonly = this.readonly;
+
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
+  }
+
+  set _readonly(readonly) {
+    if (!this.attributeReadonly) {
       this.readonly = readonly;
-    }
-  }
-
-  /**
-   * overwrite onFnaConstraintsChanged function
-   * @private
-   * @param constraints
-   */
-  onFnaConstraintsChanged(constraints) {
-    // required
-    if (constraints.required !== undefined) {
-      this._constraintsFromFNA.required = constraints.required;
-      if (this._privilegedAttributes.required === null) {
-        this.required = constraints.required.is === 'true';
-      }
     }
   }
 
@@ -165,8 +120,6 @@ class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
   _FBPReady() {
     super._FBPReady();
 
-    this._tmpValue = {};
-
     // update value when the amount changed
     this._FBPAddWireHook('--inputInput', e => {
       if (e.inputType === 'deleteContentBackward') {
@@ -175,25 +128,41 @@ class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
         // this._FBPTriggerWire('--valueAmount', '');
       }
 
-      let value = {};
       if (e.composedPath()[0].nodeName === 'UI5-INPUT') {
-        value = this._convertDataToMoneyObj('', e.composedPath()[0].value, this._tmpValue);
-        this.setFnaFieldValue(value);
+        this.binder.fieldValue = this._convertDataToMoneyObj(
+          '',
+          e.composedPath()[0].value,
+          this.binder.fieldValue,
+        );
       } else {
-        value = this._convertDataToMoneyObj(e.composedPath()[0].value, '', this._tmpValue);
-        this.setFnaFieldValue(value);
+        this.binder.fieldValue = this._convertDataToMoneyObj(
+          e.composedPath()[0].value,
+          '',
+          this.binder.fieldValue,
+        );
       }
 
       /**
-       * @event value-changed
-       * Fired when the input operation has finished by pressing Enter or on focusout.
-       *
-       * detail payload: {Money}
+       * Fired when value changed
        * @type {Event}
        */
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
-      customEvent.detail = value;
+      customEvent.detail = this.binder.fieldNode._value;
       this.dispatchEvent(customEvent);
+
+      // set flag empty on empty object
+      if (
+        this.binder.fieldValue &&
+        this.binder.fieldValue.currency_code &&
+        this.binder.fieldValue.units !== 0 &&
+        this.binder.fieldValue.nanos !== 0
+      ) {
+        this.binder.deleteLabel('empty');
+      } else {
+        this.binder.addLabel('empty');
+      }
+      // if something was entered the field is not empty
+      this.binder.addLabel('modified');
     });
   }
 
@@ -263,6 +232,51 @@ class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
   }
 
   /**
+   * Bind a entity field to the money-input. You can use the entity even when no data was received.
+   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+   * @param {Object|FieldNode} fieldNode a Field object
+   */
+  bindData(fieldNode) {
+    this.binder.bindField(fieldNode);
+    const amount = this.shadowRoot.getElementById('amount');
+    const currency = this.shadowRoot.getElementById('currency');
+    if (this.binder.fieldNode) {
+      this.binder.fieldNode.addEventListener('new-data-injected', () => {
+        this._updateField();
+      });
+
+      this.binder.fieldNode.units.addEventListener('field-value-changed', () => {
+        this._updateField();
+      });
+      this.binder.fieldNode.nanos.addEventListener('field-value-changed', () => {
+        this._updateField();
+      });
+      this.binder.fieldNode.currency_code.addEventListener('field-value-changed', () => {
+        this._updateField();
+      });
+
+      this.binder.fieldNode.addEventListener('field-became-invalid', e => {
+        amount._error = true;
+        currency._error = true;
+        if (e && e.detail._validity && e.detail._validity.description) {
+          amount._errorMsg = e.detail._validity.description;
+          currency._errorMsg = e.detail._validity.description;
+        }
+      });
+
+      this.binder.fieldNode.addEventListener('field-became-valid', () => {
+        amount._error = false;
+        currency._error = false;
+        amount._errorMsg = '';
+        currency._errorMsg = '';
+      });
+    }
+
+    this._updateField();
+    this._FBPTriggerWire('--data', fieldNode);
+  }
+
+  /**
    * update amount field
    * One issue with number inputs is that their step size is 1 by default.
    * If you try to enter a number with a decimal (such as "1.0"), it will be considered invalid.
@@ -270,90 +284,30 @@ class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
    * (e.g. step="0.01" to allow decimals to two decimal places).
    * @private
    */
-  _updateField(value) {
-    let numberStr = '';
-    if (value.units !== 0) {
-      numberStr = value.units;
-    }
-    if (value.nanos !== 0) {
-      let nanoValue = value.nanos;
-      if (nanoValue < 0) {
-        nanoValue *= -1;
+  _updateField() {
+    if (
+      this.binder.fieldNode.units &&
+      this.binder.fieldNode.units._value !== null &&
+      this.binder.fieldNode.nanos._value !== null
+    ) {
+      let numberStr = '';
+      if (this.binder.fieldNode.units._value !== 0) {
+        numberStr = this.binder.fieldNode.units._value;
       }
-      numberStr += `.${nanoValue}`;
+      if (this.binder.fieldNode.nanos._value !== 0) {
+        let nanoValue = this.binder.fieldNode.nanos._value;
+        if (nanoValue < 0) {
+          nanoValue *= -1;
+        }
+        numberStr += `.${nanoValue}`;
+      }
+      const amount = Number(numberStr);
+      this._FBPTriggerWire('--valueAmount', amount);
+    } else {
+      this._FBPTriggerWire('--valueAmount', '');
     }
-    const amount = Number(numberStr);
-    this._FBPTriggerWire('--valueAmount', amount);
 
     this.requestUpdate();
-  }
-
-  /**
-   * @private
-   */
-  onFnaFieldValueChanged(value) {
-    const type = this.getDataType();
-    switch (type) {
-      case 'google.type.Money':
-        if (value.currency_code && value.nanos !== null && value.units !== null) {
-          this._tmpValue = value;
-          this._updateField(value);
-        }
-        break;
-      default:
-        break;
-    }
-  }
-
-  /**
-   * overwrite onFnaFieldNodeBecameInvalid function
-   * @private
-   * @param validity
-   */
-  onFnaFieldNodeBecameInvalid(validity) {
-    if (validity.description) {
-      this._getElements();
-
-      // created to avoid the default messages from ui5
-      const vse = this.amount.querySelector('div[slot="valueStateMessage"]');
-      if (vse === null) {
-        this._valueStateElement = document.createElement('div');
-        this._valueStateElement.setAttribute('slot', 'valueStateMessage');
-        // eslint-disable-next-line wc/no-constructor-attributes
-        this.amount.appendChild(this._valueStateElement);
-      } else {
-        this._valueStateElement = vse;
-        this._previousValueState.message = vse.innerText;
-      }
-
-      this.amount.valueState = 'Error';
-      // element was created in constructor
-      this._valueStateElement.innerText = validity.description;
-
-      this.currency._setValueStateMessage('Error', validity.description);
-    }
-  }
-
-  /**
-   * overwrite onFnaFieldNodeBecameValid function
-   * @private
-   */
-  onFnaFieldNodeBecameValid() {
-    this._getElements();
-
-    this.currency._resetValueStateMessage();
-    this.amount.valueState = this._previousValueState.state;
-    // element was created in constructor
-    this._valueStateElement.innerText = this._previousValueState.message;
-  }
-
-  _getElements() {
-    if (!this.amount) {
-      this.amount = this.shadowRoot.getElementById('amount');
-    }
-    if (!this.currency) {
-      this.currency = this.shadowRoot.getElementById('currency');
-    }
   }
 
   /**
