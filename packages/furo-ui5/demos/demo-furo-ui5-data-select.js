@@ -82,20 +82,16 @@ class DemoFuroUi5DataSelect extends FBP(LitElement) {
       </h2>
       <furo-demo-snippet>
         <template>
-          <furo-form-layouter two>
+          <furo-form-layouter>
             <furo-ui5-button full design="Emphasized" @-click="--demoDataRequested"
-              >Load Demo Data</furo-ui5-button
-            >
+              >Load Demo Data
+            </furo-ui5-button>
+            <p full>furo-ui5-data-select without <strong>any type</strong> binding.</p>
             <furo-ui5-form-field-container>
-              <ui5-label label slot="label" for="Custom" show-colon
-                >Use it without option binding
+              <ui5-label label slot="label" show-colon
+                >Use it without any binding (no option binding, no field binding).
               </ui5-label>
-              <furo-ui5-data-select
-                content
-                style="max-width: 100%;"
-                value-state="Information"
-                ƒ-bind-data="--entity(*.data.display_name)"
-              >
+              <furo-ui5-data-select content style="max-width: 100%;">
                 <ui5-option selected>Tomato</ui5-option>
                 <ui5-option>Salad</ui5-option>
                 <ui5-option>Strawberry</ui5-option>
@@ -108,29 +104,86 @@ class DemoFuroUi5DataSelect extends FBP(LitElement) {
             </furo-ui5-form-field-container>
 
             <furo-ui5-form-field-container>
-              <ui5-label label slot="label" for="Custom" show-colon
-                >Use it with option binding (RepeaterNode)
+              <ui5-label label slot="label" show-colon
+                >Use it with option list binding (RepeaterNode). Without data field binding.
               </ui5-label>
               <furo-ui5-data-select
                 content
                 style="max-width: 100%;"
-                ƒ-bind-data="--entity(*.data.display_name)"
                 ƒ-bind-options="--collection(*.entities)"
                 id-field-path="data.id"
                 display-field-path="data.display_name"
                 value-field-path="data.display_name"
                 value-state="Information"
               >
-                <ui5-option data-id="" selected>Options not yet available</ui5-option>
+                <ui5-option data-id="">Options not yet available</ui5-option>
                 <div slot="valueStateMessage">
-                  Information message. This is a <a href="#">Link</a>. Extra long text used as an
-                  information message. Extra long text used as an information message - 2. Extra
-                  long text used as an information message - 3.
+                  Information message. This furo-ui5-data-select has no active field binding. When
+                  the user selects a value, the value-changed event is fired (Payload: ui5-option
+                  element or object from the option list).
+                </div>
+              </furo-ui5-data-select>
+            </furo-ui5-form-field-container>
+          </furo-form-layouter>
+
+          <furo-form-layouter two>
+            <p full>furo-ui5-data-select with <strong>scalar type</strong> bindings.</p>
+
+            <furo-ui5-form-field-container>
+              <ui5-label label slot="label" show-colon
+                >Use it with data field binding. The options are provided from the bound field (meta
+                or spec).
+              </ui5-label>
+              <furo-ui5-data-select
+                content
+                style="max-width: 100%;"
+                ƒ-bind-data="--entity(*.data.description)"
+                id-field-path="id"
+                display-field-path="display_name"
+                value-field-path="id"
+                value-state="Information"
+              >
+                <ui5-option data-id="">Options not yet available</ui5-option>
+                <div slot="valueStateMessage">
+                  Information message. This furo-ui5-data-select has an active field binding but no
+                  option list binding. The options are provided from the bound field specification.
+                  When the user selects a value, the value-changed event is fired (Payload:
+                  ui5-option element or object from the option list) and the value is set to the
+                  bound field.
                 </div>
               </furo-ui5-data-select>
             </furo-ui5-form-field-container>
 
-            <furo-ui5-data-text-input-labeled ƒ-bind-data="--entity(*.data.display_name)"></furo-ui5-data-text-input-labeled>
+            <furo-ui5-data-text-input-labeled
+              ƒ-bind-data="--entity(*.data.description)"
+            ></furo-ui5-data-text-input-labeled>
+
+            <furo-ui5-form-field-container>
+              <ui5-label label slot="label" show-colon
+                >Use it with option list binding (RepeaterNode) and data field binding.
+              </ui5-label>
+              <furo-ui5-data-select
+                content
+                style="max-width: 100%;"
+                ƒ-bind-data="--entity(*.data.description)"
+                ƒ-bind-options="--collection(*.entities)"
+                id-field-path="data.id"
+                display-field-path="data.display_name"
+                value-field-path="data.id"
+                value-state="Information"
+              >
+                <ui5-option data-id="">Options not yet available</ui5-option>
+                <div slot="valueStateMessage">
+                  Information message. This furo-ui5-data-select has an active field binding. When
+                  the user selects a value, the value-changed event is fired (Payload: ui5-option
+                  element or object from the option list) and the value is set to the bound field.
+                </div>
+              </furo-ui5-data-select>
+            </furo-ui5-form-field-container>
+
+            <furo-ui5-data-text-input-labeled
+              ƒ-bind-data="--entity(*.data.description)"
+            ></furo-ui5-data-text-input-labeled>
           </furo-form-layouter>
 
           <furo-button-bar>
@@ -142,15 +195,61 @@ class DemoFuroUi5DataSelect extends FBP(LitElement) {
             ></produce-qp-data>
           </furo-button-bar>
 
-          <p>
-            furo-ui5-data-select with type Google wrapper String bindings.
-          </p>
-          <furo-form-layouter two> </furo-form-layouter>
+          <p>furo-ui5-data-select with <strong>google.protobuf.StringValue</strong> bindings.</p>
+          <furo-form-layouter two>
+            <furo-ui5-form-field-container>
+              <ui5-label label slot="label" show-colon
+                >Use it with option list binding (RepeaterNode)
+              </ui5-label>
+              <furo-ui5-data-select
+                content
+                style="max-width: 100%;"
+                ƒ-bind-data="--entityU(*.data.wrapper_string)"
+                ƒ-bind-options="--collection(*.entities)"
+                id-field-path="data.id"
+                display-field-path="data.display_name"
+                value-field-path="data.id"
+                value-state="Information"
+              >
+                <ui5-option data-id="">Options not yet available</ui5-option>
+                <div slot="valueStateMessage">
+                  Information message. This furo-ui5-data-select has a field binding to a
+                  google.protobuf.StringValue.
+                </div>
+              </furo-ui5-data-select>
+            </furo-ui5-form-field-container>
+            <furo-ui5-data-text-input-labeled
+              ƒ-bind-data="--entityU(*.data.wrapper_string)"
+            ></furo-ui5-data-text-input-labeled>
+          </furo-form-layouter>
 
-          <p>
-            furo-ui5-data-select with type furo.fat.String bindings.
-          </p>
-          <furo-form-layouter two> </furo-form-layouter>
+          <p>furo-ui5-data-select with <strong>furo.fat.String</strong> bindings.</p>
+          <furo-form-layouter two>
+            <furo-ui5-form-field-container>
+              <ui5-label label slot="label" show-colon
+                >Use it with option list binding (RepeaterNode)
+              </ui5-label>
+              <furo-ui5-data-select
+                content
+                style="max-width: 100%;"
+                ƒ-bind-data="--entityU(*.data.fat_string)"
+                ƒ-bind-options="--collection(*.entities)"
+                id-field-path="data.id"
+                display-field-path="data.display_name"
+                value-field-path="data.id"
+                value-state="Information"
+              >
+                <ui5-option data-id="">Options not yet available</ui5-option>
+                <div slot="valueStateMessage">
+                  Information message. This furo-ui5-data-select has a field binding to a
+                  furo.fat.String.
+                </div>
+              </furo-ui5-data-select>
+            </furo-ui5-form-field-container>
+            <furo-ui5-data-text-input-labeled
+              ƒ-bind-data="--entityU(*.data.fat_string)"
+            ></furo-ui5-data-text-input-labeled>
+          </furo-form-layouter>
 
           <fetch-universal-json
             file="/mockdata/ui5/demos/fat-universal.json"

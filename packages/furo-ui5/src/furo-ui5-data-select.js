@@ -17,6 +17,13 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
     super();
 
     /**
+     * Flag to indicate if a field is attached
+     * Default: false
+     * @type {boolean}
+     */
+    this.activeFieldBinding = false;
+
+    /**
      * Defines the field path that is used from the injected RepeaterNode to identify the option items.
      * Point-separated path to the field
      * E.g. data.partner.ulid
@@ -54,7 +61,6 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
 
     this._attributesFromFNA = {
       readonly: undefined,
-      placeholder: undefined,
     };
 
     this._constraintsFromFNA = {
@@ -67,9 +73,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       required: undefined,
     };
 
-    this._attributesFromFAT = {
-      placeholder: undefined,
-    };
+    this._attributesFromFAT = {};
 
     /**
      * a list of privileged attributes. when those attributes are set in furo-ui5-data-select components initially.
@@ -144,6 +148,41 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
   }
 
   /**
+   * Here a RepeaterNode can be connected to the component as an option list.
+   * @param repeaterNode
+   */
+  bindOptions(repeaterNode) {
+    if (!(repeaterNode instanceof RepeaterNode)) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        'Invalid param in function bindOptions. Param is not of type RepeaterNode',
+        repeaterNode,
+      );
+      return false;
+    }
+    this._optionList = repeaterNode;
+
+    /**
+     * Subscription for changes in the RepeaterNode
+     */
+    this._optionList.addEventListener('this-repeated-field-changed', () => {
+      this._updateOptions();
+    });
+
+    return true;
+  }
+
+  /**
+   * overwrite bindData of FieldNodeAdapter
+   * @param fieldNode
+   * @returns {boolean}
+   */
+  bindData(fieldNode) {
+    this.activeFieldBinding = true;
+    return super.bindData(fieldNode);
+  }
+
+  /**
    * overwrite onFnaFieldValueChanged
    * @private
    * @param val
@@ -151,30 +190,11 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
   onFnaFieldValueChanged(val) {
     if (this.isFat()) {
       this._tmpFAT = val;
-      // this.value = val.value TODO select option ;
-      // set empty value when label empty was given
-      if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
-        // this.value = null; TODO deselect option
-      }
+      this.selectOptionById(this._tmpFAT.value);
       this._updateAttributesFromFat(this._tmpFAT.attributes);
       this._updateLabelsFromFat(this._tmpFAT.labels);
     } else {
-      // this.value = val; TODO select option
-    }
-  }
-
-  /**
-   * overwrite onFnaPlaceholderChanged function
-   * @private
-   * @param placeholder
-   */
-  onFnaPlaceholderChanged(placeholder) {
-    this._attributesFromFNA.placeholder = placeholder;
-    if (
-      this._privilegedAttributes.placeholder === null &&
-      this._attributesFromFAT.placeholder === undefined
-    ) {
-      this.placeholder = placeholder;
+      this.selectOptionById(val);
     }
   }
 
@@ -243,27 +263,22 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
   }
 
   /**
-   * Here a RepeaterNode can be connected to the component as an option list.
-   * @param repeaterNode
+   * Selects an option by id
+   * @param id
    */
-  bindOptions(repeaterNode) {
-    if (!(repeaterNode instanceof RepeaterNode)) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        'Invalid param in function bindOptions. Param is not of type RepeaterNode',
-        repeaterNode,
-      );
+  selectOptionById(id) {
+    if (!this.activeFieldBinding) {
+      // there is no active field binding. No update needed.
       return false;
     }
-    this._optionList = repeaterNode;
 
-    /**
-     * Subscription for changes in the RepeaterNode
-     */
-    this._optionList.addEventListener('this-repeated-field-changed', () => {
-      this._updateOptions();
-    });
-
+    if (this.options && this.options.length) {
+      const result = this.options.filter(elem => elem.dataset.id === id);
+      if (result && result.length) {
+        this.selectedOption.removeAttribute('selected');
+        result[0].setAttribute('selected', '');
+      }
+    }
     return true;
   }
 
@@ -320,16 +335,6 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
 
     // this is needed to check the specifity in the onFnaXXXXChanged callback functions
     this._attributesFromFAT.disabled = fatAttributes.disabled;
-    this._attributesFromFAT.placeholder = fatAttributes.placeholder;
-
-    // placeholder
-    if (this._privilegedAttributes.placeholder === null) {
-      if (fatAttributes.placeholder !== undefined) {
-        this.placeholder = fatAttributes.placeholder;
-      } else if (this._attributesFromFNA.placeholder !== undefined) {
-        this.placeholder = this._attributesFromFNA.placeholder;
-      }
-    }
 
     // value-state and corresponding message
     if (fatAttributes['value-state'] !== undefined) {
@@ -372,10 +377,10 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
 
   /**
    * Maps and updates array of option
-   * @param options
+   * @param list
    * @private
    */
-  _updateOptions() {
+  _updateOptions(list) {
     const optionNodeList = [];
 
     if (this._optionList && this._optionList.repeats) {
@@ -386,20 +391,30 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
           FuroUi5DataSelect.getValueByPath(item, this._privilegedAttributes['id-field-path']),
         );
 
-        if (this.isFat()) {
-          optionItem.innerText = FuroUi5DataSelect.getValueByPath(
-            item,
-            this._privilegedAttributes['display-field-path'],
-          )._value.value;
-        } else {
-          optionItem.innerText = FuroUi5DataSelect.getValueByPath(
-            item,
-            this._privilegedAttributes['display-field-path'],
-          )._value;
-        }
+        optionItem.innerText = FuroUi5DataSelect.getValueByPath(
+          item,
+          this._privilegedAttributes['display-field-path'],
+        )._value;
+        optionNodeList.push(optionItem);
+      });
+    } else if (list && list.length) {
+      // applies static option list items from spec or
+      // option list items from meta
+      list.forEach(item => {
+        const optionItem = document.createElement('ui5-option');
+        optionItem.setAttribute(
+          'data-id',
+          FuroUi5DataSelect.getValueByPath(item, this._privilegedAttributes['id-field-path']),
+        );
+
+        optionItem.innerText = FuroUi5DataSelect.getValueByPath(
+          item,
+          this._privilegedAttributes['display-field-path'],
+        );
         optionNodeList.push(optionItem);
       });
     }
+
     if (optionNodeList.length) {
       const existingOptions = this.querySelectorAll('ui5-option');
       existingOptions.forEach(opt => {
@@ -424,7 +439,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
   }
 
   /**
-   * Handler function for the input value changes.
+   * Handler function for the select value changes.
    * This is done to be able to remove the event-listeners as a protection for multiple calls
    * @return {(function(): void)|*}
    * @private
@@ -447,39 +462,44 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
         )._value;
       }
     } else {
-      // no option binding available
+      // if there is no active option binding
+      // The id of the attribute data-id will be set available. Fallback is: innerText of the option element.
       newValue = e.detail.selectedOption.dataset.id || e.detail.selectedOption.innerText;
       selectedOption = e.detail.selectedOption;
     }
 
-    if (this.isFat()) {
-      if (newValue === '') {
-        this._tmpFAT.value = null;
-        // add empty state
-        if (this._tmpFAT.labels === null) {
-          this._tmpFAT.labels = {};
+    /**
+     * Only if activeFieldBinding is true
+     */
+    if (this.activeFieldBinding) {
+      if (this.isFat()) {
+        if (newValue === '') {
+          this._tmpFAT.value = null;
+          // add empty state
+          if (this._tmpFAT.labels === null) {
+            this._tmpFAT.labels = {};
+          }
+          this._tmpFAT.labels.empty = true;
+        } else {
+          this._tmpFAT.value = newValue;
+          // remove empty state
+          if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
+            delete this._tmpFAT.labels.empty;
+          }
+          // init labels in_tmpFAT
+          if (this._tmpFAT.labels === null) {
+            this._tmpFAT.labels = {};
+          }
+          // set modified on changes
+          this._tmpFAT.labels.modified = true;
         }
-        this._tmpFAT.labels.empty = true;
+        this.setFnaFieldValue(this._tmpFAT);
+      } else if (this.isWrapper()) {
+        this.setFnaFieldValue(newValue === '' ? null : newValue);
       } else {
-        this._tmpFAT.value = newValue;
-        // remove empty state
-        if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
-          delete this._tmpFAT.labels.empty;
-        }
-        // init labels in_tmpFAT
-        if (this._tmpFAT.labels === null) {
-          this._tmpFAT.labels = {};
-        }
-        // set modified on changes
-        this._tmpFAT.labels.modified = true;
+        this.setFnaFieldValue(newValue === '' ? '' : newValue);
       }
-      this.setFnaFieldValue(this._tmpFAT);
-    } else if (this.isWrapper()) {
-      this.setFnaFieldValue(newValue === '' ? null : newValue);
-    } else {
-      this.setFnaFieldValue(newValue === '' ? '' : newValue);
     }
-
     /**
      * Fired when value changed
      * @event value-changed
