@@ -445,9 +445,6 @@ fields:
             required:
                 is: "true"
                 message: is required
-            step:
-                is: "0.01"
-                message: step 0.01
     furo_data_file_input:
         type: string
         description: field for testing file type
