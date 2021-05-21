@@ -13214,22 +13214,22 @@
       ]
     },
     {
-      "description": "The furo-ui5-data-textarea-input component provides large spaces for text entries in the\nform of multiple rows. It has the functionality of the TextField with\nthe additional functionality for multiline texts.\n\nWhen empty, it can hold a placeholder similar to a furo-ui5-data-input.\nYou can define the rows of the ui5-textarea and also determine specific behavior when handling long texts.",
+      "description": "The 'furo-ui5-data-textarea-input' component allows the user to enter and edit texts with data binding.\n\nIt supports all features from the [SAP ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).\n\nYou can bind any `string` type, like `furo.fat.String` type or the `google.protobuf.StringValue` type.\n\n```html\n <furo-ui5-data-textarea-input\n    ƒ-bind-data=\"--daoCountry(*.data.name)\"\n ></furo-ui5-data-textarea-input>\n```\n\n### Specificity\n1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.\n2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.\n\n** meta \t<  fat \t< html \t**\n\n## supported FAT attributes\n - **\"readonly\":\"true\"** set the element to readonly\n - **\"required\":\"true\"** set the element to required\n - **\"disabled\":\"true\"** set the element to disabled\n - **\"placeholder\":\"string\"** set the placeholder for the element\n - **\"rows\":\"number\"** set the number of rows.\n - **\"growing\":\"true\"** Enables the ui5-textarea to automatically grow and shrink dynamically with its content.\n - **\"show-exceeded-text\":\"true\"** if set to true. the characters exceeding the maxlength value are selected on paste and the counter below the ui5-textarea displays their number. If set to false, the user is not allowed to enter more characters than what is set in the maxlength property.\n - **\"growing-max-lines\":\"number\"** Defines the maximum number of lines that the Web Component can grow.\n - **\"max\":\"number\"** set the maximum number of characters available in the input field.\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **max:\"number\"** set the maximum number of characters available in the input field.\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)",
       "summary": "data textarea input field",
       "path": "src/furo-ui5-data-textarea-input.js",
       "properties": [
         {
-          "name": "valueStateMessage",
-          "type": "(* | {})",
-          "description": "overwrite to fix error",
+          "name": "nativeInputAttributes",
+          "type": "?",
+          "description": " eslint-disable-next-line class-methods-use-this",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 52,
+              "line": 155,
               "column": 2
             },
             "end": {
-              "line": 54,
+              "line": 157,
               "column": 3
             }
           },
@@ -13240,149 +13240,23 @@
           }
         },
         {
-          "name": "_readonly",
-          "type": "?",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 56,
-              "column": 2
-            },
-            "end": {
-              "line": 60,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_errorMsg",
-          "type": "?",
-          "description": "store the error message and update the value state message",
+          "name": "valueStateMessage",
+          "type": "(* | {})",
+          "description": "overwrite to fix error",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 345,
               "column": 2
             },
             "end": {
-              "line": 180,
+              "line": 347,
               "column": 3
             }
           },
           "metadata": {
             "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_informationMsg",
-          "type": "?",
-          "description": "store the information message and update the value state message",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 187,
-              "column": 2
-            },
-            "end": {
-              "line": 190,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_warningMsg",
-          "type": "?",
-          "description": "store the warning message and update the value state message",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 197,
-              "column": 2
-            },
-            "end": {
-              "line": 200,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_successMsg",
-          "type": "?",
-          "description": "store the success message and update the value state message",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 207,
-              "column": 2
-            },
-            "end": {
-              "line": 210,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_valueState",
-          "type": "?",
-          "description": "Update the value state on change",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 217,
-              "column": 2
-            },
-            "end": {
-              "line": 220,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_error",
-          "type": "?",
-          "description": "sets and remove the error state",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 227,
-              "column": 2
-            },
-            "end": {
-              "line": 234,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
+              "readOnly": true
             }
           }
         }
@@ -13391,34 +13265,14 @@
         {
           "name": "connectedCallback",
           "description": "connectedCallback() method is called when an element is added to the DOM.\nwebcomponent lifecycle event",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 37,
-              "column": 2
-            },
-            "end": {
-              "line": 46,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_initBinder",
-          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 81,
+              "line": 132,
               "column": 2
             },
             "end": {
-              "line": 85,
+              "line": 148,
               "column": 3
             }
           },
@@ -13429,16 +13283,16 @@
           }
         },
         {
-          "name": "applyBindingSet",
-          "description": "apply the binding set to the universal field node binder",
+          "name": "readAttributes",
+          "description": "Reads the attributes which are set on the component dom.\nthose attributes can be set. `value-state`, `value-state-message`,  `placeholder`, `required`,`readonly`,`disabled`\nUse this after manual or scripted update of the attributes.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 90,
+              "line": 164,
               "column": 2
             },
             "end": {
-              "line": 162,
+              "line": 173,
               "column": 3
             }
           },
@@ -13449,16 +13303,84 @@
           }
         },
         {
-          "name": "setValue",
-          "description": "Sets the value for the field. This will update the fieldNode.",
-          "privacy": "public",
+          "name": "_updateFNA",
+          "description": "Handler function for the input value changes.\nThis is done to be able to remove the event-listeners as a protection for multiple calls",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 168,
+              "line": 181,
               "column": 2
             },
             "end": {
-              "line": 170,
+              "line": 218,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "((function (): void) | *)"
+          }
+        },
+        {
+          "name": "_updateLabelsFromFat",
+          "description": "labels are map <string,bool>, we handle every boolean attribute with the labels",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 226,
+              "column": 2
+            },
+            "end": {
+              "line": 260,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fatLabels"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateAttributesFromFat",
+          "description": "sync input attributes according to fat attributes",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 266,
+              "column": 2
+            },
+            "end": {
+              "line": 338,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fatAttributes"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaFieldValueChanged",
+          "description": "overwrite onFnaFieldValueChanged",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 354,
+              "column": 2
+            },
+            "end": {
+              "line": 367,
               "column": 3
             }
           },
@@ -13473,16 +13395,112 @@
           }
         },
         {
-          "name": "_updateVS",
-          "description": "",
-          "privacy": "protected",
+          "name": "onFnaPlaceholderChanged",
+          "description": "overwrite onFnaPlaceholderChanged function",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 236,
+              "line": 374,
               "column": 2
             },
             "end": {
-              "line": 261,
+              "line": 382,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "placeholder"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaReadonlyChanged",
+          "description": "overwrite onFnaReadonlyChanged function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 389,
+              "column": 2
+            },
+            "end": {
+              "line": 397,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "readonly"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaConstraintsChanged",
+          "description": "overwrite onFnaConstraintsChanged function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 404,
+              "column": 2
+            },
+            "end": {
+              "line": 422,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "constraints"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaFieldNodeBecameInvalid",
+          "description": "overwrite onFnaFieldNodeBecameInvalid function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 429,
+              "column": 2
+            },
+            "end": {
+              "line": 434,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "validity"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaFieldNodeBecameValid",
+          "description": "overwrite onFnaFieldNodeBecameValid function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 440,
+              "column": 2
+            },
+            "end": {
+              "line": 442,
               "column": 3
             }
           },
@@ -13494,22 +13512,25 @@
         },
         {
           "name": "_setValueStateMessage",
-          "description": "Updates the vs and creates the element in the slot on demand",
+          "description": "update the value state and the value state message on demand",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 268,
+              "line": 451,
               "column": 2
             },
             "end": {
-              "line": 280,
+              "line": 455,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "msg"
+              "name": "valueState"
+            },
+            {
+              "name": "message"
             }
           ],
           "return": {
@@ -13517,42 +13538,16 @@
           }
         },
         {
-          "name": "bindData",
-          "description": "Bind a entity field to the text-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 287,
-              "column": 2
-            },
-            "end": {
-              "line": 307,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "fieldNode",
-              "type": "(Object | FieldNode)",
-              "description": "a Field object"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_requestUpdate",
-          "description": "",
+          "name": "_resetValueStateMessage",
+          "description": "reset to previous value state",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 312,
+              "line": 461,
               "column": 2
             },
             "end": {
-              "line": 314,
+              "line": 463,
               "column": 3
             }
           },
@@ -13573,35 +13568,35 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 16,
+          "line": 51,
           "column": 7
         },
         "end": {
-          "line": 315,
+          "line": 464,
           "column": 1
         }
       },
       "privacy": "public",
-      "superclass": "TextArea.default",
+      "superclass": "HTMLElement",
       "name": "FuroUi5DataTextareaInput",
       "attributes": [],
       "events": [
         {
           "type": "CustomEvent",
           "name": "change",
-          "description": "Fired when the input operation has finished by pressing Enter or on focusout.",
+          "description": "change\nFired when the input operation has finished by pressing Enter or on focusout.\n\ndetail payload: `text`",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
           "name": "input",
-          "description": "Fired when the value of the furo-ui5-data-textarea changes at each keystroke, and when a suggestion item has been selected.",
+          "description": "input\nFired when the value of the ui5-input changes at each keystroke.",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
-          "name": "value-changed",
-          "description": "Fired when the input value changed.\nthe event detail is the value of the input field",
+          "name": "xxxx",
+          "description": "xxxx\nAll events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).",
           "metadata": {}
         }
       ],

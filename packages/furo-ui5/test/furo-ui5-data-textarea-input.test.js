@@ -76,7 +76,7 @@ describe('furo-ui5-data-textarea-input', () => {
         labels: ['cozy'],
         attributes: {
           'value-state': 'Error',
-          errortext: 'Your fat string is valid',
+          'value-state-message': 'Your fat string is valid',
           icon: 'thumb-up',
         },
       },
@@ -156,7 +156,7 @@ describe('furo-ui5-data-textarea-input', () => {
       assert.equal(input._state.growing, false, 'check growing');
       assert.equal(input._state.placeholder, '', 'check placeholder');
       assert.equal(input._state.valueState, 'None', 'check valueState');
-      assert.equal(input._state.valueStateMessage.length, 0, 'check valueStateMessage');
+      assert.equal(input._state.valueStateMessage.length, 1, 'check valueStateMessage');
       assert.equal(input._state.name, '', 'check name');
       assert.equal(input._state.ariaLabel, '', 'check ariaLabel');
       done();
@@ -164,7 +164,14 @@ describe('furo-ui5-data-textarea-input', () => {
   });
 
   it('should update the fieldNode', done => {
-    input.setValue('new text set');
+    input.value = 'new text set';
+    input.dispatchEvent(
+      new CustomEvent('input', {
+        bubbles: true,
+        detail: 'new text set',
+      }),
+    );
+
     setTimeout(() => {
       assert.equal(input._state.value, 'new text set', 'check internal text');
       assert.equal(dao.data.data.furo_data_textarea_input._value, 'new text set', 'check dao');
@@ -195,7 +202,7 @@ describe('furo-ui5-data-textarea-input', () => {
         assert.equal(inputFat._state.value, 'fat string from record', 'check value');
         assert.equal(inputFat._state.valueState, 'Error', 'check valueState');
         assert.equal(
-          inputFat.__errorMsg,
+          inputFat._valueStateElement.innerText,
           'Your fat string is valid',
           'check valueStateMessage content',
         );
