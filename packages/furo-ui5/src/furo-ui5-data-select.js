@@ -100,7 +100,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
    */
   connectedCallback() {
     if (this.options === undefined) {
-      const OPTIONS = this.shadowRoot.querySelectorAll('ui5-option');
+      const OPTIONS = this.querySelectorAll('ui5-option');
       if (OPTIONS && OPTIONS.length) {
         this.readOptions();
       } else {
@@ -209,7 +209,8 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       this._privilegedAttributes.readonly === null &&
       this._labelsFromFAT.readonly === undefined
     ) {
-      this.readonly = readonly;
+      // ui5-select has no proper readonly support
+      this.disabled = readonly;
     }
   }
 

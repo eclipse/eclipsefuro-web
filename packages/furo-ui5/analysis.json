@@ -962,11 +962,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 224,
               "column": 2
             },
             "end": {
-              "line": 233,
+              "line": 232,
               "column": 3
             }
           },
@@ -991,7 +991,7 @@
           "column": 0
         },
         "end": {
-          "line": 234,
+          "line": 233,
           "column": 1
         }
       },
@@ -16793,17 +16793,39 @@
       "path": "src/furo-ui5-data-select.js",
       "properties": [
         {
+          "name": "activeFieldBinding",
+          "type": "boolean",
+          "description": "Flag to indicate if a field is attached\nDefault: false",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 23,
+              "column": 4
+            },
+            "end": {
+              "line": 23,
+              "column": 27
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "false"
+        },
+        {
           "name": "idFieldPath",
           "type": "string",
           "description": "Defines the field path that is used from the injected RepeaterNode to identify the option items.\nPoint-separated path to the field\nE.g. data.partner.ulid",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 25,
+              "line": 31,
               "column": 4
             },
             "end": {
-              "line": 25,
+              "line": 31,
               "column": 20
             }
           },
@@ -16821,11 +16843,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 33,
+              "line": 39,
               "column": 4
             },
             "end": {
-              "line": 33,
+              "line": 39,
               "column": 25
             }
           },
@@ -16843,11 +16865,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 41,
+              "line": 47,
               "column": 4
             },
             "end": {
-              "line": 41,
+              "line": 47,
               "column": 23
             }
           },
@@ -16865,11 +16887,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 50,
+              "line": 56,
               "column": 4
             },
             "end": {
-              "line": 50,
+              "line": 56,
               "column": 20
             }
           },
@@ -16888,11 +16910,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 98,
+              "line": 100,
               "column": 2
             },
             "end": {
-              "line": 122,
+              "line": 124,
               "column": 3
             }
           },
@@ -16908,11 +16930,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 124,
+              "line": 126,
               "column": 2
             },
             "end": {
-              "line": 129,
+              "line": 131,
               "column": 3
             }
           },
@@ -16928,11 +16950,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 136,
+              "line": 138,
               "column": 2
             },
             "end": {
-              "line": 145,
+              "line": 147,
               "column": 3
             }
           },
@@ -16943,16 +16965,61 @@
           }
         },
         {
+          "name": "bindOptions",
+          "description": "Here a RepeaterNode can be connected to the component as an option list.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 153,
+              "column": 2
+            },
+            "end": {
+              "line": 172,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "repeaterNode"
+            }
+          ]
+        },
+        {
+          "name": "bindData",
+          "description": "overwrite bindData of FieldNodeAdapter",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 179,
+              "column": 2
+            },
+            "end": {
+              "line": 182,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
+          "return": {
+            "type": "boolean"
+          }
+        },
+        {
           "name": "onFnaFieldValueChanged",
           "description": "overwrite onFnaFieldValueChanged",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 189,
               "column": 2
             },
             "end": {
-              "line": 165,
+              "line": 198,
               "column": 3
             }
           },
@@ -16967,40 +17034,16 @@
           }
         },
         {
-          "name": "onFnaPlaceholderChanged",
-          "description": "overwrite onFnaPlaceholderChanged function",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 172,
-              "column": 2
-            },
-            "end": {
-              "line": 180,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "placeholder"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
           "name": "onFnaReadonlyChanged",
           "description": "overwrite onFnaReadonlyChanged function",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 187,
+              "line": 205,
               "column": 2
             },
             "end": {
-              "line": 195,
+              "line": 214,
               "column": 3
             }
           },
@@ -17020,11 +17063,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 221,
               "column": 2
             },
             "end": {
-              "line": 206,
+              "line": 225,
               "column": 3
             }
           },
@@ -17044,11 +17087,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 213,
+              "line": 232,
               "column": 2
             },
             "end": {
-              "line": 224,
+              "line": 243,
               "column": 3
             }
           },
@@ -17068,11 +17111,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 250,
               "column": 2
             },
             "end": {
-              "line": 236,
+              "line": 255,
               "column": 3
             }
           },
@@ -17092,11 +17135,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 242,
+              "line": 261,
               "column": 2
             },
             "end": {
-              "line": 244,
+              "line": 263,
               "column": 3
             }
           },
@@ -17107,23 +17150,23 @@
           }
         },
         {
-          "name": "bindOptions",
-          "description": "Here a RepeaterNode can be connected to the component as an option list.",
+          "name": "selectOptionById",
+          "description": "Selects an option by id",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 251,
+              "line": 269,
               "column": 2
             },
             "end": {
-              "line": 268,
+              "line": 283,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "repeaterNode"
+              "name": "id"
             }
           ]
         },
@@ -17133,11 +17176,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 277,
+              "line": 291,
               "column": 2
             },
             "end": {
-              "line": 311,
+              "line": 325,
               "column": 3
             }
           },
@@ -17157,11 +17200,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 317,
+              "line": 331,
               "column": 2
             },
             "end": {
-              "line": 351,
+              "line": 355,
               "column": 3
             }
           },
@@ -17181,11 +17224,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 360,
+              "line": 364,
               "column": 2
             },
             "end": {
-              "line": 364,
+              "line": 368,
               "column": 3
             }
           },
@@ -17208,11 +17251,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 370,
+              "line": 374,
               "column": 2
             },
             "end": {
-              "line": 372,
+              "line": 376,
               "column": 3
             }
           },
@@ -17228,58 +17271,35 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 379,
+              "line": 383,
               "column": 2
             },
             "end": {
-              "line": 392,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_getValueByPath",
-          "description": "Let you get an attribute value by path",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 401,
-              "column": 2
-            },
-            "end": {
-              "line": 403,
+              "line": 428,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "obj"
-            },
-            {
-              "name": "path"
+              "name": "list"
             }
           ],
           "return": {
-            "type": "T"
+            "type": "void"
           }
         },
         {
           "name": "_updateFNA",
-          "description": "Handler function for the input value changes.\nThis is done to be able to remove the event-listeners as a protection for multiple calls",
+          "description": "Handler function for the select value changes.\nThis is done to be able to remove the event-listeners as a protection for multiple calls",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 411,
+              "line": 447,
               "column": 2
             },
             "end": {
-              "line": 457,
+              "line": 511,
               "column": 3
             }
           },
@@ -17294,7 +17314,32 @@
           }
         }
       ],
-      "staticMethods": [],
+      "staticMethods": [
+        {
+          "name": "getValueByPath",
+          "description": "Let you get an attribute value by path",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 437,
+              "column": 2
+            },
+            "end": {
+              "line": 439,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "obj"
+            },
+            {
+              "name": "path"
+            }
+          ]
+        }
+      ],
       "demos": [
         {
           "url": "demo-furo-ui5-data-select",
@@ -17308,7 +17353,7 @@
           "column": 7
         },
         "end": {
-          "line": 460,
+          "line": 512,
           "column": 1
         }
       },
