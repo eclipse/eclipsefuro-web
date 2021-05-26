@@ -111,81 +111,83 @@ class FuroSnackbarDisplay extends FBP(LitElement) {
    */
   static get styles() {
     return css`
-            :host {
-              position: absolute;
-              bottom:var(--snackbar-border-distance, var(--spacing, 24px));
-              left:var(--snackbar-border-distance, var(--spacing, 24px));
-              right:var(--snackbar-border-distance, var(--spacing, 24px));               
-            }
+      :host {
+        position: absolute;
+        bottom: var(--snackbar-border-distance, var(--spacing, 24px));
+        left: var(--snackbar-border-distance, var(--spacing, 24px));
+        right: var(--snackbar-border-distance, var(--spacing, 24px));
+      }
 
-            #snackbar {
-              font-size: 14px;
-              font-weight:400;
-              background-color: var(--snackbar-background-color, var(--on-primary, #212121));
-              opacity:0;
-              display: flex;           
-              -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
-              box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
-              border-radius: 4px;
-              z-index: 1;
-            }
-            
-            #snackbar.hide , #snackbar[stacked].hide{
-              display: none;
-            }
-            
-            .label {
-              color: var(--snackbar-label-color, var(--primary-variant, #dedede));
-              display: inline-block;
-              padding: 14px 16px;
-              width: 100%;
-            }
-            
-            #snackbar[stacked] .label {
-              display: block;
-            }
-            
-            #snackbar[stacked] {
-              display: block;
-            }
-            
-            #snackbar[stacked] .button{
-              width: 100%;
-              display: block;
-            }
-            
-            .button {
-              display: flex;
-              text-align: right;
-              margin: 3px 0;
-              align-self: flex-end;
-            }
-            
-            furo-button {
-             color: var(--snackbar-button-text-color, --secondary, #bb86fc));
-              --on-surface: var(--secondary);
-             --surface-dark: var(--snackbar-background-color, var(--on-primary, #212121));
-             --surface-light: var(--snackbar-background-color, var(--on-primary, #212121));
-              margin: auto;
-            }
-            
-            .center {
-              margin: auto;
-            }
-            
-            .wrapper[right] {
-              justify-content:flex-end;
-            }
-            
-            .wrapper[left]  {
-              justify-content:flex-start;
-            }
-            .wrapper {
-              width: 100%;
-              display: flex;
-              justify-content:center;
-            }
-        `;
+      #snackbar {
+        font-size: 14px;
+        font-weight: 400;
+        background-color: var(--snackbar-background-color, var(--on-primary, #212121));
+        opacity: 0;
+        display: flex;
+        -webkit-box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+          0 1px 18px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+          0 1px 18px 0 rgba(0, 0, 0, 0.12);
+        border-radius: 4px;
+        z-index: 1;
+      }
+
+      #snackbar.hide,
+      #snackbar[stacked].hide {
+        display: none;
+      }
+
+      .label {
+        color: var(--snackbar-label-color, var(--primary-variant, #dedede));
+        display: inline-block;
+        padding: 14px 16px;
+        width: 100%;
+      }
+
+      #snackbar[stacked] .label {
+        display: block;
+      }
+
+      #snackbar[stacked] {
+        display: block;
+      }
+
+      #snackbar[stacked] .button {
+        width: 100%;
+        display: block;
+      }
+
+      .button {
+        display: flex;
+        text-align: right;
+        margin: 3px 0;
+        align-self: flex-end;
+      }
+
+      furo-button {
+        --on-surface: var(--snackbar-button-text-color, var(--secondary, #bb86fc));
+        --surface-dark: var(--snackbar-background-color, var(--on-primary, #212121));
+        --surface-light: var(--snackbar-background-color, var(--on-primary, #212121));
+        margin: auto;
+      }
+
+      .center {
+        margin: auto;
+      }
+
+      .wrapper[right] {
+        justify-content: flex-end;
+      }
+
+      .wrapper[left] {
+        justify-content: flex-start;
+      }
+      .wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    `;
   }
 
   /**
