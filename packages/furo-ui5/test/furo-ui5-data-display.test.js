@@ -127,6 +127,13 @@ describe('furo-ui5-data-display', () => {
     done();
   });
 
+  it('should bind a field node', done => {
+    dao.type = 'experiment.Experiment';
+    display.bindData(dao.data.display_name);
+    assert.equal(display.label, 'experiment**');
+    done();
+  });
+
   // axeReport a11y tests
   xit('a11y', () => axeReport(input));
 });

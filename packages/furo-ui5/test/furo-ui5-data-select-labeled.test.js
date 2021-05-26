@@ -9,10 +9,11 @@ import '@furo/testhelper/initEnv.js';
 
 import '../src/furo-catalog.js';
 
-describe('furo-ui5-propertylist-display', () => {
+describe('furo-ui5-data-select-labeled', () => {
   let host;
-  let display;
+  let input;
   let dao;
+  let daoCollection;
 
   const testRecordMeta = {
     data: {
@@ -463,36 +464,144 @@ describe('furo-ui5-propertylist-display', () => {
     },
   };
 
+  const options = {
+    entities: [
+      {
+        data: {
+          display_name: 'John Doe, +41783332244',
+          first_name: 'John',
+          id: '1',
+          name: 'Doe',
+          phone_nr: '+41783332244',
+          skills: [],
+        },
+        links: [
+          {
+            href: '/mockdata/persons/1/get.json',
+            method: 'GET',
+            rel: 'self',
+            type: 'person.Person',
+            service: 'PersonService',
+          },
+        ],
+      },
+      {
+        data: {
+          display_name: 'Tari Sakota, +41791532244',
+          first_name: 'Tari',
+          id: '2',
+          name: 'Sakota',
+          phone_nr: '+41791532244',
+          skills: [],
+        },
+        links: [
+          {
+            href: '/mockdata/persons/2/get.json',
+            method: 'GET',
+            rel: 'self',
+            type: 'person.Person',
+            service: 'PersonService',
+          },
+        ],
+      },
+      {
+        data: {
+          display_name: 'Yoko Tasimoto, +41781442244',
+          first_name: 'Yoko',
+          id: '3',
+          name: 'Tasimoto',
+          phone_nr: '+41781442244',
+          skills: [],
+        },
+        links: [
+          {
+            href: '/mockdata/persons/3/get.json',
+            method: 'GET',
+            rel: 'self',
+            type: 'person.Person',
+            service: 'PersonService',
+          },
+        ],
+      },
+      {
+        data: {
+          display_name: 'Lola Tasimoto, +41781442244',
+          first_name: 'Lola',
+          id: '4',
+          name: 'Tasimoto',
+          phone_nr: '+41781442244',
+          skills: [],
+        },
+        links: [
+          {
+            href: '/mockdata/persons/4/get.json',
+            method: 'GET',
+            rel: 'self',
+            type: 'person.Person',
+            service: 'PersonService',
+          },
+        ],
+      },
+    ],
+    links: [
+      {
+        href: '/mockdata/persons/list.json',
+        method: 'GET',
+        rel: 'list',
+        type: 'person.PersonCollection',
+        service: 'PersonService',
+      },
+    ],
+  };
+
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-data-propertylist-display>
-          </furo-ui5-data-propertylist-display>
+          <furo-ui5-data-select-labeled
+            ƒ-bind-data="--dao(*.data.description)"
+            ƒ-bind-options="--collection(*.entities)"
+          >
+            <div slot="valueStateMessage">
+              Information message. If you use ui5-option elements without data-id attribute, the
+              selected value is the innerText of the option.
+            </div>
+          </furo-ui5-data-select-labeled>
           <furo-data-object
             type="experiment.ExperimentEntity"
             @-object-ready="--dao"
+          ></furo-data-object>
+          <furo-data-object
+            type="person.PersonCollection"
+            @-object-ready="--collection"
           ></furo-data-object>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, display, dao] = testbind.parentNode.children;
+    [, input, dao, daoCollection] = testbind.parentNode.children;
     await host.updateComplete;
-    await display.updateComplete;
+    await input.updateComplete;
     await dao.updateComplete;
+    await daoCollection.updateComplete;
   });
 
-  it('should be a furo-ui5-data-propertylist-display element', done => {
+  it('should be a furo-ui5-data-select-labeled element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    setTimeout(()=>{
-      assert.equal(display.nodeName.toLowerCase(), 'furo-ui5-data-propertylist-display');
-      done();
-    },0)
-
+    assert.equal(input.nodeName.toLowerCase(), 'furo-ui5-data-select-labeled');
+    done();
   });
 
   // axeReport a11y tests
   xit('a11y', () => axeReport(input));
+
+  it('should have a label', done => {
+    setTimeout(() => {
+      assert.equal(input.shadowRoot.querySelector('ui5-label').innerText, 'Description**');
+      done();
+    }, 0);
+  });
+
+
 });

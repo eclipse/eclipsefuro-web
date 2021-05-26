@@ -4,29 +4,32 @@ import { FBP } from '@furo/fbp/src/fbp.js';
 import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 
 import './furo-ui5-form-field-container.js';
-import './furo-ui5-data-number-input.js';
+import './furo-ui5-data-select.js';
 
 /**
- * `furo-ui5-data-number-input-labeled`
- * The furo-ui5-data-number-input-labeled is a composition to easily use a complete input field with label according
+ * `furo-ui5-data-select-labeled`
+ * The furo-ui5-data-select-labeled is a composition to easily use a complete data select with label according
  * to the design specification of SAP Fiori Design System.
  *
- * @summary labeled input field
+ * @summary labeled select
  * @customElement
- * @demo demo-furo-ui5-data-number-input-labeled Basic Usage
+ * @demo demo-furo-ui5-data-select-labeled Basic Usage
  * @appliesMixin FBP
  */
-class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
+class FuroUi5DataSelectLabeled extends FBP(LitElement) {
   /**
    * Fired when the input value changed.
-   * the event detail is the value of the input field
+   * the event detail is the value of the select
    * @event value-changed
    */
 
   constructor(props) {
     super(props);
     this.label = '';
-    this.icon = '';
+    this.valueState = 'None';
+    this.idFieldPath = '';
+    this.valueFieldPath = '';
+    this.displayFieldPath = '';
   }
 
   /**
@@ -52,6 +55,17 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
        */
       label: { type: String },
       /**
+       * Defines the value state of the furo-ui5-data-select.
+       *
+       * Available options are:
+       * None
+       * Error
+       * Warning
+       * Success
+       * Information
+       */
+      valueState: { type: String, attribute: 'value-state' },
+      /**
        * A Boolean attribute which, if present, means this field is required and marked with *.
        */
       required: {
@@ -70,8 +84,32 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
       readonly: {
         type: Boolean,
       },
-      icon: {
+      /**
+       * Defines the field path that is used from the injected RepeaterNode to identify the option items.
+       * Point-separated path to the field
+       * E.g. data.partner.ulid
+       */
+      idFieldPath: {
         type: String,
+        attribute: 'id-field-path',
+      },
+      /**
+       * Defines the field path that is used from the injected RepeaterNode to display the option items.
+       * Point-separated path to the field
+       * E.g. data.partner.display_name
+       */
+      displayFieldPath: {
+        type: String,
+        attribute: 'display-field-path',
+      },
+      /**
+       * Defines the field path that is used to update the bound component if the user has selected an option.
+       * Point-separated path to the field
+       * Must be set if a data binding is specified.
+       */
+      valueFieldPath: {
+        type: String,
+        attribute: 'value-field-path',
       },
     };
   }
@@ -79,7 +117,7 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('FuroUi5DataNumberInputLabeled') ||
+      Theme.getThemeForComponent('FuroUi5DataSelectLabeled') ||
       css`
         :host {
           display: block;
@@ -100,6 +138,14 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
   }
 
   /**
+   * Binds a repeaterNode to the furo-ui5-data-select component
+   * @param repeaterNode
+   */
+  bindOptions(repeaterNode) {
+    this._FBPTriggerWire('--options', repeaterNode);
+  }
+
+  /**
    * @private
    * @returns {TemplateResult|TemplateResult}
    */
@@ -110,19 +156,24 @@ class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
         <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}
           >${this.label}</ui5-label
         >
-        <furo-ui5-data-number-input
+        <furo-ui5-data-select
           content
           id="Input"
           ?disabled=${this.disabled}
           ?readonly=${this.readonly}
-          icon="${this.icon}"
+          value-state="${this.valueState}"
+          id-field-path=${this.idFieldPath}
+          display-field-path=${this.displayFieldPath}
+          value-field-path=${this.valueFieldPath}
           ƒ-bind-data="--data"
+          ƒ-bind-options="--options"
           ƒ-focus="--focus"
         >
-        </furo-ui5-data-number-input>
+          <slot slot="valueStateMessage" name="valueStateMessage"></slot>
+        </furo-ui5-data-select>
       </furo-ui5-form-field-container>
     `;
   }
 }
 
-window.customElements.define('furo-ui5-data-number-input-labeled', FuroUi5DataNumberInputLabeled);
+window.customElements.define('furo-ui5-data-select-labeled', FuroUi5DataSelectLabeled);

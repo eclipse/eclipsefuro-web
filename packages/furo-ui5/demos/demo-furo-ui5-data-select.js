@@ -137,9 +137,6 @@ class DemoFuroUi5DataSelect extends FBP(LitElement) {
                 <furo-ui5-data-select
                   flex
                   ƒ-bind-data="--entity(*.data.type_with_options)"
-                  id-field-path="id"
-                  display-field-path="display_name"
-                  value-field-path="id"
                   value-state="Information"
                 >
                   <ui5-option data-id="">Options not yet available</ui5-option>

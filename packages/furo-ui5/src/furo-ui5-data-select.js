@@ -27,25 +27,28 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
      * Defines the field path that is used from the injected RepeaterNode to identify the option items.
      * Point-separated path to the field
      * E.g. data.partner.ulid
+     * default: id
      * @type {string}
      */
-    this.idFieldPath = '';
+    this.idFieldPath = 'id';
 
     /**
      * Defines the field path that is used from the injected RepeaterNode to display the option items.
      * Point-separated path to the field
      * E.g. data.partner.display_name
+     * default: display_name
      * @type {string}
      */
-    this.displayFieldPath = '';
+    this.displayFieldPath = 'display_name';
 
     /**
      * Defines the field path that is used to update the bound component if the user has selected an option.
      * Point-separated path to the field
      * Must be set if a data binding is specified.
+     * default: id
      * @type {string}
      */
-    this.valueFieldPath = '';
+    this.valueFieldPath = 'id';
 
     /**
      * Internal RepeaterNode
@@ -84,9 +87,9 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       readonly: null,
       required: null,
       disabled: null,
-      'id-field-path': null,
-      'value-field-path': null,
-      'display-field-path': null,
+      'id-field-path': 'id',
+      'value-field-path': 'id',
+      'display-field-path': 'display_name',
     };
 
     // changed is fired when the select operation has finished.
@@ -143,7 +146,9 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
 
     // save the original attribute for later usages, we do this, because some components reflect
     Object.keys(this._privilegedAttributes).forEach(attr => {
-      this._privilegedAttributes[attr] = this.getAttribute(attr);
+      if (this.getAttribute(attr)) {
+        this._privilegedAttributes[attr] = this.getAttribute(attr);
+      }
     });
   }
 
@@ -426,6 +431,18 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
         this.appendChild(newOpt);
       });
     }
+
+    /**
+     * Fires event options-updated after rebuilding option list
+     * @event options-updated
+     */
+    this.dispatchEvent(
+      new CustomEvent('options-updated', {
+        detail: optionNodeList,
+        bubbles: true,
+        composed: true,
+      }),
+    );
   }
 
   /**
@@ -509,6 +526,15 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
     const customEvent = new Event('value-changed', { composed: true, bubbles: true });
     customEvent.detail = selectedOption;
     this.dispatchEvent(customEvent);
+
+    /**
+     * Fired when the item of the dropdown list is selected.
+     * @event item-selected
+     * @type {Event}
+     */
+    const customSelectEvent = new Event('item-selected', { composed: true, bubbles: true });
+    customSelectEvent.detail = selectedOption;
+    this.dispatchEvent(customSelectEvent);
   }
 }
 
