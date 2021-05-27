@@ -1,7 +1,8 @@
 import * as MultiInput from '@ui5/webcomponents/dist/MultiInput';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder';
+
 import '@ui5/webcomponents/dist/Token.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 
 /**
  * `furo-ui5-data-multi-input`
@@ -12,10 +13,45 @@ import '@ui5/webcomponents/dist/Token.js';
  * @customElement
  * @demo demo-furo-ui5-data-multi-input Basic usage (recommended for repeated strings)
  */
-export class FuroUi5DataMultiInput extends MultiInput.default {
+export class FuroUi5DataMultiInput extends FieldNodeAdapter(MultiInput.default) {
   constructor() {
     super();
-    this._initBinder();
+
+    this.tmpValue = [];
+
+    // used to restore the state after a invalidation -> validation change
+    this._previousValueState = { state: 'None', message: '' };
+
+    this._attributesFromFNA = {
+      readonly: undefined,
+      placeholder: undefined,
+    };
+
+    this._constraintsFromFNA = {
+      required: undefined,
+      max: undefined, // maps to maxlength
+    };
+
+    this._labelsFromFAT = {
+      readonly: undefined,
+      disabled: undefined,
+      required: undefined,
+    };
+
+    this._attributesFromFAT = {
+      placeholder: undefined,
+      max: undefined, // maps to maxlength
+    };
+
+    // a list of privileged attributes. when those attributes are set in textarea-input components initially.
+    // they can not be modified later via response or spec
+    // null is used because getAttribute returns null or value
+    this._privilegedAttributes = {
+      readonly: null,
+      placeholder: null,
+      required: null,
+      disabled: null,
+    };
 
     this.addEventListener('change', event => {
       this.valueState = 'Normal';
@@ -27,10 +63,10 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
       const isDuplicate = event.target.tokens.some(token => token.text === event.target.value);
 
       if (isDuplicate) {
-        this.valueState = 'Error';
+        this._setValueStateMessage('Error', 'Token is already in the list');
 
         setTimeout(() => {
-          this.valueState = 'Normal';
+          this._resetValueStateMessage();
         }, 2000);
 
         return;
@@ -38,23 +74,20 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
 
       // eslint-disable-next-line wc/no-constructor-attributes
       this.appendChild(this._createUi5Token(event.target.value));
-      const value = this.binder.fieldNode._value;
-      value.push(event.target.value);
-      this.binder.fieldNode._value = value;
+      this.tmpValue.push(event.target.value);
+      this.setFnaFieldValue(this.tmpValue);
 
       // eslint-disable-next-line no-param-reassign
       event.target.value = '';
 
-      this._triggerValueChangedEvent();
+      this._triggerValueChangedEvent(this.tmpValue);
     });
 
     this.addEventListener('token-delete', event => {
       if (!this.readonly && !this.disabled) {
-        this.binder.fieldNode._value = this.binder.fieldNode._value.filter(
-          item => item !== event.detail.token.text,
-        );
-        this._updateItems();
-        this._triggerValueChangedEvent();
+        this.tmpValue = this.tmpValue.filter(item => item !== event.detail.token.text);
+        this._updateItems(this.tmpValue);
+        this._triggerValueChangedEvent(this.tmpValue);
       }
     });
   }
@@ -65,136 +98,155 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
    * @private
    */
   connectedCallback() {
-    this.attributeReadonly = this.readonly;
-
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
+    this.readAttributes();
+
+    // created to avoid the default messages from ui5
+    const vse = this.querySelector('div[slot="valueStateMessage"]');
+    if (vse === null) {
+      this._valueStateElement = document.createElement('div');
+      this._valueStateElement.setAttribute('slot', 'valueStateMessage');
+      // eslint-disable-next-line wc/no-constructor-attributes
+      this.appendChild(this._valueStateElement);
+    } else {
+      this._valueStateElement = vse;
+      this._previousValueState.message = vse.innerText;
+    }
   }
 
   /**
-   * inits the universalFieldNodeBinder.
-   * Set the mapped attributes and labels.
-   * @private
+   * Reads the attributes which are set on the component dom.
+   * those attributes can be set. `value-state`, `value-state-message`,  `placeholder`, `required`,`readonly`,`disabled`
+   * Use this after manual or scripted update of the attributes.
    */
-  _initBinder() {
-    this.binder = new UniversalFieldNodeBinder(this);
+  readAttributes() {
+    this._previousValueState.state = this.getAttribute('value-state')
+      ? this.getAttribute('value-state')
+      : 'None';
 
-    this.applyBindingSet();
-  }
-
-  /**
-   * apply the binding set to the universal field node binder
-   */
-  applyBindingSet() {
-    // set the attribute mappings
-    this.binder.attributeMappings = {
-      placeholder: 'placeholder', // map placeholder to placeholder
-      'value-state': '_valueState',
-      name: 'name',
-      maxlength: 'maxlength', // for the input element itself
-    };
-
-    // set the label mappings
-    this.binder.labelMappings = {
-      'show-value-help-icon': 'showValueHelpIcon',
-      'show-suggestions': 'showSuggestions',
-      readonly: '__readonly',
-      required: 'required',
-      disabled: 'disabled',
-      modified: 'modified',
-      highlight: 'highlight',
-    };
-
-    // set attributes to constrains mapping for furo.fat types
-    this.binder.fatAttributesToConstraintsMappings = {
-      maxlength: 'value._constraints.max.is', // for the fieldnode constraint
-      required: 'value._constraints.required.is', // for the fieldnode constraint
-    };
-
-    // set constrains to attributes mapping for furo.fat types
-    this.binder.constraintsTofatAttributesMappings = {
-      max: 'maxlength',
-      required: 'required',
-    };
-
-    /**
-     * check overrides from the used component, attributes set on the component itself overrides all
-     */
-    this.binder.checkLabelandAttributeOverrrides();
-
-    // update the value on input changes
-    this.addEventListener('input', val => {
-      // update the value
-      this.binder.fieldValue = val.target.value;
-
-      /**
-       * Fired when value changed
-       * @type {Event}
-       */
-      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
-      customEvent.detail = val.target.value;
-      this.dispatchEvent(customEvent);
-
-      // set flag empty on empty strings (for fat types)
-      if (val.target.value) {
-        this.binder.deleteLabel('empty');
-      } else {
-        this.binder.addLabel('empty');
-      }
-      // if something was entered the field is not empty
-      this.binder.addLabel('modified');
+    // save the original attribute for later usages, we do this, because some components reflect
+    Object.keys(this._privilegedAttributes).forEach(attr => {
+      this._privilegedAttributes[attr] = this.getAttribute(attr);
     });
   }
 
   /**
-   * Sets the value for the field. This will update the fieldNode.
-   * @param val
+   * overwrite onFnaReadonlyChanged function
+   * @private
+   * @param readonly
    */
-  setValue(val) {
-    this.binder.fieldValue = val;
-  }
-
-  set __readonly(readonly) {
-    if (!this.attributeReadonly) {
+  onFnaReadonlyChanged(readonly) {
+    this._attributesFromFNA.readonly = readonly;
+    if (
+      this._privilegedAttributes.readonly === null &&
+      this._labelsFromFAT.readonly === undefined
+    ) {
       this.readonly = readonly;
     }
   }
 
   /**
-   * Bind a entity field to the text-input. You can use the entity even when no data was received.
-   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
-   * @param {Object|FieldNode} fieldNode a Field object
+   * overwrite onFnaConstraintsChanged function
+   * @private
+   * @param constraints
    */
-  bindData(fieldNode) {
-    /**
-     * Because of the UI5 TextArea Tokenizer we can not pass NULL as a value.
-     * If the value is null, we pass an empty string
-     * @type {string}
-     * @private
-     */
-    // eslint-disable-next-line no-param-reassign
-    fieldNode._value = fieldNode._value || '';
+  onFnaConstraintsChanged(constraints) {
+    // required
+    if (constraints.required !== undefined) {
+      this._constraintsFromFNA.required = constraints.required;
+      if (
+        this._privilegedAttributes.required === null &&
+        this._labelsFromFAT.required === undefined
+      ) {
+        this.required = constraints.required.is === 'true';
+      }
+    }
 
-    this.binder.bindField(fieldNode);
-    if (this.binder.fieldNode) {
-      // set pristine on new data
-      this.binder.fieldNode.addEventListener('new-data-injected', () => {
-        this._updateItems();
-        this._triggerValueChangedEvent();
-      });
-
-      this.binder.fieldNode.addEventListener('this-repeated-field-changed', () => {
-        this._updateItems();
-      });
-
-      this._updateItems();
+    if (constraints.max !== undefined) {
+      this._constraintsFromFNA.max = constraints.max;
+      if (this._privilegedAttributes.maxlength === null) {
+        this.maxlength = parseInt(constraints.max.is, 10);
+      }
     }
   }
 
-  _updateItems() {
+  /**
+   * overwrite onFnaFieldNodeBecameInvalid function
+   * @private
+   * @param validity
+   */
+  onFnaFieldNodeBecameInvalid(validity) {
+    if (validity.description) {
+      // this value state should not be saved as a previous value state
+      this._setValueStateMessage('Error', validity.description);
+    }
+  }
+
+  /**
+   * overwrite onFnaFieldNodeBecameValid function
+   * @private
+   */
+  onFnaFieldNodeBecameValid() {
+    this._resetValueStateMessage();
+  }
+
+  /**
+   * update the value state and the value state message on demand
+   *
+   * @param valueState
+   * @param message
+   * @private
+   */
+  _setValueStateMessage(valueState, message) {
+    this.valueState = valueState;
+    // element was created in constructor
+    this._valueStateElement.innerText = message;
+  }
+
+  /**
+   * reset to previous value state
+   * @private
+   */
+  _resetValueStateMessage() {
+    this._setValueStateMessage(this._previousValueState.state, this._previousValueState.message);
+  }
+
+  /**
+   * overwrite onFnaFieldNewDataInjected
+   * @private
+   * @param val
+   */
+  onFnaFieldNewDataInjected(val) {
+    this.tmpValue = val;
+    this._updateItems(val);
+    this._triggerValueChangedEvent(val);
+  }
+
+  /**
+   * overwrite onFnaRepeatedFieldChanged
+   * @private
+   * @param val
+   */
+  onFnaRepeatedFieldChanged(val) {
+    this.tmpValue = val;
+    this._updateItems(val);
+  }
+
+  /**
+   * overwrite onFnaFieldValueChanged
+   * @private
+   * @param val
+   */
+  onFnaFieldValueChanged(val) {
+    this.tmpValue = val;
+    this._updateItems(val);
+  }
+
+  _updateItems(val) {
     this.value = '';
     this._removeAllItems();
-    this.binder.fieldNode._value.forEach(item => {
+    val.forEach(item => {
       this.appendChild(this._createUi5Token(item));
     });
   }
@@ -209,14 +261,14 @@ export class FuroUi5DataMultiInput extends MultiInput.default {
     return token;
   }
 
-  _triggerValueChangedEvent() {
+  _triggerValueChangedEvent(val) {
     /**
      * Fired when value changed
      * the event detail is the value of the repeated string
      * @type {Event}
      */
     const customEvent = new Event('value-changed', { composed: true, bubbles: true });
-    customEvent.detail = this.binder.fieldNode._value;
+    customEvent.detail = val;
     this.dispatchEvent(customEvent);
   }
 

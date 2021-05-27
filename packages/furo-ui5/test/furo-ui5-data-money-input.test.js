@@ -67,9 +67,9 @@ describe('furo-ui5-data-money-input', () => {
   it('should receive value with bind', done => {
     entityObject.addEventListener('data-injected', () => {
       setTimeout(() => {
-        assert.equal(dataInput.binder.fieldNode.units._value, '3333');
-        assert.equal(dataInput.binder.fieldNode.currency_code._value, 'CHF');
-        assert.equal(dataInput.binder.fieldNode.nanos._value, '75100000');
+        assert.equal(dataInput.__fieldNode.units._value, '3333');
+        assert.equal(dataInput.__fieldNode.currency_code._value, 'CHF');
+        assert.equal(dataInput.__fieldNode.nanos._value, '75100000');
         done();
       }, 0);
     });
@@ -82,9 +82,9 @@ describe('furo-ui5-data-money-input', () => {
     });
     entityObject.addEventListener('data-injected', () => {
       setTimeout(() => {
-        assert.equal(dataInput.binder.fieldNode.units._value, '3333');
-        assert.equal(dataInput.binder.fieldNode.currency_code._value, 'CHF');
-        assert.equal(dataInput.binder.fieldNode.nanos._value, '75100000');
+        assert.equal(dataInput.__fieldNode.units._value, '3333');
+        assert.equal(dataInput.__fieldNode.currency_code._value, 'CHF');
+        assert.equal(dataInput.__fieldNode.nanos._value, '75100000');
         done();
       }, 0);
     });

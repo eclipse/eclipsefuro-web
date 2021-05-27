@@ -54,7 +54,7 @@ export const FieldNodeAdapter = superClass =>
       if (this.__fieldNode._spec.type === 'google.protobuf.Any') {
         // check in @type field, return false if it not known at the moment
         return (
-          this.__fieldNode['@type']._value !== null &&
+          this.__fieldNode['@type'] && this.__fieldNode['@type']._value !== null &&
           this.__fieldNode['@type']._value.replace(/.*\//, '').startsWith('furo.fat')
         );
       }
@@ -69,7 +69,7 @@ export const FieldNodeAdapter = superClass =>
       if (this.__fieldNode._spec.type === 'google.protobuf.Any') {
         // check in @type field, return false if it not known at the moment
         return (
-          this.__fieldNode['@type']._value !== null &&
+          this.__fieldNode['@type'] && this.__fieldNode['@type']._value !== null &&
           this.__fieldNode['@type']._value.replace(/.*\//, '').startsWith('google.protobuf')
         );
       }
@@ -109,6 +109,8 @@ export const FieldNodeAdapter = superClass =>
       fieldNode.addEventListener('field-became-valid', this.__fieldBecamesValidHandler);
       fieldNode.addEventListener('field-became-invalid', this.__fieldBecamesInvalidHandler);
       fieldNode.addEventListener('this-metas-changed', this.__fieldMetasChangedHandler);
+      fieldNode.addEventListener('new-data-injected', this.__fieldNewDataInjectedHandler);
+      fieldNode.addEventListener('this-repeated-field-changed', this.__repeatedFieldChangedHandler);
 
       // this is for easier debugging with the inspector
       this.__fieldNode = fieldNode;
@@ -335,6 +337,24 @@ export const FieldNodeAdapter = superClass =>
        */
       this.__fieldBecamesValidHandler = () => {
         this.onFnaFieldNodeBecameValid();
+      };
+
+      /**
+       * Handler to notify the new Data injected information of a fieldNode
+       * @return {(function(): void)|*}
+       * @private
+       */
+      this.__fieldNewDataInjectedHandler = () => {
+        this.onFnaFieldNewDataInjected(this.__fieldNode._value);
+      };
+
+      /**
+       * Handler to notify the repeated field changed information of a fieldNode
+       * @return {(function(): void)|*}
+       * @private
+       */
+      this.__repeatedFieldChangedHandler = () => {
+        this.onFnaRepeatedFieldChanged(this.__fieldNode._value);
       };
 
       /**
