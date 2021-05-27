@@ -648,7 +648,7 @@ export class FuroTree extends FBP(LitElement) {
     } else {
       this._rootNode = treeNode.root;
     }
-
+    this._rootNode.children.clearListOnNewData = true;
     this._rootNode.children.addEventListener('this-repeated-field-changed', () => {
       this._setTitle(this._rootNode);
       this._init();
