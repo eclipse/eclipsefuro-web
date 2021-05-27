@@ -191,7 +191,6 @@ class FuroUi5FormFieldContainer extends FBP(LitElement) {
         }
 
         ::slotted(*[label][data-size*='size-m']) {
-          padding-top: 0;
           grid-column: span 3;
           place-self: start var(--furo-ui5-form-field-container-label-justify, end);
         }
