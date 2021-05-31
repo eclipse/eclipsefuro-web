@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.28.3...@furo/ui5@0.29.0) (2021-05-31)
+
+
+### Bug Fixes
+
+* headers should keep spaces ([6685da4](https://github.com/theNorstroem/FuroBaseComponents/commit/6685da4e5d7bb9abfbe6677d4851f86313827cb4))
+
+
+### Features
+
+* first litter of new data-select component ([d4a1166](https://github.com/theNorstroem/FuroBaseComponents/commit/d4a11661d39f9d4373fded6971c5b29e31da8f6a))
+* furo-ui5-data-money-input. ([381d89f](https://github.com/theNorstroem/FuroBaseComponents/commit/381d89fb1ff9290ab6d9ceb00219f61ef2638e95))
+* furo-ui5-data-money-input. ([a033fcc](https://github.com/theNorstroem/FuroBaseComponents/commit/a033fcc39435e1c5850b527e068282304bc32fa5))
+* labeled element for furo-ui5-data-select ([523e5ab](https://github.com/theNorstroem/FuroBaseComponents/commit/523e5abf5e1134b9bb900a0652d9ab520f50a36a))
+* usage without option list. Use the component with static ui5-option items. ([673195d](https://github.com/theNorstroem/FuroBaseComponents/commit/673195d56e737610c3f7297eb211afc556e26d0f))
+
+
+
+
+
 ## [0.28.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.28.2...@furo/ui5@0.28.3) (2021-05-10)
 
 

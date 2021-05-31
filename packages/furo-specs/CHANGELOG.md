@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.21.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.20.3...@furo/specs@1.21.0) (2021-05-31)
+
+
+### Features
+
+* furo-ui5-data-money-input. ([381d89f](https://github.com/theNorstroem/FuroBaseComponents/commit/381d89fb1ff9290ab6d9ceb00219f61ef2638e95))
+* furo-ui5-data-money-input. ([a033fcc](https://github.com/theNorstroem/FuroBaseComponents/commit/a033fcc39435e1c5850b527e068282304bc32fa5))
+
+
+
+
+
 ## [1.20.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@1.20.2...@furo/specs@1.20.3) (2021-02-25)
 
 **Note:** Version bump only for package @furo/specs

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.52](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.51...@furo/navigation@1.6.52) (2021-05-31)
+
+
+### Bug Fixes
+
+* tree and demo ([2ba58cf](https://github.com/theNorstroem/FuroBaseComponents/commit/2ba58cfc94786e391a3cf6e96b002a42a774d828))
+
+
+
+
+
 ## [1.6.51](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@1.6.50...@furo/navigation@1.6.51) (2021-05-10)
 
 

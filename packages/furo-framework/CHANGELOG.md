@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.6.0...@furo/framework@1.6.1) (2021-05-31)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
 # [1.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@1.5.11...@furo/framework@1.6.0) (2021-04-01)
 
 
