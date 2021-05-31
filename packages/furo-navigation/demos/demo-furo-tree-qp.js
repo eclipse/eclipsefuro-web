@@ -8,6 +8,7 @@ import '@furo/doc-helper';
 import '@furo/navigation/src/furo-catalog.js';
 import '@furo/data';
 import '@furo/data-input';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/route';
 import '@furo/layout';
 import '@furo/form';

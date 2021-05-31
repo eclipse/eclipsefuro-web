@@ -467,8 +467,7 @@ describe('furo-ui5-propertylist-display', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-ui5-data-propertylist-display>
-          </furo-ui5-data-propertylist-display>
+          <furo-ui5-data-propertylist-display> </furo-ui5-data-propertylist-display>
           <furo-data-object
             type="experiment.ExperimentEntity"
             @-object-ready="--dao"
@@ -486,11 +485,10 @@ describe('furo-ui5-propertylist-display', () => {
 
   it('should be a furo-ui5-data-propertylist-display element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    setTimeout(()=>{
+    setTimeout(() => {
       assert.equal(display.nodeName.toLowerCase(), 'furo-ui5-data-propertylist-display');
       done();
-    },0)
-
+    }, 0);
   });
 
   // axeReport a11y tests

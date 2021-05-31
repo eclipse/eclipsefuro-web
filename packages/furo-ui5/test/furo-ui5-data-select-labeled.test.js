@@ -602,6 +602,4 @@ describe('furo-ui5-data-select-labeled', () => {
       done();
     }, 0);
   });
-
-
 });
