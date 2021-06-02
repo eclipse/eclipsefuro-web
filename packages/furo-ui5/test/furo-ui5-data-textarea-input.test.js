@@ -207,7 +207,7 @@ describe('furo-ui5-data-textarea-input', () => {
           'check valueStateMessage content',
         );
         done();
-      }, 100);
+      }, 30);
     });
 
     daoFat.injectRaw(testRecordMeta);
