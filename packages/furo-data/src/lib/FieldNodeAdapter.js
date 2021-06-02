@@ -238,6 +238,18 @@ export const FieldNodeAdapter = superClass =>
     // eslint-disable-next-line class-methods-use-this,no-unused-vars
     onFnaFieldNodeBecameInvalid(validity) {}
 
+    /**
+     * Notifies that new data was injected
+     */
+    // eslint-disable-next-line class-methods-use-this
+    onFnaFieldNewDataInjected(){}
+
+    /**
+     * Notifies when a repeater node changes
+     */
+    // eslint-disable-next-line class-methods-use-this
+    onFnaRepeatedFieldChanged(){}
+
     // clean up on disconnect
     disconnectedCallback() {
       this.__detachEventListeners();
