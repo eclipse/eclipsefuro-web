@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.29.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.29.0...@furo/ui5@0.29.1) (2021-06-03)
+
+
+### Bug Fixes
+
+* rename value-changed event to field-value-changed because value-changed is triggered from the "inner" component (without details). The elements does not fire the events "twice" anymore. ([3e7873d](https://github.com/theNorstroem/FuroBaseComponents/commit/3e7873d681935e591c313eaf1a3ac6e9213cdc2f))
+* some tests fixed ([5b6f765](https://github.com/theNorstroem/FuroBaseComponents/commit/5b6f765fcc863688daefdf1b5e136d24b0fb254a))
+* some tests fixed ([e56585b](https://github.com/theNorstroem/FuroBaseComponents/commit/e56585b8beaf29a145ded93208b1f968441ab356))
+
+
+
+
+
 # [0.29.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.28.3...@furo/ui5@0.29.0) (2021-05-31)
 
 

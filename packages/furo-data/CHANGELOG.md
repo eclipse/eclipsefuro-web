@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.25.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.25.1...@furo/data@1.25.2) (2021-06-03)
+
+
+### Bug Fixes
+
+* add empty methods to FNA, consumers of the FNA must not be forced to implement them ([7daedf0](https://github.com/theNorstroem/FuroBaseComponents/commit/7daedf0051ce7fe6554bffbdea878f5eff266344))
+* fieldnode adapter works without bind-data ([1f4d8b4](https://github.com/theNorstroem/FuroBaseComponents/commit/1f4d8b4918c135097c8a37d84124d051768e5663))
+
+
+
+
+
 ## [1.25.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.25.0...@furo/data@1.25.1) (2021-05-31)
 
 **Note:** Version bump only for package @furo/data
