@@ -51,7 +51,7 @@ export const FieldNodeAdapter = superClass =>
      * @return boolean
      */
     isFat() {
-      if (this.__fieldNode._spec.type === 'google.protobuf.Any') {
+      if (this.__fieldNode._spec && this.__fieldNode._spec.type === 'google.protobuf.Any') {
         // check in @type field, return false if it not known at the moment
         return (
           this.__fieldNode['@type'] && this.__fieldNode['@type']._value !== null &&
@@ -66,7 +66,7 @@ export const FieldNodeAdapter = superClass =>
      * @return boolean
      */
     isWrapper() {
-      if (this.__fieldNode._spec.type === 'google.protobuf.Any') {
+      if (this.__fieldNode._spec && this.__fieldNode._spec.type === 'google.protobuf.Any') {
         // check in @type field, return false if it not known at the moment
         return (
           this.__fieldNode['@type'] && this.__fieldNode['@type']._value !== null &&
@@ -142,7 +142,10 @@ export const FieldNodeAdapter = superClass =>
       this.__internalUpdateInProgress = false;
 
       // broadcast validation request because we do an injection on FAT
-      this.__fieldNode.broadcastEvent(new NodeEvent('validation-requested', this));
+      if (this.__fieldNode._spec){
+          this.__fieldNode.broadcastEvent(new NodeEvent('validation-requested', this));
+      }
+
     }
 
     /**
@@ -234,6 +237,18 @@ export const FieldNodeAdapter = superClass =>
      */
     // eslint-disable-next-line class-methods-use-this,no-unused-vars
     onFnaFieldNodeBecameInvalid(validity) {}
+
+    /**
+     * Notifies that new data was injected
+     */
+    // eslint-disable-next-line class-methods-use-this
+    onFnaFieldNewDataInjected(){}
+
+    /**
+     * Notifies when a repeater node changes
+     */
+    // eslint-disable-next-line class-methods-use-this
+    onFnaRepeatedFieldChanged(){}
 
     // clean up on disconnect
     disconnectedCallback() {

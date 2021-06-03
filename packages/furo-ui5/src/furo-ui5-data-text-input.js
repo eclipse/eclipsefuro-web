@@ -209,9 +209,9 @@ export class FuroUi5DataTextInput extends FieldNodeAdapter(Input.default) {
 
     /**
      * Fired when value changed
-     * @type {Event}
+     * @event field-value-changed
      */
-    const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+    const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.value;
     this.dispatchEvent(customEvent);
   }

@@ -138,11 +138,12 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
 
     /**
      * Fired when value changed
-     * @type {Event}
+     * @event field-value-changed
      */
-    const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+    const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.checked;
     this.dispatchEvent(customEvent);
+
   }
 
   /**

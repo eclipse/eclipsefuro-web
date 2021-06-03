@@ -207,9 +207,9 @@ export class FuroUi5PasswordInput extends FieldNodeAdapter(Input.default) {
 
     /**
      * Fired when value changed
-     * @event value-changed
+     * @event field-value-changed
      */
-    const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+    const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.value;
     this.dispatchEvent(customEvent);
   }
