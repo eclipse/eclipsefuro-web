@@ -98,7 +98,7 @@ class FuroUi5DataCheckboxInputLabeled extends FBP(LitElement) {
       this._FBPTriggerWire('--placeholder', fieldNode._meta.placeholder || '');
     });
 
-    this._FBPTriggerWire('--placeholder', this.placeholder || '');
+    this._FBPTriggerWire('--placeholder', this.placeholder || fieldNode._meta.placeholder || '');
   }
 
   /**
