@@ -624,7 +624,7 @@
               "column": 2
             },
             "end": {
-              "line": 145,
+              "line": 146,
               "column": 3
             }
           },
@@ -640,11 +640,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 151,
+              "line": 152,
               "column": 2
             },
             "end": {
-              "line": 160,
+              "line": 161,
               "column": 3
             }
           },
@@ -664,11 +664,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 168,
+              "line": 169,
               "column": 2
             },
             "end": {
-              "line": 192,
+              "line": 193,
               "column": 3
             }
           },
@@ -688,11 +688,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 199,
               "column": 2
             },
             "end": {
-              "line": 227,
+              "line": 228,
               "column": 3
             }
           },
@@ -712,11 +712,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 232,
+              "line": 233,
               "column": 2
             },
             "end": {
-              "line": 234,
+              "line": 235,
               "column": 3
             }
           },
@@ -732,11 +732,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 240,
+              "line": 241,
               "column": 2
             },
             "end": {
-              "line": 242,
+              "line": 243,
               "column": 3
             }
           },
@@ -752,11 +752,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 249,
+              "line": 250,
               "column": 2
             },
             "end": {
-              "line": 251,
+              "line": 252,
               "column": 3
             }
           },
@@ -776,11 +776,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 257,
+              "line": 258,
               "column": 2
             },
             "end": {
-              "line": 259,
+              "line": 260,
               "column": 3
             }
           },
@@ -796,11 +796,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 266,
+              "line": 267,
               "column": 2
             },
             "end": {
-              "line": 271,
+              "line": 272,
               "column": 3
             }
           },
@@ -820,11 +820,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 278,
+              "line": 279,
               "column": 2
             },
             "end": {
-              "line": 286,
+              "line": 287,
               "column": 3
             }
           },
@@ -853,7 +853,7 @@
           "column": 7
         },
         "end": {
-          "line": 299,
+          "line": 300,
           "column": 1
         }
       },
@@ -866,6 +866,12 @@
           "type": "CustomEvent",
           "name": "change",
           "description": "change\nFired when the checkbox checked state changes.\n\ndetail payload: `bool`",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "field-value-changed",
+          "description": "Fired when value changed",
           "metadata": {}
         },
         {
@@ -4130,6 +4136,12 @@
         },
         {
           "type": "CustomEvent",
+          "name": "field-value-changed",
+          "description": "Fired when value changed",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
           "name": "input",
           "description": "input\nFired when the value of the ui5-input changes at each keystroke, and when a suggestion item has been selected.",
           "metadata": {}
@@ -6115,6 +6127,12 @@
         },
         {
           "type": "CustomEvent",
+          "name": "field-value-changed",
+          "description": "Fired when value changed",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
           "name": "input",
           "description": "input\nFired when the value of the ui5-input changes at each keystroke, and when a suggestion item has been selected.",
           "metadata": {}
@@ -7026,6 +7044,12 @@
         },
         {
           "type": "CustomEvent",
+          "name": "field-value-changed",
+          "description": "Fired when value changed",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
           "name": "icon-clicked",
           "description": "Fired when icon is clicked",
           "metadata": {}
@@ -7046,12 +7070,6 @@
           "type": "CustomEvent",
           "name": "password-showed",
           "description": "Fired when the password is showed",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "value-changed",
-          "description": "Fired when value changed",
           "metadata": {}
         },
         {
@@ -13826,6 +13844,12 @@
           "type": "CustomEvent",
           "name": "change",
           "description": "change\nFired when the input operation has finished by pressing Enter or on focusout.\n\ndetail payload: `text`",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "field-value-changed",
+          "description": "Fired when value changed",
           "metadata": {}
         },
         {
