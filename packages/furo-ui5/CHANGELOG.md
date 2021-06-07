@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.29.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.29.1...@furo/ui5@0.29.2) (2021-06-07)
+
+
+### Bug Fixes
+
+* placeholder on ui chekcbox labeled when data-object was ready long before the component ([2cd3fb3](https://github.com/theNorstroem/FuroBaseComponents/commit/2cd3fb350f3b3e9620118fe7d22f30a408b18d1c))
+* some tests fixed ([7104711](https://github.com/theNorstroem/FuroBaseComponents/commit/71047118e26cac2dddc5833dfdb178164a3ec1f6))
+
+
+
+
+
 ## [0.29.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.29.0...@furo/ui5@0.29.1) (2021-06-03)
 
 
