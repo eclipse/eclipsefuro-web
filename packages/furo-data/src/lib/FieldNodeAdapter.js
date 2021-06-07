@@ -54,7 +54,8 @@ export const FieldNodeAdapter = superClass =>
       if (this.__fieldNode._spec && this.__fieldNode._spec.type === 'google.protobuf.Any') {
         // check in @type field, return false if it not known at the moment
         return (
-          this.__fieldNode['@type'] && this.__fieldNode['@type']._value !== null &&
+          this.__fieldNode['@type'] &&
+          this.__fieldNode['@type']._value !== null &&
           this.__fieldNode['@type']._value.replace(/.*\//, '').startsWith('furo.fat')
         );
       }
@@ -69,7 +70,8 @@ export const FieldNodeAdapter = superClass =>
       if (this.__fieldNode._spec && this.__fieldNode._spec.type === 'google.protobuf.Any') {
         // check in @type field, return false if it not known at the moment
         return (
-          this.__fieldNode['@type'] && this.__fieldNode['@type']._value !== null &&
+          this.__fieldNode['@type'] &&
+          this.__fieldNode['@type']._value !== null &&
           this.__fieldNode['@type']._value.replace(/.*\//, '').startsWith('google.protobuf')
         );
       }
@@ -142,10 +144,9 @@ export const FieldNodeAdapter = superClass =>
       this.__internalUpdateInProgress = false;
 
       // broadcast validation request because we do an injection on FAT
-      if (this.__fieldNode._spec){
-          this.__fieldNode.broadcastEvent(new NodeEvent('validation-requested', this));
+      if (this.__fieldNode._spec) {
+        this.__fieldNode.broadcastEvent(new NodeEvent('validation-requested', this));
       }
-
     }
 
     /**
@@ -242,13 +243,13 @@ export const FieldNodeAdapter = superClass =>
      * Notifies that new data was injected
      */
     // eslint-disable-next-line class-methods-use-this
-    onFnaFieldNewDataInjected(){}
+    onFnaFieldNewDataInjected() {}
 
     /**
      * Notifies when a repeater node changes
      */
     // eslint-disable-next-line class-methods-use-this
-    onFnaRepeatedFieldChanged(){}
+    onFnaRepeatedFieldChanged() {}
 
     // clean up on disconnect
     disconnectedCallback() {

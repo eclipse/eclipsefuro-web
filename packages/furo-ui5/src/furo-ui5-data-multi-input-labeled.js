@@ -60,6 +60,12 @@ class FuroUi5DataMultiInputLabeled extends FBP(LitElement) {
       readonly: {
         type: Boolean,
       },
+      /**
+       * Determines whether a value help icon will be should in the end of the input. Pressing the icon will fire `value-help-trigger` event.
+       */
+      showValueHelpIcon: {
+        type: Boolean, attribute:'show-value-help-icon',
+      },
     };
   }
 
@@ -102,6 +108,7 @@ class FuroUi5DataMultiInputLabeled extends FBP(LitElement) {
           id="Input"
           ?disabled=${this.disabled}
           ?readonly=${this.readonly}
+          ?show-value-help-icon=${this.showValueHelpIcon}
           ƒ-bind-data="--data"
         ></furo-ui5-data-multi-input>
       </furo-ui5-form-field-container>
