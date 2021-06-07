@@ -234,6 +234,7 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
       css`
         :host {
           display: block;
+          position: relative;
         }
 
         :host([hidden]) {
@@ -296,6 +297,8 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
           align-items: center;
           background: var(--surface, white);
           border-bottom: 1px solid var(--sapGroup_TitleBorderColor);
+          position: absolute;
+          bottom: 0;
         }
 
         .collapser-button {
