@@ -81,6 +81,7 @@ export class FuroUi5DataMultiInput extends FieldNodeAdapter(MultiInput.default) 
       event.target.value = '';
 
       this._triggerValueChangedEvent(this.tmpValue);
+      this.focus();
     });
 
     this.addEventListener('token-delete', event => {
@@ -89,6 +90,7 @@ export class FuroUi5DataMultiInput extends FieldNodeAdapter(MultiInput.default) 
         this._updateItems(this.tmpValue);
         this.setFnaFieldValue(this.tmpValue);
         this._triggerValueChangedEvent(this.tmpValue);
+        this.focus();
       }
     });
   }
