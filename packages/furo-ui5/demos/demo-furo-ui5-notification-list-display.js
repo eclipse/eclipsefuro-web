@@ -94,7 +94,7 @@ class DemoFuroUi5NotificationListDisplay extends FBP(LitElement) {
                                @-click="--notificationsRequested(*.target)"
               >Errors</furo-ui5-button>
               <furo-empty-spacer></furo-empty-spacer>
-              <furo-ui5-button @-click="--grpc" design="Emphasized">show grpc localized messages</furo-ui5-button>
+              <furo-ui5-button @-click="--grpc" design="Emphasized">show google rpc status messages</furo-ui5-button>
               <furo-ui5-button @-click="--clearRequested">clear messages</furo-ui5-button>
 
             </furo-ui5-button-bar>

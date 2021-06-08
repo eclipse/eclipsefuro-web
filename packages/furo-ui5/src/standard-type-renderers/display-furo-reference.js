@@ -67,6 +67,7 @@ class DisplayFuroReference extends LitElement {
     } else if (this._field.id._value) {
       this._displayValue = this._field.id._value;
     }
+    this.requestUpdate();
   }
 
   /**
