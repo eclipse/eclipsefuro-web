@@ -31,10 +31,10 @@ class Ui5DataRepeatDelete extends FBP(LitElement) {
     super._FBPReady();
 
     /**
-     * Register hook on wire --delClicked to
+     * Register hook on wire --iconClicked to
      * delete the item
      */
-    this.addEventListener('click', () => {
+    this._FBPAddWireHook('--iconClick', () => {
       this.field.deleteNode();
     });
   }
@@ -75,7 +75,7 @@ class Ui5DataRepeatDelete extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <ui5-icon name="${this.icon}" interactive accessible-name="delete"></ui5-icon>
+      <ui5-icon name="${this.icon}" @-click="--iconClicked" interactive accessible-name="delete"></ui5-icon>
     `;
   }
 }
