@@ -87,6 +87,7 @@ export class FuroUi5DataMultiInput extends FieldNodeAdapter(MultiInput.default) 
       if (!this.readonly && !this.disabled) {
         this.tmpValue = this.tmpValue.filter(item => item !== event.detail.token.text);
         this._updateItems(this.tmpValue);
+        this.setFnaFieldValue(this.tmpValue);
         this._triggerValueChangedEvent(this.tmpValue);
       }
     });
