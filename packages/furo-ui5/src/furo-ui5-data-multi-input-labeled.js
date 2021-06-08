@@ -64,7 +64,8 @@ class FuroUi5DataMultiInputLabeled extends FBP(LitElement) {
        * Determines whether a value help icon will be should in the end of the input. Pressing the icon will fire `value-help-trigger` event.
        */
       showValueHelpIcon: {
-        type: Boolean, attribute:'show-value-help-icon',
+        type: Boolean,
+        attribute: 'show-value-help-icon',
       },
     };
   }

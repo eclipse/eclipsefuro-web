@@ -106,6 +106,6 @@ describe('furo-ui5-data-date-time-picker', () => {
       assert.equal(datepicker.formatPattern, 'dd.MM.yyyy hh:mm aa', 'pattern applied');
       assert.equal(datepicker._state.value, '15.10.2017 03:30 AM', 'check value');
       done();
-    }, 0);
+    }, 10);
   });
 });
