@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.29.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.29.2...@furo/ui5@0.29.3) (2021-06-08)
+
+
+### Bug Fixes
+
+* delete of a token updates the fieldnode ([e6d63c9](https://github.com/theNorstroem/FuroBaseComponents/commit/e6d63c9c66ec1ab30ad79ce4dc70704d0eb114eb))
+* focus on enter should stay on element ([b7e079f](https://github.com/theNorstroem/FuroBaseComponents/commit/b7e079fcdcf7fc5a57fb8f15a86b61d1fc371972))
+* tests on date time input ([2662f0d](https://github.com/theNorstroem/FuroBaseComponents/commit/2662f0de64893a5491cdf9b471d6e960b57eb3af))
+
+
+
+
+
 ## [0.29.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.29.1...@furo/ui5@0.29.2) (2021-06-07)
 
 
