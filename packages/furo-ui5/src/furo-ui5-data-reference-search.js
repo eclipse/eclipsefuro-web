@@ -87,11 +87,14 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     this.displayFieldPath = "data.display_name";
     this.maxItemsToDisplay = 3;
     this.value = {id: '', display_name: ''};
-    this.placeholder = '';
+
+    this.noResultHint = 'no result found';
     this._hasmore = 'None';
+    this.icon = 'search';
 
     // used to restore the state after a invalidation -> validation change
     this._previousValueState = {state: 'None', message: ''};
+    this.valueState = 'None';
 
     this._attributesFromFNA = {
       readonly: undefined,
@@ -100,7 +103,6 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
 
     this._constraintsFromFNA = {
       required: undefined,
-      max: undefined, // maps to maxlength
     };
 
     // a list of privileged attributes. when those attributes are set in text-input components initially.
@@ -135,17 +137,20 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     super.connectedCallback();
     this.readAttributes();
 
-    // created to avoid the default messages from ui5
-    const vse = this.querySelector('div[slot="valueStateMessage"]');
-    if (vse === null) {
-      this._valueStateElement = document.createElement('div');
-      this._valueStateElement.setAttribute('slot', 'valueStateMessage');
-      // eslint-disable-next-line wc/no-constructor-attributes
-      this.appendChild(this._valueStateElement);
-    } else {
-      this._valueStateElement = vse;
-      this._previousValueState.message = vse.innerText;
-    }
+    this.updateComplete.then(()=>{
+      // created to avoid the default messages from ui5
+      const vse = this.querySelector('div[slot="valueStateMessage"]');
+      if (vse === null) {
+        this._valueStateElement = document.createElement('div');
+        this._valueStateElement.setAttribute('slot', 'valueStateMessage');
+        // eslint-disable-next-line wc/no-constructor-attributes
+        this._inputField.appendChild(this._valueStateElement);
+      } else {
+        this._valueStateElement = vse;
+        this._previousValueState.message = vse.innerText;
+      }
+    })
+
   }
 
 
@@ -153,8 +158,8 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     if (this.value.display_name !== undefined) {
       this._FBPTriggerWire('--displayValue', this.value.display_name);
     }
-    console.log("store", this.value)
-    this.requestUpdate();
+    this.setFnaFieldValue(this.value)
+
   }
 
   _fireSearchEvent() {
@@ -172,6 +177,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       searchResponsePath: {type: String, attribute: "search-response-path"},
       valueFieldPath: {type: String, attribute: "value-field-path"},
       displayFieldPath: {type: String, attribute: "display-field-path"},
+      icon: {type: String},
       /**
        * hint text when result not found by search
        */
@@ -238,8 +244,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
        * Use with caution, normally the specs defines this value.
        */
       readonly: {
-        type: Boolean,
-        reflect: true,
+        type: Boolean
       },
       /**
        * Disable
@@ -313,8 +318,8 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         this._hasCollection = false;
         this._searchResultItems = [];
         this._closeList();
-        // this._showValueStateMessage()
-        this._inputField.setAttribute('value-state', 'Information');
+        this._setValueStateMessage('Information', this.noResultHint)
+
 
       }
       this.requestUpdate();
@@ -332,7 +337,8 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
 
       const entities = this.searchResponsePath.split('.').reduce((acc, part) => acc && acc[part], response);
 
-      if (entities.length > 0) {
+      if (entities && entities.length > 0) {
+        const currentIndex = this._searchResultItems.length -1
         this._searchResultItems = this._searchResultItems.concat(entities.map(e => {
           return {
             id: this.valueFieldPath.split('.').reduce((acc, part) => acc && acc[part], e),
@@ -341,6 +347,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
           }
         }));
         this._FBPTriggerWire('--resultList', this._searchResultItems);
+        this._FBPTriggerWire('--listOpened', currentIndex);
       }
 
     });
@@ -456,6 +463,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
 
   _showList() {
     this.removeAttribute('busy');
+    this._resetValueStateMessage()
     if (this._searchResultItems && this._searchResultItems.length > 0) {
       this._listIsOpen = true;
       this.setAttribute('show-list', '');
@@ -474,10 +482,99 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         this._FBPTriggerWire('--listOpened', index);
       }
     }
-    // trigger wire to select item
   }
 
 
+
+  /**
+   * overwrite onFnaPlaceholderChanged function
+   * @private
+   * @param placeholder
+   */
+  onFnaPlaceholderChanged(placeholder) {
+    this._attributesFromFNA.placeholder = placeholder;
+    if (this._privilegedAttributes.placeholder === null) {
+      this.placeholder = placeholder;
+    }
+  }
+
+  /**
+   * overwrite onFnaReadonlyChanged function
+   * @private
+   * @param readonly
+   */
+  onFnaReadonlyChanged(readonly) {
+    this._attributesFromFNA.readonly = readonly;
+    if (
+      this._privilegedAttributes.readonly === null
+    ) {
+      this.readonly = readonly;
+      // deactivate suggestions
+      this.showSuggestions = false;
+    }
+  }
+
+  /**
+   * overwrite onFnaConstraintsChanged function
+   * @private
+   * @param constraints
+   */
+  onFnaConstraintsChanged(constraints) {
+    // required
+    if (constraints.required !== undefined) {
+      this._constraintsFromFNA.required = constraints.required;
+      if (
+        this._privilegedAttributes.required === null
+      ) {
+        this.required = constraints.required.is === 'true';
+      }
+    }
+
+  }
+
+  /**
+   * overwrite onFnaFieldNodeBecameInvalid function
+   * @private
+   * @param validity
+   */
+  onFnaFieldNodeBecameInvalid(validity) {
+    if (validity.description) {
+      // this value state should not be saved as a previous value state
+      this._setValueStateMessage('Error', validity.description);
+
+    }
+  }
+
+  /**
+   * overwrite onFnaFieldNodeBecameValid function
+   * @private
+   */
+  onFnaFieldNodeBecameValid() {
+    this._resetValueStateMessage();
+  }
+
+
+  /**
+   * update the value state and the value state message on demand
+   *
+   * @param valueState
+   * @param message
+   * @private
+   */
+  _setValueStateMessage(valueState, message) {
+    this.valueState = valueState;
+    // element was created in constructor
+    this._valueStateElement.innerText = message;
+    this.requestUpdate()
+  }
+
+  /**
+   * reset to previous value state
+   * @private
+   */
+  _resetValueStateMessage() {
+    this._setValueStateMessage(this._previousValueState.state, this._previousValueState.message);
+  }
 
   /**
    * Reads the attributes which are set on the component dom.
@@ -578,14 +675,14 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         ?required=${this.required}
         ?readonly=${this.readonly}
         ?disabled=${this.disabled}
+        value-state="${this.valueState}"
         ƒ-.value="--displayValue"
-
         @-blur="--blured"
         @-focus="--focused"
         @-click="--focused"
         placeholder="${this.placeholder}"
       >
-        <ui5-icon slot="icon" name="search" @-click="^^trailing-icon-clicked"></ui5-icon>
+        <ui5-icon slot="icon" name="${this.icon}" @-click="^^trailing-icon-clicked"></ui5-icon>
       </ui5-input>
 
       <ui5-list class="loading" header-text="" busy></ui5-list>
