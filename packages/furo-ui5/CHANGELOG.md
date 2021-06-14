@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.29.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.29.3...@furo/ui5@0.29.4) (2021-06-14)
+
+
+### Bug Fixes
+
+* minor fix eventListener ([3d8a53b](https://github.com/theNorstroem/FuroBaseComponents/commit/3d8a53b42a1ab5e1bbfcc909b6e5be612da81adc))
+* minor fixes ([9f71797](https://github.com/theNorstroem/FuroBaseComponents/commit/9f71797dcfdc68c9ace216629b2ba5ea902ec209))
+
+
+
+
+
 ## [0.29.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.29.2...@furo/ui5@0.29.3) (2021-06-08)
 
 

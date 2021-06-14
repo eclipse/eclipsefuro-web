@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.26.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.25.3...@furo/data@1.26.0) (2021-06-14)
+
+
+### Bug Fixes
+
+* tests on date time input ([0079d6d](https://github.com/theNorstroem/FuroBaseComponents/commit/0079d6d4a974e6a7095a9f44809bce34311d2362))
+
+
+### Features
+
+* set create body to value of data object if it is of type Struct ([a4187ed](https://github.com/theNorstroem/FuroBaseComponents/commit/a4187edb4dcf58da7732687daa7f2d90327fd130))
+
+
+
+
+
 ## [1.25.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.25.2...@furo/data@1.25.3) (2021-06-07)
 
 **Note:** Version bump only for package @furo/data
