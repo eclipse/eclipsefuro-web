@@ -3,7 +3,8 @@ import {Theme} from "@furo/framework/src/theme.js"
 import {FBP} from "@furo/fbp";
 import {FieldNodeAdapter} from '@furo/data/src/lib/FieldNodeAdapter.js';
 import {Env} from '@furo/framework/src/environment.js'
-import '@furo/fbp/src/flow-repeat';
+import '@furo/fbp/src/flow-repeat.js';
+import '@furo/timing/src/furo-de-bounce.js';
 import '@ui5/webcomponents/dist/List.js';
 import './ui5-reference-search-item.js';
 
@@ -86,10 +87,17 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     this.valueFieldPath = "data.id";
     this.displayFieldPath = "data.display_name";
     this.maxItemsToDisplay = 12;
+    // initial value
     this.value = {id: '', display_name: ''};
 
+    this.minTermLength = 2;
+
+    this.debounceTimeout = 333;
+
     this.noResultHint = 'no result found';
+    // for the show more button
     this._hasmore = 'None';
+
     this.icon = 'search';
 
     // used to restore the state after a invalidation -> validation change
@@ -122,7 +130,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
   onFnaFieldValueChanged(val) {
 
     // set the service by wire, because collection-agent can not handle empty service entries
-    if (val.link && val.link.service !== "") {
+    if (val.link && val.link.service != "") {
       this._FBPTriggerWire('--detectedService', val.link.service);
       this._FBPTriggerWire('--hts', val.link);
     }
@@ -162,10 +170,6 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
 
   }
 
-  _fireSearchEvent() {
-    this._searchTerm = this._inputField.value;
-    this._FBPTriggerWire('--searchTerm', this._inputField.value);
-  }
 
 
   /**
@@ -236,7 +240,6 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       searchOnEnterOnly: {
         type: Boolean,
         attribute: 'search-on-enter-only',
-        reflect: true,
       },
       /**
        * Overrides the readonly value from the **specs**.
@@ -260,6 +263,12 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       autofocus: {
         type: Boolean,
       },
+      /**
+       * wait for this time between keystrokes to trigger a search to the service
+       */
+      debounceTimeout: {
+        type: Number, attribute: "debounce-timeout",
+      },
     }
   }
 
@@ -274,7 +283,10 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
 
     // listen to search input
     this._inputField.addEventListener('input', () => {
-      this._fireSearchEvent();
+      this._searchTerm = this._inputField.value;
+      if(this._searchTerm.length >= this.minTermLength && !this.searchOnEnterOnly){
+        this._FBPTriggerWire('--searchTerm', this._inputField.value);
+      }
     });
 
 
@@ -325,8 +337,9 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       this.requestUpdate();
     });
 
+
     // trigger a loadMore when there is a next page
-    this._FBPAddWireHook("--lastElementReached", (response) => {
+    this._FBPAddWireHook("--lastListElementReached", (response) => {
       if(this._hasmore !== 'None'){
         this._FBPTriggerWire('--loadMore', null);
       }
@@ -334,9 +347,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
 
     // append more data to the list
     this._FBPAddWireHook("--nextSearchResponse", (response) => {
-
       const entities = this.searchResponsePath.split('.').reduce((acc, part) => acc && acc[part], response);
-
       if (entities && entities.length > 0) {
         const currentIndex = this._searchResultItems.length -1
         this._searchResultItems = this._searchResultItems.concat(entities.map(e => {
@@ -432,7 +443,10 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         if (key === 'Enter') {
           if (this.searchOnEnterOnly) {
             event.preventDefault();
-            this._fireSearchEvent();
+            this._searchTerm = this._inputField.value;
+            if(this._searchTerm.length >= this.minTermLength){
+              this._FBPTriggerWire('--searchTerm', this._inputField.value);
+            }
           }
         }
         if (key === 'Escape' || key === 'Esc' || key === 27) {
@@ -590,9 +604,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     Object.keys(this._privilegedAttributes).forEach(attr => {
       this._privilegedAttributes[attr] = this.getAttribute(attr);
     });
-    if (this._privilegedAttributes.icon) {
-      this._setIcon(this._privilegedAttributes.icon);
-    }
+
   }
 
   /**
@@ -682,13 +694,13 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         @-click="--focused"
         placeholder="${this.placeholder}"
       >
-        <ui5-icon slot="icon" name="${this.icon}" @-click="^^trailing-icon-clicked"></ui5-icon>
+        <ui5-icon slot="icon" name="${this.icon}" @-click="^^search-icon-clicked"></ui5-icon>
       </ui5-input>
 
       <ui5-list class="loading" header-text="" busy></ui5-list>
 
       <ui5-list mode="SingleSelect" class="list" @-item-selected="--itemSelected" growing="${this._hasmore}"
-                @-load-more="--loadMore" @-last-element-selected="--lastElementReached">
+                @-load-more="--loadMore" @-last-element-selected="--lastListElementReached">
         <template
           is="flow-repeat"
           ƒ-inject-items="--resultList"
@@ -708,9 +720,15 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         </template>
         <ui5-li-groupheader class="maxresulthint">${this.maxResultsHint}</ui5-li-groupheader>
       </ui5-list>
+      <furo-de-bounce
+        ƒ-input-wire="--searchTerm"
+        @-out="--debouncedSrch"
+        wait="${this.debounceTimeout}"
+      ></furo-de-bounce>
+
       <furo-collection-agent
         ƒ-.service="--detectedService"
-        ƒ-search="--searchTerm"
+        ƒ-search="--debouncedSrch"
         ƒ-next="--loadMore"
         page-size="${this.maxItemsToDisplay}"
         ƒ-hts-in="|--htsIn, --hts"
