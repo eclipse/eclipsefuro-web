@@ -92,6 +92,12 @@ export class RepeaterNode extends EventTreeNode {
       this._validationDisabled = true;
     });
 
+    // will be broadcasted by dataObject
+    this.addEventListener('set-pristine-request', () => {
+      this._pristine = true;
+      this._validationDisabled = false;
+    });
+
     this.addEventListener('new-data-injected', () => {
       this._pristine = true;
       this._validationDisabled = false;
