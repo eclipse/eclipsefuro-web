@@ -1,8 +1,8 @@
-import { LitElement, html, css } from 'lit-element';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
-import { FBP } from '@furo/fbp';
-import { Theme } from '@furo/framework/src/theme.js';
+import {LitElement, html, css} from 'lit-element';
+import {Theme} from "@furo/framework/src/theme.js"
+import {FBP} from "@furo/fbp";
+import {FieldNodeAdapter} from '@furo/data/src/lib/FieldNodeAdapter.js';
+import {Env} from '@furo/framework/src/environment.js'
 import '@furo/fbp/src/flow-repeat';
 import '@ui5/webcomponents/dist/List.js';
 import './ui5-reference-search-item.js';
@@ -12,377 +12,156 @@ import './ui5-reference-search-item.js';
  *  search a reference
  *  bounded data should be furo.reference
  *
- *  the furo-ui5-data-reference-search should be used together with the fur-collection-agent:
- *```
- * <!--  furo-data-object -->
- * <furo-data-object type="task.Task" @-object-ready="--entityReady"></furo-data-object>
- *
- *<furo-horizontal-flex>
- *    <furo-ui5-data-reference-search autofocus  flex ƒ-bind-data="--entityReady(*.fields.ref)" @-search="--term" ƒ-collection-in="--refCol"></furo-ui5-data-reference-search>
- *</furo-horizontal-flex>
- *
- *<furo-collection-agent service="tasks" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref._value)" @-response="--refCol"></furo-collection-agent>
- *
+ *  *default usage*
+ * ```html
+ *   <furo-ui5-data-reference-search
+ *   ƒ-bind-data="--data(*.is_person)"
+ *   ></furo-ui5-data-reference-search>
  * ```
  *
- *  * ### following labels of fat types are supported:
+ *  *usage with a extended searcher*
+ * ```html
+ *   <furo-ui5-data-reference-search
+ *   extended-searcher="country-filter"
+ *   ƒ-bind-data="--data(*.is_person)"
+ *   ></furo-ui5-data-reference-search>
+ * ```
  *
- * - 'error': state of input is error
- * - 'readonly': input is disabled
- * - 'required': input is required
- * - 'disabled': input is disabled
- * - 'modified': data is changed
- * - 'condensed': input has condensed display
- *
- * ### following attributes of fat types are supported:
- *
- * - 'placeholder': placeholder of the search field
- * - 'hint': input hint
- * - 'min_term_length': the minimum number of characters that use should to input to trigger the search
- * - 'no_result_hint': hint text when result not found by search
- * - 'errortext': the error text of the input
- * - 'error-msg': the same as errortext
+ *  *usage example for a non default response*
+ *```
+ *   <furo-ui5-data-reference-search
+ *   extended-searcher="contact-filter"
+ *   search-response-path="xx_entities"
+ *   value-field-path="data.xx_id"
+ *   display-field-path="data.xx_display_name"
+ *   ƒ-bind-data="--data(*.is_person)"
+ *   ></furo-ui5-data-reference-search-labeled>
+ * ```
  *
  *
- * ### following constrains are mapped into the attributes of the fat types and presence in payload:
  *
- * - 'required': is mapped to 'required' attribute
+ * ## supported meta and constraints
+ * - **readonly: true** , set the element to readonly
+ * - **placeholder:"some string"** set the placeholder for the element
+ * - **max:"number"** set the maximum number of characters available in the input field.
+ *
+ * The constraint **required** will mark the element as required
+ *
+ * ## Methods
+ * **bind-data(fieldNode)**
+ * Bind a entity field. You can use the entity even when no data was received.
+ *
+ * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
+ *
  *
  *
  * @summary furo ui5 data reference search
- * @customElement
+ * @customElement furo-ui5-data-reference-search
  * @demo demo-furo-ui5-data-reference-search Basic Usage
  */
-export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
-  constructor() {
-    super();
-    this.minTermLength = 0;
-    this.valueField = 'id';
-    this.displayField = 'display_name';
-    this.noResultHint = 'no result found';
-    /**
-     * the loaded collection
-     */
-    this._collection = [];
-    this.placeholder = '';
-
-    this._initBinder();
-  }
+export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)) {
 
   /**
-   * Bind an entity field to the search-input. You can use the entity even when no data was received.
-   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
-   * @param {Object|FieldNode} fieldNode a Field object
+   * @event change
+   * Fired when the input operation has finished by pressing Enter or on focusout.
+   *
+   * detail payload: `text`
    */
-  bindData(fieldNode) {
-    this.binder.bindField(fieldNode);
 
-    if (this.binder.fieldNode) {
-      // update the value on input changes
-      this.binder.fieldNode.addEventListener('field-value-changed', val => {
-        // set flag empty on empty strings (for fat types)
-        if (val.detail) {
-          this.binder.deleteLabel('empty');
-        } else {
-          this.binder.addLabel('empty');
-        }
-        // if something was entered the field is not empty
-        this.binder.addLabel('modified');
+  /**
+   * @event input
+   * Fired when the value of the ui5-input changes at each keystroke, and when a suggestion item has been selected.
+   *
+   */
+  /**
+   * @event xxxx
+   * All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).
+   *
+   */
 
-        this._FBPTriggerWire('--listDeselectAll');
+  constructor() {
+    super();
 
-        this._updateField();
-      });
+    this.searchResponsePath = "entities";
+    this.valueFieldPath = "data.id";
+    this.displayFieldPath = "data.display_name";
+    this.maxItemsToDisplay = 3;
+    this.value = {id: '', display_name: ''};
+    this.placeholder = '';
+    this._hasmore = 'None';
 
-      this._updateField();
+    // used to restore the state after a invalidation -> validation change
+    this._previousValueState = {state: 'None', message: ''};
+
+    this._attributesFromFNA = {
+      readonly: undefined,
+      placeholder: undefined,
+    };
+
+    this._constraintsFromFNA = {
+      required: undefined,
+      max: undefined, // maps to maxlength
+    };
+
+    // a list of privileged attributes. when those attributes are set in text-input components initially.
+    // they can not be modified later via response or spec
+    // null is used because getAttribute returns null or value
+    this._privilegedAttributes = {
+      readonly: null,
+      placeholder: null,
+      required: null,
+      disabled: null,
+      icon: null,
+    };
+
+
+  }
+
+  onFnaFieldValueChanged(val) {
+
+    // set the service by wire, because collection-agent can not handle empty service entries
+    if (val.link && val.link.service != "") {
+      this._FBPTriggerWire('--detectedService', val.link.service);
+      this._FBPTriggerWire('--hts', val.link);
     }
 
-    this._init();
+    this._FBPTriggerWire('--displayValue', val.display_name);
+    this.value = val;
+
   }
 
-  _init() {
-    this.requestUpdate();
+  connectedCallback() {
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
+    this.readAttributes();
+
+    // created to avoid the default messages from ui5
+    const vse = this.querySelector('div[slot="valueStateMessage"]');
+    if (vse === null) {
+      this._valueStateElement = document.createElement('div');
+      this._valueStateElement.setAttribute('slot', 'valueStateMessage');
+      // eslint-disable-next-line wc/no-constructor-attributes
+      this.appendChild(this._valueStateElement);
+    } else {
+      this._valueStateElement = vse;
+      this._previousValueState.message = vse.innerText;
+    }
   }
 
-  _FBPReady() {
-    super._FBPReady();
-    this._registerListeners();
-  }
-
-  _registerListeners() {
-    this._FBPAddWireHook('--input', e => {
-      this._searchTerm = e.composedPath()[0].value;
-
-      if (!this.searchOnEnterOnly) {
-        this._fireSearchEvent();
-      }
-    });
-
-    // lock blur for slow clickers
-    this.addEventListener('mousedown', () => {
-      this._lockBlur = true;
-    });
-    // unlock after long click
-    this.addEventListener('mouseup', () => {
-      this._lockBlur = false;
-    });
-
-    // close list on blur
-    this._FBPAddWireHook('--blured', () => {
-      this._focused = false;
-      this.removeAttribute('busy');
-      if (!this._lockBlur) {
-        this._closeList();
-      }
-    });
-
-    // opens the list on focus
-    this._FBPAddWireHook('--focused', () => {
-      this._focused = true;
-      if (this._hasCollection) {
-        this._showList();
-      }
-    });
-
-    this._FBPAddWireHook('--itemSelected', item => {
-      this.binder.fieldNode.id._value = item.data[this.valueField];
-      this.binder.fieldNode.display_name._value = item.data[this.displayField];
-      this._updateField();
-      this._closeList();
-      /**
-       * @event item-selected
-       * Fired from inner element when item is selected
-       * detail payload: {Object} item
-       */
-    });
-
-    /**
-     * listen to keyboard events
-     */
-    this.addEventListener('keydown', event => {
-      const key = event.key || event.keyCode;
-
-      if (key === 'Escape' || key === 'Esc' || key === 27) {
-        this._updateField();
-
-        if (this._listIsOpen) {
-          // close list if open and  then clear search
-          event.preventDefault();
-        }
-        this._closeList();
-        if (this._searchTerm === '') {
-          event.preventDefault();
-          // re set display_name
-        }
-      }
-
-      // keyboard navigation
-      if (this._listIsOpen) {
-        if (key === 'Enter') {
-          event.preventDefault();
-          this._FBPTriggerWire('--enterPressedForSelect');
-        }
-        if (key === 'ArrowDown') {
-          event.preventDefault();
-          this._FBPTriggerWire('--arrowDownPressed');
-        }
-        if (key === 'ArrowUp') {
-          event.preventDefault();
-          this._FBPTriggerWire('--arrowUpPressed');
-        }
-      } else {
-        // list is closed
-        if (key === 'ArrowDown') {
-          if (this._hasCollection) {
-            this._showList();
-          }
-        }
-        if (key === 'Enter') {
-          if (this.searchOnEnterOnly) {
-            event.preventDefault();
-            this._fireSearchEvent();
-          }
-        }
-      }
-    });
-  }
 
   _updateField() {
-    if (this.binder.fieldNode.display_name._value !== undefined) {
-      this._FBPTriggerWire('--value', this.binder.fieldNode.display_name._value);
+    if (this.value.display_name !== undefined) {
+      this._FBPTriggerWire('--displayValue', this.value.display_name);
     }
-
+    console.log("store", this.value)
     this.requestUpdate();
-  }
-
-  _closeList() {
-    this._listIsOpen = false;
-    this.removeAttribute('show-list');
   }
 
   _fireSearchEvent() {
-    if (this._searchTerm && this._searchTerm.length >= this.minTermLength) {
-      this.setAttribute('busy', '');
-      this._hasCollection = false;
-      this._collection = [];
-      this._closeList();
-
-      /**
-       * @event search
-       * Fired when term is entered and bigger then min-term-length
-       * detail payload: {String} term
-       */
-      const customEvent = new Event('search', { composed: true, bubbles: true });
-      customEvent.detail = this._searchTerm;
-      this.dispatchEvent(customEvent);
-    } else {
-      /**
-       * empty search term will dereference the fieldNode
-       */
-      this.binder.fieldNode.id.reset();
-      if (this.binder.fieldNode[this.displayField]) {
-        this.binder.fieldNode[this.displayField].reset();
-      } else if (this.binder.fieldNode.display_name) {
-        this.binder.fieldNode.display_name.reset();
-      }
-      /**
-       * @event reset
-       * Triggered when the search term is empty and the bound field is set to empty
-       * detail payload: {Object} fieldNode
-       */
-      const customEvent = new Event('reset', { composed: true, bubbles: true });
-      customEvent.detail = this.binder.fieldNode;
-      this.dispatchEvent(customEvent);
-    }
+    this._searchTerm = this._inputField.value;
+    this._FBPTriggerWire('--searchTerm', this._inputField.value);
   }
 
-  collectionIn(collection) {
-    this.removeAttribute('busy');
-    this._resetInputValueState();
-    if (collection && collection.entities && collection.entities.length > 0) {
-      // this.shadowRoot.getElementById('input').removeAttribute('no-result');
-      this._hasCollection = true;
-
-      if (this.maxItemsToDisplay && collection.entities.length > this.maxItemsToDisplay) {
-        // cut down the result size
-        this._collection = collection.entities.slice(0, this.maxItemsToDisplay);
-        if (this.maxResultsHint) {
-          this.setAttribute('showmaxhint', '');
-        }
-      } else {
-        this._collection = collection.entities;
-        this.removeAttribute('showmaxhint', '');
-      }
-
-      this._FBPTriggerWire('--listItemsInjected', this._collection);
-
-      if (this._focused) {
-        this._showList();
-      }
-    } else {
-      this.setAttribute('show-list', '');
-
-      this._hasCollection = false;
-      this._collection = [];
-      this._closeList();
-      this.shadowRoot.getElementById('input').setAttribute('value-state', 'Information');
-
-      const information = document.createElement('div');
-      information.slot = 'valueStateMessage';
-      information.innerText = this.noResultHint;
-      this.shadowRoot.getElementById('input').appendChild(information);
-    }
-  }
-
-  _resetInputValueState() {
-    this.shadowRoot.getElementById('input').removeAttribute('value-state');
-
-    this.shadowRoot
-      .getElementById('input')
-      .querySelectorAll('div')
-      .forEach(e => {
-        e.remove();
-      });
-  }
-
-  _showList() {
-    this.removeAttribute('busy');
-    if (this._collection && this._collection.length > 0) {
-      this._listIsOpen = true;
-      this.setAttribute('show-list', '');
-      let index;
-      // find index to preselect item in the opened list
-      for (let i = 0; i < this._collection.length; i += 1) {
-        if (
-          this._collection[i].data &&
-          this._collection[i].data[this.valueField] === this.binder.fieldNode.id._value
-        ) {
-          index = i;
-          break;
-        }
-      }
-      if (index !== undefined) {
-        this._FBPTriggerWire('--listOpened', index);
-      }
-    }
-    // trigger wire to select item
-  }
-
-  /**
-   * inits the universalFieldNodeBinder.
-   * Set the mapped attributes and labels.
-   * @private
-   */
-  _initBinder() {
-    this.binder = new UniversalFieldNodeBinder(this);
-
-    // set the attribute mappings
-    this.binder.attributeMappings = {
-      label: 'label',
-      hint: 'hint',
-      placeholder: 'placehoder',
-      min_term_length: 'min-term-length',
-      no_result_hint: 'no-result-hint',
-      errortext: 'errortext',
-      'error-msg': 'errortext',
-    };
-
-    // set the label mappings
-    this.binder.labelMappings = {
-      error: 'error',
-      readonly: 'readonly',
-      required: 'required',
-      disabled: 'disabled',
-      condensed: 'condensed',
-    };
-
-    this.binder.fatAttributesToConstraintsMappings = {
-      'min-term-length': 'value._constraints.min_term_length.is', // for the fieldnode constraint
-      'no-result-hint': 'value._constraints.no_result_hint', // for the fieldnode constraint message
-    };
-
-    this.binder.constraintsTofatAttributesMappings = {
-      required: 'required',
-    };
-
-    /**
-     * check overrides from the used component, attributes set on the component itself overrides all
-     */
-    this.binder.checkLabelandAttributeOverrrides();
-
-    // the extended furo-text-input component uses _value
-    this.binder.targetValueField = '_value';
-
-    // set flag empty on emptfuroy strings (for fat types)
-  }
-
-  /**
-   * reset reference search
-   */
-  reset() {
-    this._collection = [];
-    this._FBPTriggerWire('--value', '');
-  }
 
   /**
    * @private
@@ -390,57 +169,15 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
    */
   static get properties() {
     return {
-      /**
-       * the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object
-       */
-      valueField: {
-        type: String,
-        attribute: 'value-field',
-        reflect: true,
-      },
-      /**
-       * the field name of reference-item which should be used as display which will be showed in the dropdown.
-       */
-      displayField: {
-        type: String,
-        attribute: 'display-field',
-        reflex: true,
-      },
-      /**
-       * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
-       *
-       * If you bind a scalar, you dont need this attribute.
-       */
-      subfield: {
-        type: String,
-        reflect: true,
-      },
-      /**
-       * this property saves the value of the displayField of selected item from collection
-       */
-      _displayName: {
-        type: String,
-      },
-      /**
-       * mark if the collection is already loaded
-       */
-      _hasCollection: {
-        type: Boolean,
-      },
-      /**
-       * the placeholder of the search input field
-       */
-      placeholder: {
-        type: String,
-        reflect: true,
-      },
+      searchResponsePath: {type: String, attribute: "search-response-path"},
+      valueFieldPath: {type: String, attribute: "value-field-path"},
+      displayFieldPath: {type: String, attribute: "display-field-path"},
       /**
        * hint text when result not found by search
        */
       noResultHint: {
         type: String,
-        attribute: 'no-result-hint',
-        reflect: true,
+        attribute: 'no-result-hint'
       },
       /**
        * Overrides the required value from the **specs**.
@@ -456,9 +193,8 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
        *
        * Use with caution, normally the specs defines this value.
        */
-      hint: {
-        type: String,
-        reflect: true,
+      placeholder: {
+        type: String
       },
       /**
        * the minimal length of search term to trigger the search event.
@@ -467,8 +203,7 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
        */
       minTermLength: {
         type: Number,
-        attribute: 'min-term-length',
-        reflect: true,
+        attribute: 'min-term-length'
       },
       /**
        * The maximal number of items to display. If the collection contains more data then then this value,
@@ -507,7 +242,7 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
         reflect: true,
       },
       /**
-       * A Boolean attribute which, if present, means this.binder.fieldNodecannot be edited by the user.
+       * Disable
        */
       disabled: {
         type: Boolean,
@@ -520,28 +255,256 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
       autofocus: {
         type: Boolean,
       },
+    }
+  }
+
+  _FBPReady() {
+    super._FBPReady();
+    this._FBPTraceWires()
+
+
+    // the input field
+    this._inputField = this.shadowRoot.getElementById('input')
+
+
+    // listen to search input
+    this._inputField.addEventListener('input', () => {
+      this._fireSearchEvent();
+    });
+
+
+    /**
+     * Register hook on wire --searchResponse to
+     * build the --resultList
+     */
+    this._FBPAddWireHook("--searchResponse", (response) => {
+
+      this._hasmore = 'None';
+      // check for rel next to show the more button
+      if (response.links) {
+        response.links.forEach((link) => {
+          if (link.rel === 'next') {
+            this._hasmore = 'Button';
+          }
+        })
+      }
+
+      const entities = response[this.searchResponsePath]
+
+      if (entities && entities.length > 0) {
+        // this.shadowRoot.getElementById('input').removeAttribute('no-result');
+        this._hasCollection = true;
+        this._searchResultItems = entities.map(e => {
+          return {
+            id: this.valueFieldPath.split('.').reduce((acc, part) => acc && acc[part], e),
+            display: this.displayFieldPath.split('.').reduce((acc, part) => acc && acc[part], e),
+            data: e
+          }
+        });
+
+        this._FBPTriggerWire('--resultList', this._searchResultItems);
+
+        if (this._focused) {
+          this._showList();
+        }
+      } else {
+        this.setAttribute('show-list', '');
+
+        this._hasCollection = false;
+        this._searchResultItems = [];
+        this._closeList();
+        // this._showValueStateMessage()
+        this._inputField.setAttribute('value-state', 'Information');
+
+      }
+      this.requestUpdate();
+    });
+
+    // trigger a loadMore when there is a next page
+    this._FBPAddWireHook("--lastElementReached", (response) => {
+      if(this._hasmore !== 'None'){
+        this._FBPTriggerWire('--loadMore', null);
+      }
+    })
+
+    // append more data to the list
+    this._FBPAddWireHook("--nextSearchResponse", (response) => {
+
+      const entities = this.searchResponsePath.split('.').reduce((acc, part) => acc && acc[part], response);
+
+      if (entities.length > 0) {
+        this._searchResultItems = this._searchResultItems.concat(entities.map(e => {
+          return {
+            id: this.valueFieldPath.split('.').reduce((acc, part) => acc && acc[part], e),
+            display: this.displayFieldPath.split('.').reduce((acc, part) => acc && acc[part], e),
+            data: e
+          }
+        }));
+        this._FBPTriggerWire('--resultList', this._searchResultItems);
+      }
+
+    });
+
+
+    // lock blur for slow clickers
+    this.addEventListener('mousedown', () => {
+      this._lockBlur = true;
+    });
+    // unlock after long click
+    this.addEventListener('mouseup', () => {
+      this._lockBlur = false;
+    });
+
+    // close list on blur
+    this._FBPAddWireHook('--blured', () => {
+      this._focused = false;
+      this.removeAttribute('busy');
+      if (!this._lockBlur) {
+        this._closeList();
+      }
+    });
+
+    // opens the list on focus
+    this._FBPAddWireHook('--focused', () => {
+      this._focused = true;
+      if (this._hasCollection) {
+        this._showList();
+      }
+    });
+
+    this._FBPAddWireHook('--itemSelected', item => {
+      this.value.id = this.valueFieldPath.split('.').reduce((acc, part) => acc && acc[part], item);
+      this.value.display_name = this.displayFieldPath.split('.').reduce((acc, part) => acc && acc[part], item);
+
+      this._updateField();
+      this._closeList();
       /**
-       * html input validity
+       * @event item-selected
+       * Fired from inner element when item is selected
+       * detail payload: {Object} item
        */
-      valid: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */
-      condensed: {
-        type: Boolean,
-        reflect: true,
-      },
-      /**
-       * passes always float the label
-       */
-      float: {
-        type: Boolean,
-        reflect: true,
-      },
-    };
+    });
+
+    /**
+     * listen to keyboard events
+     */
+    this.addEventListener('keydown', event => {
+      const key = event.key || event.keyCode;
+
+      // keyboard navigation
+      if (this._listIsOpen) {
+        if (key === 'Enter') {
+          event.preventDefault();
+          this._FBPTriggerWire('--enterPressedForSelect');
+        }
+        if (key === 'ArrowDown') {
+          event.preventDefault();
+          this._FBPTriggerWire('--arrowDownPressed');
+        }
+        if (key === 'ArrowUp') {
+          event.preventDefault();
+          this._FBPTriggerWire('--arrowUpPressed');
+        }
+
+        if (key === 'Escape' || key === 'Esc' || key === 27) {
+          /**
+           * close the list and reset to the value that was set
+           *
+           * When list is closed, clear the field
+           */
+          this._closeList();
+          this._inputField.value = this.value.display_name
+        }
+      } else {
+        // list is closed
+        if (key === 'ArrowDown') {
+          if (this._hasCollection) {
+            this._showList();
+          }
+        }
+        if (key === 'Enter') {
+          if (this.searchOnEnterOnly) {
+            event.preventDefault();
+            this._fireSearchEvent();
+          }
+        }
+        if (key === 'Escape' || key === 'Esc' || key === 27) {
+          /**
+           * clear the field for search entry
+           * reset value to value that was set before
+           */
+          if (this._inputField.value !== '') {
+            this._tmp_value = JSON.stringify(this.value)
+            this.value = {id: '', display_name: ''};
+            this._updateField();
+          } else {
+            this.value = JSON.parse(this._tmp_value);
+            this._inputField.value = this.value.display_name;
+            this._updateField();
+          }
+
+        }
+      }
+    });
+
+  }
+
+  _closeList() {
+    this._listIsOpen = false;
+    this.removeAttribute('show-list');
+  }
+
+  _showList() {
+    this.removeAttribute('busy');
+    if (this._searchResultItems && this._searchResultItems.length > 0) {
+      this._listIsOpen = true;
+      this.setAttribute('show-list', '');
+      let index;
+      // find index to preselect item in the opened list
+      for (let i = 0; i < this._searchResultItems.length; i += 1) {
+        if (
+          this._searchResultItems[i].data &&
+          this._searchResultItems[i].data[this.valueField] === this.value.id
+        ) {
+          index = i;
+          break;
+        }
+      }
+      if (index !== undefined) {
+        this._FBPTriggerWire('--listOpened', index);
+      }
+    }
+    // trigger wire to select item
+  }
+
+
+
+  /**
+   * Reads the attributes which are set on the component dom.
+   * those attributes can be set. `value-state`, `value-state-message`,  `icon`, `placeholder`, `required`,`readonly`,`disabled`
+   * Use this after manual or scripted update of the attributes.
+   */
+  readAttributes() {
+    this._previousValueState.state = this.getAttribute('value-state')
+      ? this.getAttribute('value-state')
+      : 'None';
+
+    // save the original attribute for later usages, we do this, because some components reflect
+    Object.keys(this._privilegedAttributes).forEach(attr => {
+      this._privilegedAttributes[attr] = this.getAttribute(attr);
+    });
+    if (this._privilegedAttributes.icon) {
+      this._setIcon(this._privilegedAttributes.icon);
+    }
+  }
+
+  /**
+   * htsIn Sets the HTS for the collection-agent
+   * @public
+   * @param hts
+   */
+  htsIn(hts) {
+    this._FBPTriggerWire('|--htsIn', hts);
   }
 
   /**
@@ -549,7 +512,8 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
    * @private
    * @return {CSSResult}
    */
-  static get styles() {
+  static
+  get styles() {
     // language=CSS
     return (
       Theme.getThemeForComponent('FuroUi5DataReferenceSearch') ||
@@ -612,9 +576,10 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
       <ui5-input
         id="input"
         ?required=${this.required}
-        ?disabled=${this.readonly || this.disabled}
-        ƒ-.value="--value"
-        @-input="--input(*)"
+        ?readonly=${this.readonly}
+        ?disabled=${this.disabled}
+        ƒ-.value="--displayValue"
+
         @-blur="--blured"
         @-focus="--focused"
         @-click="--focused"
@@ -625,10 +590,11 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
 
       <ui5-list class="loading" header-text="" busy></ui5-list>
 
-      <ui5-list mode="SingleSelect" class="list" @-item-selected="--itemSelected">
+      <ui5-list mode="SingleSelect" class="list" @-item-selected="--itemSelected" growing="${this._hasmore}"
+                @-load-more="--loadMore" @-last-element-selected="--lastElementReached">
         <template
           is="flow-repeat"
-          ƒ-inject-items="--listItemsInjected"
+          ƒ-inject-items="--resultList"
           ƒ-select="--listOpened"
           ƒ-deselect-all="--listDeselectAll"
           ƒ-select-next-index="--arrowDownPressed"
@@ -636,7 +602,7 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
           ƒ-trigger-selected="--enterPressedForSelect"
         >
           <ui5-reference-search-item
-            display-field="${this.displayField}"
+            display-field="${this.displayFieldPath}"
             ƒ-deselect="--itemDeSelected"
             ƒ-select="--trigger"
             ƒ-preselect="--itemSelected"
@@ -645,8 +611,19 @@ export class FuroUi5DataReferenceSearch extends FBP(LitElement) {
         </template>
         <ui5-li-groupheader class="maxresulthint">${this.maxResultsHint}</ui5-li-groupheader>
       </ui5-list>
+      <furo-collection-agent
+        ƒ-.service="--detectedService"
+        ƒ-search="--searchTerm"
+        ƒ-next="--loadMore"
+        page-size="${this.maxItemsToDisplay}"
+        ƒ-hts-in="|--htsIn, --hts"
+        @-search-success="--searchResponse"
+        @-next-success="--nextSearchResponse"
+      ></furo-collection-agent>
     `;
   }
+
 }
+
 
 window.customElements.define('furo-ui5-data-reference-search', FuroUi5DataReferenceSearch);
