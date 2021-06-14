@@ -224,14 +224,8 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         attribute: 'max-items-to-display',
         reflect: true,
       },
-      /**
-       * hint text to display when the result set is bigger then  **maxItemsToDisplay**.
-       */
-      maxResultsHint: {
-        type: String,
-        attribute: 'max-results-hint',
-        reflect: true,
-      },
+
+
       /**
        * Enable this, to avoid the automatic triggering of "search".
        *
@@ -256,13 +250,11 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         type: Boolean
 
       },
+      busy: {
+        type: Boolean
 
-      /**
-       * Set this attribute to autofocus the input field.
-       */
-      autofocus: {
-        type: Boolean,
       },
+
       /**
        * wait for this time between keystrokes to trigger a search to the service
        */
@@ -286,6 +278,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       this._searchTerm = this._inputField.value;
       if(this._searchTerm.length >= this.minTermLength && !this.searchOnEnterOnly){
         this._FBPTriggerWire('--searchTerm', this._inputField.value);
+
       }
     });
 
@@ -376,7 +369,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     // close list on blur
     this._FBPAddWireHook('--blured', () => {
       this._focused = false;
-      this.removeAttribute('busy');
+
       if (!this._lockBlur) {
         this._closeList();
       }
@@ -388,6 +381,22 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       if (this._hasCollection) {
         this._showList();
       }
+    });
+
+    /**
+     * Register hook on wire --responseReceived to
+     * disable the busy indicator
+     */
+    this._FBPAddWireHook("--responseReceived",()=>{
+      this.busy = false;
+    });
+
+    /**
+     * Register hook on wire --debouncedSrch to
+     * enable the busy indicator
+     */
+    this._FBPAddWireHook("--debouncedSrch",( )=>{
+      this.busy = true;
     });
 
     this._FBPAddWireHook('--itemSelected', item => {
@@ -446,6 +455,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
             this._searchTerm = this._inputField.value;
             if(this._searchTerm.length >= this.minTermLength){
               this._FBPTriggerWire('--searchTerm', this._inputField.value);
+
             }
           }
         }
@@ -476,7 +486,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
   }
 
   _showList() {
-    this.removeAttribute('busy');
+    this.busy = false;
     this._resetValueStateMessage()
     if (this._searchResultItems && this._searchResultItems.length > 0) {
       this._listIsOpen = true;
@@ -632,8 +642,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
           position: relative;
         }
 
-        .list,
-        .loading {
+        .list{
           position: absolute;
           overflow: auto;
           box-shadow: rgba(0, 0, 0, 0.42) 0 0 0 1px;
@@ -645,31 +654,22 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
           );
         }
 
+
         :host([show-list]) .list {
           display: block;
         }
 
-        :host([showmaxhint]) .maxresulthint {
-          display: block;
-        }
 
-        .maxresulthint {
-          display: none;
-          padding-top: 0;
-        }
-
-        :host([busy]) .loading {
-          display: block;
-        }
-
-        .loading {
-          display: none;
-          width: inherit;
-        }
 
         ui5-input,
         ui5-list {
           width: inherit;
+        }
+        ui5-busyindicator {
+          position: absolute;
+          left: 50%;
+          top: 15px;
+          width: 24px;
         }
       `
     );
@@ -694,12 +694,12 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         @-click="--focused"
         placeholder="${this.placeholder}"
       >
+
         <ui5-icon slot="icon" name="${this.icon}" @-click="^^search-icon-clicked"></ui5-icon>
+
       </ui5-input>
-
-      <ui5-list class="loading" header-text="" busy></ui5-list>
-
-      <ui5-list mode="SingleSelect" class="list" @-item-selected="--itemSelected" growing="${this._hasmore}"
+      <ui5-busyindicator size="Small" ?active="${this.busy}"></ui5-busyindicator>
+      <ui5-list mode="SingleSelect"  class="list" @-item-selected="--itemSelected" growing="${this._hasmore}"
                 @-load-more="--loadMore" @-last-element-selected="--lastListElementReached">
         <template
           is="flow-repeat"
@@ -718,22 +718,26 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
             ƒ-inject-item="--item"
           ></ui5-reference-search-item>
         </template>
-        <ui5-li-groupheader class="maxresulthint">${this.maxResultsHint}</ui5-li-groupheader>
+
       </ui5-list>
+
       <furo-de-bounce
         ƒ-input-wire="--searchTerm"
         @-out="--debouncedSrch"
         wait="${this.debounceTimeout}"
       ></furo-de-bounce>
 
+      <!-- todo: ƒ-cancel-request="--searchTerm" -->
       <furo-collection-agent
         ƒ-.service="--detectedService"
         ƒ-search="--debouncedSrch"
         ƒ-next="--loadMore"
+
         page-size="${this.maxItemsToDisplay}"
         ƒ-hts-in="|--htsIn, --hts"
         @-search-success="--searchResponse"
         @-next-success="--nextSearchResponse"
+        @-response="--responseReceived"
       ></furo-collection-agent>
     `;
   }
