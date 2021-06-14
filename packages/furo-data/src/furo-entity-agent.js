@@ -170,20 +170,18 @@ class FuroEntityAgent extends FBP(LitElement) {
         }
       } else if (Env.api.sendAllDataOnMethodPut && link.method.toLowerCase() === 'put') {
         body = dataObject._value;
-      } else {
+      } else if (dataObject._spec && dataObject._spec.type === 'google.protobuf.Struct') {
         // if the data object is from type Struct, set the body to the value of the data object
         // this is necessary because a Struct doesn't have child nodes
         // otherwise, copy only the non-readonly fields to the body
-        if(dataObject._spec && dataObject._spec.type === 'google.protobuf.Struct') {
-          body = dataObject._value;
-        } else {
-          // eslint-disable-next-line guard-for-in,no-restricted-syntax
-          for (const index in dataObject.__childNodes) {
-            const field = dataObject.__childNodes[index];
-            const val = field._transmitValue;
-            if (val !== undefined) {
-              body[field._name] = val;
-            }
+        body = dataObject._value;
+      } else {
+        // eslint-disable-next-line guard-for-in,no-restricted-syntax
+        for (const index in dataObject.__childNodes) {
+          const field = dataObject.__childNodes[index];
+          const val = field._transmitValue;
+          if (val !== undefined) {
+            body[field._name] = val;
           }
         }
       }
