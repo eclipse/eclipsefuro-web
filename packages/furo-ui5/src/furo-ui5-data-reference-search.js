@@ -85,7 +85,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     this.searchResponsePath = "entities";
     this.valueFieldPath = "data.id";
     this.displayFieldPath = "data.display_name";
-    this.maxItemsToDisplay = 3;
+    this.maxItemsToDisplay = 12;
     this.value = {id: '', display_name: ''};
 
     this.noResultHint = 'no result found';
@@ -122,7 +122,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
   onFnaFieldValueChanged(val) {
 
     // set the service by wire, because collection-agent can not handle empty service entries
-    if (val.link && val.link.service != "") {
+    if (val.link && val.link.service !== "") {
       this._FBPTriggerWire('--detectedService', val.link.service);
       this._FBPTriggerWire('--hts', val.link);
     }
@@ -250,8 +250,8 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
        * Disable
        */
       disabled: {
-        type: Boolean,
-        reflect: true,
+        type: Boolean
+
       },
 
       /**
