@@ -8,6 +8,13 @@ import '@ui5/webcomponents/dist/Option.js';
  * The furo-ui5-data-select component is used to create a drop-down list. The items inside the furo-ui5-data-select define
  * the available options by using the ui5-option component. Use the function bindOptions to bind a RepeaterNode as a option list.
  *
+ * ```
+ * <furo-ui5-data-select
+ *    ƒ-bind-data="--entity(*.data.description)"
+ *    ƒ-bind-options="--collection(*.entities)">
+ * </furo-ui5-data-select>
+ * ```
+ *
  * @summary data select field
  * @customElement
  * @demo demo-furo-ui5-data-select Basic usage (scalar , fat, wrapper values)
