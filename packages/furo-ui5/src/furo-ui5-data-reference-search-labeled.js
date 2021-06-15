@@ -1,7 +1,7 @@
-import {LitElement, html, css} from 'lit-element';
-import {Theme} from '@furo/framework/src/theme';
-import {FBP} from '@furo/fbp/src/fbp.js';
-import {Ui5LabelDataBinding} from './lib/Ui5LabelDataBinding.js';
+import { LitElement, html, css } from 'lit-element';
+import { Theme } from '@furo/framework/src/theme';
+import { FBP } from '@furo/fbp/src/fbp.js';
+import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
 import '@ui5/webcomponents/dist/Label.js';
 
 import './furo-ui5-data-reference-search.js';
@@ -23,13 +23,13 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
     this.label = '';
     this.extendedSearcher = '';
     this.disableSearchList = false;
-    this.icon = "search";
-    this.searchResponsePath = "entities";
-    this.valueFieldPath = "data.id";
-    this.displayFieldPath = "data.display_name";
+    this.icon = 'search';
+    this.searchResponsePath = 'entities';
+    this.valueFieldPath = 'data.id';
+    this.displayFieldPath = 'data.display_name';
 
-    this.extendedValueFieldPath = "data.id";
-    this.extendedDisplayFieldPath = "data.display_name";
+    this.extendedValueFieldPath = 'data.id';
+    this.extendedDisplayFieldPath = 'data.display_name';
   }
 
   /**
@@ -54,17 +54,17 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
       /**
        * the label for the data-reference-search
        */
-      label: {type: String},
-      valueFieldPath: {type: String, attribute: "value-field-path"},
-      displayFieldPath: {type: String, attribute: "display-field-path"},
-      searchResponsePath: {type: String, attribute: "search-response-path"},
-      extendedValueFieldPath: {type: String, attribute: "extended-value-field-path"},
-      extendedDisplayFieldPath: {type: String, attribute: "extended-display-field-path"},
-      placeholder: {type: String},
+      label: { type: String },
+      valueFieldPath: { type: String, attribute: 'value-field-path' },
+      displayFieldPath: { type: String, attribute: 'display-field-path' },
+      searchResponsePath: { type: String, attribute: 'search-response-path' },
+      extendedValueFieldPath: { type: String, attribute: 'extended-value-field-path' },
+      extendedDisplayFieldPath: { type: String, attribute: 'extended-display-field-path' },
+      placeholder: { type: String },
       /**
        * Use this attribute to set a custom icon for your searcher
        */
-      icon: {type: String},
+      icon: { type: String },
       /**
        * A Boolean attribute which, if present, means this field can not be searched.
        *
@@ -72,7 +72,7 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
        */
       disableSearchList: {
         type: Boolean,
-        attribute: 'disable-search-list'
+        attribute: 'disable-search-list',
       },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -95,7 +95,8 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
        *
        */
       extendedSearcher: {
-        type: String, attribute: "extended-searcher",
+        type: String,
+        attribute: 'extended-searcher',
       },
     };
   }
@@ -117,7 +118,7 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
     return html`
       <furo-ui5-form-field-container>
         <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}
-        >${this.label}
+          >${this.label}
         </ui5-label>
         <furo-ui5-data-reference-search
           content
