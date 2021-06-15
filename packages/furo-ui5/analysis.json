@@ -624,7 +624,7 @@
               "column": 2
             },
             "end": {
-              "line": 146,
+              "line": 145,
               "column": 3
             }
           },
@@ -640,11 +640,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 151,
               "column": 2
             },
             "end": {
-              "line": 161,
+              "line": 160,
               "column": 3
             }
           },
@@ -664,11 +664,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 169,
+              "line": 168,
               "column": 2
             },
             "end": {
-              "line": 193,
+              "line": 192,
               "column": 3
             }
           },
@@ -688,11 +688,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 198,
               "column": 2
             },
             "end": {
-              "line": 228,
+              "line": 227,
               "column": 3
             }
           },
@@ -712,11 +712,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 232,
               "column": 2
             },
             "end": {
-              "line": 235,
+              "line": 234,
               "column": 3
             }
           },
@@ -732,11 +732,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 241,
+              "line": 240,
               "column": 2
             },
             "end": {
-              "line": 243,
+              "line": 242,
               "column": 3
             }
           },
@@ -752,11 +752,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 250,
+              "line": 249,
               "column": 2
             },
             "end": {
-              "line": 252,
+              "line": 251,
               "column": 3
             }
           },
@@ -776,11 +776,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 258,
+              "line": 257,
               "column": 2
             },
             "end": {
-              "line": 260,
+              "line": 259,
               "column": 3
             }
           },
@@ -796,11 +796,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 267,
+              "line": 266,
               "column": 2
             },
             "end": {
-              "line": 272,
+              "line": 271,
               "column": 3
             }
           },
@@ -820,11 +820,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 279,
+              "line": 278,
               "column": 2
             },
             "end": {
-              "line": 287,
+              "line": 286,
               "column": 3
             }
           },
@@ -853,7 +853,7 @@
           "column": 7
         },
         "end": {
-          "line": 300,
+          "line": 299,
           "column": 1
         }
       },
@@ -4982,11 +4982,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 90,
               "column": 2
             },
             "end": {
-              "line": 115,
+              "line": 106,
               "column": 3
             }
           },
@@ -5002,11 +5002,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 122,
+              "line": 113,
               "column": 2
             },
             "end": {
-              "line": 131,
+              "line": 122,
               "column": 3
             }
           },
@@ -5022,11 +5022,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 138,
+              "line": 129,
               "column": 2
             },
             "end": {
-              "line": 146,
+              "line": 137,
               "column": 3
             }
           },
@@ -5046,11 +5046,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 153,
+              "line": 144,
               "column": 2
             },
             "end": {
-              "line": 171,
+              "line": 162,
               "column": 3
             }
           },
@@ -5070,11 +5070,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 178,
+              "line": 169,
               "column": 2
             },
             "end": {
-              "line": 183,
+              "line": 174,
               "column": 3
             }
           },
@@ -5094,11 +5094,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 189,
+              "line": 180,
               "column": 2
             },
             "end": {
-              "line": 191,
+              "line": 182,
               "column": 3
             }
           },
@@ -5114,11 +5114,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 200,
+              "line": 191,
               "column": 2
             },
             "end": {
-              "line": 204,
+              "line": 195,
               "column": 3
             }
           },
@@ -5141,11 +5141,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 210,
+              "line": 201,
               "column": 2
             },
             "end": {
-              "line": 212,
+              "line": 203,
               "column": 3
             }
           },
@@ -5161,11 +5161,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 219,
+              "line": 210,
               "column": 2
             },
             "end": {
-              "line": 223,
+              "line": 214,
               "column": 3
             }
           },
@@ -5185,11 +5185,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 230,
+              "line": 221,
               "column": 2
             },
             "end": {
-              "line": 233,
+              "line": 224,
               "column": 3
             }
           },
@@ -5209,11 +5209,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 240,
+              "line": 231,
               "column": 2
             },
             "end": {
-              "line": 243,
+              "line": 234,
               "column": 3
             }
           },
@@ -5233,11 +5233,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 236,
               "column": 2
             },
             "end": {
-              "line": 251,
+              "line": 242,
               "column": 3
             }
           },
@@ -5257,11 +5257,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 254,
+              "line": 245,
               "column": 2
             },
             "end": {
-              "line": 261,
+              "line": 252,
               "column": 3
             }
           },
@@ -5278,11 +5278,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 263,
+              "line": 254,
               "column": 2
             },
             "end": {
-              "line": 272,
+              "line": 263,
               "column": 3
             }
           },
@@ -5302,11 +5302,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 274,
+              "line": 265,
               "column": 2
             },
             "end": {
-              "line": 276,
+              "line": 267,
               "column": 3
             }
           },
@@ -5331,7 +5331,7 @@
           "column": 7
         },
         "end": {
-          "line": 277,
+          "line": 268,
           "column": 1
         }
       },
@@ -5435,6 +5435,27 @@
               "attributeType": "Boolean"
             }
           }
+        },
+        {
+          "name": "showValueHelpIcon",
+          "type": "boolean | null | undefined",
+          "description": "Determines whether a value help icon will be should in the end of the input. Pressing the icon will fire `value-help-trigger` event.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 65,
+              "column": 6
+            },
+            "end": {
+              "line": 68,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
         }
       ],
       "methods": [
@@ -5464,11 +5485,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 84,
+              "line": 91,
               "column": 2
             },
             "end": {
-              "line": 86,
+              "line": 93,
               "column": 3
             }
           },
@@ -5488,11 +5509,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 92,
+              "line": 99,
               "column": 2
             },
             "end": {
-              "line": 108,
+              "line": 116,
               "column": 3
             }
           },
@@ -5517,7 +5538,7 @@
           "column": 0
         },
         "end": {
-          "line": 109,
+          "line": 117,
           "column": 1
         }
       },
@@ -5583,6 +5604,22 @@
             },
             "end": {
               "line": 61,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "show-value-help-icon",
+          "description": "Determines whether a value help icon will be should in the end of the input. Pressing the icon will fire `value-help-trigger` event.",
+          "sourceRange": {
+            "start": {
+              "line": 65,
+              "column": 6
+            },
+            "end": {
+              "line": 68,
               "column": 7
             }
           },
@@ -8375,46 +8412,16 @@
       "properties": [],
       "methods": [
         {
-          "name": "attributeChangedCallback",
-          "description": "Native attribute changed callback\nSetter for new value of displayField",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 41,
-              "column": 2
-            },
-            "end": {
-              "line": 43,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "name"
-            },
-            {
-              "name": "oldValue"
-            },
-            {
-              "name": "newValue"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
           "name": "injectItem",
           "description": "Inject of the item\ndata of inner text of the element is defined with the attribute\ndisplay-field (default value: display_name)",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 51,
+              "line": 28,
               "column": 2
             },
             "end": {
-              "line": 54,
+              "line": 31,
               "column": 3
             }
           },
@@ -8434,11 +8441,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 56,
+              "line": 33,
               "column": 2
             },
             "end": {
-              "line": 58,
+              "line": 35,
               "column": 3
             }
           },
@@ -8454,11 +8461,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 60,
+              "line": 37,
               "column": 2
             },
             "end": {
-              "line": 63,
+              "line": 40,
               "column": 3
             }
           },
@@ -8474,11 +8481,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 65,
+              "line": 42,
               "column": 2
             },
             "end": {
-              "line": 74,
+              "line": 51,
               "column": 3
             }
           },
@@ -8498,30 +8505,14 @@
           "column": 7
         },
         "end": {
-          "line": 75,
+          "line": 52,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "StandardListItem.default",
       "name": "Ui5ReferenceSearchItem",
-      "attributes": [
-        {
-          "name": "display-field",
-          "description": "",
-          "sourceRange": {
-            "start": {
-              "line": 31,
-              "column": 12
-            },
-            "end": {
-              "line": 31,
-              "column": 27
-            }
-          },
-          "metadata": {}
-        }
-      ],
+      "attributes": [],
       "events": [
         {
           "type": "CustomEvent",
@@ -8541,23 +8532,23 @@
       ]
     },
     {
-      "description": "The furo-ui5-data-reference-search\n search a reference\n bounded data should be furo.reference\n\n the furo-ui5-data-reference-search should be used together with the fur-collection-agent:\n```\n<!--  furo-data-object -->\n<furo-data-object type=\"task.Task\" @-object-ready=\"--entityReady\"></furo-data-object>\n\n<furo-horizontal-flex>\n   <furo-ui5-data-reference-search autofocus  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-ui5-data-reference-search>\n</furo-horizontal-flex>\n\n<furo-collection-agent service=\"tasks\" ƒ-search=\"--term\" ƒ-hts-in=\"--entityReady(*.fields.ref._value)\" @-response=\"--refCol\"></furo-collection-agent>\n\n```\n\n * ### following labels of fat types are supported:\n\n- 'error': state of input is error\n- 'readonly': input is disabled\n- 'required': input is required\n- 'disabled': input is disabled\n- 'modified': data is changed\n- 'condensed': input has condensed display\n\n### following attributes of fat types are supported:\n\n- 'placeholder': placeholder of the search field\n- 'hint': input hint\n- 'min_term_length': the minimum number of characters that use should to input to trigger the search\n- 'no_result_hint': hint text when result not found by search\n- 'errortext': the error text of the input\n- 'error-msg': the same as errortext\n\n\n### following constrains are mapped into the attributes of the fat types and presence in payload:\n\n- 'required': is mapped to 'required' attribute",
+      "description": "The furo-ui5-data-reference-search\n search a reference\n\n Bounded data must fullfill the  furo.reference signature. The service, deeplink,... is taken from the spec of your field.\n Do not forget to specify.\n\n\n *default usage*\n```html\n  <furo-ui5-data-reference-search\n  ƒ-bind-data=\"--data(*.is_person)\"\n  ></furo-ui5-data-reference-search>\n```\n\n *usage with a extended searcher*\n```html\n  <furo-ui5-data-reference-search\n  extended-searcher=\"country-filter\"\n  ƒ-bind-data=\"--data(*.is_person)\"\n  ></furo-ui5-data-reference-search>\n```\n\n *usage example for a non default response*\n```html\n  <furo-ui5-data-reference-search\n  extended-searcher=\"contact-filter\"\n  search-response-path=\"xx_entities\"\n  value-field-path=\"data.xx_id\"\n  display-field-path=\"data.xx_display_name\"\n  ƒ-bind-data=\"--data(*.is_person)\"\n  ></furo-ui5-data-reference-search-labeled>\n```\n\n\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **max:\"number\"** set the maximum number of characters available in the input field.\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)\n\n## Specs\nDefine a propper default value on the reference type.\n\n```yaml\nlink:\ntype: furo.Link\ndescription: HTS for the initial search (the default works on root resources only)\n__proto:\n   number: 3\n__ui: null\nmeta:\n  default: |\n    {\n         \"rel\": \"list\",\n         \"href\": \"/contacts\",\n         \"method\": \"GET\",\n         \"type\": \"contact.Contact\",\n         \"service\": \"Contacts\"\n     }\n  placeholder: \"\"\n  hint: \"\"\n  label: contact.Reference.link.label\n  options:\n    flags: []\n    list: []\n  readonly: false\n  repeated: false\n  typespecific: null\n\n```",
       "summary": "furo ui5 data reference search",
       "path": "src/furo-ui5-data-reference-search.js",
       "properties": [
         {
-          "name": "valueField",
+          "name": "searchResponsePath",
           "type": "string | null | undefined",
-          "description": "the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object",
+          "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 395,
+              "line": 231,
               "column": 6
             },
             "end": {
-              "line": 399,
-              "column": 7
+              "line": 231,
+              "column": 75
             }
           },
           "metadata": {
@@ -8567,18 +8558,18 @@
           }
         },
         {
-          "name": "displayField",
+          "name": "valueFieldPath",
           "type": "string | null | undefined",
-          "description": "the field name of reference-item which should be used as display which will be showed in the dropdown.",
+          "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 403,
+              "line": 232,
               "column": 6
             },
             "end": {
-              "line": 407,
-              "column": 7
+              "line": 232,
+              "column": 67
             }
           },
           "metadata": {
@@ -8588,18 +8579,18 @@
           }
         },
         {
-          "name": "subfield",
+          "name": "displayFieldPath",
           "type": "string | null | undefined",
-          "description": "if you bind a complex type, declare here the field which gets updated of value by selecting an item.\n\nIf you bind a scalar, you dont need this attribute.",
+          "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 413,
+              "line": 233,
               "column": 6
             },
             "end": {
-              "line": 416,
-              "column": 7
+              "line": 233,
+              "column": 71
             }
           },
           "metadata": {
@@ -8609,60 +8600,18 @@
           }
         },
         {
-          "name": "_displayName",
+          "name": "icon",
           "type": "string | null | undefined",
-          "description": "this property saves the value of the displayField of selected item from collection",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 420,
-              "column": 6
-            },
-            "end": {
-              "line": 422,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "_hasCollection",
-          "type": "boolean | null | undefined",
-          "description": "mark if the collection is already loaded",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 426,
-              "column": 6
-            },
-            "end": {
-              "line": 428,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "placeholder",
-          "type": "string | null | undefined",
-          "description": "the placeholder of the search input field",
+          "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 432,
+              "line": 234,
               "column": 6
             },
             "end": {
-              "line": 435,
-              "column": 7
+              "line": 234,
+              "column": 26
             }
           },
           "metadata": {
@@ -8672,17 +8621,17 @@
           }
         },
         {
-          "name": "noResultHint",
+          "name": "noResultText",
           "type": "string | null | undefined",
           "description": "hint text when result not found by search",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 439,
+              "line": 238,
               "column": 6
             },
             "end": {
-              "line": 443,
+              "line": 241,
               "column": 7
             }
           },
@@ -8699,11 +8648,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 449,
+              "line": 247,
               "column": 6
             },
             "end": {
-              "line": 452,
+              "line": 250,
               "column": 7
             }
           },
@@ -8714,17 +8663,17 @@
           }
         },
         {
-          "name": "hint",
+          "name": "placeholder",
           "type": "string | null | undefined",
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 458,
+              "line": 256,
               "column": 6
             },
             "end": {
-              "line": 461,
+              "line": 258,
               "column": 7
             }
           },
@@ -8737,15 +8686,15 @@
         {
           "name": "minTermLength",
           "type": "number | null | undefined",
-          "description": "the minimal length of search term to trigger the search event.\n\nUse with caution, normally the specs defines this value.",
+          "description": "The minimal length of search term to trigger a search.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 467,
+              "line": 263,
               "column": 6
             },
             "end": {
-              "line": 471,
+              "line": 266,
               "column": 7
             }
           },
@@ -8758,15 +8707,15 @@
         {
           "name": "maxItemsToDisplay",
           "type": "number | null | undefined",
-          "description": "The maximal number of items to display. If the collection contains more data then then this value,\nthe **max-results-hint** will be displayed at the bottom of the list.",
+          "description": "The maximal number of items to display.\n\nThis value will be set as page-size query-param for the backend.\n\nIf the response contains hts information with rel *next* a \"load more\" button will be displayed at the end\nof the list.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 476,
+              "line": 275,
               "column": 6
             },
             "end": {
-              "line": 480,
+              "line": 278,
               "column": 7
             }
           },
@@ -8777,38 +8726,17 @@
           }
         },
         {
-          "name": "maxResultsHint",
-          "type": "string | null | undefined",
-          "description": "hint text to display when the result set is bigger then  **maxItemsToDisplay**.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 484,
-              "column": 6
-            },
-            "end": {
-              "line": 488,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
           "name": "searchOnEnterOnly",
           "type": "boolean | null | undefined",
           "description": "Enable this, to avoid the automatic triggering of \"search\".\n\nThe user have to press enter to trigger the search. Min-term-length is respected.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 494,
+              "line": 285,
               "column": 6
             },
             "end": {
-              "line": 498,
+              "line": 288,
               "column": 7
             }
           },
@@ -8825,11 +8753,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 504,
+              "line": 294,
               "column": 6
             },
             "end": {
-              "line": 507,
+              "line": 296,
               "column": 7
             }
           },
@@ -8842,15 +8770,15 @@
         {
           "name": "disabled",
           "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this.binder.fieldNodecannot be edited by the user.",
+          "description": "Disable",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 511,
+              "line": 300,
               "column": 6
             },
             "end": {
-              "line": 514,
+              "line": 303,
               "column": 7
             }
           },
@@ -8861,17 +8789,17 @@
           }
         },
         {
-          "name": "autofocus",
+          "name": "busy",
           "type": "boolean | null | undefined",
-          "description": "Set this attribute to autofocus the input field.",
+          "description": "This is used to activate the loading indicator.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 519,
+              "line": 307,
               "column": 6
             },
             "end": {
-              "line": 521,
+              "line": 309,
               "column": 7
             }
           },
@@ -8882,90 +8810,67 @@
           }
         },
         {
-          "name": "valid",
-          "type": "boolean | null | undefined",
-          "description": "html input validity",
+          "name": "debounceTimeout",
+          "type": "number | null | undefined",
+          "description": "wait for this time between keystrokes to trigger a search to the service",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 525,
+              "line": 314,
               "column": 6
             },
             "end": {
-              "line": 528,
+              "line": 316,
               "column": 7
             }
           },
           "metadata": {
             "polymer": {
-              "attributeType": "Boolean"
+              "attributeType": "Number"
             }
           }
         },
         {
-          "name": "condensed",
-          "type": "boolean | null | undefined",
-          "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
+          "name": "extendedSearcher",
+          "type": "string | null | undefined",
+          "description": "Define the extended searcher. Do not forget to import the searcher you want to use.\n#### API of a searcher\n#### Mehtods\nThe only method you have to implement is **htsIn**. The reference-search will pass its own hts to the extended\nsearcher. A call on qpIn on the searcher will also pass the resulting hts to the extended searcher.\n\n#### Events",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 532,
+              "line": 329,
               "column": 6
             },
             "end": {
-              "line": 535,
+              "line": 331,
               "column": 7
             }
           },
           "metadata": {
             "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "float",
-          "type": "boolean | null | undefined",
-          "description": "passes always float the label",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 539,
-              "column": 6
-            },
-            "end": {
-              "line": 542,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
+              "attributeType": "String"
             }
           }
         }
       ],
       "methods": [
         {
-          "name": "bindData",
-          "description": "Bind an entity field to the search-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
+          "name": "onFnaFieldValueChanged",
+          "description": "This is triggered from the FieldNodeAdapter when the data has changed",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 76,
+              "line": 177,
               "column": 2
             },
             "end": {
-              "line": 100,
+              "line": 187,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "fieldNode",
-              "type": "(Object | FieldNode)",
-              "description": "a Field object"
+              "name": "val"
             }
           ],
           "return": {
@@ -8973,16 +8878,36 @@
           }
         },
         {
-          "name": "_init",
+          "name": "connectedCallback",
           "description": "",
-          "privacy": "protected",
+          "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 189,
               "column": 2
             },
             "end": {
-              "line": 104,
+              "line": 209,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateField",
+          "description": "This is used to update the FieldNodeAdapter",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 216,
+              "column": 2
+            },
+            "end": {
+              "line": 221,
               "column": 3
             }
           },
@@ -8998,51 +8923,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 337,
               "column": 2
             },
             "end": {
-              "line": 109,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_registerListeners",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 111,
-              "column": 2
-            },
-            "end": {
-              "line": 207,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_updateField",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 209,
-              "column": 2
-            },
-            "end": {
-              "line": 215,
+              "line": 628,
               "column": 3
             }
           },
@@ -9054,79 +8939,15 @@
         },
         {
           "name": "_closeList",
-          "description": "",
-          "privacy": "protected",
+          "description": "Closes the list",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 634,
               "column": 2
             },
             "end": {
-              "line": 220,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_fireSearchEvent",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 222,
-              "column": 2
-            },
-            "end": {
-              "line": 256,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "collectionIn",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 258,
-              "column": 2
-            },
-            "end": {
-              "line": 294,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "collection"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_resetInputValueState",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 296,
-              "column": 2
-            },
-            "end": {
-              "line": 305,
+              "line": 637,
               "column": 3
             }
           },
@@ -9138,35 +8959,15 @@
         },
         {
           "name": "_showList",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 307,
-              "column": 2
-            },
-            "end": {
-              "line": 328,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_initBinder",
-          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
+          "description": "Opens the list and selects the last selected item",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 335,
+              "line": 643,
               "column": 2
             },
             "end": {
-              "line": 376,
+              "line": 664,
               "column": 3
             }
           },
@@ -9177,21 +8978,232 @@
           }
         },
         {
-          "name": "reset",
-          "description": "reset reference search",
-          "privacy": "public",
+          "name": "onFnaPlaceholderChanged",
+          "description": "Update the placeholder from the FNA",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 381,
+              "line": 673,
               "column": 2
             },
             "end": {
-              "line": 384,
+              "line": 678,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "placeholder"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaReadonlyChanged",
+          "description": "Updates the readonly state from FNA",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 685,
+              "column": 2
+            },
+            "end": {
+              "line": 694,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "readonly"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaConstraintsChanged",
+          "description": "Updates the required constraint from the FNA",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 701,
+              "column": 2
+            },
+            "end": {
+              "line": 712,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "constraints"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaFieldNodeBecameInvalid",
+          "description": "Updates the error state from FNA",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 719,
+              "column": 2
+            },
+            "end": {
+              "line": 725,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "validity"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaFieldNodeBecameValid",
+          "description": "Clears the error state from FNA",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 731,
+              "column": 2
+            },
+            "end": {
+              "line": 733,
               "column": 3
             }
           },
           "metadata": {},
           "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_setValueStateMessage",
+          "description": "updater for the value state and message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 743,
+              "column": 2
+            },
+            "end": {
+              "line": 748,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "valueState"
+            },
+            {
+              "name": "message"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_resetValueStateMessage",
+          "description": "reset to previous value state",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 754,
+              "column": 2
+            },
+            "end": {
+              "line": 756,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "readAttributes",
+          "description": "Reads the attributes which are set on the component dom.\n\nFollowing attributes can be set:\n- `value-state`\n- `value-state-message`\n- `icon`\n- `placeholder`\n- `required`\n- `readonly`\n- `disabled`\n\nUse this after manual or scripted update of the attributes.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 772,
+              "column": 2
+            },
+            "end": {
+              "line": 782,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "htsIn",
+          "description": "htsIn sets the HTS for the collection-agent.\n\nThis is only needed if you want to have fine grained control over the hts",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 792,
+              "column": 2
+            },
+            "end": {
+              "line": 794,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "hts"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "qpIn",
+          "description": "qpIn Use this to set query params manualy",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 801,
+              "column": 2
+            },
+            "end": {
+              "line": 803,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "qp"
+            }
+          ],
           "return": {
             "type": "void"
           }
@@ -9202,11 +9214,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 608,
+              "line": 861,
               "column": 2
             },
             "end": {
-              "line": 648,
+              "line": 941,
               "column": 3
             }
           },
@@ -9227,11 +9239,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 55,
+          "line": 96,
           "column": 7
         },
         "end": {
-          "line": 649,
+          "line": 943,
           "column": 1
         }
       },
@@ -9240,79 +9252,79 @@
       "name": "FuroUi5DataReferenceSearch",
       "attributes": [
         {
-          "name": "value-field",
-          "description": "the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object",
+          "name": "search-response-path",
+          "description": "",
           "sourceRange": {
             "start": {
-              "line": 395,
+              "line": 231,
               "column": 6
             },
             "end": {
-              "line": 399,
-              "column": 7
+              "line": 231,
+              "column": 75
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
         },
         {
-          "name": "display-field",
-          "description": "the field name of reference-item which should be used as display which will be showed in the dropdown.",
+          "name": "value-field-path",
+          "description": "",
           "sourceRange": {
             "start": {
-              "line": 403,
+              "line": 232,
               "column": 6
             },
             "end": {
-              "line": 407,
-              "column": 7
+              "line": 232,
+              "column": 67
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
         },
         {
-          "name": "subfield",
-          "description": "if you bind a complex type, declare here the field which gets updated of value by selecting an item.\n\nIf you bind a scalar, you dont need this attribute.",
+          "name": "display-field-path",
+          "description": "",
           "sourceRange": {
             "start": {
-              "line": 413,
+              "line": 233,
               "column": 6
             },
             "end": {
-              "line": 416,
-              "column": 7
+              "line": 233,
+              "column": 71
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
         },
         {
-          "name": "placeholder",
-          "description": "the placeholder of the search input field",
+          "name": "icon",
+          "description": "",
           "sourceRange": {
             "start": {
-              "line": 432,
+              "line": 234,
               "column": 6
             },
             "end": {
-              "line": 435,
-              "column": 7
+              "line": 234,
+              "column": 26
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
         },
         {
-          "name": "no-result-hint",
+          "name": "no-result-text",
           "description": "hint text when result not found by search",
           "sourceRange": {
             "start": {
-              "line": 439,
+              "line": 238,
               "column": 6
             },
             "end": {
-              "line": 443,
+              "line": 241,
               "column": 7
             }
           },
@@ -9324,11 +9336,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 449,
+              "line": 247,
               "column": 6
             },
             "end": {
-              "line": 452,
+              "line": 250,
               "column": 7
             }
           },
@@ -9336,15 +9348,15 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "hint",
+          "name": "placeholder",
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 458,
+              "line": 256,
               "column": 6
             },
             "end": {
-              "line": 461,
+              "line": 258,
               "column": 7
             }
           },
@@ -9353,14 +9365,14 @@
         },
         {
           "name": "min-term-length",
-          "description": "the minimal length of search term to trigger the search event.\n\nUse with caution, normally the specs defines this value.",
+          "description": "The minimal length of search term to trigger a search.",
           "sourceRange": {
             "start": {
-              "line": 467,
+              "line": 263,
               "column": 6
             },
             "end": {
-              "line": 471,
+              "line": 266,
               "column": 7
             }
           },
@@ -9369,14 +9381,14 @@
         },
         {
           "name": "max-items-to-display",
-          "description": "The maximal number of items to display. If the collection contains more data then then this value,\nthe **max-results-hint** will be displayed at the bottom of the list.",
+          "description": "The maximal number of items to display.\n\nThis value will be set as page-size query-param for the backend.\n\nIf the response contains hts information with rel *next* a \"load more\" button will be displayed at the end\nof the list.",
           "sourceRange": {
             "start": {
-              "line": 476,
+              "line": 275,
               "column": 6
             },
             "end": {
-              "line": 480,
+              "line": 278,
               "column": 7
             }
           },
@@ -9384,31 +9396,15 @@
           "type": "number | null | undefined"
         },
         {
-          "name": "max-results-hint",
-          "description": "hint text to display when the result set is bigger then  **maxItemsToDisplay**.",
-          "sourceRange": {
-            "start": {
-              "line": 484,
-              "column": 6
-            },
-            "end": {
-              "line": 488,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
           "name": "search-on-enter-only",
           "description": "Enable this, to avoid the automatic triggering of \"search\".\n\nThe user have to press enter to trigger the search. Min-term-length is respected.",
           "sourceRange": {
             "start": {
-              "line": 494,
+              "line": 285,
               "column": 6
             },
             "end": {
-              "line": 498,
+              "line": 288,
               "column": 7
             }
           },
@@ -9420,11 +9416,11 @@
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 504,
+              "line": 294,
               "column": 6
             },
             "end": {
-              "line": 507,
+              "line": 296,
               "column": 7
             }
           },
@@ -9433,14 +9429,14 @@
         },
         {
           "name": "disabled",
-          "description": "A Boolean attribute which, if present, means this.binder.fieldNodecannot be edited by the user.",
+          "description": "Disable",
           "sourceRange": {
             "start": {
-              "line": 511,
+              "line": 300,
               "column": 6
             },
             "end": {
-              "line": 514,
+              "line": 303,
               "column": 7
             }
           },
@@ -9448,15 +9444,15 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "autofocus",
-          "description": "Set this attribute to autofocus the input field.",
+          "name": "busy",
+          "description": "This is used to activate the loading indicator.",
           "sourceRange": {
             "start": {
-              "line": 519,
+              "line": 307,
               "column": 6
             },
             "end": {
-              "line": 521,
+              "line": 309,
               "column": 7
             }
           },
@@ -9464,71 +9460,61 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "valid",
-          "description": "html input validity",
+          "name": "debounce-timeout",
+          "description": "wait for this time between keystrokes to trigger a search to the service",
           "sourceRange": {
             "start": {
-              "line": 525,
+              "line": 314,
               "column": 6
             },
             "end": {
-              "line": 528,
+              "line": 316,
               "column": 7
             }
           },
           "metadata": {},
-          "type": "boolean | null | undefined"
+          "type": "number | null | undefined"
         },
         {
-          "name": "condensed",
-          "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
+          "name": "extended-searcher",
+          "description": "Define the extended searcher. Do not forget to import the searcher you want to use.\n#### API of a searcher\n#### Mehtods\nThe only method you have to implement is **htsIn**. The reference-search will pass its own hts to the extended\nsearcher. A call on qpIn on the searcher will also pass the resulting hts to the extended searcher.\n\n#### Events",
           "sourceRange": {
             "start": {
-              "line": 532,
+              "line": 329,
               "column": 6
             },
             "end": {
-              "line": 535,
+              "line": 331,
               "column": 7
             }
           },
           "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "float",
-          "description": "passes always float the label",
-          "sourceRange": {
-            "start": {
-              "line": 539,
-              "column": 6
-            },
-            "end": {
-              "line": 542,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
+          "type": "string | null | undefined"
         }
       ],
       "events": [
         {
           "type": "CustomEvent",
+          "name": "change",
+          "description": "change\nFired when the input operation has finished by pressing Enter or on focusout.\n\ndetail payload: `text`",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "input",
+          "description": "input\nFired when the value of the ui5-input changes at each keystroke, and when a suggestion item has been selected.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
           "name": "item-selected",
-          "description": "item-selected\nFired from inner element when item is selected\ndetail payload: {Object} item",
+          "description": "item-selected\nFired when a item was selected from the list.\n\ndetail payload: `Object` the complete item",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
-          "name": "reset",
-          "description": "reset\nTriggered when the search term is empty and the bound field is set to empty\ndetail payload: {Object} fieldNode",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "search",
-          "description": "search\nFired when term is entered and bigger then min-term-length\ndetail payload: {String} term",
+          "name": "xxxx",
+          "description": "xxxx\nAll events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/Input/).",
           "metadata": {}
         }
       ],
@@ -9551,12 +9537,33 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 49,
               "column": 6
             },
             "end": {
-              "line": 68,
-              "column": 29
+              "line": 49,
+              "column": 27
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "placeholder",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 51,
+              "column": 6
+            },
+            "end": {
+              "line": 51,
+              "column": 33
             }
           },
           "metadata": {
@@ -9572,11 +9579,32 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 72,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 74,
+              "line": 57,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 58,
+              "column": 6
+            },
+            "end": {
+              "line": 60,
               "column": 7
             }
           },
@@ -9593,11 +9621,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 78,
+              "line": 64,
               "column": 6
             },
             "end": {
-              "line": 80,
+              "line": 66,
               "column": 7
             }
           },
@@ -9608,102 +9636,18 @@
           }
         },
         {
-          "name": "subField",
+          "name": "extendedSearcher",
           "type": "string | null | undefined",
-          "description": "If you inject an array with complex objects, declare here the path where display_name and value_field are located.\n\nThis is only needed if display_name and value_field are not located in the root of the object.",
+          "description": "Define the extended searcher",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 70,
               "column": 6
             },
             "end": {
-              "line": 87,
-              "column": 71
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "displayField",
-          "type": "string | null | undefined",
-          "description": "The name of the field from the injected collection that contains the label for the dropdown array.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 92,
-              "column": 6
-            },
-            "end": {
-              "line": 92,
-              "column": 79
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "valueField",
-          "type": "string | null | undefined",
-          "description": "if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.\nIf you bind a scalar, you dont need this attribute.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 98,
-              "column": 6
-            },
-            "end": {
-              "line": 98,
-              "column": 75
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "valueSubField",
-          "type": "string | null | undefined",
-          "description": "if you bind a complex type, declare here the field which gets updated of value by selecting an item.\n\nIf you bind a scalar, you dont need this attribute.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 105,
-              "column": 6
-            },
-            "end": {
-              "line": 105,
-              "column": 82
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "displaySubField",
-          "type": "string | null | undefined",
-          "description": "if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.\n\nIf you bind a scalar, you dont need this attribute.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 112,
-              "column": 6
-            },
-            "end": {
-              "line": 112,
-              "column": 86
+              "line": 72,
+              "column": 7
             }
           },
           "metadata": {
@@ -9720,11 +9664,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 35,
+              "line": 30,
               "column": 2
             },
             "end": {
-              "line": 37,
+              "line": 32,
               "column": 3
             }
           },
@@ -9744,11 +9688,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 42,
+              "line": 37,
               "column": 2
             },
             "end": {
-              "line": 45,
+              "line": 41,
               "column": 3
             }
           },
@@ -9759,64 +9703,16 @@
           }
         },
         {
-          "name": "injectList",
-          "description": "inject list",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 51,
-              "column": 2
-            },
-            "end": {
-              "line": 53,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "arr"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "injectEntities",
-          "description": "Inject the array of a collection",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 59,
-              "column": 2
-            },
-            "end": {
-              "line": 61,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "entities"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
           "name": "bindData",
           "description": "Orchestrates the data field connection to the inside",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 135,
+              "line": 82,
               "column": 2
             },
             "end": {
-              "line": 137,
+              "line": 84,
               "column": 3
             }
           },
@@ -9831,60 +9727,16 @@
           }
         },
         {
-          "name": "collectionIn",
-          "description": "inject collection",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 143,
-              "column": 2
-            },
-            "end": {
-              "line": 145,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "arr"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "reset",
-          "description": "reset combobox",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 150,
-              "column": 2
-            },
-            "end": {
-              "line": 152,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
           "name": "render",
           "description": "",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 91,
               "column": 2
             },
             "end": {
-              "line": 182,
+              "line": 110,
               "column": 3
             }
           },
@@ -9909,7 +9761,7 @@
           "column": 0
         },
         "end": {
-          "line": 183,
+          "line": 129,
           "column": 1
         }
       },
@@ -9922,12 +9774,28 @@
           "description": "the label for the data-reference-search",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 49,
               "column": 6
             },
             "end": {
-              "line": 68,
-              "column": 29
+              "line": 49,
+              "column": 27
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "placeholder",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 51,
+              "column": 6
+            },
+            "end": {
+              "line": 51,
+              "column": 33
             }
           },
           "metadata": {},
@@ -9938,11 +9806,27 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 72,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 74,
+              "line": 57,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "readonly",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 58,
+              "column": 6
+            },
+            "end": {
+              "line": 60,
               "column": 7
             }
           },
@@ -9954,11 +9838,11 @@
           "description": "A Boolean attribute which, if present, means this field is required and marked with *.",
           "sourceRange": {
             "start": {
-              "line": 78,
+              "line": 64,
               "column": 6
             },
             "end": {
-              "line": 80,
+              "line": 66,
               "column": 7
             }
           },
@@ -9966,80 +9850,16 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "sub-field",
-          "description": "If you inject an array with complex objects, declare here the path where display_name and value_field are located.\n\nThis is only needed if display_name and value_field are not located in the root of the object.",
+          "name": "extended-searcher",
+          "description": "Define the extended searcher",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 70,
               "column": 6
             },
             "end": {
-              "line": 87,
-              "column": 71
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "display-field",
-          "description": "The name of the field from the injected collection that contains the label for the dropdown array.",
-          "sourceRange": {
-            "start": {
-              "line": 92,
-              "column": 6
-            },
-            "end": {
-              "line": 92,
-              "column": 79
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "value-field",
-          "description": "if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.\nIf you bind a scalar, you dont need this attribute.",
-          "sourceRange": {
-            "start": {
-              "line": 98,
-              "column": 6
-            },
-            "end": {
-              "line": 98,
-              "column": 75
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "value-sub-field",
-          "description": "if you bind a complex type, declare here the field which gets updated of value by selecting an item.\n\nIf you bind a scalar, you dont need this attribute.",
-          "sourceRange": {
-            "start": {
-              "line": 105,
-              "column": 6
-            },
-            "end": {
-              "line": 105,
-              "column": 82
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "display-sub-field",
-          "description": "if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.\n\nIf you bind a scalar, you dont need this attribute.",
-          "sourceRange": {
-            "start": {
-              "line": 112,
-              "column": 6
-            },
-            "end": {
-              "line": 112,
-              "column": 86
+              "line": 72,
+              "column": 7
             }
           },
           "metadata": {},
@@ -14737,11 +14557,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 348,
+              "line": 351,
               "column": 2
             },
             "end": {
-              "line": 386,
+              "line": 389,
               "column": 3
             }
           },
@@ -14770,7 +14590,7 @@
           "column": 0
         },
         "end": {
-          "line": 387,
+          "line": 390,
           "column": 1
         }
       },

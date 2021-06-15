@@ -2,8 +2,9 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/src/theme.js"
 import {FBP} from "@furo/fbp";
 import {FieldNodeAdapter} from '@furo/data/src/lib/FieldNodeAdapter.js';
-import {Env} from '@furo/framework/src/environment.js'
+
 import '@furo/fbp/src/flow-repeat.js';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/timing/src/furo-de-bounce.js';
 import '@ui5/webcomponents/dist/List.js';
 import './ui5-reference-search-item.js';
@@ -13,7 +14,10 @@ import '@ui5/webcomponents-icons/dist/search.js';
 /**
  * The furo-ui5-data-reference-search
  *  search a reference
- *  bounded data should be furo.reference
+ *
+ *  Bounded data must fullfill the  furo.reference signature. The service, deeplink,... is taken from the spec of your field.
+ *  Do not forget to specify.
+ *
  *
  *  *default usage*
  * ```html
@@ -31,7 +35,7 @@ import '@ui5/webcomponents-icons/dist/search.js';
  * ```
  *
  *  *usage example for a non default response*
- *```
+ *```html
  *   <furo-ui5-data-reference-search
  *   extended-searcher="contact-filter"
  *   search-response-path="xx_entities"
@@ -56,6 +60,44 @@ import '@ui5/webcomponents-icons/dist/search.js';
  *
  * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  *
+ * ## Specs
+ * Define a propper default value on the reference type.
+ *
+ * ```yaml
+ * link:
+ * type: furo.Link
+ * description: HTS for the initial search (the default works on root resources only)
+ * __proto:
+ *    number: 3
+ * __ui: null
+ * meta:
+ *   default: |
+ *     {
+ *          "rel": "list",
+ *          "href": "/contacts",
+ *          "method": "GET",
+ *          "type": "contact.Contact",
+ *          "service": "Contacts"
+ *      }
+ *   placeholder: ""
+ *   hint: ""
+ *   label: contact.Reference.link.label
+ *   options:
+ *     flags: []
+ *     list: []
+ *   readonly: false
+ *   repeated: false
+ *   typespecific: null
+ *
+ * ```
+ * ### API of a extended searcher
+ * ### Searcher Mehtods
+ * The only method you have to implement is **htsIn**. The reference-search will pass its own hts to the extended
+ * searcher. A call on qpIn on the searcher will also pass the resulting hts to the extended searcher.
+ *
+ * ### Searcher Events
+ * Fire a **@-record-selected** to set the item on the reference-search.
+ * Fire a **@-close-requested** to close the extended search.
  *
  *
  * @summary furo ui5 data reference search
@@ -104,11 +146,11 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     this.debounceTimeout = 250;
     this.placeholder = '';
 
-    this.noResultText = 'no result found';
+    this.noDataText = 'no result found';
 
     // for the show more button
     this._hasmore = 'None';
-
+    this._hasExtendedSearcher = false;
     this.icon = 'search';
 
     // used to restore the state after a invalidation -> validation change
@@ -145,7 +187,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
    */
   onFnaFieldValueChanged(val) {
     // set the service by wire, because collection-agent can not handle empty service entries
-    if (val.link && val.link.service != "") {
+    if (val.link && val.link.service !== "") {
       this._FBPTriggerWire('--detectedService', val.link.service);
       this._FBPTriggerWire('--hts', val.link);
     }
@@ -160,7 +202,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     super.connectedCallback();
     this.readAttributes();
 
-    this.updateComplete.then(()=>{
+    this.updateComplete.then(() => {
       // created to avoid the default messages from ui5
       const vse = this.querySelector('div[slot="valueStateMessage"]');
       if (vse === null) {
@@ -190,7 +232,6 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
   }
 
 
-
   /**
    * @private
    * @return {Object}
@@ -204,9 +245,9 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       /**
        * hint text when result not found by search
        */
-      noResultText: {
+      noDataText: {
         type: String,
-        attribute: 'no-result-text'
+        attribute: 'no-data-text'
       },
       /**
        * Overrides the required value from the **specs**.
@@ -283,8 +324,9 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       debounceTimeout: {
         type: Number, attribute: "debounce-timeout",
       },
+
       /**
-       * Define the extended searcher
+       * Define the extended searcher. Do not forget to import the searcher you want to use.
        */
       extendedSearcher: {
         type: String, attribute: "extended-searcher",
@@ -298,9 +340,9 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     /**
      * handle extended searcher
      */
-    if(this.extendedSearcher){
+    if (this.extendedSearcher) {
       this.icon = 'value-help'
-
+      this._hasExtendedSearcher = true;
       this._valueHelperComponent = document.createElement(this.extendedSearcher);
       this._valueHelperComponent.style.height = "100%";
 
@@ -308,19 +350,18 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
        * Register hook on wire --BackdropFocus , |--htsIn, --hts to pass it to the value helper
        * This is done so, because we can not set @-xxx attributes in js
        */
-      this._FBPAddWireHook("--BackdropFocus",()=>{
+      this._FBPAddWireHook("--BackdropFocus", () => {
         this._valueHelperComponent.focus()
         // trigger the search method if it is available
-        if(this._valueHelperComponent.search !== undefined){
-
+        if (this._valueHelperComponent.search !== undefined) {
           this._valueHelperComponent.search(this._searchTerm || this.value.display_name)
         }
 
       });
-      this._FBPAddWireHook("|--htsIn",(hts)=>{
+      this._FBPAddWireHook("|--htsIn", (hts) => {
         this._valueHelperComponent.htsIn(hts)
       });
-      this._FBPAddWireHook("--hts",(hts)=>{
+      this._FBPAddWireHook("--hts", (hts) => {
         this._valueHelperComponent.htsIn(hts)
       });
 
@@ -339,7 +380,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     // listen to search input
     this._inputField.addEventListener('input', () => {
       this._searchTerm = this._inputField.value;
-      if(this._searchTerm.length >= this.minTermLength && !this.searchOnEnterOnly){
+      if (this._searchTerm.length >= this.minTermLength && !this.searchOnEnterOnly) {
         this._FBPTriggerWire('--searchTerm', this._inputField.value);
 
       }
@@ -365,13 +406,11 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       const entities = response[this.searchResponsePath]
       if (entities && entities.length > 0) {
         this._hasCollection = true;
-        this._searchResultItems = entities.map(e => {
-          return {
-            id: this.valueFieldPath.split('.').reduce((acc, part) => acc && acc[part], e),
-            display: this.displayFieldPath.split('.').reduce((acc, part) => acc && acc[part], e),
-            data: e
-          }
-        });
+        this._searchResultItems = entities.map(e => ({
+          id: this.valueFieldPath.split('.').reduce((acc, part) => acc && acc[part], e),
+          display: this.displayFieldPath.split('.').reduce((acc, part) => acc && acc[part], e),
+          data: e
+        }));
 
         this._FBPTriggerWire('--resultList', this._searchResultItems);
 
@@ -386,7 +425,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         this._hasCollection = false;
         this._searchResultItems = [];
         this._closeList();
-        this._setValueStateMessage('Information', this.noResultText)
+        this._setValueStateMessage('Information', this.noDataText)
       }
       this.requestUpdate();
     });
@@ -394,8 +433,8 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
 
     // trigger a loadMore when there is a next page
     // lastListElementReached is fired by flow-repeat when the cursor reaches the last item
-    this._FBPAddWireHook("--lastListElementReached", (response) => {
-      if(this._hasmore !== 'None'){
+    this._FBPAddWireHook("--lastListElementReached", () => {
+      if (this._hasmore !== 'None') {
         this._FBPTriggerWire('--loadMore', null);
       }
     })
@@ -405,14 +444,12 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     this._FBPAddWireHook("--nextSearchResponse", (response) => {
       const entities = this.searchResponsePath.split('.').reduce((acc, part) => acc && acc[part], response);
       if (entities && entities.length > 0) {
-        const currentIndex = this._searchResultItems.length -1
-        this._searchResultItems = this._searchResultItems.concat(entities.map(e => {
-          return {
-            id: this.valueFieldPath.split('.').reduce((acc, part) => acc && acc[part], e),
-            display: this.displayFieldPath.split('.').reduce((acc, part) => acc && acc[part], e),
-            data: e
-          }
-        }));
+        const currentIndex = this._searchResultItems.length - 1
+        this._searchResultItems = this._searchResultItems.concat(entities.map(e => ({
+          id: this.valueFieldPath.split('.').reduce((acc, part) => acc && acc[part], e),
+          display: this.displayFieldPath.split('.').reduce((acc, part) => acc && acc[part], e),
+          data: e
+        })));
         this._FBPTriggerWire('--resultList', this._searchResultItems);
         this._FBPTriggerWire('--listOpened', currentIndex);
       }
@@ -450,7 +487,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
      * Register hook on wire --responseReceived to
      * disable the busy indicator
      */
-    this._FBPAddWireHook("--responseReceived",()=>{
+    this._FBPAddWireHook("--responseReceived", () => {
       this.busy = false;
     });
 
@@ -458,7 +495,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
      * Register hook on wire --debouncedSrch to
      * enable the busy indicator
      */
-    this._FBPAddWireHook("--debouncedSrch",( )=>{
+    this._FBPAddWireHook("--debouncedSrch", () => {
       this.busy = true;
     });
 
@@ -476,7 +513,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
      * Register hook on wire --backdropClosed to
      * focus on the list
      */
-    this._FBPAddWireHook("--backdropClosed",(e)=>{
+    this._FBPAddWireHook("--backdropClosed", () => {
       this._hasCollection = false;
       this._inputField.focus()
     });
@@ -496,18 +533,18 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
      * Register hook on wire --responseError to
      * notify about response errors
      */
-    this._FBPAddWireHook("--responseError",(e)=>{
-      this._setValueStateMessage('Error', "System Error: " + e.message)
+    this._FBPAddWireHook("--responseError", (e) => {
+      this._setValueStateMessage('Error', `System Error: ${e.message}`)
     });
 
     /**
      * Register hook on wire --expandIconClicked to
      * expand the value helper if it is set
      */
-    this._FBPAddWireHook("--expandIconClicked",(e)=>{
-      if(this.extendedSearcher !== undefined){
+    this._FBPAddWireHook("--expandIconClicked", () => {
+      if (this._hasExtendedSearcher) {
         this._closeList();
-        this._FBPTriggerWire('--valueHelperRequested',null)
+        this._FBPTriggerWire('--valueHelperRequested', null)
       }
     });
 
@@ -517,10 +554,10 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     this.addEventListener('keydown', event => {
       const key = event.key || event.keyCode;
 
-      if(key === 'F4'){
-        if(this.extendedSearcher !== undefined){
+      if (key === 'F4') {
+        if (this._hasExtendedSearcher) {
           this._closeList();
-          this._FBPTriggerWire('--valueHelperRequested',null);
+          this._FBPTriggerWire('--valueHelperRequested', null);
         }
       }
 
@@ -561,7 +598,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
           if (this.searchOnEnterOnly) {
             event.preventDefault();
             this._searchTerm = this._inputField.value;
-            if(this._searchTerm.length >= this.minTermLength){
+            if (this._searchTerm.length >= this.minTermLength) {
               this._FBPTriggerWire('--searchTerm', this._inputField.value);
             }
           }
@@ -622,7 +659,6 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       }
     }
   }
-
 
 
   /**
@@ -778,7 +814,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
           position: relative;
         }
 
-        .list{
+        .list {
           position: absolute;
           overflow: auto;
           box-shadow: rgba(0, 0, 0, 0.42) 0 0 0 1px;
@@ -796,11 +832,11 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         }
 
 
-
         ui5-input,
         ui5-list {
           width: inherit;
         }
+
         ui5-busyindicator {
           position: absolute;
           left: 50%;
@@ -809,6 +845,23 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         }
 
 
+        ui5-icon {
+          color: var(--sapContent_IconColor);
+          cursor: pointer;
+          outline: none;
+          padding: var(--_ui5_input_icon_padding);
+          border-left: 1px solid transparent;
+          min-width: 1rem;
+          min-height: 1rem;
+        }
+
+        :host([readonly]) ui5-icon {
+          display: none;
+        }
+
+        ui5-icon:hover {
+          background: var(--sapButton_Hover_Background);
+        }
 
       `
     );
@@ -839,7 +892,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
 
       </ui5-input>
       <ui5-busyindicator size="Small" ?active="${this.busy}"></ui5-busyindicator>
-      <ui5-list mode="SingleSelect"  class="list" @-item-selected="--itemSelected" growing="${this._hasmore}"
+      <ui5-list mode="SingleSelect" class="list" @-item-selected="--itemSelected" growing="${this._hasmore}"
                 @-load-more="--loadMore" @-last-element-selected="--lastListElementReached">
         <template
           is="flow-repeat"
@@ -865,12 +918,10 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         @-opened="--BackdropFocus"
         ƒ-close="--closeRequested, --recordSelected"
         @-closed="--backdropClosed"
-
       >
-        <div id="valueHelper"  style="width: 90vw; height: 80vh; background: var(--surface)"
-               @-escape-filter-panel="--closeRequested"
-              @-record-selected="--recordSelected">
-
+        <div id="valueHelper" style="width: 95vw; height: 95vh; background: var(--surface)"
+             @-escape-filter-panel="--closeRequested"
+             @-record-selected="--recordSelected">
         </div>
 
 

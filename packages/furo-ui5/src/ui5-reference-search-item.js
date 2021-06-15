@@ -19,7 +19,6 @@ export class Ui5ReferenceSearchItem extends StandardListItem.default {
     });
   }
 
-
   /**
    * Inject of the item
    * data of inner text of the element is defined with the attribute
