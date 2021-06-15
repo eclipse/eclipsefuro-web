@@ -1,7 +1,7 @@
-import { LitElement, html, css } from 'lit-element';
-import { Theme } from '@furo/framework/src/theme';
-import { FBP } from '@furo/fbp/src/fbp.js';
-import { Ui5LabelDataBinding } from './lib/Ui5LabelDataBinding.js';
+import {LitElement, html, css} from 'lit-element';
+import {Theme} from '@furo/framework/src/theme';
+import {FBP} from '@furo/fbp/src/fbp.js';
+import {Ui5LabelDataBinding} from './lib/Ui5LabelDataBinding.js';
 import '@ui5/webcomponents/dist/Label.js';
 
 import './furo-ui5-data-reference-search.js';
@@ -21,6 +21,7 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.label = '';
+    this.extendedSearcher = '';
   }
 
   /**
@@ -36,7 +37,8 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    // this._FBPTraceWires();
+    this._FBPTraceWires();
+    this._searcher = this.shadowRoot.getElementById("input")
   }
 
 
@@ -45,9 +47,9 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
       /**
        * the label for the data-reference-search
        */
-      label: { type: String },
+      label: {type: String},
 
-      placeholder: { type: String },
+      placeholder: {type: String},
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
@@ -63,25 +65,16 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
       required: {
         type: Boolean,
       },
-
+      /**
+       * Define the extended searcher
+       */
+      extendedSearcher: {
+        type: String, attribute: "extended-searcher",
+      },
 
     };
   }
 
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('FuroUi5DataReferenceSearchLabeled') ||
-      css`
-        :host {
-          display: block;
-        }
-        :host([hidden]) {
-          display: none;
-        }
-      `
-    );
-  }
 
   /**
    * Orchestrates the data field connection to the inside
@@ -90,7 +83,6 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
   bindData(fieldNode) {
     Ui5LabelDataBinding.bindData(this, fieldNode);
   }
-
 
 
   /**
@@ -102,11 +94,13 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
     return html`
       <furo-ui5-form-field-container>
         <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}
-        >${this.label}</ui5-label
+        >${this.label}
+        </ui5-label
         >
         <furo-ui5-data-reference-search
           content
           id="Input"
+          extended-searcher="${this.extendedSearcher}"
           ?readonly=${this.readonly}
           ?disabled=${this.disabled}
           ƒ-bind-data="--data"
@@ -115,6 +109,24 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
       </furo-ui5-form-field-container>
     `;
   }
+
+
+  static get styles() {
+    // language=CSS
+    return (
+      Theme.getThemeForComponent('FuroUi5DataReferenceSearchLabeled') ||
+      css`
+        :host {
+          display: block;
+        }
+
+        :host([hidden]) {
+          display: none;
+        }
+      `
+    );
+  }
+
 }
 
 window.customElements.define(
