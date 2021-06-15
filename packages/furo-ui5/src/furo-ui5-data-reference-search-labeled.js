@@ -70,8 +70,7 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
        *
        */
       extendedSearcher: {
-        type: String,
-        attribute: 'extended-searcher',
+        type: String, attribute: "extended-searcher",
       },
     };
   }

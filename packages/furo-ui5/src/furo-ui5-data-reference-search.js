@@ -439,9 +439,30 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       }
     })
 
+    /**
+     * Register hook on wire --nextRejected to
+     * disable the more link, because the next rel was rejected from the server
+     */
+    this._FBPAddWireHook("--nextRejected",(e)=>{
+      this._hasmore = 'None';
+      this.requestUpdate();
+    });
 
     // append more data to the list
     this._FBPAddWireHook("--nextSearchResponse", (response) => {
+      if (response.links) {
+        response.links.forEach((link) => {
+          if (link.rel === 'next') {
+            this._hasmore = 'Button';
+          }else{
+            this._hasmore = 'None';
+          }
+        })
+      }else{
+        this._hasmore = 'None';
+      }
+
+
       const entities = this.searchResponsePath.split('.').reduce((acc, part) => acc && acc[part], response);
       if (entities && entities.length > 0) {
         const currentIndex = this._searchResultItems.length - 1
@@ -945,6 +966,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         ƒ-hts-in="|--htsIn, --hts"
         @-search-success="--searchResponse"
         @-next-success="--nextSearchResponse"
+        @-next-rejected="--nextRejected"
         @-response="--responseReceived"
         @-response-error="--responseReceived, --responseError"
       ></furo-collection-agent>
