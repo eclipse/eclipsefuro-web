@@ -153,6 +153,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     // for the show more button
     this._hasmore = 'None';
     this._hasExtendedSearcher = false;
+    this.disableSearchList = false;
     this.icon = 'search';
 
     // used to restore the state after a invalidation -> validation change
@@ -245,7 +246,19 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       displayFieldPath: {type: String, attribute: "display-field-path"},
       extendedValueFieldPath: {type: String, attribute: "extended-value-field-path"},
       extendedDisplayFieldPath: {type: String, attribute: "extended-display-field-path"},
+      /**
+       * Use this attribute to set a custom icon for your searcher
+       */
       icon: {type: String},
+      /**
+       * A Boolean attribute which, if present, means this field can not be searched.
+       *
+       * This is very useful when you want enforce the usage of the extended search
+       */
+      disableSearchList: {
+        type: Boolean,
+        attribute: 'disable-search-list'
+      },
       /**
        * hint text when result not found by search
        */
@@ -345,7 +358,10 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
      * handle extended searcher
      */
     if (this.extendedSearcher) {
-      this.icon = 'value-help'
+      if(this.icon === 'search'){
+        this.icon = 'value-help'
+      }
+
       this._hasExtendedSearcher = true;
       this._valueHelperComponent = document.createElement(this.extendedSearcher);
       this._valueHelperComponent.style.height = "100%";
