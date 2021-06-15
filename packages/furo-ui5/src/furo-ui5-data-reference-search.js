@@ -137,6 +137,8 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     this.searchResponsePath = "entities";
     this.valueFieldPath = "data.id";
     this.displayFieldPath = "data.display_name";
+    this.extendedValueFieldPath = "data.id";
+    this.extendedDisplayFieldPath = "data.display_name";
     this.maxItemsToDisplay = 8;
     // initial value
     this.value = {id: '', display_name: ''};
@@ -241,6 +243,8 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       searchResponsePath: {type: String, attribute: "search-response-path"},
       valueFieldPath: {type: String, attribute: "value-field-path"},
       displayFieldPath: {type: String, attribute: "display-field-path"},
+      extendedValueFieldPath: {type: String, attribute: "extended-value-field-path"},
+      extendedDisplayFieldPath: {type: String, attribute: "extended-display-field-path"},
       icon: {type: String},
       /**
        * hint text when result not found by search
@@ -544,8 +548,8 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
      * TODO: valueFieldPath and displayFieldPath for value helper
      */
     this._FBPAddWireHook('--recordSelected', item => {
-      this.value.id = this.valueFieldPath.split('.').reduce((acc, part) => acc && acc[part], item);
-      this.value.display_name = this.displayFieldPath.split('.').reduce((acc, part) => acc && acc[part], item);
+      this.value.id = this.extendedValueFieldPath.split('.').reduce((acc, part) => acc && acc[part], item);
+      this.value.display_name = this.extendedDisplayFieldPath.split('.').reduce((acc, part) => acc && acc[part], item);
       this._updateField();
       this._closeList();
     });

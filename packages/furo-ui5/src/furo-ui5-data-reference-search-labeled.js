@@ -22,6 +22,12 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
     super(props);
     this.label = '';
     this.extendedSearcher = '';
+    this.searchResponsePath = "entities";
+    this.valueFieldPath = "data.id";
+    this.displayFieldPath = "data.display_name";
+
+    this.extendedValueFieldPath = "data.id";
+    this.extendedDisplayFieldPath = "data.display_name";
   }
 
   /**
@@ -47,7 +53,11 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
        * the label for the data-reference-search
        */
       label: { type: String },
-
+      valueFieldPath: {type: String, attribute: "value-field-path"},
+      displayFieldPath: {type: String, attribute: "display-field-path"},
+      searchResponsePath: {type: String, attribute: "search-response-path"},
+      extendedValueFieldPath: {type: String, attribute: "extended-value-field-path"},
+      extendedDisplayFieldPath: {type: String, attribute: "extended-display-field-path"},
       placeholder: { type: String },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -100,6 +110,11 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
           extended-searcher="${this.extendedSearcher}"
           ?readonly=${this.readonly}
           ?disabled=${this.disabled}
+          search-response-path="${this.searchResponsePath}"
+          value-field-path="${this.valueFieldPath}"
+          display-field-path="${this.displayFieldPath}"
+          extended-value-field-path="${this.extendedValueFieldPath}"
+          extended-display-field-path="${this.extendedDisplayFieldPath}"
           ƒ-bind-data="--data"
           ƒ-focus="--focus"
         ></furo-ui5-data-reference-search>
