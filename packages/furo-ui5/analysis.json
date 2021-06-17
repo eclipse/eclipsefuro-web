@@ -8417,11 +8417,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 28,
+              "line": 27,
               "column": 2
             },
             "end": {
-              "line": 31,
+              "line": 30,
               "column": 3
             }
           },
@@ -8441,11 +8441,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 33,
+              "line": 32,
               "column": 2
             },
             "end": {
-              "line": 35,
+              "line": 34,
               "column": 3
             }
           },
@@ -8461,11 +8461,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 37,
+              "line": 36,
               "column": 2
             },
             "end": {
-              "line": 40,
+              "line": 39,
               "column": 3
             }
           },
@@ -8481,11 +8481,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 42,
+              "line": 41,
               "column": 2
             },
             "end": {
-              "line": 51,
+              "line": 50,
               "column": 3
             }
           },
@@ -8505,7 +8505,7 @@
           "column": 7
         },
         "end": {
-          "line": 52,
+          "line": 51,
           "column": 1
         }
       },
@@ -8532,23 +8532,42 @@
       ]
     },
     {
-      "description": "The furo-ui5-data-reference-search\n search a reference\n\n Bounded data must fullfill the  furo.reference signature. The service, deeplink,... is taken from the spec of your field.\n Do not forget to specify.\n\n\n *default usage*\n```html\n  <furo-ui5-data-reference-search\n  ƒ-bind-data=\"--data(*.is_person)\"\n  ></furo-ui5-data-reference-search>\n```\n\n *usage with a extended searcher*\n```html\n  <furo-ui5-data-reference-search\n  extended-searcher=\"country-filter\"\n  ƒ-bind-data=\"--data(*.is_person)\"\n  ></furo-ui5-data-reference-search>\n```\n\n *usage example for a non default response*\n```html\n  <furo-ui5-data-reference-search\n  extended-searcher=\"contact-filter\"\n  search-response-path=\"xx_entities\"\n  value-field-path=\"data.xx_id\"\n  display-field-path=\"data.xx_display_name\"\n  ƒ-bind-data=\"--data(*.is_person)\"\n  ></furo-ui5-data-reference-search-labeled>\n```\n\n\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **max:\"number\"** set the maximum number of characters available in the input field.\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)\n\n## Specs\nDefine a propper default value on the reference type.\n\n```yaml\nlink:\ntype: furo.Link\ndescription: HTS for the initial search (the default works on root resources only)\n__proto:\n   number: 3\n__ui: null\nmeta:\n  default: |\n    {\n         \"rel\": \"list\",\n         \"href\": \"/contacts\",\n         \"method\": \"GET\",\n         \"type\": \"contact.Contact\",\n         \"service\": \"Contacts\"\n     }\n  placeholder: \"\"\n  hint: \"\"\n  label: contact.Reference.link.label\n  options:\n    flags: []\n    list: []\n  readonly: false\n  repeated: false\n  typespecific: null\n\n```",
+      "description": "The furo-ui5-data-reference-search\n search a reference\n\n Bounded data must fullfill the  furo.reference signature. The service, deeplink,... is taken from the spec of your field.\n Do not forget to specify.\n\n\n *default usage*\n```html\n  <furo-ui5-data-reference-search\n  ƒ-bind-data=\"--data(*.is_person)\"\n  ></furo-ui5-data-reference-search>\n```\n\n *usage with a extended searcher*\n```html\n  <furo-ui5-data-reference-search\n  extended-searcher=\"country-filter\"\n  ƒ-bind-data=\"--data(*.is_person)\"\n  ></furo-ui5-data-reference-search>\n```\n\n *usage example for a non default response*\n```html\n  <furo-ui5-data-reference-search\n  extended-searcher=\"contact-filter\"\n  search-response-path=\"xx_entities\"\n  value-field-path=\"data.xx_id\"\n  display-field-path=\"data.xx_display_name\"\n  ƒ-bind-data=\"--data(*.is_person)\"\n  ></furo-ui5-data-reference-search-labeled>\n```\n\n\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n- **placeholder:\"some string\"** set the placeholder for the element\n- **max:\"number\"** set the maximum number of characters available in the input field.\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. This can be a scalar type or any complex type with 'id','display_name' signature.\n\nIf your type has a *reference* type signature ('id','display_name', 'link'), the service, and initial deep link is extracted from\nthe link part of your type.\n\nIf you bind a skalar field, the value which is set in 'valueFieldPath' will be set.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)\n\n## Specs\nDefine a propper default value on the reference type.\n\n```yaml\nlink:\ntype: furo.Link\ndescription: HTS for the initial search (the default works on root resources only)\n__proto:\n   number: 3\n__ui: null\nmeta:\n  default: |\n    {\n         \"rel\": \"list\",\n         \"href\": \"/contacts\",\n         \"method\": \"GET\",\n         \"type\": \"contact.Contact\",\n         \"service\": \"Contacts\"\n     }\n  placeholder: \"\"\n  hint: \"\"\n  label: contact.Reference.link.label\n  options:\n    flags: []\n    list: []\n  readonly: false\n  repeated: false\n  typespecific: null\n\n```\n### API of a extended searcher\n### Searcher Mehtods\nThe only method you have to implement is **htsIn**. The reference-search will pass its own hts to the extended\nsearcher. A call on qpIn on the searcher will also pass the resulting hts to the extended searcher.\n\n### Searcher Events\nFire a **@-record-selected** to set the item on the reference-search.\nFire a **@-close-requested** to close the extended search.",
       "summary": "furo ui5 data reference search",
       "path": "src/furo-ui5-data-reference-search.js",
       "properties": [
         {
-          "name": "searchResponsePath",
+          "name": "service",
           "type": "string | null | undefined",
-          "description": "",
+          "description": "Set the service. This is only needed when you do not use a bind or bind a scalar value.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 391,
+              "column": 2
+            },
+            "end": {
+              "line": 397,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "searchResponsePath",
+          "type": "string | null | undefined",
+          "description": "Path to the node in the response value which contains the array with the selection items.\nBy default this goes to *entitites*",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 253,
               "column": 6
             },
             "end": {
-              "line": 231,
-              "column": 75
+              "line": 253,
+              "column": 77
             }
           },
           "metadata": {
@@ -8560,16 +8579,16 @@
         {
           "name": "valueFieldPath",
           "type": "string | null | undefined",
-          "description": "",
+          "description": "Path to response value item which is used for the id.\nBy default this goes to *data.id*",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 232,
+              "line": 258,
               "column": 6
             },
             "end": {
-              "line": 232,
-              "column": 67
+              "line": 258,
+              "column": 69
             }
           },
           "metadata": {
@@ -8581,16 +8600,58 @@
         {
           "name": "displayFieldPath",
           "type": "string | null | undefined",
-          "description": "",
+          "description": "Path to selection value node which is used for the display.\nBy default this goes to *data.display_name*",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 263,
               "column": 6
             },
             "end": {
-              "line": 233,
-              "column": 71
+              "line": 263,
+              "column": 73
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "extendedValueFieldPath",
+          "type": "string | null | undefined",
+          "description": "Path to response value item of the exteded search which is used for the id.\nBy default this goes to *data.id*.\nOnly needed when your extended searcher does not have the id, display_name signature in the response.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 269,
+              "column": 6
+            },
+            "end": {
+              "line": 269,
+              "column": 86
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "extendedDisplayFieldPath",
+          "type": "string | null | undefined",
+          "description": "Path to response value item of the exteded search which is used for the display.\nBy default this goes to *data.display_name*.\nOnly needed when your extended searcher does not have the id, display_name signature in the response.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 275,
+              "column": 6
+            },
+            "end": {
+              "line": 275,
+              "column": 90
             }
           },
           "metadata": {
@@ -8602,16 +8663,16 @@
         {
           "name": "icon",
           "type": "string | null | undefined",
-          "description": "",
+          "description": "Use this attribute to set a custom icon for your searcher",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 234,
+              "line": 283,
               "column": 6
             },
             "end": {
-              "line": 234,
-              "column": 26
+              "line": 283,
+              "column": 28
             }
           },
           "metadata": {
@@ -8621,17 +8682,38 @@
           }
         },
         {
-          "name": "noResultText",
+          "name": "disableSearchList",
+          "type": "boolean | null | undefined",
+          "description": "A Boolean attribute which, if present, means this field can not be searched.\n\nThis is very useful when you want enforce the usage of the extended search",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 289,
+              "column": 6
+            },
+            "end": {
+              "line": 292,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "noDataText",
           "type": "string | null | undefined",
           "description": "hint text when result not found by search",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 238,
+              "line": 296,
               "column": 6
             },
             "end": {
-              "line": 241,
+              "line": 299,
               "column": 7
             }
           },
@@ -8648,11 +8730,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 247,
+              "line": 305,
               "column": 6
             },
             "end": {
-              "line": 250,
+              "line": 308,
               "column": 7
             }
           },
@@ -8669,11 +8751,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 314,
               "column": 6
             },
             "end": {
-              "line": 258,
+              "line": 316,
               "column": 7
             }
           },
@@ -8690,11 +8772,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 263,
+              "line": 321,
               "column": 6
             },
             "end": {
-              "line": 266,
+              "line": 324,
               "column": 7
             }
           },
@@ -8711,11 +8793,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 275,
+              "line": 333,
               "column": 6
             },
             "end": {
-              "line": 278,
+              "line": 336,
               "column": 7
             }
           },
@@ -8732,11 +8814,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 285,
+              "line": 343,
               "column": 6
             },
             "end": {
-              "line": 288,
+              "line": 346,
               "column": 7
             }
           },
@@ -8753,11 +8835,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 294,
+              "line": 352,
               "column": 6
             },
             "end": {
-              "line": 296,
+              "line": 354,
               "column": 7
             }
           },
@@ -8774,11 +8856,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 300,
+              "line": 358,
               "column": 6
             },
             "end": {
-              "line": 303,
+              "line": 360,
               "column": 7
             }
           },
@@ -8795,11 +8877,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 307,
+              "line": 364,
               "column": 6
             },
             "end": {
-              "line": 309,
+              "line": 366,
               "column": 7
             }
           },
@@ -8816,11 +8898,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 314,
+              "line": 371,
               "column": 6
             },
             "end": {
-              "line": 316,
+              "line": 374,
               "column": 7
             }
           },
@@ -8833,15 +8915,15 @@
         {
           "name": "extendedSearcher",
           "type": "string | null | undefined",
-          "description": "Define the extended searcher. Do not forget to import the searcher you want to use.\n#### API of a searcher\n#### Mehtods\nThe only method you have to implement is **htsIn**. The reference-search will pass its own hts to the extended\nsearcher. A call on qpIn on the searcher will also pass the resulting hts to the extended searcher.\n\n#### Events",
+          "description": "Define the extended searcher. Do not forget to import the searcher you want to use.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 329,
+              "line": 379,
               "column": 6
             },
             "end": {
-              "line": 331,
+              "line": 382,
               "column": 7
             }
           },
@@ -8859,11 +8941,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 192,
               "column": 2
             },
             "end": {
-              "line": 187,
+              "line": 206,
               "column": 3
             }
           },
@@ -8883,11 +8965,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 189,
+              "line": 208,
               "column": 2
             },
             "end": {
-              "line": 209,
+              "line": 226,
               "column": 3
             }
           },
@@ -8903,11 +8985,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 216,
+              "line": 232,
               "column": 2
             },
             "end": {
-              "line": 221,
+              "line": 241,
               "column": 3
             }
           },
@@ -8923,11 +9005,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 337,
+              "line": 399,
               "column": 2
             },
             "end": {
-              "line": 628,
+              "line": 715,
               "column": 3
             }
           },
@@ -8943,11 +9025,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 634,
+              "line": 721,
               "column": 2
             },
             "end": {
-              "line": 637,
+              "line": 724,
               "column": 3
             }
           },
@@ -8963,11 +9045,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 643,
+              "line": 730,
               "column": 2
             },
             "end": {
-              "line": 664,
+              "line": 751,
               "column": 3
             }
           },
@@ -8983,11 +9065,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 673,
+              "line": 758,
               "column": 2
             },
             "end": {
-              "line": 678,
+              "line": 763,
               "column": 3
             }
           },
@@ -9007,11 +9089,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 685,
+              "line": 770,
               "column": 2
             },
             "end": {
-              "line": 694,
+              "line": 777,
               "column": 3
             }
           },
@@ -9031,11 +9113,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 701,
+              "line": 784,
               "column": 2
             },
             "end": {
-              "line": 712,
+              "line": 792,
               "column": 3
             }
           },
@@ -9055,11 +9137,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 719,
+              "line": 799,
               "column": 2
             },
             "end": {
-              "line": 725,
+              "line": 804,
               "column": 3
             }
           },
@@ -9079,11 +9161,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 731,
+              "line": 810,
               "column": 2
             },
             "end": {
-              "line": 733,
+              "line": 812,
               "column": 3
             }
           },
@@ -9099,11 +9181,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 743,
+              "line": 821,
               "column": 2
             },
             "end": {
-              "line": 748,
+              "line": 826,
               "column": 3
             }
           },
@@ -9126,11 +9208,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 754,
+              "line": 832,
               "column": 2
             },
             "end": {
-              "line": 756,
+              "line": 834,
               "column": 3
             }
           },
@@ -9146,11 +9228,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 772,
+              "line": 850,
               "column": 2
             },
             "end": {
-              "line": 782,
+              "line": 859,
               "column": 3
             }
           },
@@ -9166,11 +9248,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 792,
+              "line": 869,
               "column": 2
             },
             "end": {
-              "line": 794,
+              "line": 871,
               "column": 3
             }
           },
@@ -9190,11 +9272,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 801,
+              "line": 878,
               "column": 2
             },
             "end": {
-              "line": 803,
+              "line": 880,
               "column": 3
             }
           },
@@ -9214,11 +9296,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 861,
+              "line": 950,
               "column": 2
             },
             "end": {
-              "line": 941,
+              "line": 1038,
               "column": 3
             }
           },
@@ -9239,11 +9321,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 96,
+          "line": 111,
           "column": 7
         },
         "end": {
-          "line": 943,
+          "line": 1039,
           "column": 1
         }
       },
@@ -9252,16 +9334,32 @@
       "name": "FuroUi5DataReferenceSearch",
       "attributes": [
         {
-          "name": "search-response-path",
-          "description": "",
+          "name": "service",
+          "description": "Set the service. This is only needed when you do not use a bind or bind a scalar value.",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 391,
+              "column": 2
+            },
+            "end": {
+              "line": 397,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "search-response-path",
+          "description": "Path to the node in the response value which contains the array with the selection items.\nBy default this goes to *entitites*",
+          "sourceRange": {
+            "start": {
+              "line": 253,
               "column": 6
             },
             "end": {
-              "line": 231,
-              "column": 75
+              "line": 253,
+              "column": 77
             }
           },
           "metadata": {},
@@ -9269,15 +9367,15 @@
         },
         {
           "name": "value-field-path",
-          "description": "",
+          "description": "Path to response value item which is used for the id.\nBy default this goes to *data.id*",
           "sourceRange": {
             "start": {
-              "line": 232,
+              "line": 258,
               "column": 6
             },
             "end": {
-              "line": 232,
-              "column": 67
+              "line": 258,
+              "column": 69
             }
           },
           "metadata": {},
@@ -9285,15 +9383,47 @@
         },
         {
           "name": "display-field-path",
-          "description": "",
+          "description": "Path to selection value node which is used for the display.\nBy default this goes to *data.display_name*",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 263,
               "column": 6
             },
             "end": {
-              "line": 233,
-              "column": 71
+              "line": 263,
+              "column": 73
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "extended-value-field-path",
+          "description": "Path to response value item of the exteded search which is used for the id.\nBy default this goes to *data.id*.\nOnly needed when your extended searcher does not have the id, display_name signature in the response.",
+          "sourceRange": {
+            "start": {
+              "line": 269,
+              "column": 6
+            },
+            "end": {
+              "line": 269,
+              "column": 86
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "extended-display-field-path",
+          "description": "Path to response value item of the exteded search which is used for the display.\nBy default this goes to *data.display_name*.\nOnly needed when your extended searcher does not have the id, display_name signature in the response.",
+          "sourceRange": {
+            "start": {
+              "line": 275,
+              "column": 6
+            },
+            "end": {
+              "line": 275,
+              "column": 90
             }
           },
           "metadata": {},
@@ -9301,30 +9431,46 @@
         },
         {
           "name": "icon",
-          "description": "",
+          "description": "Use this attribute to set a custom icon for your searcher",
           "sourceRange": {
             "start": {
-              "line": 234,
+              "line": 283,
               "column": 6
             },
             "end": {
-              "line": 234,
-              "column": 26
+              "line": 283,
+              "column": 28
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
         },
         {
-          "name": "no-result-text",
-          "description": "hint text when result not found by search",
+          "name": "disable-search-list",
+          "description": "A Boolean attribute which, if present, means this field can not be searched.\n\nThis is very useful when you want enforce the usage of the extended search",
           "sourceRange": {
             "start": {
-              "line": 238,
+              "line": 289,
               "column": 6
             },
             "end": {
-              "line": 241,
+              "line": 292,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "no-data-text",
+          "description": "hint text when result not found by search",
+          "sourceRange": {
+            "start": {
+              "line": 296,
+              "column": 6
+            },
+            "end": {
+              "line": 299,
               "column": 7
             }
           },
@@ -9336,11 +9482,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 247,
+              "line": 305,
               "column": 6
             },
             "end": {
-              "line": 250,
+              "line": 308,
               "column": 7
             }
           },
@@ -9352,11 +9498,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 314,
               "column": 6
             },
             "end": {
-              "line": 258,
+              "line": 316,
               "column": 7
             }
           },
@@ -9368,11 +9514,11 @@
           "description": "The minimal length of search term to trigger a search.",
           "sourceRange": {
             "start": {
-              "line": 263,
+              "line": 321,
               "column": 6
             },
             "end": {
-              "line": 266,
+              "line": 324,
               "column": 7
             }
           },
@@ -9384,11 +9530,11 @@
           "description": "The maximal number of items to display.\n\nThis value will be set as page-size query-param for the backend.\n\nIf the response contains hts information with rel *next* a \"load more\" button will be displayed at the end\nof the list.",
           "sourceRange": {
             "start": {
-              "line": 275,
+              "line": 333,
               "column": 6
             },
             "end": {
-              "line": 278,
+              "line": 336,
               "column": 7
             }
           },
@@ -9400,11 +9546,11 @@
           "description": "Enable this, to avoid the automatic triggering of \"search\".\n\nThe user have to press enter to trigger the search. Min-term-length is respected.",
           "sourceRange": {
             "start": {
-              "line": 285,
+              "line": 343,
               "column": 6
             },
             "end": {
-              "line": 288,
+              "line": 346,
               "column": 7
             }
           },
@@ -9416,11 +9562,11 @@
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 294,
+              "line": 352,
               "column": 6
             },
             "end": {
-              "line": 296,
+              "line": 354,
               "column": 7
             }
           },
@@ -9432,11 +9578,11 @@
           "description": "Disable",
           "sourceRange": {
             "start": {
-              "line": 300,
+              "line": 358,
               "column": 6
             },
             "end": {
-              "line": 303,
+              "line": 360,
               "column": 7
             }
           },
@@ -9448,11 +9594,11 @@
           "description": "This is used to activate the loading indicator.",
           "sourceRange": {
             "start": {
-              "line": 307,
+              "line": 364,
               "column": 6
             },
             "end": {
-              "line": 309,
+              "line": 366,
               "column": 7
             }
           },
@@ -9464,11 +9610,11 @@
           "description": "wait for this time between keystrokes to trigger a search to the service",
           "sourceRange": {
             "start": {
-              "line": 314,
+              "line": 371,
               "column": 6
             },
             "end": {
-              "line": 316,
+              "line": 374,
               "column": 7
             }
           },
@@ -9477,14 +9623,14 @@
         },
         {
           "name": "extended-searcher",
-          "description": "Define the extended searcher. Do not forget to import the searcher you want to use.\n#### API of a searcher\n#### Mehtods\nThe only method you have to implement is **htsIn**. The reference-search will pass its own hts to the extended\nsearcher. A call on qpIn on the searcher will also pass the resulting hts to the extended searcher.\n\n#### Events",
+          "description": "Define the extended searcher. Do not forget to import the searcher you want to use.",
           "sourceRange": {
             "start": {
-              "line": 329,
+              "line": 379,
               "column": 6
             },
             "end": {
-              "line": 331,
+              "line": 382,
               "column": 7
             }
           },
@@ -9531,18 +9677,144 @@
       "path": "src/furo-ui5-data-reference-search-labeled.js",
       "properties": [
         {
-          "name": "label",
+          "name": "service",
           "type": "string | null | undefined",
           "description": "the label for the data-reference-search",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 49,
+              "line": 57,
               "column": 6
             },
             "end": {
-              "line": 49,
-              "column": 27
+              "line": 57,
+              "column": 31
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "label",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 58,
+              "column": 6
+            },
+            "end": {
+              "line": 58,
+              "column": 29
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "valueFieldPath",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 59,
+              "column": 6
+            },
+            "end": {
+              "line": 59,
+              "column": 69
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "displayFieldPath",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 60,
+              "column": 6
+            },
+            "end": {
+              "line": 60,
+              "column": 73
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "searchResponsePath",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 61,
+              "column": 6
+            },
+            "end": {
+              "line": 61,
+              "column": 77
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "extendedValueFieldPath",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 62,
+              "column": 6
+            },
+            "end": {
+              "line": 62,
+              "column": 86
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "extendedDisplayFieldPath",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 63,
+              "column": 6
+            },
+            "end": {
+              "line": 63,
+              "column": 90
             }
           },
           "metadata": {
@@ -9558,17 +9830,59 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 51,
+              "line": 64,
               "column": 6
             },
             "end": {
-              "line": 51,
-              "column": 33
+              "line": 64,
+              "column": 35
             }
           },
           "metadata": {
             "polymer": {
               "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "icon",
+          "type": "string | null | undefined",
+          "description": "Use this attribute to set a custom icon for your searcher",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 68,
+              "column": 6
+            },
+            "end": {
+              "line": 68,
+              "column": 28
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "disableSearchList",
+          "type": "boolean | null | undefined",
+          "description": "A Boolean attribute which, if present, means this field can not be searched.\n\nThis is very useful when you want enforce the usage of the extended search",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 74,
+              "column": 6
+            },
+            "end": {
+              "line": 77,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
             }
           }
         },
@@ -9579,11 +9893,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 55,
+              "line": 81,
               "column": 6
             },
             "end": {
-              "line": 57,
+              "line": 83,
               "column": 7
             }
           },
@@ -9600,11 +9914,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 58,
+              "line": 84,
               "column": 6
             },
             "end": {
-              "line": 60,
+              "line": 86,
               "column": 7
             }
           },
@@ -9621,11 +9935,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 64,
+              "line": 90,
               "column": 6
             },
             "end": {
-              "line": 66,
+              "line": 92,
               "column": 7
             }
           },
@@ -9638,15 +9952,15 @@
         {
           "name": "extendedSearcher",
           "type": "string | null | undefined",
-          "description": "Define the extended searcher",
+          "description": "Define the extended searcher. Do not forget to import the searcher you want to use.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 70,
+              "line": 98,
               "column": 6
             },
             "end": {
-              "line": 72,
+              "line": 101,
               "column": 7
             }
           },
@@ -9664,11 +9978,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 30,
+              "line": 39,
               "column": 2
             },
             "end": {
-              "line": 32,
+              "line": 41,
               "column": 3
             }
           },
@@ -9688,11 +10002,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 37,
+              "line": 46,
               "column": 2
             },
             "end": {
-              "line": 41,
+              "line": 50,
               "column": 3
             }
           },
@@ -9708,11 +10022,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 82,
+              "line": 109,
               "column": 2
             },
             "end": {
-              "line": 84,
+              "line": 111,
               "column": 3
             }
           },
@@ -9732,11 +10046,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 91,
+              "line": 117,
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 143,
               "column": 3
             }
           },
@@ -9750,7 +10064,7 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-ui5-form-field-container",
+          "url": "demo-furo-ui5-data-reference-search",
           "description": "Simple use"
         }
       ],
@@ -9761,7 +10075,7 @@
           "column": 0
         },
         "end": {
-          "line": 129,
+          "line": 160,
           "column": 1
         }
       },
@@ -9770,16 +10084,112 @@
       "name": "FuroUi5DataReferenceSearchLabeled",
       "attributes": [
         {
-          "name": "label",
+          "name": "service",
           "description": "the label for the data-reference-search",
           "sourceRange": {
             "start": {
-              "line": 49,
+              "line": 57,
               "column": 6
             },
             "end": {
-              "line": 49,
-              "column": 27
+              "line": 57,
+              "column": 31
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "label",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 58,
+              "column": 6
+            },
+            "end": {
+              "line": 58,
+              "column": 29
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "value-field-path",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 59,
+              "column": 6
+            },
+            "end": {
+              "line": 59,
+              "column": 69
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "display-field-path",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 60,
+              "column": 6
+            },
+            "end": {
+              "line": 60,
+              "column": 73
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "search-response-path",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 61,
+              "column": 6
+            },
+            "end": {
+              "line": 61,
+              "column": 77
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "extended-value-field-path",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 62,
+              "column": 6
+            },
+            "end": {
+              "line": 62,
+              "column": 86
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "extended-display-field-path",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 63,
+              "column": 6
+            },
+            "end": {
+              "line": 63,
+              "column": 90
             }
           },
           "metadata": {},
@@ -9790,27 +10200,59 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 51,
+              "line": 64,
               "column": 6
             },
             "end": {
-              "line": 51,
-              "column": 33
+              "line": 64,
+              "column": 35
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
         },
         {
+          "name": "icon",
+          "description": "Use this attribute to set a custom icon for your searcher",
+          "sourceRange": {
+            "start": {
+              "line": 68,
+              "column": 6
+            },
+            "end": {
+              "line": 68,
+              "column": 28
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "disable-search-list",
+          "description": "A Boolean attribute which, if present, means this field can not be searched.\n\nThis is very useful when you want enforce the usage of the extended search",
+          "sourceRange": {
+            "start": {
+              "line": 74,
+              "column": 6
+            },
+            "end": {
+              "line": 77,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
           "name": "disabled",
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 55,
+              "line": 81,
               "column": 6
             },
             "end": {
-              "line": 57,
+              "line": 83,
               "column": 7
             }
           },
@@ -9822,11 +10264,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 58,
+              "line": 84,
               "column": 6
             },
             "end": {
-              "line": 60,
+              "line": 86,
               "column": 7
             }
           },
@@ -9838,11 +10280,11 @@
           "description": "A Boolean attribute which, if present, means this field is required and marked with *.",
           "sourceRange": {
             "start": {
-              "line": 64,
+              "line": 90,
               "column": 6
             },
             "end": {
-              "line": 66,
+              "line": 92,
               "column": 7
             }
           },
@@ -9851,14 +10293,14 @@
         },
         {
           "name": "extended-searcher",
-          "description": "Define the extended searcher",
+          "description": "Define the extended searcher. Do not forget to import the searcher you want to use.",
           "sourceRange": {
             "start": {
-              "line": 70,
+              "line": 98,
               "column": 6
             },
             "end": {
-              "line": 72,
+              "line": 101,
               "column": 7
             }
           },
@@ -9959,7 +10401,7 @@
               "column": 2
             },
             "end": {
-              "line": 79,
+              "line": 84,
               "column": 3
             }
           },
@@ -9979,7 +10421,7 @@
           "column": 0
         },
         "end": {
-          "line": 80,
+          "line": 85,
           "column": 1
         }
       },

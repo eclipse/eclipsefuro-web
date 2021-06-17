@@ -75,58 +75,28 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
           <h2>Demo furo-ui5-data-reference-search</h2>
           <p>
             The search is started when the input has reached the value of min-term-length (default
-            value: 0).
+            value: 2).
           </p>
         </div>
         <furo-demo-snippet flex>
           <template>
             <furo-form-layouter two>
+              <div>
+                <p>min-term-length set to 1 character</p>
               <furo-ui5-data-reference-search
-                placeholder="max 2 results"
-                max-items-to-display="2"
-                max-results-hint="show max 2 items"
-                display-field="name"
+                ƒ-bind-data="--entityReady(*.owner)"
+                min-term-length = "1"
+              >
+              </furo-ui5-data-reference-search>
+              </div>
+              <furo-ui5-data-reference-search-labeled
+                display-field-path="data.name"
                 ƒ-bind-data="--entityReady(*.owner)"
                 @-search="--term"
-                ƒ-collection-in="--refCol"
               >
-              </furo-ui5-data-reference-search>
+              </furo-ui5-data-reference-search-labeled>
 
-              <furo-ui5-data-reference-search
-                placeholder="this is a placeholder"
-                ƒ-bind-data="--entityReady(*.owner)"
-                @-search="--term"
-                ƒ-collection-in="--refCol"
-              >
-              </furo-ui5-data-reference-search>
-            </furo-form-layouter>
-            <furo-pretty-json ƒ-inject-data="--data(*.owner._value)"></furo-pretty-json>
-            <furo-form-layouter two>
-              <furo-ui5-data-reference-search
-                placeholder="min term length 2"
-                min-term-length="2"
-                max-items-to-display="2"
-                max-results-hint="show max 2 items"
-                display-field="name"
-                ƒ-bind-data="--entityReady(*.owner)"
-                @-search="--term"
-                ƒ-collection-in="--refCol"
-              >
-              </furo-ui5-data-reference-search>
 
-              <furo-ui5-data-reference-search
-                placeholder="in loading example"
-                ƒ-bind-data="--entityReady(*.owner)"
-              >
-              </furo-ui5-data-reference-search>
-
-              <furo-ui5-data-reference-search
-                placeholder="no result example"
-                no-result-hint="no result found"
-                @-search="--termNoResult"
-                ƒ-collection-in="--refColNoResult(*.noResult)"
-              >
-              </furo-ui5-data-reference-search>
             </furo-form-layouter>
             <furo-data-object
               type="task.Task"
@@ -134,21 +104,8 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
               @-object-ready="--entityReady"
             >
             </furo-data-object>
-            <furo-collection-agent
-              service="PersonService"
-              ƒ-hts-in="--entityReady(*.owner.link._value)"
-              ƒ-search="--term"
-              @-response="--refCol"
-            >
-            </furo-collection-agent>
-
-            <furo-collection-agent
-              service="PersonService"
-              ƒ-hts-in="--entityReady(*.owner.link._value)"
-              ƒ-search="--termNoResult"
-              @-response="--refColNoResult"
-            >
-            </furo-collection-agent>
+            <!-- Used for the demo only -->
+            <furo-pretty-json ƒ-inject-data="--data(*.owner._value)"></furo-pretty-json>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

@@ -196,16 +196,15 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       this._FBPTriggerWire('--detectedService', val.link.service);
       this._FBPTriggerWire('--hts', val.link);
     }
-    if(this.__fieldNode.__childNodes.length === 0){
+    if (this.__fieldNode.__childNodes.length === 0) {
       // assuming a scalar
-      this.value = { id: val, display_name: val};
+      this.value = { id: val, display_name: val };
       this._FBPTriggerWire('--displayValue', val);
-    }else{
+    } else {
       this._FBPTriggerWire('--displayValue', val.display_name);
       this.value = val;
     }
   }
-
 
   connectedCallback() {
     // eslint-disable-next-line wc/guard-super-call
@@ -235,12 +234,11 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     if (this.value.display_name !== undefined) {
       this._FBPTriggerWire('--displayValue', this.value.display_name);
     }
-    if(this.__fieldNode.__childNodes.length === 0){
+    if (this.__fieldNode.__childNodes.length === 0) {
       this.setFnaFieldValue(this.value.id);
-    }else{
+    } else {
       this.setFnaFieldValue(this.value);
     }
-
   }
 
   /**
@@ -386,21 +384,18 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     };
   }
 
-
   /**
    * setter for the service
    * @public
    * @param service
    */
   set service(service) {
-
-    if(!(service === '' || service === undefined)){
+    if (!(service === '' || service === undefined)) {
       this._FBPTriggerWire('|--service', service);
       // set empty qp
       this._FBPTriggerWire('|--qpIn', {});
     }
   }
-
 
   _FBPReady() {
     /**
@@ -445,7 +440,11 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     // listen to search input
     this._inputField.addEventListener('input', () => {
       this._searchTerm = this._inputField.value;
-      if (this._searchTerm.length >= this.minTermLength && !this.searchOnEnterOnly &&!this.disableSearchList) {
+      if (
+        this._searchTerm.length >= this.minTermLength &&
+        !this.searchOnEnterOnly &&
+        !this.disableSearchList
+      ) {
         this._FBPTriggerWire('--searchTerm', this._inputField.value);
       }
     });
@@ -635,7 +634,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       if (this._hasExtendedSearcher) {
         this._closeList();
         this._FBPTriggerWire('--valueHelperRequested', null);
-      }else{
+      } else {
         // clear the field and focus for a new search
         this._FBPTriggerWire('--displayValue', '');
         this._inputField.focus();
@@ -1016,7 +1015,11 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         wait="${this.debounceTimeout}"
       ></furo-de-bounce>
 
-      <furo-deep-link ƒ-.service="--detectedService, |--service" ƒ-qp-in="|--qpIn" @-hts-out="--hts">
+      <furo-deep-link
+        ƒ-.service="--detectedService, |--service"
+        ƒ-qp-in="|--qpIn"
+        @-hts-out="--hts"
+      >
       </furo-deep-link>
 
       <!-- todo: ƒ-cancel-request="--searchTerm" -->

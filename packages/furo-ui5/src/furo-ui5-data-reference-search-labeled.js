@@ -14,7 +14,7 @@ import './furo-ui5-form-field-container.js';
  *
  * @summary labeled input field
  * @customElement
- * @demo demo-furo-ui5-form-field-container Simple use
+ * @demo demo-furo-ui5-data-reference-search Simple use
  * @appliesMixin FBP
  */
 class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
@@ -120,7 +120,7 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
     return html`
       <furo-ui5-form-field-container>
         <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}
-        >${this.label}
+          >${this.label}
         </ui5-label>
         <furo-ui5-data-reference-search
           content
