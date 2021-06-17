@@ -61,6 +61,8 @@ import '@ui5/webcomponents-icons/dist/search.js';
  * If your type has a *reference* type signature ('id','display_name', 'link'), the service, and initial deep link is extracted from
  * the link part of your type.
  *
+ * If you bind a skalar field, the value which is set in 'valueFieldPath' will be set.
+ *
  * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  *
  * ## Specs
