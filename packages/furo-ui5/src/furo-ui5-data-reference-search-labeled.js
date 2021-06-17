@@ -20,6 +20,7 @@ import './furo-ui5-form-field-container.js';
 class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
   constructor(props) {
     super(props);
+    this.service = '';
     this.label = '';
     this.extendedSearcher = '';
     this.disableSearchList = false;
@@ -54,6 +55,7 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
       /**
        * the label for the data-reference-search
        */
+      service: { type: String },
       label: { type: String },
       valueFieldPath: { type: String, attribute: 'value-field-path' },
       displayFieldPath: { type: String, attribute: 'display-field-path' },
@@ -118,7 +120,7 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
     return html`
       <furo-ui5-form-field-container>
         <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}
-          >${this.label}
+        >${this.label}
         </ui5-label>
         <furo-ui5-data-reference-search
           content
@@ -130,6 +132,7 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
           search-response-path="${this.searchResponsePath}"
           value-field-path="${this.valueFieldPath}"
           icon="${this.icon}"
+          service="${this.service}"
           display-field-path="${this.displayFieldPath}"
           extended-value-field-path="${this.extendedValueFieldPath}"
           extended-display-field-path="${this.extendedDisplayFieldPath}"

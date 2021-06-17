@@ -56,7 +56,10 @@ import '@ui5/webcomponents-icons/dist/search.js';
  *
  * ## Methods
  * **bind-data(fieldNode)**
- * Bind a entity field. You can use the entity even when no data was received.
+ * Bind a entity field. This can be a scalar type or any complex type with 'id','display_name' signature.
+ *
+ * If your type has a *reference* type signature ('id','display_name', 'link'), the service, and initial deep link is extracted from
+ * the link part of your type.
  *
  * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  *
@@ -133,6 +136,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
   constructor() {
     super();
 
+    this.service = '';
     this.searchResponsePath = 'entities';
     this.valueFieldPath = 'data.id';
     this.displayFieldPath = 'data.display_name';
@@ -186,14 +190,20 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
    */
   onFnaFieldValueChanged(val) {
     // set the service by wire, because collection-agent can not handle empty service entries
-    if (val.link && val.link.service !== '') {
+    if (typeof val.link === 'Object' && val.link.service !== '') {
       this._FBPTriggerWire('--detectedService', val.link.service);
       this._FBPTriggerWire('--hts', val.link);
     }
-
-    this._FBPTriggerWire('--displayValue', val.display_name);
-    this.value = val;
+    if(this.__fieldNode.__childNodes.length === 0){
+      // assuming a scalar
+      this.value = { id: val, display_name: val};
+      this._FBPTriggerWire('--displayValue', val);
+    }else{
+      this._FBPTriggerWire('--displayValue', val.display_name);
+      this.value = val;
+    }
   }
+
 
   connectedCallback() {
     // eslint-disable-next-line wc/guard-super-call
@@ -223,7 +233,12 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     if (this.value.display_name !== undefined) {
       this._FBPTriggerWire('--displayValue', this.value.display_name);
     }
-    this.setFnaFieldValue(this.value);
+    if(this.__fieldNode.__childNodes.length === 0){
+      this.setFnaFieldValue(this.value.id);
+    }else{
+      this.setFnaFieldValue(this.value);
+    }
+
   }
 
   /**
@@ -232,11 +247,37 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
    */
   static get properties() {
     return {
+      /**
+       * Path to the node in the response value which contains the array with the selection items.
+       * By default this goes to *entitites*
+       */
       searchResponsePath: { type: String, attribute: 'search-response-path' },
+      /**
+       * Path to response value item which is used for the id.
+       * By default this goes to *data.id*
+       */
       valueFieldPath: { type: String, attribute: 'value-field-path' },
+      /**
+       * Path to selection value node which is used for the display.
+       * By default this goes to *data.display_name*
+       */
       displayFieldPath: { type: String, attribute: 'display-field-path' },
+      /**
+       * Path to response value item of the exteded search which is used for the id.
+       * By default this goes to *data.id*.
+       * Only needed when your extended searcher does not have the id, display_name signature in the response.
+       */
       extendedValueFieldPath: { type: String, attribute: 'extended-value-field-path' },
+      /**
+       * Path to response value item of the exteded search which is used for the display.
+       * By default this goes to *data.display_name*.
+       * Only needed when your extended searcher does not have the id, display_name signature in the response.
+       */
       extendedDisplayFieldPath: { type: String, attribute: 'extended-display-field-path' },
+      /**
+       * Set the service. This is only needed when you do not use a bind or bind a scalar value.
+       */
+      service: { type: String },
       /**
        * Use this attribute to set a custom icon for your searcher
        */
@@ -342,6 +383,22 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       },
     };
   }
+
+
+  /**
+   * setter for the service
+   * @public
+   * @param service
+   */
+  set service(service) {
+
+    if(service!==''){
+      this._FBPTriggerWire('|--service', service);
+      // set empty qp
+      this._FBPTriggerWire('|--qpIn', {});
+    }
+  }
+
 
   _FBPReady() {
     /**
@@ -953,12 +1010,12 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
         wait="${this.debounceTimeout}"
       ></furo-de-bounce>
 
-      <furo-deep-link ƒ-.service="--detectedService" ƒ-qp-in="|--qpIn" @-hts-out="--hts">
+      <furo-deep-link ƒ-.service="--detectedService, |--service" ƒ-qp-in="|--qpIn" @-hts-out="--hts">
       </furo-deep-link>
 
       <!-- todo: ƒ-cancel-request="--searchTerm" -->
       <furo-collection-agent
-        ƒ-.service="--detectedService"
+        ƒ-.service="--detectedService, |--service"
         ƒ-search="--debouncedSrch"
         ƒ-next="--loadMore"
         page-size="${this.maxItemsToDisplay}"
