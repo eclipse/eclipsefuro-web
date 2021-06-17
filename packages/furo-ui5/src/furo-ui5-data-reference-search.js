@@ -192,7 +192,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
    */
   onFnaFieldValueChanged(val) {
     // set the service by wire, because collection-agent can not handle empty service entries
-    if (typeof val.link === 'Object' && val.link.service !== '') {
+    if (typeof val.link === 'object' && val.link.service !== '') {
       this._FBPTriggerWire('--detectedService', val.link.service);
       this._FBPTriggerWire('--hts', val.link);
     }
@@ -394,7 +394,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
    */
   set service(service) {
 
-    if(service!==''){
+    if(!(service === '' || service === undefined)){
       this._FBPTriggerWire('|--service', service);
       // set empty qp
       this._FBPTriggerWire('|--qpIn', {});
@@ -445,7 +445,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     // listen to search input
     this._inputField.addEventListener('input', () => {
       this._searchTerm = this._inputField.value;
-      if (this._searchTerm.length >= this.minTermLength && !this.searchOnEnterOnly) {
+      if (this._searchTerm.length >= this.minTermLength && !this.searchOnEnterOnly &&!this.disableSearchList) {
         this._FBPTriggerWire('--searchTerm', this._inputField.value);
       }
     });
@@ -635,6 +635,10 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       if (this._hasExtendedSearcher) {
         this._closeList();
         this._FBPTriggerWire('--valueHelperRequested', null);
+      }else{
+        // clear the field and focus for a new search
+        this._FBPTriggerWire('--displayValue', '');
+        this._inputField.focus();
       }
     });
 
