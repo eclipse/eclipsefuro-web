@@ -432,7 +432,6 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     }
 
     super._FBPReady();
-    this._FBPTraceWires();
 
     // the input field
     this._inputField = this.shadowRoot.getElementById('input');
