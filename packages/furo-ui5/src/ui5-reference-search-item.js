@@ -15,32 +15,8 @@ export class Ui5ReferenceSearchItem extends StandardListItem.default {
     this.displayField = 'display_name';
 
     this.addEventListener('click', () => {
-      const customEvent = new Event('item-selected', {
-        composed: true,
-        bubbles: true,
-      });
-      customEvent.detail = this._item;
-      this.dispatchEvent(customEvent);
+      this.select();
     });
-  }
-
-  /**
-   * Attribute observer
-   * @returns {string[]}
-   */
-  static get observedAttributes() {
-    return ['display-field'];
-  }
-
-  /**
-   * Native attribute changed callback
-   * Setter for new value of displayField
-   * @param name
-   * @param oldValue
-   * @param newValue
-   */
-  attributeChangedCallback(name, oldValue, newValue) {
-    this.displayField = newValue;
   }
 
   /**
@@ -51,7 +27,7 @@ export class Ui5ReferenceSearchItem extends StandardListItem.default {
    */
   injectItem(item) {
     this._item = item;
-    this.innerText = item.data[this.displayField];
+    this.innerText = item.display;
   }
 
   deselect() {
@@ -70,7 +46,7 @@ export class Ui5ReferenceSearchItem extends StandardListItem.default {
      * detail payload: item
      */
     const customEvent = new Event('item-selected', { composed: true, bubbles: true });
-    customEvent.detail = this._item;
+    customEvent.detail = this._item.data;
     this.dispatchEvent(customEvent);
   }
 }
