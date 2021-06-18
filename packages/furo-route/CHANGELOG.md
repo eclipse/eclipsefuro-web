@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.20](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.6.19...@furo/route@1.6.20) (2021-06-18)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
 ## [1.6.19](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.6.18...@furo/route@1.6.19) (2021-06-14)
 
 **Note:** Version bump only for package @furo/route

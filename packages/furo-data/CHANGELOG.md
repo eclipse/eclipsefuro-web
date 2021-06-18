@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.27.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.26.0...@furo/data@1.27.0) (2021-06-18)
+
+
+### Features
+
+* ref searcher init ([9a89e83](https://github.com/theNorstroem/FuroBaseComponents/commit/9a89e83331caf724eec8596f9ee4f1eaf7a1db2b))
+* remove "more" button if request was rejected or hts says no ([f4d2bf9](https://github.com/theNorstroem/FuroBaseComponents/commit/f4d2bf9e5a1c6d6f9189682eb22c975fe2c6bb16))
+
+
+
+
+
 # [1.26.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.25.3...@furo/data@1.26.0) (2021-06-14)
 
 
