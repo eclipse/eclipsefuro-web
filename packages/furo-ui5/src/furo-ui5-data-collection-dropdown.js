@@ -39,7 +39,7 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
     // eslint-disable-next-line no-console
     console.warn(
       'furo-ui5-data-collection-dropdown is deprecated since 2021-06-18. ' +
-      'Please switch to furo-ui5-data-select before 2021-Q4.',
+        'Please switch to furo-ui5-data-select before 2021-Q4.',
     );
 
     /**

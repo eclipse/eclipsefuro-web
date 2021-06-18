@@ -83,11 +83,11 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
             <furo-form-layouter two>
               <div>
                 <p>min-term-length set to 1 character</p>
-              <furo-ui5-data-reference-search
-                ƒ-bind-data="--entityReady(*.owner)"
-                min-term-length = "1"
-              >
-              </furo-ui5-data-reference-search>
+                <furo-ui5-data-reference-search
+                  ƒ-bind-data="--entityReady(*.owner)"
+                  min-term-length="1"
+                >
+                </furo-ui5-data-reference-search>
               </div>
               <furo-ui5-data-reference-search-labeled
                 display-field-path="data.name"
@@ -95,8 +95,6 @@ class DemoFuroUi5DataReferenceSearch extends FBP(LitElement) {
                 @-search="--term"
               >
               </furo-ui5-data-reference-search-labeled>
-
-
             </furo-form-layouter>
             <furo-data-object
               type="task.Task"
