@@ -9009,7 +9009,7 @@
               "column": 2
             },
             "end": {
-              "line": 715,
+              "line": 714,
               "column": 3
             }
           },
@@ -9025,11 +9025,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 721,
+              "line": 720,
               "column": 2
             },
             "end": {
-              "line": 724,
+              "line": 723,
               "column": 3
             }
           },
@@ -9045,11 +9045,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 730,
+              "line": 729,
               "column": 2
             },
             "end": {
-              "line": 751,
+              "line": 750,
               "column": 3
             }
           },
@@ -9065,11 +9065,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 758,
+              "line": 757,
               "column": 2
             },
             "end": {
-              "line": 763,
+              "line": 762,
               "column": 3
             }
           },
@@ -9089,11 +9089,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 770,
+              "line": 769,
               "column": 2
             },
             "end": {
-              "line": 777,
+              "line": 776,
               "column": 3
             }
           },
@@ -9113,11 +9113,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 784,
+              "line": 783,
               "column": 2
             },
             "end": {
-              "line": 792,
+              "line": 791,
               "column": 3
             }
           },
@@ -9137,11 +9137,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 799,
+              "line": 798,
               "column": 2
             },
             "end": {
-              "line": 804,
+              "line": 803,
               "column": 3
             }
           },
@@ -9161,11 +9161,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 810,
+              "line": 809,
               "column": 2
             },
             "end": {
-              "line": 812,
+              "line": 811,
               "column": 3
             }
           },
@@ -9181,11 +9181,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 821,
+              "line": 820,
               "column": 2
             },
             "end": {
-              "line": 826,
+              "line": 825,
               "column": 3
             }
           },
@@ -9208,11 +9208,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 832,
+              "line": 831,
               "column": 2
             },
             "end": {
-              "line": 834,
+              "line": 833,
               "column": 3
             }
           },
@@ -9228,11 +9228,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 850,
+              "line": 849,
               "column": 2
             },
             "end": {
-              "line": 859,
+              "line": 858,
               "column": 3
             }
           },
@@ -9248,11 +9248,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 869,
+              "line": 868,
               "column": 2
             },
             "end": {
-              "line": 871,
+              "line": 870,
               "column": 3
             }
           },
@@ -9272,11 +9272,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 878,
+              "line": 877,
               "column": 2
             },
             "end": {
-              "line": 880,
+              "line": 879,
               "column": 3
             }
           },
@@ -9296,11 +9296,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 950,
+              "line": 949,
               "column": 2
             },
             "end": {
-              "line": 1038,
+              "line": 1037,
               "column": 3
             }
           },
@@ -9325,7 +9325,7 @@
           "column": 7
         },
         "end": {
-          "line": 1039,
+          "line": 1038,
           "column": 1
         }
       },
@@ -9683,11 +9683,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 57,
+              "line": 56,
               "column": 6
             },
             "end": {
-              "line": 57,
+              "line": 56,
               "column": 31
             }
           },
@@ -9704,11 +9704,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 58,
+              "line": 57,
               "column": 6
             },
             "end": {
-              "line": 58,
+              "line": 57,
               "column": 29
             }
           },
@@ -9725,11 +9725,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 58,
               "column": 6
             },
             "end": {
-              "line": 59,
+              "line": 58,
               "column": 69
             }
           },
@@ -9746,11 +9746,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 60,
+              "line": 59,
               "column": 6
             },
             "end": {
-              "line": 60,
+              "line": 59,
               "column": 73
             }
           },
@@ -9767,11 +9767,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 61,
+              "line": 60,
               "column": 6
             },
             "end": {
-              "line": 61,
+              "line": 60,
               "column": 77
             }
           },
@@ -9788,11 +9788,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 61,
               "column": 6
             },
             "end": {
-              "line": 62,
+              "line": 61,
               "column": 86
             }
           },
@@ -9809,11 +9809,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 63,
+              "line": 62,
               "column": 6
             },
             "end": {
-              "line": 63,
+              "line": 62,
               "column": 90
             }
           },
@@ -9830,11 +9830,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 64,
+              "line": 63,
               "column": 6
             },
             "end": {
-              "line": 64,
+              "line": 63,
               "column": 35
             }
           },
@@ -9851,11 +9851,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 67,
               "column": 6
             },
             "end": {
-              "line": 68,
+              "line": 67,
               "column": 28
             }
           },
@@ -9872,11 +9872,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 74,
+              "line": 73,
               "column": 6
             },
             "end": {
-              "line": 77,
+              "line": 76,
               "column": 7
             }
           },
@@ -9893,11 +9893,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 81,
+              "line": 80,
               "column": 6
             },
             "end": {
-              "line": 83,
+              "line": 82,
               "column": 7
             }
           },
@@ -9914,11 +9914,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 84,
+              "line": 83,
               "column": 6
             },
             "end": {
-              "line": 86,
+              "line": 85,
               "column": 7
             }
           },
@@ -9935,11 +9935,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 90,
+              "line": 89,
               "column": 6
             },
             "end": {
-              "line": 92,
+              "line": 91,
               "column": 7
             }
           },
@@ -9956,11 +9956,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 98,
+              "line": 97,
               "column": 6
             },
             "end": {
-              "line": 101,
+              "line": 100,
               "column": 7
             }
           },
@@ -10006,7 +10006,7 @@
               "column": 2
             },
             "end": {
-              "line": 50,
+              "line": 49,
               "column": 3
             }
           },
@@ -10022,11 +10022,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 109,
+              "line": 108,
               "column": 2
             },
             "end": {
-              "line": 111,
+              "line": 110,
               "column": 3
             }
           },
@@ -10046,11 +10046,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 117,
+              "line": 116,
               "column": 2
             },
             "end": {
-              "line": 143,
+              "line": 142,
               "column": 3
             }
           },
@@ -10075,7 +10075,7 @@
           "column": 0
         },
         "end": {
-          "line": 160,
+          "line": 159,
           "column": 1
         }
       },
@@ -10088,11 +10088,11 @@
           "description": "the label for the data-reference-search",
           "sourceRange": {
             "start": {
-              "line": 57,
+              "line": 56,
               "column": 6
             },
             "end": {
-              "line": 57,
+              "line": 56,
               "column": 31
             }
           },
@@ -10104,11 +10104,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 58,
+              "line": 57,
               "column": 6
             },
             "end": {
-              "line": 58,
+              "line": 57,
               "column": 29
             }
           },
@@ -10120,11 +10120,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 58,
               "column": 6
             },
             "end": {
-              "line": 59,
+              "line": 58,
               "column": 69
             }
           },
@@ -10136,11 +10136,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 60,
+              "line": 59,
               "column": 6
             },
             "end": {
-              "line": 60,
+              "line": 59,
               "column": 73
             }
           },
@@ -10152,11 +10152,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 61,
+              "line": 60,
               "column": 6
             },
             "end": {
-              "line": 61,
+              "line": 60,
               "column": 77
             }
           },
@@ -10168,11 +10168,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 61,
               "column": 6
             },
             "end": {
-              "line": 62,
+              "line": 61,
               "column": 86
             }
           },
@@ -10184,11 +10184,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 63,
+              "line": 62,
               "column": 6
             },
             "end": {
-              "line": 63,
+              "line": 62,
               "column": 90
             }
           },
@@ -10200,11 +10200,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 64,
+              "line": 63,
               "column": 6
             },
             "end": {
-              "line": 64,
+              "line": 63,
               "column": 35
             }
           },
@@ -10216,11 +10216,11 @@
           "description": "Use this attribute to set a custom icon for your searcher",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 67,
               "column": 6
             },
             "end": {
-              "line": 68,
+              "line": 67,
               "column": 28
             }
           },
@@ -10232,11 +10232,11 @@
           "description": "A Boolean attribute which, if present, means this field can not be searched.\n\nThis is very useful when you want enforce the usage of the extended search",
           "sourceRange": {
             "start": {
-              "line": 74,
+              "line": 73,
               "column": 6
             },
             "end": {
-              "line": 77,
+              "line": 76,
               "column": 7
             }
           },
@@ -10248,11 +10248,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 81,
+              "line": 80,
               "column": 6
             },
             "end": {
-              "line": 83,
+              "line": 82,
               "column": 7
             }
           },
@@ -10264,11 +10264,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 84,
+              "line": 83,
               "column": 6
             },
             "end": {
-              "line": 86,
+              "line": 85,
               "column": 7
             }
           },
@@ -10280,11 +10280,11 @@
           "description": "A Boolean attribute which, if present, means this field is required and marked with *.",
           "sourceRange": {
             "start": {
-              "line": 90,
+              "line": 89,
               "column": 6
             },
             "end": {
-              "line": 92,
+              "line": 91,
               "column": 7
             }
           },
@@ -10296,11 +10296,11 @@
           "description": "Define the extended searcher. Do not forget to import the searcher you want to use.",
           "sourceRange": {
             "start": {
-              "line": 98,
+              "line": 97,
               "column": 6
             },
             "end": {
-              "line": 101,
+              "line": 100,
               "column": 7
             }
           },
@@ -14568,42 +14568,22 @@
       ]
     },
     {
-      "description": "The furo-ui5-data--toggle-button component is an enhanced ui5-button that can be toggled between pressed and normal states.\nUsers can use the furo-ui5-data--toggle-button as a switch to turn a setting on or off. It can also be used to\nrepresent an independent choice similar to a check box.\n\nClicking or tapping on a furo-ui5-data--toggle-button changes its state to pressed. The button returns to its initial\nstate when the user clicks or taps on it again. By applying additional custom CSS-styling classes, apps can give\na different style to any furo-ui5-data--toggle-button.",
-      "summary": "data toggle button",
+      "description": "The 'furo-ui5-data-toggle-button' component allows the user to switch true and false for Bool with data binding.\n\nIt supports all features from the [SAP ui5 toggleButton element](https://sap.github.io/ui5-webcomponents/playground/components/ToggleButton/).\n\nYou can bind  `bool` type, `furo.fat.Bool` type or the `google.wrapper.BoolValue`  type.\n\n * ```html\n <furo-ui5-data-toggle-button\n    ƒ-bind-data=\"--daoCountry(*.data.classified_as_risk_area)\"\n ></furo-ui5-data-toggle-button>\n```\n\n### Specificity\n1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.\n2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.\n\n| meta \t| fat \t| html \t|\n|------\t|-----\t|------\t|\n| 1    \t| 10  \t| 100  \t|\n\n\n## supported FAT attributes\n - **\"readonly\":\"true\"** set the element to readonly\n - **\"disabled\":\"true\"** set the element to disabled\n\n## supported meta and constraints\n- **readonly: true** , set the element to readonly\n\nThe constraint **required** will mark the element as required\n\n## Methods\n**bind-data(fieldNode)**\nBind a entity field. You can use the entity even when no data was received.\n\nWhen you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)",
+      "summary": "boolean toggle button",
       "path": "src/furo-ui5-data-toggle-button.js",
       "properties": [],
       "methods": [
         {
           "name": "connectedCallback",
           "description": "connectedCallback() method is called when an element is added to the DOM.\nwebcomponent lifecycle event",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 27,
-              "column": 2
-            },
-            "end": {
-              "line": 33,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_initBinder",
-          "description": "inits the universalFieldNodeBinder.\nSet the mapped attributes and labels.",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 40,
+              "line": 106,
               "column": 2
             },
             "end": {
-              "line": 44,
+              "line": 110,
               "column": 3
             }
           },
@@ -14614,16 +14594,16 @@
           }
         },
         {
-          "name": "applyBindingSet",
-          "description": "apply the binding set to the binder\nbinding set can be customised here otherwise the standard set in the ui5-data-input will be used",
+          "name": "readAttributes",
+          "description": "Reads the attributes which are set on the component dom.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 51,
+              "line": 115,
               "column": 2
             },
             "end": {
-              "line": 105,
+              "line": 122,
               "column": 3
             }
           },
@@ -14634,23 +14614,43 @@
           }
         },
         {
-          "name": "_addLabel",
-          "description": "",
+          "name": "_updateFNA",
+          "description": "Handler function for the toggleButton changes.",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 112,
+              "line": 129,
               "column": 2
             },
             "end": {
-              "line": 116,
+              "line": 150,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "((function (): void) | *)"
+          }
+        },
+        {
+          "name": "onFnaFieldValueChanged",
+          "description": "overwrite onFnaFieldValueChanged",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 156,
+              "column": 2
+            },
+            "end": {
+              "line": 165,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "label"
+              "name": "val"
             }
           ],
           "return": {
@@ -14658,25 +14658,179 @@
           }
         },
         {
-          "name": "bindData",
-          "description": "Bind a entity field to the text-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
-          "privacy": "public",
+          "name": "_updateLabelsFromFat",
+          "description": "labels are map <string,bool>, we handle every boolean attribute with the labels",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 173,
               "column": 2
             },
             "end": {
-              "line": 141,
+              "line": 197,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "fieldNode",
-              "type": "(Object | FieldNode)",
-              "description": "a Field object"
+              "name": "fatLabels"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateAttributesFromFat",
+          "description": "sync input attributes according to fat attributes",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 203,
+              "column": 2
+            },
+            "end": {
+              "line": 242,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fatAttributes"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaFieldNodeBecameInvalid",
+          "description": "overwrite onFnaFieldNodeBecameInvalid function",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 247,
+              "column": 2
+            },
+            "end": {
+              "line": 249,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaFieldNodeBecameValid",
+          "description": "overwrite onFnaFieldNodeBecameValid function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 255,
+              "column": 2
+            },
+            "end": {
+              "line": 257,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_setDesign",
+          "description": "Updates the design",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 264,
+              "column": 2
+            },
+            "end": {
+              "line": 266,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "design"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_resetDesign",
+          "description": "reset to previous value state",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 272,
+              "column": 2
+            },
+            "end": {
+              "line": 274,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaLabelChanged",
+          "description": "overwrite onFnaLabelChanged function\nlabel is mapped to text",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 281,
+              "column": 2
+            },
+            "end": {
+              "line": 286,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "text"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "onFnaReadonlyChanged",
+          "description": "overwrite onFnaReadonlyChanged function",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 293,
+              "column": 2
+            },
+            "end": {
+              "line": 301,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "readonly"
             }
           ],
           "return": {
@@ -14694,23 +14848,41 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 17,
+          "line": 44,
           "column": 7
         },
         "end": {
-          "line": 142,
+          "line": 302,
           "column": 1
         }
       },
       "privacy": "public",
-      "superclass": "ToggleButton.default",
+      "superclass": "HTMLElement",
       "name": "FuroUi5DataToggleButton",
       "attributes": [],
       "events": [
         {
           "type": "CustomEvent",
+          "name": "change",
+          "description": "change\nFired when the toggleButton pressed state changes.\n\ndetail payload: `bool`",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
           "name": "click",
           "description": "Fired when the input operation has finished by pressing Enter or on focusout.",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "field-value-changed",
+          "description": "Fired when value changed",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "xxxx",
+          "description": "xxxx\nAll events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/ToggleButton/).",
           "metadata": {}
         }
       ],

@@ -3,15 +3,44 @@ import * as ToggleButton from '@ui5/webcomponents/dist/ToggleButton.js';
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 
 /**
- * The furo-ui5-data--toggle-button component is an enhanced ui5-button that can be toggled between pressed and normal states.
- * Users can use the furo-ui5-data--toggle-button as a switch to turn a setting on or off. It can also be used to
- * represent an independent choice similar to a check box.
+ * The 'furo-ui5-data-toggle-button' component allows the user to switch true and false for Bool with data binding.
  *
- * Clicking or tapping on a furo-ui5-data--toggle-button changes its state to pressed. The button returns to its initial
- * state when the user clicks or taps on it again. By applying additional custom CSS-styling classes, apps can give
- * a different style to any furo-ui5-data--toggle-button.
+ * It supports all features from the [SAP ui5 toggleButton element](https://sap.github.io/ui5-webcomponents/playground/components/ToggleButton/).
+
+ * You can bind  `bool` type, `furo.fat.Bool` type or the `google.wrapper.BoolValue`  type.
  *
- * @summary data toggle button
+ *  * ```html
+ *  <furo-ui5-data-toggle-button
+ *     ƒ-bind-data="--daoCountry(*.data.classified_as_risk_area)"
+ *  ></furo-ui5-data-toggle-button>
+ * ```
+ *
+ * ### Specificity
+ * 1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.
+ * 2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.
+ *
+ * | meta 	| fat 	| html 	|
+ * |------	|-----	|------	|
+ * | 1    	| 10  	| 100  	|
+ *
+ *
+ * ## supported FAT attributes
+ *  - **"readonly":"true"** set the element to readonly
+ *  - **"disabled":"true"** set the element to disabled
+ *  - **"icon":""** set the icon
+ *  - **"design":""** set the design
+ *
+ * ## supported meta and constraints
+ * - **readonly: true** , set the element to readonly
+ *
+ * The constraint **required** will mark the element as required
+ *
+ * ## Methods
+ * **bind-data(fieldNode)**
+ * Bind a entity field. You can use the entity even when no data was received.
+ *
+ * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
+ * @summary boolean toggle button
  * @customElement
  * @demo demo-furo-ui5-data-toggle-button Basic usage (scalar , fat, wrapper values)
  */
@@ -22,14 +51,14 @@ export class FuroUi5DataToggleButton extends FieldNodeAdapter(ToggleButton.defau
    */
   /**
    * @event change
-   * Fired when the checkbox pressed state changes.
+   * Fired when the toggleButton pressed state changes.
    *
    * detail payload: `bool`
    */
 
   /**
    * @event xxxx
-   * All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/CheckBox/).
+   * All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/ToggleButton/).
    *
    */
 
@@ -96,7 +125,7 @@ export class FuroUi5DataToggleButton extends FieldNodeAdapter(ToggleButton.defau
   }
 
   /**
-   * Handler function for the checkbox changes.
+   * Handler function for the toggleButton changes.
    * @return {(function(): void)|*}
    * @private
    */
@@ -232,7 +261,7 @@ export class FuroUi5DataToggleButton extends FieldNodeAdapter(ToggleButton.defau
 
   /**
    * Updates the design
-   * ui5 checkbox has only 3 states: Warning, Error, and Default (default) https://sap.github.io/ui5-webcomponents/playground/components/CheckBox/
+   *
    * @private
    */
   _setDesign(design) {
