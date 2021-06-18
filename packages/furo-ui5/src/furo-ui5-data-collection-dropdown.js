@@ -5,7 +5,7 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
 import { CollectionDropdownHelper } from './lib/DELETEMECollectionDropdownHelper.js';
 
 /**
- * `furo-ui5-data-collection-dropdown`
+ * # DEPRECATED switch to `furo-ui5-data-select`
  * The furo-ui5-data-collection-dropdown component represents a drop-down list. The items inside define the available
  * options by using the furo-ui5-data-collection-dropdown component.
  *
@@ -35,6 +35,12 @@ export class FuroUi5DataCollectionDropdown extends Select.default {
 
   constructor() {
     super();
+
+    // eslint-disable-next-line no-console
+    console.warn(
+      'furo-ui5-data-collection-dropdown is deprecated since 2021-06-18. ' +
+      'Please switch to furo-ui5-data-select before 2021-Q4.',
+    );
 
     /**
      * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
