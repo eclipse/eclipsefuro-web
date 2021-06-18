@@ -11,7 +11,6 @@ describe('furo-ui5-data-reference-search', () => {
   let referenceSearch;
   let entityObject;
 
-
   const testCollection = {
     entities: [
       {
@@ -150,15 +149,11 @@ describe('furo-ui5-data-reference-search', () => {
         <template>
           <furo-ui5-data-reference-search
             ƒ-bind-data="--entityReady(*.owner)"
-
-
             placeholder="this is a placeholder"
-
           >
           </furo-ui5-data-reference-search>
 
           <furo-data-object type="task.Task" @-object-ready="--entityReady"> </furo-data-object>
-
         </template>
       </test-bind>
     `);
@@ -168,7 +163,6 @@ describe('furo-ui5-data-reference-search', () => {
     await host.updateComplete;
     await referenceSearch.updateComplete;
     await entityObject.updateComplete;
-
   });
 
   it('should be a furo-ui5-data-reference-search', done => {
@@ -199,8 +193,4 @@ describe('furo-ui5-data-reference-search', () => {
       done();
     }, 15);
   });
-
-
-
-
 });
