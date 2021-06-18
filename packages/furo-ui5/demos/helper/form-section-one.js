@@ -133,9 +133,7 @@ class FormSectionOne extends FBP(LitElement) {
           ></furo-ui5-data-segmented-button>
         </furo-ui5-form-field-container>
 
-        <furo-ui5-data-ro-labeled
-          ƒ-bind-data="--entityTaskReady(*.owner)"
-        ></furo-ui5-data-ro-labeled>
+
       </furo-form-layouter>
 
       <furo-data-object type="task.Task" @-object-ready="--entityTaskReady"></furo-data-object>
