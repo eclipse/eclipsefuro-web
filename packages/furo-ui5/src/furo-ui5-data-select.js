@@ -109,17 +109,18 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
    * @private
    */
   connectedCallback() {
+    this.readAttributes();
+
     if (this.options === undefined) {
       const OPTIONS = this.querySelectorAll('ui5-option');
       if (OPTIONS && OPTIONS.length) {
-        this.readOptions();
+        this.options = OPTIONS;
       } else {
         this.options = [];
       }
     }
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
-    this.readAttributes();
 
     // created to avoid the default messages from ui5
     const vse = this.querySelector('div[slot="valueStateMessage"]');
@@ -131,13 +132,6 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
     } else {
       this._valueStateElement = vse;
       this._previousValueState.message = vse.innerText;
-    }
-  }
-
-  readOptions() {
-    const OPTIONS = this.shadowRoot.querySelectorAll('ui5-option');
-    if (OPTIONS && OPTIONS.length) {
-      this.options = OPTIONS;
     }
   }
 
@@ -153,7 +147,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
 
     // save the original attribute for later usages, we do this, because some components reflect
     Object.keys(this._privilegedAttributes).forEach(attr => {
-      if (this.getAttribute(attr)) {
+      if (this.getAttribute(attr) !== undefined) {
         this._privilegedAttributes[attr] = this.getAttribute(attr);
       }
     });
@@ -460,7 +454,10 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
    * @private
    */
   static getValueByPath(obj, path) {
-    return path.split('.').reduce((res, prop) => res[prop], obj) || obj;
+    if (obj && path) {
+      return path.split('.').reduce((res, prop) => res[prop], obj) || obj;
+    }
+    return {};
   }
 
   /**

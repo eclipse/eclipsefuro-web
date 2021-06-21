@@ -132,7 +132,6 @@ describe('furo-ui5-data-radio-button-group', () => {
         <template>
           <furo-ui5-data-radio-button-group
             ƒ-bind-data="--entity(*.sex)"
-            sub-field="data"
           ></furo-ui5-data-radio-button-group>
           <furo-ui5-data-text-input ƒ-bind-data="--entity(*.sex)"></furo-ui5-data-text-input>
           <furo-data-object type="person.Person" @-object-ready="--entity"></furo-data-object>
@@ -154,9 +153,10 @@ describe('furo-ui5-data-radio-button-group', () => {
     done();
   });
 
-  it('should have the correct items', done => {
+  it('should have the correct count of radio buttons', done => {
     setTimeout(() => {
-      assert.equal(dropdown._dropdownList.length, 3);
+      const buttons = dropdown.querySelectorAll('ui5-radiobutton');
+      assert.equal(buttons.length, 3);
       done();
     }, 16);
   });

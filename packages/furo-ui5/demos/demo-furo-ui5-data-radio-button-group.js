@@ -19,9 +19,6 @@ import '@furo/form/src/furo-button-bar.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/produce-qp-data.js';
 
-import '@ui5/webcomponents/dist/Icon.js';
-import '../src/lib/ui5-icons.js';
-
 /**
  * `demo-furo-ui5-data-radio-button-group`
  *
@@ -69,27 +66,57 @@ class DemoFuroUi5DataRadioButtonGroup extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
+            <ui5-button full design="Emphasized" @-click="--load">load data</ui5-button>
+
             <p>
               Option items from spec. Type furo.Optionitem.
             </p>
-            <furo-ui5-data-radio-button-group
+            <furo-ui5-data-radio-button-group group-name='Option'
               style="width: 100%;"
               ƒ-bind-data="--daoPerson(*.sex)"
             ></furo-ui5-data-radio-button-group>
-            <hr />
+
             <furo-ui5-data-text-input
               value-state="Success"
               ƒ-bind-data="--daoPerson(*.sex)"
             ></furo-ui5-data-text-input>
+
+            <hr />
+
+            <p>
+              Option items from an array of objects with bindOptions(). Display field is set to
+              field display_name.
+              Additional static ui5-radiobuttons set in the markup.
+            </p>
+            <furo-ui5-data-radio-button-group
+              style="width: 100%;"
+              group-name='Owner'
+              value-field-path='data.id'
+              id-field-path='data.id'
+              display-field-path='data.display_name'
+              ƒ-bind-options="--collection(*.entities)"
+              ƒ-bind-data="--entity(*.owner.id)"
+            >
+              <ui5-radiobutton text="Option A" selected name="Owner"></ui5-radiobutton>
+              <ui5-radiobutton text="Option B with a very long text" name="Owner"></ui5-radiobutton>
+              <ui5-radiobutton text="Option C" name="Owner"></ui5-radiobutton>
+              <ui5-radiobutton text="Option D" name="Owner" value-state="Warning"></ui5-radiobutton>
+
+            </furo-ui5-data-radio-button-group>
+
             <div>
               <p>
-                Option items from an array of objects with injectList(). Display field is set to
+                Option items from an array of objects with bindOptions(). Display field is set to
                 field first_name
               </p>
               <furo-ui5-data-radio-button-group
                 style="width: 100%;"
-                ƒ-bind-data="--entity(*.owner)"
-                ƒ-inject-list="--response(*.entities)"
+                group-name='OwnerB'
+                value-field-path='data.id'
+                id-field-path='data.id'
+                display-field-path='data.first_name'
+                ƒ-bind-options="--collection(*.entities)"
+                ƒ-bind-data="--entity(*.owner.id)"
               ></furo-ui5-data-radio-button-group>
             </div>
             <hr />
@@ -102,14 +129,8 @@ class DemoFuroUi5DataRadioButtonGroup extends FBP(LitElement) {
               value-state="Success"
               ƒ-bind-data="--entity(*.owner.id)"
             ></furo-ui5-data-text-input>
-            <furo-ui5-data-text-input
-              ƒ-bind-data="--entity(*.owner.display_name)"
-            ></furo-ui5-data-text-input>
           </furo-form-layouter>
 
-          <furo-button-bar>
-            <ui5-button design="Emphasized" @-click="--load">load data</ui5-button>
-          </furo-button-bar>
 
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
 

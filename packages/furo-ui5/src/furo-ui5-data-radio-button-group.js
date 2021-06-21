@@ -1,587 +1,459 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
-import '@ui5/webcomponents/dist/features/InputElementsFormSupport.js';
+import {FieldNodeAdapter} from '@furo/data/src/lib/FieldNodeAdapter.js';
+import {RepeaterNode} from '@furo/data/src/lib/RepeaterNode.js';
 import '@ui5/webcomponents/dist/RadioButton.js';
 
 /**
  * `furo-ui5-data-radio-button-group`
  * The furo-ui5-data-radio-button-group component enables users to select a single option from a set of options.
- * When a furo-ui5-data-radio-button-group is selected by the user, the select event is fired. When a furo-ui5-data-radio-button-group
- * that is within a group is selected, the one that was previously selected gets automatically deselected.
- * You can group radio buttons by using the name property.
- * Note: If furo-ui5-data-radio-button-group is not part of a group, it can be selected once, but can not be deselected back.
+ * When a furo-ui5-data-radio-button-group is selected by the user, the select event is fired.
+ * When a furo-ui5-data-radio-button-group that is within a group is selected, the one that was previously selected gets automatically deselected.
+ * You can group radio buttons by using the group-name property.
  *
- * Keyboard Handling
- * Once the furo-ui5-data-radio-button-group is on focus, it might be selected by pressing the Space and Enter keys.
- * The Arrow Down/Arrow Up and Arrow Left/Arrow Right keys can be used to change selection between next/previous radio buttons
- * in one group, while TAB and SHIFT + TAB can be used to enter or leave the radio button group.
- * Note: On entering radio button group, the focus goes to the currently selected radio button.
- *
- * @summary data radio buttons
+ * @summary
  * @customElement
- * @demo demo-furo-ui5-data-radio-button-group Basic Usage
+ * @demo demo furo-ui5-data-radio-button-group Basic Usage
+ * @appliesMixin FBP
  */
-export class FuroUi5DataRadioButtonGroup extends HTMLElement {
+class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
   /**
    * @event value-changed
    * Fired when value has changed from the component inside.
-   *
    * detail payload: {*} the value from the value-field. By default the value field is "id"
-   *
    *  **bubbles**
    */
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
-    this.readonly = false;
     /**
-     * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
-     *
-     * This is only needed if display_name and value_field are not located in the root of the object.
+     * Inner radio component tag
+     * @type {string}
+     * @private
+     */
+    this._tagRadioButton = 'ui5-radiobutton';
+
+    /**
+     * Defines the name of the inner radio button. Radio buttons with the same name will form a radio button group.
      * @type {string}
      */
-    this.subField = 'data';
+    this.groupName = '';
+
     /**
-     * The name of the field from the injected collection that contains the label for the dropdown array.
+     * Flag to indicate if a field is attached
+     * Default: false
+     * @type {boolean}
+     */
+    this.activeFieldBinding = false;
+
+    /**
+     * Defines the field path that is used from the injected RepeaterNode to identify the option items.
+     * Point-separated path to the field
+     * E.g. data.partner.ulid
+     * default: id
      * @type {string}
      */
-    this.displayField = 'display_name';
+    this.idFieldPath = 'id';
+
     /**
-     * declare here the name of the field from the injected collection.  by selecting an item from dropdown the defined
-     * valueSubField of bounded complex type or the value by scalar type will be updated according to the value of this field.
+     * Defines the field path that is used from the injected RepeaterNode to display the option items.
+     * Point-separated path to the field
+     * E.g. data.partner.display_name
+     * default: display_name
      * @type {string}
      */
-    this.valueField = 'id';
+    this.displayFieldPath = 'display_name';
 
     /**
-     * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
-     *
-     * If you bind a scalar, you dont need this attribute.
+     * Defines the field path that is used to update the bound component if the user has selected an option.
+     * Point-separated path to the field
+     * Must be set if a data binding is specified.
+     * default: id
      * @type {string}
      */
-    this.valueSubField = undefined;
+    this.valueFieldPath = 'id';
 
     /**
-     * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
-     *
-     * If you bind a scalar, you dont need this attribute.
-     * @type {string}
+     * Internal RepeaterNode
+     * Defines the ui5-select options.
+     * Note: Only one selected option is allowed. If more than one option is defined as selected, the last one would be considered as the selected one.
+     * @type {*[]}
+     * @private
      */
-    this.displaySubField = 'display_name';
+    this._optionList = [];
 
-    this._fieldNodeToUpdate = {};
-    this._fieldDisplayNodeToUpdate = {};
-    this._dropdownList = [];
+    // used to restore the state after a invalidation -> validation change
+    this._previousValueState = {state: 'None', message: ''};
 
-    this._initBinder();
+    this._attributesFromFNA = {
+      readonly: undefined,
+    };
+
+    this._constraintsFromFNA = {
+      required: undefined,
+    };
+
+    this._labelsFromFAT = {
+      readonly: undefined,
+      disabled: undefined,
+      required: undefined,
+    };
+
+    this._attributesFromFAT = {};
 
     /**
-     * Listener to catch the selected button
+     * a list of privileged attributes. when those attributes are set in furo-ui5-data-select components initially.
+     * they can not be modified later via response or spec
+     * null is used because getAttribute returns null or value
      */
-    this.addEventListener('select', val => {
-      const selectedObj = this._dropdownList.find(
-        // eslint-disable-next-line eqeqeq
-        obj => obj.id == val.target.dataset.id,
+    this._privilegedAttributes = {
+      readonly: null,
+      required: null,
+      disabled: null,
+      'id-field-path': 'id',
+      'value-field-path': 'id',
+      'display-field-path': 'display_name',
+      'group-name': null
+    };
+
+    // changed is fired when the select operation has finished.
+    this.addEventListener('select', this._updateFNA);
+  }
+
+  /**
+   * overwrite bindData of FieldNodeAdapter
+   * @param fieldNode
+   * @returns {boolean}
+   */
+  bindData(fieldNode) {
+    this.activeFieldBinding = true;
+    return super.bindData(fieldNode);
+  }
+
+  /**
+   * Here a RepeaterNode can be connected to the component as an option list.
+   * @param repeaterNode
+   */
+  bindOptions(repeaterNode) {
+    if (!(repeaterNode instanceof RepeaterNode)) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        'Invalid param in function bindOptions. Param is not of type RepeaterNode',
+        repeaterNode,
       );
-
-      if (this.binder.fieldNode && selectedObj) {
-        // by valid input reset meta and constraints
-        this._fieldNodeToUpdate._value = selectedObj.id;
-        this._fieldDisplayNodeToUpdate._value = this._findDisplayNameByValue(selectedObj.id);
-      }
-    });
-  }
-
-  /**
-   * List of observed attributes
-   * @returns {string[]}
-   */
-  static get observedAttributes() {
-    return [
-      'readonly',
-      'value-field',
-      'display-field',
-      'sub-field',
-      'value-sub-field',
-      'display-sub-field',
-    ];
-  }
-
-  attributeChangedCallback(name, oldVal, newVal) {
-    if (oldVal !== newVal) {
-      // eslint-disable-next-line default-case
-      switch (name) {
-        case 'readonly':
-          this.readonly = newVal === '';
-          this._updateField();
-          break;
-        case 'value-field':
-          this.valueField = newVal;
-          break;
-        case 'display-field':
-          this.displayField = newVal;
-          break;
-        case 'sub-field':
-          this.subField = newVal;
-          break;
-        case 'value-sub-field':
-          this.valueSubField = newVal;
-          break;
-        case 'display-sub-field':
-          this.displaySubField = newVal;
-          break;
-      }
+      return false;
     }
-  }
-
-  /**
-   * inits the universalFieldNodeBinder.
-   * Set the mapped attributes and labels.
-   * @private
-   */
-  _initBinder() {
-    this.binder = new UniversalFieldNodeBinder(this);
-
-    // set the attribute mappings
-    this.binder.attributeMappings = {
-      label: 'label',
-      hint: 'hint',
-      'leading-icon': 'leadingIcon',
-      'trailing-icon': 'trailingIcon',
-      errortext: 'errortext',
-      'error-msg': 'errortext',
-      pattern: 'pattern',
-      min: 'min',
-      max: 'max',
-    };
-
-    // set the label mappings
-    this.binder.labelMappings = {
-      error: 'error',
-      readonly: 'readonly',
-      required: 'required',
-      disabled: 'disabled',
-      condensed: 'condensed',
-    };
-
-    this.binder.fatAttributesToConstraintsMappings = {
-      max: 'value._constraints.max.is', // for the fieldnode constraint
-      min: 'value._constraints.min.is', // for the fieldnode constraint
-      pattern: 'value._constraints.pattern.is', // for the fieldnode constraint
-      required: 'value._constraints.required.is', // for the fieldnode constraint
-      'min-msg': 'value._constraints.min.message', // for the fieldnode constraint message
-      'max-msg': 'value._constraints.max.message', // for the fieldnode constraint message
-    };
-
-    this.binder.constraintsTofatAttributesMappings = {
-      min: 'min',
-      max: 'max',
-      pattern: 'pattern',
-      required: 'required',
-    };
+    this._optionList = repeaterNode;
 
     /**
-     * check overrides from the used component, attributes set on the component itself overrides all
+     * Subscription for changes in the RepeaterNode
      */
-    this.binder.checkLabelandAttributeOverrrides();
-
-    // the extended furo-text-input component uses _value
-    this.binder.targetValueField = '_value';
-  }
-
-  _findDisplayNameByValue(val) {
-    let displayName = '';
-
-    for (let i = 0; i < this._dropdownList.length; i += 1) {
-      // eslint-disable-next-line eqeqeq
-      if (this._dropdownList[i].id === val) {
-        displayName = this._dropdownList[i].label;
-        break;
-      }
-    }
-    return displayName;
-  }
-
-  /**
-   * @event item-selected
-   * Fired when a item from the dropdown was selected
-   * detail payload: the original item object or the array of original item objects by multiple options
-   */
-  _notifiySelectedItem(obj) {
-    const selectedObj = this._dropdownList.find(
-      // eslint-disable-next-line eqeqeq
-      item => item.id === obj,
-    );
-
-    if (selectedObj && selectedObj._original) {
-      const customEvent = new Event('item-selected', { composed: true, bubbles: true });
-      customEvent.detail = selectedObj._original;
-      this.dispatchEvent(customEvent);
-    }
-  }
-
-  /**
-   *
-   * @param arr
-   * @private
-   */
-  _notifyAndTriggerUpdate(arr) {
-    if (arr.length > 0) {
-      this._dropdownList = arr;
-
-      if (this._fieldNodeToUpdate && this._fieldNodeToUpdate._value) {
-        this._notifiySelectedItem(this._fieldNodeToUpdate._value);
-      }
-      this.setList(arr);
-    }
-  }
-
-  /**
-   * Set the options programmatically
-   * @param {Array} Array with options
-   */
-  setList(optionArray) {
-    this.optionItems = optionArray;
-  }
-
-  set optionItems(collection) {
-    if (collection === undefined || !collection.length) {
-      // no action
-      return;
-    }
-    // convert array list to id, label structure
-    if (typeof collection[0] === 'string') {
-      // eslint-disable-next-line no-param-reassign
-      collection = collection.map(item => ({ id: item, label: item }));
-    }
-
-    const arr = collection.map(e => {
-      if (e.selected) {
-        this.value = e.id.toString();
-      }
-      return {
-        id: e.id,
-        label: e.label,
-        selected: this.value === e.id.toString() || e.selected || false,
-        readonly: this.readonly,
-        _original: e,
-      };
+    this._optionList.addEventListener('this-repeated-field-changed', () => {
+      this._updateOptions();
     });
 
-    // save parsed selection option array
-    this.selectOptions = arr;
-    this.addItems(this.selectOptions);
+    return true;
   }
 
   /**
-   *
-   * @param collection
-   * @returns {[]}
+   * connectedCallback() method is called when an element is added to the DOM.
+   * webcomponent lifecycle event
    * @private
    */
-  _mapInputToInnerStruct(collection) {
-    if (collection === undefined || !collection.length) {
-      // no valid collection object submitted
-      return [];
+  connectedCallback() {
+    this.readAttributes();
+
+    if (this.options === undefined) {
+      const OPTIONS = this.querySelectorAll(this._tagRadioButton);
+      if (OPTIONS && OPTIONS.length) {
+        this.options = OPTIONS;
+
+        OPTIONS.forEach(opt =>{
+          /**
+           * set readonly, disabled to all existing options
+           */
+          if (this._privilegedAttributes['readonly'] !== null){
+            opt.setAttribute('readonly', '');
+          }
+          if (this._privilegedAttributes['disabled'] !== null){
+            opt.setAttribute('disabled', '');
+          }
+        })
+
+      } else {
+        this.options = [];
+      }
     }
-    const arrValue = [];
 
-    const arrSubfieldChains = this.subField.length ? this.subField.split('.') : [];
+  }
 
-    if (Array.isArray(collection)) {
-      collection.forEach(element => {
-        let tmpValue = element;
-        arrSubfieldChains.forEach(s => {
-          tmpValue = tmpValue[s] ? tmpValue[s] : tmpValue;
-        });
-        arrValue.push(tmpValue);
+  /**
+   * Reads the attributes which are set on the component dom.
+   * those attributes can be set. `readonly`,`disabled`, `value-field-path`, `display-field-path`
+   * Use this after manual or scripted update of the attributes.
+   */
+  readAttributes() {
+    // save the original attribute for later usages, we do this, because some components reflect
+    Object.keys(this._privilegedAttributes).forEach(attr => {
+      if (this.getAttribute(attr) !== null) {
+        this._privilegedAttributes[attr] = this.getAttribute(attr);
+      }
+    });
+  }
+
+  /**
+   * overwrite onFnaFieldValueChanged
+   * @private
+   * @param val
+   */
+  onFnaFieldValueChanged(val) {
+    if (this.isFat()) {
+      this._tmpFAT = val;
+      this.selectOptionById(this._tmpFAT.value);
+      this._updateAttributesFromFat(this._tmpFAT.attributes);
+      this._updateLabelsFromFat(this._tmpFAT.labels);
+    } else {
+      this.selectOptionById(val);
+    }
+  }
+
+  /**
+   * overwrite onFnaReadonlyChanged function
+   * @private
+   * @param readonly
+   */
+  onFnaReadonlyChanged(readonly) {
+    this._attributesFromFNA.readonly = readonly;
+    if (
+      this._privilegedAttributes.readonly === null &&
+      this._labelsFromFAT.readonly === undefined
+    ) {
+      // set attribute readonly to all children
+      this.readonly = readonly;
+
+      const existingOptions = this.querySelectorAll(this._tagRadioButton);
+      existingOptions.forEach(opt => {
+        if (this.readonly){
+          opt.setAttribute(readonly, '');
+        } else {
+          opt.removeAttribute('readonly');
+        }
       });
     }
-    return arrValue;
   }
 
   /**
-   * Maps an array structure to the inner list struct
-   * {id: '', label: '', selected: Boolean, _original: {}}
-   * @param list
-   * @returns {[]}
+   * Overwrite onFnaOptionsChanged
+   * Notifies when the options for the field is changed or set.
    * @private
-   */
-  _mapDataToList(list) {
-    let arr = [];
-    // if field value not exists. select item when the item is marked as `selected` in list
-    if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
-      arr = this._setItemSelectedViaSelectedMark(list);
-    } else if (Array.isArray(list)) {
-      let isSelected = false;
-      let hasSelectedMark = false;
-      let preSelectedValueInList = null;
-      for (let i = 0; i < list.length; i += 1) {
-        const item = {
-          id: list[i][this.valueField],
-          label: list[i][this.displayField],
-          selected: false,
-          readonly: this.readonly,
-          _original: list[i],
-        };
-
-        if (this._fieldNodeToUpdate._value === list[i][this.valueField]) {
-          item.selected = true;
-          isSelected = true;
-        }
-
-        if (list[i].selected) {
-          hasSelectedMark = true;
-          preSelectedValueInList = list[i][this.valueField];
-        }
-
-        arr.push(item);
-      }
-
-      if (!isSelected && hasSelectedMark) {
-        arr = this._setItemSelectedViaSelectedMark(list);
-        this._fieldNodeToUpdate._value = preSelectedValueInList;
-      }
-    }
-
-    return arr;
-  }
-
-  /**
-   * Adds the option components to the default slot
    * @param options
    */
-  addItems(options) {
-    const toggleGroup = this;
-
-    const existingOptions = toggleGroup.querySelectorAll('ui5-radiobutton');
-
-    if (existingOptions === undefined || !existingOptions.length) {
-      this._initialAddOptions(options);
-    } else {
-      this._updateExistingOptions(options);
+  onFnaOptionsChanged(options) {
+    if (options && Array.isArray(options.list)) {
+      this._updateOptions(options.list);
     }
   }
 
   /**
-   *
-   * @param options
-   * @private
+   * Selects an option by id
+   * @param id
    */
-  _updateExistingOptions(options) {
-    const toggleGroup = this;
-    const existingOptions = toggleGroup.querySelectorAll('ui5-radiobutton');
-    const existingIds = options.map(a => a.id);
+  selectOptionById(val) {
+    if (!this.activeFieldBinding) {
+      // there is no active field binding. No update needed.
+      return false;
+    }
+    this.options = this.querySelectorAll(this._tagRadioButton);
 
-    // if id of existing element is no longer in the option list, remove the ui5-radiobutton element
-    existingOptions.forEach(elem => {
-      if (existingIds.indexOf(elem.getAttribute('data-id')) < 0) {
-        // remove element
-        toggleGroup.removeChild(elem);
-      }
-    });
-
-    options.forEach(item => {
-      const radio = toggleGroup.querySelector(`[data-id="${item.id}"]`);
-      if (radio) {
-        if (toggleGroup._fieldNodeToUpdate._value === item.id) {
-          radio.selected = true;
-        } else {
-          radio.selected = false;
+    if (this.options && this.options.length) {
+      let result;
+      this.options.forEach((elem) =>{
+        if (elem.dataset.id === val) {
+          result = elem;
         }
-        radio.text = item.label;
-        // eslint-disable-next-line babel/no-unused-expressions
-        item.readonly ? radio.setAttribute('disabled', true) : radio.removeAttribute('disabled');
-      } else {
-        // add new element
-        const element = document.createElement('ui5-radiobutton');
-        element.setAttribute('value', item.label);
-        element.setAttribute('data-id', item.id);
-        if (item.selected) {
-          element.setAttribute('selected', item.selected);
-        } else {
-          element.removeAttribute('selected');
-        }
-        // eslint-disable-next-line babel/no-unused-expressions
-        item.readonly
-          ? element.setAttribute('disabled', true)
-          : element.removeAttribute('disabled');
+      });
 
-        element.value = item.label;
-        element.selected = item.selected;
-        element.text = item.label;
-        element.readonly = item.readonly;
-
-        toggleGroup.appendChild(element);
+      if (result) {
+        result.selected = true;
       }
-    });
-  }
-
-  /**
-   *
-   * @param options
-   * @private
-   */
-  _initialAddOptions(options) {
-    const toggleGroup = this;
-    toggleGroup.value = '';
-    options.forEach(item => {
-      const element = document.createElement('ui5-radiobutton');
-      element.setAttribute('value', item.label);
-      element.setAttribute('data-id', item.id);
-      if (item.selected) {
-        element.setAttribute('selected', item.selected);
-      } else {
-        element.removeAttribute('selected');
-      }
-      // eslint-disable-next-line babel/no-unused-expressions
-      item.readonly ? element.setAttribute('disabled', true) : element.removeAttribute('disabled');
-
-      element.value = item.label;
-      element.selected = item.selected;
-      element.text = item.label;
-
-      toggleGroup.appendChild(element);
-    });
+    }
+    return true;
   }
 
   /**
    * Let you get an attribute value by path
    * @param obj
    * @param path
-   * @returns {T}
+   * @returns {}
    * @private
    */
-  // eslint-disable-next-line class-methods-use-this
-  _getValueByPath(obj, path) {
-    return path.split('.').reduce((res, prop) => res[prop], obj) || {};
+  static getValueByPath(obj, path) {
+    return path.split('.').reduce((res, prop) => res[prop], obj) || obj;
   }
 
   /**
-   * Bind a entity field to the range-input. You can use the entity even when no data was received.
-   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
-   * @param {Object|FieldNode} fieldNode a Field object
+   * Handler function for the select value changes.
+   * This is done to be able to remove the event-listeners as a protection for multiple calls
+   * @return {(function(): void)|*}
+   * @private
    */
-  bindData(fieldNode) {
-    this.binder.bindField(fieldNode);
-    if (this.binder.fieldNode) {
-      if (this.valueSubField) {
-        this._fieldNodeToUpdate = this._getValueByPath(this.binder.fieldNode, this.valueSubField);
-        this._fieldDisplayNodeToUpdate = this._getValueByPath(
-          this.binder.fieldNode,
-          this.displaySubField,
-        );
-      } else {
-        this._fieldNodeToUpdate = this.binder.fieldNode[this.valueField] || this.binder.fieldNode;
-        this._fieldDisplayNodeToUpdate = this.binder.fieldNode[this.displayField] || {};
+  _updateFNA(e) {
+    let newValue = '';
+    let selectedOption = {};
+
+    if (this._optionList && this._optionList.repeats && this._optionList.repeats.length) {
+      selectedOption = this._optionList.repeats.find(
+        obj =>
+          FuroUi5DataRadioButtonGroup.getValueByPath(obj, this._privilegedAttributes['id-field-path'])
+            ._value === e.target.dataset.id,
+      );
+
+      if (selectedOption) {
+        newValue = FuroUi5DataRadioButtonGroup.getValueByPath(
+          selectedOption,
+          this._privilegedAttributes['value-field-path'],
+        )._value;
       }
-
-      // inject options from meta which is defined in spec
-      if (this.binder.fieldNode._meta && this.binder.fieldNode._meta.options) {
-        this._buildListWithMetaOptions(this.binder.fieldNode._meta.options);
-      }
-
-      // update meta and constraints when they change
-      this.binder.fieldNode.addEventListener('this-metas-changed', () => {
-        if (this.binder.fieldNode._meta && this.binder.fieldNode._meta.options) {
-          this._buildListWithMetaOptions(this.binder.fieldNode._meta.options);
-        }
-      });
-
-      this.binder.fieldNode.addEventListener('field-value-changed', () => {
-        this._updateField();
-      });
-
-      this._updateField();
+    } else {
+      // if there is no active option binding
+      // The id of the attribute data-id will be set available. Fallback is: text of the option element.
+      newValue = e.target.dataset.id || e.target.text;
+      selectedOption = e.target;
     }
-  }
-
-  /**
-   * Sets the value for the field. This will update the fieldNode.
-   * @param val
-   */
-  setValue(val) {
-    this.binder.fieldValue = val;
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  _updateField() {
-    let size = this._dropdownList.length;
-    if (size) {
-      // eslint-disable-next-line no-plusplus
-      while (size--) {
-        this._dropdownList[size].selected =
-          this._dropdownList[size].id === this._fieldNodeToUpdate._value;
-      }
-      this._notifyAndTriggerUpdate(this._dropdownList);
-    }
-  }
-
-  /**
-   * Build the dropdown list with given options from meta
-   * @param {options} list of options with id and display_name
-   */
-  _buildListWithMetaOptions(options) {
-    this.injectList(options.list);
-  }
-
-  _setItemSelectedViaSelectedMark(list) {
-    let arr = [];
-    if (Array.isArray(list)) {
-      arr = list.map(e => ({
-        id: e[this.valueField],
-        label: e[this.displayField],
-        selected: !!e.selected,
-        _original: e,
-      }));
-    }
-    return arr;
-  }
-
-  /**
-   * Inject the array with the selectable options.
-   *
-   * The array with objects should have a signature like this. This could be the response of a collection agent (`--response(*.entities)`)
-   * ```json
-   * [
-   *  {
-   *   "id": 34,
-   *   "display_name":"Option A"
-   *  },
-   *  {
-   *   "id": 223,
-   *   "display_name":"Option X"
-   *  },
-   * ]
-   * ```
-   * @param {Array} Array with entities
-   */
-  injectList(list) {
-    const arr = this._mapInputToInnerStruct(list);
-    const innerList = this._mapDataToList(arr);
-    this._notifyAndTriggerUpdate(innerList);
 
     /**
-     * Is fired when a new list is applied
-     * @event options-injected Payload: option list
+     * Only if activeFieldBinding is true
+     */
+    if (this.activeFieldBinding) {
+      if (this.isFat()) {
+        if (newValue === '') {
+          this._tmpFAT.value = null;
+          // add empty state
+          if (this._tmpFAT.labels === null) {
+            this._tmpFAT.labels = {};
+          }
+          this._tmpFAT.labels.empty = true;
+        } else {
+          this._tmpFAT.value = newValue;
+          // remove empty state
+          if (this._tmpFAT.labels && this._tmpFAT.labels.empty) {
+            delete this._tmpFAT.labels.empty;
+          }
+          // init labels in_tmpFAT
+          if (this._tmpFAT.labels === null) {
+            this._tmpFAT.labels = {};
+          }
+          // set modified on changes
+          this._tmpFAT.labels.modified = true;
+        }
+        this.setFnaFieldValue(this._tmpFAT);
+      } else if (this.isWrapper()) {
+
+        this.setFnaFieldValue(newValue === '' ? null : newValue);
+      } else {
+        this.setFnaFieldValue(newValue === '' ? '' : newValue);
+      }
+    }
+
+    /**
+     * Fired when the value has changed
+     * @event value-changed
+     * @type {Event}
+     */
+    const customEvent = new Event('value-changed', { composed: true, bubbles: true });
+    customEvent.detail = selectedOption;
+    this.dispatchEvent(customEvent);
+
+    /**
+     * Fired when the radio button is selected.
+     * @event item-selected
+     * @type {Event}
+     */
+    const customSelectEvent = new Event('item-selected', { composed: true, bubbles: true });
+    customSelectEvent.detail = selectedOption;
+    this.dispatchEvent(customSelectEvent);
+  }
+
+  /**
+   * Maps and updates array of option
+   * @param list
+   * @private
+   */
+  _updateOptions(list) {
+    const optionNodeList = [];
+
+    if (this._optionList && this._optionList.repeats) {
+      this._optionList.repeats.forEach(item => {
+        const optionItem = document.createElement(this._tagRadioButton);
+        optionItem.setAttribute(
+          'data-id',
+          FuroUi5DataRadioButtonGroup.getValueByPath(item, this._privilegedAttributes['id-field-path']),
+        );
+
+        optionItem.text = FuroUi5DataRadioButtonGroup.getValueByPath(
+          item,
+          this._privilegedAttributes['display-field-path'],
+        )._value;
+
+        if (this._privilegedAttributes['readonly'] !== null){
+          optionItem.setAttribute('readonly', '');
+        }
+        if (this._privilegedAttributes['disabled'] !== null){
+          optionItem.setAttribute('disabled', '');
+        }
+
+        optionItem.name = this._privilegedAttributes['group-name'];
+        optionNodeList.push(optionItem);
+      });
+    } else if (list && list.length) {
+      // applies static option list items from spec or
+      // option list items from meta
+      list.forEach(item => {
+        const optionItem = document.createElement(this._tagRadioButton);
+        optionItem.setAttribute(
+          'data-id',
+          FuroUi5DataRadioButtonGroup.getValueByPath(item, this._privilegedAttributes['id-field-path']),
+        );
+
+        optionItem.text = FuroUi5DataRadioButtonGroup.getValueByPath(
+          item,
+          this._privilegedAttributes['display-field-path'],
+        );
+
+        if (this._privilegedAttributes['readonly'] !== null){
+          optionItem.setAttribute('readonly', '');
+        }
+        if (this._privilegedAttributes['disabled'] !== null){
+          optionItem.setAttribute('disabled', '');
+        }
+        optionItem.name = this._privilegedAttributes['group-name'];
+        optionNodeList.push(optionItem);
+      });
+    }
+
+    if (optionNodeList.length) {
+      const existingOptions = this.querySelectorAll(this._tagRadioButton);
+      existingOptions.forEach(opt => {
+        this.removeChild(opt);
+      });
+
+      optionNodeList.forEach(newOpt => {
+        this.appendChild(newOpt);
+      });
+    }
+
+    /**
+     * Fires event options-updated after rebuilding option list
+     * @event options-updated
      */
     this.dispatchEvent(
-      new CustomEvent('options-injected', {
-        detail: innerList,
+      new CustomEvent('options-updated', {
+        detail: optionNodeList,
         bubbles: true,
         composed: true,
       }),
     );
   }
 
-  /**
-   * Inject the array of a collection
-   * @param entities
-   */
-  injectEntities(entities) {
-    this.injectList(entities);
-  }
 }
 
 window.customElements.define('furo-ui5-data-radio-button-group', FuroUi5DataRadioButtonGroup);
