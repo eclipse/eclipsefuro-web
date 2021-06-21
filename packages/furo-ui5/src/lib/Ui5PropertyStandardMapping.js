@@ -1,5 +1,7 @@
 /**
  * Standard mapping set for Furo UI5 properties
+ *
+ * TODO: remove as soon the edit renderers are implemented
  * Applies:
  * - standard attribute mappings
  * - standard label mappings
