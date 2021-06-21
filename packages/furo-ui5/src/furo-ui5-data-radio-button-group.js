@@ -9,6 +9,21 @@ import '@ui5/webcomponents/dist/RadioButton.js';
  * When a furo-ui5-data-radio-button-group that is within a group is selected, the one that was previously selected gets automatically deselected.
  * You can group radio buttons by using the group-name property.
  *
+ * ```
+ * <furo-ui5-data-radio-button-group
+ *    group-name="Option"
+ *    ƒ-bind-data="--daoPerson(*.field_with_meta_options)">
+ * </furo-ui5-data-radio-button-group>
+ * ```
+ * ```
+ * <furo-ui5-data-radio-button-group
+ *    group-name="Option"
+ *    ƒ-bind-data="--daoPerson(*.field)">
+ *      <ui5-radiobutton text="Option A" selected name="Owner"></ui5-radiobutton>
+ *      <ui5-radiobutton text="Option B with a very long text" name="Owner"></ui5-radiobutton>
+ * </furo-ui5-data-radio-button-group>
+ * ```
+ *
  * @summary
  * @customElement
  * @demo demo-furo-ui5-data-radio-button-group Basic Usage

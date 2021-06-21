@@ -7677,7 +7677,7 @@
       "tagname": "furo-ui5-data-radio-button"
     },
     {
-      "description": "`furo-ui5-data-radio-button-group`\nThe furo-ui5-data-radio-button-group component enables users to select a single option from a set of options.\nWhen a furo-ui5-data-radio-button-group is selected by the user, the select event is fired.\nWhen a furo-ui5-data-radio-button-group that is within a group is selected, the one that was previously selected gets automatically deselected.\nYou can group radio buttons by using the group-name property.",
+      "description": "`furo-ui5-data-radio-button-group`\nThe furo-ui5-data-radio-button-group component enables users to select a single option from a set of options.\nWhen a furo-ui5-data-radio-button-group is selected by the user, the select event is fired.\nWhen a furo-ui5-data-radio-button-group that is within a group is selected, the one that was previously selected gets automatically deselected.\nYou can group radio buttons by using the group-name property.\n\n```\n<furo-ui5-data-radio-button-group\n   group-name=\"Option\"\n   ƒ-bind-data=\"--daoPerson(*.field_with_meta_options)\">\n</furo-ui5-data-radio-button-group>\n```\n```\n<furo-ui5-data-radio-button-group\n   group-name=\"Option\"\n   ƒ-bind-data=\"--daoPerson(*.field)\">\n     <ui5-radiobutton text=\"Option A\" selected name=\"Owner\"></ui5-radiobutton>\n     <ui5-radiobutton text=\"Option B with a very long text\" name=\"Owner\"></ui5-radiobutton>\n</furo-ui5-data-radio-button-group>\n```",
       "summary": "",
       "path": "src/furo-ui5-data-radio-button-group.js",
       "properties": [
@@ -7688,11 +7688,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 32,
+              "line": 47,
               "column": 4
             },
             "end": {
-              "line": 32,
+              "line": 47,
               "column": 24
             }
           },
@@ -7710,11 +7710,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 38,
+              "line": 53,
               "column": 4
             },
             "end": {
-              "line": 38,
+              "line": 53,
               "column": 18
             }
           },
@@ -7732,11 +7732,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 45,
+              "line": 60,
               "column": 4
             },
             "end": {
-              "line": 45,
+              "line": 60,
               "column": 27
             }
           },
@@ -7754,11 +7754,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 54,
+              "line": 69,
               "column": 4
             },
             "end": {
-              "line": 54,
+              "line": 69,
               "column": 20
             }
           },
@@ -7776,11 +7776,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 63,
+              "line": 78,
               "column": 4
             },
             "end": {
-              "line": 63,
+              "line": 78,
               "column": 25
             }
           },
@@ -7798,11 +7798,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 72,
+              "line": 87,
               "column": 4
             },
             "end": {
-              "line": 72,
+              "line": 87,
               "column": 23
             }
           },
@@ -7820,11 +7820,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 81,
+              "line": 96,
               "column": 4
             },
             "end": {
-              "line": 81,
+              "line": 96,
               "column": 20
             }
           },
@@ -7843,11 +7843,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 141,
               "column": 2
             },
             "end": {
-              "line": 129,
+              "line": 144,
               "column": 3
             }
           },
@@ -7867,11 +7867,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 135,
+              "line": 150,
               "column": 2
             },
             "end": {
-              "line": 156,
+              "line": 171,
               "column": 3
             }
           },
@@ -7888,11 +7888,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 163,
+              "line": 178,
               "column": 2
             },
             "end": {
-              "line": 188,
+              "line": 201,
               "column": 3
             }
           },
@@ -7908,11 +7908,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 195,
+              "line": 208,
               "column": 2
             },
             "end": {
-              "line": 202,
+              "line": 215,
               "column": 3
             }
           },
@@ -7928,11 +7928,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 209,
+              "line": 222,
               "column": 2
             },
             "end": {
-              "line": 218,
+              "line": 231,
               "column": 3
             }
           },
@@ -7952,11 +7952,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 238,
               "column": 2
             },
             "end": {
-              "line": 243,
+              "line": 256,
               "column": 3
             }
           },
@@ -7976,11 +7976,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 251,
+              "line": 264,
               "column": 2
             },
             "end": {
-              "line": 255,
+              "line": 268,
               "column": 3
             }
           },
@@ -8000,11 +8000,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 261,
+              "line": 274,
               "column": 2
             },
             "end": {
-              "line": 281,
+              "line": 294,
               "column": 3
             }
           },
@@ -8021,11 +8021,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 300,
+              "line": 313,
               "column": 2
             },
             "end": {
-              "line": 375,
+              "line": 389,
               "column": 3
             }
           },
@@ -8045,11 +8045,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 382,
+              "line": 396,
               "column": 2
             },
             "end": {
-              "line": 456,
+              "line": 476,
               "column": 3
             }
           },
@@ -8071,11 +8071,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 290,
+              "line": 303,
               "column": 2
             },
             "end": {
-              "line": 292,
+              "line": 305,
               "column": 3
             }
           },
@@ -8099,11 +8099,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 16,
+          "line": 31,
           "column": 0
         },
         "end": {
-          "line": 458,
+          "line": 477,
           "column": 1
         }
       },
