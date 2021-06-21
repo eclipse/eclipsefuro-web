@@ -25,8 +25,6 @@ import './furo-ui5-data-radio-button-group.js';
 import './furo-ui5-data-reference-search.js';
 import './furo-ui5-data-reference-search-labeled.js';
 import './furo-ui5-data-repeat.js';
-import './furo-ui5-data-ro.js';
-import './furo-ui5-data-ro-labeled.js';
 import './furo-ui5-data-segmented-button.js';
 import './furo-ui5-data-table.js';
 import './furo-ui5-data-text-input.js';
