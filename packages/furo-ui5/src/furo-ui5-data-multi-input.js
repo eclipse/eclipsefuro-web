@@ -60,18 +60,6 @@ export class FuroUi5DataMultiInput extends FieldNodeAdapter(MultiInput.default) 
         return;
       }
 
-      const isDuplicate = event.target.tokens.some(token => token.text === event.target.value);
-
-      if (isDuplicate) {
-        this._setValueStateMessage('Error', 'Token is already in the list');
-
-        setTimeout(() => {
-          this._resetValueStateMessage();
-        }, 2000);
-
-        return;
-      }
-
       // eslint-disable-next-line wc/no-constructor-attributes
       this.appendChild(this._createUi5Token(event.target.value));
       this.tmpValue.push(event.target.value);

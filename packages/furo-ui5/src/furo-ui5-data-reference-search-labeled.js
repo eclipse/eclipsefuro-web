@@ -14,19 +14,23 @@ import './furo-ui5-form-field-container.js';
  *
  * @summary labeled input field
  * @customElement
- * @demo demo-furo-ui5-form-field-container Simple use
+ * @demo demo-furo-ui5-data-reference-search Simple use
  * @appliesMixin FBP
  */
 class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
   constructor(props) {
     super(props);
+    this.service = '';
     this.label = '';
+    this.extendedSearcher = '';
+    this.disableSearchList = false;
+    this.icon = 'search';
+    this.searchResponsePath = 'entities';
+    this.valueFieldPath = 'data.id';
+    this.displayFieldPath = 'data.display_name';
 
-    this.subField = 'data';
-    this.displayField = 'display_name';
-    this.valueField = 'id';
-    this.valueSubField = 'id';
-    this.displaySubField = 'display_name';
+    this.extendedValueFieldPath = 'data.id';
+    this.extendedDisplayFieldPath = 'data.display_name';
   }
 
   /**
@@ -42,23 +46,7 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    // this._FBPTraceWires();
-  }
-
-  /**
-   * inject list
-   * @param arr
-   */
-  injectList(arr) {
-    this._FBPTriggerWire('--injectList', arr);
-  }
-
-  /**
-   * Inject the array of a collection
-   * @param entities
-   */
-  injectEntities(entities) {
-    this._FBPTriggerWire('--injectList', entities);
+    this._searcher = this.shadowRoot.getElementById('input');
   }
 
   static get properties() {
@@ -66,11 +54,34 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
       /**
        * the label for the data-reference-search
        */
+      service: { type: String },
       label: { type: String },
+      valueFieldPath: { type: String, attribute: 'value-field-path' },
+      displayFieldPath: { type: String, attribute: 'display-field-path' },
+      searchResponsePath: { type: String, attribute: 'search-response-path' },
+      extendedValueFieldPath: { type: String, attribute: 'extended-value-field-path' },
+      extendedDisplayFieldPath: { type: String, attribute: 'extended-display-field-path' },
+      placeholder: { type: String },
+      /**
+       * Use this attribute to set a custom icon for your searcher
+       */
+      icon: { type: String },
+      /**
+       * A Boolean attribute which, if present, means this field can not be searched.
+       *
+       * This is very useful when you want enforce the usage of the extended search
+       */
+      disableSearchList: {
+        type: Boolean,
+        attribute: 'disable-search-list',
+      },
       /**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */
       disabled: {
+        type: Boolean,
+      },
+      readonly: {
         type: Boolean,
       },
       /**
@@ -80,53 +91,15 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
         type: Boolean,
       },
       /**
-       * If you inject an array with complex objects, declare here the path where display_name and value_field are located.
+       * Define the extended searcher. Do not forget to import the searcher you want to use.
        *
-       * This is only needed if display_name and value_field are not located in the root of the object.
-       * @property sub-field
-       */
-      subField: { type: String, attribute: 'sub-field', reflect: true },
-      /**
-       * The name of the field from the injected collection that contains the label for the dropdown array.
-       * @property display-field
-       */
-      displayField: { type: String, attribute: 'display-field', reflect: true },
-      /**
-       * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
-       * If you bind a scalar, you dont need this attribute.
-       * @property value-field
-       */
-      valueField: { type: String, attribute: 'value-field', reflect: true },
-      /**
-       * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
        *
-       * If you bind a scalar, you dont need this attribute.
-       * @property value-sub-field
        */
-      valueSubField: { type: String, attribute: 'value-sub-field', reflect: true },
-      /**
-       * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
-       *
-       * If you bind a scalar, you dont need this attribute.
-       * @property display-sub-field
-       */
-      displaySubField: { type: String, attribute: 'display-sub-field', reflect: true },
+      extendedSearcher: {
+        type: String,
+        attribute: 'extended-searcher',
+      },
     };
-  }
-
-  static get styles() {
-    // language=CSS
-    return (
-      Theme.getThemeForComponent('FuroUi5DataReferenceSearchLabeled') ||
-      css`
-        :host {
-          display: block;
-        }
-        :host([hidden]) {
-          display: none;
-        }
-      `
-    );
   }
 
   /**
@@ -138,21 +111,6 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
   }
 
   /**
-   * inject collection
-   * @param arr
-   */
-  collectionIn(arr) {
-    this._FBPTriggerWire('--collectionIn', arr);
-  }
-
-  /**
-   * reset combobox
-   */
-  reset() {
-    this._FBPTriggerWire('--reset');
-  }
-
-  /**
    * @private
    * @returns {TemplateResult|TemplateResult}
    */
@@ -161,25 +119,43 @@ class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
     return html`
       <furo-ui5-form-field-container>
         <ui5-label label slot="label" for="Input" show-colon ?required=${this.required}
-          >${this.label}</ui5-label
-        >
+          >${this.label}
+        </ui5-label>
         <furo-ui5-data-reference-search
           content
           id="Input"
+          extended-searcher="${this.extendedSearcher}"
+          ?readonly=${this.readonly}
           ?disabled=${this.disabled}
-          sub-field="${this.subField}"
-          display-field="${this.displayField}"
-          value-field="${this.valueField}"
-          value-sub-field="${this.valueSubField}"
-          display-sub-field="${this.displaySubField}"
-          ƒ-inject-list="--injectList"
+          ?disable-search-list=${this.disableSearchList}
+          search-response-path="${this.searchResponsePath}"
+          value-field-path="${this.valueFieldPath}"
+          icon="${this.icon}"
+          service="${this.service}"
+          display-field-path="${this.displayFieldPath}"
+          extended-value-field-path="${this.extendedValueFieldPath}"
+          extended-display-field-path="${this.extendedDisplayFieldPath}"
           ƒ-bind-data="--data"
-          ƒ-collection-in="--collectionIn"
-          ƒ-reset="--reset"
           ƒ-focus="--focus"
         ></furo-ui5-data-reference-search>
       </furo-ui5-form-field-container>
     `;
+  }
+
+  static get styles() {
+    // language=CSS
+    return (
+      Theme.getThemeForComponent('FuroUi5DataReferenceSearchLabeled') ||
+      css`
+        :host {
+          display: block;
+        }
+
+        :host([hidden]) {
+          display: none;
+        }
+      `
+    );
   }
 }
 

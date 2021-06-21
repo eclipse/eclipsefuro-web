@@ -82,6 +82,17 @@ class FlowRepeat extends FBP(HTMLElement) {
       i = 0;
     }
     this.select(i);
+
+    if (this._insertedItems.length - 1 === this.selectedIndex) {
+      /**
+       * @event last-element-selected
+       * Fired when the last element is selected. Use this to trigger a load next.
+       * detail payload: index of the element
+       */
+      const customEvent = new Event('last-element-selected', { composed: true, bubbles: true });
+      customEvent.detail = i;
+      this.dispatchEvent(customEvent);
+    }
   }
 
   selectPreviousIndex() {

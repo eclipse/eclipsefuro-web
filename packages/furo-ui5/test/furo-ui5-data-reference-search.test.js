@@ -10,7 +10,6 @@ describe('furo-ui5-data-reference-search', () => {
   let host;
   let referenceSearch;
   let entityObject;
-  let collectionAgent;
 
   const testCollection = {
     entities: [
@@ -150,38 +149,27 @@ describe('furo-ui5-data-reference-search', () => {
         <template>
           <furo-ui5-data-reference-search
             ƒ-bind-data="--entityReady(*.owner)"
-            @-search="--term"
             placeholder="this is a placeholder"
-            ƒ-collection-in="--refCol"
           >
           </furo-ui5-data-reference-search>
 
           <furo-data-object type="task.Task" @-object-ready="--entityReady"> </furo-data-object>
-
-          <furo-collection-agent
-            service="PersonService"
-            ƒ-hts-in="--entityReady(*.owner.link._value)"
-            ƒ-search="--term"
-            @-response="--refCol"
-          >
-          </furo-collection-agent>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, referenceSearch, entityObject, collectionAgent] = testbind.parentNode.children;
+    [, referenceSearch, entityObject] = testbind.parentNode.children;
     await host.updateComplete;
     await referenceSearch.updateComplete;
     await entityObject.updateComplete;
-    await collectionAgent.updateComplete;
   });
 
   it('should be a furo-ui5-data-reference-search', done => {
     // keep this test on top, so you can recognize a wrong asignment
     assert.equal(referenceSearch.nodeName.toLowerCase(), 'furo-ui5-data-reference-search');
     assert.equal(entityObject.nodeName.toLowerCase(), 'furo-data-object');
-    assert.equal(collectionAgent.nodeName.toLowerCase(), 'furo-collection-agent');
+
     done();
   });
 
@@ -201,51 +189,8 @@ describe('furo-ui5-data-reference-search', () => {
 
   it('should bind data', done => {
     setTimeout(() => {
-      assert.equal(referenceSearch.binder.fieldNode._meta.label, 'person.label**', 'binding check');
+      assert.equal(referenceSearch.__fieldNode._meta.label, 'person.label**', 'binding check');
       done();
     }, 15);
-  });
-
-  it('should inject collections', done => {
-    referenceSearch.collectionIn(testCollection);
-    setTimeout(() => {
-      assert.equal(referenceSearch._collection.length, 4, 'collection injection check');
-      done();
-    }, 10);
-    entityObject.addEventListener('object-ready', () => {});
-  });
-
-  it('should show collections according to maxItemsToDisplay', done => {
-    referenceSearch.maxItemsToDisplay = 2;
-    referenceSearch.collectionIn(testCollection);
-
-    setTimeout(() => {
-      assert.equal(referenceSearch._collection.length, 2, 'maxItemsToDisplay check');
-      done();
-    }, 10);
-  });
-
-  it('should trigger search event ', done => {
-    referenceSearch.addEventListener('search', () => {
-      done();
-    });
-    referenceSearch._searchTerm = 'xxx';
-    referenceSearch._fireSearchEvent();
-  });
-
-  it('should show list', done => {
-    referenceSearch.maxItemsToDisplay = 2;
-    referenceSearch.collectionIn(testCollection);
-    setTimeout(() => {
-      referenceSearch._showList();
-      assert.equal(referenceSearch._listIsOpen, true, '_showList check');
-      done();
-    }, 20);
-  });
-
-  it('should show no result hint by empty response', done => {
-    referenceSearch.collectionIn({});
-    assert.equal(referenceSearch.noResultHint, 'no result found');
-    done();
   });
 });

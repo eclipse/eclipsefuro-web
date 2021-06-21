@@ -73,7 +73,7 @@ export class DataObject extends EventTreeNode {
      * Broadcast Event
      * this will set all fields as pristine and end enable the validation
      */
-    this.broadcastEvent(new NodeEvent('new-data-injected', this));
+    this.broadcastEvent(new NodeEvent('set-pristine-request', this));
   }
 
   /**

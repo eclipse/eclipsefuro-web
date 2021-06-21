@@ -466,8 +466,9 @@ class FuroCollectionAgent extends FBP(LitElement) {
    * @param term
    */
   search(term) {
+    this._attachListeners('search');
     this._queryParams.q = term;
-    this.list();
+    this._followRelService('list', 'List');
   }
 
   /**

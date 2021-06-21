@@ -175,6 +175,14 @@ export class AgentHelper {
         caller._hts,
         caller,
       );
+      /**
+       * @event xxx-rejected
+       * Fired when the request for a rel was rejected because the hts was not available
+       * detail payload: hts
+       */
+      const customEvent = new Event(`${rel}-rejected`, { composed: true, bubbles: true });
+      customEvent.detail = caller._hts;
+      caller.dispatchEvent(customEvent);
       return undefined;
     }
     return htsFound;
