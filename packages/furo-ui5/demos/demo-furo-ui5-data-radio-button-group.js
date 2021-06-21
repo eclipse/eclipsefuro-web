@@ -71,7 +71,8 @@ class DemoFuroUi5DataRadioButtonGroup extends FBP(LitElement) {
             <p>
               Option items from spec. Type furo.Optionitem.
             </p>
-            <furo-ui5-data-radio-button-group group-name='Option'
+            <furo-ui5-data-radio-button-group
+              group-name="Option"
               style="width: 100%;"
               ƒ-bind-data="--daoPerson(*.sex)"
             ></furo-ui5-data-radio-button-group>
@@ -85,15 +86,14 @@ class DemoFuroUi5DataRadioButtonGroup extends FBP(LitElement) {
 
             <p>
               Option items from an array of objects with bindOptions(). Display field is set to
-              field display_name.
-              Additional static ui5-radiobuttons set in the markup.
+              field display_name. Additional static ui5-radiobuttons set in the markup.
             </p>
             <furo-ui5-data-radio-button-group
               style="width: 100%;"
-              group-name='Owner'
-              value-field-path='data.id'
-              id-field-path='data.id'
-              display-field-path='data.display_name'
+              group-name="Owner"
+              value-field-path="data.id"
+              id-field-path="data.id"
+              display-field-path="data.display_name"
               ƒ-bind-options="--collection(*.entities)"
               ƒ-bind-data="--entity(*.owner.id)"
             >
@@ -101,7 +101,6 @@ class DemoFuroUi5DataRadioButtonGroup extends FBP(LitElement) {
               <ui5-radiobutton text="Option B with a very long text" name="Owner"></ui5-radiobutton>
               <ui5-radiobutton text="Option C" name="Owner"></ui5-radiobutton>
               <ui5-radiobutton text="Option D" name="Owner" value-state="Warning"></ui5-radiobutton>
-
             </furo-ui5-data-radio-button-group>
 
             <div>
@@ -111,10 +110,10 @@ class DemoFuroUi5DataRadioButtonGroup extends FBP(LitElement) {
               </p>
               <furo-ui5-data-radio-button-group
                 style="width: 100%;"
-                group-name='OwnerB'
-                value-field-path='data.id'
-                id-field-path='data.id'
-                display-field-path='data.first_name'
+                group-name="OwnerB"
+                value-field-path="data.id"
+                id-field-path="data.id"
+                display-field-path="data.first_name"
                 ƒ-bind-options="--collection(*.entities)"
                 ƒ-bind-data="--entity(*.owner.id)"
               ></furo-ui5-data-radio-button-group>
@@ -130,7 +129,6 @@ class DemoFuroUi5DataRadioButtonGroup extends FBP(LitElement) {
               ƒ-bind-data="--entity(*.owner.id)"
             ></furo-ui5-data-text-input>
           </furo-form-layouter>
-
 
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
 

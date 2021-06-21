@@ -147,7 +147,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
 
     // save the original attribute for later usages, we do this, because some components reflect
     Object.keys(this._privilegedAttributes).forEach(attr => {
-      if (this.getAttribute(attr) !== undefined) {
+      if (this.getAttribute(attr) !== null) {
         this._privilegedAttributes[attr] = this.getAttribute(attr);
       }
     });

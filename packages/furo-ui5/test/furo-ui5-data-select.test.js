@@ -618,21 +618,20 @@ describe('furo-ui5-data-select', () => {
   });
 
   it('should detect a field value change event', done => {
-    daoCollection.injectRaw(options);
+    input._privilegedAttributes['id-field-path'] = 'data.id';
+    input._privilegedAttributes['id-field-path'] = 'data.id';
+    input._privilegedAttributes['display-field-path'] = 'data.display_name';
 
-    dao.data.data.description.addEventListener('field-value-changed', e => {
+    daoCollection.addEventListener('data-injected', () => {
+      assert.equal(input.activeFieldBinding, true);
+      dao.data.data.description._value = '3';
+
       setTimeout(() => {
-        input.querySelectorAll('ui5-option').forEach(item => {
-          if (item.innerText === '3') {
-            done();
-          }
-        });
-      }, 32);
+        assert.equal(input._syncedOptions[2].selected, true);
+        done();
+      }, 16);
     });
 
-    setTimeout(() => {
-      assert.equal(input.activeFieldBinding, true);
-      dao.data.data.description._value = 3;
-    }, 16);
+    daoCollection.injectRaw(options);
   });
 });

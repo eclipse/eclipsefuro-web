@@ -1,5 +1,5 @@
-import {FieldNodeAdapter} from '@furo/data/src/lib/FieldNodeAdapter.js';
-import {RepeaterNode} from '@furo/data/src/lib/RepeaterNode.js';
+import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
+import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode.js';
 import '@ui5/webcomponents/dist/RadioButton.js';
 
 /**
@@ -11,7 +11,7 @@ import '@ui5/webcomponents/dist/RadioButton.js';
  *
  * @summary
  * @customElement
- * @demo demo furo-ui5-data-radio-button-group Basic Usage
+ * @demo demo-furo-ui5-data-radio-button-group Basic Usage
  * @appliesMixin FBP
  */
 class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
@@ -82,7 +82,7 @@ class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
     this._optionList = [];
 
     // used to restore the state after a invalidation -> validation change
-    this._previousValueState = {state: 'None', message: ''};
+    this._previousValueState = { state: 'None', message: '' };
 
     this._attributesFromFNA = {
       readonly: undefined,
@@ -112,7 +112,7 @@ class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
       'id-field-path': 'id',
       'value-field-path': 'id',
       'display-field-path': 'display_name',
-      'group-name': null
+      'group-name': null,
     };
 
     // changed is fired when the select operation has finished.
@@ -151,6 +151,8 @@ class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
       this._updateOptions();
     });
 
+    this._updateOptions();
+
     return true;
   }
 
@@ -167,23 +169,21 @@ class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
       if (OPTIONS && OPTIONS.length) {
         this.options = OPTIONS;
 
-        OPTIONS.forEach(opt =>{
+        OPTIONS.forEach(opt => {
           /**
            * set readonly, disabled to all existing options
            */
-          if (this._privilegedAttributes['readonly'] !== null){
+          if (this._privilegedAttributes.readonly !== null) {
             opt.setAttribute('readonly', '');
           }
-          if (this._privilegedAttributes['disabled'] !== null){
+          if (this._privilegedAttributes.disabled !== null) {
             opt.setAttribute('disabled', '');
           }
-        })
-
+        });
       } else {
         this.options = [];
       }
     }
-
   }
 
   /**
@@ -232,7 +232,7 @@ class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
 
       const existingOptions = this.querySelectorAll(this._tagRadioButton);
       existingOptions.forEach(opt => {
-        if (this.readonly){
+        if (this.readonly) {
           opt.setAttribute(readonly, '');
         } else {
           opt.removeAttribute('readonly');
@@ -266,7 +266,7 @@ class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
 
     if (this.options && this.options.length) {
       let result;
-      this.options.forEach((elem) =>{
+      this.options.forEach(elem => {
         if (elem.dataset.id === val) {
           result = elem;
         }
@@ -303,8 +303,10 @@ class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
     if (this._optionList && this._optionList.repeats && this._optionList.repeats.length) {
       selectedOption = this._optionList.repeats.find(
         obj =>
-          FuroUi5DataRadioButtonGroup.getValueByPath(obj, this._privilegedAttributes['id-field-path'])
-            ._value === e.target.dataset.id,
+          FuroUi5DataRadioButtonGroup.getValueByPath(
+            obj,
+            this._privilegedAttributes['id-field-path'],
+          )._value === e.target.dataset.id,
       );
 
       if (selectedOption) {
@@ -347,7 +349,6 @@ class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
         }
         this.setFnaFieldValue(this._tmpFAT);
       } else if (this.isWrapper()) {
-
         this.setFnaFieldValue(newValue === '' ? null : newValue);
       } else {
         this.setFnaFieldValue(newValue === '' ? '' : newValue);
@@ -386,7 +387,10 @@ class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
         const optionItem = document.createElement(this._tagRadioButton);
         optionItem.setAttribute(
           'data-id',
-          FuroUi5DataRadioButtonGroup.getValueByPath(item, this._privilegedAttributes['id-field-path']),
+          FuroUi5DataRadioButtonGroup.getValueByPath(
+            item,
+            this._privilegedAttributes['id-field-path'],
+          ),
         );
 
         optionItem.text = FuroUi5DataRadioButtonGroup.getValueByPath(
@@ -394,10 +398,10 @@ class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
           this._privilegedAttributes['display-field-path'],
         )._value;
 
-        if (this._privilegedAttributes['readonly'] !== null){
+        if (this._privilegedAttributes.readonly !== null) {
           optionItem.setAttribute('readonly', '');
         }
-        if (this._privilegedAttributes['disabled'] !== null){
+        if (this._privilegedAttributes.disabled !== null) {
           optionItem.setAttribute('disabled', '');
         }
 
@@ -411,7 +415,10 @@ class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
         const optionItem = document.createElement(this._tagRadioButton);
         optionItem.setAttribute(
           'data-id',
-          FuroUi5DataRadioButtonGroup.getValueByPath(item, this._privilegedAttributes['id-field-path']),
+          FuroUi5DataRadioButtonGroup.getValueByPath(
+            item,
+            this._privilegedAttributes['id-field-path'],
+          ),
         );
 
         optionItem.text = FuroUi5DataRadioButtonGroup.getValueByPath(
@@ -419,10 +426,10 @@ class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
           this._privilegedAttributes['display-field-path'],
         );
 
-        if (this._privilegedAttributes['readonly'] !== null){
+        if (this._privilegedAttributes.readonly !== null) {
           optionItem.setAttribute('readonly', '');
         }
-        if (this._privilegedAttributes['disabled'] !== null){
+        if (this._privilegedAttributes.disabled !== null) {
           optionItem.setAttribute('disabled', '');
         }
         optionItem.name = this._privilegedAttributes['group-name'];
@@ -453,7 +460,6 @@ class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
       }),
     );
   }
-
 }
 
 window.customElements.define('furo-ui5-data-radio-button-group', FuroUi5DataRadioButtonGroup);
