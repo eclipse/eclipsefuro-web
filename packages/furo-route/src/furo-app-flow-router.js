@@ -169,13 +169,12 @@ class FuroAppFlowRouter extends FBP(LitElement) {
           return true;
         }
 
-
         /**
          * @event __beforeReplaceState
          * Fired when before the state will be updated
          * detail payload:
          */
-        window.dispatchEvent(new Event('__beforeReplaceState', {composed: true, bubbles: true}))
+        window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
         window.history.replaceState({}, '', prefix + selection.target + search);
 
         /**

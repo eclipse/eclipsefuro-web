@@ -67,7 +67,7 @@ class FuroQpChanger extends FBP(LitElement) {
        * Fired when before the state will be updated
        * detail payload:
        */
-      window.dispatchEvent(new Event('__beforeReplaceState', {composed: true, bubbles: true}))
+      window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
       window.history.replaceState({}, '', location);
 
       const now = window.performance.now();
