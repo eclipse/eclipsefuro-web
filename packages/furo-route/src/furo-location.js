@@ -261,16 +261,17 @@ class FuroLocation extends LitElement {
       // update history only once
       if (!e.__historyUpdated) {
         e.__historyUpdated = true;
-
         const now = window.performance.now();
-        const shouldReplace = this._lastChangedAt + this.dwellTime > now;
-        this._lastChangedAt = now;
 
-        if (shouldReplace) {
-          window.history.replaceState({}, '', target.href);
-        } else {
-          window.history.pushState({}, '', target.href);
-        }
+        /**
+         * @event __beforeReplaceState
+         * Fired when before the state will be updated
+         * detail payload:
+         */
+        window.dispatchEvent(new Event('__beforeReplaceState', {composed: true, bubbles: true}))
+
+        window.history.replaceState({}, '', target.href);
+
 
         this._notifyFuroLocationChanged();
       }
