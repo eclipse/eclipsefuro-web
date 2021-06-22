@@ -7,8 +7,41 @@ import {FBP} from '@furo/fbp';
  * Use this component with app-flow and furo-pages to implement application flow
  *
  *
- *    <app-flow-router config="[[conf]]" ƒ-trigger="--flowEvent" ƒ-back="--wire" ƒ-forward="--wire"></app-flow-router>
+ * ```html
+ *    <app-flow-router ƒ-.config="--flowConfigLoaded" ƒ-trigger="--flowEvent" ƒ-back="--wire" ƒ-forward="--wire"></app-flow-router>
+ * ```
  *
+ *  *Configuration Array
+ *
+ * | current   | flow-event-name      | target      | [mapping]          |
+ * |:----------|:---------------------|:------------|:-------------------|
+ * | view-main | form-complete        | detail-view | from => to         |
+ * | *         | menu-settings-click  | settings    |                    |
+ * | *         | all-fields-req       | all-qps     |        *           |
+ * | *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |
+ *
+ *
+ * ```json
+ *  [
+ *    ['view-main', 'button-tap', 'detail-view',  'task => id],
+ *    ["*", "search", "EXTERNAL_LINK: https://google.com/"],
+ *    ["*", "searchInNewWindow", "EXTERNAL_LINK_BLANK: https://google.com/"]
+ *    ["*", "searchInNewWindow", "EXTERNAL_LINK_BLANK:", *]
+ *  ]
+ *  ```
+ *
+ *
+ *  if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to "to".
+ *
+ *  ## Special configurations:
+ *
+ *  - Set a "*" to map all data 1:1 to the url.
+ *
+ *  - You can set a wildcard for "current". If you check the example: menu-settings-click can be triggered from any current. If there is a "current" with menu-settings-click configured and you are there, the wildcard is not used.
+ *  - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link
+ *  - if you want to close a page which was openend by a _blank click use the keyword **WINDOW-CLOSE**
+ *  - if you want to trigger a history.back() use the **HISTORY-BACK**
+ *  - if there is no history.back() possible use the **flow event!** **HISTORY-BACK** and define the target as usual
  *
  * @summary Application Flow => routing
  * @customElement
@@ -58,37 +91,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       *Configuration Array
-       *
-       * | current   | flow-event-name      | target      | [mapping]          |
-       * |:----------|:---------------------|:------------|:-------------------|
-       * | view-main | form-complete        | detail-view | from => to         |
-       * | *         | menu-settings-click  | settings    |                    |
-       * | *         | all-fields-req       | all-qps     |        *           |
-       * | *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |
-       *
-       *
-       * ```json
-       *  [
-       *    ['view-main', 'button-tap', 'detail-view',  'task => id],
-       *    ["*", "search", "EXTERNAL_LINK: https://google.com/"],
-       *    ["*", "searchInNewWindow", "EXTERNAL_LINK_BLANK: https://google.com/"]
-       *    ["*", "searchInNewWindow", "EXTERNAL_LINK_BLANK:", *]
-       *  ]
-       *  ```
-       *
-       *
-       *  if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to "to".
-       *
-       *  ## Special configurations:
-       *
-       *  - Set a "*" to map all data 1:1 to the url.
-       *
-       *  - You can set a wildcard for "current". If you check the example: menu-settings-click can be triggered from any current. If there is a "current" with menu-settings-click configured and you are there, the wildcard is not used.
-       *  - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link
-       *  - if you want to close a page which was openend by a _blank click use the keyword **WINDOW-CLOSE**
-       *  - if you want to trigger a history.back() use the **HISTORY-BACK**
-       *  - if there is no history.back() possible use the **flow event!** **HISTORY-BACK** and define the target as usual
+       * The Configuration Array
        */
       config: {type: Array},
 
@@ -111,6 +114,14 @@ class FuroAppFlowRouter extends FBP(LitElement) {
         attribute: 'url-space-regex',
       },
     };
+  }
+
+  /**
+   * Set the config
+   * @param config
+   */
+  setConfig(config){
+    this.config = config
   }
 
   /**
