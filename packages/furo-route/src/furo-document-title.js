@@ -93,10 +93,10 @@ class FuroDocumentTitle extends FBP(LitElement) {
       window.history.pushState({}, document.title, window.location.href);
       this._inPreStage = false;
       /**
-      * @event waypoint-pushed
-      * Fired when the waypoint is finaly pushed to the browser history.
-      */
-      this.dispatchEvent(new Event('waypoint-pushed', {composed:true, bubbles: true}))
+       * @event waypoint-pushed
+       * Fired when the waypoint is finaly pushed to the browser history.
+       */
+      this.dispatchEvent(new Event('waypoint-pushed', { composed: true, bubbles: true }));
     };
 
     /**
@@ -110,7 +110,7 @@ class FuroDocumentTitle extends FBP(LitElement) {
        * @event waypoint-canceled
        * Fired when the waypoint was set but not pushed to the history, because the user navigated back.
        */
-      this.dispatchEvent(new Event('waypoint-canceled', {composed:true, bubbles: true}))
+      this.dispatchEvent(new Event('waypoint-canceled', { composed: true, bubbles: true }));
     };
 
     /**
