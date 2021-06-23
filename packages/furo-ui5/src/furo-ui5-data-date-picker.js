@@ -149,11 +149,15 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DatePicker.default) 
       case 'google.type.Date':
         if (value.month && value.day) {
           this.value = this.formatValue(new Date(value.year, value.month - 1, value.day));
+        } else {
+          this.value = '';
         }
         break;
       case 'string':
       default:
-        if (value !== '') {
+        if (value === '' || value === null || value === undefined) {
+          this.value = '';
+        } else {
           const parts = value.match(/\d+/g);
           this.value = this.formatValue(new Date(parts[0], parts[1] - 1, parts[2]));
         }
