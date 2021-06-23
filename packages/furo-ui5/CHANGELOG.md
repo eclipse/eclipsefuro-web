@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.30.0...@furo/ui5@0.31.0) (2021-06-23)
+
+
+### Bug Fixes
+
+* remove data-ro, data-ro-labeled ([0683741](https://github.com/theNorstroem/FuroBaseComponents/commit/0683741ce997b5517bf4d4df8abb22e0e3ef2244))
+* removed furo-ui5-data-input.js ([1ddb268](https://github.com/theNorstroem/FuroBaseComponents/commit/1ddb26846a43d398fe4cc0bd22167b99079269c7))
+* removed Ui5StandardBindingSet.js ([e812f80](https://github.com/theNorstroem/FuroBaseComponents/commit/e812f8031089cbdfce65fdac3ab70a60babc0b51))
+* set furo-ui5-data-collection-dropdown.js as deprecated ([1646f91](https://github.com/theNorstroem/FuroBaseComponents/commit/1646f91dbb21523a1214758b2bc4f7c44beba4f9))
+* todo for removal of the UI5PropertyStandardMapping added ([d550f46](https://github.com/theNorstroem/FuroBaseComponents/commit/d550f46f421d2fcb3e730dfc699b103e4b101240))
+
+
+### Features
+
+* switch the design by fat ([0fc10a0](https://github.com/theNorstroem/FuroBaseComponents/commit/0fc10a0bd98c27382c3c585ed860ab06e55ec4a0))
+
+
+
+
+
 # [0.30.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.29.4...@furo/ui5@0.30.0) (2021-06-18)
 
 

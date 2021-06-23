@@ -1,7 +1,7 @@
 {
   "name": "@furo/ui5",
   "description": "SAP UI5 Web Components",
-  "version": "0.30.0",
+  "version": "0.31.0",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-ui5",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {

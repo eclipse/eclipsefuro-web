@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.6.20...@furo/route@1.7.0) (2021-06-23)
+
+
+### Features
+
+* furo-document-title ([2d52249](https://github.com/theNorstroem/FuroBaseComponents/commit/2d522495b0c00cc53a38a567ce5d7d49653cbab9))
+* furo-document-title ([f914262](https://github.com/theNorstroem/FuroBaseComponents/commit/f91426288791e108bf92f288824ba3e64e0ecec7))
+
+
+
+
+
 ## [1.6.20](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.6.19...@furo/route@1.6.20) (2021-06-18)
 
 **Note:** Version bump only for package @furo/route
