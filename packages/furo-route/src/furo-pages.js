@@ -6,7 +6,7 @@ import { LitElement, html, css } from 'lit-element';
  * Use this to build tabs, views, subviews,...
  *
  * ### preconditions:
- * You have to implement a `:host([hidden]){display:none}` in your views css
+ * You have to implement a `:host([hidden]){display:none}` in your views css.
  *
  * ### flowbased auto wires
  * furo-pages provides auto wires, which are automatically triggered in the child elements if
@@ -16,6 +16,8 @@ import { LitElement, html, css } from 'lit-element';
  * |:-------------------|:-----------------|
  * | --pageDeActivated  | Every time the element changes to hidden   |
  * | --pageActivated    | Triggered when the element is activated. Comes with a location object.
+ * | --pageQueryChanged  | Triggered when the page query changes. Comes with a location object.
+ * | --pageHashChanged  | Triggered when the page hash changes. Comes with a location object.
  *
  * ## Attributes
  * **default** set the default page to show

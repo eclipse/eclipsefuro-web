@@ -7,7 +7,7 @@ function TypeAppFlow(name) {
 }
 
 /**
- * `furo-app-flow`
+ * `furo-app-flow` triggers the flow events for the `app-flow-router`.
  *
  * @summary Application Flow => routing
  * @customElement

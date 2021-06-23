@@ -1,5 +1,5 @@
-import {LitElement, css} from 'lit-element';
-import {FBP} from '@furo/fbp';
+import { LitElement, css } from 'lit-element';
+import { FBP } from '@furo/fbp';
 
 /**
  * `furo-app-flow-router`
@@ -58,14 +58,14 @@ class FuroAppFlowRouter extends FBP(LitElement) {
      */
     // eslint-disable-next-line wc/no-constructor-attributes
     this.urlSpaceRegex = '';
-    window.addEventListener("keydown", (ev => {
+    window.addEventListener('keydown', ev => {
       if (ev.metaKey) {
         this._blank = true;
       }
-    }))
-    window.addEventListener("keyup", (ev => {
+    });
+    window.addEventListener('keyup', () => {
       this._blank = false;
-    }))
+    });
   }
 
   /**
@@ -74,7 +74,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
   // eslint-disable-next-line class-methods-use-this
   back() {
     if (window.history.length <= 2) {
-      this.trigger({event: "HISTORY-BACK-FALLBACK"});
+      this.trigger({ event: 'HISTORY-BACK-FALLBACK' });
     } else {
       window.history.back();
     }
@@ -93,7 +93,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
       /**
        * The Configuration Array
        */
-      config: {type: Array},
+      config: { type: Array },
 
       /**
        * attribute url-space-regex
@@ -120,8 +120,8 @@ class FuroAppFlowRouter extends FBP(LitElement) {
    * Set the config
    * @param config
    */
-  setConfig(config){
-    this.config = config
+  setConfig(config) {
+    this.config = config;
   }
 
   /**
@@ -145,7 +145,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
      * this will only work in blank opened pages
      */
     if (selection.target === 'WINDOW-CLOSE') {
-      window.close()
+      window.close();
     }
 
     if (selection) {
@@ -203,13 +203,12 @@ class FuroAppFlowRouter extends FBP(LitElement) {
           return true;
         }
 
-
         /**
          * @event __beforeReplaceState
          * Fired when before the state will be updated
          * detail payload:
          */
-        window.dispatchEvent(new Event('__beforeReplaceState', {composed: true, bubbles: true}))
+        window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
         /**
          * if the meta key is pressed, open a blank page
          */
@@ -220,14 +219,13 @@ class FuroAppFlowRouter extends FBP(LitElement) {
           window.history.replaceState({}, '', prefix + selection.target + search);
         }
 
-
         /**
          * Internal notyfication
          * @private
          */
 
         const now = window.performance.now();
-        const customEvent = new Event('__furoLocationChanged', {composed: true, bubbles: true});
+        const customEvent = new Event('__furoLocationChanged', { composed: true, bubbles: true });
         customEvent.detail = now;
         this.dispatchEvent(customEvent);
       }
@@ -237,7 +235,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
        * Fired when page was changed
        * detail payload: flowEvent
        */
-      const customEvent = new Event('view-changed', {composed: true, bubbles: true});
+      const customEvent = new Event('view-changed', { composed: true, bubbles: true });
       customEvent.detail = flowEvent;
       this.dispatchEvent(customEvent);
       return true;
@@ -248,7 +246,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
      * Fired when view not
      * detail payload: flowEvent
      */
-    const customEvent = new Event('event-not-found', {composed: true, bubbles: true});
+    const customEvent = new Event('event-not-found', { composed: true, bubbles: true });
     customEvent.detail = flowEvent;
     this.dispatchEvent(customEvent);
     return false;
@@ -262,7 +260,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
 
     // build config object for faster checks
     configArray.forEach(config => {
-      this._configObject[config[0] + config[1]] = {target: config[2], mapping: config[3]};
+      this._configObject[config[0] + config[1]] = { target: config[2], mapping: config[3] };
     });
   }
 

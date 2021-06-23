@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`furo-app-flow`",
+      "description": "`furo-app-flow` triggers the flow events for the `app-flow-router`.",
       "summary": "Application Flow => routing",
       "path": "src/furo-app-flow.js",
       "properties": [
@@ -148,22 +148,22 @@
       ]
     },
     {
-      "description": "`furo-app-flow-router`\n\nUse this component with app-flow and furo-pages to implement application flow\n\n\n   <app-flow-router config=\"[[conf]]\" ƒ-trigger=\"--flowEvent\" ƒ-back=\"--wire\" ƒ-forward=\"--wire\"></app-flow-router>",
+      "description": "`furo-app-flow-router`\n\nUse this component with app-flow and furo-pages to implement application flow\n\n\n```html\n   <app-flow-router ƒ-.config=\"--flowConfigLoaded\" ƒ-trigger=\"--flowEvent\" ƒ-back=\"--wire\" ƒ-forward=\"--wire\"></app-flow-router>\n```\n\n *Configuration Array\n\n| current   | flow-event-name      | target      | [mapping]          |\n|:----------|:---------------------|:------------|:-------------------|\n| view-main | form-complete        | detail-view | from => to         |\n| *         | menu-settings-click  | settings    |                    |\n| *         | all-fields-req       | all-qps     |        *           |\n| *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |\n\n\n```json\n [\n   ['view-main', 'button-tap', 'detail-view',  'task => id],\n   [\"*\", \"search\", \"EXTERNAL_LINK: https://google.com/\"],\n   [\"*\", \"searchInNewWindow\", \"EXTERNAL_LINK_BLANK: https://google.com/\"]\n   [\"*\", \"searchInNewWindow\", \"EXTERNAL_LINK_BLANK:\", *]\n ]\n ```\n\n\n if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to \"to\".\n\n ## Special configurations:\n\n - Set a \"*\" to map all data 1:1 to the url.\n\n - You can set a wildcard for \"current\". If you check the example: menu-settings-click can be triggered from any current. If there is a \"current\" with menu-settings-click configured and you are there, the wildcard is not used.\n - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link\n - if you want to close a page which was openend by a _blank click use the keyword **WINDOW-CLOSE**\n - if you want to trigger a history.back() use the **HISTORY-BACK**\n - if there is no history.back() possible use the **flow event!** **HISTORY-BACK** and define the target as usual",
       "summary": "Application Flow => routing",
       "path": "src/furo-app-flow-router.js",
       "properties": [
         {
           "name": "config",
           "type": "Array | null | undefined",
-          "description": "Configuration Array\n\n| current   | flow-event-name      | target      | [mapping]          |\n|:----------|:---------------------|:------------|:-------------------|\n| view-main | form-complete        | detail-view | from => to         |\n| *         | menu-settings-click  | settings    |                    |\n| *         | all-fields-req       | all-qps     |        *           |\n| *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |\n\n\n```json\n [\n   ['view-main', 'button-tap', 'detail-view',  'task => id],\n   [\"*\", \"search\", \"EXTERNAL_LINK: https://google.com/\"],\n   [\"*\", \"searchInNewWindow\", \"EXTERNAL_LINK_BLANK: https://google.com/\"]\n   [\"*\", \"searchInNewWindow\", \"EXTERNAL_LINK_BLANK:\", *]\n ]\n ```\n\n\n if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to \"to\".\n\n Special configurations:\n\n - Set a \"*\" to map all data 1:1 to the url.\n\n - You can set a wildcard for \"current\". If you check the example: menu-settings-click can be triggered from any current. If there is a \"current\" with menu-settings-click configured and you are there, the wildcard is not used.\n - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link",
+          "description": "build internal config for faster access\n   ",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 215,
+              "line": 257,
               "column": 2
             },
             "end": {
-              "line": 222,
+              "line": 264,
               "column": 3
             }
           },
@@ -178,11 +178,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 111,
               "column": 6
             },
             "end": {
-              "line": 96,
+              "line": 114,
               "column": 7
             }
           },
@@ -200,11 +200,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 33,
+              "line": 74,
               "column": 2
             },
             "end": {
-              "line": 35,
+              "line": 80,
               "column": 3
             }
           },
@@ -220,11 +220,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 41,
+              "line": 86,
               "column": 2
             },
             "end": {
-              "line": 43,
+              "line": 88,
               "column": 3
             }
           },
@@ -235,16 +235,40 @@
           }
         },
         {
+          "name": "setConfig",
+          "description": "Set the config",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 122,
+              "column": 2
+            },
+            "end": {
+              "line": 124,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "config"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "trigger",
           "description": "Trigger the router",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 131,
               "column": 2
             },
             "end": {
-              "line": 210,
+              "line": 252,
               "column": 3
             }
           },
@@ -264,11 +288,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 16,
+          "line": 49,
           "column": 0
         },
         "end": {
-          "line": 232,
+          "line": 274,
           "column": 1
         }
       },
@@ -278,14 +302,14 @@
       "attributes": [
         {
           "name": "config",
-          "description": "Configuration Array\n\n| current   | flow-event-name      | target      | [mapping]          |\n|:----------|:---------------------|:------------|:-------------------|\n| view-main | form-complete        | detail-view | from => to         |\n| *         | menu-settings-click  | settings    |                    |\n| *         | all-fields-req       | all-qps     |        *           |\n| *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |\n\n\n```json\n [\n   ['view-main', 'button-tap', 'detail-view',  'task => id],\n   [\"*\", \"search\", \"EXTERNAL_LINK: https://google.com/\"],\n   [\"*\", \"searchInNewWindow\", \"EXTERNAL_LINK_BLANK: https://google.com/\"]\n   [\"*\", \"searchInNewWindow\", \"EXTERNAL_LINK_BLANK:\", *]\n ]\n ```\n\n\n if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to \"to\".\n\n Special configurations:\n\n - Set a \"*\" to map all data 1:1 to the url.\n\n - You can set a wildcard for \"current\". If you check the example: menu-settings-click can be triggered from any current. If there is a \"current\" with menu-settings-click configured and you are there, the wildcard is not used.\n - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link",
+          "description": "build internal config for faster access\n   ",
           "sourceRange": {
             "start": {
-              "line": 215,
+              "line": 257,
               "column": 2
             },
             "end": {
-              "line": 222,
+              "line": 264,
               "column": 3
             }
           },
@@ -297,11 +321,11 @@
           "description": "attribute url-space-regex\nA regexp that defines the set of URLs that should be considered part\nof this web app.\n\nClicking on a link that matches this regex won't result in a full page\nnavigation, but will instead just update the URL state in place.\n\nThis regexp is given everything after the origin in an absolute\nURL. So to match just URLs that start with /app do:\n    url-space-regex=\"^/app\"",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 111,
               "column": 6
             },
             "end": {
-              "line": 96,
+              "line": 114,
               "column": 7
             }
           },
@@ -1048,7 +1072,7 @@
       ]
     },
     {
-      "description": "`furo-pages` is used to select one of its children to show.\n\nUse this to build tabs, views, subviews,...\n\n### preconditions:\nYou have to implement a `:host([hidden]){display:none}` in your views css\n\n### flowbased auto wires\nfuro-pages provides auto wires, which are automatically triggered in the child elements if\nthey have flowbased enabled.\n\n| wire               | timing           |\n|:-------------------|:-----------------|\n| --pageDeActivated  | Every time the element changes to hidden   |\n| --pageActivated    | Triggered when the element is activated. Comes with a location object.\n\n## Attributes\n**default** set the default page to show\n\n**attr-for-selected** *(default: selected)*\n\n\nIf you want to use an attribute value or property of an element for selected instead of the 'selected' attribute, set this to the name of the attribute or property.",
+      "description": "`furo-pages` is used to select one of its children to show.\n\nUse this to build tabs, views, subviews,...\n\n### preconditions:\nYou have to implement a `:host([hidden]){display:none}` in your views css.\n\n### flowbased auto wires\nfuro-pages provides auto wires, which are automatically triggered in the child elements if\nthey have flowbased enabled.\n\n| wire               | timing           |\n|:-------------------|:-----------------|\n| --pageDeActivated  | Every time the element changes to hidden   |\n| --pageActivated    | Triggered when the element is activated. Comes with a location object.\n| --pageQueryChanged  | Triggered when the page query changes. Comes with a location object.\n| --pageHashChanged  | Triggered when the page hash changes. Comes with a location object.\n\n## Attributes\n**default** set the default page to show\n\n**attr-for-selected** *(default: selected)*\n\n\nIf you want to use an attribute value or property of an element for selected instead of the 'selected' attribute, set this to the name of the attribute or property.",
       "summary": "Simple content switcher",
       "path": "src/furo-pages.js",
       "properties": [
@@ -1059,11 +1083,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 113,
               "column": 2
             },
             "end": {
-              "line": 113,
+              "line": 115,
               "column": 3
             }
           },
@@ -1081,11 +1105,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 55,
               "column": 2
             },
             "end": {
-              "line": 61,
+              "line": 63,
               "column": 3
             }
           },
@@ -1105,11 +1129,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 67,
+              "line": 69,
               "column": 2
             },
             "end": {
-              "line": 104,
+              "line": 106,
               "column": 3
             }
           },
@@ -1126,11 +1150,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 128,
               "column": 2
             },
             "end": {
-              "line": 181,
+              "line": 183,
               "column": 3
             }
           },
@@ -1147,11 +1171,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 201,
+              "line": 203,
               "column": 2
             },
             "end": {
-              "line": 206,
+              "line": 208,
               "column": 3
             }
           },
@@ -1172,11 +1196,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 31,
+          "line": 33,
           "column": 0
         },
         "end": {
-          "line": 207,
+          "line": 209,
           "column": 1
         }
       },
