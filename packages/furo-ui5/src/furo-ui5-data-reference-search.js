@@ -192,11 +192,6 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
    * @param val
    */
   onFnaFieldValueChanged(val) {
-    // set the service by wire, because collection-agent can not handle empty service entries
-    if (typeof val.link === 'object' && val.link.service !== '') {
-      this._FBPTriggerWire('--detectedService', val.link.service);
-      this._FBPTriggerWire('--hts', val.link);
-    }
     if (this.__fieldNode.__childNodes.length === 0) {
       // assuming a scalar
       this.value = { id: val, display_name: val };
@@ -204,6 +199,12 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     } else {
       this._FBPTriggerWire('--displayValue', val.display_name);
       this.value = val;
+    }
+
+    // set the service by wire, because collection-agent can not handle empty service entries
+    if (typeof val.link === 'object' && val.link.service !== '') {
+      this._FBPTriggerWire('--detectedService', val.link.service);
+      this._FBPTriggerWire('--hts', val.link);
     }
   }
 
