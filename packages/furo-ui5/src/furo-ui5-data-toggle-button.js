@@ -79,7 +79,7 @@ export class FuroUi5DataToggleButton extends FieldNodeAdapter(ToggleButton.defau
     this._attributesFromFAT = {
       label: undefined,
       icon: undefined,
-      design: undefined
+      design: undefined,
     };
 
     this._labelsFromFAT = {
@@ -116,8 +116,6 @@ export class FuroUi5DataToggleButton extends FieldNodeAdapter(ToggleButton.defau
    * Reads the attributes which are set on the component dom.
    */
   readAttributes() {
-
-
     // save the original attribute for later usages, we do this, because some components reflect
     Object.keys(this._privilegedAttributes).forEach(attr => {
       this._privilegedAttributes[attr] = this.getAttribute(attr);

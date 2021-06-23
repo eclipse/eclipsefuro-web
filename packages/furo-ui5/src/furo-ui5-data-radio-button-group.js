@@ -96,9 +96,6 @@ class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
      */
     this._optionList = [];
 
-    // used to restore the state after a invalidation -> validation change
-    this._previousValueState = { state: 'None', message: '' };
-
     this._attributesFromFNA = {
       readonly: undefined,
     };
