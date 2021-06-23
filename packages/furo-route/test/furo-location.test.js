@@ -12,7 +12,8 @@ describe('furo-location', () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
-          <furo-location url-space-regex="^"></furo-location>
+          <furo-location url-space-regex="^" @-location-changed="--lo"></furo-location>
+          <furo-document-title title="ttt" ƒ-activate="--lo"></furo-document-title>
         </template>
       </test-bind>
     `);

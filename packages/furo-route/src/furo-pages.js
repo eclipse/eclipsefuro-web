@@ -150,11 +150,12 @@ class FuroPages extends LitElement {
       }
       this._lastPage.setAttribute(this._attrForSelected, '');
 
-      this._lastPageName = page;
-      if (this._lastPage._FBPTriggerWire !== undefined) {
-        this._lastPage._FBPTriggerWire('--pageActivated', location);
+      if (this._lastPage && page !== this._lastPageName) {
+        if (this._lastPage._FBPTriggerWire !== undefined) {
+          this._lastPage._FBPTriggerWire('--pageActivated', location);
+        }
       }
-
+      this._lastPageName = page;
       // QP
       if (this._lastQP[page] !== location.querystring) {
         this._lastQP[page] = location.querystring;

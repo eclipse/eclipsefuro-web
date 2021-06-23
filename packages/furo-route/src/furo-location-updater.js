@@ -77,7 +77,14 @@ class FuroLocationUpdater extends FBP(LitElement) {
     const location = `${window.location.pathname}?${qp.join('&')}${window.location.hash}`;
     if (this._lastLocation !== location) {
       // notify furo location
-      window.history.pushState({}, '', location);
+
+      /**
+       * @event __beforeReplaceState
+       * Fired when before the state will be updated
+       * detail payload:
+       */
+      window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
+      window.history.replaceState({}, '', location);
 
       const now = window.performance.now();
       const customEvent = new Event('__furoLocationChanged', { composed: true, bubbles: true });
@@ -133,7 +140,14 @@ class FuroLocationUpdater extends FBP(LitElement) {
     const location = `${window.location.pathname}${window.location.search}#${hash.join('&')}`;
     if (this._lastLocation !== location) {
       // notify furo location
-      window.history.pushState({}, '', location);
+
+      /**
+       * @event __beforeReplaceState
+       * Fired when before the state will be updated
+       * detail payload:
+       */
+      window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
+      window.history.replaceState({}, '', location);
 
       const now = window.performance.now();
       const customEvent = new Event('__furoLocationChanged', { composed: true, bubbles: true });
