@@ -10,6 +10,7 @@ import '@ui5/webcomponents/dist/List.js';
 import './ui5-reference-search-item.js';
 import '@ui5/webcomponents-icons/dist/value-help.js';
 import '@ui5/webcomponents-icons/dist/search.js';
+import '@furo/layout/src/furo-backdrop.js';
 
 /**
  * The furo-ui5-data-reference-search
