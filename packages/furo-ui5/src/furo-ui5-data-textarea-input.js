@@ -70,6 +70,7 @@ export class FuroUi5DataTextareaInput extends FieldNodeAdapter(TextArea.default)
 
   constructor() {
     super();
+    this.value = '';
 
     // used to restore the state after a invalidation -> validation change
     this._previousValueState = { state: 'None', message: '' };
