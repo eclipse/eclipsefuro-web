@@ -9,10 +9,12 @@ import '@furo/testhelper/initEnv.js';
 
 import '../src/furo-catalog.js';
 
-describe('furo-ui5-data-segmented-button', () => {
+describe('furo-ui5-data-segmented-button-bind', () => {
   let host;
   let segmentedButton;
+  let input;
   let dao;
+  let daoRepeater;
 
   const testData = {
     entities: [
@@ -103,38 +105,39 @@ describe('furo-ui5-data-segmented-button', () => {
       },
     ],
   };
-  const testDataArray = [
-    {
-      id: 1,
-      display_name: 'Item 1',
-    },
-    {
-      id: 2,
-      display_name: 'Item 2',
-    },
-    {
-      id: 3,
-      display_name: 'Item 3',
-    },
-  ];
 
   beforeEach(async () => {
     const testbind = await fixture(html`
       <test-bind>
         <template>
           <furo-ui5-data-segmented-button
-            ƒ-bind-data="--daoPerson(*.sex)"
-          ></furo-ui5-data-segmented-button>
-          <furo-data-object type="person.Person" @-object-ready="--daoPerson"></furo-data-object>
+            value-field-path="data.id"
+            id-field-path="data.id"
+            display-field-path="data.display_name"
+            ƒ-bind-data="--entity(*.owner.id)"
+          >
+            <ui5-togglebutton data-id="A">Option A</ui5-togglebutton>
+            <ui5-togglebutton data-id="B">Option B with a very long text</ui5-togglebutton>
+            <ui5-togglebutton data-id="C">Option C</ui5-togglebutton>
+          </furo-ui5-data-segmented-button>
+          <furo-ui5-data-text-input ƒ-bind-data="--entity(*.owner.id)"></furo-ui5-data-text-input>
+          <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+          <furo-data-object
+            type="person.PersonCollection"
+            @-object-ready="--collection"
+            ƒ-inject-raw="--response"
+          ></furo-data-object>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, segmentedButton, dao] = testbind.parentNode.children;
+    [, segmentedButton, input, dao, daoRepeater] = testbind.parentNode.children;
     await host.updateComplete;
     await segmentedButton.updateComplete;
+    await input.updateComplete;
     await dao.updateComplete;
+    await daoRepeater.updateComplete;
   });
 
   it('should be a furo-ui5-data-segmented-button element', done => {
@@ -143,39 +146,36 @@ describe('furo-ui5-data-segmented-button', () => {
     done();
   });
 
-  it('should have options from API SPEC', done => {
+  it('should have options from markup', done => {
     setTimeout(() => {
       assert.equal(segmentedButton.querySelectorAll('ui5-togglebutton').length, 3);
       done();
     }, 16);
   });
 
-  it('should have the basic attribute values', done => {
-    setTimeout(() => {
-      assert.equal(segmentedButton.buttons.length, 0, 'option count');
-      assert.equal(segmentedButton._privilegedAttributes.readonly, null, 'readonly state');
-      assert.equal(segmentedButton._privilegedAttributes['id-field-path'], 'id', 'idFieldPath');
-      assert.equal(
-        segmentedButton._privilegedAttributes['value-field-path'],
-        'id',
-        'valueFieldPath',
-      );
-      assert.equal(
-        segmentedButton._privilegedAttributes['display-field-path'],
-        'display_name',
-        'displayFieldPath',
-      );
+  it('should update toggle buttons after bindOptions', done => {
+    segmentedButton.bindOptions(daoRepeater.data.entities);
+    daoRepeater.injectRaw(testData);
 
+    setTimeout(() => {
+      assert.equal(segmentedButton.querySelectorAll('ui5-togglebutton').length, 4);
       done();
     }, 16);
   });
 
-  it('should activate the correct item', done => {
-    dao.data.sex._value = 'male';
-
-    setTimeout(() => {
-      assert.equal(segmentedButton.querySelectorAll("[data-id='male']").length, 1);
+  it('should send event after select a toggle', done => {
+    segmentedButton.addEventListener('item-selected', e => {
+      assert.equal(e.detail.data.id._value, '2');
       done();
-    }, 16);
+    });
+
+    daoRepeater.addEventListener('data-injected', () => {
+      setTimeout(() => {
+        segmentedButton.children[1].click();
+      }, 16);
+    });
+
+    segmentedButton.bindOptions(daoRepeater.data.entities);
+    daoRepeater.injectRaw(testData);
   });
 });

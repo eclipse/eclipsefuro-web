@@ -19,9 +19,6 @@ import '@furo/form/src/furo-button-bar.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/data-input/demos/helper/produce-qp-data.js';
 
-import '@ui5/webcomponents/dist/Icon.js';
-import '../src/lib/ui5-icons.js';
-
 /**
  * `demo-furo-ui5-data-segmented-button`
  *
@@ -69,59 +66,66 @@ class DemoFuroUi5DataSegmentedButton extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-form-layouter one>
-            <p>Option items from type spec. Type person.Person field sex</p>
-            <furo-ui5-data-segmented-button ƒ-bind-data="--daoPerson(*.sex)">
-            </furo-ui5-data-segmented-button>
-            <hr />
+            <ui5-button full design="Emphasized" @-click="--load">load data</ui5-button>
+
+            <p>
+              Option items from spec. Type furo.Optionitem.
+            </p>
+
+            <furo-ui5-data-segmented-button
+              ƒ-bind-data="--daoPerson(*.sex)"
+            ></furo-ui5-data-segmented-button>
+
             <furo-ui5-data-text-input
               value-state="Success"
               ƒ-bind-data="--daoPerson(*.sex)"
             ></furo-ui5-data-text-input>
+
+            <hr />
+
+            <p>
+              Option items from an array of objects with bindOptions(). Display field is set to
+              field display_name. Additional static ui5-radiobuttons set in the markup.
+            </p>
+            <furo-ui5-data-segmented-button
+              value-field-path="data.id"
+              id-field-path="data.id"
+              display-field-path="data.display_name"
+              ƒ-bind-options="--collection(*.entities)"
+              ƒ-bind-data="--entity(*.owner.id)"
+            >
+              <ui5-togglebutton data-id="A" icon="menu">Option A</ui5-togglebutton>
+              <ui5-togglebutton data-id="B">Option B with a very long text</ui5-togglebutton>
+              <ui5-togglebutton data-id="C">Option C</ui5-togglebutton>
+              <ui5-togglebutton data-id="D" design="Negative">Option D</ui5-togglebutton>
+            </furo-ui5-data-segmented-button>
+
             <div>
-              <p>Option item from collection response. Type xxx.TypeEntity)</p>
               <p>
-                The attributes value-field, sub-field and display-field are optional and by default
-                set to: id, display_name and data
+                Option items from an array of objects with bindOptions(). Display field is set to
+                field first_name
               </p>
               <furo-ui5-data-segmented-button
-                ƒ-inject-entities="--response(*.entities)"
-                ƒ-bind-data="--daoTask(*.owner)"
-                @-item-selected="--itemSelected"
-              >
-              </furo-ui5-data-segmented-button>
-            </div>
-            <div>
-              <p>Readonly state</p>
-              <furo-ui5-data-segmented-button
-                readonly
-                ƒ-inject-entities="--response(*.entities)"
-                ƒ-bind-data="--daoTask(*.owner)"
-                @-item-selected="--itemSelected"
-              >
-              </furo-ui5-data-segmented-button>
+                value-field-path="data.id"
+                id-field-path="data.id"
+                display-field-path="data.first_name"
+                ƒ-bind-options="--collection(*.entities)"
+                ƒ-bind-data="--entity(*.owner.id)"
+              ></furo-ui5-data-segmented-button>
             </div>
             <hr />
             <p>
-              Bound input fields: owner.id and owner.display_name. If you enter a valid owner ID,
-              the items in the collection drop-down list automatically display the record matching
-              the ID.
+              Bound input field: owner.id. If you enter a valid owner ID, the items in the
+              collection drop-down list automatically display the record matching the ID.
             </p>
             <furo-ui5-data-text-input
               value-state="Success"
-              ƒ-bind-data="--daoTask(*.owner.id)"
-            ></furo-ui5-data-text-input>
-            <furo-ui5-data-text-input
-              ƒ-bind-data="--daoTask(*.owner.display_name)"
+              ƒ-bind-data="--entity(*.owner.id)"
             ></furo-ui5-data-text-input>
           </furo-form-layouter>
 
-          <furo-button-bar>
-            <ui5-button design="Emphasized" @-click="--load">load data</ui5-button>
-          </furo-button-bar>
+          <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
 
-          <furo-pretty-json ƒ-inject-data="--itemSelected"></furo-pretty-json>
-
-          <furo-data-object type="task.Task" @-object-ready="--daoTask"></furo-data-object>
           <furo-data-object type="person.Person" @-object-ready="--daoPerson"></furo-data-object>
 
           <furo-data-object

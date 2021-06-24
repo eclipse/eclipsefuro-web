@@ -11,9 +11,10 @@ import '../src/furo-catalog.js';
 
 describe('furo-ui5-data-radio-button-group', () => {
   let host;
-  let dropdown;
+  let buttonGrp;
   let radioGroup;
   let dao;
+  let daoCollection;
 
   function keydown(TargetElement, key) {
     const customEvent = new Event('keydown', { composed: true, bubbles: true });
@@ -132,32 +133,58 @@ describe('furo-ui5-data-radio-button-group', () => {
         <template>
           <furo-ui5-data-radio-button-group
             ƒ-bind-data="--entity(*.sex)"
-            sub-field="data"
           ></furo-ui5-data-radio-button-group>
           <furo-ui5-data-text-input ƒ-bind-data="--entity(*.sex)"></furo-ui5-data-text-input>
           <furo-data-object type="person.Person" @-object-ready="--entity"></furo-data-object>
+          <furo-data-object type="person.PersonCollection"></furo-data-object>
         </template>
       </test-bind>
     `);
     await testbind.updateComplete;
     host = testbind._host;
-    [, dropdown, radioGroup, dao] = testbind.parentNode.children;
+    [, buttonGrp, radioGroup, dao, daoCollection] = testbind.parentNode.children;
     await host.updateComplete;
-    await dropdown.updateComplete;
+    await buttonGrp.updateComplete;
     await radioGroup.updateComplete;
     await dao.updateComplete;
+    await daoCollection.updateComplete;
   });
 
   it('should be a furo-ui5-data-radio-button-group element', done => {
     // keep this test on top, so you can recognize a wrong assignment
-    assert.equal(dropdown.nodeName.toLowerCase(), 'furo-ui5-data-radio-button-group');
+    assert.equal(buttonGrp.nodeName.toLowerCase(), 'furo-ui5-data-radio-button-group');
     done();
   });
 
-  it('should have the correct items', done => {
+  it('should have the correct count of radio buttons', done => {
     setTimeout(() => {
-      assert.equal(dropdown._dropdownList.length, 3);
+      const buttons = buttonGrp.querySelectorAll('ui5-radiobutton');
+      assert.equal(buttons.length, 3);
       done();
     }, 16);
+  });
+
+  it('should have a field binding', done => {
+    setTimeout(() => {
+      assert.equal(buttonGrp.activeFieldBinding, true);
+      done();
+    }, 16);
+  });
+
+  it('should have an options binding', done => {
+    buttonGrp.addEventListener('options-updated', () => {
+      const buttons = buttonGrp.querySelectorAll('ui5-radiobutton');
+      assert.equal(buttons.length, 4);
+      done();
+    });
+
+    daoCollection.addEventListener('data-injected', () => {
+      buttonGrp.bindOptions(daoCollection.data.entities);
+    });
+
+    buttonGrp._privilegedAttributes['value-field-path'] = 'data.id';
+    buttonGrp._privilegedAttributes['id-field-path'] = 'data.id';
+    buttonGrp._privilegedAttributes['display-field-path'] = 'data.display_name';
+    daoCollection.injectRaw(testData);
   });
 });
