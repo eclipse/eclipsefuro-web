@@ -49,12 +49,6 @@ export class FuroUi5DataToggleButton extends FieldNodeAdapter(ToggleButton.defau
    * Fired when the input operation has finished by pressing Enter or on focusout.
    * @event click
    */
-  /**
-   * @event change
-   * Fired when the toggleButton pressed state changes.
-   *
-   * detail payload: `bool`
-   */
 
   /**
    * @event xxxx
@@ -98,7 +92,7 @@ export class FuroUi5DataToggleButton extends FieldNodeAdapter(ToggleButton.defau
       design: null,
     };
 
-    this.addEventListener('change', this._updateFNA);
+    this.addEventListener('click', this._updateFNA);
   }
 
   /**
