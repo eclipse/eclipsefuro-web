@@ -246,6 +246,13 @@ class FuroLocation extends LitElement {
         return;
       }
 
+
+      // only handle regular clicks
+      if(e.metaKey || e.altKey || e.ctrlKey){
+        return;
+      }
+
+
       // do not interfere with links to other hosts
       if (target.host !== this._location.host) {
         return;
