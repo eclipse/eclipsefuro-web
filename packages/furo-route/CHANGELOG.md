@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.7.0...@furo/route@1.7.1) (2021-06-25)
+
+
+### Bug Fixes
+
+* remove meta key handling, because windows and macos handles it differently, todo: find a solution which works on every browser ([b477b48](https://github.com/theNorstroem/FuroBaseComponents/commit/b477b48fc21facd3788cda2a2d989a1f567a0873))
+
+
+
+
+
 # [1.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.6.20...@furo/route@1.7.0) (2021-06-23)
 
 
