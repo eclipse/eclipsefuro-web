@@ -25,9 +25,20 @@ class FuroUi5Radiogroup extends FBP(LitElement) {
       while (size--) {
         if (
           this.children[size].nodeName === 'FURO-UI5-DATA-RADIO-BUTTON' &&
-          this.children[size].binder.fieldNode._name !== e.target.binder.fieldNode._name
+          this.children[size].__fieldNode._name !== e.target.__fieldNode._name
         ) {
-          this.children[size].setValue(false);
+          if (this.children[size].isFat()) {
+            this.children[size]._tmpFAT.value = false;
+            // set modified on changes
+            if (this.children[size]._tmpFAT.labels === null) {
+              this.children[size]._tmpFAT.labels = {};
+            }
+            this.children[size]._tmpFAT.labels.modified = true;
+
+            this.children[size].setFnaFieldValue(this.children[size]._tmpFAT);
+          } else {
+            this.children[size].setFnaFieldValue(false);
+          }
         }
       }
     });

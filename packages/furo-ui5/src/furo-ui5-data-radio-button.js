@@ -1,141 +1,309 @@
 import * as RadioButton from '@ui5/webcomponents/dist/RadioButton.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeBinder.js';
+import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 
 /**
- * `furo-ui5-data-radio-button`
- * The furo-ui5-data-radio-button component enables users to select a single option from a set of options.
- * When a furo-ui5-data-radio-button is selected by the user, the select event is fired. When a furo-ui5-data-radio-button
- * that is within a group is selected, the one that was previously selected gets automatically deselected.
- * You can group radio buttons by using the name property.
- * Note: Iffuro-ui5-data-radio-button is not part of a group, it can be selected once, but can not be deselected back.
+ * The 'furo-ui5-data-radio-button' component allows the user to switch true and false for Bool with data binding.
  *
- * Keyboard Handling
- * Once the furo-ui5-data-radio-button is on focus, it might be selected by pressing the Space and Enter keys.
- * The Arrow Down/Arrow Up and Arrow Left/Arrow Right keys can be used to change selection between next/previous radio buttons
- * in one group, while TAB and SHIFT + TAB can be used to enter or leave the radio button group.
- * Note: On entering radio button group, the focus goes to the currently selected radio button.
+ * It supports all features from the [SAP ui5 toggleButton element](https://sap.github.io/ui5-webcomponents/playground/components/ToggleButton/).
+
+ * You can bind  `bool` type, `furo.fat.Bool` type or the `google.wrapper.BoolValue`  type.
  *
- * @summary data radio buttons
+ * ```html
+ *  <furo-ui5-data-radio-button
+ *     ƒ-bind-data="--daoCountry(*.data.classified_as_risk_area)"
+ *  ></furo-ui5-data-radio-button>
+ * ```
+ * ```html
+ *  <furo-ui5-radio-group>
+ *    <furo-ui5-data-radio-button name="group"
+ *       ƒ-bind-data="--daoCountry(*.data.classified_as_risk_area)"
+ *    ></furo-ui5-data-radio-button>
+ *    <furo-ui5-data-radio-button name="group"
+ *       ƒ-bind-data="--daoCountry(*.data.classified_as_high_risk_area)"
+ *    ></furo-ui5-data-radio-button>
+ *  </furo-ui5-radio-group>
+ * ```
+ *
+ * ### Specificity
+ * 1. Attributes which are set in the html source will have the highest specificity and will never get overwritten by metas or fat.
+ * 2. Attributes set in meta will have the lowest specificity and will be overwritten by attributes from fat.
+ *
+ * | meta 	| fat 	| html 	|
+ * |------	|-----	|------	|
+ * | 1    	| 10  	| 100  	|
+ *
+ *
+ * ## supported FAT attributes
+ *  - **"readonly":"true"** set the element to readonly
+ *  - **"disabled":"true"** set the element to disabled
+ *  - **"icon":""** set the icon
+ *  - **"design":""** set the design
+ *
+ * ## supported meta and constraints
+ * - **readonly: true** , set the element to readonly
+ *
+ * The constraint **required** will mark the element as required
+ *
+ * ## Methods
+ * **bind-data(fieldNode)**
+ * Bind a entity field. You can use the entity even when no data was received.
+ *
+ * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
+ * @summary boolean toggle button
  * @customElement
- * @demo demo-furo-ui5-data-radio-button Basic Usage
+ * @demo demo-furo-ui5-data-radio-button Basic usage (scalar , fat, wrapper values)
  */
-export class FuroUi5DataRadioButton extends RadioButton.default {
+export class FuroUi5DataRadioButton extends FieldNodeAdapter(RadioButton.default) {
   /**
+   * Fired when the input operation has finished by pressing Enter or on focusout.
    * @event select
-   * Fired when the ui5-radiobutton selected state changes.
+   *
    */
 
   /**
-   * Fired when the ui5-radiobutton selected state changes.
-   * the event detail is the value of the selected state.
-   * @event value-changed
+   * @event xxxx
+   * All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/ToggleButton/).
+   *
    */
+
+  constructor() {
+    super();
+
+    // used to restore the state after a invalidation -> validation change
+    this._previousDesign = 'Default';
+
+    this._attributesFromFNA = {
+      readonly: undefined,
+      disabled: undefined,
+      label: undefined,
+    };
+
+    this._constraintsFromFNA = {};
+
+    this._attributesFromFAT = {
+      label: undefined,
+      icon: undefined,
+      design: undefined,
+    };
+
+    this._labelsFromFAT = {
+      readonly: undefined,
+      disabled: undefined,
+    };
+
+    // a list of privileged attributes. when those attributes are set in number-input components initially.
+    // they can not be modified later via response or spec
+    // null is used because getAttribute returns null or value
+    this._privilegedAttributes = {
+      readonly: null,
+      disabled: null,
+      text: null,
+      icon: null,
+      design: null,
+    };
+
+    this.addEventListener('select', this._updateFNA);
+  }
 
   /**
    * connectedCallback() method is called when an element is added to the DOM.
    * webcomponent lifecycle event
-   */
-  connectedCallback() {
-    setTimeout(() => {
-      super.connectedCallback();
-    }, 0);
-
-    this._initBinder();
-  }
-
-  /**
-   * inits the universalFieldNodeBinder.
-   * Set the mapped attributes and labels.
    * @private
    */
-  _initBinder() {
-    this.binder = new UniversalFieldNodeBinder(this);
-    this.binder.targetValueField = 'selected';
-    this.applyBindingSet();
+  connectedCallback() {
+    // eslint-disable-next-line wc/guard-super-call
+    super.connectedCallback();
+    this.readAttributes();
   }
 
   /**
-   * apply the binding set to the binder
-   * binding set can be customised here otherwise the standard set in the ui5-data-input will be used
-   * @param fieldNode
+   * Reads the attributes which are set on the component dom.
    */
-  applyBindingSet() {
-    // set the attribute mappings
-    this.binder.attributeMappings = {
-      label: 'text', // map label to placeholder
-      placeholder: 'placeholder', // map placeholder to placeholder
-      'value-state': '_valueState',
-      errortext: '_errorMsg', // name errortext is for compatibility with spec
-      'error-msg': '_errorMsg',
-      'warning-msg': '_warningMsg',
-      'success-msg': '_successMsg',
-      'information-msg': '_informationMsg',
-      pattern: 'pattern',
-      name: 'name',
-    };
-
-    // set the label mappings
-    this.binder.labelMappings = {
-      error: '_error',
-      readonly: 'readonly',
-      required: 'required',
-      disabled: 'disabled',
-      modified: 'modified',
-      highlight: 'highlight',
-      wrap: 'wrap',
-    };
-
-    // set attributes to constrains mapping for furo.fat types
-    this.binder.fatAttributesToConstraintsMappings = {
-      required: 'value._constraints.required.is', // for the fieldnode constraint
-    };
-
-    // set constrains to attributes mapping for furo.fat types
-    this.binder.constraintsTofatAttributesMappings = {
-      required: 'required',
-    };
-
-    // update the value on input changes
-    this.addEventListener('select', val => {
-      // update the value
-      this.binder.fieldValue = val.target.selected;
-
-      /**
-       * Fired when value changed
-       * @type {Event}
-       */
-      const customEvent = new Event('value-changed', { composed: true, bubbles: true });
-      customEvent.detail = val.target.selected;
-      this.dispatchEvent(customEvent);
-
-      // set flag empty on empty strings (for fat types)
-      if (val.target.value) {
-        this.binder.deleteLabel('empty');
-      } else {
-        this.binder.addLabel('empty');
-      }
-      // if something was entered the field is not empty
-      this.binder.addLabel('modified');
+  readAttributes() {
+    // save the original attribute for later usages, we do this, because some components reflect
+    Object.keys(this._privilegedAttributes).forEach(attr => {
+      this._privilegedAttributes[attr] = this.getAttribute(attr);
     });
   }
 
   /**
-   * Bind a entity field to the text-input. You can use the entity even when no data was received.
-   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
-   * @param {Object|FieldNode} fieldNode a Field object
+   * Handler function for the toggleButton changes.
+   * @return {(function(): void)|*}
+   * @private
    */
-  bindData(fieldNode) {
-    this.binder.bindField(fieldNode);
+  _updateFNA() {
+    if (this.isFat()) {
+      this._tmpFAT.value = this.selected;
+      // set modified on changes
+      if (this._tmpFAT.labels === null) {
+        this._tmpFAT.labels = {};
+      }
+      this._tmpFAT.labels.modified = true;
+
+      this.setFnaFieldValue(this._tmpFAT);
+    } else {
+      this.setFnaFieldValue(this.selected);
+    }
+
+    /**
+     * Fired when value changed
+     * @event field-value-changed
+     */
+    const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
+    customEvent.detail = this.selected;
+    this.dispatchEvent(customEvent);
   }
 
   /**
-   * Sets the value for the field. This will update the fieldNode.
+   * overwrite onFnaFieldValueChanged
    * @param val
    */
-  setValue(val) {
-    this.binder.fieldValue = val;
+  onFnaFieldValueChanged(val) {
+    if (this.isFat()) {
+      this._tmpFAT = val;
+      this.selected = !!val.value;
+      this._updateAttributesFromFat(this._tmpFAT.attributes);
+      this._updateLabelsFromFat(this._tmpFAT.labels);
+    } else {
+      this.selected = !!val;
+    }
+  }
+
+  /**
+   * labels are map <string,bool>, we handle every boolean attribute with the labels
+   *
+   * @param fatLabels
+   * @private
+   */
+  _updateLabelsFromFat(fatLabels) {
+    if (fatLabels === null || fatLabels === undefined) {
+      return;
+    }
+    // this is needed to check the specifity in the onFnaReadonlyChanged callback functions
+    this._labelsFromFAT.readonly = fatLabels.readonly;
+
+    // readonly
+    if (this._privilegedAttributes.readonly === null) {
+      if (fatLabels.readonly !== undefined) {
+        // apply from fat
+        this.readonly = fatLabels.readonly;
+      } else if (this._attributesFromFNA.readonly !== undefined) {
+        // apply from fieldnode (meta)
+        this.readonly = this._attributesFromFNA.readonly;
+      }
+    }
+
+    // disabled
+    if (this._privilegedAttributes.disabled === null) {
+      if (fatLabels.disabled !== undefined) {
+        this.disabled = fatLabels.disabled;
+      }
+    }
+  }
+
+  /**
+   * sync input attributes according to fat attributes
+   * @private
+   */
+  _updateAttributesFromFat(fatAttributes) {
+    if (fatAttributes === null || fatAttributes === undefined) {
+      return;
+    }
+
+    // this is needed to check the specifity in the onFnaXXXXChanged callback functions
+    this._attributesFromFAT.label = fatAttributes.label;
+
+    // text
+    if (this._privilegedAttributes.text === null) {
+      if (fatAttributes.label !== undefined) {
+        this.innerText = fatAttributes.label;
+      } else if (this._attributesFromFNA.label !== undefined) {
+        this.innerText = this._attributesFromFNA.label;
+      }
+      this._render();
+    }
+
+    // icon
+    if (this._privilegedAttributes.icon === null) {
+      if (fatAttributes.icon !== undefined) {
+        this.icon = fatAttributes.icon;
+      } else if (this._attributesFromFNA.icon !== undefined) {
+        this.icon = this._attributesFromFNA.icon;
+      }
+      this._render();
+    }
+
+    // design and corresponding message
+    if (fatAttributes.design !== undefined) {
+      // save state as previous state
+      this._previousDesign = fatAttributes.design;
+      this._setDesign(fatAttributes.design);
+    } else {
+      // remove state if fat does not have state, even it is set in the html
+      // save state as previous state
+      this._previousDesign = 'Default';
+      this._setDesign('Default');
+    }
+  }
+
+  /**
+   * overwrite onFnaFieldNodeBecameInvalid function
+   */
+  onFnaFieldNodeBecameInvalid() {
+    this._setDesign('Error');
+  }
+
+  /**
+   * overwrite onFnaFieldNodeBecameValid function
+   * @private
+   */
+  onFnaFieldNodeBecameValid() {
+    this._resetDesign();
+  }
+
+  /**
+   * Updates the design
+   *
+   * @private
+   */
+  _setDesign(design) {
+    this.design = design;
+  }
+
+  /**
+   * reset to previous value state
+   * @private
+   */
+  _resetDesign() {
+    this._setDesign(this._previousDesign);
+  }
+
+  /**
+   * overwrite onFnaLabelChanged function
+   * label is mapped to text
+   * @param placeholder
+   */
+  onFnaLabelChanged(text) {
+    this._attributesFromFNA.label = text;
+    if (this._privilegedAttributes.text === null && this._attributesFromFAT.label === undefined) {
+      this.innerText = text;
+    }
+  }
+
+  /**
+   * overwrite onFnaReadonlyChanged function
+   * @private
+   * @param readonly
+   */
+  onFnaReadonlyChanged(readonly) {
+    this._attributesFromFNA.readonly = readonly;
+    if (
+      this._privilegedAttributes.readonly === null &&
+      this._labelsFromFAT.readonly === undefined
+    ) {
+      this.readonly = readonly;
+    }
   }
 }
-
 window.customElements.define('furo-ui5-data-radio-button', FuroUi5DataRadioButton);

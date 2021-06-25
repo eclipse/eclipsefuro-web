@@ -45,7 +45,7 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *
  * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  *
- * @summary furo data datepicker field
+ * @summary furo data datetime picker field
  * @customElement
  * @demo demo-furo-ui5-data-date-time-picker Basic Usage
  */
