@@ -35,17 +35,7 @@ class FuroLocation extends LitElement {
      */
     this.urlSpaceRegex = '';
 
-    /**
-     * If the user was on a URL for less than `dwellTime` milliseconds, it
-     * won't be added to the browser's history, but instead will be replaced
-     * by the next entry.
-     *
-     * This is to prevent large numbers of entries from clogging up the user's
-     * browser history. Disable by setting to a negative number.
-     * @type {number} in milliseconds
-     */
-    // eslint-disable-next-line wc/no-constructor-attributes
-    this.dwellTime = this.getAttribute('dwell-time') || 2000;
+
 
     this._registerHandler();
   }
@@ -87,11 +77,11 @@ class FuroLocation extends LitElement {
     document.body.addEventListener('__furoLocationChanged', this._locationChangeNotyfier, true);
     window.addEventListener('popstate', this._locationChangeNotyfier, true);
     window.addEventListener('popstate', this._locationChangeNotyfier, true);
-    this._lastChangedAt = window.performance.now() - (this.dwellTime - 200);
+
 
     // initial notyfier
     setTimeout(() => {
-      this._locationChangeNotyfier({ detail: this._lastChangedAt });
+      this._locationChangeNotyfier();
     }, 0);
   }
 
@@ -122,8 +112,8 @@ class FuroLocation extends LitElement {
    * @private
    */
   _registerHandler() {
-    this._locationChangeNotyfier = e => {
-      this._lastChangedAt = e.detail;
+    this._locationChangeNotyfier = () => {
+
 
       let sendHashChanged = false;
       let sendQueryChanged = false;

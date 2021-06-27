@@ -58,6 +58,15 @@ class FuroAppFlowRouter extends FBP(LitElement) {
      */
     // eslint-disable-next-line wc/no-constructor-attributes
     this.urlSpaceRegex = '';
+    window.addEventListener('keydown', ev => {
+      if (ev.metaKey || ev.altKey) {
+        this._blank = true;
+      }
+    });
+
+    window.addEventListener('keyup', () => {
+      this._blank = false;
+    });
   }
 
   /**
@@ -200,9 +209,16 @@ class FuroAppFlowRouter extends FBP(LitElement) {
          * Fired when before the state will be updated
          * detail payload:
          */
-        window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
-
-        window.history.replaceState({}, '', prefix + selection.target + search);
+        window.dispatchEvent(new Event('__beforeReplaceState', {composed: true, bubbles: true}));
+        /**
+         * if the meta key is pressed, open a blank page
+         */
+        if (this._blank) {
+          this._blank = false;
+          window.open(prefix + selection.target + search);
+        } else {
+          window.history.replaceState({}, '', prefix + selection.target + search);
+        }
 
         /**
          * Internal notyfication
