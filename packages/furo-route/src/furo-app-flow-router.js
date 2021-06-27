@@ -58,13 +58,23 @@ class FuroAppFlowRouter extends FBP(LitElement) {
      */
     // eslint-disable-next-line wc/no-constructor-attributes
     this.urlSpaceRegex = '';
+
     window.addEventListener('keydown', ev => {
       if (ev.metaKey || ev.altKey) {
         this._blank = true;
       }
     });
 
-    window.addEventListener('keyup', () => {
+    window.addEventListener('keyup', (ev) => {
+      if (ev.metaKey || ev.altKey) {
+      this._blank = false;
+      }
+    });
+
+    window.addEventListener('focus', () => {
+      this._blank = false;
+    });
+    window.addEventListener('blur', () => {
       this._blank = false;
     });
   }
