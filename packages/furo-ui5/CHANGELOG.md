@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.32.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.32.0...@furo/ui5@0.32.1) (2021-06-28)
+
+
+### Bug Fixes
+
+* furo-ui5-data-radio-button with FieldNodeAdapter interface implemented ([106d3f7](https://github.com/theNorstroem/FuroBaseComponents/commit/106d3f7e70c6b632a726cc5e5c662a98bdbf826d))
+
+
+
+
+
 # [0.32.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.31.3...@furo/ui5@0.32.0) (2021-06-25)
 
 

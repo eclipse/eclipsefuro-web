@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.7.1...@furo/route@1.8.0) (2021-06-28)
+
+
+### Bug Fixes
+
+* disable opening _blank pages after switching with alt tab, met tab,... ([3916280](https://github.com/theNorstroem/FuroBaseComponents/commit/3916280612dba7446a3c7385d6e770c1aeaf7ecc))
+
+
+### Features
+
+* furo-app-flow-router will open a new page if ctrl or metaKey is pressed ([8baceb4](https://github.com/theNorstroem/FuroBaseComponents/commit/8baceb4f343d88ca55973bcbc0e5675948021c89))
+* ignore built in link handler when a ctrl, alt or meta key is pressed => so users can open internal  links in external tabs ([0d1deb2](https://github.com/theNorstroem/FuroBaseComponents/commit/0d1deb23aa29f4cbed874dc113108fa7e198a3dd))
+
+
+
+
+
 ## [1.7.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.7.0...@furo/route@1.7.1) (2021-06-25)
 
 
