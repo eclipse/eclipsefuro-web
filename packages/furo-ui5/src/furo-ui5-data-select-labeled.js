@@ -27,9 +27,9 @@ class FuroUi5DataSelectLabeled extends FBP(LitElement) {
     super(props);
     this.label = '';
     this.valueState = 'None';
-    this.idFieldPath = '';
-    this.valueFieldPath = '';
-    this.displayFieldPath = '';
+    this.idFieldPath = 'id';
+    this.valueFieldPath = 'id';
+    this.displayFieldPath = 'display_name';
   }
 
   /**
