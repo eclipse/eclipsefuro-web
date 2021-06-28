@@ -156,6 +156,8 @@ class FuroPages extends LitElement {
         if (this._lastPage._FBPTriggerWire !== undefined) {
           this._lastPage._FBPTriggerWire('--pageActivated', location);
         }
+      } else if (this._lastPage._FBPTriggerWire !== undefined) {
+        this._lastPage._FBPTriggerWire('--pageReActivated', location);
       }
       this._lastPageName = page;
       // QP

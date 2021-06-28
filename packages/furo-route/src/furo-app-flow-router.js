@@ -58,6 +58,25 @@ class FuroAppFlowRouter extends FBP(LitElement) {
      */
     // eslint-disable-next-line wc/no-constructor-attributes
     this.urlSpaceRegex = '';
+
+    window.addEventListener('keydown', ev => {
+      if (ev.metaKey || ev.altKey) {
+        this._blank = true;
+      }
+    });
+
+    window.addEventListener('keyup', ev => {
+      if (ev.metaKey || ev.altKey) {
+        this._blank = false;
+      }
+    });
+
+    window.addEventListener('focus', () => {
+      this._blank = false;
+    });
+    window.addEventListener('blur', () => {
+      this._blank = false;
+    });
   }
 
   /**
@@ -201,8 +220,15 @@ class FuroAppFlowRouter extends FBP(LitElement) {
          * detail payload:
          */
         window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
-
-        window.history.replaceState({}, '', prefix + selection.target + search);
+        /**
+         * if the meta key is pressed, open a blank page
+         */
+        if (this._blank) {
+          this._blank = false;
+          window.open(prefix + selection.target + search);
+        } else {
+          window.history.replaceState({}, '', prefix + selection.target + search);
+        }
 
         /**
          * Internal notyfication
