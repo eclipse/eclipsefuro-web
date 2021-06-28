@@ -66,7 +66,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
     });
 
     window.addEventListener('keyup', ev => {
-      if (ev.metaKey || ev.altKey) {
+      if (ev.key === 'Meta' || ev.key === 'Control') {
         this._blank = false;
       }
     });
