@@ -226,7 +226,11 @@ class FuroUi5DataTable extends FBP(LitElement) {
       this.__colStyle[index] = arr[1] ? arr[1] : 'Infinity';
     });
 
+    this._ctx = []
+    if(this.context){
     this._ctx = this.context.replace(/ /g, '').split(',');
+    }
+
     if (this._headers.length > 1) {
       this._colStyle = [];
       this._headerTexts = [];
