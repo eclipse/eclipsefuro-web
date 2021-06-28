@@ -114,7 +114,10 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
     if (this.options === undefined) {
       const OPTIONS = this.querySelectorAll('ui5-option');
       if (OPTIONS && OPTIONS.length) {
-        this.options = OPTIONS;
+        this.options = [];
+        OPTIONS.forEach(item => {
+          this.options.push(item);
+        });
       } else {
         this.options = [];
       }
@@ -429,6 +432,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
       });
 
       optionNodeList.forEach(newOpt => {
+        this.options.push(newOpt);
         this.appendChild(newOpt);
       });
     }
