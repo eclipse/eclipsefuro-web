@@ -35,8 +35,6 @@ class FuroLocation extends LitElement {
      */
     this.urlSpaceRegex = '';
 
-
-
     this._registerHandler();
   }
 
@@ -78,7 +76,6 @@ class FuroLocation extends LitElement {
     window.addEventListener('popstate', this._locationChangeNotyfier, true);
     window.addEventListener('popstate', this._locationChangeNotyfier, true);
 
-
     // initial notyfier
     setTimeout(() => {
       this._locationChangeNotyfier();
@@ -113,8 +110,6 @@ class FuroLocation extends LitElement {
    */
   _registerHandler() {
     this._locationChangeNotyfier = () => {
-
-
       let sendHashChanged = false;
       let sendQueryChanged = false;
       let sendPathChanged = false;
@@ -236,12 +231,10 @@ class FuroLocation extends LitElement {
         return;
       }
 
-
       // only handle regular clicks
-      if(e.metaKey || e.altKey || e.ctrlKey){
+      if (e.metaKey || e.altKey || e.ctrlKey) {
         return;
       }
-
 
       // do not interfere with links to other hosts
       if (target.host !== this._location.host) {

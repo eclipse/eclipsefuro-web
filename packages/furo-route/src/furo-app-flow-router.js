@@ -65,9 +65,9 @@ class FuroAppFlowRouter extends FBP(LitElement) {
       }
     });
 
-    window.addEventListener('keyup', (ev) => {
+    window.addEventListener('keyup', ev => {
       if (ev.metaKey || ev.altKey) {
-      this._blank = false;
+        this._blank = false;
       }
     });
 
@@ -219,7 +219,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
          * Fired when before the state will be updated
          * detail payload:
          */
-        window.dispatchEvent(new Event('__beforeReplaceState', {composed: true, bubbles: true}));
+        window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
         /**
          * if the meta key is pressed, open a blank page
          */
