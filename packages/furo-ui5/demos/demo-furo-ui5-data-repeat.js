@@ -72,8 +72,15 @@ class DemoFuroUi5DataRepeat extends FBP(LitElement) {
                                     ƒ-add="--addClkd"
 
               ></furo-ui5-data-repeat>
-                <furo-ui5-data-text-input
-                ƒ-bind-data="--entity(*.data.fat_string)"></furo-ui5-data-text-input>
+
+                <furo-data-repeat ƒ-bind-data="--entity(*.data.fat_string_repeated)"
+                                    repeated-component="furo-data-text-input"
+                                    delete-icon="delete"
+                                    ƒ-add="--addClkd"
+
+              ></furo-data-repeat>
+
+
 
 
               </furo-form-layouter>
