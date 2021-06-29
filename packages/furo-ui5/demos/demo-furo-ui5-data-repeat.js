@@ -71,6 +71,7 @@ class DemoFuroUi5DataRepeat extends FBP(LitElement) {
               <furo-ui5-data-repeat ƒ-bind-data="--entity(*.data.fat_string_repeated)"
                                     repeated-component="furo-ui5-data-text-input"
                                     delete-icon="delete"
+                                    focus-on-create
                                     ƒ-add="--addClkd"
 
               ></furo-ui5-data-repeat>
@@ -78,6 +79,7 @@ class DemoFuroUi5DataRepeat extends FBP(LitElement) {
                 <furo-data-repeat ƒ-bind-data="--entity(*.data.fat_string_repeated)"
                                     repeated-component="furo-data-text-input"
                                     delete-icon="delete"
+                                  focus-on-create
                                     ƒ-add="--add2Clkd"
 
               ></furo-data-repeat>

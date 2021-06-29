@@ -199,7 +199,7 @@ class FuroDataRepeat extends FieldNodeAdapter(FBP(LitElement))  {
    * @param data
    */
   add(data) {
-    if (this.__fieldNode) {
+    if (!this.readonly && this.__fieldNode) {
       this.__fieldNode.add(data);
       if (this.focusOnCreate) {
         // setTimeout(()=>{
