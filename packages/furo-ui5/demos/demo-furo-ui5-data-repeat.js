@@ -66,6 +66,8 @@ class DemoFuroUi5DataRepeat extends FBP(LitElement) {
             <furo-vertical-scroller>
               <furo-form header-text="Head" hasmedia hasaction>
               <furo-form-layouter  two>
+                <div>ui5</div>
+                <div>classic</div>
               <furo-ui5-data-repeat ƒ-bind-data="--entity(*.data.fat_string_repeated)"
                                     repeated-component="furo-ui5-data-text-input"
                                     delete-icon="delete"
@@ -76,16 +78,17 @@ class DemoFuroUi5DataRepeat extends FBP(LitElement) {
                 <furo-data-repeat ƒ-bind-data="--entity(*.data.fat_string_repeated)"
                                     repeated-component="furo-data-text-input"
                                     delete-icon="delete"
-                                    ƒ-add="--addClkd"
+                                    ƒ-add="--add2Clkd"
 
               ></furo-data-repeat>
 
 
-
+                <furo-ui5-button @-click="--addClkd">add</furo-ui5-button>
+                <furo-ui5-button @-click="--add2Clkd">add</furo-ui5-button>
 
               </furo-form-layouter>
               </furo-form>
-              <furo-ui5-button @-click="--addClkd">add</furo-ui5-button>
+
 
               <fetch-universal-json
                 file="/mockdata/ui5/demos/fat-universal.json"

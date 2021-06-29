@@ -3,6 +3,7 @@ import { Theme } from '@furo/framework/src/theme';
 import { FBP } from '@furo/fbp';
 import './lib/data-repeat-delete.js';
 import '@furo/form/src/furo-form-layouter';
+import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 
 /**
  * `furo-data-repeat`
@@ -36,7 +37,7 @@ import '@furo/form/src/furo-form-layouter';
  * @demo demo-furo-data-repeat
  * @appliesMixin FBP
  */
-class FuroDataRepeat extends FBP(LitElement) {
+class FuroDataRepeat extends FieldNodeAdapter(FBP(LitElement))  {
   constructor() {
     super();
     /**
@@ -72,17 +73,17 @@ class FuroDataRepeat extends FBP(LitElement) {
    * @param options {"fieldName":"name","type":"string", "spec":{..}}  spec is optional
    */
   createAttribute(options) {
-    // extract type from this.field if not given in options
+    // extract type from this.__fieldNode if not given in options
     if (!options.type) {
-      if (this.field._spec.type.startsWith('map<')) {
+      if (this.__fieldNode._spec.type.startsWith('map<')) {
         // eslint-disable-next-line no-param-reassign,prefer-destructuring
-        options.type = this.field._spec.type.match(/map<string,(.*)>/)[1]; // get the type of map<string,xxxx
+        options.type = this.__fieldNode._spec.type.match(/map<string,(.*)>/)[1]; // get the type of map<string,xxxx
       } else {
         // eslint-disable-next-line no-param-reassign
-        options.type = this.field._spec.type;
+        options.type = this.__fieldNode._spec.type;
       }
     }
-    this.field.createField(options);
+    this.__fieldNode.createField(options);
   }
 
   createAttributeByString(fieldname) {
@@ -142,37 +143,41 @@ class FuroDataRepeat extends FBP(LitElement) {
     this.shadowRoot.appendChild(container);
   }
 
-  bindData(repeats) {
-    this.field = repeats;
-    this.field.addEventListener('this-repeated-field-changed', () => {
-      this._FBPTriggerWire('--repeatsChanged', this.field.repeats);
-      this._checkSize();
+  bindData(fieldNode) {
+    // eslint-disable-next-line no-param-reassign
+    fieldNode.clearListOnNewData = true;
+
+    /**
+     * we clear the list on new data
+     */
+    fieldNode.addEventListener('before-repeated-field-changed', () => {
+      this._FBPTriggerWire('--repeatsChanged', []);
     });
 
-    // key value repeats
-    if (this.field.repeats) {
-      // initial trigger
-      this._FBPTriggerWire('--repeatsChanged', this.field.repeats);
+    // we have to listen manualy because we can not use onFnaRepeatedFieldChanged
+    fieldNode.addEventListener('node-field-deleted', () => {
+      this._FBPTriggerWire('--repeatsChanged', this.__fieldNode.repeats);
+    });
+
+    // we have to listen manualy because we can not use onFnaRepeatedFieldChanged
+    fieldNode.addEventListener('repeated-fields-added', () => {
+      this._FBPTriggerWire('--repeatsChanged', this.__fieldNode.repeats);
       this._checkSize();
-    } else {
-      // attributes
+    });
+    return super.bindData(fieldNode);
+  }
 
-      this.field.addEventListener('branch-value-changed', () => {
-        this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
-      });
 
-      this.field.addEventListener('node-field-deleted', () => {
-        this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
-      });
-      this.field.addEventListener('node-field-added', () => {
-        this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
-      });
 
-      this.field.addEventListener('this-order-changed', () => {
-        this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
-      });
-      // initial trigger for fields
-      this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
+  onFnaFieldValueChanged() {
+    /**
+     * we do not use the onFnaRepeatedFieldChanged callback because the event fires before the metas are updated
+     * so a readonly will work.
+     */
+    if (this.__fieldNode.repeats) {
+      this._FBPTriggerWire('--repeatsChanged', this.__fieldNode.repeats);
+      this.readonly = this.__fieldNode._meta.readonly;
+      this._checkSize();
     }
   }
 
@@ -181,7 +186,7 @@ class FuroDataRepeat extends FBP(LitElement) {
    * @private
    */
   _checkSize() {
-    if (this.field.repeats.length === 0) {
+    if (this.__fieldNode.repeats.length === 0) {
       this.setAttribute('hidden', '');
       this._isHidden = true;
     } else if (this._isHidden) {
@@ -194,11 +199,11 @@ class FuroDataRepeat extends FBP(LitElement) {
    * @param data
    */
   add(data) {
-    if (this.field) {
-      this.field.add(data);
+    if (this.__fieldNode) {
+      this.__fieldNode.add(data);
       if (this.focusOnCreate) {
         // setTimeout(()=>{
-        this._repeaterNode.select(this.field.repeats.length - 1);
+        this._repeaterNode.select(this.__fieldNode.repeats.length - 1);
         // },16)
       }
     }
@@ -209,8 +214,8 @@ class FuroDataRepeat extends FBP(LitElement) {
    * @param type
    */
   addType(type) {
-    if (this.field) {
-      this.field.add({ '@type': type });
+    if (this.__fieldNode) {
+      this.__fieldNode.add({ '@type': type });
     }
   }
 
