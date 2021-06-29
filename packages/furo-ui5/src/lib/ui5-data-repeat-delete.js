@@ -34,7 +34,7 @@ class Ui5DataRepeatDelete extends FBP(LitElement) {
      * Register hook on wire --iconClicked to
      * delete the item
      */
-    this._FBPAddWireHook('--iconClick', () => {
+    this._FBPAddWireHook('--iconClicked', () => {
       this.field.deleteNode();
     });
   }

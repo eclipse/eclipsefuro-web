@@ -90,6 +90,11 @@ describe('furo-data-readonly-inheritence', () => {
      * All subfields of project should also be readonly
      */
     element.setAttribute('type', 'experiment.Readonly');
+    element.addEventListener("data-injected",()=>{
+
+    })
+
+
     element.injectRaw({
       project: {
         id: null,

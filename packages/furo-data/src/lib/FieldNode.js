@@ -114,6 +114,25 @@ export class FieldNode extends EventTreeNode {
     }
 
     /**
+     * Reset the metas
+     */
+    this.addEventListener('before-new-data-inject', () => {
+      if (this._spec.meta) {
+        this._meta = JSON.parse(JSON.stringify(this._spec.meta));
+      } else {
+        this._meta = (function emptyObject() {
+          return {};
+        })();
+      }
+
+      // check parent readonly meta and inherit if true
+      if (parentNode && parentNode._meta && parentNode._meta.readonly === true) {
+        this._meta.readonly = true;
+      }
+      this.dispatchNodeEvent(new NodeEvent('this-metas-changed', this, false));
+    });
+
+    /**
      * Schaltet ein Feld auf valid, müssen wir alle Kinder oder verästelungend des Felds auf validity prüfen...
      */
     this.addEventListener('field-became-valid', () => {

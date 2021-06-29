@@ -5,6 +5,7 @@ import './lib/ui5-data-repeat-delete.js';
 // import './lib/ui5-icons.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/form/src/furo-form-layouter';
+import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
 
 /**
  * `furo-ui5-data-repeat`
@@ -13,10 +14,7 @@ import '@furo/form/src/furo-form-layouter';
  *  ```html
  *  <furo-ui5-data-repeat ƒ-bind-data="--data(*.repeaterfield)"
  *      repeated-component="furo-date-input"
- *      condensed
  *      delete-icon="remove"
- *      add-icon="star"
- *      add-text="add another date"
  *      ƒ-add="--additionalDateClicked"
  *      ></furo-ui5-data-repeat>
  *
@@ -38,7 +36,7 @@ import '@furo/form/src/furo-form-layouter';
  * @demo demo-furo-ui5-data-repeat
  * @appliesMixin FBP
  */
-class FuroUi5DataRepeat extends FBP(LitElement) {
+class FuroUi5DataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
   constructor() {
     super();
     /**
@@ -64,6 +62,7 @@ class FuroUi5DataRepeat extends FBP(LitElement) {
        * set this attribute to set the focus to the created item after calling add().
        */
       focusOnCreate: { type: Boolean, attribute: 'focus-on-create' },
+      readonly: { type: Boolean, reflect: true },
     };
   }
 
@@ -76,15 +75,15 @@ class FuroUi5DataRepeat extends FBP(LitElement) {
   createAttribute(options) {
     // extract type from this.field if not given in options
     if (!options.type) {
-      if (this.field._spec.type.startsWith('map<')) {
+      if (this.__fieldNode._spec.type.startsWith('map<')) {
         // eslint-disable-next-line no-param-reassign,prefer-destructuring
-        options.type = this.field._spec.type.match(/map<string,(.*)>/)[1]; // get the type of map<string,xxxx
+        options.type = this.__fieldNode._spec.type.match(/map<string,(.*)>/)[1]; // get the type of map<string,xxxx
       } else {
         // eslint-disable-next-line no-param-reassign
-        options.type = this.field._spec.type;
+        options.type = this.__fieldNode._spec.type;
       }
     }
-    this.field.createField(options);
+    this.__fieldNode.createField(options);
   }
 
   createAttributeByString(fieldname) {
@@ -139,46 +138,52 @@ class FuroUi5DataRepeat extends FBP(LitElement) {
     this.shadowRoot.appendChild(container);
   }
 
-  bindData(repeats) {
-    this.field = repeats;
-    this.field.addEventListener('this-repeated-field-changed', () => {
-      this._FBPTriggerWire('--repeatsChanged', this.field.repeats);
-      this._checkSize();
+
+  bindData(fieldNode) {
+    // eslint-disable-next-line no-param-reassign
+    fieldNode.clearListOnNewData = true;
+
+    /**
+     * we clear the list on new data
+     */
+    fieldNode.addEventListener('before-repeated-field-changed', () => {
+      this._FBPTriggerWire('--repeatsChanged', []);
     });
 
-    // key value repeats
-    if (this.field.repeats) {
-      // initial trigger
-      this._FBPTriggerWire('--repeatsChanged', this.field.repeats);
+    // we have to listen manualy because we can not use onFnaRepeatedFieldChanged
+    fieldNode.addEventListener('node-field-deleted', () => {
+      this._FBPTriggerWire('--repeatsChanged', this.__fieldNode.repeats);
+    });
+
+    // we have to listen manualy because we can not use onFnaRepeatedFieldChanged
+    fieldNode.addEventListener('repeated-fields-added', () => {
+      this._FBPTriggerWire('--repeatsChanged', this.__fieldNode.repeats);
       this._checkSize();
-    } else {
-      // attributes
+    });
+    return super.bindData(fieldNode);
+  }
 
-      this.field.addEventListener('branch-value-changed', () => {
-        this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
-      });
 
-      this.field.addEventListener('node-field-deleted', () => {
-        this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
-      });
-      this.field.addEventListener('node-field-added', () => {
-        this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
-      });
 
-      this.field.addEventListener('this-order-changed', () => {
-        this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
-      });
-      // initial trigger for fields
-      this._FBPTriggerWire('--repeatsChanged', this.field.__childNodes);
+  onFnaFieldValueChanged() {
+    /**
+     * we do not use the onFnaRepeatedFieldChanged callback because the event fires before the metas are updated
+     * so a readonly will work.
+     */
+    if (this.__fieldNode.repeats) {
+      this._FBPTriggerWire('--repeatsChanged', this.__fieldNode.repeats);
+      this.readonly = this.__fieldNode._meta.readonly;
+      this._checkSize();
     }
   }
+
 
   /**
    * hide the element if array is empty
    * @private
    */
   _checkSize() {
-    if (this.field.repeats.length === 0) {
+    if (this.__fieldNode.repeats.length === 0) {
       this.setAttribute('hidden', '');
       this._isHidden = true;
     } else if (this._isHidden) {
@@ -191,11 +196,11 @@ class FuroUi5DataRepeat extends FBP(LitElement) {
    * @param data
    */
   add(data) {
-    if (this.field) {
-      this.field.add(data);
+    if (this.__fieldNode) {
+      this.__fieldNode.add(data);
       if (this.focusOnCreate) {
         // setTimeout(()=>{
-        this._repeaterNode.select(this.field.repeats.length - 1);
+        this._repeaterNode.select(this.__fieldNode.repeats.length - 1);
         // },16)
       }
     }
@@ -207,7 +212,7 @@ class FuroUi5DataRepeat extends FBP(LitElement) {
    */
   addType(type) {
     if (this.field) {
-      this.field.add({ '@type': type });
+      this.__fieldNode.add({ '@type': type });
     }
   }
 
@@ -245,6 +250,10 @@ class FuroUi5DataRepeat extends FBP(LitElement) {
         .in-repeater {
           width: 100%;
           box-sizing: border-box;
+        }
+
+        :host([readonly]) ui5-data-repeat-delete {
+          display: none;
         }
       `
     );
