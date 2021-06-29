@@ -56,7 +56,7 @@ export class FuroUi5DataDisplay extends FBP(LitElement) {
        * Disabled State
        */
       disabled: { type: Boolean, reflect: true, attribute: 'disabled' },
-      context: {type:String}
+      context: { type: String },
     };
   }
 

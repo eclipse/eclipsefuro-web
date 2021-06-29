@@ -138,7 +138,6 @@ class FuroUi5DataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
     this.shadowRoot.appendChild(container);
   }
 
-
   bindData(fieldNode) {
     // eslint-disable-next-line no-param-reassign
     fieldNode.clearListOnNewData = true;
@@ -163,8 +162,6 @@ class FuroUi5DataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
     return super.bindData(fieldNode);
   }
 
-
-
   onFnaFieldValueChanged() {
     /**
      * we do not use the onFnaRepeatedFieldChanged callback because the event fires before the metas are updated
@@ -176,7 +173,6 @@ class FuroUi5DataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
       this._checkSize();
     }
   }
-
 
   /**
    * hide the element if array is empty
@@ -196,7 +192,6 @@ class FuroUi5DataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
    * @param data
    */
   add(data) {
-
     if (!this.readonly && this.__fieldNode) {
       this.__fieldNode.add(data);
       if (this.focusOnCreate) {
