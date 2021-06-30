@@ -107,12 +107,13 @@ export const FieldNodeAdapter = superClass =>
       }
 
       // add the main event listeners
-      fieldNode.addEventListener('field-value-changed', this.__fieldValueChangedHandler);
-      fieldNode.addEventListener('field-became-valid', this.__fieldBecamesValidHandler);
-      fieldNode.addEventListener('field-became-invalid', this.__fieldBecamesInvalidHandler);
       fieldNode.addEventListener('this-metas-changed', this.__fieldMetasChangedHandler);
       fieldNode.addEventListener('new-data-injected', this.__fieldNewDataInjectedHandler);
       fieldNode.addEventListener('this-repeated-field-changed', this.__repeatedFieldChangedHandler);
+      fieldNode.addEventListener('field-value-changed', this.__fieldValueChangedHandler);
+      fieldNode.addEventListener('field-became-valid', this.__fieldBecamesValidHandler);
+      fieldNode.addEventListener('field-became-invalid', this.__fieldBecamesInvalidHandler);
+
 
       // this is for easier debugging with the inspector
       this.__fieldNode = fieldNode;
@@ -121,7 +122,10 @@ export const FieldNodeAdapter = superClass =>
       this.__fieldValueChangedHandler();
 
       // run meta checks on initial bind
-      this.__fieldMetasChangedHandler();
+      setTimeout(() => {
+        this.__fieldMetasChangedHandler();
+      }, 0);
+
 
       return true;
     }
@@ -157,7 +161,8 @@ export const FieldNodeAdapter = superClass =>
      * @param value the raw json value for the fieldNode.
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaFieldValueChanged(value) {}
+    onFnaFieldValueChanged(value) {
+    }
 
     /**
      * Notifies changes on the constraints.
@@ -188,48 +193,55 @@ export const FieldNodeAdapter = superClass =>
      * @param constraints
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaConstraintsChanged(constraints) {}
+    onFnaConstraintsChanged(constraints) {
+    }
 
     /**
      * Notifies when the options for the field is changed or set.
      * @param options
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaOptionsChanged(options) {}
+    onFnaOptionsChanged(options) {
+    }
 
     /**
      * Notifies when the readonly flag for the field is changed or set.
      * @param readonly
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaReadonlyChanged(readonly) {}
+    onFnaReadonlyChanged(readonly) {
+    }
 
     /**
      * Notifies when the hint for the field is changed or set.
      * @param hint
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaHintChanged(hint) {}
+    onFnaHintChanged(hint) {
+    }
 
     /**
      * Notifies when the label for the field is changed or set.
      * @param label
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaLabelChanged(label) {}
+    onFnaLabelChanged(label) {
+    }
 
     /**
      * Notifies when the placeholder for the field is changed or set.
      * @param placeholder
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
-    onFnaPlaceholderChanged(placeholder) {}
+    onFnaPlaceholderChanged(placeholder) {
+    }
 
     /**
      * Notifies that a field gets valid.
      */
     // eslint-disable-next-line class-methods-use-this
-    onFnaFieldNodeBecameValid() {}
+    onFnaFieldNodeBecameValid() {
+    }
 
     /**
      * Notifies that a field gets invalid.
@@ -237,19 +249,22 @@ export const FieldNodeAdapter = superClass =>
      * @param validity Object like {constraint: "min", description: "too small", field: ""}
      */
     // eslint-disable-next-line class-methods-use-this,no-unused-vars
-    onFnaFieldNodeBecameInvalid(validity) {}
+    onFnaFieldNodeBecameInvalid(validity) {
+    }
 
     /**
      * Notifies that new data was injected
      */
     // eslint-disable-next-line class-methods-use-this
-    onFnaFieldNewDataInjected() {}
+    onFnaFieldNewDataInjected() {
+    }
 
     /**
      * Notifies when a repeater node changes
      */
     // eslint-disable-next-line class-methods-use-this
-    onFnaRepeatedFieldChanged() {}
+    onFnaRepeatedFieldChanged() {
+    }
 
     // clean up on disconnect
     disconnectedCallback() {

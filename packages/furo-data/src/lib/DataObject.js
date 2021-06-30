@@ -303,6 +303,7 @@ export class DataObject extends EventTreeNode {
       }
       this[target].__updateMetaAndConstraints(subMetaAndConstraints);
     }
+
   }
 
   _setInvalid(error) {

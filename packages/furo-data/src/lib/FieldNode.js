@@ -117,6 +117,7 @@ export class FieldNode extends EventTreeNode {
      * Reset the metas
      */
     this.addEventListener('before-new-data-inject', () => {
+
       if (this._spec.meta) {
         this._meta = JSON.parse(JSON.stringify(this._spec.meta));
       } else {
@@ -426,6 +427,7 @@ export class FieldNode extends EventTreeNode {
     }
 
     this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
+
   }
 
   // check the validity against spec and meta
@@ -542,6 +544,7 @@ export class FieldNode extends EventTreeNode {
       level += 1;
 
       this[target].__updateMetaAndConstraints(subMetaAndConstraints, level);
+
     }
   }
 

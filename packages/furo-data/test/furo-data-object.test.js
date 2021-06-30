@@ -347,6 +347,8 @@ describe('furo-data-object', () => {
     fetch('/mockdata/projects/1/testmeta.json')
       .then(res => res.json())
       .then(response => {
+
+
         const p = element.injectRaw(response);
         p.then(ObjectDataRoot => {
           assert.equal(ObjectDataRoot._pristine, true);
@@ -368,7 +370,7 @@ describe('furo-data-object', () => {
       });
   });
 
-  it('should update meta on server meta data', done => {
+  it('b: should update meta on server meta data', done => {
     element.setAttribute('type', 'project.ProjectCollection');
 
     fetch('/mockdata/projects/testmetaInCollection.json')

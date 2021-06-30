@@ -75,7 +75,7 @@ export class RepeaterNode extends EventTreeNode {
       if (parentNode && parentNode._meta && parentNode._meta.readonly === true) {
         this._meta.readonly = true;
       }
-      this.dispatchNodeEvent(new NodeEvent('this-metas-changed', this, false));
+     this.dispatchNodeEvent(new NodeEvent('this-metas-changed', this, false));
     });
 
     /**
@@ -195,6 +195,7 @@ export class RepeaterNode extends EventTreeNode {
 
       if (this.clearListOnNewData) {
         this.removeAllChildren();
+        this.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', this, false));
       }
 
       val.forEach((repdata, i) => {
@@ -274,6 +275,7 @@ export class RepeaterNode extends EventTreeNode {
         );
       }
     }
+
   }
 
   get _value() {
