@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.8.1...@furo/route@1.8.2) (2021-06-30)
+
+
+### Bug Fixes
+
+* switch furo-data-repeat to FNA ([a671594](https://github.com/theNorstroem/FuroBaseComponents/commit/a6715947c865f1afdd56dcb8f40feaf40973f519))
+
+
+
+
+
 ## [1.8.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@1.8.0...@furo/route@1.8.1) (2021-06-28)
 
 **Note:** Version bump only for package @furo/route

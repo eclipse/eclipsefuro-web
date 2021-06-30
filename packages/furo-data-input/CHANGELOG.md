@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.28](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.27...@furo/data-input@1.11.28) (2021-06-30)
+
+
+### Bug Fixes
+
+* added missing meta-change-event on ro inheritance, remove the delay ([c58cccd](https://github.com/theNorstroem/FuroBaseComponents/commit/c58cccd5c0cba172791c416fcf96477fe2cd4563))
+* only add if field is not readonly ([78147f1](https://github.com/theNorstroem/FuroBaseComponents/commit/78147f15889109b54015bea3b71b85dd045fc2c6))
+* switch furo-data-repeat to FNA ([a671594](https://github.com/theNorstroem/FuroBaseComponents/commit/a6715947c865f1afdd56dcb8f40feaf40973f519))
+
+
+
+
+
 ## [1.11.27](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@1.11.26...@furo/data-input@1.11.27) (2021-06-18)
 
 **Note:** Version bump only for package @furo/data-input

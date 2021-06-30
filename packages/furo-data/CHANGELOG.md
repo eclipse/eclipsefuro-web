@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.27.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.27.0...@furo/data@1.27.1) (2021-06-30)
+
+
+### Bug Fixes
+
+* added missing meta-change-event on ro inheritance, remove the delay ([c58cccd](https://github.com/theNorstroem/FuroBaseComponents/commit/c58cccd5c0cba172791c416fcf96477fe2cd4563))
+* delay meta and constraint check becaus they arrive later ([f44f87b](https://github.com/theNorstroem/FuroBaseComponents/commit/f44f87b92042e887d768cf4ba00de35901f0fcf2))
+* spec updates on data change ([a855632](https://github.com/theNorstroem/FuroBaseComponents/commit/a855632ecfd1b615e7ff2d35dfda4532c019c5e4))
+
+
+
+
+
 # [1.27.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.26.0...@furo/data@1.27.0) (2021-06-18)
 
 

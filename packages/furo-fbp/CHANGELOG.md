@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.5.0...@furo/fbp@5.6.0) (2021-06-30)
+
+
+### Features
+
+* furo-type-renderer with context ([9aa03d4](https://github.com/theNorstroem/FuroBaseComponents/commit/9aa03d419ab3f734f69d9a3a3a7ed31b24f19660))
+
+
+
+
+
 # [5.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.4.2...@furo/fbp@5.5.0) (2021-06-18)
 
 

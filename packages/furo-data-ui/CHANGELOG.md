@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.7.6...@furo/data-ui@1.8.0) (2021-06-30)
+
+
+### Features
+
+* furo-type-renderer with context ([9aa03d4](https://github.com/theNorstroem/FuroBaseComponents/commit/9aa03d419ab3f734f69d9a3a3a7ed31b24f19660))
+
+
+
+
+
 ## [1.7.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.7.5...@furo/data-ui@1.7.6) (2021-06-18)
 
 **Note:** Version bump only for package @furo/data-ui
