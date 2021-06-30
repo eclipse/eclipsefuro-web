@@ -81,7 +81,6 @@ export class DataObject extends EventTreeNode {
    * @param rawEntity
    */
   injectRaw(rawEntity) {
-
     // used to *reset* the metas according to the spec
     this.broadcastEvent(new NodeEvent('before-new-data-inject', this));
     // this broadcast will disable validation during setting the values
@@ -303,7 +302,6 @@ export class DataObject extends EventTreeNode {
       }
       this[target].__updateMetaAndConstraints(subMetaAndConstraints);
     }
-
   }
 
   _setInvalid(error) {

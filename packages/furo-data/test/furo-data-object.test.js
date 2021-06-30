@@ -347,8 +347,6 @@ describe('furo-data-object', () => {
     fetch('/mockdata/projects/1/testmeta.json')
       .then(res => res.json())
       .then(response => {
-
-
         const p = element.injectRaw(response);
         p.then(ObjectDataRoot => {
           assert.equal(ObjectDataRoot._pristine, true);

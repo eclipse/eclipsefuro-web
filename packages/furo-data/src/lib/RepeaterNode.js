@@ -58,8 +58,6 @@ export class RepeaterNode extends EventTreeNode {
 
     this._value = tmp;
 
-
-
     /**
      * Reset the metas
      */
@@ -75,7 +73,7 @@ export class RepeaterNode extends EventTreeNode {
       if (parentNode && parentNode._meta && parentNode._meta.readonly === true) {
         this._meta.readonly = true;
       }
-     this.dispatchNodeEvent(new NodeEvent('this-metas-changed', this, false));
+      this.dispatchNodeEvent(new NodeEvent('this-metas-changed', this, false));
     });
 
     /**
@@ -124,7 +122,7 @@ export class RepeaterNode extends EventTreeNode {
     });
 
     this.addEventListener('parent-readonly-meta-set', () => {
-      const roBefore = this._meta.readonly
+      const roBefore = this._meta.readonly;
       // check parent readonly meta and inherit if true
       if (
         (parentNode && parentNode._meta && parentNode._meta.readonly) ||
@@ -135,7 +133,7 @@ export class RepeaterNode extends EventTreeNode {
       } else {
         this._meta.readonly = false;
       }
-      if(roBefore !== this._meta.readonly){
+      if (roBefore !== this._meta.readonly) {
         this.dispatchNodeEvent(new NodeEvent('this-metas-changed', this, false));
       }
     });
@@ -224,7 +222,6 @@ export class RepeaterNode extends EventTreeNode {
         new NodeEvent('this-repeated-field-changed', this, false),
       );
       this.dispatchNodeEvent(new NodeEvent('this-repeated-field-changed', this, false));
-
     }
   }
 
@@ -279,7 +276,6 @@ export class RepeaterNode extends EventTreeNode {
         );
       }
     }
-
   }
 
   get _value() {

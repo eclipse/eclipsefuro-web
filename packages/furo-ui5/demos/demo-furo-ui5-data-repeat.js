@@ -86,7 +86,6 @@ class DemoFuroUi5DataRepeat extends FBP(LitElement) {
 
                   <furo-ui5-button @-click="--addClkd">add</furo-ui5-button>
                   <furo-ui5-button @-click="--add2Clkd">add</furo-ui5-button>
-
                 </furo-form-layouter>
               </furo-form>
 

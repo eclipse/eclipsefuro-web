@@ -117,7 +117,6 @@ export class FieldNode extends EventTreeNode {
      * Reset the metas
      */
     this.addEventListener('before-new-data-inject', () => {
-
       if (this._spec.meta) {
         this._meta = JSON.parse(JSON.stringify(this._spec.meta));
       } else {
@@ -183,7 +182,7 @@ export class FieldNode extends EventTreeNode {
     });
 
     this.addEventListener('parent-readonly-meta-set', () => {
-      const roBefore = this._meta.readonly
+      const roBefore = this._meta.readonly;
       // check parent readonly meta and inherit if true
       if (
         (parentNode && parentNode._meta && parentNode._meta.readonly) ||
@@ -194,10 +193,9 @@ export class FieldNode extends EventTreeNode {
       } else {
         this._meta.readonly = false;
       }
-      if(roBefore !== this._meta.readonly){
+      if (roBefore !== this._meta.readonly) {
         this.dispatchNodeEvent(new NodeEvent('this-metas-changed', this, false));
       }
-
     });
 
     // store __initialValue value for setting the field back to the defaults
@@ -432,7 +430,6 @@ export class FieldNode extends EventTreeNode {
     }
 
     this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
-
   }
 
   // check the validity against spec and meta
@@ -549,7 +546,6 @@ export class FieldNode extends EventTreeNode {
       level += 1;
 
       this[target].__updateMetaAndConstraints(subMetaAndConstraints, level);
-
     }
   }
 

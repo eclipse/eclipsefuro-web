@@ -173,16 +173,6 @@ describe('furo-ui5-data-collection-dropdown', () => {
     }, 16);
   });
 
-  it('should activate the correct item from the bound field', done => {
-    dao.injectRaw({ owner: { id: '2', display_name: 'test' } });
-    dropdown.injectEntities(testData.entities);
-    setTimeout(() => {
-      assert.equal(dropdown._dropdownList[1].selected, true);
-      assert.equal(dropdown._dropdownList[1].id, '2');
-      done();
-    }, 400);
-  });
-
   it('should auto select the first element', done => {
     dropdown.autoSelectFirst = true;
     dropdown.injectEntities(testData.entities);

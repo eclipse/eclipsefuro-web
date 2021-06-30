@@ -46,8 +46,6 @@ class FuroUi5DataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
     this.deleteIcon = undefined;
   }
 
-
-
   onFnaRepeatedFieldChanged() {
     this._FBPTriggerWire('--repeatsChanged', this.__fieldNode.repeats);
     this._checkSize();
@@ -56,7 +54,6 @@ class FuroUi5DataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
   onFnaReadonlyChanged(readonly) {
     this.readonly = readonly;
   }
-
 
   /**
    * @private
@@ -149,8 +146,6 @@ class FuroUi5DataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
 
     this.shadowRoot.appendChild(container);
   }
-
-
 
   /**
    * hide the element if array is empty
