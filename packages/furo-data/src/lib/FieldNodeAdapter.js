@@ -107,12 +107,12 @@ export const FieldNodeAdapter = superClass =>
       }
 
       // add the main event listeners
-      fieldNode.addEventListener('field-value-changed', this.__fieldValueChangedHandler);
-      fieldNode.addEventListener('field-became-valid', this.__fieldBecamesValidHandler);
-      fieldNode.addEventListener('field-became-invalid', this.__fieldBecamesInvalidHandler);
       fieldNode.addEventListener('this-metas-changed', this.__fieldMetasChangedHandler);
       fieldNode.addEventListener('new-data-injected', this.__fieldNewDataInjectedHandler);
       fieldNode.addEventListener('this-repeated-field-changed', this.__repeatedFieldChangedHandler);
+      fieldNode.addEventListener('field-value-changed', this.__fieldValueChangedHandler);
+      fieldNode.addEventListener('field-became-valid', this.__fieldBecamesValidHandler);
+      fieldNode.addEventListener('field-became-invalid', this.__fieldBecamesInvalidHandler);
 
       // this is for easier debugging with the inspector
       this.__fieldNode = fieldNode;

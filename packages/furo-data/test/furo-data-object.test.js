@@ -368,7 +368,7 @@ describe('furo-data-object', () => {
       });
   });
 
-  it('should update meta on server meta data', done => {
+  it('b: should update meta on server meta data', done => {
     element.setAttribute('type', 'project.ProjectCollection');
 
     fetch('/mockdata/projects/testmetaInCollection.json')

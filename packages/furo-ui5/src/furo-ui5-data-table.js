@@ -47,7 +47,11 @@ const ui5CellTemplate = fields => html`
               ${getTemplateColumn(f)}
             `
           : html`
-              <furo-type-renderer tabular-form ƒ-bind-data="${f.wire}"></furo-type-renderer>
+              <furo-type-renderer
+                tabular-form
+                ƒ-bind-data="${f.wire}"
+                context="${f.context}"
+              ></furo-type-renderer>
             `}
       </ui5-table-cell>
     `,
@@ -226,6 +230,11 @@ class FuroUi5DataTable extends FBP(LitElement) {
       this.__colStyle[index] = arr[1] ? arr[1] : 'Infinity';
     });
 
+    this._ctx = [];
+    if (this.context) {
+      this._ctx = this.context.replace(/ /g, '').split(',');
+    }
+
     if (this._headers.length > 1) {
       this._colStyle = [];
       this._headerTexts = [];
@@ -266,7 +275,6 @@ class FuroUi5DataTable extends FBP(LitElement) {
     if (fieldNode) {
       if (this._headers.length > 1) {
         const obj = this._parsePosition(this._headerTexts[index] || '');
-
         field.colHeaderText = obj.text;
         field.right = obj.right;
         field.center = obj.center;
@@ -279,6 +287,8 @@ class FuroUi5DataTable extends FBP(LitElement) {
       const sObj = this._parseWidth(field.colMinWidth);
       field.colMinWidth = sObj.minWidth;
       field.style = sObj.style;
+
+      field.context = this._ctx[index] || 'display';
 
       this.cols.push(field);
     }
@@ -442,6 +452,9 @@ class FuroUi5DataTable extends FBP(LitElement) {
    */
   static get properties() {
     return {
+      context: {
+        type: String,
+      },
       /**
        * list of field-paths which should be as columns displayed
        * comma separated list of field's path. e.g. data.id, data.display|min800 , here `min800` represents the the minimum table width required to display this column. By default it is always displayed.

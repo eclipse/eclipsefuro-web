@@ -141,6 +141,8 @@ describe('furo-app-flow-router', () => {
     flow.emit({ key: 13123 });
     assert.equal(window.location.pathname, '/app/auth');
   });
+
+
   it('should call the trigger method on an app-flow event ', done => {
     router.trigger = () => {
       done();
@@ -148,7 +150,6 @@ describe('furo-app-flow-router', () => {
     flow.emit({ key: 13123 });
   });
 
-  it('should call the trigger method on an app-flow event ', () => {
-    flow.emit({ key: 13123 });
-  });
+
+
 });

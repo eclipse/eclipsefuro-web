@@ -28,6 +28,7 @@ export class FuroUi5DataDisplay extends FBP(LitElement) {
     super(props);
     this.label = '';
     this.valueState = '';
+    this.context = 'display';
   }
 
   /**
@@ -55,6 +56,7 @@ export class FuroUi5DataDisplay extends FBP(LitElement) {
        * Disabled State
        */
       disabled: { type: Boolean, reflect: true, attribute: 'disabled' },
+      context: { type: String },
     };
   }
 
@@ -121,6 +123,7 @@ export class FuroUi5DataDisplay extends FBP(LitElement) {
         <ui5-label label slot="label" for="Input" show-colon>${this.label}</ui5-label>
         <furo-type-renderer
           content
+          context="${this.context}"
           ƒ-bind-data="--data"
           value-state=${this.valueState}
         ></furo-type-renderer>

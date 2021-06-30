@@ -1,11 +1,43 @@
 {
   "data": {
     "fat_string": {
-      "value": "furo fat string with readonly meta",
+      "value": "with readonly meta",
       "labels": {
         "condensed": true
       }
-    }
+    },
+    "fat_string_repeated": [
+      {
+        "value": "RO fat string",
+        "labels": {
+          "before": true
+        },
+        "attributes": {
+          "value-state": "Warning",
+          "min": "6",
+          "max": "16",
+          "maxlength": "6",
+          "label": "override",
+          "placeholder": "overridePH",
+          "readonly": "true"
+        }
+      },
+      {
+        "value": "RO this is a furo fat string 2",
+        "labels": {
+          "before": true
+        },
+        "attributes": {
+          "value-state": "Error",
+          "min": "6",
+          "max": "16",
+          "maxlength": "6",
+          "label": "override",
+          "placeholder": "overridePH",
+          "readonly": "true"
+        }
+      }
+    ]
   },
   "links": [],
   "meta": {
@@ -33,7 +65,16 @@
             ]
           }
         }
+      },
+      "data.fat_string_repeated": {
+        "meta": {
+          "label": "fat string label set via response meta",
+          "default": "new",
+          "hint": "hint",
+          "readonly": true
+        }
       }
+
     }
   }
 }

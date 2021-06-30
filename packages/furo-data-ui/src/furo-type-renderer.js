@@ -36,6 +36,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
   constructor() {
     super();
     this.tpl = html``;
+    this.context = 'display'
   }
 
   static get styles() {
@@ -76,6 +77,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
       disabled: {
         type: Boolean,
       },
+      context: {type:String}
     };
   }
 
@@ -93,7 +95,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
          * if there exists already a field @type, the correct
          * render component according @type information will be created
          */
-        this.renderName = `display-${this._field['@type']._value
+        this.renderName = `${this.context}-${this._field['@type']._value
           .replace(/.*\//, '')
           .replaceAll('.', '-')
           .toLocaleLowerCase()}`;
@@ -101,7 +103,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
         /**
          * all other types
          */
-        this.renderName = `display-${this._field._spec.type
+        this.renderName = `${this.context}-${this._field._spec.type
           .replaceAll('.', '-')
           .toLocaleLowerCase()}`;
       }

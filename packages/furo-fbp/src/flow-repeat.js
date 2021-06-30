@@ -12,7 +12,7 @@ import './empty-fbp-node.js';
  * @customElement
  * @mixes FBP
  */
-class FlowRepeat extends FBP(HTMLElement) {
+export class FlowRepeat extends FBP(HTMLElement) {
   constructor() {
     super();
     this.template = undefined;
