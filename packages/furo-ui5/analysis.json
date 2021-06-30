@@ -203,11 +203,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 208,
               "column": 6
             },
             "end": {
-              "line": 202,
+              "line": 208,
               "column": 31
             }
           },
@@ -224,11 +224,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 212,
               "column": 6
             },
             "end": {
-              "line": 206,
+              "line": 212,
               "column": 34
             }
           },
@@ -245,11 +245,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 217,
               "column": 6
             },
             "end": {
-              "line": 211,
+              "line": 217,
               "column": 62
             }
           },
@@ -266,11 +266,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 223,
               "column": 6
             },
             "end": {
-              "line": 217,
+              "line": 223,
               "column": 30
             }
           },
@@ -287,12 +287,33 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 222,
+              "line": 228,
               "column": 6
             },
             "end": {
-              "line": 222,
+              "line": 228,
               "column": 90
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "noContentPadding",
+          "type": "boolean | null | undefined",
+          "description": "Shows the content slot area with no padding",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 232,
+              "column": 6
+            },
+            "end": {
+              "line": 232,
+              "column": 89
             }
           },
           "metadata": {
@@ -309,11 +330,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 56,
+              "line": 57,
               "column": 2
             },
             "end": {
-              "line": 66,
+              "line": 67,
               "column": 3
             }
           },
@@ -333,11 +354,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 74,
               "column": 2
             },
             "end": {
-              "line": 83,
+              "line": 84,
               "column": 3
             }
           },
@@ -357,11 +378,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 89,
+              "line": 90,
               "column": 2
             },
             "end": {
-              "line": 99,
+              "line": 100,
               "column": 3
             }
           },
@@ -381,11 +402,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 112,
               "column": 2
             },
             "end": {
-              "line": 124,
+              "line": 125,
               "column": 3
             }
           },
@@ -405,11 +426,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 130,
+              "line": 131,
               "column": 2
             },
             "end": {
-              "line": 138,
+              "line": 139,
               "column": 3
             }
           },
@@ -425,11 +446,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 230,
+              "line": 240,
               "column": 2
             },
             "end": {
-              "line": 256,
+              "line": 267,
               "column": 3
             }
           },
@@ -458,7 +479,7 @@
           "column": 0
         },
         "end": {
-          "line": 257,
+          "line": 268,
           "column": 1
         }
       },
@@ -471,11 +492,11 @@
           "description": "Defines the title displayed in the ui5-card header.",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 208,
               "column": 6
             },
             "end": {
-              "line": 202,
+              "line": 208,
               "column": 31
             }
           },
@@ -487,11 +508,11 @@
           "description": "Defines the subheading displayed in the ui5-card header.",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 212,
               "column": 6
             },
             "end": {
-              "line": 206,
+              "line": 212,
               "column": 34
             }
           },
@@ -503,11 +524,11 @@
           "description": "Defines the visual representation in the header of the card. Supports images and icons.\nhttps://openui5.hana.ondemand.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 217,
               "column": 6
             },
             "end": {
-              "line": 211,
+              "line": 217,
               "column": 62
             }
           },
@@ -519,11 +540,11 @@
           "description": "Defines the status text displayed in the card header (upper right).\n\nBy enabling the status, actions are not visible.",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 223,
               "column": 6
             },
             "end": {
-              "line": 217,
+              "line": 223,
               "column": 30
             }
           },
@@ -535,12 +556,28 @@
           "description": "Defines if the ui5-card header would be interactive, e.g gets hover effect, gets focused and header-click event is fired, when it is pressed.",
           "sourceRange": {
             "start": {
-              "line": 222,
+              "line": 228,
               "column": 6
             },
             "end": {
-              "line": 222,
+              "line": 228,
               "column": 90
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "no-content-padding",
+          "description": "Shows the content slot area with no padding",
+          "sourceRange": {
+            "start": {
+              "line": 232,
+              "column": 6
+            },
+            "end": {
+              "line": 232,
+              "column": 89
             }
           },
           "metadata": {},
@@ -13613,11 +13650,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 351,
+              "line": 352,
               "column": 2
             },
             "end": {
-              "line": 389,
+              "line": 390,
               "column": 3
             }
           },
@@ -13646,7 +13683,7 @@
           "column": 0
         },
         "end": {
-          "line": 390,
+          "line": 391,
           "column": 1
         }
       },
@@ -16050,7 +16087,7 @@
               "column": 2
             },
             "end": {
-              "line": 135,
+              "line": 138,
               "column": 3
             }
           },
@@ -16066,11 +16103,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 142,
+              "line": 145,
               "column": 2
             },
             "end": {
-              "line": 153,
+              "line": 156,
               "column": 3
             }
           },
@@ -16086,11 +16123,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 159,
+              "line": 162,
               "column": 2
             },
             "end": {
-              "line": 178,
+              "line": 181,
               "column": 3
             }
           },
@@ -16107,11 +16144,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 185,
+              "line": 188,
               "column": 2
             },
             "end": {
-              "line": 188,
+              "line": 191,
               "column": 3
             }
           },
@@ -16131,11 +16168,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 195,
+              "line": 198,
               "column": 2
             },
             "end": {
-              "line": 204,
+              "line": 207,
               "column": 3
             }
           },
@@ -16155,11 +16192,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 214,
               "column": 2
             },
             "end": {
-              "line": 220,
+              "line": 223,
               "column": 3
             }
           },
@@ -16179,11 +16216,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 227,
+              "line": 230,
               "column": 2
             },
             "end": {
-              "line": 231,
+              "line": 234,
               "column": 3
             }
           },
@@ -16203,11 +16240,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 238,
+              "line": 241,
               "column": 2
             },
             "end": {
-              "line": 249,
+              "line": 252,
               "column": 3
             }
           },
@@ -16227,11 +16264,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 259,
               "column": 2
             },
             "end": {
-              "line": 261,
+              "line": 264,
               "column": 3
             }
           },
@@ -16251,11 +16288,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 267,
+              "line": 270,
               "column": 2
             },
             "end": {
-              "line": 269,
+              "line": 272,
               "column": 3
             }
           },
@@ -16271,11 +16308,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 275,
+              "line": 278,
               "column": 2
             },
             "end": {
-              "line": 289,
+              "line": 292,
               "column": 3
             }
           },
@@ -16292,11 +16329,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 297,
+              "line": 300,
               "column": 2
             },
             "end": {
-              "line": 331,
+              "line": 334,
               "column": 3
             }
           },
@@ -16316,11 +16353,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 337,
+              "line": 340,
               "column": 2
             },
             "end": {
-              "line": 361,
+              "line": 364,
               "column": 3
             }
           },
@@ -16340,11 +16377,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 370,
+              "line": 373,
               "column": 2
             },
             "end": {
-              "line": 374,
+              "line": 377,
               "column": 3
             }
           },
@@ -16367,11 +16404,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 380,
+              "line": 383,
               "column": 2
             },
             "end": {
-              "line": 382,
+              "line": 385,
               "column": 3
             }
           },
@@ -16387,11 +16424,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 389,
+              "line": 392,
               "column": 2
             },
             "end": {
-              "line": 446,
+              "line": 450,
               "column": 3
             }
           },
@@ -16411,11 +16448,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 468,
+              "line": 472,
               "column": 2
             },
             "end": {
-              "line": 541,
+              "line": 545,
               "column": 3
             }
           },
@@ -16437,11 +16474,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 455,
+              "line": 459,
               "column": 2
             },
             "end": {
-              "line": 460,
+              "line": 464,
               "column": 3
             }
           },
@@ -16469,7 +16506,7 @@
           "column": 7
         },
         "end": {
-          "line": 542,
+          "line": 546,
           "column": 1
         }
       },
