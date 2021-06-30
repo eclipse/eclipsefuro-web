@@ -15,13 +15,13 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *  <furo-ui5-data-repeat ƒ-bind-data="--data(*.repeaterfield)"
  *      repeated-component="furo-date-input"
  *      delete-icon="remove"
- *      ƒ-add="--additionalDateClicked"
+ *      ƒ-add="--addDateClicked"
  *      ></furo-ui5-data-repeat>
  *
  *      <!-- Add is controlled from outside, delete from inside of the item -->
  *      <furo-ui5-data-repeat ƒ-bind-data="--data(*.repeatedcomplextype)"
- *      repeated-component="my big form"
- *      ƒ-add="--additionalDateClicked"
+ *      repeated-component="my-big-form"
+ *      ƒ-add="--addClicked"
  *      ></furo-ui5-data-repeat>
  *
  *  ```
@@ -41,16 +41,23 @@ class FuroUi5DataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
     super();
     /**
      * Set the delete icon to enable deleting of a repeated element.
-     * @type {undefined}
+     *
+     * @type {String}
      */
     this.deleteIcon = undefined;
   }
 
+  /**
+   * @private
+   */
   onFnaRepeatedFieldChanged() {
     this._FBPTriggerWire('--repeatsChanged', this.__fieldNode.repeats);
     this._checkSize();
   }
 
+  /**
+   * @private
+   */
   onFnaReadonlyChanged(readonly) {
     this.readonly = readonly;
   }
@@ -66,11 +73,22 @@ class FuroUi5DataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
        * The component must support ƒ-bind-data
        */
       repeatedComponent: { type: String, attribute: 'repeated-component' },
+      /**
+       * *OPTIONAL*
+       * Identity path of a single item.
+       * Use this if you have a field which identifies the item.
+       *
+       * If you do not set the identity-path, the index will be used.
+       */
       identityPath: { type: String, attribute: 'identity-path' },
       /**
        * set this attribute to set the focus to the created item after calling add().
        */
       focusOnCreate: { type: Boolean, attribute: 'focus-on-create' },
+      /**
+       * disables the add and delete method, note that the nodes from the model are not updated so the repeated elements
+       * are still editable. Prefer the usage of specs, metas or fat.
+       */
       readonly: { type: Boolean, reflect: true },
     };
   }
