@@ -64,10 +64,9 @@ class DemoFuroUi5DataRepeat extends FBP(LitElement) {
         <furo-demo-snippet flex>
           <template>
             <furo-vertical-scroller>
-              <furo-form header-text="Head" hasmedia hasaction>
+              <furo-form header-text="Data repeat demo" hasmedia hasaction>
                 <furo-form-layouter two>
-                  <div>ui5</div>
-                  <div>classic</div>
+
                   <furo-ui5-data-repeat
                     ƒ-bind-data="--entity(*.data.fat_string_repeated)"
                     repeated-component="furo-ui5-data-text-input"
@@ -76,16 +75,9 @@ class DemoFuroUi5DataRepeat extends FBP(LitElement) {
                     ƒ-add="--addClkd"
                   ></furo-ui5-data-repeat>
 
-                  <furo-data-repeat
-                    ƒ-bind-data="--entity(*.data.fat_string_repeated)"
-                    repeated-component="furo-data-text-input"
-                    delete-icon="delete"
-                    focus-on-create
-                    ƒ-add="--add2Clkd"
-                  ></furo-data-repeat>
 
                   <furo-ui5-button @-click="--addClkd">add</furo-ui5-button>
-                  <furo-ui5-button @-click="--add2Clkd">add</furo-ui5-button>
+
                 </furo-form-layouter>
               </furo-form>
 
@@ -108,13 +100,11 @@ class DemoFuroUi5DataRepeat extends FBP(LitElement) {
               <furo-data-object
                 type="universaltest.UniversaltestEntity"
                 @-object-ready="--entity"
-                @-data-changed-after-inject="--data"
                 ƒ-init="--init"
                 ƒ-inject-raw="--mockdata"
               ></furo-data-object>
-              <furo-pretty-json
-                ƒ-inject-data="--data(*.data.fat_string_repeated._value)"
-              ></furo-pretty-json>
+
+
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>
