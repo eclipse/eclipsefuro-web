@@ -203,11 +203,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 208,
               "column": 6
             },
             "end": {
-              "line": 202,
+              "line": 208,
               "column": 31
             }
           },
@@ -224,11 +224,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 212,
               "column": 6
             },
             "end": {
-              "line": 206,
+              "line": 212,
               "column": 34
             }
           },
@@ -245,11 +245,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 217,
               "column": 6
             },
             "end": {
-              "line": 211,
+              "line": 217,
               "column": 62
             }
           },
@@ -266,11 +266,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 223,
               "column": 6
             },
             "end": {
-              "line": 217,
+              "line": 223,
               "column": 30
             }
           },
@@ -287,12 +287,33 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 222,
+              "line": 228,
               "column": 6
             },
             "end": {
-              "line": 222,
+              "line": 228,
               "column": 90
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "noContentPadding",
+          "type": "boolean | null | undefined",
+          "description": "Shows the content slot area with no padding",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 232,
+              "column": 6
+            },
+            "end": {
+              "line": 232,
+              "column": 89
             }
           },
           "metadata": {
@@ -309,11 +330,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 56,
+              "line": 57,
               "column": 2
             },
             "end": {
-              "line": 66,
+              "line": 67,
               "column": 3
             }
           },
@@ -333,11 +354,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 74,
               "column": 2
             },
             "end": {
-              "line": 83,
+              "line": 84,
               "column": 3
             }
           },
@@ -357,11 +378,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 89,
+              "line": 90,
               "column": 2
             },
             "end": {
-              "line": 99,
+              "line": 100,
               "column": 3
             }
           },
@@ -381,11 +402,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 112,
               "column": 2
             },
             "end": {
-              "line": 124,
+              "line": 125,
               "column": 3
             }
           },
@@ -405,11 +426,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 130,
+              "line": 131,
               "column": 2
             },
             "end": {
-              "line": 138,
+              "line": 139,
               "column": 3
             }
           },
@@ -425,11 +446,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 230,
+              "line": 240,
               "column": 2
             },
             "end": {
-              "line": 256,
+              "line": 267,
               "column": 3
             }
           },
@@ -458,7 +479,7 @@
           "column": 0
         },
         "end": {
-          "line": 257,
+          "line": 268,
           "column": 1
         }
       },
@@ -471,11 +492,11 @@
           "description": "Defines the title displayed in the ui5-card header.",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 208,
               "column": 6
             },
             "end": {
-              "line": 202,
+              "line": 208,
               "column": 31
             }
           },
@@ -487,11 +508,11 @@
           "description": "Defines the subheading displayed in the ui5-card header.",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 212,
               "column": 6
             },
             "end": {
-              "line": 206,
+              "line": 212,
               "column": 34
             }
           },
@@ -503,11 +524,11 @@
           "description": "Defines the visual representation in the header of the card. Supports images and icons.\nhttps://openui5.hana.ondemand.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 217,
               "column": 6
             },
             "end": {
-              "line": 211,
+              "line": 217,
               "column": 62
             }
           },
@@ -519,11 +540,11 @@
           "description": "Defines the status text displayed in the card header (upper right).\n\nBy enabling the status, actions are not visible.",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 223,
               "column": 6
             },
             "end": {
-              "line": 217,
+              "line": 223,
               "column": 30
             }
           },
@@ -535,12 +556,28 @@
           "description": "Defines if the ui5-card header would be interactive, e.g gets hover effect, gets focused and header-click event is fired, when it is pressed.",
           "sourceRange": {
             "start": {
-              "line": 222,
+              "line": 228,
               "column": 6
             },
             "end": {
-              "line": 222,
+              "line": 228,
               "column": 90
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "no-content-padding",
+          "description": "Shows the content slot area with no padding",
+          "sourceRange": {
+            "start": {
+              "line": 232,
+              "column": 6
+            },
+            "end": {
+              "line": 232,
+              "column": 89
             }
           },
           "metadata": {},
@@ -13482,11 +13519,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 351,
+              "line": 352,
               "column": 2
             },
             "end": {
-              "line": 389,
+              "line": 390,
               "column": 3
             }
           },
@@ -13515,7 +13552,7 @@
           "column": 0
         },
         "end": {
-          "line": 390,
+          "line": 391,
           "column": 1
         }
       },

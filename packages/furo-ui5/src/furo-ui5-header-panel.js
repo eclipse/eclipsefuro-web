@@ -255,6 +255,7 @@ class FuroUi5HeaderPanel extends FBP(LitElement) {
 
         .header {
           width: 100%;
+          margin-bottom: 0.5rem;
         }
 
         .content {

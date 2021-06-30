@@ -48,6 +48,7 @@ class FuroUi5Card extends FBP(LitElement) {
     this.subheading = '';
     this.status = '';
     this.headerInteractive = false;
+    this.noContentPadding = false;
   }
 
   /**
@@ -183,6 +184,11 @@ class FuroUi5Card extends FBP(LitElement) {
         ::slotted([slot='content']) {
           padding: var(--_ui5_card_content_padding);
         }
+
+        :host([no-content-padding]) ::slotted([slot='content']) {
+          padding: 0;
+        }
+
         /* this is used to make the card height from the consumer of the card (i.e. z-grid) */
         .content {
           height: var(--furo-ui5-cardContentHeight, initial);
@@ -221,6 +227,10 @@ class FuroUi5Card extends FBP(LitElement) {
        * @event header-click
        */
       headerInteractive: { type: Boolean, reflect: true, attribute: 'header-interactive' },
+      /**
+       * Shows the content slot area with no padding
+       */
+      noContentPadding: { type: Boolean, reflect: true, attribute: 'no-content-padding' },
     };
   }
 
@@ -235,6 +245,7 @@ class FuroUi5Card extends FBP(LitElement) {
         subheading="${this.subheading}"
         status="${this.status}"
         ?header-interactive="${this.headerInteractive}"
+        ?no-content-padding="${this.noContentPadding}"
         @-header-click="^^header-clicked"
       >
         ${this.icon.length
