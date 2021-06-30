@@ -122,9 +122,7 @@ export const FieldNodeAdapter = superClass =>
       this.__fieldValueChangedHandler();
 
       // run meta checks on initial bind
-      setTimeout(() => {
-        this.__fieldMetasChangedHandler();
-      }, 0);
+      this.__fieldMetasChangedHandler();
 
 
       return true;

@@ -183,6 +183,7 @@ export class FieldNode extends EventTreeNode {
     });
 
     this.addEventListener('parent-readonly-meta-set', () => {
+      const roBefore = this._meta.readonly
       // check parent readonly meta and inherit if true
       if (
         (parentNode && parentNode._meta && parentNode._meta.readonly) ||
@@ -193,6 +194,10 @@ export class FieldNode extends EventTreeNode {
       } else {
         this._meta.readonly = false;
       }
+      if(roBefore !== this._meta.readonly){
+        this.dispatchNodeEvent(new NodeEvent('this-metas-changed', this, false));
+      }
+
     });
 
     // store __initialValue value for setting the field back to the defaults

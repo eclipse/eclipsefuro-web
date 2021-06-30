@@ -47,6 +47,17 @@ class FuroDataRepeat extends FieldNodeAdapter(FBP(LitElement))  {
     this.deleteIcon = undefined;
   }
 
+
+  onFnaRepeatedFieldChanged() {
+    this._FBPTriggerWire('--repeatsChanged', this.__fieldNode.repeats);
+    this._checkSize();
+  }
+
+  onFnaReadonlyChanged(readonly) {
+    this.readonly = readonly;
+  }
+
+
   /**
    * @private
    * @return {Object}
@@ -143,43 +154,7 @@ class FuroDataRepeat extends FieldNodeAdapter(FBP(LitElement))  {
     this.shadowRoot.appendChild(container);
   }
 
-  bindData(fieldNode) {
-    // eslint-disable-next-line no-param-reassign
-    fieldNode.clearListOnNewData = true;
 
-    /**
-     * we clear the list on new data
-     */
-    fieldNode.addEventListener('before-repeated-field-changed', () => {
-      this._FBPTriggerWire('--repeatsChanged', []);
-    });
-
-    // we have to listen manualy because we can not use onFnaRepeatedFieldChanged
-    fieldNode.addEventListener('node-field-deleted', () => {
-      this._FBPTriggerWire('--repeatsChanged', this.__fieldNode.repeats);
-    });
-
-    // we have to listen manualy because we can not use onFnaRepeatedFieldChanged
-    fieldNode.addEventListener('repeated-fields-added', () => {
-      this._FBPTriggerWire('--repeatsChanged', this.__fieldNode.repeats);
-      this._checkSize();
-    });
-    return super.bindData(fieldNode);
-  }
-
-
-
-  onFnaFieldValueChanged() {
-    /**
-     * we do not use the onFnaRepeatedFieldChanged callback because the event fires before the metas are updated
-     * so a readonly will work.
-     */
-    if (this.__fieldNode.repeats) {
-      this._FBPTriggerWire('--repeatsChanged', this.__fieldNode.repeats);
-      this.readonly = this.__fieldNode._meta.readonly;
-      this._checkSize();
-    }
-  }
 
   /**
    * hide the element if array is empty
