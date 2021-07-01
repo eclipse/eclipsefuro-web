@@ -604,6 +604,28 @@ describe('furo-collection-agent', () => {
     element.list();
   });
 
+  it('should Immediately cancel a pending request', done => {
+    element.setAttribute('service', 'TaskService');
+    element.addEventListener('response', e => {
+      // no response expected - request should be aborted
+      assert.equal('requestNotAborted', true);
+    });
+    element.addEventListener('request-aborted', () => {
+      done();
+    });
+    element.htsIn([
+      {
+        href: '/mockdata/tasks/list.json',
+        method: 'GET',
+        rel: 'list',
+        type: 'task.TaskCollection',
+        service: 'TaskService',
+      },
+    ]);
+    element.list();
+    element.abortPendingRequest();
+  });
+
   it('Accept header should be set ', done => {
     element.setAttribute('service', 'TaskService');
 

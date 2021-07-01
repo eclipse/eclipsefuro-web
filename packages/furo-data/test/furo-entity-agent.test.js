@@ -705,6 +705,31 @@ describe('furo-entity-agent', () => {
     entityAgent.load();
   });
 
+  it('should Immediately cancel a pending request', done => {
+    entityAgent.setAttribute('service', 'TaskService');
+    entityAgent.addEventListener('response', () => {
+      // no response expected - request should be aborted
+      assert.equal('requestNotAborted', true);
+    });
+
+    entityAgent.addEventListener('request-aborted', () => {
+      done();
+    });
+    entityAgent.htsIn([
+      {
+        href: '/mockdata/tasks/1/get.json',
+        method: 'GET',
+        rel: 'self',
+        type: 'task.TaskEntity',
+        service: 'TaskService',
+      },
+    ]);
+
+    entityAgent.load();
+    entityAgent.abortPendingRequest();
+
+  });
+
   it('should do nothing when hts is not set', done => {
     entityAgent.setAttribute('service', 'TaskService');
     assert.equal(entityAgent.load(), false);

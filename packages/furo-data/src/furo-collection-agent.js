@@ -555,6 +555,19 @@ class FuroCollectionAgent extends FBP(LitElement) {
   }
 
   /**
+   * Aborts a pending request
+   */
+  abortPendingRequest(){
+    /**
+     * Fired if the request was successfully cancelled,
+     * @event request-aborted
+     */
+    if (this._pendingRequests.length) {
+      this._FBPTriggerWire('--abortDemanded', this._abortController);
+    }
+  }
+
+  /**
    * @private
    * @return {*}
    */
@@ -571,9 +584,9 @@ class FuroCollectionAgent extends FBP(LitElement) {
         ƒ-invoke-request="--triggerLoad"
         ƒ-abort-request="--abortDemanded"
         @-response="--responseParsed, --requestFinished, ^^req-success"
-        @-response-error="^^req-failed"
+        @-response-error="^^req-failed, --requestFinished"
         @-request-aborted="^^req-aborted"
-        @-parse-error="^^req-failed"
+        @-parse-error="^^req-failed, --requestFinished"
         @-fatal-error="--requestFinished"
       >
       </furo-api-fetch>

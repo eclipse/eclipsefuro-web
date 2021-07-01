@@ -226,6 +226,19 @@ class FuroCustomMethod extends FBP(LitElement) {
     }
   }
 
+  /**
+   * Aborts a pending request
+   */
+  abortPendingRequest(){
+    /**
+     * Fired if the request was successfully cancelled,
+     * @event request-aborted
+     */
+    if (this._pendingRequests.length) {
+      this._FBPTriggerWire('--abortDemanded', this._abortController);
+    }
+  }
+
   render() {
     // language=HTML
     return html`
@@ -239,6 +252,7 @@ class FuroCustomMethod extends FBP(LitElement) {
         ƒ-invoke-request="--triggerLoad"
         ƒ-abort-request="--abortDemanded"
         @-response="--requestFinished"
+        @-response-error="--requestFinished"
         @-fatal-error="--requestFinished"
       >
       </furo-api-fetch>
