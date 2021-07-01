@@ -446,7 +446,7 @@ export const FBP = superClass =>
               const customEvent = new Event(theEvent, { composed: false, bubbles: true });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
-                if (match[1].length === 1) {
+                if (prop.length === 1) {
                   // send raw event
                   customEvent.detail = e;
                 } else {
@@ -470,7 +470,7 @@ export const FBP = superClass =>
               const customEvent = new Event(theEvent, { composed: false, bubbles: true });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
-                if (match[1].length === 1) {
+                if (prop.length === 1) {
                   // send raw event
                   customEvent.detail = e;
                 } else {
@@ -494,7 +494,7 @@ export const FBP = superClass =>
               const customEvent = new Event(theEvent, { composed: true, bubbles: true });
               // send details with *.sub or *
               if (prop.startsWith('*')) {
-                if (match[1].length === 1) {
+                if (prop.length === 1) {
                   // send raw event
                   customEvent.detail = e;
                 } else {
