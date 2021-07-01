@@ -207,6 +207,7 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
       this._FBPTriggerWire('--detectedService', val.link.service);
       this._FBPTriggerWire('--hts', val.link);
     } else {
+      // todo: check if the defaults from the field itself (not the defaults from the used type) are given
       // try the defaults from the ref type
       this._FBPTriggerWire('--detectedService', Env.api.specs[this.__fieldNode._spec.type].fields.link.meta.default.service);
       this._FBPTriggerWire('--hts', Env.api.specs[this.__fieldNode._spec.type].fields.link.meta.default);
