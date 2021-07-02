@@ -95,6 +95,8 @@ import './celledit-int64.js';
 import './celledit-uint32.js';
 import './celledit-uint64.js';
 import './celledit-bool.js';
+import './celledit-furo-fat-bool.js';
+import './celledit-google-protobuf-boolvalue.js';
 import './celledit-google-protobuf-doublevalue.js';
 import './celledit-google-protobuf-floatvalue.js';
 import './celledit-google-protobuf-int32value.js';
