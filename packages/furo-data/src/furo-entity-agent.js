@@ -15,6 +15,7 @@ import { AgentHelper } from './lib/AgentHelper.js';
  * @appliesMixin FBP
  */
 class FuroEntityAgent extends FBP(LitElement) {
+
   constructor() {
     super();
     this._servicedefinitions = Env.api.services;
@@ -593,6 +594,19 @@ class FuroEntityAgent extends FBP(LitElement) {
         this._singleElementQueue.pop();
         this.load();
       }
+    }
+  }
+
+  /**
+   * Aborts a pending request
+   */
+  abortPendingRequest(){
+    /**
+     * Fired if the request was successfully cancelled,
+     * @event request-aborted
+     */
+    if (this._pendingRequests.length) {
+      this._FBPTriggerWire('--abortDemanded', this._abortController);
     }
   }
 

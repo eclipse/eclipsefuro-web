@@ -155,6 +155,44 @@ describe('furo-custom-method', () => {
     });
   });
 
+  it('should Immediately cancel a pending request', done => {
+    customMethod.setAttribute('service', 'ExperimentService');
+    customMethod.setAttribute('method', 'release');
+    dataObject.setAttribute('type', 'experiment.ExperimentEntity');
+
+    customMethod.addEventListener('response', () => {
+      // no response expected - request should be aborted
+      assert.equal('requestNotAborted', true);
+    });
+
+    customMethod.addEventListener('request-aborted', () => {
+      done();
+    });
+
+    customMethod.htsIn([
+      {
+        href: 'https://httpbin.org/anything',
+        method: 'Post',
+        rel: 'release',
+        type: 'experiment.ExperimentEntity',
+        service: 'ExperimentService',
+      },
+      {
+        href: 'https://httpbin.org/anything',
+        method: 'Post',
+        rel: 'cancel',
+        type: 'experiment.ExperimentEntity',
+        service: 'ExperimentService',
+      },
+    ]);
+    dataObject.addEventListener('object-ready', () => {
+      dataObject.data.data.description._value = 'updated desc';
+
+      customMethod.triggerWithBody(dataObject.data._value.data);
+      customMethod.abortPendingRequest();
+    });
+  });
+
   it('should fire event if hts is not available', done => {
     customMethod.setAttribute('service', 'ExperimentService');
     customMethod.setAttribute('method', 'release');
