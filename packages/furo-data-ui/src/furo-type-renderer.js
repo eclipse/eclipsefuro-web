@@ -4,7 +4,9 @@ import { Theme } from '@furo/framework';
 
 /**
  * `furo-type-renderer`
- * The furo-type-renderer is used to display type specific data.
+ * The furo-type-renderer is used to display type specific data. It uses **display** as default context and will warn you
+ * on the console if the requested `context-[type-name]` does not exist or was not imported.
+ *
  * There is a standard set of display components @furo/ui5/src/standard-type-renderers for rendering the individual types.
  *
  * The standard ui5 set can be integrated with the import
@@ -13,19 +15,40 @@ import { Theme } from '@furo/framework';
  * The standard material set can be integrated with the import
  * - import '@furo/data-ui/src/standard-type-renderers/display-registry.js'.
  *
- * If you want to implement an individual display of a type, you need your own display-[type] component and import it.
+ * If you want to implement an individual display of a type, you need your own `context-[type-name]` component and import it.
  *
- * for repeated field you should write your own display-[type]-repeats component and import it. if display-[type]-repeats
- * not exists, the renderer will use the display-[type] component as fallback and display it repeatedly.
+ * for repeated fields you should write your own context-[type-name]-repeats component and import it.
+ * If no context-[type-name]-repeats exists, the renderer will use the display-[type] component as fallback and
+ * display it repeatedly, this is ok for a lot of cases.
  *
- * # Naming convention
- * - display-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]
- * e.g. display-google-type-timeofday
+ * ## Naming convention
  *
- * # Basic Usage
+ * ```
+ * display-google-type-timeofday
+ * ------- ---------------------
+ *    |             |
+ * context      type-name
+ *
+ * # examples:
+ * cell-string
+ * celledit-string
+ * display-string
+ * yourcontext-string
+ *
+ * The method to evaluate the renderer is built as following:
+ *
+ * context-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]
+ * ```
+ *
+ *
+ *
+ * ## Basic Usage
  * ```
  *   <furo-type-renderer ƒ-bind-data="--dao(*.data.fieldname)"></furo-type-renderer>
  * ```
+ *
+ * ## Writing your own renderer
+ * The only API you need to implement in your component is the `bindData()` method. You have to follow the naming convention for your renderer.
  *
  * @summary type rendering
  * @customElement
@@ -77,6 +100,11 @@ class FuroTypeRenderer extends FBP(LitElement) {
       disabled: {
         type: Boolean,
       },
+      /**
+       * Set the context if you need another then display.
+       * Prebuilt context renderers exist for display, cell, celledit.
+       *
+       */
       context: {type:String}
     };
   }
