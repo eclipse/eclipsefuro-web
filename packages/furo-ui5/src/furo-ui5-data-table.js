@@ -48,7 +48,6 @@ const ui5CellTemplate = fields => html`
             `
           : html`
               <furo-type-renderer
-                tabular-form
                 ƒ-bind-data="${f.wire}"
                 context="${f.context}"
               ></furo-type-renderer>
@@ -288,7 +287,7 @@ class FuroUi5DataTable extends FBP(LitElement) {
       field.colMinWidth = sObj.minWidth;
       field.style = sObj.style;
 
-      field.context = this._ctx[index] || 'display';
+      field.context = this._ctx[index] || 'cell';
 
       this.cols.push(field);
     }
