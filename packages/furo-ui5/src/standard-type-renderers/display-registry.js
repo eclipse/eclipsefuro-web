@@ -82,3 +82,31 @@ import './cell-google-protobuf-int64value.js';
 import './cell-google-protobuf-stringvalue.js';
 import './cell-google-protobuf-timestamp.js';
 import './cell-google-protobuf-any.js';
+
+
+import './celledit-string.js';
+
+import './celledit-furo-fat-string.js';
+import './celledit-google-protobuf-stringvalue.js';
+
+
+import './celledit-int32.js';
+import './celledit-int64.js';
+import './celledit-uint32.js';
+import './celledit-uint64.js';
+import './celledit-bool.js';
+import './celledit-google-protobuf-doublevalue.js';
+import './celledit-google-protobuf-floatvalue.js';
+import './celledit-google-protobuf-int32value.js';
+import './celledit-google-protobuf-int64value.js';
+import './celledit-google-protobuf-uint32value.js';
+import './celledit-google-protobuf-uint64value.js';
+import './celledit-furo-fat-double.js';
+import './celledit-furo-fat-float.js';
+import './celledit-furo-fat-int32.js';
+import './celledit-furo-fat-int64.js';
+import './celledit-furo-fat-uint32.js';
+import './celledit-furo-fat-uint64.js';
+import './celledit-furo-property.js';
+import './celledit-furo-property-repeated.js';
+

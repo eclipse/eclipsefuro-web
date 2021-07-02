@@ -11,6 +11,7 @@ import './demo-furo-data-chart-bubble.js';
 import './demo-furo-data-chart-timeline.js';
 import './demo-furo-type-renderer.js';
 import './demo-furo-type-renderer-cell.js';
+import './demo-furo-type-renderer-celledit.js';
 
 import { Init } from '@furo/framework/src/furo.js';
 
