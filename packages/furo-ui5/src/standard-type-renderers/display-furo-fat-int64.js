@@ -10,7 +10,7 @@ import { DisplayFuroFatInt32 } from './display-furo-fat-int32.js';
  *
  * Every display-xxx component should implement the following API:
  * - function: bindData(fieldNode){...}
- * - attribute: tabular-form (this attribute is set, if the component is inside of a furo-data-table. This attribute is only needed, if the styling inside of a table is different)
+
  *
  * @summary
  * @customElement

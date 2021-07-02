@@ -27,7 +27,7 @@ import '@furo/ui5/src/standard-type-renderers/display-registry.js';
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroTypeRenderer extends FBP(LitElement) {
+class DemoFuroTypeRendererCell extends FBP(LitElement) {
   /**
    * Themable Styles
    * @private
@@ -69,26 +69,25 @@ class DemoFuroTypeRenderer extends FBP(LitElement) {
         <div>
           <h2>furo-type-renderer examples</h2>
         </div>
-        <furo-form-layouter four>
-          <furo-button  @-click="--demoDataRequested">Load Demo Data</furo-button>
+        <furo-form-layouter one>
+          <furo-button full @-click="--demoDataRequested">Load Demo Data</furo-button>
           <furo-button @-click="--reload">reload</furo-button>
         </furo-form-layouter>
 
         <furo-form-layouter two>
-         <furo-type-renderer ƒ-bind-data="--entity(*.data.repstring)"></furo-type-renderer>
-          <furo-type-renderer ƒ-bind-data="--entity(*.data.display_name)"></furo-type-renderer>
-          <furo-type-renderer ƒ-bind-data="--entity(*.data.description)"></furo-type-renderer>
-          <furo-type-renderer ƒ-bind-data="--entity(*.data.the_any_type)"></furo-type-renderer>
-          <furo-type-renderer
+          <furo-type-renderer context="cell" ƒ-bind-data="--entity(*.data.display_name)"></furo-type-renderer>
+          <furo-type-renderer context="cell" ƒ-bind-data="--entity(*.data.description)"></furo-type-renderer>
+          <furo-type-renderer context="cell" ƒ-bind-data="--entity(*.data.the_any_type)"></furo-type-renderer>
+          <furo-type-renderer context="cell"
             ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
           ></furo-type-renderer>
-          <furo-type-renderer
+          <furo-type-renderer context="cell"
             ƒ-bind-data="--entity(*.data.single_type_property)"
           ></furo-type-renderer>
-          <furo-type-renderer
+          <furo-type-renderer context="cell"
             ƒ-bind-data="--entity(*.data.furo_data_text_input)"
           ></furo-type-renderer>
-          <furo-type-renderer ƒ-bind-data="--entity(*.data.type_property)"></furo-type-renderer>
+          <furo-type-renderer context="cell" ƒ-bind-data="--entity(*.data.type_property)"></furo-type-renderer>
         </furo-form-layouter>
       </furo-vertical-flex>
 
@@ -119,4 +118,4 @@ class DemoFuroTypeRenderer extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-type-renderer', DemoFuroTypeRenderer);
+window.customElements.define('demo-furo-type-renderer-cell', DemoFuroTypeRendererCell);

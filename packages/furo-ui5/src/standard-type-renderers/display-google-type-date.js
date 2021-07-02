@@ -11,7 +11,7 @@ import { Env } from '@furo/framework/src/furo.js';
  *
  * Every display-xxx component should implement the following API:
  * - function: bindData(fieldNode){...}
- * - attribute: tabular-form (this attribute is set, if the component is inside of a furo-data-table. This attribute is only needed, if the styling inside of a table is different)
+
  *
  * @summary
  * @customElement
@@ -35,11 +35,6 @@ export class DisplayGoogleTypeDate extends LitElement {
 
         :host([hidden]) {
           display: none;
-        }
-
-        :host([tabular-form]) {
-          display: block;
-          text-align: right;
         }
 
         :host([disabled]) {

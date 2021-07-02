@@ -17,8 +17,8 @@ import { Theme } from '@furo/framework';
  *
  * If you want to implement an individual display of a type, you need your own `context-[type-name]` component and import it.
  *
- * for repeated fields you should write your own context-[type-name]-repeats component and import it.
- * If no context-[type-name]-repeats exists, the renderer will use the display-[type] component as fallback and
+ * for repeated fields you should write your own context-[type-name]-repeated component and import it.
+ * If no context-[type-name]-repeated exists, the renderer will use the display-[type] component as fallback and
  * display it repeatedly, this is ok for a lot of cases.
  *
  * ## Naming convention
@@ -48,11 +48,14 @@ import { Theme } from '@furo/framework';
  * ```
  *
  * ## Writing your own renderer
- * The only API you need to implement in your component is the `bindData()` method. You have to follow the naming convention for your renderer.
+ * The only API you need to implement in your component is the `bindData()` method.
+ * You just have to follow the naming convention for your renderer.
  *
  * @summary type rendering
  * @customElement
- * @demo demo-furo-type-renderer Basic Usage
+ * @demo demo-furo-type-renderer Display context (default)
+ * @demo demo-furo-type-renderer-cell cell context
+ * @demo demo-furo-type-renderer-celledit celledit context
  * @appliesMixin FBP
  */
 class FuroTypeRenderer extends FBP(LitElement) {
@@ -79,17 +82,8 @@ class FuroTypeRenderer extends FBP(LitElement) {
    */
   static get properties() {
     return {
-      /**
-       * The attribute is passed to the display component. The display component
-       * can decide whether the display differs
-       * for a tabular form.
-       * E.g. google.type.Money is displayed right-justified in a table.
-       * But in a card it is left-justified.
-       */
-      tabularForm: {
-        type: Boolean,
-        attribute: 'tabular-form',
-      },
+
+
       /**
        * Value State
        */
@@ -160,21 +154,26 @@ class FuroTypeRenderer extends FBP(LitElement) {
 
   /**
    * Creates the component for repeated fields
-   * Component naming: [package-type]-repeats
+   * Component naming: [package-type]-repeated
    * Default: furo-ui5-data-repeat with single component
    * @private
    */
   _createRepeatedDisplay() {
-    const rRenderName = `${this.renderName}-repeats`;
+    const rRenderName = `${this.renderName}-repeated`;
     const elementRepeat = document.createElement(rRenderName);
-
     if (elementRepeat.bindData) {
       this._addElement(elementRepeat);
     } else if (this.defaultElement.bindData) {
       // fallback , display the display-[type] component repeatedly
-      const el = document.createElement('furo-ui5-data-repeat');
-      el.setAttribute('repeated-component', this.renderName);
-      el.bindData(this._field);
+      const el = document.createElement('flow-repeat');
+      const tpl = document.createElement('template')
+      tpl.innerHTML = `<${this.renderName} ƒ-bind-data="--item"></${this.renderName}>`
+      el.appendChild(tpl)
+     // this._field.clearListOnNewData = true;
+      this._field.addEventListener('this-repeated-field-changed',(e)=>{
+        el.injectItems(e.target.repeats)
+      })
+
       this.parentNode.insertBefore(el, this);
     } else {
       this._warning();
@@ -188,11 +187,6 @@ class FuroTypeRenderer extends FBP(LitElement) {
    * @private
    */
   _addElement(el) {
-    // adding attributes from parent element
-    if (this.tabularForm) {
-      el.setAttribute('tabular-form', null);
-    }
-
     const l = this.attributes.length;
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < l; ++i) {

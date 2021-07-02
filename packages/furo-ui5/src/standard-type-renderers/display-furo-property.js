@@ -9,7 +9,7 @@ import { FieldNode } from '@furo/data/src/lib/FieldNode';
  *
  * Every display-xxx component should implement the following API:
  * - function: bindData(fieldNode){...}
- * - attribute: tabular-form (this attribute is set, if the component is inside of a furo-data-table. This attribute is only needed, if the styling inside of a table is different)
+
  *
  *
  * @summary
@@ -20,7 +20,7 @@ export class DisplayFuroProperty extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.noDataText = '';
-    this.tabularForm = false;
+
     // Flag, if data part has type information
     this._typeResolved = false;
   }
@@ -145,9 +145,6 @@ export class DisplayFuroProperty extends FBP(LitElement) {
   _createConcreteType() {
     if (this.defaultElement.bindData) {
       // adding attributes from parent element
-      if (this.tabularForm) {
-        this.defaultElement.setAttribute('tabular-form', null);
-      }
 
       const l = this.attributes.length;
       // eslint-disable-next-line no-plusplus

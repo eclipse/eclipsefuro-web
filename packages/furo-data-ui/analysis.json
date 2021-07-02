@@ -5680,7 +5680,7 @@
       ]
     },
     {
-      "description": "`furo-type-renderer`\nThe furo-type-renderer is used to display type specific data. It uses **display** as default context and will warn you\non the console if the requested `context-[type-name]` does not exist or was not imported.\n\nThere is a standard set of display components @furo/ui5/src/standard-type-renderers for rendering the individual types.\n\nThe standard ui5 set can be integrated with the import\n- import '@furo/ui5/src/standard-type-renderers/display-registry.js'.\n\nThe standard material set can be integrated with the import\n- import '@furo/data-ui/src/standard-type-renderers/display-registry.js'.\n\nIf you want to implement an individual display of a type, you need your own `context-[type-name]` component and import it.\n\nfor repeated fields you should write your own context-[type-name]-repeats component and import it.\nIf no context-[type-name]-repeats exists, the renderer will use the display-[type] component as fallback and\ndisplay it repeatedly, this is ok for a lot of cases.\n\n## Naming convention\n\n```\ndisplay-google-type-timeofday\n------- ---------------------\n   |             |\ncontext      type-name\n\n# examples:\ncell-string\ncelledit-string\ndisplay-string\nyourcontext-string\n\nThe method to evaluate the renderer is built as following:\n\ncontext-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]\n```\n\n\n\n## Basic Usage\n```\n  <furo-type-renderer ƒ-bind-data=\"--dao(*.data.fieldname)\"></furo-type-renderer>\n```\n\n## Writing your own renderer\nThe only API you need to implement in your component is the `bindData()` method. You have to follow the naming convention for your renderer.",
+      "description": "`furo-type-renderer`\nThe furo-type-renderer is used to display type specific data. It uses **display** as default context and will warn you\non the console if the requested `context-[type-name]` does not exist or was not imported.\n\nThere is a standard set of display components @furo/ui5/src/standard-type-renderers for rendering the individual types.\n\nThe standard ui5 set can be integrated with the import\n- import '@furo/ui5/src/standard-type-renderers/display-registry.js'.\n\nThe standard material set can be integrated with the import\n- import '@furo/data-ui/src/standard-type-renderers/display-registry.js'.\n\nIf you want to implement an individual display of a type, you need your own `context-[type-name]` component and import it.\n\nfor repeated fields you should write your own context-[type-name]-repeated component and import it.\nIf no context-[type-name]-repeated exists, the renderer will use the display-[type] component as fallback and\ndisplay it repeatedly, this is ok for a lot of cases.\n\n## Naming convention\n\n```\ndisplay-google-type-timeofday\n------- ---------------------\n   |             |\ncontext      type-name\n\n# examples:\ncell-string\ncelledit-string\ndisplay-string\nyourcontext-string\n\nThe method to evaluate the renderer is built as following:\n\ncontext-[(package.type).replaceAll('.', '-').toLocaleLowerCase()]\n```\n\n\n\n## Basic Usage\n```\n  <furo-type-renderer ƒ-bind-data=\"--dao(*.data.fieldname)\"></furo-type-renderer>\n```\n\n## Writing your own renderer\nThe only API you need to implement in your component is the `bindData()` method.\nYou just have to follow the naming convention for your renderer.",
       "summary": "type rendering",
       "path": "src/furo-type-renderer.js",
       "properties": [
@@ -5691,11 +5691,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 88,
+              "line": 91,
               "column": 6
             },
             "end": {
-              "line": 91,
+              "line": 94,
               "column": 7
             }
           },
@@ -5712,11 +5712,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 95,
+              "line": 98,
               "column": 6
             },
             "end": {
-              "line": 95,
+              "line": 98,
               "column": 75
             }
           },
@@ -5733,11 +5733,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 102,
               "column": 6
             },
             "end": {
-              "line": 101,
+              "line": 104,
               "column": 7
             }
           },
@@ -5754,11 +5754,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 6
             },
             "end": {
-              "line": 107,
+              "line": 110,
               "column": 28
             }
           },
@@ -5776,11 +5776,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 116,
+              "line": 119,
               "column": 2
             },
             "end": {
-              "line": 146,
+              "line": 149,
               "column": 3
             }
           },
@@ -5800,11 +5800,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 155,
               "column": 2
             },
             "end": {
-              "line": 158,
+              "line": 161,
               "column": 3
             }
           },
@@ -5816,15 +5816,15 @@
         },
         {
           "name": "_createRepeatedDisplay",
-          "description": "Creates the component for repeated fields\nComponent naming: [package-type]-repeats\nDefault: furo-ui5-data-repeat with single component",
+          "description": "Creates the component for repeated fields\nComponent naming: [package-type]-repeated\nDefault: furo-ui5-data-repeat with single component",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 166,
+              "line": 169,
               "column": 2
             },
             "end": {
-              "line": 181,
+              "line": 184,
               "column": 3
             }
           },
@@ -5840,11 +5840,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 189,
+              "line": 192,
               "column": 2
             },
             "end": {
-              "line": 207,
+              "line": 210,
               "column": 3
             }
           },
@@ -5864,11 +5864,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 209,
+              "line": 212,
               "column": 2
             },
             "end": {
-              "line": 215,
+              "line": 218,
               "column": 3
             }
           },
@@ -5883,17 +5883,25 @@
       "demos": [
         {
           "url": "demo-furo-type-renderer",
-          "description": "Basic Usage"
+          "description": "Display context (default)"
+        },
+        {
+          "url": "demo-furo-type-renderer-cell",
+          "description": "cell context"
+        },
+        {
+          "url": "demo-furo-type-renderer-celledit",
+          "description": "celledit context"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 57,
+          "line": 60,
           "column": 0
         },
         "end": {
-          "line": 216,
+          "line": 219,
           "column": 1
         }
       },
@@ -5906,11 +5914,11 @@
           "description": "The attribute is passed to the display component. The display component\ncan decide whether the display differs\nfor a tabular form.\nE.g. google.type.Money is displayed right-justified in a table.\nBut in a card it is left-justified.",
           "sourceRange": {
             "start": {
-              "line": 88,
+              "line": 91,
               "column": 6
             },
             "end": {
-              "line": 91,
+              "line": 94,
               "column": 7
             }
           },
@@ -5922,11 +5930,11 @@
           "description": "Value State",
           "sourceRange": {
             "start": {
-              "line": 95,
+              "line": 98,
               "column": 6
             },
             "end": {
-              "line": 95,
+              "line": 98,
               "column": 75
             }
           },
@@ -5938,11 +5946,11 @@
           "description": "A Boolean attribute which, if present, means this field is displayed in disabled state.",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 102,
               "column": 6
             },
             "end": {
-              "line": 101,
+              "line": 104,
               "column": 7
             }
           },
@@ -5954,11 +5962,11 @@
           "description": "Set the context if you need another then display.\nPrebuilt context renderers exist for display, cell, celledit.",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 6
             },
             "end": {
-              "line": 107,
+              "line": 110,
               "column": 28
             }
           },

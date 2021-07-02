@@ -146,9 +146,8 @@
       }
     },
     "repstring": [
-      "AAA",
       "BBBB",
-      "CCCC"
+      "AAA"
     ],
     "furo_data_money_input": {
       "currency_code": "CHF",

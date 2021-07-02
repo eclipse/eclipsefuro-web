@@ -4,7 +4,7 @@ import { axeReport } from 'pwa-helpers/axe-report.js';
 import '@furo/fbp/src/testhelper/test-bind.js'; // for testing with wires and hooks
 // eslint-disable-next-line import/no-extraneous-dependencies
 import '@furo/testhelper/initEnv.js';
-import '../../src/standard-type-renderers/display-furo-property-repeats.js';
+import '../../src/standard-type-renderers/display-furo-property-repeated.js';
 
 describe('display-furo-property-repeats-labeled', () => {
   let host;
