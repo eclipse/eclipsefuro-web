@@ -1,4 +1,4 @@
-import { DisplayFuroPropertyRepeats } from './display-furo-property-repeats.js';
+import { DisplayFuroPropertyRepeated } from './display-furo-property-repeated.js';
 
 /**
  * `display-furo-property-repeats-labeled`
@@ -6,14 +6,14 @@ import { DisplayFuroPropertyRepeats } from './display-furo-property-repeats.js';
  *
  * Every display-xxx component should implement the following API:
  * - function: bindData(fieldNode){...}
- * - attribute: tabular-form (this attribute is set, if the component is inside of a furo-data-table. This attribute is only needed, if the styling inside of a table is different)
+
  *
  *
  * @summary
  * @customElement
  * @demo demo-display-furo-property-repeats-labeled Basic Usage
  */
-export class DisplayFuroPropertyRepeatsLabeled extends DisplayFuroPropertyRepeats {
+export class DisplayFuroPropertyRepeatsLabeled extends DisplayFuroPropertyRepeated {
   /**
    * Overloaded
    * @private

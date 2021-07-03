@@ -9,7 +9,7 @@ import '@ui5/webcomponents/dist/ColorPalette.js';
  *
  * Every display-xxx component should implement the following API:
  * - function: bindData(fieldNode){...}
- * - attribute: tabular-form (this attribute is set, if the component is inside of a furo-data-table. This attribute is only needed, if the styling inside of a table is different)
+
  *
  * @summary
  * @customElement
@@ -30,11 +30,6 @@ class DisplayGoolgeTypeColor extends LitElement {
       css`
         :host {
           display: inline;
-        }
-
-        :host([tabular-form]) {
-          display: block;
-          text-align: right;
         }
 
         :host([hidden]) {

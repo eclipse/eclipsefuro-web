@@ -10,7 +10,7 @@ import '@ui5/webcomponents-icons/dist/border.js';
  *
  * Every display-xxx component should implement the following API:
  * - function: bindData(fieldNode){...}
- * - attribute: tabular-form (this attribute is set, if the component is inside of a furo-data-table. This attribute is only needed, if the styling inside of a table is different)
+
  *
  * @summary
  * @customElement
@@ -37,11 +37,6 @@ export class DisplayBool extends LitElement {
         :host([data-size*='size-l']),
         :host([data-size*='size-xl']) {
           padding-top: 0.5rem;
-        }
-
-        :host([tabular-form]) {
-          display: block;
-          text-align: center;
         }
 
         :host([value-state='Positive']) ui5-icon,

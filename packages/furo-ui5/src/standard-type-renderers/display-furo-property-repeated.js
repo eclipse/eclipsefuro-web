@@ -9,18 +9,17 @@ import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
  *
  * Every display-xxx component should implement the following API:
  * - function: bindData(fieldNode){...}
- * - attribute: tabular-form (this attribute is set, if the component is inside of a furo-data-table. This attribute is only needed, if the styling inside of a table is different)
+
  *
  *
  * @summary
  * @customElement
  * @demo demo-display-furo-property-repeats Basic Usage
  */
-export class DisplayFuroPropertyRepeats extends FBP(LitElement) {
+export class DisplayFuroPropertyRepeated extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.elementList = [];
-    this.tabularForm = false;
     this._typeResolved = false;
   }
 
@@ -45,7 +44,7 @@ export class DisplayFuroPropertyRepeats extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return (
-      Theme.getThemeForComponent('DisplayFuroPropertyRepeats') ||
+      Theme.getThemeForComponent('DisplayFuroPropertyRepeated') ||
       css`
         :host {
           display: none;
@@ -117,4 +116,4 @@ export class DisplayFuroPropertyRepeats extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('display-furo-property-repeats', DisplayFuroPropertyRepeats);
+window.customElements.define('display-furo-property-repeated', DisplayFuroPropertyRepeated);

@@ -69,12 +69,13 @@ class DemoFuroTypeRenderer extends FBP(LitElement) {
         <div>
           <h2>furo-type-renderer examples</h2>
         </div>
-        <furo-form-layouter one>
-          <furo-button full @-click="--demoDataRequested">Load Demo Data</furo-button>
+        <furo-form-layouter four>
+          <furo-button  @-click="--demoDataRequested">Load Demo Data</furo-button>
           <furo-button @-click="--reload">reload</furo-button>
         </furo-form-layouter>
 
         <furo-form-layouter two>
+         <furo-type-renderer ƒ-bind-data="--entity(*.data.repstring)"></furo-type-renderer>
           <furo-type-renderer ƒ-bind-data="--entity(*.data.display_name)"></furo-type-renderer>
           <furo-type-renderer ƒ-bind-data="--entity(*.data.description)"></furo-type-renderer>
           <furo-type-renderer ƒ-bind-data="--entity(*.data.the_any_type)"></furo-type-renderer>

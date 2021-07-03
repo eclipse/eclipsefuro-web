@@ -7,7 +7,7 @@ import { Theme } from '@furo/framework';
  *
  * Every display-xxx component should implement the following API:
  * - function: bindData(fieldNode){...}
- * - attribute: tabular-form (this attribute is set, if the component is inside of a furo-data-table. This attribute is only needed, if the styling inside of a table is different)
+
  *
  * @summary
  * @customElement
@@ -16,7 +16,7 @@ import { Theme } from '@furo/framework';
 class DisplayGoolgeProtobufAny extends LitElement {
   constructor(props) {
     super(props);
-    this.tabularForm = false;
+
     this._typeResolved = false;
   }
 
@@ -93,9 +93,6 @@ class DisplayGoolgeProtobufAny extends LitElement {
   _createContreteType() {
     if (this.defaultElement.bindData) {
       // adding attributes from parent element
-      if (this.tabularForm) {
-        this.defaultElement.setAttribute('tabular-form', null);
-      }
 
       const l = this.attributes.length;
       // eslint-disable-next-line no-plusplus
