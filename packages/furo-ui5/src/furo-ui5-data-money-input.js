@@ -32,7 +32,7 @@ import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
  * @demo demo-furo-ui5-data-money-input Basic Usage
  * @mixes FBP
  */
-class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
+export class FuroUi5DataMoneyInput extends FBP(FieldNodeAdapter(LitElement)) {
   constructor() {
     super();
 

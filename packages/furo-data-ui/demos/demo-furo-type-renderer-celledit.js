@@ -81,13 +81,13 @@ class DemoFuroTypeRendererCelledit extends FBP(LitElement) {
           <furo-type-renderer context="celledit"
             ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
           ></furo-type-renderer>
-          <furo-type-renderer context="cell"
+          <furo-type-renderer context="celledit"
             ƒ-bind-data="--entity(*.data.single_type_property)"
           ></furo-type-renderer>
           <furo-type-renderer context="celledit"
             ƒ-bind-data="--entity(*.data.furo_data_text_input)"
           ></furo-type-renderer>
-          <ssfuro-type-renderer context="cell" ƒ-bind-data="--entity(*.data.type_property)"></ssfuro-type-renderer>
+          <furo-type-renderer context="celledit" ƒ-bind-data="--entity(*.data.type_property)"></furo-type-renderer>
         </furo-form-layouter>
       </furo-vertical-flex>
 

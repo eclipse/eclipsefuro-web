@@ -164,6 +164,15 @@ export class CelleditFuroProperty extends FBP(LitElement) {
     }
   }
 
+
+  _warning() {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `No type specific renderer ${this.renderName} found. Check your imports.`,
+      this._field._spec.type,
+    );
+  }
+
   /**
    * render function
    * @private
