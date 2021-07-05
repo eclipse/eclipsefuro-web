@@ -62,6 +62,7 @@ export class CelleditFuroPropertyRepeated extends FBP(LitElement) {
   bindData(fieldNode) {
     this._typeResolved = false;
     this._field = fieldNode;
+
     /**
      * check if bound fieldNode is of type furo.Property and repeated
      * if the data is already available, create the renderName according the @type information.
