@@ -37,7 +37,7 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-data-repeat
  * @appliesMixin FBP
  */
-class FuroDataRepeat extends FieldNodeAdapter(FBP(LitElement))  {
+class FuroDataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
   constructor() {
     super();
     /**
@@ -47,7 +47,6 @@ class FuroDataRepeat extends FieldNodeAdapter(FBP(LitElement))  {
     this.deleteIcon = undefined;
   }
 
-
   onFnaRepeatedFieldChanged() {
     this._FBPTriggerWire('--repeatsChanged', this.__fieldNode.repeats);
     this._checkSize();
@@ -56,7 +55,6 @@ class FuroDataRepeat extends FieldNodeAdapter(FBP(LitElement))  {
   onFnaReadonlyChanged(readonly) {
     this.readonly = readonly;
   }
-
 
   /**
    * @private
@@ -153,8 +151,6 @@ class FuroDataRepeat extends FieldNodeAdapter(FBP(LitElement))  {
 
     this.shadowRoot.appendChild(container);
   }
-
-
 
   /**
    * hide the element if array is empty

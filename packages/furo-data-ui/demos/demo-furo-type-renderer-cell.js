@@ -75,19 +75,34 @@ class DemoFuroTypeRendererCell extends FBP(LitElement) {
         </furo-form-layouter>
 
         <furo-form-layouter two>
-          <furo-type-renderer context="cell" ƒ-bind-data="--entity(*.data.display_name)"></furo-type-renderer>
-          <furo-type-renderer context="cell" ƒ-bind-data="--entity(*.data.description)"></furo-type-renderer>
-          <furo-type-renderer context="cell" ƒ-bind-data="--entity(*.data.the_any_type)"></furo-type-renderer>
-          <furo-type-renderer context="cell"
+          <furo-type-renderer
+            context="cell"
+            ƒ-bind-data="--entity(*.data.display_name)"
+          ></furo-type-renderer>
+          <furo-type-renderer
+            context="cell"
+            ƒ-bind-data="--entity(*.data.description)"
+          ></furo-type-renderer>
+          <furo-type-renderer
+            context="cell"
+            ƒ-bind-data="--entity(*.data.the_any_type)"
+          ></furo-type-renderer>
+          <furo-type-renderer
+            context="cell"
             ƒ-bind-data="--entity(*.data.furo_data_checkbox_input)"
           ></furo-type-renderer>
-          <furo-type-renderer context="cell"
+          <furo-type-renderer
+            context="cell"
             ƒ-bind-data="--entity(*.data.single_type_property)"
           ></furo-type-renderer>
-          <furo-type-renderer context="cell"
+          <furo-type-renderer
+            context="cell"
             ƒ-bind-data="--entity(*.data.furo_data_text_input)"
           ></furo-type-renderer>
-          <furo-type-renderer context="cell" ƒ-bind-data="--entity(*.data.type_property)"></furo-type-renderer>
+          <furo-type-renderer
+            context="cell"
+            ƒ-bind-data="--entity(*.data.type_property)"
+          ></furo-type-renderer>
         </furo-form-layouter>
       </furo-vertical-flex>
 

@@ -727,7 +727,6 @@ describe('furo-entity-agent', () => {
 
     entityAgent.load();
     entityAgent.abortPendingRequest();
-
   });
 
   it('should do nothing when hts is not set', done => {

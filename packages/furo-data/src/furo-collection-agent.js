@@ -557,7 +557,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
   /**
    * Aborts a pending request
    */
-  abortPendingRequest(){
+  abortPendingRequest() {
     /**
      * Fired if the request was successfully cancelled,
      * @event request-aborted

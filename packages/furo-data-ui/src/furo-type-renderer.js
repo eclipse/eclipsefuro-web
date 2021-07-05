@@ -62,7 +62,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
   constructor() {
     super();
     this.tpl = html``;
-    this.context = 'display'
+    this.context = 'display';
   }
 
   static get styles() {
@@ -82,8 +82,6 @@ class FuroTypeRenderer extends FBP(LitElement) {
    */
   static get properties() {
     return {
-
-
       /**
        * Value State
        */
@@ -99,7 +97,7 @@ class FuroTypeRenderer extends FBP(LitElement) {
        * Prebuilt context renderers exist for display, cell, celledit.
        *
        */
-      context: {type:String}
+      context: { type: String },
     };
   }
 
@@ -166,13 +164,13 @@ class FuroTypeRenderer extends FBP(LitElement) {
     } else if (this.defaultElement.bindData) {
       // fallback , display the display-[type] component repeatedly
       const el = document.createElement('flow-repeat');
-      const tpl = document.createElement('template')
-      tpl.innerHTML = `<${this.renderName} ƒ-bind-data="--item"></${this.renderName}>`
-      el.appendChild(tpl)
-     // this._field.clearListOnNewData = true;
-      this._field.addEventListener('this-repeated-field-changed',(e)=>{
-        el.injectItems(e.target.repeats)
-      })
+      const tpl = document.createElement('template');
+      tpl.innerHTML = `<${this.renderName} ƒ-bind-data="--item"></${this.renderName}>`;
+      el.appendChild(tpl);
+      // this._field.clearListOnNewData = true;
+      this._field.addEventListener('this-repeated-field-changed', e => {
+        el.injectItems(e.target.repeats);
+      });
 
       this.parentNode.insertBefore(el, this);
     } else {
