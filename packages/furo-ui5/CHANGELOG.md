@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.34.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.33.0...@furo/ui5@0.34.0) (2021-07-05)
+
+
+### Bug Fixes
+
+* celledit bool ([0d8bb5a](https://github.com/theNorstroem/FuroBaseComponents/commit/0d8bb5a3c315301cd5b913d87ea1ca2a8526d871))
+* export class added to the furo-ui5-** components ([3b67c9a](https://github.com/theNorstroem/FuroBaseComponents/commit/3b67c9a24c921bd36459c08fbd807303fc3e18ec))
+* missing exports ([6d370d7](https://github.com/theNorstroem/FuroBaseComponents/commit/6d370d7cfb64e62df3397dfff8d1a3b1996c316f))
+* move the setting of "type" to the connectedCallback, because type is a attribute and should not be set in the constructor ([9ed24cb](https://github.com/theNorstroem/FuroBaseComponents/commit/9ed24cbadb2ff18c9ca6e88cea2e06441bb1b3bc))
+* tabular form removed ([b707ad9](https://github.com/theNorstroem/FuroBaseComponents/commit/b707ad9eaf5f9cd37ecdf16bbe7cac606d919e3c))
+* tabular form removed ([e45c9d4](https://github.com/theNorstroem/FuroBaseComponents/commit/e45c9d43a7e69d1aff4e13569051523b8a062526))
+* tabular form removed ([49124a1](https://github.com/theNorstroem/FuroBaseComponents/commit/49124a196cb06aa578baa9e49ac54fe822d6f12d))
+* tabular form removed ([a48504a](https://github.com/theNorstroem/FuroBaseComponents/commit/a48504abf8c6114acc934eb6c8248f7c0ca26fd7))
+
+
+### Features
+
+* celledit-furo-integerproperty.js ([b0ca19b](https://github.com/theNorstroem/FuroBaseComponents/commit/b0ca19b6a2b50790ea8922003d5b3d447209d14f))
+* export pagination bar ([9e52780](https://github.com/theNorstroem/FuroBaseComponents/commit/9e5278009eeccfeffe720c0a0e4af32bc1f65728))
+* use the spec defaults as fallback if no service or hts was given or was deleted by empty data from the server. ([01d80f1](https://github.com/theNorstroem/FuroBaseComponents/commit/01d80f1c68cc46a7dce8cc209d72dcf7445393bb))
+* use the spec defaults as fallback if no service or hts was given or was deleted by empty data from the server. ([df53b55](https://github.com/theNorstroem/FuroBaseComponents/commit/df53b55bdf0dad5cc8cbee552f3a993a1a9bcc50))
+
+
+
+
+
 # [0.33.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.32.2...@furo/ui5@0.33.0) (2021-06-30)
 
 

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.8.0...@furo/data-ui@1.8.1) (2021-07-05)
+
+
+### Bug Fixes
+
+* missing exports ([6d370d7](https://github.com/theNorstroem/FuroBaseComponents/commit/6d370d7cfb64e62df3397dfff8d1a3b1996c316f))
+* tabular form removed ([b707ad9](https://github.com/theNorstroem/FuroBaseComponents/commit/b707ad9eaf5f9cd37ecdf16bbe7cac606d919e3c))
+* tabular form removed ([a48504a](https://github.com/theNorstroem/FuroBaseComponents/commit/a48504abf8c6114acc934eb6c8248f7c0ca26fd7))
+
+
+
+
+
 # [1.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.7.6...@furo/data-ui@1.8.0) (2021-06-30)
 
 

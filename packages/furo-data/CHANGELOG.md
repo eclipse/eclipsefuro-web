@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.28.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.27.1...@furo/data@1.28.0) (2021-07-05)
+
+
+### Features
+
+* exposed abortPendingRequest method added ([92e5601](https://github.com/theNorstroem/FuroBaseComponents/commit/92e56010431b780d4e5ba412542aeb9ba9a6fcae))
+
+
+
+
+
 ## [1.27.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@1.27.0...@furo/data@1.27.1) (2021-06-30)
 
 

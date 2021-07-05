@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.6.0...@furo/fbp@5.7.0) (2021-07-05)
+
+
+### Features
+
+* fire events with raw event -^event(*), ^event(*), ^^event(*) ([0fdae7d](https://github.com/theNorstroem/FuroBaseComponents/commit/0fdae7d15fd4cf9db4dded7124c7668ecdc9ab3b))
+* fire events with raw event -^event(*), ^event(*), ^^event(*) ([fa8fc55](https://github.com/theNorstroem/FuroBaseComponents/commit/fa8fc554c1bf0ae61129ae4f2f7d97381d412d44))
+
+
+
+
+
 # [5.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.5.0...@furo/fbp@5.6.0) (2021-06-30)
 
 
