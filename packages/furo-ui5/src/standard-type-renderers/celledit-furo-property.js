@@ -164,7 +164,6 @@ export class CelleditFuroProperty extends FBP(LitElement) {
     }
   }
 
-
   _warning() {
     // eslint-disable-next-line no-console
     console.warn(

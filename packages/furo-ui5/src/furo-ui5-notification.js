@@ -11,7 +11,7 @@ import { LitElement, css } from 'lit-element';
  * @customElement
  * @demo demo-furo-ui5-notification-list-display ui5 notification display demo
  */
-class FuroUi5Notification extends LitElement {
+export class FuroUi5Notification extends LitElement {
   constructor() {
     super();
     this.dismissButtonText = 'dismiss';

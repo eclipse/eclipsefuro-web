@@ -18,7 +18,7 @@ import './furo-ui5-data-password-input.js';
  * @demo demo-furo-ui5-data-password-input-labeled Basic Usage
  * @appliesMixin FBP
  */
-class FuroUi5DataPasswordInputLabeled extends FBP(LitElement) {
+export class FuroUi5DataPasswordInputLabeled extends FBP(LitElement) {
   /**
    * Fired when the input value changed.
    * the event detail is the value of the input field

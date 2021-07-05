@@ -16,7 +16,7 @@ import './furo-ui5-data-text-input.js';
  * @demo demo-furo-ui5-data-text-input-labeled Basic Usage
  * @appliesMixin FBP
  */
-class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
+export class FuroUi5DataTextInputLabeled extends FBP(LitElement) {
   /**
    * Fired when the input value changed.
    * the event detail is the input value

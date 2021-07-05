@@ -63,8 +63,8 @@ class CelleditFuroLink extends LitElement {
     // language=HTML
     return html`
       ${this._field
-        ? html` TODO
-            [${this._field.rel._value}][this._field.method._value][${this._field.href._value}]
+        ? html`
+            TODO [${this._field.rel._value}][this._field.method._value][${this._field.href._value}]
           `
         : html``}
     `;

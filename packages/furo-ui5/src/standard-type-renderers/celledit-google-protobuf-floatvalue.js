@@ -3,4 +3,7 @@ import { CelleditInt32 } from './celledit-int32.js';
 
 class CelleditGoolgeProtobufFloatvalue extends CelleditInt32 {}
 
-window.customElements.define('celledit-google-protobuf-floatvalue', CelleditGoolgeProtobufFloatvalue);
+window.customElements.define(
+  'celledit-google-protobuf-floatvalue',
+  CelleditGoolgeProtobufFloatvalue,
+);

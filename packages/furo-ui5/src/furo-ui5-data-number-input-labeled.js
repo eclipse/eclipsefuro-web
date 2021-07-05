@@ -16,7 +16,7 @@ import './furo-ui5-data-number-input.js';
  * @demo demo-furo-ui5-data-number-input-labeled Basic Usage
  * @appliesMixin FBP
  */
-class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
+export class FuroUi5DataNumberInputLabeled extends FBP(LitElement) {
   /**
    * Fired when the input value changed.
    * the event detail is the value of the input field

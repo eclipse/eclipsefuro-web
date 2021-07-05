@@ -36,7 +36,7 @@ import { RepeaterNode } from '@furo/data/src/lib/RepeaterNode';
  * @demo demo-furo-ui5-data-display Basic Usage
  * @appliesMixin FBP
  */
-class FuroUi5DataPropertylistDisplay extends LitElement {
+export class FuroUi5DataPropertylistDisplay extends LitElement {
   /**
    * Binds a RepeaterNode of type furo.Property.
    * @param fieldNode

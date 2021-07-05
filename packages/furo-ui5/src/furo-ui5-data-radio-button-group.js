@@ -29,7 +29,7 @@ import '@ui5/webcomponents/dist/RadioButton.js';
  * @demo demo-furo-ui5-data-radio-button-group Basic Usage
  * @appliesMixin FBP
  */
-class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
+export class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
   /**
    * @event value-changed
    * Fired when value has changed from the component inside.

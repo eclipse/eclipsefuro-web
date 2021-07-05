@@ -95,7 +95,7 @@ const ui5HeaderTemplate = fields =>
  * @demo demo-furo-ui5-data-table-tmpl Usage of Column Templates
  * @demo demo-furo-ui5-data-table-repeats Usage with Repeats
  */
-class FuroUi5DataTable extends FBP(LitElement) {
+export class FuroUi5DataTable extends FBP(LitElement) {
   /**
    * Fired when the row is selected.
    * the event detail is the original entity of the row

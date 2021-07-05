@@ -97,7 +97,7 @@ import { Ui5PropertyStandardMapping } from './lib/Ui5PropertyStandardMapping.js'
  * @demo demo-furo-ui5-data-property
  * @appliesMixin FBP
  */
-class FuroUi5DataProperty extends FBP(LitElement) {
+export class FuroUi5DataProperty extends FBP(LitElement) {
   bindData(propertyField) {
     this.field = propertyField;
 

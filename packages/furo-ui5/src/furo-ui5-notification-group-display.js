@@ -19,7 +19,7 @@ import { Theme } from '@furo/framework/src/theme.js';
  * @customElement
  * @demo demo-furo-ui5-notification-group-display Basic Usage
  */
-class FuroUi5NotificationGroupDisplay extends FBP(LitElement) {
+export class FuroUi5NotificationGroupDisplay extends FBP(LitElement) {
   constructor() {
     super();
     this.headerText = '';

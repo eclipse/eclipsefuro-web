@@ -70,7 +70,7 @@ import { FBP } from '@furo/fbp/src/fbp.js';
  * @demo demo-furo-ui5-form-field-container Sample
  * @appliesMixin FBP
  */
-class FuroUi5FormFieldContainer extends FBP(LitElement) {
+export class FuroUi5FormFieldContainer extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
    */
