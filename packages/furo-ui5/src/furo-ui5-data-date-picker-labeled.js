@@ -17,7 +17,7 @@ import './furo-ui5-form-field-container.js';
  * @demo demo-furo-ui5-data-date-picker-labeled Basic Usage
  * @appliesMixin FBP
  */
-class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
+export class FuroUi5DataDatePickerLabeled extends FBP(LitElement) {
   /**
    * Fired when the input operation has finished by pressing Enter or on focusout.
    * the event detail is the date in IOS 8601 format

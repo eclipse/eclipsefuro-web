@@ -16,7 +16,7 @@ import './furo-ui5-data-multi-input.js';
  * @demo demo-furo-ui5-data-multi-input-labeled Basic Usage
  * @appliesMixin FBP
  */
-class FuroUi5DataMultiInputLabeled extends FBP(LitElement) {
+export class FuroUi5DataMultiInputLabeled extends FBP(LitElement) {
   /**
    * Fired when the input value changed.
    * the event detail is the value of the input field

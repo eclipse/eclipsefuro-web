@@ -22,7 +22,7 @@ import { FuroButtonBar } from '@furo/form/src/furo-button-bar.js';
  * @customElement
  * @demo demo-furo-ui5-button-bar Basic usage
  */
-class FuroUi5ButtonBar extends FuroButtonBar {
+export class FuroUi5ButtonBar extends FuroButtonBar {
   /**
    * @private
    * @returns {CSSResult}

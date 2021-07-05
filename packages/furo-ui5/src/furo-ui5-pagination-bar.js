@@ -27,7 +27,7 @@ import { i18n } from '@furo/framework/src/i18n.js';
  * @demo demo-furo-ui5-pagination-bar Basic Usage
  * @mixes FBP
  */
-class FuroUi5PaginationBar extends FBP(LitElement) {
+export class FuroUi5PaginationBar extends FBP(LitElement) {
   /**
    * @event pagination-first
    * Is fired if the pagination button 'sys_first_page' was clicked

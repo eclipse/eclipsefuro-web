@@ -70,8 +70,6 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
 
   constructor() {
     super();
-
-    this.type = 'Number';
     // used to restore the state after a invalidation -> validation change
     this._previousValueState = { state: 'None', message: '' };
 
@@ -124,6 +122,8 @@ export class FuroUi5DataNumberInput extends FieldNodeAdapter(Input.default) {
   connectedCallback() {
     // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
+    this.type = 'Number';
+
     this.readAttributes();
 
     // created to avoid the default messages from ui5

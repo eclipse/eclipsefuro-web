@@ -23,7 +23,7 @@ import '@ui5/webcomponents/dist/MessageStrip';
  * @customElement
  * @demo demo-furo-ui5-message-strip-display Basic Usage
  */
-class FuroUi5MessageStripDisplay extends FBP(LitElement) {
+export class FuroUi5MessageStripDisplay extends FBP(LitElement) {
   constructor() {
     super();
     this.headerText = '';

@@ -22,7 +22,7 @@ import 'markdown-it/dist/markdown-it.js';
  * @customElement
  * @demo demo-furo-ui5-message-strip-display Basic Usage
  */
-class FuroUi5MessageStrip extends FBP(LitElement) {
+export class FuroUi5MessageStrip extends FBP(LitElement) {
   constructor() {
     super();
     this.noCloseButton = false;

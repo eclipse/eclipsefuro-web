@@ -17,7 +17,7 @@ import './furo-ui5-form-field-container.js';
  * @demo demo-furo-ui5-data-reference-search Simple use
  * @appliesMixin FBP
  */
-class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
+export class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
   constructor(props) {
     super(props);
     this.service = '';

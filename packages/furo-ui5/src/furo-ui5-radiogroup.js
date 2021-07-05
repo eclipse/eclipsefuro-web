@@ -11,7 +11,7 @@ import { FBP } from '@furo/fbp';
  * @demo demo-furo-ui5-data-radio-button Sample of radio group
  * @appliesMixin FBP
  */
-class FuroUi5Radiogroup extends FBP(LitElement) {
+export class FuroUi5Radiogroup extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
    */

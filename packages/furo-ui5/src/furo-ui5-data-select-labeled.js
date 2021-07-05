@@ -16,7 +16,7 @@ import './furo-ui5-data-select.js';
  * @demo demo-furo-ui5-data-select-labeled Basic Usage
  * @appliesMixin FBP
  */
-class FuroUi5DataSelectLabeled extends FBP(LitElement) {
+export class FuroUi5DataSelectLabeled extends FBP(LitElement) {
   /**
    * Fired when the input value changed.
    * the event detail is the value of the select

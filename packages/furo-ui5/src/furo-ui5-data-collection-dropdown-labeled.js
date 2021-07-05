@@ -18,7 +18,7 @@ import './furo-ui5-data-collection-dropdown.js';
  * @demo demo-furo-ui5-data-collection-dropdown-labeled Simple use
  * @appliesMixin FBP
  */
-class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
+export class FuroUi5DataCollectionDropdownLabeled extends FBP(LitElement) {
   /**
    * @event value-changed
    * Fired when value has changed from the component inside.

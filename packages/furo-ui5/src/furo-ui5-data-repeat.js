@@ -36,7 +36,7 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-repeat
  * @appliesMixin FBP
  */
-class FuroUi5DataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
+export class FuroUi5DataRepeat extends FieldNodeAdapter(FBP(LitElement)) {
   constructor() {
     super();
     /**

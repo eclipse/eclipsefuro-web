@@ -45,7 +45,7 @@ import '@ui5/webcomponents/dist/Panel';
  * @demo demo-furo-ui5-header-panel-binding With data binding
  * @appliesMixin FBP
  */
-class FuroUi5HeaderPanel extends FBP(LitElement) {
+export class FuroUi5HeaderPanel extends FBP(LitElement) {
   constructor() {
     super();
     this.icon = '';

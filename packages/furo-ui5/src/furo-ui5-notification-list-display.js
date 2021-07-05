@@ -20,7 +20,7 @@ import '@ui5/webcomponents/dist/List.js';
  * @customElement
  * @demo demo-furo-ui5-notification-list-display ui5 notification display demo
  */
-class FuroUi5NotificationListDisplay extends FBP(LitElement) {
+export class FuroUi5NotificationListDisplay extends FBP(LitElement) {
   constructor() {
     super();
     this.headerText = '';

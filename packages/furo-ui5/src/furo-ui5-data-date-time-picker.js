@@ -49,7 +49,7 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @customElement
  * @demo demo-furo-ui5-data-date-time-picker Basic Usage
  */
-export class FuroUi5DataDatePicker extends FieldNodeAdapter(DateTimePicker.default) {
+export class FuroUi5DataDateTimePicker extends FieldNodeAdapter(DateTimePicker.default) {
   /**
    * Fired when the input operation has finished by pressing Enter or on focusout.
    * @event change
@@ -297,4 +297,4 @@ export class FuroUi5DataDatePicker extends FieldNodeAdapter(DateTimePicker.defau
   }
 }
 
-window.customElements.define('furo-ui5-data-date-time-picker', FuroUi5DataDatePicker);
+window.customElements.define('furo-ui5-data-date-time-picker', FuroUi5DataDateTimePicker);

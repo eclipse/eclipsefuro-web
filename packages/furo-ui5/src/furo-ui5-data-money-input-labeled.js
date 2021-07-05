@@ -16,7 +16,7 @@ import './furo-ui5-data-money-input.js';
  * @demo demo-furo-ui5-data-money-input-labeled Basic Usage
  * @appliesMixin FBP
  */
-class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
+export class FuroUi5DataMoneyInputLabeled extends FBP(LitElement) {
   /**
    * Fired when the input value changed.
    * the event detail is the value of google.type.Money object
