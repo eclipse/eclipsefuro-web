@@ -11,6 +11,7 @@ import { FuroUi5DataCheckboxInput } from '@furo/ui5/src/furo-ui5-data-checkbox-i
  */
 export class CelleditBool extends FuroUi5DataCheckboxInput {
   connectedCallback() {
+    // eslint-disable-next-line wc/guard-super-call
     super.connectedCallback();
     this.style.display = 'block';
     this.style.setProperty('--_ui5_checkbox_width_height', '0');

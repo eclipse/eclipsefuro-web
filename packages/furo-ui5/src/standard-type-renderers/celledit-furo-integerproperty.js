@@ -1,6 +1,5 @@
 import { CelleditInt32 } from './celledit-int32.js';
 
-
 /**
  * `celledit-furo-integerproperty` is a `celledit` context renderer.
  *
@@ -10,13 +9,9 @@ import { CelleditInt32 } from './celledit-int32.js';
  * @customElement celledit-furo-integerproperty
  */
 class CelleditFuroIntegerproperty extends CelleditInt32 {
-
-  bindData(fieldNode){
-    super.bindData(fieldNode.data)
+  bindData(fieldNode) {
+    super.bindData(fieldNode.data);
   }
 }
 
-window.customElements.define(
-  'celledit-furo-integerproperty',
-  CelleditFuroIntegerproperty,
-);
+window.customElements.define('celledit-furo-integerproperty', CelleditFuroIntegerproperty);

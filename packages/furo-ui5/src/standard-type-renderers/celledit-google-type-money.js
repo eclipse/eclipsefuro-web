@@ -1,7 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { FuroUi5DataMoneyInput } from '@furo/ui5/src/furo-ui5-data-money-input.js';
 
-
 /**
  * `celledit-google-type-money` is a `celledit` context renderer.
  *

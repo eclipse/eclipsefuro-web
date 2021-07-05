@@ -1,6 +1,5 @@
 import { CelleditInt32 } from './celledit-int32.js';
 
-
 /**
  * `celledit-furo-fat-float` is a `celledit` context renderer.
  *

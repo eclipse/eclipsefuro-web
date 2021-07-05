@@ -1,7 +1,6 @@
 // eslint-disable-next-line import/named
 import { CelleditInt32 } from './celledit-int32.js';
 
-
 /**
  * `celledit-furo-fat-uint64` is a `celledit` context renderer.
  *
