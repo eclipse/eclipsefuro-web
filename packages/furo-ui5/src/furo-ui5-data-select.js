@@ -285,7 +285,9 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
     if (this.options && this.options.length) {
       const result = this.options.filter(elem => elem.dataset.id === id);
       if (result && result.length) {
-        this.selectedOption.removeAttribute('selected');
+        if (this.selectedOption) {
+         this.selectedOption.removeAttribute('selected');
+        }
         result[0].setAttribute('selected', '');
       }
     }

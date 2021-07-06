@@ -108,7 +108,7 @@ export class FuroUi5MessageStripDisplay extends FBP(LitElement) {
         }
 
         ui5-messagestrip {
-          margin: var(--spacing-xxs);
+          margin-bottom: 0.6875rem;
         }
       `
     );
