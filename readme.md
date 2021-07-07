@@ -1,6 +1,6 @@
 # Eclipse Furo Web Components
 
-Enterprise ready set of web components which work best with Eclipse Furo. Comes with minimal footprint. Based on web standards. Future proved. Compliant with any technology of choice.
+Enterprise ready set of web components which work best with [Eclipse Furo](https://github.com/eclipse/eclipsefuro). Comes with minimal footprint. Based on web standards. Future proved. Compliant with any technology of choice.
 
 ### Commit style
 We have activated **conventionalCommits** in the lerna config. 
