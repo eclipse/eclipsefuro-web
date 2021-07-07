@@ -1,4 +1,4 @@
-# Eclipse Furo Web Components
+## フロー Eclipse Furo Webcomponents
 
 Enterprise ready set of web components which work best with [Eclipse Furo](https://github.com/eclipse/eclipsefuro). Comes with minimal footprint. Based on web standards. Future proved. Compliant with any technology of choice.
 
