@@ -1,13 +1,14 @@
+# Eclipse Furo Web Components
+
+Enterprise ready set of web components which work best with Eclipse Furo. Comes with minimal footprint. Based on web standards. Future proved. Compliant with any technology of choice.
 
 ### Commit style
 We have activated **conventionalCommits** in the lerna config. 
 [ConventionalCommits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) is a specification for adding human and machine readable meaning to commit messages. 
 
-
 ## Quick start
 
 > Note: This guide assumes you have npm installed locally.
-
 
 First run `npm run bootstrap`
 
