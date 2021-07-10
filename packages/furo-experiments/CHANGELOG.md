@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.6.0 (2021-07-10)
+
+
+### Bug Fixes
+
+* check lerna with experiments package ([f3de83f](https://github.com/eclipse/eclipsefuro-web/commit/f3de83f0d1740656b7b019e1b66827338914b7bd))
+* clasname for css theme injecter ([28d0415](https://github.com/eclipse/eclipsefuro-web/commit/28d04153cea966eb5b6a789d6402cb6c947281c8))
+* imports ([a51ec93](https://github.com/eclipse/eclipsefuro-web/commit/a51ec936d8a8e736ca1bd651d694334787ff0095))
+* lerna package versions ([07404d8](https://github.com/eclipse/eclipsefuro-web/commit/07404d876218e7701199173cb32723f575510efc))
+* lerna package versions ([631b86e](https://github.com/eclipse/eclipsefuro-web/commit/631b86eed46f5c986ab76d2362bd508ee0d11a17))
+* lerna problems ([ef9d1c4](https://github.com/eclipse/eclipsefuro-web/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+* prepare for v1 final steps ([71827bb](https://github.com/eclipse/eclipsefuro-web/commit/71827bb540a3ee7314d31bc3c31479c3cf2c5c02))
+
+
+### Features
+
+* charting init ([10178e9](https://github.com/eclipse/eclipsefuro-web/commit/10178e985fed6e4d4781be16f24be6c113504524))
+* package framework with new package structure ([23292ec](https://github.com/eclipse/eclipsefuro-web/commit/23292ec3005fda60328322f81daa5082ec0d9d99))
+* performance boost and disableable search ([03e9daa](https://github.com/eclipse/eclipsefuro-web/commit/03e9daa5b72477fcaba1063a1541729a9b4d7d53))
+* performance boost and disableable search ([b26b0c8](https://github.com/eclipse/eclipsefuro-web/commit/b26b0c87887bfe42e75a42974e9b731e959191c0))
+* tooltip flag ([c13dcc6](https://github.com/eclipse/eclipsefuro-web/commit/c13dcc6c5e2509a643658b3ac0ef9121c234b1c0))
+
+
+
+
+
 ## [1.5.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@1.5.4...@furo/experiments@1.5.5) (2021-07-05)
 
 **Note:** Version bump only for package @furo/experiments

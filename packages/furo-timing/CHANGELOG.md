@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.4.0 (2021-07-10)
+
+
+### Bug Fixes
+
+* correct name prefixes in furo-timing/* ([531f078](https://github.com/theNorstroem/FuroBaseComponents/commit/531f0780c79f0220a06514aff97814e94de603b3))
+* imports ([a51ec93](https://github.com/theNorstroem/FuroBaseComponents/commit/a51ec936d8a8e736ca1bd651d694334787ff0095))
+* init invisible components with display:none ([bdf3464](https://github.com/theNorstroem/FuroBaseComponents/commit/bdf3464a946130ced466bf496eed65ee7a9e1709))
+* init section with defaults ([67b41d5](https://github.com/theNorstroem/FuroBaseComponents/commit/67b41d5096c4da92c83fd83a75aebb568249bc88))
+* lerna package versions ([07404d8](https://github.com/theNorstroem/FuroBaseComponents/commit/07404d876218e7701199173cb32723f575510efc))
+* lerna package versions ([631b86e](https://github.com/theNorstroem/FuroBaseComponents/commit/631b86eed46f5c986ab76d2362bd508ee0d11a17))
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+* prepare for v1 final steps, disable husky for the moment ([1079c47](https://github.com/theNorstroem/FuroBaseComponents/commit/1079c47d31f9b076d433142cdef7d185eab2a66d))
+* prepare for v1 final steps, disable husky for the moment ([1cf5f91](https://github.com/theNorstroem/FuroBaseComponents/commit/1cf5f91372f499b34406f2103bb44cc44300edc8))
+
+
+### Features
+
+* debounce component ([54a1655](https://github.com/theNorstroem/FuroBaseComponents/commit/54a165540d5026aa181f38a9aa97163891a9bfcc))
+* default proxy for '/mockdata/': '/base/mockdata/', ([99f6ab9](https://github.com/theNorstroem/FuroBaseComponents/commit/99f6ab9516686f94af2ed2750ffb2b2444badd93))
+* furo-input migrated to new package struckture ([56a148e](https://github.com/theNorstroem/FuroBaseComponents/commit/56a148e7508908751ccd183397a5cb433f53a465))
+* package framework with new package structure ([23292ec](https://github.com/theNorstroem/FuroBaseComponents/commit/23292ec3005fda60328322f81daa5082ec0d9d99))
+
+
+
+
+
 ## [1.3.74](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@1.3.73...@furo/timing@1.3.74) (2021-07-05)
 
 **Note:** Version bump only for package @furo/timing

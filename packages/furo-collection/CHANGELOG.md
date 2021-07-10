@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.4.0 (2021-07-10)
+
+
+### Bug Fixes
+
+* furo-data-util in collection ([776097f](https://github.com/eclipse/eclipsefuro-web/commit/776097f38574eb8a50a54523f11d44b7eaf9768f))
+* lerna package versions ([07404d8](https://github.com/eclipse/eclipsefuro-web/commit/07404d876218e7701199173cb32723f575510efc))
+* lerna package versions ([631b86e](https://github.com/eclipse/eclipsefuro-web/commit/631b86eed46f5c986ab76d2362bd508ee0d11a17))
+* lerna problems ([ef9d1c4](https://github.com/eclipse/eclipsefuro-web/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+* prepare for v1 final steps ([07ea3d3](https://github.com/eclipse/eclipsefuro-web/commit/07ea3d39bdf5cbdc0ef3b75dfecdfd1531c93311))
+* prepare for v1 final steps ([71827bb](https://github.com/eclipse/eclipsefuro-web/commit/71827bb540a3ee7314d31bc3c31479c3cf2c5c02))
+* publish error ([0e10b0b](https://github.com/eclipse/eclipsefuro-web/commit/0e10b0b9da18bda9fd4cd00141f68841bbf19012))
+* reimport ([0db9345](https://github.com/eclipse/eclipsefuro-web/commit/0db934539dca020bb5ae855b94025bd1358009b6))
+* timeout ([d769a1a](https://github.com/eclipse/eclipsefuro-web/commit/d769a1aebc9defa30bd8930299d2bb614919328d))
+* wrong fbp version ([7972ef6](https://github.com/eclipse/eclipsefuro-web/commit/7972ef617ff63454f17a91ad1b33c5323f93ab5a))
+* wrong import in main stage ([0431fdb](https://github.com/eclipse/eclipsefuro-web/commit/0431fdba9c8e1acc5461d93885826fdfdc9c7753))
+
+
+### Features
+
+* @furo/doc-helper ([f60fe9b](https://github.com/eclipse/eclipsefuro-web/commit/f60fe9b049190722d935ecacba8b259bb43d0960))
+* add app and icon package ([e7e7627](https://github.com/eclipse/eclipsefuro-web/commit/e7e7627daf8788814b3317b0bfde3f526bb701f3))
+* data-ui added ([f425539](https://github.com/eclipse/eclipsefuro-web/commit/f4255395e41ac3f82881c9330857675537a38b1c))
+* framework package added ([f800863](https://github.com/eclipse/eclipsefuro-web/commit/f800863b82186f31e22786bf6e9d80f2b3a70f6b))
+* furo-collection contains furo/route ([2ba26ca](https://github.com/eclipse/eclipsefuro-web/commit/2ba26caa5c60895481b36ce553b93bf2aa121f65))
+* furo-notification added to collection ([769f3d7](https://github.com/eclipse/eclipsefuro-web/commit/769f3d7389d4c8cb4dcec5ab7ad56a209b635a72))
+* furo-util added to collection ([f9e5ae1](https://github.com/eclipse/eclipsefuro-web/commit/f9e5ae10c1b2f1b9ea45b6931dab30c572381b53))
+* notifiy data-injected completed via event ([b023f72](https://github.com/eclipse/eclipsefuro-web/commit/b023f72f1e604b37449057013c6905168e72c5b7))
+* package furo/input in furo-collection ([a9b2a44](https://github.com/eclipse/eclipsefuro-web/commit/a9b2a44b3f68d66c290f3cd3ee563591e5915566))
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/eclipse/eclipsefuro-web/commit/fabf35c03ab366a42650bdfac94b3ebbaa4bb77a))
+* spec basetype ([073c3b3](https://github.com/eclipse/eclipsefuro-web/commit/073c3b358b331507704d38c2c911b0fb6bbdbabc))
+
+
+
+
+
 ## [1.3.82](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@1.3.81...@furo/collection@1.3.82) (2021-07-05)
 
 **Note:** Version bump only for package @furo/collection

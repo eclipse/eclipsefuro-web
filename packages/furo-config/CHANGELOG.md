@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.4.0 (2021-07-10)
+
+
+### Bug Fixes
+
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b72eb30405748c47f098f452f1f3b2d5b9a))
+* flow-repeat => template is="flow-repeat" ([56b9f27](https://github.com/theNorstroem/FuroBaseComponents/commit/56b9f2741010cd7d6b090ef0bf2647a6f2ff3a74))
+* imports ([890bf1e](https://github.com/theNorstroem/FuroBaseComponents/commit/890bf1ed42d9eefc4dedc8fa3ebb47f98ebe9516))
+* imports ([a51ec93](https://github.com/theNorstroem/FuroBaseComponents/commit/a51ec936d8a8e736ca1bd651d694334787ff0095))
+* init invisible components with display:none ([bdf3464](https://github.com/theNorstroem/FuroBaseComponents/commit/bdf3464a946130ced466bf496eed65ee7a9e1709))
+* lerna package versions ([07404d8](https://github.com/theNorstroem/FuroBaseComponents/commit/07404d876218e7701199173cb32723f575510efc))
+* lerna package versions ([1dea343](https://github.com/theNorstroem/FuroBaseComponents/commit/1dea3433c87cf8c3746d6de584fbfdbaf4b1bbd2))
+* lerna package versions ([631b86e](https://github.com/theNorstroem/FuroBaseComponents/commit/631b86eed46f5c986ab76d2362bd508ee0d11a17))
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+* notify changes on parent config node ([1e1a7a7](https://github.com/theNorstroem/FuroBaseComponents/commit/1e1a7a7cba0c9eb2990e093911876939775b9a36))
+* prepare for v1 final steps, disable husky for the moment ([1079c47](https://github.com/theNorstroem/FuroBaseComponents/commit/1079c47d31f9b076d433142cdef7d185eab2a66d))
+* prepare for v1 final steps, disable husky for the moment ([1cf5f91](https://github.com/theNorstroem/FuroBaseComponents/commit/1cf5f91372f499b34406f2103bb44cc44300edc8))
+* publish error ([0e10b0b](https://github.com/theNorstroem/FuroBaseComponents/commit/0e10b0b9da18bda9fd4cd00141f68841bbf19012))
+* reimport ([0db9345](https://github.com/theNorstroem/FuroBaseComponents/commit/0db934539dca020bb5ae855b94025bd1358009b6))
+
+
+### Features
+
+* default proxy for '/mockdata/': '/base/mockdata/', ([99f6ab9](https://github.com/theNorstroem/FuroBaseComponents/commit/99f6ab9516686f94af2ed2750ffb2b2444badd93))
+* Dokumentation ([c10c969](https://github.com/theNorstroem/FuroBaseComponents/commit/c10c969648f6020eddacf7467a4800c20298c2ff))
+* furo-collection contains furo/route ([2ba26ca](https://github.com/theNorstroem/FuroBaseComponents/commit/2ba26caa5c60895481b36ce553b93bf2aa121f65))
+* furo-config without polymer ([5d4dd2f](https://github.com/theNorstroem/FuroBaseComponents/commit/5d4dd2f802defd07f429f5303199666f5968cf42))
+* notify config changes via config-updated event ([cfea34c](https://github.com/theNorstroem/FuroBaseComponents/commit/cfea34c7971031657befd4812eb5c292d9999730))
+* package furo-config migration to new structure init ([e06a809](https://github.com/theNorstroem/FuroBaseComponents/commit/e06a809170ff74c3b135d116a3bdec3a10bf8bfa))
+
+
+
+
+
 ## [1.3.58](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@1.3.57...@furo/config@1.3.58) (2021-07-05)
 
 **Note:** Version bump only for package @furo/config

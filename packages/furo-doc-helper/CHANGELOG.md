@@ -3,6 +3,81 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.7.0 (2021-07-10)
+
+
+### Bug Fixes
+
+* clasname for css theme injecter ([28d0415](https://github.com/theNorstroem/FuroBaseComponents/commit/28d04153cea966eb5b6a789d6402cb6c947281c8))
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b72eb30405748c47f098f452f1f3b2d5b9a))
+* colorshemes ([edfed00](https://github.com/theNorstroem/FuroBaseComponents/commit/edfed009a61f51357621145bbee20adc865c61d9))
+* compatibility ([6674c97](https://github.com/theNorstroem/FuroBaseComponents/commit/6674c97c3fe7d32c2bbae98690d047c4eddb3e4c))
+* demo title ([ee32214](https://github.com/theNorstroem/FuroBaseComponents/commit/ee322140645271ae513de9443181e64e6f09b6e7))
+* doc builder, package replacer ([98a6dd2](https://github.com/theNorstroem/FuroBaseComponents/commit/98a6dd2d40830dc2c55de56976b81076c28ee89e))
+* furo-***-input label position ([4ee5d1d](https://github.com/theNorstroem/FuroBaseComponents/commit/4ee5d1deda9eea66c1e67ec3dbdb75a24b91275c))
+* furo-component-page in non furo projects ([ebbec37](https://github.com/theNorstroem/FuroBaseComponents/commit/ebbec37f561566881223f7d34eb2c7670fe3dee2))
+* graph calculation is faster then the svg, timeout given for label length calc ([c68993d](https://github.com/theNorstroem/FuroBaseComponents/commit/c68993d7168587b81b0e89a06f10d8abd377f6f7))
+* graph mouseover events to tooltip ([dbfbd6d](https://github.com/theNorstroem/FuroBaseComponents/commit/dbfbd6d634690adf7f7a0cbd2536a79788903ab5))
+* imports ([a51ec93](https://github.com/theNorstroem/FuroBaseComponents/commit/a51ec936d8a8e736ca1bd651d694334787ff0095))
+* imports corrected to current versions ([5932c61](https://github.com/theNorstroem/FuroBaseComponents/commit/5932c61d89999c7c72f2d0a4f53917ab37c0dafa))
+* layout and demo ([fb21814](https://github.com/theNorstroem/FuroBaseComponents/commit/fb21814aa15469ff20f19f6fa3efd4a0deb543c6))
+* lerna package versions ([07404d8](https://github.com/theNorstroem/FuroBaseComponents/commit/07404d876218e7701199173cb32723f575510efc))
+* lerna package versions ([631b86e](https://github.com/theNorstroem/FuroBaseComponents/commit/631b86eed46f5c986ab76d2362bd508ee0d11a17))
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+* make __fbpReady non private => _FBPReady ([042155c](https://github.com/theNorstroem/FuroBaseComponents/commit/042155c3a97d767e6d6b39c26805e5fa52672cee))
+* paths and typo ([12b4a56](https://github.com/theNorstroem/FuroBaseComponents/commit/12b4a5659bf2d6619163df5417192983a4ff7cf0))
+* prepare for v1 final steps, disable husky for the moment ([1079c47](https://github.com/theNorstroem/FuroBaseComponents/commit/1079c47d31f9b076d433142cdef7d185eab2a66d))
+* prepare for v1 final steps, disable husky for the moment ([1cf5f91](https://github.com/theNorstroem/FuroBaseComponents/commit/1cf5f91372f499b34406f2103bb44cc44300edc8))
+* Readme ([0f95f49](https://github.com/theNorstroem/FuroBaseComponents/commit/0f95f49fd1457e6a35b9b9b3ccc0db952c107fca))
+* stylevar --primary-color is --primary ([3d791c4](https://github.com/theNorstroem/FuroBaseComponents/commit/3d791c495fb136b4f2fa8f6b44c2a2b9a71b4f9f))
+* styling transition ([a7f9607](https://github.com/theNorstroem/FuroBaseComponents/commit/a7f9607e8d0a54aaefe787177b00c012f7688313))
+* svgjs panzoom import structure ([7f0ee54](https://github.com/theNorstroem/FuroBaseComponents/commit/7f0ee545d1b197cb556b0c0dacc831719de7fb9d))
+* this.field.set ([352ec23](https://github.com/theNorstroem/FuroBaseComponents/commit/352ec23ac9087b4b58106940d551ff18e4d0d1e3))
+* vertical scroll for source ([bf320b2](https://github.com/theNorstroem/FuroBaseComponents/commit/bf320b268bebf45d11b3b570aa54faaaa5bf81bc))
+* wrong import in main stage ([0431fdb](https://github.com/theNorstroem/FuroBaseComponents/commit/0431fdba9c8e1acc5461d93885826fdfdc9c7753))
+
+
+### Features
+
+* accept all orgs for packages ([623bcd7](https://github.com/theNorstroem/FuroBaseComponents/commit/623bcd725ce73ce8ba8bb9759384033a5a0d1913))
+* bubblin, nonbubbling, hostevents and parking values ([f6212e4](https://github.com/theNorstroem/FuroBaseComponents/commit/f6212e42d32dc3a78c2490f8569814981430f046))
+* buildTree uses furo-catalog.js as a starting point. ([76e80b1](https://github.com/theNorstroem/FuroBaseComponents/commit/76e80b1fd24f835991a935371ebbf640242dc627))
+* component documentation stuff ([67a94f1](https://github.com/theNorstroem/FuroBaseComponents/commit/67a94f1cca86f7fb0e27a9be67cb07c1682b9bad))
+* default proxy for '/mockdata/': '/base/mockdata/', ([99f6ab9](https://github.com/theNorstroem/FuroBaseComponents/commit/99f6ab9516686f94af2ed2750ffb2b2444badd93))
+* display comments in flow ([ffbe558](https://github.com/theNorstroem/FuroBaseComponents/commit/ffbe5586f491843460c8b8507709e156eb856bfa))
+* doc demo cursors ([54e8da5](https://github.com/theNorstroem/FuroBaseComponents/commit/54e8da554b9a9a53d6048c20976485f02dc753b2))
+* doc description from analysis ([6458af9](https://github.com/theNorstroem/FuroBaseComponents/commit/6458af9e44ef91b1094ad8866c1dd55b9f865076))
+* doc-helpers updated ([05b5efd](https://github.com/theNorstroem/FuroBaseComponents/commit/05b5efdec68b7d6ba26fb0d5c2aa39dd0f7919e5))
+* furo-banner with grpc status object handling, ([1d23c10](https://github.com/theNorstroem/FuroBaseComponents/commit/1d23c109101114fc91f728b09e9f9d0a41eff52d))
+* furo-button styles ([9241c00](https://github.com/theNorstroem/FuroBaseComponents/commit/9241c0074a85c8bef5f61f0aff850470993f7d3a))
+* furo-component-page ([37c9078](https://github.com/theNorstroem/FuroBaseComponents/commit/37c9078fb7a3ed330c05cbb5d60fcb6770420d6b))
+* furo-component-page element project ([f0ca850](https://github.com/theNorstroem/FuroBaseComponents/commit/f0ca8509c1e78742500f919f95662bce89a2c268))
+* furo-data-ui with new package structure ([8e75608](https://github.com/theNorstroem/FuroBaseComponents/commit/8e75608609a9764c3ffbaeda9ce1846a345650b1))
+* furo-icon migrated to new package struckture ([82ff6ee](https://github.com/theNorstroem/FuroBaseComponents/commit/82ff6eef72048c85107b242964296f865791d2c3))
+* furo-input migrated to new package struckture ([56a148e](https://github.com/theNorstroem/FuroBaseComponents/commit/56a148e7508908751ccd183397a5cb433f53a465))
+* furo-layout migrated to new package struckture ([aae1b5d](https://github.com/theNorstroem/FuroBaseComponents/commit/aae1b5ddb77d245db1308df74e5acc2b848be38e))
+* furo-location-updater ([1c0fd4b](https://github.com/theNorstroem/FuroBaseComponents/commit/1c0fd4b084d5101501c79344f1257c90ef04ed72))
+* furo-textarea-input ([ad95f09](https://github.com/theNorstroem/FuroBaseComponents/commit/ad95f09197d323f70183ed34ddda4fd8466f47fa))
+* ghpages publish script for component template ([f069107](https://github.com/theNorstroem/FuroBaseComponents/commit/f06910730954bee390fcfa09234f8a3fc4935913))
+* improved readability for component names ([01c8fb3](https://github.com/theNorstroem/FuroBaseComponents/commit/01c8fb3c52894357f49fb8e0fb16c3b43c07ecf2))
+* initWithService for the dev shell in monorepo ([292e3b9](https://github.com/theNorstroem/FuroBaseComponents/commit/292e3b95d6f35bac983a6890d27f13d378cb7554))
+* install notification ([f226b86](https://github.com/theNorstroem/FuroBaseComponents/commit/f226b8624201a74203c8a19b21e06dcba62a2fe7))
+* package framework with new package structure ([23292ec](https://github.com/theNorstroem/FuroBaseComponents/commit/23292ec3005fda60328322f81daa5082ec0d9d99))
+* render flow ([c669f75](https://github.com/theNorstroem/FuroBaseComponents/commit/c669f75b86ee03491c8cff0f764e72849cf8de68))
+* render from html string ([5b17bca](https://github.com/theNorstroem/FuroBaseComponents/commit/5b17bca984ea671f0599d98924eff8b7d51d44a9))
+* render from html string ([f3101fd](https://github.com/theNorstroem/FuroBaseComponents/commit/f3101fd2d647a35376590610d7fb3567fd410c27))
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/theNorstroem/FuroBaseComponents/commit/fabf35c03ab366a42650bdfac94b3ebbaa4bb77a))
+* styled states on tree ([e21525b](https://github.com/theNorstroem/FuroBaseComponents/commit/e21525be843c848ee635e0e5065b3034d31e440d))
+* testing ([7428896](https://github.com/theNorstroem/FuroBaseComponents/commit/7428896b61c97d8f06ebda4ad5fb4715918ce558))
+* the flow ([a266c80](https://github.com/theNorstroem/FuroBaseComponents/commit/a266c804cf7bf518bc59eccaf28789bf50639023))
+* the flow ([c8c5ef6](https://github.com/theNorstroem/FuroBaseComponents/commit/c8c5ef6d440dba6347a2b142127f75a77261349e))
+* the flow ([17c11f5](https://github.com/theNorstroem/FuroBaseComponents/commit/17c11f52a6f42f8d5f6dfc53d77325c96ac9a3a0))
+* use state variables and rgba color in checkbox ([328f7ca](https://github.com/theNorstroem/FuroBaseComponents/commit/328f7ca7c15ce6667fe2aa101393dd1f7e782599))
+
+
+
+
+
 ## [1.6.29](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/doc-helper@1.6.28...@furo/doc-helper@1.6.29) (2021-07-05)
 
 **Note:** Version bump only for package @furo/doc-helper

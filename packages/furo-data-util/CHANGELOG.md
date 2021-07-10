@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.4.0 (2021-07-10)
+
+
+### Bug Fixes
+
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b72eb30405748c47f098f452f1f3b2d5b9a))
+* correct name prefixes in furo-timing/* ([531f078](https://github.com/theNorstroem/FuroBaseComponents/commit/531f0780c79f0220a06514aff97814e94de603b3))
+* flow-repeat => template is="flow-repeat" ([56b9f27](https://github.com/theNorstroem/FuroBaseComponents/commit/56b9f2741010cd7d6b090ef0bf2647a6f2ff3a74))
+* furo-***-input label position ([4ee5d1d](https://github.com/theNorstroem/FuroBaseComponents/commit/4ee5d1deda9eea66c1e67ec3dbdb75a24b91275c))
+* imports ([890bf1e](https://github.com/theNorstroem/FuroBaseComponents/commit/890bf1ed42d9eefc4dedc8fa3ebb47f98ebe9516))
+* imports ([a51ec93](https://github.com/theNorstroem/FuroBaseComponents/commit/a51ec936d8a8e736ca1bd651d694334787ff0095))
+* lerna package versions ([07404d8](https://github.com/theNorstroem/FuroBaseComponents/commit/07404d876218e7701199173cb32723f575510efc))
+* lerna package versions ([631b86e](https://github.com/theNorstroem/FuroBaseComponents/commit/631b86eed46f5c986ab76d2362bd508ee0d11a17))
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+* prepare for v1 final steps, disable husky for the moment ([1079c47](https://github.com/theNorstroem/FuroBaseComponents/commit/1079c47d31f9b076d433142cdef7d185eab2a66d))
+* prepare for v1 final steps, disable husky for the moment ([1cf5f91](https://github.com/theNorstroem/FuroBaseComponents/commit/1cf5f91372f499b34406f2103bb44cc44300edc8))
+
+
+### Features
+
+* default proxy for '/mockdata/': '/base/mockdata/', ([99f6ab9](https://github.com/theNorstroem/FuroBaseComponents/commit/99f6ab9516686f94af2ed2750ffb2b2444badd93))
+* furo-data-text-input icons ([62a24f9](https://github.com/theNorstroem/FuroBaseComponents/commit/62a24f935e6423f13029df2022b04903a0d4b3fc))
+* furo-data-util with new package structure ([81cac0f](https://github.com/theNorstroem/FuroBaseComponents/commit/81cac0fb648880cbc54d33f7e67b525363dfb383))
+* furo-data-util with new package structure ([c6e147c](https://github.com/theNorstroem/FuroBaseComponents/commit/c6e147c17225a4f17cce5837f96634a6d7854889))
+
+
+
+
+
 ## [1.3.37](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-util@1.3.36...@furo/data-util@1.3.37) (2021-07-05)
 
 **Note:** Version bump only for package @furo/data-util

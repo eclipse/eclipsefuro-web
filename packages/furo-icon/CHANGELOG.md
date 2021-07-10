@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.4.0 (2021-07-10)
+
+
+### Bug Fixes
+
+* clasname for css theme injecter ([28d0415](https://github.com/theNorstroem/FuroBaseComponents/commit/28d04153cea966eb5b6a789d6402cb6c947281c8))
+* lerna package versions ([07404d8](https://github.com/theNorstroem/FuroBaseComponents/commit/07404d876218e7701199173cb32723f575510efc))
+* lerna package versions ([631b86e](https://github.com/theNorstroem/FuroBaseComponents/commit/631b86eed46f5c986ab76d2362bd508ee0d11a17))
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+* prepare for v1 final steps, disable husky for the moment ([1079c47](https://github.com/theNorstroem/FuroBaseComponents/commit/1079c47d31f9b076d433142cdef7d185eab2a66d))
+* prepare for v1 final steps, disable husky for the moment ([1cf5f91](https://github.com/theNorstroem/FuroBaseComponents/commit/1cf5f91372f499b34406f2103bb44cc44300edc8))
+* ui builder templates ([62748f7](https://github.com/theNorstroem/FuroBaseComponents/commit/62748f721c368b79ea71c913b4ed2d486e681105))
+* wrong links corrected ([c97a530](https://github.com/theNorstroem/FuroBaseComponents/commit/c97a530d08695e14fce081312c7d46c6d9c4ad84))
+* wrong links corrected ([1b1d560](https://github.com/theNorstroem/FuroBaseComponents/commit/1b1d560504db8af282a56e94ef51d329a5c1766d))
+
+
+### Features
+
+* default proxy for '/mockdata/': '/base/mockdata/', ([99f6ab9](https://github.com/theNorstroem/FuroBaseComponents/commit/99f6ab9516686f94af2ed2750ffb2b2444badd93))
+* furo-icon migrated to new package struckture ([82ff6ee](https://github.com/theNorstroem/FuroBaseComponents/commit/82ff6eef72048c85107b242964296f865791d2c3))
+* package framework with new package structure ([23292ec](https://github.com/theNorstroem/FuroBaseComponents/commit/23292ec3005fda60328322f81daa5082ec0d9d99))
+
+
+
+
+
 ## [1.3.39](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/icon@1.3.38...@furo/icon@1.3.39) (2021-07-05)
 
 **Note:** Version bump only for package @furo/icon

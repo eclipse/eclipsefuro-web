@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.5.0 (2021-07-10)
+
+
+### Bug Fixes
+
+* clasname for css theme injecter ([28d0415](https://github.com/veith/template-component-package/commit/28d04153cea966eb5b6a789d6402cb6c947281c8))
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/veith/template-component-package/commit/ffc43b72eb30405748c47f098f452f1f3b2d5b9a))
+* furo-***-input label position ([4ee5d1d](https://github.com/veith/template-component-package/commit/4ee5d1deda9eea66c1e67ec3dbdb75a24b91275c))
+* graph calculation is faster then the svg, timeout given for label length calc ([c68993d](https://github.com/veith/template-component-package/commit/c68993d7168587b81b0e89a06f10d8abd377f6f7))
+* imports ([a51ec93](https://github.com/veith/template-component-package/commit/a51ec936d8a8e736ca1bd651d694334787ff0095))
+* init invisible components with display:none ([bdf3464](https://github.com/veith/template-component-package/commit/bdf3464a946130ced466bf496eed65ee7a9e1709))
+* lerna package versions ([07404d8](https://github.com/veith/template-component-package/commit/07404d876218e7701199173cb32723f575510efc))
+* lerna package versions ([631b86e](https://github.com/veith/template-component-package/commit/631b86eed46f5c986ab76d2362bd508ee0d11a17))
+* lerna problems ([ef9d1c4](https://github.com/veith/template-component-package/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+* make __fbpReady non private => _FBPReady ([042155c](https://github.com/veith/template-component-package/commit/042155c3a97d767e6d6b39c26805e5fa52672cee))
+* panel-coordinator update ([b8559f8](https://github.com/veith/template-component-package/commit/b8559f8cfc92caabb10a27ae2823256c55de4bb9))
+* prepare for v1 final steps, disable husky for the moment ([1079c47](https://github.com/veith/template-component-package/commit/1079c47d31f9b076d433142cdef7d185eab2a66d))
+* prepare for v1 final steps, disable husky for the moment ([1cf5f91](https://github.com/veith/template-component-package/commit/1cf5f91372f499b34406f2103bb44cc44300edc8))
+* removed lazy-load component, because babel does not accept variables on scripted imports. ([a6da73c](https://github.com/veith/template-component-package/commit/a6da73c24c2c2aef937a3a2eb1af408de74f56f9))
+
+
+### Features
+
+* app-bar-top with "small" tag for the title ([550d7f4](https://github.com/veith/template-component-package/commit/550d7f439253b85d24e3fe333f8e10420738c7ca))
+* default proxy for '/mockdata/': '/base/mockdata/', ([99f6ab9](https://github.com/veith/template-component-package/commit/99f6ab9516686f94af2ed2750ffb2b2444badd93))
+* doc viewer ([1396650](https://github.com/veith/template-component-package/commit/13966501952ca166f1879de51705988ab28ce65e))
+* doc viewer ([fc1efda](https://github.com/veith/template-component-package/commit/fc1efda53175d82d6473a130321159f0c0e22014))
+* doc viewer dash-cased names ([4ce9bdb](https://github.com/veith/template-component-package/commit/4ce9bdbd28f488ac5e231fa6a849ef41d19a0658))
+* furo demo viewer ([fb543ee](https://github.com/veith/template-component-package/commit/fb543eebbf28f071429c32fa71f30367ef3933a0))
+* furo demo viewer ([7c5ca88](https://github.com/veith/template-component-package/commit/7c5ca888be1ea4c0bbcf31e95d7999912abd38a5))
+* furo demo viewer class viewer ([ce6755f](https://github.com/veith/template-component-package/commit/ce6755f830853c423bbcb9551659fc8f6228bd4f))
+* furo demo viewer class viewer init ([9760015](https://github.com/veith/template-component-package/commit/9760015f02aa499d33957f6c39c64856d3512ed3))
+* furo demo viewer flow part ([61d1dbc](https://github.com/veith/template-component-package/commit/61d1dbc343d1bca6101cf5d0f0b07d013978ad29))
+* furo demo viewer styling ([21e6e26](https://github.com/veith/template-component-package/commit/21e6e2622fda7c3915dcbee6cd57ab522432c5df))
+* furo markdown with prism highlighter ([a5df515](https://github.com/veith/template-component-package/commit/a5df515fdb7a59035d849db6481ff32f9966da4b))
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/template-component-package/commit/15b57749ee70a593d6dc2ae93539c9a40cab7d1a))
+* furo-component-page ([37c9078](https://github.com/veith/template-component-package/commit/37c9078fb7a3ed330c05cbb5d60fcb6770420d6b))
+* furo-data-number-input with furo-number-input ([230e7cd](https://github.com/veith/template-component-package/commit/230e7cd9aec754d35ae6f4717162992602d88c49))
+* furo-data-table extended with default slot to place e.g. pagination controls ([7308acc](https://github.com/veith/template-component-package/commit/7308accd0391ca03042c10d0e03ee60a5407149a))
+* furo-fetch-json component added ([e35af47](https://github.com/veith/template-component-package/commit/e35af479035c436c75355f846f16f4455781b981))
+* furo-fetch-json emits parse-error ([ee9e9d0](https://github.com/veith/template-component-package/commit/ee9e9d0e3868bc088a8ca42b99a4fa5e6c029fe3))
+* furo-get-clipboard ([13237f3](https://github.com/veith/template-component-package/commit/13237f328218c0059ae7752252507d73a2d1c4bc))
+* furo-keydown ([4997d2b](https://github.com/veith/template-component-package/commit/4997d2bbab9b70f389326cda7e3bceb3309db4a5))
+* furo-keydown with stopPropagation and preventDefault ([8d33461](https://github.com/veith/template-component-package/commit/8d3346120a9d31dd8677e33e5a2aca70587ab741))
+* furo-location, furo-pages interaction with furo-head-tail ([d14e706](https://github.com/veith/template-component-package/commit/d14e70618c9a9adc0d9d8b8b55a861e08704ec75))
+* furo-pretty-json can be fed with data before rendering ([0e66420](https://github.com/veith/template-component-package/commit/0e66420269f7ccbb5d2d4559760d99adefef66a5))
+* furo-put-clipboard ([76637fb](https://github.com/veith/template-component-package/commit/76637fb617c107530114b394cfb1e9634e74d4e9))
+* furo-put-clipboard ([06a2e7d](https://github.com/veith/template-component-package/commit/06a2e7d1ed4e8e518d0853f81c87baf7782f241b))
+* how to build the filter pattern (demo included) ([3786f2b](https://github.com/veith/template-component-package/commit/3786f2b08998f5596782e81446727d4d91d227c7))
+* key filter init ([6068b37](https://github.com/veith/template-component-package/commit/6068b377396b96c2b5de5f908ff3d545d4b5cf5c))
+* meta, option, ctrl and shift options ([f132bf4](https://github.com/veith/template-component-package/commit/f132bf486e2a4b4e904d98a71045a1eced7eba2d))
+* navigation-pad ([e29dccd](https://github.com/veith/template-component-package/commit/e29dccd56aafdc2d22157413328b2ad98df6d8c2))
+* ordered docs ([c48cac4](https://github.com/veith/template-component-package/commit/c48cac4e55a46a091c55819cc048d8050be96513))
+* package framework with new package structure ([23292ec](https://github.com/veith/template-component-package/commit/23292ec3005fda60328322f81daa5082ec0d9d99))
+* render flow ([c669f75](https://github.com/veith/template-component-package/commit/c669f75b86ee03491c8cff0f764e72849cf8de68))
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/veith/template-component-package/commit/fabf35c03ab366a42650bdfac94b3ebbaa4bb77a))
+* simple doc menu ([8d1b3ec](https://github.com/veith/template-component-package/commit/8d1b3ec744b4e3dfe1c52e7c201d47098f75b825))
+* simple doc menu classes ([ff9dd6d](https://github.com/veith/template-component-package/commit/ff9dd6d7a0a974dc134d6d1d81049e9945fb2437))
+* switch from commonmark to markdown-it ([bf80c48](https://github.com/veith/template-component-package/commit/bf80c4816410d90daf31ef99aa9fae96af5e54d5))
+* testing ([7428896](https://github.com/veith/template-component-package/commit/7428896b61c97d8f06ebda4ad5fb4715918ce558))
+
+
+
+
+
 ## [1.4.36](https://github.com/veith/template-component-package/compare/@furo/util@1.4.35...@furo/util@1.4.36) (2021-07-05)
 
 **Note:** Version bump only for package @furo/util

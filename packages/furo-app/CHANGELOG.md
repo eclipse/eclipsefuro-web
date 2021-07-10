@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.4.0 (2021-07-10)
+
+
+### Bug Fixes
+
+* accessibility color settings ([5622f61](https://github.com/theNorstroem/FuroBaseComponents/commit/5622f61359ee294baad03fab7f86e6284433669c))
+* action area paddings ([26c944a](https://github.com/theNorstroem/FuroBaseComponents/commit/26c944a43302e06f1b5eab505b95113772e04e2a))
+* app drawer stays open on init ([7ece167](https://github.com/theNorstroem/FuroBaseComponents/commit/7ece167975a5e20ec817a7c706d7feb32d15826b))
+* app-bar-top initial state of menu icon ([0610b6e](https://github.com/theNorstroem/FuroBaseComponents/commit/0610b6ea0ac03f5e4ec49a158017257453e87bcd))
+* clasname for css theme injecter ([28d0415](https://github.com/theNorstroem/FuroBaseComponents/commit/28d04153cea966eb5b6a789d6402cb6c947281c8))
+* default breakpoint width increased ([186f203](https://github.com/theNorstroem/FuroBaseComponents/commit/186f2039c61dd663a348c08ee54aca2c13f83070))
+* eventlistener on banner-display ([a569170](https://github.com/theNorstroem/FuroBaseComponents/commit/a56917056f2ef15efce2f529c1cc821bfeadc3ea))
+* firefox event problem. ([7e962e8](https://github.com/theNorstroem/FuroBaseComponents/commit/7e962e8990ed1c5fff571c4076022de2f0d3da7b))
+* graph mouseover events to tooltip ([dbfbd6d](https://github.com/theNorstroem/FuroBaseComponents/commit/dbfbd6d634690adf7f7a0cbd2536a79788903ab5))
+* Handling google wrapper types as scalar values, because all (most) servers send them so and expects them so. ([00a9ae3](https://github.com/theNorstroem/FuroBaseComponents/commit/00a9ae33177c27c4dc2fd1ca775554a81b9c0970))
+* initial render of a floating drawer without short flickering ([15a2149](https://github.com/theNorstroem/FuroBaseComponents/commit/15a2149bec13aa7609b6b8e15ea53e42b92a82e6))
+* lerna package versions ([07404d8](https://github.com/theNorstroem/FuroBaseComponents/commit/07404d876218e7701199173cb32723f575510efc))
+* lerna package versions ([631b86e](https://github.com/theNorstroem/FuroBaseComponents/commit/631b86eed46f5c986ab76d2362bd508ee0d11a17))
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+* noauto flag renamed to permanent ([7c5636d](https://github.com/theNorstroem/FuroBaseComponents/commit/7c5636db36822460935089aa0e20af0b26f45403))
+* prepare for v1 final steps, disable husky for the moment ([1079c47](https://github.com/theNorstroem/FuroBaseComponents/commit/1079c47d31f9b076d433142cdef7d185eab2a66d))
+* prepare for v1 final steps, disable husky for the moment ([1cf5f91](https://github.com/theNorstroem/FuroBaseComponents/commit/1cf5f91372f499b34406f2103bb44cc44300edc8))
+* tooltip initial position ([eac0703](https://github.com/theNorstroem/FuroBaseComponents/commit/eac0703ed236645c635698c242fa874e0b68abca))
+* ui builder templates ([62748f7](https://github.com/theNorstroem/FuroBaseComponents/commit/62748f721c368b79ea71c913b4ed2d486e681105))
+
+
+### Features
+
+* add no-result-hint for reference-search ([e07acc4](https://github.com/theNorstroem/FuroBaseComponents/commit/e07acc46506ade8ebc58943cdb340c616cc59f73))
+* app-bar-top with "small" tag for the title ([b2e47d0](https://github.com/theNorstroem/FuroBaseComponents/commit/b2e47d05df7b9366a6c8e44601c91bb7dc786826))
+* app-drawer notify `drawer-closed` ([4c40ef8](https://github.com/theNorstroem/FuroBaseComponents/commit/4c40ef8f6db76490a04c787407dc66c3d34394d8))
+* app-drawer notify `drawer-opened` ([d71ac7b](https://github.com/theNorstroem/FuroBaseComponents/commit/d71ac7b7f058791aa249f1fedc4d44a963850b74))
+* default proxy for '/mockdata/': '/base/mockdata/', ([99f6ab9](https://github.com/theNorstroem/FuroBaseComponents/commit/99f6ab9516686f94af2ed2750ffb2b2444badd93))
+* experimental tooltip ([3b63679](https://github.com/theNorstroem/FuroBaseComponents/commit/3b636792eb6a3562550f2a25beeeddecdb715fca))
+* experimental tooltip auto position ([cd69e57](https://github.com/theNorstroem/FuroBaseComponents/commit/cd69e579c1153d5d1b4670d5de5a606d5193d91e))
+* experimental tooltip auto position ([cc33ee8](https://github.com/theNorstroem/FuroBaseComponents/commit/cc33ee8c2f50db3959b259bc7da0ad7b2b5c6431))
+* furo-input migrated to new package struckture ([56a148e](https://github.com/theNorstroem/FuroBaseComponents/commit/56a148e7508908751ccd183397a5cb433f53a465))
+* furo-layout migrated to new package struckture ([aae1b5d](https://github.com/theNorstroem/FuroBaseComponents/commit/aae1b5ddb77d245db1308df74e5acc2b848be38e))
+* package framework with new package structure ([23292ec](https://github.com/theNorstroem/FuroBaseComponents/commit/23292ec3005fda60328322f81daa5082ec0d9d99))
+* package furo-app migrated to new structure ([3388b3b](https://github.com/theNorstroem/FuroBaseComponents/commit/3388b3b8bf26d29552b96d851f77c3bf66a6714e))
+* package furo-config migration to new structure init ([e06a809](https://github.com/theNorstroem/FuroBaseComponents/commit/e06a809170ff74c3b135d116a3bdec3a10bf8bfa))
+* use passive event listeners for performance ([2fe7c34](https://github.com/theNorstroem/FuroBaseComponents/commit/2fe7c346fd8102fafa3a199fc088bbbfb49cf383))
+* use state variables and rgba color in checkbox ([328f7ca](https://github.com/theNorstroem/FuroBaseComponents/commit/328f7ca7c15ce6667fe2aa101393dd1f7e782599))
+
+
+
+
+
 ## [1.3.46](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@1.3.45...@furo/app@1.3.46) (2021-07-05)
 
 **Note:** Version bump only for package @furo/app

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.4.0 (2021-07-10)
+
+
+### Bug Fixes
+
+* correct name prefixes in furo-math ([106a584](https://github.com/theNorstroem/FuroBaseComponents/commit/106a58409400e968399318be45a29becb69cbd54))
+* imports ([890bf1e](https://github.com/theNorstroem/FuroBaseComponents/commit/890bf1ed42d9eefc4dedc8fa3ebb47f98ebe9516))
+* imports ([a51ec93](https://github.com/theNorstroem/FuroBaseComponents/commit/a51ec936d8a8e736ca1bd651d694334787ff0095))
+* lerna package versions ([07404d8](https://github.com/theNorstroem/FuroBaseComponents/commit/07404d876218e7701199173cb32723f575510efc))
+* lerna package versions ([631b86e](https://github.com/theNorstroem/FuroBaseComponents/commit/631b86eed46f5c986ab76d2362bd508ee0d11a17))
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+* prepare for v1 final steps, disable husky for the moment ([1079c47](https://github.com/theNorstroem/FuroBaseComponents/commit/1079c47d31f9b076d433142cdef7d185eab2a66d))
+* prepare for v1 final steps, disable husky for the moment ([1cf5f91](https://github.com/theNorstroem/FuroBaseComponents/commit/1cf5f91372f499b34406f2103bb44cc44300edc8))
+* reimport ([0db9345](https://github.com/theNorstroem/FuroBaseComponents/commit/0db934539dca020bb5ae855b94025bd1358009b6))
+
+
+### Features
+
+* default proxy for '/mockdata/': '/base/mockdata/', ([99f6ab9](https://github.com/theNorstroem/FuroBaseComponents/commit/99f6ab9516686f94af2ed2750ffb2b2444badd93))
+* Dokumentation ([c10c969](https://github.com/theNorstroem/FuroBaseComponents/commit/c10c969648f6020eddacf7467a4800c20298c2ff))
+* furo-logic migrated to new package struckture ([46d4b6d](https://github.com/theNorstroem/FuroBaseComponents/commit/46d4b6df497973a77319426c0940101643105f26))
+* range-input styles ([e03e89c](https://github.com/theNorstroem/FuroBaseComponents/commit/e03e89ccef245303804d10669c0c820f2744d566))
+
+
+
+
+
 ## [1.3.37](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/math@1.3.36...@furo/math@1.3.37) (2021-07-05)
 
 **Note:** Version bump only for package @furo/math

@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.4.0 (2021-07-10)
+
+
+### Bug Fixes
+
+* furo-forth-stack swap notifies twice corrected ([1c92066](https://github.com/theNorstroem/FuroBaseComponents/commit/1c92066324f634ddf329b67c2d348ea128a7e6f6))
+* imports ([890bf1e](https://github.com/theNorstroem/FuroBaseComponents/commit/890bf1ed42d9eefc4dedc8fa3ebb47f98ebe9516))
+* imports ([a51ec93](https://github.com/theNorstroem/FuroBaseComponents/commit/a51ec936d8a8e736ca1bd651d694334787ff0095))
+* lerna package versions ([07404d8](https://github.com/theNorstroem/FuroBaseComponents/commit/07404d876218e7701199173cb32723f575510efc))
+* lerna package versions ([631b86e](https://github.com/theNorstroem/FuroBaseComponents/commit/631b86eed46f5c986ab76d2362bd508ee0d11a17))
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+* prepare for v1 final steps, disable husky for the moment ([1079c47](https://github.com/theNorstroem/FuroBaseComponents/commit/1079c47d31f9b076d433142cdef7d185eab2a66d))
+* prepare for v1 final steps, disable husky for the moment ([1cf5f91](https://github.com/theNorstroem/FuroBaseComponents/commit/1cf5f91372f499b34406f2103bb44cc44300edc8))
+
+
+### Features
+
+* default proxy for '/mockdata/': '/base/mockdata/', ([99f6ab9](https://github.com/theNorstroem/FuroBaseComponents/commit/99f6ab9516686f94af2ed2750ffb2b2444badd93))
+* furo-data-number-input with furo-number-input ([230e7cd](https://github.com/theNorstroem/FuroBaseComponents/commit/230e7cd9aec754d35ae6f4717162992602d88c49))
+* furo-layout migrated to new package struckture ([aae1b5d](https://github.com/theNorstroem/FuroBaseComponents/commit/aae1b5ddb77d245db1308df74e5acc2b848be38e))
+* furo-logic migrated to new package struckture ([f00f699](https://github.com/theNorstroem/FuroBaseComponents/commit/f00f6993c17eee27e12d875beee01b9255dca4c5))
+* furo-logic migrated to new package struckture ([46d4b6d](https://github.com/theNorstroem/FuroBaseComponents/commit/46d4b6df497973a77319426c0940101643105f26))
+* notify stack change ([f3e1fb2](https://github.com/theNorstroem/FuroBaseComponents/commit/f3e1fb20045c198af9ede06d35fb337f48d9cd68))
+* notify stack changes ([d27dea0](https://github.com/theNorstroem/FuroBaseComponents/commit/d27dea0a23d123775fa4a84c0c08bbc6f954e2e5))
+* range-input styles ([e03e89c](https://github.com/theNorstroem/FuroBaseComponents/commit/e03e89ccef245303804d10669c0c820f2744d566))
+* testing ([7428896](https://github.com/theNorstroem/FuroBaseComponents/commit/7428896b61c97d8f06ebda4ad5fb4715918ce558))
+
+
+
+
+
 ## [1.3.31](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/logic@1.3.30...@furo/logic@1.3.31) (2021-07-05)
 
 **Note:** Version bump only for package @furo/logic

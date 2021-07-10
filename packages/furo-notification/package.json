@@ -1,7 +1,7 @@
 {
   "name": "@furo/notification",
   "description": "notification components for furo",
-  "version": "1.4.29",
+  "version": "1.5.0",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-notification",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -28,9 +28,9 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/fbp": "^5.7.0",
-    "@furo/framework": "^1.6.4",
-    "@furo/input": "^1.6.12",
+    "@furo/fbp": "^5.8.0",
+    "@furo/framework": "^1.7.0",
+    "@furo/input": "^1.7.0",
     "lit-element": "^2.3.1",
     "lit-html": "^1.1.1",
     "markdown-it": "^9.0.1"

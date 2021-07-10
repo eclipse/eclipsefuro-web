@@ -3,6 +3,80 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.6.0 (2021-07-10)
+
+
+### Bug Fixes
+
+* attr.value becomes attr.val ([60e7db9](https://github.com/theNorstroem/FuroBaseComponents/commit/60e7db91c96f41b2d0a162df2c4af80441c0bf45))
+* button-bar margin ([ac92f4f](https://github.com/theNorstroem/FuroBaseComponents/commit/ac92f4f4e59502efce731eab6312b4f689194851))
+* changed class to attribute ([0d89978](https://github.com/theNorstroem/FuroBaseComponents/commit/0d8997817b81a479b4f094f6f0173324e39e269e))
+* clasname for css theme injecter ([28d0415](https://github.com/theNorstroem/FuroBaseComponents/commit/28d04153cea966eb5b6a789d6402cb6c947281c8))
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b72eb30405748c47f098f452f1f3b2d5b9a))
+* enableAll should act like disableAll, without inclusion of the entity ([11da882](https://github.com/theNorstroem/FuroBaseComponents/commit/11da882b2c4fb1ac5d1397f95412068b736dbc65))
+* fix ios8601 format. fix ui5-reference-search in order to show display_name initially when there is no collection-injection ([a2b51e6](https://github.com/theNorstroem/FuroBaseComponents/commit/a2b51e60fba206f0826385bf8ddaf7fd69253ef2))
+* flow-repeat => template is="flow-repeat" ([56b9f27](https://github.com/theNorstroem/FuroBaseComponents/commit/56b9f2741010cd7d6b090ef0bf2647a6f2ff3a74))
+* four col layout narrow switches to 2 not to 1. Narrower switches to 1 ([6870dd7](https://github.com/theNorstroem/FuroBaseComponents/commit/6870dd7ff090a2d8158d24b477191da78e82898e))
+* furo-***-input label position ([4ee5d1d](https://github.com/theNorstroem/FuroBaseComponents/commit/4ee5d1deda9eea66c1e67ec3dbdb75a24b91275c))
+* furo-collapsible default set to false ([58f931a](https://github.com/theNorstroem/FuroBaseComponents/commit/58f931a99d8282762c7ed46a5da41c754da37501))
+* hts-updated ([8013b4e](https://github.com/theNorstroem/FuroBaseComponents/commit/8013b4e9dd6e3c361021b3cb644caca338f7c6ac))
+* imports ([890bf1e](https://github.com/theNorstroem/FuroBaseComponents/commit/890bf1ed42d9eefc4dedc8fa3ebb47f98ebe9516))
+* imports ([a51ec93](https://github.com/theNorstroem/FuroBaseComponents/commit/a51ec936d8a8e736ca1bd651d694334787ff0095))
+* imports linted ([0d62b33](https://github.com/theNorstroem/FuroBaseComponents/commit/0d62b339a0ab31cc0ad766cbb7ac51b77a945536))
+* keyboard events on furo-collapsible-box only for the icon ([edaec9d](https://github.com/theNorstroem/FuroBaseComponents/commit/edaec9d9794e6e4c99ffb32fdcaa76507e42d840))
+* lerna package versions ([07404d8](https://github.com/theNorstroem/FuroBaseComponents/commit/07404d876218e7701199173cb32723f575510efc))
+* lerna package versions ([631b86e](https://github.com/theNorstroem/FuroBaseComponents/commit/631b86eed46f5c986ab76d2362bd508ee0d11a17))
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+* make __fbpReady non private => _FBPReady ([042155c](https://github.com/theNorstroem/FuroBaseComponents/commit/042155c3a97d767e6d6b39c26805e5fa52672cee))
+* mixin for label ([ffc316d](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc316dadb24a1f9aaf7c20c3c45b33e53793f4b))
+* narrower css fix ([5285e83](https://github.com/theNorstroem/FuroBaseComponents/commit/5285e837fc6f1702be96caeca88122de5a44fb13))
+* new method in furo-button-bar added. enableAllNoChecks ([33ffc78](https://github.com/theNorstroem/FuroBaseComponents/commit/33ffc78b6ea0d682f315c338ed3ae3d264e22eaf))
+* prepare for v1 final steps, disable husky for the moment ([1079c47](https://github.com/theNorstroem/FuroBaseComponents/commit/1079c47d31f9b076d433142cdef7d185eab2a66d))
+* prepare for v1 final steps, disable husky for the moment ([1cf5f91](https://github.com/theNorstroem/FuroBaseComponents/commit/1cf5f91372f499b34406f2103bb44cc44300edc8))
+* publish error ([0e10b0b](https://github.com/theNorstroem/FuroBaseComponents/commit/0e10b0b9da18bda9fd4cd00141f68841bbf19012))
+* reimport ([0db9345](https://github.com/theNorstroem/FuroBaseComponents/commit/0db934539dca020bb5ae855b94025bd1358009b6))
+* remove margin on last element ([5645170](https://github.com/theNorstroem/FuroBaseComponents/commit/5645170736cb4b0575a91b4f6823741f82cb84fd))
+* renaming ([70e1b52](https://github.com/theNorstroem/FuroBaseComponents/commit/70e1b526c356b49b40fe269b1a5dea4094ebb422))
+* simple style change ([121d188](https://github.com/theNorstroem/FuroBaseComponents/commit/121d18869328a0545d0dd54015db0088f6bcc136))
+* slotted elements with attr double should not destroy the narrower layout ([674afbf](https://github.com/theNorstroem/FuroBaseComponents/commit/674afbfb8f86daff325dcb631e05bb954c057a76))
+* stylevar --primary-color is --primary ([3d791c4](https://github.com/theNorstroem/FuroBaseComponents/commit/3d791c495fb136b4f2fa8f6b44c2a2b9a71b4f9f))
+* the status of buttons in button bar should be changed according to valid and invalid status of enttiy when the buttons have disabled-not-valid or hide-not-valid attributes ([aaaa693](https://github.com/theNorstroem/FuroBaseComponents/commit/aaaa6935012f0f709d402ed006d25687f0caa44e))
+* ui builder templates ([62748f7](https://github.com/theNorstroem/FuroBaseComponents/commit/62748f721c368b79ea71c913b4ed2d486e681105))
+* ui builder templates ([1a10372](https://github.com/theNorstroem/FuroBaseComponents/commit/1a10372ac439a9a0ed009d11297d4f80777c858a))
+* uneeded dependency removed ([aa560a0](https://github.com/theNorstroem/FuroBaseComponents/commit/aa560a036c641185e3ed1e778a008943aaf40e0b))
+* update readme ([70266b0](https://github.com/theNorstroem/FuroBaseComponents/commit/70266b0cdeea924c9e5d245b691d3165f4512582))
+* wrong imports ([69e8a07](https://github.com/theNorstroem/FuroBaseComponents/commit/69e8a0732f95c80617ee965e7c45365b470e3e89))
+
+
+### Features
+
+* --furo-form-max-width with 90em ([ee26253](https://github.com/theNorstroem/FuroBaseComponents/commit/ee262534ef0bdb4d9a5499285be1710db18da29b))
+* attr double added to slot elements to double the size of the element ([31d41a3](https://github.com/theNorstroem/FuroBaseComponents/commit/31d41a385d17c76d0046a566409eae650333dd37))
+* button-bar themeable ([0be9a4a](https://github.com/theNorstroem/FuroBaseComponents/commit/0be9a4a21d5d2020590820147c4654b3489e122d))
+* default proxy for '/mockdata/': '/base/mockdata/', ([99f6ab9](https://github.com/theNorstroem/FuroBaseComponents/commit/99f6ab9516686f94af2ed2750ffb2b2444badd93))
+* Dokumentation ([c10c969](https://github.com/theNorstroem/FuroBaseComponents/commit/c10c969648f6020eddacf7467a4800c20298c2ff))
+* entity-agent put ([c9ba6ec](https://github.com/theNorstroem/FuroBaseComponents/commit/c9ba6ec5759e43b2ff3a02fc6c8b27a5c0b6ff68))
+* Experimental components furo-form, furo-icon-button, furo-app-bar-top and furo-app-drawer added ([cbab017](https://github.com/theNorstroem/FuroBaseComponents/commit/cbab017effde6ce959612ba5da9510257319084c))
+* furo markdown with prism highlighter ([15b5774](https://github.com/theNorstroem/FuroBaseComponents/commit/15b57749ee70a593d6dc2ae93539c9a40cab7d1a))
+* furo-collapsible-box open-on-focus, close-on-blur ([3993016](https://github.com/theNorstroem/FuroBaseComponents/commit/399301677fb2d58629106818be4c5de6d10b183f))
+* furo-collection contains furo/route ([2ba26ca](https://github.com/theNorstroem/FuroBaseComponents/commit/2ba26caa5c60895481b36ce553b93bf2aa121f65))
+* furo-component-page ([37c9078](https://github.com/theNorstroem/FuroBaseComponents/commit/37c9078fb7a3ed330c05cbb5d60fcb6770420d6b))
+* furo-data-date-input ([bfde624](https://github.com/theNorstroem/FuroBaseComponents/commit/bfde624e0bec6b1ac2e7ff70186743faac99dbc5))
+* furo-form-layouter now supports `newline` attribute on slotted elements ([f8a9711](https://github.com/theNorstroem/FuroBaseComponents/commit/f8a971109a4b4ea6b6a91fadb7cbd36faf567dac))
+* furo-layout migrated to new package struckture ([aae1b5d](https://github.com/theNorstroem/FuroBaseComponents/commit/aae1b5ddb77d245db1308df74e5acc2b848be38e))
+* furo-toggle-icon with keyboard nav ([e93f01d](https://github.com/theNorstroem/FuroBaseComponents/commit/e93f01dcc2a9d388b684538502d57437a9fc4e57))
+* furo-ui5-header-panel lint and format ([4c6a217](https://github.com/theNorstroem/FuroBaseComponents/commit/4c6a2176bb217a1093d96a3c085b6974d7d7c453))
+* make furo-button-bar exportable ([6aa5456](https://github.com/theNorstroem/FuroBaseComponents/commit/6aa545686d32e9af24ce293acb9bcdcfddd8c899))
+* new column variants, some css fixes ([2c6b951](https://github.com/theNorstroem/FuroBaseComponents/commit/2c6b95190879268d3cc75feec1314e3c78d94d81))
+* package framework with new package structure ([23292ec](https://github.com/theNorstroem/FuroBaseComponents/commit/23292ec3005fda60328322f81daa5082ec0d9d99))
+* secondary-text with styled states ([714b0b6](https://github.com/theNorstroem/FuroBaseComponents/commit/714b0b610969a09bf0c179ecf8b33bba6500e912))
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/theNorstroem/FuroBaseComponents/commit/fabf35c03ab366a42650bdfac94b3ebbaa4bb77a))
+* testing ([7428896](https://github.com/theNorstroem/FuroBaseComponents/commit/7428896b61c97d8f06ebda4ad5fb4715918ce558))
+
+
+
+
+
 ## [1.5.22](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@1.5.21...@furo/form@1.5.22) (2021-07-05)
 
 **Note:** Version bump only for package @furo/form

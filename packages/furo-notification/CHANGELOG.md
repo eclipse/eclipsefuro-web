@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.5.0 (2021-07-10)
+
+
+### Bug Fixes
+
+* banner should also work if no field violation was set ([2ebe753](https://github.com/theNorstroem/FuroBaseComponents/commit/2ebe753ed8a124de3240f27d4a7278c08b9e1afd))
+* clasname for css theme injecter ([28d0415](https://github.com/theNorstroem/FuroBaseComponents/commit/28d04153cea966eb5b6a789d6402cb6c947281c8))
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b72eb30405748c47f098f452f1f3b2d5b9a))
+* eventlistener on banner-display ([a569170](https://github.com/theNorstroem/FuroBaseComponents/commit/a56917056f2ef15efce2f529c1cc821bfeadc3ea))
+* furo-snackbar should not have a display. Renderer removed, css display none added ([7f8d369](https://github.com/theNorstroem/FuroBaseComponents/commit/7f8d36945147c9645a0e00b18c70535130d972e8))
+* imports corrected to current versions ([5932c61](https://github.com/theNorstroem/FuroBaseComponents/commit/5932c61d89999c7c72f2d0a4f53917ab37c0dafa))
+* issue [#228](https://github.com/theNorstroem/FuroBaseComponents/issues/228), style var error ([15dffa5](https://github.com/theNorstroem/FuroBaseComponents/commit/15dffa553da1b4a9591c9cd77af790b87a4e94ab))
+* lerna package versions ([07404d8](https://github.com/theNorstroem/FuroBaseComponents/commit/07404d876218e7701199173cb32723f575510efc))
+* lerna package versions ([631b86e](https://github.com/theNorstroem/FuroBaseComponents/commit/631b86eed46f5c986ab76d2362bd508ee0d11a17))
+* lerna problems ([ef9d1c4](https://github.com/theNorstroem/FuroBaseComponents/commit/ef9d1c405fbf55664ef05e6f12a1e7eecfc53759))
+* prepare for v1 final steps, disable husky for the moment ([1079c47](https://github.com/theNorstroem/FuroBaseComponents/commit/1079c47d31f9b076d433142cdef7d185eab2a66d))
+* prepare for v1 final steps, disable husky for the moment ([1cf5f91](https://github.com/theNorstroem/FuroBaseComponents/commit/1cf5f91372f499b34406f2103bb44cc44300edc8))
+* qp-changer fires to much ([92117e4](https://github.com/theNorstroem/FuroBaseComponents/commit/92117e4c74d862efc15cf895d50037e71646fe04))
+* Register EventListeners only once ([a8cb4d1](https://github.com/theNorstroem/FuroBaseComponents/commit/a8cb4d1af446d03f24a5942be90d30063baf2ee3))
+* remove focus via tab when banner is hidden ([3d813b6](https://github.com/theNorstroem/FuroBaseComponents/commit/3d813b605c8e8a3a7ac675d414419222384d779e))
+* ui builder templates ([62748f7](https://github.com/theNorstroem/FuroBaseComponents/commit/62748f721c368b79ea71c913b4ed2d486e681105))
+
+
+### Features
+
+* add no-result-hint for reference-search ([e07acc4](https://github.com/theNorstroem/FuroBaseComponents/commit/e07acc46506ade8ebc58943cdb340c616cc59f73))
+* banner md styling according to https://material.io/design/typography/the-type-system.html# (but without the sizes) ([34e4fc4](https://github.com/theNorstroem/FuroBaseComponents/commit/34e4fc44254d8d1f72525dbe15dc7edfaea91113))
+* banner with markdown support ([253099c](https://github.com/theNorstroem/FuroBaseComponents/commit/253099cea5aada6620d227b2cca08a6248e45ce4))
+* banner-display slide in ([3f7189d](https://github.com/theNorstroem/FuroBaseComponents/commit/3f7189d688cb4f195b924adb97a28bd9286517d7))
+* default proxy for '/mockdata/': '/base/mockdata/', ([99f6ab9](https://github.com/theNorstroem/FuroBaseComponents/commit/99f6ab9516686f94af2ed2750ffb2b2444badd93))
+* display BadRequests error with parseGrpc... ([f6faac0](https://github.com/theNorstroem/FuroBaseComponents/commit/f6faac05149b6ac0efff45ba01eb8c3735bf684d))
+* First element in banner receives an automatic margin to align to the icon ([fcaa94f](https://github.com/theNorstroem/FuroBaseComponents/commit/fcaa94fefeee3c40be9f9f5bc6734ce36d600559))
+* furo snackbar ([89967f8](https://github.com/theNorstroem/FuroBaseComponents/commit/89967f8a0b5f63141396713a3c5f9c14a912b8cb))
+* furo-banner ([3241577](https://github.com/theNorstroem/FuroBaseComponents/commit/32415771b2583989d70a72f3f30acc21d5e9a998))
+* furo-banner ([f22cefe](https://github.com/theNorstroem/FuroBaseComponents/commit/f22cefebb0bcb74f2852d4336b9ad5ca966f77df))
+* furo-banner shows status.message as fallback if no status.details was given. ([f05485d](https://github.com/theNorstroem/FuroBaseComponents/commit/f05485d68393d9240ad56e4b18c17ec1a6d87277))
+* furo-banner with grpc status object handling, ([1d23c10](https://github.com/theNorstroem/FuroBaseComponents/commit/1d23c109101114fc91f728b09e9f9d0a41eff52d))
+* furo-banner with micro markdown, better button alignment ([7339f65](https://github.com/theNorstroem/FuroBaseComponents/commit/7339f651f3eaad356cfa657f1582c9e3fbfc947c))
+* furo-banner-display autofocus and focus to the dismiss button ([389daf7](https://github.com/theNorstroem/FuroBaseComponents/commit/389daf78a3ea3ba5755c508178bb0c03804f638e))
+* package framework with new package structure ([23292ec](https://github.com/theNorstroem/FuroBaseComponents/commit/23292ec3005fda60328322f81daa5082ec0d9d99))
+* use state variables and rgba color in checkbox ([328f7ca](https://github.com/theNorstroem/FuroBaseComponents/commit/328f7ca7c15ce6667fe2aa101393dd1f7e782599))
+
+
+
+
+
 ## [1.4.29](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@1.4.28...@furo/notification@1.4.29) (2021-07-05)
 
 **Note:** Version bump only for package @furo/notification
