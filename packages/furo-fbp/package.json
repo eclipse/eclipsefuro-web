@@ -1,6 +1,6 @@
 {
   "name": "@furo/fbp",
-  "version": "5.8.0",
+  "version": "5.8.1",
   "description": "Declarative programming with web-components.",
   "homepage": "https://furo.pro",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
@@ -36,7 +36,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/framework": "^1.7.0",
+    "@furo/framework": "^1.7.1",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",
