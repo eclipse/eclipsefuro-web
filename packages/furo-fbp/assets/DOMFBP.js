@@ -17,7 +17,9 @@ class DOMFBP {
     this.__FBPEventlistener = [];
     this.__wirebundle = {};
     this.__wireQueue = [];
+    this.__fbp_ready = false;
     this._appendFBP(dom);
+
   }
 
 
@@ -539,9 +541,6 @@ class DOMFBP {
       e.element.removeEventListener(e.event, e.handler);
     });
 
-    if (super.disconnectedCallback) {
-      super.disconnectedCallback();
-    }
   }
 
   /**
