@@ -1,7 +1,7 @@
 {
   "name": "@furo/input",
   "description": "Base input components",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-input",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -28,10 +28,10 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/fbp": "^5.8.1",
-    "@furo/framework": "^1.7.1",
-    "@furo/icon": "^1.4.1",
-    "@furo/layout": "^1.6.1",
+    "@furo/fbp": "^5.8.2",
+    "@furo/framework": "^1.7.2",
+    "@furo/icon": "^1.4.2",
+    "@furo/layout": "^1.6.2",
     "lit-element": "^2.3.1",
     "lit-html": "^1.1.1",
     "signature_pad": "3.0.0-beta.4"
@@ -39,7 +39,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/app": "^1.4.1",
+    "@furo/app": "^1.4.2",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",
