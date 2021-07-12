@@ -90,7 +90,13 @@ export class FuroUi5MessageStripDisplay extends FBP(LitElement) {
     messagestrip.target = source;
     messagestrip.innerHTML = source.displayMessage;
 
-    this._messageStrips.push(this.shadowRoot.appendChild(messagestrip));
+    const i = this._messageStrips.push(this.shadowRoot.appendChild(messagestrip));
+    const to = source.getAttribute('timeout');
+    if (to !== null) {
+      setTimeout(() => {
+        this._messageStrips[i - 1].remove();
+      }, parseInt(to, 10));
+    }
   }
 
   /**

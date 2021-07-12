@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/src/theme.js';
 import { FBP } from '@furo/fbp';
 import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
-import {Env} from '@furo/framework';
+import { Env } from '@furo/framework';
 
 import '@furo/fbp/src/flow-repeat.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -209,9 +209,14 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
     } else {
       // todo: check if the defaults from the field itself (not the defaults from the used type) are given
       // try the defaults from the ref type
-      this._FBPTriggerWire('--detectedService', Env.api.specs[this.__fieldNode._spec.type].fields.link.meta.default.service);
-      this._FBPTriggerWire('--hts', Env.api.specs[this.__fieldNode._spec.type].fields.link.meta.default);
-
+      this._FBPTriggerWire(
+        '--detectedService',
+        Env.api.specs[this.__fieldNode._spec.type].fields.link.meta.default.service,
+      );
+      this._FBPTriggerWire(
+        '--hts',
+        Env.api.specs[this.__fieldNode._spec.type].fields.link.meta.default,
+      );
     }
   }
 
@@ -439,7 +444,6 @@ export class FuroUi5DataReferenceSearch extends FBP(FieldNodeAdapter(LitElement)
 
       this.shadowRoot.getElementById('valueHelper').appendChild(this._valueHelperComponent);
     }
-
 
     // the input field
     this._inputField = this.shadowRoot.getElementById('input');
