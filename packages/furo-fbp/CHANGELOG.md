@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.9.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.8.2...@furo/fbp@5.9.0) (2021-07-12)
+
+
+### Features
+
+* viz debug connector ([3583c52](https://github.com/theNorstroem/FuroBaseComponents/commit/3583c52bbb8a2c84af8206d9e51d718b9b26521f))
+
+
+
+
+
 ## [5.8.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.8.1...@furo/fbp@5.8.2) (2021-07-11)
 
 **Note:** Version bump only for package @furo/fbp
