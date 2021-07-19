@@ -16,6 +16,9 @@ import { LitElement, css } from 'lit-element';
  *  </furo-chart-display>
  *  ```
  *
+ * @fires {Fieldnode} data-point-clicked -  Fired when a marker for this data source was clicked
+ * @fires {data-series} data-updated -  Fired when datasource has updated data
+ *
  * @summary connect data to a chart
  * @customElement
  * @demo demo-furo-data-chart-mini Small Charts
@@ -212,11 +215,7 @@ class FuroDataChartBinder extends LitElement {
 
   _dataPointSelection(e, context, config) {
     if (config.dataPointIndex !== undefined) {
-      /**
-       * @event data-point-clicked
-       * Fired when a marker for this data source was clicked
-       * detail payload: Fieldnode
-       */
+
       const customEvent = new Event('data-point-clicked', { composed: true, bubbles: true });
       customEvent.detail = this.repeater.repeats[config.dataPointIndex];
       this.dispatchEvent(customEvent);
@@ -367,11 +366,7 @@ class FuroDataChartBinder extends LitElement {
           this.dataSeries.data.push(v);
         });
     }
-    /**
-     * @event data-updated
-     * Fired when datasource has updated data
-     * detail payload: data-series
-     */
+
     const customEvent = new Event('data-updated', { composed: true, bubbles: true });
     customEvent.detail = this;
     this.dispatchEvent(customEvent);
