@@ -9,6 +9,10 @@ import './furo-doc/furo-doc-menu-class-item.js';
  * `furo-doc-menu`
  * todo Describe your element
  *
+ * @fires {element analysis data} element -  Fired when element is selected
+ * @fires {element analysis data} element -  Fired when element is selected
+ * @fires {element analysis data} element -  Fired when element is selected
+ *
  * @summary todo shortdescription
  * @customElement
  * @appliesMixin FBP
@@ -38,22 +42,14 @@ class FuroDocMenu extends FBP(LitElement) {
 
     // send selected, analysis.__selectedElement is set from furo-doc-fetch-analysis
     if (analysis.__selectedElement) {
-      /**
-       * @event element
-       * Fired when element is selected
-       * detail payload: element analysis data
-       */
+
       const customEvent = new Event('element', { composed: true, bubbles: true });
       customEvent.detail = analysis.__selectedElement;
       this.dispatchEvent(customEvent);
     }
     // send selected class
     if (analysis.__selectedClass) {
-      /**
-       * @event element
-       * Fired when element is selected
-       * detail payload: element analysis data
-       */
+
       const customEvent = new Event('class', { composed: true, bubbles: true });
       customEvent.detail = analysis.__selectedClass;
       this.dispatchEvent(customEvent);
@@ -61,11 +57,7 @@ class FuroDocMenu extends FBP(LitElement) {
 
     // send selected mixin
     if (analysis.__selectedMixin) {
-      /**
-       * @event element
-       * Fired when element is selected
-       * detail payload: element analysis data
-       */
+
       const customEvent = new Event('mixin', { composed: true, bubbles: true });
       customEvent.detail = analysis.__selectedMixin;
       this.dispatchEvent(customEvent);

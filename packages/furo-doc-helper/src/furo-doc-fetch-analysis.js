@@ -6,6 +6,8 @@ import { FBP } from '@furo/fbp';
  * `furo-doc-fetch-analysis`
  * todo Describe your element
  *
+ * @fires {analysis} data -  Fired when analysis loaded
+ *
  * @summary todo shortdescription
  * @customElement
  * @appliesMixin FBP
@@ -82,11 +84,7 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
       [this._analysis.__selectedClass] = this._analysis.classes;
     }
 
-    /**
-     * @event data
-     * Fired when analysis loaded
-     * detail payload: analysis
-     */
+
     const customEvent = new Event('data', { composed: true, bubbles: true });
     customEvent.detail = this._analysis;
     this.dispatchEvent(customEvent);

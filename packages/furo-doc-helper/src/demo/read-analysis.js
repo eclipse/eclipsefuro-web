@@ -6,6 +6,8 @@ import { FBP } from '@furo/fbp';
  * `read-analysis`
  * todo Describe your element
  *
+ * @fires {analysis} data -  Fired when analysis loaded
+ *
  * @summary todo shortdescription
  * @customElement
  * @appliesMixin FBP
@@ -300,11 +302,7 @@ class ReadAnalysis extends FBP(LitElement) {
       tagname: 'furo-api-fetch',
     };
     setTimeout(() => {
-      /**
-       * @event data
-       * Fired when analysis loaded
-       * detail payload: analysis
-       */
+
       const customEvent = new Event('data', { composed: true, bubbles: true });
       customEvent.detail = this.element;
       this.dispatchEvent(customEvent);
