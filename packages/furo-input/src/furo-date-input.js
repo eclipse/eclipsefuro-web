@@ -27,6 +27,12 @@ import { Helper } from './lib/helper.js';
  * `--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5
  * `--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red
  *
+ * @fires {string} trailing-icon-clicked -  Fired when the trailing icon was clicked, with the value of the text input.This event bubbles.
+ * @fires {string} leading-icon-clicked -  Fired when the leading icon was clicked, with the value of the text input.This event bubbles.
+ * @fires {the validity object of input} input-invalid -  Fired when input value is invalid.
+ * @fires {void} value-cleared -  Fired when value has changed to EMPTY_STRING from inside the component.
+ * @fires {String} value-changed -  Fired when value has changed from inside the component.
+ *
  * @summary Date input field
  * @customElement
  * @demo demo-furo-date-input Input sample
@@ -34,23 +40,7 @@ import { Helper } from './lib/helper.js';
  * @appliesMixin FBP
  */
 export class FuroDateInput extends FBP(LitElement) {
-  /**
-   * @event trailing-icon-clicked
-   * Fired when the trailing icon was clicked
-   *
-   * detail payload: the value of the text input
-   *
-   * This event bubbles
-   */
 
-  /**
-   * @event leading-icon-clicked
-   * Fired when the leading icon was clicked
-   *
-   * detail payload: the value of the text input
-   *
-   * This event bubbles
-   */
 
   constructor() {
     super();

@@ -24,29 +24,16 @@ import { Helper } from './lib/helper.js';
  * `--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5
  * `--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red
  *
+ * @fires {string} trailing-icon-clicked -  Fired when the trailing icon was clicked, with the value of the text input.This event bubbles.
+ * @fires {string} leading-icon-clicked -  Fired when the leading icon was clicked, with the value of the text input.This event bubbles.
+ *
  * @summary Color input field
  * @customElement
  * @demo demo-furo-color-input Input samples
  * @appliesMixin FBP
  */
 export class FuroColorInput extends FBP(LitElement) {
-  /**
-   * @event trailing-icon-clicked
-   * Fired when the trailing icon was clicked
-   *
-   * detail payload: the value of the text input
-   *
-   * This event bubbles
-   */
 
-  /**
-   * @event leading-icon-clicked
-   * Fired when the leading icon was clicked
-   *
-   * detail payload: the value of the text input
-   *
-   * This event bubbles
-   */
 
   constructor() {
     super();

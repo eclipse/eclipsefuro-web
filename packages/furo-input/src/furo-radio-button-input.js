@@ -31,18 +31,14 @@ import './furo-radio-button.js';
  * `--input-error-text-color` | Color of error text | `--error` | red
  * `--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5
  *
+ * @fires ALL_BUBBLING_EVENTS_FROM_furo-radio-button - All bubbling events from [furo-radio-button](furo-radio-button) will be fired, because furo-radio-button-input uses furo-radio-button internally.
+ *
  * @summary radio-button input
  * @customElement
  * @demo demo-furo-radio-button-input Basic demo
  * @appliesMixin FBP
  */
 export class FuroRadioButtonInput extends FBP(LitElement) {
-  /**
-   * @event ALL_BUBBLING_EVENTS_FROM_furo-radio-button
-   *
-   * All bubbling events from [furo-radio-button](furo-radio-button) will be fired, because furo-radio-button-input uses furo-radio-button internally.
-   *
-   */
 
   constructor() {
     super();

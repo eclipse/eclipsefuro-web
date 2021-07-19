@@ -8,6 +8,11 @@ import { EmpptyStackError } from './lib/EmptyStackError.js';
  * http://wiki.laptop.org/go/Forth_stack_operators
  * http://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm#stacks
  *
+ * @fires {Number} stack-size-changed -  Fired when the stack size changes with Integer with the current size of the stack.
+ * @fires {the top element} rotated -  Fired when stack was rotated
+ * @fires {the top element} rotated -  Fired when stack was rotated
+ * @fires {the top element} stack-changed -  Fired when the stack contents changes after put, drop,...
+ *
  * @summary forth like stack
  * @customElement
  */
@@ -25,11 +30,7 @@ export class FuroForthStack extends LitElement {
   set size(val) {
     if (this._size !== val) {
       this._size = val;
-      /**
-       * @event stack-size-changed
-       * Fired when the stack size changes
-       * detail payload: {Number} Integer with the current size of the stack
-       */
+
       const customEvent = new Event('stack-size-changed', { composed: true, bubbles: true });
       customEvent.detail = val;
       this.dispatchEvent(customEvent);
@@ -153,7 +154,7 @@ export class FuroForthStack extends LitElement {
    *    1 2 3 rot
    *    gives you:
    *
-   *    2 3* 1 <- Top
+   *    2 3 1 <- Top
    */
   rot() {
     if (this._stack.length >= 3) {
@@ -162,10 +163,7 @@ export class FuroForthStack extends LitElement {
       this.swap();
     }
     if (this._stack.length > 1) {
-      /**
-       * Fired when stack was rotated
-       * @event rotated
-       */
+
       const customEvent = new Event('rotated', { composed: true, bubbles: false });
       customEvent.detail = this._stack[this._stack.length - 1];
       this.dispatchEvent(customEvent);
@@ -181,7 +179,7 @@ export class FuroForthStack extends LitElement {
    *    1 2 3 rot
    *    gives you:
    *
-   *    2 3* 1 <- Top
+   *    3 1 2 <- Top
    */
   rrot() {
     if (this._stack.length >= 3) {
@@ -190,10 +188,7 @@ export class FuroForthStack extends LitElement {
       this.swap();
     }
     if (this._stack.length > 1) {
-      /**
-       * Fired when stack was rotated
-       * @event rotated
-       */
+
       const customEvent = new Event('rotated', { composed: true, bubbles: false });
       customEvent.detail = this._stack[this._stack.length - 1];
       this.dispatchEvent(customEvent);
@@ -215,12 +210,7 @@ export class FuroForthStack extends LitElement {
   }
 
   _notifyStackChange() {
-    /**
-     * @event stack-changed
-     * Fired when the stack contents changes after put, drop,...
-     *
-     * detail payload: the top element
-     */
+
     const stackEvent = new Event('stack-changed', { composed: true, bubbles: true });
     stackEvent.detail = this._stack[this._stack.length - 1];
     this.dispatchEvent(stackEvent);

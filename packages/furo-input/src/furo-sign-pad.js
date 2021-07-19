@@ -14,6 +14,8 @@ import SignaturePad from 'signature_pad/dist/signature_pad.js';
  *   </template>
  *  </furo-demo-snippet>
  *
+ * @fires {Base64} sign-updated - Fired when sign gets new painting, with base encoded image.
+ *
  * @summary draw or sign
  * @customElement
  * @demo demo-furo-sign-pad Basic usage
@@ -144,12 +146,6 @@ export class FuroSignPad extends FBP(LitElement) {
   encodeImage() {
     this.image = this.canvas.toDataURL(this.type, this.encodingOptions);
     this._setEmpty(this.signaturePad.isEmpty());
-    /**
-     * @event sign-updated
-     * Fired when sign gets new painting
-     *
-     * detail payload: base encoded image
-     */
     const customEvent = new Event('sign-updated', { composed: true, bubbles: true });
     customEvent.detail = this.image;
     this.dispatchEvent(customEvent);

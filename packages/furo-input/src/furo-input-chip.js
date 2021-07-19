@@ -36,6 +36,9 @@ import '@furo/layout/src/furo-ripple';
  * `--input-checkbox-disabled-unselected-bg-color-rgb` | background color of the unchecked disabled checkbox | `--background-rgb`  with `--state-disabled` opacity| rgba: 238, 238, 238, 0.38
  * `--input-checkbox-disabled-unselected-border-color` | border color of the unchecked disabled checkbox | `--on-background-rgb`  with `--state-disabled` opacity| rgba: 33, 33, 33, 0.38
  *
+ * @fires {{String} the text value} value-changed -  Fired when value has changed from inside the component.
+ * @fires {{String} the text value} checked -  Fired when the checkbox is checked.
+ * @fires {{String} the text value} unchecked -  Fired when the checkbox is unchecked.
  *
  * @summary input chips
  * @customElement
@@ -105,30 +108,18 @@ class FuroInputChip extends FBP(LitElement) {
   set value(v) {
     this._value = !!v;
 
-    /**
-     * @event value-changed
-     * Fired when value has changed from inside the component
-     * detail payload: {String} the text value
-     */
+
     const customEvent = new Event('value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.value;
     this.dispatchEvent(customEvent);
 
     if (this.checked) {
-      /**
-       * @event checked
-       * Fired when the checkbox is checked
-       * detail payload: {String} the text value
-       */
+
       const checkedEvent = new Event('checked', { composed: true, bubbles: true });
       checkedEvent.detail = this.value;
       this.dispatchEvent(checkedEvent);
     } else {
-      /**
-       * @event unchecked
-       * Fired when the checkbox is unchecked
-       * detail payload: {String} the text value
-       */
+
       const uncheckedEvent = new Event('unchecked', { composed: true, bubbles: true });
       uncheckedEvent.detail = this.value;
       this.dispatchEvent(uncheckedEvent);

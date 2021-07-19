@@ -50,30 +50,17 @@ export class Helper {
     caller.value = input.value;
 
     if (!input.validity.valid) {
-      /**
-       * @event input-invalid
-       * Fired when input value is invalid
-       * detail payload: {Object} the validity object of input
-       */
       const invalidInputEvent = new Event('input-invalid', { composed: true, bubbles: false });
       invalidInputEvent.detail = input.validity;
       caller.dispatchEvent(invalidInputEvent);
     } else {
-      /**
-       * @event value-cleared
-       * Fired when value has changed to EMPTY_STRING from inside the component
-       * detail paylod: empty
-       */
+
       if (caller.value.length === 0) {
         const customEvent = new Event('value-cleared', { composed: true, bubbles: true });
         caller.dispatchEvent(customEvent);
       }
 
-      /**
-       * @event value-changed
-       * Fired when value has changed from inside the component
-       * detail payload: {String} the text value
-       */
+
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = caller.value;
       caller.dispatchEvent(customEvent);

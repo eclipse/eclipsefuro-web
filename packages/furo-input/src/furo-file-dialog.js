@@ -7,6 +7,10 @@ import { Helper } from './lib/helper.js';
  * Handy component to manage input type="file"
  * Let the user choose one or more files from their device storage
  *
+ * @fires {the validity object of input} input-invalid -  Fired when input value is invalid.
+ * @fires {void} value-cleared -  Fired when value has changed to EMPTY_STRING from inside the component.
+ * @fires {String} value-changed -  Fired when value has changed from inside the component.
+ *
  * @summary File input field
  * @customElement
  * @demo demo-furo-file-dialog Sample

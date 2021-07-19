@@ -13,6 +13,10 @@ import { FBP } from '@furo/fbp';
  * </furo-collapsible-box>
  *```
  *
+ * @fires {void} opened -  Fired when collapsible box was opened.
+ * @fires {void} closed -  Fired when collapsible box was closed.
+ * @fires {Boolean} toggled -  Fired when collapsible-box was toggled,  true for open, false for closed.
+ *
  * @summary collapsible box with head
  * @customElement
  * @demo demo-furo-collapsible-box
@@ -97,32 +101,15 @@ class FuroCollapsibleBox extends FBP(LitElement) {
     this.requestUpdate();
 
     if (this._open === true) {
-      /**
-       * @event opened
-       *
-       * Fired when collapsible box was opened
-       *
-       * detail payload: void
-       */
       const customEvent = new Event('opened', { composed: true, bubbles: false });
       this.dispatchEvent(customEvent);
     } else {
-      /**
-       * @event closed
-       * Fired when collapsible box was closed
-       *
-       * detail payload: void
-       */
+
       const customEvent = new Event('closed', { composed: true, bubbles: false });
       this.dispatchEvent(customEvent);
     }
 
-    /**
-     * @event toggled
-     * Fired when collapsible-box was toggled
-     * detail payload: Boolean true for open, false for closed
-     * @param Boolean true for open, false for closed
-     */
+
     const customEvent = new Event('toggled', { composed: true, bubbles: false });
     customEvent.detail = this._open;
     this.dispatchEvent(customEvent);

@@ -44,6 +44,10 @@ import '@furo/layout/src/furo-ripple.js';
  * `--input-chip-disabled-selected-bg-color-rgb` | rgba color of the background of the selected disabled chip|  `--on-background-rgb` with opacity `--state-disabled` | rgba:  33, 33, 33, 0.38
  * `--input-chip-outlined-disabled-selected-bg-color-rgb` | rgba color of the background of the outlined selected disabled chip|  `--on-background-rgb` with opacity `--state-disabled` | rgba:  33, 33, 33, 0.38
  *
+ * @fires {{String} the text value} value-changed -  Fired when value has changed from inside the component.
+ * @fires {{String} the text value} selected -  Fired when the chip is selected.
+ * @fires {{String} the text value} unselected -  Fired when the chip is unselected.
+ *
  * @summary chips
  * @customElement
  * @demo demo-furo-chip Basic demo
@@ -116,31 +120,17 @@ class FuroChip extends FBP(LitElement) {
 
   set value(v) {
     this._value = !!v;
-
-    /**
-     * @event value-changed
-     * Fired when value has changed from inside the component
-     * detail payload: {String} the text value
-     */
     const customEvent = new Event('value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.value;
     this.dispatchEvent(customEvent);
 
     if (this.selected) {
-      /**
-       * @event selected
-       * Fired when the chip is selected
-       * detail payload: {String} the text value
-       */
+
       const selectedEvent = new Event('selected', { composed: true, bubbles: true });
       selectedEvent.detail = this.value;
       this.dispatchEvent(selectedEvent);
     } else {
-      /**
-       * @event unselected
-       * Fired when the chip is unselected
-       * detail payload: {String} the text value
-       */
+
       const unselectedEvent = new Event('unselected', { composed: true, bubbles: true });
       unselectedEvent.detail = this.value;
       this.dispatchEvent(unselectedEvent);
