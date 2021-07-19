@@ -6,9 +6,11 @@ import QrScanner from 'qr-scanner';
 
 /**
  * `furo-qr-scanner`
- * todo Describe your element
+ * Scans a qr code
  *
- * @summary todo shortdescription
+ * @fires {string} qr-code -  Fired when a qr-code is detected
+ *
+ * @summary qr code scanner
  * @customElement
  * @demo demo-furo-qr-scanner
  * @appliesMixin FBP
@@ -37,11 +39,7 @@ class FuroQrScanner extends FBP(LitElement) {
     QrScanner.WORKER_PATH = this.worker || '/worker/qr-scanner-worker.min.js';
     // this._FBPTraceWires()
     this.qrScanner = new QrScanner(this.vid, result => {
-      /**
-       * @event qr-code
-       * Fired when a qr-code is detected
-       * detail payload: string
-       */
+
       const customEvent = new Event('qr-code', { composed: true, bubbles: true });
       customEvent.detail = result;
       this.dispatchEvent(customEvent);

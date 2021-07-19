@@ -7,6 +7,8 @@ import { LitElement } from 'lit-element';
  * <furo-capture-audio @-stream="--stream"></furo-capture-audio>
  *
  *```
+ * @fires {MediaStream} stream -  Fired when start was triggered.
+ * @fires {Error} error -  Fired when a error occured.
  *
  * @summary Capture Audio
  * @customElement
@@ -41,11 +43,7 @@ class FuroCaptureAudio extends LitElement {
            * @type {MediaStream}
            */
 
-          /**
-           * @event stream
-           * Fired when
-           * detail payload:
-           */
+
           const customEvent = new Event('stream', { composed: true, bubbles: true });
           customEvent.detail = this.stream;
           this.dispatchEvent(customEvent);
@@ -58,11 +56,7 @@ class FuroCaptureAudio extends LitElement {
   }
 
   _err(e) {
-    /**
-     * @event error
-     * Fired when
-     * detail payload:
-     */
+
     const customEvent = new Event('error', { composed: true, bubbles: true });
     customEvent.detail = e;
     this.dispatchEvent(customEvent);
