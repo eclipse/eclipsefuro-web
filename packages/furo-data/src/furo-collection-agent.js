@@ -20,18 +20,18 @@ import { AgentHelper } from './lib/AgentHelper.js';
  *                    ></furo-collection-agent>
  * ```
  *
+ * @fires {*} ALL_BUBBLING_EVENTS_FROM_furo-api-fetch -  All bubbling events from furo-api-fetch will be fired, because furo-collection-agent uses furo-api-fetch internally.
+ * @fires {hts} response-hts-updated -  Fired when the hts was updated by the received response.
+ * @fires {} filter-changed -  Fired when filter was updated with `ƒ-set-filter`.
+ * @fires {Array|HATEOAS} hts-updated -  Fired when hateoas was updated from response.
+ * @fires {Hateoas links} hts-injected -  Fired when hateoas was updated
+ *
  * @summary interface component to handle collection requests
  * @customElement
  * @demo demo-furo-collection-agent Basic usage
  * @appliesMixin FBP
  */
 class FuroCollectionAgent extends FBP(LitElement) {
-  /**
-   * @event ALL_BUBBLING_EVENTS_FROM_furo-api-fetch
-   *
-   * All bubbling events from [furo-api-fetch](furo-api-fetch) will be fired, because furo-collection-agent uses furo-api-fetch internally.
-   *
-   */
 
   constructor() {
     super();
@@ -57,11 +57,6 @@ class FuroCollectionAgent extends FBP(LitElement) {
     // HTS aus response anwenden
     this._FBPAddWireHook('--responseParsed', r => {
       if (this._updateInternalHTS(r.links)) {
-        /**
-         * @event response-hts-updated
-         * Fired when
-         * detail payload: hts
-         */
         const customEvent = new Event('response-hts-updated', { composed: true, bubbles: true });
         customEvent.detail = r.links;
         this.dispatchEvent(customEvent);
@@ -242,11 +237,6 @@ class FuroCollectionAgent extends FBP(LitElement) {
 
   set filter(f) {
     this._filter = f;
-    /**
-     * @event filter-changed
-     * Fired when filter was updated with ƒ-set-filter
-     * detail payload:
-     */
     const customEvent = new Event('filter-changed', { composed: true, bubbles: true });
     customEvent.detail = this;
     this.dispatchEvent(customEvent);
@@ -512,11 +502,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
         this._hts.push(link);
       });
 
-      /**
-       * @event hts-updated
-       * Fired when hateoas is updated from response
-       * detail payload: {Array|HATEOAS}
-       */
+
       const customEvent = new Event('hts-updated', { composed: true, bubbles: false });
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
@@ -531,11 +517,7 @@ class FuroCollectionAgent extends FBP(LitElement) {
    */
   htsIn(hts) {
     if (this._updateInternalHTS(hts)) {
-      /**
-       * @event hts-injected
-       * Fired when hateoas is updated
-       * detail payload: Hateoas links
-       */
+
       const customEvent = new Event('hts-injected', { composed: true, bubbles: false });
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);

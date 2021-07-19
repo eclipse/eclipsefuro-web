@@ -6,6 +6,8 @@
  * appended to the field name. For example: "foo desc,bar".
  * Redundant space characters in the syntax are insignificant. "foo,bar desc" and "  foo ,  bar  desc  " are equivalent.
  *
+ * @fires {sortQueryArray} sortby-condition-updated - Is fired if a new sort condition is set.
+ *
  * @summary
  * @customElement
  * @demo demo-furo-sortby-container Basic Usage

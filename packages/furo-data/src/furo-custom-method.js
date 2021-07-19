@@ -6,7 +6,9 @@ import { AgentHelper } from './lib/AgentHelper.js';
 
 /**
  * `furo-custom-method`
- * interface component to handle custom methods
+ * interface component to handle custom methods.
+ *
+ * @fires {HTS} hts-updated -  Fired when hts was updated by `ƒ-hts-in`.
  *
  * @summary interface component to handle custom methods
  * @customElement
@@ -215,11 +217,7 @@ class FuroCustomMethod extends FBP(LitElement) {
         this._hts[link.rel] = link;
       });
 
-      /**
-       * @event hts-updated
-       * Fired when
-       * detail payload:
-       */
+
       const customEvent = new Event('hts-updated', { composed: true, bubbles: true });
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);

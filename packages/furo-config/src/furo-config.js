@@ -7,20 +7,23 @@ import { Config } from './lib/Config.js';
  *  Access config data
  *
  *
- * ```
- *
+ * ```html
  *   <furo-config-loader section="views" src="/viewconfig.json"></furo-config>
  *   <furo-config-loader section="second" src="/second.json"></furo-config>
  *   <furo-config section="views" @-config-updated="--conf"></furo-config>
  *   <furo-config section="second.section.deep" @-config-updated="--deepconf"></furo-config>
  * ```
  *
+ * @fires {config.section} config-updated - Fired when section changed
  * @summary config access
  * @customElement
  */
 class FuroConfig extends LitElement {
   constructor() {
     super();
+    /**
+     * The current section of the config, which was defined by `section`.
+     */
     this.config = Config;
   }
 
@@ -41,11 +44,7 @@ class FuroConfig extends LitElement {
 
   set section(val) {
     Config.watch(val, section => {
-      /**
-       * @event config-updated
-       * Fired when section changed
-       * detail payload: section config
-       */
+
       const customEvent = new Event('config-updated', { composed: true, bubbles: true });
       customEvent.detail = section.detail._value;
       this.dispatchEvent(customEvent);

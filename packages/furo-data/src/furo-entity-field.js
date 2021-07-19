@@ -5,6 +5,7 @@ import { LitElement, css } from 'lit-element';
  *
  * You can set the field value or listen to changes of a field.
  *
+ * @fires {*} value-changed -  Fired when the field value or a child value of it was changed.
  * @summary interact with single field of a data object
  * @customElement
  * @mixes FBP
@@ -44,11 +45,7 @@ class FuroEntityField extends LitElement {
     this.field = fieldNode;
 
     this.field.addEventListener('field-value-changed', e => {
-      /**
-       * @event value-changed
-       * Fired when
-       * detail payload:
-       */
+
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = e.detail.value;
       this.dispatchEvent(customEvent);

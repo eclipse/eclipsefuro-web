@@ -255,7 +255,7 @@ export class RepeaterNode extends EventTreeNode {
             field._constraints[c] = mc.constraints[c];
           }
           /**
-           * @event this-metas-changed INTERNAL Event
+           * @fires this-metas-changed INTERNAL Event
            *
            * Fired when field metas, constraints or options changed
            * detail payload:

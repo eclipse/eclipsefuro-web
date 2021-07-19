@@ -13,6 +13,8 @@ import { Env } from '@furo/framework';
  *  ></furo-reverse-deep-link>
  *```
  *
+ * @fires {QueryParams} converted -  Fired when input was converted.
+ *
  * @summary create query param object from HATEOAS
  * @customElement
  */
@@ -75,11 +77,7 @@ class FuroReverseDeepLink extends LitElement {
       qp = this._convert(linkObject);
     }
 
-    /**
-     * @event converted
-     * Fired when input was converted
-     * detail payload: {object} QueryParams
-     */
+
     const customEvent = new Event('converted', { composed: true, bubbles: true });
     customEvent.detail = qp;
     this.dispatchEvent(customEvent);
