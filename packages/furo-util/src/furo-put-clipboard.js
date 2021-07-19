@@ -11,6 +11,9 @@ import { LitElement, css } from 'lit-element';
  *
  *```
  *
+ * @fires {*}  - Fired when clipboard content is received
+ * @event {*} content written to clipboard
+ *
  * @summary write content to clipboard
  * @customElement
  */
@@ -19,6 +22,12 @@ class FuroPutClipboard extends LitElement {
     this.data = data;
   }
 
+
+  /**
+   * Write data to the clipboard
+   *
+   * @param {Object} data Serializable data
+   */
   trigger(data) {
     let ndata = data;
     if (this.data) {
@@ -32,11 +41,6 @@ class FuroPutClipboard extends LitElement {
     }
 
     navigator.clipboard.writeText(d).then(() => {
-      /**
-       * @event content
-       * Fired when clipboard content is received
-       * detail payload: {*} content of the clipboard
-       */
       const customEvent = new Event('content-putted', { composed: true, bubbles: true });
       customEvent.detail = d;
       this.dispatchEvent(customEvent);

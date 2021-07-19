@@ -7,6 +7,9 @@
  *  <furo-head-tail ƒ-split="--arrayData" @-head="--firstElement" @-tail="--restOfArray"></furo-head-tail>
  *```
  *
+ * @fires {{Any} } head -  Fired when Array was splitted, contains the first element of array.
+ * @fires {Array | Any} tail -  Fired when Array was splitted. {Array || Any} is the tail from the injected array (e1 - 1n)
+ *
  * @summary split an array
  * @customElement
  */
@@ -34,20 +37,11 @@ class FuroHeadTail extends HTMLElement {
     }
     const [head, ...tail] = iterable;
 
-    /**
-     * @event head
-     * Fired when Array was splitted
-     * detail payload: {Any} first element of array
-     */
     const headEvent = new Event('head', { composed: true, bubbles: true });
     headEvent.detail = head;
     this.dispatchEvent(headEvent);
 
-    /**
-     * @event tail
-     * Fired when Array was splitted
-     * detail payload: {Array || Any} the tail from the injected array (e1 - 1n)
-     */
+
     const tailEvent = new Event('tail', { composed: true, bubbles: true });
     tailEvent.detail = tail;
     this.dispatchEvent(tailEvent);

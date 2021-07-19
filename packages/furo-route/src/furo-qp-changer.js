@@ -8,6 +8,7 @@ import { FBP } from '@furo/fbp';
  * updates the query params in the url
  *
  *
+ * @fires {Number} __beforeReplaceState -  Fired when before the state will be updated (Number is window.performance.now())
  *
  * @summary deep linking helper
  * @customElement
@@ -62,11 +63,7 @@ class FuroQpChanger extends FBP(LitElement) {
     if (this._lastLocation !== location) {
       // notify furo location
 
-      /**
-       * @event __beforeReplaceState
-       * Fired when before the state will be updated
-       * detail payload:
-       */
+
       window.dispatchEvent(new Event('__beforeReplaceState', { composed: true, bubbles: true }));
       window.history.replaceState({}, '', location);
 

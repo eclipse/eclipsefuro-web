@@ -12,6 +12,9 @@ import { FBP } from '@furo/fbp';
  *
  *```
  *
+ * @fires content -  Fired when clipboard content is received
+ * @event {*} content of the clipboard
+ *
  * @summary get clipboard content
  * @customElement
  * @appliesMixin FBP
@@ -19,11 +22,7 @@ import { FBP } from '@furo/fbp';
 class FuroGetClipboard extends FBP(LitElement) {
   trigger() {
     navigator.clipboard.readText().then(clipText => {
-      /**
-       * @event content
-       * Fired when clipboard content is received
-       * detail payload: {*} content of the clipboard
-       */
+
       const customEvent = new Event('content', { composed: true, bubbles: true });
       if (this.json) {
         customEvent.detail = JSON.parse(clipText);

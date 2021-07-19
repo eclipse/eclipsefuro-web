@@ -7,6 +7,8 @@ import { panelRegistry } from './lib/panelRegistry.js';
  * `furo-panel-coordinator`
  *
  *
+ * @fires {RepeaterNode} controls-ready - Fired when Controls for panels are ready, initially it starts with an empty set.
+ *
  * @summary Complex content switcher based on furo-tree
  * @customElement
  * @demo demo-furo-panel-coordinator with deep link
@@ -30,12 +32,6 @@ class FuroPanelCoordinator extends FBP(LitElement) {
   }
 
   _notifiyOpenPanels() {
-    /**
-     * @event controls-ready
-     * Fired when Controls for panels are ready, initially it starts with an empty set
-     *
-     * detail payload: RepeaterNode with navigation nodes
-     */
     const customEvent = new Event('panels-changed', { composed: true, bubbles: true });
     customEvent.detail = this._openPanels;
     this.dispatchEvent(customEvent);

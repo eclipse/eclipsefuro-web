@@ -14,6 +14,18 @@ import { FBP } from '@furo/fbp';
  *  ```
  *
  *
+ * @fires {String} navigated - Generic navigation event, fired when one of the navigation keys was pressed, detail contains
+ * one of these: Escape | Enter | ArrowDown | ArrowUp |ArrowLeft|ArrowRight| PageUp | PageDown | Home | End
+ * @fires {KeyboardEvent} enter-pressed -  Fired when Enter key was pressed.
+ * @fires {KeyboardEvent} arrow-down-pressed -  Fired when ArrowDown key was pressed.
+ * @fires {KeyboardEvent} arrow-up-pressed -  Fired when ArrowUp key was pressed.
+ * @fires {KeyboardEvent} arrow-left-pressed -  Fired when ArrowLeft key was pressed.
+ * @fires {KeyboardEvent} arrow-right-pressed -  Fired when ArrowRight key was pressed.
+ * @fires {KeyboardEvent} escape-pressed -  Fired when Escape key was pressed.
+ * @fires {KeyboardEvent} page-up-pressed -  Fired when PageUp key was pressed.
+ * @fires {KeyboardEvent} page-down-pressed -  Fired when PageDown key was pressed.
+ * @fires {KeyboardEvent} home-pressed -  Fired when Home key was pressed.
+ * @fires {KeyboardEvent} end-pressed -  Fired when End key was pressed.
  *
  *
  * @summary keyboard navigation helper
@@ -58,13 +70,6 @@ class FuroNavigationPad extends FBP(LitElement) {
         return;
       }
 
-      /**
-       * @event navigated
-       * Fired when one of the keys was pressed
-       *
-       * The original event is stored under **initiatiorEvent**.
-       * detail payload: key
-       */
       const navigatedEvent = new Event('navigated', { composed: true, bubbles: true });
       navigatedEvent.initiatorEvent = event;
 
@@ -85,12 +90,6 @@ class FuroNavigationPad extends FBP(LitElement) {
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
-          /**
-           * @event enter-pressed
-           * Fired when Enter key was pressed
-           * detail payload: keyboard event
-           */
-
           enterEvent.detail = event;
           this.dispatchEvent(enterEvent);
           break;
@@ -100,12 +99,6 @@ class FuroNavigationPad extends FBP(LitElement) {
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
-          /**
-           * @event arrow-down-pressed
-           * Fired when ArrowDown key was pressed
-           * detail payload: keyboard event
-           */
-
           arrowDownEvent.detail = event;
           this.dispatchEvent(arrowDownEvent);
           break;
@@ -115,12 +108,6 @@ class FuroNavigationPad extends FBP(LitElement) {
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
-          /**
-           * @event arrow-up-pressed
-           * Fired when ArrowUp key was pressed
-           * detail payload: keyboard event
-           */
-
           arrowUpEvent.detail = event;
           this.dispatchEvent(arrowUpEvent);
           break;
@@ -131,12 +118,6 @@ class FuroNavigationPad extends FBP(LitElement) {
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
 
-          /**
-           * @event arrow-left-pressed
-           * Fired when ArrowLeft key was pressed
-           * detail payload: keyboard event
-           */
-
           arrowLeftEvent.detail = event;
           this.dispatchEvent(arrowLeftEvent);
           break;
@@ -146,12 +127,6 @@ class FuroNavigationPad extends FBP(LitElement) {
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
-          /**
-           * @event arrow-right-pressed
-           * Fired when ArrowRight key was pressed
-           * detail payload: keyboard event
-           */
-
           arrowRightEvent.detail = event;
           this.dispatchEvent(arrowRightEvent);
           break;
@@ -161,12 +136,6 @@ class FuroNavigationPad extends FBP(LitElement) {
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
-          /**
-           * @event escape-pressed
-           * Fired when Escape key was pressed
-           * detail payload: keyboard event
-           */
-
           escapeEvent.detail = event;
           this.dispatchEvent(escapeEvent);
           break;
@@ -176,12 +145,6 @@ class FuroNavigationPad extends FBP(LitElement) {
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
-          /**
-           * @event page-up-pressed
-           * Fired when PageUp key was pressed
-           * detail payload: keyboard event
-           */
-
           pageUpEvent.detail = event;
           this.dispatchEvent(pageUpEvent);
           break;
@@ -191,12 +154,6 @@ class FuroNavigationPad extends FBP(LitElement) {
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
-          /**
-           * @event page-down-pressed
-           * Fired when PageDown key was pressed
-           * detail payload: keyboard event
-           */
-
           pageDownEvent.detail = event;
           this.dispatchEvent(pageDownEvent);
           break;
@@ -206,11 +163,6 @@ class FuroNavigationPad extends FBP(LitElement) {
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
-          /**
-           * @event home-pressed
-           * Fired when Home key was pressed
-           * detail payload: keyboard event
-           */
 
           homeEvent.detail = event;
           this.dispatchEvent(homeEvent);
@@ -221,11 +173,7 @@ class FuroNavigationPad extends FBP(LitElement) {
 
           navigatedEvent.detail = key;
           this.dispatchEvent(navigatedEvent);
-          /**
-           * @event end-pressed
-           * Fired when End key was pressed
-           * detail payload: keyboard event
-           */
+
 
           endEvent.detail = event;
           this.dispatchEvent(endEvent);

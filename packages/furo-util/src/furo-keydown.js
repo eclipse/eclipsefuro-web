@@ -7,6 +7,8 @@ import { FBP } from '@furo/fbp';
  *
  *  [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)
  *
+ * @fires {KeyboardEvent} key - Fired when key was catched on target
+ *
  * @summary keyboard event listener
  * @customElement
  * @appliesMixin FBP
@@ -67,11 +69,7 @@ class FuroKeydown extends FBP(LitElement) {
         if (this.stopPropagation) {
           keyevent.stopPropagation();
         }
-        /**
-         * @event key
-         * Fired when key was catched on target
-         * detail payload: keyevent
-         */
+
 
         const customEvent = new Event('key', { composed: true, bubbles: true });
         customEvent.detail = keyevent;
