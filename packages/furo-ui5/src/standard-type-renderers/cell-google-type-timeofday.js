@@ -20,6 +20,11 @@ import { Env } from '@furo/framework/src/furo.js';
 class CellGoogleTypeTimeofday extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
   }
 
@@ -95,6 +100,10 @@ class CellGoogleTypeTimeofday extends LitElement {
     return '';
   }
 
+  /**
+   *
+   * @private
+   */
   _formatCell() {
     this._displayValue = CellGoogleTypeTimeofday._convertDayTimeToString(this._field);
     this.requestUpdate();

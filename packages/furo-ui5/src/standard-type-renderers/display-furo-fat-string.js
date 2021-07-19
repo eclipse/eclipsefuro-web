@@ -16,6 +16,11 @@ import { Theme } from '@furo/framework/src/theme';
 class DisplayFuroFatString extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
   }
 

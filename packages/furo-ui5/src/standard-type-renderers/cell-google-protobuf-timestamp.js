@@ -20,6 +20,11 @@ import { Env } from '@furo/framework/src/furo.js';
 class CellGoogleProtobufTimestamp extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
   }
 
@@ -90,6 +95,10 @@ class CellGoogleProtobufTimestamp extends LitElement {
     return strDate;
   }
 
+  /**
+   *
+   * @private
+   */
   _formatCell() {
     this._displayValue = CellGoogleProtobufTimestamp._convertDateToString(this._field._value);
     this.requestUpdate();

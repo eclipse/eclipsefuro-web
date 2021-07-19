@@ -20,6 +20,11 @@ import { Env } from '@furo/framework/src/furo.js';
 export class DisplayInt64 extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
   }
 

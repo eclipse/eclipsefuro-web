@@ -81,6 +81,10 @@ export class CellFloat extends LitElement {
     }
   }
 
+  /**
+   *
+   * @private
+   */
   _formatCell() {
     const displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field);
     if (displayValue !== 'NaN') {

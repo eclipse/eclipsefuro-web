@@ -20,6 +20,11 @@ import { Env } from '@furo/framework/src/furo.js';
 class DisplayGoogleProtobufTimestamp extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
   }
 

@@ -20,6 +20,11 @@ import { Env } from '@furo/framework/src/furo.js';
 export class CellGoogleTypeDate extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
   }
 
@@ -86,6 +91,10 @@ export class CellGoogleTypeDate extends LitElement {
     this._formatCell();
   }
 
+  /**
+   *
+   * @private
+   */
   _formatCell() {
     const displayValue = CellGoogleTypeDate._convertDateToString(this._field);
     if (displayValue !== 'N/A') {

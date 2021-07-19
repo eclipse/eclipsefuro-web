@@ -20,6 +20,10 @@ import { CellGoogleTypeMoney } from './cell-google-type-money.js';
  * @demo demo cell-furo-type-money Basic Usage
  */
 class CellFuroTypeMoney extends CellGoogleTypeMoney {
+  /**
+   *
+   * @private
+   */
   _formatCell() {
     this._valueObject.amount = CellGoogleTypeMoney._convertTypeToNumber(this._field);
 

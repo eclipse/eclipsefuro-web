@@ -18,6 +18,11 @@ import '@ui5/webcomponents/dist/Link.js';
 class DisplayFuroReference extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
   }
 

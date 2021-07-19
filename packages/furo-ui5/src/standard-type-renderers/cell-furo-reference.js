@@ -18,6 +18,11 @@ import '@ui5/webcomponents/dist/Link.js';
 class CellFuroReference extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
   }
 
@@ -59,6 +64,10 @@ class CellFuroReference extends LitElement {
   /**
    * Template logic
    * @returns {*}
+   * @private
+   */
+  /**
+   *
    * @private
    */
   _formatCell() {

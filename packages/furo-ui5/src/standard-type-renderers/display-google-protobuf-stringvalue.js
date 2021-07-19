@@ -17,6 +17,11 @@ import { Theme } from '@furo/framework/src/theme';
 class DisplayGoogleProtobufStringvalue extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {string}
+     * @private
+     */
     this._displayValue = '';
   }
 

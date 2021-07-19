@@ -15,6 +15,10 @@ import { CellInt32 } from './cell-int32.js';
  * @demo demo-cell-furo-integerproperty Basic Usage
  */
 export class CellFuroIntegerproperty extends CellInt32 {
+  /**
+   *
+   * @private
+   */
   _formatCell() {
     const displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field.data);
     if (displayValue !== 'NaN') {

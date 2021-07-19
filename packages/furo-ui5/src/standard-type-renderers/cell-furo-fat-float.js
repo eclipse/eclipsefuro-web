@@ -13,6 +13,10 @@ import { CellFloat } from './cell-float.js';
  * @demo demo cell-furo-fat-float Basic Usage
  */
 class CellFuroFatFloat extends CellFloat {
+  /**
+   *
+   * @private
+   */
   _formatCell() {
     const displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field.value._value);
     if (displayValue !== 'NaN') {

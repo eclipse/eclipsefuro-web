@@ -18,6 +18,10 @@ import { CellInt32 } from './cell-int32.js';
  * @demo demo cell-int32 Basic Usage
  */
 export class CellFuroFatInt32 extends CellInt32 {
+  /**
+   *
+   * @private
+   */
   _formatCell() {
     if (this._field.value._value !== null) {
       const displayValue = new Intl.NumberFormat(Env.locale, {}).format(this._field.value._value);
