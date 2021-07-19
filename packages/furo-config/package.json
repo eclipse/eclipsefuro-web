@@ -1,7 +1,7 @@
 {
   "name": "@furo/config",
   "description": "Furo config components",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-config",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -30,7 +30,7 @@
   "dependencies": {
     "@furo/fbp": "^5.9.1",
     "@furo/framework": "^1.7.4",
-    "@furo/util": "^1.5.4",
+    "@furo/util": "^1.5.5",
     "lit-element": "^2.3.1"
   },
   "devDependencies": {

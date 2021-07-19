@@ -2,7 +2,7 @@
   "name": "@furo/experiments",
   "description": "Experimental furo components",
   "main": "src/furo-catalog.js",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "dependencies": {
     "@furo/fbp": "^5.9.1",
     "lit-element": "^2.3.1",

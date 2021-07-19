@@ -4,7 +4,7 @@
   "keywords": [
     "routing"
   ],
-  "version": "1.9.4",
+  "version": "1.9.5",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-route",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -34,16 +34,16 @@
   "dependencies": {
     "@furo/fbp": "^5.9.1",
     "@furo/framework": "^1.7.4",
-    "@furo/util": "^1.5.4",
+    "@furo/util": "^1.5.5",
     "lit-element": "^2.3.1",
     "lit-html": "^1.1.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@furo/data": "^1.29.4",
-    "@furo/layout": "^1.6.4",
-    "@furo/navigation": "^1.7.4",
+    "@furo/data": "^1.29.5",
+    "@furo/layout": "^1.6.5",
+    "@furo/navigation": "^1.7.5",
     "@open-wc/building-rollup": "^0.20.6",
     "@open-wc/eslint-config": "^2.0.4",
     "@open-wc/prettier-config": "^0.1.14",
