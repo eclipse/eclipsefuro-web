@@ -22,29 +22,18 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * - 'required': is mapped to 'required' attribute
  *
+ * @fires {{Array} A FileList listing the chosen files} value-changed -  This event is representative for the attribute files on the native element input type=file. Fired when value has changed from inside the component.  Comes from underlying component furo-file-input. **bubbles**
+ * @fires {Base64 []String} files-selected -  Fired when value has changed from inside the input field. Comes from underlying component furo-file-input. **bubbles**
+ * @fires {A FileList listing the chosen files} files-selected -  This event is representative for the attribute files on the native element input type=file. Fired when value has changed from inside the component
+ * @fires {{Array} all selected files base64 encoded} value-changed -  Fired when value has changed from inside the component
+ * @fires {{Array} all selected files base64 encoded} progress -  is triggered while reading a Blob content.
+ *
  * @summary Binds a entityObject field to a furo-file-input field
  * @customElement
  * @demo demo-furo-data-file-input Data binding
  * @mixes FBP
  */
 class FuroDataFileInput extends FuroFileDialog {
-  /**
-   * @event value-changed
-   * This event is representative for the attribute files on the native element input type=file
-   * Fired when value has changed from inside the component
-   * detail payload: {Array} A FileList listing the chosen files
-   *
-   * Comes from underlying component furo-file-input. **bubbles**
-   */
-
-  /**
-   * @event files-selected
-   * Fired when value has changed from inside the input field.
-   *
-   * detail payload: {Array} Base64 String
-   *
-   * Comes from underlying component furo-file-input. **bubbles**
-   */
 
   constructor() {
     super();
@@ -100,12 +89,6 @@ class FuroDataFileInput extends FuroFileDialog {
 
       this.files = FILES;
 
-      /**
-       * @event files-selected
-       * This event is representative for the attribute files on the native element input type=file
-       * Fired when value has changed from inside the component
-       * detail payload: {Array} A FileList listing the chosen files
-       */
       const customEvent = new Event('files-selected', { composed: true, bubbles: true });
       customEvent.detail = FILES;
       this.dispatchEvent(customEvent);
@@ -125,11 +108,6 @@ class FuroDataFileInput extends FuroFileDialog {
           this.binder.fieldValue = values;
         }
 
-        /**
-         * @event value-changed
-         * Fired when value has changed from inside the component
-         * detail payload: {Array} all selected files base64 encoded
-         */
         const valueChangeEvent = new Event('value-changed', { composed: true, bubbles: true });
         valueChangeEvent.detail = values;
         this.dispatchEvent(valueChangeEvent);
@@ -160,11 +138,7 @@ class FuroDataFileInput extends FuroFileDialog {
       });
       reader.addEventListener('progress', e => {
         if (e.lengthComputable) {
-          /**
-           * @event progress
-           * is triggered while reading a Blob content.
-           * detail payload: {Array} all selected files base64 encoded
-           */
+
           const customEvent = new Event('progress', { composed: true, bubbles: true });
           customEvent.detail = e;
           this.dispatchEvent(customEvent);

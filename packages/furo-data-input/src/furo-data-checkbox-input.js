@@ -35,20 +35,15 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * ## Attributes & Properties
  * see the Attributes & Properties of [furo-checkbox-input](/furo-input?t=FuroCheckboxInput)
  *
+ * @fires {{Boolean} the bool value} value-changed -  Fired when value has changed from inside the input field. Comes from underlying component furo-checkbox-input. **bubbles**
+ *
  * @summary Bind a entityObject.field to a checkbox input
  * @customElement
  * @demo demo-furo-data-checkbox-input Data binding
  * @mixes FBP
  */
 export class FuroDataCheckboxInput extends FuroCheckboxInput {
-  /**
-   * @event value-changed
-   * Fired when value has changed from inside the input field.
-   *
-   * detail payload: {Boolean} the bool value
-   *
-   * Comes from underlying component furo-checkbox-input. **bubbles**
-   */
+
 
   constructor() {
     super();

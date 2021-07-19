@@ -44,6 +44,10 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * ## Attributes & Properties
  * see the Attributes & Properties of [furo-range-input](/furo-input?t=FuroRangeInput)
  *
+ * @fires {{String} the range input value} value-changed -  Fired when value has changed from inside the input field. Comes from underlying component furo-range-input. **bubbles**
+ * @fires {the value of the range input} trailing-icon-clicked -  Fired when the trailing icon was clicked.  Comes from underlying component furo-range-input. **bubbles**
+ * @fires {the value of the range input} leading-icon-clicked -  Fired when the leading icon was clicked.  Comes from underlying component furo-range-input. **bubbles**
+ *
  * @summary Bind a entityObject.field to a range input
  * @customElement
  * @demo demo-furo-data-range-input Data binding
@@ -51,32 +55,6 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * @mixes FBP
  */
 export class FuroDataRangeInput extends FuroRangeInput {
-  /**
-   * @event value-changed
-   * Fired when value has changed from inside the input field.
-   *
-   * detail payload: {String} the range input value
-   *
-   * Comes from underlying component furo-range-input. **bubbles**
-   */
-
-  /**
-   * @event trailing-icon-clicked
-   * Fired when the trailing icon was clicked
-   *
-   * detail payload: the value of the range input
-   *
-   * Comes from underlying component furo-range-input. **bubbles**
-   */
-
-  /**
-   * @event leading-icon-clicked
-   * Fired when the leading icon was clicked
-   *
-   * detail payload: the value of the range input
-   *
-   * Comes from underlying component furo-range-input. **bubbles**
-   */
 
   constructor() {
     super();

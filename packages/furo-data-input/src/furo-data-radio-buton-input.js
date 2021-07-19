@@ -35,20 +35,15 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * ## Attributes & Properties
  * see the Attributes & Properties of [furo-radio-button-input](/furo-input?t=FuroRadioButtonInput)
  *
+ * @fires {{Boolean}} value-changed -  Fired when value has changed from inside the input field. This event Comes from underlying component furo-radio-button-input (**bubbles**).
+ *
  * @summary Bind a entityObject.field to a range input
  * @customElement
  * @demo demo-furo-data-radio-button-input Data binding
  * @mixes FBP
  */
 export class FuroDataRadioButtonInput extends FuroRadioButtonInput {
-  /**
-   * @event value-changed
-   * Fired when value has changed from inside the input field.
-   *
-   * detail payload: {Boolean} the bool value
-   *
-   * Comes from underlying component furo-radio-button-input. **bubbles**
-   */
+
 
   constructor() {
     super();

@@ -41,38 +41,16 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * ## Attributes & Properties
  * see the Attributes & Properties of [furo-date-input](/furo-input?t=FuroDateInput)
  *
+ * @fires {{Date} the date value} value-changed -  Fired when value has changed from inside the input field. Comes from underlying component furo-date-input. **bubbles**
+ * @fires {the value of the date input} trailing-icon-clicked -  Fired when the trailing icon was clicked. Comes from underlying component furo-date-input. **bubbles**
+ * @fires {the value of the date input} leading-icon-clicked -  Fired when the leading icon was clicked. Comes from underlying component furo-date-input. **bubbles**
+ *
  * @summary Bind a entityObject.field to a date input
  * @customElement
  * @demo demo-furo-data-date-input Data binding
  * @mixes FBP
  */
 class FuroDataDateInput extends FuroDateInput {
-  /**
-   * @event value-changed
-   * Fired when value has changed from inside the input field.
-   *
-   * detail payload: {Date} the date value
-   *
-   * Comes from underlying component furo-date-input. **bubbles**
-   */
-
-  /**
-   * @event trailing-icon-clicked
-   * Fired when the trailing icon was clicked
-   *
-   * detail payload: the value of the date input
-   *
-   * Comes from underlying component furo-date-input. **bubbles**
-   */
-
-  /**
-   * @event leading-icon-clicked
-   * Fired when the leading icon was clicked
-   *
-   * detail payload: the value of the date input
-   *
-   * Comes from underlying component furo-date-input. **bubbles**
-   */
 
   constructor() {
     super();

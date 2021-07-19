@@ -44,38 +44,17 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * ## Attributes & Properties
  * see the Attributes & Properties of [furo-password-input](/furo-input?t=FuroPasswordInput)
  *
+ * @fires {{String} the password value} value-changed -  Fired when value has changed from inside the input field. Comes from underlying component furo-password-input. **bubbles**
+ * @fires {the value of the password input} trailing-icon-clicked -  Fired when the trailing icon was clicked. Comes from underlying component furo-password-input. **bubbles**
+ * @fires {the value of the password input} leading-icon-clicked -  Fired when the leading icon was clicked. Comes from underlying component furo-password-input. **bubbles**
+ *
  * @summary Bind a entityObject.field to a password input
  * @customElement
  * @demo demo-furo-data-password-input Data binding
  * @mixes FBP
  */
 export class FuroDataPasswordInput extends FuroPasswordInput {
-  /**
-   * @event value-changed
-   * Fired when value has changed from inside the input field.
-   *
-   * detail payload: {String} the password value
-   *
-   * Comes from underlying component furo-password-input. **bubbles**
-   */
 
-  /**
-   * @event trailing-icon-clicked
-   * Fired when the trailing icon was clicked
-   *
-   * detail payload: the value of the password input
-   *
-   * Comes from underlying component furo-password-input. **bubbles**
-   */
-
-  /**
-   * @event leading-icon-clicked
-   * Fired when the leading icon was clicked
-   *
-   * detail payload: the value of the password input
-   *
-   * Comes from underlying component furo-password-input. **bubbles**
-   */
 
   constructor() {
     super();

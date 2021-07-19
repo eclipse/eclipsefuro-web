@@ -37,6 +37,8 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  *
  * - 'required': is mapped to 'required' attribute
  *
+ * @fires {google money object} value-changed -  Fired when value has changed from inside the component
+ *
  * @summary  Binds a entityObject field google.type.Money to a furo-number-input and currency dropdown fields
  * @customElement
  * @demo demo-furo-data-money-input Data binding
@@ -134,11 +136,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
 
       this.error = false;
 
-      /**
-       * @event value-changed
-       * Fired when value has changed from inside the component
-       * detail payload: google money object
-       */
+
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = this.binder.fieldValue;
       this.dispatchEvent(customEvent);

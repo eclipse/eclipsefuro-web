@@ -35,38 +35,17 @@ import { UniversalFieldNodeBinder } from '@furo/data/src/lib/UniversalFieldNodeB
  * ## Attributes & Properties
  * see the Attributes & Properties of [furo-color-input](/furo-input?t=FuroColorInput)
  *
+ * @fires {{String} the color value} value-changed -  Fired when value has changed from inside the input field. Comes from underlying component furo-color-input. **bubbles**
+ * @fires {the value of the color input} trailing-icon-clicked -  Fired when the trailing icon was clicked. Comes from underlying component furo-color-input. **bubbles**
+ * @fires {the value of the color input} leading-icon-clicked -  Fired when the leading icon was clicked. Comes from underlying component furo-color-input. **bubbles**
+ *
+ *
  * @summary Bind a entityObject.field to a color input
  * @customElement
  * @demo demo-furo-data-color-input Data binding
  * @mixes FBP
  */
 export class FuroDataColorInput extends FuroColorInput {
-  /**
-   * @event value-changed
-   * Fired when value has changed from inside the input field.
-   *
-   * detail payload: {String} the color value
-   *
-   * Comes from underlying component furo-color-input. **bubbles**
-   */
-
-  /**
-   * @event trailing-icon-clicked
-   * Fired when the trailing icon was clicked
-   *
-   * detail payload: the value of the color input
-   *
-   * Comes from underlying component furo-color-input. **bubbles**
-   */
-
-  /**
-   * @event leading-icon-clicked
-   * Fired when the leading icon was clicked
-   *
-   * detail payload: the value of the color input
-   *
-   * Comes from underlying component furo-color-input. **bubbles**
-   */
 
   constructor() {
     super();
