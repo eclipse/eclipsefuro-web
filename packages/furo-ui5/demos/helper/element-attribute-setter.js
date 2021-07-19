@@ -12,6 +12,7 @@ import { FBP } from '@furo/fbp/src/fbp.js';
 class ElementAttributeSetter extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

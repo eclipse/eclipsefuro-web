@@ -109,6 +109,10 @@ class FuroDataDisplay extends FBP(LitElement) {
     this._updateField();
   }
 
+  /**
+   *
+   * @private
+   */
   _updateField() {
     if (this.binder.fieldFormat === 'fat' || this.binder.fieldFormat === 'wrapper') {
       this.text = this.binder.fieldNode.value._value;

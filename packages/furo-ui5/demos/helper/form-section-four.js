@@ -12,6 +12,7 @@ import '../../src/standard-type-renderers/display-registry.js';
 class FormSectionFour extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

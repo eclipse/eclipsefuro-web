@@ -54,29 +54,56 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   constructor() {
     super();
 
-    // used to restore the state after a invalidation -> validation change
+    /**
+     * used to restore the state after a invalidation -> validation change
+     * @type {string}
+     * @private
+     */
     this._previousValueState = 'None';
-
+    /**
+     *
+     * @type {{readonly: undefined, disabled: undefined, label: undefined}}
+     * @private
+     */
     this._attributesFromFNA = {
       readonly: undefined,
       disabled: undefined,
       label: undefined,
     };
 
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._constraintsFromFNA = {};
-
+    /**
+     *
+     * @type {{label: undefined}}
+     * @private
+     */
     this._attributesFromFAT = {
       label: undefined,
     };
 
+    /**
+     *
+     * @type {{readonly: undefined, disabled: undefined}}
+     * @private
+     */
     this._labelsFromFAT = {
       readonly: undefined,
       disabled: undefined,
     };
 
-    // a list of privileged attributes. when those attributes are set in number-input components initially.
-    // they can not be modified later via response or spec
-    // null is used because getAttribute returns null or value
+    /**
+     * a list of privileged attributes. when those attributes are set in number-input components initially.
+     * they can not be modified later via response or spec
+     * null is used because getAttribute returns null or value
+     *
+     * @type {{readonly: null, disabled: null, text: null}}
+     * @private
+     */
     this._privilegedAttributes = {
       readonly: null,
       disabled: null,
@@ -258,7 +285,8 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   /**
    * overwrite onFnaLabelChanged function
    * label is mapped to text
-   * @param placeholder
+   * @param {String} placeholder
+   * @private
    */
   onFnaLabelChanged(text) {
     this._attributesFromFNA.label = text;
@@ -270,7 +298,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   /**
    * overwrite onFnaReadonlyChanged function
    * @private
-   * @param readonly
+   * @param {Boolean} readonly
    */
   onFnaReadonlyChanged(readonly) {
     this._attributesFromFNA.readonly = readonly;
@@ -285,6 +313,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   /**
    * extend styling
    * @returns {string}
+   * @private
    */
   static get styles() {
     return `${css`` + super.styles}

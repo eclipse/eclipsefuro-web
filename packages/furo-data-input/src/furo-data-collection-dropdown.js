@@ -78,11 +78,31 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
     this.valueSubField = undefined;
     this.updateLock = false;
 
+    /**
+     *
+     * @type {*[]}
+     * @private
+     */
     this._dropdownList = [];
-    // generated one element dropdown, which has only the data of the bounded DO
+
+    /**
+     * generated one element dropdown, which has only the data of the bounded DO
+     * @type {*[]}
+     * @private
+     */
     this._pseudoDropdownList = [];
-    // injected dropdown elements which from a collection of response or in spec defined options
+
+    /**
+     * injected dropdown elements which from a collection of response or in spec defined options
+     * @type {*[]}
+     * @private
+     */
     this._injectedDropdownList = [];
+    /**
+     *
+     * @type {boolean}
+     * @private
+     */
     this._valueFoundInList = true;
 
     this.addEventListener('value-changed', val => {
@@ -374,6 +394,7 @@ class FuroDataCollectionDropdown extends FuroSelectInput {
   /**
    * Build the dropdown list with given options from meta
    * @param {options} list of options with id and display_name
+   * @private
    */
   _buildListWithMetaOptions(options) {
     this._injectedDropdownList = CollectionDropdownHelper.mapDataToList(this, options.list);

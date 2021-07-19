@@ -45,7 +45,17 @@ import { Env } from '@furo/framework';
 class FuroDeepLink extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._servicedefinitions = Env.api.services;
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._qp = {};
   }
 

@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class PersonPersonDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class PersonPersonDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class PersonPersonDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -103,21 +104,21 @@ export class PersonPersonDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: name -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.name)" ƒ-focus="--focused"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.name)" ƒ-focus="--focused"></furo-data-display>
 
           <!-- field: first_name -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.first_name)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.first_name)"></furo-data-display>
 
           <!-- field: phone_nr -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.phone_nr)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.phone_nr)"></furo-data-display>
 
           <!-- field: skills -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.skills)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.skills)"></furo-data-display>
 
           <!-- field: update_mask -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.update_mask)"></furo-data-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.update_mask)"></furo-data-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class MenuMenuitemDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class MenuMenuitemDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class MenuMenuitemDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -103,30 +104,30 @@ export class MenuMenuitemDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: icon -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.icon)" ƒ-focus="--focused"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.icon)" ƒ-focus="--focused"></furo-data-display>
 
           <!-- field: disabled -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.disabled)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.disabled)"></furo-data-display>
 
           <!-- field: command -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.command)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.command)"></furo-data-display>
 
           <!-- field: action -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.action)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.action)"></furo-data-display>
 
           <!-- field: leading_divider -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.leading_divider)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.leading_divider)"></furo-data-display>
 
           <!-- field: children -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.children)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.children)"></furo-data-display>
 
           <!-- field: flags -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.flags)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.flags)"></furo-data-display>
 
           <!-- field: payload -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.payload)"></furo-data-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.payload)"></furo-data-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

@@ -22,7 +22,7 @@ import "./task-task-repeat.js";
  */
 export class TaskTaskForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -47,10 +47,11 @@ export class TaskTaskForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -77,7 +78,7 @@ export class TaskTaskForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -110,18 +111,18 @@ export class TaskTaskForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: description -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)" ƒ-focus="--focused"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)" ƒ-focus="--focused"></furo-data-text-input>
 
           <!-- field: estimated_time -->
-          <furo-data-number-input condensed double ƒ-bind-data="--data(*.estimated_time)"></furo-data-number-input> 
+          <furo-data-number-input condensed double ƒ-bind-data="--data(*.estimated_time)"></furo-data-number-input>
 
           <!-- field: owner -->
-          <person-person-reference-search condensed full header-text="${i18n.t('form.task.task.owner.header.text')}" secondary-text="${i18n.t('form.task.task.owner.secondary.text')}" ƒ-bind-data="--data(*.owner)"></person-person-reference-search> 
+          <person-person-reference-search condensed full header-text="${i18n.t('form.task.task.owner.header.text')}" secondary-text="${i18n.t('form.task.task.owner.secondary.text')}" ƒ-bind-data="--data(*.owner)"></person-person-reference-search>
 
           <!-- field: subtasks -->
-          <task-task-repeat condensed double header-text="${i18n.t('form.task.task.subtasks.header.text')}" secondary-text="${i18n.t('form.task.task.subtasks.secondary.text')}" ƒ-bind-data="--data(*.subtasks)"></task-task-repeat> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <task-task-repeat condensed double header-text="${i18n.t('form.task.task.subtasks.header.text')}" secondary-text="${i18n.t('form.task.task.subtasks.secondary.text')}" ƒ-bind-data="--data(*.subtasks)"></task-task-repeat>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

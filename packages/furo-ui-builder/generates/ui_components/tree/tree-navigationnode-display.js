@@ -20,7 +20,7 @@ import "../furo/furo-link-display.js";
  */
 export class TreeNavigationnodeDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -45,10 +45,11 @@ export class TreeNavigationnodeDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -75,7 +76,7 @@ export class TreeNavigationnodeDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -104,36 +105,36 @@ export class TreeNavigationnodeDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: secondary_text -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.secondary_text)" ƒ-focus="--focused"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.secondary_text)" ƒ-focus="--focused"></furo-data-display>
 
           <!-- field: description -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.description)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.description)"></furo-data-display>
 
           <!-- field: icon -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.icon)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.icon)"></furo-data-display>
 
           <!-- field: panel -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.panel)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.panel)"></furo-data-display>
 
           <!-- field: key_words -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.key_words)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.key_words)"></furo-data-display>
 
           <!-- field: has_error -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.has_error)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.has_error)"></furo-data-display>
 
           <!-- field: open -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.open)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.open)"></furo-data-display>
 
           <!-- field: link -->
-          <furo-link-display condensed full header-text="${i18n.t('furo.link.form.header.text')}" secondary-text="${i18n.t('furo.link.form.secondary.text')}" ƒ-bind-data="--data(*.link)"></furo-link-display> 
+          <furo-link-display condensed full header-text="${i18n.t('furo.link.form.header.text')}" secondary-text="${i18n.t('furo.link.form.secondary.text')}" ƒ-bind-data="--data(*.link)"></furo-link-display>
 
           <!-- field: is_group_label -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.is_group_label)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.is_group_label)"></furo-data-display>
 
           <!-- field: children -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.children)"></furo-data-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.children)"></furo-data-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

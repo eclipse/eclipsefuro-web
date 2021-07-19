@@ -21,7 +21,7 @@ import "./google-protobuf-any-form.js";
  */
 export class GoogleProtobufAnyRepeat extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -46,10 +46,11 @@ export class GoogleProtobufAnyRepeat extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -76,7 +77,7 @@ export class GoogleProtobufAnyRepeat extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("RepeatBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -107,23 +108,23 @@ export class GoogleProtobufAnyRepeat extends FBP(LitElement) {
     return html`
 
       <!-- It is a good practice to set a description -->
-      <hr></hr> 
+      <hr></hr>
 
       <!-- It is a good practice to set a description -->
-      <furo-form header-text="${this.headerText}" secondary-text="${this.secondaryText}"></furo-form> 
+      <furo-form header-text="${this.headerText}" secondary-text="${this.secondaryText}"></furo-form>
 
       <!-- the core of the repeat item is the form -->
-      <furo-data-repeat delete-icon="delete" repeated-component="google-protobuf-any-form" ƒ-add="--adderTriggered" ƒ-bind-data="--data"></furo-data-repeat> 
+      <furo-data-repeat delete-icon="delete" repeated-component="google-protobuf-any-form" ƒ-add="--adderTriggered" ƒ-bind-data="--data"></furo-data-repeat>
 
       <!-- It is a good practice to set a description -->
       <furo-horizontal-flex>
 
         <!-- It is a good practice to set a description -->
-        <span flex></span> 
+        <span flex></span>
 
         <!-- It is a good practice to set a description -->
-        <furo-button outline label="Add Any" @-click="--adderTriggered"></furo-button> 
-      </furo-horizontal-flex> 
+        <furo-button outline label="Add Any" @-click="--adderTriggered"></furo-button>
+      </furo-horizontal-flex>
     `;
   }
 }

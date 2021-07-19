@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class ProjectProjectCreateForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class ProjectProjectCreateForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class ProjectProjectCreateForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("CreateFormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -103,9 +104,9 @@ export class ProjectProjectCreateForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: cost_limit -->
-          <furo-data-money-input align-right ƒ-bind-data="--data(*.cost_limit)" ƒ-focus="--focused"></furo-data-money-input> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-money-input align-right ƒ-bind-data="--data(*.cost_limit)" ƒ-focus="--focused"></furo-data-money-input>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

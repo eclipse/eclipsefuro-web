@@ -21,7 +21,7 @@ import "../furo/furo-meta-display.js";
  */
 export class ExperimentReadonlyDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -46,10 +46,11 @@ export class ExperimentReadonlyDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -76,7 +77,7 @@ export class ExperimentReadonlyDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -105,12 +106,12 @@ export class ExperimentReadonlyDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: project -->
-          <project-project-display condensed full header-text="${i18n.t('project.project.form.header.text')}" secondary-text="${i18n.t('project.project.form.secondary.text')}" ƒ-bind-data="--data(*.project)" ƒ-focus="--focused"></project-project-display> 
+          <project-project-display condensed full header-text="${i18n.t('project.project.form.header.text')}" secondary-text="${i18n.t('project.project.form.secondary.text')}" ƒ-bind-data="--data(*.project)" ƒ-focus="--focused"></project-project-display>
 
           <!-- field: meta -->
-          <furo-meta-display condensed full header-text="${i18n.t('furo.meta.form.header.text')}" secondary-text="${i18n.t('furo.meta.form.secondary.text')}" ƒ-bind-data="--data(*.meta)"></furo-meta-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-meta-display condensed full header-text="${i18n.t('furo.meta.form.header.text')}" secondary-text="${i18n.t('furo.meta.form.secondary.text')}" ƒ-bind-data="--data(*.meta)"></furo-meta-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

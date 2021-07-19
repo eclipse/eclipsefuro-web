@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class ProjectProjectDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class ProjectProjectDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class ProjectProjectDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -103,24 +104,24 @@ export class ProjectProjectDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: start -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.start)" ƒ-focus="--focused"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.start)" ƒ-focus="--focused"></furo-data-display>
 
           <!-- field: end -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.end)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.end)"></furo-data-display>
 
           <!-- field: description -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.description)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.description)"></furo-data-display>
 
           <!-- field: members -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.members)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.members)"></furo-data-display>
 
           <!-- field: cost_limit -->
-          <furo-data-display align-right ƒ-bind-data="--data(*.cost_limit)"></furo-data-display> 
+          <furo-data-display align-right ƒ-bind-data="--data(*.cost_limit)"></furo-data-display>
 
           <!-- field: update_mask -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.update_mask)"></furo-data-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.update_mask)"></furo-data-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

@@ -30,6 +30,7 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -90,7 +91,7 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
               @-data="--analysis"
             ></furo-doc-fetch-analysis>
             <furo-split-view>
-              <!-- the doc menu 
+              <!-- the doc menu
               Multiline comment
               on furo-doc-menu
               -->

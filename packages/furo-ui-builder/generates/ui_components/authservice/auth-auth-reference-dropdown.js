@@ -19,7 +19,7 @@ import "@furo/data-input";
  */
 export class AuthAuthReferenceDropdown extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -38,10 +38,11 @@ export class AuthAuthReferenceDropdown extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -73,7 +74,7 @@ export class AuthAuthReferenceDropdown extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("ReferenceDropdownBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -100,10 +101,10 @@ export class AuthAuthReferenceDropdown extends FBP(LitElement) {
     return html`
 
       <!-- It is a good practice to set a description -->
-      <furo-data-collection-dropdown ?condensed="${this.condensed}" display-field="display_name" subfield="id" subfield-display="display_name" value-field="id" ƒ-bind-data="--field-injected" ƒ-focus="--focused" ƒ-inject-entities="--collection(*.entities)"></furo-data-collection-dropdown> 
+      <furo-data-collection-dropdown ?condensed="${this.condensed}" display-field="display_name" subfield="id" subfield-display="display_name" value-field="id" ƒ-bind-data="--field-injected" ƒ-focus="--focused" ƒ-inject-entities="--collection(*.entities)"></furo-data-collection-dropdown>
 
       <!-- It is a good practice to set a description -->
-      <furo-collection-agent list-on-hts-in service="AuthService" @-response="--collection" ƒ-hts-in="--field-injected(*.link._value), --htsUpdated"></furo-collection-agent> 
+      <furo-collection-agent list-on-hts-in service="AuthService" @-response="--collection" ƒ-hts-in="--field-injected(*.link._value), --htsUpdated"></furo-collection-agent>
     `;
   }
 }

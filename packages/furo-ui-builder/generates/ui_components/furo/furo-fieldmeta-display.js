@@ -20,7 +20,7 @@ import "./furo-fieldoption-display.js";
  */
 export class FuroFieldmetaDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -45,10 +45,11 @@ export class FuroFieldmetaDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -75,7 +76,7 @@ export class FuroFieldmetaDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -104,24 +105,24 @@ export class FuroFieldmetaDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: label -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.label)" ƒ-focus="--focused"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.label)" ƒ-focus="--focused"></furo-data-display>
 
           <!-- field: hint -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.hint)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.hint)"></furo-data-display>
 
           <!-- field: default -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.default)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.default)"></furo-data-display>
 
           <!-- field: readonly -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.readonly)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.readonly)"></furo-data-display>
 
           <!-- field: repeated -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.repeated)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.repeated)"></furo-data-display>
 
           <!-- field: options -->
-          <furo-fieldoption-display condensed full header-text="${i18n.t('furo.fieldoption.form.header.text')}" secondary-text="${i18n.t('furo.fieldoption.form.secondary.text')}" ƒ-bind-data="--data(*.options)"></furo-fieldoption-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-fieldoption-display condensed full header-text="${i18n.t('furo.fieldoption.form.header.text')}" secondary-text="${i18n.t('furo.fieldoption.form.secondary.text')}" ƒ-bind-data="--data(*.options)"></furo-fieldoption-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

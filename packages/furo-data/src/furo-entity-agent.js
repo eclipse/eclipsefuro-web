@@ -33,7 +33,17 @@ class FuroEntityAgent extends FBP(LitElement) {
   constructor() {
     super()
     this._servicedefinitions = Env.api.services
+    /**
+     *
+     * @type {*|{headers: [[string, string]], specs: {}, services: {}}}
+     * @private
+     */
     this._ApiEnvironment = Env.api
+    /**
+     *
+     * @type {*[]}
+     * @private
+     */
     this._pendingRequests = []
 
     /**
@@ -60,7 +70,17 @@ class FuroEntityAgent extends FBP(LitElement) {
       }
     })
 
-    this._singleElementQueue = [] // queue for calls, before hts is set
+    /**
+     * queue for calls, before hts is set
+     * @type {*[]}
+     * @private
+     */
+    this._singleElementQueue = []
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._queryParams = {}
   }
 
@@ -501,6 +521,12 @@ class FuroEntityAgent extends FBP(LitElement) {
     this.addEventListener('req-failed', failed, true)
   }
 
+  /**
+   *
+   * @param hts
+   * @return {boolean}
+   * @private
+   */
   _updateInternalHTS(hts) {
     // convert link object to hts array
     if (hts && hts.rel && hts.method && hts.type && hts.href) {

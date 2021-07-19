@@ -21,7 +21,7 @@ import "../google.protobuf/google-protobuf-any-repeat.js";
  */
 export class MenuMenuitemForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -46,10 +46,11 @@ export class MenuMenuitemForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -76,7 +77,7 @@ export class MenuMenuitemForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -109,30 +110,30 @@ export class MenuMenuitemForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: icon -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.icon)" ƒ-focus="--focused"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.icon)" ƒ-focus="--focused"></furo-data-text-input>
 
           <!-- field: disabled -->
-          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.disabled)"></furo-data-checkbox-input> 
+          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.disabled)"></furo-data-checkbox-input>
 
           <!-- field: command -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.command)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.command)"></furo-data-text-input>
 
           <!-- field: action -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.action)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.action)"></furo-data-text-input>
 
           <!-- field: leading_divider -->
-          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.leading_divider)"></furo-data-checkbox-input> 
+          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.leading_divider)"></furo-data-checkbox-input>
 
           <!-- field: children -->
-          <menu-menuitem-repeat condensed double header-text="${i18n.t('form.menu.menuitem.children.header.text')}" secondary-text="${i18n.t('form.menu.menuitem.children.secondary.text')}" ƒ-bind-data="--data(*.children)"></menu-menuitem-repeat> 
+          <menu-menuitem-repeat condensed double header-text="${i18n.t('form.menu.menuitem.children.header.text')}" secondary-text="${i18n.t('form.menu.menuitem.children.secondary.text')}" ƒ-bind-data="--data(*.children)"></menu-menuitem-repeat>
 
           <!-- field: flags -->
-          <string-repeat condensed double header-text="${i18n.t('form.menu.menuitem.flags.header.text')}" secondary-text="${i18n.t('form.menu.menuitem.flags.secondary.text')}" ƒ-bind-data="--data(*.flags)"></string-repeat> 
+          <string-repeat condensed double header-text="${i18n.t('form.menu.menuitem.flags.header.text')}" secondary-text="${i18n.t('form.menu.menuitem.flags.secondary.text')}" ƒ-bind-data="--data(*.flags)"></string-repeat>
 
           <!-- field: payload -->
-          <google-protobuf-any-repeat condensed double header-text="${i18n.t('form.menu.menuitem.payload.header.text')}" secondary-text="${i18n.t('form.menu.menuitem.payload.secondary.text')}" ƒ-bind-data="--data(*.payload)"></google-protobuf-any-repeat> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <google-protobuf-any-repeat condensed double header-text="${i18n.t('form.menu.menuitem.payload.header.text')}" secondary-text="${i18n.t('form.menu.menuitem.payload.secondary.text')}" ƒ-bind-data="--data(*.payload)"></google-protobuf-any-repeat>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

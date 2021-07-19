@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class PersonPersonForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class PersonPersonForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class PersonPersonForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -107,21 +108,21 @@ export class PersonPersonForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: name -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.name)" ƒ-focus="--focused"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.name)" ƒ-focus="--focused"></furo-data-text-input>
 
           <!-- field: first_name -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.first_name)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.first_name)"></furo-data-text-input>
 
           <!-- field: phone_nr -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.phone_nr)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.phone_nr)"></furo-data-text-input>
 
           <!-- field: skills -->
-          <string-repeat condensed double header-text="${i18n.t('form.person.person.skills.header.text')}" secondary-text="${i18n.t('form.person.person.skills.secondary.text')}" ƒ-bind-data="--data(*.skills)"></string-repeat> 
+          <string-repeat condensed double header-text="${i18n.t('form.person.person.skills.header.text')}" secondary-text="${i18n.t('form.person.person.skills.secondary.text')}" ƒ-bind-data="--data(*.skills)"></string-repeat>
 
           <!-- field: update_mask -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.update_mask)"></furo-data-text-input> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.update_mask)"></furo-data-text-input>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

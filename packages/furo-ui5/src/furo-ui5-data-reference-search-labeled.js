@@ -43,6 +43,7 @@ export class FuroUi5DataReferenceSearchLabeled extends FBP(LitElement) {
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

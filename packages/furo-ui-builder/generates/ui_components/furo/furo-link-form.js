@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class FuroLinkForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class FuroLinkForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class FuroLinkForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -107,21 +108,21 @@ export class FuroLinkForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: rel -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.rel)" ƒ-focus="--focused"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.rel)" ƒ-focus="--focused"></furo-data-text-input>
 
           <!-- field: method -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.method)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.method)"></furo-data-text-input>
 
           <!-- field: href -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.href)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.href)"></furo-data-text-input>
 
           <!-- field: type -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.type)"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.type)"></furo-data-text-input>
 
           <!-- field: service -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.service)"></furo-data-text-input> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.service)"></furo-data-text-input>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

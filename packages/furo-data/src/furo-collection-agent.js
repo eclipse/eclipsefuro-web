@@ -35,9 +35,23 @@ class FuroCollectionAgent extends FBP(LitElement) {
 
   constructor() {
     super();
+    /**
+     * easy access to the services
+     * @type {{}}
+     * @private
+     */
     this._servicedefinitions = Env.api.services;
+    /**
+     *
+     * @type {*|{headers: [[string, string]], specs: {}, services: {}}}
+     * @private
+     */
     this._ApiEnvironment = Env.api;
-
+    /**
+     *
+     * @type {*[]}
+     * @private
+     */
     this._pendingRequests = [];
 
     /**
@@ -63,7 +77,17 @@ class FuroCollectionAgent extends FBP(LitElement) {
       }
     });
 
-    this._singleElementQueue = []; // queue for calls, before hts is set
+    /**
+     * queue for calls, before hts is set
+     * @type {*[]}
+     * @private
+     */
+    this._singleElementQueue = [];
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._queryParams = {};
   }
 
@@ -306,6 +330,13 @@ class FuroCollectionAgent extends FBP(LitElement) {
     this._queryParams = {};
   }
 
+  /**
+   *
+   * @param link
+   * @param body
+   * @return {Request}
+   * @private
+   */
   _makeRequest(link, body) {
     this._FBPTriggerWire('--beforeRequestStart');
 
@@ -489,6 +520,12 @@ class FuroCollectionAgent extends FBP(LitElement) {
     this._followRelService('last', 'List');
   }
 
+  /**
+   *
+   * @param hts
+   * @return {boolean}
+   * @private
+   */
   _updateInternalHTS(hts) {
     // convert link object to hts array
     if (hts && hts.rel && hts.method && hts.type && hts.href) {

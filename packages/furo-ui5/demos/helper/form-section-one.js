@@ -16,6 +16,7 @@ import '@furo/data/src/furo-collection-agent.js';
 class FormSectionOne extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

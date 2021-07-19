@@ -1,7 +1,8 @@
 import { FBP } from '@furo/fbp';
 
 /**
- * DEPRECATED Placeholder component to describe nested filters
+ * # DEPRECATED
+ * Placeholder component to describe nested filters
  *
  * `furo-filter-or` is used with `furo-filter-container`, `furo-filter-and` and `furo-filter-and` to build the filter string.
  *  With `furo-filter-or` you will set the bracket around the items inside.

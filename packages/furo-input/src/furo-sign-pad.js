@@ -25,6 +25,7 @@ import SignaturePad from 'signature_pad/dist/signature_pad.js';
 export class FuroSignPad extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

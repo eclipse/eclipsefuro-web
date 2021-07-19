@@ -20,7 +20,7 @@ import "./furo-link-display.js";
  */
 export class FuroReferenceDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -45,10 +45,11 @@ export class FuroReferenceDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -75,7 +76,7 @@ export class FuroReferenceDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -104,9 +105,9 @@ export class FuroReferenceDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: link -->
-          <furo-link-display condensed full header-text="${i18n.t('furo.link.form.header.text')}" secondary-text="${i18n.t('furo.link.form.secondary.text')}" ƒ-bind-data="--data(*.link)" ƒ-focus="--focused"></furo-link-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-link-display condensed full header-text="${i18n.t('furo.link.form.header.text')}" secondary-text="${i18n.t('furo.link.form.secondary.text')}" ƒ-bind-data="--data(*.link)" ƒ-focus="--focused"></furo-link-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

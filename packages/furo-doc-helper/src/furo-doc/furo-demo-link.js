@@ -13,6 +13,7 @@ import { FBP } from '@furo/fbp';
 class FuroDemoLink extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();

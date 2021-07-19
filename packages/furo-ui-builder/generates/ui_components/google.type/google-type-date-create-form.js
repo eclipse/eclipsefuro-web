@@ -10,7 +10,7 @@ import "@furo/data-input";
 import "@furo/form";
 
 /**
- * Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto 
+ * Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto
  *
  * @summary todo: write summary
  * @customElement
@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class GoogleTypeDateCreateForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class GoogleTypeDateCreateForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class GoogleTypeDateCreateForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("CreateFormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -100,8 +101,8 @@ export class GoogleTypeDateCreateForm extends FBP(LitElement) {
       <furo-form header-text="${this.headerText?this.headerText:""}" secondary-text="${this.secondaryText?this.secondaryText:""}">
 
         <!-- It is a good practice to set a description -->
-        <furo-form-layouter four></furo-form-layouter> 
-      </furo-form> 
+        <furo-form-layouter four></furo-form-layouter>
+      </furo-form>
     `;
   }
 }

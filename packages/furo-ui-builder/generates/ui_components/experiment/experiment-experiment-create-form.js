@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class ExperimentExperimentCreateForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class ExperimentExperimentCreateForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class ExperimentExperimentCreateForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("CreateFormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -103,15 +104,15 @@ export class ExperimentExperimentCreateForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: furo_data_text_input -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_text_input)" ƒ-focus="--focused"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.furo_data_text_input)" ƒ-focus="--focused"></furo-data-text-input>
 
           <!-- field: furo_data_money_input -->
-          <furo-data-money-input condensed double ƒ-bind-data="--data(*.furo_data_money_input)"></furo-data-money-input> 
+          <furo-data-money-input condensed double ƒ-bind-data="--data(*.furo_data_money_input)"></furo-data-money-input>
 
           <!-- field: furo_data_file_input -->
-          <furo-data-repeat condensed double header-text="${i18n.t('createform.experiment.experiment.furo_data_file_input.header.text')}" repeated-component="string-repeat" secondary-text="${i18n.t('createform.experiment.experiment.furo_data_file_input.secondary.text')}" ƒ-bind-data="--data(*.furo_data_file_input)"></furo-data-repeat> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-repeat condensed double header-text="${i18n.t('createform.experiment.experiment.furo_data_file_input.header.text')}" repeated-component="string-repeat" secondary-text="${i18n.t('createform.experiment.experiment.furo_data_file_input.secondary.text')}" ƒ-bind-data="--data(*.furo_data_file_input)"></furo-data-repeat>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

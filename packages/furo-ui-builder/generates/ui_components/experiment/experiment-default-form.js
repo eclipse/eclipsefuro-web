@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class ExperimentDefaultForm extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class ExperimentDefaultForm extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class ExperimentDefaultForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("FormBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -107,15 +108,15 @@ export class ExperimentDefaultForm extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: description -->
-          <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)" ƒ-focus="--focused"></furo-data-text-input> 
+          <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)" ƒ-focus="--focused"></furo-data-text-input>
 
           <!-- field: repstring -->
-          <string-repeat condensed double header-text="${i18n.t('form.experiment.default.repstring.header.text')}" secondary-text="${i18n.t('form.experiment.default.repstring.secondary.text')}" ƒ-bind-data="--data(*.repstring)"></string-repeat> 
+          <string-repeat condensed double header-text="${i18n.t('form.experiment.default.repstring.header.text')}" secondary-text="${i18n.t('form.experiment.default.repstring.secondary.text')}" ƒ-bind-data="--data(*.repstring)"></string-repeat>
 
           <!-- field: furo_data_checkbox_input -->
-          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.furo_data_checkbox_input)"></furo-data-checkbox-input> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-checkbox-input condensed double ƒ-bind-data="--data(*.furo_data_checkbox_input)"></furo-data-checkbox-input>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

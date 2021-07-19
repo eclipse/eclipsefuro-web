@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class FuroLinkDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class FuroLinkDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class FuroLinkDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -103,21 +104,21 @@ export class FuroLinkDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: rel -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.rel)" ƒ-focus="--focused"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.rel)" ƒ-focus="--focused"></furo-data-display>
 
           <!-- field: method -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.method)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.method)"></furo-data-display>
 
           <!-- field: href -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.href)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.href)"></furo-data-display>
 
           <!-- field: type -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.type)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.type)"></furo-data-display>
 
           <!-- field: service -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.service)"></furo-data-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.service)"></furo-data-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

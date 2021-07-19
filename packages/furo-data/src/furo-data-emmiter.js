@@ -21,10 +21,10 @@ import { FBP } from '@furo/fbp';
 class FuroDataEmmiter extends FBP(LitElement) {
   /**
    * Bind a data object. The trigger method will not fire until an object was bounded.
-   * @param {Object|FieldNode}  a object from furo-data-object
+   * @param {Object|FieldNode} field a object from furo-data-object
    */
-  bindData(d) {
-    this.field = d;
+  bindData(field) {
+    this.field = field;
   }
 
   /**

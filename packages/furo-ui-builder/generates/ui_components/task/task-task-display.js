@@ -21,7 +21,7 @@ import "../projectmemberservice/person-person-reference-search.js";
  */
 export class TaskTaskDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -46,10 +46,11 @@ export class TaskTaskDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -76,7 +77,7 @@ export class TaskTaskDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -105,18 +106,18 @@ export class TaskTaskDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: description -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.description)" ƒ-focus="--focused"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.description)" ƒ-focus="--focused"></furo-data-display>
 
           <!-- field: estimated_time -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.estimated_time)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.estimated_time)"></furo-data-display>
 
           <!-- field: owner -->
-          <person-person-reference-search condensed full header-text="${i18n.t('furo.reference.form.header.text')}" secondary-text="${i18n.t('furo.reference.form.secondary.text')}" ƒ-bind-data="--data(*.owner)"></person-person-reference-search> 
+          <person-person-reference-search condensed full header-text="${i18n.t('furo.reference.form.header.text')}" secondary-text="${i18n.t('furo.reference.form.secondary.text')}" ƒ-bind-data="--data(*.owner)"></person-person-reference-search>
 
           <!-- field: subtasks -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.subtasks)"></furo-data-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.subtasks)"></furo-data-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

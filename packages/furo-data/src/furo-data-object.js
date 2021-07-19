@@ -42,6 +42,11 @@ import { DataObject } from './lib/DataObject.js';
 export class FuroDataObject extends LitElement {
   constructor() {
     super();
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._specs = Env.api.specs;
   }
 

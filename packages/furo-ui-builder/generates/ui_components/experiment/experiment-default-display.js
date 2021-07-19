@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class ExperimentDefaultDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class ExperimentDefaultDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class ExperimentDefaultDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -103,15 +104,15 @@ export class ExperimentDefaultDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: description -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.description)" ƒ-focus="--focused"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.description)" ƒ-focus="--focused"></furo-data-display>
 
           <!-- field: repstring -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.repstring)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.repstring)"></furo-data-display>
 
           <!-- field: furo_data_checkbox_input -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.furo_data_checkbox_input)"></furo-data-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.furo_data_checkbox_input)"></furo-data-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

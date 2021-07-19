@@ -19,28 +19,29 @@ import "@furo/input/src/furo-button.js";
  */
 export class AuthAuthUpdateAction extends FBP(LitElement) {
 
-  
+
 
   // Bind an entity data object. This will be forwarded to the furo-button-bar element inside this element.
   bindEntity(d) {
     this._FBPTriggerWire('--entityObjectInjected', d)
   }
-  
+
 
   // Disables all elements inside furo-button-bar
   disableAll(d) {
     this._FBPTriggerWire('--disableAllReq', d)
   }
-  
+
 
   // Enables all elements inside furo-button-bar
   enableAll(d) {
     this._FBPTriggerWire('--enableAllReq', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -57,7 +58,7 @@ export class AuthAuthUpdateAction extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("AuthAuthUpdateAction") || css`
-      
+
       :host {
         display: block;
       }
@@ -83,11 +84,11 @@ export class AuthAuthUpdateAction extends FBP(LitElement) {
       <furo-button-bar ƒ-bind-entity="--entityObjectInjected" ƒ-disable-all="--disableAllReq" ƒ-enable-all="--enableAllReq">
 
         <!-- It is a good practice to set a description -->
-        <furo-button primary unelevated hide-no-rel disable-not-valid disable-pristine label="${i18n.t('action.update')}" rel="update" @-click="-^update-req"></furo-button> 
+        <furo-button primary unelevated hide-no-rel disable-not-valid disable-pristine label="${i18n.t('action.update')}" rel="update" @-click="-^update-req"></furo-button>
 
         <!-- It is a good practice to set a description -->
-        <furo-button danger unelevated hide-no-rel label="${i18n.t('action.delete')}" rel="delete" @-click="-^delete-req"></furo-button> 
-      </furo-button-bar> 
+        <furo-button danger unelevated hide-no-rel label="${i18n.t('action.delete')}" rel="delete" @-click="-^delete-req"></furo-button>
+      </furo-button-bar>
     `;
   }
 }

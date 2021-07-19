@@ -21,7 +21,13 @@ import { Env } from '@furo/framework';
 class FuroReverseDeepLink extends LitElement {
   constructor() {
     super();
+
     this.service = '';
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._services = Env.api.services;
   }
 
@@ -84,6 +90,12 @@ class FuroReverseDeepLink extends LitElement {
     return qp;
   }
 
+  /**
+   *
+   * @param link
+   * @return {{}}
+   * @private
+   */
   _convert(link) {
     const linkObject = {
       rel: link.rel,

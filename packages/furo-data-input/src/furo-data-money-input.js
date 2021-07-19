@@ -48,6 +48,11 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   constructor() {
     super();
     this.valid = true;
+    /**
+     *
+     * @type {*[]}
+     * @private
+     */
     this._currencies = [];
     // init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
     this.value = { currency_code: 'CHF', units: null, nanos: null };
@@ -111,6 +116,10 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     });
   }
 
+  /**
+   *
+   * @private
+   */
   _FBPReady() {
     super._FBPReady();
     this.shadowRoot.getElementById('wrapper').addEventListener('value-changed', e => {
@@ -143,7 +152,15 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     });
   }
 
-  // convert data to google.type.Money format
+
+  /**
+   * convert data to google.type.Money format
+   * @param currency
+   * @param amount
+   * @param obj
+   * @return {{}}
+   * @private
+   */
   // eslint-disable-next-line class-methods-use-this
   _convertDataToMoneyObj(currency, amount, obj) {
     if (obj == null) {
@@ -184,6 +201,10 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     }
   }
 
+  /**
+   *
+   * @private
+   */
   _updateField() {
     if (
       this.binder.fieldNode.units &&
@@ -351,6 +372,11 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     this.requestUpdate();
   }
 
+  /**
+   *
+   * @param options
+   * @private
+   */
   set _options(options) {
     // the attribute currencies has priority than the options in meta
     if (this._currencies.length > 0) {

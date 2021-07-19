@@ -10,7 +10,7 @@ import "@furo/data-input";
 import "@furo/form";
 
 /**
- * Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto 
+ * Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto
  *
  * @summary todo: write summary
  * @customElement
@@ -19,7 +19,7 @@ import "@furo/form";
  */
 export class GoogleTypeDateDisplay extends FBP(LitElement) {
 
-  
+
   /**
    * @private
    * @return {Object}
@@ -44,10 +44,11 @@ export class GoogleTypeDateDisplay extends FBP(LitElement) {
   focus(d) {
     this._FBPTriggerWire('--focused', d)
   }
-  
+
 
   /**
    * flow is ready lifecycle method
+   * @private
    */
   _FBPReady() {
     super._FBPReady();
@@ -74,7 +75,7 @@ export class GoogleTypeDateDisplay extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent("DisplayBaseTheme") || css`
-      
+
       :host {
         display: block;
       }
@@ -103,15 +104,15 @@ export class GoogleTypeDateDisplay extends FBP(LitElement) {
         <furo-form-layouter four>
 
           <!-- field: year -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.year)" ƒ-focus="--focused"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.year)" ƒ-focus="--focused"></furo-data-display>
 
           <!-- field: month -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.month)"></furo-data-display> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.month)"></furo-data-display>
 
           <!-- field: day -->
-          <furo-data-display condensed double ƒ-bind-data="--data(*.day)"></furo-data-display> 
-        </furo-form-layouter> 
-      </furo-form> 
+          <furo-data-display condensed double ƒ-bind-data="--data(*.day)"></furo-data-display>
+        </furo-form-layouter>
+      </furo-form>
     `;
   }
 }

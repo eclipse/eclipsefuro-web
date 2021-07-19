@@ -18,9 +18,23 @@ import { AgentHelper } from './lib/AgentHelper.js';
 class FuroCustomMethod extends FBP(LitElement) {
   constructor() {
     super();
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._servicedefinitions = Env.api.services;
+    /**
+     *
+     * @type {*|{headers: [[string, string]], specs: {}, services: {}}}
+     * @private
+     */
     this._ApiEnvironment = Env.api;
-
+    /**
+     *
+     * @type {*[]}
+     * @private
+     */
     this._pendingRequests = [];
 
     /**
@@ -36,7 +50,11 @@ class FuroCustomMethod extends FBP(LitElement) {
     this._FBPAddWireHook('--requestFinished', () => {
       this._pendingRequests.pop();
     });
-
+    /**
+     *
+     * @type {{}}
+     * @private
+     */
     this._queryParams = {};
   }
 
@@ -100,6 +118,13 @@ class FuroCustomMethod extends FBP(LitElement) {
     this._queryParams = {};
   }
 
+  /**
+   *
+   * @param link
+   * @param dataObject
+   * @return {Request}
+   * @private
+   */
   _makeRequest(link, dataObject) {
     this._FBPTriggerWire('--beforeRequestStart');
     let data;
@@ -160,6 +185,13 @@ class FuroCustomMethod extends FBP(LitElement) {
     });
   }
 
+  /**
+   *
+   * @param rel
+   * @param serviceName
+   * @return {boolean}
+   * @private
+   */
   _checkServiceAndHateoasLinkError(rel, serviceName) {
     // check Service Get
     const s = Object.keys(this._service.services).map(key => key.toLowerCase());

@@ -129,7 +129,12 @@ export class FuroDataCheckboxInput extends FuroCheckboxInput {
     }
   }
 
-  // pass the value to the underlieying component always as boolean
+
+  /**
+   * pass the value to the underlieying component always as boolean
+   * @param v
+   * @private
+   */
   set __value(v) {
     if (typeof v === 'string') {
       this._value = v.toLowerCase() === 'true';
