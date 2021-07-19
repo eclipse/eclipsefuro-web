@@ -14,21 +14,13 @@ class ProduceSnackbarData extends FBP(LitElement) {
     super();
 
     this._FBPAddWireHook('--click', () => {
-      /**
-       * @event snackbar-label
-       * Fired when
-       * detail payload:
-       */
+
       // eslint-disable-next-line wc/no-constructor-attributes
       let customEvent = new Event(`snackbar-label-${this.id}`, { composed: true, bubbles: true });
       customEvent.detail = this.snackbarLabel;
       this.dispatchEvent(customEvent);
 
-      /**
-       * @event response-error
-       * Fired when
-       * detail payload:
-       */
+
       const customEventError = new Event('response-error', { composed: true, bubbles: true });
       customEventError.detail = {
         error: 'invalid username',
@@ -64,11 +56,7 @@ class ProduceSnackbarData extends FBP(LitElement) {
       };
       this.dispatchEvent(customEventError);
 
-      /**
-       * @event rset-snackbar-label
-       * Fired when
-       * detail payload:
-       */
+
       // eslint-disable-next-line wc/no-constructor-attributes
       customEvent = new Event(`snackbar-button-text-${this.id}`, { composed: true, bubbles: true });
       customEvent.detail = this.snackbarButtonText;

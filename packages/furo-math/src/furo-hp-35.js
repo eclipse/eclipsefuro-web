@@ -4,6 +4,7 @@ import { FuroForthStack } from '@furo/logic/src/furo-forth-stack.js';
  * `hp-35` is a declarative rpn calculator component.
  *
  * see https://hansklav.home.xs4all.nl/rpn/
+ *
  * http://h10032.www1.hp.com/ctg/Manual/c01579350
  *
  * @summary calculator component
@@ -20,10 +21,12 @@ class FuroHp35 extends FuroForthStack {
     return {
       /**
        * current x
+       * @type {Number}
        */
       x: { type: Number, value: 0, notify: true },
       /**
        * current y
+       * @type {Number}
        */
       y: { type: Number, value: 0, notify: true },
       /**
@@ -52,7 +55,7 @@ class FuroHp35 extends FuroForthStack {
 
   /**
    * Enter a number
-   * @param n
+   * @param {Number} n
    */
   enter(n) {
     if (n !== undefined && n !== '') {
@@ -77,24 +80,58 @@ class FuroHp35 extends FuroForthStack {
     this.dispatchEvent(customEvent);
   }
 
+  /**
+   *
+   * swap **( n1 n2 -- n2 n1 )**
+   *
+   * swap, as you may have guessed, swaps the top two elements of the stack. For example:
+   *
+   * 1 2 3 4 swap
+   * will give you:
+   *
+   * 1 2 4 3 <- Top
+   *
+   */
   swap() {
     super.swap();
     this.updateXYZT();
   }
 
+  /**
+   * rot **( n1 n2 n3 -- n2 n3 n1 )**
+   *
+   *    Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.
+   *
+   *    1 2 3 rot
+   *    gives you:
+   *
+   *    2 3 1 <- Top
+   */
   rot() {
     super.rot();
     this.updateXYZT();
     return this._stack[this._stack.length - 1];
   }
 
+  /**
+   * rot **( n1 n2 n3 -- n2 n3 n1 )**
+   *
+   *    Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.
+   *
+   *    1 2 3 rot
+   *    gives you:
+   *
+   *    2 3 1 <- Top
+   */
   roll() {
     return this.rot();
   }
 
   /**
    * Process an addition
-   * @return Number
+   *
+   * @param {Number} n
+   * @return {number}
    */
   add(n) {
     if (n !== undefined && n !== '') {
@@ -114,7 +151,8 @@ class FuroHp35 extends FuroForthStack {
 
   /**
    * Process a substraction
-   * @return Number
+   * @param {Number} n
+   * @return {number}
    */
   substract(n) {
     if (n !== undefined && n !== '') {
@@ -134,6 +172,8 @@ class FuroHp35 extends FuroForthStack {
 
   /**
    * Perform square root operation
+   * @param {Number} n
+   * @return {number}
    */
   sqrt(n) {
     if (n !== undefined && n !== '') {
@@ -151,6 +191,8 @@ class FuroHp35 extends FuroForthStack {
 
   /**
    * Perform log operation
+   * @param {Number} n
+   * @return {number}
    */
   ln(n) {
     if (n !== undefined && n !== '') {
@@ -168,6 +210,8 @@ class FuroHp35 extends FuroForthStack {
 
   /**
    * Perform cos operation
+   * @param {Number} n
+   * @return {number}
    */
   cos(n) {
     if (n !== undefined && n !== '') {
@@ -192,6 +236,8 @@ class FuroHp35 extends FuroForthStack {
 
   /**
    * Perform sin operation
+   * @param {Number} n
+   * @return {number}
    */
   sin(n) {
     if (n !== undefined && n !== '') {
@@ -216,6 +262,8 @@ class FuroHp35 extends FuroForthStack {
 
   /**
    * Perform tan operation
+   * @param {Number} n
+   * @return {number}
    */
   tan(n) {
     if (n !== undefined && n !== '') {
@@ -240,6 +288,8 @@ class FuroHp35 extends FuroForthStack {
 
   /**
    * Perform abs operation
+   * @param {Number} n
+   * @return {number}
    */
   abs(n) {
     if (n !== undefined && n !== '') {
@@ -257,6 +307,8 @@ class FuroHp35 extends FuroForthStack {
 
   /**
    * Perform reciprocal operation
+   * @param {Number} n
+   * @return {number}
    */
   reciprocal(n) {
     if (n !== undefined && n !== '') {
@@ -276,6 +328,8 @@ class FuroHp35 extends FuroForthStack {
    * Perform exp operation
    *
    * returns e^x, where x is the argument, and e is Euler's number (also known as Napier's constant), the base of the natural logarithms.
+   * @param {Number} n
+   * @return {number}
    */
   exp(n) {
     if (n !== undefined && n !== '') {
@@ -291,6 +345,7 @@ class FuroHp35 extends FuroForthStack {
     // fallback returns calculation for 0
     return 1;
   }
+
 
   xroot(n) {
     if (n !== undefined && n !== '') {
@@ -309,7 +364,8 @@ class FuroHp35 extends FuroForthStack {
 
   /**
    * Process a multiplication
-   * @return Number
+   * @param {Number} n
+   * @return {number}
    */
   multiply(n) {
     if (n !== undefined && n !== '') {
@@ -328,7 +384,8 @@ class FuroHp35 extends FuroForthStack {
 
   /**
    * Process power
-   * @return Number
+   * @param {Number} n
+   * @return {number}
    */
   pow(n) {
     if (n !== undefined && n !== '') {
@@ -346,7 +403,8 @@ class FuroHp35 extends FuroForthStack {
 
   /**
    * Process a division
-   * @return Number
+   * @param {Number} n
+   * @return {number}
    */
   divide(n) {
     if (n !== undefined && n !== '') {
@@ -364,6 +422,9 @@ class FuroHp35 extends FuroForthStack {
     return Infinity;
   }
 
+  /**
+   * clear the stack
+   */
   clear() {
     super.clearStack();
     this.updateXYZT();

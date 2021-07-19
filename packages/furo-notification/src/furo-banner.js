@@ -18,6 +18,12 @@ import { LitElement, css } from 'lit-element';
  * `furo-banner`    | Prominent, medium priority  |Optional: Banners remain until dismissed by the user, or if the state that caused the banner is resolved
  * `furo-dialog`    | Highest priority |Required: Dialogs block app usage until the user takes a dialog action or exits the dialog (if available)
  *
+ *
+ * @fires {this} open-furo-banner-requested -  Fired when value open banner is requested.
+ * @fires {payload} dismissed -  Fired when dismiss button of banner is clicked.
+ * @fires {payload} confirmed -  Fired when confirm button of banner is clicked.
+ * @fires {payload} banner-closed -  Fired when banner is closed.
+ *
  * @summary a banner
  * @customElement
  * @demo demo-furo-banner-display banner display demo
@@ -113,11 +119,6 @@ class FuroBanner extends LitElement {
    */
   show(p) {
     this.payload = p;
-    /**
-     * @event open-furo-banner-requested
-     * Fired when value open banner is requested
-     * detail payload: {Object}  this
-     */
     const customEvent = new Event('open-furo-banner-requested', { composed: true, bubbles: true });
     customEvent.detail = this;
     this.dispatchEvent(customEvent);
@@ -127,11 +128,7 @@ class FuroBanner extends LitElement {
    *  event `dismissed` will be sent with payload
    */
   dismiss() {
-    /**
-     * @event dismissed
-     * Fired when dismiss button of banner is clicked
-     * detail payload: {Object}  payload
-     */
+
     const customEvent = new Event('dismissed', { composed: true, bubbles: true });
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);
@@ -143,11 +140,7 @@ class FuroBanner extends LitElement {
    *  event `confirmed` will be sent with payload
    */
   confirm() {
-    /**
-     * @event confirmed
-     * Fired when confirm button of banner is clicked
-     * detail payload: {Object}  payload
-     */
+
     const customEvent = new Event('confirmed', { composed: true, bubbles: true });
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);
@@ -159,11 +152,7 @@ class FuroBanner extends LitElement {
    *  event `banner-closed` will be sent with payload which was set with show()
    */
   _close() {
-    /**
-     * @event banner-closed
-     * Fired when banner is closed
-     * detail payload: {Object}  payload
-     */
+
     const customEvent = new Event('banner-closed', { composed: true, bubbles: true });
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);

@@ -14,11 +14,7 @@ class ProduceBannerData extends FBP(LitElement) {
     super();
 
     this._FBPAddWireHook('--click', () => {
-      /**
-       * @event banner-label
-       * Fired when
-       * detail payload:
-       */
+
       // eslint-disable-next-line wc/no-constructor-attributes
       let customEvent = new Event(`banner-text-${this.id}`, { composed: true, bubbles: true });
       customEvent.detail = this.bannerLabel;
@@ -29,11 +25,7 @@ class ProduceBannerData extends FBP(LitElement) {
       customEvent.detail = this.bannerButtonText;
       this.dispatchEvent(customEvent);
 
-      /**
-       * @event response-error
-       * Fired when
-       * detail payload:
-       */
+
       const customEventError = new Event('response-error', { composed: true, bubbles: true });
 
       customEventError.detail = {
