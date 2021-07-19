@@ -10,9 +10,8 @@ import { RepeaterNode } from './RepeaterNode.js';
  * @mixinFunction FNB
  */
 export const FieldNodeAdapter = superClass =>
-  /**
-   * @polymerMixinClass
-   */
+
+
   class extends superClass {
     constructor() {
       super();
@@ -34,6 +33,7 @@ export const FieldNodeAdapter = superClass =>
     /**
      * Returns the type name of the bounded fieldNode
      * @return string Typename
+     * @private
      */
     getDataType() {
       if (this.__fieldNode._spec) {
@@ -49,6 +49,7 @@ export const FieldNodeAdapter = superClass =>
     /**
      * Check if bounded type is a fat type
      * @return boolean
+     * @private
      */
     isFat() {
       if (this.__fieldNode._spec && this.__fieldNode._spec.type === 'google.protobuf.Any') {
@@ -65,6 +66,7 @@ export const FieldNodeAdapter = superClass =>
     /**
      * Check if bounded type is a wrapper type
      * @return boolean
+     * @private
      */
     isWrapper() {
       if (this.__fieldNode._spec && this.__fieldNode._spec.type === 'google.protobuf.Any') {
@@ -81,6 +83,7 @@ export const FieldNodeAdapter = superClass =>
     /**
      * Binds a fieldNode. Make sure the type of your field is accepted by the implemented component.
      * @param fieldNode
+     * @public
      */
     bindData(fieldNode) {
       // check if we have a FieldNode or RepeaterNode
@@ -131,6 +134,7 @@ export const FieldNodeAdapter = superClass =>
      * the `onFnaFieldValueChanged`.
      *
      * @param value the raw json value for the fieldNode.
+     * @private
      */
     setFnaFieldValue(value) {
       // keep fields of any type
@@ -155,6 +159,7 @@ export const FieldNodeAdapter = superClass =>
      * use the listener on the fieldNode itself.
      *
      * @param value the raw json value for the fieldNode.
+     * @private
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
     onFnaFieldValueChanged(value) {}
@@ -186,6 +191,7 @@ export const FieldNodeAdapter = superClass =>
      * ```
      *
      * @param constraints
+     * @private
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
     onFnaConstraintsChanged(constraints) {}
@@ -193,6 +199,7 @@ export const FieldNodeAdapter = superClass =>
     /**
      * Notifies when the options for the field is changed or set.
      * @param options
+     * @private
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
     onFnaOptionsChanged(options) {}
@@ -200,6 +207,7 @@ export const FieldNodeAdapter = superClass =>
     /**
      * Notifies when the readonly flag for the field is changed or set.
      * @param readonly
+     * @private
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
     onFnaReadonlyChanged(readonly) {}
@@ -207,6 +215,7 @@ export const FieldNodeAdapter = superClass =>
     /**
      * Notifies when the hint for the field is changed or set.
      * @param hint
+     * @private
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
     onFnaHintChanged(hint) {}
@@ -214,6 +223,7 @@ export const FieldNodeAdapter = superClass =>
     /**
      * Notifies when the label for the field is changed or set.
      * @param label
+     * @private
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
     onFnaLabelChanged(label) {}
@@ -221,12 +231,14 @@ export const FieldNodeAdapter = superClass =>
     /**
      * Notifies when the placeholder for the field is changed or set.
      * @param placeholder
+     * @private
      */
     // eslint-disable-next-line no-unused-vars,class-methods-use-this
     onFnaPlaceholderChanged(placeholder) {}
 
     /**
      * Notifies that a field gets valid.
+     * @private
      */
     // eslint-disable-next-line class-methods-use-this
     onFnaFieldNodeBecameValid() {}
@@ -235,23 +247,30 @@ export const FieldNodeAdapter = superClass =>
      * Notifies that a field gets invalid.
      *
      * @param validity Object like {constraint: "min", description: "too small", field: ""}
+     * @private
      */
     // eslint-disable-next-line class-methods-use-this,no-unused-vars
     onFnaFieldNodeBecameInvalid(validity) {}
 
     /**
      * Notifies that new data was injected
+     * @private
      */
     // eslint-disable-next-line class-methods-use-this
     onFnaFieldNewDataInjected() {}
 
     /**
      * Notifies when a repeater node changes
+     * @private
      */
     // eslint-disable-next-line class-methods-use-this
     onFnaRepeatedFieldChanged() {}
 
-    // clean up on disconnect
+
+    /**
+     * clean up on disconnect
+     * @private
+     */
     disconnectedCallback() {
       this.__detachEventListeners();
       if (super.disconnectedCallback) {
