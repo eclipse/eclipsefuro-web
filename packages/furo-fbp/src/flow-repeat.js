@@ -9,6 +9,9 @@ import './empty-fbp-node.js';
  *
  * @summary Custom element to allow using FBPs template features in repeated template
  *
+ * @fires {index of the element} last-element-selected -  Fired when the last element is selected. Use this to trigger a load next.
+ * @fires {Number} items-in-dom -  Fired when items are attached to the dom, with Number of items.
+ *
  * @customElement
  * @mixes FBP
  */
@@ -84,11 +87,7 @@ export class FlowRepeat extends FBP(HTMLElement) {
     this.select(i);
 
     if (this._insertedItems.length - 1 === this.selectedIndex) {
-      /**
-       * @event last-element-selected
-       * Fired when the last element is selected. Use this to trigger a load next.
-       * detail payload: index of the element
-       */
+
       const customEvent = new Event('last-element-selected', { composed: true, bubbles: true });
       customEvent.detail = i;
       this.dispatchEvent(customEvent);
@@ -216,11 +215,7 @@ export class FlowRepeat extends FBP(HTMLElement) {
     this._insertedItems.splice(items.length);
 
     if (items.length > 0) {
-      /**
-       * @event items-in-dom
-       * Fired when items are attached to the dom
-       * detail payload: {Number} Number of items
-       */
+
       setTimeout(() => {
         const customEvent = new Event('items-in-dom', { composed: true, bubbles: false });
         customEvent.detail = items.length;
