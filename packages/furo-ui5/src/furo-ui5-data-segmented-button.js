@@ -118,7 +118,7 @@ export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton
 
   /**
    * overwrite bindData of FieldNodeAdapter
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    * @returns {boolean}
    */
   bindData(fieldNode) {

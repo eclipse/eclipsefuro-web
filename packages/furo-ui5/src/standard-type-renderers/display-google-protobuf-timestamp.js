@@ -46,7 +46,7 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
 
   /**
    * Binds a field node to the component
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     this._field = fieldNode;
@@ -64,7 +64,7 @@ class DisplayGoogleProtobufTimestamp extends LitElement {
    * convert date object to String according to Intl DateTimeFormat
    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat
    * Example output: locale de-CH 15.01.2017, 02:30:15
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    * @returns {string}
    * @private
    */

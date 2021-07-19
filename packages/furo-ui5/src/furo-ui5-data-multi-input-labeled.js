@@ -87,7 +87,7 @@ export class FuroUi5DataMultiInputLabeled extends FBP(LitElement) {
 
   /**
    * Orchestrates the data field connection to the inside
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     Ui5LabelDataBinding.bindData(this, fieldNode);

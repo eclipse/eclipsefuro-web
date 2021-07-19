@@ -87,7 +87,7 @@ export class FuroUi5DataDisplay extends FBP(LitElement) {
   /**
    * Binds the fieldNode to the component
    * binding set can be customised here otherwise the standard bindData in the ui5-data-input will be used
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     this.__fieldMetasChangedHandler = () => {

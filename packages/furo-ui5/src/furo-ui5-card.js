@@ -53,7 +53,7 @@ export class FuroUi5Card extends FBP(LitElement) {
 
   /**
    * Bind any **scalar** field to set the title of the panel.
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindHeading(fieldNode) {
     if (fieldNode === undefined) {
@@ -70,7 +70,7 @@ export class FuroUi5Card extends FBP(LitElement) {
   /**
    * Bind any **scalar** field to set the title of the panel.
    * Do not forget to import the icon you will use in your component.
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindIcon(fieldNode) {
     if (fieldNode === undefined) {
@@ -86,7 +86,7 @@ export class FuroUi5Card extends FBP(LitElement) {
 
   /**
    * Bind any **scalar** field to set the subtitle of the panel.
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindSubheading(fieldNode) {
     if (fieldNode === undefined) {
@@ -108,7 +108,7 @@ export class FuroUi5Card extends FBP(LitElement) {
    * - secondary_text
    * - icon
    *
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindNavNode(fieldNode) {
     if (fieldNode === undefined || fieldNode.display_name === undefined) {

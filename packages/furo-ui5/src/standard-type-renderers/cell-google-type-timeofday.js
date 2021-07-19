@@ -52,7 +52,7 @@ class CellGoogleTypeTimeofday extends LitElement {
 
   /**
    * Binds a field node to the component
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     this._field = fieldNode;
@@ -74,7 +74,7 @@ class CellGoogleTypeTimeofday extends LitElement {
    * convert date object to String according to local time string
    * https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
    * Example output: 1:15:30 AM by en-US
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    * @returns {string}
    * @private
    */

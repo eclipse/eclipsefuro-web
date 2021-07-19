@@ -129,7 +129,7 @@ export class FuroUi5DataRadioButtonGroup extends FieldNodeAdapter(HTMLElement) {
 
   /**
    * overwrite bindData of FieldNodeAdapter
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    * @returns {boolean}
    */
   bindData(fieldNode) {

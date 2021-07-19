@@ -90,7 +90,7 @@ export class CelleditFuroProperty extends FBP(LitElement) {
    * Binds a field node to the component
    * the celledit-furo-property is a simple proxy element to show
    * the initial state if no data is available.
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindData(fieldNode) {
     this._field = fieldNode;

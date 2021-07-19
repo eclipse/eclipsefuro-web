@@ -87,7 +87,7 @@ export class FuroUi5HeaderPanel extends FBP(LitElement) {
 
   /**
    * Bind any **scalar** field to set the title of the panel.
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindHeaderText(fieldNode) {
     if (fieldNode === undefined) {
@@ -103,7 +103,7 @@ export class FuroUi5HeaderPanel extends FBP(LitElement) {
 
   /**
    * Bind any **scalar** field to set the secondaryText of the panel.
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindSecondaryText(fieldNode) {
     if (fieldNode === undefined) {
@@ -119,7 +119,7 @@ export class FuroUi5HeaderPanel extends FBP(LitElement) {
 
   /**
    * bind a furo.navigation.Navigationnode field
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindNavNode(fieldNode) {
     if (fieldNode === undefined || fieldNode.display_name === undefined) {
@@ -139,7 +139,7 @@ export class FuroUi5HeaderPanel extends FBP(LitElement) {
   /**
    * Bind any **scalar** field to set the title of the panel.
    * Do not forget to import the icon you will use in your component.
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    */
   bindIcon(fieldNode) {
     if (fieldNode === undefined) {

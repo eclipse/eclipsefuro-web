@@ -183,7 +183,7 @@ export class FuroUi5DataSelect extends FieldNodeAdapter(Select.default) {
 
   /**
    * overwrite bindData of FieldNodeAdapter
-   * @param fieldNode
+   * @param {FieldNode} fieldNode
    * @returns {boolean}
    */
   bindData(fieldNode) {
