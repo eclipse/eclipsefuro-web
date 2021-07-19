@@ -18,6 +18,9 @@ import 'markdown-it/dist/markdown-it.js';
  *  <furo-ui5-message-strip ƒ-show-information="--wire"></furo-ui5-message-strip>
  *  ```
  *
+ * @fires {{Object}  this} open-furo-ui5-message-strip-requested -  Fired when open message strip is requested
+ * @fires {{Object}  payload} message-strip-closed -  Fired when the MessageStrip is closed
+ *
  * @summary furo ui5 message strip
  * @customElement
  * @demo demo-furo-ui5-message-strip-display Basic Usage
@@ -80,11 +83,7 @@ export class FuroUi5MessageStrip extends FBP(LitElement) {
    * @private
    */
   _requestDisplay() {
-    /**
-     * @event open-furo-ui5-message-strip-requested
-     * Fired when open message strip is requested
-     * detail payload: {Object}  this
-     */
+
     const customEvent = new Event('open-furo-ui5-message-strip-requested', {
       composed: true,
       bubbles: true,
@@ -97,11 +96,7 @@ export class FuroUi5MessageStrip extends FBP(LitElement) {
    * the event `message-strip-closed` will be sent with payload when the MessageStrip is closed
    */
   _close() {
-    /**
-     * @event message-strip-closed
-     * Fired when the MessageStrip is closed
-     * detail payload: {Object}  payload
-     */
+
     const customEvent = new Event('message-strip-closed', { composed: true, bubbles: true });
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);

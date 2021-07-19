@@ -20,6 +20,7 @@ import '@ui5/webcomponents/dist/ToggleButton.js';
  *      <ui5-togglebutton>Option B</ui5-togglebutton>
  * </furo-ui5-data-segmented-button>
  * ```
+ * @fires {{*} the value from the value-field. By default the value field is "id"} value-changed -  Fired when value has changed from the component inside. **bubbles**
  *
  * @summary
  * @customElement
@@ -27,12 +28,6 @@ import '@ui5/webcomponents/dist/ToggleButton.js';
  * @appliesMixin FBP
  */
 export class FuroUi5DataSegmentedButton extends FieldNodeAdapter(SegmentedButton.default) {
-  /**
-   * @event value-changed
-   * Fired when value has changed from the component inside.
-   * detail payload: {*} the value from the value-field. By default the value field is "id"
-   *  **bubbles**
-   */
 
   constructor() {
     super();

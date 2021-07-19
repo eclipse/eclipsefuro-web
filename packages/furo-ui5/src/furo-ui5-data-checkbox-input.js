@@ -35,9 +35,14 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  *
  * The constraint **required** will mark the element as required
  *
- * ## Methods
- * **bind-data(fieldNode)**
- * Bind a entity field. You can use the entity even when no data was received.
+ * ```
+ *
+ *
+ *
+ *
+ * @fires {Boolean} change -  Fired when the checkbox checked state changes.
+ * @fires {} xxxx -  All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/CheckBox/).
+ *
  *
  * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
  * @summary data checkbox input field
@@ -45,18 +50,6 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @demo demo-furo-ui5-data-checkbox-input Basic usage (scalar , fat, wrapper values)
  */
 export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default) {
-  /**
-   * @event change
-   * Fired when the checkbox checked state changes.
-   *
-   * detail payload: `bool`
-   */
-
-  /**
-   * @event xxxx
-   * All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/CheckBox/).
-   *
-   */
 
   constructor() {
     super();
@@ -106,6 +99,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
 
   /**
    * Reads the attributes which are set on the component dom.
+   * @public
    */
   readAttributes() {
     this._previousValueState = this.getAttribute('value-state')
@@ -148,6 +142,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
   /**
    * overwrite onFnaFieldValueChanged
    * @param val
+   * @private
    */
   onFnaFieldValueChanged(val) {
     if (this.isFat()) {
@@ -229,6 +224,7 @@ export class FuroUi5DataCheckboxInput extends FieldNodeAdapter(CheckBox.default)
 
   /**
    * overwrite onFnaFieldNodeBecameInvalid function
+   * @private
    */
   onFnaFieldNodeBecameInvalid() {
     this._setValueState('Error');

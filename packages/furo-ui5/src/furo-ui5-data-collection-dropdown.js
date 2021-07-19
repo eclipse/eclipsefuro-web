@@ -18,20 +18,15 @@ import { CollectionDropdownHelper } from './lib/DELETEMECollectionDropdownHelper
  * ### auto-select-first
  * set this attribute to auto select the first item in the list, if no item is set in the bounded fieldNode.
  *
+ * @fires {{*} the original injected data (e.g. entity with link) of the selected item} item-selected -  Fired when the item of dropdown list is selected. **bubbles**
+ *
  * @summary data collection dropdown
  * @customElement
  * @demo demo-furo-ui5-data-collection-dropdown Basic Usage
  * @demo demo-furo-ui5-data-collection-dropdown-auto Autoselect first
  */
 export class FuroUi5DataCollectionDropdown extends Select.default {
-  /**
-   * @event item-selected
-   * Fired when the item of dropdown list is selected.
-   *
-   * detail payload: {*} the original injected data (e.g. entity with link) of the selected item
-   *
-   *  **bubbles**
-   */
+
 
   constructor() {
     super();
