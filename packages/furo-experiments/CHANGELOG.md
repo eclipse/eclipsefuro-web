@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/experiments@1.6.6...@furo/experiments@1.6.7) (2021-07-21)
+
+**Note:** Version bump only for package @furo/experiments
+
+
+
+
+
 ## [1.6.6](https://github.com/eclipse/eclipsefuro-web/compare/@furo/experiments@1.6.5...@furo/experiments@1.6.6) (2021-07-21)
 
 **Note:** Version bump only for package @furo/experiments

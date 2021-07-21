@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.9.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.9.2...@furo/fbp@5.9.3) (2021-07-21)
+
+
+### Bug Fixes
+
+* remove unused components ([9615ec2](https://github.com/theNorstroem/FuroBaseComponents/commit/9615ec2ab1973fe5aed89f3adc6c366fc5d82f23))
+
+
+
+
+
 ## [5.9.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.9.1...@furo/fbp@5.9.2) (2021-07-21)
 
 **Note:** Version bump only for package @furo/fbp
