@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.23.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/specs@1.22.0...@furo/specs@1.23.0) (2021-07-21)
+
+
+### Features
+
+* init custom elements manifest ([1294a09](https://github.com/eclipse/eclipsefuro-web/commit/1294a099301249d2ca17b5b683c229eff25cf62f))
+
+
+
+
+
 # 1.22.0 (2021-07-10)
 
 

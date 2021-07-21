@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/veith/template-component-package/compare/@furo/util@1.5.7...@furo/util@1.6.0) (2021-07-21)
+
+
+### Features
+
+* init custom elements manifest ([1294a09](https://github.com/veith/template-component-package/commit/1294a099301249d2ca17b5b683c229eff25cf62f))
+
+
+
+
+
 ## [1.5.7](https://github.com/veith/template-component-package/compare/@furo/util@1.5.6...@furo/util@1.5.7) (2021-07-21)
 
 **Note:** Version bump only for package @furo/util

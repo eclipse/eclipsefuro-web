@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.9.7...@furo/data-ui@1.10.0) (2021-07-21)
+
+
+### Features
+
+* init custom elements manifest ([1294a09](https://github.com/theNorstroem/FuroBaseComponents/commit/1294a099301249d2ca17b5b683c229eff25cf62f))
+
+
+
+
+
 ## [1.9.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@1.9.6...@furo/data-ui@1.9.7) (2021-07-21)
 
 **Note:** Version bump only for package @furo/data-ui

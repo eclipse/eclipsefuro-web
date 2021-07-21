@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.10.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.9.3...@furo/fbp@5.10.0) (2021-07-21)
+
+
+### Features
+
+* init custom elements manifest ([1294a09](https://github.com/theNorstroem/FuroBaseComponents/commit/1294a099301249d2ca17b5b683c229eff25cf62f))
+
+
+
+
+
 ## [5.9.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/fbp@5.9.2...@furo/fbp@5.9.3) (2021-07-21)
 
 

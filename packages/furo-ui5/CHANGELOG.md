@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.36.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.35.8...@furo/ui5@0.36.0) (2021-07-21)
+
+
+### Features
+
+* init custom elements manifest ([1294a09](https://github.com/theNorstroem/FuroBaseComponents/commit/1294a099301249d2ca17b5b683c229eff25cf62f))
+
+
+
+
+
 ## [0.35.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui5@0.35.7...@furo/ui5@0.35.8) (2021-07-21)
 
 **Note:** Version bump only for package @furo/ui5

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/eclipse/eclipsefuro-web/compare/@furo/experiments@1.6.7...@furo/experiments@1.7.0) (2021-07-21)
+
+
+### Features
+
+* init custom elements manifest ([1294a09](https://github.com/eclipse/eclipsefuro-web/commit/1294a099301249d2ca17b5b683c229eff25cf62f))
+
+
+
+
+
 ## [1.6.7](https://github.com/eclipse/eclipsefuro-web/compare/@furo/experiments@1.6.6...@furo/experiments@1.6.7) (2021-07-21)
 
 **Note:** Version bump only for package @furo/experiments
