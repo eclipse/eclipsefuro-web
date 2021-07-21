@@ -3,6 +3,7 @@ import { FBP } from '@furo/fbp';
 import { Styling } from './styling.js';
 import '@furo/layout/src/furo-vertical-flex.js';
 import '@furo/util/src/furo-markdown.js';
+import '@furo/fbp/src/empty-fbp-node.js';
 import './graph/furo-show-flow.js';
 
 /**
