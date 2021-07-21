@@ -1,7 +1,7 @@
 {
   "name": "@furo/layout",
   "description": "Layout components for furo",
-  "version": "1.6.5",
+  "version": "1.6.6",
   "homepage": "https://github.com/theNorstroem/FuroBaseComponents/tree/master/packages/furo-layout",
   "repository": "git@github.com:theNorstroem/FuroBaseComponents.git",
   "author": {
@@ -28,8 +28,8 @@
     "test:compatibility:watch": "../../node_modules/.bin/karma start --compatibility all --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@furo/fbp": "^5.9.1",
-    "@furo/framework": "^1.7.4",
+    "@furo/fbp": "^5.9.2",
+    "@furo/framework": "^1.7.5",
     "lit-element": "^2.3.1",
     "lit-html": "^1.1.1"
   },
