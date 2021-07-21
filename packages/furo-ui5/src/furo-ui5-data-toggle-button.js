@@ -43,6 +43,9 @@ import { FieldNodeAdapter } from '@furo/data/src/lib/FieldNodeAdapter.js';
  * @fires {} xxxx -  All events from the [ui5 Input element](https://sap.github.io/ui5-webcomponents/playground/components/ToggleButton/).
  *
  * When you use @-object-ready from a furo-data-object which emits a EntityNode, just bind the field with --entity(*.fields.fieldname)
+ *
+ * @fires {Boolean} field-value-changed - Fires the value of pressed when value changed.
+ *
  * @summary boolean toggle button
  * @customElement
  * @demo demo-furo-ui5-data-toggle-button Basic usage (scalar , fat, wrapper values)
@@ -128,10 +131,7 @@ export class FuroUi5DataToggleButton extends FieldNodeAdapter(ToggleButton.defau
       this.setFnaFieldValue(this.pressed);
     }
 
-    /**
-     * Fired when value changed
-     * @event field-value-changed
-     */
+
     const customEvent = new Event('field-value-changed', { composed: true, bubbles: true });
     customEvent.detail = this.pressed;
     this.dispatchEvent(customEvent);

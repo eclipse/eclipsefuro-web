@@ -51,9 +51,7 @@ export class FuroUi5TableRow extends TableRow.default {
 
   _select() {
     /**
-     * Fired when the row is selected.
-     * the event detail is the original entity of the row
-     * @event tablerow-selected
+     * @fires {entity} tablerow-selected - Fired when the row is selected. The event detail is the original entity of the row.
      */
     this.dispatchEvent(
       new CustomEvent('tablerow-selected', {
@@ -69,9 +67,7 @@ export class FuroUi5TableRow extends TableRow.default {
       event.stopPropagation();
 
       /**
-       * Fired when the ArrowDown is pressed on the last row.
-       * the event detail is the original entity of the row
-       * @event arrow-down-on-last-row
+       * @fires {entity} arrow-down-on-last-row - Fired when the ArrowDown is pressed on the last row. The event detail is the original entity of the row.
        */
       this.dispatchEvent(
         new CustomEvent('arrow-down-on-last-row', {
@@ -85,9 +81,7 @@ export class FuroUi5TableRow extends TableRow.default {
   _arrowUpPressed() {
     if (this.previousSibling && this.previousSibling.tagName === undefined) {
       /**
-       * Fired when the ArrowUp is pressed on the first row.
-       * the event detail is the original entity of the row
-       * @event arrow-up-on-first-row
+       * @fires {entity} arrow-up-on-first-row - Fired when the ArrowUp is pressed on the first row. The event detail is the original entity of the row
        */
       this.dispatchEvent(
         new CustomEvent('arrow-up-on-first-row', {

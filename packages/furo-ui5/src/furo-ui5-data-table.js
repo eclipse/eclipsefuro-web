@@ -37,7 +37,6 @@ const getTemplateColumn = field => {
  * @param fields
  * @returns {TemplateResult|TemplateResult}
  */
-
 const ui5CellTemplate = fields => html`
   ${fields.map(
     f => html`
@@ -89,6 +88,10 @@ const ui5HeaderTemplate = fields =>
  *  ƒ-bind-data="--dao(*.entities)"
  *  columns="data.id|min800, data.display_name|fix200, data.cost_limit, data.start"
  * ></furo-ui5-data-table>
+ *
+ * @fires {entity} arrow-down-on-last-row - Fired when the ArrowDown is pressed on the last row. The event detail is the original entity of the row
+ * @fires {entity} tablerow-selected - Fired when the row is selected. The event detail is the original entity of the row.
+ * @fires {entity} arrow-up-on-first-row - Fired when the ArrowUp is pressed on the first row. The event detail is the original entity of the row
  *
  * @customElement
  * @demo demo-furo-ui5-data-table Basic usage

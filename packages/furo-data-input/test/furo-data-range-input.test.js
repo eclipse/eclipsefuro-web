@@ -135,11 +135,7 @@ describe('furo-data-range-input', () => {
         done();
       });
 
-      /**
-       * @event value-changed
-       * Fired when
-       * detail payload:
-       */
+
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = '32';
       secondRangeInput.dispatchEvent(customEvent);

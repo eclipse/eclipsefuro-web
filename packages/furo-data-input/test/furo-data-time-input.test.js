@@ -126,11 +126,7 @@ describe('furo-data-time-input', () => {
         done();
       });
 
-      /**
-       * @event value-changed
-       * Fired when
-       * detail payload:
-       */
+
       const customEvent = new Event('value-changed', { composed: true, bubbles: true });
       customEvent.detail = '18:33';
       secondTimeInput.dispatchEvent(customEvent);
